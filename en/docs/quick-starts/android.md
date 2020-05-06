@@ -26,140 +26,137 @@
 ### Initializing the  SDK
 
 1. Add `AppAuth` dependency in `build.gradle` file.
-```json
-dependencies {
-   implementation 'net.openid:appauth:0.7.0'
-}
-```
+    ```json
+    dependencies {
+       implementation 'net.openid:appauth:0.7.0'
+    }
+    ```
 2. Add the following redirectScheme in the `build.gradle`.
 
-```json
-android.defaultConfig.manifestPlaceholders = [
-       'appAuthRedirectScheme': 'com.example.myapplication'
-]
-```
+    ```json
+    android.defaultConfig.manifestPlaceholders = [
+           'appAuthRedirectScheme': 'com.example.myapplication'
+    ]
+    ```
 
 3. Create a `config.json` file in `res/raw/` directory and add the relevant configs.
-```json
 
-{
- "client_id": "tkJfn9a8Yw2kfRfUSIrfvemcVjYa",
- "client_secret": "qrpIF2hh0bKl0Hojt4XTFuczy2oa",
- "redirect_uri": "com.example.myapplication://oauth",
- "authorization_scope": "openid",
- "authorization_endpoint": "https://10.0.2.2:9443/oauth2/authorize",
- "end_session_endpoint": "https://10.0.2.2:9443/oidc/logout",
- "token_endpoint": "https://10.0.2.2:9443/oauth2/token"
-}
-
-```
+    ```json
+    {
+     "client_id": "tkJfn9a8Yw2kfRfUSIrfvemcVjYa",
+     "client_secret": "qrpIF2hh0bKl0Hojt4XTFuczy2oa",
+     "redirect_uri": "com.example.myapplication://oauth",
+     "authorization_scope": "openid",
+     "authorization_endpoint": "https://10.0.2.2:9443/oauth2/authorize",
+     "end_session_endpoint": "https://10.0.2.2:9443/oidc/logout",
+     "token_endpoint": "https://10.0.2.2:9443/oauth2/token"
+    }
+    ```
 
 4. Add a ConfigManager.java class to reads the configuration from res/raw/config.json file.
 
-
-```java
-/**
-* Reads the configuration from res/raw/config.json file.
-*/
-public class ConfigManager {
-
-   private static WeakReference<ConfigManager> sInstance = new WeakReference<>(null);
-
-   private final Context context;
-   private final Resources resources;
-
-   private JSONObject configJson;
-   private String clientId;
-   private String clientSecret;
-   private String scope;
-   private Uri redirectUri;
-   private Uri authEndpointUri;
-   private Uri tokenEndpointUri;
-   private Uri logoutEndpointUri;
-
-   private ConfigManager(Context context) {
-
-       this.context = context;
-       resources = context.getResources();
-       readConfiguration();
-   }
-
-   public static ConfigManager getInstance(Context context) {
-
-       ConfigManager config = sInstance.get();
-       if (config == null) {
-           config = new ConfigManager(context);
-           sInstance = new WeakReference<>(config);
+    ```java
+    /**
+    * Reads the configuration from res/raw/config.json file.
+    */
+    public class ConfigManager {
+    
+       private static WeakReference<ConfigManager> sInstance = new WeakReference<>(null);
+    
+       private final Context context;
+       private final Resources resources;
+    
+       private JSONObject configJson;
+       private String clientId;
+       private String clientSecret;
+       private String scope;
+       private Uri redirectUri;
+       private Uri authEndpointUri;
+       private Uri tokenEndpointUri;
+       private Uri logoutEndpointUri;
+    
+       private ConfigManager(Context context) {
+    
+           this.context = context;
+           resources = context.getResources();
+           readConfiguration();
        }
-
-       return config;
-   }
-   public String getClientId() {return clientId;}
-   public String getScope() { return scope; }
-   public Uri getRedirectUri() {  return redirectUri; }
-   public Uri getAuthEndpointUri() { return authEndpointUri;}
-   public Uri getTokenEndpointUri() {return tokenEndpointUri;}
-   public Uri getLogoutEndpointUri() { return logoutEndpointUri;}
-   public String getClientSecret() { return clientSecret; }
-
-    private void readConfiguration()  {
-
-       BufferedSource configSource = Okio.buffer(Okio.source(resources.openRawResource(R.raw.config)));
-       Buffer configData = new Buffer();
-
-       try {
-           configSource.readAll(configData);
-           configJson = new JSONObject(configData.readString(Charset.forName("UTF-8")));
-       } catch (IOException ex) {
-
-       } catch (JSONException ex) {
-
-       }
-       clientId = getRequiredConfigString("client_id");
-       clientSecret = getRequiredConfigString("client_secret");
-       scope = getRequiredConfigString("authorization_scope");
-       redirectUri = getRequiredConfigUri("redirect_uri");
-       authEndpointUri = getRequiredConfigUri("authorization_endpoint");
-       tokenEndpointUri = getRequiredConfigUri("token_endpoint");
-       userInfoEndpointUri = getRequiredConfigUri("userinfo_endpoint");
-       logoutEndpointUri = getRequiredConfigUri("end_session_endpoint");
-   }
-
-   private String getRequiredConfigString(String propName) {
-
-       String value = configJson.optString(propName);
-
-       if (value != null) {
-           value = value.trim();
-           if (TextUtils.isEmpty(value)) {
-               value = null;
+    
+       public static ConfigManager getInstance(Context context) {
+    
+           ConfigManager config = sInstance.get();
+           if (config == null) {
+               config = new ConfigManager(context);
+               sInstance = new WeakReference<>(config);
            }
+    
+           return config;
        }
-       if (value == null) {
-           Log.e("ConfigManager", propName + " is required");
+       public String getClientId() {return clientId;}
+       public String getScope() { return scope; }
+       public Uri getRedirectUri() {  return redirectUri; }
+       public Uri getAuthEndpointUri() { return authEndpointUri;}
+       public Uri getTokenEndpointUri() {return tokenEndpointUri;}
+       public Uri getLogoutEndpointUri() { return logoutEndpointUri;}
+       public String getClientSecret() { return clientSecret; }
+    
+        private void readConfiguration()  {
+    
+           BufferedSource configSource = Okio.buffer(Okio.source(resources.openRawResource(R.raw.config)));
+           Buffer configData = new Buffer();
+    
+           try {
+               configSource.readAll(configData);
+               configJson = new JSONObject(configData.readString(Charset.forName("UTF-8")));
+           } catch (IOException ex) {
+    
+           } catch (JSONException ex) {
+    
+           }
+           clientId = getRequiredConfigString("client_id");
+           clientSecret = getRequiredConfigString("client_secret");
+           scope = getRequiredConfigString("authorization_scope");
+           redirectUri = getRequiredConfigUri("redirect_uri");
+           authEndpointUri = getRequiredConfigUri("authorization_endpoint");
+           tokenEndpointUri = getRequiredConfigUri("token_endpoint");
+           userInfoEndpointUri = getRequiredConfigUri("userinfo_endpoint");
+           logoutEndpointUri = getRequiredConfigUri("end_session_endpoint");
        }
-       return value;
-   }
-
-     private Uri getRequiredConfigUri(String propName) {
-
-       String uriStr = getRequiredConfigString(propName);
-       Uri uri = null;
-       try {
-           uri = Uri.parse(uriStr);
-       } catch (Throwable ex) {
-           Log.e("ConfigManager", propName + "could not be parsed ");
+    
+       private String getRequiredConfigString(String propName) {
+    
+           String value = configJson.optString(propName);
+    
+           if (value != null) {
+               value = value.trim();
+               if (TextUtils.isEmpty(value)) {
+                   value = null;
+               }
+           }
+           if (value == null) {
+               Log.e("ConfigManager", propName + " is required");
+           }
+           return value;
        }
-       return uri;
-   }
-}
-```
+    
+         private Uri getRequiredConfigUri(String propName) {
+    
+           String uriStr = getRequiredConfigString(propName);
+           Uri uri = null;
+           try {
+               uri = Uri.parse(uriStr);
+           } catch (Throwable ex) {
+               Log.e("ConfigManager", propName + "could not be parsed ");
+           }
+           return uri;
+       }
+    }
+    ```
 
 5. In your Android activity, get the ConfigManager object by calling the `getInstance(context)` method.
 
-`ConfigManager configManager = ConfigManager.getInstance(context);`
-
-This is the configManager object used throughout this document.
+    `ConfigManager configManager = ConfigManager.getInstance(context);`
+ - This is the configManager object used throughout this document.
 
 
 
