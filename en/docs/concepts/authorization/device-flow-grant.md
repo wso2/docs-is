@@ -2,9 +2,9 @@
 
 ## Recommended use
 
-This is an OAuth 2.0 extension that enables OAuth clients to request user authorization from applications on,
+This is an OAuth 2.0 extension that enables OAuth clients to request user authorization from applications on:
 
-- Input constrained devices
+- Input-constrained devices
 - Devices without a browser
 
 Such devices include smart TVs, printers and play-stations. This authorization flow is defined as the “device flow”.
@@ -29,7 +29,7 @@ The diagram below illustrates the device flow.
 
 (D) — The authorization server prompts the end user to approve granting access via the user-agent and also prompts the user to enter the end user code.
 
-(E) — While the end user reviews user credentials and consents, the device starts polling along with client id and verification code to check the status of user authorization.
+(E) — While the end user reviews user credentials and consents, the device starts polling along with client ID and verification code to check the status of user authorization.
 
 (F) — Once the user provides authorization, the authorization server validates the verification code and responds back to the device with an access token.
 

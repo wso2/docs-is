@@ -157,8 +157,8 @@ nav:
                           - 'JWKS': concepts/authentication/jwks.md
                           - 'Dynamic Client Registration': concepts/authorization/dcr.md
                           - 'Session Management and Logout': concepts/authentication/session-management.md
+                          - 'Back-channel-logout': concepts/authentication/back-channel-logout.md
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
-                          - 'Security Considerations': concepts/authentication/security-considerations.md
                   - 'SAML':
                           - 'Introduction': concepts/authentication/saml.md
                   - 'WS-Federation':
@@ -220,10 +220,10 @@ nav:
           - 'GDPR': concepts/gdpr.md
           - 'eIDAS': concepts/eidas.md
       - 'Security Considerations':
-          - 'Mitigating Cross Site Request Forgery Attacks': concepts/cross-site-request-forgery-attacks
-          - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks
-          - 'Mitigating Brute Force Attacks': concepts/brute-force-attacks
-          - 'Timestamp in WS-Security to Mitigate Replay Attacks': concepts/replay-attacks
+          - 'Mitigating Cross Site Request Forgery Attacks': concepts/cross-site-request-forgery-attacks.md
+          - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
+          - 'Mitigating Brute Force Attacks': concepts/brute-force-attacks.md
+          - 'Timestamp in WS-Security to Mitigate Replay Attacks': concepts/replay-attacks.md
   - 'Samples':
     - samples/overview.md
     - 'Authentication':
