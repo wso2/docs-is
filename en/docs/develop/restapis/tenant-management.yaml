@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: "1.0.0"
+  version: "v1"
   title: WSO2 Identity Server - Tenant Management API
   description: >-
     This is the RESTful API for managing Tenants in the WSO2 Identity
@@ -377,10 +377,10 @@ components:
           example:
             [
                 {
-                    "href": "identity-provider?offset=50&limit=10",
+                    "href": "/t/carbon.super/api/server/v1/tenants?offset=50&limit=10",
                     "rel": "next",
                 },  {
-                    "href": "identity-provider?offset=30&limit=10",
+                    "href": "/t/carbon.super/api/server/v1/tenants?offset=30&limit=10",
                     "rel": "previous",
                 }
             ]
@@ -434,11 +434,16 @@ components:
         - email
         - firstname
         - lastname
+        - provisioningMethod
       properties:
         username:
           type: string
           example: kim
           description: Username for the tenant owner.
+        password:
+          type: string
+          example: kim123
+          description: Password of the owner.
         email:
           type: string
           example: kim@wso2.com
@@ -451,6 +456,12 @@ components:
           type: string
           example: kim
           description: Last name of the owner.
+        provisioningMethod:
+          type: string
+          example: inline-password
+          description: Supported values are inline-password(A valid password should be sent in the request body) and
+            invite-via-emai(Password doesn't need to be send through request body, instead an emai link will be sent to
+            the given email address to set the password)
         additionalClaims:
           type: array
           items:
