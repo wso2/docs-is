@@ -35,9 +35,9 @@ The following diagrams illustrate the difference between the design
 approach in the versions prior to WSO2 IS 5.9.0 and the new design approach.
 
 -   **Old design approach**
-    ![<Old design approach>](/assets/img/setup/old-design-approach.png)
+    ![<Old design approach>](../assets/img/setup/old-design-approach.png)
 -   **New design approach**
-    ![<New design approach>](/assets/img/setup/new-design-approach.png)
+    ![<New design approach>](../assets/img/setup/new-design-approach.png)
 
 
 The following section will guide you through migrating an existing data publisher to
