@@ -190,8 +190,8 @@ nav:
                           - 'JWKS': concepts/authentication/jwks.md
                           - 'Dynamic Client Registration': concepts/authorization/dcr.md
                           - 'Session Management and Logout': concepts/authentication/session-management.md
+                          - 'Back-channel-logout': concepts/authentication/back-channel-logout.md
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
-                          - 'Security Considerations': concepts/authentication/security-considerations.md
                   - 'SAML':
                           - 'Introduction': concepts/authentication/saml.md
                   - 'WS-Federation':
@@ -217,6 +217,7 @@ nav:
                                           - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner-grant.md
                                           - 'Client Credentials Grant Type': concepts/authorization/client-credential-grant.md
                                           - 'Refresh Token Grant Type': concepts/authorization/refresh-token-grant.md
+                                          - 'Device Flow Grant Type': concepts/authorization/device-flow-grant.md
                                     - 'JWT Bearer Grant Type': concepts/authorization/jwt_bearer_grant.md
                                     - 'SAML2 Bearer Assertion Profile': concepts/authorization/saml2_bearer_assertion_profile.md
                                     - 'Tokens':
@@ -251,6 +252,11 @@ nav:
       - 'Compliance':
           - 'GDPR': concepts/gdpr.md
           - 'eIDAS': concepts/eidas.md
+      - 'Security Considerations':
+          - 'Mitigating Cross Site Request Forgery Attacks': concepts/cross-site-request-forgery-attacks.md
+          - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
+          - 'Mitigating Brute Force Attacks': concepts/brute-force-attacks.md
+          - 'Timestamp in WS-Security to Mitigate Replay Attacks': concepts/replay-attacks.md
   - 'Samples':
     - samples/overview.md
     - 'Authentication':
