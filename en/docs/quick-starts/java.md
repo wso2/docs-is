@@ -18,9 +18,10 @@ references >
 {!fragments/oauth-app-config-basic.md!}
 
         
-     !!! tip
-     Enter `regexp=(http://localhost:8080/oauth-login|http://localhost:8080/login/oauth2/code/wso2)
-    ` as the **Callback Url**.
+!!! Tip
+    In order to have separate callback url and post-logout-redirect-url, Configure the Callback URL as a regex value in
+     Management console. Enter`regexp=(http://localhost:8080/oauth-login|http://localhost:8080/login/oauth2/code/wso2) `
+     as the **CallbackUrl**. 
     
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
@@ -71,7 +72,6 @@ we need to change the Identity Provider Entity ID as https://localhost:9443/oaut
    </dependency>
 </dependencies>
 ```
-
 3. Add the configurations in the application.properties file in your spring-boot-project.
 
     - Add the client-id, client- secret and the discovery endpoint of WSO2 Identity server.
