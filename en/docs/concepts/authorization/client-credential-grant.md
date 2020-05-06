@@ -19,11 +19,11 @@ The diagram below illustrates the implicit grant flow.
 One of the following cURL commands can be used to try this grant type.
 
 ``` java tab="Request 1"
-curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" <token_endpoint>
 ```
 
 ``` java tab="Request 2"
-curl -u <client id>:<client secret> -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+curl -u <client id>:<client secret> -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" <token_endpoint>
 ```
 
 You will receive a response similiar to the format below.

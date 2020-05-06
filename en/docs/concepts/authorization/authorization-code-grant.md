@@ -27,12 +27,12 @@ The commands below can be used to try this grant type.
 
 The URL to get the authorization code :
 ``` powershell
-https://localhost:9443/oauth2/authorize?response_type=code&client_id=<client id>&redirect_uri=<redirect uri>
+<authorization_endpoint>?response_type=code&client_id=<client id>&redirect_uri=<redirect uri>
 ```
 
 cURL command to get the access token :
 ``` powershell
-curl -v -X POST --basic -u <client id>:<client secret>a -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<authorization code>&redirect_uri=<redirect uri>" https://localhost:9443/oauth2/token
+curl -v -X POST --basic -u <client id>:<client secret>a -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<authorization code>&redirect_uri=<redirect uri>" <token_endpoint>
 ```
 
 **Response**
