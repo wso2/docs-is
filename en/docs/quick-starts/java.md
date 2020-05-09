@@ -85,7 +85,7 @@ we need to change the Identity Provider Entity ID as https://localhost:9443/oaut
     spring.security.oauth2.client.registration.wso2.redirect-uri={baseUrl}/login/oauth2/code/wso2
     spring.security.oauth2.client.registration.wso2.authorization-grant-type=authorization_code
     spring.security.oauth2.client.registration.wso2.scope=openid
-    spring.security.oauth2.client.provider.wso2.issuer-uri=https://localhost:9443/oauth2/oidcdiscovery
+    spring.security.oauth2.client.provider.wso2.issuer-uri=https://{HOST_NAME}:{PORT}/oauth2/oidcdiscovery
     ```
     
   - Once you add these properties in application.properties file, your oauth app is secured. 
@@ -101,6 +101,45 @@ we need to change the Identity Provider Entity ID as https://localhost:9443/oaut
  pages are secured. 
 
 - If you go to `“/login”` endpoint, you can get the default login page of the spring-boot-security.
+
+- Once the user is authenticated, the spring-boot will redirect to baseURL, `Example: ("http://localhost:8080")` and
+ you need to handle it from a controller class. You can get the user information and redirect to some pages.
+ 
+ 1. Add a controller class.
+    ```java
+    @Controller
+    public class IndexController {
+    
+        @GetMapping("/")
+        public String currentUserName(Model model, Authentication authentication) {
+    
+            DefaultOidcUser userDetails = (DefaultOidcUser) authentication.getPrincipal(); 
+            model.addAttribute("userName", userDetails.getName());
+            return "index";
+        }
+    }
+    ```
+  2. Add a `index.html` page inside `resources/templates` folder. You can have a logout button also if you wish.
+    
+    ```html
+        <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <metacharset="UTF-8" >
+            <title>OAuth2 Login </title>
+        </head>
+        <body>
+        <h1>Logged in as <span style="font-weight:bold" th:text="${userName}"></span></h1>
+        <div>
+            <div style="float:none">&nbsp;</div>
+            <div style="float:right">
+                <form method="post" th:action="@{/applogout}"  class="navbar-form navbar-right">
+                    <button id="logout-button" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+        </body>
+
+    ``` 
 
 #### Remove the default “/login” page and redirect directly to IS login page.
 

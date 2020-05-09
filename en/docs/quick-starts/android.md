@@ -25,133 +25,145 @@
 
 ### Initializing the  SDK
 
-1. Add `AppAuth` dependency in `build.gradle` file.
-    ```json
-    dependencies {
-       implementation 'net.openid:appauth:0.7.0'
-    }
-    ```
-2. Add the following redirectScheme in the `build.gradle`.
+#### Add the dependency 
 
-    ```json
-    android.defaultConfig.manifestPlaceholders = [
-           'appAuthRedirectScheme': 'com.example.myapplication'
-    ]
-    ```
+Add `AppAuth-Android` dependency in `build.gradle` file.
 
-3. Create a `config.json` file in `res/raw/` directory and add the relevant configs.
+```gradle
+dependencies {
+   implementation 'net.openid:appauth:0.7.0'
+}
+```
 
-    ```json
-    {
-     "client_id": "tkJfn9a8Yw2kfRfUSIrfvemcVjYa",
-     "client_secret": "qrpIF2hh0bKl0Hojt4XTFuczy2oa",
-     "redirect_uri": "com.example.myapplication://oauth",
-     "authorization_scope": "openid",
-     "authorization_endpoint": "https://10.0.2.2:9443/oauth2/authorize",
-     "end_session_endpoint": "https://10.0.2.2:9443/oidc/logout",
-     "token_endpoint": "https://10.0.2.2:9443/oauth2/token"
-    }
-    ```
+#### Add a URI Scheme   
 
-4. Add a ConfigManager.java class to reads the configuration from res/raw/config.json file.
+You must add a redirect scheme to receive sign in results from the web browser.
+ To do this, you must define a gradle manifest placeholder in your app's build.gradle:
 
-    ```java
-    /**
-    * Reads the configuration from res/raw/config.json file.
-    */
-    public class ConfigManager {
-    
-       private static WeakReference<ConfigManager> sInstance = new WeakReference<>(null);
-    
-       private final Context context;
-       private final Resources resources;
-    
-       private JSONObject configJson;
-       private String clientId;
-       private String clientSecret;
-       private String scope;
-       private Uri redirectUri;
-       private Uri authEndpointUri;
-       private Uri tokenEndpointUri;
-       private Uri logoutEndpointUri;
-    
-       private ConfigManager(Context context) {
-    
-           this.context = context;
-           resources = context.getResources();
-           readConfiguration();
+```gradle
+android.defaultConfig.manifestPlaceholders = [
+       'appAuthRedirectScheme': 'com.example.myapplication'
+]
+```
+
+#### Configuration
+
+Create a `config.json` file in `res/raw/` directory and add the relevant configs. 
+    - Add the client-id, client- secret and application-redirect-url of the application.
+    - Update the {HOST_NAME}:{PORT} with the IS server's hostname and port respectively
+
+```json
+{
+ "client_id": {client-id},
+ "client_secret": {client-secret},
+ "redirect_uri": "{application-redirect-url},
+ "authorization_scope": "openid",
+ "authorization_endpoint": "https://{HOST_NAME}:{PORT}/oauth2/authorize",
+ "end_session_endpoint": "https://{HOST_NAME}:{PORT}/oidc/logout",
+ "token_endpoint": "https://{HOST_NAME}:{PORT}/oauth2/token"
+}
+```
+#### Read Configuration
+
+Add a ConfigManager.java class to reads the configuration from res/raw/config.json file.
+
+```java
+/**
+* Reads the configuration from res/raw/config.json file.
+*/
+public class ConfigManager {
+
+   private static WeakReference<ConfigManager> sInstance = new WeakReference<>(null);
+
+   private final Context context;
+   private final Resources resources;
+
+   private JSONObject configJson;
+   private String clientId;
+   private String clientSecret;
+   private String scope;
+   private Uri redirectUri;
+   private Uri authEndpointUri;
+   private Uri tokenEndpointUri;
+   private Uri logoutEndpointUri;
+
+   private ConfigManager(Context context) {
+
+       this.context = context;
+       resources = context.getResources();
+       readConfiguration();
+   }
+
+   public static ConfigManager getInstance(Context context) {
+
+       ConfigManager config = sInstance.get();
+       if (config == null) {
+           config = new ConfigManager(context);
+           sInstance = new WeakReference<>(config);
        }
-    
-       public static ConfigManager getInstance(Context context) {
-    
-           ConfigManager config = sInstance.get();
-           if (config == null) {
-               config = new ConfigManager(context);
-               sInstance = new WeakReference<>(config);
-           }
-    
-           return config;
+
+       return config;
+   }
+   public String getClientId() {return clientId;}
+   public String getScope() { return scope; }
+   public Uri getRedirectUri() {  return redirectUri; }
+   public Uri getAuthEndpointUri() { return authEndpointUri;}
+   public Uri getTokenEndpointUri() {return tokenEndpointUri;}
+   public Uri getLogoutEndpointUri() { return logoutEndpointUri;}
+   public String getClientSecret() { return clientSecret; }
+
+    private void readConfiguration()  {
+
+       BufferedSource configSource = Okio.buffer(Okio.source(resources.openRawResource(R.raw.config)));
+       Buffer configData = new Buffer();
+
+       try {
+           configSource.readAll(configData);
+           configJson = new JSONObject(configData.readString(Charset.forName("UTF-8")));
+       } catch (IOException ex) {
+
+       } catch (JSONException ex) {
+
        }
-       public String getClientId() {return clientId;}
-       public String getScope() { return scope; }
-       public Uri getRedirectUri() {  return redirectUri; }
-       public Uri getAuthEndpointUri() { return authEndpointUri;}
-       public Uri getTokenEndpointUri() {return tokenEndpointUri;}
-       public Uri getLogoutEndpointUri() { return logoutEndpointUri;}
-       public String getClientSecret() { return clientSecret; }
-    
-        private void readConfiguration()  {
-    
-           BufferedSource configSource = Okio.buffer(Okio.source(resources.openRawResource(R.raw.config)));
-           Buffer configData = new Buffer();
-    
-           try {
-               configSource.readAll(configData);
-               configJson = new JSONObject(configData.readString(Charset.forName("UTF-8")));
-           } catch (IOException ex) {
-    
-           } catch (JSONException ex) {
-    
+       clientId = getRequiredConfigString("client_id");
+       clientSecret = getRequiredConfigString("client_secret");
+       scope = getRequiredConfigString("authorization_scope");
+       redirectUri = getRequiredConfigUri("redirect_uri");
+       authEndpointUri = getRequiredConfigUri("authorization_endpoint");
+       tokenEndpointUri = getRequiredConfigUri("token_endpoint");
+       userInfoEndpointUri = getRequiredConfigUri("userinfo_endpoint");
+       logoutEndpointUri = getRequiredConfigUri("end_session_endpoint");
+   }
+
+   private String getRequiredConfigString(String propName) {
+
+       String value = configJson.optString(propName);
+
+       if (value != null) {
+           value = value.trim();
+           if (TextUtils.isEmpty(value)) {
+               value = null;
            }
-           clientId = getRequiredConfigString("client_id");
-           clientSecret = getRequiredConfigString("client_secret");
-           scope = getRequiredConfigString("authorization_scope");
-           redirectUri = getRequiredConfigUri("redirect_uri");
-           authEndpointUri = getRequiredConfigUri("authorization_endpoint");
-           tokenEndpointUri = getRequiredConfigUri("token_endpoint");
-           userInfoEndpointUri = getRequiredConfigUri("userinfo_endpoint");
-           logoutEndpointUri = getRequiredConfigUri("end_session_endpoint");
        }
-    
-       private String getRequiredConfigString(String propName) {
-    
-           String value = configJson.optString(propName);
-    
-           if (value != null) {
-               value = value.trim();
-               if (TextUtils.isEmpty(value)) {
-                   value = null;
-               }
-           }
-           if (value == null) {
-               Log.e("ConfigManager", propName + " is required");
-           }
-           return value;
+       if (value == null) {
+           Log.e("ConfigManager", propName + " is required");
        }
-    
-         private Uri getRequiredConfigUri(String propName) {
-    
-           String uriStr = getRequiredConfigString(propName);
-           Uri uri = null;
-           try {
-               uri = Uri.parse(uriStr);
-           } catch (Throwable ex) {
-               Log.e("ConfigManager", propName + "could not be parsed ");
-           }
-           return uri;
+       return value;
+   }
+
+     private Uri getRequiredConfigUri(String propName) {
+
+       String uriStr = getRequiredConfigString(propName);
+       Uri uri = null;
+       try {
+           uri = Uri.parse(uriStr);
+       } catch (Throwable ex) {
+           Log.e("ConfigManager", propName + "could not be parsed ");
        }
-    }
-    ```
+       return uri;
+   }
+}
+```
 
 5. In your Android activity, get the ConfigManager object by calling the `getInstance(context)` method.
 
@@ -164,6 +176,7 @@
 ### Login
 
 #### Get the authorization code with PKCE.
+
 
 ```java
 private void doAuthorization(Context context){
@@ -181,8 +194,9 @@ private void doAuthorization(Context context){
         CustomTabsIntent.Builder intentBuilder = authorizationService.createCustomTabsIntentBuilder(request.toUri());
 
         customTabIntent.set(intentBuilder.build());
-
+        // Redirect to UserInfoActivity after successful authnetication.
         Intent completionIntent = new Intent(context, UserInfoActivity.class);
+        // Redirect to LoginActivity if the request fails.
         Intent cancelIntent = new Intent(context, LoginActivity.class);
         cancelIntent.putExtra("failed", true);
         cancelIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -192,6 +206,13 @@ private void doAuthorization(Context context){
                 customTabIntent.get());
 
     }
+```
+- You can add this `doAuthorization(Context context)` method inside a Activity class when a user clicks the login button. 
+
+```java
+    findViewById(R.id.login).setOnClickListener(v ->
+                   doAuthorization(this)
+           );
 ```
 
 #### Get the accesstoken and idtoken.
@@ -216,11 +237,22 @@ private void doAuthorization(Context context){
         String accessToken = tokenResponse.accessToken;
     }
 ```
+- You can add this `handleAuthorizationResponse(Intent intent)` method inside a Activity when there is a successfull
+ authentication response comes from the IDP. 
+- In the authorization request, you need to create a Intent for successfull request and redirect to this activity.
+    ```java
+    @Override
+        protected void onStart() {  
+            super.onStart();
+            getConfigManager(this);
+            handleAuthorizationResponse(getIntent());
+        }
+     ``` 
 ### Logout
 
 - Use the idToken obtained from the token response in the above flow to do the logout request.
 
-```java
+    ```java
     private void singleLogout(Context context, String idToken){
 
         StringBuffer url = new StringBuffer();
@@ -236,16 +268,21 @@ private void doAuthorization(Context context){
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         customTabsIntent.launchUrl(context, Uri.parse(url.toString()));
     }
-```
+    ```
+  - You can call this logout method from an Activity when the user click the logout button.
+  
+  ```java
+  findViewById(R.id.logout).setOnClickListener(v ->
+                  singleLogout(this, idToken)
+          ); 
+  ```
 
 ### Read User Information
 
 - Can read the user information from idToken
-- Add this dependency in you gradle file `com.googlecode.json-simple:json-simple:1.1` to import `org.json.simple
-.*` library.
+- Add this dependency in you gradle file `com.googlecode.json-simple:json-simple:1.1` to import `org.json.simple.*` library.
 
-
-```java
+    ```java
     private void readUserInfo(String idToken){
 
         try {
@@ -260,7 +297,7 @@ private void doAuthorization(Context context){
             //handle the exception.
         }
     }
-```
+    ```
 ### Check Session State
 
 < Explain How to Use the SDKs >
