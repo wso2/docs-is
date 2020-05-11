@@ -49,7 +49,7 @@ Google domain you created before you started this guide.
 
             ![create-key](../assets/img/guides/create-key.png)
 
-        -   Choose your key type as P12 and click on **Create**. 
+        -   Choose your key type as `P12` and click on **Create**. 
 
     4.  <a name="create"></a>Click CREATE.  
         The Service account and key created message is displayed and
