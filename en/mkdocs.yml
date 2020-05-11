@@ -294,6 +294,7 @@ nav:
       - 'SAML2 Bearer Assertion Profile': samples/saml2-bearer-assertion-profile.md
       - 'Encrypt ID Tokens': samples/oidc-token-encryption-sample.md
       - 'OpenID Connect Back-Channel Logout': samples/oidc-backchannel-logout-sample.md
+      - 'Passing OIDC Parameters as a Request Object': samples/request-object.md
   - 'Pickup Samples':
       - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
       - 'Pickup Dispatch SAML': fragments/pickup-dispatch-saml.md
