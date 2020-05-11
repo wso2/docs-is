@@ -157,17 +157,17 @@ nav:
       - 'Manage Tenants': 
         - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
       - 'Configure Provisioning':
-        - 'Overview': guides/provisioning/provisioning-overview.md
+        - 'Overview': guides/identity-provisioning/provisioning-overview.md
         - 'Inbound Provisioning':
-          - 'Overview': guides/provisioning/inbound-provisioning.md
-          - 'Set up Service Provider for Inbound Provisioning': guides/provisioning/set-up-sp-for-inbound-provisioning.md
-          - 'Configure User Stores for SCIM 2.0-Based Inbound Provisioning': guides/provisioning/configure-user-stores-for-scim2-based-inbound-provisioning.md
+          - 'Overview': guides/identity-provisioning/inbound-provisioning.md
+          - 'Set up Service Provider for Inbound Provisioning': guides/identity-provisioning/set-up-sp-for-inbound-provisioning.md
+          - 'Configure User Stores for SCIM 2.0-Based Inbound Provisioning': guides/identity-provisioning/configure-user-stores-for-scim2-based-inbound-provisioning.md
         - 'Outbound Provisioning':
-          - 'Overview': guides/outbound-provisioning.md
-          - 'Configure Outbound Provisioning with Salesforce': guides/provisioning/outbound-provisioning-with-salesforce.md
-          - 'Configure Outbound Provisioning with Google': guides/provisioning/outbound-provisioning-with-google.md
-          - 'Configure Role-Based Provisioning': guides/provisioning/role-based-provisioning.md
-          - 'Configure Rule-Based Provisioning': guides/provisioning/rule-based-provisioning.md
+          - 'Overview': guides/identity-provisioning/outbound-provisioning.md
+          - 'Configure Outbound Provisioning with Salesforce': guides/identity-provisioning/outbound-provisioning-with-salesforce.md
+          - 'Configure Outbound Provisioning with Google': guides/identity-provisioning/outbound-provisioning-with-google.md
+          - 'Configure Role-Based Provisioning': guides/identity-provisioning/role-based-provisioning.md
+          - 'Configure Rule-Based Provisioning': guides/identity-provisioning/rule-based-provisioning.md
   - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
@@ -249,7 +249,7 @@ nav:
       - 'Identity Federation': concepts/identity-federation.md
       - 'Identity Provisioning':
           - 'Introduction': concepts/intro-provisioning.md
-          - 'Provisioning Framework': concepts/provisioning-framework.md
+          - 'Provisioning Framework': concepts/identity-provisioning-framework.md
           - 'Inbound Provisioning': concepts/inbound-provisioning.md
           - 'Outbound Provisioning': concepts/outbond-provisioning.md
           - 'GIT Provisioning': concepts/git-provisioning.md

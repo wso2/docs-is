@@ -4,7 +4,7 @@ This topic provides instructions on how to provision users to a trusted identity
 
 See the following document for more details on configuring outbound provisioning. 
 
-- [Configure Outbound Provisioning with Salesforce](../../guides/provisioning/outbound-provisioning-with-salesforce) 
-- [Configure Outbound Provisioning with Google](../../guides/provisioning/outbound-provisioning-with-google)
-- [Configure Role-Based Provisioning](../../guides/provisioning/role-based-provisioning)
-- [Configure Rule-Based Provisioning](../../guides/provisioning/rule-based-provisioning)
+- [Configure Outbound Provisioning with Salesforce](../../identity-provisioning/outbound-provisioning-with-salesforce) 
+- [Configure Outbound Provisioning with Google](../../identity-provisioning/outbound-provisioning-with-google)
+- [Configure Role-Based Provisioning](../../identity-provisioning/role-based-provisioning)
+- [Configure Rule-Based Provisioning](../../identity-provisioning/rule-based-provisioning)

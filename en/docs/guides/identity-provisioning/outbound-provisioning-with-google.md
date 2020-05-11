@@ -18,7 +18,7 @@ Google domain you created before you started this guide.
 
 1.  Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager) to create a new project.
 
-    ![create-a-new-project](../assets/img/guides/create-project.png)
+    ![create-a-new-project](../../assets/img/guides/create-project.png)
 
 2.  Create a new project:
 
@@ -26,7 +26,7 @@ Google domain you created before you started this guide.
 
     2.  Provide a name for your project and click **Create**.
 
-    ![add-project-name](../assets/img/guides/new-project-google.png) 
+    ![add-project-name](../../assets/img/guides/new-project-google.png) 
 
 3.  Search for the project you created and click it.
 
@@ -35,19 +35,19 @@ Google domain you created before you started this guide.
     1.  Click **IAM and admin \> Service accounts**.
 
     2.  Click **Create service account** on the top panel.  
-        ![create-service-account](../assets/img/guides/service-account.png) 
+        ![create-service-account](../../assets/img/guides/service-account.png) 
 
     3.  Fill in the form to create the service account:
 
         -   Provide a service account name and click on **Create**.
 
-            ![add-account-name](../assets/img/guides/service-account-name.png)
+            ![add-account-name](../../assets/img/guides/service-account-name.png)
         
         -   Optionally, assign a role from the list of roles given. 
         -   Click on **Continue**.
         -   Click on **Create Key**.
 
-            ![create-key](../assets/img/guides/create-key.png)
+            ![create-key](../../assets/img/guides/create-key.png)
 
         -   Choose your key type as `P12` and click on **Create**. 
 
@@ -55,7 +55,7 @@ Google domain you created before you started this guide.
         The Service account and key created message is displayed and
         the service account's `P12` file is downloaded to your machine.
 
-        ![key-created](../assets/img/guides/key-created.png)
+        ![key-created](../../assets/img/guides/key-created.png)
         
         !!! info 
             Remember the location and name of this downloaded file as
@@ -63,33 +63,33 @@ Google domain you created before you started this guide.
 
 5.  Get the Client ID of the service account.
     1.  Click **IAM and admin \> Service accounts**. Choose **Edit** from the action items corresponding to the service account you just created. 
-        ![edit-service-account](../assets/img/guides/choose-edit.png) 
+        ![edit-service-account](../../assets/img/guides/choose-edit.png) 
 
     2.  Click on **Show domain-wide delegation**. 
     
     3.  Select **Enable G Suite Domain-wide Delegation**, give a product name of your choice, and click **SAVE**. 
 
-        ![enable-g-suite-domain-wide-delegation](../assets/img/guides/enable-domain-wide-delegation.png)
+        ![enable-g-suite-domain-wide-delegation](../../assets/img/guides/enable-domain-wide-delegation.png)
 
     4.  <a name="copy"></a>Click **View Client ID** and copy the value for the Client ID.  
-        ![copy-client-id](../assets/img/guides/view-client-id.png)
+        ![copy-client-id](../../assets/img/guides/view-client-id.png)
 
 6.  Manage the API client access:
     1.  Go to your domain's admin console via <https://admin.google.com>.
     2.  Click **Security**.
 
-        ![admin-console-security](../assets/img/guides/admin-console-security.png) 
+        ![admin-console-security](../../assets/img/guides/admin-console-security.png) 
 
     3.  Click **Advanced settings \> Manage API client access**.
     4.  Fill the following values:
-        1.  Paste the [Client ID value you copied previously](../../guides/outbound-provisioning-with-google#copy)
+        1.  Paste the [Client ID value you copied previously](../../identity-provisioning/outbound-provisioning-with-google#copy)
             as the value for Client Name.
         2.  Enter
             `                             https://www.googleapis.com/auth/admin.directory.user,https://www.googleapis.com/auth/admin.directory.orgunit,https://www.googleapis.com/auth/admin.directory.group                           `
             as the value for scopes.
         3.  Click **Authorize**.
 
-        ![manage-api-client-access](../assets/img/guides/manage-api-client.png) 
+        ![manage-api-client-access](../../assets/img/guides/manage-api-client.png) 
 
 7.  Enable Admin SDK.
     1.  Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager).
@@ -97,7 +97,7 @@ Google domain you created before you started this guide.
     2.  Click on **Enable APIs AND Services**.  
     3.  Search for Admin SDK and click **Enable**.
 
-        ![admin-sdk](../assets/img/guides/admin-sdk.png)
+        ![admin-sdk](../../assets/img/guides/admin-sdk.png)
 
 ---
 
