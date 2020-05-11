@@ -1,6 +1,6 @@
 # Configure OpenID Connect Hybrid Flow
 
-WSO2 Identity Server supports the [OpenID Connect hybrid flow](insertlink) for authentication.
+WSO2 Identity Server supports the [OpenID Connect hybrid flow](../../../concepts/hybrid-client-profile) for authentication.
 
 -----
 

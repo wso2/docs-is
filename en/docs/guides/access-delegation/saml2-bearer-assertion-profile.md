@@ -1,6 +1,6 @@
 # Set Up SAML2 Bearer Assertion Profile
 
-This page guides you through using the SAML2 Bearer grant to exchange a SAML2 assertion for a valid OAuth access token.
+This page guides you through using the [SAML2 Bearer grant](../../../concepts/authorization/saml2-bearer-assertion-profile) to exchange a SAML2 assertion for a valid OAuth access token.
 
 ----
 
