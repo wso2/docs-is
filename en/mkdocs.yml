@@ -116,6 +116,7 @@ nav:
           - 'Discover OpenID Connect Provider': guides/access-delegation/openid-connect-discovery.md
           - 'Call JWKS Endpoint': guides/access-delegation/call-jwks-endpoint.md
           - 'Logout URL Redirection': guides/access-delegation/oidc-logout-url-redirection.md
+          - 'Configure OpenID Connect Single Logout': guides/access-delegation/configure-oidc-backchannel-logout.md
       - 'Authorization' : guides/authorization/overview.md
       - 'Manage Users':
         - 'Overview': guides/user-mgt/user-mgt-overview.md 
@@ -304,6 +305,7 @@ nav:
       - 'Microprofile JWT': samples/microprofile-jwt-sample.md
       - 'SAML2 Bearer Assertion Profile': samples/saml2-bearer-assertion-profile.md
       - 'Encrypt ID Tokens': samples/oidc-token-encryption-sample.md
+      - 'OpenID Connect Back-Channel Logout': samples/oidc-backchannel-logout-sample.md
   - 'Pickup Samples':
       - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
       - 'Pickup Dispatch SAML': fragments/pickup-dispatch-saml.md
@@ -318,7 +320,7 @@ nav:
         - 'Regular OAuth/OIDC Application' : fragments/configure-client-regular-oidc-app.md
         - 'SPA Application' : guides/authentication/configure-client-spa.md
         - 'Mobile Application' : guides/authentication/configure-mobile-app.md
-        - 'OIDC Logout' : fragments/oidc-logout.md
+        - 'OIDC Back-Channel Logout' : fragments/oidc-backchannel-logout.md
         - 'OIDC Session Management' : fragments/oidc-session-management.md
         - 'OAuth/OIDC Grants': fragments/oauth-oidc-grants.md
     - 'SAML':

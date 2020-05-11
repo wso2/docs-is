@@ -6,7 +6,7 @@ The OAuth Introspection endpoint is:
 https://localhost:9443/oauth2/introspect
 ```
 
-This page guides you through invoking the [OAuth Introspection Endpoint](insertlink). 
+This page guides you through invoking the [OAuth Introspection Endpoint](../../../concepts/authorization/introspection). 
 
 -----
 
