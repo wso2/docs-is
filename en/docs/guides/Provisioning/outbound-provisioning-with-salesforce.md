@@ -16,8 +16,7 @@ too.
 
 1.  Sign up as a Salesforce developer.
     1.  Fill out the relevant information found in the following URL:
-        [https://developer.salesforce.com/signup  
-        ](https://developer.salesforce.com/signup)
+        <https://developer.salesforce.com/signup>
     2.  Click **Sign me up**.
     3.  Click **Allow** to enable Salesforce to access your basic
     information. This message pops up only when you log in to Salesforce
@@ -76,11 +75,11 @@ too.
         <tr class="even">
         <td>Selected OAuth Scopes</td>
         <td><div class="content-wrapper">
-        <p>Choose <strong>Full access (full)</strong> from the <strong>Available OAuth Scopes</strong> and click the button under <strong>Add</strong>. This gives the necessary permissions when accessing this App.</p>
+        <p>Choose <strong>Full access (full)</strong> from the <strong>Available OAuth Scopes</strong> and click the button under <strong>Add</strong>. This gives the necessary permissions when accessing this app.</p>
         <div>
         <div class="user-content-block">
         <p>These scopes refer to permissions the user gives to the connected app while it is running. The OAuth token name is in parentheses.<br />
-        Full access (full) allows access to the logged-in user’s data, and encompasses all other scopes. Full doesn’t return a refresh token. You must explicitly request the refresh_token scope to get one.</p>
+        Full access (full) allows access to the logged-in user’s data, and encompasses all other scopes. Full does not return a refresh token. You must explicitly request the refresh_token scope to get one.</p>
         </div>
         </div>
         </div></td>
@@ -93,7 +92,7 @@ too.
     4.  Click **Save** > **Continue** to add the connected app.
 
 5.  The resulting screen displays key information that you will need to
-    configure the Identity Server to Salesforce.  
+    configure WSO2 IS to Salesforce.  
     Make a note of the following details as you need them in upcoming
     configurations.
 
@@ -104,10 +103,9 @@ too.
 
     !!! info
         **Consumer Key** : A value used by the consumer to identify itself
-        to Salesforce. Referred to as client\_id in OAuth 2.0.
-
+        to Salesforce. Referred to as `client_id` in OAuth 2.0.
         **Consumer Secret** : A secret used by the consumer to establish
-        ownership of the consumer key. Referred to as client\_secret in
+        ownership of the consumer key. Referred to as `client_secret` in
         OAuth 2.0.
 
     ![consumer-secret](../assets/img/guides/connected-app-screen.png) 
@@ -161,21 +159,27 @@ too.
     4.  Click the **Download Certificate** button to download the
         certificate.
 
-## Configure the Identity Server to use email address as the username
+---
+
+## Configure email address as the username
 
 (insert-admin-portal)
 
+---
 
-### Configure Salesforce as the Identity Provider
+## Configure Salesforce as the Identity Provider
 
 (insert-admin-portal)
 
+---
 
 ## Configure WSO2 IS as the resident Service Provider
 
 (insert-admin-portal)
 
-**Adding a user using SCIM.**
+---
+
+## Adding a user using SCIM.
 
 You can also add users to Salesforce using SCIM.
 
@@ -183,7 +187,7 @@ Select the correct SCIM user endpoint given in **Resident** > **Inbound Provisio
     The following is a sample cURL command to add users.
 
     ``` java
-    curl -v -k --header "Content-Type:application/json" --user gomathy@wso2.com:password --data '{"schemas":     ["urn:scim:schemas:core:1.0"],"userName”:”gomathy@wso2.com","password”:”test123”,”name":{"familyName”:”Kumar”},”emails":     [“gomathy@wso2.com"],"entitlements":     [{"value":"00e2x000001AT3y","display":"ChatterFreeUser"}]}' https://localhost:9443/wso2/scim2/Users  
+    curl -v -k --header "Content-Type:application/json" --user kim@wso2.com:password --data '{"schemas":     ["urn:scim:schemas:core:1.0"],"userName”:”kim@wso2.com","password”:”test123”,”name":{"familyName”:”paul”},”emails":     [“kim@wso2.com"],"entitlements":     [{"value":"00e2x000001AT3y","display":"ChatterFreeUser"}]}' https://localhost:9443/wso2/scim2/Users  
     ```
 You can see that the user has been created in the "Users" section in salesforce.
 
