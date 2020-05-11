@@ -2,7 +2,7 @@
 
 The WSO2 Identity Server (WSO2 IS) has the ability to provision users
 into different domains like Salesforce, Google, Facebook, etc., using
-its [identity provisioning framework](../../get-started/provisioning-architecture).
+its [identity provisioning framework](../../get-started/identity-provisioning-architecture).
 
 This topic provides instructions on how to configure Salesforce as the
 Identity Provider to provision users from WSO2 Identity Server. The
@@ -26,11 +26,11 @@ too.
         This document is explained using the Salesforce lightning theme. If
         you are using the classic theme, click **Switch to Lightning Experience** on the top panel. 
 
-        ![lighteninig-experience](../assets/img/guides/switch-to-lightening.png)
+        ![lighteninig-experience](../../assets/img/guides/switch-to-lightening.png)
 
         You will be navigated to the lightening theme of Salesforce.
 
-        ![welcome-to-lightening.png](../assets/img/guides/welcome-to-lightening.png) 
+        ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png) 
 
 4.  Once you are logged in, add a connected app. Follow instructions
     below on how to do this. 
@@ -39,7 +39,7 @@ too.
 
     2. Click on **New Connected App**. 
 
-       ![connected-app](../assets/img/guides/connected-app.png) 
+       ![connected-app](../../assets/img/guides/connected-app.png) 
 
     3.  Fill in the form that appears with relevant details. 
         The following table describes the form labels in detail.
@@ -87,7 +87,7 @@ too.
         </tbody>
         </table>
 
-        ![new-connected-app](../assets/img/guides/fill-connected-app.png) 
+        ![new-connected-app](../../assets/img/guides/fill-connected-app.png) 
 
     4.  Click **Save** > **Continue** to add the connected app.
 
@@ -108,7 +108,7 @@ too.
         ownership of the consumer key. Referred to as `client_secret` in
         OAuth 2.0.
 
-    ![consumer-secret](../assets/img/guides/connected-app-screen.png) 
+    ![consumer-secret](../../assets/img/guides/connected-app-screen.png) 
 
 6.  Add your connected app to the profile you are going to use. This is
     necessary as this profile is used when you add users in to
@@ -120,13 +120,13 @@ too.
     
     1.  Expand **Users** in the **Administration** section of the left hand panel and click **Profiles**. A list of existing
         profiles can be viewed.  
-        ![user-profiles](../assets/img/guides/profiles.png) 
+        ![user-profiles](../../assets/img/guides/profiles.png) 
 
     2.  As an example, if you use the profile “Chatter Free User”, click
         **Edit** and select the connected app you created to configure
         with the Identity Server using the provided checkbox.  
          
-        ![select-connected-app](../assets/img/guides/example-app.png) 
+        ![select-connected-app](../../assets/img/guides/example-app.png) 
 
     3.  Click **Save**. Make a note of the profile ID (or address URL obtained from the address bar in your browser)
         of the Chatter Free User profile.
@@ -134,7 +134,7 @@ too.
         !!! tip
             Copy the URL and decode it using a URL decoder like [urldecoder.org]. 
 
-            ![decoder-online](../assets/img/guides/decoder-online.png)
+            ![decoder-online](../../assets/img/guides/decoder-online.png)
 
         
             In this case `             00e2x000001AT3y            ` is your
@@ -155,7 +155,7 @@ too.
     2.  Click **Create Self-Signed Certificate**.
     3.  Enter the **Label** and a **Unique Name** and click **Save**.
         The certificate is generated.  
-        ![self-signed-certificate](../assets/img/guides/add-certificate.png) 
+        ![self-signed-certificate](../../assets/img/guides/add-certificate.png) 
     4.  Click the **Download Certificate** button to download the
         certificate.
 
@@ -186,9 +186,10 @@ You can also add users to Salesforce using SCIM.
 Select the correct SCIM user endpoint given in **Resident** > **Inbound Provisioning Configuration** and use it in the curl command.  
     The following is a sample cURL command to add users.
 
-    ``` java
-    curl -v -k --header "Content-Type:application/json" --user kim@wso2.com:password --data '{"schemas":     ["urn:scim:schemas:core:1.0"],"userName”:”kim@wso2.com","password”:”test123”,”name":{"familyName”:”paul”},”emails":     [“kim@wso2.com"],"entitlements":     [{"value":"00e2x000001AT3y","display":"ChatterFreeUser"}]}' https://localhost:9443/wso2/scim2/Users  
-    ```
+```curl
+curl -v -k --header "Content-Type:application/json" --user kim@wso2.com:password --data '{"schemas":     ["urn:scim:schemas:core:1.0"],"userName”:”kim@wso2.com","password”:”test123”,”name":{"familyName”:”paul”},”emails":     [“kim@wso2.com"],"entitlements":     [{"value":"00e2x000001AT3y","display":"ChatterFreeUser"}]}' https://localhost:9443/wso2/scim2/Users  
+```
+
 You can see that the user has been created in the "Users" section in salesforce.
 
-![salesforce-user](../assets/img/guides/salesforce-user.png)
+![salesforce-user](../../assets/img/guides/salesforce-user.png)
