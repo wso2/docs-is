@@ -51,7 +51,7 @@ Ensure to replace all values that refer to "playground2" with "playground3" incl
 
 6. Repeat steps 1-4 for the "playground3" application.
 
-7. Click **Logout** from on the applications. You will be prompted to consent to the logout. 
+7. Click **Logout** on one of the applications. You will be prompted to consent to the logout. 
 
 8. Provide consent. You will receive confirmation of sucessful logout. 
 
