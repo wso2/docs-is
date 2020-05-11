@@ -7,4 +7,5 @@
 
 3. Select **Enable OIDC Backchannel Logout** and give the Logout URL.
 
-    The **Logout URL** is the service provider's back-channel logout endpoint URL to which the logout token is sent to.
+    !!! info
+        The **Logout URL** is the service provider's back-channel logout endpoint URL to which the logout token is sent to.
