@@ -8,7 +8,7 @@ credentials.
 
 ### How does it work ?
 
-Instead of redirecting the user to the authorization server, the client itself will ask the user for the resource
+Instead of redirecting the user to the authorization server, the client itself will prompt the user for the resource
 owner's username and password. The client will then send these credentials to the authorization server along with the
 client’s own credentials.
 
@@ -17,11 +17,11 @@ client’s own credentials.
 One of the following cURL commands can be used to try this grant type.
 
 ``` java tab="Request 1"
-curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=password&username=<username>&password=<password>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=password&username=<username>&password=<password>" -H "Content-Type:application/x-www-form-urlencoded" <token_endpoint>
 ```
 
 ``` java tab="Request 2"
-curl -u <client id>:<client secret> -k -d "grant_type=password&username=<username>&password=<password>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+curl -u <client id>:<client secret> -k -d "grant_type=password&username=<username>&password=<password>" -H "Content-Type:application/x-www-form-urlencoded" <token_endpoint>
 ```
 
 You will receive a response similar to the format below.

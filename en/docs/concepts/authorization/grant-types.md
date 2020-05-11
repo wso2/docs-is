@@ -12,7 +12,7 @@ The [specification](https://tools.ietf.org/html/rfc6749) defines four main grant
 [- Client credential grant type](client-credential-grant.md)
 
 
-Apart of the above four grant types, WSO2 Identity Server supports for few extension grants as;
+Apart from the above four grant types, WSO2 Identity Server supports a few extension grants such as:
 
 [- JWT grant type](insertlink)
 
@@ -21,7 +21,5 @@ Apart of the above four grant types, WSO2 Identity Server supports for few exten
 [- Kerberos grant type](insertlink)
 
 
-To renew the existing access token, WSO2 Identity Server supports for;
-
-[- Refresh token grant type](refresh-token-grant.md)
+To renew the existing access token, WSO2 Identity Server supports the [Refresh token grant type](refresh-token-grant.md)
 
