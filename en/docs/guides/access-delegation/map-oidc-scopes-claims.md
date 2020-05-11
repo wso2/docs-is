@@ -2,13 +2,15 @@
 
 This page guides you through mapping [OpenID Connect (OIDC) scopes and claims](../../../concepts/authentication/scopes-claims). 
 
+----
+
 **About oidc-scope-config.xml**
 
-The `oidc-scope-config.xml` file enables grouping of claims that are bound to a scope value in OpenID Connect (OIDC). By default, the oidc-scope-config.xml file is located inside `<IS_HOME>/repository/conf/identity` directory.
+The `oidc-scope-config.xml` file enables grouping of claims that are bound to a scope value in OpenID Connect (OIDC). By default, the oidc-scope-config.xml file is located inside the `<IS_HOME>/repository/conf/identity` directory.
     
-This file can be modified to add custom scopes or claims. When the server starts, these configurations are stored in the registry located in `/oidc/` . You can customize claims or scopes from here as well. The returned clams from id token or user info endpoint will be decided based on both the requested scopes and requested claims.
+This file can be modified to add custom scopes or claims. When the server starts, these configurations are stored in the registry located in `/oidc/` . You can customize claims or scopes from here as well. The returned clams from the ID token or user info endpoint will be decided based on both the requested scopes and requested claims.
     
-When requesting for an OIDC token, you can specify a scope value that is bound to a set of claims in the `oidc-scope-config.xml` file. When sending that OIDC token to the userinfo endpoint, only the claims that are common to both the `oidc-scope-config.xml` and the service provider claim configuration, will be returned.
+When requesting for an OIDC token, you can specify a scope value that is bound to a set of claims in the `oidc-scope-config.xml` file. When sending that OIDC token to the userinfo endpoint, only the claims that are common to both the `oidc-scope-config.xml` file and the service provider claim configuration, will be returned.
 
 -----
 
@@ -16,7 +18,7 @@ When requesting for an OIDC token, you can specify a scope value that is bound t
 
 1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
 
-2. Under **Manage** click **OIDC Scopes > Add**. 
+2. Under **Manage**, click **OIDC Scopes > Add**. 
 
 3. Enter a **Scope Name**. 
 
@@ -32,7 +34,7 @@ When requesting for an OIDC token, you can specify a scope value that is bound t
 
 1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
 
-2. Under **Manage** click **OIDC Scopes > List**. 
+2. Under **Manage**, click **OIDC Scopes > List**. 
 
     ![oidc-scope-list](../../assets/img/guides/oidc-scope-list.png)
 

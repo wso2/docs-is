@@ -12,7 +12,7 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 
 {!fragments/register-a-service-provider.md!}
 
-3. Expand **Inbound Authentication Configuration** section and then **OAuth/OpenID Connect Configuration**. 
+3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
 4. Enter the **Callback Url**.
 
@@ -43,7 +43,7 @@ However, there can be instances where you cannot use a GET request as the OIDC l
     If it is set to `user`, expand **Local & Outbound Authentication Configuration** on the management console service provider configuration and select **Use tenant domain in local subject identifier**. 
 
 
-8. Use the following cURL command to retrieve the `id_token` using the client id, client secret, and authorization code.
+8. Use the following cURL command to retrieve the `id_token` using the client ID, client secret, and authorization code.
 
     ```tab="Request Format"
     curl -k -v --user <client_id>:<client_secret> -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=<redirect_uri>" https://localhost:9443/oauth2/token
