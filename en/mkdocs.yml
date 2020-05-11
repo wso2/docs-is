@@ -109,9 +109,13 @@ nav:
           - 'Dynamic Client Regisration': guides/access-delegation/oauth-dynamic-client-registration.md
         - 'OpenID Connect':
           - 'Overview': guides/access-delegation/openid-connect.md
+          - 'Configure OpenID Connect Grant Types': guides/access-delegation/oidc-grant-types.md
+          - 'Configure OpenID Connect Hybrid Flow': guides/access-delegation/oidc-hybrid-flow.md
+          - 'Map OpenID Connect Scopes & Claims': guides/access-delegation/map-oidc-scopes-claims.md
           - 'Encrypt ID Tokens': guides/access-delegation/oidc-token-encryption.md
           - 'Discover OpenID Connect Provider': guides/access-delegation/openid-connect-discovery.md
           - 'Call JWKS Endpoint': guides/access-delegation/call-jwks-endpoint.md
+          - 'Logout URL Redirection': guides/access-delegation/oidc-logout-url-redirection.md
       - 'Authorization' : guides/authorization/overview.md
       - 'Manage Users':
         - 'Overview': guides/user-mgt/user-mgt-overview.md 
@@ -316,6 +320,7 @@ nav:
         - 'Mobile Application' : guides/authentication/configure-mobile-app.md
         - 'OIDC Logout' : fragments/oidc-logout.md
         - 'OIDC Session Management' : fragments/oidc-session-management.md
+        - 'OAuth/OIDC Grants': fragments/oauth-oidc-grants.md
     - 'SAML':
       - 'Basic' : fragments/saml-app-config-basic.md
       - 'Advanced' : guides/authentication/saml-app-config-advanced.md
