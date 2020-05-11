@@ -32,7 +32,7 @@ feature.
 
 ## Enable the ask password feature using the admin portal
 
-{!fragments/xxx!}
+{insert-fragment}
 
 ---
 

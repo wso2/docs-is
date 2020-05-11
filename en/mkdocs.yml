@@ -150,6 +150,18 @@ nav:
         - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
       - 'Manage Tenants': 
         - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
+      - 'Configure Provisioning':
+        - 'Overview': guides/provisioning/provisioning-overview.md
+        - 'Inbound Prvisioning':
+          - 'Overview': guides/provisioning/inbound-provisioning.md
+          - 'Set up Service Provider for Inbound Provisioning': guides/provisioning/set-up-sp-for-inbound-provisioning.md
+          - 'Configure User Stores for SCIM 2.0-Based Inbound Provisioning': guides/provisioning/configure-user-stores-for-scim2-based-inbound-provisioning.md
+        - 'Outbound Provisioning':
+          - 'Overview': guides/outbound-provisioning.md
+          - 'Configure Outbound Provisioning with Salesforce': guides/provisioning/outbound-provisioning-with-salesforce.md
+          - 'Configure Outbound Provisioning with Google': guides/provisioning/outbound-provisioning-with-google.md
+          - 'Configure Role-Based Provisioning': guides/provisioning/role-based-provisioning.md
+          - 'Configure Rule-Based Provisioning': guides/provisioning/rule-based-provisioning.md
   - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
