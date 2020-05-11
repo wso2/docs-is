@@ -215,13 +215,11 @@ This `response_type` requests a code, an access token, and an id\_token from the
 
 ## id_token validations
 
-If there are two id\_tokens issued, where one id\_token is from authorization endpoint and other is from token endpoint, be sure to perform the following validations based on the OpenID Connect specification.
-
 1.  Ensure that the `iss` and `sub` claim values are identical in the two `id_tokens` .
 
-2.  If any one of the id tokens contain claims about the end user, and are present in both, the values of the claims should be the same in both.
+2.  If any one of the ID tokens contain claims about the end user, and are present in both, the values of the claims should be the same in both.
 
 3.  All claims about the authentication event that is present in either should be present in both.
 
-4.  The `at\_hash` and `c\_hash` claims may be omitted from the id token returned from the token endpoint even when the claims are present in
-    the id token returned from the authorization endpoint.
+4.  The `at\_hash` and `c\_hash` claims may be omitted from the ID token returned from the token endpoint even when the claims are present in
+    the ID token returned from the authorization endpoint.

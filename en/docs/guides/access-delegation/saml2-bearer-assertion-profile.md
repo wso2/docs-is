@@ -4,7 +4,7 @@ This page guides you through using the SAML2 Bearer grant to exchange a SAML2 as
 
 ----
 
-This guide assumes you have your own application. If you wish to try out this flow with a sample application and a sample authenticator, click the button below. 
+This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
 <a class="samplebtn_a" href="../../../samples/saml2-bearer-assertion-profile" target="_blank" rel="nofollow noopener">Try it with the sample</a>
 
