@@ -78,7 +78,7 @@ Make the following requests via your application to connect your application to 
 
 ----
 
-{!fragments/oidc-logout.md!}
+{!fragments/oidc-backchannel-logout.md!}
 
 !!! Tip "What's Next?"
 

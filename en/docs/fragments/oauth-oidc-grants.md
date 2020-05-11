@@ -1,6 +1,6 @@
 {!fragments/register-a-service-provider.md!}
 
-3. Expand **Inbound Authentication Configuration** section and then **OAuth/OpenID Connect Configuration**. 
+3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
 4. Click **Configure.**   
 
@@ -48,7 +48,7 @@
     http://wso2is.local:8080/playground2/oauth2client?code=9142d4cad58c66d0a5edfad8952192
     ```
 
-2. Run the following curl command using the authorization code recieved, to obtain the access token. 
+2. Run the following curl command using the authorization code received, to obtain the access token. 
 
     ``` tab="Request Format"
     curl -v -X POST --basic -u <client_ID>:<client_secret> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=<callback_url> <token_endpoint>

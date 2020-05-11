@@ -26,7 +26,7 @@ enable Authentication to a SPA with Implicit Grant. >
 
 {!fragments/oidc-session-management.md!}
 
-{!fragments/oidc-logout.md!}
+{!fragments/oidc-backchannel-logout.md!}
 
 !!! Tip "What's Next?"
 

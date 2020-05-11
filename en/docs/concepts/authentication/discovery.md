@@ -1,6 +1,6 @@
 # OpenID Connect Discovery 
 
-### What is OpenID Connect Discovery ?
+## What is OpenID Connect Discovery ?
 
 The main purposes of [**OpenID Connect Discovery**](https://openid.net/specs/openid-connect-discovery-1_0.html) are to,
 
@@ -43,7 +43,7 @@ of the OpenID Provider. Following information is required when making a request 
  
  ``` https://[server-url]/.well-known/webfinger```
  
-###Expose Metadata
+##  Expose Metadata
  
  The OpenID provider exposes a JSON document listing all the metadata of the server. 
  This document contains of standard endpoints and other server supported meta data values. 

@@ -4,6 +4,12 @@ This page guides you through configuring [token encryption for ID tokens](insert
 
 ----
 
+This guide assumes you have your own application. If you wish to try out this flow with a sample application click the button below. 
+
+<a class="samplebtn_a" href="../../../samples/oidc-token-encryption-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+
+----
+
 {!fragments/register-a-service-provider.md!}
 
 ----
