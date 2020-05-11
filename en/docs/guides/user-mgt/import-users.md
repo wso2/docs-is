@@ -2,7 +2,7 @@
 
 ## Import users using the admin portal
 
-{!fragments/xxx!}
+{insert-fragment}
 
 ---
 
