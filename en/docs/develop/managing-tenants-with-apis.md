@@ -200,7 +200,7 @@ The following operations are available in the **TenantManagement**
 <tbody>
 <tr class="odd">
 <td>Description</td>
-<td>Adds a new tenant without userstore operations. The tenant will not be persisted in user store level and can be used to trigger post-tenant listeners without actuall creating the tenant.</td>
+<td>Adds a new tenant without userstore operations. The tenant will not be persisted in user store level and can be used to trigger post-tenant listeners without actually creating the tenant.</td>
 </tr>
 <tr class="even">
 <td>Permission Level</td>
