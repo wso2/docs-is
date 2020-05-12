@@ -149,6 +149,165 @@ The following operations are available in the **TenantManagement**
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="ot"> xmlns:ser=</span><span class="st">&quot;http://services.mgt.tenant.carbon.wso2.org&quot;</span><span class="ot"> xmlns:xsd=</span><span class="st">&quot;http://beans.common.stratos.carbon.wso2.org/xsd&quot;</span><span class="kw">&gt;</span></a>
 <a class="sourceLine" id="cb1-2" title="2">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;ser:addTenant&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-6" title="6">            <span class="kw">&lt;ser:tenantInfoBean&gt;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-8" title="8">                <span class="kw">&lt;xsd:active&gt;</span>true<span class="kw">&lt;/xsd:active&gt;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-10" title="10">                <span class="kw">&lt;xsd:admin&gt;</span>testuser<span class="kw">&lt;/xsd:admin&gt;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-12" title="12">                <span class="kw">&lt;xsd:adminPassword&gt;</span>testpw<span class="kw">&lt;/xsd:adminPassword&gt;</span></a>
+<a class="sourceLine" id="cb1-13" title="13">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-14" title="14">                <span class="kw">&lt;xsd:createdDate&gt;&lt;/xsd:createdDate&gt;</span></a>
+<a class="sourceLine" id="cb1-15" title="15">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-16" title="16">                <span class="kw">&lt;xsd:email&gt;</span>testuser@example.com<span class="kw">&lt;/xsd:email&gt;</span></a>
+<a class="sourceLine" id="cb1-17" title="17">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-18" title="18">                <span class="kw">&lt;xsd:firstname&gt;</span>First<span class="kw">&lt;/xsd:firstname&gt;</span></a>
+<a class="sourceLine" id="cb1-19" title="19">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-20" title="20">                <span class="kw">&lt;xsd:lastname&gt;</span>Last<span class="kw">&lt;/xsd:lastname&gt;</span></a>
+<a class="sourceLine" id="cb1-21" title="21">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-22" title="22">                <span class="kw">&lt;xsd:originatedService&gt;&lt;/xsd:originatedService&gt;</span></a>
+<a class="sourceLine" id="cb1-23" title="23">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-24" title="24">                <span class="kw">&lt;xsd:successKey&gt;&lt;/xsd:successKey&gt;</span></a>
+<a class="sourceLine" id="cb1-25" title="25">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-26" title="26">                <span class="kw">&lt;xsd:tenantDomain&gt;</span>example.com<span class="kw">&lt;/xsd:tenantDomain&gt;</span></a>
+<a class="sourceLine" id="cb1-27" title="27">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-28" title="28">                <span class="kw">&lt;xsd:tenantId&gt;&lt;/xsd:tenantId&gt;</span></a>
+<a class="sourceLine" id="cb1-29" title="29">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-30" title="30">                <span class="kw">&lt;xsd:usagePlan&gt;&lt;/xsd:usagePlan&gt;</span></a>
+<a class="sourceLine" id="cb1-31" title="31">            <span class="kw">&lt;/ser:tenantInfoBean&gt;</span></a>
+<a class="sourceLine" id="cb1-32" title="32">        <span class="kw">&lt;/ser:addTenant&gt;</span></a>
+<a class="sourceLine" id="cb1-33" title="33">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
+<a class="sourceLine" id="cb1-34" title="34"><span class="kw">&lt;/soapenv:Envelope&gt;</span>             </a></code></pre></div>
+</p></div></details>
+</div>
+</div>
+</div>
+</div>
+</div></td>
+</tr>
+<tr class="odd">
+<td>Response</td>
+<td><p>None</p></td>
+</tr>
+</tbody>
+</table>
+
+#### addSkeletonTenant()
+
+<table>
+<tbody>
+<tr class="odd">
+<td>Description</td>
+<td>Adds a new tenant without userstore operations. The tenant will not be persisted in user store level and can be used to trigger post-tenant listeners without actually creating the tenant.</td>
+</tr>
+<tr class="even">
+<td>Permission Level</td>
+<td>/permission/protected/manage/monitor/tenants</td>
+</tr>
+<tr class="odd">
+<td>Input Parameters</td>
+<td><div class="table-wrap">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tenantInfoBean</td>
+<td>TenantInfoBean</td>
+<td>Contains tenant related data</td>
+</tr>
+<tr class="even">
+<td>tenantInfoBean.tenantDomain</td>
+<td>String</td>
+<td>The domain name of the tenant</td>
+</tr>
+<tr class="odd">
+<td>tenantInfoBean.active</td>
+<td>Boolean</td>
+<td><p>True - activate the tenant</p>
+<p>False- deactivate the tenant</p></td>
+</tr>
+<tr class="even">
+<td>tenantInfoBean.admin</td>
+<td>String</td>
+<td>The admin username</td>
+</tr>
+<tr class="odd">
+<td>tenantInfoBean.adminPassword</td>
+<td>String</td>
+<td>The admin password</td>
+</tr>
+<tr class="even">
+<td>tenantInfoBean.createdDate</td>
+<td>DateTime</td>
+<td>The date and time that the tenant was created</td>
+</tr>
+<tr class="odd">
+<td>tenantInfoBean.email</td>
+<td>String</td>
+<td>The email address of the tenant</td>
+</tr>
+<tr class="even">
+<td>tenantInfoBean.firstname</td>
+<td>String</td>
+<td>The first name of the tenant</td>
+</tr>
+<tr class="odd">
+<td>tenantInfoBean.lastname</td>
+<td>String</td>
+<td>The last name of the tenant</td>
+</tr>
+<tr class="even">
+<td>tenantInfoBean.originatedService</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>tenantInfoBean.successKey</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>tenantInfoBean.tenantDomain</td>
+<td>String</td>
+<td>The tenant domain</td>
+</tr>
+<tr class="odd">
+<td>tenantInfoBean.tenantId</td>
+<td>Int</td>
+<td>The tenant ID</td>
+</tr>
+<tr class="even">
+<td>tenantInfoBean.usagePlan</td>
+<td>String</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div></td>
+</tr>
+<tr class="even">
+<td>Request</td>
+<td><div class="content-wrapper">
+<details class="info">
+<summary> Click here to see the request</summary>
+<p><div class="code panel pdl" style="border-width: 1px;">
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="ot"> xmlns:ser=</span><span class="st">&quot;http://services.mgt.tenant.carbon.wso2.org&quot;</span><span class="ot"> xmlns:xsd=</span><span class="st">&quot;http://beans.common.stratos.carbon.wso2.org/xsd&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;ser:addSkeletonTenant&gt;</span></a>
 <a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
 <a class="sourceLine" id="cb1-6" title="6">            <span class="kw">&lt;ser:tenantInfoBean&gt;</span></a>
