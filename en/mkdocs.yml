@@ -270,8 +270,8 @@ nav:
           - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
           - 'Mitigating Brute Force Attacks': concepts/brute-force-attacks.md
           - 'Timestamp in WS-Security to Mitigate Replay Attacks': concepts/replay-attacks.md
-  - 'Samples':
-    - samples/overview.md
+  - 'Try It':
+    - 'Overview': samples/overview.md
     - 'Authentication':
       - 'Android': samples/android.md
       - 'iOS': samples/ios.md
