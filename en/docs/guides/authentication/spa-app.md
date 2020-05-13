@@ -14,14 +14,6 @@ enable Authentication to a SPA with Implicit Grant. >
  
 {!fragments/oauth-app-config-basic.md!}
 
-| Field                 | Value         | 
-| --------------------- | ------------- | 
-| Service Provider Name | sample- app  |
-| Description           | This is a SPA application  | 
-| Call Back Url         | https://somehost/url  | 
-
-{!guides/authentication/oauth-app-config-advanced.md!}
-
 {!guides/authentication/configure-client-spa.md!}
 
 {!fragments/oidc-session-management.md!}

@@ -1,6 +1,6 @@
 # Enable Authentication for an OIDC Web Application
 
-This page guides you through enabling authentication to an OAuth/OpenID Connect web application. 
+This page guides you through enabling authentication to an [OAuth/OpenID Connect](../../../concepts/authorization/intro-oidc) web application. 
 
 ---
 
@@ -61,8 +61,3 @@ Make the following requests via your application to connect your application to 
 ----
 
 {!fragments/oidc-backchannel-logout.md!}
-
-!!! Tip "What's Next?"
-    - [Enable single sign-on with another web application]()
-    - [Enable single logout with the other web application]()
-    - [Check our SDKs]()
