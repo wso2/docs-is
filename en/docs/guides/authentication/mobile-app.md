@@ -1,6 +1,6 @@
 # Enable Authentication for a Mobile Application
 
-This page guides you through enabling authentication using the [Authorization Code](insertlink) grant type with [PKCE](insertlink) for a mobile application that uses OpenID Connect. 
+This page guides you through enabling authentication using the [Authorization Code](../../../concepts/authorization/authorization-code-grant) grant type with [PKCE](insertlink) for a mobile application that uses OpenID Connect. 
 
 ---
 
@@ -80,8 +80,3 @@ Make the following requests via your application to connect your application to 
 
 {!fragments/oidc-backchannel-logout.md!}
 
-!!! Tip "What's Next?"
-
-    - [Enable single sign-on with another mobile application]()
-    - [Enable single logout with the other mobile application]()
-    - [Check our SDKs]()

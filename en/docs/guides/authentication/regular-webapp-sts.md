@@ -34,9 +34,3 @@ Next, configure the client application for WS-Trust STS.
 
 ### ETC.
 
-
-!!! Tip "What's Next?"
-
-    - [Enable single sign-on with another web application]()
-    - [Enable single logout with the other web application]()
-    - [Check our SDKs]()
