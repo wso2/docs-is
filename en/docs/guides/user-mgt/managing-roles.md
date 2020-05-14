@@ -65,7 +65,7 @@ directly assign users to these roles.
 
 ### Adding a user role using the admin portal
 
-{!fragments/xxx!}
+{insert-fragment}
 
 ### Adding a user role using SCIM
 
@@ -198,7 +198,7 @@ some time.
 
 ## Searching for roles
 
-{!fragments/xxx!}
+{insert-fragment}
 
 ---
 
@@ -206,7 +206,7 @@ some time.
 
 ### Editing or deleting a role using the admin portal
 
-{!fragments/xxx!}
+{insert-fragment}
 
 ### Editing or deleting a role using SCIM
 

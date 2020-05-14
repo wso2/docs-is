@@ -157,6 +157,18 @@ nav:
         - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
       - 'Manage Tenants': 
         - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
+      - 'Configure Provisioning':
+        - 'Overview': guides/identity-provisioning/provisioning-overview.md
+        - 'Inbound Provisioning':
+          - 'Overview': guides/identity-provisioning/inbound-provisioning.md
+          - 'Set up Service Provider for Inbound Provisioning': guides/identity-provisioning/set-up-sp-for-inbound-provisioning.md
+          - 'Configure User Stores for SCIM 2.0-Based Inbound Provisioning': guides/identity-provisioning/configure-user-stores-for-scim2-based-inbound-provisioning.md
+        - 'Outbound Provisioning':
+          - 'Overview': guides/identity-provisioning/outbound-provisioning.md
+          - 'Configure Outbound Provisioning with Salesforce': guides/identity-provisioning/outbound-provisioning-with-salesforce.md
+          - 'Configure Outbound Provisioning with Google': guides/identity-provisioning/outbound-provisioning-with-google.md
+          - 'Configure Role-Based Provisioning': guides/identity-provisioning/role-based-provisioning.md
+          - 'Configure Rule-Based Provisioning': guides/identity-provisioning/rule-based-provisioning.md
   - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
@@ -238,7 +250,7 @@ nav:
       - 'Identity Federation': concepts/identity-federation.md
       - 'Identity Provisioning':
           - 'Introduction': concepts/intro-provisioning.md
-          - 'Provisioning Framework': concepts/provisioning-framework.md
+          - 'Provisioning Framework': concepts/identity-provisioning-framework.md
           - 'Inbound Provisioning': concepts/inbound-provisioning.md
           - 'Outbound Provisioning': concepts/outbond-provisioning.md
           - 'GIT Provisioning': concepts/git-provisioning.md
@@ -258,8 +270,8 @@ nav:
           - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
           - 'Mitigating Brute Force Attacks': concepts/brute-force-attacks.md
           - 'Timestamp in WS-Security to Mitigate Replay Attacks': concepts/replay-attacks.md
-  - 'Samples':
-    - samples/overview.md
+  - 'Try It':
+    - 'Overview': samples/overview.md
     - 'Authentication':
       - 'Android': samples/android.md
       - 'iOS': samples/ios.md
@@ -394,3 +406,4 @@ extra:
     - Deploy
     - APIs
     - Concepts
+    - Try It
