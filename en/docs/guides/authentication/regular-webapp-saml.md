@@ -1,6 +1,6 @@
 # Enable Authentication for a SAML web application
 
-This page guides you through enabling authentication to a SAML web application. 
+This page guides you through enabling authentication to a [SAML](../../../concepts/authentication/intro-saml) web application. 
 
 ---
 
@@ -27,15 +27,11 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 {!fragments/configure-client-regular-saml-app.md!}
 
+----
+
 {!fragments/get-user-information-to-the-saml-application.md!}
 
-### Session Management
+## Manage Sessions
 
-### ETC.
+< Explain how to manage user sessions>
 
-
-!!! Tip "What's Next?"
-
-    - [Enable single sign-on with another web application]()
-    - [Enable single logout with the other web application]()
-    - [Check our SDKs]()

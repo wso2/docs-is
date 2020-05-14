@@ -38,14 +38,4 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- begin card -->
-            <div class="card" onclick="location.href='learn/adaptive-authentication/';">
-                <div class="line"></div>
-                <div class="icon">
-                    <i class="material-icons md-36">how_to_reg</i>
-                </div>
-                <div class="card-content">
-                    <p class="title">On-Premises</p>
-                    <p class="hint">Deploy our product on premise</p>
-                </div>
-            </div>
 </div>  
