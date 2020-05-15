@@ -66,7 +66,7 @@ template: templates/2-column.html
     </div>
     <!-- end card -->
     <!-- begin card -->
-        <div class="card" onclick="location.href='../../samples/react';">
+        <div class="card" onclick="location.href='../../quick-starts/react';">
           <div class="icon">
             <i class="material-icons md-24">
                 <img src="../../assets/img/icons/technology/react.png">
@@ -79,7 +79,7 @@ template: templates/2-column.html
         </div>
         <!-- end card -->
     <!-- begin card -->
-        <div class="card" onclick="location.href='../../samples/java';">
+        <div class="card" onclick="location.href='../../quick-starts/java';">
           <div class="icon">
             <i class="material-icons md-24">
                 <img src="../../assets/img/icons/technology/java.png">

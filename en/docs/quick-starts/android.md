@@ -1,7 +1,7 @@
 # Start enable Authentication for Android App
 
 !!! Tip 
-    [Try Our Sample](../../samples/android)
+    [Try Our Sample](../../quick-starts/android)
     
 < Intro - Guide to enable authentication for a Android application- references >
 

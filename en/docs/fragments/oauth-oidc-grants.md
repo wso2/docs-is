@@ -24,7 +24,7 @@
 1. Send the following request using a browser-based application to obtain the authorization code. 
 
     !!! tip
-        You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Authorization Code Grant with OAuth 2.0 Playground](../../../samples/auth-code-playground).
+        You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Authorization Code Grant with OAuth 2.0 Playground](../../../quick-starts/auth-code-playground).
 
     ``` tab="Request Format"
     https://<host>:<port>/oauth2/authorize?
@@ -71,7 +71,7 @@
 Send the following request using a browser-based application to obtain the ID token. 
 
 !!! tip
-    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Implicit Grant with OAuth 2.0 Playground](../../../samples/implicit-playground).
+    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground).
 
 ``` tab="Request Format"
 https://<host>:<port>/oauth2/authorize?

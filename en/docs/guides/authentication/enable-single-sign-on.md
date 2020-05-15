@@ -10,6 +10,6 @@
 
 ## Try Single Sign On
 
-- [SSO between two OAuth/OIDC applications](../../samples/sso-for-oidc-apps)
-- [SSO between two SAML applications](../../samples/sso-for-saml-apps)
-- [SSO between apps that use Heterogeneous Authentication Protocols](../../samples/cross-protocol-sso)
+- [SSO between two OAuth/OIDC applications](../../quick-starts/sso-for-oidc-apps)
+- [SSO between two SAML applications](../../quick-starts/sso-for-saml-apps)
+- [SSO between apps that use Heterogeneous Authentication Protocols](../../quick-starts/cross-protocol-sso)
