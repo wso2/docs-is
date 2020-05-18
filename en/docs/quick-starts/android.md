@@ -19,7 +19,7 @@
 | --------------------- | ------------- | 
 | Service Provider Name | sample-app  |
 | Description           | This is a mobile application  | 
-| Call Back Url         | example://oauth  | 
+| Call Back Url         | wso2sample://oauth  | 
 
 ## Configure the Android SDK
 
@@ -44,15 +44,15 @@ To redirect to the application from browser, it is necessary to add redirect sch
 ```gradle
 
 android.defaultConfig.manifestPlaceholders = [
-       'appAuthRedirectScheme': 'example'
+       'appAuthRedirectScheme': 'wso2sample'
 ]
 
 ```
 Verify that this should be consistent with the redirectUri of the application that you configured in the developer-portal and in the oidc_config.json file.
 
 !!! Tip 
-    For an example, if you have configured the **callbackUrl** as **example://oauth**, 
-    then the **appAuthRedirectScheme** should be **example**
+    For an example, if you have configured the **callbackUrl** as **wso2sample://oauth**, 
+    then the **appAuthRedirectScheme** should be **wso2sample**
 
 #### Configuration
 
@@ -75,7 +75,7 @@ Example:
 
 ```json
 "client_id": "rs5ww91iychg9JN0DJGLMaxG2gha",
- "redirect_uri": "example://callback",
+ "redirect_uri": "wso2sample://callback",
  "authorization_scope": "openid",
  "discovery_uri": "https://stgcloud.kubesb.com/t/example/oauth2/oidcdiscovery/.well-known/openid-configuration"
 }
@@ -108,13 +108,16 @@ Have a login button inside LoginActivity. Call the `doAuthorization(Context cont
 private void doAuthorization(Context context) {
    
       mLoginService = LoginService.getInstance(this);
+
       Intent completionIntent = new Intent(context, UserInfoActivity.class);
       Intent cancelIntent = new Intent(context, LoginActivity.class);
       cancelIntent.putExtra("failed", true);
       cancelIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-   
-      mLoginService.doAuthorization(PendingIntent.getActivity(context, 0,
-              completionIntent, 0),  PendingIntent.getActivity(context, 0, cancelIntent, 0));
+      PendingIntent pendingCompletionIntent = PendingIntent.getActivity(context, 0,
+                     completionIntent, 0);
+      PendingIntent pendingCancelIntent = PendingIntent.getActivity(context, 0, cancelIntent, 0);
+    
+      mLoginService.doAuthorization(pendingCompletionIntent, pendingCancelIntent);
    }
 ```
    
@@ -157,6 +160,7 @@ private void getUserInfo(){
         public void onUserInfoRequestCompleted(UserInfoResponse userInfoResponse) {
             mSubject = userInfoResponse.getSubject();
             mEmail = userInfoResponse.getUserInfoProperty("email");
+            JSONObject userInfoProperties = userInfoResponse.getUserInfoProperties();
             mIdToken = mOAuth2TokenResponse.idToken;
             mAccessToken = mOAuth2TokenResponse.accessToken;
         }
