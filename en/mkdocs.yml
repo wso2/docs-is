@@ -85,6 +85,11 @@ nav:
         - 'Encrypt ID Tokens': quick-starts/oidc-token-encryption-sample.md
         - 'OpenID Connect Back-Channel Logout': quick-starts/oidc-backchannel-logout-sample.md
         - 'Passing OIDC Parameters as a Request Object': quick-starts/request-object.md
+      - 'Federation':
+        - 'Facebook': quick-starts/fb-as-federated-authenticator-sample.md
+        - 'Google': quick-starts/google-as-federated-authenticator-sample.md
+        - 'Twitter': quick-starts/twitter-as-federated-authenticator-sample.md
+        - 'Microsoft Azure': quick-starts/ms-azure-as-federated-authenticator-sample.md
   - 'Guides':
       - 'Get Started': guides/before-you-start.md
       - 'Authentication':
@@ -118,7 +123,10 @@ nav:
         - 'Configure Adaptive Authentication': guides/configure-adaptive-auth.md
         - 'Using Function Library': guides/adaptive-auth-with-function-lib.md
       - 'Federation':
-        - guides/federation.md
+        - 'Facebook': guides/federation/facebook.md
+        - 'Google': guides/federation/google.md
+        - 'Twitter': guides/federation/twitter.md
+        - 'Microsoft Azure': guides/federation/microsoft-azure.md
       - 'Access Delegation' : 
         - 'OAuth':
           - 'Overview': guides/access-delegation/overview.md
