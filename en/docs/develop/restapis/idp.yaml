@@ -553,6 +553,62 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Federated Authenticators
+      summary: |
+        Update Federated authenticators of an identity provider
+      description: >
+        This API updates federated authenticators enabled for a
+        specific identity provider identified by its ID. <br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/update <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_update
+      operationId: updateFederatedAuthenticators
+      parameters:
+        - name: identity-provider-id
+          in: path
+          description: ID of the identity provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FederatedAuthenticatorRequest'
+        description: This represents the federated authenticators to be updated
+        required: true
   '/identity-providers/{identity-provider-id}/federated-authenticators/{federated-authenticator-id}':
     get:
       tags:
@@ -772,6 +828,62 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Provisioning
+      summary: |
+        Update outbound provisioning connectors of an identity provider
+      description: >
+        This API provides updates the list of outbound provisioning connectors enabled for
+        an identity provider. <br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/update <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_update
+      operationId: updateOutboundConnectors
+      parameters:
+        - name: identity-provider-id
+          in: path
+          description: ID of the identity provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutboundConnectorListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OutboundProvisioningRequest'
+        description: This represents the outbound provisioning connectors to be updated
+        required: true
   '/identity-providers/{identity-provider-id}/provisioning/outbound-connectors/{outbound-provisioning-connector-id}':
     get:
       tags:
