@@ -73,13 +73,7 @@ If you have your own application, click the button below.
 
 ## Deploy the Sample App
 
-{! fragments/deploy-pickup-sample.md !}
-
----
-
-## Configure the service provider
-
-(insert-admin-portal-link)
+{! fragments/pickup-dispatch-saml.md !}
 
 ---
 

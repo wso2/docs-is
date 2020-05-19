@@ -105,12 +105,7 @@ Now you have finished configuring Facebook as an Identity Provider.
 
 ## Deploy the Sample App
 
-{! fragments/deploy-travelocity-sample.md !}
----
-
-## Configure the service provider 
-	
-(insert-link-from-admin-portal)
+{! fragments/travelocity.md !}
 
 ---
 

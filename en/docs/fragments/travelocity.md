@@ -3,32 +3,7 @@
 
 ### Register a service provider
 
-1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
-
-2. Click **Service Providers > Add**.
-
-3. Enter "travelocity.com" as the **Service Provider Name**.
-
-4. Click **Register**.
-    
-5. Expand **Inbound Authentication Configuration** section and then **SAML2 Web SSO Configuration**. 
-
-6. Click **Configure.**   
-
-7. Enter the following configurations:
-    1.  **Issuer** : travelocity.com
-
-    2.  **Assertion Consumer URL** : http://wso2is.local:8080/travelocity.com/home.jsp                    
-        Click **Yes**, in the message that appears.
-
-        !!! tip
-            For more information on these fields and other advanced configurations, see [Advanced SAML Configurations](../../guides/authentication/saml-app-config-advanced)
-
-8. Select the following checkboxes:
-    - **Enable Attribute Profile**
-    - **Include Attributes in the Response Always**
-
-9. Click **Register** to save the changes. Now you are sent back to the **Service Providers** page.
+(insert-portal-content)
 
 ### Download the sample
 

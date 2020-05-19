@@ -342,10 +342,12 @@ nav:
             - 'Single Page Application': admin-portal/applications/add/spa.md
             - 'OIDC Web Application': admin-portal/applications/add/oidc.md
             - 'SAML Web Application': admin-portal/applications/add/saml.md
+            - 'OIDC Mobile Application': admin-portal/applications/add/mobile.md
           - 'Edit Application' :
             - 'Single Page Aplication': admin-portal/applications/edit-spa.md
             - 'OIDC Web Application': admin-portal/applications/edit-oidc.md
             - 'SAML Web Application': admin-portal/applications/edit-saml.md
+            - 'OIDC Mobile Application': admin-portal/applications/edit-mobile.md
   - '': page-not-found.md
 
 # Extensions
