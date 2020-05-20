@@ -4,24 +4,10 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ---
 
-This guide assumes you have your own applications. If you wish to try out this flow with a sample application, click the button below. 
+This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
 <a class="samplebtn_a" href="../../../quick-starts/google-as-federated-authenticator-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
 
----
-
-!!! tip " Before you begin"  
-    1.  [Create a Google domain](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/).
-    2.  [Install](https://wso2.com/identity-and-access-management/install/) WSO2 Identity Server.
-	3.  Navigate to `<IS_HOME>/bin` and run the product using one of the following commands. For more information, see [Running the product](insert-link).
-
-		```curl tab="Windows"
-		wso2server.bat
-		```
-
-		```curl tab="Linux/Mac OS"
-		wso2server.sh
-		```
 ---
 
 ## Set up Google as a SAML IdP
@@ -59,21 +45,7 @@ This guide assumes you have your own applications. If you wish to try out this f
     for your application. This is the name and description that your
     users will see.  
     You can also upload an image of your logo.
-9.  Click **Next** and enter the following details.
-
-    !!! info 
-		In this tutorial, the **Start URL** configured below is the homepage
-		URL the WSO2 IS sample application, Pickup.
-
-    1.  **ACS URL:**
-        `                         https://localhost:9443/commonauth                       `
-    2.  **Entity ID:** `            wso2is1           `
-    3.  **Start URL** :
-        `                         http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp                       `
-    4.  **Name ID Format:** `            EMAIL           `
-        `                       `
-        ![start-url](../../assets/img/samples/sp-details-google.png)
-
+9.  Click **Next** and enter the app details
 10. Click **Next** and then click **Finish**.
 11. Once the application is configured, click **Edit Service** and
     change the **Service Status** to **ON**. You can turn on the

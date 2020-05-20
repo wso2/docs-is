@@ -10,22 +10,6 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 ---
 
-!!! tip "Before you begin"
-    
-    1.  Create an account in [Twitter](https://twitter.com) if you do not have one already.
-    2.  [Install](https://wso2.com/identity-and-access-management/install/) WSO2 Identity Server.
-	
-	3.  Navigate to `<IS_HOME>/bin` and run the product using one of the following commands. For more information, see [Running the product](insert-link)
-
-		```curl tab="Windows"
-		wso2server.bat
-		```
-
-		```curl tab="Linux/Mac OS"
-		wso2server.sh
-		```
----
-
 ## Set up a Twitter app
 
 !!! note 
@@ -39,14 +23,7 @@ This guide assumes you have your own applications. If you wish to try out this f
     
     ![create-twittter-app](../../assets/img/samples/create-app-twitter.png)
 
-4. Fill in the application details with the following values. 
-
-    - App name - Pickup-Dispatch-Application
-    - Application description - A sample app which can be accessed via twitter
-    - Website URL - `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp`
-    - Select **Enable sign in with Twitter**
-    - Callback URLs - https://localhost:9443/commonauth
-    - Tell us how this app will be used - This is a test app used to verify logging into a sample application, using Twitter as a federated authenticator
+4. Fill in the relevant application details. 
 
 5. Click  **Create**.
 
@@ -71,12 +48,6 @@ This guide assumes you have your own applications. If you wish to try out this f
 ## Configure Twitter as an IdP in WSO2 IS 
 
 (insert-link)
-
----
-
-## Deploy the Sample App
-
-{! fragments/deploy-pickup-sample.md !}
 
 ---
 

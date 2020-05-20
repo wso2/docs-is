@@ -4,25 +4,11 @@ This page guides you through configuring Facebook as a federated authenticator i
 
 ---
 
-This guide assumes you have your own applications. If you wish to try out this flow with a sample application, click the button below. 
+This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
 <a class="samplebtn_a" href="../../../quick-starts/fb-as-federated-authenticator-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
 
 ---
-
-!!! tip "Before you begin"
-	
-	1.	[Install](https://wso2.com/identity-and-access-management/install/) WSO2 Identity Server.
-	
-	2.	Navigate to `<IS_HOME>/bin` and run the product using one of the following commands. For more information, see [Running the product](insert-link).
-
-		```java tab="Windows"
-		wso2server.bat
-		```
-
-		```java tab="Linux/MacOS"
-		wso2server.sh
-		```
 
 Follow the steps given below to configure WSO2 Identity Server to authenticate users using their Facebook credentials.
 
@@ -70,27 +56,12 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 Now you have finished configuring Facebook as an Identity Provider.
 
-!!! info "About accessing the app"
-
-	The app is not available to general public yet. To make to app available
-	to every Facebook user, you have to submit the app for review. After a
-	review, Facebook makes the app available to every Facebook user. You can
-	find more information on the review process by clicking on **App
-	Review** in the left navigation menu of your app's dashboard.
-
-	The review process may take some time, so for the purposes of this
-	sample, you can specify some Facebook users as Developers or Testers.
-	Only the users specified here can use this app to log in with Facebook
-	until the app goes public. To do this, click on **Roles** in the left
-	navigation menu of the dashboard and specify the required Facebook users
-	as Developers or Testers.
-
-	![submit-fb-app-for-review](../../assets/img/samples/add-app-roles.png)
+{! fragments/fb-review.md !}
 
 ---
 
 ## Configure the identity provider 
-	
+
 (insert-link-from-admin-portal)
 
 ---
@@ -112,8 +83,6 @@ You have successfully configured facebook as your federated authenticator. Now, 
 ---
 
 !!! info "Related Topics"
-	-   For more information on how to configure an
-		identity provider, see [Configuring an Identity Provider](insert-link).
 	-   See the following topics for samples of configuring Facebook for
 		federated authentication:
 		-   [Logging in to your application via WSO2 Identity Server using Facebook Credentials](../../samples/fb-as-federated-authenticator-sample)

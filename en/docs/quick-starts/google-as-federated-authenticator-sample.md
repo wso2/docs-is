@@ -1,6 +1,6 @@
 # Log into a Sample Application using Google
 
-This page guides you through using Google as a federated authenticator and logging into an application. Here, we use a **sample application** called Pickup. 
+This page guides you through using Google as a federated authenticator and logging into a sample application. Here, we use a **sample application** called Pickup. 
 
 ----
 
@@ -12,18 +12,8 @@ If you have your own application, click the button below.
 
 
 !!! tip " Before you begin"  
-    1.  [Create a Google domain](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/).
-    2.  [Install](https://wso2.com/identity-and-access-management/install/) WSO2 Identity Server.
-	
-	3.  Navigate to `<IS_HOME>/bin` and run the product using one of the following commands. For more information, see [Running the product](insert-link)
+    [Create a Google domain](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/).
 
-		```curl tab="Windows"
-		wso2server.bat
-		```
-
-		```curl tab="Linux/Mac OS"
-		wso2server.sh
-		```
 ---
 
 ## Set up Google as a SAML IdP
