@@ -334,20 +334,30 @@ nav:
     - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
     - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
     - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
-  - 'Admin Portal':
+  - 'Developer Portal':
       - 'Applications':
-          - admin-portal/applications/overview.md
+          - developer-portal/applications/overview.md
           - 'Create New Application':
-            - admin-portal/applications/new-application.md
-            - 'Single Page Application': admin-portal/applications/add/spa.md
-            - 'OIDC Web Application': admin-portal/applications/add/oidc.md
-            - 'SAML Web Application': admin-portal/applications/add/saml.md
-            - 'OIDC Mobile Application': admin-portal/applications/add/mobile.md
-          - 'Edit Application' :
-            - 'Single Page Aplication': admin-portal/applications/edit-spa.md
-            - 'OIDC Web Application': admin-portal/applications/edit-oidc.md
-            - 'SAML Web Application': admin-portal/applications/edit-saml.md
-            - 'OIDC Mobile Application': admin-portal/applications/edit-mobile.md
+            - developer-portal/applications/new-application.md
+            - 'Single Page Application': developer-portal/applications/add/spa.md
+            - 'OIDC Web Application': developer-portal/applications/add/oidc.md
+            - 'SAML Web Application': developer-portal/applications/add/saml.md
+            - 'OIDC Mobile Application': developer-portal/applications/add/mobile.md
+          - 'Edit Application':
+            - 'Single Page Aplication': developer-portal/applications/edit-spa.md
+            - 'OIDC Web Application': developer-portal/applications/edit-oidc.md
+            - 'SAML Web Application': developer-portal/applications/edit-saml.md
+            - 'OIDC Mobile Application': developer-portal/applications/edit-mobile.md
+      - 'Identity Providers':
+          - developer-portal/identity-providers/overview.md
+          - 'Create New Identity Provider':
+            - developer-portal/identity-providers/new-identity-provider.md
+            - 'Google': developer-portal/identity-providers/add/google.md
+            - 'Facebook': developer-portal/identity-providers/add/facebook.md
+            - 'OpenID Connect': developer-portal/identity-providers/add/oidc.md
+            - 'Manual Setup': developer-portal/identity-providers/add/manual-setup.md
+          - 'Edit Identity Provider':
+            - developer-portal/identity-providers/edit-identity-provider.md
   - '': page-not-found.md
 
 # Extensions
@@ -407,3 +417,4 @@ extra:
     - Deploy
     - APIs
     - Concepts
+    - Developer Portal
