@@ -27,17 +27,11 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 5. Click  **Create**.
 
-    ![app-created-twitter.png](../../assets/img/samples/app-created-twitter.png)
-
 6. Move to the next tab, **keys and tokens**. 
 
 7. Click on the **Generate** button adjacent to **Access token & access token secret**. 
 
-    ![create-access-token](../../assets/img/samples/create-access-token.png)
-
 8. Make note of the Access token and Access token secret that appears next. 
-
-    ![note-tokens](../../assets/img/samples/note-tokens.png)
 
 9. Move to the next tab, **Permissions**. 
 

@@ -25,22 +25,13 @@ This guide assumes you have your own applications. If you wish to try out this f
     
     ![create-azure-app](../../assets/img/samples/register-azure.png)
 
-4. Fill in the application details with the following values. 
-
-    - App name - Pickup
-    - Redirect URI - https://localhost:9443/commonauth
-    
-    ![fill-azure](../../assets/img/samples/azure-registered.png)
+4. Fill in the application details with the relevant values. 
 
 5. Make note of the **Application (client) ID** that appears in the Overview section. 
-
-    ![app-id](../../assets/img/samples/app-id.png)
 
 6. Select **certificates and secrets** from the left handside panel. 
 
 7. Click on **New client secret** and give a description. 
-
-    ![client-secret](../../assets/img/azure-client-secret.png)
 
 8. Click **Add**.
 
