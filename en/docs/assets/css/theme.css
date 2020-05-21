@@ -1015,7 +1015,7 @@ html .md-footer-meta.md-typeset a,
     line-height: 2;
 }
 
-/* button styles for read concept and try sample buttons */
+/* button styles */
 
 .conceptbtn_a {
     color: #fff !important;
@@ -1060,6 +1060,59 @@ html .md-footer-meta.md-typeset a,
     transition: all 0.4s ease 0s;
     }
 
+.homepgbtn_a {
+    width: 60%;
+    float: right;
+    color: #000 !important;
+    margin: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    display: block;
+    border: none;
+    transition: all 0.4s ease 0s;
+
+}
+
+.homepgbtn_a:hover {
+    background: #f5f5f5;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    }
+
+.tutorialbtn_a {
+    border: 2px solid #000;
+    color: #000 !important; 
+    float: right !important;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: small !important; 
+    padding: 5px;
+    width: 100px;
+    height: 40px;
+    outline: none;
+    font-size: 12px;
+    background: none;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+}
+
+.tutorialbtn_a:hover {
+    background-color:#000;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    color: #eee!important;
+    font-size: 28px;
+    transform:scale(1.1);
+ }
+
     .card-sm {
         width: 23%;
         max-width: 350px;
@@ -1091,4 +1144,46 @@ html .md-footer-meta.md-typeset a,
             max-width: 94%;
          }
       }
+
+/* styles for home page  */
+
+/* scenario cards */
+
+.curatedCard--2aCYX {
+    padding: 0 20px 20px 0;
+    margin-bottom: 12px;
+    width: 33.33%;
+    float: left;
+    
+}
+
+.curatedCardContainer--UBpah {
+    padding: 20px;
+    box-shadow: 0 2px 8px 0 rgba(92,102,111,.15);
+    display: flex;
+}
+
+.curatedCardLogo--2mSNS {
+    margin-right: 10px;
+    padding: 0;
+    height: 0px;
+}
+
+.curatedCardMain--3EYmT {
+    padding-left: 15px;
+    padding-right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.curatedCardArticles--16lzh {
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.curatedCardArticles--16lzh li {
+    font-size: large;
+}
+
 
