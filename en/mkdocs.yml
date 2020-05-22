@@ -48,15 +48,48 @@ nav:
   - 'Home': index.md
   - 'Quick Starts':
       - 'Overview': quick-starts/overview.md
-      - 'Mobile':
-          - 'Android': quick-starts/android.md
-          - 'iOS': quick-starts/ios.md
-      - 'Frontend':
-          - 'Angular': quick-starts/angular.md
-          - 'React': quick-starts/react.md
-      - 'Backend':
-          - 'Java': quick-starts/java.md
-          - 'NodeJs': quick-starts/nodejs.md
+      - 'Choose an SDK':
+        - 'Android': quick-starts/android.md
+        - 'React': quick-starts/react.md
+        - 'Java': quick-starts/java.md
+      - 'Choose a Sample Type':
+        - 'Android': quick-starts/android-sample.md
+        - 'React': quick-starts/react-sample.md
+        - 'Java': quick-starts/java-sample.md
+      - 'Authentication':
+        - 'OpenID Connect': quick-starts/regular-webapp-oidc-sample.md
+        - 'SAML': quick-starts/regular-webapp-saml-sample.md
+      - 'Single Sign On':
+        - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
+        - 'SAML Apps': quick-starts/sso-for-saml-apps.md
+        - 'Different Authentication Protocols': quick-starts/cross-protocol-sso.md
+      - 'Multi-Factor Authentication': quick-starts/mfa-sample.md
+      - 'Adaptive Authentication':
+        - 'Role-Based': quick-starts/role-based-adaptive-auth.md
+        - 'User Age-Based': quick-starts/age-based-adaptive-auth.md
+        - 'Tenant-Based': quick-starts/tenant-based-adaptive-auth.md
+        - 'User Store-Based': quick-starts/user-store-based-adaptive-auth.md
+        - 'IP-Based': quick-starts/ip-based-adaptive-auth.md
+        - 'Device-Based': quick-starts/device-based-adaptive-auth.md
+        - 'Login Attempts-Based': quick-starts/login-attempts-based-adaptive-auth.md
+        - 'ACR-Based': quick-starts/acr-based-adaptive-auth.md
+        - 'Using Function Library': quick-starts/adaptive-auth-with-function-lib-sample.md
+        - 'Limiting Active User Sessions': quick-starts/limiting-active-sessions-adaptive-auth.md
+      - 'Access Delegation':
+        - 'Authorization Code Grant': quick-starts/auth-code-playground.md
+        - 'Implicit Grant': quick-starts/implicit-playground.md
+        - 'Client Credentials Grant': quick-starts/client-credentials-playground.md
+        - 'Password Grant': quick-starts/password-playground.md
+        - 'Microprofile JWT': quick-starts/microprofile-jwt-sample.md
+        - 'SAML2 Bearer Assertion Profile': quick-starts/saml2-bearer-assertion-profile.md
+        - 'Encrypt ID Tokens': quick-starts/oidc-token-encryption-sample.md
+        - 'OpenID Connect Back-Channel Logout': quick-starts/oidc-backchannel-logout-sample.md
+        - 'Passing OIDC Parameters as a Request Object': quick-starts/request-object.md
+      - 'Federation':
+        - 'Facebook': quick-starts/fb-as-federated-authenticator-sample.md
+        - 'Google': quick-starts/google-as-federated-authenticator-sample.md
+        - 'Twitter': quick-starts/twitter-as-federated-authenticator-sample.md
+        - 'Microsoft Azure': quick-starts/ms-azure-as-federated-authenticator-sample.md
   - 'Guides':
       - 'Get Started': guides/before-you-start.md
       - 'Authentication':
@@ -90,7 +123,10 @@ nav:
         - 'Configure Adaptive Authentication': guides/configure-adaptive-auth.md
         - 'Using Function Library': guides/adaptive-auth-with-function-lib.md
       - 'Federation':
-        - guides/federation.md
+        - 'Facebook': guides/federation/facebook.md
+        - 'Google': guides/federation/google.md
+        - 'Twitter': guides/federation/twitter.md
+        - 'Microsoft Azure': guides/federation/microsoft-azure.md
       - 'Access Delegation' : 
         - 'OAuth':
           - 'Overview': guides/access-delegation/overview.md
@@ -270,44 +306,7 @@ nav:
           - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
           - 'Mitigating Brute Force Attacks': concepts/brute-force-attacks.md
           - 'Timestamp in WS-Security to Mitigate Replay Attacks': concepts/replay-attacks.md
-  - 'Try It':
-    - 'Overview': samples/overview.md
-    - 'Authentication':
-      - 'Android': samples/android.md
-      - 'iOS': samples/ios.md
-      - 'Angular': samples/angular.md
-      - 'React': samples/react.md
-      - 'Java': samples/java.md
-      - 'NodeJs': samples/nodejs.md
-      - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
-      - 'SAML': samples/regular-webapp-saml-sample.md
-    - 'Single Sign On':
-      - 'OAuth/OIDC Apps': samples/sso-for-oidc-apps.md
-      - 'SAML Apps': samples/sso-for-saml-apps.md
-      - 'Different Authentication Protocols': samples/cross-protocol-sso.md
-    - 'Multi-Factor Authentication': samples/mfa-sample.md
-    - 'Adaptive Authentication':
-      - 'Role-Based': samples/role-based-adaptive-auth.md
-      - 'User Age-Based': samples/age-based-adaptive-auth.md
-      - 'Tenant-Based': samples/tenant-based-adaptive-auth.md
-      - 'User Store-Based': samples/user-store-based-adaptive-auth.md
-      - 'IP-Based': samples/ip-based-adaptive-auth.md
-      - 'Device-Based': samples/device-based-adaptive-auth.md
-      - 'Login Attempts-Based': samples/login-attempts-based-adaptive-auth.md
-      - 'ACR-Based': samples/acr-based-adaptive-auth.md
-      - 'Using Function Library': samples/adaptive-auth-with-function-lib-sample.md
-      - 'Limiting Active User Sessions': samples/limiting-active-sessions-adaptive-auth.md
-    - 'Access Delegation':
-      - 'Authorization Code Grant': samples/auth-code-playground.md
-      - 'Implicit Grant': samples/implicit-playground.md
-      - 'Client Credentials Grant': samples/client-credentials-playground.md
-      - 'Password Grant': samples/password-playground.md
-      - 'Microprofile JWT': samples/microprofile-jwt-sample.md
-      - 'SAML2 Bearer Assertion Profile': samples/saml2-bearer-assertion-profile.md
-      - 'Encrypt ID Tokens': samples/oidc-token-encryption-sample.md
-      - 'OpenID Connect Back-Channel Logout': samples/oidc-backchannel-logout-sample.md
-      - 'Passing OIDC Parameters as a Request Object': samples/request-object.md
-  - 'Pickup Samples':
+  - 'Pickup quick-starts':
       - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
       - 'Pickup Dispatch SAML': fragments/pickup-dispatch-saml.md
       - 'Pickup Manager OIDC': fragments/pickup-manager-oidc.md
@@ -335,18 +334,30 @@ nav:
     - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
     - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
     - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
-  - 'Admin Portal':
+  - 'Developer Portal':
       - 'Applications':
-          - admin-portal/applications/overview.md
+          - developer-portal/applications/overview.md
           - 'Create New Application':
-            - admin-portal/applications/new-application.md
-            - 'Single Page Application': admin-portal/applications/add/spa.md
-            - 'OIDC Web Application': admin-portal/applications/add/oidc.md
-            - 'SAML Web Application': admin-portal/applications/add/saml.md
-          - 'Edit Application' :
-            - 'Single Page Aplication': admin-portal/applications/edit-spa.md
-            - 'OIDC Web Application': admin-portal/applications/edit-oidc.md
-            - 'SAML Web Application': admin-portal/applications/edit-saml.md
+            - developer-portal/applications/new-application.md
+            - 'Single Page Application': developer-portal/applications/add/spa.md
+            - 'OIDC Web Application': developer-portal/applications/add/oidc.md
+            - 'SAML Web Application': developer-portal/applications/add/saml.md
+            - 'OIDC Mobile Application': developer-portal/applications/add/mobile.md
+          - 'Edit Application':
+            - 'Single Page Aplication': developer-portal/applications/edit-spa.md
+            - 'OIDC Web Application': developer-portal/applications/edit-oidc.md
+            - 'SAML Web Application': developer-portal/applications/edit-saml.md
+            - 'OIDC Mobile Application': developer-portal/applications/edit-mobile.md
+      - 'Identity Providers':
+          - developer-portal/identity-providers/overview.md
+          - 'Create New Identity Provider':
+            - developer-portal/identity-providers/new-identity-provider.md
+            - 'Google': developer-portal/identity-providers/add/google.md
+            - 'Facebook': developer-portal/identity-providers/add/facebook.md
+            - 'OpenID Connect': developer-portal/identity-providers/add/oidc.md
+            - 'Manual Setup': developer-portal/identity-providers/add/manual-setup.md
+          - 'Edit Identity Provider':
+            - developer-portal/identity-providers/edit-identity-provider.md
   - '': page-not-found.md
 
 # Extensions
@@ -406,4 +417,4 @@ extra:
     - Deploy
     - APIs
     - Concepts
-    - Try It
+    - Developer Portal

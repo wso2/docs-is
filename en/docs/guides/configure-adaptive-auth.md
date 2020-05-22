@@ -6,7 +6,7 @@ This page guides you through setting up [adaptive authentication](insertlink) fo
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../samples/role-based-adaptive-auth" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/role-based-adaptive-auth" target="_blank" rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
@@ -30,7 +30,7 @@ The WSO2 IS management console provides an authentication script editor that all
     ![authentication templates](../assets/img/guides/authentication-templates.png)
 
     !!! tip
-        To see a sample flow of each template, see [Adaptive Authentication Scenarios](../../../samples/adaptive-auth-samples).
+        To see a sample flow of each template, see [Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-samples).
 
 6.  Click **Ok**. 
     The authentication script and authentication steps are configured. 

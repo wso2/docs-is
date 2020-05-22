@@ -1,0 +1,142 @@
+# Passing OIDC Authentication Parameters as a Request Object
+
+This page guides you through passing OpenID Connect authentication request parameters in a self contained JWT, instead of passing plain request parameters using a sample application. A JWT that contains a set of request parameters as its claims is known as a request object.
+
+----
+
+{!fragments/oauth-playground.md!}
+
+----
+
+{!fragments/encrypt-id-tokens.md!}
+
+----
+
+## Configure claims
+
+1. Add two new external claims as follows for the `http://wso2.org/oidc/claim` dialect.
+
+    **customClaim1**
+    - Dialect URI: `http://wso2.org/oidc/claim`
+    - Claim URI: customClaim1
+    - Mapped Local Claim: http://wso2.org/oidc/claims/challengeQuestion1
+
+    **customClaim2**
+    - Dialect URI: `http://wso2.org/oidc/claim`
+    - Claim URI: customClaim2
+    - Mapped Local Claim: http://wso2.org/oidc/claims/challengeQuestion2
+
+    !!! info
+        Here, **customClaim1** and **customClaim2** are selected as claim URIs because they are not configured as requested claims in the OIDC scope. For the purpose of testing, these claims are mapped to existing local claims `http://wso2.org/claims/challengeQuestion1` and `http://wso2.org/claims/challengeQuestion2`. If necessary, you can [create two new local claims](insertlink) for this purpose.
+
+2. Make sure you select **Supported by default** for the mapped local claims to ensure that the claims will be prompted during user registration. 
+
+3. Click **Service Providers > List** and **Edit** the service provider you created for the playground application.
+
+4. Expand **Claim Configuration**.
+
+5. Enter the following as requested claims. 
+    - http://wso2.org/claims/challengeQuestion1
+    - http://wso2.org/claims/challengeQuestion2
+    - http://wso2.org/claims/country
+    - http://wso2.org/claims/emailaddress
+
+6. If a user has already consented once to the requested claims that are configured on the service provider, any further changes/additions to the requested claims will not apply. If you are facing this issue, do one of the following.
+
+    -   Mark the claims given above as **Mandatory Claims**. This will ensure that the user will be prompted once again to provide consent for the newly added/changed claims.
+
+    -   Log in to the user portal and revoke the consent reciept for the application.  When you attempt to log in to the application again, you will be prompted to provide consent for all requested claims, including the newly added/changed claims. For more information on revoking/accepting user consent, see [Consent management](insertlink).
+
+7. Click **Update**.
+
+-----
+
+## Create request object
+
+1. Create a user called "Tom" with login permission.
+
+    For instructions, see [Adding Users and Roles](insertlink).
+
+2. Edit Tom's user profile and enter values for **email**, **country**, **challenge Question1**, and **challenge Question 2**. 
+    For instructions, see [Editing User Profile](insertlink).
+
+3. Create a JWT with the following payload and sign(RSA256) it with the private key of the keystore you created above.
+
+    ```java
+    {
+      "client_id": "<client-id>",
+      "sub": "<client-id>",
+      "aud": [
+        "https://localhost:9443/oauth2/token"
+      ],
+      "claims": {
+        "userinfo": {
+          "given_name": {
+            "essential": true
+          },
+          "nickname": null,
+          "email": {
+            "essential": true
+          },
+          "customClaim2": {
+            "essential": true
+          }
+        },
+        "id_token": {
+          "gender": null,
+          "birthdate": {
+            "essential": true
+          },
+          "customClaim1": {
+            "essential": true
+          }
+        }
+      },
+      "iss": "<client-id>",
+      "exp": 1516786878,
+      "iat": 1516783278,
+      "jti": "1003"
+    }
+    ```
+
+    This creates a signed request object.
+
+----
+
+## Try it out
+
+Try out both of the following flows and observe the responses. To try this out, use the [authorization code grant type with the playground application](../auth-code-playground#try-authorization-code-grant).
+
+1. First, test the flow without a signed request object:
+    
+    Use the `authorization_code` grant type for the user, and use the OIDC scope from the playground application to obtain an `id_token`. Then, retrieve user information using the access token.
+
+2. Next, test the flow with a signed request object:
+
+    Use the `authorization_code` grant for the user, and specify the authentication endpoint as `https://localhost:9443/oauth2/authorize?request=<JWT>`. Next, obtain the `id_token` and retrieve user information.
+
+    !!! tip
+        The JWT used here is the signed JWT created in the previous section of this guide.
+
+When you analyze the responses of the two tests, you will observe that together with `customClaim2` retrieved in the userinfo response, an additional claim `customClaim1` is retrieved via the `id_token` when you configure the authorization code flow with a signed request object.   
+
+-----
+
+## Configure signature validation for request objects
+
+Now that you understand how to pass OIDC authentication request parameters in a signed request object via WSO2 IS, you can configure a service provider to only accept signed request objects.
+
+Request objects can either be signed or unsigned. Therefore, if you want to only accept signed request objects in an authorization request, you need to enable request object signature validation in the OAuth/OIDC configuration of the service provider.
+
+1. Click **Service Providers > List** and **Edit** the service provider you created for the application.
+
+2. Expand **Inbound Authentication Configuration**, and then expand **OAuth2/OpenID Connect Configuration**.
+
+3. Select **Enable Request Object Signature Validation** to enforce signature validation for request object.
+
+4. To verify that signature validation has been configured successfully, send a plain JWT instead of a signed one in the authorization code grant request.
+
+    If signature validation is successfully enforced, the request should get rejected and you should see an error page.
+
+    ![signature-validation-successful](../../assets/img/samples/signature-validation-successful.png)
+
