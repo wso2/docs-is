@@ -63,6 +63,12 @@ Next, follow the steps below to configure roles and define custom permission for
         When you add role mapping, you can map an exact role name available
         in WSO2 IS to a particular service provider role.
     
+4. Optionally, you can also enable the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to return only roles that you have mapped under this service provider. This allows responses such as ID tokens or SAML assertions to return only the list of mapped SP roles from the assigned roles instead of returning all user roles.
+
+    ```toml
+    [sp_role_management]
+    return_only_mapped_local_roles = true
+    ```
 
 Now that you have configured roles and permission for the service
 provider, you can go ahead and assign the application role permission to
