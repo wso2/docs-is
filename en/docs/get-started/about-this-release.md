@@ -5,7 +5,7 @@
 **WSO2 Identity Server 5.10.0** is the **latest WSO2 Identity Server release** and is the successor of WSO2 Identity Server 5.9.0. It contains the following new features and enhancements:
 
 <ul>
-    <li><b><a href="../../learn/passowrdless-authentication-using-fido2">Passwordless authentication support</a></b></li>
+    <li><b><a href="../../learn/passwordless-authentication-using-fido2">Passwordless authentication support</a></b></li>
     <li><b><a href="../../learn/user-portal">An improved User Portal</a></b></li>
     <li><b><a href="../../develop/application-rest-api">New RESTful APIs for user self-services and server management</a></b></li>
     <li><b><a href="../../develop/scope-based-authorization-for-internal-rest-apis">Scope based authorization for internal REST APIs</a></b></li>
