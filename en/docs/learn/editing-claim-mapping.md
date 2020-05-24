@@ -24,29 +24,6 @@ Follow the instructions below to edit a claim.
         screen.  
         ![editing-external-claim](../assets/img/using-wso2-identity-server/editing-external-claim.png)
 
-    !!! note
-
-        When you are using [more than one user
-        store](../../setup/configuring-secondary-user-stores), you must map the
-        attributes correctly using claim management. Under “Mapped
-        Attribute(s)” you need to follow the pattern.
-    
-        ``` java
-        {domain_name/attribute_Name};{domain_name/attribute_Name}; {domain_name/attribute_Name};
-        ```
-    
-        However, for the default user store, you do not need to provide the
-        domain name. As an example, if you have two user stores, one is
-        default and other one with domain “LDAP” then the pattern would be
-        as follows for “
-        `                       http://wso2.org/claims/emailaddress                     `
-        ".
-    
-        ``` java
-        email;LDAP/mail
-        ```
-    
-
 !!! tip "Alternatively"  
     
     You can edit the file configuration in
