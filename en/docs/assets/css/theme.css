@@ -1157,6 +1157,23 @@ html .md-footer-meta.md-typeset a,
     
 }
 
+@media only screen and (max-width: 1023px) {
+    .col-md-4 {
+       width: 33.33333333333333%;
+       min-width: 992px;
+       float: left;
+    }
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+ }
+@media only screen and (mIN-width: 768px) {
+    .curatedCardContainer--UBpah {
+       height: 312px;
+       padding: 40px 30px 15px;
+    }
+ }
+
 .curatedCardContainer--UBpah {
     padding: 20px;
     box-shadow: 0 2px 8px 0 rgba(92,102,111,.15);
