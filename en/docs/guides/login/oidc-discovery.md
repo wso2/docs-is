@@ -1,6 +1,6 @@
 ## Discover OpenID Connect Provider
 
-This page guides you through using [OpenID Connect Discovery](../../../concepts/login/discovery) to discover an end user's OpenID provider, and to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. 
+This page guides you through using [OpenID Connect Discovery](../../../concepts/authentication/discovery) to discover an end user's OpenID provider, and to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. 
 
 The OpenID Connect discovery endpoint is as follows:
 

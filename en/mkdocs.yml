@@ -246,43 +246,43 @@ nav:
   - 'Concepts':
       - 'User Management': concepts/user-management.md
       - 'Authentication':
-          - 'Introduction': concepts/login/intro-authentication.md
+          - 'Introduction': concepts/authentication/intro-authentication.md
           - 'Authentication Protocols':
-                  - 'Introduction': concepts/login/intro-protocols.md
+                  - 'Introduction': concepts/authentication/intro-protocols.md
                   - 'OIDC':
-                          - 'Introduction': concepts/login/intro-oidc.md
+                          - 'Introduction': concepts/authentication/intro-oidc.md
                           - 'OIDC Client Profiles':
-                                    - 'Introduction': concepts/login/intro-profiles.md
-                                    - 'Basic Client Profile': concepts/login/basic-client-profile.md
-                                    - 'Implicit Profile': concepts/login/implicit-client-profile.md
-                                    - 'Hybrid Profile': concepts/login/hybrid-client-profile.md
+                                    - 'Introduction': concepts/authentication/intro-profiles.md
+                                    - 'Basic Client Profile': concepts/authentication/basic-client-profile.md
+                                    - 'Implicit Profile': concepts/authentication/implicit-client-profile.md
+                                    - 'Hybrid Profile': concepts/authentication/hybrid-client-profile.md
                           - 'OIDC Tokens':
-                                    - 'Overview':  concepts/login/oidc-tokens.md
-                                    - 'ID Tokens':  concepts/login/id-token.md
+                                    - 'Overview':  concepts/authentication/oidc-tokens.md
+                                    - 'ID Tokens':  concepts/authentication/id-token.md
                           - 'End-User Authentication':
-                                    - 'Overview': concepts/login/end-user-authentication.md
-                                    - 'Request Object': concepts/login/request-object.md
-                                    - 'Traditional Authentication Request': concepts/login/traditional-authentication-request.md
-                          - 'User Information': concepts/login/user-information.md
-                          - 'Scopes And Claims': concepts/login/scopes-claims.md
-                          - 'Discovery': concepts/login/discovery.md
-                          - 'JWKS': concepts/login/jwks.md
+                                    - 'Overview': concepts/authentication/end-user-authentication.md
+                                    - 'Request Object': concepts/authentication/request-object.md
+                                    - 'Traditional Authentication Request': concepts/authentication/traditional-authentication-request.md
+                          - 'User Information': concepts/authentication/user-information.md
+                          - 'Scopes And Claims': concepts/authentication/scopes-claims.md
+                          - 'Discovery': concepts/authentication/discovery.md
+                          - 'JWKS': concepts/authentication/jwks.md
                           - 'Dynamic Client Registration': concepts/authorization/dcr.md
-                          - 'Session Management and Logout': concepts/login/session-management.md
-                          - 'Back-channel-logout': concepts/login/back-channel-logout.md
-                          - 'OIDC Device Flow': concepts/login/device-flow.md
+                          - 'Session Management and Logout': concepts/authentication/session-management.md
+                          - 'Back-channel-logout': concepts/authentication/back-channel-logout.md
+                          - 'OIDC Device Flow': concepts/authentication/device-flow.md
                   - 'SAML':
-                          - 'Introduction': concepts/login/saml.md
+                          - 'Introduction': concepts/authentication/saml.md
                   - 'WS-Federation':
-                          - 'Introduction': concepts/login/ws-federation.md
+                          - 'Introduction': concepts/authentication/ws-federation.md
                   - 'WS-Trust':
-                          - 'Introduction': concepts/login/ws-trust.md
+                          - 'Introduction': concepts/authentication/ws-trust.md
                   - 'NTLM':
-                          - 'Introduction': concepts/login/ntlm.md
+                          - 'Introduction': concepts/authentication/ntlm.md
                   - 'Kerberos':
-                          - 'Introduction to Kerberos': concepts/login/kerberos.md
-          - 'Adaptive Authentication': concepts/login/adaptive-auth.md
-          - 'Multi Factor Authentication': concepts/login/mfa.md
+                          - 'Introduction to Kerberos': concepts/authentication/kerberos.md
+          - 'Adaptive Authentication': concepts/authentication/adaptive-auth.md
+          - 'Multi Factor Authentication': concepts/authentication/mfa.md
       - 'Authorization':
           - 'Introduction': concepts/authorization/intro-authorization.md
           - 'Authorization Protocols':

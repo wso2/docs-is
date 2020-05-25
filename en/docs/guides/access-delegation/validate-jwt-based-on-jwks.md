@@ -1,6 +1,6 @@
 # Validating a JWT Based on JWKS
 
-This page describes how a JWT can be validated based on [JWKS](../../../concepts/login/jwks).
+This page describes how a JWT can be validated based on [JWKS](../../../concepts/authentication/jwks).
 
 ----
 

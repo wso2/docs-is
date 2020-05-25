@@ -1,6 +1,6 @@
 # Enable Authentication for a SAML web application
 
-This page guides you through enabling authentication to a [SAML](../../../concepts/login/intro-saml) web application. 
+This page guides you through enabling authentication to a [SAML](../../../concepts/authentication/intro-saml) web application. 
 
 ---
 
