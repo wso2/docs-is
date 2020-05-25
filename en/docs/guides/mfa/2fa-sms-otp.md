@@ -1,6 +1,6 @@
 # Configure SMS OTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [SMS OTP](insertlink) as the second factor. 
+This page guides you through configuring [two-factor authentication](../../../concepts/login/intro-authentication#two-factor-authentication) for a web application using [SMS OTP](insertlink) as the second factor. 
 
 ---
 

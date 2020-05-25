@@ -1,6 +1,6 @@
 # Configure TOTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [TOTP - Time Based One Time Password](insertlink) as the second factor. 
+This page guides you through configuring [two-factor authentication](../../../concepts/login/intro-authentication#two-factor-authentication) for a web application using [TOTP - Time Based One Time Password](insertlink) as the second factor. 
 
 !!! tip
     For more information, see the [TOTP specification](https://tools.ietf.org/html/rfc6238).

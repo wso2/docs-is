@@ -1,4 +1,4 @@
-# Enable MFA for your Applications
+# Configure an Authentication Journey
 
 < Brief intro to the guides in this section > < Explain how to enable
 additional authentication factors for application >
