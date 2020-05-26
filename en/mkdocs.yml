@@ -326,6 +326,80 @@ nav:
     - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
     - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
     - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
+  - 'Admin Portal':
+      - 'Users':
+          - admin-portal/applications/overview.md
+          - 'Add New User':
+            - developer-portal/applications/new-application.md
+            - 'Assign User Password':
+            - 'Invite Users':
+          - 'Edit User':
+            - developer-portal/applications/new-application.md
+      - 'Groups':
+          - admin-portal/applications/overview.md
+          - 'Add New Group':
+            - developer-portal/applications/new-application.md
+          - 'Edit Group':
+            - developer-portal/applications/new-application.md
+      - 'Roles':
+          - admin-portal/applications/overview.md
+          - 'Add New Role':
+            - developer-portal/applications/new-application.md
+          - 'Edit Role':
+            - developer-portal/applications/new-application.md
+          - 'Role Permissions':
+            - developer-portal/applications/new-application.md
+      - 'Attribute Dialects':
+          - admin-portal/applications/overview.md
+          - 'Local Dialect':
+            - developer-portal/applications/new-application.md
+            - 'Edit Local Dialect': developer-portal/applications/new-application.md
+              - 'Add New Local Attribute': developer-portal/applications/new-application.md
+          - 'External Dialects':
+            - developer-portal/applications/new-application.md
+            - 'Add New External Dialect': developer-portal/applications/new-application.md
+            - 'Edit External Dialect':
+              - developer-portal/applications/new-application.md
+              - 'Add New External Attribute': developer-portal/applications/new-application.md
+      - 'Userstores':
+          - admin-portal/applications/overview.md
+          - 'Add New Userstore':
+            - developer-portal/applications/new-application.md
+            - 'Read Only Ldap Userstore': developer-portal/applications/new-application.md
+            - 'Read Write Ldap Userstore': developer-portal/applications/new-application.md
+            - 'JDBC Userstore': developer-portal/applications/new-application.md
+              - 'Test Userstore': developer-portal/applications/new-application.md
+            - 'Active Directory Userstore': developer-portal/applications/new-application.md
+          - 'Edit Userstore': developer-portal/applications/new-application.md
+      - 'Certificates':
+          - admin-portal/applications/overview.md
+          - 'Import Certificate':
+          - 'Export Certificate':
+          - 'View Certificate':
+      - 'Configurations':
+          - admin-portal/applications/overview.md
+          - 'General':
+            - admin-portal/applications/overview.md
+            - 'Server':
+            - 'Self Registration':
+            - 'Account Recovery':
+            - 'Login Policies':
+            - 'Password Policies':
+          - 'Email Templates':
+            - admin-portal/applications/overview.md
+            - 'Template Types':
+              - admin-portal/applications/overview.md
+              - 'Add New Template Type':
+                - 'Add New Template':
+                - 'Edit Template':
+              - 'Edit Template Type':
+                - 'Add New Template':
+                - 'Edit Template':
+      - 'Tenant':
+          - admin-portal/applications/overview.md
+          - 'Register New Tenant':
+          - 'Edit Tenant':
+          - 'Deactivate Tenant':
   - 'Developer Portal':
       - 'Applications':
           - developer-portal/applications/overview.md
