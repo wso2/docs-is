@@ -718,7 +718,6 @@ nav:
       - 'Working with the Registry':
         - 'Working with the Registry': administer/working-with-the-registry.md
         - 'Browsing the Registry': administer/browsing-the-registry.md
-      - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
