@@ -136,6 +136,7 @@ nav:
           - 'Manage User Attributes with eIDAS': guides/login/user-attributes-eidas.md
           - 'Use SAML Metadata': guides/login/saml-metadata.md
         - 'WS-Federation': guides/login/ws-federation.md
+        - 'Integrate Using Custom Protocols': guides/login/integrate-custom-protocol.md
         - 'Configure Advanced Settings':
           - 'Skip User Consent': guides/login/skip-user-consent.md
           - 'SaaS Applications': guides/login/saas-apps.md
