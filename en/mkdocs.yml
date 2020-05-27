@@ -127,6 +127,7 @@ nav:
           - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
           - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
+        - 'Logging into WordPress using the Identity Server': learn/logging-in-to-wordpress-using-the-identity-server.md
       - 'Authentication':
         - 'Passwordless authentication using FIDO2': learn/passwordless-authentication-using-fido2.md
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
