@@ -9,7 +9,7 @@
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../authentication/oauth-app-config-advanced).
+        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced).
         
 7.  Click **Add**. 
 

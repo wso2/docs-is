@@ -6,7 +6,7 @@ This page guides you through configuring [token encryption for ID tokens](insert
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/access-delegation/oidc-token-encryption" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/oidc-token-encryption" target="_blank" rel="nofollow noopener">I have my own application</a>
 
 ----
 

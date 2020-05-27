@@ -6,7 +6,7 @@ This page guides you through enabling authentication using the [Authorization Co
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/regular-webapp-oidc-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/webapp-oidc-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
 
 ----
 

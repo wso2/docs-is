@@ -5,7 +5,7 @@ This page guides you through enabling authentication to a SAML web application u
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/authentication/regular-webapp-oidc" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/webapp-oidc" target="_blank" rel="nofollow noopener">I have my own application</a>
 
 ----
 
@@ -37,4 +37,4 @@ You have successfully configured authentication for a SAML application.
 
 3. Expand **Inbound Authentication Configuration** and then expand **SAML2 Web SSO Configuration**. Edit the configuration.
 
-4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations](../../guides/authentication/saml-app-config-advanced#enable-single-logout).
+4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations](../../guides/login/saml-app-config-advanced#enable-single-logout).

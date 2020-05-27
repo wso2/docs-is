@@ -8,7 +8,7 @@ This extension provides a mechanism to register clients with the authorization s
 To register a new client at the authorization server:
 
 1. Client discovers the client registration endpoint. The registration endpoint URL is discoverable via WebFinger.
-   For more information on discovering the client registration endpoint, see [OpenID Connect Discovery](../authentication/discovery.md).
+   For more information on discovering the client registration endpoint, see [OpenID Connect Discovery](../login/discovery.md).
    
 2. Client sends an HTTP POST message to the client registration endpoint with client metadata parameters that the client
    chooses to specify for itself during the registration.

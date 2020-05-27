@@ -57,8 +57,8 @@ nav:
         - 'React': quick-starts/react-sample.md
         - 'Java': quick-starts/java-sample.md
       - 'Authentication':
-        - 'OpenID Connect': quick-starts/regular-webapp-oidc-sample.md
-        - 'SAML': quick-starts/regular-webapp-saml-sample.md
+        - 'OpenID Connect': quick-starts/webapp-oidc-sample.md
+        - 'SAML': quick-starts/webapp-saml-sample.md
       - 'Single Sign On':
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
@@ -92,36 +92,73 @@ nav:
         - 'Microsoft Azure': quick-starts/ms-azure-as-federated-authenticator-sample.md
   - 'Guides':
       - 'Get Started': guides/before-you-start.md
-      - 'Authentication':
+      - 'Login':
         - 'Web Application':
-          - 'OAuth/OIDC': guides/authentication/regular-webapp-oidc.md
-          - 'SAML': guides/authentication/regular-webapp-saml.md
-          - 'STS': guides/authentication/regular-webapp-sts.md
-        - 'Mobile Application': guides/authentication/mobile-app.md
-        - 'Single Page Application': guides/authentication/spa-app.md
+          - 'OAuth/OIDC': guides/login/webapp-oidc.md
+          - 'SAML': guides/login/webapp-saml.md
+          - 'STS': guides/login/webapp-sts.md
+        - 'Mobile Application': guides/login/mobile-app.md
+        - 'Single Page Application': guides/login/spa-app.md
         - 'SaaS Applications':
-          - 'Google': guides/authentication/google.md
+          - 'Google': guides/login/google.md
           - 'Microsoft Services':
-            - 'Dynamics CRM': guides/authentication/microsoft-dynamic-crm.md
-            - 'Office365': guides/authentication/office365.md
-            - 'SharePoint': guides/authentication/microsoft-sharepoint.md
-            - 'Workday': guides/authentication/microsoft-workday.md
-          - 'Salesforce': guides/authentication/salesforce.md
-          - 'Shiboleth': guides/authentication/google.md
-      - 'Single Sign On': guides/authentication/enable-single-sign-on.md
-      - 'Authentication Methods':
-        - 'X509': guides/authentication/x509.md
-        - 'IWA': guides/authentication/iwa.md
+            - 'Dynamics CRM': guides/login/microsoft-dynamic-crm.md
+            - 'Office365': guides/login/office365.md
+            - 'SharePoint': guides/login/microsoft-sharepoint.md
+            - 'Workday': guides/login/microsoft-workday.md
+          - 'Salesforce': guides/login/salesforce.md
+          - 'Shiboleth': guides/login/google.md
+        - 'Request Claims for the Application': guides/login/request-app-claims.md
+        - 'Single Sign On': 
+          - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
+          - 'Single Sign-On for Native iOS Applications': guides/login/sso-native-ios.md
+          - 'SAML2 Single-Sign-On Across Different WSO2 Products': guides/login/sso-with-wso2-products.md
+        - 'Single Logout':
+          - 'OpenID Connect':
+            - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
+            - 'Logout URL Redirection': guides/login/oidc-logout-url-redirection.md
+          - 'SAML':
+            - 'Front-Channel Logout': guides/login/saml-frontchannel-logout.md
+            - 'Back-Channel Logout': guides/login/saml-backchannel-logout.md
+          - 'Cross Protocol Logout': guides/login/cross-protocol-logout.md
+          - 'SP/IdP Session Timeout': guides/login/session-timeout.md
+        - 'Advanced OpenID Connect':
+          - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
+          - 'Pass Parameters as a Request Object': guides/login/request-object.md
+          - 'Manage Scopes and Claims': guides/login/oidc-scopes-claims.md
+          - 'Generate & Encrypt ID Tokens': guides/login/oidc-token-encryption.md
+          - 'Discover OpenID Connect Provider': guides/login/oidc-discovery.md
+          - 'Obtain Key Set Using JWKS': guides/login/using-jwks.md
+        - 'Advanced SAML':
+          - 'Use Advanced Parameters in the Authentication Request': guides/login/saml-parameters-in-auth-request.md
+          - 'Use Artifact Binding': guides/login/saml-artifact-binding.md
+          - 'Query SAML Assertions': guides/login/query-saml-assertions.md
+          - 'Manage User Attributes with eIDAS': guides/login/user-attributes-eidas.md
+          - 'Use SAML Metadata': guides/login/saml-metadata.md
+        - 'WS-Federation': guides/login/ws-federation.md
+        - 'Integrate Using Custom Protocols': guides/login/integrate-custom-protocol.md
+        - 'Configure Advanced Settings':
+          - 'Skip User Consent': guides/login/skip-user-consent.md
+          - 'SaaS Applications': guides/login/saas-apps.md
+          - 'Use Certificates with Applications': guides/login/app-certificates.md
       - 'Multifactor Authentication':
-        - 'Overview': guides/mfa/overview.md
-        - '2FA with FIDO': guides/mfa/2fa-fido.md
-        - '2FA with TOTP': guides/mfa/2fa-totp.md
-        - '2FA with SMS OTP': guides/mfa/2fa-sms-otp.md
-        - '2FA with Email OTP': guides/mfa/2fa-email-otp.md
-        - '3FA': mfa/3fa-basic-fido-biometrics.md
+        - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
+        - 'Use a Knowledge Factor':
+          - 'Password': guides/mfa/password.md
+          - 'IWA': guides/mfa/iwa.md
+        - 'Use a Possession Factor':
+          - 'SMS OTP': guides/mfa/2fa-sms-otp.md
+          - 'Email OTP': guides/mfa/2fa-email-otp.md
+          - 'TOTP': guides/mfa/2fa-totp.md
+          - 'X509': guides/mfa/x509.md
+          - 'FIDO': guides/mfa/2fa-fido.md
+        - 'Use an Inherence Factor':
+          - 'MePIN': guides/mfa/mepin.md
+          - 'Biometrics': mfa/3fa-basic-fido-biometrics.md
+        - 'Request Path Authentication': guides/mfa/request-path.md
       - 'Adaptive Authentication': 
         - 'Configure Adaptive Authentication': guides/configure-adaptive-auth.md
-        - 'Using Function Library': guides/adaptive-auth-with-function-lib.md
+        - 'Use Function Library': guides/adaptive-auth-with-function-lib.md
       - 'Federation':
         - 'Facebook': guides/federation/facebook.md
         - 'Google': guides/federation/google.md
@@ -147,12 +184,6 @@ nav:
           - 'Overview': guides/access-delegation/openid-connect.md
           - 'Configure OpenID Connect Grant Types': guides/access-delegation/oidc-grant-types.md
           - 'Configure OpenID Connect Hybrid Flow': guides/access-delegation/oidc-hybrid-flow.md
-          - 'Map OpenID Connect Scopes & Claims': guides/access-delegation/map-oidc-scopes-claims.md
-          - 'Encrypt ID Tokens': guides/access-delegation/oidc-token-encryption.md
-          - 'Discover OpenID Connect Provider': guides/access-delegation/openid-connect-discovery.md
-          - 'Call JWKS Endpoint': guides/access-delegation/call-jwks-endpoint.md
-          - 'Logout URL Redirection': guides/access-delegation/oidc-logout-url-redirection.md
-          - 'Configure OpenID Connect Single Logout': guides/access-delegation/configure-oidc-backchannel-logout.md
       - 'Authorization' : guides/authorization/overview.md
       - 'Manage Users':
         - 'Overview': guides/user-mgt/user-mgt-overview.md 
@@ -315,17 +346,15 @@ nav:
     - 'Register an Application': fragments/register-a-service-provider.md
     - 'OAuth/OIDC':
       - 'Basic' : fragments/oauth-app-config-basic.md
-      - 'Advanced' : guides/authentication/oauth-app-config-advanced.md
+      - 'Advanced' : guides/login/oauth-app-config-advanced.md
       - 'Client Configurations':
         - 'Regular OAuth/OIDC Application' : fragments/configure-client-regular-oidc-app.md
-        - 'SPA Application' : guides/authentication/configure-client-spa.md
-        - 'Mobile Application' : guides/authentication/configure-mobile-app.md
         - 'OIDC Back-Channel Logout' : fragments/oidc-backchannel-logout.md
         - 'OIDC Session Management' : fragments/oidc-session-management.md
         - 'OAuth/OIDC Grants': fragments/oauth-oidc-grants.md
     - 'SAML':
       - 'Basic' : fragments/saml-app-config-basic.md
-      - 'Advanced' : guides/authentication/saml-app-config-advanced.md
+      - 'Advanced' : guides/login/saml-app-config-advanced.md
       - 'Client Configurations':
         - 'SAML Application' : fragments/configure-client-regular-saml-app.md
         - 'Retrieve User Information to the Client Application' : fragments/get-user-information-to-the-saml-application.md

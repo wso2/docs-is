@@ -25,7 +25,7 @@ references >
     
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
-        refer, [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced)
+        refer, [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced)
         
 
 | Field                 | Value         | 
@@ -39,7 +39,7 @@ references >
 1. Change Identity Provider Entity ID as discovery endpoint
 
 2. This spring-boot app makes use of OIDC Discovery supported by WSO2 Identity Server.  
-3. As mentioned in this [document](https://github.com/wso2/docs-is/edit/5.9.0/en/docs/learn/openid-connect-discovery.md), 
+3. As mentioned in this [document](../../login/oidc-discovery), 
 we need to change the Identity Provider Entity ID as https://localhost:9443/oauth2
 /oidcdiscovery. 
 
@@ -364,4 +364,4 @@ N/A
 !!! Tip "What's Next?"
 
     - [Enable single sign-on with another web application]()
-    - [Check out Detailed guide](../guides/authentication/mobile-app.md)    
+    - [Check out Detailed guide](../guides/login/mobile-app.md)    

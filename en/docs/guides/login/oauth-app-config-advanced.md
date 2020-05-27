@@ -44,7 +44,7 @@ This is the exact location in the service provider's application where an access
 
 **PKCE Mandatory**: Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. 
 
-See [Mitigating Authorization Code Interception Attacks](../../administer/mitigating-authorization-code-interception-attacks) for more information.
+See [Mitigating Authorization Code Interception Attacks](insertlink) for more information.
 
 **Support PKCE 'Plain' Transform Algorithm**: Select this if you are using PKCE.
 
@@ -75,25 +75,25 @@ Select this to enable audience restrictions for OAuth applications. If necessary
 
 #### Enable Request Object Signature Validation
 
-This is to define whether to only accept signed request objects in an authorization rqeuest or not. For more information, see [Enforcing Signature Validation for Request Objects](../.../learn/enforcing-signature-validation-for-request-objects).
+This is to define whether to only accept signed request objects in an authorization rqeuest or not. For more information, see [Enforcing Signature Validation for Request Objects](insertlink).
 
 ----
 
 #### Enable ID Token Encryption
 
-This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see [Testing OIDC Encrypted ID Token with IS](../../learn/testing-oidc-encrypted-id-token-with-is).
+This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see [Testing OIDC Encrypted ID Token with IS](insertlink).
 
 ----
 
 #### Enable OIDC Back Channel Logout
 
-This is to define whether OIDC back channel logout should be enabled or not. For more information, see [Configuring OpenID Connect Back-Channel Logout](../../learn/configuring-openid-connect-back-channel-logout).
+This is to define whether OIDC back channel logout should be enabled or not. For more information, see [Configuring OpenID Connect Back-Channel Logout](insertlink).
 
 ----
 
 #### Scope Validators
 
-This is to define the scope validation mechanisms. For more information on XACML scope validation, see [Validating the Scope of OAuth Access Tokens using XACML Policies](../../learn/validating-the-scope-of-oauth-access-tokens-using-xacml-policies).
+This is to define the scope validation mechanisms. For more information on XACML scope validation, see [Validating the Scope of OAuth Access Tokens using XACML Policies](insertlink).
 
 ----
 

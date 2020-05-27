@@ -124,4 +124,4 @@ The instructions below guide you through specifying authentication steps based o
 
 !!! Tip 
     Read more about ACR and AMR
-    [here](../../learn/working-with-acr-and-amr)
+    [here](insertlink)

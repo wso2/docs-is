@@ -14,7 +14,7 @@ enable Authentication to a SPA with Implicit Grant. >
  
 {!fragments/oauth-app-config-basic.md!}
 
-{!guides/authentication/configure-client-spa.md!}
+{!fragments/configure-client-regular-oidc-app.md!}
 
 {!fragments/oidc-session-management.md!}
 
