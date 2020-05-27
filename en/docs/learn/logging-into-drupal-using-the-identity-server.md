@@ -8,16 +8,19 @@ Let's get started!
     You need to have Drupal installed. Click[ here](https://www.drupal.org/docs/installing-drupal) for more information on installing Drupal.
     You need to have Composer installed. Click[ here](https://getcomposer.org/) for more information on installing Composer.
     You need to have SimpleSAMLphp Authentication Drupal modules installed. This module helps Drupal to communicate with WSO2 Identity Server. You can install it using the composer by executing the following command.
-    ```shell script
+    
+    ```
     composer require drupal/simplesamlphp_auth
     ```
 ## Configure SimpleSAMLphp as Service Provider.
 
 1.  Navigate to the Web directory on a terminal window and run the following command to create a symlink to the **vendor/simplesamlphp/simplesamlphp/www** folder.
-    ```shell script
+    
+    ```
     ln -s ../vendor/simplesamlphp/simplesamlphp/www simplesaml
     ```
 2.  Create an .htaccess file inside the simplesaml symlink folder and add the following configurations.
+    
     ```markdown
     RewriteCond %{REQUEST_URI} !/core/[^/]*\.php$
     RewriteCond %{REQUEST_URI} !/core/modules/system/tests/https?.php
