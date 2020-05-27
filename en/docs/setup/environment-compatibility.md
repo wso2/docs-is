@@ -43,6 +43,12 @@ WSO2 Identity Server supports the following DBMSs.
 		<th>WSO2 Identity Server</th>
 		<td>
 			<ul>
+				<li>MySQL 8.0</li>
+				<div class="admonition warning">
+					<p class="admonition-title"></p>
+					<p>To use MySQL 8.0, you need to create the database with charset latin1 as shown below</p>
+					<p><code>create database regdb <br> character set latin1; </code></p>
+				</div>
 				<li>MySQL 5.7</li>
 				<li>Oracle 12c</li>
 				<li>Microsoft SQL Server 2016</li>
