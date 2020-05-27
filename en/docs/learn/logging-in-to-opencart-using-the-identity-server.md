@@ -7,7 +7,7 @@ acts as the identity provider and the miniOrange SAML Single Sign on (SSO) third
 service provider which can be configured to establish the trust between the plugin and WSO2 IS to securely authenticate 
 the user to the Opencart store.
 
-### The flow
+## The flow
 
 The diagram below demonstrates the flow of how OpenCart uses WSO2 Identity Server as a SAML2 federated authenticator to 
 authenticate a user.
@@ -64,8 +64,8 @@ later for identity provider configurations.
     ![opencart-miniorange-idp](../assets/img/tutorials/opencart-miniorange-idp.png)
     
 5.  Add the relevant IdP attributes by navigating to **Attribute Mapping** tab.
-    1. First name: http://wso2.org/claims/givenname
-    2. Last name: http://wso2.org/claims/lastname
+    1. First name: ```http://wso2.org/claims/givenname```
+    2. Last name: ```http://wso2.org/claims/lastname```
     
     ![opencart-miniorange-attribute-mapping](../assets/img/tutorials/opencart-miniorange-attribute-mapping.png)
 
@@ -93,9 +93,9 @@ Service Provider Name is a required field and you can use Opencart-SP as the nam
 4.  Expand **Claim Configuration**.
     1. Select **Use Local Claim Dialect**.
     2. For **Requested Claims**, add the following claim URIs.
-        1. https://wso2.org/claims/lastname
-        2. https://wso2.org/claims/givenname
-    3. Set **Subject Claim URI** to https://wso2.org/claims/emailaddress.
+        1. ```https://wso2.org/claims/lastname```
+        2. ```https://wso2.org/claims/givenname```
+    3. Set **Subject Claim URI** to ```https://wso2.org/claims/emailaddress```.
     
     ![opencart-is-claim-config](../assets/img/tutorials/opencart-is-claim-config.png)
     
@@ -103,7 +103,8 @@ Service Provider Name is a required field and you can use Opencart-SP as the nam
     In the form that appears, fill out the following configuration details required for single sign-on. 
     For more details on these attributes, refer 
     [SAML2 Web SSO Configuration](../../learn/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-saml2-web-sso).
-    1. For the value of **Issuer**, provide the SP Entity ID obtained as Service Provider Metadata when configuring SAML SSO extension in OpenCart.
+    1. For the value of **Issuer**, provide the SP Entity ID obtained as Service Provider Metadata when configuring 
+    SAML SSO extension in OpenCart.
     2. For the value of **Assertion Consumer URL**, provide the ACS Url obtained as Service Provider Metadata when configuring SAML SSO extension in OpenCart. 
     3. Uncheck **Enable Signature Validation in Authentication Requests and Logout Requests**.
     4. Check **Enable Attribute Profile** and **Include Attributes in the Response Always**.
@@ -120,12 +121,13 @@ Service Provider Name is a required field and you can use Opencart-SP as the nam
 the SSO extension.
     ![opencart-sso-login-button](../assets/img/tutorials/opencart-sso-login-button.png)
         
-3.  You will be redirected to WSO2 Identity Server login page. Login by providing credentials of an user in WSO2 IS.
+3.  You will be redirected to WSO2 Identity Server login page. Login by providing credentials of a user in WSO2 IS.
     ![opencart-is-sso-login](../assets/img/tutorials/opencart-is-sso-login.png)
 	
-4.  Upon successful login you will be logged into OpenCart.
+4.  Upon successful login you will be logged in to OpenCart.
     ![opencart-sso-success.png](../assets/img/tutorials/opencart-sso-success.png)
     
-5.  Under your account personal details the user profile attributes configured in WSO2 Identity Server will be populated.
+5.  The user profile attributes configured in WSO2 Identity Server will be populated in the Personal details of your 
+account.
     ![opencart-sso-account-info.png](../assets/img/tutorials/opencart-sso-account-info.png)
 
