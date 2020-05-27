@@ -56,9 +56,10 @@ nav:
         - 'Android': quick-starts/android-sample.md
         - 'React': quick-starts/react-sample.md
         - 'Java': quick-starts/java-sample.md
-      - 'Authentication':
+      - 'Login':
         - 'OpenID Connect': quick-starts/webapp-oidc-sample.md
         - 'SAML': quick-starts/webapp-saml-sample.md
+        - 'Query SAMl Assertions': quick-starts/query-saml-assertions-sample.md
       - 'Single Sign On':
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
