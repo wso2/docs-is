@@ -189,3 +189,6 @@ Scope validation has been enforced for authorization code grant and implicit gra
     [oauth]
     scope_validator.authz_implicit.enable = false
     ```
+
+## Multi factor Authentication using FIDO
+From IS 5.9.0 onwards, WebAuthn API is being used instead of U2F API. If you have used FIDO previously, your devices must be re-enrolled.
