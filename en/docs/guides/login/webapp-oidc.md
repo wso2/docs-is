@@ -1,6 +1,6 @@
 # Enable Login for an OIDC Web Application
 
-This page guides you through enabling login for an [OAuth/OpenID Connect](../../../concepts/authentication/intro-oidc) web application. 
+This page guides you through enabling login for an [OpenID Connect](../../../concepts/authentication/intro-oidc) web application. 
 
 ---
 
