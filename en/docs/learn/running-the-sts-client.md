@@ -1,4 +1,4 @@
-# Running an STS Client
+# Running the STS Client
 
 The following sample demonstrates the steps required to run a Security
 Token Service (STS) client. The STS provides the service of issuing a
@@ -11,7 +11,7 @@ The WS-Trust STS needs to be configured. You can do this by following
 the instructions found
 [here](../../learn/configuring-ws-trust-security-token-service).
 
-### Running the STS client
+### Setting up and running the client
 
 1.  The code for the sample can be checked out from the GitHub
     repository. To do this, follow the instructions on the [Downloading

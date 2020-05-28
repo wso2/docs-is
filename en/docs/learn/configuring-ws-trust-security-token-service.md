@@ -177,7 +177,7 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-ke
 
     !!! info "Related Topics"
 		Run the STS client after configuring the service provider. For
-		instructions on trying out a sample STS client, see [Running an STS
-		Client](../../learn/running-an-sts-client).
+		instructions on trying out a sample STS client, see [Running the STS
+		Client](../../learn/running-the-sts-client).
 
   
