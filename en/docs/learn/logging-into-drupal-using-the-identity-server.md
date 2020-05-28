@@ -5,21 +5,23 @@ Drupal is open source content management software distributed under the terms of
 Let's get started!
 
 !!! tip "Before you begin!"
-    You need to have Drupal installed. Click[ here](https://www.drupal.org/docs/installing-drupal) for more information on installing Drupal.
-    You need to have Composer installed. Click[ here](https://getcomposer.org/) for more information on installing Composer.
-    You need to have SimpleSAMLphp Authentication Drupal modules installed. This module helps Drupal to communicate with WSO2 Identity Server. You can install it using the composer by executing the following command.
+    - You need to have Drupal installed. Click[ here](https://www.drupal.org/docs/installing-drupal) for more information on installing Drupal.
     
-    ```
-    composer require drupal/simplesamlphp_auth
-    ```
-## Configure SimpleSAMLphp as Service Provider.
+    - You need to have Composer installed. Click[ here](https://getcomposer.org/) for more information on installing Composer.
+    
+    - You need to have SimpleSAMLphp Authentication Drupal modules installed. This module helps Drupal to communicate with WSO2 Identity Server. You can install it using the composer by executing the following command.
+    
+        ```
+        composer require drupal/simplesamlphp_auth
+        ```
+## Configure SimpleSAMLphp as a service provider
 
-1.  Navigate to the Web directory on a terminal window and run the following command to create a symlink to the **vendor/simplesamlphp/simplesamlphp/www** folder.
+1.  Navigate to the Web directory on a terminal window and run the following command to create a symlink to the `vendor/simplesamlphp/simplesamlphp/www` folder.
     
     ```
     ln -s ../vendor/simplesamlphp/simplesamlphp/www simplesaml
     ```
-2.  Create an .htaccess file inside the simplesaml symlink folder and add the following configurations.
+2.  Create an `.htaccess file` inside the simplesaml symlink folder and add the following configurations.
     
     ```markdown
     RewriteCond %{REQUEST_URI} !/core/[^/]*\.php$
@@ -32,7 +34,7 @@ Let's get started!
     RewriteCond %{REQUEST_URI} !/simplesaml/[^/]*\.php/saml/sp/[^/]*\.php/default-sp$
     RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]\
     ```
-3. Make the following changes to the <Project_Name>/vendor/simplephp/simplephp/config/config.php file.
+3. Make the following changes to the `<PROJECT_NAME>/vendor/simplephp/simplephp/config/config.php` file.
 
     !!! info 
             If you are unable to find the config folder, create an empty folder and copy all the files from config-templates directory.
@@ -46,14 +48,15 @@ Let's get started!
     - technicalcontact_name: enter the name of thet echnical person who is running this installation.(optional)
     - technicalcontact_email: enter the email of the technical person who is running this installation.(optional)
     - Add this line to the end of the config.php file 
+    
     ```markdown
     $config['baseurlpath'] = 'http://'. $_SERVER[‘HTTP_HOST’].'/simplesaml/';
     ```
 
     !!! note "Note!"
-            Configure your server to support virtual hosts and point the document root to **Path_to_Project_name/www**. Click [here](https://httpd.apache.org/docs/2.4/vhosts/index.html) to see how to configure virtual hosts in the Apache server.
+            Configure your server to support virtual hosts and point the document root to `<PATH_TO_PROJECT>/www`. Click [here](https://httpd.apache.org/docs/2.4/vhosts/index.html) to see how to configure virtual hosts in the Apache server.
 
-4. Update the **config/authsources.php** file of the service provider by providing the following details under **‘default-sp’**.
+4. Update the `config/authsources.php` file of the service provider by providing the following details under **default-sp**.
 
     <table>
       <tr>
@@ -74,7 +77,7 @@ Let's get started!
     </table>
 
 
-5. Copy IdP metadata to the **metadata/saml20-idp-remote.php** file of the Service Provider. WSO2 IS’s cert fingerprint should be set as the **certFingerprint** and tenant domain should be set as Idp tenant domain.
+5. Copy IdP metadata to the `metadata/saml20-idp-remote.php` file of the Service Provider. WSO2 IS’s cert fingerprint should be set as the **certFingerprint** and tenant domain should be set as Idp tenant domain.
     ```markdown
      $metadata['https://localhost:9443/samlsso'] = array(
        'name' => array(
@@ -87,21 +90,21 @@ Let's get started!
        'certFingerprint' 	 => '57ff38d97664c792ff8801171f04191ded88778d'
     );
     ```
-## Configure WSO2 Identity server as Identity Provider.
+## Configure WSO2 Identity Server as the identity provider
 
-1. Click on **Identity Providers >** **Resident** and then expand k **SAML2 Web SSO Configuration**. 
+1. Click on **Identity Providers > Resident** and then expand **SAML2 Web SSO Configuration**. 
 
-2. Use **https://localhost:9443/samlsso** as the Identity Provider **Entity Id** and click **Update** to save the configuration.
+2. Use `https://localhost:9443/samlsso` as the Identity Provider **Entity Id** and click **Update** to save the configuration.
 
-    ![image alt text](../assets/img/tutorials/drupal-is-resident-idp-config.png)
+    ![resident-idp-config](../assets/img/tutorials/drupal-is-resident-idp-config.png)
 
 3. Click **Service Providers > Add** and enter a unique name as the **Service Provider name** (e.g., "Drupal_SP").
 
 4. Expand **Inbound Authentication Configuration** and then expand **SAML2 Web SSO Configuration**.
 
-5. Enter the value you configured as the **Entity ID** in the the **config/authsources.php** file as the **Issuer**.
+5. Enter the value you configured as the **Entity ID** in the the `config/authsources.php` file as the **Issuer**.
 
-6. Enter** **http://$host/simplesaml/module.php/saml/sp/metadata.php/default-sp** as the **Assertion Consumer URL**.
+6. Enter** `http://$host/simplesaml/module.php/saml/sp/metadata.php/default-sp` as the **Assertion Consumer URL**.
 
 7. Enable **Enable IdP Initiated SSO**.
 
@@ -109,7 +112,7 @@ Let's get started!
 
 9. **Click Register** to save the details.
 
-10. Expand **Claim Configuration**. Select  **Define Custom Claim Dialect** and add the following Claim URI.
+10. Expand **Claim Configuration**. Select **Define Custom Claim Dialect** and add the following Claim URI.
 
     * Service Provider Claim: Mail
     Local Claim:[ https://wso2.com/claims/emailaddress](https://wso2.com/claims/emailaddress)
@@ -123,21 +126,21 @@ Let's get started!
 
 11. Click **Update** to save .
 
-## Try SAML 2.0 SP 
+## Try SAML 2.0 authentication 
 
-1. On a browser window, navigate to **http://'. $_SERVER[‘HTTP_HOST’] .’/simplesaml/**.
+1. On a browser window, navigate to: **http://'. $_SERVER[‘HTTP_HOST’] .’/simplesaml/**.
 
-    ![image alt text](../assets/img/tutorials/drupal-simple-saml-welcome-page.png)
+    ![drupal-simple-saml-welcome-page](../assets/img/tutorials/drupal-simple-saml-welcome-page.png)
 
-2. Click **Authentication** > **Test configured authentication sources**.
+2. Click **Authentication > Test configured authentication sources**.
 
-    ![image alt text](../assets/img/tutorials/drupal-simple-saml-default-sp.png)
+    ![drupal-simple-saml-default-sp](../assets/img/tutorials/drupal-simple-saml-default-sp.png)
 
 3. Click **default-sp**. You will be redirected to the WSO2 Identity Server authentication page.
 
 4. Login as the newly created user and you will see the User attributes, SAML Subject and Auth Data.
 
-    ![image alt text](../assets/img/tutorials/drupal-simple-saml-login.png)
+    ![drupal-simple-saml-login](../assets/img/tutorials/drupal-simple-saml-login.png)
 
 ## Configure Drupal
 
@@ -149,54 +152,54 @@ Let's get started!
 
     * External Authentication
 
-3. Click  **Configuration** > **People** > **SimpleSAMLphpAuthSettings**.
+3. Click  **Configuration > People > SimpleSAMLphpAuthSettings**.
 
 4. Enable **Activate authentication via SimpleSAMLphp**.
 
-    ![image alt text](../assets/img/tutorials/drupal-sp-enable-simpe-saml-php.png)
+    ![drupal-sp-enable-simpe-saml-php](../assets/img/tutorials/drupal-sp-enable-simpe-saml-php.png)
 
-5. Enable **User provisioning** > **Register users** to create/ register users using this module.
+5. Enable **User provisioning > Register users** to create or register users using this module.
 
 6. Click **Save configuration**.
 
 7. Click on the **User info and syncing** tab.
 
-8. Enter **Mail** as the **SimpleSAMLphp attribute to be used as a unique identifier for the user**.
+8. Enter `Mail` as the **SimpleSAMLphp attribute to be used as a unique identifier for the user**.
 
-9. Enter **fname** as the **SimpleSAMLphp attribute to be used as a username for the user**.
+9. Enter `fname` as the **SimpleSAMLphp attribute to be used as a username for the user**.
 
-10. Enter **Mail** as the **SimpleSAMLphp attribute to be used as an email address for the user**.
+10. Enter `Mail` as the **SimpleSAMLphp attribute to be used as an email address for the user**.
 
-    ![image alt text](../assets/img/tutorials/drupal-sp-config-user-info.png)
+    ![drupal-sp-config-user-info](../assets/img/tutorials/drupal-sp-config-user-info.png)
 
 11. Click **Save configuration**.
 
-## Try it out.
+## Try it out
 
 1. [Create a user ](https://is.docs.wso2.com/en/latest/learn/adding-users-and-roles/#create-a-user)in WSO2 IS.
 
-    * Edit the user profile and update the **First name** and **email address** fields.
+   Edit the user profile and update the **First name** and **email address** fields.
 
-2. Login to Drupal as the **admin** and create a user with the same email address.
+2. Login to Drupal as the admin user and create a user with the same email address.
 
 3. Logout of Drupal. You will be redirected to the Drupal Login page. 
 
 4. Click **Federated login** You will be directed to the WSO2 Login Page.
 
-    ![image alt text](../assets/img/tutorials/drupal-sp-login.png)
+    ![drupal-sp-login](../assets/img/tutorials/drupal-sp-login.png)
 
-    ![image alt text](../assets/img/tutorials/drupal-idp-login.png)
+    ![drupal-idp-login](../assets/img/tutorials/drupal-idp-login.png)
 
 5. Provide user credentials of the user you created in step 2 and click **Continue**.
 
 6. Enable **Select All**.
 
-    ![image alt text](../assets/img/tutorials/drupal-idp-consent.png)
+    ![drupal-idp-consent](../assets/img/tutorials/drupal-idp-consent.png)
 
 7. Click **continue** You will be redirected to the Drupal home page.
 
-    ![image alt text](../assets/img/tutorials/drupal-sp-welcome-page.png)
+    ![drupal-sp-welcome-page](../assets/img/tutorials/drupal-sp-welcome-page.png)
 
-8. Click **edit** . The user profile attributes configured in WSO2 Identity Server will be populated in the Personal details of your account.
+8. Click **edit** . The user profile attributes configured in WSO2 Identity Server will be populated in the **Personal details** section of your account.
 
-    ![image alt text](../assets/img/tutorials/drupal-sp-populated-user-info.png)
+    ![drupal-sp-populated-user-info](../assets/img/tutorials/drupal-sp-populated-user-info.png)
