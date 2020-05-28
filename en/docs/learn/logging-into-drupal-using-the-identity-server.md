@@ -1,6 +1,6 @@
 # Logging into Drupal using the Identity Server
 
-Drupal is open source content management software distributed under the terms of the[ GNU General Public License](http://www.gnu.org/copyleft/gpl.html) (GPL). This topic provides instructions on how to log into Drupal using your WSO2 Identity Server credentials. In this tutorial, Drupal acts as the service provider and WSO2 Identity Server acts as the identity provider.
+Drupal is an open source content management software distributed under the terms of the[ GNU General Public License](http://www.gnu.org/copyleft/gpl.html) (GPL). This topic provides instructions on how to log into Drupal using your WSO2 Identity Server credentials. In this tutorial, Drupal acts as the service provider and WSO2 Identity Server acts as the identity provider.
 
 Let's get started!
 
