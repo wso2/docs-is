@@ -1,12 +1,12 @@
-# Enable Authentication for an OIDC Web Application
+# Enable Login for an OIDC Web Application
 
-This page guides you through enabling authentication to an [OAuth/OpenID Connect](../../../concepts/authorization/intro-oidc) web application. 
+This page guides you through enabling login for an [OAuth/OpenID Connect](../../../concepts/authentication/intro-oidc) web application. 
 
 ---
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/webapp-oidc-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/webapp-oidc-sample" rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
@@ -27,7 +27,7 @@ Make the following requests via your application to connect your application to 
     ```tab="Request Format"
     https://<host>/oauth2/authorize?scope=openid&response_type=code
     &redirect_uri=<redirect_uri>
-    &client_id=<OAuth Client Key>
+    &client_id=<oauth_client_key>
     ```
 
     ```tab="Sample Request"
@@ -36,13 +36,12 @@ Make the following requests via your application to connect your application to 
     &client_id=YYVdAL3lLcmrubZ2IkflCAuLwk0a
     ```
 
-2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` recieved in step 1, and the `OAuth Client Key` and `<OAuth Client Secret>` obtained when configuring the service provider.
+2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` recieved in step 1, and the `oauth_client_key` and `oauth_client_secret` obtained when configuring the service provider.
 
     ```tab="Request Format"
-    curl -i -X POST -u <OAuth Client Key>:<Client Secret> -k -d 
+    curl -i -X POST -u <oauth_client_key>:<oauth_client_secret> -k -d 
     'grant_type=authorization_code&redirect_uri=<redirect_uri>
-    &code=<authorization_code>' 
-    https://localhost:9443/oauth2/token
+    &code=<authorization_code>' https://localhost:9443/oauth2/token
     ```
 
     ```tab="Sample Request"
@@ -56,8 +55,7 @@ Make the following requests via your application to connect your application to 
 
 ----
 
-{!fragments/oidc-session-management.md!}
-
-----
-
-{!fragments/oidc-backchannel-logout.md!}
+!!! info "Related Topics"
+    - [Enable Login for a Sample OAuth/OpenID Connect Web Application](../../../quick-starts/webapp-oidc-sample)
+    - [Manage User Sessions](insertlink)
+    - [OpenID Connect Back-Channel Logout](../login/oidc-backchannel-logout)
