@@ -1,4 +1,4 @@
-*    # Migrating to 5.9.0
+# Migrating to 5.9.0
 
 Before you follow this section, see
 [Before you begin](../../setup/migration-guide) and
