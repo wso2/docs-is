@@ -4,7 +4,7 @@ From [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-manageme
 been introduced which is the successor to the dashboard. It also adheres to the UI extensions scheme
  introduced with WSO2 Identity Server 5.9.0 to use a centralized theming for all the front-end portals.
 
-Let's see how we can customize the theming of **user portal**.
+Let's see how we can customize the theming of the **user portal**.
 
 ## Changing the default theme to dark mode
 
@@ -12,7 +12,7 @@ Let's see how we can customize the theming of **user portal**.
 !!! info
     A customized version of the [default theme](https://github
     .com/Semantic-Org/Semantic-UI-LESS/tree/master/themes/default) in the Semantic UI LESS package has been used to
-    achieve the look and feel of the User Portal.
+    achieve the look and feel of the **user portal**.
 
     ![default-user-portal-theme](../assets/img/develop/default-user-portal-theme.png)
 
