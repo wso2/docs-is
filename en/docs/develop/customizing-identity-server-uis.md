@@ -2,36 +2,43 @@
 
 From [WSO2 Identity Server 5.9.0](https://wso2.com/identity-and-access-management/) onwards, a new UI extension has been introduced to  easily customize the basic user interfaces like login page, username and password recovery pages, and single sign-on pages.
 
-All these UIs are available in the **`authenticationendpoint`** and **`accountrecoveryendpoint`** web apps that are located in the `<IS-Home>/repository/deployment/server/webapps` folder. To customize these pages, follow the steps below. 
+All these UIs are available in the **`authenticationendpoint`** and **`accountrecoveryendpoint`** web apps that are located in the `<IS_HOME>/repository/deployment/server/webapps` folder. To customize these pages, follow the steps below. 
 
+!!! warning
+    To customize the endpoints, apply the 0003 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
+    (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid
+    subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For
+    more information on updating WSO2 Identity Server using WUM, see [Updating WSO2 Products](https://is.docs.wso2
+    .com/en/latest/administer/getting-wso2-updates/)
 
 ## Step 1: Create the extensions folder
 
-1. Navigate to the `<IS-Home>/repository/deployment/server/webapps/authenticationendpoint` folder and create a new folder called **`extensions`**.
+1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint` folder and create a new folder called **`extensions`**.
 
     !!! info
     
         You will be adding the customized JSP files along with the custom CSS files into this new `extensions` folder.
            
-2. Similarly, navigate to the `<IS-Home>/repository/deployment/server/webapps/accountrecoveryendpoint` folder and create an `extensions` folder.
+2. Similarly, navigate to the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint` folder and create an `extensions` folder.
 
 
 ## Step 2: Copy the existing header and footer content
 
 In order to customize the header and footer content of the web applications, first you need to copy them to the newly cerated `extensions` folders. 
 
-1. To copy the header and footer content of the authenticationendpoint web application:
+1. To copy the header and footer content of the **authenticationendpoint** web application:
 
-    1. Navigate to the `<IS-Home>/repository/deployment/server/webapps/authenticationendpoint/includes` folder.
+    1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/includes` folder.
 
-    2. Copy the `header.jsp` and `footer.jsp` files into the `<IS-Home>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
+    2. Copy the `header.jsp` and `product-footer.jsp` files into the
+    `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
        
-        !!! note 
-        
-            The `header.jsp` and `footer.jsp` files have the capability to override the corresponding files in the `includes` folder.
+        !!! note
+            The `header.jsp` and `product-footer.jsp` files have the capability to override the corresponding files in
+            the `includes` folder.
     
 
-2. Similarly, copy the header and footer content of the accountrecoveryendpoint web application.
+2. Similarly, copy the header and footer content of the **accountrecoveryendpoint** web application.
 
 
 ## Step 3: Create styling
@@ -39,77 +46,199 @@ In order to customize the header and footer content of the web applications, fir
 Create the basic CSS styles that are required to override the existing UI styling.
 
 ```css tab="Example"  
-<style type="text/css">
+<style>
+    html, body {
+        height: 100%;
+    }
 
-body {
-  background: #1e1e2f;
-  color: #ffffff;
-}
+    body {
+        flex-direction: column;
+        display: flex;
+        background: #1e1e2f;
+        color: #ffffff;
+    }
 
-.logo-container {
-  padding: 15px 30px;
-}
+    main {
+        flex-shrink: 0;
+    }
 
-header .brand img.logo {
-  height: 40px;
-}
+    main.center-segment {
+        margin: auto;
+        display: flex;
+        align-items: center;
+    }
 
-.wr-title {
-   background: #32344e !important;
-   border-top-left-radius: 10px;
-   border-top-right-radius: 10px;
-}
+    main.center-segment > .ui.container.medium {
+        max-width: 450px !important;
+    }
 
-.header {
-   border-top: 3px solid #1e8cf8;
-   background: #1e1e2f;
-   min-height: 70px;
-   border-bottom: 1px solid #31314b;
-}
-.....
+    main.center-segment > .ui.container.large {
+        max-width: 700px !important;
+    }
 
-a:hover,
-a:active {
-color: #3a9dff;
-}
+    main.center-segment > .ui.container > .ui.segment {
+        padding: 3rem;
+        background: #424061;
+        box-shadow: 3px 2px 7px #1c1818;
+        border-radius: 10px;
+    }
+
+    main.center-segment > .ui.container > .ui.segment .segment-form .buttons {
+        margin-top: 1em;
+    }
+
+    main.center-segment > .ui.container > .ui.segment .segment-form .buttons.align-right button,
+    main.center-segment > .ui.container > .ui.segment .segment-form .buttons.align-right input {
+        margin: 0 0 0 0.25em;
+    }
+
+    main.center-segment > .ui.container > .ui.segment .segment-form .column .buttons.align-left button.link-button,
+    main.center-segment > .ui.container > .ui.segment .segment-form .column .buttons.align-left input.link-button {
+        padding: .78571429em 1.5em .78571429em 0;
+    }
+
+    main.center-segment > .ui.container > .ui.segment .segment-form {
+        text-align: left;
+    }
+
+    main.center-segment > .ui.container > .ui.segment .segment-form .align-center {
+        text-align: center;
+    }
+
+    main.center-segment > .ui.container > .ui.segment .segment-form .align-right {
+        text-align: right;
+    }
+
+    .cookie-policy-message {
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 2rem 0;
+    }
+
+    body .product-title .product-title-text {
+        margin: 0;
+    }
+
+    body .center-segment .product-title .product-title-text {
+        margin-top: 2em;
+        margin-bottom: 1em;
+    }
+
+    .ui.header {
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .ui.menu.fixed.app-header .product-logo {
+        padding-left: 0;
+    }
+
+    .ui.form .field .ui.input input {
+        background: #6b688d;
+    }
+
+    .ui.checkbox label {
+        color: #ffffff;
+    }
+
+    /* Table of content styling */
+
+    main #toc {
+        position: sticky;
+        top: 93px;
+    }
+
+    main .ui.segment.toc {
+        padding: 20px;
+    }
+
+    main .ui.segment.toc ul.ui.list.nav > li.sub {
+        margin-left: 20px;
+    }
+
+    main .ui.segment.toc ul.ui.list.nav > li > a {
+        color: rgba(0,0,0,.87);
+        text-decoration: none;
+    }
+
+    main .ui.segment.toc ul.ui.list.nav > li:before {
+        content: "\2219";
+        font-weight: bold;
+        font-size: 1.6em;
+        line-height: 0.5em;
+        display: inline-block;
+        width: 1em;
+        margin-left: -0.7em;
+    }
+
+    main .ui.segment.toc ul.ui.list.nav > li.sub:before {
+        content: "\2192";
+        margin-left: -1em;
+    }
+
+    main .ui.segment.toc ul.ui.list.nav > li:hover a {
+        color: #ff5000;
+        text-decoration: none;
+    }
+
+    main .ui.segment.toc ul.ui.list.nav > li:hover:before {
+        color: #ff5000;
+    }
 </style>
 ```
 
-## Step 4: Edit the existing header and footer content 
+## Step 4: Edit the existing header and footer content
 
-To add footer.jsp and header.jsp in extensions folder as follows:
+Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as follows:
 
 1.  To edit the header content of the **authenticationendpoint** web application:
 
-    1. Open the `header.jsp` file in the <IS-Home>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
+    1. Open the `header.jsp` file in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
 
-    2. Add the following includes:
+    2. Add the following includes.
 
        ```
        <%@include file=”../localize.jsp” %>
        <%@include file=”../init-url.jsp” %>
        ``` 
 
-    3. Add the styles that you created in [Step 3](#create-styling) inside the header tag as shown in the [sample file](https://github.com/wso2/samples-is/blob/master/sample-ui-extensions/accountrecoveryendpoint/extensions/header.jsp).
+    3. Replace the contents of the `<style>` tag, with the styles you created in [Step 3](#create-styling) inside
+    the header tag.
 
 2.  To edit the footer content of the **authenticationendpoint** web application: 
 
-    1. Open the `footer.jsp` file in the <IS-Home>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
+    1. Open the `product-footer.jsp` file in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
 
-    2. Add the company name as shown in the [sample file](https://github.com/wso2/samples-is/blob/master/sample-ui-extensions/accountrecoveryendpoint/extensions/footer.jsp).
-
+    2. To add the company name, replace the content of `<footer> tag` with the following.
+    ```html
+        <footer class="footer">
+            <div class="container-fluid">
+                <p>XYZ Company | &copy;
+                    <script>document.write(new Date().getFullYear());</script>
+                    <a href="<%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "business.homepage")%>"
+                       target="_blank">
+                       <i class="icon fw fw-wso2"></i>
+                       <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "Inc")%>
+                    </a>
+                    . <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
+                </p>
+            </div>
+        </footer>
+    ```
       
 3. Similarly, you can customize the **accountrecovery** web application header and footer.
 
     !!! note
     
-        Make sure to add the following include to the top, when editing the `header.jsp` file of the accountrecovery web application.
+        Make sure to add the following include to the top, when editing the `header.jsp` file of the **accountrecovery** web application.
     
            ```
            <%@include file=”../localize.jsp” %>
            ```
 
-4. Refresh the browser and check out the customized header and footer content. 
+4. Refresh the browser and check out the customized header and footer content.
 
 !!! tip
 

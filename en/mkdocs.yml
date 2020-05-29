@@ -581,9 +581,11 @@ nav:
         - 'Customizing WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Customizing Login Pages for Service Providers': develop/customizing-login-pages-for-service-providers.md
         - 'Customizing the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md
+        - 'Customizing the User Portal UI': develop/customizing-user-portal-ui.md
       - 'Customizing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
+      - 'Setting-Up User Portal in a Development Environment': develop/setting-up-user-portal-in-a-dev-environment.md
   - 'Setup':
     - 'Install':
       - 'Installing the Product':
