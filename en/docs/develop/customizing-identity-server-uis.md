@@ -2,7 +2,7 @@
 
 From [WSO2 Identity Server 5.9.0](https://wso2.com/identity-and-access-management/) onwards, a new UI extension has been introduced to  easily customize the basic user interfaces like login page, username and password recovery pages, and single sign-on pages.
 
-All these UIs are available in the **`authenticationendpoint`** and **`accountrecoveryendpoint`** web apps that are located in the `<IS-Home>/repository/deployment/server/webapps` folder. To customize these pages, follow the steps below. 
+All these UIs are available in the **`authenticationendpoint`** and **`accountrecoveryendpoint`** web apps that are located in the `<IS_HOME>/repository/deployment/server/webapps` folder. To customize these pages, follow the steps below. 
 
 !!! warning
     To customize the endpoints, apply the 0003 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
@@ -13,32 +13,32 @@ All these UIs are available in the **`authenticationendpoint`** and **`accountre
 
 ## Step 1: Create the extensions folder
 
-1. Navigate to the `<IS-Home>/repository/deployment/server/webapps/authenticationendpoint` folder and create a new folder called **`extensions`**.
+1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint` folder and create a new folder called **`extensions`**.
 
     !!! info
     
         You will be adding the customized JSP files along with the custom CSS files into this new `extensions` folder.
            
-2. Similarly, navigate to the `<IS-Home>/repository/deployment/server/webapps/accountrecoveryendpoint` folder and create an `extensions` folder.
+2. Similarly, navigate to the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint` folder and create an `extensions` folder.
 
 
 ## Step 2: Copy the existing header and footer content
 
 In order to customize the header and footer content of the web applications, first you need to copy them to the newly cerated `extensions` folders. 
 
-1. To copy the header and footer content of the authenticationendpoint web application:
+1. To copy the header and footer content of the **authenticationendpoint** web application:
 
-    1. Navigate to the `<IS-Home>/repository/deployment/server/webapps/authenticationendpoint/includes` folder.
+    1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/includes` folder.
 
     2. Copy the `header.jsp` and `product-footer.jsp` files into the
-    `<IS-Home>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
+    `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
        
         !!! note
             The `header.jsp` and `product-footer.jsp` files have the capability to override the corresponding files in
             the `includes` folder.
     
 
-2. Similarly, copy the header and footer content of the accountrecoveryendpoint web application.
+2. Similarly, copy the header and footer content of the **accountrecoveryendpoint** web application.
 
 
 ## Step 3: Create styling
@@ -191,13 +191,13 @@ Create the basic CSS styles that are required to override the existing UI stylin
 
 ## Step 4: Edit the existing header and footer content
 
-To add product-footer.jsp and header.jsp in extensions folder as follows:
+Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as follows:
 
 1.  To edit the header content of the **authenticationendpoint** web application:
 
-    1. Open the `header.jsp` file in the <IS-Home>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
+    1. Open the `header.jsp` file in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
 
-    2. Add the following includes:
+    2. Add the following includes.
 
        ```
        <%@include file=”../localize.jsp” %>
@@ -209,8 +209,7 @@ To add product-footer.jsp and header.jsp in extensions folder as follows:
 
 2.  To edit the footer content of the **authenticationendpoint** web application: 
 
-    1. Open the `product-footer.jsp` file in the <IS-Home>/repository/deployment/server/webapps/authenticationendpoint
-    /extensions` folder.
+    1. Open the `product-footer.jsp` file in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
 
     2. To add the company name, replace the content of `<footer> tag` with the following.
     ```html
@@ -233,7 +232,7 @@ To add product-footer.jsp and header.jsp in extensions folder as follows:
 
     !!! note
     
-        Make sure to add the following include to the top, when editing the `header.jsp` file of the accountrecovery web application.
+        Make sure to add the following include to the top, when editing the `header.jsp` file of the **accountrecovery** web application.
     
            ```
            <%@include file=”../localize.jsp” %>
