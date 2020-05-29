@@ -261,6 +261,8 @@ nav:
           - 'Sending Notifications to External PEP Endpoints': learn/sending-notifications-to-external-pep-endpoints.md
           - 'Writing an XACML 3.0 Policy Using XPath': learn/writing-a-xacml-3.0-policy-using-xpath.md
       - 'Deploying the Samples': learn/deploying-the-sample-app.md
+    - 'Integrations':
+        - `Master Data Management': learn/configuring-master-data-management-solution.md
     - 'User Portal': learn/user-portal.md
     - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
