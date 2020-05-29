@@ -1,29 +1,28 @@
 # Setting-Up User Portal in a Development Environment
 
-In [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management/) the user portal is available under
- the URL `http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/user-portal`. If you are planning on setting up the repo in a
- development environment follow the steps given below.
+In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/) the user portal is available under
+ the URL `http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/user-portal`. Follow the steps below to set up the repo in a
+ development environment.
 
 !!! note "Before you begin"
 
-    1. Install [node](https://nodejs.org/en/download/) if you haven’t already(npm is already bundled with node).
-    2. Install [maven](https://maven.apache.org/download.cgi) (Needed to run mvn commands).
-    3. A running Identity Server v 5.10. (If you want to build from source follow the instructions listed [here]
+    1. Install [node](https://nodejs.org/en/download/) if you have not already(npm is already bundled with node).
+    2. Install [maven](https://maven.apache.org/download.cgi) (his is needed to run `mvn` commands).
+    3. A running instance of WSO2 Identity Server (to build from source, follow the instructions given [here]
     (https://github.com/wso2/product-is)).
 
 
 ### Step 1: Configuring Identity Server
 
 !!! tip
-    Default dev origin, hostname and port set for the User Portal is https://localhost:9000. So the following
-    configurations will have to change accordingly if you change the port or any other configurations.
+    Note that the default dev origin, hostname, and port that is set for the user portal is `https://localhost:9000`.
+    Change the following configurations accordingly if you have changed this port or any other configuration.
 
 
-1.  Allowing Cross Origin requests to the Identity Server.
+1.  Enable cross-origin requests for WSO2 Identity Server.
 
-    Cross origin requests will be blocked by default as a security measure. So you have to put the following CORS
-    filter to the config file `<IS_HOME>/repository/resources/conf/templates/repository/conf/tomcat/web.xml.j2` in
-    WSO2 Identity Server distribution pack.
+    Cross-origin requests are blocked by default in WSO2 IS as a security measure. Add the following CORS filter to
+    the `<IS_HOME>/repository/resources/conf/templates/repository/conf/tomcat/web.xml.j2` file to enable it.
     ```
         <filter>
             <filter-name>CORS</filter-name>
@@ -48,10 +47,12 @@ In [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management
             <dispatcher>FORWARD</dispatcher>
         </filter-mapping>
     ```
-2.  Add your hostname and port as a trusted FIDO2 origin.
+2.  Whitelist your hostname and port as a trusted FIDO2 origin.
 
-    Whitelist the dev URL in the FIDO configurations found in the file
-    `<IS_HOME>/repository/resources/conf/templates/repository/conf/identity/identity.xml.j2`.
+
+
+    Add the dev url to the <Origin> tag of the FIDO configurations in the
+    `<IS_HOME>/repository/resources/conf/templates/repository/conf/identity/identity.xml.j2` file.
     ```
         <FIDO>
             <WebAuthn>
@@ -66,31 +67,29 @@ In [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management
         </FIDO>
     ```
 
-3.  Restart the Identity Server.
+3.  Restart the WSO2 Identity Server.
 4.  Configure the callback URLs for the User Portal.
 
-    Log in to the management console `https://<SERVER_HOST>/carbon`
-    Go to service provider listing and click on edit in **User Portal** list item.
-
-    In the edit view, expand the **Inbound Authentication Configuration** section, and further expand the **OAuth/OpenID
-     Connect Configuration**. Click on edit under User Portal list item.
-
-    You can simple change the port to 9000 or you can add a regexp as follows.
-    ```
-        regexp=(https://localhost:9443/user-portal/login|https://localhost:9000/user-portal/login)
-    ```
+    1.  Log in to the WSO2 IS management console.
+    2.  Click Service Providers > List.
+    3.  Click Edit to edit the User Portal service provider.
+    4.  Expand Inbound Authentication Configuration, and then expand OAuth/OpenID Connect Configuration. Click Edit.
+    5.  Change the Callback URL field to reflect the port as 9000 or you can add a regexp as follows.
+        ```
+            regexp=(https://localhost:9443/user-portal/login|https://localhost:9000/user-portal/login)
+        ```
 
 ### Step 2: Building the Identity Apps repository
 
-You can fork the original repo or directly clone the original repo and start working on it, but it is recommended to
-create your own fork.
+Fork the original repository to start working on it. You can also directly clone the original repo but it is
+recommended to create your own fork.
 ```java
     git clone https://github.com/brionmario/identity-apps
     cd identity-apps
     mvn clean install or npm run build
 ```
 
-### Step 3: Running the User Portal in dev mode
+### Step 3: Running the user portal in dev mode
 
 After the build is finished, navigate to the user portal directory and run the portal using the webpack dev server.
 ```java
