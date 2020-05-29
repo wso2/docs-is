@@ -6,7 +6,7 @@ This page guides you through exchanging a SAML2 assertion for a valid OAuth acce
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/access-delegation/saml2-bearer-assertion-profile" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/access-delegation/saml2-bearer-assertion-profile"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

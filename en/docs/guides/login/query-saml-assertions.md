@@ -2,11 +2,13 @@
 
 This page guides you through querying dynamic or existing [SAML2 assertions](insertlink) using standard request messages via WSO2 Identity Server. 
 
+Due to some reason if you can not pass a SAML Assertion to the backend, then you can pass an [identifier](insertlink) with the request to query and obtain the assertion from the backend instead. 
+
 ----
 
-This guide assumes you have your own application. If you wish to try out this flow with a sample application click the button below. 
+This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/query-saml-assertions-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/query-saml-assertions-sample" rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
@@ -62,3 +64,8 @@ Optionally, you can use a custom assertion builder that enables persisting asser
         A sample for each request can be found at the `<CLIENT_HOME>/sample-request-messages` directory.
 
 You have successfully queried an assertion using your application. 
+
+-----
+
+!!! info "Related Topics"
+    

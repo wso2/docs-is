@@ -5,7 +5,7 @@ This page guides you through enabling login for a SAML web application using a *
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/webapp-oidc" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/webapp-oidc"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

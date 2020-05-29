@@ -8,7 +8,7 @@ For more information about tenants, see [multi-tenancy](insertlink).
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/configure-adaptive-auth" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/configure-adaptive-auth"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

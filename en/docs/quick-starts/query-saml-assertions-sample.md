@@ -5,7 +5,7 @@ This page guides you through querying dynamic or existing [SAML2 assertions](ins
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/query-saml-assertions" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/query-saml-assertions" rel="nofollow noopener">I have my own application</a>
 
 ----
 
@@ -55,7 +55,7 @@ Optionally, you can use a custom assertion builder that enables persisting asser
 
     When a user logs in, the created assertion will be persisted in the SAML Tracer.
 
-4. Copy the attribute **ID** value that is located inside the tag `<saml2:Assertion>` of the created assertion. You can use this ID to query the assertion using a `AssertionIDRequest`.
+4. Copy the attribute **ID** value that is located inside the tag, `<saml2:Assertion>` of the created assertion. You can use this ID to query the assertion using an `AssertionIDRequest`.
 
 5. Navigate to the `<CLIENT_HOME>/src/main/java/org/wso2/carbon/identity/saml/query/profile/test` directory.
 
