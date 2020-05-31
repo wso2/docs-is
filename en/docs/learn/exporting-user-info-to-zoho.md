@@ -36,4 +36,3 @@ Let's get started!
 9. Now you have successfully imported the user data into Zoho CRM. 
 
     ![imported-data-to-zoho-crm](../assets/img/tutorials/imported-data-to-zoho-crm.png)
-
