@@ -105,6 +105,7 @@ nav:
           - 'Account Syncing':
             - 'Exporting User Data From WSO2 Identity Server': learn/exporting-user-data-from-wso2-is.md
             - 'Account Syncing with Pipedrive CRM': learn/exporting-user-info-to-pipedrive.md
+            - 'Account Syncing with Salesforce': learn/exporting-user-info-to-salesforce.md
             - 'Account Syncing with Zoho CRM': learn/exporting-user-info-to-zoho.md
         - 'Multifactor Authentication': learn/configuring-multifactor-authentication.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
