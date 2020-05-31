@@ -6,14 +6,22 @@
 
 Fraud detection is a set of activities undertaken to prevent information from being acquired under false pretenses.
 Fraud detection can be applied to many industries such as banking and insurance. In banking industry, fraud may include
-forging checks or credit card thefts. When it comes to the identity domain, fraudulent activities include identity
-theft and system intrusions. A system intrusion is an intentional attempt to access/modify unauthorized information
-in the system and convert the system to an unreliable state through information leakage or denial-of-service attacks.
+forging checks or credit card thefts. In e-commerce and retail industry, fraudulent activities mainly circles around
+fraud in purchases which can be any type of illegal or false transactions. When it comes to enterprise systems,
+fraudulent activities include identity theft and system intrusions. A system intrusion is an intentional attempt to
+access/modify unauthorized information in the system and convert the system to an unreliable state through
+information leakage or denial-of-service attacks.
 
 Fraud detection involves monitoring the behavior of users in order to estimate anomalous behavior. These behaviors
 can have multiple facets including fraud, intrusion, account defaulting, and delinquency. Presently, fraud detection
 has been implemented by utilizing various methods such as data mining, statistics, and artificial intelligence. All
 of these methods analyze patterns and data about users to identify and prevent suspicious behavior.
+
+In terms of specific industries, the methods and processes used for fraud detection can differ. In Enterprise Fraud
+Management(EFM) systems, fraud detection involves real-time screening of transaction activities across users, accounts,
+processes, and channels. E-Commerce and Retail Fraud Management (ERFM) systems occupy real-time data
+analysis to identify inconsistencies in customer behavior such as making large purchases at a single time, making a
+higher number of small transactions in a specific period, and the same person using multiple credit cards.
 
 ### Risk-Based Authentication
 
@@ -58,16 +66,16 @@ Many enterprises use identity verification (IDV) services to ensure that users p
 
 Business intelligence (BI) comprises the strategies and technologies used by enterprises for the data analysis of
 business information. It helps to investigate insights and trends about the business for scaling and adapting the
-system. BI systems analyze business data and provide information in a presentable formats which helps relevant
+system. BI systems analyze business data and provide information in a presentable format which helps relevant
 authorities to make better business decisions. These BI systems make use of advanced technologies such as data
 warehouses, dashboards, ad hoc reporting, data discovery tools and cloud data services. They consume sales,
-production, financial and many other source of business data in order to provide predictive insights to the business.
- Further they collect information corresponding to other enterprises in the same industry for benchmarking.
+production, financial and many other sources of business data in order to provide predictive insights to the business.
+ Further, they collect information corresponding to other enterprises in the same industry for benchmarking.
 
 Some use-cases where BI systems are applicable are listed below.
 
-   -   Aggregating user data such as there attributes (location, device, gender etc), preferences and behavioral
-   patters to provide product recommendations
+   -   Aggregating user data such as their attributes including location, device, gender, and so on, preferences, and
+    behavioral patterns to provide product recommendations.
    -   Identifying your system's peak revenue time. E.g. finding ROI of a CRM system
    -   Tracking employee retention
    -   Tracking customer retention
@@ -76,7 +84,7 @@ Some use-cases where BI systems are applicable are listed below.
     It is important for an authentication platform to have fraud detection, RBA and IDV systems integrated in
     order to ensure a safe and trustworthy environment for their users. Having those strategies can help mitigate any
     severe impact caused to the organization in terms of finance or reputation. Integration with BI systems play a
-    major role in making informed business decisions in your enterprise.
+    major role in making informed business decisions in an enterprise.
 
     There are multiple vendors in the market who provide tools utilizing advanced artificial intelligence / machine
     learning techniques for implementing these strategies. Most of them provide APIs or libraries for any enterprise to
@@ -226,7 +234,7 @@ intercept user operations.
 
 WSO2 Identity Server supports the eventing framework which can be used to trigger some events such as user operations
 . Furthermore it supports pluggable handlers using which you can perform some operations based on the published events
-. With this manner you can intercept any user operation, invoke any third-party service and act upon the decisions
+. In this manner you can intercept any user operation, invoke any third-party service and act upon the decisions
  provided by them. This will be the ideal extension point for integrating with BI / IDV systems. Following are some
  examples of events.
 
