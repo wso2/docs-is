@@ -97,7 +97,9 @@ nav:
         - 'Provisioning':
           - 'Provisioning Overview': learn/provisioning-tutorials.md
           - 'Inbound Provisioning': learn/configuring-inbound-provisioning.md
-          - 'Outbound Provisioning': learn/configuring-outbound-provisioning.md
+          - 'Outbound Provisioning':
+            - 'Configuring Outbound Provisioning': learn/configuring-outbound-provisioning.md
+            - 'Provisioining Users to Salesforce': learn/provisioning-users-to-salesforce.md
         - 'Multifactor Authentication': learn/configuring-multifactor-authentication.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
         - 'Multi-Tenancy': learn/configuring-multi-tenancy.md
