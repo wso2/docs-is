@@ -98,7 +98,7 @@ nav:
           - 'Provisioning Overview': learn/provisioning-tutorials.md
           - 'Inbound Provisioning': learn/configuring-inbound-provisioning.md
           - 'Outbound Provisioning': learn/configuring-outbound-provisioning.md
-            - 'Enterprise Marketing Software': learn/enterprise-marketing-software.md
+            - 'Provisioning users to Hubspot': learn/provisioning-users-to-hubspot.md
         - 'Multifactor Authentication': learn/configuring-multifactor-authentication.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
         - 'Multi-Tenancy': learn/configuring-multi-tenancy.md

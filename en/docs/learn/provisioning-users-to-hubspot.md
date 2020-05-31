@@ -1,12 +1,19 @@
-# Enterprise Marketing Software Integration
+# Provisioning users to Hubspot
 
-If your business uses or is willing to use enterprise marketing softwares such as Hubspot or Salesforce, WSO2 IAM solution has the ability to interact with those systems while giving you the simplicity to manage your organizations&#39; identities from a single place.
+If your business uses or is willing to use enterprise marketing softwares such as Hubspot or Salesforce, WSO2 IAM 
+solution has the ability to interact with those systems while giving you the simplicity to manage your 
+organizations&#39; identities from a single place.
 
-This topic provides instructions on how to integrate HubSpot with WSO2 Identity Server to provision users from WSO2 Identity Server. After completing this tutorial you can see the users you add using WSO2 Identity Server being created in HubSpot and lead information updates in WSO2 Identity Server being updated in HubSpot as well.
+This topic provides instructions on how to integrate HubSpot with WSO2 Identity Server to provision users from WSO2 
+Identity Server. After completing this tutorial you can see the users you add using WSO2 Identity Server being created 
+in HubSpot and lead information updates in WSO2 Identity Server being updated in HubSpot as well.
 
 ## Configuring HubSpot
 
-1. **Test accounts are created and managed within developer accounts.** If you don&#39;t have a developer account in HubSpot, you can sign up from [here](https://app.hubspot.com/signup/developers?_ga=2.39153443.1802613489.1576611619-500942594.1573763828).
+1. **Test accounts are created and managed within developer accounts.** 
+        
+      If you don&#39;t have a developer account in HubSpot, you can sign up from 
+      [here](https://app.hubspot.com/signup/developers?_ga=2.39153443.1802613489.1576611619-500942594.1573763828).
 
     !!! Note
  Once you sign in to your developer account, you can create an app or a test account.
@@ -24,7 +31,8 @@ This topic provides instructions on how to integrate HubSpot with WSO2 Identity 
 
 ## Configure WSO2 Micro Integrator
 
-In the WSO2 Micro Integrator, an API is deployed which will act as a proxy for receiving SCIM requests and invoking the Hubspot APIs via the HubSpot connector. Follow the steps given below to deploy the MI application.
+In the WSO2 Micro Integrator, an API is deployed which will act as a proxy for receiving SCIM requests and invoking the 
+Hubspot APIs via the HubSpot connector. Follow the steps given below to deploy the MI application.
 
 1. Download [WSO2 Micro Integrator](https://wso2.com/integration/micro-integrator/#).
 2. Download the [MarketingSoftwareIntegrationCompositeApplication_1.0.0.car](../../assets/attachments/MarketingSoftwareIntegrationCompositeApplication_1.0.0.car).
@@ -36,7 +44,8 @@ In the WSO2 Micro Integrator, an API is deployed which will act as a proxy for r
         Windows: micro-integrator.bat run
     ```
 
-1. After the server starts, navigate to the `<WSO2-EI-HOME>/micro-integrator/registry/config/custom` directory and edit the file to configure the HubSpot API key as follows.
+1. After the server starts, navigate to the `<WSO2-EI-HOME>/micro-integrator/registry/config/custom` directory and edit 
+the file to configure the HubSpot API key as follows.
 
     ```
        <EndPointsList xmlns:ns1="http://endpoints">
@@ -69,7 +78,10 @@ In the WSO2 Micro Integrator, an API is deployed which will act as a proxy for r
 #### Step 02: Configure HubSpot as the identity Provider
 
 1. On the Management Console, click **Add** under **Identity Providers**.
-2. In the form that appears, provide a name for your identity provider by filling in the **Identity Provider Name**. You can use &quot;HubSpot.com&quot; as an example, but this can be any name you choose. See [Configuring an Identity Provider](https://is.docs.wso2.com/en/latest/learn/adding-and-configuring-an-identity-provider/) for information on registering and configuring an identity provider.
+2. In the form that appears, provide a name for your identity provider by filling in the **Identity Provider Name**. 
+You can use &quot;HubSpot.com&quot; as an example, but this can be any name you choose. See 
+[Configuring an Identity Provider](https://is.docs.wso2.com/en/latest/learn/adding-and-configuring-an-identity-provider/) 
+for information on registering and configuring an identity provider.
 3. Expand the **Outbound Provisioning Connectors** section followed by the **SCIM Provisioning Configuration** section.
 
 4. Check the **Enable** Checkbox and give the **Username** and **Password** as given below.
@@ -87,17 +99,24 @@ In the WSO2 Micro Integrator, an API is deployed which will act as a proxy for r
 
 #### Step 03: Configuring the outbound provisioning
 
-Now we need to enable sending out provisioning requests to the previously configured provisioning system for any user management operation done via the management console, SOAP API or the SCIM API. To do that, you must configure outbound provisioning identity providers against the resident service provider. So, based on the outbound configuration, users created in WSO2 Identity Server can also be provisioned to external systems like HubSpot or Google Apps.
+Now we need to enable sending out provisioning requests to the previously configured provisioning system for any user 
+management operation done via the management console, SOAP API or the SCIM API. To do that, you must configure outbound 
+provisioning identity providers against the resident service provider. So, based on the outbound configuration, 
+users created in WSO2 Identity Server can also be provisioned to external systems like HubSpot or Google Apps.
 
 1. Log on to the [Management Console](https://localhost:9443/carbon/) using the username and password.
 2. In the **Main** menu under the **Identity** section, click **Resident** under **Service Providers.**
 3. In the resulting screen, expand the **Outbound Provisioning Configuration** section.
 4. In the **Outbound Provisioning Configuration** section, do the following.
 
-    1. Select the identity provider you added from the drop-down menu available and click the + sign to add it. If you have not added an identity provider yet, this step is not possible.
-    2. Once added, the identity provider is displayed as an entry in the list. Select scim from the drop-down to ensure that the SCIM operation is used for provisioning.
-    3. If the option, Blocking is enabled, the outbound provisioning request will be blocked until the response is received. By default, the request would be non-blocking.
-    4. If the option, Enable Rules is enabled, the outbound provisioning request will be executed along with the XACML rules enabled.
+    1. Select the identity provider you added from the drop-down menu available and click the + sign to add it. If you 
+    have not added an identity provider yet, this step is not possible.
+    2. Once added, the identity provider is displayed as an entry in the list. Select scim from the drop-down to ensure 
+    that the SCIM operation is used for provisioning.
+    3. If the option, Blocking is enabled, the outbound provisioning request will be blocked until the response is 
+    received. By default, the request would be non-blocking.
+    4. If the option, Enable Rules is enabled, the outbound provisioning request will be executed along with the 
+    XACML rules enabled.
     5. Click Update to save your configurations.
 
     ![outbound-provisioning-conf](../assets/img/tutorials/outbound-provisioning-conf.png)
@@ -124,7 +143,8 @@ Now we need to enable sending out provisioning requests to the previously config
 5. Read the Privacy Policy and select the **Privacy Policy** checkbox.
 6. Click **Register**.
 7. Login to HubSpot.
-8. On the navigation panel, click contacts. You will see that the user you created in WSO2 IS has also been created in HubSpot.
+8. On the navigation panel, click contacts. You will see that the user you created in WSO2 IS has also been created in 
+HubSpot.
 9. Then try to edit user details through the user portal as follows.
 
     ![personal-info](../assets/img/tutorials/personal-info.png)
