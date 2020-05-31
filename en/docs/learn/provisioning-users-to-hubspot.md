@@ -14,11 +14,11 @@ in HubSpot and lead information updates in WSO2 Identity Server being updated in
         
       If you don&#39;t have a developer account in HubSpot, you can sign up from 
       [here](https://app.hubspot.com/signup/developers?_ga=2.39153443.1802613489.1576611619-500942594.1573763828).
+    
+    !!! Note 
+        Once you sign in to your developer account, you can create an app or a test account.
 
-    !!! Note
- Once you sign in to your developer account, you can create an app or a test account.
-
-   ![hubspot-developer-home](../assets/img/tutorials/hubspot-developer-home.png)
+    ![hubspot-developer-home](../assets/img/tutorials/hubspot-developer-home.png)
 
 2. Create a test account.
 3. Add a test account name and create an account. The created account appears with the corresponding details as shown below. 
