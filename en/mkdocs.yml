@@ -464,7 +464,7 @@ nav:
           - 'Alert Types': learn/alert-types.md
           - 'Configuring Alerts': learn/configuring-alerts.md
           - 'Viewing Alerts': learn/viewing-alerts.md
-        - 'Fraud Detection, Risk Based Authentication and Identity Verification': learn/fraud-detection.md
+        - 'Integrating with Fraud Detection, Risk Based Authentication, Identity Verification and Business Intelligence Systems': learn/fraud-detection.md
       - 'Samples':
         - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':

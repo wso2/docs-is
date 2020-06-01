@@ -1,4 +1,4 @@
-# Fraud Detection, Risk Based Authentication and Identity Verification
+# Integrating with Fraud Detection, Risk Based Authentication, Identity Verification and Business Intelligence Systems
 
 ## Overview
 
@@ -6,14 +6,22 @@
 
 Fraud detection is a set of activities undertaken to prevent information from being acquired under false pretenses.
 Fraud detection can be applied to many industries such as banking and insurance. In banking industry, fraud may include
-forging checks or credit card thefts. When it comes to the identity domain, fraudulent activities include identity
-theft and system intrusions. A system intrusion is an intentional attempt to access/modify unauthorized information
-in the system and convert the system to an unreliable state through information leakage or denial-of-service attacks.
+forging checks or credit card thefts. In e-commerce and retail industry, fraudulent activities mainly circles around
+fraud in purchases which can be any type of illegal or false transactions. When it comes to enterprise systems,
+fraudulent activities include identity theft and system intrusions. A system intrusion is an intentional attempt to
+access/modify unauthorized information in the system and convert the system to an unreliable state through
+information leakage or denial-of-service attacks.
 
 Fraud detection involves monitoring the behavior of users in order to estimate anomalous behavior. These behaviors
 can have multiple facets including fraud, intrusion, account defaulting, and delinquency. Presently, fraud detection
 has been implemented by utilizing various methods such as data mining, statistics, and artificial intelligence. All
 of these methods analyze patterns and data about users to identify and prevent suspicious behavior.
+
+In terms of specific industries, the methods and processes used for fraud detection can differ. In Enterprise Fraud
+Management(EFM) systems, fraud detection involves real-time screening of transaction activities across users, accounts,
+processes, and channels. E-Commerce and Retail Fraud Management (ERFM) systems occupy real-time data
+analysis to identify inconsistencies in customer behavior such as making large purchases at a single time, making a
+higher number of small transactions in a specific period, and the same person using multiple credit cards.
 
 ### Risk-Based Authentication
 
@@ -54,12 +62,29 @@ Many enterprises use identity verification (IDV) services to ensure that users p
   systems to retrieve accurate information. Apart from using trusted sources, these services also engage artificial
   intelligence and machine learning techniques to gather behavioral insights about the users.
 
+### Business Intelligence
+
+Business intelligence (BI) comprises the strategies and technologies used by enterprises for the data analysis of
+business information. It helps to investigate insights and trends about the business for scaling and adapting the
+system. BI systems analyze business data and provide information in a presentable format which helps relevant
+authorities to make better business decisions. These BI systems make use of advanced technologies such as data
+warehouses, dashboards, ad hoc reporting, data discovery tools and cloud data services. They consume sales,
+production, financial and many other sources of business data in order to provide predictive insights to the business.
+ Further, they collect information corresponding to other enterprises in the same industry for benchmarking.
+
+Some use-cases where BI systems are applicable are listed below.
+
+   -   Aggregating user data such as their attributes including location, device, gender, and so on, preferences, and
+    behavioral patterns to provide product recommendations.
+   -   Identifying your system's peak revenue time. E.g. finding ROI of a CRM system
+   -   Tracking employee retention
+   -   Tracking customer retention
 
 !!! Note
-    It is important for an authentication platform to have the three solutions mentioned above integrated in order to
-    ensure a safe and trustworthy environment for their users. Having fraud prevention / risk-based authentication /
-    identity verification strategies can help mitigate any severe impact caused to the organization in terms of
-    finance or reputation.
+    It is important for an authentication platform to have fraud detection, RBA and IDV systems integrated in
+    order to ensure a safe and trustworthy environment for their users. Having those strategies can help mitigate any
+    severe impact caused to the organization in terms of finance or reputation. Integration with BI systems play a
+    major role in making informed business decisions in an enterprise.
 
     There are multiple vendors in the market who provide tools utilizing advanced artificial intelligence / machine
     learning techniques for implementing these strategies. Most of them provide APIs or libraries for any enterprise to
@@ -76,145 +101,6 @@ depicts the architecture of the WSO2 authentication framework.
 
 In the authentication flow shown above, the following extension points are available for integrating with an external
  system.
-
-### Publishing authentication events
-
-#### Event publishers
-
-In Identity Server **events** are used to analyze data effectively. Event is a unit of data. An **event stream** is a
-sequence of a particular type of event. The type of events can be defined as an **event stream definition**.
-
-The following code block shows a sample event stream for authentication data.
-
-```json
-    {
-      "name": "org.wso2.is.analytics.stream.OverallAuthentication",
-      "version": "1.0.0",
-      "nickName": "",
-      "description": "",
-      "metaData": [
-        {
-          "name": "tenantId",
-          "type": "INT"
-        }
-      ],
-      "payloadData": [
-        {
-          "name": "contextId",
-          "type": "STRING"
-        },
-        {
-          "name": "eventId",
-          "type": "STRING"
-        },
-        {
-          "name": "eventType",
-          "type": "STRING"
-        },
-        {
-          "name": "authenticationSuccess",
-          "type": "BOOL"
-        },
-        {
-          "name": "username",
-          "type": "STRING"
-        }
-      ]
-    }
-```
-
-The event streams that are supported by default in Identity Server, are stored in the file system as deployable
-artifacts in the `<IS_HOME>/repository/deployment/server/eventstreams` directory.
-
-Identity Server has the ability to publish these events to analytics servers in multiple formats such as **HTTP**,
-**log**, **wso2event** etc. Furthermore, it has a default set of data publishers to publish different kinds of data such
- as authentication data, session data, oauth token related data, user, and role data. You can refer
-`<IS_HOME/repository/deployment/server/event-publishers` to understand the different types of data publishers we have.
-By default these publishers are configured to publish event streams to **WSO2 IS Analytics Server**. More information
- on how you can configure IS Analytics Server with IS can be found [here](https://is.docs.wso2.com/en/5.10
- .0/learn/prerequisites-to-publish-statistics).
-
-However if you want to configure these data publishers with external **Security information and event management
-(SIEM)** software such as Splunk, IBM QRadar, and LogRhythm, modify the configurations in these XML-based event
-publishers.
-
-For example, in order to modify the `IsAnalytics-Publisher-wso2event-AuthenticationData.xml` file to publish data to
-Splunk over HTTP, you simply need to update the `eventAdapterType` field to **HTTP**, update `http.headers` field to add
-authorization to Splunk server, and update `http.url` field to that of Splunk event collector URL as depicted below.
-
-```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <eventPublisher name="IsAnalytics-Publisher-wso2event-AuthenticationData" statistics="disable" trace="disable"
-        xmlns="http://wso2.org/carbon/eventpublisher">
-        <from streamName="org.wso2.is.analytics.stream.OverallAuthentication" version="1.0.0"/>
-        <mapping customMapping="disable" type="json"/>
-        <to eventAdapterType="http">
-            <property name="http.client.method">HttpPost</property>
-            <property name="publishingMode">non-blocking</property>
-            <property name="publishTimeout">0</property>
-            <property name="http.headers">Authorization: Splunk
-                <--created token for Splunk access-->
-            </property>
-            <property name="http.url">http://localhost:8088/services/collector</property>
-        </to>
-    </eventPublisher>
-```
-
-Similarly, you can configure any of the available event publishers to be able to communicate with any external SIEM
-over supported event types by WSO2. Once we publish events to these SIEMs, they can use the functionalities of the
-corresponding SIEM to generate security alerts or further processing.
-
-#### Custom Authentication Data Publisher
-
-The [data publishing module](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master
-/components/org.wso2.carbon.identity.data.publisher.application
-.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication
-/AuthnDataPublisherProxy.java) in the WSO2 authentication framework is the component
-responsible for capturing the statistics related to user authentication and session data and invoking the registered
-data publishers to handle the events and publish data to their corresponding destinations. These handlers extend the
-[AbstractEventHandler](https://github.com/wso2/carbon-identity-framework/blob/master/components/identity-event/org
-.wso2.carbon.identity.event/src/main/java/org/wso2/carbon/identity/event/handler/AbstractEventHandler.java) and
-overrides its `handleEvent` method. You can easily write a custom data publisher extending the `AbstractEventHandler`
- and overriding the `handleEvent` method for the purpose of publishing authentication/session data to any third-party
-  platform that facilitates fraud detection. When the event publisher triggers an event, there is a dedicated service
-   that will transfer this event from the Identity Server to the corresponding destination. This service is handled
-   by the Event Adaptors. Event adaptors bridge the connection between the data source and the data sink. There are
-   several output event adapters supported by WSO2 Identity Server such as **HTTP**, **JMS**, **Web
-Socket**, **SMTP** etc.
-
-The following code block shows a sample code segment used when writing a custom data publisher.
-
-``` java
-public class SampleEventPublisher extends AbstractEventHandler {
-
-    @Override
-    public String getName() {
-
-        return "SampleEventPublisher";
-    }
-
-    @Override
-    public void handleEvent(Event event) throws IdentityEventException {
-
-        if (IdentityEventConstants.EventName.AUTHENTICATION_STEP_SUCCESS.name().equals(event.getEventName()) ||
-                IdentityEventConstants.EventName.AUTHENTICATION_STEP_FAILURE.name().equals(event.getEventName())) {
-            AuthenticationData authenticationData = AnalyticsLoginDataPublisherUtils.buildAuthnDataForAuthnStep(event);
-            publishAuthenticationData(authenticationData);
-        } else if (IdentityEventConstants.EventName.AUTHENTICATION_SUCCESS.name().equals(event.getEventName()) ||
-                IdentityEventConstants.EventName.AUTHENTICATION_FAILURE.name().equals(event.getEventName())) {
-            AuthenticationData authenticationData = AnalyticsLoginDataPublisherUtils.
-                    buildAuthnDataForAuthentication(event);
-            publishAuthenticationData(authenticationData);
-        } else {
-            log.error("Event " + event.getEventName() + " cannot be handled");
-        }
-    }
-}
-```
-
-Detailed information on writing and configuring event publishers can be found [here](https://medium
-.com/identity-beyond-borders/writing-a-custom-event-publisher-for-wso2-is-5-8-0-6558d9130dde).
-
 
 ### Intercepting the authentication flow based on service response
 
@@ -348,7 +234,9 @@ intercept user operations.
 
 WSO2 Identity Server supports the eventing framework which can be used to trigger some events such as user operations
 . Furthermore it supports pluggable handlers using which you can perform some operations based on the published events
-. Following are some examples of events.
+. In this manner you can intercept any user operation, invoke any third-party service and act upon the decisions
+ provided by them. This will be the ideal extension point for integrating with BI / IDV systems. Following are some
+ examples of events.
 
    -   PRE_AUTHENTICATION
    -   POST_AUTHENTICATION
