@@ -12,15 +12,17 @@ This guide assumes you have your own application. If you wish to try out this fl
 ----
 
 ## Request attributes for an Open ID Connect application 
-Insert here : Use Local Claim Dialect with defined/custom OIDC claim (Playground app)
+Insert here : Use Local Claim Dialect with defined/custom OIDC claim (Playground/pickup app)
               Include Set subject claim url
               Show the response
+              Include tenant domain
+              Include user store domain
               
 **Add a note explaining that if communication happens using a defined dialect then we need to do a claim mapping from the dialect level.
  To explain defined and un-defined dialect there should be a link to claim dialect management**
               
 ## Request attributes for a SAML application
-Insert here : Use Define Custom Claim Dialect with SAML (travelocity app)
+Insert here : Use Define Custom Claim Dialect with SAML (travelocity app/pickup-dispatch)
               Set Role claim url
-              Set mandatory Claims
+              Set Mandatory Claims
               Mention about consent 

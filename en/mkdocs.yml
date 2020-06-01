@@ -111,8 +111,10 @@ nav:
         - 'Request Claims for the Application': guides/login/request-app-claims.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
+          - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
+          - 'SSO For SAML Applications': guides/login/sso-for-saml.md
+          - 'SSO For WS-Federation Applications': guides/login/sso-for-ws-fed.md
           - 'Single Sign-On for Native iOS Applications': guides/login/sso-native-ios.md
-          - 'SAML2 Single-Sign-On Across Different WSO2 Products': guides/login/sso-with-wso2-products.md
         - 'Single Logout':
           - 'OpenID Connect':
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
