@@ -100,6 +100,7 @@ nav:
           - 'Outbound Provisioning':
             - 'Configuring Outbound Provisioning': learn/configuring-outbound-provisioning.md
             - 'Provisioining Users to Salesforce': learn/provisioning-users-to-salesforce.md
+            - 'Provisioning users to Hubspot': learn/provisioning-users-to-hubspot.md
         - 'Multifactor Authentication': learn/configuring-multifactor-authentication.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
         - 'Multi-Tenancy': learn/configuring-multi-tenancy.md
