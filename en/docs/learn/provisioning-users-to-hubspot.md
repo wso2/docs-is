@@ -95,7 +95,7 @@ for information on registering and configuring an identity provider.
 
     ![scim-provisioning-conf](../assets/img/tutorials/scim-provisioning-conf.png)
 
-1. Click Update and save the configuration
+1. Click **Update** and save the configuration
 
 ### Step 03: Configuring the outbound provisioning
 
