@@ -101,7 +101,6 @@ nav:
             - 'Configuring Outbound Provisioning': learn/configuring-outbound-provisioning.md
             - 'Provisioining Users to Salesforce': learn/provisioning-users-to-salesforce.md
             - 'Provisioning users to Hubspot': learn/provisioning-users-to-hubspot.md
-          - 'Outbound Provisioning': learn/configuring-outbound-provisioning.md
           - 'Account Syncing':
             - 'Exporting User Data From WSO2 Identity Server': learn/exporting-user-data-from-wso2-is.md
             - 'Account Syncing with Pipedrive CRM': learn/exporting-user-info-to-pipedrive.md
