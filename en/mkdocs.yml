@@ -18,7 +18,7 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://wso2.com/identity-and-access-management/
+site_url: https://is.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-is
@@ -97,11 +97,16 @@ nav:
         - 'Provisioning':
           - 'Provisioning Overview': learn/provisioning-tutorials.md
           - 'Inbound Provisioning': learn/configuring-inbound-provisioning.md
-          - 'Outbound Provisioning': learn/configuring-outbound-provisioning.md
+          - 'Outbound Provisioning':
+            - 'Configuring Outbound Provisioning': learn/configuring-outbound-provisioning.md
+            - 'Provisioining Users to Salesforce': learn/provisioning-users-to-salesforce.md
+            - 'Provisioning users to Hubspot': learn/provisioning-users-to-hubspot.md
         - 'Multifactor Authentication': learn/configuring-multifactor-authentication.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
         - 'Multi-Tenancy': learn/configuring-multi-tenancy.md
-        - 'Analytics': learn/configuring-identity-analytics.md
+        - 'Analytics': 
+          - 'Configuring Identity Analytics': learn/configuring-identity-analytics.md
+          - 'Web Analytics Solutions': learn/web-analytics-solutions.md
       - 'Single Sign-On':
         - 'Single Sign-On': learn/single-sign-on.md
         - 'Configuring Single Sign-On':
@@ -127,6 +132,9 @@ nav:
           - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
           - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
+        - 'Logging into WordPress using the Identity Server': learn/logging-in-to-wordpress-using-the-identity-server.md
+        - 'Logging into OpenCart using the Identity Server': learn/logging-in-to-opencart-using-the-identity-server.md
+        - 'Logging into Drupal using the Identity Server': learn/logging-into-drupal-using-the-identity-server.md
       - 'Authentication':
         - 'Passwordless authentication using FIDO2': learn/passwordless-authentication-using-fido2.md
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
@@ -158,6 +166,7 @@ nav:
         - 'Testing OIDC Encrypted ID Token with IS': learn/testing-oidc-encrypted-id-token-with-is.md
         - 'Passing OIDC Authentication Request Parameters in a Request Object': learn/passing-oidc-authentication-request-parameters-in-a-request-object.md
         - 'Enforcing Signature Validation for Request Objects': learn/enforcing-signature-validation-for-request-objects.md
+        - 'Logging in to Magento using the WSO2 Identity Server': learn/login-to-magento-using-wso2-identity-server.md
       - "Multi-factor Authentication" :
         - 'MFA in WSO2 Identity Server': learn/multi-factor-authentication.md
         - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
@@ -257,6 +266,8 @@ nav:
           - 'Sending Notifications to External PEP Endpoints': learn/sending-notifications-to-external-pep-endpoints.md
           - 'Writing an XACML 3.0 Policy Using XPath': learn/writing-a-xacml-3.0-policy-using-xpath.md
       - 'Deploying the Samples': learn/deploying-the-sample-app.md
+    - 'Integrations':
+      - 'Master Data Management': learn/configuring-master-data-management-solution.md
     - 'User Portal': learn/user-portal.md
     - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
@@ -453,6 +464,7 @@ nav:
           - 'Alert Types': learn/alert-types.md
           - 'Configuring Alerts': learn/configuring-alerts.md
           - 'Viewing Alerts': learn/viewing-alerts.md
+        - 'Integrating with Fraud Detection, Risk Based Authentication, Identity Verification and Business Intelligence Systems': learn/fraud-detection.md
       - 'Samples':
         - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
@@ -577,9 +589,11 @@ nav:
         - 'Customizing WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Customizing Login Pages for Service Providers': develop/customizing-login-pages-for-service-providers.md
         - 'Customizing the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md
+        - 'Customizing the User Portal UI': develop/customizing-user-portal-ui.md
       - 'Customizing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
+      - 'Setting-Up User Portal in a Development Environment': develop/setting-up-user-portal-in-a-dev-environment.md
   - 'Setup':
     - 'Install':
       - 'Installing the Product':
@@ -718,7 +732,6 @@ nav:
       - 'Working with the Registry':
         - 'Working with the Registry': administer/working-with-the-registry.md
         - 'Browsing the Registry': administer/browsing-the-registry.md
-      - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
@@ -747,7 +760,6 @@ nav:
           - 'Migrating the Secondary Userstore Password to the Internal Keystore': administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md
         - 'Symmetric Encryption': administer/using-symmetric-encryption.md
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
-      - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
       - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md

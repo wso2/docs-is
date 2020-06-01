@@ -100,6 +100,25 @@ Follow the steps below to enable event publishing in WSO2 IS.
     </tr>
     </tbody>
     </table>
+    
+    **Enable analytics for Password grant logins**
+         
+     !!! warning
+     
+        To use this feature, apply the 0038 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
+         (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a 
+         paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is 
+         released. For more information on updating WSO2 Identity Server using WUM, see [Updating WSO2 Products]
+         (https://is.docs.wso2.com/en/5.10.0/administer/getting-wso2-updates/).
+             
+     Optionally, you can enable analytics for password grant type logins. Add the following configuration to the 
+     deployment.toml file to enable this feature.
+         
+     ```
+     [analytics]
+     publish_password_grant_logins=true
+     ```
+         
 
 ### Step 03: Configure Event Publishers
 
