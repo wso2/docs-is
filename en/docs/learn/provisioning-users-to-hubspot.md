@@ -48,9 +48,9 @@ Hubspot APIs via the HubSpot connector. Follow the steps given below to deploy t
 the file to configure the HubSpot API key as follows.
 
     ```
-   <EndPointsList xmlns:ns1="http://endpoints">
-   <APIKEY>7xxxxxxxxxxxxxxxxxxxxxxxxxxxx8</APIKEY>
-   </EndPointsList> 
+    <EndPointsList xmlns:ns1="http://endpoints">
+    <APIKEY>7xxxxxxxxxxxxxxxxxxxxxxxxxxxx8</APIKEY>
+    </EndPointsList> 
     ```
 
 ## Configuring Identity Server
