@@ -174,6 +174,7 @@ nav:
         - 'Configuring Email OTP': learn/configuring-email-otp.md
         - 'Configuring TOTP': learn/configuring-totp.md
         - 'MFA for Management Console': learn/multi-factor-authentication-for-wso2-is-management-console.md
+        - 'Configuring X509Certificate Authenticator': learn/x509certificate-authenticator.md
       - 'Adaptive Authentication':
         - 'Adaptive Authentication': learn/adaptive-authentication.md
         - 'Configuring a Service Provider for Adaptive Authentication': learn/configuring-a-service-provider-for-adaptive-authentication.md
