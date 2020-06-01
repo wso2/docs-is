@@ -1,11 +1,11 @@
-# Enable Authentication for OAuth/OpenID Connect Web Application
+# Enable Login for OpenID Connect Web Application
 
-This page guides you through enabling authentication to an OAuth/OpenID Connect web application using a **sample application** called Pickup. 
+This page guides you through enabling login for an OpenID Connect web application using a **sample application** called Pickup. 
 
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/webapp-oidc" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/webapp-oidc"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

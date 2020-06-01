@@ -6,7 +6,7 @@ This page guides you through configuring [two-factor authentication](../../../co
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application and a sample authenticator, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/mfa-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/mfa-sample"   rel="nofollow noopener">Try it with the sample</a>
 
 ----
 

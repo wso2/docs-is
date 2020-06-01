@@ -6,7 +6,7 @@ This page guides you through using Facebook as a federated authenticator and log
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/federation/facebook" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/federation/facebook"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

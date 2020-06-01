@@ -6,7 +6,7 @@ This page guides you through configuring adaptive authentication using the funct
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/adaptive-auth-with-function-lib" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/adaptive-auth-with-function-lib"   rel="nofollow noopener">I have my own application</a>
 
 -----
 

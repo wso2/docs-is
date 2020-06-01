@@ -14,7 +14,7 @@ added, deleted, edited, imported, and exported via the WSO2 Identity Server Mana
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/adaptive-auth-with-function-lib-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/adaptive-auth-with-function-lib-sample"   rel="nofollow noopener">Try it with the sample</a>
 
 ----
 

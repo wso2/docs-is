@@ -6,7 +6,7 @@ This page guides you through using Microsoft Azure as a federated authenticator 
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/federation/microsoft-azure" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/federation/microsoft-azure"   rel="nofollow noopener">I have my own application</a>
 
 ---
 
