@@ -10,10 +10,6 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-## Overview
-
-----
-
 {!fragments/register-a-service-provider.md!}
 
 ----
@@ -22,7 +18,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!fragments/configure-client-regular-saml-app.md!}
-
-----
+!!! info "Related Topics"
+    - [Enable Login for a Sample SAML Web Application](../../../quick-starts/webapp-saml-sample)
+    - [SAML Front Channel Logout](insertlink)
+    - [SAML Back-Channel Logout](../login/oidc-backchannel-logout)
 

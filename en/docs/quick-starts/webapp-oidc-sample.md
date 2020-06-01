@@ -29,7 +29,8 @@ You have successfully configured authentication for an OpenID Connect applicatio
 
 ----
 
-{!fragments/oidc-logout.md!}
+!!! info "Related Topics"
+    - [Enable Login for a Sample OpenID Connect Web Application](../../../quick-starts/webapp-oidc-sample)
 
 
 

@@ -1,4 +1,4 @@
-# Configuring Single Sign On Using OIDC
+# Configure Single Sign On for a Open ID Connect Application
 
 This page guides you through configuring [single sign on authentication](insertlink) between two OIDC web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
 

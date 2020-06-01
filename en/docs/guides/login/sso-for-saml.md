@@ -17,3 +17,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 {!fragments/saml-app-config-basic.md!}
 
 ----
+
+!!! info "Related Topics"
+    - [Configure Single Sign On for a SAML Application](../../../quick-starts/sso-for-saml-apps)
+    - [SAML Front Channel Logout](insertlink)
+    - [SAML Back-Channel Logout](insertlink)

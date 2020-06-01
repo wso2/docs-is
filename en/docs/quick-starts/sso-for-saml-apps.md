@@ -1,4 +1,4 @@
-# Configuring Single Sign On Using SAML
+# Configure Single Sign On for a SAML Application
 
 This page guides you through configuring [single sign on authentication](insertlink) between two SAML web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
 
