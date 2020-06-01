@@ -179,24 +179,6 @@ Once you have done the above steps, you have the keystore (`localcrt.jks`), trus
     
         -   The `truststoreFile` attributes specifies the location of the truststore that contains the trusted certificate issuers.
     
-
-3.  Download the authenticator.jar file and the artifacts from the [WSO2 store](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%22X509%22).
-
-4.  Place the `           authenticator.jar          ` file in the
-    `           <IS_HOME>/repository/components/dropins          `
-    directory.  
-
-    !!! note
-        If you want to upgrade the X509 Certificate Authenticator in your
-        existing IS pack, refer [upgrade instructions.](https://docs.wso2.com/display/ISCONNECTORS/Authenticator+Upgrade+Instructions)
-    
-
-5.  Place the
-    `           x509certificateauthenticationendpoint.war          `
-    file in the
-    `           <IS_HOME>/repository/deployment/server/webapps          `
-    directory.
-
 ## Disabling certificate validation
     
 The location that is used to disable certificate validation depends on whether WSO2 Identity Server was started at least once or not.
@@ -247,27 +229,25 @@ Follow the steps below to disable certificate validation if WSO2 Identity Server
 
 1.  Access the WSO2 Identity Server Management Console.
 2.  Click **Main &gt; Registry &gt; Browse**.  
-    ![](../assets/img/50501577/112378780.png)
+    ![registry](../assets/img/learn/registry.png)
 3.  Disable CRL certificate validation.
     1.  Locate the CRL parameter by entering
         `            _system/governance/repository/security/certificate/validator/crlvalidator           `
         in the **Location** search box.  
-        ![](../assets/img/50501577/112378782.png)
+        ![location](../assets/img/learn/location.png)
     2.  Expand **Properties**.  
-        ![](../assets/img/50501577/112378786.png)
+        ![properties.png](../assets/img/learn/properties.png)
     3.  Click **Edit** pertaining to the **Enable** property.  
-        ![](../assets/img/50501577/112378794.png)  
+        ![enable-property.png](../assets/img/learn/enable-property.png)  
     4.  Change the value to `            false           ` and click
         **Save**.  
-        ![](../assets/img/50501577/112378795.png)
+        ![save-config.png](../assets/img/learn/save-config.png)
 4.  Similarly, disable OCSP certificate validation in the
     `          _system/governance/repository/security/certificate/validator/ocspvalidator         `
     registry parameter.
 
 For more information on CRL and OCSP certificate validation, see
-[Configuring Certificate Revocation
-Validation](https://docs.wso2.com/display/ISCONNECTORS/Configuring+Certificate+Revocation+Validation)
-.
+[Configuring Certificate Revocation Validation](https://docs.wso2.com/display/ISCONNECTORS/Configuring+Certificate+Revocation+Validation).
 
 ## Configuring the Authentication Endpoint
 
@@ -283,6 +263,8 @@ Validation](https://docs.wso2.com/display/ISCONNECTORS/Configuring+Certificate+R
     2.  `            username           ` : This attribute value will be
         taken as the authenticated user subject identifier. Update this
         with any of the certificate attributes, e.g., CN and Email.
+    3. `name` : This attribute identifies the authenticator that is configured as the second authentication step. 
+    4. `enable`: This attribute, when set to true makes the authenticator capable of being involved in the authentication process. 
 
     ``` toml
     [authentication.authenticator.x509_certificate.parameters]
@@ -338,13 +320,13 @@ retrieved certificate from the request.
     ```
 
 2.  On the **Main** tab, click **Claims &gt; Add**.  
-    ![](../assets/img/50501577/103328153.png)
+    ![add-claim-x509](../assets/img/learn/add-claim-x509.png)
 3.  Click **Add Local Claim**.  
-    ![](../assets/img/50501577/103328154.png)
+    ![add-local-claim](../assets/img/learn/add-local-claim.png)
 4.  Add a new claim for the **certificate** by giving the details as
     below, e.g., select a mapped attribute for the claim that is
     supported by the underlying database type.
-    ![](../assets/img/50501577/103328155.png)
+    ![claim-for-certificate](../assets/img/learn/claim-for-certificate.png)
 5.  Click **Add**.
 
 ## Updating the column size of the database for X509 certificates
@@ -352,128 +334,10 @@ retrieved certificate from the request.
 Make note of the following points and configure your database to match
 your use case:  
   
-
 -   [Disabling Certificate Validation in an Unstarted WSO2 IS
-    Pack](#ConfiguringX509CertificateAuthenticator-DisablingCertificateValidationinanUnstartedWSO2ISPack)
+    Pack](#disabling-certificate-validation-in-an-unstarted-WSO2-IS-Pack)
 -   [Disabling Certificate Validation in an Already-started WSO2 IS
-    Pack](#ConfiguringX509CertificateAuthenticator-DisablingCertificateValidationinanAlready-startedWSO2ISPack)
--   [Using an identity claim for the X509 certificate or working with
-    read only user
-    stores](#ConfiguringX509CertificateAuthenticator-UsinganidentityclaimfortheX509certificateorworkingwithreadonlyuserstores)
--   [Using a wso2 claim for the X509
-    certificate](#ConfiguringX509CertificateAuthenticator-Usingawso2claimfortheX509certificate)
-
-### Using an identity claim for the X509 certificate or working with read only user stores
-
-If you are using an identity claim to store X509 Certificates, e.g.,
-`                   http://wso2.org/claims/identity                  ,        `
-or if you are working with a read-only user store, the certificate gets
-stored in the `         DATA_VALUE        ` column of the
-`         IDN_IDENTITY_USER_DATA        ` table. The default DB script
-sets the column size to 255 characters but in this case, the certificate
-value has more than 255 characters. Therefore, you need to update the
-column size to a higher value.
-
-Follow the steps given below to update the column size:
-
-You do not need to update the column size if you are using WSO2 IS 5.4.0
-or above 5.4.0.
-
--   Refer this
-    [link](https://docs.wso2.com/display/ADMIN44x/Browsing+the+H2+Database)
-    to browse the H2 database of WSO2 products, and execute the query
-    given below to alter the column size of the H2 database.
-
-    ``` java
-    ALTER TABLE IDN_IDENTITY_USER_DATA ALTER DATA_VALUE VARCHAR(2048);
-    ```
-
--   Refer the table given below to find out the queries you can use for
-    the databases listed below:
-
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Database</th>
-    <th>Query to alter the column</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>MySQL</td>
-    <td><code>               ALTER TABLE IDN_IDENTITY_USER_DATA CHANGE DATA_VALUE DECIMAL VARCHAR(2048)              </code></td>
-    </tr>
-    <tr class="even">
-    <td>Oracle</td>
-    <td><code>               IDN_IDENTITY_USER_DATA modify (DATA_VALUE varchar(2048));              </code></td>
-    </tr>
-    <tr class="odd">
-    <td>MSSQL</td>
-    <td><code>               ALTER TABLE IDN_IDENTITY_USER_DATA              </code><br />
-    <code>               ALTER COLUMN DATA_VALUE VARCHAR(2048) NOT NULL;              </code></td>
-    </tr>
-    <tr class="even">
-    <td>PostgreSQL</td>
-    <td><code>               ALTER TABLE IDN_IDENTITY_USER_DATA ALTER COLUMN DATA_VALUE TYPE VARCHAR(2048); Configuring the X509 Certificate for the app              </code></td>
-    </tr>
-    </tbody>
-    </table>
-
-### Using a wso2 claim for the X509 certificate
-
-If you use are using a wso2 claim to store X509 Certificate, e.g.,
-`                   http://wso2.org/claims                 ` , the
-certificate gets stored as a user attribute in the
-`         UM_ATTR_VALUE        ` column of the
-`         UM_USER_ATTRIBUTE        ` table. The default DB script sets
-the column size to 1024 characters but in this case, the certificate
-value is having more than 1024 characters Therefore, you need to update
-the column size to a higher value.
-
-Follow the steps given below to update the column size:
-
-You do not need to update the column size if you are using WSO2 IS 5.4.0
-or above 5.4.0.
-
--   Refer this
-    [link](https://docs.wso2.com/display/ADMIN44x/Browsing+the+H2+Database)
-    to browse the H2 database of WSO2 products, and execute the query
-    given below to alter the column size of the H2 database.
-
-    ``` java
-    ALTER TABLE UM_USER_ATTRIBUTE ALTER UM_ATTR_VALUE VARCHAR(2048);
-    ```
-
--   Refer the table given below to find out the queries you can use for
-    the databases listed below:
-
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Database</th>
-    <th>Query to alter the column</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>MySQL</td>
-    <td><code>               ALTER TABLE UM_USER_ATTRIBUTE CHANGE UM_ATTR_VALUE DECIMAL VARCHAR(2048)              </code></td>
-    </tr>
-    <tr class="even">
-    <td>Oracle</td>
-    <td><code>               UM_USER_ATTRIBUTE modify (UM_ATTR_VALUE varchar(2048));              </code></td>
-    </tr>
-    <tr class="odd">
-    <td>MSSQL</td>
-    <td><code>               ALTER TABLE UM_USER_ATTRIBUTE              </code><br />
-    <code>               ALTER COLUMN UM_ATTR_VALUE VARCHAR(2048) NOT NULL;              </code></td>
-    </tr>
-    <tr class="even">
-    <td>PostgreSQL</td>
-    <td><code>               ALTER TABLE UM_USER_ATTRIBUTE ALTER COLUMN UM_ATTR_VALUE TYPE VARCHAR(2048);              </code></td>
-    </tr>
-    </tbody>
-    </table>
+    Pack](#Disabling-Certificate-Validation-in-an-Already-started-WSO2-IS-Pack)
 
 ## Deploying travelocity.com sample app
 
@@ -505,7 +369,7 @@ The next step is to configure the service provider.
     3.  **Enable Attribute Profile**.
     4.  **Include Attributes in the Response Always**.
 
-    ![](../assets/img/50501577/56985063.png)
+    ![configure-sp](../assets/img/learn/configure-sp.png)
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
 8.  Go to the **Local and Outbound Authentication Configuration**
@@ -518,23 +382,23 @@ The next step is to configure the service provider.
 
         2.  Add the **basic** authentication as a first step and
             **X509Certificate** authentication as the second step.  
-            ![](../assets/img/50501577/56985064.png)
+            ![first-step-authentication](../assets/img/learn/first-step-authentication.png)
 
     2.  First factor
         -   Select **Local Authentication** as the **Authentication
             Type** and select **X509Certificate** from the drop-down
             list.  
-            ![](../assets/img/50501577/56985065.png)
+            ![first-factor-x509](../assets/img/learn/first-factor-x509.png)
         -   When using X509 as first step authentication, you need to
             create a user in IS management console with the Email
             provided while creating the browser certificate.  
             Example:  
-            ![](../assets/img/50501577/72423358.png)
+            ![browser-certificate](../assets/img/learn/browser-certificate.png)
 
             !!! note
                 For more information on creating users and assigning roles
                 using management console, refer
-                [here](https://docs.wso2.com/display/IS530/Configuring+Users#ConfiguringUsers-Addinganewuserandassigningroles).
+                [here](../../learn/configuring-users-roles-and-permissions).
             
 10. Finally, click on **Update** to finish the service provider
     configurations.
@@ -556,13 +420,14 @@ exposure.
 The X509CRL is downloaded from the CRL URL and persisted in cache.
 Follow the steps below to configure CRL caching.
 
-1.  Open the identity.xml located in the
-    `          <IS_HOME>/repository/conf/identity         ` directory.
-2.  Locate the `          <CacheManger>         ` element.
-3.  Enable CRL caching by using the following snippet.
+1.  Open the `deployment.toml` file located in the `          <IS_HOME>/repository/conf/        ` directory.
+2.  Add the following configuration.
 
-    ``` java
-    <Cache name="CRLCache" enable="false"  timeout="900" capacity="5000" isDistributed="false"/>
+    ``` toml
+    [[cache.manager]]
+    name="CRLCache"
+    timeout="900"
+    capacity="5000"
     ```
 
 ## Import certificate
@@ -570,7 +435,7 @@ Follow the steps below to configure CRL caching.
 -   **Chrome**
     1.  In your browser, navigate to **Settings &gt; HTTPS/SSL &gt; Manage
     certificates**.  
-    ![](../assets/img/50501577/56985081.png)
+    ![import-cert-chrome](../assets/img/learn/import-cert-chrome.png)
     2.  Click on **Import,** select the **localhost.p12** file, and then
     click **Open**. Note that you may have to enter the password that
     you used to generate the p12 file, (browserpwd) to open it.
@@ -579,14 +444,14 @@ Follow the steps below to configure CRL caching.
     1.  Click on the menu option on the right of the screen and select
         **Preferences**.  
     
-        ![](../assets/img/50501577/76747279.png)
+        ![preferences-firefox](../assets/img/learn/preferences-firefox.png)
 
     2.  Click Privacy & Security in the left navigation and scroll down to
         the **Certificates** section. Click **View Certificates**.  
         
-        ![](../assets/img/50501577/76747282.png)
+        ![view-certificates](../assets/img/learn/view-certificates.png)
     3.  In the window that appears, click **Import**.  
-        ![](../assets/img/50501577/76747286.png)
+        ![import-firefox](../assets/img/learn/import-firefox.png)
     4.  Select the **localhost.p12** file, and then click **Open**. Note
         that you may have to enter the password that you used to generate
         the p12 file, (browserpwd) to open it.
@@ -602,17 +467,17 @@ Follow the steps below to configure CRL caching.
         If you have set this up as the first factor you will not
         get basic authentication.
       
-    ![](../assets/img/50501577/56985082.png)
+    ![basic-auth](../assets/img/learn/basic-auth.png)
 
 3.  The basic authentication page appears unless it is not set as the
     first factor. Use your username and password and click **Sign In**
     (Only for the second step).  
-    ![](../assets/img/50501577/56985083.png)
+    ![sign-in-basic](../assets/img/learn/sign-in-basic.png)
 4.  You are directed to the X509 certificate authentication page (
     `          https://localhost:8443/x509-certificate-servlet         `
     ). If the authentication is successful, you will be taken to the
     home page of the travelocity.com app.  
-    ![](../assets/img/50501577/56985084.png)
+    ![travelocity-home](../assets/img/learn/travelocity-home.png)
 
   
 
