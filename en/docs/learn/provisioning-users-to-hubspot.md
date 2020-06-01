@@ -2,17 +2,17 @@
 
 If your business uses or is willing to use enterprise marketing softwares such as Hubspot or Salesforce, WSO2 IAM 
 solution has the ability to interact with those systems while giving you the simplicity to manage your 
-organizations&#39; identities from a single place.
+organizations' identities from a single place.
 
 This topic provides instructions on how to integrate HubSpot with WSO2 Identity Server to provision users from WSO2 
-Identity Server. After completing this tutorial you can see the users you add using WSO2 Identity Server being created 
+Identity Server. After completing this tutorial, you can see the users you add using WSO2 Identity Server being created 
 in HubSpot and lead information updates in WSO2 Identity Server being updated in HubSpot as well.
 
 ## Configuring HubSpot
 
 1. **Test accounts are created and managed within developer accounts.** 
         
-      If you don&#39;t have a developer account in HubSpot, you can sign up from 
+      If you do not have a developer account in HubSpot, you can sign up from 
       [here](https://app.hubspot.com/signup/developers?_ga=2.39153443.1802613489.1576611619-500942594.1573763828).
     
     !!! Note 
@@ -40,29 +40,29 @@ Hubspot APIs via the HubSpot connector. Follow the steps given below to deploy t
 4. Navigate to `<WSO2-EI-HOME>/bin` and start the server by executing one of the following commands.
 
     ``` 
-        Linux/MacOs: sh micro-integrator.sh
-        Windows: micro-integrator.bat run
+    Linux/MacOs: sh micro-integrator.sh
+    Windows: micro-integrator.bat run
     ```
 
 1. After the server starts, navigate to the `<WSO2-EI-HOME>/micro-integrator/registry/config/custom` directory and edit 
 the file to configure the HubSpot API key as follows.
 
     ```
-       <EndPointsList xmlns:ns1="http://endpoints">
-       <APIKEY>7xxxxxxxxxxxxxxxxxxxxxxxxxxxx8</APIKEY>
-       </EndPointsList> 
+   <EndPointsList xmlns:ns1="http://endpoints">
+   <APIKEY>7xxxxxxxxxxxxxxxxxxxxxxxxxxxx8</APIKEY>
+   </EndPointsList> 
     ```
 
 ## Configuring Identity Server
 
-#### Step 01: Set up Identity server and configure a required claim
+### Step 01: Set up Identity server and configure a required claim
 
 1. Download [WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 2. Navigate to `<IS_HOME>\bin` and start the server by executing one of the following commands.
 
     ```
-        Linux/MacOS: sh wso2server.sh
-        Windows: wso2server.bat run
+    Linux/MacOS: sh wso2server.sh
+    Windows: wso2server.bat run
     ```
 
 3. Access the [WSO2 Identity Server Management Console](https://localhost:9443/carbon) using the admin credentials.
@@ -75,7 +75,7 @@ the file to configure the HubSpot API key as follows.
 
     ![phone-number-claim](../assets/img/tutorials/phone-number-claim.png)
 
-#### Step 02: Configure HubSpot as the identity Provider
+### Step 02: Configure HubSpot as the identity Provider
 
 1. On the Management Console, click **Add** under **Identity Providers**.
 2. In the form that appears, provide a name for your identity provider by filling in the **Identity Provider Name**. 
@@ -88,23 +88,23 @@ for information on registering and configuring an identity provider.
 5. The value of the User Endpoint should be the same as the SCIM receiving endpoint that we deployed in the MI.
 
     ```
-        Username: admin
-        Password: admin
-        User Endpoint: https://localhost:8253/hubspot/contacts
+    Username: admin
+    Password: admin
+    User Endpoint: https://localhost:8253/hubspot/contacts
     ```
 
     ![scim-provisioning-conf](../assets/img/tutorials/scim-provisioning-conf.png)
 
 1. Click Update and save the configuration
 
-#### Step 03: Configuring the outbound provisioning
+### Step 03: Configuring the outbound provisioning
 
 Now we need to enable sending out provisioning requests to the previously configured provisioning system for any user 
-management operation done via the management console, SOAP API or the SCIM API. To do that, you must configure outbound 
-provisioning identity providers against the resident service provider. So, based on the outbound configuration, 
+management operation done via the management console, SOAP API, or the SCIM API. To do that, you must configure outbound 
+provisioning identity providers against the resident service provider. So, based on the outbound provisioning, 
 users created in WSO2 Identity Server can also be provisioned to external systems like HubSpot or Google Apps.
 
-1. Log on to the [Management Console](https://localhost:9443/carbon/) using the username and password.
+1. Log in to the [Management Console](https://localhost:9443/carbon/) using the username and password.
 2. In the **Main** menu under the **Identity** section, click **Resident** under **Service Providers.**
 3. In the resulting screen, expand the **Outbound Provisioning Configuration** section.
 4. In the **Outbound Provisioning Configuration** section, do the following.
@@ -113,11 +113,11 @@ users created in WSO2 Identity Server can also be provisioned to external system
     have not added an identity provider yet, this step is not possible.
     2. Once added, the identity provider is displayed as an entry in the list. Select scim from the drop-down to ensure 
     that the SCIM operation is used for provisioning.
-    3. If the option, Blocking is enabled, the outbound provisioning request will be blocked until the response is 
+    3. If the option, **Blocking** is enabled, the outbound provisioning request will be blocked until the response is 
     received. By default, the request would be non-blocking.
-    4. If the option, Enable Rules is enabled, the outbound provisioning request will be executed along with the 
+    4. If the option, **Enable Rules** is enabled, the outbound provisioning request will be executed along with the 
     XACML rules enabled.
-    5. Click Update to save your configurations.
+    5. Click **Update** to save your configurations.
 
     ![outbound-provisioning-conf](../assets/img/tutorials/outbound-provisioning-conf.png)
 
@@ -143,7 +143,7 @@ users created in WSO2 Identity Server can also be provisioned to external system
 5. Read the Privacy Policy and select the **Privacy Policy** checkbox.
 6. Click **Register**.
 7. Login to HubSpot.
-8. On the navigation panel, click contacts. You will see that the user you created in WSO2 IS has also been created in 
+8. On the navigation panel, click **contacts**. You will see that the user you created in WSO2 IS has also been created in 
 HubSpot.
 9. Then try to edit user details through the user portal as follows.
 
