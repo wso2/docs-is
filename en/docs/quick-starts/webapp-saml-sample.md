@@ -1,11 +1,11 @@
-# Enable Authentication for SAML Web Application
+# Enable Login for SAML Web Application
 
-This page guides you through enabling authentication to a SAML web application using a **sample application** called Pickup. 
+This page guides you through enabling login for a SAML web application using a **sample application** called Pickup. 
 
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/webapp-oidc" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/webapp-oidc"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

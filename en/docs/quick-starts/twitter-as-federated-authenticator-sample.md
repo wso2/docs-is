@@ -6,7 +6,7 @@ This page guides you through using Twitter as a federated authenticator and logg
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/federation/twitter" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/federation/twitter"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

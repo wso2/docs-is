@@ -12,9 +12,9 @@ template: templates/single-column.html
         <p>Within these pages you will find tutorials that help you understand and try out capabilities such as SSO, Identity Federation, Authentication - be it multi-factor authentication or adaptive authentication, and more. You can also browse through our API catalog and extend/customize using our extension points. </p>
     </div>
     <div class="md-main md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:-510px; margin-top:5px">
-    <a class="homepgbtn_a" href="" target="_blank" rel="nofollow noopener"> Download WSO2 Identity Server</a>
-    <a class="homepgbtn_a" href="" target="_blank" rel="nofollow noopener"> What's New in this Release</a>
-    <a class="homepgbtn_a" href="" target="_blank" rel="nofollow noopener"> Start Building</a>
+    <a class="homepgbtn_a" href=""   rel="nofollow noopener"> Download WSO2 Identity Server</a>
+    <a class="homepgbtn_a" href=""   rel="nofollow noopener"> What's New in this Release</a>
+    <a class="homepgbtn_a" href=""   rel="nofollow noopener"> Start Building</a>
     </div>
     <gr>
    <div class="md-main md-content" style="width:100%">
@@ -37,7 +37,7 @@ template: templates/single-column.html
                <li><a href=""> SAML</a> </li>
                <li><a href=""> OAuth/OpenID Connect</a> </li>
                <li><a href=""> More...</a> 
-               <a class="tutorialbtn_a" href="" target="_blank" rel="nofollow noopener" style="font-size:17px">Demo</a>
+               <a class="tutorialbtn_a" href=""   rel="nofollow noopener" style="font-size:17px">Demo</a>
                </li>
             </ul>
             </div>
@@ -61,7 +61,7 @@ template: templates/single-column.html
                <li><a href=""> Social IdPs</a> </li>
                <li><a href=""> Protocol-Based</a> </li>
                <li><a href=""> External Connectors</a> 
-                <a class="tutorialbtn_a" href="" target="_blank" rel="nofollow noopener" style="font-size:17px">Demo</a>
+                <a class="tutorialbtn_a" href=""   rel="nofollow noopener" style="font-size:17px">Demo</a>
                </li>
             </ul>
             </div>
@@ -85,7 +85,7 @@ template: templates/single-column.html
                <li><a href=""> Knowledge Factor</a> </li>
                <li><a href=""> Ownership Factor</a> </li>
                <li><a href=""> Inherence Factor</a> 
-               <a class="tutorialbtn_a" href="" target="_blank" rel="nofollow noopener" style="font-size:17px">Demo</a>
+               <a class="tutorialbtn_a" href=""   rel="nofollow noopener" style="font-size:17px">Demo</a>
                </li>
             </ul>
             </div>
@@ -109,7 +109,7 @@ template: templates/single-column.html
                <li><a href=""> Risk-Based</a> </li>
                <li><a href=""> Context-Based</a> </li>
                <li><a href=""> More...</a> 
-                <a class="tutorialbtn_a" href="../../guides/configure-adaptive-auth" target="_blank" rel="nofollow noopener" style="font-size:17px">Demo</a>
+                <a class="tutorialbtn_a" href="../../guides/configure-adaptive-auth"   rel="nofollow noopener" style="font-size:17px">Demo</a>
                </li>
             </ul>
             </div>
@@ -133,7 +133,7 @@ template: templates/single-column.html
                <li><a href=""> OAuth Grant Types</a> </li>
                <li><a href=""> User Managed Access</a> </li>
                <li id="loadMore"><a href=""> More...</a> 
-                <a class="tutorialbtn_a" href="../../guides/configure-adaptive-auth" target="_blank" rel="nofollow noopener" style="font-size:17px">Demo</a>
+                <a class="tutorialbtn_a" href="../../guides/configure-adaptive-auth"   rel="nofollow noopener" style="font-size:17px">Demo</a>
                </li>
             </ul>
             </div>
@@ -157,7 +157,7 @@ template: templates/single-column.html
                <li><a href=""> Users</a> </li>
                <li><a href=""> Tenants </a> </li>
                <li><a href=""> More...</a> 
-                <a class="tutorialbtn_a" href="" target="_blank" rel="nofollow noopener" style="font-size:17px">Demo</a>
+                <a class="tutorialbtn_a" href=""   rel="nofollow noopener" style="font-size:17px">Demo</a>
                </li>
             </ul>
             </div>
@@ -171,22 +171,22 @@ template: templates/single-column.html
    </header>
    <div class="homepgfooter" style="float:right; width: 100%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:100%; margin-top:5px;box-shadow: 0 2px 8px 0 rgba(92,102,111,.15);text-align: center; font-size:large; padding-top: 20px;">
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="" target="_blank" rel="nofollow noopener">Community</a>
+        <a  href=""   rel="nofollow noopener">Community</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="" target="_blank" rel="nofollow noopener">Blogs/Articles</a>
+        <a  href=""   rel="nofollow noopener">Blogs/Articles</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="" target="_blank" rel="nofollow noopener">Compatibility</a>
+        <a  href=""   rel="nofollow noopener">Compatibility</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="" target="_blank" rel="nofollow noopener">Training</a>
+        <a  href=""   rel="nofollow noopener">Training</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="" target="_blank" rel="nofollow noopener">Developer Portal</a>
+        <a  href=""   rel="nofollow noopener">Developer Portal</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="" target="_blank" rel="nofollow noopener">Compliance</a>
+        <a  href=""   rel="nofollow noopener">Compliance</a>
         </div>
    </div>
 </div>
