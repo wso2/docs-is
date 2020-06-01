@@ -97,12 +97,16 @@ nav:
         - 'Provisioning':
           - 'Provisioning Overview': learn/provisioning-tutorials.md
           - 'Inbound Provisioning': learn/configuring-inbound-provisioning.md
-          - 'Outbound Provisioning': learn/configuring-outbound-provisioning.md
+          - 'Outbound Provisioning':
+            - 'Configuring Outbound Provisioning': learn/configuring-outbound-provisioning.md
+            - 'Provisioining Users to Salesforce': learn/provisioning-users-to-salesforce.md
             - 'Provisioning users to Hubspot': learn/provisioning-users-to-hubspot.md
         - 'Multifactor Authentication': learn/configuring-multifactor-authentication.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
         - 'Multi-Tenancy': learn/configuring-multi-tenancy.md
-        - 'Analytics': learn/configuring-identity-analytics.md
+        - 'Analytics': 
+          - 'Configuring Identity Analytics': learn/configuring-identity-analytics.md
+          - 'Web Analytics Solutions': learn/web-analytics-solutions.md
       - 'Single Sign-On':
         - 'Single Sign-On': learn/single-sign-on.md
         - 'Configuring Single Sign-On':
