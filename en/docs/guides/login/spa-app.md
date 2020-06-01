@@ -1,3 +1,4 @@
+<**TODO Remove this page.**>
 # Step by Step guide to enable authentication for a SPA application
 
 < Introduction - This document contains an step by Step guide on how to
