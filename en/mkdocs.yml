@@ -103,13 +103,13 @@ nav:
             - 'Provisioning users to Hubspot': learn/provisioning-users-to-hubspot.md
           - 'Account Syncing':
             - 'Exporting User Data From WSO2 Identity Server': learn/exporting-user-data-from-wso2-is.md
-            - 'Account Syncing with HubSpot': learn/exporting-user-info-to-hubspot.md
-            - 'Account Syncing with MailChimp': learn/exporting-user-info-to-mailChimp.md
-            - 'Account Syncing with Pardot': learn/exporting-user-info-to-pardot.md
-            - 'Account Syncing with Pipedrive CRM': learn/exporting-user-info-to-pipedrive.md
-            - 'Account Syncing with Salesforce': learn/exporting-user-info-to-salesforce.md
-            - 'Account Syncing with Sendgrid': learn/exporting-user-info-to-sendgrid.md
-            - 'Account Syncing with Zoho CRM': learn/exporting-user-info-to-zoho.md
+            - 'Sync Accounts to HubSpot': learn/exporting-user-info-to-hubspot.md
+            - 'Sync Accounts to MailChimp': learn/exporting-user-info-to-mailChimp.md
+            - 'Sync Accounts to Pardot': learn/exporting-user-info-to-pardot.md
+            - 'Sync Accounts to Pipedrive CRM': learn/exporting-user-info-to-pipedrive.md
+            - 'Sync Accounts to Salesforce': learn/exporting-user-info-to-salesforce.md
+            - 'Sync Accounts to Sendgrid': learn/exporting-user-info-to-sendgrid.md
+            - 'Sync Accounts to Zoho CRM': learn/exporting-user-info-to-zoho.md
         - 'Multifactor Authentication': learn/configuring-multifactor-authentication.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
         - 'Multi-Tenancy': learn/configuring-multi-tenancy.md
