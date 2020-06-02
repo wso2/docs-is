@@ -172,9 +172,7 @@ Once you have done the above steps, you have the keystore (`localcrt.jks`), trus
         2.  The `clientAuth` attribute causes the Tomcat to require the client with providing a certificate that can be configured as follows.
 
             -   `true` : valid client certificate required for a connection to succeed
-
             -   `want` : use a certificate if available, but still connect if no certificate is available
-
             -   `false` : no client certificate is required or validated
     
         -   The `truststoreFile` attributes specifies the location of the truststore that contains the trusted certificate issuers.
@@ -370,6 +368,7 @@ The next step is to configure the service provider.
     4.  **Include Attributes in the Response Always**.
 
     ![configure-sp](../assets/img/learn/configure-sp.png)
+    
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
 8.  Go to the **Local and Outbound Authentication Configuration**
