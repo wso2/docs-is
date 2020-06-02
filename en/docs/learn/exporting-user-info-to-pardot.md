@@ -17,8 +17,9 @@ Let's get started!
     ![import-prospect-in-paradot](../assets/img/tutorials/import-prospect-in-paradot.png)
 3. Click **+ Upload File** and choose the created `users.csv` file.
     ![upload-file-in-paradot](../assets/img/tutorials/upload-file-in-paradot.png)
-4. Click **Next**, after the file get uploaded successfully.
+4. Once the file gets uploaded successfully, Click **Next**.
     ![proceed-after-file-uploading-paradot](../assets/img/tutorials/proceed-after-file-uploading-paradot.png)
-5. Map the column headers to Pardot fields. Pardot suggests some field mappings.
+5. Map the column headers to the Pardot fields. Pardot suggests some field mappings.
     ![map-fields-in-pardot](../assets/img/tutorials/map-fields-in-pardot.png)
-6. Complete the **Campaign and Add Tags** and **Action** section according to your needs and confirm user import.
+6. Complete the **Campaign and Add Tags** and **Action** sections according to your requirement.
+7. Confirm user import.
