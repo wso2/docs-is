@@ -103,6 +103,8 @@ nav:
             - 'Provisioning users to Hubspot': learn/provisioning-users-to-hubspot.md
           - 'Account Syncing':
             - 'Exporting User Data From WSO2 Identity Server': learn/exporting-user-data-from-wso2-is.md
+            - 'Account Syncing with HubSpot': learn/exporting-user-info-to-hubspot.md
+            - 'Account Syncing with MailChimp': learn/exporting-user-info-to-mailChimp.md
             - 'Account Syncing with Pardot': learn/exporting-user-info-to-pardot.md
             - 'Account Syncing with Pipedrive CRM': learn/exporting-user-info-to-pipedrive.md
             - 'Account Syncing with Salesforce': learn/exporting-user-info-to-salesforce.md
