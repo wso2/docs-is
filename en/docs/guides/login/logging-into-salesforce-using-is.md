@@ -1,11 +1,6 @@
 # Logging in to Salesforce using the Identity Server
 
-This topic provides instructions on how to log into
-[Salesforce](https://developer.salesforce.com/) using your WSO2 Identity
-Server credentials.
-
-
-Let's get started!
+This page guides you through using WSO2 Identity  Server to log in to Salesforce. 
 
 ## Configure Salesforce
 
@@ -29,7 +24,7 @@ Let's get started!
 
 4.  Once you are logged in, create a new domain and access it. To do
     this, do the following steps.  
-    1.  Search for My Domain in the search bar that is on the left
+    1.  Search for **My Domain** in the search bar that is on the left
         navigation panel.  
         ![my-domain](../../assets/img/guides/my-domain-salesforce.png)
 
@@ -61,7 +56,7 @@ Let's get started!
 
 8.  Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
-    ![saml-sso-setting](../../assets/img/tutorials/saml-sso-salesforce.png)
+    ![saml-sso-setting](../../assets/img/guides/saml-sso-salesforce.png)
     
     Ensure that you configure the following properties.
 
@@ -96,13 +91,13 @@ Let's get started!
     <p><code>                 wso2.crt                </code></p>
     <div class="admonition note">
 	<p class="admonition-title">Note</p>
-	<p>To create the Identity Provider Certificate, open your Command Line interface, traverse to the <code><IS_HOME>/repository/resources/security/ </code>directory. 
+	<p>To create the Identity Provider Certificate, open your Command Line interface, traverse to the <code><\IS_HOME>/repository/resources/security/ </code>directory. 
 	Next you must execute the following command.
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
 	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
 	<code>keytool -export -alias wso2carbon -file wso2.crt -keystore wso2carbon.jks -storepass wso2carbon</code></pre></div></div>
-	<p>Once this command is run, the wso2.crt file is generated and can be found in the <code> <IS_HOME>/repository/resources/security/</code> directory.
+	<p>Once this command is run, the wso2.crt file is generated and can be found in the <code> <\IS_HOME>/repository/resources/security/</code> directory.
 	 Click Choose File and navigate to this location in order to obtain and upload this file.
 	</div>
     </div></td>
@@ -169,9 +164,9 @@ Let's get started!
 
 ## Configure email address as the username
 
-{! fragments/email-address-as-username.md !}
+For details on configuring WSO2 Identity Server to use an email address as the username, refer [Using Email Address as the Username](insert-link).
 
-## Configuring the service provider
+## Configure the service provider
 
 Follow the steps given below to configure salesforce as a service
 provider in WSO2 IS.
@@ -198,62 +193,24 @@ provider in WSO2 IS.
 
 5. Enter the **issuer ID** as `https://saml.salesforce.com`. 
 
-6. Enter the **assertion consumer URL**. 
+6. Enter the **assertion consumer URL**. This can be obtained from the Salesforce end. 
 
-5. In the form that appears, fill out the following configuration
-    details required for single sign-on. 
+    !!! note "Obtaining the assertion URL from Salesforce"
+        1.  Navigate to **Identity -> Single Sign-On Settings** from the left hand side panel. 
+        2.  Click on the name of the SAML SSO component created. 
+        3.  Note down the login URL. 
 
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Field</th>
-    <th>Value</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Issuer</td>
-    <td><code>                                 https://saml.salesforce.com                               </code></td>
-    <td>This is the <code>                &lt;saml:Issuer&gt;               </code> element that contains the unique identifier of the service provider. This is <a href="#entity-id">the same value</a> you entered as the Entity-ID when creating the salesforce application. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. When configuring single-sign-on across Carbon servers, ensure that this value is equal to the service_provider_id value mentioned in the <code> deployment.toml </code> file of the relying party Carbon server.</td>
-    </tr>
-    <tr class="even">
-    <td>Assertion Consumer URL</td>
-    <td nowrap>
-    <details class="note" open="">
-    <summary>Click here and follow the steps to get the Assertion Consumer URL.</summary>
-    <p>Follow the steps given below to get the Salesforce URL:</p>
-    <ol>
-    <li>Login to the Salesforce developer account: <a href="https://login.salesforce.com/?lt=de">https://login.salesforce.com/</a>.</li>
-    <li>Search for My Domain in the search bar that is on the left navigation panel.</li>
-    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a>.</p></li>
-    <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
-    <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
-    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../../assets/img/tutorials/Click-sso-setting-name.png" /></li>
-    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../../assets/img/tutorials/login-url-to-access-salesforce.png" /></li>
-    </ol>
-    </td>
-    <td width="40%">This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. In this case, you must use your Salesforce login URL. In Salesforce, click <strong>Security Controls</strong> on your left menu and then click <strong>Single Sign-On Settings</strong>. In the page that appears, click on the SSO settings that you created to view the details. Use the <strong>Salesforce Login URL</strong> listed there for this value.</td>
-    </tr>
-    <tr class="odd">
-    <td>NameID Format</td>
-    <td>The default value can be used here.</td>
-    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
-    </tr>
-    <tr class="even">
-    <td>Enable Response Signing</td>
-    <td>Selected</td>
-    <td><p>Select <strong>Enable Response Signing</strong> to sign the SAML2 Responses returned after the authentication process.</p></td>
-    </tr>
-    <tr class="odd">
-    <td>Enable Attribute Profile</td>
-    <td>Selected</td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the check box to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
-    </tr>
-    </tbody>
-    </table>
+7.   Click **Next**. 
 
-7.  Click **Update** to save your configurations.
+8. Check your configurations and click **Finish**. 
+
+9. Navigate to the **Access** tab of your newly created application. 
+
+10. Enable **Sign SAML responses** under the **Assertion/Response Signing** section. 
+
+11. Select **Enable** and **Always include attributes in the response** in the **Attribute Profile** section. 
+
+12. Click **Update**. 
 
 ## Test the configurations
 
@@ -261,15 +218,15 @@ Do the following steps to test out the configurations for a new user in
 Salesforce and the Identity Server.
 
 1.  Create a user in WSO2 IS.  
-    1.  Once you log in to the Identity Server, navigate to the **Main**
-        menu in the Management Console, click **Add** under **Users and
-        Roles**.
-    2.  Click **Users**. This link is only visible to users with the
-        Admin role.
-    3.  Click **Add New User**.  When adding a new user, use an email
-        address as the username.  
-        Since it is not mandatory to assign a role to a user in this
-        tutorial, click **Finish**.
+    1.  Select **Users and Groups** from the left panel. 
+    2.  Click **New user**.
+    3.  Enter the first name, last name, and email address in the corresponding fields. 
+    4.  Either set a password for the user or invite the user to self register. 
+    5.  Click **Next**. 
+    6.  Choose the user groups and click **Next**.
+    7.  Choose user roles optionally. 
+    8.  Validate all the fields in the summary. 
+    9. Click **Finish**.
         
 2.  Create a user in Salesforce. This user should have the same
     email address as the user in WSO2 IS  
@@ -280,12 +237,11 @@ Salesforce and the Identity Server.
     3.  On the page that appears, click the **New User** button to
         create a new user.
     4.  Create a user with the same username as the one you created in
-        the Identity Server. Click **Save** to save your changes. An
+        WSO2 Identity Server. Click **Save** to save your changes. An
         email will be sent to the email address you provided for the
         user.
 
         !!! note
-        
 			This is mainly for testing purposes. In a real
 			business scenario, you would be more likely to use Just-In-Time
 			(JIT) provisioning to provision a user to Salesforce.
@@ -301,32 +257,31 @@ Salesforce and the Identity Server.
 			navigation panel.
 			
 		2.  Click My Domain and you are navigated to the domain you created
-			under the section [Configuring
-			Salesforce](#configuring-salesforce).
+			under the section, [Configure
+			Salesforce](#configure-salesforce).
 
 		3.  Click **Edit** under Authentication Configurations and you are
 			navigated to a new page having the following URl:
-			`              https://<DOMAIN_NAME>/domainname/EditLogin.apexp             `
+			`              https://<DOMAIN_NAME>/domainname/EditLogin.apexp             `. 
 			
 		4.  On the left navigation menu, expand **Security Controls**, and
 			click, **Single Sign-On Settings**.
 			
 		5.  Click on the name of the Single Sign-On Setting you created. In
 			this use case click **SSO**.  
-			![single-sign-on-setting](../../assets/img/tutorials/single-sign-on-setting.png)
+			![single-sign-on-setting](../../assets/img/guides/single-sign-on-setting.png)
 			
 		6.  Copy the URL that is defined for Login URL to access
 			Salesforce.  
-			![login-url-for-salesforce](../../assets/img/tutorials/login-url-for-salesforce.png)
+			![login-url-for-salesforce](../../assets/img/guides/login-url-for-salesforce.png)
 
 4.  Log in using the new credentials of the user you just created. You
     are then redirected back to Salesforce.
 
 
-### Troubleshooting guidelines
+## Troubleshooting guidelines
 
 Additional troubleshooting information regarding any Salesforce side SSO
 failures can be retrieved by using Salesforce SAML Assertion Validator.
 Further information regarding the steps are available
-[here](https://developer.salesforce.com/docs/atlas.en-us.sso.meta/sso/sso_saml_validation_errors.htm#!)
-.
+[here](https://developer.salesforce.com/docs/atlas.en-us.sso.meta/sso/sso_saml_validation_errors.htm#!).

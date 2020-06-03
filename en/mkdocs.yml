@@ -100,14 +100,9 @@ nav:
         - 'Mobile Application': guides/login/mobile-app.md
         - 'Single Page Application': guides/login/spa-app.md
         - 'SaaS Applications':
-          - 'Google': guides/login/google.md
-          - 'Microsoft Services':
-            - 'Dynamics CRM': guides/login/microsoft-dynamic-crm.md
-            - 'Office365': guides/login/office365.md
-            - 'SharePoint': guides/login/microsoft-sharepoint.md
-            - 'Workday': guides/login/microsoft-workday.md
-          - 'Salesforce': guides/login/salesforce.md
-          - 'Shiboleth': guides/login/google.md
+          - 'Salesforce': guides/login/logging-into-salesforce-using-is.md
+          - 'Google': guides/login/logging-into-google-using-is.md
+          - 'SimpleSAMLphp': guides/login/logging-into-simplesamlphp-using-is.md
         - 'Request Claims for the Application': guides/login/request-app-claims.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
