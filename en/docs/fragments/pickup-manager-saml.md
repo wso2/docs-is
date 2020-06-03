@@ -2,25 +2,7 @@
 
 ### Register a service provider
 
-1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
-
-2. Click **Service Providers > Add** and enter "pickup-dispatch" as the **Service Provider Name** and click **Register**.
-    
-3. Expand **Inbound Authentication Configuration** section and then **SAML2 Web SSO Configuration**. 
-
-4. Click **Configure.**   
-
-5. Enter the following configurations:
-    1.  **Issuer** : saml2-web-app-pickup-manager.com
-
-    2.  **Assertion Consumer URL** : http://wso2is.local:8080/saml2-web-app-pickup-manager.com/home.jsp                    
-        Click **Yes**, in the message that appears.
-
-        !!! tip
-            For more information on these fields and other advanced configurations
-            refer, [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced)
-
-6. Click **Register** to save the changes. Now you are sent back to the Service Providers page.
+insert portal content
 
 ### Download the sample
 
