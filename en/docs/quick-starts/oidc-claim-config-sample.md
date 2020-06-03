@@ -11,7 +11,7 @@ If you have your own application, click the button below.
 
 ----
 
-# Request claims using an OIDC Application
+## Request claims using an OpenID Connect application
 {!fragments/deploying-sample-apps.md!}
 
 ### Register a service provider
@@ -67,3 +67,5 @@ Next, deploy the sample web app on a web container.
 
 
 {!fragments/display-claims-pickup-oidc.md!}
+
+## Request claims using SAML application

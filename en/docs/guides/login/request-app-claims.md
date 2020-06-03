@@ -1,6 +1,6 @@
 # Configure Attributes for Service Providers
 
-This page guides you through configuring the attribute mappings with Identity Server and the application to pass the 
+This page guides you through configuring the attribute mappings with WSO2 Identity Server and the application to pass the 
 attribute values to the application. 
 
 ---
