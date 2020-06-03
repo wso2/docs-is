@@ -107,8 +107,10 @@ nav:
         - 'Request Claims for the Application': guides/login/request-app-claims.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
+          - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
+          - 'SSO For SAML Applications': guides/login/sso-for-saml.md
+          - 'SSO For WS-Federation Applications': guides/login/sso-for-ws-fed.md
           - 'Single Sign-On for Native iOS Applications': guides/login/sso-native-ios.md
-          - 'SAML2 Single-Sign-On Across Different WSO2 Products': guides/login/sso-with-wso2-products.md
         - 'Single Logout':
           - 'OpenID Connect':
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
@@ -117,7 +119,6 @@ nav:
             - 'Front-Channel Logout': guides/login/saml-frontchannel-logout.md
             - 'Back-Channel Logout': guides/login/saml-backchannel-logout.md
           - 'Cross Protocol Logout': guides/login/cross-protocol-logout.md
-          - 'SP/IdP Session Timeout': guides/login/session-timeout.md
         - 'Advanced OpenID Connect':
           - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
           - 'Pass Parameters as a Request Object': guides/login/request-object.md
@@ -137,6 +138,8 @@ nav:
           - 'Skip User Consent': guides/login/skip-user-consent.md
           - 'SaaS Applications': guides/login/saas-apps.md
           - 'Use Certificates with Applications': guides/login/app-certificates.md
+          - 'SP/IdP Session Timeout' : guides/login/sp-idp-session-timeout.md
+
       - 'Multifactor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':

@@ -2,19 +2,10 @@
 
 This page guides you through mapping [OpenID Connect (OIDC) scopes and claims](../../../concepts/authentication/scopes-claims). 
 
-----
-
-**About oidc-scope-config.xml**
-
-The `oidc-scope-config.xml` file enables grouping of claims that are bound to a scope value in OpenID Connect (OIDC). By default, the oidc-scope-config.xml file is located inside the `<IS_HOME>/repository/conf/identity` directory.
     
-This file can be modified to add custom scopes or claims. When the server starts, these configurations are stored in the registry located in `/oidc/` . You can customize claims or scopes from here as well. The returned clams from the ID token or user info endpoint will be decided based on both the requested scopes and requested claims.
-    
-When requesting for an OIDC token, you can specify a scope value that is bound to a set of claims in the `oidc-scope-config.xml` file. When sending that OIDC token to the userinfo endpoint, only the claims that are common to both the `oidc-scope-config.xml` file and the service provider claim configuration, will be returned.
-
 -----
-
 ## Add scopes
+**Link portal docs or add fragments.**
 
 1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
 
@@ -31,6 +22,7 @@ When requesting for an OIDC token, you can specify a scope value that is bound t
 -----
 
 ## Edit or list scopes
+**Link portal docs or add fragments.**
 
 1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
 
@@ -47,6 +39,8 @@ When requesting for an OIDC token, you can specify a scope value that is bound t
 ----
 
 ## Add custom claims to OIDC scope
+**Add the details from dev portal.**
+When the existing claim mappings are not enough for your requirement and if you need to add a custom OIDC claim to a scope, then follow the steps below.
 
 1. [Add a custom claim to the local dialect (https://wso2.org/claims)](insertlink).
 
@@ -59,28 +53,10 @@ When requesting for an OIDC token, you can specify a scope value that is bound t
 
 -----
     
-## Database structure for OIDC scope claim mapping
+!!! note
+    **About oidc-scope-config.xml**
 
-In WSO2 Identity Server, the mapping between scopes and claims are persisted in the database layer. The following database tables and index are used to persist scope claim mapping as indicated below.
-
-``` sql
-CREATE TABLE IF NOT EXISTS IDN_OIDC_SCOPE (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            NAME VARCHAR(255) NOT NULL,
-            TENANT_ID INTEGER DEFAULT -1,
-            PRIMARY KEY (ID)
-);
-
-
-CREATE TABLE IF NOT EXISTS IDN_OIDC_SCOPE_CLAIM_MAPPING (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SCOPE_ID INTEGER,
-            EXTERNAL_CLAIM_ID INTEGER,
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SCOPE_ID) REFERENCES IDN_OIDC_SCOPE(ID) ON DELETE CASCADE,
-            FOREIGN KEY (EXTERNAL_CLAIM_ID) REFERENCES IDN_CLAIM(ID) ON DELETE CASCADE
-);
-
-
-CREATE INDEX IDX_AT_SI_ECI ON IDN_OIDC_SCOPE_CLAIM_MAPPING(SCOPE_ID, EXTERNAL_CLAIM_ID);
-```
+    The `oidc-scope-config.xml` file enables grouping of claims that are bound to a scope value in OpenID Connect (OIDC). 
+    By default, the oidc-scope-config.xml file is located inside the `<IS_HOME>/repository/conf/identity` directory. 
+    In the very first server start-up the scopes and claims values defined in this file , will be stored in the database. 
+    Thereafter the changes which we do to this file wont be applicable.
