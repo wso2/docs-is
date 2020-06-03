@@ -101,9 +101,9 @@ nav:
           - 'IWA': guides/login/webapp-iwa.md
         - 'Client-Side Application': guides/login/client-side-app.md
         - 'SaaS Applications':
-          - 'Salesforce': guides/login/logging-into-salesforce-using-is.md
-          - 'Google': guides/login/logging-into-google-using-is.md
-          - 'SimpleSAMLphp': guides/login/logging-into-simplesamlphp-using-is.md
+          - 'Salesforce': guides/login/log-into-salesforce-using-is.md
+          - 'Google': guides/login/log-into-google-using-is.md
+          - 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
         - 'Request Claims for the Application': guides/login/request-app-claims.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md

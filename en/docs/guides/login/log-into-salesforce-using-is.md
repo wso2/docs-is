@@ -1,4 +1,4 @@
-# Logging in to Salesforce using the Identity Server
+# Log in to Salesforce using the Identity Server
 
 This page guides you through using WSO2 Identity  Server to log in to Salesforce. 
 
@@ -29,7 +29,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
         ![my-domain](../../assets/img/guides/my-domain-salesforce.png)
 
     2.  Click **My Domain**.
-    3.  In the page that appears, come up with a name for your domain.
+    3.  On the page that appears, come up with a name for your domain.
         You can check if the domain is available by clicking the **Check
         Availability** button.
 		
@@ -44,11 +44,11 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
 
     5.  The verification might take a few minutes. On successful verification, you will proceed to step 3 where you can test your login. 
 
-    6. Click on the **Log in** button.
+    6. Click **Log in**.
 
 5.  On the left navigation menu, search for **Single Sign-On Settings** and click on it.
     
-6.  In the page that appears, click **Edit** and then select the **SAML
+6.  On the page that appears, click **Edit** and then select the **SAML
     Enabled** check box to enable federated single sign-on using SAML.  
     ![saml-enabled](../../assets/img/guides/enable-saml-salesforce.png)
     
@@ -91,14 +91,14 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     <p><code>                 wso2.crt                </code></p>
     <div class="admonition note">
 	<p class="admonition-title">Note</p>
-	<p>To create the Identity Provider Certificate, open your Command Line interface, traverse to the <code><\IS_HOME>/repository/resources/security/ </code>directory. 
-	Next you must execute the following command.
+	<p>To create the Identity Provider Certificate, open the terminal, traverse to the <code><\IS_HOME>/repository/resources/security/ </code>directory. 
+	Next, execute the following command.
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
 	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
 	<code>keytool -export -alias wso2carbon -file wso2.crt -keystore wso2carbon.jks -storepass wso2carbon</code></pre></div></div>
-	<p>Once this command is run, the wso2.crt file is generated and can be found in the <code> <\IS_HOME>/repository/resources/security/</code> directory.
-	 Click Choose File and navigate to this location in order to obtain and upload this file.
+	<p>Once this command is run, the <code>wso2.crt</code> file is generated and can be found in the <code> <\IS_HOME>/repository/resources/security/</code> directory.
+	 Click <b>Choose File</b> and navigate to this location in order to obtain and upload this file.
 	</div>
     </div></td>
     </tr>
@@ -120,7 +120,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     </tr>
     <tr class="even">
     <td>SAML Identity Location</td>
-    <td><p>Identity is in the NameIdentifier element of the Subject statement</p></td>
+    <td><p>Identity is in the <code>NameIdentifier</code> element of the Subject statement</p></td>
     </tr>
     <tr class="odd">
     <td>Service Provider Initiated Request Binding</td>
@@ -152,7 +152,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
 10. Click **Deploy to Users**. Click **Ok** to the confirmation message
     that appears.
     
-11. In the page that appears, you must configure the **Authentication Configuration** section. Scroll down to this section and click
+11. On the page that appears, you must configure the **Authentication Configuration** section. Scroll down to this section and click
     **Edit**.
     
 12. Under **Authentication Service**, select **SSO** instead of **Login
@@ -191,12 +191,12 @@ provider in WSO2 IS.
     
 4.  Click **Next**.
 
-5. Enter the **issuer ID** as `https://saml.salesforce.com`. 
+5. Enter the **Issuer ID** as `https://saml.salesforce.com`. 
 
-6. Enter the **assertion consumer URL**. This can be obtained from the Salesforce end. 
+6. Enter the **assertion consumer URL**. This can be obtained from Salesforce. 
 
-    !!! note "Obtaining the assertion URL from Salesforce"
-        1.  Navigate to **Identity -> Single Sign-On Settings** from the left hand side panel. 
+    !!! note "Obtaining the assertion consumer URL from Salesforce"
+        1.  Navigate to **Identity > Single Sign-On Settings** from the left hand side panel. 
         2.  Click on the name of the SAML SSO component created. 
         3.  Note down the login URL. 
 
@@ -218,15 +218,8 @@ Do the following steps to test out the configurations for a new user in
 Salesforce and the Identity Server.
 
 1.  Create a user in WSO2 IS.  
-    1.  Select **Users and Groups** from the left panel. 
-    2.  Click **New user**.
-    3.  Enter the first name, last name, and email address in the corresponding fields. 
-    4.  Either set a password for the user or invite the user to self register. 
-    5.  Click **Next**. 
-    6.  Choose the user groups and click **Next**.
-    7.  Choose user roles optionally. 
-    8.  Validate all the fields in the summary. 
-    9. Click **Finish**.
+
+    {! fragments/create-users.md !}
         
 2.  Create a user in Salesforce. This user should have the same
     email address as the user in WSO2 IS  
@@ -253,10 +246,10 @@ Salesforce and the Identity Server.
 		The salesforce login URL is unique to your Salesforce application.
 		Follow the steps given below to get this URL:
 
-		1.  Search for My Domain in the search bar that is on the left
+		1.  Search for **My Domain** in the search bar that is on the left
 			navigation panel.
 			
-		2.  Click My Domain and you are navigated to the domain you created
+		2.  Click **My Domain** and you are navigated to the domain you created
 			under the section, [Configure
 			Salesforce](#configure-salesforce).
 
@@ -267,11 +260,10 @@ Salesforce and the Identity Server.
 		4.  On the left navigation menu, expand **Security Controls**, and
 			click, **Single Sign-On Settings**.
 			
-		5.  Click on the name of the Single Sign-On Setting you created. In
-			this use case click **SSO**.  
+		5.  Click on the name of the created **Single Sign-On Setting**. For this example, click **SSO**.  
 			![single-sign-on-setting](../../assets/img/guides/single-sign-on-setting.png)
 			
-		6.  Copy the URL that is defined for Login URL to access
+		6.  Copy the URL that is defined for **Login URL** to access
 			Salesforce.  
 			![login-url-for-salesforce](../../assets/img/guides/login-url-for-salesforce.png)
 

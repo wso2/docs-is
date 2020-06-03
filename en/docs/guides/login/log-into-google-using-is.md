@@ -1,4 +1,4 @@
-# Logging in to Google using the Identity Server
+# Log in to Google using the Identity Server
 
 This page guides you through using WSO2 Identity Server to log in to Google. 
 
@@ -10,7 +10,7 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 
 ## Configure Google
 
-1.  Go to your domain's admin console via
+1.  Access your domain's admin console via
     `                     https://admin.google.com                   `.
 2.  Click **Security**.
 
@@ -65,7 +65,7 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 
 For details on configuring WSO2 Identity Server to use an email address as the username, refer [Using Email Address as the Username](insert-link).
 
-## Configuring the Service Provider
+## Configure the service provider
 
 1.  Sign in to the WSO2 Identity Server [Developer Portal](../../setup/getting-started-with-the-management-console).
 2.  Select **Applications** from the left panel and click on **New Application**.
@@ -128,29 +128,7 @@ Now, you have successfully configured Google and WSO2 Identity Server.
     is in the Google domain that is used for this tutorial. Therefore,
     we create the same user in WSO2 Identity Server. 
 
-    1.  Select **Users and Groups** from the left panel. 
-    2.  Click **New user**.
-    3.  Make sure the same user exists in the google domain while entering the username. 
-    4.  Enter the first name, last name, and email address in the corresponding fields. 
-    5.  Either set a password for the user or invite the user  to self register. 
-    6.  CLick **Next**. 
-    7.  Choose the user groups and click **Next**.
-    8.  Choose user roles. Make sure you choose the application you created in the previous step. 
-    9.  Validate all the fields in the summary. 
-    10. Click **Finish**. 
-
-
-
-    2.  Click **Users**. This link is only visible to users with the
-        Admin role.
-    3.  Click **Add New User**. The following screen appears.  
-        ![adding-new-users](../assets/img/tutorials/adding-new-users.png)
-
-    4.  Click **Next \>**.
-    5.  Optionally, select the role(s) you want this user to have. If
-        you have many roles in your system, you can search for them by
-        name.
-    6.  Click **Finish**.
+    {! fragments/create-users.md !} 
 
 2.  Navigate to
     `          https://google.com/a/<ENTER_YOUR_DOMAIN>/acs         `

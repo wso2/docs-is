@@ -1,19 +1,16 @@
 # Logging in to SimpleSAMLphp using WSO2 Identity Server
 
-This section explains how to configure the WSO2 Identity Server with
-SimpleSAMLphp as a service provider. Initially, it is necessary to setup
-SimpleSAMLphp as a service provider. The steps below are tested with
-Ubuntu.
+This page guides you through using WSO2 Identity Server to log in to SimpleSAMLphp.
 
-## Setup SimpleSAMLphp as a service provider
+## Set up SimpleSAMLphp as a service provider
 
-1.  Install Apache.
+1.  Install [Apache](https://httpd.apache.org/).
 
     ``` java
     # apt-get install apache2 
     ```
 
-2.  Install PHP and related extensions.
+2.  Install [PHP](https://www.php.net/) and related extensions.
 
     ``` java
     # apt-get install php5  
@@ -30,10 +27,10 @@ Ubuntu.
     ```
 
     !!! info 
-		For Ubuntu users, please install the following extension as well:
+		If you are an Ubuntu user, install the following extension as well:
 		`            # apt-get install php5-json           `
 
-3.  Install SimpleSAMLphp using the following commands.
+3.  Install [SimpleSAMLphp](https://simplesamlphp.org/) using the following commands.
 
     ``` java
     # sudo mkdir /var/simplesamlphp/
@@ -67,7 +64,7 @@ Ubuntu.
     # apachectl start  
     ```
 
-6.  Access the SimpleSAMLphp web app from the following location:
+6.  Access the SimpleSAMLphp web app using the following URL:
     [http://localhost/simplesaml](http://localhost/simplesaml).
 7.  Set the SimpleSAMLphp administrator login configuration as follows:
 
@@ -119,7 +116,7 @@ Ubuntu.
         ),
         ```
 
-        Here we assume WSO2 IS is running in localhost on 9443.
+        By default, WSO2 IS runs on localhost:9443. If you are using a different hostname or have configured a port offset, adjust the configurations above accordingly.
 
 9.  Add the identity provider metadata.
 
@@ -158,7 +155,7 @@ Ubuntu.
         '\] should match the value of 'idp' in step 8.
 
     3.  Note that "6bf8e136eb36d4a56ea05c7ae4b9a45b63bf975d" is the
-        thumbprint of the default certificate ships with WSO2 IS. SAML2
+        thumbprint of the default certificate shipped with WSO2 IS. The SAML2
         Response is signed with this certificate.
 
 ## Configure the service provider in WSO2 IS
@@ -191,18 +188,18 @@ Ubuntu.
 
 13. Enable **Single Logout Profile**. 
 
-14. Enter the **Single logout response URL** as `http://localhost/simplesamlphp/www/module.php/saml/sp/saml2-logout.php/wso2-sp`
+14. Enter `http://localhost/simplesamlphp/www/module.php/saml/sp/saml2-logout.php/wso2-sp` as the **Single logout response URL**. 
 
 15. Click **Update**.
 
 ## Configure a resident identity provider in WSO2 IS
 
+(insert-content)
 
 ### Test SimpleSAMLphp
 
-1.  Go to <http://localhost/simplesaml> and then to " **Authentication**
-    " and click on " **Test configured authentication sources** "
-2.  Pick " **wso2-sp** ". You are redirected to WSO2 IS SAML2 IdP for
+1.  Access <http://localhost/simplesaml> and then to **Authentication** and click on **Test configured authentication sources**.
+2.  Choose " **wso2-sp** ". You are redirected to WSO2 IS SAML2 IdP for
     login.
 
 For more information on SimpleSAMLphp, click
