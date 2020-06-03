@@ -5,7 +5,7 @@ This page guides you through configuring [multi-factor authentication](insertlin
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/mfa/2fa-sms-otp" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/mfa/2fa-sms-otp"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

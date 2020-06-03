@@ -56,9 +56,10 @@ nav:
         - 'Android': quick-starts/android-sample.md
         - 'React': quick-starts/react-sample.md
         - 'Java': quick-starts/java-sample.md
-      - 'Authentication':
+      - 'Login':
         - 'OpenID Connect': quick-starts/webapp-oidc-sample.md
         - 'SAML': quick-starts/webapp-saml-sample.md
+        - 'Query SAMl Assertions': quick-starts/query-saml-assertions-sample.md
       - 'Single Sign On':
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
@@ -94,11 +95,11 @@ nav:
       - 'Get Started': guides/before-you-start.md
       - 'Login':
         - 'Web Application':
-          - 'OAuth/OIDC': guides/login/webapp-oidc.md
+          - 'OIDC': guides/login/webapp-oidc.md
           - 'SAML': guides/login/webapp-saml.md
-          - 'STS': guides/login/webapp-sts.md
-        - 'Mobile Application': guides/login/mobile-app.md
-        - 'Single Page Application': guides/login/spa-app.md
+          - 'WS-Federation': guides/login/webapp-wsfed.md
+          - 'IWA': guides/login/webapp-iwa.md
+        - 'Client-Side Application': guides/login/client-side-app.md
         - 'SaaS Applications':
           - 'Salesforce': guides/login/logging-into-salesforce-using-is.md
           - 'Google': guides/login/logging-into-google-using-is.md

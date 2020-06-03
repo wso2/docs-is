@@ -5,7 +5,7 @@ This page guides you through configuring [OpenID Connect (OIDC) Back-Channel log
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/oidc-backchannel-logout" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/oidc-backchannel-logout"   rel="nofollow noopener">I have my own application</a>
 
 ----
 
