@@ -191,7 +191,7 @@ provider in WSO2 IS.
     
 4.  Click **Next**.
 
-5. Enter the **Issuer ID** as `https://saml.salesforce.com`. 
+5. Enter the **Issuer** as `https://saml.salesforce.com`. 
 
 6. Enter the **assertion consumer URL**. This can be obtained from Salesforce. 
 
