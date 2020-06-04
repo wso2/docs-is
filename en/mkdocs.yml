@@ -121,7 +121,7 @@ nav:
           - 'Cross Protocol Logout': guides/login/cross-protocol-logout.md
         - 'Advanced OpenID Connect':
           - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
-          - 'Pass Parameters as a Request Object': guides/login/request-object.md
+          - 'Pass Parameters as a Request Object': guides/login/oidc-request-object.md
           - 'Manage Scopes and Claims': guides/login/oidc-scopes-claims.md
           - 'Generate & Encrypt ID Tokens': guides/login/oidc-token-encryption.md
           - 'Discover OpenID Connect Provider': guides/login/oidc-discovery.md

@@ -7,7 +7,7 @@ If you want to pass any sensitive parameter with the authentication request whic
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/webapp-oidc-sample" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/request-object" rel="nofollow noopener">Try it with the sample</a>
 
 ----
 {!fragments/create-certificate.md!}
@@ -17,5 +17,5 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 
 !!! info "Related Topics"
-    - [Try OIDC Request Object with a Sample Web Application  ](../../../quick-starts/sso-for-oidc-apps)
+    - [Try OIDC Request Object with a Sample Web Application](../../../quick-starts/request-object)
     - [Use Advanced Parameters in Authentication Requests ](insertlink)
