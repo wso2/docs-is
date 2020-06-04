@@ -30,7 +30,7 @@ You have successfully configured authentication for an OpenID Connect applicatio
 ----
 
 !!! info "Related Topics"
-    - [Enable Login for a Sample OpenID Connect Web Application](../../../quick-starts/webapp-oidc-sample)
+    - [Enable Login for a Sample OpenID Connect Web Application](../../../guides/login/webapp-oidc)
 
 
 
