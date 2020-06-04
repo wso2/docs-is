@@ -59,3 +59,4 @@ Make the following requests via your application to connect your application to 
     - [Enable Login for a Sample OpenID Connect Web Application](../../../quick-starts/webapp-oidc-sample)
     - [Manage User Sessions](insertlink)
     - [OpenID Connect Back-Channel Logout](../login/oidc-backchannel-logout)
+    - [OpenID Connect Discovery](../../login/oidc-discovery)

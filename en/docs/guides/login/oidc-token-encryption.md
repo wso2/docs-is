@@ -122,3 +122,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
     }
     ```
 
+!!! info "Related Topics"
+    - [Enable Login for an OIDC Web Application](../../../login/webapp-oidc)
+    - [Use Advanced Parameters in Authentication Requests](insertlink)
+    - [ID Token](../../../concepts/authentication/id-token)

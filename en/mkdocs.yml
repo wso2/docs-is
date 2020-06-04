@@ -114,6 +114,7 @@ nav:
         - 'Single Logout':
           - 'OpenID Connect':
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
+            - 'Session Management and Logout': guides/login/session-mangement-logout.md
             - 'Logout URL Redirection': guides/login/oidc-logout-url-redirection.md
           - 'SAML':
             - 'Front-Channel Logout': guides/login/saml-frontchannel-logout.md
@@ -123,9 +124,10 @@ nav:
           - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
           - 'Pass Parameters as a Request Object': guides/login/oidc-request-object.md
           - 'Manage Scopes and Claims': guides/login/oidc-scopes-claims.md
-          - 'Generate & Encrypt ID Tokens': guides/login/oidc-token-encryption.md
+          - 'Encrypt ID Tokens': guides/login/oidc-token-encryption.md
           - 'Discover OpenID Connect Provider': guides/login/oidc-discovery.md
           - 'Obtain Key Set Using JWKS': guides/login/using-jwks.md
+          - 'Validate JWT based on JWKS': guides/login/validate-jwt-using-jwks.md
         - 'Advanced SAML':
           - 'Use Advanced Parameters in the Authentication Request': guides/login/saml-parameters-in-auth-request.md
           - 'Use Artifact Binding': guides/login/saml-artifact-binding.md
@@ -176,7 +178,6 @@ nav:
           - 'OAuth Token Validation Using SOAP': guides/access-delegation/oauth-token-validation.md
           - 'Get User Claims as a JWT': guides/access-delegation/get-user-claims-as-a-jwt.md
           - 'Issue New Tokens Per Request': guides/access-delegation/issue-new-tokens-per-request.md
-          - 'Validate JWT Based On JWKS ': guides/access-delegation/validate-jwt-based-on-jwks.md
           - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
           - 'Dynamic Client Regisration': guides/access-delegation/oauth-dynamic-client-registration.md
         - 'OpenID Connect':

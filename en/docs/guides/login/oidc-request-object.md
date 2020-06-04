@@ -10,7 +10,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 <a class="samplebtn_a" href="../../../quick-starts/request-object" rel="nofollow noopener">Try it with the sample</a>
 
 ----
-{!fragments/create-certificate.md!}
+{!fragments/encrypt-id-tokens.md!}
 
 ----
 {!fragments/add-certificate-to-sp.md!}
