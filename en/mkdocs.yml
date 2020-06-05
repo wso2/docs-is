@@ -597,7 +597,7 @@ nav:
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
       - 'Re-branding User Interfaces':
         - 'Re-branding WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
-        - 'Re-branding the Default Login Page for Your Application ': develop/customizing-login-pages-for-service-providers.md
+        - 'Re-branding the Default Login Page for Your Application': develop/customizing-login-pages-for-service-providers.md
         - 'Re-branding the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md
       - 'Changing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
