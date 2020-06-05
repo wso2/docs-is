@@ -91,7 +91,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
 ## Using the event handler to perform an operation
 
-Write a method to trigger the event. In the method, you can publish an event along with event properties such as `USER_NAME`, `TENANT_DOMAIN`, and `USER_STORE_DOMAIN`, and call the `handleEvent()` method as shown in the following code block.
+Write a method within the product runtime(in an already deployed class file) to trigger an event. In the method, you can publish an event along with event properties such as `USER_NAME`, `TENANT_DOMAIN`, and `USER_STORE_DOMAIN` as shown in the following code block via the `handleEvent()` method in the eventing framework.
 
 ```
 private void triggerSampleEvent (User user, ... ,String eventName)  
@@ -158,4 +158,3 @@ When you want to execute an operation related to an event, publish the event. Th
     - [PasswordPolicyValidationHandler](https://github.com/wso2-extensions/identity-governance/blob/master/components/org.wso2.carbon.identity.password.policy/src/main/java/org/wso2/carbon/identity/password/policy/handler/PasswordPolicyValidationHandler.java)
 
     - [AccountSuspensionNotificationHandler](https://github.com/wso2-extensions/identity-governance/blob/master/components/org.wso2.carbon.identity.account.suspension.notification.task/src/main/java/org/wso2/carbon/identity/account/suspension/notification/task/handler/AccountSuspensionNotificationHandler.java)
-
