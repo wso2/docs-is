@@ -65,7 +65,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
     ```
     public String getName() {
-        return "customEvent";
+        return "customEventHandler";
     }
     @Override
     public int getPriority(MessageContext messageContext) {
