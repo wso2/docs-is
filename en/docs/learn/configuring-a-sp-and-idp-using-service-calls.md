@@ -247,8 +247,7 @@ configurations.
 
     You can extract the client ID and secret from this response.
 
-3.  `           createApplication          ` of
-    `           IdentityApplicationManagementService          `
+3.  `           createApplication          ` of `           IdentityApplicationManagementService          `
 
     **SOAP request**
 
@@ -268,23 +267,88 @@ configurations.
     **Expected response**
 
     ``` xml
-        <soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
-          <soapenv:Body>
-             <ns:createApplicationResponse xmlns:ns="http://org.apache.axis2/xsd">
-                <ns:return>16</ns:return>
-             </ns:createApplicationResponse>
-          </soapenv:Body>
-        </soapenv:Envelope>
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Body>
+      <ns:createApplicationResponse xmlns:ns="http://org.apache.axis2/xsd">
+         <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      </ns:createApplicationResponse>
+   </soapenv:Body>
+    </soapenv:Envelope>
     ```
-
-    You can extract the application ID from the above response.
-
-4.  `           updateApplication          ` of
-    `           IdentityApplicationManagementService          `
+4. `getApplication` of `IdentityApplicationManagementService`
+   
+   **SOAP Request**
+   
+   ```
+   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <xsd:getApplication>
+         <xsd:applicationName>playground2</xsd:applicationName>
+      </xsd:getApplication>
+   </soapenv:Body>
+   </soapenv:Envelope>
+   ```
+   **SOAP Response**
+   
+   ```
+   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Body>
+      <ns:getApplicationResponse xmlns:ns="http://org.apache.axis2/xsd">
+         <ns:return xsi:type="ax2167:ServiceProvider" xmlns:ax2168="http://script.model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2165="http://common.application.identity.carbon.wso2.org/xsd" xmlns:ax2167="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <ax2167:applicationID>2</ax2167:applicationID>
+            <ax2167:applicationName>playground2</ax2167:applicationName>
+            <ax2167:certificateContent xsi:nil="true"/>
+            <ax2167:claimConfig xsi:type="ax2167:ClaimConfig">
+               <ax2167:alwaysSendMappedLocalSubjectId>false</ax2167:alwaysSendMappedLocalSubjectId>
+               <ax2167:localClaimDialect>true</ax2167:localClaimDialect>
+               <ax2167:roleClaimURI xsi:nil="true"/>
+               <ax2167:userClaimURI xsi:nil="true"/>
+            </ax2167:claimConfig>
+            <ax2167:description xsi:nil="true"/>
+            <ax2167:inboundAuthenticationConfig xsi:type="ax2167:InboundAuthenticationConfig"/>
+            <ax2167:inboundProvisioningConfig xsi:type="ax2167:InboundProvisioningConfig">
+               <ax2167:dumbMode>false</ax2167:dumbMode>
+               <ax2167:provisioningEnabled>false</ax2167:provisioningEnabled>
+               <ax2167:provisioningUserStore xsi:nil="true"/>
+            </ax2167:inboundProvisioningConfig>
+            <ax2167:localAndOutBoundAuthenticationConfig xsi:type="ax2167:LocalAndOutboundAuthenticationConfig">
+               <ax2167:alwaysSendBackAuthenticatedListOfIdPs>false</ax2167:alwaysSendBackAuthenticatedListOfIdPs>
+               <ax2167:authenticationScriptConfig xsi:nil="true"/>
+               <ax2167:authenticationStepForAttributes xsi:nil="true"/>
+               <ax2167:authenticationStepForSubject xsi:nil="true"/>
+               <ax2167:authenticationType>default</ax2167:authenticationType>
+               <ax2167:enableAuthorization>false</ax2167:enableAuthorization>
+               <ax2167:subjectClaimUri xsi:nil="true"/>
+               <ax2167:useTenantDomainInLocalSubjectIdentifier>false</ax2167:useTenantDomainInLocalSubjectIdentifier>
+               <ax2167:useUserstoreDomainInLocalSubjectIdentifier>false</ax2167:useUserstoreDomainInLocalSubjectIdentifier>
+               <ax2167:useUserstoreDomainInRoles>true</ax2167:useUserstoreDomainInRoles>
+            </ax2167:localAndOutBoundAuthenticationConfig>
+            <ax2167:outboundProvisioningConfig xsi:type="ax2167:OutboundProvisioningConfig">
+               <ax2167:provisionByRoleList xsi:nil="true"/>
+            </ax2167:outboundProvisioningConfig>
+            <ax2167:owner xsi:type="ax2167:User">
+               <ax2167:tenantDomain>carbon.super</ax2167:tenantDomain>
+               <ax2167:userName>admin</ax2167:userName>
+               <ax2167:userStoreDomain>PRIMARY</ax2167:userStoreDomain>
+            </ax2167:owner>
+            <ax2167:permissionAndRoleConfig xsi:type="ax2167:PermissionsAndRoleConfig"/>
+            <ax2167:saasApp>false</ax2167:saasApp>
+            <ax2167:spProperties xsi:type="ax2167:ServiceProviderProperty">
+               <ax2167:displayName>DOMAIN_IN_ROLES</ax2167:displayName>
+               <ax2167:name>USE_DOMAIN_IN_ROLES</ax2167:name>
+               <ax2167:value>true</ax2167:value>
+            </ax2167:spProperties>
+         </ns:return>
+      </ns:getApplicationResponse>
+   </soapenv:Body>
+   </soapenv:Envelope>
+   ```
+   
+5.  `           updateApplication          ` of `           IdentityApplicationManagementService          `
 
     !!! tip
-    
-        **Tip** : You can set the extracted client ID, secret and
+        You can set the extracted client ID, secret and
         application ID in the following SOAP request.
     
 
