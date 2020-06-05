@@ -1,24 +1,26 @@
 # Extending the Workflow Event Handler
 
-By default, WSO2 Identity Server only supports user-store operations to
-be engaged with workflows. But this is a extensible feature where you
+By default, WSO2 Identity Server only supports user store operations to
+be engaged with workflows. However, this is an extensible feature where you
 can implement workflow support for any other operation such as SP/IDP
-operations, XACML policy creation, tenant operations, etc. which has
-implemented a interceptor which get executed before method execution.
-Here we have explained how to implement workflow support for SP
+operations, XACML policy creation, tenant operations, etc., which has
+an implemented interceptor that gets executed before method execution.
+
+This page guides you through implementing workflow support for SP
 operations.
 
-You can add a new handler by adding a new .jar file to
+You can add a new handler by adding a new .jar file to the
 `         <IS_HOME>/repository/components/dropins        ` folder. You
 can create a .jar file as described below.
 
-Following is the hierarchy where we need to structure this new handler.
+Structure the new handler according to the following hierarchy.
 
 ![Handler hierarchy](../assets/img/using-wso2-identity-server/handler-hierarchy.png)
 
-We need to add a separate handler for each operation we need to add
-workflow support. In this example to implement workflow support for SP
-create functionality, we need to add ‘
+Add a separate handler for each operation for which you wish to add workflow support. 
+
+In this example, to implement workflow support for SP
+create functionality, add ‘
 `         SPCreateHandler        ` ’ by extending
 `         AbstractWorkflowRequestHandler        ` . The following
 methods should be overridden:
@@ -46,18 +48,17 @@ methods should be overridden:
     call back such as retrieving parameters of operation from map
     received, call the operation again, etc.
 
-Other than these implemented methods, we need to write a function such
+Other than these implemented methods, write a function such
 as `         ‘startSPCreateWorkflow’        ` which will be the function
-that will get called from operation listener. In this method, we should
-add operation parameters to `         wfParams        ` and
-`         nonWfParams        ` maps. Also we need to check if operation
+that will get called from operation listener. In this method, add operation parameters to the `         wfParams        ` and
+`         nonWfParams        ` maps. Also check if the operation
 is valid using implemented `         isOperatonValid()        ` method
-and should throw exception if this is not valid.
+and should throw an exception if this is not valid.
 
-Also we need to define a map called `         PARAM_DEFINITIONS        `
+Next, define a map called `         PARAM_DEFINITIONS        `
 which contains the types of each parameters used for the operation.
 
-??? example "Click to view a sample class written for a SP create workflow handler"
+??? example "Click to view a sample class written for an SP create workflow handler"
     ``` java
     public class SPCreateHandler extends AbstractWorkflowRequestHandler {
 
@@ -162,11 +163,10 @@ which contains the types of each parameters used for the operation.
     }
     ```
 
-Now we have to call the `         ‘startSPCreateWorkflow’        `
-before the operation get executed. We can easily do this by implementing
+Now, call `         ‘startSPCreateWorkflow’        `
+before the operation get executed. You can do this easily by implementing
 the ‘doPre’ method of the operation through an interface. Following is a
-sample listener implementation created for this purpose. We need to
-define `         orderID        ` of this listener so that this will
+sample listener implementation created for this purpose.  Define `         orderID        ` of this listener so that this will
 execute as the first listener before all other listeners.
 
 ??? example "Click to view the sample listener implementation"
@@ -197,8 +197,7 @@ execute as the first listener before all other listeners.
     }
     ```
 
-Finally in the service component, we need to register the handler
-and the listener we implemented. We can do this as follows.
+Finally in the service component, register the handler and the listener that you implemented using the following code block. 
 
 ``` java
 **
@@ -217,7 +216,7 @@ public class SPWorkflowServiceComponent {
 
 After adding the .jar file of this handler to the
 `         <IS_HOME>/repository/components/dropins        ` folder, you
-will see the new operation category and the operation is available to
+will see the new operation category, and the operation is available to
 select when adding a new workflow engagement.
 
 ![Operation category selection](../assets/img/using-wso2-identity-server/operation-category-selection.png)
