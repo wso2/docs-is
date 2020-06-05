@@ -31,9 +31,16 @@ for forced password reset:
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
     
+2. If you wish to enable this feature for all tenants by default, add the following configureation to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+    ```toml
+    [identity_mgt.password_reset_by_admin]
+    enable_emailed_link_based_reset= true
+    ```
 
 3.  Start the Identity Server and log in to the management console with
     admin credentials.
+    
 4.  Create a new user with the username "tom" and update his user
     profile with a valid email address and other information.
 5.  Create a new role called "test role" with login permissions and
