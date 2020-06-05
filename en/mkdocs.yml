@@ -510,6 +510,7 @@ nav:
         - 'User Management for Developers':
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
+          - 'Writing a Custom Event Handler': develop/writing-a-custom-event-handler.md
           - 'User Store Listeners': develop/user-store-listeners.md
           - 'Writing a Post-Authentication Handler': develop/writing-a-post-authentication-handler.md
           - 'Using the User Management Errors Event Listener': develop/using-the-user-management-errors-event-listener.md
@@ -529,7 +530,7 @@ nav:
         - 'Access Control for Developers':
           - 'Writing a Custom Policy Info Point': develop/writing-a-custom-policy-info-point.md
         - 'Workflow Management for Developers':
-          - 'Writing a Custom Event Handler': develop/writing-a-custom-event-handler.md
+          - 'Extending the Workflow Event Handler': develop/extending-the-workflow-event-handler.md
           - 'Writing a Custom Workflow Template': develop/writing-a-custom-workflow-template.md
         - 'Adaptive Authentication for Developers':
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
