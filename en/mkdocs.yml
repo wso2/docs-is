@@ -130,6 +130,7 @@ nav:
           - 'Discover OpenID Connect Provider': guides/login/oidc-discovery.md
           - 'Obtain Key Set Using JWKS': guides/login/using-jwks.md
           - 'Validate JWT based on JWKS': guides/login/validate-jwt-using-jwks.md
+          - 'Use advanced parameters in authentication requests': guides/login/advanced-parameters-in-authentication.md
         - 'Advanced SAML':
           - 'Use Advanced Parameters in the Authentication Request': guides/login/saml-parameters-in-auth-request.md
           - 'Use Artifact Binding': guides/login/saml-artifact-binding.md
