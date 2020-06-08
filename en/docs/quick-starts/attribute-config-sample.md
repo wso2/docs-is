@@ -7,7 +7,7 @@ This is demonstrated using two **sample applications**, **Travelocity** and **Pl
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/request-app-claims"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../../guides/login/request-app-claims"   rel="nofollow noopener">I have my own application</a>
 
 ----
 
@@ -49,7 +49,7 @@ In the **Role** section, choose a role attribute from the application attributes
 
 ### Try it out 
 
-1.  Login to the sample application at <http://wso2is.local:8080/travelocity.com/index.jsp> using admin credentials. 
+1.  Log in to the sample application at <http://wso2is.local:8080/travelocity.com/index.jsp> using admin credentials. 
 
     !!! info 
         The user's consent is required to access the attribute information. Click on **Continue** to agree to let the application access this information. To skip this step, you can navigate to the **Advanced** tab of your application and enable **Skip login consent**.
