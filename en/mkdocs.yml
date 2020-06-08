@@ -328,78 +328,63 @@ nav:
     - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
   - 'Admin Portal':
       - 'Users':
-          - admin-portal/applications/overview.md
-          - 'Add New User':
-            - developer-portal/applications/new-application.md
-            - 'Assign User Password':
-            - 'Invite Users':
-          - 'Edit User':
-            - developer-portal/applications/new-application.md
+        - 'New User':
+          - 'Add User': admin-portal/users/new-user.md
+          - 'Assign User Password': admin-portal/users/user-password.md
+          - 'Invite Users': admin-portal/users/invite-user.md
+        - 'Edit User': admin-portal/users/edit-user.md
       - 'Groups':
-          - admin-portal/applications/overview.md
-          - 'Add New Group':
-            - developer-portal/applications/new-application.md
-          - 'Edit Group':
-            - developer-portal/applications/new-application.md
+          - 'Add New Group': admin-portal/groups/new-group.md
+          - 'Edit Group': admin-portal/groups/edit-group.md
       - 'Roles':
-          - admin-portal/applications/overview.md
-          - 'Add New Role':
-            - developer-portal/applications/new-application.md
-          - 'Edit Role':
-            - developer-portal/applications/new-application.md
-          - 'Role Permissions':
-            - developer-portal/applications/new-application.md
+          - 'Add New Role': admin-portal/roles/new-role.md
+          - 'Edit Role': admin-portal/roles/edit-role.md
+          - 'Role Permissions': admin-portal/roles/role-permission.md
       - 'Attribute Dialects':
-          - admin-portal/applications/overview.md
           - 'Local Dialect':
-            - developer-portal/applications/new-application.md
-            - 'Edit Local Dialect': developer-portal/applications/new-application.md
-              - 'Add New Local Attribute': developer-portal/applications/new-application.md
+            - 'Overview': admin-portal/dialects/overview-local-dialect.md
+            - 'Edit Local Dialect': admin-portal/dialects/edit-local-dialect.md
+            - 'Add New Local Attribute': admin-portal/dialects/new-local-attribute.md
           - 'External Dialects':
-            - developer-portal/applications/new-application.md
-            - 'Add New External Dialect': developer-portal/applications/new-application.md
-            - 'Edit External Dialect':
-              - developer-portal/applications/new-application.md
-              - 'Add New External Attribute': developer-portal/applications/new-application.md
+            - 'Overview': admin-portal/dialects/overview-external-dialect.md
+            - 'Add New External Dialect': admin-portal/dialects/new-external-dialect.md
+            - 'Edit External Dialect': admin-portal/dialects/edit-external-dialect.md
+            - 'Add New External Attribute': admin-portal/dialects/new-external-attribute.md
       - 'Userstores':
-          - admin-portal/applications/overview.md
+          - admin-portal/userstores/overview.md
           - 'Add New Userstore':
-            - developer-portal/applications/new-application.md
-            - 'Read Only Ldap Userstore': developer-portal/applications/new-application.md
-            - 'Read Write Ldap Userstore': developer-portal/applications/new-application.md
-            - 'JDBC Userstore': developer-portal/applications/new-application.md
-              - 'Test Userstore': developer-portal/applications/new-application.md
-            - 'Active Directory Userstore': developer-portal/applications/new-application.md
-          - 'Edit Userstore': developer-portal/applications/new-application.md
+            - 'Read Only Ldap Userstore': admin-portal/userstores/new-read-only-ldap-userstore.md
+            - 'Read Write Ldap Userstore': admin-portal/userstores/new-read-write-ldap-userstore.md
+            - 'JDBC Userstore': admin-portal/userstores/new-jdbc-userstore.md
+            - 'Active Directory Userstore': admin-portal/userstores/new-ad-userstore.md
+          - 'Test Userstore': admin-portal/userstores/test-userstore.md
+          - 'Edit Userstore': admin-portal/userstores/edit-userstore.md
       - 'Certificates':
-          - admin-portal/applications/overview.md
-          - 'Import Certificate':
-          - 'Export Certificate':
-          - 'View Certificate':
+          - admin-portal/certificates/overview.md
+          - 'Import Certificate': admin-portal/certificates/import-certificate.md
+          - 'Export Certificate': admin-portal/certificates/export-certificate.md
+          - 'View Certificate': admin-portal/certificates/view-certificate.md
       - 'Configurations':
-          - admin-portal/applications/overview.md
+          - admin-portal/configurations/overview.md
           - 'General':
-            - admin-portal/applications/overview.md
-            - 'Server':
-            - 'Self Registration':
-            - 'Account Recovery':
-            - 'Login Policies':
-            - 'Password Policies':
-          - 'Email Templates':
-            - admin-portal/applications/overview.md
-            - 'Template Types':
-              - admin-portal/applications/overview.md
-              - 'Add New Template Type':
-                - 'Add New Template':
-                - 'Edit Template':
-              - 'Edit Template Type':
-                - 'Add New Template':
-                - 'Edit Template':
+            - 'Introduction': admin-portal/configurations/general-config-overview.md
+            - 'Server': admin-portal/configurations/server-config.md
+            - 'Self Registration': admin-portal/configurations/self-registration-config.md
+            - 'Account Recovery': admin-portal/configurations/account-recovery-config.md
+            - 'Login Policies': admin-portal/configurations/login-policies.md
+            - 'Password Policies': admin-portal/configurations/password-policies.md
+          - 'Automated Mails':
+            - 'Email Templates': admin-portal/configurations/email-config-overview.md
+            - 'Add New Email Template Type': admin-portal/configurations/new-email-template-type.md
+            - 'Delete Email Template Type': admin-portal/configurations/delete-email-template-type.md
+            - 'Add New Email Template': admin-portal/configurations/new-email-template.md
+            - 'Edit Email Template Type': admin-portal/configurations/edit-email-template.md
+            - 'Delete Template Type': admin-portal/configurations/delete-email-template.md
+            - 'Update Locale of user': admin-portal/configurations/update-user-locale.md
       - 'Tenant':
-          - admin-portal/applications/overview.md
-          - 'Register New Tenant':
-          - 'Edit Tenant':
-          - 'Deactivate Tenant':
+        - 'Register New Tenant': admin-portal/tenants/new-tenant.md
+        - 'Edit Tenant': admin-portal/tenants/edit-tenant.md
+        - 'Deactivate Tenant': admin-portal/tenants/deactivate-tenant.md
   - 'Developer Portal':
       - 'Applications':
           - developer-portal/applications/overview.md
@@ -484,3 +469,4 @@ extra:
     - APIs
     - Concepts
     - Developer Portal
+    - Admin Portal
