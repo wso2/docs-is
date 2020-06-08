@@ -24,7 +24,8 @@ Follow the steps given below to change the duration for which the user's SSO ses
 
 !!! Tip "Configure timeout values globally" 
     The global configuration can be added in the
-    `<IS_HOME>/repository/conf/deployment.toml` file as shown below.
+    `<IS_HOME>/repository/conf/deployment.toml` file as shown below. The `idle_session_timeout` property that defines the session time out period. The `remember_me_session_timeout` property defines the period of time for which the WSO2 Identity Server will remember the user's SSO session.
+    
     ```
     [session.timeout]
     idle_session_timeout= "15m"
