@@ -61,6 +61,7 @@ nav:
         - 'SAML': quick-starts/webapp-saml-sample.md
         - 'Query SAML Assertions': quick-starts/query-saml-assertions-sample.md
         - 'Configure Attributes': quick-starts/attribute-config-sample.md
+        - 'Integrate with a Custom Protocol': quick-starts/webapp-custom-sample.md
       - 'Logout':
         - 'Session Management and Logout': quick-starts/oidc-session-management.md
         - 'OpenID Connect Back-Channel Logout': quick-starts/oidc-backchannel-logout-sample.md

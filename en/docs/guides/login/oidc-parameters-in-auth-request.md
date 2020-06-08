@@ -120,7 +120,6 @@ Error Response
  
  ```tab="Sample Request"
  https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=consent&scope=openid&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
-
  ```
  
  If the user is successfully provided the consent again, even if the consent is already given,  the WSO2 Identity Server will return a successful  response as follows.
