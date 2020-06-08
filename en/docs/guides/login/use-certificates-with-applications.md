@@ -1,6 +1,10 @@
 # Use Certificates with Applications
+Follow the steps given below if you wish to configure your application to use a public certificate instead of the default JWKS endpoint. This configuration is required to follow the scenarios mentioned below. 
 
-If you want to configure your application to use a public certificate instead of the default JWKS endpoint, follow the steps given below.
+1.  OIDC Token Encryption
+2.  Request Object flow
+
+---
 
 {! fragments/create-certificate.md !}
 
@@ -14,7 +18,13 @@ If you want to configure your application to use a public certificate instead of
 
 4.  Click **Update**.
 
+---
+
 !!! info "What's next?" 
     -   [Generate and Encrypt ID Tokens](../../../guides/login/oidc-token-encryption)
 
     -   [Try our sample](../../../quick-starts/oidc-token-encryption-sample)
+
+    -   [Call the JSON Web Key Set (JWKS) Endpoint](../../../guides/login/using-jwks)
+
+    -   [Pass Parameters as a Request Object](../../../guides/login/request-object)
