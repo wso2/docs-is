@@ -7,7 +7,7 @@ attribute values to the application.
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/claim-config-sample" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/attribute-config-sample" rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
