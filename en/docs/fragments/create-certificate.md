@@ -1,5 +1,3 @@
-## Create a new certificate
-
 1.  Follow the steps below to create a public certificate:  
     1.  Execute the following command from the
         `             <IS_HOME>/repository/resources/security            `
