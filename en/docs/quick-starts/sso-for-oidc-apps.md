@@ -1,17 +1,17 @@
-# Configuring Single Sign On Using OpenID Connect
+# Configure Single Sign On for a Open ID Connect Application
 
-This page guides you through configuring [single sign on authentication](insertlink) between two OAuth/OpenID Connect web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
+This page guides you through configuring [single sign on authentication](insertlink) between two OIDC web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
 
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/enable-single-sign-on"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/sso-for-oidc" rel="nofollow noopener">I have my own application</a>
 
 ----
 
 ## Scenario
 
-Pickup is a cab company that has two SAML web applications called pickup-dispatch and pickup-manager. Both applications use WSO2 Identity Server (IS) as the identity provider. When SSO is configured for both these applications, a user is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
+Pickup is a cab company that has two OIDC web applications called pickup-dispatch and pickup-manager. Both applications use WSO2 Identity Server (IS) as the identity provider. When SSO is configured for both these applications, a user is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
 ![oidc-sso-scenario](../assets/img/samples/oidc-sso-scenario-diagram.png)
 

@@ -1,6 +1,7 @@
-# Enable Authentication for a Mobile Application
+# Enable Login for a Client Side Application
 
-This page guides you through enabling authentication using the [Authorization Code](../../../concepts/authorization/authorization-code-grant) grant type with [PKCE](insertlink) for a mobile application that uses OpenID Connect. 
+This page guides you through enabling authentication using the [Authorization Code](../../../concepts/authorization/authorization-code-grant) 
+grant type with [PKCE](insertlink) for client side applications (e.g.,mobile application , single page application) that uses OpenID Connect. 
 
 ---
 
@@ -72,11 +73,9 @@ Make the following requests via your application to connect your application to 
 
 3. Validate the ID token. For the token request, you will receive a response containing the access token, scope, and ID token. The ID token contains basic user information. To check what is encoded within the ID token, you can use a tool such as <https://devtoolzone.com/decoder/jwt>.
 
-----
+!!! info "Related Topics"
+    - [Enable Login for a Sample OpenID Connect Web Application](../../../quick-starts/webapp-oidc-sample)
+    - [Manage User Sessions](insertlink)
+    - [OpenID Connect Back-Channel Logout](../login/oidc-backchannel-logout)
 
-{!fragments/oidc-session-management.md!}
-
-----
-
-{!fragments/oidc-backchannel-logout.md!}
 
