@@ -61,6 +61,7 @@ https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7E
 ```
 
 If the user has an already authenticated session and a pre-configured consent with the WSO2 Identity Server a successful response can be obtained as follows.
+
 Successful Response
 
 ```tab="Sample Response"
@@ -70,10 +71,10 @@ https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4
 Error Response
 
 ```tab="Sample Response"
-https://callback_url
-    error_description=ERROR_DESCRIPTION&
-  error=ERROR_CODE&
-    session_state==...
+   https://callback_url
+   error_description=ERROR_DESCRIPTION&
+   error=ERROR_CODE&
+   session_state==...
 ```
     
    | Error                 | Error Description         | 
@@ -92,6 +93,7 @@ https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7E
 ```
 
 If the user is successfully re-authenticated with the WSO2 Identity Server a successful  response can be obtained as follows.
+
 Successful Response
 
 ```tab="Sample Response"
@@ -101,10 +103,10 @@ https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4
 Error Response
 
 ```tab="Sample Response"
-https://callback_url
-    error_description=ERROR_DESCRIPTION&
-  error=ERROR_CODE&
-    session_state==...
+   https://callback_url
+   error_description=ERROR_DESCRIPTION&
+   error=ERROR_CODE&
+   session_state==...
 ```
 
 | Error                 | Error Description         | 
@@ -122,6 +124,7 @@ https://callback_url
  ```
  
  If the user is successfully provided the consent again, even if the consent is already given,  the WSO2 Identity Server will return a successful  response as follows.
+
 Successful Response
  
  ```tab="Sample Response"
@@ -131,10 +134,10 @@ Successful Response
 Error Response
  
  ```tab="Sample Response"
- https://callback_url
-     error_description=ERROR_DESCRIPTION&
-   error=ERROR_CODE&
-     session_state==...
+    https://callback_url
+    error_description=ERROR_DESCRIPTION&
+    error=ERROR_CODE&
+    session_state==...
  ```
  
  | Error                 | Error Description         | 

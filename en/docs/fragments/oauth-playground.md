@@ -4,30 +4,31 @@
 
 ----
 
-## Register a service provider
+## Register an application
 
-1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
+1.	Log in to the [Developer Portal](insertlink) using admin/admin credentials. 
 
-2. Click **Service Providers > Add** and enter "playground2" as the **Service Provider Name** and click **Register**.
-		<img name='add-playground-sp' src='../../assets/img/samples/add-playground-sp.png' class='img-zoomable'/>
-    
-3.  Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
+2.	Select **Applications** from the left panel. 
 
-4. Click **Configure.**   
+3.	Click **New Application**. 
 
-5. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
-        
-6.  Enter `http://wso2is.local:8080/playground2/oauth2client` as the **Callback Url**.
-    
-	<img name='configure-playground-sp' src='../../assets/img/fragments/configure-playground-sp.png' class='img-zoomable'/>
+4.	Select **OIDC web application**. 
 
-    !!! tip
-        For more information on `Callback Url` and other advanced configurations
-        refer, [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced)
-        
-7.  Click **Add**. Note the **OAuth Client Key** and **Client Secret** that get generated. You will need these values later on when deploying the sample application.
+5.	Enter playground2 as the **Name**. 	
 
-8.  Click **Register**.
+6.	Click **Next**. 
+
+7.	Enter the **Callback URL** as `http://wso2is.local:8080/playground2/oauth2client` and click the add icon besides the field. 
+
+8.	Click **Next**. 
+
+9.	Check the configurations and click **Finish**. 
+
+10.	Navigate to the **Access** tab. 
+
+11.	Select all the options given under **Allowed grant type**. 
+
+12.	Click **Update**. 
 
 {!fragments/deploy-playground.md!}
 
