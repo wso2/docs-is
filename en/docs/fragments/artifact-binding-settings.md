@@ -11,7 +11,7 @@ validity= 4
 ```
 
 !!! tip
-    The default time limit is 4 minutes. In a practical scenario, this time limit should be smaller than the SAML response validity
+    The default time limit is 4 minutes. In a practical scenario, this time limit should be lesser than the SAML response validity
     period.
     
 ----
@@ -51,7 +51,7 @@ SOAPAction: http://www.oasis-open.org/committees/security
 </SOAP-ENV:Envelope>
 ```
 
-If signature validation for artifact resolve is enabled, the application has to sign this request with it’s private key. WSO2 IS validates the request and if it is valid, an `<ArtifactResponse>` message is sent with the actual SAML response set as the message element. The code block below shows an example of an `<ArtifactResponse>` message.
+If signature validation for artifact resolve is enabled, the application has to sign this request with its private key. WSO2 IS validates the request and if it is valid, an `<ArtifactResponse>` message is sent with the actual SAML response set as the message element. The code block below shows an example of an `<ArtifactResponse>` message.
 
 ``` java
 HTTP/1.1 200 OK
