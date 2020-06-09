@@ -59,7 +59,8 @@ nav:
       - 'Login':
         - 'OpenID Connect': quick-starts/webapp-oidc-sample.md
         - 'SAML': quick-starts/webapp-saml-sample.md
-        - 'Query SAML Assertions': quick-starts/query-saml-assertions-sample.md
+        - 'Query SAMl Assertions': quick-starts/query-saml-assertions-sample.md
+        - 'Use SAML Artifact Binding': quick-starts/use-artifact-binding-sample.md
         - 'Configure Attributes': quick-starts/attribute-config-sample.md
         - 'Integrate with a Custom Protocol': quick-starts/webapp-custom-sample.md
       - 'Logout':
@@ -135,17 +136,17 @@ nav:
           - 'Use advanced parameters in authentication requests': guides/login/advanced-parameters-in-authentication.md
         - 'Advanced SAML':
           - 'Use Advanced Parameters in the Authentication Request': guides/login/saml-parameters-in-auth-request.md
-          - 'Use Artifact Binding': guides/login/saml-artifact-binding.md
+          - 'Use SAML Artifact Binding': guides/login/use-artifact-binding.md
           - 'Query SAML Assertions': guides/login/query-saml-assertions.md
           - 'Manage User Attributes with eIDAS': guides/login/user-attributes-eidas.md
-          - 'Use SAML Metadata': guides/login/saml-metadata.md
+          - 'Use SAML Metadata': guides/login/use-saml-metadata.md
         - 'WS-Federation': guides/login/ws-federation.md
         - 'Integrate Using Custom Protocols': guides/login/integrate-custom-protocol.md
         - 'Configure Advanced Settings':
           - 'Skip User Consent': guides/login/skip-user-consent.md
           - 'SaaS Applications': guides/login/saas-application.md
           - 'Use Certificates with Applications': guides/login/use-certificates-with-applications.md
-          - 'SP/IdP Session Timeout': guides/login/sp-idp-session-timeout.md
+          - 'SP/IdP Session Timeout': guides/login/session-timeout.md
       - 'Multifactor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':
