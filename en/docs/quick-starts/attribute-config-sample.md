@@ -7,7 +7,7 @@ This is demonstrated using two **sample applications**, **Travelocity** and **Pl
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/request-app-claims"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../../guides/login/request-app-claims"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

@@ -8,4 +8,4 @@
 
 5.  Click **Update**.
 
-    ![saas-enable](../../assets/img/guides/saas-enable.png)
+     ![saas-enable](../../assets/img/guides/saas-enable.png))

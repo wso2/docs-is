@@ -9,4 +9,4 @@
 
 5.  Click **Update**.
 
-    ![skip login consent](../../assets/img/guides/skip-login-consent.png)
+    ![skip login consent](../../assets/img/guides/skip-login-consent.png))
