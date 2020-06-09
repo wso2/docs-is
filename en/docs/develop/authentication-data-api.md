@@ -41,7 +41,7 @@ need to configure the Identity Server as follows.
         <tbody>
             <tr>
                 <td>filter_policy</td>
-                <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates an allowlist, whereas an <b>exclude</b> indicates a blocklist.</td>
+                <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates an allowlist, whereas an <b>exclude</b> indicates a denylist.</td>
             </tr>
             <tr>
                 <td>remove_on_consume_from_api</td>
@@ -49,7 +49,7 @@ need to configure the Identity Server as follows.
             </tr>
             <tr>
                 <td>parameters</td>
-                <td>The list of parameters to be allowed/blocked. The name attribute is used to specify the parameter name.</td>
+                <td>The list of parameters to be allowed/denied. The name attribute is used to specify the parameter name.</td>
             </tr>
             <tr>
                 <td>sessionDataKey</td>
