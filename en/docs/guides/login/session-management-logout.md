@@ -1,6 +1,6 @@
 # Manage User Sessions and Logout
 
-This page guides you through [managing user sessions and logout]((../../../concepts/authentication/session-management)) of OIDC applications with WSO2 Identity Server. 
+This page guides you through [managing user sessions and logout]((../../../concepts/authentication/session-management)) for OpenID Connect applications with WSO2 Identity Server. 
 
 ---
 
@@ -22,7 +22,7 @@ This guide assumes you have your own application. If you wish to try out this fl
     To do this, add an iframe to the service provider application which
     sends a `          prompt=none         ` call to the OAuth2
     authorization endpoint after each iteration of n minutes and refreshes
-    the user session at the server end. A sample iframe is shown below.
+    the user session at the server-end. A sample iframe is shown below.
 
     ``` xml
     <iframe id="refresh_iframe" src="#" style="width:0;height:0;border:0; border:none;"></iframe><script>setInterval(function(){document.getElementById('refresh_iframe').src
