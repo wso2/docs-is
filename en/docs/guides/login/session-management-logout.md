@@ -1,6 +1,6 @@
 # Manage User Sessions and Logout
 
-This page guides you through [managing user sessions and logout]((../../../concepts/authentication/session-management)) of OIDC applications with WSO2 Identity Server. 
+This page guides you through [managing user sessions and logout]((../../../concepts/authentication/session-management)) for OpenID Connect applications with WSO2 Identity Server. 
 
 ---
 

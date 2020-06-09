@@ -1,4 +1,4 @@
-#Enable Login for a Sample Custom Web Application
+# Enable Login for a Sample Custom Web Application
 This page guides you through integrating custom inbound authenticator with WSO2 Identity Server.
 
 ----
@@ -24,21 +24,23 @@ Please refer ['Write a Custom Inbound Protocol'](insertlink) section for the imp
 ---
 ## Deploy the inbound authenticator
 
- - Copy the TODO-authenticator.jar to dropins directory (i.e. /repository/components/dropins)
+ - Copy the TODO-authenticator.jar to the `<IS_HOME>/repository/components/dropins` directory.
  
 ----
 
 {!fragments/register-a-service-provider.md!}
 
-4. TODO :Expand 'Inbound Authentication Configuration' and fill the relevant data in 'Custom Inbound Configuration' section.
+4. TODO :Expand **Inbound Authentication Configuration** and fill the relevant data in the **Custom Inbound Configuration section.
 ![inbound authentication configuration](../assets/img/guides/custom-inbound-authenticator-config.png)
 
 ----
 
 ## Deploy and test the sample web app
-1. Copy the extracted and modified TODO folder to the <TOMCAT_HOME>/webapps folder
+1. Copy the extracted and modified TODO folder to the `<TOMCAT_HOME>/webapps` folder
 
-2. Navigate to the web app page for the ‘TestApp’ application (e.g. http://localhost:8080/TestApp) and click on the Login button.
+2. Access the TestApp application at [http://localhost:8080/TestApp](insertlink)
+
+3. Click **Login**
 
 3. TODO: Explain the behaviour based on the sample.
 

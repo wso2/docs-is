@@ -4,7 +4,7 @@ WSO2 Identity Server provides a way to decouple authentication functionality fro
 protocols such as OAuth 2.0, OpenID Connect, SAML 2.0 and WS-Federation, etc. 
 
 In this approach, the logic for processing an inbound authentication request will be written as an OSGi component (pluggable Java artifacts) called an inbound authenticator.
-When you need to integrate an application which is not written based on a standard protocol, you can write a custom inbound authenticator and plug with WSO2 Identity Server.
+When you need to integrate an application which is not written based on a standard protocol, you can write a custom inbound authenticator and plug it to WSO2 Identity Server.
 
 ---
 
@@ -19,12 +19,12 @@ This guide assumes you have your own web application and a custom inbound authen
 
 ## Deploy the inbound authenticator
 
-- Copy the authenticator to dropins directory (i.e. /repository/components/dropins)
+- Copy the authenticator to the ```<IS_HOME>/repository/components/dropins``` directory.
 
 ----
 
 {!fragments/register-a-service-provider.md!}
-4. Expand 'Inbound Authentication Configuration' and select relevant configurations based on the sample authenticator deployed.
+4. Expand **Inbound Authentication Configuration** and select the relevant configurations according to the custom inbound authenticator you deployed.
 
 ----
 

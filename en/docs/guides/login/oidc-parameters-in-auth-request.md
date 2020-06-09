@@ -1,11 +1,11 @@
-#Use Advanced Parameters in Authentication Requests
+# Use Advanced Parameters in Authentication Requests
 
 This page guides you through some special request parameters used with Open ID Connect authentication requests.
 
  ----
  
-##[State parameter](../../../concepts/traditional-authentication-request)
-You can use this parameter when you need to maintain a correlation between the request and the response.
+## [State parameter](../../../concepts/authentication/traditional-authentication-request#state-parameter)
+Use this parameter to maintain a correlation between the request and the response.
 
 ```tab="Sample Request"
 https://<host>:/authorize?
@@ -24,9 +24,9 @@ Location: <callback_url>#access_token=2YotnFZFEjr1zCsicMWpAA
 ```
  ----
  
-##[Nonce Parameter](../../authentication/concepts/traditional-authentication-request)
-You can use this parameter, when the client application needs to validate an ID Token issued by WSO2 Identity Server.
-The nonce claim embedded in the ID token must contain the exact same value that was sent in the request. 
+## [Nonce Parameter](../../authentication/concepts/traditional-authentication-request#nonce-parameter)
+Use this parameter to validate an ID token issued by WSO2 Identity Server.
+The `nonce` claim embedded in the ID token must contain the exact value that was sent in the request. 
 If not, authentication should be rejected by the application.
 
 ```tab="Sample Request"
@@ -46,7 +46,7 @@ The decoded ID token is as follows.
 
  ----
  
-##[Prompt Parameter](../../authentication/concepts/traditional-authentication-request)
+## [Prompt Parameter](../../authentication/concepts/traditional-authentication-request#prompt-parameter)
 This parameter which can be sent with the authentication requests, can have the following three values.
     
     -   none         `
@@ -60,17 +60,14 @@ The silent authentication can be initiated by using the prompt=none parameter wi
 https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=<callback_url>&prompt=none&scope=openid
 ```
 
-If the user has an already authenticated session and a pre-configured consent with the WSO2 Identity Server a successful response can be obtained as follows.
+If the user has an already authenticated session and a pre-configured consent with the WSO2 Identity Server, you will receive a successful response as follows.
 
-Successful Response
-
-```tab="Sample Response"
+```tab="Successful Response"
 https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
 ```
 
 Error Response
-
-```tab="Sample Response"
+```
    https://callback_url
    error_description=ERROR_DESCRIPTION&
    error=ERROR_CODE&
@@ -85,54 +82,48 @@ Error Response
 ----
 
 
-###prompt=login
-The force authentication can be initiated by using the prompt=login parameter with the authentication request.
+### prompt=login
+Use the `prompt=login` parameter with the authentication request to force authenticating the user even if the user has been authenticated already.
 
 ```tab="Sample Request"
 https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=none&scope=openid
 ```
 
-If the user is successfully re-authenticated with the WSO2 Identity Server a successful  response can be obtained as follows.
+If the user is successfully re-authenticated with WSO2 Identity Server, you will receive a successful response as follows.
 
-Successful Response
-
-```tab="Sample Response"
+```tab="Successful Response"
 https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
 ```
 
 Error Response
-
-```tab="Sample Response"
+```
    https://callback_url
    error_description=ERROR_DESCRIPTION&
    error=ERROR_CODE&
    session_state==...
 ```
 
-| Error                 | Error Description         | 
+| Error                  | Error Description         | 
    | --------------------- | ------------- | 
-   | login_required | Occurs when the user can not re-authenticate the user  |                            
+   | login_required | Occurs when WSO2 Identity Server can not re-authenticate the user  |                            
    
    ----
    
-###prompt=consent
- Prompting forceful user consent can be initiated by using the prompt=consent parameter with the authentication request.
+### prompt=consent
+Use the `prompt=consent` parameter with the authentication request to force prompting user consent.
  
  ```tab="Sample Request"
  https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=consent&scope=openid&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
  ```
  
- If the user is successfully provided the consent again, even if the consent is already given,  the WSO2 Identity Server will return a successful  response as follows.
+ If the user has successfully provided the consent again, even if the consent is already given, WSO2 Identity Server will return a successful response as follows.
 
-Successful Response
- 
- ```tab="Sample Response"
+ ```tab="Successful Response"
  https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
  ```
  
-Error Response
- 
- ```tab="Sample Response"
+ Error Response
+ ```
     https://callback_url
     error_description=ERROR_DESCRIPTION&
     error=ERROR_CODE&
@@ -141,7 +132,7 @@ Error Response
  
  | Error                 | Error Description         | 
     | --------------------- | ------------- | 
-    | consent_required | Occurs when the user can not provide the consent again  | 
+    | consent_required | Occurs when the user cannot provide the consent again  | 
     
    ----
      
