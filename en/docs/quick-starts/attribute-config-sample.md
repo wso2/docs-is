@@ -42,7 +42,7 @@ If you have your own application, click the button below.
 
 3. You are now successfully logged in to the sample application. 
 
-4.  In the landing page of the application, you can see that the values of application attributes we mapped to the local attributes are shown instead of the local attributes. The application attribute, `Name` contains the value of the application role instead of the username since we configured it as the `role attribute URI`. 
+4.  In the landing page of the application, you can see that the values of application attributes that were mapped to the local attributes instead of the local attributes. The application attribute, `Name` contains the value of the application role instead of the username since it was configured as the `role attribute URI`. 
 
     ![travelocity-app-landing](../../assets/img/samples/travelocity-app-landing.png)
 

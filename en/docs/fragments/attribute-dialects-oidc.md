@@ -2,7 +2,7 @@
 
 2.  Click the edit icon. 
 
-3.  Select the required local attributes for this application. For this scenario, we have chosen `address`, `country`, `email`, and `name`. 
+3.  Select the required local attributes for this application. For this scenario, select `address`, `country`, `email`, and `name`. 
 
     ![choose-attribute-oidc.png](../../assets/img/samples/choose-attribute-oidc.png)
 

@@ -4,7 +4,7 @@
 
 3.  Click on the edit icon. 
 
-4.  Choose the attributes that you require for this application. For this scenario, we have chosen `Country`, `Username`, and `Email`. 
+4.  Select the attributes that you require for this application. For this scenario, select `Country`, `Username`, and `Email`. 
 
     ![choose-attibutes](../../assets/img/samples/choose-attributes.png)
 
