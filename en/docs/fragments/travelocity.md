@@ -7,11 +7,7 @@
 
 2.  Select **Applications** from the left panel. 
 
-    ![add-service-provider](../../../assets/img/fragments/add-service-provider.png)
-
-3.  Enter a **Service Provider Name** and optionally, a **Description**.
-
-    ![register-service-provider](../../../assets/img/fragments/register-service-provider.png)
+3.  Enter a **Name** and optionally, a **Description**.
 
 4.  Click **Next**. 
 

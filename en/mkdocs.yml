@@ -62,6 +62,10 @@ nav:
         - 'Query SAMl Assertions': quick-starts/query-saml-assertions-sample.md
         - 'Use SAML Artifact Binding': quick-starts/use-artifact-binding-sample.md
         - 'Configure Attributes': quick-starts/attribute-config-sample.md
+        - 'Integrate with a Custom Protocol': quick-starts/webapp-custom-sample.md
+      - 'Logout':
+        - 'Session Management and Logout': quick-starts/oidc-session-management.md
+        - 'OpenID Connect Back-Channel Logout': quick-starts/oidc-backchannel-logout-sample.md
       - 'Single Sign On':
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
@@ -86,7 +90,6 @@ nav:
         - 'Microprofile JWT': quick-starts/microprofile-jwt-sample.md
         - 'SAML2 Bearer Assertion Profile': quick-starts/saml2-bearer-assertion-profile.md
         - 'Encrypt ID Tokens': quick-starts/oidc-token-encryption-sample.md
-        - 'OpenID Connect Back-Channel Logout': quick-starts/oidc-backchannel-logout-sample.md
         - 'Passing OIDC Parameters as a Request Object': quick-starts/request-object.md
       - 'Federation':
         - 'Facebook': quick-starts/fb-as-federated-authenticator-sample.md
@@ -116,6 +119,7 @@ nav:
         - 'Single Logout':
           - 'OpenID Connect':
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
+            - 'Session Management and Logout': guides/login/session-mangement-logout.md
             - 'Logout URL Redirection': guides/login/oidc-logout-url-redirection.md
           - 'SAML':
             - 'Front-Channel Logout': guides/login/saml-frontchannel-logout.md
@@ -123,11 +127,13 @@ nav:
           - 'Cross Protocol Logout': guides/login/cross-protocol-logout.md
         - 'Advanced OpenID Connect':
           - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
-          - 'Pass Parameters as a Request Object': guides/login/request-object.md
+          - 'Pass Parameters as a Request Object': guides/login/oidc-request-object.md
           - 'Manage Scopes and Claims': guides/login/oidc-scopes-claims.md
-          - 'Generate & Encrypt ID Tokens': guides/login/oidc-token-encryption.md
+          - 'Encrypt ID Tokens': guides/login/oidc-token-encryption.md
           - 'Discover OpenID Connect Provider': guides/login/oidc-discovery.md
           - 'Obtain Key Set Using JWKS': guides/login/using-jwks.md
+          - 'Validate JWT based on JWKS': guides/login/validate-jwt-using-jwks.md
+          - 'Use advanced parameters in authentication requests': guides/login/advanced-parameters-in-authentication.md
         - 'Advanced SAML':
           - 'Use Advanced Parameters in the Authentication Request': guides/login/saml-parameters-in-auth-request.md
           - 'Use SAML Artifact Binding': guides/login/use-artifact-binding.md
@@ -139,8 +145,8 @@ nav:
         - 'Configure Advanced Settings':
           - 'Skip User Consent': guides/login/skip-user-consent.md
           - 'SaaS Applications': guides/login/saas-application.md
-          - 'Use Certificates with Applications': guides/login/app-certificates.md
-          - 'SP/IdP Session Timeout' : guides/login/sp-idp-session-timeout.md
+          - 'Use Certificates with Applications': guides/login/use-certificates-with-applications.md
+          - 'SP/IdP Session Timeout': guides/login/session-timeout.md
       - 'Multifactor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':
@@ -177,7 +183,6 @@ nav:
           - 'OAuth Token Validation Using SOAP': guides/access-delegation/oauth-token-validation.md
           - 'Get User Claims as a JWT': guides/access-delegation/get-user-claims-as-a-jwt.md
           - 'Issue New Tokens Per Request': guides/access-delegation/issue-new-tokens-per-request.md
-          - 'Validate JWT Based On JWKS ': guides/access-delegation/validate-jwt-based-on-jwks.md
           - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
           - 'Dynamic Client Regisration': guides/access-delegation/oauth-dynamic-client-registration.md
         - 'OpenID Connect':

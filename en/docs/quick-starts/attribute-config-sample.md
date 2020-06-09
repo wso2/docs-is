@@ -1,51 +1,31 @@
 
-# Request attributes using samples
+# Request Attributes
 
 This page guides you through configuring [requested attributes](insertlink) for a web application using OIDC and SAML. 
-This is demonstrated using two **sample applications**, **Travelocity** and **Playground2**.
+This is demonstrated using two sample applications, **Travelocity** and **Playground2**.
 
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/request-app-claims"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../../guides/login/request-app-claims"   rel="nofollow noopener">I have my own application</a>
 
 ----
 
-## Request atttributes for a SAML application
-
-### Deploy the sample SAML application and configure it in WSO2 Identity Server
+## Request attributes for a SAML application
 
 {! fragments/travelocity.md !}
 
 ### Add custom attribute dialects
 
-1.  Navigate to the **Attributes** tab of the application you registered in the previous step. 
-
-2.  Enable attribute mapping by clicking on the toggle button, **Enable mapping**. 
-
-3.  Click on the edit icon. 
-
-4.  Choose the attributes that you require for this application. For this scenario, we have chosen `Country`, `Username`, and `Email`. 
-
-    ![choose-attibutes](../../assets/img/samples/choose-attributes.png)
-
-5.  Click **Save**. 
-
-6.  Give appropriate names for the application attribute to which the local attributes are to be mapped. 
-
-    ![attribute-mapping-saml](../../assets/img/samples/attribute-mapping-saml.png)
+{! fragments/add-custom-attributes-saml.md !}
 
 ### Set mandatory attributes
 
-To make the attributes configured above appear for the user to fill in or consent to during login, enable **Requested** and **Mandatory** for these attributes.  
+{! fragments/set-mandatory-attributes.md !}
 
-![enable-mandate](../../assets/img/samples/enable-mandate.png)
+### Set role attribute URI
 
-### Set role attribute URI 
-
-In the **Role** section, choose a role attribute from the application attributes listed in the dropdown. 
-
-![role-claim](../../assets/img/samples/role-claim.png)
+{! fragments/set-role-attribute.md !}
 
 ### Try it out 
 
@@ -62,35 +42,23 @@ In the **Role** section, choose a role attribute from the application attributes
 
 3. You are now successfully logged in to the sample application. 
 
+4.  In the landing page of the application, you can see that the values of application attributes that were mapped to the local attributes instead of the local attributes. The application attribute, `Name` contains the value of the application role instead of the username since it was configured as the `role attribute URI`. 
+
+    ![travelocity-app-landing](../../assets/img/samples/travelocity-app-landing.png)
+
 ---
 
 ## Request attributes for an OIDC application
-
-### Deploy the sample OIDC application and configure it in WSO2 Identity Server
 
 {! fragments/oauth-playground.md !}
 
 ### Add attribute dialects 
 
-1.  Navigate to the **Attributes** tab. 
-
-2.  Click the edit icon. 
-
-3.  Select the required local attributes for this application. For this scenario, we have chosen `address`, `country`, `email`, and `name`. 
-
-    ![choose-attribute-oidc.png](../../assets/img/samples/choose-attribute-oidc.png)
-
-4.  Click **Save**. 
-
-5.  You can select any or all of these attribute as mandatory attirbutes as shown below. 
-
-    ![choose-mandatory-playground](../../assets/img/samples/choose-mandatory-playground.png)
+{! fragments/attribute-dialects-oidc.md !}
 
 ### Set subject attribute URL 
 
-Choose an attribute from the local attributes listed in the **Subject attribute** dropdown. 
-
-![subject-attribute](../../assets/img/samples/subject-attribute.png)
+{! fragments/subject-attribute-oidc.md !}
 
 ### Try it out
 
@@ -112,6 +80,6 @@ Choose an attribute from the local attributes listed in the **Subject attribute*
 
 7.  Click **Get access token**. 
 
-8.  You are now successfully logged in to the sample application. 
+8.  You are now successfully logged in to the sample application. You can see the values of the local attributes that were configured. You can also see the field, **Subject Claim URI** as **sub**, which contains the value of the local attribute you configured as the subject attribute URL. 
 
     ![playground-sub](../../assets/img/samples/playground-sub.png)

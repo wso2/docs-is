@@ -1,8 +1,8 @@
-## Discover OpenID Connect Provider
+## Discover OpenID Connect provider
 
 This page guides you through using [OpenID Connect Discovery](../../../concepts/authentication/discovery) to discover an end user's OpenID provider, and to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. 
 
-The OpenID Connect discovery endpoint is as follows:
+You can use this OIDC Discovery document to automatically configure applications. The OpenID Connect discovery endpoint is as follows:
 
 ```
 https://localhost:9443/.well-known/oidcdiscovery
@@ -10,7 +10,7 @@ https://localhost:9443/.well-known/oidcdiscovery
 
 -----
 
-## OpenID Provider Issuer discovery
+## OpenID Provider issuer discovery
 
 OpenID Provider Issuer discovery refers to the process of determining the location of the OpenID Provider.
 
@@ -59,10 +59,10 @@ In WSO2 Identity Server, the resident IdP Entity ID for OpenID Connect can be co
     **OpenID Provider Issuer URL format**
 
     ``` java
-    <Host>/oauth2/{issuer}
+    {Host}/oauth2/{issuer}
     ```
 
--   **\<Host\>:** The host number of WSO2 Identity Server (e.g.,https://localhost:9443)
+-   **{Host}:** The host number of WSO2 Identity Server (e.g.,https://localhost:9443)
 
 -   **{issuer}:** The issuer path component. This value can be either `token` or `oidcdiscovery`.
 
@@ -225,3 +225,5 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
     "registration_endpoint": "https://localhost:9443/identity/connect/register"
     }
     ```
+!!! info "Related Topics"
+    - [OpenID Connect Discovery](../../../concepts/authentication/discovery)
