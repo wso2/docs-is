@@ -1,5 +1,5 @@
 
-# Request attributes using samples
+# Request Attributes
 
 This page guides you through configuring [requested attributes](insertlink) for a web application using OIDC and SAML. 
 This is demonstrated using two sample applications, **Travelocity** and **Playground2**.
@@ -10,8 +10,6 @@ If you have your own application, click the button below.
 <a class="samplebtn_a" href="../../../guides/login/request-app-claims"   rel="nofollow noopener">I have my own application</a>
 
 ----
-
-what is all this
 
 ## Request attributes for a SAML application
 
@@ -25,6 +23,29 @@ what is all this
 
 {! fragments/set-mandatory-attributes.md !}
 
+### Set role attribute URI
+
+{! fragments/set-role-attribute.md !}
+
+### Try it out 
+
+1.  Log in to the sample application at <http://wso2is.local:8080/travelocity.com/index.jsp> using admin credentials. 
+
+    !!! info 
+        The user's consent is required to access the attribute information. Click on **Continue** to agree to let the application access this information. To skip this step, you can navigate to the **Advanced** tab of your application and enable **Skip login consent**.
+
+        ![login-travelocity-mandatory](../../assets/img/samples/login-travelocity-mandatory.png)
+
+2.  The application requests values for attributes which are not already mapped to any user profile information. Enter any suitable value to proceed. 
+
+    ![mandatory-claim](../../assets/img/samples/mandatory-claim.png)
+
+3. You are now successfully logged in to the sample application. 
+
+4.  In the landing page of the application, you can see that the values of application attributes we mapped to the local attributes are shown instead of the local attributes. The application attribute, `Name` contains the value of the application role instead of the username since we configured it as the `role attribute URI`. 
+
+    ![travelocity-app-landing](../../assets/img/samples/travelocity-app-landing.png)
+
 ---
 
 ## Request attributes for an OIDC application
@@ -33,25 +54,11 @@ what is all this
 
 ### Add attribute dialects 
 
-1.  Navigate to the **Attributes** tab. 
-
-2.  Click the edit icon. 
-
-3.  Select the required local attributes for this application. For this scenario, we have chosen `address`, `country`, `email`, and `name`. 
-
-    ![choose-attribute-oidc.png](../../assets/img/samples/choose-attribute-oidc.png)
-
-4.  Click **Save**. 
-
-5.  You can select any or all of these attribute as mandatory attirbutes as shown below. 
-
-    ![choose-mandatory-playground](../../assets/img/samples/choose-mandatory-playground.png)
+{! fragments/attribute-dialects-oidc.md !}
 
 ### Set subject attribute URL 
 
-Choose an attribute from the local attributes listed in the **Subject attribute** dropdown. 
-
-![subject-attribute](../../assets/img/samples/subject-attribute.png)
+{! fragments/subject-attribute-oidc.md !}
 
 ### Try it out
 
@@ -73,6 +80,6 @@ Choose an attribute from the local attributes listed in the **Subject attribute*
 
 7.  Click **Get access token**. 
 
-8.  You are now successfully logged in to the sample application. 
+8.  You are now successfully logged in to the sample application. You can see the values of the local attributes that were configured. You can also see the field, **Subject Claim URI** as **sub**, which contains the value of the local attribute you configured as the subject attribute URL. 
 
     ![playground-sub](../../assets/img/samples/playground-sub.png)

@@ -12,4 +12,4 @@
 
 6.  Give appropriate names for the application attribute to which the local attributes are to be mapped. 
 
-    ![attribute-mapping-saml](../../assets/img/samples/attribute-mapping-saml.png)
+    ![attribute-mapping-saml](../../assets/img/samples/attribute-mapping-saml.png))
