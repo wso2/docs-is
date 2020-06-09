@@ -61,6 +61,7 @@ nav:
         - 'SAML': quick-starts/webapp-saml-sample.md
         - 'Query SAMl Assertions': quick-starts/query-saml-assertions-sample.md
         - 'Use SAML Artifact Binding': quick-starts/use-artifact-binding-sample.md
+        - 'Configure Attributes': quick-starts/attribute-config-sample.md
       - 'Single Sign On':
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
@@ -102,19 +103,16 @@ nav:
           - 'IWA': guides/login/webapp-iwa.md
         - 'Client-Side Application': guides/login/client-side-app.md
         - 'SaaS Applications':
-          - 'Google': guides/login/google.md
-          - 'Microsoft Services':
-            - 'Dynamics CRM': guides/login/microsoft-dynamic-crm.md
-            - 'Office365': guides/login/office365.md
-            - 'SharePoint': guides/login/microsoft-sharepoint.md
-            - 'Workday': guides/login/microsoft-workday.md
-          - 'Salesforce': guides/login/salesforce.md
-          - 'Shiboleth': guides/login/google.md
+          - 'Salesforce': guides/login/log-into-salesforce-using-is.md
+          - 'Google': guides/login/log-into-google-using-is.md
+          - 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
         - 'Request Claims for the Application': guides/login/request-app-claims.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
+          - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
+          - 'SSO For SAML Applications': guides/login/sso-for-saml.md
+          - 'SSO For WS-Federation Applications': guides/login/sso-for-ws-fed.md
           - 'Single Sign-On for Native iOS Applications': guides/login/sso-native-ios.md
-          - 'SAML2 Single-Sign-On Across Different WSO2 Products': guides/login/sso-with-wso2-products.md
         - 'Single Logout':
           - 'OpenID Connect':
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
@@ -123,7 +121,6 @@ nav:
             - 'Front-Channel Logout': guides/login/saml-frontchannel-logout.md
             - 'Back-Channel Logout': guides/login/saml-backchannel-logout.md
           - 'Cross Protocol Logout': guides/login/cross-protocol-logout.md
-          - 'SP/IdP Session Timeout': guides/login/session-timeout.md
         - 'Advanced OpenID Connect':
           - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
           - 'Pass Parameters as a Request Object': guides/login/request-object.md
@@ -141,8 +138,9 @@ nav:
         - 'Integrate Using Custom Protocols': guides/login/integrate-custom-protocol.md
         - 'Configure Advanced Settings':
           - 'Skip User Consent': guides/login/skip-user-consent.md
-          - 'SaaS Applications': guides/login/saas-apps.md
+          - 'SaaS Applications': guides/login/saas-application.md
           - 'Use Certificates with Applications': guides/login/app-certificates.md
+          - 'SP/IdP Session Timeout' : guides/login/sp-idp-session-timeout.md
       - 'Multifactor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':

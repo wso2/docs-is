@@ -26,7 +26,7 @@ If you have your own application, click the button below.
 	
 	!!! info 
 		If you do not see the Apps button on the home page, click **More
-		Controls** at the bottom of the page.
+		Controls** at the bottom of the page.   
 
 	![more-controls-saml-apps](../../assets/img/samples/saml-app.png)
 	
