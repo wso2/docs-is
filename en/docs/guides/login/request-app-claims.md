@@ -23,5 +23,5 @@ Add the dev portal fragment to do attribute mappings
 ---
 
 !!! info "Related Topics"
-    - [Which configuration should I use?](sp-attributes-config.md)
-    - [Request Attributes Using Sample Applications](insertlink)
+    - [Which configuration should I use?](sp-attributes-config)
+    - [Request Attributes Using Sample Applications](../../../quick-starts/oidc-claim-config-sample)
