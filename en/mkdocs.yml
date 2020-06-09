@@ -145,7 +145,7 @@ nav:
           - 'Skip User Consent': guides/login/skip-user-consent.md
           - 'SaaS Applications': guides/login/saas-application.md
           - 'Use Certificates with Applications': guides/login/use-certificates-with-applications.md
-          - 'SP/IdP Session Timeout': guides/login/sp-idp-session-timeout.md
+          - 'SP/IdP Session Timeout': guides/login/session-timeout.md
       - 'Multifactor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':
