@@ -6,9 +6,9 @@ This page guides you through sending SAML parameters with the SAML authenticatio
 
 ## RelayState
 
-The `RelayState` parameter is used so that an application can pass some value to the identity provider along with the `AuthnRequest` and get the same value back with the `Response`. This value can be any string and can be useful for the application logic (e.g., when there is a failure, redirecting to the URL that comes as the `RelayState` parameter is one way that this can be used).
+The `RelayState` parameter is used so that an application can pass some value to the identity provider along with the authentication request and get the same value back with the `Response`. This value can be any string and can be useful for the application logic (e.g., when there is a failure, redirecting to the URL that comes as the `RelayState` parameter is one way that this can be used).
 
--   For a inbound request to WSO2 Identity Server, if the `RelayState` parameter is present, WSO2 IS sends back the same value in the response.
+-   For an inbound request to WSO2 Identity Server, if the `RelayState` parameter is present, WSO2 IS sends back the same value in the response.
 
 -   For federation using SAML2, WSO2 Identity Server uses the `RelayState` parameter to pass the session index, which is required to continue the authentication flow after receiving authentication response.
 
@@ -24,7 +24,7 @@ This request will authenticate and redirect the user to the URL in the `RelaySta
 
 ## IsPassive
 
-The `IsPassive` parameter is used to indicate to the identity provider whether WSO2 Identity Server should authenticate the user without any user interaction using the session cookie if the user has already been authenticated and a valid session cookie already exists. If this parameter is set to `true`, WSO2 IS authenticates the user using the existing session cookie. 
+The `IsPassive` parameter is used to indicate to the identity provider whether WSO2 Identity Server should authenticate the user without any user interaction. This is done using the session cookie if the user has already been authenticated and a valid session cookie already exists. If this parameter is set to `true`, WSO2 IS authenticates the user using the existing session cookie. 
 
 You can use the `IsPassive` parameter as follows.  
 

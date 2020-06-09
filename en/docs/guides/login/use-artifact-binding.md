@@ -1,6 +1,8 @@
 # Use SAML2 Artifact Binding
 
-This page guides you through enabling [SAML2 artifact binding](insertlink) with WSO2 Identity Server.
+This page guides you through enabling [SAML2 artifact binding](insertlink) with WSO2 Identity Server. 
+
+Generally, SAML authentication requests and assertion data is sent through the browser using POST or Http Redirect binding. If you do not want to expose the entire message to the browser, you can use artifact binding instead. 
 
 ----
 
@@ -24,7 +26,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 2.  Log in to the application. 
 
-3.  You can use a SAML tracer add-on with your browser to view the SAML2 response artifact for the SSO authentication request. The code block  below shows an example response.
+3.  You can use a SAML tracer add-on with your browser to view the SAML2 response artifact for the SSO authentication request. The code block below shows an example response.
 
     ``` java
     HTTP/1.1 302 Object Moved
@@ -34,7 +36,7 @@ This guide assumes you have your own application. If you wish to try out this fl
     Content-Type: text/html; charset=iso-8859-1
     ```
 
-You have successfully set up SAML artifact binding. See the sections below for more information on resolving SAML2 artifacts and configuring  an artifact expiration time.
+You have successfully set up SAML artifact binding. See the sections below for more information on resolving SAML2 artifacts and configuring an artifact expiration time.
 
 ----
 
