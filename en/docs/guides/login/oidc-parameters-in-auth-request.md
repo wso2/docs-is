@@ -1,6 +1,6 @@
 # Use Advanced Parameters in Authentication Requests
 
-This page guides you through using some special request parameters used with Open ID Connect authentication requests.
+This page guides you through some special request parameters used with Open ID Connect authentication requests.
 
  ----
  
@@ -26,7 +26,7 @@ Location: <callback_url>#access_token=2YotnFZFEjr1zCsicMWpAA
  
 ## [Nonce Parameter](../../authentication/concepts/traditional-authentication-request#nonce-parameter)
 Use this parameter to validate an ID token issued by WSO2 Identity Server.
-The `nonce` claim embedded in the ID token must contain the exact same value that was sent in the request. 
+The `nonce` claim embedded in the ID token must contain the exact value that was sent in the request. 
 If not, authentication should be rejected by the application.
 
 ```tab="Sample Request"
@@ -83,13 +83,13 @@ Error Response
 
 
 ### prompt=login
-Use the prompt=login parameter with the authentication request to force authenticating the user even if the user has been authenticated already.
+Use the `prompt=login` parameter with the authentication request to force authenticating the user even if the user has been authenticated already.
 
 ```tab="Sample Request"
 https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=none&scope=openid
 ```
 
-If the user is successfully re-authenticated with the WSO2 Identity Server, you will receive a successful response as follows.
+If the user is successfully re-authenticated with WSO2 Identity Server, you will receive a successful response as follows.
 
 ```tab="Successful Response"
 https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
@@ -116,7 +116,7 @@ Use the `prompt=consent` parameter with the authentication request to force prom
  https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=consent&scope=openid&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
  ```
  
- If the user has successfully provided the consent again, even if the consent is already given,  the WSO2 Identity Server will return a successful response as follows.
+ If the user has successfully provided the consent again, even if the consent is already given, WSO2 Identity Server will return a successful response as follows.
 
  ```tab="Successful Response"
  https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66

@@ -30,7 +30,7 @@ Please refer ['Write a Custom Inbound Protocol'](insertlink) section for the imp
 
 {!fragments/register-a-service-provider.md!}
 
-4. TODO :Expand **Inbound Authentication Configuration** and fill the relevant data in **Custom Inbound Configuration section.
+4. TODO :Expand **Inbound Authentication Configuration** and fill the relevant data in the **Custom Inbound Configuration section.
 ![inbound authentication configuration](../assets/img/guides/custom-inbound-authenticator-config.png)
 
 ----
