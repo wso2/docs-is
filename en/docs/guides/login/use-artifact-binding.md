@@ -42,3 +42,9 @@ You have successfully set up SAML artifact binding. See the sections below for m
 
 {!fragments/artifact-binding-settings.md!}
 
+-----
+
+!!! info "Related Topics"
+    - [Enable Login for a SAML Application](../webapp-saml)
+    - [SAML Authentication Errors](insertlink)
+
