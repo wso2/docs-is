@@ -79,7 +79,7 @@ Following is a sample SAML fragment that you can add to the SAML SSO request whi
 	-	**`context.selectedAcr`**: This function sets the ACR value that needs to be returned to the caller.
 	
 	``` tab="Sample Request"
-	var supportedAcrValues = ['urn:oasis:names:tc:SAML:2.0:classes:Kerberos', 'urn:oasis:names:tc:SAML:2.0:ac:classes:Password', ‘urn:federation:authentication:windows'];
+	var supportedAcrValues = ['urn:oasis:names:tc:SAML:2.0:classes:Kerberos', 'urn:oasis:names:tc:SAML:2.0:ac:classes:Password', 'urn:federation:authentication:windows'];
 	 
 	…
 	…
