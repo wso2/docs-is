@@ -42,6 +42,8 @@ The `forceAuth` parameter is used to force authentication. If this parameter is 
 https://localhost:9443/samlsso?spEntityID=foo.com&tenantDomain=abc.com&forceAuthn=true
 ```
 
+-----
+
 !!! info "Related Topics"
     - [Single Sign-On](../enable-single-sign-on)
     - [Enable Login for a SAML Application](../webapp-saml)
