@@ -9,7 +9,7 @@ Follow the instructions below to download the sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/playground2.war)
+2. [Download](https://github.com/wso2/samples-is/releases/download/ v4.3.0/playground2.war)
    the `playground2.war` file from the latest release assets.
 
 ----
