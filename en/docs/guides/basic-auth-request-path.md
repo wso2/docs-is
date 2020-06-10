@@ -81,4 +81,6 @@ Replace the **` <SEC_TOKEN>,CLIENT_ID>`** and **`<REDIRECT_URI>`** tags with the
         
 !!! info "Related Links"
      -   [Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
+     -   [Authenticate with OAuth Request Path Authenticator](../../guides/oauth-request-path)
+     -   [Enable Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
            

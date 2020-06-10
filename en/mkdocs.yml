@@ -70,7 +70,9 @@ nav:
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
         - 'Different Authentication Protocols': quick-starts/cross-protocol-sso.md
       - 'Multi-Factor Authentication': quick-starts/mfa-sample.md
-      - 'Request Path Authentication': quick-starts/basic-auth-request-path-sample.md
+      - 'Request Path Authentication':
+        - 'Basic-Auth': quick-starts/basic-auth-request-path-sample.md
+        - 'OAuth-Bearer': quick-starts/oauth-request-path-sample.md
       - 'Adaptive Authentication':
         - 'Role-Based': quick-starts/role-based-adaptive-auth.md
         - 'User Age-Based': quick-starts/age-based-adaptive-auth.md
