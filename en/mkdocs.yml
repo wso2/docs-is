@@ -168,32 +168,61 @@ nav:
       - 'Adaptive Authentication':
         - 'Configure Adaptive Authentication': guides/configure-adaptive-auth.md
         - 'Use Function Library': guides/adaptive-auth-with-function-lib.md
-      - 'Federation':
-        - 'Facebook': guides/federation/facebook.md
-        - 'Google': guides/federation/google.md
-        - 'Twitter': guides/federation/twitter.md
-        - 'Microsoft Azure': guides/federation/microsoft-azure.md
-      - 'Access Delegation' : 
-        - 'OAuth':
-          - 'Overview': guides/access-delegation/overview.md
-          - 'Configure OAuth Grant Types': guides/access-delegation/oauth-grant-types.md
-          - 'Configure Refresh Token Grant': guides/access-delegation/configure-refresh-token.md
-          - 'Configure Kerberos Grant': guides/access-delegation/configure-kerberos-grant.md
-          - 'Configure JWT Grant': guides/access-delegation/configure-jwt-grant.md
-          - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegation/saml2-bearer-assertion-profile.md
-          - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
-          - 'Invoke OAuth Token Introspection Endpoint': guides/access-delegation/invoke-oauth-introspection-endpoint.md
-          - 'OAuth Token Validation Using SOAP': guides/access-delegation/oauth-token-validation.md
-          - 'Get User Claims as a JWT': guides/access-delegation/get-user-claims-as-a-jwt.md
-          - 'Issue New Tokens Per Request': guides/access-delegation/issue-new-tokens-per-request.md
-          - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
-          - 'Dynamic Client Regisration': guides/access-delegation/oauth-dynamic-client-registration.md
-        - 'OpenID Connect':
-          - 'Overview': guides/access-delegation/openid-connect.md
-          - 'Configure OpenID Connect Grant Types': guides/access-delegation/oidc-grant-types.md
-          - 'Configure OpenID Connect Hybrid Flow': guides/access-delegation/oidc-hybrid-flow.md
-      - 'Authorization' : guides/authorization/overview.md
-      - 'Manage Users':
+      - 'Identity Lifecycles':
+        - 'Onboard Users':
+          - 'Admin Creation workflow': guides/onboard/admin-creation-workflow.md
+          - 'Invitation workflow': guides/user-mgt/ask-password.md
+          - 'User self-registration workflow': guides/onboard/user-self-registration.md
+          - 'Just in time user provisioning workflow': guides/onboard/just-in-time.md
+          - 'Bulk Import Users': guides/user-mgt/import-users.md
+          - 'Outbound Provisioning': guides/onboard/outbound-provisioning.md
+          - 'Approval workflow': guides/onboard/approval-workflow.md
+        - 'Manage Users': guides/usr-mgt/manage-users.md
+        - 'Manage Roles': guides/role-mgt/manage-roles.md
+        - 'Outbound Provision Users':
+          - 'SCIM2.0': guides/out-prov/scim.md
+          - 'Microsoft Azure AD': guides/out-prov/asure.md
+          - 'Google Directory': guides/out-prov/outbound-provisioning-with-google.md
+          - 'Salesforce': guides/out-prov/outbound-provisioning-with-salesforce.md
+          - 'Role Based Provisioning': guides/out-prov/role-based-provisioning.md
+          - 'Rule Based Provisioning': guides/out-prov/rule-based-provisioning.md
+        - 'Manage Userstores':
+          - 'JDBC as the Primary Userstore': guides/userstore/jdbc-us.md
+          - 'Active Directory as a Secondary Userstore': guides/userstore/ad-us.md
+          - 'LDAP as a Secondary Userstore': guides/userstore/ldap-us.md
+          - 'Plug a Custom Userstore': guides/userstore/custom-us.md
+        - 'Manage Account States':
+          - 'Lock/unlock Accounts': guides/account-states/lock-account.md
+          - 'Suspend Accounts': guides/account-states/suspend-accounts.md
+          - 'Disable Accounts': guides/account-states/enable-account.md
+      - 'Password Management':
+        - 'Password Policies': guides/password-mgt/password-policies.md
+        - 'Admin-initiated password reset': guides/password-mgt/forced-password-reset.md
+        - 'Password recovery using email verification': guides/password-mgt/recover-password.md
+        - 'Password recovery using challenge question': guides/password-mgt/challenge-question.md
+        - 'ReCaptcha on invalid password attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
+        - 'ReCaptcha on invalid challenge question attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
+      - 'Federated Account Linking':
+        - 'Automatic Account Linking during JIT': guides/account-linking/automatic-account-linking.md
+        - 'Admin Intiated Password Reset': guides/account-linking/admin-intiated-password-reset.md
+      - 'Access Delegation':
+        - 'OAuth 2.0':
+          - 'Web Applications': guides/access-delegation/overview.md
+          - 'Client Side Applications': guides/access-delegation/oauth-grant-types.md
+          - 'IoT Devices': guides/access-delegation/configure-refresh-token.md
+          - 'OAuth 2.0 Tokens': guides/access-delegation/configure-kerberos-grant.md
+          - 'Invoke the OAuth 2.0 Introspection Endpoint': guides/access-delegation/configure-jwt-grant.md
+          - 'OAuth 2.0 Dynamic Client Registration': guides/access-delegation/oauth-dynamic-client-registration.md
+          - 'OAuth 2.0 Client Authentication': guides/access-delegation/oauth-token-hashing.md
+          - 'Authorizing for the OAuth 2.0 Scopes': guides/access-delegation/invoke-oauth-introspection-endpoint.md
+          - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
+      - 'Federation - To Remove':
+          - 'Facebook': guides/federation/facebook.md
+          - 'Google': guides/federation/google.md
+          - 'Twitter': guides/federation/twitter.md
+          - 'Microsoft Azure': guides/federation/microsoft-azure.md
+      - 'Authorization - To Remove': guides/authorization/overview.md
+      - 'Manage Users - To Remove':
         - 'Overview': guides/user-mgt/user-mgt-overview.md 
         - 'Manage User Operations':
           - 'Overview': guides/user-mgt/manage-user-overview.md
@@ -222,17 +251,17 @@ nav:
             - 'Recover Username': guides/user-mgt/recover-username.md
             - 'Recover Password': guides/user-mgt/recover-password.md
             - 'Resend Account Recovery Confirmation Email': guides/user-mgt/recovery-confirmation.md
-      - 'Manage Roles':
+      - 'Manage Roles - To Remove':
         - 'Overview': guides/user-mgt/roles.md
         - 'Add User Roles': guides/user-mgt/add-user-roles.md
         - 'Update User Roles': guides/user-mgt/update-roles.md
         - 'Edit/Delete Roles': guides/user-mgt/edit-delete-roles.md
         - 'Role-Based Permissions': guides/user-mgt/role-based.md
-      - 'Server Configurations': 
+      - 'Server Configurations - To Remove':
         - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
-      - 'Manage Tenants': 
+      - 'Manage Tenants - To Remove':
         - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
-      - 'Configure Provisioning':
+      - 'Configure Provisioning - To Remove':
         - 'Overview': guides/identity-provisioning/provisioning-overview.md
         - 'Inbound Provisioning':
           - 'Overview': guides/identity-provisioning/inbound-provisioning.md

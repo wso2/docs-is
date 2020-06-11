@@ -1,6 +1,7 @@
 # Enable Authentication with OAuth Request Path Authenticator
 
-This page guides you through enabling authentication for an OpenID Connect web application using a **sample application** called Playground2. 
+This page guides you through enabling request path authentication using a bearer token
+for an OpenID Connect web application using a **sample application** called Playground2. 
 
 ----
 If you have your own application, click the button below.
@@ -37,7 +38,7 @@ If you have your own application, click the button below.
      `                               https://localhost:9443/oauth2/token                             `
  
 !!! info
-    Once you receive the access token, you can use the following
+    Once you receive the access token, you can use the following for authorizing.
     ```https://localhost:9443/oauth2/authorize?access_token=<access_token>```
          
 

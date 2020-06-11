@@ -1,6 +1,7 @@
 # Enable Authentication with Basic Auth Request Path Authenticator
 
-This page guides you through enabling authentication for an OpenID Connect web application using a **sample application** called Playground2. 
+This page guides you through enabling basic authentication using a request path authenticator for an OpenID Connect
+web application using a **sample application** called Playground2. 
 
 ----
 If you have your own application, click the button below.
@@ -37,7 +38,7 @@ If you have your own application, click the button below.
                `                               https://localhost:9443/oauth2/authorize?sectoken=                              <sec_token>              `
 
 !!! info 
-    The sectoken in the Authorize Endpoint will be the `username:password` in Base64
+    The sectoken in the authorization endpoint will be the `username:password` in Base64
     encoded format. You can use a [Base64
     encoder](https://www.base64encode.org/) to encode this. For
     instance, the username and password admin:admin, is "sectoken=YWRtaW46YWRtaW4=". 
