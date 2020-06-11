@@ -12,10 +12,10 @@ sample scenario.
 credentials to sign in to different internal enterprise applications.
 Following are two such applications:
 
--   **Pickup Dispatch** : This application helps manage the overall
-    operations at Pickup.
--   **Pickup Manager** : This application helps allocate vehicles to
+-   **Pickup Dispatch** : This application helps allocate vehicles to
     drivers.
+-   **Pickup Manager** : This application helps manage the overall
+    operations at Pickup.
 
 Pickup needs to identify the necessary permission levels to be granted
 to the employees and any security vulnerabilities.
