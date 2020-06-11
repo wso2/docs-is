@@ -10,6 +10,8 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 
 ## Sending a GET logout request
 
+(TODO: dev-portal-fragment)
+
 {!fragments/register-a-service-provider.md!}
 
 3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
@@ -154,6 +156,7 @@ For a description of the parameters included in the HTML form, see [logout reque
 </table>
 
 !!! info "Related Topics"
-    - [OpenID Connect Back-Channel Logout](../login/oidc-backchannel-logout)
-    - [OpenID Connect Session Management](insertlink)
-    - [Configure OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
+    - [Concept: Manage User Sessions and Logout](../../../concepts/authentication/session-management)
+    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
+    - [Guide: OpenID Connect Session Management](../session-management-logout)
+    - [Demo: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)

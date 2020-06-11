@@ -1,6 +1,6 @@
 # Cross-Protocol Logout
 
-This page guides you through enabling [cross-protocol logout](TODO) across different protocols such as SAML and OpenID Connect in WSO2 Identity Server. 
+This page guides you through enabling [cross-protocol logout](TODO:insert-link-to-concept) across different protocols such as SAML and OpenID Connect in WSO2 Identity Server. 
 
 -----
 
@@ -10,10 +10,12 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/saml-app-config-basic.md!}
 
 ----
@@ -22,16 +24,19 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/oauth-app-config-basic.md!}
 
 ----
 
 !!! info "Related Topics"
-    - [Single Sign-On](../enable-single-sign-on)
-    - [SAML Back-Channel Logout](TODO)
-    - [OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
-    - [OpenID Connect Logout URL Redirection](../oidc-logout-url-redirection)
+    - [Concept: Cross-Protocol Logout](TODO:insert-link-to-concept)
+    - [Guide: Single Sign-On](../enable-single-sign-on)
+    - [Guide: SAML Back-Channel Logout](TODO:insert-link)
+    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
+    - [Guide: OpenID Connect Logout URL Redirection](../oidc-logout-url-redirection)
