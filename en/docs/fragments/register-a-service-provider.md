@@ -1,6 +1,6 @@
 ## Register a service provider
 
-(1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
+1. Log in to the [Management Console](TODO:insert-link) using admin/admin credentials. 
 
 2. Click **Service Providers >Add**.
 
@@ -9,4 +9,3 @@
 3. Enter a **Service Provider Name** and **Description**.
 
     ![register-service-provider](../../../assets/img/fragments/register-service-provider.png)
-)
