@@ -66,10 +66,10 @@ nav:
       - 'Logout':
         - 'Session Management and Logout': quick-starts/oidc-session-management.md
         - 'OpenID Connect Back-Channel Logout': quick-starts/oidc-backchannel-logout-sample.md
+        - 'Cross-Protocol Logout': quick-starts/cross-protocol-logout-sample.md
       - 'Single Sign On':
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
-        - 'Different Authentication Protocols': quick-starts/cross-protocol-sso.md
       - 'Multi-Factor Authentication': quick-starts/mfa-sample.md
       - 'Adaptive Authentication':
         - 'Role-Based': quick-starts/role-based-adaptive-auth.md
