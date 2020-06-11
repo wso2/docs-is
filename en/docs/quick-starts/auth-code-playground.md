@@ -71,7 +71,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 5. Click **Get Access Token**. At this point, the application receives the access token. 
 
-6. Enter the **Introspection Endpoint** (i.e, https://localhost:9443/oauth2/introspect) and click **Get TokenInfo** to get the token   information. 
+6. Enter the **Introspection Endpoint** (i.e, https://localhost:9443/oauth2/introspect) and click **Get TokenInfo** to get the token information. 
 
 	For more information, see [OAuth Token Introspection](insertlink).
 
