@@ -9,11 +9,11 @@ This guide assumes you have your own application. If you wish to try out this fl
 <a class="samplebtn_a" href="../../../quick-starts/sso-for-saml-apps" rel="nofollow noopener">Try it with the sample</a>
 
 ----
-
+(TO DO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 
 ----
-
+(TO DO: dev-portal-fragment)
 {!fragments/saml-app-config-basic.md!}
 
 ----

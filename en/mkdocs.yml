@@ -109,7 +109,7 @@ nav:
           - 'Salesforce': guides/login/log-into-salesforce-using-is.md
           - 'Google': guides/login/log-into-google-using-is.md
           - 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
-        - 'Request Claims for the Application': guides/login/request-app-claims.md
+        - 'Request Attributes for the Application': guides/login/request-app-claims.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
           - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
@@ -119,7 +119,7 @@ nav:
         - 'Single Logout':
           - 'OpenID Connect':
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
-            - 'Session Management and Logout': guides/login/session-mangement-logout.md
+            - 'Session Management and Logout': guides/login/session-management-logout.md
             - 'Logout URL Redirection': guides/login/oidc-logout-url-redirection.md
           - 'SAML':
             - 'Front-Channel Logout': guides/login/saml-frontchannel-logout.md
