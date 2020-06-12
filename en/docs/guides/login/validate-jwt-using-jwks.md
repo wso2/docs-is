@@ -10,7 +10,7 @@ format which is used for signature verification purposes.
 Follow the below steps to configure JWKS based JWT Validator.
 
 1.  Add the following configurations to
-    `           <SERVER_HOME>/repository/conf/deployment.toml          `
+    `           <IS_HOME>/repository/conf/deployment.toml          `
     .
 
     ``` toml
@@ -30,8 +30,8 @@ Follow the below steps to configure JWKS based JWT Validator.
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/register-an-identity-provider.md!}
-
 
 {!fragments/jwks-uri-in-idp.md!}
 
@@ -42,11 +42,14 @@ Follow the below steps to configure JWKS based JWT Validator.
 Follow the instructions below to invoke the token API to generate access
 tokens from JWT assertion.
 
-1.  Obtain a JWT assertion from external IDP token endpoint. ( Make sure
-    to add /token endpoint of the identity server as an audience( aud )
-    value in the JWT assertion)
+1.  Obtain a JWT assertion from external IDP token endpoint. 
+
+     Make sure to add /token endpoint of the identity server as an audience (aud)
+    value in the JWT assertion. 
+
 2.  Now you can access the Token API using a REST client such as cURL.
     For example, the following cURL command generates an access token.
+    
     Here the JWT signature will be validated using the external IDP’s
     jwks\_uri.
 
@@ -58,6 +61,8 @@ tokens from JWT assertion.
     fetched from the jwks endpoint and the JWT signature will be
     validated accordingly with the exact key used to sign the assertion.
 
+----
+
 !!! info "Related Topics"
-    - [JSON Web Key Set](../../../concepts/jwks)
-    - [Obtain Key Set Using JSON Web Key Set](../../login/using-jwks)
+    - [Concept: JSON Web Key Set](../../../concepts/jwks)
+    - [Guide: Obtain Key Set Using JSON Web Key Set](../using-jwks)

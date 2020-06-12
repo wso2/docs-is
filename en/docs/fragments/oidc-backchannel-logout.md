@@ -1,6 +1,8 @@
 
 ## Configure back-channel single logout
 
+(TODO: dev-portal-content)
+
 1. Click **Edit** to edit the OIDC service provider you created.
 
 2. Expand **Inbound Authentication Configuration** and then expand **OAuth/OpenID Connect Configuration**. Edit the configuration.

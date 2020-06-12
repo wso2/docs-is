@@ -58,6 +58,7 @@ Make the following requests via your application to connect your application to 
 !!! info "Related Topics"
     - [Concept: OpenID Connect](../../../concepts/authentication/intro-oidc)
     - [Demo: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
+    - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)
     - [Guide: Manage User Sessions](../session-management-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
     - [Guide: OpenID Connect Discovery](../oidc-discovery)

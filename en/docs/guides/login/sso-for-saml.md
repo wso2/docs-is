@@ -1,6 +1,6 @@
-# Enable Single Sign-On for an SAML Web Application
+# Enable Single Sign-On for a SAML Web Application
 
-This page guides you through enabling [Single Sign-On](TODO:insert-link-to-concept) for an SAML application using WSO2 Identity Server.
+This page guides you through enabling [Single Sign-On](TODO:insert-link-to-concept) for a SAML application using WSO2 Identity Server.
 
 ---
 

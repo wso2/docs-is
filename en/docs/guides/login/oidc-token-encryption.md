@@ -1,6 +1,6 @@
 # Encrypt ID Tokens
 
-This page guides you through configuring [token encryption for ID tokens](insertlink). 
+This page guides you through configuring [token encryption for ID tokens](TODO:insert-link-to-concept). 
 
 ----
 
@@ -10,13 +10,17 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/oauth-app-config-basic.md!}
 
-----
+-----
+
+(TODO: dev-portal-content)
 
 ## Enable ID token encryption
 
@@ -37,15 +41,16 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/encrypt-id-tokens.md!}
 
 ----
 
 ## Try it out
 
-This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypting the ID token](insertlink).
+This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token](TODO:insert-link-to-guide).
 
-1. See [OAuth Grant Types](../oauth-grant-types) and try out one of the grant types with the `openid` scope to obtain an access token.
+1. See [OAuth Grant Types](../../access-delegation/oauth-grant-types) and try out one of the grant types with the `openid` scope to obtain an access token.
 
 2. You will recieve an access token and an encrypted ID token. 
 
@@ -121,8 +126,15 @@ This section guides you through obtaining an encrypted ID token and decrypting i
         }
     }
     ```
+    
+----
 
 !!! info "Related Topics"
-    - [Enable Login for an OIDC Web Application](../../../login/webapp-oidc)
-    - [Use Advanced Parameters in Authentication Requests](insertlink)
-    - [ID Token](../../../concepts/authentication/id-token)
+    - [Concept: Token Encryption for ID Tokens](TODO:insert-link-to-concept)
+    - [Concept: ID Token](../../../concepts/authentication/id-token)
+    - [Demo: OpenID Connect Token Encryption](../../../quick-starts/oidc-token-encryption-sample)
+    - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)
+    - [Guide: Decrypt the ID Token](TODO:insert-link-to-guide)
+    - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)
+    - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)
+
