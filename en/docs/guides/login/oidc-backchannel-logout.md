@@ -28,7 +28,7 @@ The instructions below guide you through configuring OpenID Connect Back-Channel
 
 ----
 
-{!fragments/oauth-app-config-basic.md!}
+{!fragments/saml-app-config-basic.md!}
 
 ----
 
