@@ -1,5 +1,7 @@
 ## Register an application
 
+(TODO: dev-portal-fragment)
+
 1.	Log in to the [Developer Portal](insertlink) using admin/admin credentials. 
 
 2.	Select **Applications** from the left panel. 
@@ -23,9 +25,3 @@
 11.	Select all the options given under **Allowed grant type**.
 
 12. Navigate to the **Sign-on Method** tab.
-
-13. Check **basic-auth** under **Request Path Authentication**.
-
-14.	Click **Update**.
-
-TODO : This fragment should be updated with screen shots of dev portal.

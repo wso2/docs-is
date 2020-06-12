@@ -1,0 +1,1 @@
+After all the configurations click **Update**.

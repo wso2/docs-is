@@ -6,7 +6,21 @@ This page guides you through setting up [adaptive authentication](insertlink) fo
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/role-based-adaptive-auth"   rel="nofollow noopener">Try it with the sample</a>
+!!! note
+    Following scenarios are available as samples.
+
+     - Role-Based Adaptive Authentication
+     - User Age-Based Adaptive Authentication
+     - Tenant-Based Adaptive Authentication
+     - User Store-Based Adaptive Authentication
+     - IP-Based Adaptive Authentication
+     - Device-Based Adaptive Authentication
+     - Login Attempts-Based Adaptive Authentication
+     - ACR-Based Adaptive Authentication
+     - Adaptive Authentication Using Function Library
+     - Limit Active User Sessions
+
+<a class="samplebtn_a" href="../../../quick-starts/adaptive-auth-overview"   rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
@@ -27,7 +41,7 @@ The WSO2 IS management console provides an authentication script editor that all
 
 6.  Click on the relevant template depending on the adaptive authentication usecase you wish to set up. 
 
-    ![authentication templates](../assets/img/guides/authentication-templates.png)
+    ![authentication templates](../../assets/img/guides/authentication-templates.png)
 
     !!! tip
         To see a sample flow of each template, see [Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-samples).
@@ -78,4 +92,9 @@ function someCommonFunction(context) {
 
 - To learn about the guidelines on writing custom functions for adaptive authentication, see [Writing Custom Functions for Adaptive Authentication](insertlink).
 
-----
+
+!!! info "Related Topics"
+    - [Concept: Adaptive-Authentication](TODO:insert-link-to-concept)
+    - [Guide: Ensure Assurance with Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)](../../adaptive-auth/work-with-acr-amr)
+    - [Guide: Adaptive Authentication Using Function Library](../../adaptive-auth/adaptive-auth-with-function-lib)
+    - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)

@@ -124,7 +124,7 @@ Follow the instructions below to view the list of function libraries added in th
 
     Note that the list of function libraries you added appears.
 
-    ![list function libraries](../assets/img/guides/list-function-libraries.png)
+    ![list function libraries](../../assets/img/guides/list-function-libraries.png)
 
 
 ### Edit function libraries
@@ -139,11 +139,11 @@ Follow the instructions below to edit a function library's details.
 
 3.  Locate the function library you want to edit and click on the corresponding **Edit** link.
 
-    ![edit function libraries](../assets/img/guides/edit-function-libraries.png)
+    ![edit function libraries](../../assets/img/guides/edit-function-libraries.png)
 
 4. The edit screen appears. The function library name, description, and script can be edited.
 
-    ![edit function library](../assets/img/guides/edit-function-library.png)
+    ![edit function library](../../assets/img/guides/edit-function-library.png)
 
 5. Click **Update**.
 
@@ -162,7 +162,7 @@ Follow the instructions below to delete a function library.
 
     Locate the function library you want to delete and click on the corresponding **Delete** link.
 
-    ![delete-function-libraries](../assets/img/guides/delete-function-libraries.png)
+    ![delete-function-libraries](../../assets/img/guides/delete-function-libraries.png)
 
 4. To confirm your request, click **Yes**.
 
@@ -197,4 +197,10 @@ Follow the instructions below to delete a function library.
     ```tab="Example"
     ageModule.getAge(birthday)
     ```
+    
+!!! info "Related Topics"
+    - [Concept: Adaptive-Authentication](TODO:insert-link-to-concept)
+    - [Guide: Configure Adaptive Authentication for an Application](../../guides/adaptive-auth/configure-adaptive-auth)
+    - [Guide: Ensure Assurance with Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)](../../guides/adaptive-auth/work-with-acr-amr)
+    - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)
 

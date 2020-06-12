@@ -4,7 +4,8 @@
 
 ----
 
-{!fragments/register-an-application-portal.md!}
+{!fragments/register-playground-application-portal.md!}
+{!fragments/save-sp-in-portal.md!}
 
 ----
 
