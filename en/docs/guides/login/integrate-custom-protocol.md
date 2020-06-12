@@ -30,4 +30,4 @@ This guide assumes you have your own web application and a custom inbound authen
 
 !!! info "Related Topics"
     - [Enable Login for a Sample Custom Web Application](../../../quick-starts/webapp-custom-sample)
-    - [Write a Custom Inbound Protocol](inserlink)
+    - [Write a Custom Inbound Protocol](insertlink)

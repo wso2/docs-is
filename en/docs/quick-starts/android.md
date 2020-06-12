@@ -19,12 +19,26 @@
 | --------------------- | ------------- | 
 | Service Provider Name | sample-app  |
 | Description           | This is a mobile application  | 
-| Call Back Url         | wso2sample://oauth  | 
+| Call Back Url         | wso2sample://oauth2  | 
 
 ## Configure the Android SDK
 
 ### Initializing the  SDK
 
+#### Build the SDK locally.
+To Build the SDK in your local machine, 
+
+1. Clone the [SDK repo](https://github.com/wso2-extensions/identity-sdks-android)
+    - `git clone https://github.com/wso2-extensions/identity-sdks-android `
+
+2. Run the following commands.
+
+      - `./gradlew clean assembleRelease`
+      - `./gradlew publishToMavenLocal `
+
+3. Now the library will be available in your
+ local .m2 cache. 
+ 
 #### Add the dependency 
 
 Add `WSO2IS-SDK` dependency in `build.gradle` file.
@@ -32,7 +46,7 @@ Add `WSO2IS-SDK` dependency in `build.gradle` file.
 ```gradle
 dependencies {
    dependencies {
-        implementation 'org.wso2.carbon.identity.sso:wso2is-oidc-sdk:0.0.1'
+        implementation 'org.wso2.identity.sdk.android.oidc:wso2is-oidc-sdk:0.0.1'
    }
 }
 ```
@@ -51,7 +65,7 @@ android.defaultConfig.manifestPlaceholders = [
 Verify that this should be consistent with the redirectUri of the application that you configured in the developer-portal and in the oidc_config.json file.
 
 !!! Tip 
-    For an example, if you have configured the **callbackUrl** as **wso2sample://oauth**, 
+    For an example, if you have configured the **callbackUrl** as **wso2sample://oauth2**, 
     then the **appAuthRedirectScheme** should be **wso2sample**
 
 #### Configuration
@@ -75,7 +89,7 @@ Example:
 
 ```json
 "client_id": "rs5ww91iychg9JN0DJGLMaxG2gha",
- "redirect_uri": "wso2sample://callback",
+ "redirect_uri": "wso2sample://oauth2",
  "authorization_scope": "openid",
  "discovery_uri": "https://stgcloud.kubesb.com/t/example/oauth2/oidcdiscovery/.well-known/openid-configuration"
 }
@@ -89,7 +103,7 @@ As the first step, you need to initialize SDK in the Activity#onCreate method of
 In this example, we will call it LoginActivity:
 
 ```java
-    mLoginService = LoginService.getInstance(this);
+    mLoginService = new DefaultLoginService(this);
 ```
 
 
@@ -100,71 +114,65 @@ Have a login button inside LoginActivity. Call the `doAuthorization(Context cont
 
 ```java
     findViewById(R.id.login).setOnClickListener(v ->
-                   doAuthorization(this)
-    );
+                       doAuthorization(this)
+        );
 ```
    
 ```java
-private void doAuthorization(Context context) {
+private void doAuthorization() {
    
-      mLoginService = LoginService.getInstance(this);
-
-      Intent completionIntent = new Intent(context, UserInfoActivity.class);
-      Intent cancelIntent = new Intent(context, LoginActivity.class);
-      cancelIntent.putExtra("failed", true);
-      cancelIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-      PendingIntent pendingCompletionIntent = PendingIntent.getActivity(context, 0,
-                     completionIntent, 0);
-      PendingIntent pendingCancelIntent = PendingIntent.getActivity(context, 0, cancelIntent, 0);
-    
-      mLoginService.doAuthorization(pendingCompletionIntent, pendingCancelIntent);
-   }
+        Intent completionIntent = new Intent(this, UserInfoActivity.class);
+        Intent cancelIntent = new Intent(this, LoginActivity.class);
+        cancelIntent.putExtra("failed", true);
+        cancelIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent successIntent = PendingIntent.getActivity(this, 0, completionIntent, 0);
+        PendingIntent failureIntent = PendingIntent.getActivity(this, 0, cancelIntent, 0);
+  
+        mLoginService.authorize(successIntent, failureIntent);
+}
 ```
    
 
 
-#### Get the accesstoken and idtoken.
+#### Get the token response.
 
-- You can add this `handleAuthorizationResponse(Intent intent)` method inside a Activity when there is a successfull
- authentication response comes from the IDP. 
+- After successful authorization, AuthenticationContext object will be returned in the Intent
+. From the `oncreate()` method of the UserInfo.Activity, get the authenticationcontext object.
+
+- Authentication context object has oidcdiscovery response, tokenresponse, ans userinfo responses.
+
+- In all flows such as userinfo and logout request, you need to pass this context object.
  
 - In the authorization request, you need to create a Intent for successfull request and redirect to this activity.
 ```java
 @Override
-    protected void onStart() {  
-        super.onStart();
-        getConfigManager(this);
-        handleAuthorizationResponse(getIntent());
+    protected void create() {  
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_info);
+        mLoginService = new DefaultLoginService(this);
+        mAuthenticationContext = (AuthenticationContext) getIntent().getSerializableExtra("context");
     }
 ``` 
- 
-```java
-private void handleAuthorizationResponse(Intent intent) {
 
-      mLoginService.handleAuthorization(intent, new TokenRequest.TokenRespCallback() {
-          @Override
-          public void onTokenRequestCompleted(OAuth2TokenResponse oAuth2TokenResponse) {
-              mOAuth2TokenResponse = oAuth2TokenResponse;
-              getUserInfo();
-          }
-      });
-  }
-```
   
 ### Read UserInfo
 
 ```java
 private void getUserInfo(){
-    mLoginService.getUserInfo(new UserInfoRequest.UserInfoResponseCallback() {
-        @Override
-        public void onUserInfoRequestCompleted(UserInfoResponse userInfoResponse) {
-            mSubject = userInfoResponse.getSubject();
-            mEmail = userInfoResponse.getUserInfoProperty("email");
-            JSONObject userInfoProperties = userInfoResponse.getUserInfoProperties();
-            mIdToken = mOAuth2TokenResponse.idToken;
-            mAccessToken = mOAuth2TokenResponse.accessToken;
-        }
-    });
+   new UserInfoRequestHandler.UserInfoResponseCallback() {
+               @Override
+               public void onUserInfoRequestCompleted(UserInfoResponse userInfoResponse,
+                       ServerException e) {
+                   if (userInfoResponse != null) {
+                       mSubject = userInfoResponse.getSubject();
+                       mEmail = userInfoResponse.getUserInfoProperty("email");
+                       JSONObject userInfoProperties = userInfoResponse.getUserInfoProperties();
+                   }
+   
+                   if (mAuthenticationContext.getOAuth2TokenResponse() != null) {
+                       mIdToken = mAuthenticationContext.getOAuth2TokenResponse().getIdToken();
+                       mAccessToken = mAuthenticationContext.getOAuth2TokenResponse().getAccessToken();
+                   }
     }
 ```
 
@@ -173,25 +181,18 @@ private void getUserInfo(){
 - Call the logout method when logout button is clicked.
 
 ```java
-findViewById(R.id.logout).setOnClickListener(v ->
-                  singleLogout(this)
-          ); 
+findViewById(R.id.logout).setOnClickListener(v -> Logout());
 
 ```
-- Call the logout method of LoginService instance.
 
 ```java
-private void singleLogout(Context context) {
+private void Logout() {
 
-        mLoginService.logout(context);
+        mLoginService.logout(this, mAuthenticationContext);
         finish();
     }
 ```  
   
-
-### Check Session State
-
-< Explain How to Use the SDKs >
 
 !!! Tip "What's Next?"
 
