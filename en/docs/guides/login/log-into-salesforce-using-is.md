@@ -2,6 +2,8 @@
 
 This page guides you through using WSO2 Identity  Server to log in to Salesforce. 
 
+----
+
 ## Configure Salesforce
 
 1.  Sign up as a Salesforce developer.
@@ -161,10 +163,13 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     
 13. Click **Save**.
 
+----
 
 ## Configure email address as the username
 
-For details on configuring WSO2 Identity Server to use an email address as the username, refer [Using Email Address as the Username](insert-link).
+For details on configuring WSO2 Identity Server to use an email address as the username, refer [Using Email Address as the Username](TODO:insert-link).
+
+-----
 
 ## Configure the service provider
 
@@ -211,6 +216,8 @@ provider in WSO2 IS.
 11. Select **Enable** and **Always include attributes in the response** in the **Attribute Profile** section. 
 
 12. Click **Update**. 
+
+-----
 
 ## Test the configurations
 
@@ -269,6 +276,8 @@ Salesforce and the Identity Server.
 
 4.  Log in using the new credentials of the user you just created. You
     are then redirected back to Salesforce.
+    
+----
 
 
 ## Troubleshooting guidelines
@@ -277,3 +286,8 @@ Additional troubleshooting information regarding any Salesforce side SSO
 failures can be retrieved by using Salesforce SAML Assertion Validator.
 Further information regarding the steps are available
 [here](https://developer.salesforce.com/docs/atlas.en-us.sso.meta/sso/sso_saml_validation_errors.htm#!).
+
+----
+
+!!! info "Related Topics"
+    - [Concept: Identity Federation](TODO:insert-link-to-concept)

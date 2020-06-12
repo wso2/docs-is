@@ -12,7 +12,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-(insert-portal-content)
+(TO DO: dev-portal-fragment)
 
 ----
 

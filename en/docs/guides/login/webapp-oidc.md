@@ -9,11 +9,11 @@ This guide assumes you have your own application. If you wish to try out this fl
 <a class="samplebtn_a" href="../../../quick-starts/webapp-oidc-sample" rel="nofollow noopener">Try it with the sample</a>
 
 ----
-
+(TODO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 
 ----
-
+(TODO: dev-portal-fragment)
 {!fragments/oauth-app-config-basic.md!}
 
 ----
@@ -56,7 +56,8 @@ Make the following requests via your application to connect your application to 
 ----
 
 !!! info "Related Topics"
-    - [Enable Login for a Sample OpenID Connect Web Application](../../../quick-starts/webapp-oidc-sample)
-    - [Manage User Sessions](insertlink)
-    - [OpenID Connect Back-Channel Logout](../login/oidc-backchannel-logout)
-    - [OpenID Connect Discovery](../../login/oidc-discovery)
+    - [Concept: OpenID Connect](../../../concepts/authentication/intro-oidc)
+    - [Demo: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
+    - [Guide: Manage User Sessions](../session-management-logout)
+    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
+    - [Guide: OpenID Connect Discovery](../oidc-discovery)

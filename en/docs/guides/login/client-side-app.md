@@ -1,7 +1,7 @@
 # Enable Login for a Client Side Application
 
 This page guides you through enabling authentication using the [Authorization Code](../../../concepts/authorization/authorization-code-grant) 
-grant type with [PKCE](insertlink) for client side applications (e.g.,mobile application , single page application) that uses OpenID Connect. 
+grant type with [PKCE](TODO:insert-link-to-concepts) for client side applications (e.g.,mobile application , single page application) that uses OpenID Connect. 
 
 ---
 
@@ -10,11 +10,12 @@ This guide assumes you have your own application. If you wish to try out this fl
 <a class="samplebtn_a" href="../../../quick-starts/webapp-oidc-sample"   rel="nofollow noopener">Try it with the sample</a>
 
 ----
+(TODO: dev-portal-fragment)
 
 {!fragments/register-a-service-provider.md!}
 
 ----
-
+(TODO: dev-portal-fragment)
 {!fragments/oauth-app-config-basic.md!}
 
 ----
@@ -73,9 +74,13 @@ Make the following requests via your application to connect your application to 
 
 3. Validate the ID token. For the token request, you will receive a response containing the access token, scope, and ID token. The ID token contains basic user information. To check what is encoded within the ID token, you can use a tool such as <https://devtoolzone.com/decoder/jwt>.
 
+----
+
 !!! info "Related Topics"
-    - [Enable Login for a Sample OpenID Connect Web Application](../../../quick-starts/webapp-oidc-sample)
-    - [Manage User Sessions](insertlink)
-    - [OpenID Connect Back-Channel Logout](../login/oidc-backchannel-logout)
+    - [Concept: Authorization Code Grant](../../../concepts/authorization/authorization-code-grant)
+    - [Concept: PKCE](TODO:insert-link-to-concepts)
+    - [Demo: OIDC Authentication](../../../quick-starts/webapp-oidc-sample)
+    - [Guide: Manage User Sessions](../session-management-logout)
+    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
 
 
