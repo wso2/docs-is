@@ -1,6 +1,6 @@
 # Authenticate with OAuth Request Path Authenticator
 
-This page guides you through using the request path authenticator for token-based authentication. 
+This page guides you through using the request path authenticator for [token-based authentication](TODO:insert-link-to-concept). 
 The OAuth Request Path Authenticator is engaged when an access token is sent along with a request for authentication.
 
 ---
@@ -12,6 +12,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 
 ----
@@ -58,7 +59,7 @@ Send the following requests via your application to connect your application to 
     ```
  
  
-!!! Troubleshooting Tip  
+!!! Troubleshooting Tip 
         If you have not disabled consent, the response will be as follows.
     
         ``` 
@@ -74,7 +75,9 @@ Send the following requests via your application to connect your application to 
         ```
         
 !!! info "Related Links"
-     -   [Authenticate with Basic Auth Request Path Authenticator](../..guides/basic-auth-request-path)
-     -   [Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
-     -   [Enable Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
+     -   [Concept: Token-Based Authentication](TODO:link-to-concept)
+     -   [Demo: Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
+     -   [Guide: Authenticate with Basic Auth Request Path Authenticator](../..guides/basic-auth-request-path)
+     -   [Demo: Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
+
            
