@@ -36,6 +36,7 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 !!! info "Related Topics"
     - [Concept: Cross-Protocol Logout](TODO:insert-link-to-concept)
+    - [Demo: Cross-Protocol Logout](../../../quick-starts/cross-protocol-logout-sample)
     - [Guide: Single Sign-On](../enable-single-sign-on)
     - [Guide: SAML Back-Channel Logout](TODO:insert-link)
     - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)

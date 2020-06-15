@@ -58,7 +58,6 @@ To enable OIDC back-channel logout, the relying party/client application needs t
 
 !!! info "Related Topics"
     - [Concept: OpenID Connect Back-Channel Logout](../../../concepts/authentication/back-channel-logout)
-    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
     - [Demo: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
     - [Guide: OpenID Connect Session Management](../session-management-logout)
 
