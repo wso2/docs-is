@@ -28,7 +28,57 @@ Or
 2. Run the following command in the package manager CLI.
 ``Install-Package org.wso2.identity.sdk.oidc -Version 1.0.0``
 
+## Using the SDK
 
+Below explained key API methods that is available in the OIDC SDK and how to use them.
 
+### Login
 
+Use the following code snippets to login a user. 
 
+Currently, all the configurations are supported through only by the app.config file. To add the necessary
+ configurations, create a file like below and keep it in the application path.
+
+```xml
+<configuration>
+    <appSettings>
+        <add key="ClientId" value="fXZNpFBa3aNOCQ6rKU8ldsxT_WAa" />
+        <add key="ClientSecret" value="6x2fQgrT_Ov2R2OMbzfJ5yQjvVEa" />
+        <add key="AuthorizationEndpoint" value="https://localhost:9443/oauth2/authorize" />
+        <add key="TokenEndpoint" value="https://localhost:9443/oauth2/token" />
+        <add key="UserInfoEndpoint" value="https://localhost:9443/oauth2/userinfo" />
+        <add key="LogoutEndpoint" value="https://localhost:9443/oidc/logout" />
+        <add key="RedirectURI" value="http://localhost:8080/callback/" />
+        <add key="PostLogoutRedirectURI" value="http://localhost:8080/postlogout/" />
+        <add key="ClientSettingsProvider.ServiceUri" value="" />
+  </appSettings>
+</configuration>
+```
+Then use the below code to authenticate a user. 
+
+```csharp
+readonly AuthenticationHelper authenticationHelper = new AuthenticationHelper();
+await authenticationHelper.Login();
+var accessToken = authenticationHelper.AccessToken;
+```
+
+### Logout
+
+Use the following code to logout and already logged in user. 
+
+```csharp
+await authenticationHelper.Logout(accessToken);
+var request = authenticationHelper.Request;
+```
+
+### Get User Info
+
+Use the following code to access the user info.
+
+```csharp
+readonly AuthenticationHelper authenticationHelper = new AuthenticationHelper();
+await authenticationHelper.Login();
+var userInfo = authenticationHelper.UserInfo;
+dynamic json = JsonConvert.DeserializeObject(userInfo);
+var subject = json.sub;
+```
