@@ -150,6 +150,9 @@ nav:
           - 'SaaS Applications': guides/login/saas-application.md
           - 'Use Certificates with Applications': guides/login/use-certificates-with-applications.md
           - 'SP/IdP Session Timeout': guides/login/session-timeout.md
+        - 'Request Path Authentication':
+          - 'Basic Auth Request Path Authentication': guides/basic-auth-request-path.md
+          - 'OAuth Request Path Authentication': guides/oauth-request-path.md
       - 'Multifactor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':
@@ -164,9 +167,6 @@ nav:
         - 'Use an Inherence Factor':
           - 'MePIN': guides/mfa/mepin.md
           - 'Biometrics': mfa/3fa-basic-fido-biometrics.md
-      - 'Request Path Authentication':
-        - 'Basic Auth Request Path Authentication': guides/basic-auth-request-path.md
-        - 'OAuth Request Path Authentication': guides/oauth-request-path.md
       - 'Adaptive Authentication':
         - 'Configure Adaptive Authentication': guides/adaptive-auth/configure-adaptive-auth.md
         - 'Use Function Library': guides/adaptive-auth/adaptive-auth-with-function-lib.md
@@ -179,7 +179,8 @@ nav:
           - 'User Self-Registration Workflow': guides/onboard/self-register.md
           - 'Just in Time User Provisioning Workflow': guides/onboard/just-in-time.md
           - 'Bulk Import Users': guides/onboard/import-users.md
-        - 'Manage Users': guides/usr-mgt/manage-users.md
+        - 'Manage Users':
+          - 'Overview': guides/user-mgt/manage-user-overview.md
         - 'Manage Roles': guides/role-mgt/manage-roles.md
         - 'Outbound Provision Users':
           - 'SCIM2.0': guides/out-prov/scim.md
@@ -188,6 +189,11 @@ nav:
           - 'Salesforce': guides/out-prov/outbound-provisioning-with-salesforce.md
           - 'Role Based Provisioning': guides/out-prov/role-based-provisioning.md
           - 'Rule Based Provisioning': guides/out-prov/rule-based-provisioning.md
+        - 'Inbound Provision Users':
+          - 'Configure User Stores for SCIM 2.0': guides/inbound-prov/configure-inbound-scim2.md
+          - 'Configure Active Directory User Stores': guides/inbound-prov/configure-ad.md
+        - 'Just in TIme Provision Users':
+          - 'Configure Just-In-Time Provisioning for an Identity Provider': guides/jit/configure-jit.md
         - 'Manage User Stores':
           - 'JDBC as the Primary User Store': guides/userstore/jdbc-us.md
           - 'Active Directory as a Secondary User Store': guides/userstore/ad-us.md
