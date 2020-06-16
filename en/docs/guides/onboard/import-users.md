@@ -2,7 +2,7 @@
 
 ## Import users using the admin portal
 
-{insert-fragment}
+TODO: dev-portal-fragment
 
 ---
 
@@ -24,6 +24,8 @@ curl -v -k --user admin:admin --data '{"failOnErrors":1,"schemas":["urn:ietf:par
 ```tab="Sample Response"
 {"schemas":["urn:ietf:params:scim:api:messages:2.0:BulkResponse"],"Operations":[{"bulkId":"qwerty","method":"POST","location":"https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1","status":{"code":201}},{"bulkId":"ytrewq","method":"POST","location":"https://localhost:9443/scim2/Users/b489dacc-fc89-449c-89f6-7acc37422031","status":{"code":201}}]}
 ```
+
+---
 
 ## Import users using SOAP
 
@@ -47,6 +49,49 @@ You can also import users from a `.csv` file by initiating a SOAP request as sho
 ```
 You can find a sample csv file to try this in the [product-is repo](https://github.com/wso2/product-is/blob/master/modules/integration/tests-ui-integration/src/test/resources/artifacts/IS/userMgt/bulkUserImport.csv). 
 
+---
+
+## Import users using CSV files
+
+### Create a file with user attributes
+You must first create a CSV file or an Excel file with the user information. It is possible to import the username and 
+password directly from the CSV/Excel to the product. Other user attributes can be imported if claim URls are defined for
+such attributes. Shown below are the claim URls that are defined be default in WSO2 IS. These will allow you to import 
+the user's **email address, country, given name etc**. in addition to the **username** and **password**.
+
+The **username**, **password** and **other attributes** (claim URls) that you import should be given in a CSV file as 
+shown below. Note that the first line of the file will not be imported considering that it is not a username.
+
+```
+UserName,Password,Claims
+name1,Password1,http://wso2.org/claims/emailaddress=name1@gmail.com,http://wso2.org/claims/country=France
+name2,Password2,http://wso2.org/claims/emailaddress=name2@gmail.com,http://wso2.org/claims/country=France
+name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.org/claims/country=France
+```
 
 !!! note
-    Apart from this, users can also be added by directly plugging user stores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](insert-admin-portal-link).
+    [Ask Password](ask-password.md) option can be enabled for bulk user creation by passing a value for password and 
+     setting the askPassword claim to true as shown below.
+     ```
+     UserName,Password,Claims
+     name1,Password1,http://wso2.org/claims/emailaddress=name1@gmail.com,http://wso2.org/claims/country=France
+     name2,Password2,http://wso2.org/claims/emailaddress=name2@gmail.com,http://wso2.org/claims/country=France
+     name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.org/claims/country=France,http://wso2.org/claims/identity/askPassword=true
+     ```
+     
+### Import Users using the created file
+TODO: dev-portal-fragment
+add steps to import the csv file using the dev portal
+
+---
+
+!!! note
+    Apart from this, users can also be added by directly plugging user stores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](TODO: dev-portal-fragment).
+    
+!!! info "Related Topics"
+    - [Admin Creation Workflow](TODO: dev-portal-fragment) 
+    - [User Self Registration Workflow](../../onboard/self-register)
+    - [Just in Time User Provisioning Workflow](../../onboard/user-account-overview)
+    - [User Self Registration Workflow](../../onboard/self-register)
+    - [Outbound Provisioning](../../out-prov/outbound-provisioning)
+    - [Invitation Workflow](../../onboard/ask-password) 

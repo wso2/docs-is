@@ -10,11 +10,11 @@
 
 4.	Select **OIDC web application**. 
 
-5.	Enter playground2 as the **Name**. 	
+5.	Enter a name for the **Name**. 	
 
 6.	Click **Next**. 
 
-7.	Enter the **Callback URL** as `http://wso2is.local:8080/playground2/oauth2client` and click the add icon besides the field. 
+7.	Enter the **Callback URL** and click the add icon besides the field. 
 
 8.	Click **Next**. 
 

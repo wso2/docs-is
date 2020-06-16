@@ -1,8 +1,8 @@
 # Creating Users Using the Ask Password and Email Verification Options
 
 This section is about the user on-boarding flows initiated by
-administrators which allow respective end users to decide their own
-passwords or verify the accounts created by administrators. For more information, see [Ask Password and Email Verification](insert-link-concepts)
+administrators from an invitation to the user's email which allow respective end users to decide their own
+passwords or verify the accounts created by administrators. For more information, see [Ask Password and Email Verification](TODO:insert-link-to-concept)
 
 ## Configuring the feature
 
@@ -32,7 +32,7 @@ feature.
 
 ## Enable the ask password feature using the admin portal
 
-{insert-fragment}
+TODO:admin-portal-fragment
 
 ---
 
@@ -70,7 +70,11 @@ true in the SCIM2 user create request.
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Peter"},"userName":"Peter","password":"password","emails":[{"primary":true,"value":"peter@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
     
-!!! info "Related Links"
-    -   For information on how to edit an existing email template, see [Email Templates](insert-email-templates).
-    -   See [Configuring Claims](insert-configuring-claims) for more information on how to store
-        the claim values in the user store.
+!!! info "Related Topics"
+    - [Email Templates](TODO: dev-portal-fragment)
+    - [Admin Creation Workflow](TODO: dev-portal-fragment) 
+    - [User Self Registration Workflow](../../onboard/self-register)
+    - [Just in Time User Provisioning Workflow](../../onboard/user-account-overview)
+    - [Bulk Import Users](../../onboard/import-users)
+    - [Outbound Provisioning](../../out-prov/outbound-provisioning)
+   
