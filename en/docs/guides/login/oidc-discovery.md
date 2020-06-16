@@ -24,6 +24,8 @@ oidc_discovery_url= "${carbon.protocol}://${carbon.host}:${carbon.management.por
 
 ----
 
+(TODO: dev-portal-content)
+
 ## Configure the OpenID Provider issuer location
 
 In WSO2 Identity Server, the resident IdP Entity ID for OpenID Connect can be configured as the OpenID Provider Issuer location. 
@@ -106,7 +108,7 @@ acct:admin@ wso2.com@localhost (for tenant)</td>
 By default, all endpoints in the WSO2 Identity Server are secured with basic authentication. You will need authentication details to call an
 endpoint. 
 
-By default, you can use admin credentials, or an access token for the request. For more information on how to obtain an access token, see [OpenID Connect Grant Types](../openid-connect-grant-types).
+By default, you can use admin credentials, or an access token for the request. For more information on how to obtain an access token, see [OpenID Connect Grant Types](../../access-delegation/oidc-grant-types).
 
 Sample requests and responses are given below.
 
@@ -225,5 +227,10 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
     "registration_endpoint": "https://localhost:9443/identity/connect/register"
     }
     ```
+
+-----
+
 !!! info "Related Topics"
-    - [OpenID Connect Discovery](../../../concepts/authentication/discovery)
+    - [Concept: OpenID Connect Discovery](../../../concepts/authentication/discovery)
+    - [Guide: OpenID Connect Grant Types](../../access-delegation/oidc-grant-types)
+    - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)

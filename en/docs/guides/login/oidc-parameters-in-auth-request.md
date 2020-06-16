@@ -1,11 +1,12 @@
 # Use Advanced Parameters in Authentication Requests
 
-This page guides you through some special request parameters used with Open ID Connect authentication requests.
+This page guides you through some special request parameters used with [OpenID Connect](../../../concepts/authentication/intro-oidc) authentication requests.
 
  ----
  
-## [State parameter](../../../concepts/authentication/traditional-authentication-request#state-parameter)
-Use this parameter to maintain a correlation between the request and the response.
+## State parameter
+
+Use the [state parameter](../../../concepts/authentication/traditional-authentication-request#state-parameter) to maintain a correlation between the request and the response.
 
 ```tab="Sample Request"
 https://<host>:/authorize?
@@ -24,8 +25,10 @@ Location: <callback_url>#access_token=2YotnFZFEjr1zCsicMWpAA
 ```
  ----
  
-## [Nonce Parameter](../../authentication/concepts/traditional-authentication-request#nonce-parameter)
-Use this parameter to validate an ID token issued by WSO2 Identity Server.
+## Nonce Parameter
+
+Use the [nonce parameter](../../authentication/concepts/traditional-authentication-request#nonce-parameter) to validate an ID token issued by WSO2 Identity Server.
+
 The `nonce` claim embedded in the ID token must contain the exact value that was sent in the request. 
 If not, authentication should be rejected by the application.
 
@@ -46,14 +49,15 @@ The decoded ID token is as follows.
 
  ----
  
-## [Prompt Parameter](../../authentication/concepts/traditional-authentication-request#prompt-parameter)
-This parameter which can be sent with the authentication requests, can have the following three values.
+## Prompt Parameter
+
+The [prompt parameter](../../authentication/concepts/traditional-authentication-request#prompt-parameter) which can be sent with the authentication requests, can have the following three values.
     
     -   none         `
     -   login         `
     -   consent
     
-###prompt=none
+### prompt=none
 The silent authentication can be initiated by using the prompt=none parameter with the authentication request.
 
 ```tab="Sample Request"
@@ -66,7 +70,8 @@ If the user has an already authenticated session and a pre-configured consent wi
 https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
 ```
 
-Error Response
+**Error Response**
+
 ```
    https://callback_url
    error_description=ERROR_DESCRIPTION&
@@ -83,6 +88,7 @@ Error Response
 
 
 ### prompt=login
+
 Use the `prompt=login` parameter with the authentication request to force authenticating the user even if the user has been authenticated already.
 
 ```tab="Sample Request"
@@ -95,7 +101,8 @@ If the user is successfully re-authenticated with WSO2 Identity Server, you will
 https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
 ```
 
-Error Response
+**Error Response**
+
 ```
    https://callback_url
    error_description=ERROR_DESCRIPTION&
@@ -110,6 +117,7 @@ Error Response
    ----
    
 ### prompt=consent
+
 Use the `prompt=consent` parameter with the authentication request to force prompting user consent.
  
  ```tab="Sample Request"
@@ -122,7 +130,8 @@ Use the `prompt=consent` parameter with the authentication request to force prom
  https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
  ```
  
- Error Response
+**Error Response**
+
  ```
     https://callback_url
     error_description=ERROR_DESCRIPTION&
@@ -134,7 +143,11 @@ Use the `prompt=consent` parameter with the authentication request to force prom
     | --------------------- | ------------- | 
     | consent_required | Occurs when the user cannot provide the consent again  | 
     
-   ----
+
+----
      
 !!! info "Related Topics"
-     - [Enable Login for a Sample OpenID Connect Web Application](../../../concepts/authentication/traditional-authentication-request)
+     - [Concept: OpenID Connect](../../../concepts/authentication/intro-oidc)
+     - [Concept: OpenID Connect Authentication Parameters](../../../concepts/authentication/traditional-authentication-request)
+     - [Guide: Enable Login for a OpenID Connect Web Application](../webapp-oidc)
+     - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)

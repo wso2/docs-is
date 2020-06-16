@@ -44,5 +44,5 @@ If an attribute is indicated as a mandatory attribute, it will be indicated with
 The user will not be able to proceed with authentication without providing consent for the mandatory attributes.
 
 !!! info "Related Topics"
-    - [Guide: Request Attributes for the Application](../request-app-claims)
+    - [Guide: Request Attributes for the Application](../request-attributes)
     - [Demo: Request Attributes for the Application](TODO:insert-link-to-sample)

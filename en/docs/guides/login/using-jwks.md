@@ -123,6 +123,8 @@ For information about the elements in the response, see [Response parameters](#r
 
 For more information, see the [JWKS specification](https://tools.ietf.org/html/rfc7515#section-4).
 
+-----
+
 !!! info "Related Topics"
-    - [JSON Web Key Set](../../../concepts/authentication/jwks)
-    - [Validate a JWT Based on JWKS](../../login/validate-jwt-using-jwks)
+    - [Concept: JSON Web Key Set](../../../concepts/authentication/jwks)
+    - [Guide: Validate a JWT Based on JWKS](../validate-jwt-using-jwks)
