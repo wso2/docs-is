@@ -1,5 +1,7 @@
 ## Register a service provider
 
+TODO: dev-portal-fragment  
+
 1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
 
 2. Click **Service Providers >Add**.

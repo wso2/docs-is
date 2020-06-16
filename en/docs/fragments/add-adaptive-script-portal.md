@@ -5,4 +5,4 @@
 
 15. Configure the authentication steps accordingly based on the script. (add screen shots)
 
-TODO : replace the fragment with portal one
+TODO: dev-portal-fragment 

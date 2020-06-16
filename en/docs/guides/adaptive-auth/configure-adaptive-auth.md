@@ -6,6 +6,8 @@ This page guides you through setting up [adaptive authentication](insertlink) fo
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
+<a class="samplebtn_a" href="../../../quick-starts/adaptive-auth-overview"   rel="nofollow noopener">Try it with the sample</a>
+
 !!! note
     Following scenarios are available as samples.
 
@@ -20,36 +22,11 @@ This guide assumes you have your own application. If you wish to try out this fl
      - Adaptive Authentication Using Function Library
      - Limit Active User Sessions
 
-<a class="samplebtn_a" href="../../../quick-starts/adaptive-auth-overview"   rel="nofollow noopener">Try it with the sample</a>
-
 ----
 
-{!fragments/register-a-service-provider.md!}
+{!fragments/register-application-portal!}
 
-----
-
-## Configure adaptive authentication
-
-The WSO2 IS management console provides an authentication script editor that allows you to define authentication scripts using JavaScript. The script editor provides a set of predefined templates that you can use to easily set up adaptive authentication for some of the most common authentication scenarios. 
-
-3.  Expand the **Local and Outbound Configuration** section and click
-    **Advanced Authentication**.
-
-4.  Expand **Script Based Conditional Authentication**.
-
-5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field.
-
-6.  Click on the relevant template depending on the adaptive authentication usecase you wish to set up. 
-
-    ![authentication templates](../../assets/img/guides/authentication-templates.png)
-
-    !!! tip
-        To see a sample flow of each template, see [Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-samples).
-
-6.  Click **Ok**. 
-    The authentication script and authentication steps are configured. 
-
-----
+{!fragments/add-adaptive-script-portal.md!}
 
 ## Customizing the authentication script
 
