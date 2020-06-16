@@ -1,6 +1,6 @@
 # Ensure Assurance with Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)
 
-This page guides you through enforcing additional assurance in the user authentication flow using **Authentication Context Class Reference** (ACR)  and **Authentication Method Reference** (AMR)
+This page guides you through enforcing additional assurance in the user authentication flow using [**Authentication Context Class Reference** (ACR)](TODO:insert-link-to-concept)  and [**Authentication Method Reference** (AMR)](TODO:insert-link-to-concept)
 
 ---
 
@@ -12,16 +12,10 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 {!fragments/register-playground-application-portal.md!}
 
-{!fragments/add-adaptive-script-portal.md!}
+{!fragments/add-adaptive-acr-script-portal.md!}
 Replace the authentication script added from the template with the following. 
 
-!!! note
-    When requesting the ACR values from the service provider, you can define an ordered list of ACR values that you will only accept. The following functions will be used to execute this: 
-    -	**`selectAcrFrom`**: This inbuilt function evaluates the best/strongest ACR from the received and configured ACR lists.
-    -	**`context.selectedAcr`**: This function sets the ACR value that needs to be returned to the caller.   
-	
-		var supportedAcrValues = ['LOA1', 'LOA2', 'LOA3'];
-		
+        var supportedAcrValues = ['LOA1', 'LOA2', 'LOA3'];
 		var onLoginRequest = function(context) {
 		   
 		  Log.info("ACR : "+context.requestedAcr);
@@ -44,11 +38,17 @@ Replace the authentication script added from the template with the following.
 		    context.selectedAcr="LOA3";
 		  }
 		}
+
+!!! note
+    When requesting the ACR values from the service provider, you can define an ordered list of ACR values that you will only accept. The following functions will be used to execute this: 
+    -	**`selectAcrFrom`**: This inbuilt function evaluates the best/strongest ACR from the received and configured ACR lists.
+    -	**`context.selectedAcr`**: This function sets the ACR value that needs to be returned to the caller.   		
+----
 		
 ## Configure the client application
 Send the following requests via your application to connect your application to WSO2 IS.
 
-1. To initiate the authentication flow, update the placeholders and send following request to the authorization endpoint.
+1. To initiate the authentication flow, update the placeholders and send the following request to the authorization endpoint.
 
     ```tab="Request Format"
     https://localhost:9443/oauth2/authorize?response_type=code&scope=openid&client_id=<<CLIENT_ID>
@@ -89,18 +89,19 @@ Send the following requests via your application to connect your application to 
 
 	An access token similar to the following appears. 
 	
-	 ``` tab="Format"
-     {"access_token":"1b87d316-a107-3174-a71d-ac438a54719b","refresh_token":"60a66d57-0e48-3896-98e7-00213acee104","scope":"openid","id_token":"<<ID_TOKEN>>","token_type":"Bearer","expires_in":2554}
-     ```
+	  ``` tab="Format"
+      {"access_token":"1b87d316-a107-3174-a71d-ac438a54719b","refresh_token":"60a66d57-0e48-3896-98e7-00213acee104","scope":"openid","id_token":"<<ID_TOKEN>>","token_type":"Bearer","expires_in":2554}
+      ```
     
-     ``` tab="Example"
-     {"access_token":"1b87d316-a107-3174-a71d-ac438a54719b","refresh_token":"60a66d57-0e48-3896-98e7-00213acee104","scope":"openid","id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9oYXNoIjoiVFdlYWp5dE1TQU0zX1k3Q09mQm4yUSIsImF1ZCI6IjV2T1FaVmZvT0hMbXRYYk5ISnBZWGM3Wkx1Y2EiLCJhY3IiOiJhY3IyIiwiY19oYXNoIjoiVFN1b0Z2eHlybEdCZkxQZW1ZbEt3USIsInN1YiI6ImFkbWluIiwibmJmIjoxNTkxOTQ0ODk1LCJhenAiOiI1dk9RWlZmb09ITG10WGJOSEpwWVhjN1pMdWNhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE1OTE5NDg0OTUsImlhdCI6MTU5MTk0NDg5NSwic2lkIjoiMjBmODlmYzctNDRkZC00MjNkLTlkNDktZGRjMTVlNWVmNGRlIn0.d7WpY220UTZ10zCg-DBmKr-0f0k2tbYk00xqJoTmN2oNmP5u6x8_kUIASSeeP2p1LDeHuT6IQb045YCJDStsiSpwD0XUtTrFPJoRFUiIDgzXBQCBz8pzCjv2w-AMj8hJu965nSbwqCt-20OjKDPb187jiMyAxYMpU0o9Zk470whrkZQkC2SA16KhKdrIwpHHiiOI0pX-LdSsrZFzsw2ZWQmlzdRh4xoN6wTsLI9jhxz52mqs0Ghea9MlVFeVuIf6BeFN8ZpwzsnpVbSO9g4ZCZVYz3dtuiIaBQgoYy3E0SMG1QdxGgg7nYg0NQd-wfInYuhik0BSSrLKmJhff5YHaQ","token_type":"Bearer","expires_in":2554}
-     ```
+      ``` tab="Example"
+      {"access_token":"1b87d316-a107-3174-a71d-ac438a54719b","refresh_token":"60a66d57-0e48-3896-98e7-00213acee104",
+      "scope":"openid","id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9oYXNoIjoiVFdlYWp5dE1TQU0zX1k3Q09mQm4yUSIsImF1ZCI6IjV2T1FaVmZvT0hMbXRYYk5ISnBZWGM3Wkx1Y2EiLCJhY3IiOiJhY3IyIiwiY19oYXNoIjoiVFN1b0Z2eHlybEdCZkxQZW1ZbEt3USIsInN1YiI6ImFkbWluIiwibmJmIjoxNTkxOTQ0ODk1LCJhenAiOiI1dk9RWlZmb09ITG10WGJOSEpwWVhjN1pMdWNhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE1OTE5NDg0OTUsImlhdCI6MTU5MTk0NDg5NSwic2lkIjoiMjBmODlmYzctNDRkZC00MjNkLTlkNDktZGRjMTVlNWVmNGRlIn0.d7WpY220UTZ10zCg-DBmKr-0f0k2tbYk00xqJoTmN2oNmP5u6x8_kUIASSeeP2p1LDeHuT6IQb045YCJDStsiSpwD0XUtTrFPJoRFUiIDgzXBQCBz8pzCjv2w-AMj8hJu965nSbwqCt-20OjKDPb187jiMyAxYMpU0o9Zk470whrkZQkC2SA16KhKdrIwpHHiiOI0pX-LdSsrZFzsw2ZWQmlzdRh4xoN6wTsLI9jhxz52mqs0Ghea9MlVFeVuIf6BeFN8ZpwzsnpVbSO9g4ZCZVYz3dtuiIaBQgoYy3E0SMG1QdxGgg7nYg0NQd-wfInYuhik0BSSrLKmJhff5YHaQ","token_type":"Bearer","expires_in":2554}
+      ```
     	        
 6. Copy the `ID_TOKEN` and decode with Base64. The decoded `ID_TOKEN` will look similar to the following. 
 
-	``` tab="Format"
-	{
+	 ``` tab="Format"
+	 {
 	  "at_hash": "<<Access token hash value>>",
 	  "aud": "<<Audience that the ID token is intended for>>",
 	  "c_hash": "<<Code hash value>>",
@@ -112,11 +113,11 @@ Send the following requests via your application to connect your application to 
 	  "iss": "<<The token endpoint that issued the token>>",
 	  "exp": <<Epoch time of the token expiration date/time>>,
 	  "iat": <<Epoch time of the token issuance date/time>>
-	}
-	```
+	 }
+	 ```
 
-	``` tab="Example"
-	{
+	 ``` tab="Example"
+	 {
       "at_hash": "6OXwfxJaTWYC56RccEhSJg",
       "aud": "EUVvhKM28RkwTQL9A52kqXnfCj8a",
       "acr": "LOA2",
@@ -132,8 +133,8 @@ Send the following requests via your application to connect your application to 
       "iss": "https://localhost:9443/oauth2/token",
       "exp": 1548400013,
       "iat": 1548396413
-    }
-	```
+     }
+	 ```
 	
 	Note that the AMR values in this example are `DemoFaceIdAuthenticator`, `BasicAuthenticator`, and `DemoFingerprintAuthenticator`.
 	These are the authenticators that are used in the authentication process.

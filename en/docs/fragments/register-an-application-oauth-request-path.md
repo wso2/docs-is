@@ -6,4 +6,4 @@ TODO : This fragment should be updated with screen shots of dev portal.
 
 13. Check **oauth-bearer** under **Request Path Authentication**.
 
-{!fragments/save-sp-in-portal.md!}
+14. After all the configurations click **Update**.

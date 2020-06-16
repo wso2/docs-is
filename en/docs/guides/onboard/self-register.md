@@ -2,7 +2,7 @@
 
 ## Self register using the user portal 
 
-{!fragment/insert-link!}
+TODO: user-portal-fragment
 
 ---
 
@@ -27,4 +27,9 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 ``` 
 
 !!! info 
-    For more information on self registration using REST APIS, see [Self Register](insert-link). 
+    - [Self Register](TODO:insert-link-to-rest-apis)
+    - [Admin Creation Workflow](TODO: dev-portal-fragment) 
+    - [Invitation Workflow](../../onboard/ask-password) 
+    - [Just in Time User Provisioning Workflow](../../onboard/user-account-overview)
+    - [Bulk Import Users](../../onboard/import-users)
+    - [Outbound Provisioning](../../out-prov/outbound-provisioning) 

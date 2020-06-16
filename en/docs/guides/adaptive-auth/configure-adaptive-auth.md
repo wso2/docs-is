@@ -9,7 +9,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 <a class="samplebtn_a" href="../../../quick-starts/adaptive-auth-overview"   rel="nofollow noopener">Try it with the sample</a>
 
 !!! note
-    Following scenarios are available as samples.
+    The following scenarios are available as samples.
 
      - Role-Based Adaptive Authentication
      - User Age-Based Adaptive Authentication
@@ -72,6 +72,6 @@ function someCommonFunction(context) {
 
 !!! info "Related Topics"
     - [Concept: Adaptive-Authentication](TODO:insert-link-to-concept)
-    - [Guide: Ensure Assurance with Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)](../../adaptive-auth/work-with-acr-amr)
+    - [Guide: Ensure Assurance with ACR and AMR](../../adaptive-auth/work-with-acr-amr)
     - [Guide: Adaptive Authentication Using Function Library](../../adaptive-auth/adaptive-auth-with-function-lib)
     - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)

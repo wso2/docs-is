@@ -5,7 +5,7 @@
 ----
 
 {!fragments/register-playground-application-portal.md!}
-{!fragments/save-sp-in-portal.md!}
+After all the configurations click **Update**.
 
 ----
 

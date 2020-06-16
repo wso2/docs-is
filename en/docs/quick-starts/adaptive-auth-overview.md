@@ -17,4 +17,4 @@ This section guides you through using pre-defined templates for common adaptive 
     - [Concept: Adaptive-Authentication](TODO:insert-link-to-concept)
     - [Guide: Configure Adaptive Authentication for an Application](../../guides/adaptive-auth/configure-adaptive-auth)
     - [Guide: Adaptive Authentication Using Function Library](../../guides/adaptive-auth/adaptive-auth-with-function-lib)
-    - [Guide: Ensure Assurance with Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)](../../guides/adaptive-auth/work-with-acr-amr)
+    - [Guide: Ensure Assurance with ACR/AMR](../../guides/adaptive-auth/work-with-acr-amr)

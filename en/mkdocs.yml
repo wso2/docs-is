@@ -173,13 +173,12 @@ nav:
         - 'Ensure Assurance with ACR/AMR': guides/adaptive-auth/work-with-acr-amr.md
       - 'Identity Lifecycles':
         - 'Onboard Users':
+          - 'Overview': guides/onboard/onboard-overview.md
           - 'Admin Creation Workflow': guides/onboard/admin-creation-workflow.md
-          - 'Invitation Workflow': guides/user-mgt/ask-password.md
-          - 'User Self-Registration Workflow': guides/onboard/user-self-registration.md
+          - 'Invitation Workflow': guides/onboard/ask-password.md
+          - 'User Self-Registration Workflow': guides/onboard/self-register.md
           - 'Just in Time User Provisioning Workflow': guides/onboard/just-in-time.md
-          - 'Bulk Import Users': guides/user-mgt/import-users.md
-          - 'Outbound Provisioning': guides/onboard/outbound-provisioning.md
-          - 'Approval Workflow': guides/onboard/approval-workflow.md
+          - 'Bulk Import Users': guides/onboard/import-users.md
         - 'Manage Users': guides/usr-mgt/manage-users.md
         - 'Manage Roles': guides/role-mgt/manage-roles.md
         - 'Outbound Provision Users':
@@ -189,11 +188,11 @@ nav:
           - 'Salesforce': guides/out-prov/outbound-provisioning-with-salesforce.md
           - 'Role Based Provisioning': guides/out-prov/role-based-provisioning.md
           - 'Rule Based Provisioning': guides/out-prov/rule-based-provisioning.md
-        - 'Manage Userstores':
-          - 'JDBC as the Primary Userstore': guides/userstore/jdbc-us.md
-          - 'Active Directory as a Secondary Userstore': guides/userstore/ad-us.md
-          - 'LDAP as a Secondary Userstore': guides/userstore/ldap-us.md
-          - 'Plug a Custom User store': guides/userstore/custom-us.md
+        - 'Manage User Stores':
+          - 'JDBC as the Primary User Store': guides/userstore/jdbc-us.md
+          - 'Active Directory as a Secondary User Store': guides/userstore/ad-us.md
+          - 'LDAP as a Secondary User Store': guides/userstore/ldap-us.md
+          - 'Plug a Custom User Store': guides/userstore/custom-us.md
         - 'Manage Account States':
           - 'Lock/Unlock Accounts': guides/account-states/lock-account.md
           - 'Suspend Accounts': guides/account-states/suspend-accounts.md
