@@ -8,7 +8,7 @@ This section guides you through the ways of user onboarding to WSO2 Identity Ser
 
 - [User Self Registration Workflow](../../onboard/self-register)
 
-- [Just in Time User Provisioning Workflow](../../onboard/user-account-overview)
+- [Just in Time User Provisioning Workflow](../../jit/configure-jit.md)
 
 - [Bulk Import Users](../../onboard/import-users)
 
