@@ -3,25 +3,7 @@
 
 ### Register a service provider
 
-1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
-
-2. Click **Service Providers >Add** and enter "pickup-dispatch" as the **Service Provider Name** and click **Register**.
-    
-3. Expand **Inbound Authentication Configuration** section and then **OAuth/OpenID Connect Configuration**.
-
-4. Click **Configure.**   
-
-5. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
-        
-6.  Enter `http://wso2is.local:8080/pickup-manager/oauth2client` as the **Callback Url**.
-    
-    !!! tip
-        For more information on `Callback Url` field and other advanced configurations
-        refer, [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced)
-        
-7.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
-
-8.  Click the **Register** button to finish creating the service provider.
+(TODO: insert portal content)
 
 ### Download the sample
 
@@ -32,7 +14,7 @@ Follow the instructions below to download the sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-manager.war) the `pickup-manager.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/ v4.3.0/pickup-manager.war) the `pickup-manager.war` file from the latest release assets.
 
 
 ### Deploy the sample web app

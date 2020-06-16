@@ -2,6 +2,8 @@
 
 This page guides you through using WSO2 Identity Server to log in to SimpleSAMLphp.
 
+-----
+
 ## Set up SimpleSAMLphp as a service provider
 
 1.  Install [Apache](https://httpd.apache.org/).
@@ -158,9 +160,11 @@ This page guides you through using WSO2 Identity Server to log in to SimpleSAMLp
         thumbprint of the default certificate shipped with WSO2 IS. The SAML2
         Response is signed with this certificate.
 
+----
+
 ## Configure the service provider in WSO2 IS
 
-1.  [Start WSO2 Identity Server](insert-link). 
+1.  [Start WSO2 Identity Server](TODO:insert-link). 
 
 2.  Sign in. Enter your username and password to log on to the
     [Developer Portal](https://localhost:9443/developer-portal).
@@ -194,7 +198,9 @@ This page guides you through using WSO2 Identity Server to log in to SimpleSAMLp
 
 ## Configure a resident identity provider in WSO2 IS
 
-(insert-content)
+(TODO: dev-portal-content)
+
+-----
 
 ### Test SimpleSAMLphp
 
@@ -202,5 +208,9 @@ This page guides you through using WSO2 Identity Server to log in to SimpleSAMLp
 2.  Choose " **wso2-sp** ". You are redirected to WSO2 IS SAML2 IdP for
     login.
 
-For more information on SimpleSAMLphp, click
-<https://simplesamlphp.org/docs/stable/>
+For more information on SimpleSAMLphp, click <https://simplesamlphp.org/docs/stable/>
+
+----
+
+!!! info "Related Topics"
+    - [Concept: Identity Federation](TODO:insert-link-to-concept)

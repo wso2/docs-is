@@ -2,7 +2,7 @@
 
 ### Register a service provider
 
-(insert-portal-content)
+(TODO: insert-portal-content)
 
 ### Download the samples
 
@@ -13,7 +13,7 @@ Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/ v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
 
 ### Deploy the sample web app
 

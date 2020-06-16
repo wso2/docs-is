@@ -2,11 +2,14 @@
 
 This page guides you through using WSO2 Identity Server to log in to Google. 
 
+-----
+
 !!! tip "Before you begin!" 
     You need to have a Google domain. Click
     [here](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/)
     for more information on creating the domain.
     
+-----
 
 ## Configure Google
 
@@ -61,9 +64,13 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 
     4.  Click **Save**. 
 
+-----
+
 ## Configure WSO2 IS to use the email as the username
 
-For details on configuring WSO2 Identity Server to use an email address as the username, refer [Using Email Address as the Username](insert-link).
+For details on configuring WSO2 Identity Server to use an email address as the username, refer [Using Email Address as the Username](TODO:insert-link).
+
+-----
 
 ## Configure the service provider
 
@@ -111,6 +118,7 @@ For details on configuring WSO2 Identity Server to use an email address as the u
 
 11. Click **Update**. 
 
+-----
 
 ## Try it out
 
@@ -145,4 +153,11 @@ Now, you have successfully configured Google and WSO2 Identity Server.
     [mail.google.com](http://mail.google.com), enter the username of the
     user, enter the username and password of the user on the WSO2 Identity
     Server sign in screen, and you are navigated to the user's mail account.
+
+----
+
+!!! info "Related Topics"
+    - [Concept: Identity Federation](TODO:insert-link-to-concept)
+    
+
     
