@@ -54,7 +54,7 @@ If you have your own application, click the button below.
 	```
 
 !!! info "Related Links"
-     -   [Enable Authentication with Basic Auth Request Path Authenticator](../..guides/basic-auth-request-path)
+     -   [Enable Authentication with Basic Auth Request Path Authenticator](../../guides/basic-auth-request-path)
      -   [Authenticate with OAuth Request Path Authenticator](../../guides/oauth-request-path)
      -   [Enable Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
            

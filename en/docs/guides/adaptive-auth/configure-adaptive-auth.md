@@ -6,36 +6,27 @@ This page guides you through setting up [adaptive authentication](insertlink) fo
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/role-based-adaptive-auth"   rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/adaptive-auth-overview"   rel="nofollow noopener">Try it with the sample</a>
+
+!!! note
+    The following scenarios are available as samples.
+
+     - Role-Based Adaptive Authentication
+     - User Age-Based Adaptive Authentication
+     - Tenant-Based Adaptive Authentication
+     - User Store-Based Adaptive Authentication
+     - IP-Based Adaptive Authentication
+     - Device-Based Adaptive Authentication
+     - Login Attempts-Based Adaptive Authentication
+     - ACR-Based Adaptive Authentication
+     - Adaptive Authentication Using Function Library
+     - Limit Active User Sessions
 
 ----
 
-{!fragments/register-a-service-provider.md!}
+{!fragments/register-application-portal!}
 
-----
-
-## Configure adaptive authentication
-
-The WSO2 IS management console provides an authentication script editor that allows you to define authentication scripts using JavaScript. The script editor provides a set of predefined templates that you can use to easily set up adaptive authentication for some of the most common authentication scenarios. 
-
-3.  Expand the **Local and Outbound Configuration** section and click
-    **Advanced Authentication**.
-
-4.  Expand **Script Based Conditional Authentication**.
-
-5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field.
-
-6.  Click on the relevant template depending on the adaptive authentication usecase you wish to set up. 
-
-    ![authentication templates](../assets/img/guides/authentication-templates.png)
-
-    !!! tip
-        To see a sample flow of each template, see [Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-samples).
-
-6.  Click **Ok**. 
-    The authentication script and authentication steps are configured. 
-
-----
+{!fragments/add-adaptive-script-portal.md!}
 
 ## Customizing the authentication script
 
@@ -78,4 +69,9 @@ function someCommonFunction(context) {
 
 - To learn about the guidelines on writing custom functions for adaptive authentication, see [Writing Custom Functions for Adaptive Authentication](insertlink).
 
-----
+
+!!! info "Related Topics"
+    - [Concept: Adaptive-Authentication](TODO:insert-link-to-concept)
+    - [Guide: Ensure Assurance with ACR and AMR](../../adaptive-auth/work-with-acr-amr)
+    - [Guide: Adaptive Authentication Using Function Library](../../adaptive-auth/adaptive-auth-with-function-lib)
+    - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)

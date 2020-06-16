@@ -6,7 +6,7 @@ This page guides you through configuring Authentication-Context-Reference-based 
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/configure-adaptive-auth"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/adaptive-auth/work-with-acr-amr"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

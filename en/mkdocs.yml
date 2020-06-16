@@ -75,6 +75,7 @@ nav:
         - 'Basic-Auth': quick-starts/basic-auth-request-path-sample.md
         - 'OAuth-Bearer': quick-starts/oauth-request-path-sample.md
       - 'Adaptive Authentication':
+        - 'Adaptive Authentication Scenarios': quick-starts/adaptive-auth-overview.md
         - 'Role-Based': quick-starts/role-based-adaptive-auth.md
         - 'User Age-Based': quick-starts/age-based-adaptive-auth.md
         - 'Tenant-Based': quick-starts/tenant-based-adaptive-auth.md
@@ -149,6 +150,9 @@ nav:
           - 'SaaS Applications': guides/login/saas-application.md
           - 'Use Certificates with Applications': guides/login/use-certificates-with-applications.md
           - 'SP/IdP Session Timeout': guides/login/session-timeout.md
+        - 'Request Path Authentication':
+          - 'Basic Auth Request Path Authentication': guides/basic-auth-request-path.md
+          - 'OAuth Request Path Authentication': guides/oauth-request-path.md
       - 'Multifactor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':
@@ -163,22 +167,20 @@ nav:
         - 'Use an Inherence Factor':
           - 'MePIN': guides/mfa/mepin.md
           - 'Biometrics': mfa/3fa-basic-fido-biometrics.md
-      - 'Request Path Authentication':
-        - 'Basic Auth Request Path Authentication': guides/basic-auth-request-path.md
-        - 'OAuth Request Path Authentication': guides/oauth-request-path.md
       - 'Adaptive Authentication':
-        - 'Configure Adaptive Authentication': guides/configure-adaptive-auth.md
-        - 'Use Function Library': guides/adaptive-auth-with-function-lib.md
+        - 'Configure Adaptive Authentication': guides/adaptive-auth/configure-adaptive-auth.md
+        - 'Use Function Library': guides/adaptive-auth/adaptive-auth-with-function-lib.md
+        - 'Ensure Assurance with ACR/AMR': guides/adaptive-auth/work-with-acr-amr.md
       - 'Identity Lifecycles':
         - 'Onboard Users':
-          - 'Admin Creation workflow': guides/onboard/admin-creation-workflow.md
-          - 'Invitation workflow': guides/user-mgt/ask-password.md
-          - 'User self-registration workflow': guides/onboard/user-self-registration.md
-          - 'Just in time user provisioning workflow': guides/onboard/just-in-time.md
-          - 'Bulk Import Users': guides/user-mgt/import-users.md
-          - 'Outbound Provisioning': guides/onboard/outbound-provisioning.md
-          - 'Approval workflow': guides/onboard/approval-workflow.md
-        - 'Manage Users': guides/usr-mgt/manage-users.md
+          - 'Overview': guides/onboard/onboard-overview.md
+          - 'Admin Creation Workflow': guides/onboard/admin-creation-workflow.md
+          - 'Invitation Workflow': guides/onboard/ask-password.md
+          - 'User Self-Registration Workflow': guides/onboard/self-register.md
+          - 'Just in Time User Provisioning Workflow': guides/onboard/just-in-time.md
+          - 'Bulk Import Users': guides/onboard/import-users.md
+        - 'Manage Users':
+          - 'Overview': guides/user-mgt/manage-user-overview.md
         - 'Manage Roles': guides/role-mgt/manage-roles.md
         - 'Outbound Provision Users':
           - 'SCIM2.0': guides/out-prov/scim.md
@@ -187,25 +189,30 @@ nav:
           - 'Salesforce': guides/out-prov/outbound-provisioning-with-salesforce.md
           - 'Role Based Provisioning': guides/out-prov/role-based-provisioning.md
           - 'Rule Based Provisioning': guides/out-prov/rule-based-provisioning.md
-        - 'Manage Userstores':
-          - 'JDBC as the Primary Userstore': guides/userstore/jdbc-us.md
-          - 'Active Directory as a Secondary Userstore': guides/userstore/ad-us.md
-          - 'LDAP as a Secondary Userstore': guides/userstore/ldap-us.md
-          - 'Plug a Custom Userstore': guides/userstore/custom-us.md
+        - 'Inbound Provision Users':
+          - 'Configure User Stores for SCIM 2.0':guides/inbound-prov/configure-inbound-scim2.md
+          - 'Configure Active Directory User Stores':guides/inbound-prov/configure-ad.md
+        - 'Just in TIme Provision Users':
+          - 'Configure Just-In-Time Provisioning for an Identity Provider':guides/jit/configure-jit.md
+        - 'Manage User Stores':
+          - 'JDBC as the Primary User Store': guides/userstore/jdbc-us.md
+          - 'Active Directory as a Secondary User Store': guides/userstore/ad-us.md
+          - 'LDAP as a Secondary User Store': guides/userstore/ldap-us.md
+          - 'Plug a Custom User Store': guides/userstore/custom-us.md
         - 'Manage Account States':
-          - 'Lock/unlock Accounts': guides/account-states/lock-account.md
+          - 'Lock/Unlock Accounts': guides/account-states/lock-account.md
           - 'Suspend Accounts': guides/account-states/suspend-accounts.md
           - 'Disable Accounts': guides/account-states/enable-account.md
       - 'Password Management':
         - 'Password Policies': guides/password-mgt/password-policies.md
-        - 'Admin-initiated password reset': guides/password-mgt/forced-password-reset.md
-        - 'Password recovery using email verification': guides/password-mgt/recover-password.md
-        - 'Password recovery using challenge question': guides/password-mgt/challenge-question.md
-        - 'ReCaptcha on invalid password attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
-        - 'ReCaptcha on invalid challenge question attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
+        - 'Admin-Initiated Password Reset': guides/password-mgt/forced-password-reset.md
+        - 'Password Recovery Using Email Verification': guides/password-mgt/recover-password.md
+        - 'Password Recovery Using Challenge Question': guides/password-mgt/challenge-question.md
+        - 'ReCaptcha on Invalid Password Attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
+        - 'ReCaptcha on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
       - 'Federated Account Linking':
-        - 'Automatic Account Linking during JIT': guides/account-linking/automatic-account-linking.md
-        - 'Admin Intiated Password Reset': guides/account-linking/admin-intiated-password-reset.md
+        - 'Automatic Account Linking During JIT': guides/account-linking/automatic-account-link.md
+        - 'Interactive Account Linking': guides/account-linking/interactive-account-link.md
       - 'Access Delegation':
         - 'OAuth 2.0':
           - 'Web Applications': guides/access-delegation/overview.md
@@ -383,19 +390,19 @@ nav:
   - 'Configure Authentication':
     - 'Register an Application': fragments/register-a-service-provider.md
     - 'OAuth/OIDC':
-      - 'Basic' : fragments/oauth-app-config-basic.md
-      - 'Advanced' : guides/login/oauth-app-config-advanced.md
+      - 'Basic': fragments/oauth-app-config-basic.md
+      - 'Advanced': guides/login/oauth-app-config-advanced.md
       - 'Client Configurations':
-        - 'Regular OAuth/OIDC Application' : fragments/configure-client-regular-oidc-app.md
-        - 'OIDC Back-Channel Logout' : fragments/oidc-backchannel-logout.md
-        - 'OIDC Session Management' : fragments/oidc-session-management.md
+        - 'Regular OAuth/OIDC Application': fragments/configure-client-regular-oidc-app.md
+        - 'OIDC Back-Channel Logout': fragments/oidc-backchannel-logout.md
+        - 'OIDC Session Management': fragments/oidc-session-management.md
         - 'OAuth/OIDC Grants': fragments/oauth-oidc-grants.md
     - 'SAML':
-      - 'Basic' : fragments/saml-app-config-basic.md
-      - 'Advanced' : guides/login/saml-app-config-advanced.md
+      - 'Basic': fragments/saml-app-config-basic.md
+      - 'Advanced': guides/login/saml-app-config-advanced.md
       - 'Client Configurations':
-        - 'SAML Application' : fragments/configure-client-regular-saml-app.md
-        - 'Retrieve User Information to the Client Application' : fragments/get-user-information-to-the-saml-application.md
+        - 'SAML Application': fragments/configure-client-regular-saml-app.md
+        - 'Retrieve User Information to the Client Application': fragments/get-user-information-to-the-saml-application.md
   - 'Configure Authenticators':
     - 'FIDO Configurations': guides/mfa/fido-config-advanced.md
     - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
