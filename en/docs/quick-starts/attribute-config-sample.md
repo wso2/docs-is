@@ -83,6 +83,6 @@ If you have your own application, click the button below.
     <img src="../../assets/img/samples/playground-sub.png" alt="alt text" width="500" height="500">
 
 !!! info "Related topics" 
-    -   [Attribute Management](TODO:insert-link-to-concept)
-    -   [Request attributes](../../../guides/login/request-app-claims)
+    -   [Concept: Attribute Management](TODO:insert-link-to-concept)
+    -   [Guide: Request attributes](../../../guides/login/request-app-claims)
     
