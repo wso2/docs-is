@@ -28,7 +28,7 @@ TODO: dev-portal-fragment
 3.  Copy it to `<SAMPLE_HOME>/sample/src/main/resources/metadata`.
 4.  Open the `<SAMPLE_HOME>/sample/src/main/webapp/WEB-INF/securityContext.xml` file. 
 5.  Search for **bean id** with the tag as metadata (`bean id=”metadata”`). 
-6.  Under the `list` tag of the metadata, bean id add the following xml configuration and save the file. Note that this has the link to the metadata file,`wso2_abc.xml`, that we generated and renamed. 
+6.  Under the `list` tag of the `metadata bean id` add the following xml configuration and save the file. Note that this has the link to the metadata file,`wso2_abc.xml`, that we generated and renamed. 
 
     ```xml 
     <bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
@@ -58,7 +58,7 @@ TODO: dev-portal-fragment
     ```xml
     mvn clean install
     ```
-2.  Upon a successful project build, the `spring-security-saml2-sample.war` file can be found in the `<SAMPLE_HOME>/sample/target` directory. 
+2.  Once the sample has built successfully, the `spring-security-saml2-sample.war` file can be found in the `<SAMPLE_HOME>/sample/target` directory. 
 
 3.  Make a copy of this file and rename it as `spring-security-saml2-sample2.war` such that there are two webapps available.
 
@@ -80,7 +80,7 @@ TODO: dev-portal-fragment
 
     ![choose-localhost](../../assets/img/samples/choose-localhost.png)
 
-3.  Login as admin. You will be directed to the page with authenticated user information. 
+3.  Log in as the admin. You will be directed to the page with authenticated user information. 
 
     ![sample1-1](../../assets/img/samples/sample1-1.png)
     ![sample1-2](../../assets/img/samples/sample1-2.png)
@@ -98,5 +98,5 @@ TODO: dev-portal-fragment
     ![spring-logout](../../assets/img/samples/spring-logout.png)
     
 !!! info "Related Topics"
-    -   [Configuring SAML Front Channel Logout](TODO:insert-link-to-concept)
-    -   [Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)
+    -   [Concept: Configuring SAML Front Channel Logout](TODO:insert-link-to-concept)
+    -   [Guide: Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)
