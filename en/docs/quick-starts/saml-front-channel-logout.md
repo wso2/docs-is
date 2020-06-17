@@ -1,6 +1,6 @@
 # Configure SAML 2.0 Front Channel Logout 
 
-This page guides you through configuring [SAML 2.0 front channel logout](insertlink). This is demonstrated using two versions of a sample application called Spring SAML application. 
+This page guides you through configuring [SAML 2.0 front channel logout](TODO:insert-link-to-concept). This is demonstrated using two versions of a sample application called Spring SAML application. 
 
 ----
 If you have your own application, click the button below.
@@ -17,7 +17,7 @@ The user is required to log in to two different applications, `application1` and
 
 ## Download SAML metadata 
 
-{! fragments/download-saml-metadata.md !}
+TODO: dev-portal-fragment
 
 ----
 
@@ -28,7 +28,7 @@ The user is required to log in to two different applications, `application1` and
 3.  Copy it to `<SAMPLE_HOME>/sample/src/main/resources/metadata`.
 4.  Open the `<SAMPLE_HOME>/sample/src/main/webapp/WEB-INF/securityContext.xml` file. 
 5.  Search for **bean id** with the tag as metadata (`bean id=”metadata”`). 
-6.  Under the `list` tag of the metadata, bean id add the following xml configuration and save the file. Note that this has the link to the metadata file,`wso2_abc.xml`, that we generated and renamed. 
+6.  Under the `list` tag of the `metadata bean id` add the following xml configuration and save the file. Note that this has the link to the metadata file,`wso2_abc.xml`, that we generated and renamed. 
 
     ```xml 
     <bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
@@ -38,7 +38,8 @@ The user is required to log in to two different applications, `application1` and
     <bean class="java.util.Timer" />          
     </constructor-arg>          
     <constructor-arg>             
-    <bean class="org.opensaml.util.resource.ClasspathResource">                <constructor-arg value="/metadata/wso2_abc.xml" />             
+    <bean class="org.opensaml.util.resource.ClasspathResource">                
+    <constructor-arg value="/metadata/wso2_abc.xml" />             
     </bean>          
     </constructor-arg>          
     <property name="parserPool" ref="parserPool" />       
@@ -57,7 +58,7 @@ The user is required to log in to two different applications, `application1` and
     ```xml
     mvn clean install
     ```
-2.  Upon a successful project build, the `spring-security-saml2-sample.war` file can be found in the `<SAMPLE_HOME>/sample/target` directory. 
+2.  Once the sample has built successfully, the `spring-security-saml2-sample.war` file can be found in the `<SAMPLE_HOME>/sample/target` directory. 
 
 3.  Make a copy of this file and rename it as `spring-security-saml2-sample2.war` such that there are two webapps available.
 
@@ -67,23 +68,7 @@ The user is required to log in to two different applications, `application1` and
 
 ## Register two applications in WSO2 Identity Server
 
-1.  Log into WSO2 IS as the administrator.
-2.  On the **Main** tab, click **Add** under **Service Providers**. 
-3.  Create a new service provider called `application1`.
-4.  Expand Inbound Authentication Configuration and then expand SAML2 Web SSO Configuration.
-5.  Provide the given below configurations.
-    -   Issuer: http://localhost:8080/spring-security-saml2-sample/saml/metadata
-    -   Assertion Consumer URLs: http://localhost:8080/spring-security-saml2-sample/saml/SSO
-    -   Select **Enable Response Signing**.
-    -   Deselect **Enable Signature Validation** in **Authentication Requests and Logout Requests**.
-    -   Select **Enable Single Logout**
-    -   SLO Response URL: http://localhost:8080/spring-security-saml2-sample/saml/SingleLogout
-    -   SLO Request URL: http://localhost:8080/spring-security-saml2-sample/saml/SingleLogout
-    -   Logout Method: Select **Front-Channel Logout (HTTP Redirect Binding)** or **Front-Channel Logout (HTTP POST Binding)**
-    -   Select **Enable Attribute Profile**.
-    -   Select **Include Attributes in the Response Always**.
-
-6.  Repeat step 1-5 to create another service provider named `application2`. Make sure to replace the **Issuer**, **Assertion Consumer URL**, **SLO Response URL** and **SLO Request URL** to match the `spring-security-saml2-sample2` webapp.
+TODO: dev-portal-fragment
 
 ---
 
@@ -95,7 +80,7 @@ The user is required to log in to two different applications, `application1` and
 
     ![choose-localhost](../../assets/img/samples/choose-localhost.png)
 
-3.  Login as admin. You will be directed to the page with authenticated user information. 
+3.  Log in as the admin. You will be directed to the page with authenticated user information. 
 
     ![sample1-1](../../assets/img/samples/sample1-1.png)
     ![sample1-2](../../assets/img/samples/sample1-2.png)
@@ -113,5 +98,5 @@ The user is required to log in to two different applications, `application1` and
     ![spring-logout](../../assets/img/samples/spring-logout.png)
     
 !!! info "Related Topics"
-    -   [Configuring SAML Front Channel Logout](insert-link)
-    -   [Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)
+    -   [Concept: Configuring SAML Front Channel Logout](TODO:insert-link-to-concept)
+    -   [Guide: Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)

@@ -4,7 +4,11 @@
 
 ----
 
-{!fragments/register-an-application-portal.md!}
+(TODO: dev-portal-fragment)
+
+{!fragments/register-playground-application-portal.md!}
+After all the configurations click **Update**.
+
 
 ----
 

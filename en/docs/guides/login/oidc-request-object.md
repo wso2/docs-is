@@ -10,12 +10,18 @@ This guide assumes you have your own application. If you wish to try out this fl
 <a class="samplebtn_a" href="../../../quick-starts/request-object" rel="nofollow noopener">Try it with the sample</a>
 
 ----
+
+(TODO: dev-portal-fragment)
 {!fragments/encrypt-id-tokens.md!}
 
 ----
+
+(TODO: dev-portal-fragment)
 {!fragments/add-certificate-to-sp.md!}
 
+----
 
 !!! info "Related Topics"
-    - [Try OIDC Request Object with a Sample Web Application](../../../quick-starts/request-object)
-    - [Use Advanced Parameters in Authentication Requests ](insertlink)
+    - [Concept: Request Object](../../../concepts/authentication/request-object)
+    - [Demo: OpenID Connect Request Object](../../../quick-starts/request-object)
+    - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)

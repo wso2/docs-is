@@ -109,12 +109,26 @@ In this example, we will call it LoginActivity:
 
 #### Authorization.
 
-Have a login button inside LoginActivity. Call the `doAuthorization(Context context)` method 
+Have a login button inside LoginActivity. Call the `doAuthorization()` method 
  when the login button is clicked to call authorization flow.
+ 
+Have a login button inside LoginActivity. Call the `doAuthorization()` method 
+  when the login button is clicked to call authorization flow.
+  
+  `authorize(PendingIntent successIntent, PendingIntent failureIntent,
+              Boolean callUserInfo)`
+  
+ When calling authorize method of LoginService, you have to create completionIntent, and
+   cancelIntent.
+   
+ 
+ You can pass either true or false for callUserInfo parameter. If callUserInfo value is true, then userinfo request will be made to the IdentityServer after successful token exchange. Else if callUserInfo value is false, SDK will not make any request to UserInfo Endpoint after
+    token flow.
+
 
 ```java
     findViewById(R.id.login).setOnClickListener(v ->
-                       doAuthorization(this)
+                       doAuthorization()
         );
 ```
    
@@ -128,7 +142,7 @@ private void doAuthorization() {
         PendingIntent successIntent = PendingIntent.getActivity(this, 0, completionIntent, 0);
         PendingIntent failureIntent = PendingIntent.getActivity(this, 0, cancelIntent, 0);
   
-        mLoginService.authorize(successIntent, failureIntent);
+        mLoginService.authorize(successIntent, failureIntent, true);
 }
 ```
    
@@ -137,13 +151,13 @@ private void doAuthorization() {
 #### Get the token response.
 
 - After successful authorization, AuthenticationContext object will be returned in the Intent
-. From the `oncreate()` method of the UserInfo.Activity, get the authenticationcontext object.
+. From the `oncreate()` method of the UserInfo.Activity, get the AuthenticationContext object.
 
-- Authentication context object has oidcdiscovery response, tokenresponse, ans userinfo responses.
+- Authentication context object has OIDCcDiscoveryResponse, OAuth2TokenResponse, and UserInfoResponse.
 
 - In all flows such as userinfo and logout request, you need to pass this context object.
  
-- In the authorization request, you need to create a Intent for successfull request and redirect to this activity.
+- In the authorization request, you need to create a Intent for successful request and redirect to this activity.
 ```java
 @Override
     protected void create() {  
@@ -154,12 +168,83 @@ private void doAuthorization() {
     }
 ``` 
 
+#### Get information related to token response: 
+
+To get information related to token response, first you need to get TokenResponse from
+ AuthenticationContext. You can use the following code blocks.
+
+```OAuth2TokenResponse oAuth2TokenResponse = mAuthenticationContext.getOAuth2TokenResponse();```   
+   
+To get AccessToken and IDToken from  OAuth2TokenResponse
+      
+```
+String idToken = oAuth2TokenResponse.getIdToken();
+String accessToken = oAuth2TokenResponse.getAccessToken();
+Long accessTokenExpTime = oAuth2TokenResponse.getAccessTokenExpirationTime();
+```
+
+#### Get claims from IDToken
+
+To get information from idToken , first you need to get IDTokenResponse from TokenResponse. 
+You can use the following code blocks.
+
+```
+OAuth2TokenResponse.IDTokenResponse idTokenResponse = mAuthenticationContext
+                .getOAuth2TokenResponse().getIdTokenResponse();
+```
+
+To get server specific claims from idToken:
+
+```
+String iss = idTokenResponse.getIssuer();
+String sub = idTokenResponse.getSubject();
+String iat = idTokenResponse.getIssueTime();
+String exp = idTokenResponse.getExpiryTime();
+List<String> audience = idTokenResponse.getAudience()
+
+```
+
+To get the map of all claims
+
+`Map<String, Object> claims = idTokenResponse.getClaims();`
+
+To get a specific String claim
+
+`String claimValue = idTokenResponse.getClaim(claimName)`
   
 ### Read UserInfo
 
+#### Get userinfo response from authentication context
+
+If you called `LoginService.authorize(PendingIntent successIntent, PendingIntent failureIntent
+, Boolean callUserInfo)` with callUserInfo parameter as true, then userinfo response will be
+ stored in the AuthenticationContext object.
+ 
+ To get UserInfoResponse from AuthenticationContext,
+
+```UserInfoResponse userInfoResponse = mAuthenticationContext.getUserInfoResponse();```
+ 
+- To get the subject,
+
+    `String subject = userInfoResponse.getSubject();`
+ 
+- To get some specific claim,
+
+    `String email = userInfoResponse.getUserInfoProperty("email");`
+    
+- To get all claims,
+
+    `JSONObject userClaims = userInfoResponse.getUserInfoProperties();`
+
+ 
+#### Call userinfo explicitly.
+
+You can call `mLoginService.getUserInfo(...)` to get UserInfo response as well. 
+
 ```java
 private void getUserInfo(){
-   new UserInfoRequestHandler.UserInfoResponseCallback() {
+    mLoginService.getUserInfo(mAuthenticationContext,
+                   new UserInfoRequestHandler.UserInfoResponseCallback() {
                @Override
                public void onUserInfoRequestCompleted(UserInfoResponse userInfoResponse,
                        ServerException e) {

@@ -79,7 +79,8 @@ Make the following requests via your application to connect your application to 
 !!! info "Related Topics"
     - [Concept: Authorization Code Grant](../../../concepts/authorization/authorization-code-grant)
     - [Concept: PKCE](TODO:insert-link-to-concepts)
-    - [Demo: OIDC Authentication](../../../quick-starts/webapp-oidc-sample)
+    - [Demo: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
+    - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)
     - [Guide: Manage User Sessions](../session-management-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
 
