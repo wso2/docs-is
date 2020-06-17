@@ -1,6 +1,6 @@
 # Enable Login for OpenID Connect Web Application
 
-This page guides you through enabling login for an OpenID Connect web application using a **sample application** called Pickup. 
+This page guides you through enabling login for an [OpenID Connect](../../../concepts/authentication/intro-oidc) web application using a **sample application** called Pickup. 
 
 ----
 If you have your own application, click the button below.
@@ -9,6 +9,7 @@ If you have your own application, click the button below.
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/pickup-dispatch-oidc.md!}
 
 ----
@@ -30,7 +31,9 @@ You have successfully configured authentication for an OpenID Connect applicatio
 ----
 
 !!! info "Related Topics"
-    - [Enable Login for a Sample OpenID Connect Web Application](../../../guides/login/webapp-oidc)
+    - [Concept: OpenID Connect](../../../concepts/authentication/intro-oidc)
+    - [Guide: Enable Login for a Sample OpenID Connect Web Application](../../../guides/login/webapp-oidc)
+    - [Guides: OAuth Grant Types](../../guides/access-delegation/oauth-grant-types)
 
 
 

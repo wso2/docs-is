@@ -113,7 +113,7 @@ nav:
           - 'Salesforce': guides/login/log-into-salesforce-using-is.md
           - 'Google': guides/login/log-into-google-using-is.md
           - 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
-        - 'Request Attributes for the Application': guides/login/request-app-claims.md
+        - 'Request Attributes for the Application': guides/login/request-attributes.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
           - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
@@ -491,4 +491,3 @@ extra:
     - Deploy
     - APIs
     - Concepts
-    - Developer Portal

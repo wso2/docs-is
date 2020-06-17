@@ -1,21 +1,25 @@
 # Manage User Sessions and Logout
 
-This page guides you through managing user sessions and logout of a web application using a **sample application** called Playground.
+This page guides you through [managing user sessions and logout](../../../concepts/authentication/session-management) of a web application using a **sample application** called Playground.
 
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/webapp-oidc"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/session-management-logout"   rel="nofollow noopener">I have my own application</a>
 
 ----
+
+(TODO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 {!fragments/oauth-app-config-basic.md!}
 {!fragments/local-outbound.md!}
 
 ---
 
+(TODO: dev-portal-fragment)
 {!fragments/deploying-sample-apps.md!}
 {!fragments/deploy-playground.md!}
+
 ---
     
 ## Configure the playground application
@@ -120,7 +124,9 @@ If you have your own application, click the button below.
     [OpenID Connect Logout URL
     Redirection](../../learn/openid-connect-logout-url-redirection/).
 
+-----
+
 !!! info "Related Topics"
-    - [Manage User Sessions and Logout](../../../guides/login/session-management-logout)
-    - [OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout)
-    - [Configure OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
+    - [Concept: Manage User Sessions and Logout](../../../concepts/authentication/session-management)
+    - [Guide: Manage User Sessions and Logout](../../../guides/login/session-management-logout)
+    - [Guide: OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout)

@@ -58,22 +58,22 @@ Send the following requests via your application to connect your application to 
     { "scope":"openid", "token_type":"Bearer", "expires_in":3600, "refresh_token":"70f202ca2e4ecf571d0b6d2e49af8f3a", "id_token":"eyJhbGciOiJSUzI1NiJ9.eyJhdXRoX3RpbWUiOjE0NjA0NTkzMTYsImV4cCI6MTQ2MDQ2MjkxNiwic3ViIjoiYWRtaW4iLCJhenAiOiJlN2VrQldVTVBITnFTNU5WQmhxNGhmNWZqMkVhIiwiYXRfaGFzaCI6IkhCWFVKQW50LWFMV3JxQlZJcTFoV2ciLCJhdWQiOlsiZTdla0JXVU1QSE5xUzVOVkJocTRoZjVmajJFYSJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJpYXQiOjE0NjA0NTkzMTZ9.PiqVn7B2vuICHmodnn9udjQrvGqRR-PZr-M8x8Xijg0bnAvzXY4hxqZ5luaLitBH2IgQ5p0Rh_gjPI7TWcQA7AK3iBCp7c29QY78hSSqt38_iG5bC0MYWoluH-jg5f3iyJ3aQ-DPAZexCXxEv65RPF5EDNfhA0fUFcsu79cb89k", "access_token":"7d6c01fb6bfaca22f01d9a24219cce45" }
     ```
  
- 
-!!! Troubleshooting Tip 
-        If you have not disabled consent, the response will be as follows.
-    
-        ``` 
-        Location: https://localhost:9443/authenticationendpoint/oauth2_consent.do?loggedInUser=admin&application=plagroundapp&scope=openid&sessionDataKeyConsent=a14f4a5d-16bb-4e47-9c53-5eacee9828f2&spQueryParams=
-        ```
-    
-        The consent page URL given in the response is the consent page that requires user interaction to either approve
-        or deny the authorization request. You can access the consent page URL via a web browser and either approve or
-        deny consent. The URL will then be redirected to the following page.
+    !!! Troubleshooting Tip 
+            If you have not disabled consent, the response will be as follows.
         
-        ```
-        https://curl-app/callback?code=37c79c505960e90d5b25f62ce760c98c&session_state=6d1a72e0f3f6392d6648ec5e6ed0
-        ```
+            ``` 
+            Location: https://localhost:9443/authenticationendpoint/oauth2_consent.do?loggedInUser=admin&application=plagroundapp&scope=openid&sessionDataKeyConsent=a14f4a5d-16bb-4e47-9c53-5eacee9828f2&spQueryParams=
+            ```
         
+            The consent page URL given in the response is the consent page that requires user interaction to either approve
+            or deny the authorization request. You can access the consent page URL via a web browser and either approve or
+            deny consent. The URL will then be redirected to the following page.
+            
+            ```
+            https://curl-app/callback?code=37c79c505960e90d5b25f62ce760c98c&session_state=6d1a72e0f3f6392d6648ec5e6ed0
+            ```
+------
+
 !!! info "Related Links"
      -   [Concept: Token-Based Authentication](TODO:link-to-concept)
      -   [Demo: Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)

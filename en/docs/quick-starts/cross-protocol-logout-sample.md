@@ -1,6 +1,6 @@
 # Cross-Protocol Logout 
 
-This page demonstrates [cross-protocol logout](TODO) across different protocols using two sample applications that use SAML and OpenID Connect. 
+This page demonstrates [cross-protocol logout](TODO:insert-link-to-concept) across different protocols using two sample applications that use SAML and OpenID Connect. 
 
 ----
 
@@ -10,10 +10,16 @@ If you have your own applications, click the button below.
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/pickup-dispatch-saml.md!}
 
 ----
 
+**Next, register a service provider and configure authentication for it with a different protocol.**
+
+----
+
+(TODO: dev-portal-fragment)
 {!fragments/pickup-manager-oidc.md!}
 
 ----
@@ -31,3 +37,12 @@ If you have your own applications, click the button below.
 5. Switch to the SAML Pickup Dispatch app on your browser. You will see that you have been logged out of the SAML application as well. 
 
 You have successfully tried out cross-protocol logout between a SAML application and an OIDC application. 
+
+----
+
+!!! info "Related Topics"
+    - [Concept: Cross-Protocol Logout](TODO:insert-link-to-concept)
+    - [Guide: Cross-Protocol Logout](../../guides/login/cross-protocol-logout)
+    - [Guide: Single Sign-On](../../guides/login/enable-single-sign-on)
+    - [Guide: SAML Back-Channel Logout](TODO:insert-link)
+    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
