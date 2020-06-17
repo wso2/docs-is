@@ -157,7 +157,7 @@ private void doAuthorization() {
 
 - In all flows such as userinfo and logout request, you need to pass this context object.
  
-- In the authorization request, you need to create a Intent for successfull request and redirect to this activity.
+- In the authorization request, you need to create a Intent for successful request and redirect to this activity.
 ```java
 @Override
     protected void create() {  
@@ -168,7 +168,7 @@ private void doAuthorization() {
     }
 ``` 
 
-##### Get information related to token response: 
+#### Get information related to token response: 
 
 To get information related to token response, first you need to get TokenResponse from
  AuthenticationContext. You can use the following code blocks.
@@ -183,7 +183,7 @@ String accessToken = oAuth2TokenResponse.getAccessToken();
 Long accessTokenExpTime = oAuth2TokenResponse.getAccessTokenExpirationTime();
 ```
 
-##### Get claims from IDToken
+#### Get claims from IDToken
 
 To get information from idToken , first you need to get IDTokenResponse from TokenResponse. 
 You can use the following code blocks.
@@ -237,7 +237,7 @@ If you called `LoginService.authorize(PendingIntent successIntent, PendingIntent
     `JSONObject userClaims = userInfoResponse.getUserInfoProperties();`
 
  
-### Call userinfo explicitly.
+#### Call userinfo explicitly.
 
 You can call `mLoginService.getUserInfo(...)` to get UserInfo response as well. 
 
