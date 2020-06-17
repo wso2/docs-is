@@ -29,19 +29,17 @@
 
 ## Configure the Android SDK
 
-### Build the SDK locally
+To Build the SDK locally:
 
 1. Clone this project: https://github.com/wso2-extensions/identity-sdks-android.git
     `git clone https://github.com/wso2-extensions/identity-sdks-android.git`
 
-3. Build the library in your local maven. Run the following commands. Now the library will be
+2. Build the library in your local maven. Run the following commands. Now the library artifact will be
  available in your local .m2 cache. 
     - `./gradlew clean assembleRelease`
     - `./gradlew publishToMavenLocal `
 
 ## Configure the sample
-
-## Get the sample
 
 Clone the sample from this [sample repository](https://github.com/wso2-extensions/identity-samples-android.git)
 
@@ -77,7 +75,7 @@ Example:
 
 ## Run Sample
 
-## Running in an Android Emulator
+### Running in an Android Emulator
 
 1. Create a suitable Android Virtual Device in the Android Studio.
 
@@ -113,7 +111,7 @@ Example:
 
 3. Select the Virtual Device and test the application. 
 
-## Running in an Android Device
+### Running in an Android Device
 1. Enable USB Debugging in the Developer Options in the Android Device. Refer documentation on [Run you App](https://developer.android.com/training/basics/firstapp/running-app).
 
 2. If the WSO2 IS is hosted in the local machine, change the domain of the endpoints in the “app
