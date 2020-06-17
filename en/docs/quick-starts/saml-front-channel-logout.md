@@ -1,6 +1,6 @@
 # Configure SAML 2.0 Front Channel Logout 
 
-This page guides you through configuring [SAML 2.0 front channel logout](insertlink). This is demonstrated using two versions of a sample application called Spring SAML application. 
+This page guides you through configuring [SAML 2.0 front channel logout](TODO:insert-link-to-concept). This is demonstrated using two versions of a sample application called Spring SAML application. 
 
 ----
 If you have your own application, click the button below.
@@ -17,7 +17,7 @@ The user is required to log in to two different applications, `application1` and
 
 ## Download SAML metadata 
 
-{! fragments/download-saml-metadata.md !}
+TODO: dev-portal-fragment
 
 ----
 
@@ -38,7 +38,8 @@ The user is required to log in to two different applications, `application1` and
     <bean class="java.util.Timer" />          
     </constructor-arg>          
     <constructor-arg>             
-    <bean class="org.opensaml.util.resource.ClasspathResource">                <constructor-arg value="/metadata/wso2_abc.xml" />             
+    <bean class="org.opensaml.util.resource.ClasspathResource">                
+    <constructor-arg value="/metadata/wso2_abc.xml" />             
     </bean>          
     </constructor-arg>          
     <property name="parserPool" ref="parserPool" />       
@@ -67,23 +68,7 @@ The user is required to log in to two different applications, `application1` and
 
 ## Register two applications in WSO2 Identity Server
 
-1.  Log into WSO2 IS as the administrator.
-2.  On the **Main** tab, click **Add** under **Service Providers**. 
-3.  Create a new service provider called `application1`.
-4.  Expand Inbound Authentication Configuration and then expand SAML2 Web SSO Configuration.
-5.  Provide the given below configurations.
-    -   Issuer: http://localhost:8080/spring-security-saml2-sample/saml/metadata
-    -   Assertion Consumer URLs: http://localhost:8080/spring-security-saml2-sample/saml/SSO
-    -   Select **Enable Response Signing**.
-    -   Deselect **Enable Signature Validation** in **Authentication Requests and Logout Requests**.
-    -   Select **Enable Single Logout**
-    -   SLO Response URL: http://localhost:8080/spring-security-saml2-sample/saml/SingleLogout
-    -   SLO Request URL: http://localhost:8080/spring-security-saml2-sample/saml/SingleLogout
-    -   Logout Method: Select **Front-Channel Logout (HTTP Redirect Binding)** or **Front-Channel Logout (HTTP POST Binding)**
-    -   Select **Enable Attribute Profile**.
-    -   Select **Include Attributes in the Response Always**.
-
-6.  Repeat step 1-5 to create another service provider named `application2`. Make sure to replace the **Issuer**, **Assertion Consumer URL**, **SLO Response URL** and **SLO Request URL** to match the `spring-security-saml2-sample2` webapp.
+TODO: dev-portal-fragment
 
 ---
 
@@ -113,5 +98,5 @@ The user is required to log in to two different applications, `application1` and
     ![spring-logout](../../assets/img/samples/spring-logout.png)
     
 !!! info "Related Topics"
-    -   [Configuring SAML Front Channel Logout](insert-link)
+    -   [Configuring SAML Front Channel Logout](TODO:insert-link-to-concept)
     -   [Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)
