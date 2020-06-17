@@ -190,10 +190,10 @@ nav:
           - 'Role Based Provisioning': guides/out-prov/role-based-provisioning.md
           - 'Rule Based Provisioning': guides/out-prov/rule-based-provisioning.md
         - 'Inbound Provision Users':
-          - 'Configure User Stores for SCIM 2.0':guides/inbound-prov/configure-inbound-scim2.md
-          - 'Configure Active Directory User Stores':guides/inbound-prov/configure-ad.md
+          - 'Configure User Stores for SCIM 2.0': guides/inbound-prov/configure-inbound-scim2.md
+          - 'Configure Active Directory User Stores': guides/inbound-prov/configure-ad.md
         - 'Just in TIme Provision Users':
-          - 'Configure Just-In-Time Provisioning for an Identity Provider':guides/jit/configure-jit.md
+          - 'Configure Just-In-Time Provisioning for an Identity Provider': guides/jit/configure-jit.md
         - 'Manage User Stores':
           - 'JDBC as the Primary User Store': guides/userstore/jdbc-us.md
           - 'Active Directory as a Secondary User Store': guides/userstore/ad-us.md
