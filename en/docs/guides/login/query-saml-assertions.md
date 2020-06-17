@@ -1,8 +1,8 @@
 # Query SAML2 Assertions
 
-This page guides you through querying dynamic or existing [SAML2 assertions](insertlink) using standard request messages via WSO2 Identity Server. 
+This page guides you through querying dynamic or existing [SAML2 assertions](TODO:insert-link-to-concept) using standard request messages via WSO2 Identity Server. 
 
-Due to some reason if you can not pass a SAML Assertion to the backend, then you can pass an [identifier](insertlink) with the request to query and obtain the assertion from the backend instead. 
+Due to some reason if you can not pass a SAML Assertion to the backend, then you can pass an [identifier](TODO:insert-link) with the request to query and obtain the assertion from the backend instead. 
 
 ----
 
@@ -12,10 +12,12 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/saml-app-config-basic.md!}
 
 4. Select **Enable Assertion Query Request Profile** to enable saml assertions. 
@@ -68,4 +70,6 @@ You have successfully queried an assertion using your application.
 -----
 
 !!! info "Related Topics"
+    - [Concept: SAML2 Assertions](TODO:insert-link-to-concept)
+    - [Demo: Query SAML2 Assertions](../../../quick-starts/query-saml-assertions-sample)
     

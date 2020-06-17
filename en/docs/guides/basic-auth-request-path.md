@@ -14,6 +14,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+(TODO: dev-portal-fragment)
+
 {!fragments/register-a-service-provider.md!}
 
 ----
@@ -75,9 +77,11 @@ Replace the **` <SEC_TOKEN>,CLIENT_ID>`** and **`<REDIRECT_URI>`** tags with the
         ```
         https://curl-app/callback?code=37c79c505960e90d5b25f62ce760c98c&session_state=6d1a72e0f3f6392d6648ec5e6ed0
         ```
-        
+
+-----
+
 !!! info "Related Links"
-     -   [Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
-     -   [Authenticate with OAuth Request Path Authenticator](../../guides/oauth-request-path)
-     -   [Enable Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
+     -   [Demo: Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
+     -   [Guide: Authenticate with OAuth Request Path Authenticator](../../guides/oauth-request-path)
+     -   [Demo: Enable Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
            
