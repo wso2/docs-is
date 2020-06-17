@@ -37,5 +37,5 @@ TODO: dev-portal-fragment
 Once you have configured all your applications, access them in separate tabs in your browser. When you logout from one application, it should log you out from all the configured applications. 
 
 !!! info "Related Topics"
-    -   [Configuring SAML Front Channel Logout](TODO:insert-link-to-concept)
-    -   [Configure SAML 2.0 Front Channel Logout](../../../quick-starts/saml-front-channel-logout)
+    -   [Concept: Configuring SAML Front Channel Logout](TODO:insert-link-to-concept)
+    -   [Guide: Configure SAML 2.0 Front Channel Logout](../../../quick-starts/saml-front-channel-logout)
