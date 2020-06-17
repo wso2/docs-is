@@ -82,14 +82,15 @@ TODO: dev-portal-fragment
 
 3.  Log in as the admin. You will be directed to the page with authenticated user information. 
 
-    ![sample1-1](../../assets/img/samples/sample1-1.png)
-    ![sample1-2](../../assets/img/samples/sample1-2.png)
+    <img src="../../assets/img/samples/sample1-1.png" alt="alt text" width="500" height="500" class="center">
+
+    <img src="../../assets/img/samples/sample1-2.png" alt="alt text" width="500" height="500" class="center">
 
 4.  Open a new tab on the browser and log into the second application, <http://localhost:8080/spring-security-saml2-sample2>.
 
 5.  Similar to the first application, select **localhost**, click on **Start single sign-on**, and sign in as the admin. 
 
-    ![sig-in](../../assets/img/samples/sign-in-sample.png)
+     <img src="../../assets/img/samples/sign-in-sample.png" alt="alt text" width="300" height="400" class="center">
 
 6.  On any one of the applications click **Global Logout**.
 
