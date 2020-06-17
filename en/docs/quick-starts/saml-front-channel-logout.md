@@ -11,13 +11,7 @@ If you have your own application, click the button below.
 
 ## Scenario
 
-The user is required to log in to two different applications created in a tenant, `application1` and `application2`. For convenience and security, the user should be logged out of both the applications when the user attempts to logout from either one of them. 
-
-----
-
-## Add a new tenant
-
-{! fragments/add-new-tenant.md !}
+The user is required to log in to two different applications, `application1` and `application2`. For convenience and security, the user should be logged out of both the applications when the user attempts to logout from either one of them. 
 
 ----
 
@@ -73,7 +67,7 @@ The user is required to log in to two different applications created in a tenant
 
 ## Register two applications in WSO2 Identity Server
 
-1.  Log into WSO2 IS as the administrator for abc.com tenant.
+1.  Log into WSO2 IS as the administrator.
 2.  On the **Main** tab, click **Add** under **Service Providers**. 
 3.  Create a new service provider called `application1`.
 4.  Expand Inbound Authentication Configuration and then expand SAML2 Web SSO Configuration.
@@ -101,14 +95,14 @@ The user is required to log in to two different applications created in a tenant
 
     ![choose-localhost](../../assets/img/samples/choose-localhost.png)
 
-3.  Login as tenant admin. You will be directed to the page with authenticated user information. 
+3.  Login as admin. You will be directed to the page with authenticated user information. 
 
     ![sample1-1](../../assets/img/samples/sample1-1.png)
     ![sample1-2](../../assets/img/samples/sample1-2.png)
 
 4.  Open a new tab on the browser and log into the second application, <http://localhost:8080/spring-security-saml2-sample2>.
 
-5.  Similar to the first application, select **localhost**, click on **Start single sign-on**, and sign in as the tenant admin. 
+5.  Similar to the first application, select **localhost**, click on **Start single sign-on**, and sign in as the admin. 
 
     ![sig-in](../../assets/img/samples/sign-in-sample.png)
 
@@ -117,3 +111,7 @@ The user is required to log in to two different applications created in a tenant
 7.  You will be successfully logged out of both the applications.
 
     ![spring-logout](../../assets/img/samples/spring-logout.png)
+    
+!!! info "Related Topics"
+    -   [Configuring SAML Front Channel Logout](insert-link)
+    -   [Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)
