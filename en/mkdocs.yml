@@ -66,6 +66,8 @@ nav:
       - 'Logout':
         - 'Session Management and Logout': quick-starts/oidc-session-management.md
         - 'OpenID Connect Back-Channel Logout': quick-starts/oidc-backchannel-logout-sample.md
+        - 'SAML Front-Channel Logout': quick-starts/saml-front-channel-logout.md
+        - 'SAML Back-Channel Logout': quick-starts/saml-back-channel-logout.md
         - 'Cross-Protocol Logout': quick-starts/cross-protocol-logout-sample.md
       - 'Single Sign On':
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
@@ -125,8 +127,8 @@ nav:
             - 'Session Management and Logout': guides/login/session-management-logout.md
             - 'Logout URL Redirection': guides/login/oidc-logout-url-redirection.md
           - 'SAML':
-            - 'Front-Channel Logout': guides/login/saml-frontchannel-logout.md
-            - 'Back-Channel Logout': guides/login/saml-backchannel-logout.md
+            - 'Front-Channel Logout': guides/login/saml-front-channel-logout.md
+            - 'Back-Channel Logout': guides/login/saml-back-channel-logout.md
           - 'Cross Protocol Logout': guides/login/cross-protocol-logout.md
         - 'Advanced OpenID Connect':
           - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
