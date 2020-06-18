@@ -1,14 +1,15 @@
 # Enable Login for SAML Web Application
 
-This page guides you through enabling login for a SAML web application using a **sample application** called Pickup. 
+This page guides you through enabling login for a [SAML](TODO:insert-link-to-concepts) web application using a **sample application** called Pickup. 
 
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/webapp-oidc"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/login/webapp-saml"   rel="nofollow noopener">I have my own application</a>
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/pickup-dispatch-saml.md!}
 
 ----
@@ -31,6 +32,8 @@ You have successfully configured authentication for a SAML application.
 
 ## Configure single logout
 
+(TODO: dev-portal-content)
+
 1. Access the [management console]() and click **List** under **Service Providers**. 
 
 2. Click **Edit** to edit the SAML service provider you created.
@@ -38,3 +41,12 @@ You have successfully configured authentication for a SAML application.
 3. Expand **Inbound Authentication Configuration** and then expand **SAML2 Web SSO Configuration**. Edit the configuration.
 
 4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations](../../guides/login/saml-app-config-advanced#enable-single-logout).
+
+-----
+
+!!! info "Related Topics"
+    - [Concept: SAML](TODO:insert-link-to-concepts)
+    - [Guide: Enable Login for a SAML Web Application](../../../guides/webapp-saml)
+    - [Guide: SAML Front Channel Logout](TODO:insert-link-to-guides)
+    - [Guide: SAML Back-Channel Logout](TODO:insert-link-to-guides)
+

@@ -1,5 +1,5 @@
 
-# Request Attributes
+# Request Attributes for the Application
 
 This page guides you through configuring [requested attributes](TODO:insert-link-to-concept) for a web application using OIDC and SAML. 
 This is demonstrated using two sample applications, **Travelocity** and **Playground2**.
@@ -7,7 +7,7 @@ This is demonstrated using two sample applications, **Travelocity** and **Playgr
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../../guides/login/request-app-claims"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../../guides/login/request-attributes"   rel="nofollow noopener">I have my own application</a>
 
 ----
 

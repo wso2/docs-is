@@ -1,6 +1,6 @@
 # Configuring Multi-Factor Authentication
 
-This page guides you through configuring [multi-factor authentication](insertlink) for an OAuth/OpenID Connect web application. This is demonstrated using a **sample application** called Pickup Dispatch and uses Nexmo as the sample SMS authenticator. 
+This page guides you through configuring [multi-factor authentication](TODO:insert-link-to-concept) for an OAuth/OpenID Connect web application. This is demonstrated using a **sample application** called Pickup Dispatch and uses Nexmo as the sample SMS authenticator. 
 
 ----
 If you have your own application, click the button below.
@@ -17,13 +17,17 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/connect-sms-provider.md!}
 
 ----
 
+(TODO: dev-portal-fragment)
 {!fragments/register-an-identity-provider.md!}
 
 ----
+
+(TODO: dev-portal-content)
 
 ## Configure SMSOTP
 
@@ -58,10 +62,12 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 ## Set up Pickup Dispatch sample
 
+(TODO: dev-portal-fragment)
 {!fragments/pickup-dispatch-saml.md!}
 
 ----
 
+(TODO: dev-portal-content)
 ## Add authentication steps
 
 1. Click **Service Providers** > **List**.
@@ -96,6 +102,8 @@ To ensure that only their own drivers can log into the application, Pickup decid
 8. Click **Update** to save the changes.
 
 ----
+
+(TODO: dev-portal-content)
 
 ## Add a user 
 

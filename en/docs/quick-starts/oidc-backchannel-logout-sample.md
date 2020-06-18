@@ -1,6 +1,6 @@
 # Configure OpenID Connect Back-Channel Logout 
 
-This page guides you through configuring [OpenID Connect (OIDC) Back-Channel logout](insertlink) between two sample Playground applications. 
+This page guides you through configuring [OpenID Connect (OIDC) Back-Channel logout](../../../concepts/authentication/back-channel-logout) between two sample Playground applications. 
 
 ----
 If you have your own application, click the button below.
@@ -59,3 +59,9 @@ Ensure to replace all values that refer to "playground2" with "playground3" incl
 
 You have successfully configured and tried out OIDC back-channel logout. You can check out the Tomcat logs on the terminal window to see the back-channel logout flow. 
 
+----
+
+!!! info "Related Topics"
+    - [Concept: OpenID Connect Back-Channel Logout](../../../concepts/authentication/back-channel-logout)
+    - [Guide: OpenID Connect Back-Channel Logout](../../guides/login/oidc-backchannel-logout)
+    - [Guide: OpenID Connect Session Management](../../guides/login/session-management-logout)
