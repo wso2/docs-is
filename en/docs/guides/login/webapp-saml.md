@@ -23,6 +23,6 @@ This guide assumes you have your own application. If you wish to try out this fl
 !!! info "Related Topics"
     - [Concept: SAML](TODO:insert-link-to-concepts)
     - [Demo: SAML Authentication](../../../quick-starts/webapp-saml-sample)
-    - [Guide: SAML Front Channel Logout](TODO:insert-link-to-guides)
-    - [Guide: SAML Back-Channel Logout](TODO:insert-link-to-guides)
+    - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout](../saml-back-channel-logout)
 

@@ -21,5 +21,5 @@ This guide assumes you have your own application. If you wish to try out this fl
 !!! info "Related Topics"
     - [Concept: Single Sign-On](TODO:insert-link-to-concept)
     - [Demo: Single Sign-On for a SAML Application](../../../quick-starts/sso-for-saml-apps)
-    - [Guide: SAML Front Channel Logout](TODO:insert-link)
-    - [Guide: SAML Back-Channel Logout](TODO:insert-link)
+    - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout](../saml-back-channel-logout)
