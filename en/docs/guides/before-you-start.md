@@ -14,7 +14,7 @@ template: templates/2-column.html
 
 <div class="content"> 
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../guides/authentication/regular-webapp-oidc';">
+    <div class="card" onclick="location.href='../../guides/login/webapp-oidc';">
       <div class="icon ">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/application/web.png">

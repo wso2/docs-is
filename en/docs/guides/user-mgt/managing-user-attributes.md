@@ -36,11 +36,11 @@ attributes of a user.
 
 ## Claim mapping when using multiple user stores 
 
-{!fragments/xxx!}
+{insert-fragment}
 
 ### Attributes with multiple values
 
-{!fragments/xxx!}
+{insert-fragment}
 
 ### Writing custom attributes
 

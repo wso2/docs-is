@@ -152,7 +152,7 @@ To access the console in the environment,
 
 ## Try it Out 
 
-You can now test the functionalities of WSO2 Identity Server with your app. You can alternatively choose a sample app from [here](../../samples/overview) and follow the steps given to deploy the chosen application. 
+You can now test the functionalities of WSO2 Identity Server with your app. You can alternatively choose a sample app from [here](../../quick-starts/overview) and follow the steps given to deploy the chosen application. 
 
 Make sure you add the proxy port configuration to `<KUBERNETES_HOME>/advanced/is-pattern-1/values.yaml`. 
 

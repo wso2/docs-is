@@ -1,6 +1,6 @@
 
 
-**Sample prerequisites**
+##Sample prerequisites
 
 - Download Apache Tomcat 8.x from
 [here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat

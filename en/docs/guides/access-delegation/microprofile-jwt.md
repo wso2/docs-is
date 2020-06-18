@@ -11,7 +11,7 @@ To generate a MP-JWT-compatible token, all you need to do is set up the service 
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application and a sample authenticator, click the button below. 
 
-<a class="samplebtn_a" href="../../../samples/microprofile-jwt-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../quick-starts/microprofile-jwt-sample"   rel="nofollow noopener">Try it with the sample</a>
 
 ----
 

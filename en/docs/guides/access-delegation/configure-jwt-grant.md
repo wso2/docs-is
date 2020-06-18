@@ -1,6 +1,6 @@
 # Configure JWT Grant
 
-This page guides you through the flow involved in exchanging a JWT assertion with an OAuth 2.0 access token in order to access protected resources on behalf of the resource owner. To learn more, see [JWT Grant](insertlink).
+This page guides you through the flow involved in exchanging a JWT assertion with an OAuth 2.0 access token in order to access protected resources on behalf of the resource owner. To learn more, see [JWT Grant](../../../concepts/authorization/jwt-bearer-grant-type).
 
 ----
 
@@ -30,14 +30,14 @@ This page guides you through the flow involved in exchanging a JWT assertion wit
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced).
+        For more information on `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
         
 7.  Configure the following fields.
 
     - Enable Audience Restriction
     - Audience
 
-    For more information about these configurations, see [OAuth Configurations](../../authentication/oauth-app-config-advanced). 
+    For more information about these configurations, see [OAuth Configurations](../../login/oauth-app-config-advanced). 
 
 8. Click **Add**. 
 

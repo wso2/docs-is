@@ -29,7 +29,7 @@ page guides you through calling the SOAP service using [SOAP UI](../../https://w
 
     !!! Tip 
         You can obtain an oauth token by following the tutorial,
-        [OAuth 2.0 with WSO2 Playground](http://localhost:8000/learn/oauth-2.0-with-wso2-playground/)
+        [OAuth 2.0 with WSO2 Playground](insertlink)
         
     1.  Since this validation service is an admin service, a valid username and password needs to be provided in order to consume the
         service.

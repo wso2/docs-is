@@ -48,72 +48,197 @@ nav:
   - 'Home': index.md
   - 'Quick Starts':
       - 'Overview': quick-starts/overview.md
-      - 'Mobile':
-          - 'Android': quick-starts/android.md
-          - 'iOS': quick-starts/ios.md
-      - 'Frontend':
-          - 'Angular': quick-starts/angular.md
-          - 'React': quick-starts/react.md
-      - 'Backend':
-          - 'Java': quick-starts/java.md
-          - 'NodeJs': quick-starts/nodejs.md
+      - 'Choose an SDK':
+        - 'Android': quick-starts/android.md
+        - 'React': quick-starts/react.md
+        - 'Java': quick-starts/java.md
+      - 'Choose a Sample Type':
+        - 'Android': quick-starts/android-sample.md
+        - 'React': quick-starts/react-sample.md
+        - 'Java': quick-starts/java-sample.md
+      - 'Login':
+        - 'OpenID Connect': quick-starts/webapp-oidc-sample.md
+        - 'SAML': quick-starts/webapp-saml-sample.md
+        - 'Query SAMl Assertions': quick-starts/query-saml-assertions-sample.md
+        - 'Use SAML Artifact Binding': quick-starts/use-artifact-binding-sample.md
+        - 'Configure Attributes': quick-starts/attribute-config-sample.md
+        - 'Integrate with a Custom Protocol': quick-starts/webapp-custom-sample.md
+      - 'Logout':
+        - 'Session Management and Logout': quick-starts/oidc-session-management.md
+        - 'OpenID Connect Back-Channel Logout': quick-starts/oidc-backchannel-logout-sample.md
+        - 'SAML Front-Channel Logout': quick-starts/saml-front-channel-logout.md
+        - 'SAML Back-Channel Logout': quick-starts/saml-back-channel-logout.md
+        - 'Cross-Protocol Logout': quick-starts/cross-protocol-logout-sample.md
+      - 'Single Sign On':
+        - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
+        - 'SAML Apps': quick-starts/sso-for-saml-apps.md
+      - 'Multi-Factor Authentication': quick-starts/mfa-sample.md
+      - 'Request Path Authentication':
+        - 'Basic-Auth': quick-starts/basic-auth-request-path-sample.md
+        - 'OAuth-Bearer': quick-starts/oauth-request-path-sample.md
+      - 'Adaptive Authentication':
+        - 'Adaptive Authentication Scenarios': quick-starts/adaptive-auth-overview.md
+        - 'Role-Based': quick-starts/role-based-adaptive-auth.md
+        - 'User Age-Based': quick-starts/age-based-adaptive-auth.md
+        - 'Tenant-Based': quick-starts/tenant-based-adaptive-auth.md
+        - 'User Store-Based': quick-starts/user-store-based-adaptive-auth.md
+        - 'IP-Based': quick-starts/ip-based-adaptive-auth.md
+        - 'Device-Based': quick-starts/device-based-adaptive-auth.md
+        - 'Login Attempts-Based': quick-starts/login-attempts-based-adaptive-auth.md
+        - 'ACR-Based': quick-starts/acr-based-adaptive-auth.md
+        - 'Using Function Library': quick-starts/adaptive-auth-with-function-lib-sample.md
+        - 'Limiting Active User Sessions': quick-starts/limiting-active-sessions-adaptive-auth.md
+      - 'Access Delegation':
+        - 'Authorization Code Grant': quick-starts/auth-code-playground.md
+        - 'Implicit Grant': quick-starts/implicit-playground.md
+        - 'Client Credentials Grant': quick-starts/client-credentials-playground.md
+        - 'Password Grant': quick-starts/password-playground.md
+        - 'Microprofile JWT': quick-starts/microprofile-jwt-sample.md
+        - 'SAML2 Bearer Assertion Profile': quick-starts/saml2-bearer-assertion-profile.md
+        - 'Encrypt ID Tokens': quick-starts/oidc-token-encryption-sample.md
+        - 'Passing OIDC Parameters as a Request Object': quick-starts/request-object.md
+      - 'Federation':
+        - 'Facebook': quick-starts/fb-as-federated-authenticator-sample.md
+        - 'Google': quick-starts/google-as-federated-authenticator-sample.md
+        - 'Twitter': quick-starts/twitter-as-federated-authenticator-sample.md
+        - 'Microsoft Azure': quick-starts/ms-azure-as-federated-authenticator-sample.md
   - 'Guides':
       - 'Get Started': guides/before-you-start.md
-      - 'Authentication':
+      - 'Login':
         - 'Web Application':
-          - 'OAuth/OIDC': guides/authentication/regular-webapp-oidc.md
-          - 'SAML': guides/authentication/regular-webapp-saml.md
-          - 'STS': guides/authentication/regular-webapp-sts.md
-        - 'Mobile Application': guides/authentication/mobile-app.md
-        - 'Single Page Application': guides/authentication/spa-app.md
+          - 'OIDC': guides/login/webapp-oidc.md
+          - 'SAML': guides/login/webapp-saml.md
+          - 'WS-Federation': guides/login/webapp-wsfed.md
+          - 'IWA': guides/login/webapp-iwa.md
+        - 'Client-Side Application': guides/login/client-side-app.md
         - 'SaaS Applications':
-          - 'Google': guides/authentication/google.md
-          - 'Microsoft Services':
-            - 'Dynamics CRM': guides/authentication/microsoft-dynamic-crm.md
-            - 'Office365': guides/authentication/office365.md
-            - 'SharePoint': guides/authentication/microsoft-sharepoint.md
-            - 'Workday': guides/authentication/microsoft-workday.md
-          - 'Salesforce': guides/authentication/salesforce.md
-          - 'Shiboleth': guides/authentication/google.md
-      - 'Single Sign On': guides/authentication/enable-single-sign-on.md
-      - 'Authentication Methods':
-        - 'X509': guides/authentication/x509.md
-        - 'IWA': guides/authentication/iwa.md
+          - 'Salesforce': guides/login/log-into-salesforce-using-is.md
+          - 'Google': guides/login/log-into-google-using-is.md
+          - 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
+        - 'Request Attributes for the Application': guides/login/request-attributes.md
+        - 'Single Sign On': 
+          - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
+          - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
+          - 'SSO For SAML Applications': guides/login/sso-for-saml.md
+          - 'SSO For WS-Federation Applications': guides/login/sso-for-ws-fed.md
+          - 'Single Sign-On for Native iOS Applications': guides/login/sso-native-ios.md
+        - 'Single Logout':
+          - 'OpenID Connect':
+            - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
+            - 'Session Management and Logout': guides/login/session-management-logout.md
+            - 'Logout URL Redirection': guides/login/oidc-logout-url-redirection.md
+          - 'SAML':
+            - 'Front-Channel Logout': guides/login/saml-front-channel-logout.md
+            - 'Back-Channel Logout': guides/login/saml-back-channel-logout.md
+          - 'Cross Protocol Logout': guides/login/cross-protocol-logout.md
+        - 'Advanced OpenID Connect':
+          - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
+          - 'Pass Parameters as a Request Object': guides/login/oidc-request-object.md
+          - 'Manage Scopes and Claims': guides/login/oidc-scopes-claims.md
+          - 'Encrypt ID Tokens': guides/login/oidc-token-encryption.md
+          - 'Discover OpenID Connect Provider': guides/login/oidc-discovery.md
+          - 'Obtain Key Set Using JWKS': guides/login/using-jwks.md
+          - 'Validate JWT based on JWKS': guides/login/validate-jwt-using-jwks.md
+        - 'Advanced SAML':
+          - 'Use Advanced Parameters in the Authentication Request': guides/login/saml-parameters-in-auth-request.md
+          - 'Use SAML Artifact Binding': guides/login/use-artifact-binding.md
+          - 'Query SAML Assertions': guides/login/query-saml-assertions.md
+          - 'Manage User Attributes with eIDAS': guides/login/user-attributes-eidas.md
+          - 'Use SAML Metadata': guides/login/use-saml-metadata.md
+        - 'WS-Federation': guides/login/ws-federation.md
+        - 'Integrate Using Custom Protocols': guides/login/integrate-custom-protocol.md
+        - 'Configure Advanced Settings':
+          - 'Skip User Consent': guides/login/skip-user-consent.md
+          - 'SaaS Applications': guides/login/saas-application.md
+          - 'Use Certificates with Applications': guides/login/use-certificates-with-applications.md
+          - 'SP/IdP Session Timeout': guides/login/session-timeout.md
+        - 'Request Path Authentication':
+          - 'Basic Auth Request Path Authentication': guides/basic-auth-request-path.md
+          - 'OAuth Request Path Authentication': guides/oauth-request-path.md
       - 'Multifactor Authentication':
-        - 'Overview': guides/mfa/overview.md
-        - '2FA with FIDO': guides/mfa/2fa-fido.md
-        - '2FA with TOTP': guides/mfa/2fa-totp.md
-        - '2FA with SMS OTP': guides/mfa/2fa-sms-otp.md
-        - '2FA with Email OTP': guides/mfa/2fa-email-otp.md
-        - '3FA': mfa/3fa-basic-fido-biometrics.md
-      - 'Adaptive Authentication': 
-        - 'Configure Adaptive Authentication': guides/configure-adaptive-auth.md
-        - 'Using Function Library': guides/adaptive-auth-with-function-lib.md
-      - 'Federation':
-        - guides/federation.md
-      - 'Access Delegation' : 
-        - 'OAuth':
-          - 'Overview': guides/access-delegation/overview.md
-          - 'Configure OAuth Grant Types': guides/access-delegation/oauth-grant-types.md
-          - 'Configure Refresh Token Grant': guides/access-delegation/configure-refresh-token.md
-          - 'Configure Kerberos Grant': guides/access-delegation/configure-kerberos-grant.md
-          - 'Configure JWT Grant': guides/access-delegation/configure-jwt-grant.md
-          - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegation/saml2-bearer-assertion-profile.md
-          - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
-          - 'Invoke OAuth Token Introspection Endpoint': guides/access-delegation/invoke-oauth-introspection-endpoint.md
-          - 'OAuth Token Validation Using SOAP': guides/access-delegation/oauth-token-validation.md
-          - 'Get User Claims as a JWT': guides/access-delegation/get-user-claims-as-a-jwt.md
-          - 'Issue New Tokens Per Request': guides/access-delegation/issue-new-tokens-per-request.md
-          - 'Validate JWT Based On JWKS ': guides/access-delegation/validate-jwt-based-on-jwks.md
-          - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
-          - 'Dynamic Client Regisration': guides/access-delegation/oauth-dynamic-client-registration.md
-        - 'OpenID Connect':
-          - 'Overview': guides/access-delegation/openid-connect.md
-          - 'Encrypt ID Tokens': guides/access-delegation/oidc-token-encryption.md
-          - 'Discover OpenID Connect Provider': guides/access-delegation/openid-connect-discovery.md
-          - 'Call JWKS Endpoint': guides/access-delegation/call-jwks-endpoint.md
-      - 'Authorization' : guides/authorization/overview.md
-      - 'Manage Users':
+        - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
+        - 'Use a Knowledge Factor':
+          - 'Password': guides/mfa/password.md
+          - 'IWA': guides/mfa/iwa.md
+        - 'Use a Possession Factor':
+          - 'SMS OTP': guides/mfa/2fa-sms-otp.md
+          - 'Email OTP': guides/mfa/2fa-email-otp.md
+          - 'TOTP': guides/mfa/2fa-totp.md
+          - 'X509': guides/mfa/x509.md
+          - 'FIDO': guides/mfa/2fa-fido.md
+        - 'Use an Inherence Factor':
+          - 'MePIN': guides/mfa/mepin.md
+          - 'Biometrics': mfa/3fa-basic-fido-biometrics.md
+      - 'Adaptive Authentication':
+        - 'Configure Adaptive Authentication': guides/adaptive-auth/configure-adaptive-auth.md
+        - 'Use Function Library': guides/adaptive-auth/adaptive-auth-with-function-lib.md
+        - 'Ensure Assurance with ACR/AMR': guides/adaptive-auth/work-with-acr-amr.md
+      - 'Identity Lifecycles':
+        - 'Onboard Users':
+          - 'Overview': guides/identity-lifecycles/onboard-overview.md
+          - 'Admin Creation Workflow': guides/identity-lifecycles/admin-creation-workflow.md
+          - 'Invitation Workflow': guides/identity-lifecycles/invitation-workflow.md
+          - 'User Self-Registration Workflow': guides/identity-lifecycles/self-register.md
+          - 'Just in Time User Provisioning Workflow': guides/identity-lifecycles/just-in-time.md
+          - 'Bulk Import Users': guides/identity-lifecycles/import-users.md
+        - 'Manage Users':
+          - 'Overview': guides/identity-lifecycles/manage-user-overview.md
+          - 'List/Search Users': guides/identity-lifecycles/search-users.md
+          - 'Delete Users': guides/identity-lifecycles/delete-users.md
+        - 'Manage Roles':
+          - 'Overview': guides/identity-lifecycles/manage-role-overview.md
+          - 'Add Role': guides/identity-lifecycles/add-user-roles.md
+          - 'Edit/Delete Role': guides/identity-lifecycles/edit-delete-roles.md
+          - 'Role-Based Permissions': guides/identity-lifecycles/role-based-permissions.md
+        - 'Outbound Provision Users':
+          - 'SCIM2.0': guides/out-prov/scim.md
+          - 'Microsoft Azure AD': guides/out-prov/asure.md
+          - 'Google Directory': guides/out-prov/outbound-provisioning-with-google.md
+          - 'Salesforce': guides/out-prov/outbound-provisioning-with-salesforce.md
+          - 'Role Based Provisioning': guides/out-prov/role-based-provisioning.md
+          - 'Rule Based Provisioning': guides/out-prov/rule-based-provisioning.md
+        - 'Inbound Provision Users':
+          - 'Configure User Stores for SCIM 2.0': guides/inbound-prov/configure-inbound-scim2.md
+          - 'Configure Active Directory User Stores': guides/inbound-prov/configure-ad.md
+        - 'Just in TIme Provision Users':
+          - 'Configure Just-In-Time Provisioning for an Identity Provider': guides/jit/configure-jit.md
+        - 'Manage User Stores':
+          - 'JDBC as the Primary User Store': guides/userstore/jdbc-us.md
+          - 'Active Directory as a Secondary User Store': guides/userstore/ad-us.md
+          - 'LDAP as a Secondary User Store': guides/userstore/ldap-us.md
+          - 'Plug a Custom User Store': guides/userstore/custom-us.md
+        - 'Manage Account States':
+          - 'Lock/Unlock Accounts': guides/account-states/lock-account.md
+          - 'Suspend Accounts': guides/account-states/suspend-accounts.md
+          - 'Disable Accounts': guides/account-states/enable-account.md
+      - 'Password Management':
+        - 'Password Policies': guides/password-mgt/password-policies.md
+        - 'Admin-Initiated Password Reset': guides/password-mgt/forced-password-reset.md
+        - 'Password Recovery Using Email Verification': guides/password-mgt/recover-password.md
+        - 'Password Recovery Using Challenge Question': guides/password-mgt/challenge-question.md
+        - 'ReCaptcha on Invalid Password Attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
+        - 'ReCaptcha on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
+      - 'Federated Account Linking':
+        - 'Automatic Account Linking During JIT': guides/account-linking/automatic-account-link.md
+        - 'Interactive Account Linking': guides/account-linking/interactive-account-link.md
+      - 'Access Delegation':
+        - 'OAuth 2.0':
+          - 'Web Applications': guides/access-delegation/overview.md
+          - 'Client Side Applications': guides/access-delegation/oauth-grant-types.md
+          - 'IoT Devices': guides/access-delegation/configure-refresh-token.md
+          - 'OAuth 2.0 Tokens': guides/access-delegation/configure-kerberos-grant.md
+          - 'Invoke the OAuth 2.0 Introspection Endpoint': guides/access-delegation/configure-jwt-grant.md
+          - 'OAuth 2.0 Dynamic Client Registration': guides/access-delegation/oauth-dynamic-client-registration.md
+          - 'OAuth 2.0 Client Authentication': guides/access-delegation/oauth-token-hashing.md
+          - 'Authorizing for the OAuth 2.0 Scopes': guides/access-delegation/invoke-oauth-introspection-endpoint.md
+          - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
+      - 'Federation - To Remove':
+          - 'Facebook': guides/federation/facebook.md
+          - 'Google': guides/federation/google.md
+          - 'Twitter': guides/federation/twitter.md
+          - 'Microsoft Azure': guides/federation/microsoft-azure.md
+      - 'Authorization - To Remove': guides/authorization/overview.md
+      - 'Manage Users - To Remove':
         - 'Overview': guides/user-mgt/user-mgt-overview.md 
         - 'Manage User Operations':
           - 'Overview': guides/user-mgt/manage-user-overview.md
@@ -142,16 +267,28 @@ nav:
             - 'Recover Username': guides/user-mgt/recover-username.md
             - 'Recover Password': guides/user-mgt/recover-password.md
             - 'Resend Account Recovery Confirmation Email': guides/user-mgt/recovery-confirmation.md
-      - 'Manage Roles':
+      - 'Manage Roles - To Remove':
         - 'Overview': guides/user-mgt/roles.md
         - 'Add User Roles': guides/user-mgt/add-user-roles.md
         - 'Update User Roles': guides/user-mgt/update-roles.md
         - 'Edit/Delete Roles': guides/user-mgt/edit-delete-roles.md
         - 'Role-Based Permissions': guides/user-mgt/role-based.md
-      - 'Server Configurations': 
+      - 'Server Configurations - To Remove':
         - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
-      - 'Manage Tenants': 
+      - 'Manage Tenants - To Remove':
         - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
+      - 'Configure Provisioning - To Remove':
+        - 'Overview': guides/identity-provisioning/provisioning-overview.md
+        - 'Inbound Provisioning':
+          - 'Overview': guides/identity-provisioning/inbound-provisioning.md
+          - 'Set up Service Provider for Inbound Provisioning': guides/identity-provisioning/set-up-sp-for-inbound-provisioning.md
+          - 'Configure User Stores for SCIM 2.0-Based Inbound Provisioning': guides/identity-provisioning/configure-user-stores-for-scim2-based-inbound-provisioning.md
+        - 'Outbound Provisioning':
+          - 'Overview': guides/identity-provisioning/outbound-provisioning.md
+          - 'Configure Outbound Provisioning with Salesforce': guides/identity-provisioning/outbound-provisioning-with-salesforce.md
+          - 'Configure Outbound Provisioning with Google': guides/identity-provisioning/outbound-provisioning-with-google.md
+          - 'Configure Role-Based Provisioning': guides/identity-provisioning/role-based-provisioning.md
+          - 'Configure Rule-Based Provisioning': guides/identity-provisioning/rule-based-provisioning.md
   - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
@@ -186,8 +323,8 @@ nav:
                           - 'JWKS': concepts/authentication/jwks.md
                           - 'Dynamic Client Registration': concepts/authorization/dcr.md
                           - 'Session Management and Logout': concepts/authentication/session-management.md
+                          - 'Back-channel-logout': concepts/authentication/back-channel-logout.md
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
-                          - 'Security Considerations': concepts/authentication/security-considerations.md
                   - 'SAML':
                           - 'Introduction': concepts/authentication/saml.md
                   - 'WS-Federation':
@@ -213,6 +350,7 @@ nav:
                                           - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner-grant.md
                                           - 'Client Credentials Grant Type': concepts/authorization/client-credential-grant.md
                                           - 'Refresh Token Grant Type': concepts/authorization/refresh-token-grant.md
+                                          - 'Device Flow Grant Type': concepts/authorization/device-flow-grant.md
                                     - 'JWT Bearer Grant Type': concepts/authorization/jwt_bearer_grant.md
                                     - 'SAML2 Bearer Assertion Profile': concepts/authorization/saml2_bearer_assertion_profile.md
                                     - 'Tokens':
@@ -232,7 +370,7 @@ nav:
       - 'Identity Federation': concepts/identity-federation.md
       - 'Identity Provisioning':
           - 'Introduction': concepts/intro-provisioning.md
-          - 'Provisioning Framework': concepts/provisioning-framework.md
+          - 'Provisioning Framework': concepts/identity-provisioning-framework.md
           - 'Inbound Provisioning': concepts/inbound-provisioning.md
           - 'Outbound Provisioning': concepts/outbond-provisioning.md
           - 'GIT Provisioning': concepts/git-provisioning.md
@@ -247,42 +385,12 @@ nav:
       - 'Compliance':
           - 'GDPR': concepts/gdpr.md
           - 'eIDAS': concepts/eidas.md
-  - 'Samples':
-    - samples/overview.md
-    - 'Authentication':
-      - 'Android': samples/android.md
-      - 'iOS': samples/ios.md
-      - 'Angular': samples/angular.md
-      - 'React': samples/react.md
-      - 'Java': samples/java.md
-      - 'NodeJs': samples/nodejs.md
-      - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
-      - 'SAML': samples/regular-webapp-saml-sample.md
-    - 'Single Sign On':
-      - 'OAuth/OIDC Apps': samples/sso-for-oidc-apps.md
-      - 'SAML Apps': samples/sso-for-saml-apps.md
-      - 'Different Authentication Protocols': samples/cross-protocol-sso.md
-    - 'Multi-Factor Authentication': samples/mfa-sample.md
-    - 'Adaptive Authentication':
-      - 'Role-Based': samples/role-based-adaptive-auth.md
-      - 'User Age-Based': samples/age-based-adaptive-auth.md
-      - 'Tenant-Based': samples/tenant-based-adaptive-auth.md
-      - 'User Store-Based': samples/user-store-based-adaptive-auth.md
-      - 'IP-Based': samples/ip-based-adaptive-auth.md
-      - 'Device-Based': samples/device-based-adaptive-auth.md
-      - 'Login Attempts-Based': samples/login-attempts-based-adaptive-auth.md
-      - 'ACR-Based': samples/acr-based-adaptive-auth.md
-      - 'Using Function Library': samples/adaptive-auth-with-function-lib-sample.md
-      - 'Limiting Active User Sessions': samples/limiting-active-sessions-adaptive-auth.md
-    - 'Access Delegation':
-      - 'Authorization Code Grant': samples/auth-code-playground.md
-      - 'Implicit Grant': samples/implicit-playground.md
-      - 'Client Credentials Grant': samples/client-credentials-playground.md
-      - 'Password Grant': samples/password-playground.md
-      - 'Microprofile JWT': samples/microprofile-jwt-sample.md
-      - 'SAML2 Bearer Assertion Profile': samples/saml2-bearer-assertion-profile.md
-      - 'Encrypt ID Tokens': samples/oidc-token-encryption-sample.md
-  - 'Pickup Samples':
+      - 'Security Considerations':
+          - 'Mitigating Cross Site Request Forgery Attacks': concepts/cross-site-request-forgery-attacks.md
+          - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
+          - 'Mitigating Brute Force Attacks': concepts/brute-force-attacks.md
+          - 'Timestamp in WS-Security to Mitigate Replay Attacks': concepts/replay-attacks.md
+  - 'Pickup quick-starts':
       - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
       - 'Pickup Dispatch SAML': fragments/pickup-dispatch-saml.md
       - 'Pickup Manager OIDC': fragments/pickup-manager-oidc.md
@@ -290,37 +398,48 @@ nav:
   - 'Configure Authentication':
     - 'Register an Application': fragments/register-a-service-provider.md
     - 'OAuth/OIDC':
-      - 'Basic' : fragments/oauth-app-config-basic.md
-      - 'Advanced' : guides/authentication/oauth-app-config-advanced.md
+      - 'Basic': fragments/oauth-app-config-basic.md
+      - 'Advanced': guides/login/oauth-app-config-advanced.md
       - 'Client Configurations':
-        - 'Regular OAuth/OIDC Application' : fragments/configure-client-regular-oidc-app.md
-        - 'SPA Application' : guides/authentication/configure-client-spa.md
-        - 'Mobile Application' : guides/authentication/configure-mobile-app.md
-        - 'OIDC Logout' : fragments/oidc-logout.md
-        - 'OIDC Session Management' : fragments/oidc-session-management.md
+        - 'Regular OAuth/OIDC Application': fragments/configure-client-regular-oidc-app.md
+        - 'OIDC Back-Channel Logout': fragments/oidc-backchannel-logout.md
+        - 'OIDC Session Management': fragments/oidc-session-management.md
+        - 'OAuth/OIDC Grants': fragments/oauth-oidc-grants.md
     - 'SAML':
-      - 'Basic' : fragments/saml-app-config-basic.md
-      - 'Advanced' : guides/authentication/saml-app-config-advanced.md
+      - 'Basic': fragments/saml-app-config-basic.md
+      - 'Advanced': guides/login/saml-app-config-advanced.md
       - 'Client Configurations':
-        - 'SAML Application' : fragments/configure-client-regular-saml-app.md
-        - 'Retrieve User Information to the Client Application' : fragments/get-user-information-to-the-saml-application.md
+        - 'SAML Application': fragments/configure-client-regular-saml-app.md
+        - 'Retrieve User Information to the Client Application': fragments/get-user-information-to-the-saml-application.md
   - 'Configure Authenticators':
     - 'FIDO Configurations': guides/mfa/fido-config-advanced.md
     - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
     - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
     - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
-  - 'Admin Portal':
+  - 'Developer Portal':
       - 'Applications':
-          - admin-portal/applications/overview.md
+          - developer-portal/applications/overview.md
           - 'Create New Application':
-            - admin-portal/applications/new-application.md
-            - 'Single Page Application': admin-portal/applications/add/spa.md
-            - 'OIDC Web Application': admin-portal/applications/add/oidc.md
-            - 'SAML Web Application': admin-portal/applications/add/saml.md
-          - 'Edit Application' :
-            - 'Single Page Aplication': admin-portal/applications/edit-spa.md
-            - 'OIDC Web Application': admin-portal/applications/edit-oidc.md
-            - 'SAML Web Application': admin-portal/applications/edit-saml.md
+            - developer-portal/applications/new-application.md
+            - 'Single Page Application': developer-portal/applications/add/spa.md
+            - 'OIDC Web Application': developer-portal/applications/add/oidc.md
+            - 'SAML Web Application': developer-portal/applications/add/saml.md
+            - 'OIDC Mobile Application': developer-portal/applications/add/mobile.md
+          - 'Edit Application':
+            - 'Single Page Aplication': developer-portal/applications/edit-spa.md
+            - 'OIDC Web Application': developer-portal/applications/edit-oidc.md
+            - 'SAML Web Application': developer-portal/applications/edit-saml.md
+            - 'OIDC Mobile Application': developer-portal/applications/edit-mobile.md
+      - 'Identity Providers':
+          - developer-portal/identity-providers/overview.md
+          - 'Create New Identity Provider':
+            - developer-portal/identity-providers/new-identity-provider.md
+            - 'Google': developer-portal/identity-providers/add/google.md
+            - 'Facebook': developer-portal/identity-providers/add/facebook.md
+            - 'OpenID Connect': developer-portal/identity-providers/add/oidc.md
+            - 'Manual Setup': developer-portal/identity-providers/add/manual-setup.md
+          - 'Edit Identity Provider':
+            - developer-portal/identity-providers/edit-identity-provider.md
   - '': page-not-found.md
 
 # Extensions

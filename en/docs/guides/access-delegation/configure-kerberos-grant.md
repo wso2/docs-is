@@ -34,7 +34,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on the `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced).
+        For more information on the `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
         
 7.  Click **Add**. 
 
