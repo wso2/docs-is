@@ -176,11 +176,11 @@ nav:
       - 'Identity Lifecycles':
         - 'Onboard Users':
           - 'Overview': guides/identity-lifecycles/onboard-overview.md
-          - 'Admin Creation Workflow': guides/onboard/admin-creation-workflow.md
-          - 'Invitation Workflow': guides/onboard/ask-password.md
-          - 'User Self-Registration Workflow': guides/onboard/self-register.md
-          - 'Just in Time User Provisioning Workflow': guides/onboard/just-in-time.md
-          - 'Bulk Import Users': guides/onboard/import-users.md
+          - 'Admin Creation Workflow': guides/identity-lifecycles/admin-creation-workflow.md
+          - 'Invitation Workflow': guides/identity-lifecycles/invitation-workflow.md
+          - 'User Self-Registration Workflow': guides/identity-lifecycles/self-register.md
+          - 'Just in Time User Provisioning Workflow': guides/identity-lifecycles/just-in-time.md
+          - 'Bulk Import Users': guides/identity-lifecycles/import-users.md
         - 'Manage Users':
           - 'Overview': guides/identity-lifecycles/manage-user-overview.md
           - 'List/Search Users': guides/identity-lifecycles/search-users.md

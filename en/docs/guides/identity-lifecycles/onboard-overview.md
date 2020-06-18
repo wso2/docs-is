@@ -2,14 +2,14 @@
 
 This section guides you through the ways of user onboarding to WSO2 Identity Server and to external systems.  
 
-- [Admin Creation Workflow](TODO: dev-portal-fragment) 
+- [Admin Creation Workflow](../../identity-lifecycles/admin-creation-workflow) 
 
-- [Invitation Workflow](../../onboard/ask-password) 
+- [Invitation Workflow](../../identity-lifecycles/invitation-workflow) 
 
-- [User Self Registration Workflow](../../onboard/self-register)
+- [User Self Registration Workflow](../../identity-lifecycles/self-register)
 
-- [Just in Time User Provisioning Workflow](../../jit/configure-jit.md)
+- [Just in Time User Provisioning Workflow](../../identity-lifecycles/configure-jit)
 
-- [Bulk Import Users](../../onboard/import-users)
+- [Bulk Import Users](../../identity-lifecycles/import-users)
 
-- [Outbound Provisioning Workflow](../../out-prov/outbound-provisioning)
+- [Outbound Provisioning Workflow](../../identity-lifecycles/outbound-provisioning)
