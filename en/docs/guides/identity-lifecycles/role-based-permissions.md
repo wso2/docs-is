@@ -1,12 +1,12 @@
 # Role-based Permissions
 
-## Managing role-based permissions using the user portal
+## Manage role-based permissions using the user portal
 
-{!insert-fragment!} 
+TODO: dev-portal-fragment 
 
 ---
 
-## Managing role-based permissions using SOAP API
+## Manage role-based permissions using SOAP API
 
 The following operations on permissions on roles are available through SOAP APIs.
 
@@ -498,3 +498,8 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
 </td>
 </tr>
 </table>
+
+!!! info "Related Topics"
+    - [Concept: User Roles](TODO:insert-link-to-concept)
+    - [Guide: Edit/Delete Roles](../../identity-lifecycles/edit-delete-roles)
+    - [Guide: Role Based Permissions](../../identity-lifecycles/edit-delete-roles)

@@ -1,6 +1,8 @@
 # Creating Users Using the Ask Password and Email Verification Options
 
-This section is about the user on-boarding flows initiated by administrators from an invitation to the user's email which allow respective end users to decide their own passwords or verify the accounts created by administrators. For more information, see [Ask Password and Email Verification](TODO:insert-link-to-concept).
+This section is about the user on-boarding flows initiated by
+administrators from an invitation to the user's email which allow respective end users to decide their own
+passwords or verify the accounts created by administrators.
 
 ----
 

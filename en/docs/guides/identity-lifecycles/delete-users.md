@@ -42,7 +42,8 @@ The following SOAP method will give you the user ID of the relevant username.
 
 ---
 
-## Tracking user deletion on deleting a user (optional)
+## Track user deletion on deleting a user (optional)
+TODO : This part should be moved to **monitoring logs** in the **deploy** section and link from here.
 
 WSO2 Identity Server (WSO2 IS) allows you to track details related to
 user deletion by writing the following information to a log file each
@@ -105,3 +106,8 @@ related to user deletion each time you delete a user.
     details in any other format that you want, and you can also extend the
     functionality to write the details to a text file, database, or any
     other file depending on your requirement. For more information, see [Writing user deletion logs in other formats](insert-link).
+    
+!!! info "Related Topics"
+    - [Concept: Users](TODO:insert-link-to-concept)
+    - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
+    - [Guide: Search/List Users](../../identity-lifecycles/search-users)
