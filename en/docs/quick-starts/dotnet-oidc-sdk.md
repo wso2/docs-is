@@ -6,13 +6,12 @@ This SDK contains APIs related to OIDC using WSO2 Identity Server.
 
 To use the SDK in your project, add the `org.wso2.identity.sdk.oidc.dll` file in the project or use the Nuget
 package manager. 
-Please see the more descriptive sections below for more information about each section. 
 
 ### Building from the source
 
-To build the project from the source, please follow the instructions given below.
+To build the project from the source, follow the instructions given below.
 
-1. Clone the repository using following command. 
+1. Clone the repository using the following command. 
 ``git clone https://github.com/wso2-extensions/identity-sdks-dotnet.git``
 2. Open the solution using Visual Studio.
 3. Build the project. 
@@ -23,9 +22,8 @@ To build the project from the source, please follow the instructions given below
 2. Search for `org.wso2.identity.sdk.oidc`.
 3. Include it with the suggested required dependencies. 
 
-Or
+Instead, you can also run the following command in the package manager CLI as shown below. 
 
-2. Run the following command in the package manager CLI.
 ``Install-Package org.wso2.identity.sdk.oidc -Version 1.0.0``
 
 ## Using the SDK
@@ -34,10 +32,10 @@ Below explained key API methods that is available in the OIDC SDK and how to use
 
 ### Login
 
-Use the following code snippets to login a user. 
+Use the following code snippet to log a user in. 
 
-Currently, all the configurations are supported through only by the app.config file. To add the necessary
- configurations, create a file like below and keep it in the application path.
+Currently, all the configurations are supported only via the `app.config file`. To add the necessary
+ configurations, create a file as shown below and place it in the application path.
 
 ```xml
 <configuration>
@@ -64,7 +62,7 @@ var accessToken = authenticationHelper.AccessToken;
 
 ### Logout
 
-Use the following code to logout and already logged in user. 
+Use the following code to log out an already logged in user. 
 
 ```csharp
 await authenticationHelper.Logout(accessToken);
