@@ -42,7 +42,7 @@ The following SOAP method will give you the user ID of the relevant username.
 
 ---
 
-## Tracking user deletion on deleting a user (optional)
+## Track user deletion on deleting a user (optional)
 TODO : This part should be moved to **monitoring logs** in the **deploy** section and link from here.
 
 WSO2 Identity Server (WSO2 IS) allows you to track details related to

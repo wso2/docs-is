@@ -6,6 +6,8 @@ TODO: user-portal-fragment
 
 ---
 
+TODO : Add details on SCIM ME endpoint
+
 ## Self register using REST APIs
 
 The following CURL command can be used to self register.  
