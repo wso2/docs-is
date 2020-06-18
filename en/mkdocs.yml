@@ -182,8 +182,14 @@ nav:
           - 'Just in Time User Provisioning Workflow': guides/onboard/just-in-time.md
           - 'Bulk Import Users': guides/onboard/import-users.md
         - 'Manage Users':
-          - 'Overview': guides/user-mgt/manage-user-overview.md
-        - 'Manage Roles': guides/role-mgt/manage-roles.md
+          -  'Overview': guides/identity-lifecycles/manage-user-overview.md
+          - 'List/Search Users': guides/identity-lifecycles/search-user.md
+          - 'Delete Users': guides/identity-lifecycles/delete-users.md
+        - 'Manage Roles':
+          - 'Overview': guides/identity-lifecycles/manage-role-overview.md
+          - 'Add Role': guides/identity-lifecycles/add-user-roles.md
+          - 'Edit/Delete Role': guides/identity-lifecycles/edit-delete-roles.md
+          - 'Role-Based Permissions': guides/identity-lifecycles/role-based-permissions.md
         - 'Outbound Provision Users':
           - 'SCIM2.0': guides/out-prov/scim.md
           - 'Microsoft Azure AD': guides/out-prov/asure.md

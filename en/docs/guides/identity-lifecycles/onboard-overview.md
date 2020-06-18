@@ -12,4 +12,4 @@ This section guides you through the ways of user onboarding to WSO2 Identity Ser
 
 - [Bulk Import Users](../../onboard/import-users)
 
-- [Outbound Provisioning](../../out-prov/outbound-provisioning)
+- [Outbound Provisioning Workflow](../../out-prov/outbound-provisioning)

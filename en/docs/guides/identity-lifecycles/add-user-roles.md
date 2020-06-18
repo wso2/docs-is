@@ -1,18 +1,17 @@
-# Adding a user role
+# Add a user role
 
-!!! info "Before you Begin"
-    For a basic understanding of adding roles in WSO2 Identity Server, see [Adding Roles](insert-link-concepts).
+This section will guide you through the ways of adding a user role to WSO2 Identity Server.
 
-## Adding a user role using the admin portal
+## Add a user role using the admin portal
 
-{insert-fragment}
+TODO: dev-portal-fragment
 
 ---
 
-## Adding a user role using SCIM
+## Add a user role using SCIM
 
 In SCIM, creating a role is the same as creating a **group.** For more information, see
-    [SCIM](insert-scim2-concept).
+    [SCIM](TODO:insert-link-to-concept).
 
 !!! note
     To create a group with users, the relevant users should already exist in the user store.
@@ -41,7 +40,7 @@ response status `           201 CREATED          `.
 
 ---
 
-## Adding a user role using SOAP
+## Add a user role using SOAP
 
 A role can be created by calling the service
 `         RemoteUserStoreManager        ` . If you are new to admin
@@ -86,11 +85,11 @@ services, see [Calling Admin Services.](insert-calling admin services)
     </soapenv:Envelope>
     ```
 
-!!! info "Related Links"
-    -   See [Role-based Permissions](insert-role-based-permissions)
-        for more information.
-    -   See [Permissions Required to Invoke Admin Services](insert-permissions-required-to-invoke-admin-services) for a
-        complete list of permissions required to invoke admin services.
+!!! info "Related Topics"
+    - [Concept: User Roles](TODO:insert-link-to-concept)
+    - [Guide: Edit/Delete Roles](../../identity-lifecycles/edit-delete-roles)
+    - [Guide: Role Based Permissions](../../identity-lifecycles/edit-delete-roles)
+
 
 
 
