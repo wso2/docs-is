@@ -16,6 +16,9 @@ disabled from appearing in the logs by setting each token to
     NTLM_Token=true
     SAML_Assertion=true
     SAML_Request=true
+    AccessToken=true
+    RefreshToken=true
+    AuthorizationCode=true
 ```
 
 In addition to this, you need to ensure that the logs in the
