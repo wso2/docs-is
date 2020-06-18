@@ -1,8 +1,8 @@
 # Creating Users Using the Ask Password and Email Verification Options
 
-This section is about the user on-boarding flows initiated by
-administrators from an invitation to the user's email which allow respective end users to decide their own
-passwords or verify the accounts created by administrators. For more information, see [Ask Password and Email Verification](TODO:insert-link-to-concept)
+This section is about the user on-boarding flows initiated by administrators from an invitation to the user's email which allow respective end users to decide their own passwords or verify the accounts created by administrators. For more information, see [Ask Password and Email Verification](TODO:insert-link-to-concept).
+
+----
 
 ## Configuring the feature
 
@@ -69,12 +69,15 @@ true in the SCIM2 user create request.
     ``` java
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Peter"},"userName":"Peter","password":"password","emails":[{"primary":true,"value":"peter@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
-    
+
+----
+
 !!! info "Related Topics"
-    - [Email Templates](TODO: dev-portal-fragment)
-    - [Admin Creation Workflow](TODO: dev-portal-fragment) 
-    - [User Self Registration Workflow](../../onboard/self-register)
-    - [Just in Time User Provisioning Workflow](../../onboard/user-account-overview)
-    - [Bulk Import Users](../../onboard/import-users)
-    - [Outbound Provisioning](../../out-prov/outbound-provisioning)
+    - [Concept: Ask Password and Email Verification](TODO:insert-link-to-concept)
+    - [Guide: Email Templates](TODO:insertlink)
+    - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
+    - [Guide: User Self Registration Workflow](../self-registration-workflow)
+    - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)
+    - [Guide: Bulk Import Users](../import-users)
+    - [Guide: Outbound Provisioning](../outbound-provisioning)
    

@@ -173,36 +173,48 @@ nav:
         - 'Ensure Assurance with ACR/AMR': guides/adaptive-auth/work-with-acr-amr.md
       - 'Identity Lifecycles':
         - 'Onboard Users':
-          - 'Overview': guides/onboard/onboard-overview.md
-          - 'Admin Creation Workflow': guides/onboard/admin-creation-workflow.md
-          - 'Invitation Workflow': guides/onboard/ask-password.md
-          - 'User Self-Registration Workflow': guides/onboard/self-register.md
-          - 'Just in Time User Provisioning Workflow': guides/onboard/just-in-time.md
-          - 'Bulk Import Users': guides/onboard/import-users.md
+          - 'Overview': guides/identity-lifecycles/onboard-overview.md
+          - 'Admin Creation Workflow': guides/identity-lifecycles/admin-creation-workflow.md
+          - 'Invitation Workflow': guides/identity-lifecycles/invitation-workflow.md
+          - 'User Self-Registration Workflow': guides/identity-lifecycles/self-registration-workflow.md
+          - 'Just-in-Time User Provisioning Workflow': guides/identity-lifecycles/jit-workflow.md
+          - 'Bulk Import Users': guides/identity-lifecycles/import-users.md
         - 'Manage Users':
-          - 'Overview': guides/user-mgt/manage-user-overview.md
-        - 'Manage Roles': guides/role-mgt/manage-roles.md
+          - 'Overview': guides/identity-lifecycles/manage-user-overview.md
+          - 'List/Search Users': guides/identity-lifecycles/search-user.md
+          - 'Delete Users': guides/identity-lifecycles/delete-users.md
+          - 'View/Update User Profiles': guides/identity-lifecycles/update-profile.md
+          - 'Manage User Attributes': guides/identity-lifecycles/manage-user-attributes.md
+        - 'Manage Roles': 
+          - 'Overview': guides/identity-lifecycles/manage-roles-overview.md
+          - 'Add User Roles': guides/identity-lifecycles/add-user-roles.md
+          - 'Update User Roles': guides/identity-lifecycles/update-roles.md
+          - 'Edit/Delete Roles': guides/identity-lifecycles/edit-delete-roles.md
+          - 'Role-Based Permissions': guides/identity-lifecycles/role-based-permissions.md
         - 'Outbound Provision Users':
-          - 'SCIM2.0': guides/out-prov/scim.md
-          - 'Microsoft Azure AD': guides/out-prov/asure.md
-          - 'Google Directory': guides/out-prov/outbound-provisioning-with-google.md
-          - 'Salesforce': guides/out-prov/outbound-provisioning-with-salesforce.md
-          - 'Role Based Provisioning': guides/out-prov/role-based-provisioning.md
-          - 'Rule Based Provisioning': guides/out-prov/rule-based-provisioning.md
+          - 'Overview': guides/identity-lifecycles/outbound-provisioning.md
+          - 'SCIM2.0': guides/identity-lifecycles/outbound-provisioning-with-scim.md
+          - 'Microsoft Azure AD': guides/identity-lifecycles/outbound-provisioning-with-azure.md
+          - 'Google Directory': guides/identity-lifecycles/outbound-provisioning-with-google.md
+          - 'Salesforce': guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
+          - 'Role Based Provisioning': guides/identity-lifecycles/role-based-provisioning.md
+          - 'Rule Based Provisioning': guides/identity-lifecycles/rule-based-provisioning.md
         - 'Inbound Provision Users':
-          - 'Configure User Stores for SCIM 2.0': guides/inbound-prov/configure-inbound-scim2.md
-          - 'Configure Active Directory User Stores': guides/inbound-prov/configure-ad.md
-        - 'Just in TIme Provision Users':
-          - 'Configure Just-In-Time Provisioning for an Identity Provider': guides/jit/configure-jit.md
+          - 'Overview': guides/identity-lifecycles/inbound-provisioning.md
+          - 'Configure User Stores for SCIM 2.0': guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
+          - 'Configure Active Directory User Stores': guides/identity-lifecycles/configure-ad.md
+        - 'Just-in-Time Provision Users':
+          - 'Configure Just-In-Time Provisioning for an Identity Provider': guides/identity-lifecycles/configure-jit.md
         - 'Manage User Stores':
-          - 'JDBC as the Primary User Store': guides/userstore/jdbc-us.md
-          - 'Active Directory as a Secondary User Store': guides/userstore/ad-us.md
-          - 'LDAP as a Secondary User Store': guides/userstore/ldap-us.md
-          - 'Plug a Custom User Store': guides/userstore/custom-us.md
+          - 'JDBC as the Primary User Store': guides/identity-lifecycles/jdbc-us.md
+          - 'Active Directory as a Secondary User Store': guides/identity-lifecycles/ad-us.md
+          - 'LDAP as a Secondary User Store': guides/identity-lifecycles/ldap-us.md
+          - 'Plug a Custom User Store': guides/identity-lifecycles/custom-us.md
         - 'Manage Account States':
-          - 'Lock/Unlock Accounts': guides/account-states/lock-account.md
-          - 'Suspend Accounts': guides/account-states/suspend-accounts.md
-          - 'Disable Accounts': guides/account-states/enable-account.md
+          - 'Overview': guides/identity-lifecycles/account-states-overview.md
+          - 'Lock/Unlock Accounts': guides/identity-lifecycles/lock-account.md
+          - 'Suspend Accounts': guides/identity-lifecycles/suspend-accounts.md
+          - 'Disable Accounts': guides/identity-lifecycles/enable-account.md
       - 'Password Management':
         - 'Password Policies': guides/password-mgt/password-policies.md
         - 'Admin-Initiated Password Reset': guides/password-mgt/forced-password-reset.md
@@ -225,62 +237,26 @@ nav:
           - 'Authorizing for the OAuth 2.0 Scopes': guides/access-delegation/invoke-oauth-introspection-endpoint.md
           - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
       - 'Federation - To Remove':
-          - 'Facebook': guides/federation/facebook.md
-          - 'Google': guides/federation/google.md
-          - 'Twitter': guides/federation/twitter.md
-          - 'Microsoft Azure': guides/federation/microsoft-azure.md
-      - 'Authorization - To Remove': guides/authorization/overview.md
-      - 'Manage Users - To Remove':
-        - 'Overview': guides/user-mgt/user-mgt-overview.md 
-        - 'Manage User Operations':
-          - 'Overview': guides/user-mgt/manage-user-overview.md
-          - 'Add Users': 
-            - 'Overview': guides/user-mgt/add-users-overview.md
-            - 'Add Users and Assign Password': guides/user-mgt/add-user.md
-            - 'Add and Invite Users': guides/user-mgt/ask-password.md
-            - 'Self Register': guides/user-mgt/self-register.md
-          - 'Import Users': guides/user-mgt/import-users.md
-          - 'List/Search Users': guides/user-mgt/search-user.md
-          - 'Delete Users': guides/user-mgt/delete-users.md
-        - 'Manage User Profiles':
-          - 'Overview': guides/user-mgt/user-profile.md
-          - 'View/Update User Profiles': guides/user-mgt/update-profile.md
-          - 'Manage User Attributes': guides/user-mgt/managing-user-attributes.md
-        - 'Manage User Accounts':
-          - 'Overview': guides/user-mgt/user-account-overview.md
-          - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
-          - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
-          - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
-          - 'Enable/Disable User Accounts': guides/user-mgt/enable-account.md
-          - 'Force Password Reset': guides/user-mgt/forced-password-reset.md
-          - 'Manage Challenge Questions': guides/user-mgt/challenge-question.md
-          - 'Perform Self Services':
-            - 'Overview': guides/user-mgt/self-services.md
-            - 'Recover Username': guides/user-mgt/recover-username.md
-            - 'Recover Password': guides/user-mgt/recover-password.md
-            - 'Resend Account Recovery Confirmation Email': guides/user-mgt/recovery-confirmation.md
-      - 'Manage Roles - To Remove':
-        - 'Overview': guides/user-mgt/roles.md
-        - 'Add User Roles': guides/user-mgt/add-user-roles.md
-        - 'Update User Roles': guides/user-mgt/update-roles.md
-        - 'Edit/Delete Roles': guides/user-mgt/edit-delete-roles.md
-        - 'Role-Based Permissions': guides/user-mgt/role-based.md
+        - 'Facebook': guides/federation/facebook.md
+        - 'Google': guides/federation/google.md
+        - 'Twitter': guides/federation/twitter.md
+        - 'Microsoft Azure': guides/federation/microsoft-azure.md
+      - 'Authorization - To Remove': guides/user-mgt/associating-user-accounts.md
+      - 'Manage User Accounts': 
+        - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
+        - 'Force Password Reset': guides/user-mgt/forced-password-reset.md
+        - 'Manage Challenge Questions': guides/user-mgt/challenge-question.md
+        - 'Perform Self Services':
+          - 'Overview': guides/user-mgt/self-services.md
+          - 'Recover Username': guides/user-mgt/recover-username.md
+          - 'Recover Password': guides/user-mgt/recover-password.md
+          - 'Resend Account Recovery Confirmation Email': guides/user-mgt/recovery-confirmation.md
       - 'Server Configurations - To Remove':
         - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
       - 'Manage Tenants - To Remove':
         - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
       - 'Configure Provisioning - To Remove':
         - 'Overview': guides/identity-provisioning/provisioning-overview.md
-        - 'Inbound Provisioning':
-          - 'Overview': guides/identity-provisioning/inbound-provisioning.md
-          - 'Set up Service Provider for Inbound Provisioning': guides/identity-provisioning/set-up-sp-for-inbound-provisioning.md
-          - 'Configure User Stores for SCIM 2.0-Based Inbound Provisioning': guides/identity-provisioning/configure-user-stores-for-scim2-based-inbound-provisioning.md
-        - 'Outbound Provisioning':
-          - 'Overview': guides/identity-provisioning/outbound-provisioning.md
-          - 'Configure Outbound Provisioning with Salesforce': guides/identity-provisioning/outbound-provisioning-with-salesforce.md
-          - 'Configure Outbound Provisioning with Google': guides/identity-provisioning/outbound-provisioning-with-google.md
-          - 'Configure Role-Based Provisioning': guides/identity-provisioning/role-based-provisioning.md
-          - 'Configure Rule-Based Provisioning': guides/identity-provisioning/rule-based-provisioning.md
   - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
