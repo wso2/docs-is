@@ -170,11 +170,12 @@ Optionally, you can use a custom assertion builder that enables persisting asser
     </saml2p:Response>
     ```
 
-You have successfully queried an assertion with the `AssertionIDRequest` using the sample application. 
+You have successfully queried an assertion with an `AssertionIDRequest` using the sample application. 
 
------
+---
 
 !!! info "Related Topics"
     - [Concept: SAML2 Assertions](TODO:insert-link-to-concept)
-    - [Guide: Query SAML2 Assertions](../../guides/login/query-saml-assertions-sample)
+    - [Guide: Query SAML2 Assertions](../../guides/login/query-saml-assertions)
+
     
