@@ -1,8 +1,7 @@
 # Search for Users
 
 ## Search for users using the admin portal
-
-{!fragments/search-user-fragment!}
+TODO: dev-portal-fragment
 
 ---
 
@@ -51,3 +50,7 @@ you the user ID of the relevant username.
 </soap:Envelope>
 ```
 
+!!! info "Related Topics"
+    - [Concept: Users](TODO:insert-link-to-concept)
+    - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
+    - [Guide: Delete Users](../../identity-lifecycles/delete-users)

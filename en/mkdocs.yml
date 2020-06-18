@@ -175,15 +175,15 @@ nav:
         - 'Ensure Assurance with ACR/AMR': guides/adaptive-auth/work-with-acr-amr.md
       - 'Identity Lifecycles':
         - 'Onboard Users':
-          - 'Overview': guides/onboard/onboard-overview.md
+          - 'Overview': guides/identity-lifecycles/onboard-overview.md
           - 'Admin Creation Workflow': guides/onboard/admin-creation-workflow.md
           - 'Invitation Workflow': guides/onboard/ask-password.md
           - 'User Self-Registration Workflow': guides/onboard/self-register.md
           - 'Just in Time User Provisioning Workflow': guides/onboard/just-in-time.md
           - 'Bulk Import Users': guides/onboard/import-users.md
         - 'Manage Users':
-          -  'Overview': guides/identity-lifecycles/manage-user-overview.md
-          - 'List/Search Users': guides/identity-lifecycles/search-user.md
+          - 'Overview': guides/identity-lifecycles/manage-user-overview.md
+          - 'List/Search Users': guides/identity-lifecycles/search-users.md
           - 'Delete Users': guides/identity-lifecycles/delete-users.md
         - 'Manage Roles':
           - 'Overview': guides/identity-lifecycles/manage-role-overview.md
