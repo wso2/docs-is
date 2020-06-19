@@ -75,7 +75,6 @@ Services.](insert-calling-admin-services)
     ```
 ----
 
----
 ## Update special role names
 Even-though we can rename the role names using WSO2 Identity Server using one of the above methods, the two special roles
 `admin` and `Internal/everyone` require a special way to update their names. You can use one of the following methods for this;

@@ -1,9 +1,9 @@
-Following are the operations that can be carried out on user roles. 
+# Manage User Roles
 
-- [Add User Roles](../add-user-roles)
+This section will guide you through the operations that can be carried out on user roles. 
 
-- [Update User Roles](../update-roles)
+- [Add User Roles](../../identity-lifecycles/add-user-roles)
 
-- [Edit/Delete Roles](../edit-delete-roles)
+- [Edit/Delete Roles](../../identity-lifecycles/edit-delete-roles)
 
-- [Role-based Permissions](../role-based-permissions)
+- [Role-based Permissions](../../identity-lifecycles/role-based)
