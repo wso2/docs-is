@@ -2,13 +2,13 @@
 
 ## Configure challenge questions using the user portal 
 
-{!insert-fragment!} 
+{!TODO: insert-fragment!} 
 
 ---
 
 ## Manage challenge questions using REST APIs
 
-There are a number of operations related to challenge questions that you can perform using REST APIs. To manage the challenge questions and answers of a user using REST APIs, see [Manage Challenge Questions](insert-link).
+There are a number of operations related to challenge questions that you can perform using REST APIs. To manage the challenge questions and answers of a user using REST APIs, see [Manage Challenge Questions](TODO:insert-link).
 
 ---
 

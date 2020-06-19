@@ -2,13 +2,13 @@
 
 ## Password reset using the user portal 
 
-{!insert-fragment!}
+{!TODO:insert-fragment!}
 
 ---
 
 ## Password reset using SCIM
 
-1. Login to the Management Console.
+1. Log in to the Management Console.
 2. Add a new external claim in **Main** -> **Claims** -> **Add** -> **Add External Claim**, using the following values. 
     
 	| Field              | Value                                                                       |
@@ -79,7 +79,7 @@
 4.  Add a new basic authorization from the SOAP-UI request
     window and enter valid credentials to authenticate with the
     identity server.  
-    ![add-basic-authorization](insert-link)
+    ![add-basic-authorization](TODO:insert-link)
     
     !!! Info 
         To try the scenario for a tenant user, provide the
@@ -87,9 +87,9 @@
             
 !!! info 
     In order to force a user to change the password after a specific time
-    period, refer [Configuring Password Policy Authenticator](insert-link).
+    period, refer [Configuring Password Policy Authenticator](TODO:insert-link).
 
 
 !!! info "Related Links"
-    See [Configuring Claims](insert-link) for more
+    See [Configuring Claims](TODO:insert-link) for more
     information on how to store the claim values in the user store.
