@@ -82,7 +82,7 @@ Google domain you created before you started this guide.
 
     3.  Click **Advanced settings \> Manage API client access**.
     4.  Fill the following values:
-        1.  Paste the [Client ID value you copied previously](../../identity-provisioning/outbound-provisioning-with-google#copy)
+        1.  Paste the [Client ID value you copied previously](#copy)
             as the value for Client Name.
         2.  Enter
             `                             https://www.googleapis.com/auth/admin.directory.user,https://www.googleapis.com/auth/admin.directory.orgunit,https://www.googleapis.com/auth/admin.directory.group                           `

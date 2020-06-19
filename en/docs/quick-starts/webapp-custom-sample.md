@@ -51,4 +51,4 @@ Please refer ['Write a Custom Inbound Protocol'](insertlink) section for the imp
 
 !!! info "Related Topics"
     - [Guide: Enable Login for a Web Application](../../../guides/login/integrate-custom-protocol)
-    - [Guide: Write a Custom Inbound Protocol](TODO:insert-link)
+    - [Guide: Write a Custom Inbound Protocol](TODO:insert-link-to-guide)

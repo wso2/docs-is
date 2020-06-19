@@ -49,8 +49,9 @@ you the user ID of the relevant username.
    </soap:Body>
 </soap:Envelope>
 ```
+---
 
 !!! info "Related Topics"
     - [Concept: Users](TODO:insert-link-to-concept)
-    - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
-    - [Guide: Delete Users](../../identity-lifecycles/delete-users)
+    - [Guide: Ways of User Onboarding](../onboard-overview)
+    - [Guide: Delete Users](../delete-users)

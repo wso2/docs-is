@@ -1,5 +1,9 @@
 # Import Users
 
+This page guides you through importing users in bulk using either the WSO2 Identity Server admin portal, SCIM, SOAP, a .csv file, or directly plugging in an existing user store. 
+
+-----
+
 ## Import users using the admin portal
 
 TODO: dev-portal-fragment
@@ -70,7 +74,7 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
 ```
 
 !!! note
-    [Ask Password](ask-password.md) option can be enabled for bulk user creation by passing a value for password and 
+    [Ask Password](../invitation-workflow) option can be enabled for bulk user creation by passing a value for password and 
      setting the askPassword claim to true as shown below.
      ```
      UserName,Password,Claims
@@ -83,15 +87,16 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
 TODO: dev-portal-fragment
 add steps to import the csv file using the dev portal
 
----
+----
 
 !!! note
-    Apart from this, users can also be added by directly plugging user stores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](TODO: dev-portal-fragment).
+    Apart from this, users can also be added by directly plugging user stores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](TODO:insertlink).
+
+----
     
 !!! info "Related Topics"
-    - [Admin Creation Workflow](TODO: dev-portal-fragment) 
-    - [User Self Registration Workflow](../../onboard/self-register)
-    - [Just in Time User Provisioning Workflow](../../onboard/user-account-overview)
-    - [User Self Registration Workflow](../../onboard/self-register)
-    - [Outbound Provisioning](../../out-prov/outbound-provisioning)
-    - [Invitation Workflow](../../onboard/ask-password) 
+    - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
+    - [Guide: User Self Registration Workflow](../self-registration-workflow)
+    - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)
+    - [Guide: Invitation Workflow](../invitation-workflow) 
+    - [Guide: Outbound Provisioning](../outbound-provisioning)

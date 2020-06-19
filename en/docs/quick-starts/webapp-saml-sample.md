@@ -47,6 +47,6 @@ You have successfully configured authentication for a SAML application.
 !!! info "Related Topics"
     - [Concept: SAML](TODO:insert-link-to-concepts)
     - [Guide: Enable Login for a SAML Web Application](../../../guides/webapp-saml)
-    - [Guide: SAML Front Channel Logout](TODO:insert-link-to-guides)
-    - [Guide: SAML Back-Channel Logout](TODO:insert-link-to-guides)
+    - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout](../saml-back-channel-logout)
 

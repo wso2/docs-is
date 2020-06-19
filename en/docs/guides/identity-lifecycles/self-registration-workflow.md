@@ -1,12 +1,14 @@
 # Self Registration 
 
+This page guides you through setting up self-registration for users to onboard themselves to WSO2 Identity Server.
+
+----
+
 ## Self register using the user portal 
 
 TODO: user-portal-fragment
 
 ---
-
-TODO : Add details on SCIM ME endpoint
 
 ## Self register using REST APIs
 
@@ -27,11 +29,12 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 ```curl tab="Sample Response"
 "HTTP/1.1 201 Created"
 ``` 
+----
 
-!!! info 
-    - [Self Register](TODO:insert-link-to-rest-apis)
-    - [Admin Creation Workflow](TODO: dev-portal-fragment) 
-    - [Invitation Workflow](../../onboard/ask-password) 
-    - [Just in Time User Provisioning Workflow](../../onboard/user-account-overview)
-    - [Bulk Import Users](../../onboard/import-users)
-    - [Outbound Provisioning](../../out-prov/outbound-provisioning) 
+!!! info "Related Topics"
+    - [REST API: Self Register](TODO:insert-link-to-rest-apis)
+    - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
+    - [Guide: Invitation Workflow](../invitation-workflow) 
+    - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)
+    - [Guide: Bulk Import Users](../import-users)
+    - [Guide: Outbound Provisioning](../outbound-provisioning) 
