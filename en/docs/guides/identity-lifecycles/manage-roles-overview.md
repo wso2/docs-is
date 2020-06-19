@@ -1,8 +1,8 @@
-Following are the operations that can be carried out on user roles. 
+# Manage User Roles
+
+This section guides you through the operations that can be carried out on user roles. 
 
 - [Add User Roles](../add-user-roles)
-
-- [Update User Roles](../update-roles)
 
 - [Edit/Delete Roles](../edit-delete-roles)
 
