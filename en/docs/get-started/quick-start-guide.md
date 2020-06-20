@@ -147,7 +147,7 @@ OIDC.
 If the two applications are using SAML2 as their authentication
 protocol, follow the steps below:
 
-1.  Enter `               1              ` as the scenario number at the
+1.  Enter `1` as the scenario number at the
     command prompt to:
 
     1.  Create the two users, Cameron and Alex.
@@ -160,7 +160,6 @@ protocol, follow the steps below:
         appears.  
         ![qsg-sso-configure-saml-2](../assets/img/getting-started/qsg-sso-configure-saml-2.png)
 
-      
 
     !!! note
         You can also perform the above using the WSO2 Identity Server Management Console.
@@ -197,13 +196,10 @@ protocol, follow the steps below:
         the GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent
-        Management](../../learn/consent-management)
-        .
-    
+        Management](../../learn/consent-management).
 
     Note that the Pickup Dispatch home screen appears.
 
-      
 
     ![qsg-sso-dispatch-home](../assets/img/getting-started/qsg-sso-dispatch-home.png)
 
@@ -220,8 +216,7 @@ protocol, follow the steps below:
     ![qsg-sso-manager-home](../assets/img/getting-started/qsg-sso-manager-home.png)
 
 9.  To try out other scenarios, navigate back to where you ran the Quick
-    Start sample on the command-line and enter
-    `              y             ` to clean the setup.  
+    Start sample on the command-line and enter `y` to clean the setup.  
     ![qsg-sso-cleanup](../assets/img/getting-started/qsg-sso-cleanup.png)
 
 ##### **Configuring SSO with OIDC**
@@ -286,7 +281,7 @@ follow the steps below:
     access both Pickup Dispatch and Pickup Manager.
 7.  Next, in order to try out other scenarios, navigate back to the
     command prompt where you ran the Quick Start sample and enter
-    `              y             ` to clean the setup.  
+    `y` to clean the setup.  
     ![qsg-sso-cleanup](../assets/img/getting-started/qsg-sso-cleanup.png)
     
 ----------------
@@ -312,7 +307,8 @@ First deploy the sample authenticator dependency and web application in
     WSO2 Identity Server.
 
 1.  Stop the Identity Server if already running.
-2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/sample-auth.war) file and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.  
+2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/sample-auth.war) file 
+and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.  
 
     This `.war` file contains the WEB UI for the sample authenticators used in this tutorial.
 
@@ -333,7 +329,7 @@ factor.
 !!! tip "Before you begin"
     
     If you have run any other samples in this Quick Start Guide, navigate
-    back to the `<IS_SAMPLE_DISTR>/IS-QSG//bin` using the command-line and
+    back to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` using the command-line and
     execute either of the following commands to start the Quick Start
     samples.
     
@@ -352,6 +348,7 @@ A message appears to pick a scenario.
     Linux   --> sudo sh qsg.sh run
     Windows --> sudo qsg.bat run
     ``` 
+
 1.  Enter `3` as the scenario number at the command prompt.  
     ![qsg-configure-sso](../assets/img/getting-started/qsg-configure-sso.png)
 2.  Enter y to confirm that you have already done the folloing steps.
@@ -391,18 +388,14 @@ A message appears to pick a scenario.
         Obtaining user consent is one of the fundamental requirements of the
         GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 Identity Server
-        handles consent, see [Consent
-        Management](../../learn/consent-management)
-        .
-    
+        handles consent, see [Consent Management](../../learn/consent-management).
 
 10. Note that the Dispatch home screen appears.
 
     ![qsg-sso-dispatch-home](../assets/img/getting-started/qsg-sso-dispatch-home.png)
 
 11. To try out other scenarios, navigate back to where you ran the Quick
-    Start sample on the command-line and enter
-    `               y              ` to clean the setup.
+    Start sample on the command-line and enter `y` to clean the setup.
     ![qsg-sso-cleanup](../assets/img/getting-started/qsg-sso-cleanup.png)
 
 ----------------
@@ -429,7 +422,7 @@ Follow the steps below to configure federated authentication using WSO2 IS
 !!! tip "Before you begin"
     
     If you have run any other samples in this Quick Start Guide, navigate
-    back to the `<IS_SAMPLE_DISTR>/IS-QSG//bin` using the command-line and
+    back to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` using the command-line and
     execute either of the following commands to start the Quick Start
     samples.
     
@@ -461,7 +454,7 @@ A message appears to pick a scenario.
       
     Select a web application and give it a name (e.g.,
     SampleWebApllication). Enter the Authorized **redirect URI** as
-    `                     https://localhost.com:9443/commonauth                   `
+    `https://localhost.com:9443/commonauth`
     (this is the endpoint in WSO2 Identity Server that accepts the
     response sent by Google).  
     
@@ -513,10 +506,7 @@ A message appears to pick a scenario.
         Obtaining the user consent is one of the fundamental requirements of
         GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 Identity Server
-        handles consent, see [Consent
-        Management](../../learn/consent-management)
-        .
-    
+        handles consent, see [Consent Management](../../learn/consent-management).
 
     Note that the Pickup Dispatch home screen appears.
 
@@ -562,7 +552,7 @@ Pickup Manager applications using WSO2 Identity Server.
         Windows --> wso2server.bat
     ```
 
-3.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG//bin` and execute either
+3.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute either
     of the following commands to start the Quick Start samples.
 
     ``` java
@@ -604,7 +594,6 @@ Pickup Manager applications using WSO2 Identity Server.
 
     ![qsg-self-sign-up-register](../assets/img/getting-started/qsg-self-sign-up-register.png)
 
-      
 
 6.  Enter a `username` for your user
     account and click **Proceed to Self Register**.
@@ -654,8 +643,7 @@ Pickup Manager applications using WSO2 Identity Server.
         application.
 
 9.  Next, in order to try out other scenarios, navigate back to the
-    command prompt where you ran the Quick Start sample and enter
-    `               y              ` to clean the setup.
+    command prompt where you ran the Quick Start sample and enter `y` to clean the setup.
     ![qsg-sso-cleanup](../assets/img/getting-started/qsg-sso-cleanup.png)
 
 ----------------
@@ -685,7 +673,7 @@ Follow the steps below to configure a workflow.
 !!! tip "Before you begin"
     
     If you have run any other samples in this Quick Start Guide, navigate
-    back to the `<IS_SAMPLE_DISTR>/IS-QSG//bin` using the command-line and
+    back to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` using the command-line and
     execute either of the following commands to start the Quick Start
     samples.
     
@@ -716,7 +704,7 @@ A message appears to pick a scenario.
 
     ![qsg-sso-login-credentials](../assets/img/getting-started/qsg-sso-login-credentials.png)
 
-5.  Enter a `               username              ` for your user
+5.  Enter a `username` for your user
     account and click **Proceed to Self Register**.
 
     ![qsg-self-sign-up-username](../assets/img/getting-started/qsg-self-sign-up-username.png)
@@ -724,11 +712,10 @@ A message appears to pick a scenario.
     !!! note
     
         If you want a user to self register for a specific tenant, provide
-        the `               username              ` in the following format:
-        `               <USERNAME>@<TENAND_DOMAIN>              ` .
+        the `username` in the following format: `<USERNAME>@<TENAND_DOMAIN>` .
     
 
-6.  Provide the `               user profile details              `,
+6.  Provide the `user profile details`,
     agree to the **Privacy Policy**, and click **Register**.  
     ![qsg-self-sign-up-new-account](../assets/img/getting-started/qsg-self-sign-up-new-account.png)
 
@@ -790,9 +777,7 @@ A message appears to pick a scenario.
         Obtaining the user consent is one of the fundamental requirements of
         GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 Identity Server
-        handles consent, see [Consent
-        Management](../../learn/consent-management)
-        .
+        handles consent, see [Consent Management](../../learn/consent-management).
     
     Note that the Pickup Dispatch home screen appears.
 
