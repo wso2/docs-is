@@ -73,9 +73,8 @@ using WSO2 Identity Server.
     
         From this point onwards:
     
-        -   `               <IS_HOME>              ` is the directory in
-            which the WSO2 Identity Server is installed.
-        -   `               <IS_SAMPLE_DISTR>              ` is the directory where downloaded `is-samples-distribution.zip` archive is extracted.
+        -   `<IS_HOME>` is the directory in which the WSO2 Identity Server is installed.
+        -   `<IS_SAMPLE_DISTR>` is the directory where downloaded `is-samples-distribution.zip` archive is extracted.
     
 
 2.  Open the server.properties file in `<IS_SAMPLE_DISTR>/IS-QSG/conf/ ` and make sure that `wso2is.host.domain` and `wso2is.host.port` are configured as shown below.             
@@ -103,26 +102,20 @@ using WSO2 Identity Server.
 
 4.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute either of the following commands to start the sample application. 
        
-     ``` 
+    ``` java
          Linux   --> sh app-server.sh
          Windows --> app-server.bat
     ```
 
-5.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin`
-    and execute the following commands to start the Quick Start samples
-    accordingly.
+5.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute the following commands to start the Quick Start samples accordingly.
 
     ``` java
         Linux   --> sh qsg.sh 
         Windows --> qsg.bat 
     ```
 
-    A message appears to pick a scenario, which indicates that the
-    samples are deployed and the WSO2 Identity Server is up and running.
-
 6.  When prompted, confirm the configurations.
-7. Note that a message appears to pick a scenario, which indicates that
-    the samples are deployed and WSO2 Identity Server is up and running.
+7. Note that a message appears to pick a scenario, which indicates that the samples are deployed and WSO2 Identity Server is up and running.
 
 Let's try out the samples.
 
@@ -236,8 +229,7 @@ protocol, follow the steps below:
 If the two applications are using OIDC as their authentication protocol,
 follow the steps below:
 
-1.  Enter `               2              ` as the scenario number at the
-    command prompt.
+1.  Enter `2` as the scenario number at the command prompt.
 
     1.  Create the two users: Cameron and Alex.
     2.  Create and assign the user role Manager to Cameron.
@@ -319,11 +311,12 @@ Let's use the command-line to check the MFA functionality.
 First deploy the sample authenticator dependency and web application in
     WSO2 Identity Server.
 
-1.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/sample-auth.war) file and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.  
+1.  Stop the Identity Server if already running.
+2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/sample-auth.war) file and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.  
 
     This `.war` file contains the WEB UI for the sample authenticators used in this tutorial.
 
-2.     Add the following configurations to the `deployment.tom`l file in the `<IS_HOME>/repository/conf` directory and restart the server.
+3.  Add the following configurations to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and restart the server.
 
        ```toml
        [resource.access_control]
@@ -331,6 +324,7 @@ First deploy the sample authenticator dependency and web application in
        secure = false
        http_method = "all" 
        ```
+3.  Start the Identity Server.
 
 Follow the steps below to configure MFA on the Pickup Dispatch and
 Pickup Manager applications where HARDWARE KEY is the second authentication
@@ -339,8 +333,7 @@ factor.
 !!! tip "Before you begin"
     
     If you have run any other samples in this Quick Start Guide, navigate
-    back to the `             is-samples-1.0.0/IS-QSG/samples            ` /
-    `             QSG-bundle/QSG/bin            ` using the command-line and
+    back to the `<IS_SAMPLE_DISTR>/IS-QSG//bin` using the command-line and
     execute either of the following commands to start the Quick Start
     samples.
     
@@ -351,9 +344,15 @@ factor.
 
 A message appears to pick a scenario.
 
-
-1.  Enter `              3             ` as the scenario number at the
-    command prompt.  
+1.  Navigate back to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` using the command-line and
+    execute either of the following commands to start the Quick Start
+    samples.
+    
+    ``` java
+    Linux   --> sudo sh qsg.sh run
+    Windows --> sudo qsg.bat run
+    ``` 
+1.  Enter `3` as the scenario number at the command prompt.  
     ![qsg-configure-sso](../assets/img/getting-started/qsg-configure-sso.png)
 2.  Enter y to confirm that you have already done the folloing steps.
     ![qsg-configure-sso](../assets/img/getting-started/qsg-configure-setup.png)
@@ -425,15 +424,12 @@ authentication.
 
 ##### Configuring Federated Authentication
 
-Follow the steps below to configure federated authentication using WSO2
-IS:
+Follow the steps below to configure federated authentication using WSO2 IS
 
-!!! tip
-    
-    **Before you begin**
+!!! tip "Before you begin"
     
     If you have run any other samples in this Quick Start Guide, navigate
-    back to the `             is-samples-1.0.0/IS-QSG/samples/QSG-bundle/QSG/bin` on the command prompt and
+    back to the `<IS_SAMPLE_DISTR>/IS-QSG//bin` using the command-line and
     execute either of the following commands to start the Quick Start
     samples.
     
@@ -445,8 +441,7 @@ IS:
 A message appears to pick a scenario.
 
 
-1.  Enter `               4              ` as the scenario number at the
-    command prompt to:
+1.  Enter `4` as the scenario number at the command prompt to:
 
     1.  Create the two users: Cameron and Alex.
     2.  Create and assign the user role Manager to Cameron.
@@ -482,13 +477,13 @@ A message appears to pick a scenario.
 
 ![authorized domains list](../assets/img/tutorials/authorized-domains-list.png)
     
-2.  Enter `               y              ` to confirm that you have
+2.  Enter `y` to confirm that you have
     already registered an app in Google. (See **Prerequisites** tab)
 
     ![qsg-configure-federated-auth](../assets/img/getting-started/qsg-configure-federated-auth.png)
 
 
-3.  Enter the `               client-id              ` and the secret of
+3.  Enter the `client-id` and the secret of
     the Google application when prompted.
 
     Note that a message with the user and application details appears.
@@ -503,8 +498,7 @@ A message appears to pick a scenario.
     ![qsg-sso-dispatch-login](../assets/img/getting-started/qsg-sso-dispatch-login.png)  
     The Google login page appears.
 
-6.  Enter your Google `               username              ` and
-    `               password              ` and click **Sign In**.
+6.  Enter your Google `username` and `password` and click **Sign In**.
 
     After a successful authentication, the **User Consents** form of the
     Dispatch application appears.
@@ -532,7 +526,7 @@ A message appears to pick a scenario.
 
 8.  Next, in order to try out other scenarios, navigate back to the
     command prompt where you ran the Quick Start sample and enter
-    `              y             ` to clean the setup.  
+    `y` to clean the setup.  
     ![qsg-sso-cleanup](../assets/img/getting-started/qsg-sso-cleanup.png)
 
 ----------------
@@ -558,35 +552,17 @@ functionality.
 Follow the steps below to configure self sign-up for Pickup Dispatch and
 Pickup Manager applications using WSO2 Identity Server.
 
-!!! tip
-    
-    **Before you begin**
-    
-    1.  If you have run any other samples in this Quick Start Guide,
-        navigate back to the
-        `is-samples-1.0.0/IS-QSG/samples/QSG-bundle/QSG/bin` on the command
-        prompt and execute either of the following commands to start the
-        Quick Start samples.
-    
-        ``` java
-            Linux   --> sudo sh qsg.sh run
-            Windows --> sudo qsg.bat run
-        ```
-
-    A message appears to pick a scenario.
-
-2.  Enable the email sending configurations of the WSO2 Identity Server
+1.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending).
 
-4.  Restart WSO2 Identity Server.
+2.  Restart WSO2 Identity Server.
 
     ``` java
         Linux   --> sh wso2server.sh
         Windows --> wso2server.bat
     ```
 
-5.  Navigate to
-    `is-samples-1.0.0/IS-QSG/samples/QSG-bundle/QSG/bin` and execute either
+3.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG//bin` and execute either
     of the following commands to start the Quick Start samples.
 
     ``` java
@@ -594,8 +570,7 @@ Pickup Manager applications using WSO2 Identity Server.
         Windows --> sudo qsg.bat run
     ```
 
-
-1.  <a name="qsg-step1"></a> Enter `               5              ` as the scenario number at the
+4.  <a name="qsg-step1"></a> Enter `5` as the scenario number at the
     command prompt.
 
     ![qsg-configure-sso](../assets/img/getting-started/qsg-configure-sso.png)
@@ -615,8 +590,7 @@ Pickup Manager applications using WSO2 Identity Server.
         WSO2 Identity Server.
 
     ![qsg-configure-self-sign-up](../assets/img/getting-started/qsg-configure-self-sign-up.png)
-2.  Enter `               number              ` that matches with the
-    approach you would like to try.
+2.  Enter `number` that matches with the approach you would like to try.
 
     ![qsg-configure-self-sign-up-2](../assets/img/getting-started/qsg-configure-self-sign-up-2.png)
 
@@ -632,18 +606,17 @@ Pickup Manager applications using WSO2 Identity Server.
 
       
 
-6.  Enter a `               username              ` for your user
+6.  Enter a `username` for your user
     account and click **Proceed to Self Register**.
 
     ![qsg-self-sign-up-username](../assets/img/getting-started/qsg-self-sign-up-username.png)
     !!! note
     
         If you want a user to self register for a specific tenant, provide
-        the `               username              ` in the following format:
-        `               <USERNAME>@<TENAND_DOMAIN>              ` .
+        the `username` in the following format: `<USERNAME>@<TENAND_DOMAIN>`.
     
 
-7.  Provide the `               user profile details              `,
+7.  Provide the `user profile details`,
     agree to the **Privacy Policy**, and click **Register**.  
     ![qsg-self-sign-up-new-account](../assets/img/getting-started/qsg-self-sign-up-new-account.png)
 
@@ -709,13 +682,10 @@ the user account.
 
 Follow the steps below to configure a workflow.
 
-!!! tip
-    
-    **Before you begin**
+!!! tip "Before you begin"
     
     If you have run any other samples in this Quick Start Guide, navigate
-    back to the `             is-samples-1.0.0/IS-QSG/samples            ` /
-    `             QSG-bundle/QSG/bin            ` on the command prompt and
+    back to the `<IS_SAMPLE_DISTR>/IS-QSG//bin` using the command-line and
     execute either of the following commands to start the Quick Start
     samples.
     
@@ -727,7 +697,7 @@ Follow the steps below to configure a workflow.
 A message appears to pick a scenario.
 
 
-1.  Enter `              6             ` as the scenario number at the
+1.  Enter `6` as the scenario number at the
     command prompt.  
     ![qsg-configure-sso](../assets/img/getting-started/qsg-configure-sso.png)
 
