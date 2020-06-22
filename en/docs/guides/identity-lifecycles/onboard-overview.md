@@ -13,3 +13,5 @@ This section guides you through different ways of onboarding users to WSO2 Ident
 - [Bulk Import Users](../import-users)
 
 - [Outbound Provisioning](../outbound-provisioning)
+
+- [Approval Workflows](TODO:insert-link)

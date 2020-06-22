@@ -179,7 +179,6 @@ nav:
           - 'Admin Creation Workflow': guides/identity-lifecycles/admin-creation-workflow.md
           - 'Invitation Workflow': guides/identity-lifecycles/invitation-workflow.md
           - 'User Self-Registration Workflow': guides/identity-lifecycles/self-registration-workflow.md
-          - 'Just-in-Time User Provisioning Workflow': guides/identity-lifecycles/jit-workflow.md
           - 'Bulk Import Users': guides/identity-lifecycles/import-users.md
         - 'Manage Users':
           - 'Overview': guides/identity-lifecycles/manage-user-overview.md
@@ -187,6 +186,8 @@ nav:
           - 'Delete Users': guides/identity-lifecycles/delete-users.md
           - 'View/Update User Profiles': guides/identity-lifecycles/update-profile.md
           - 'Manage User Attributes': guides/identity-lifecycles/manage-user-attributes.md
+          - 'Recover Username': guides/identity-lifecycles/recover-username.md
+          - 'Enable Using Email Address as the Username': guides/identity-lifecycles/enable-email-as-username.md
         - 'Manage Roles': 
           - 'Overview': guides/identity-lifecycles/manage-roles-overview.md
           - 'Add User Roles': guides/identity-lifecycles/add-user-roles.md
@@ -205,7 +206,7 @@ nav:
           - 'Configure User Stores for SCIM 2.0': guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
           - 'Configure Active Directory User Stores': guides/identity-lifecycles/configure-ad.md
         - 'Just-in-Time Provision Users':
-          - 'Configure Just-In-Time Provisioning for an Identity Provider': guides/identity-lifecycles/configure-jit.md
+          - 'Configure Just-In-Time Provisioning for an Identity Provider': guides/identity-lifecycles/jit-workflow.md
         - 'Manage User Stores':
           - 'JDBC as the Primary User Store': guides/identity-lifecycles/jdbc-us.md
           - 'Active Directory as a Secondary User Store': guides/identity-lifecycles/ad-us.md
@@ -221,6 +222,7 @@ nav:
         - 'Admin-Initiated Password Reset': guides/password-mgt/forced-password-reset.md
         - 'Password Recovery Using Email Verification': guides/password-mgt/recover-password.md
         - 'Password Recovery Using Challenge Question': guides/password-mgt/challenge-question.md
+        - 'Resend Account Recovery Confirmation Mail': guides/password-mgt/recovery-confirmation.md
         - 'ReCaptcha on Invalid Password Attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
         - 'ReCaptcha on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
       - 'Federated Account Linking':
@@ -234,9 +236,43 @@ nav:
           - 'OAuth 2.0 Tokens': guides/access-delegation/configure-kerberos-grant.md
           - 'Invoke the OAuth 2.0 Introspection Endpoint': guides/access-delegation/configure-jwt-grant.md
           - 'OAuth 2.0 Dynamic Client Registration': guides/access-delegation/oauth-dynamic-client-registration.md
-          - 'OAuth 2.0 Client Authentication': guides/access-delegation/oauth-token-hashing.md
+          - 'OAuth 2.0 Client Authentication': guides/access-delegation/client-authentication.md
           - 'Authorizing for the OAuth 2.0 Scopes': guides/access-delegation/invoke-oauth-introspection-endpoint.md
           - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
+        - 'User Managed Access': guides/access-delegation/uma.md
+        - 'WS-Trust':
+          - 'Obtain Tokens with Holder-Of-Key Subject Confirmation': guides/access-delegation/obtain-tokens-holder-of-key.md
+          - 'Access Claim-Aware Services using STS Secured with Non-Repudiation': guides/access-delegation/claim-aware-services.md
+          - 'Use SAML2 Bearer Type Tokens': guides/access-delegation/saml2-bearer-assertion-profile.md
+      - 'Identity Federation':
+        - 'Enterprise Identity Federation':
+          - 'SAML': guides/identity-federation/log-in-with-saml-idp.md
+          - 'OpenID Connect': guides/identity-federation/log-in-with-oidc-idp.md
+          - 'ADFS': guides/identity-federation/adfs.md
+          - 'Microsoft Azure': guides/identity-federation/microsoft-azure.md
+          - 'Shibboleth': guides/identity-federation/shibboleth.md
+          - 'Federated Logout':
+            - 'Application-Initiated Federated Logout': guides/identity-federation/app-initiated-logout.md
+            - 'IdP-Initiated Federated Logout': guides/identity-federation/idp-initiated-logout.md
+        - 'Social Login':
+          - 'Log in with Facebook': guides/identity-federation/facebook.md
+          - 'Log in with Google': guides/identity-federation/google.md
+          - 'Log in with Microsoft Live': guides/identity-federation/microsoft-live.md
+          - 'Log in with Twitter': guides/identity-federation/twitter.md
+        - 'Receive Claims from the Identity Provider': guides/identity-federation/receive-claims-idp.md
+      - 'Attribute Dialects':
+        - 'Configure Attribute Dialects': guides/attribute-dialects/configure-dialects.md
+        - 'Use a Custom Attribute Dialect': guides/attribute-dialects/custom-dialect.md
+        - 'Map Attributes': guides/attribute-dialects/map-attributes.md
+        - 'Configure Attribute Metadata': guides/attribute-dialects/metadata.md
+      - 'Workflows':
+        - 'Define a Workflow': guides/workflows/define-workflow.md
+        - 'Enage a Workflow to an Operation': guides/workflows/engage-workflow.md
+        - 'Approve Workflow Requests': guides/workflows/approve-workflow-requests.md
+        - 'Monitor Workflow Requests': guides/workflows/monitor-workflow-requests.md
+      - 'Tenants':
+        - 'Set Up a Tenant Loading Policy': guides/tenants/setup-tenant-loading.md
+        - 'Manage Tenants': guides/tenants/manage-tenants.md
       - 'Federation - To Remove':
         - 'Facebook': guides/federation/facebook.md
         - 'Google': guides/federation/google.md
@@ -245,13 +281,6 @@ nav:
       - 'Authorization - To Remove': guides/user-mgt/associating-user-accounts.md
       - 'Manage User Accounts': 
         - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
-        - 'Force Password Reset': guides/user-mgt/forced-password-reset.md
-        - 'Manage Challenge Questions': guides/user-mgt/challenge-question.md
-        - 'Perform Self Services':
-          - 'Overview': guides/user-mgt/self-services.md
-          - 'Recover Username': guides/user-mgt/recover-username.md
-          - 'Recover Password': guides/user-mgt/recover-password.md
-          - 'Resend Account Recovery Confirmation Email': guides/user-mgt/recovery-confirmation.md
       - 'Server Configurations - To Remove':
         - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
       - 'Manage Tenants - To Remove':

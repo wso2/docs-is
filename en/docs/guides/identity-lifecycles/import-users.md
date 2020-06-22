@@ -83,13 +83,14 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
      name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.org/claims/country=France,http://wso2.org/claims/identity/askPassword=true
      ```
      
-### Import Users using the created file
+### Import users using the created file
 TODO: dev-portal-fragment
 add steps to import the csv file using the dev portal
 
 ----
 
-!!! note
+### Import users by plugging in a user store
+
     Apart from this, users can also be added by directly plugging user stores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](TODO:insertlink).
 
 ----
