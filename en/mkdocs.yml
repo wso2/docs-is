@@ -419,7 +419,15 @@ nav:
           - developer-portal/applications/overview.md
           - 'Create New Application':
             - developer-portal/applications/new-application.md
-            - 'Single Page Application': developer-portal/applications/add/spa.md
+            - 'Single Page Application': 
+              - developer-portal/applications/add/spa.md
+              - 'SDKs': 
+                  - developer-portal/applications/sdks/overview.md
+                  - developer-portal/applications/sdks/java-android.md
+                  - developer-portal/applications/sdks/javascript-oidc.md
+                  - developer-portal/applications/sdks/react-auth.md
+                  - developer-portal/applications/sdks/windows.md
+              - 'Samples': developer-portal/applications/samples/overview.md
             - 'OIDC Web Application': developer-portal/applications/add/oidc.md
             - 'SAML Web Application': developer-portal/applications/add/saml.md
             - 'OIDC Mobile Application': developer-portal/applications/add/mobile.md
