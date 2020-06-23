@@ -1,6 +1,7 @@
 {
   "staging": "new_restructure",
   "5.11.0": "master",
+  "latest": "iam-c",
   "current": "5.10.0",
   "list": [ "5.10.0", "5.9.0"],
   "all": {
