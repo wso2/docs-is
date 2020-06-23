@@ -41,12 +41,13 @@ To Build the SDK in your local machine,
  
 #### Add the dependency 
 
-Add `WSO2IS-SDK` dependency in `build.gradle` file.
+Add [latest released Android-SDK](https://github.com/wso2-extensions/identity-sdks-android/releases) in
+     `build.gradle` file.
 
 ```gradle
 dependencies {
    dependencies {
-        implementation 'org.wso2.identity.sdk.android.oidc:wso2is-oidc-sdk:0.0.1'
+        implementation 'org.wso2.identity.sdk.android.oidc:wso2-oidc-sdk:0.0.3'
    }
 }
 ```
