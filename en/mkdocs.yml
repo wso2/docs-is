@@ -423,10 +423,10 @@ nav:
               - developer-portal/applications/add/spa.md
               - 'SDKs': 
                   - developer-portal/applications/sdks/overview.md
-                  - developer-portal/applications/sdks/java-android.md
-                  - developer-portal/applications/sdks/javascript-oidc.md
-                  - developer-portal/applications/sdks/react-auth.md
-                  - developer-portal/applications/sdks/windows.md
+                  - 'Android SDK': developer-portal/applications/sdks/java-android.md
+                  - 'Javascript SDK': developer-portal/applications/sdks/javascript-oidc.md
+                  - 'React SDK': developer-portal/applications/sdks/react-auth.md
+                  - 'Windows SDK': developer-portal/applications/sdks/windows.md
               - 'Samples': developer-portal/applications/samples/overview.md
             - 'OIDC Web Application': developer-portal/applications/add/oidc.md
             - 'SAML Web Application': developer-portal/applications/add/saml.md
