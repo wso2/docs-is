@@ -419,23 +419,49 @@ nav:
           - developer-portal/applications/overview.md
           - 'Create New Application':
             - developer-portal/applications/new-application.md
-            - 'Single Page Application': 
-              - developer-portal/applications/add/spa.md
-              - 'SDKs': 
-                  - developer-portal/applications/sdks/overview.md
-                  - 'Android SDK': developer-portal/applications/sdks/java-android.md
-                  - 'Javascript SDK': developer-portal/applications/sdks/javascript-oidc.md
-                  - 'React SDK': developer-portal/applications/sdks/react-auth.md
-                  - 'Windows SDK': developer-portal/applications/sdks/windows.md
-              - 'Samples': developer-portal/applications/samples/overview.md
+            - 'Single Page Application': developer-portal/applications/add/spa.md
             - 'OIDC Web Application': developer-portal/applications/add/oidc.md
             - 'SAML Web Application': developer-portal/applications/add/saml.md
             - 'OIDC Mobile Application': developer-portal/applications/add/mobile.md
           - 'Edit Application':
-            - 'Single Page Aplication': developer-portal/applications/edit-spa.md
-            - 'OIDC Web Application': developer-portal/applications/edit-oidc.md
-            - 'SAML Web Application': developer-portal/applications/edit-saml.md
-            - 'OIDC Mobile Application': developer-portal/applications/edit-mobile.md
+            - 'Single Page Application': 
+              - developer-portal/applications/edit-spa.md
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
+                - 'React': developer-portal/applications/sdks/react-auth.md
+              - 'Samples': developer-portal/applications/samples/overview.md
+            - 'OIDC Web Application': 
+              - developer-portal/applications/edit-oidc.md
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
+                - 'React': developer-portal/applications/sdks/react-auth.md
+              - 'Samples': developer-portal/applications/samples/overview.md
+            - 'SAML Web Application': 
+              - developer-portal/applications/edit-saml.md
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
+                - 'React': developer-portal/applications/sdks/react-auth.md
+              - 'Samples': developer-portal/applications/samples/overview.md
+            - 'OIDC Mobile Application': 
+              - developer-portal/applications/edit-mobile.md
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Android': developer-portal/applications/sdks/java-android.md
+              - 'Samples': 
+                - developer-portal/applications/samples/overview.md
+                - 'Android': quick-starts/android-sample.md
+            - 'Windows Desktop Application':
+              - developer-portal/applications/edit-windows.md
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Windows': developer-portal/applications/sdks/windows.md
+              - 'Samples': 
+                - developer-portal/applications/samples/overview.md
+                - 'Windows': quick-starts/windows-sample.md   
+
       - 'Identity Providers':
           - developer-portal/identity-providers/overview.md
           - 'Create New Identity Provider':
