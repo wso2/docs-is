@@ -1,14 +1,8 @@
 # Start enable Authentication for Android App
 
 !!! Tip 
-    [Try Our Sample](../../samples/android)
+    [Try Our Sample](android-sample)
     
-< Intro - Guide to enable authentication for a Android application- references >
-
-## Overview
- < Explain the use case with diagrams - can be links to concepts > 
- 
- < Image explaining the scenario>
  
 ## Register Application
 
