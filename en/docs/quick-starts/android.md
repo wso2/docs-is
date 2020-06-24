@@ -1,7 +1,7 @@
 # Start enable Authentication for Android App
 
 !!! Tip 
-    [Try Our Sample](android-sample)
+    [Try Our Sample](../quick-starts/android-sample)
     
  
 ## Register Application
