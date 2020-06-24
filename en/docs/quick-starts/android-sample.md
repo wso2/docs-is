@@ -1,49 +1,38 @@
-## Authenticate to Android Sample Application
-
-< Intro - to the Sample >
-
-## Overview
- < Explain the use case with diagrams - can be links to concepts > 
- 
- < Image explaining the scenario>
- 
-## Setup Sample
-
+# Authenticate to Android Sample Application
 
 ## Register Application
 
- < Description on sample android mobile app specific config >
-
-{!fragments/oauth-app-config-basic.md!}
-
-
-    | Field                 | Value         | 
-    | --------------------- | ------------- | 
-    | Service Provider Name | sample-app  |
-    | Description           | This is a mobile application  | 
-    | Call Back Url         | wso2sample://oauth2  | 
-
+ 1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
+ 
+ 2. Enter the **Callback URL** and click **Add**. 
+ 
+     The **Callback URL** is the exact location in the service provider's application where an access token would be sent. This URL should be the redirect scheme 
+     of the application that the user is redirected to after successful authentication.
+     
+ 3. To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../login/oauth-app-config-advanced). 
+ 
+ 4. Note the **OAuth Client Key** that appear. 
+ 
+ 
+     | Field                 | Value         | 
+     | --------------------- | ------------- | 
+     | Service Provider Name | sample-app  |
+     | Description           | This is a mobile application  | 
+     | Call Back Url         | wso2sample://oauth2  | 
+     
 5. Enable following properties:
 - PKCE Mandatory
 - Allow authentication without the client secret
 
-## Configure the Android SDK
+## Setup the sample
 
-To Build the SDK locally:
 
-1. Clone this project: https://github.com/wso2-extensions/identity-sdks-android.git
-    `git clone https://github.com/wso2-extensions/identity-sdks-android.git`
+1. Download the android sample by [clicking here](https://github.com/wso2-extensions/identity-samples-android/archive/master.zip)
 
-2. Build the library in your local maven. Run the following commands. Now the library artifact will be
- available in your local .m2 cache. 
-    - `./gradlew clean assembleRelease`
-    - `./gradlew publishToMavenLocal `
 
-## Configure the sample
+2. Else clone the sample from this [sample repository](https://github.com/wso2-extensions/identity-samples-android.git)
 
-Clone the sample from this [sample repository](https://github.com/wso2-extensions/identity-samples-android.git)
-
-`git clone https://github.com/wso2-extensions/identity-samples-android.git`
+    `git clone https://github.com/wso2-extensions/identity-samples-android.git`
 
 #### Configuration
 
@@ -79,33 +68,34 @@ Example:
 
 1. Create a suitable Android Virtual Device in the Android Studio.
 
-    !!! Tip 
-        1. If the WSO2 IS is hosted in the local machine and if it is running in localhost domain, change the domain of the
-        endpoints in the “app/res/raw/oidc_config.json” file to “10.0.2.2”. 
-        Refer the documentation on [emulator-networking](https://developer.android.com/studio/run/emulator-networking)
+    **Note:**
 
-        2. By default IS uses a self-signed certificate. If you are using the default pack without
-            changing to a CA signed certificate, follow this [android guide] (https://developer.android.com
-            /training/articles/security-config) to get rid of SSL issues.
-
-        3. Change the hostname of IS as 10.0.2.2.
-            - Change the hostname specified under “hostname” config
-            in the “<IS_HOME>/repository/conf/deployment.toml” to 10.0.2.2
-            - Create a new keystore with CN as localhost and SAN as 10.0.2.2
-            ```shellscript
-            keytool -genkey -alias wso2carbon -keyalg RSA -keystore wso2carbon.jks -keysize 2048 -ext SAN=IP:10.0.2.2
-            ```
-            - Export the public certificate (name it as wso2carbon.pem)to add into the truststore.
-            ```shellscript
-            keytool -exportcert -alias wso2carbon -keystore wso2carbon.jks -rfc -file wso2carbon.pem
-            ```
-            - Import the certificate in the client-truststore.jks file located in <IS_HOME>/repository
-            /resources/security/
-            ```shellscript
-            keytool -import -alias wso2is -file wso2carbon.pem -keystore client-truststore.jks
-            -storepass wso2carbon
-            ```
-            - Now copy this public certificate (wso2carbon.pem) into the res/raw folder
+    1. If the WSO2 IS is hosted in the local machine and if it is running in localhost domain, change the domain of the
+    endpoints in the “app/res/raw/oidc_config.json” file to “10.0.2.2”. 
+    Refer the documentation on [emulator-networking](https://developer.android.com/studio/run/emulator-networking)
+    
+    2. By default IS uses a self-signed certificate. If you are using the default pack without
+        changing to a CA signed certificate, follow this [android guide] (https://developer.android.com
+        /training/articles/security-config) to get rid of SSL issues.
+    
+    3. Change the hostname of IS as 10.0.2.2.
+        - Change the hostname specified under “hostname” config
+        in the “<IS_HOME>/repository/conf/deployment.toml” to 10.0.2.2
+        - Create a new keystore with CN as localhost and SAN as 10.0.2.2
+        ```shellscript
+        keytool -genkey -alias wso2carbon -keyalg RSA -keystore wso2carbon.jks -keysize 2048 -ext SAN=IP:10.0.2.2
+        ```
+        - Export the public certificate (name it as wso2carbon.pem)to add into the truststore.
+        ```shellscript
+        keytool -exportcert -alias wso2carbon -keystore wso2carbon.jks -rfc -file wso2carbon.pem
+        ```
+        - Import the certificate in the client-truststore.jks file located in <IS_HOME>/repository
+        /resources/security/
+        ```shellscript
+        keytool -import -alias wso2is -file wso2carbon.pem -keystore client-truststore.jks
+        -storepass wso2carbon
+        ```
+        - Now copy this public certificate (wso2carbon.pem) into the res/raw folder
 
 2. Run the application.
 
@@ -128,12 +118,33 @@ Example:
 6. Test the application.
 
 
+## Configure the Android SDK
 
-## Login to Sample
+### Build the SDK locally.
+To Build the SDK in your local machine, 
 
-Login with your credentials
+1. Clone the [SDK repo](https://github.com/wso2-extensions/identity-sdks-android)
+    - `git clone https://github.com/wso2-extensions/identity-sdks-android `
 
-!!! Tip "What's Next?"
+2. Run the following commands.
 
-    - [Enable single sign-on with another mobile application]()
-    - [Enable single logout with the other mobile application]()
+      - `./gradlew clean assembleRelease`
+      - `./gradlew publishToMavenLocal `
+
+3. Now the library will be available in your
+ local .m2 cache. 
+ 
+### Add the dependency 
+
+Add the [latest released Android-SDK](https://github.com/wso2-extensions/identity-sdks-android/releases) in
+ `build.gradle` file.
+
+```gradle
+dependencies {
+   dependencies {
+        implementation 'org.wso2.identity.sdk.android.oidc:wso2-oidc-sdk:0.0.3'
+   }
+}
+```
+Refer [Android SDK](../quick-starts/android.md) documentation for further information.
+
