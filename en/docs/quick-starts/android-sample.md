@@ -1,50 +1,72 @@
 # Authenticate to Android Sample Application
 
+## Overview
+This android sample currently supports:
+
+- [OpenID Connect with Authorization Code grant](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowSteps) 
+using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
+
+
 ## Register Application
 
- 1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
+ 1. Access WSO2 Identity Server Developer Portal .
  
- 2. Enter the **Callback URL** and click **Add**. 
+ 2. Go to **Applications** and click **New Application**.
+  
+ 3. Click **Show More**
+ 
+ 4. Open **Mobile Application** template.
+  
+ 5. Enter **Name** and **Description** and click **Next**.
+ 
+ 6. Enter **Callback URL**. 
  
      The **Callback URL** is the exact location in the service provider's application where an access token would be sent. This URL should be the redirect scheme 
      of the application that the user is redirected to after successful authentication.
      
- 3. To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../login/oauth-app-config-advanced). 
+ 7. Click **Next**
  
- 4. Note the **OAuth Client Key** that appear. 
+ 8. View the application details and Click **Finish**
  
+ 9. Click on **Access** tab and Note the the **Client ID** that appears. 
  
-     | Field                 | Value         | 
-     | --------------------- | ------------- | 
-     | Service Provider Name | sample-app  |
-     | Description           | This is a mobile application  | 
-     | Call Back Url         | wso2sample://oauth2  | 
-     
-5. Enable following properties:
-- PKCE Mandatory
-- Allow authentication without the client secret
+  
+| Field                 | Value                         | 
+| --------------------- | ------------------------------| 
+| Service Provider Name | your-application-name         |
+| Description           | This is a mobile application  | 
+| CallBack Url          | your-application-uri          | 
+
+**Eg:**
+ 
+| Field                 | Value                         | 
+| --------------------- | ----------------------------- | 
+| Service Provider Name | sample-app                    |
+| Description           | This is a mobile application  | 
+| CallBack Url          | wso2sample://oauth2           | 
+ 
 
 ## Setup the sample
 
 
-1. Download the android sample by [clicking here](https://github.com/wso2-extensions/identity-samples-android/archive/master.zip)
+1. Download the [android sample](https://github.com/wso2-extensions/identity-samples-android/archive/master.zip) and
+ Unzip it.
 
 
-2. Else clone the sample from this [sample repository](https://github.com/wso2-extensions/identity-samples-android.git)
+2. Else, clone the sample from this [sample repository](https://github.com/wso2-extensions/identity-samples-android.git)
 
     `git clone https://github.com/wso2-extensions/identity-samples-android.git`
 
-#### Configuration
+### Configuration
 
+Open the  `oidc_config.json` file located in `res/raw` folder of the sample. 
 
-Add the relevant configs in oidc_config.json file located in `res/raw` folder of the sample. 
-
-- Add the client-id of the application.
-- Update the {HOST_NAME}:{PORT} with the IS server's hostname and port respectively
+- Add the client-id of the [application](#register-application).
+- Update the {HOST_NAME}:{PORT} with the IS server's hostname and port respectively.
 
 ```json
 {
- "client_id": {client-id},
+ "client_id": "{client-id}",
  "redirect_uri": "wso2sample://oauth2",
  "authorization_scope": "openid",
  "discovery_uri": "https://{HOST_NAME}:{PORT}/oauth2/oidcdiscovery/.well-known/openid-configuration"
@@ -54,6 +76,7 @@ Add the relevant configs in oidc_config.json file located in `res/raw` folder of
 Example:
 
 ```json
+{
 "client_id": "rs5ww91iychg9JN0DJGLMaxG2gha",
  "redirect_uri": "wso2sample://oauth2",
  "authorization_scope": "openid",
@@ -74,8 +97,8 @@ Example:
     endpoints in the “app/res/raw/oidc_config.json” file to “10.0.2.2”. 
     Refer the documentation on [emulator-networking](https://developer.android.com/studio/run/emulator-networking)
     
-    2. By default IS uses a self-signed certificate. If you are using the default pack without
-        changing to a CA signed certificate, follow this [android guide] (https://developer.android.com
+    2. By default, IS uses a self-signed certificate. If you are using the default pack without
+        changing to a CA-signed certificate, follow this [android guide] (https://developer.android.com
         /training/articles/security-config) to get rid of SSL issues.
     
     3. Change the hostname of IS as 10.0.2.2.
@@ -102,7 +125,7 @@ Example:
 3. Select the Virtual Device and test the application. 
 
 ### Running in an Android Device
-1. Enable USB Debugging in the Developer Options in the Android Device. Refer documentation on [Run you App](https://developer.android.com/training/basics/firstapp/running-app).
+1. Enable USB Debugging in the Developer Options in the Android Device. Refer documentation on [Run your App](https://developer.android.com/training/basics/firstapp/running-app).
 
 2. If the WSO2 IS is hosted in the local machine, change the domain of the endpoints in the “app
 /res/raw/oidc_config.json” file and the hostname specified under “hostname” config
@@ -116,35 +139,3 @@ Example:
 5. Select the Android Device as the Deployment Target.
 
 6. Test the application.
-
-
-## Configure the Android SDK
-
-### Build the SDK locally.
-To Build the SDK in your local machine, 
-
-1. Clone the [SDK repo](https://github.com/wso2-extensions/identity-sdks-android)
-    - `git clone https://github.com/wso2-extensions/identity-sdks-android `
-
-2. Run the following commands.
-
-      - `./gradlew clean assembleRelease`
-      - `./gradlew publishToMavenLocal `
-
-3. Now the library will be available in your
- local .m2 cache. 
- 
-### Add the dependency 
-
-Add the [latest released Android-SDK](https://github.com/wso2-extensions/identity-sdks-android/releases) in
- `build.gradle` file.
-
-```gradle
-dependencies {
-   dependencies {
-        implementation 'org.wso2.identity.sdk.android.oidc:wso2-oidc-sdk:0.0.3'
-   }
-}
-```
-Refer [Android SDK](../quick-starts/android.md) documentation for further information.
-
