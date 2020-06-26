@@ -8,7 +8,7 @@ template: templates/single-column.html
         <h1>WSO2 Identity Server Documentation</h1>
     </header>
      <div class="md-main md-content" style="float:left; width: 60%;  text-align:justify; max-height:100%; ">
-        <p>WSO2 Identity Server is an API-driven open source IAM product designed to help you build effective CIAM solutions. It is based on open standards such as SAML, OAuth/OpenID Connect with deployment options for on-premise, cloud, and hybrid. It supports complex IAM requirements given its high extensibility.</p> 
+        <p>WSO2 Identity Server is an API-driven open source IAM product designed to help you build effective CIAM solutions. It is based on open standards such as SAML and OAuth/OpenID Connect with deployment options for on-premise, cloud, and hybrid. It supports complex IAM requirements given its high extensibility.</p> 
         <p>Within these pages you will find tutorials that help you understand and try out capabilities such as SSO, identity federation, authentication;  be it multi-factor authentication or adaptive authentication, and more. You can also browse through our API catalog and extend/customize using our extension points. </p>
     </div>
     <div class="md-main md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:-510px; margin-top:5px">
