@@ -5,45 +5,6 @@ This android library currently supports:
 
 - [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1) using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
 
-## Register Application
-
- 1. Access WSO2 Identity Server Developer Portal .
- 
- 2. Go to **Applications** and click **New Application**.
-  
- 3. Click **Show More**
- 
- 4. Open **Mobile Application** template.
-  
- 5. Enter **Name** and **Description** and click **Next**.
- 
- 6. Enter **Callback URL**. 
- 
-     The **Callback URL** is the exact location in the service provider's application where an access token would be sent. This URL should be the redirect scheme 
-     of the application that the user is redirected to after successful authentication.
-     
- 7. Click **Next**
- 
- 8. View the application details and Click **Finish**
- 
- 9. Click on **Access** tab and Note the the **Client ID** that appears. 
- 
-  
-| Field                 | Value                         | 
-| --------------------- | ------------------------------| 
-| Service Provider Name | your-application-name         |
-| Description           | This is a mobile application  | 
-| CallBack Url          | your-application-uri          | 
-
-**Eg:**
- 
-| Field                 | Value                         | 
-| --------------------- | ----------------------------- | 
-| Service Provider Name | sample-app                    |
-| Description           | This is a mobile application  | 
-| CallBack Url          | wso2sample://oauth2           | 
- 
-
 ## Installation
 
 ### Add the dependency 
@@ -58,30 +19,6 @@ dependencies {
    }
 }
 ```
-
-### Build the SDK locally.
-
-If you want to build the SDK in your local machine, 
-
-1. Clone the [SDK repo](https://github.com/wso2-extensions/identity-sdks-android)
-    - `git clone https://github.com/wso2-extensions/identity-sdks-android `
-2. Add `mavenLocal()` under `repositories` in  the `build.gradle` file (This build.gradle file is
- the top-level build file where you can add configuration options common to all sub-projects/modules).
-
-    ```
-    repositories {
-        google()
-        jcenter()
-        mavenLocal()           
-     }
-    ```
-
-3. Run the following commands.
-
-      - `./gradlew clean assembleRelease`
-      - `./gradlew publishToMavenLocal `
-
-4. Now the library will be available in your local `.m2` cache. 
  
 ### Add a URI Scheme 
   
@@ -101,8 +38,9 @@ android.defaultConfig.manifestPlaceholders = [
 ]
 ```
 
-Verify that this should be consistent with the [CallBack Url](#register-application) of the application that you configured in the
- developer-portal and in the `oidc_config.json` file. Refer the [configuration section](#configuration) for further information.
+Verify that this should be consistent with the CallBack Url of the application that you configured in the
+ developer-portal and in the `oidc_config.json` file. Refer the configuration section for further
+  information.
 
 For example, if you have configured the callBackUrl as `wso2sample://oauth2`, then the `appAuthRedirectScheme` should
  be `wso2sample`
@@ -113,7 +51,7 @@ Create the `oidc_config.json` file inside the `res/raw` folder.
 
 - Copy the following configurations into the `oidc_config.json` file. 
 
-- Change the **client_id** and **redirect_uri** configs. These should be taken from [application](#register-application).
+- Change the **client_id** and **redirect_uri** configs. These should be taken from application.
 
 - Update the {HOST_NAME}:{PORT} with the IS server's hostname and port respectively in the **discovery_uri** config.
 
@@ -123,17 +61,6 @@ Create the `oidc_config.json` file inside the `res/raw` folder.
  "redirect_uri": "{your-application-url}",
  "authorization_scope": "openid",
  "discovery_uri": "https://{HOST_NAME}:{PORT}/oauth2/oidcdiscovery/.well-known/openid-configuration"
-}
-```
-
-Example:
-
-```json
-{
-"client_id": "rs5ww91iychg9JN0DJGLMaxG2gha",
- "redirect_uri": "wso2sample://oauth2",
- "authorization_scope": "openid",
- "discovery_uri": "https://stgcloud.kubesb.com/t/example/oauth2/oidcdiscovery/.well-known/openid-configuration"
 }
 ```
 
@@ -153,7 +80,7 @@ Example:
 
 - Call the`doLogin()` method  when the `login button` is clicked to initiate authentication with WSO2 Identity Server.
  
--You need to create `completionIntent` and `cancelIntent` while calling the `authorize` method of `LoginService`.
+- You need to create `completionIntent` and `cancelIntent` while calling the `authorize` method of `LoginService`.
 
 - You can pass either `true` or `false` for the `callUserInfo` parameter. If `callUserInfo` value is `true`
 , then `userinfo request` will be made to the IdentityServer after successful token exchange. Else, if `callUserInfo`
