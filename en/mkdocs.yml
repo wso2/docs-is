@@ -452,7 +452,7 @@ nav:
                 - 'Android': developer-portal/applications/sdks/java-android.md
               - 'Samples': 
                 - developer-portal/applications/samples/overview.md
-                - 'Android': quick-starts/android-sample.md
+                - 'Android': developer-portal/applications/samples/android.md
             - 'Windows Desktop Application':
               - developer-portal/applications/edit-windows.md
               - 'SDKs': 

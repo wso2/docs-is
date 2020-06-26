@@ -61,32 +61,6 @@ dependencies {
    }
 }
 ```
-
-### Build the SDK locally.
-
-If you want to build the SDK in your local machine, 
-
-1. Clone the [SDK repo](https://github.com/wso2-extensions/identity-sdks-android)
-    - `git clone https://github.com/wso2-extensions/identity-sdks-android `
-2. Add `mavenLocal()` under `repositories` in  the `build.gradle` file (This build.gradle file is
- the top-level build file where you can add configuration options common to all sub-projects/modules)
-
-    ```
-    repositories {
-            google()
-            jcenter()
-            mavenLocal()
-            
-     }
-    ```
-
-3. Run the following commands.
-
-      - `./gradlew clean assembleRelease`
-      - `./gradlew publishToMavenLocal `
-
-4. Now the library will be available in your
- local .m2 cache. 
  
 ### Add a URI Scheme 
   
@@ -158,7 +132,7 @@ Example:
 
 - Call the`doLogin()` method  when the `login button` is clicked to initiate authentication with WSO2 Identity Server.
  
--You need to create `completionIntent` and `cancelIntent` while calling the `authorize` method of `LoginService`.
+- You need to create `completionIntent` and `cancelIntent` while calling the `authorize` method of `LoginService`.
 
 - You can pass either `true` or `false` for the `callUserInfo` parameter. If `callUserInfo` value is `true`
 , then `userinfo request` will be made to the IdentityServer after successful token exchange. Else, if `callUserInfo`
