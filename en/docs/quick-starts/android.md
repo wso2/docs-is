@@ -53,11 +53,19 @@ This android library currently supports:
 
 Add [latest released SDK](https://github.com/wso2-extensions/identity-sdks-android/releases) in
  your app's `build.gradle` file.
+ 
+```
+implementation 'org.wso2.identity.sdk.android.oidc:wso2-oidc-sdk:0.0.5'
+```
 
+**Example:**
 ```gradle
 dependencies {
    dependencies {
-        implementation 'org.wso2.identity.sdk.android.oidc:wso2-oidc-sdk:0.0.4'
+        .
+        .
+        .
+        implementation 'org.wso2.identity.sdk.android.oidc:wso2-oidc-sdk:0.0.5'
    }
 }
 ```
@@ -73,7 +81,7 @@ android.defaultConfig.manifestPlaceholders = [
 ]
 ```
 
-**Eg:**
+**Example:**
 ```gradle
 android.defaultConfig.manifestPlaceholders = [
        'appAuthRedirectScheme': 'wso2sample'
@@ -105,7 +113,7 @@ Create the `oidc_config.json` file inside the `res/raw` folder.
 }
 ```
 
-Example:
+**Example:**
 
 ```json
 {
