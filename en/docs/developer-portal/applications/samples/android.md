@@ -16,15 +16,19 @@ using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
 
 Open the  `oidc_config.json` file located in `res/raw` folder of the sample. 
 
-- Add the client-id of the application.
-- Update the {HOST_NAME}:{PORT} with the IS server's hostname and port respectively.
+Add the **client-id**  of the application. To get the client-id
+  - Click **Access** and Open **OIDC**.
+  - Copy **Client ID**
+
+Update the {HOST_NAME} and {tenant-domain} with your the hostname and tenantdomain. You can find that at the
+ developer-portal's url
 
 ```json
 {
  "client_id": "{client-id}",
  "redirect_uri": "wso2sample://oauth2",
  "authorization_scope": "openid",
- "discovery_uri": "https://{HOST_NAME}:{PORT}/oauth2/oidcdiscovery/.well-known/openid-configuration"
+ "discovery_uri": "https://{HOST_NAME}/t/{tenant-domain}/oauth2/oidcdiscovery/.well-known/openid-configuration"
 }
 ```
 

@@ -12,14 +12,10 @@ This android library currently supports:
 Add [latest released SDK](https://github.com/wso2-extensions/identity-sdks-android/releases) in
  your app's `build.gradle` file.
 
-```gradle
-dependencies {
-   dependencies {
-        implementation 'org.wso2.identity.sdk.android.oidc:wso2-oidc-sdk:0.0.4'
-   }
-}
 ```
- 
+implementation 'org.wso2.identity.sdk.android.oidc:wso2-oidc-sdk:0.0.5'
+```
+
 ### Add a URI Scheme 
   
 You need to add a redirect scheme in the application. You need to add the `appAuthRedirectScheme` in your app's
