@@ -23,7 +23,7 @@ site_url: https://wso2.com/identity-and-access-management/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/5.9.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/new_restructure/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
