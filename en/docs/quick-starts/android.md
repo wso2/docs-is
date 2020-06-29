@@ -316,5 +316,5 @@ Refer this [repository](https://github.com/wso2-extensions/identity-samples-andr
 
 !!! Tip "What's Next?"
 
-    - [Enable single sign-on with another mobile application]()
+    - [Enable single sign-on with another mobile application]
     - [Check out Detailed guide](../guides/login/mobile-app.md)    
