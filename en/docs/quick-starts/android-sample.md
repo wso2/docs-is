@@ -9,43 +9,8 @@ using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
 
 ## Register Application
 
- 1. Access WSO2 Identity Server Developer Portal .
+{!fragments/register-mobile-application!}
  
- 2. Go to **Applications** and click **New Application**.
-  
- 3. Click **Show More**
- 
- 4. Open **Mobile Application** template.
-  
- 5. Enter **Name** and **Description** and click **Next**.
- 
- 6. Enter **Callback URL**. 
- 
-     The **Callback URL** is the exact location in the service provider's application where an access token would be sent. This URL should be the redirect scheme 
-     of the application that the user is redirected to after successful authentication.
-     
- 7. Click **Next**
- 
- 8. View the application details and Click **Finish**
- 
- 9. Click on **Access** tab and Note the the **Client ID** that appears. 
- 
-  
-| Field                 | Value                         | 
-| --------------------- | ------------------------------| 
-| Service Provider Name | your-application-name         |
-| Description           | This is a mobile application  | 
-| CallBack Url          | your-application-uri          | 
-
-**Eg:**
- 
-| Field                 | Value                         | 
-| --------------------- | ----------------------------- | 
-| Service Provider Name | sample-app                    |
-| Description           | This is a mobile application  | 
-| CallBack Url          | wso2sample://oauth2           | 
- 
-
 ## Setup the sample
 
 
@@ -58,6 +23,11 @@ using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
     `git clone https://github.com/wso2-extensions/identity-samples-android.git`
 
 ### Configuration
+
+You need to add application configuration in your android project in order to authenticate with WSO2 Identity server
+ using OAuth/OpenID Connect protocol.
+ 
+Open the android application in Android Studio IDE.
 
 Open the  `oidc_config.json` file located in `res/raw` folder of the sample. 
 

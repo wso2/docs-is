@@ -10,42 +10,7 @@ This android library currently supports:
 
 ## Register Application
 
- 1. Access WSO2 Identity Server Developer Portal .
- 
- 2. Go to **Applications** and click **New Application**.
-  
- 3. Click **Show More**
- 
- 4. Open **Mobile Application** template.
-  
- 5. Enter **Name** and **Description** and click **Next**.
- 
- 6. Enter **Callback URL**. 
- 
-     The **Callback URL** is the exact location in the service provider's application where an access token would be sent. This URL should be the redirect scheme 
-     of the application that the user is redirected to after successful authentication.
-     
- 7. Click **Next**
- 
- 8. View the application details and Click **Finish**
- 
- 9. Click on **Access** tab and Note the the **Client ID** that appears. 
- 
-  
-| Field                 | Value                         | 
-| --------------------- | ------------------------------| 
-| Service Provider Name | your-application-name         |
-| Description           | This is a mobile application  | 
-| CallBack Url          | your-application-uri          | 
-
-**Eg:**
- 
-| Field                 | Value                         | 
-| --------------------- | ----------------------------- | 
-| Service Provider Name | sample-app                    |
-| Description           | This is a mobile application  | 
-| CallBack Url          | wso2sample://oauth2           | 
- 
+{!fragments/register-mobile-application!}
 
 ## Installation
 
@@ -72,8 +37,8 @@ dependencies {
  
 ### Add a URI Scheme 
   
-You need to add a redirect scheme in the application. You need to add the `appAuthRedirectScheme` in your app's
- `build.gradle` file.
+You need to add  `appAuthRedirectScheme` in your application level `build.gradle` file. This will allow you to
+ register your android app for a URI scheme.
 
 ```gradle
 android.defaultConfig.manifestPlaceholders = [
@@ -96,6 +61,9 @@ For example, if you have configured the callBackUrl as ‘wso2sample://oauth’,
 
 ### Configuration
 
+You need to add application configuration in your android project in order to authenticate with WSO2 Identity server
+ using OAuth/OpenID Connect protocol.
+ 
 Create the `oidc_config.json` file inside the `res/raw` folder. 
 
 - Copy the following configurations into the `oidc_config.json` file. 
@@ -155,6 +123,7 @@ Create the `oidc_config.json` file inside the `res/raw` folder.
 ```java
 private void doLogin() {
    
+      LoginService mLoginService = new DefaultLoginService(this);
       Intent completionIntent = new Intent(this, UserInfoActivity.class);
       Intent cancelIntent = new Intent(this, LoginActivity.class);
       cancelIntent.putExtra("failed", true);
@@ -208,7 +177,7 @@ To get information related to token response, first you need to get `OAuth2Token
 
 ```OAuth2TokenResponse oAuth2TokenResponse = mAuthenticationContext.getOAuth2TokenResponse();```   
    
-To get AccessToken and IDToken from  OAuth2TokenResponse
+To get AccessToken, RefreshToken and IDToken from  OAuth2TokenResponse
       
 ```
 String idToken = oAuth2TokenResponse.getIdToken();
@@ -217,6 +186,9 @@ Long accessTokenExpTime = oAuth2TokenResponse.getAccessTokenExpirationTime();
 String tokenType = oAuth2TokenResponse.getTokenType();
 String refreshToken = oAuth2TokenResponse.getRefreshToken();
 ```
+
+!!! Tip 
+    To get refresh token from WSO2 Identity Server, you need to enable [**Refresh Token**](refresh-token-grant.md) grant type.
 
 ## Get claims from IDToken
 
