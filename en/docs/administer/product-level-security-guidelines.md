@@ -192,7 +192,7 @@ To enable hostname verification:
 
 By default, XSS attacks are prevented in the latest WSO2 Identity Server versions. This is due to output encoding of the displaying values. 
 
-If additional protection is required, an input validation valve can be configured. For instructions, see <a href="../../administer/mitigating-cross-site-scripting-attacks">Mitigating Cross Site Scripting Attacks</a>.
+If additional protection is required, an input validation valve can be configured. For instructions, see <a href="../../administer/mitigating-cross-site-request-forgery-attacks">Mitigating Cross Site Scripting Attacks</a>.
 
 
 ## JSESSIONID length
