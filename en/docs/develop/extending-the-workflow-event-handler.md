@@ -224,4 +224,4 @@ select when adding a new workflow engagement.
 ![Operation category name](../assets/img/using-wso2-identity-server/operation-category-name.png)
 
 A sample handler implementation is available
-[here](https://github.com/wso2/product-is/tree/v5.9.0/modules/samples/workflow).
+[here](https://github.com/wso2/samples-is/tree/master/workflow).

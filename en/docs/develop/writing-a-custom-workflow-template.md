@@ -184,4 +184,4 @@ which template to follow in that workflow.
 ![Workflow template selection](../assets/img/using-wso2-identity-server/workflow-template-selection.png)
 
 The source of the sample which was used for this documentation can be found
-[here](https://github.com/wso2/product-is/tree/master/modules/samples/workflow/template/sample-template).
+[here](https://github.com/wso2/samples-is/tree/master/workflow/template/sample-template).

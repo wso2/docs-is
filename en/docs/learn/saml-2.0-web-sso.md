@@ -240,7 +240,7 @@ Likewise the message from the WSO2 Identity Server can be read easily.
 	[Identity-agent-sso](https://github.com/wso2-extensions/identity-agent-sso/)
 	is an implementation of all the details discussed above, which can be
 	used to implement SSO enabled web applications.
-	[Travelocity](https://github.com/wso2/product-is/tree/master/modules/samples/sso)
+	[Travelocity](https://github.com/wso2/samples-is/tree/master/sso/sso-agent-sample)
 	is a sample SSO enabled web-app, which is implemented based on
 	[Identity-agent-sso](https://github.com/wso2-extensions/identity-agent-sso/).
 
