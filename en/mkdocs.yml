@@ -476,7 +476,6 @@ nav:
           - 'Viewing Alerts': learn/viewing-alerts.md
         - 'Integrating with Fraud Detection, Risk Based Authentication, Identity Verification and Business Intelligence Systems': learn/fraud-detection.md
       - 'Samples':
-        - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
           - 'Writing a Custom OAuth 2.0 Grant Type':
             - 'Writing a Custom OAuth 2.0 Grant Type': learn/writing-a-custom-oauth-2.0-grant-type.md
