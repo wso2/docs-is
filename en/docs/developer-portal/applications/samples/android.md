@@ -10,10 +10,15 @@ using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
 
 1. Download the [android sample](https://github.com/wso2-extensions/identity-samples-android/archive/master.zip) and
  Unzip it.
+ 
+2. Open the sample in Android Studio IDE.
 
 
 ### Configuration
 
+You need to add application configuration in your android project in order to authenticate with WSO2 Identity server
+ using OAuth/OpenID Connect protocol.
+ 
 Open the  `oidc_config.json` file located in `res/raw` folder of the sample. 
 
 Add the **client-id**  of the application. To get the client-id
@@ -35,11 +40,9 @@ Update the {HOST_NAME} and {tenant-domain} with your the hostname and tenantdoma
 ## Run Sample
 
 ### Running in an Android Emulator
-1. Open the android project in android studio
+1. Create a suitable Android Virtual Device in the Android Studio.
 
-2. Create a suitable Android Virtual Device in the Android Studio.
-
-3. Run the application.
+2. Run the application.
 
 
 ### Running in an Android Device

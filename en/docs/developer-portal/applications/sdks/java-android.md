@@ -18,8 +18,8 @@ implementation 'org.wso2.identity.sdk.android.oidc:wso2-oidc-sdk:0.0.5'
 
 ### Add a URI Scheme 
   
-You need to add a redirect scheme in the application. You need to add the `appAuthRedirectScheme` in your app's
- `build.gradle` file.
+You need to add `appAuthRedirectScheme` in your application level `build.gradle` file. This will allow you to
+ register your android app for a URI scheme.
 
 ```gradle
 android.defaultConfig.manifestPlaceholders = [
@@ -43,6 +43,9 @@ For example, if you have configured the callBackUrl as `wso2sample://oauth2`, th
 
 ### Configuration
 
+Need to add application configuration in your android project in order to authenticate with Identity server using
+ OAuth/OpenID Connect protocol.
+ 
 Create the `oidc_config.json` file inside the `res/raw` folder. 
 
 - Copy the following configurations into the `oidc_config.json` file. 
