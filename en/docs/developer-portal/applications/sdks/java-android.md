@@ -7,6 +7,10 @@ This android library currently supports:
 
 ## Installation
 
+### Requirement
+
+Our SDK supports Android API 16 (Jellybean) and above. 
+
 ### Add the dependency 
 
 Add [latest released SDK](https://github.com/wso2-extensions/identity-sdks-android/releases) in
