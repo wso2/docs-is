@@ -1,6 +1,10 @@
 # Single Page Application SDK
 
-The WSO2 Identity Server OIDC authentication SDK supports implementing authentication in JavaScript and Typescript client applications with OpenID Connect (OIDC). It handles a lot of authentication related details like access token management and storage, grant and protocol mechanisms. This SDK basically is built upon the authorization code grant with PKCE.
+The WSO2 Identity Server OIDC authentication SDK supports implementing authentication in JavaScript and Typescript client applications with OpenID Connect (OIDC). It handles a lot of authentication related details such as the grant, protocol, token management and token storage. 
+
+This library currently supports [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1) with [PKCE](https://tools.ietf.org/html/rfc7636).
+
+You can also find the source code of this library [here](https://github.com/wso2-extensions/identity-sdks-js/tree/master/identity-oidc-js).
 
 ---
 
