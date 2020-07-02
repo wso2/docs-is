@@ -12,7 +12,7 @@ You can also find the source code of this library [here](https://github.com/wso2
 
 Run `yarn run build`
 
-> For development (watch mode) Run `yarn run watch`.
+For development (watch mode) Run `yarn run watch`.
 
 ### 1. Initialize the client
 
@@ -48,6 +48,7 @@ Required options
 | `clientHost`        | string  | -       | Application origin address with tenant path if applicable . E.g. https://mydomain.com or https://mydomain.com/t/exmaple.com |
 | `clientID`          | string  | -       | OIDC Application clientID generated in WSO2 Identity Server |
 | `serverOrigin`      | string  | -       | WSO2 Identity Server address. E.g. https://is.mydomain.com |
+
 
 Optional configurations
 
