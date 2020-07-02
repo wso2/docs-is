@@ -83,6 +83,19 @@ Following are some of the general details you need to fill out when you are crea
 
 ## Access
 
+[OpenID Connect](http://openid.net/connect/) is another identity layer
+on top of OAuth 2.0. OAuth applications can get authentication event
+information over the IDToken and can get the extra claims of the
+authenticated user from the OpenID Connect UserInfo endpoint. 
+
+| Field                       | Description                                                                   |
+|---                          | ---                                                                           |
+| Client ID                   | Client ID of the application you registered in the IDP for Identity server.   |
+| Client Secret               | Client Secret of the application you registered in the IDP for Identity server. Click the eye icon to view the value you enter.   |
+| Allowed Grant Types         | The following grant types are used to generate the access token:              |
+                              | - Code : Entering the username and password required at the service provider will result in a code being generated. This code can be used to obtain the access token. For more information on this grant type, see this Authorization Code specification.   |
+                              | - Implicit : This is similar to the code grant type, but instead of generating a code, this directly provides the access token. For more information on this grant type, see this Implicit Grant specification.             |                              
+
 
 ## Attributes
 Common configuration for all application types. Can use fragments.
