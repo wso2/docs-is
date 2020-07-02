@@ -93,8 +93,15 @@ authenticated user from the OpenID Connect UserInfo endpoint.
 | Client ID                   | Client ID of the application you registered in the IDP for Identity server.   |
 | Client Secret               | Client Secret of the application you registered in the IDP for Identity server. Click the eye icon to view the value you enter.   |
 | Allowed Grant Types         | The following grant types are used to generate the access token:              |
-                              | - Code : Entering the username and password required at the service provider will result in a code being generated. This code can be used to obtain the access token. For more information on this grant type, see this Authorization Code specification.   |
-                              | - Implicit : This is similar to the code grant type, but instead of generating a code, this directly provides the access token. For more information on this grant type, see this Implicit Grant specification.             |                              
+|                             | * **Refresh Token :** This will enable the user to obtain an access token by using the refresh token once the originally provided access token is used up. For more information on this grant type, see this [Refresh Token specification](https://tools.ietf.org/html/rfc6749#section-1.5). |   
+|                             | * **SAML2 :** This uses SAML assertion to obtain the access token. For more information on this grant type, see this [SAML2 Bearer specification](https://tools.ietf.org/id/draft-ietf-oauth-saml2-bearer-23.txt).   |
+|                             | * **Implicit :** This is similar to the code grant type, but instead of generating a code, this directly provides the access token. For more information on this grant type, see this [Implicit Grant specification](https://tools.ietf.org/html/rfc6749#section-4.2).                | 
+|                             | * **Password :** This authenticates the user using the password provided and the access token is provided. For more information on this grant type, see this [Resource Owner Password Credentials Grant specification](https://tools.ietf.org/html/rfc6749#section-4.3).   |  
+|                             | * **Client Credential :** This is the grant type for the client key and client secret. If these two items are provided correctly by the service provider, the access token is sent. For more information on this grant type, see this [Client Credentials specification](https://tools.ietf.org/html/rfc6749#section-4.4). |
+|                             | * **IWA-NTLM :** This is similar to the password grant type, but it is specific to Microsoft Windows users. |
+|                             | * **urn:ietf:params:oauth: grant-type:jwt-bearer :** This is a custom grant type. It uses a JWT token to obtain the access token. For more information about this grant type, see this [JWT specification](https://tools.ietf.org/html/rfc7523). |
+|                             | * **Code :** Entering the username and password required at the service provider will result in a code being generated. This code can be used to obtain the access token. For more information on this grant type, see this [Authorization Code specification.](https://tools.ietf.org/html/rfc6749#section-4.1)   |
+
 
 
 ## Attributes
