@@ -6,7 +6,7 @@
 ## Overview
 This android library currently supports:
 
-- [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1) using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
+- OpenID Connect Authorization Code Flow using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
 
 ## Register Application
 
