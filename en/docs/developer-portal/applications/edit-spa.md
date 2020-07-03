@@ -101,7 +101,13 @@ authenticated user from the OpenID Connect UserInfo endpoint.
 |                             | * **IWA-NTLM :** This is similar to the password grant type, but it is specific to Microsoft Windows users. |
 |                             | * **urn:ietf:params:oauth: grant-type:jwt-bearer :** This is a custom grant type. It uses a JWT token to obtain the access token. For more information about this grant type, see this [JWT specification](https://tools.ietf.org/html/rfc7523). |
 |                             | * **Code :** Entering the username and password required at the service provider will result in a code being generated. This code can be used to obtain the access token. For more information on this grant type, see this [Authorization Code specification.](https://tools.ietf.org/html/rfc6749#section-4.1)   |
-
+| Callback URL                | This is the URL to which the browser should be redirected after the authentication is successful. It should be the commonauth endpoint of Identity server.  |
+| Public Client               | This enables authenticating the client without the `client secret`. |  
+| PKCE Mandatory              | Select this if you are using the Code grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See [Mitigating Authorization Code Interception Attacks for more information](https://is.docs.wso2.com/en/5.11.0/administer/mitigating-authorization-code-interception-attacks/).  |
+| Support PKCE 'Plain' Transform Algorithm            | Select this if you are using PKCE. |
+| Enable encryption           | This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see Testing OIDC Encrypted ID Token with IS. |
+| Enable Request Object Signature Validation             | This is to define whether to only accept signed request objects in an authorization rqeuest or not. For more information, see [Enforcing Signature Validation for Request Objects](https://is.docs.wso2.com/en/5.11.0/learn/enforcing-signature-validation-for-request-objects/). |
+| Scope Validators            | This is to define the scope validation mechanisms. For more information on XACML scope validation, see [Validating the Scope of OAuth Access Tokens using XACML Policies](https://is.docs.wso2.com/en/5.11.0/learn/validating-the-scope-of-oauth-access-tokens-using-xacml-policies/). |
 
 
 ## Attributes
