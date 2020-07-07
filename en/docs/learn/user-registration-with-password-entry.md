@@ -6,9 +6,9 @@ In this approach, an administrator first creates a user account in the system up
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Jane** is a new recruit. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Sam** is an administrator at Pickup, **Jane** is a new recruit. 
 
-Robert wants to register a user account for Jane and get it activated by requesting Jane to enter a password. 
+Sam wants to register a user account for Jane and get it activated by requesting Jane to enter a password. 
 
 <img src="../../assets/img/learn/pickup-user-registration-with-password.png" alt="Scenario Diagram" width="800">  
 

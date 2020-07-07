@@ -4,7 +4,7 @@ User Managed Access (UMA) enables controlled access to a user's protected digita
 
 ## Scenario 
 
-Lily, Oliver, and Pam are three users in WSO2 IS. Lily has a photo album in the **Photo-editer** application and wants to share the Family photos album with her family members; Oliver and Pam. Oliver and Pam can view this photo album using the **Photo-viewer** application. The **Photo-editor** and **Photo-viewer** applications are using WSO2 IS as their identity provider.
+Larry, Alex, and Sam are three users in WSO2 IS. Larry has a photo album in the **Photo-editer** application and wants to share the Family photos album with the family members, Alex and Sam. Alex and Sam can view this photo album using the **Photo-viewer** application. The **Photo-editor** and **Photo-viewer** applications are using WSO2 IS as their identity provider.
     
 ![uma-scenario-diagram](../assets/img/learn/uma-scenario-diagram.png)
 
@@ -30,12 +30,12 @@ Once you have deployed the samples, note that two service providers have been cr
 
 ## Create users
 
-1. Log in using admin/admin credentials and create a new user called "Lily" (the resource owner) with login permission. For instructions, see [Adding Users and Roles](../../learn/adding-users-and-roles#create-a-user).
+1. Log in using admin/admin credentials and create a new user called "Larry" (the resource owner) with login permission. For instructions, see [Adding Users and Roles](../../learn/adding-users-and-roles#create-a-user).
 
     !!! info
         'admin' is the default administrative user in WSO2 Identity Server.
 
-2. Next, create two new users called "Pam" and "Oliver" (the requesting parties) with login permission. 
+2. Next, create two new users called "Pam" and "Alex" (the requesting parties) with login permission. 
 
 The setup is now complete and you can proceed to try out the scenario.
 
@@ -43,9 +43,9 @@ The setup is now complete and you can proceed to try out the scenario.
 
 1. Run the application by visting the following URL: <http://localhost.com:8080/photo-edit>.
 
-2. Log in to the **Photo Editor** application using Lily's credentials and provide the requested consent. 
+2. Log in to the **Photo Editor** application using Larry's credentials and provide the requested consent. 
 
-3. Select the checkboxes and click **Share** to share the resources with Oliver and Pam.
+3. Select the checkboxes and click **Share** to share the resources with Alex and Pam.
 
     ![photo-editor-share](../assets/img/learn/photo-editor-share.png)
 
@@ -56,7 +56,7 @@ The setup is now complete and you can proceed to try out the scenario.
 
 4. Navigate to the following URL in an incognito or private browser window to access the **Photo Viewer** application: <http://localhost.com:8080/photo-view>.
 
-5. Log in to the **Photo Viewer** application using Oliver's credentials and provide the requested consent. 
+5. Log in to the **Photo Viewer** application using Alex's credentials and provide the requested consent. 
 
 6. Click **View Album** to view the shared resources.
 

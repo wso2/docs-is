@@ -90,13 +90,13 @@ pattern.
 5.  **Role mapping.** Your service provider needs to authorize users
     once they are logged in. What the user can do at the identity
     provider is different from what the same user can do at the service
-    provider. User's roles from the identity provider define what he can
+    provider. Users' roles from the identity provider define what they can
     do at the identity provider. Service provider's roles define the
     things a user can do at the service provider. Identity bus is
     capable of mapping identity provider's roles to the service
-    provider's roles. For example a user may bring idp-admin role from
-    his identity provider - in a SAML response - then the identity bus
-    will find the mapped service provider role corresponding to this,
+    provider's roles. For example users may bring idp-admin role from
+    their identity providers - in a SAML response - then the identity bus
+    will find the mapped service provider roles corresponding to these,
     say sp-admin, and will add that into the SAML response returning
     back to the service provider from the identity bus.
 6.  **Just-in-time provisioning.** Since identity bus is at the middle

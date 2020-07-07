@@ -10,11 +10,11 @@ can configure workflows to do the following.
 -   **User specific approvals** : You can configure a specific user to
     approve the user account. For example, you may want only the user
     named "Bob" to approve accounts.
--   **Multi-step approvals** : You can configure multiple steps for
+-   **Multi-step approvals** : You can  configure multiple steps for
     approval, where the approval is first done by one user and then by
-    another user. For example, you need "Bob" to approve the accounts
-    first and then "Alice" to approve the account creation. So Alice
-    gets the approval requests sent to her once Bob has approved an
+    another user. For example, you need "Alex" to approve the accounts
+    first and then "Sam" to approve the account creation. So Sam
+    gets the approval requests sent once Alex has approved an
     account.
 -   **Multiple role approvals** : Here you need multiple levels of
     authority to approve the creation of a user account. To expand,

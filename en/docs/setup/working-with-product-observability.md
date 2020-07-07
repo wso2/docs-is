@@ -196,13 +196,13 @@ timing delays for the JDBC or LDAP calls.
 Following are a few advance scenarios that are related to product
 observability in WSO2 IS.
 
-#### Blacklisting the threads
+####denylisting the threads
 
-Certain threads continuously print unnecessary logs. Blacklisting
+Certain threads continuously print unnecessary logs.denylisting
 prevents the unwanted threads from printing logs thereby improving the
 readability of the logs.
 
-Follow the steps below to configure thread blacklisting.
+Follow the steps below to configure threaddenylisting.
 
 1.  Open either of the following files in the
     `          <IS_HOME>/bin         ` directory on a command prompt.
@@ -211,7 +211,7 @@ Follow the steps below to configure thread blacklisting.
 2.  Add the following configuration as a system property.
 
     ``` java
-    -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=threadName1,threadName2 \
+    -Dorg.wso2.CorrelationLogInterceptor.denylistedThreads=threadName1,threadName2 \
     ```
 
     !!! tip
@@ -222,7 +222,7 @@ Follow the steps below to configure thread blacklisting.
     !!! note
     
         This configuration is not required by default, as all unnecessary
-        threads are already blacklisted by the
+        threads are alreadydenylisted by the
         `           MessageDeliveryTaskThreadPool          ` thread. If the
         above configuration is added, the default value will be overridden.
         

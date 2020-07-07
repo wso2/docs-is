@@ -6,11 +6,11 @@ WSO2 Identity Server enables restricting the user from re-entering recently used
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. Robert, who is an administrator at Pickup, wants to restrict users from re-using the three most recently used passwords when setting a new password.
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. Sam, who is an administrator at Pickup, wants to restrict users from re-using the three most recently used passwords when setting a new password.
 
 ## Set up
 
-Follow the steps below to define the password policy that Robert wants to enforce.
+Follow the steps below to define the password policy that Sam wants to enforce.
 
 !!! tip "Before you begin"
 
@@ -60,13 +60,13 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 	2.	Click **Add New User**.
 
-	3.	Enter `Larry` as the user name and `testwso2is` as the password.
+	3.	Enter `Alex` as the user name and `testwso2is` as the password.
 
 	4.	Click **Finish**.
 
 2.	To assign login permissions to the user:
 	
-	1.	Click the **View Roles** option of Larry.
+	1.	Click the **View Roles** option of Alex.
 
 		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
@@ -102,7 +102,7 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 		<img src="../../assets/img/learn/passwore-history-error-message.png" alt="Passwrod History Validation error message" width="600" style="border:1px solid grey">
 
-	7.	To mimic three consecutive password changes, change Larry's password to the following sequentially. 
+	7.	To mimic three consecutive password changes, change Alex's password to the following sequentially. 
 
 		-	`test123`
 		-	`test234`
@@ -110,4 +110,4 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 		Note that these passwords gets successfully added to the system. 
 
-	8.	Now, change Larry's password back to `testwso2is`. Note that the password gets successfully changed. 
+	8.	Now, change Alex's password back to `testwso2is`. Note that the password gets successfully changed. 
