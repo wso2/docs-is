@@ -239,8 +239,9 @@ Supported By Default checkbox to enable the birth date claim.
 6. Create a user called "Alex" and edit the user profile. 
 
 7. Enter a birth date that specifies Alex as under 18 years of age. 
+    
     !!! note
-        Enter the birth date in the following format: <yyyy-mm-dd>.
+        Enter the birth date in the following format: &lt;yyyy-mm-dd&gt;.
 
 8. Create another user called "Kim" and edit the user profile. Enter a birth date that specifies Kim as over 18 years of age. 
 

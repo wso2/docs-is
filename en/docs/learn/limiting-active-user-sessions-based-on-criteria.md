@@ -24,11 +24,11 @@ Here, you will use a sample application named **Pickup Dispatch** to deploy and 
 5.  Click **Ok**.
 
     !!! note
-        The authentication script defines a conditional step that executes session handling prompt  only if the user belongs to an 'admin' or 'manager' role.  Here you can specify the value of `MaxSessionCount` variable to indicate the maximum number of allowed sessions. The default value is 1. For the purpose of this demo, change the value to 3. You can configure the `MaxSessionCount` variable via the deployment.toml file in the  `<IS_HOME>/repository/conf/` directory as well. Priority will be given to the configuration in the adaptive authentication script. To configure the `MaxSessionCount` variable through `deployment.toml` file, append the following configuration with the intended value for `MaxSessionCount`.
+        The authentication script defines a conditional step that executes session handling prompt  only if the user belongs to an 'admin' or 'manager' role.  Here you can specify the value of `MaxSessionCount` variable to indicate the maximum number of allowed sessions. The default value is 1. For the purpose of this demo, change the value to 3. You can configure the `MaxSessionCount` variable via the deployment.toml file in the  `<IS_HOME>/repository/conf/` directory as well. Priority will be given to the configuration in the adaptive authentication script. To configure the `MaxSessionCount` variable through `deployment.toml` file, append the following configuration with the intended value for `MaxSessionCount`. Please note that there is no specific maximum limit for the value of `MaxSessionCount` variable.
    
     ```
-    
-    authentication.authenticator.session_handler.parameters.max_session_count = “3”
+    [authentication.authenticator.session_handler.parameters]
+    max_session_count = "3"
     
     ```
     ![limit-active-sessions-step-5](../../assets/img/tutorials/limit-active-sessions-step-5.png)

@@ -6,7 +6,7 @@ Multi-factor authentication is an authentication mechanism that enhances securit
 
 A taxi company called "Pickup" uses an application called "Pickup Dispatch", which is used by their drivers to accept hires. Lately, Pickup has noticed that users who are not drivers employed at Pickup have been logging in via driver accounts. 
 
-To ensure that only their own drivers can log into the application, Pickup decided to enhance security by configuring multi-factor authentication. After providing login credentials, the drivers will recieve a one time password (OTP) to their mobile number. They will only be allowed to access the application once they have entered the OTP. 
+To ensure that only their own drivers can log into the application, Pickup decided to enhance security by configuring multi-factor authentication. After providing login credentials, the drivers will receive a one time password (OTP) to their mobile number. They will only be allowed to access the application once they have entered the OTP. 
 
 ## Set up 
 

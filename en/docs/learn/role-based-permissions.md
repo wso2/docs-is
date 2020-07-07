@@ -136,7 +136,6 @@ follows:
     <br />
     <strong>- Claim Management:</strong> See the topic on <a href="../../learn/claim-management">claim management</a> for details on how to use this option.<br />
     <strong>- Keystores:</strong> See the topic on <a href="../../administer/creating-new-keystores">keystores</a> for details on how to use this option. <strong><br />
-    </strong> <strong>- Service Principle (Kerberos KDC):</strong> See the topic on <a href="../../administer/kerberos-security">kerberos security</a> for details on how to use this option. <strong><br />
     </strong> <strong>- Email Templates:</strong> See the topics on <a href="../../learn/customizing-automated-emails">email templates</a> for details on how to use this option.<br />
     <br />
     - This permission will also enable the <strong>Roles</strong> option under <strong>Configure/Users and Roles</strong> . See the topic on <a href="../../learn/configuring-users-roles-and-permissions">configuring users, roles and permissions</a> for more information.<br />
