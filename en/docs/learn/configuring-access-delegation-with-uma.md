@@ -35,7 +35,7 @@ Once you have deployed the samples, note that two service providers have been cr
     !!! info
         'admin' is the default administrative user in WSO2 Identity Server.
 
-2. Next, create two new users called "Pam" and "Alex" (the requesting parties) with login permission. 
+2. Next, create two new users called "Sam" and "Alex" (the requesting parties) with login permission. 
 
 The setup is now complete and you can proceed to try out the scenario.
 
@@ -45,7 +45,7 @@ The setup is now complete and you can proceed to try out the scenario.
 
 2. Log in to the **Photo Editor** application using Larry's credentials and provide the requested consent. 
 
-3. Select the checkboxes and click **Share** to share the resources with Alex and Pam.
+3. Select the checkboxes and click **Share** to share the resources with Alex and Sam.
 
     ![photo-editor-share](../assets/img/learn/photo-editor-share.png)
 

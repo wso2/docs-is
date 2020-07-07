@@ -41,7 +41,7 @@ need to configure the Identity Server as follows.
         <tbody>
             <tr>
                 <td>filter_policy</td>
-                <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates a allowlist, whereas an <b>exclude</b> indicates a denylist.</td>
+                <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates an allowlist value, whereas an <b>exclude</b> indicates a denylist value.</td>
             </tr>
             <tr>
                 <td>remove_on_consume_from_api</td>

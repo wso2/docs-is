@@ -94,7 +94,7 @@ pattern.
     do at the identity provider. Service provider's roles define the
     things a user can do at the service provider. Identity bus is
     capable of mapping identity provider's roles to the service
-    provider's roles. For example users may bring idp-admin roles from
+    provider's roles. For example, users may bring idp-admin roles from
     their identity providers - in a SAML response - then the identity bus
     will find the mapped service provider role corresponding to these,
     say sp-admin, and will add that into the SAML response returning

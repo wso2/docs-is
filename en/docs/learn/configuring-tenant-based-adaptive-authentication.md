@@ -76,7 +76,7 @@ credentials (basic authentication) to access a resource.
     with the appended tenant domain (i.e., alex@abc.com).  
     ![pickup-sign-in-chris](../assets/img/tutorials/pickup-sign-in-chris.png)  
     Note that you are prompted for hardware key authentication because
-    **abc.com** is a allowlisted tenant domain.
+    **abc.com** is an allowlisted tenant domain.
 5.  Enter the 4 digit key and click **Sign In**. You are successfully
     logged in to the application.  
     ![hardware-key-authenticator](../assets/img/tutorials/hardware-key-authenticator.png)
