@@ -68,12 +68,12 @@ credentials (basic authentication) to access a resource.
 1.  Log out of the management console and log in with the **abc.com**
     tenant admin's credentials (alex@abc.com).  
     ![mgt-console-login-alex](../assets/img/tutorials/mgt-console-login-alex.png)
-2.  Create a new user in the abc.com tenant named "chris" and ensure
-    that he has login permissions.
+2.  Create a new user in the abc.com tenant named "Alex" and ensure
+    that Alex has login permissions.
 3.  Access the following sample PickUp application URL:
     <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
-4.  Click **Login** and enter Chris's credentials. Enter the username
-    with the appended tenant domain (i.e., chris@abc.com).  
+4.  Click **Login** and enter Alex's credentials. Enter the username
+    with the appended tenant domain (i.e., alex@abc.com).  
     ![pickup-sign-in-chris](../assets/img/tutorials/pickup-sign-in-chris.png)  
     Note that you are prompted for hardware key authentication because
     **abc.com** is a allowlisted tenant domain.

@@ -211,7 +211,7 @@ Follow the steps below to configure thread denylisting.
 2.  Add the following configuration as a system property.
 
     ``` java
-    -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=threadName1,threadName2 \
+    -Dorg.wso2.CorrelationLogInterceptor.denylistedThreads=threadName1,threadName2 \
     ```
 
     !!! tip
