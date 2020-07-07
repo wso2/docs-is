@@ -71,7 +71,7 @@ at how it works:
     enable = true
     
     [admin_console.authenticator.mutual_ssl_authenticator.config]
-    allowlist = ""
+    WhiteList = ""
     ```
 
 3.  For mutual SSL authentication, the public certificate of the WSO2

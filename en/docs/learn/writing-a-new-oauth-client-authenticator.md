@@ -41,7 +41,7 @@ handle the basic client authenticator as follows:
     in the body of the request.
 
 [Click here to take a look at the default
-implementation](https://github.com/wso2-extensions/identity-inbound-auth-oauth/blob/main/components/org.wso2.carbon.identity.oauth/src/main/java/org/wso2/carbon/identity/oauth2/client/authentication/BasicAuthClientAuthenticator.java)
+implementation](https://github.com/wso2-extensions/identity-inbound-auth-oauth/blob/master/components/org.wso2.carbon.identity.oauth/src/main/java/org/wso2/carbon/identity/oauth2/client/authentication/BasicAuthClientAuthenticator.java)
 .
 
 The elements used in each method are explained below:
@@ -218,7 +218,7 @@ Let's get started!
     </table>
 
 4.  Register the authenticator as an OSGi service. For example, see
-    [here](https://github.com/wso2/samples-is/blob/main/etc/oauth-sample-client-authenticator/src/main/java/org/wso2/carbon/identity/oauth/client/auth/sample/internal/OAuth2SampleClientAuthnServiceComponent.java#L46)
+    [here](https://github.com/wso2/samples-is/blob/master/etc/oauth-sample-client-authenticator/src/main/java/org/wso2/carbon/identity/oauth/client/auth/sample/internal/OAuth2SampleClientAuthnServiceComponent.java#L46)
     .
 
 5.  Build the OSGi bundle.
