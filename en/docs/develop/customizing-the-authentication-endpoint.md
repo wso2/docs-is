@@ -1,4 +1,4 @@
-# Customizing the Authentication Endpoint
+# Changing the Authentication Endpoint
 
 The authentication endpoint is the authentication URL used in
 authentication requests. The following sections discuss methods of

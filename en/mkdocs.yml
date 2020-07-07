@@ -476,7 +476,6 @@ nav:
           - 'Viewing Alerts': learn/viewing-alerts.md
         - 'Integrating with Fraud Detection, Risk Based Authentication, Identity Verification and Business Intelligence Systems': learn/fraud-detection.md
       - 'Samples':
-        - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
           - 'Writing a Custom OAuth 2.0 Grant Type':
             - 'Writing a Custom OAuth 2.0 Grant Type': learn/writing-a-custom-oauth-2.0-grant-type.md
@@ -510,6 +509,7 @@ nav:
         - 'User Management for Developers':
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
+          - 'Writing a Custom Event Handler': develop/writing-a-custom-event-handler.md
           - 'User Store Listeners': develop/user-store-listeners.md
           - 'Writing a Post-Authentication Handler': develop/writing-a-post-authentication-handler.md
           - 'Using the User Management Errors Event Listener': develop/using-the-user-management-errors-event-listener.md
@@ -529,7 +529,7 @@ nav:
         - 'Access Control for Developers':
           - 'Writing a Custom Policy Info Point': develop/writing-a-custom-policy-info-point.md
         - 'Workflow Management for Developers':
-          - 'Writing a Custom Event Handler': develop/writing-a-custom-event-handler.md
+          - 'Extending the Workflow Event Handler': develop/extending-the-workflow-event-handler.md
           - 'Writing a Custom Workflow Template': develop/writing-a-custom-workflow-template.md
         - 'Adaptive Authentication for Developers':
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
@@ -595,12 +595,11 @@ nav:
           - 'Managing Tenants with APIs': develop/managing-tenants-with-apis.md
           - 'Entitlement with APIs':
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
-      - 'Customizing User Interfaces':
-        - 'Customizing WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
-        - 'Customizing Login Pages for Service Providers': develop/customizing-login-pages-for-service-providers.md
-        - 'Customizing the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md
-        - 'Customizing the User Portal UI': develop/customizing-user-portal-ui.md
-      - 'Customizing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
+      - 'Re-branding User Interfaces':
+        - 'Re-branding WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
+        - 'Re-branding the Default Login Page for Your Application': develop/customizing-login-pages-for-service-providers.md
+        - 'Re-branding the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md
+      - 'Changing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
       - 'Setting-Up User Portal in a Development Environment': develop/setting-up-user-portal-in-a-dev-environment.md

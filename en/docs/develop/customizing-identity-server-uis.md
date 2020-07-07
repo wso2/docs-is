@@ -1,11 +1,12 @@
-# Customizing WSO2 Identity Server UIs
+# Re-branding WSO2 Identity Server UIs
 
-From [WSO2 Identity Server 5.9.0](https://wso2.com/identity-and-access-management/) onwards, a new UI extension has been introduced to  easily customize the basic user interfaces like login page, username and password recovery pages, and single sign-on pages.
+From [WSO2 Identity Server 5.9.0](https://wso2.com/identity-and-access-management/) onwards, a new UI extension has been introduced to easily re-brand  basic user interfaces like the login page, username and password recovery pages, and single sign-on pages.
+
 
 All these UIs are available in the **`authenticationendpoint`** and **`accountrecoveryendpoint`** web apps that are located in the `<IS_HOME>/repository/deployment/server/webapps` folder. To customize these pages, follow the steps below. 
 
 !!! warning
-    To customize the endpoints, apply the 0003 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
+    To modify the endpoints, apply the 0003 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
     (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid
     subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For
     more information on updating WSO2 Identity Server using WUM, see [Updating WSO2 Products](https://is.docs.wso2
@@ -16,15 +17,14 @@ All these UIs are available in the **`authenticationendpoint`** and **`accountre
 1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint` folder and create a new folder called **`extensions`**.
 
     !!! info
-    
-        You will be adding the customized JSP files along with the custom CSS files into this new `extensions` folder.
+        You will be adding the modified JSP files along with the modified CSS files into this new `extensions` folder.
            
 2. Similarly, navigate to the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint` folder and create an `extensions` folder.
 
 
 ## Step 2: Copy the existing header and footer content
 
-In order to customize the header and footer content of the web applications, first you need to copy them to the newly cerated `extensions` folders. 
+To re-brand the header and footer content of the web applications, first copy them over to the newly created `extensions` folders. 
 
 1. To copy the header and footer content of the **authenticationendpoint** web application:
 
@@ -228,7 +228,7 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
         </footer>
     ```
       
-3. Similarly, you can customize the **accountrecovery** web application header and footer.
+3. Similarly, you can re-brand the **accountrecovery** web application header and footer.
 
     !!! note
     
@@ -238,7 +238,8 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
            <%@include file=”../localize.jsp” %>
            ```
 
-4. Refresh the browser and check out the customized header and footer content.
+4. Refresh the browser and check out the modified header and footer content. 
+
 
 !!! tip
 
@@ -260,5 +261,5 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
 
 
 !!! note  
-    One advantage of this approach is that WUM updates will not affect your UI changes and you need not worry about manually adding your custom changes. 
+    One advantage of this approach is that WUM updates will not affect your UI changes and you need not worry about manually adding your changes. 
     
