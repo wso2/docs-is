@@ -261,7 +261,44 @@ if (!isAdmin) {
     When passing error messages to the error page, it is
     recommended to use the i18n key so that it can be internationalized
     easily at the page.
-    
+
+##### fail()
+
+This function redirects the user to the redirect URI provided in the authorization request failing the authorization flow. 
+
+This function takes a map as an optional parameter. When a map is provided as the parameter, the redirect URL will be appended with following properties which should be contained in the map, otherwise the default parameters will be passed. All the properties passed in the map are also optional.
+
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>errorCode </td>
+<td>error code to be appended in the redirect URL</td>
+</tr>
+<tr class="even">
+<td>errorMessage </td>
+<td>error message to be appended in the redirect URL</td>
+</tr>
+<tr class="odd">
+<td>errorURI </td>
+<td>URI of a web page that includes additional information about the error</td>
+</tr>
+</tbody>
+</table>
+
+**Example code**
+
+``` java
+var parameterMap = {'errorCode': 'access_denied', 'errorMessage': 'login could not be completed', "errorURI":'http://www.example.com/error'};
+if (!isAuthenticated) {
+    fail(parameterMap);
+}
+```
 
 ##### setCookie(response, name, value, properties)
 
