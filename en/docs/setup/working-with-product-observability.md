@@ -198,11 +198,11 @@ observability in WSO2 IS.
 
 ####denylisting the threads
 
-Certain threads continuously print unnecessary logs.denylisting
+Certain threads continuously print unnecessary logs.Blacklisting
 prevents the unwanted threads from printing logs thereby improving the
 readability of the logs.
 
-Follow the steps below to configure threaddenylisting.
+Follow the steps below to configure thread denylisting.
 
 1.  Open either of the following files in the
     `          <IS_HOME>/bin         ` directory on a command prompt.
@@ -211,7 +211,7 @@ Follow the steps below to configure threaddenylisting.
 2.  Add the following configuration as a system property.
 
     ``` java
-    -Dorg.wso2.CorrelationLogInterceptor.denylistedThreads=threadName1,threadName2 \
+    -Dorg.wso2.CorrelationLogInterceptor.BlacklistedThreads=threadName1,threadName2 \
     ```
 
     !!! tip
@@ -222,7 +222,7 @@ Follow the steps below to configure threaddenylisting.
     !!! note
     
         This configuration is not required by default, as all unnecessary
-        threads are alreadydenylisted by the
+        threads are already denylisted by the
         `           MessageDeliveryTaskThreadPool          ` thread. If the
         above configuration is added, the default value will be overridden.
         
