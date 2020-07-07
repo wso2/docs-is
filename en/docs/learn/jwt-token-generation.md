@@ -96,7 +96,7 @@ WRo2p92f-pt1vH9xfLgmrPWNKJfmST2QSPYcth7gXKz64LdP9zAMUtfAk9DVRdHTIQR3gX0jF4Ohb4Ub
 ```
 {"alg":"RS256","x5t":"NmJmOGUxMzZlYjM2ZDRhNTZlYTA1YzdhZTRiOWE0NWI2M2JmOTc1ZA"}
 
-x5t : T his header provides a base64url encoded SHA-256 thumbprint
+x5t : This header provides a base64url encoded SHA-256 thumbprint
 (a.k.a. digest) of the DER encoding of an X.509 certificate that can be
 used to match a certificate to validate the signature.
 ```

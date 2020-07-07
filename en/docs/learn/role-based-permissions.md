@@ -148,7 +148,7 @@ follows:
     </tr>
     <tr class="odd">
     <td>Admin/Configure/Security/Identity Management/Password Management</td>
-    <td>This permission enables t he <strong>Change Password</strong> option for the users listed in the <strong>User Management/Users and Roles/Users</strong> screen, which allows the log in user to change the passwords</td>
+    <td>This permission enables the <strong>Change Password</strong> option for the users listed in the <strong>User Management/Users and Roles/Users</strong> screen, which allows the log in user to change the passwords</td>
     </tr>
     <tr class="even">
     <td>Admin/Configure/Security/Identity Management/Profile Management</td>

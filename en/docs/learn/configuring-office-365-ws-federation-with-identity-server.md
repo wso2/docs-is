@@ -235,7 +235,7 @@ with Azure AD.
     ```
 
 You can now attempt to login to the Office365 Web Portal with this user
-you created. T he user’s identity will be represented and authenticated
+you created. The user’s identity will be represented and authenticated
 by the on premises identity provider (i.e., the WSO2 Identity server).
 
 1.  Access the following URL on your browser:

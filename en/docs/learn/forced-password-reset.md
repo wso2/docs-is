@@ -41,7 +41,7 @@ for forced password reset:
 3.  Start the Identity Server and log in to the management console with
     admin credentials.
     
-4.  Create a new user with the username "tom" and update his user
+4.  Create a new user with the username "Alex" and update the user
     profile with a valid email address and other information.
 5.  Create a new role called "test role" with login permissions and
     assign it to the new user, "tom".

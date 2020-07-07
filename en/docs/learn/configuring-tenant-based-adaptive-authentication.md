@@ -4,7 +4,7 @@ This tutorial demonstrates tenant-based adaptive authentication with
 WSO2 Identity Server using sample authenticators. This is useful if you
 want to add security for users logging in from external tenant domains.
 Using the tenant-based adaptive authentication template, you can
-whitelist certain tenant domains so that users from the whitelisted
+allowlist certain tenant domains so that users from the allowlisted
 domains are prompted to perform an additional level of authentication,
 while users from any other tenant domain can simply provide their
 credentials (basic authentication) to access a resource.
@@ -76,12 +76,12 @@ credentials (basic authentication) to access a resource.
     with the appended tenant domain (i.e., chris@abc.com).  
     ![pickup-sign-in-chris](../assets/img/tutorials/pickup-sign-in-chris.png)  
     Note that you are prompted for hardware key authentication because
-    **abc.com** is a whitelisted tenant domain.
+    **abc.com** is a allowlisted tenant domain.
 5.  Enter the 4 digit key and click **Sign In**. You are successfully
     logged in to the application.  
     ![hardware-key-authenticator](../assets/img/tutorials/hardware-key-authenticator.png)
 6.  Log out and log in with Kim's credentials. Kim is the admin of the
-    **123.com** tenant domain, which is not one of the whitelisted
+    **123.com** tenant domain, which is not one of the allowlisted
     domains.  
     ![pickup-sign-in-kim](../assets/img/tutorials/pickup-sign-in-kim.png)
 7.  Provide consent.  
