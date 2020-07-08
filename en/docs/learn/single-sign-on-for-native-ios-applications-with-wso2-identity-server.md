@@ -184,7 +184,7 @@ required.
         The sample client application uses the [dev-logout development
         branch](https://github.com/openid/AppAuth-iOS/tree/dev-logout) of
         the AppAuth for iOS library due to several logout functionality
-        issues in the master branch. Therefore, you will see the following
+        issues in the main branch. Therefore, you will see the following
         line in the pods file:
     
         ``` java
@@ -195,7 +195,7 @@ required.
         branch](https://github.com/openid/AppAuth-iOS/tree/dev-logout) can
         get removed or merged in the future. If that happens, you can
         replace the above line with the following to import the standard
-        AppAuth library from the master branch:
+        AppAuth library from the main branch:
     
         ``` java
         pod 'AppAuth'

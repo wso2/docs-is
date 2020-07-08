@@ -15,7 +15,7 @@ This made it easier to validate and ensure that WSO2 Identity Server abides by a
     Moreover, the consumer can request for specific information about them that has been collected and shared, and the business should ensure that the detail 
     requested is hence shared with the customer. 
 
-    Any user who has given his or her PI to the system should have the following capabilities:
+    Users who have given their PIs to the system should have the following capabilities:
 
     -   Remove sections of the information
     -   Modify information

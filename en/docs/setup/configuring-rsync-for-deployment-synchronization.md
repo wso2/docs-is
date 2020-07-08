@@ -78,7 +78,7 @@ the same directory.
     in your command line.
 
     !!! note
-        You can run the Cron job on one given node (master) at a
+        You can run the Cron job on one given node (controller) at a
         given time. If you switch it to another node, you must stop the Cron
         job on the existing node and start a new Cron job on the new node
         after updating it with the latest files so far .

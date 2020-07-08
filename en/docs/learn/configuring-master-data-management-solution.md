@@ -32,7 +32,7 @@ take more accurate and cleansed data when this data is integrated with MDM.
 Outbound provisioning talks about provisioning users to external systems. 
 There are different outbound provisioning connectors supported by IS to push
  the user data from WSO2 IS to an MDM solution. This is an effort that helps an 
- organization to create a master data source in a single location and manage it.   
+ organization to create a primary data source in a single location and manage it.   
 
 #### Support outbound provisioning connectors
 
