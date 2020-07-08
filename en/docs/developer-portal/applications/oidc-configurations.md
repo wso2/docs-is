@@ -1,5 +1,3 @@
-# Application Configurations
-
 ## General 
 
 Now that you have created an application in the Identity Server using a template, you can go ahead with integrating your application or you can edit the following details which are pre configured for you through the template. 
@@ -151,7 +149,7 @@ Script based authentication enables an identity provider to prompt multi-factor 
 
 For instance, high-risk logins such as a user attempting to log in from an unusual location causes the adaptive authentication mechanism to prompt an extra authentication in order to increase security.
 
-You can add authentication steps or use a template to configure adaptive authentication depending on your requirement. For example, add Demo HardwareKey Authenticator
+You can add authentication steps or use a template to configure adaptive authentication depending on your requirement. For example, add Demo HardwareKey Authenticator.
 
 ## Advanced
 Common configuration for all application types. Can use fragments.
