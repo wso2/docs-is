@@ -196,7 +196,7 @@ timing delays for the JDBC or LDAP calls.
 Following are a few advance scenarios that are related to product
 observability in WSO2 IS.
 
-####denylisting the threads
+#### Denylisting the threads
 
 Certain threads continuously print unnecessary logs.Blacklisting
 prevents the unwanted threads from printing logs thereby improving the
