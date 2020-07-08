@@ -258,19 +258,12 @@ Log forging can be prevented by appending a UUID to the log message.
 
 ## JVM parameters
 
-
-
 !!! note 
 
-    The recommended JDK versions are JDK 1.7 and 1.8. For more information, see <a href="../../setup/installation-prerequisites">installation pre-requisites</a>. 
-
-
--   **For JDK 1.7**: Set the appropriate Heap and Permgen values for the JVM based on your deployment scenario. These can be set in the `wso2server.sh` file in the `<IS_HOME>/bin` directory.
-
--   **For JDK 1.8**: As the `MaxPermSize` value has been removed from Hotspot JVM, it is not required set this.
+    The recommended JDK versions are JDK 1.8 and 11. For more information, see <a href="../../setup/installation-prerequisites">installation pre-requisites</a>. 
 
     ```java  tab="Example" 
-    -Xms512m -Xmx2048m -XX:MaxPermSize=1024m
+    -Xms512m -Xmx2048m 
     ```
 
 !!! tip 

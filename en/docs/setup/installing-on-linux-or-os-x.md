@@ -53,6 +53,8 @@ You must set your `         JAVA_HOME        ` environment variable to
 point to the directory where the Java Development Kit (JDK) is installed
 on the computer.
 
+Setting `JAVA_HOME` is a standard practice when you are using Java based programs. You may not need to do this manually depend on your Java Installer, as this variable is usually set by the Java installer itself. This guide is provided in case the `JAVA_HOME variable` has not been set or not correct on your machine.
+
 !!! info
     Environment variables are global system variables accessible by all the processes running under the operating system.
 
