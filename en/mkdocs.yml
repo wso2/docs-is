@@ -427,12 +427,15 @@ nav:
             - 'Single Page Application': 
               - developer-portal/applications/edit-spa.md
               - 'Configurations':
-                - developer-portal/applications/oidc-configurations.md
+                - developer-portal/applications/overview.md
+                - 'OIDC': developer-portal/applications/oidc-configurations.md 
               - 'SDKs': 
                 - developer-portal/applications/sdks/overview.md
                 - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
                 - 'React': developer-portal/applications/sdks/react-auth.md
-              - 'Samples': developer-portal/applications/samples/overview.md
+              - 'Samples': 
+                - developer-portal/applications/samples/overview.md
+                - 'React': developer-portal/applications/samples/react-spa.md
             - 'OIDC Web Application': 
               - developer-portal/applications/edit-oidc.md
               - 'SDKs': 
