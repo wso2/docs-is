@@ -147,7 +147,7 @@ purposes and appropriate user attributes:
 3.  Select `Click here` to configure self-registration consent purposes. This displays 
 the **Consent Purposes** screen that allows you to add consent purposes.
 
-    ![self-registration](../assets/img/using-wso2-identity-server/self-registration.png)   
+    ![self-registration](../assets/img/learn/account-policies.png)   
     
 
 4.  Click **Add New Purpose**. 

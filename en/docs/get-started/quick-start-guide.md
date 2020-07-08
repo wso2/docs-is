@@ -12,10 +12,10 @@ sample scenario.
 credentials to sign in to different internal enterprise applications.
 Following are two such applications:
 
--   **Pickup Dispatch** : This application helps manage the overall
-    operations at Pickup.
--   **Pickup Manager** : This application helps allocate vehicles to
+-   **Pickup Dispatch** : This application helps allocate vehicles to
     drivers.
+-   **Pickup Manager** : This application helps manage the overall
+    operations at Pickup.
 
 Pickup needs to identify the necessary permission levels to be granted
 to the employees and any security vulnerabilities.
@@ -330,8 +330,10 @@ First deploy the sample authenticator dependency and web application in
 3.     Add the followings to the `deployment.tom`l file in the
        `<IS_HOME>/repository/conf` directory and restart the server.
        ```toml
-       [[resource.access_control]] context = "(.*)/sample-auth/(.*)"
-       secure = false http_method = "all" 
+       [resource.access_control]
+       context = "(.*)/sample-auth/(.*)"
+       secure = false
+       http_method = "all"
        ```
 
 Follow the steps below to configure MFA on the Pickup Dispatch and

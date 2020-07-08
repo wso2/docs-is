@@ -49,7 +49,7 @@ When handling notifications such as the ones given below, the email-sender confi
     ``` java 
     curl -X POST "https://localhost:9443/t/{tenant-domain}/api/identity/config-mgt/v1
     .0/resource/Publisher/EmailPublisher/file" -H "accept: application/json" -H 
-    "Content-Type: multipart/form-data" -H 'Authorization: Basic YWRtaW46YWRtaW4=' -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "file-name=EmailPublisher"
+    "Content-Type: multipart/form-data" -H 'Authorization: Basic YWRtaW46YWRtaW4=' -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "fileName=EmailPublisher"
     ```
     This `EmailPublisher.xml` file will be used as the tenant's email publisher file. We can configure the tenant 
     wise email configurations here. 

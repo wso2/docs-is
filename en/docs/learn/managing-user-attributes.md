@@ -222,7 +222,7 @@ LDAP.
 
         ``` toml
         [user_store]
-        multiple_attribute_enable = true
+        properties.MultipleAttributeEnable = true
         ```
 
 3.  To test this, restart WSO2 IS and attempt to log in to the

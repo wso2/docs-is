@@ -18,7 +18,7 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://wso2.com/identity-and-access-management/
+site_url: https://is.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-is
@@ -471,7 +471,7 @@ nav:
           - 'Decrypting OpenID Connect Encrypted ID Tokens': learn/decrypting-openid-connect-encrypted-id-tokens.md
         - 'Writing a Web Service Client for Authentication and User Admin Services': learn/writing-a-web-service-client-for-authentication-and-user-admin-services.md
         - 'Consuming SCIM Rest Endpoints from a JAVA Client Application': learn/consuming-scim-rest-endpoints-from-a-java-client-application.md
-        - 'Running an STS Client': learn/running-an-sts-client.md
+        - 'Running the STS Client': learn/running-the-sts-client.md
         - 'XACML Sample for an Online Trading Application': learn/xacml-sample-for-an-online-trading-application.md
         - 'Log in to the Identity Server using another Identity Server - SAML2': learn/log-in-to-the-identity-server-using-another-identity-server-saml2.md
         - 'Login to Identity Server using another Identity Server - OAuth2': learn/login-to-identity-server-using-another-identity-server-oauth2.md    
@@ -516,7 +516,7 @@ nav:
             - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
             - 'Approvals': develop/approvals-rest-api.md
             - 'Associations': develop/association-rest-api.md
-            - 'Authentication': develop/authentication-data-api.md
+            - 'Authentication Data': develop/authentication-data-api.md
             - 'Authentication': develop/using-the-authentication-rest-apis.md
             - 'Authorized Apps': develop/authorized-apps-rest-api.md
             - 'Challenge Question': develop/challenge-rest-api.md

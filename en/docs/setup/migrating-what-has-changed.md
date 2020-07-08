@@ -1,7 +1,7 @@
 # What Has Changed
 
-In WSO2 Identity Server 5.9.0 brings a range of new features and major improvements. In IS 5.9.0 following 
-aspects has been changed compared to the previous IS versions.
+WSO2 Identity Server 5.9.0 brings a range of new features and major improvements. In IS 5.9.0, the following 
+aspects have been changed compared to the previous IS versions.
 
 ## Changes to Resource Access Control
 WSO2 Identity Server maintains a set of resources that requires user authentication. 
@@ -178,3 +178,30 @@ WSO2 Identity Server 5.9.0 has switched from log4j to log4j2. You will notice th
         ...
     };
     ``` 
+
+## Handling Role-based or XACML-based Scope Validation for Implicit and Authorization Code Grants
+Scope validation has been enforced for authorization code grant and implicit grants. 
+
+!!! note "NOTE"
+    If you have implemented any apps that work without scope validation and you wish to disable the behaviour, add the 
+    following configuration to the `deployment.toml` file
+    ```toml
+    [oauth]
+    scope_validator.authz_implicit.enable = false
+    ```
+
+## Multi factor Authentication using FIDO
+From IS 5.9.0 onwards, WebAuthn API is being used instead of U2F API. If you have used FIDO previously, your devices must be re-enrolled.
+
+!!! warning
+    If you choose to keep using the previous behavior which based on U2F API 
+    you need to use an old version of chrome where U2F API was supported so you can enroll new devices 
+    and you will also miss the new FIDO features which introduced in IS 5.9.0 like [FIDO REST API](../../develop/fido-rest-api)
+
+!!! note "NOTE"
+    To achieve the previous behaviour, add the following configuration to the `deployment.toml` in 
+    `<IS_HOME>/repository/conf/` directory.
+    ```toml
+    [fido.webauthn]
+    enable = false
+    ```
