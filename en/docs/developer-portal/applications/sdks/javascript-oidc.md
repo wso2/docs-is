@@ -10,6 +10,12 @@ You can also find the source code of this library [here](https://github.com/wso2
 
 ## Getting started
 
+Run the following command to install the SDK:
+
+```
+npm i @wso2/identity-oidc-js
+```
+
 Run `yarn run build`
 
 For development (watch mode) Run `yarn run watch`.
