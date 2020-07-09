@@ -12,7 +12,7 @@ This section is a guide on the commonly used extension points in WSO2 Identity S
 - [Customizing Authentication Error Messages](../../develop/customizing-authentication-error-messages)
 - [Customizing Error Pages](../../develop/customizing-error-pages)
 - [Error Codes and Descriptions](../../develop/error-codes-and-descriptions)
-- [Supporting Email Account Verification for an Updated Email Address] (../../develop/supporting-email-account-verification-for-an-updated-email-address)
+- [Supporting Email Account Verification for an Updated Email Address](../../develop/supporting-email-account-verification-for-an-updated-email-address)
 - [Extending SCIM 2.0 User Schemas](../../develop/extending-scim2-user-schemas)
 - [Writing an Outbound Provisioning Connector](../../develop/writing-an-outbound-provisioning-connector)
 - [Extensible SCIM User Schemas With WSO2 Identity Server](../../develop/extensible-scim-user-schemas-with-wso2-identity-server)
