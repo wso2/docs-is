@@ -6,9 +6,9 @@ In this approach, an administrator first creates a user account with a default p
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Mark** is a new recruit. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Sam** is an administrator at Pickup, **Mark** is a new recruit. 
 
-Robert wants to register a user account with a default password for Mark and get it activated by requesting Mark to verify. 
+Sam wants to register a user account with a default password for Mark and get it activated by requesting Mark to verify. 
 
 <img src="../../assets/img/learn/pickup-user-registration-with-email-verification.png" alt="Scenario Diagram" width="800">  
 
