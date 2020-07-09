@@ -56,7 +56,7 @@ Oracle JDK 1.8:
     
 
 The following cipher suites are weak for Tomcat version 7.0.59 with the JSSE providers on Java 8 and 11 is used. The same applies if JCE Unlimited
-Strength Jurisdiction Policy is used.
+Strength Jurisdiction Policy is being used.
 
 -   `          TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA         `
 -   `          TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA         `
