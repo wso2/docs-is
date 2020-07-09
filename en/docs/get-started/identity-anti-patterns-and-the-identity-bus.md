@@ -90,8 +90,8 @@ pattern.
 5.  **Role mapping.** Your service provider needs to authorize users
     once they are logged in. What the user can do at the identity
     provider is different from what the same user can do at the service
-    provider. Users' roles from the identity provider define what they can
-    do at the identity provider. Service provider's roles define the
+    provider. The user's role from the identity provider defines what they can do at the identity provider. 
+    Service provider's roles define the
     things a user can do at the service provider. Identity bus is
     capable of mapping identity provider's roles to the service
     provider's roles. For example users may bring idp-admin role from
