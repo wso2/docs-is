@@ -68,7 +68,7 @@ necessary system requirements and a compatible environment.
 </tr>
 <tr class="even">
 <th>Java</th>
-<td>Oracle JDK 1.8 (There’s a <a href="https://bugs.openjdk.java.net/browse/JDK-8189789">known issue</a> with JDK1.8.0_151)</td>
+<td>Oracle JDK 1.8</td>
 </tr>
 <tr class="odd">
 <th>Web browsers</th>

@@ -33,8 +33,8 @@ using WSO2 Identity Server.
 
 #### Set-up
     
-1. Download and install Oracle Java SE Development Kit (JDK) version
-   1.7.* or 1.8.
+1. Download and install Oracle Java SE Development Kit (JDK) version 1.8 or 11).
+
 2. Install WSO2 Identity Server 5.9.0 by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
    The WSO2 Identity Server installation location varies according to the OS as given below.
 
