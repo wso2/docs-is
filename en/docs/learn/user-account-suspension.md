@@ -5,10 +5,8 @@ accounts that have been idle for a pre-configured amount of time.
 
 Prior to account suspension, set up the notification system to send a
 warning notification to the user announcing that the account will be
-suspended. For instance, if users have not logged in to their accounts
-for 90 days, the users can be notified that their accounts will be suspended
-within the next 7 days if there continues to be no activity, after
-which, the accounts will be suspended.
+suspended. For instance, if a user has not logged in to their account for 90 days, the user can be notified that the account will be suspended within the next 7 days if there continues to be no activity, after
+which, the account will be suspended.
 
 !!! note
     Once an account is suspended, only an administrative user can
