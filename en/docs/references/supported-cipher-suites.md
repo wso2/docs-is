@@ -56,7 +56,7 @@ Oracle JDK 1.8:
         Secrecy (PFS/FS).
     
 
-The following cipher suites are weak for Tomcat version 7.0.59 with the JSSE providers on Java 8 and 11 is used. The same applies if JCE Unlimited
+The following cipher suites are weak for Tomcat version 7.0.59 with the JSSE providers on Java 8 and 11 is being used. The same applies if JCE Unlimited
 Strength Jurisdiction Policy is used.
 
 -   `          TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA         `
