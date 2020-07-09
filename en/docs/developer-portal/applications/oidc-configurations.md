@@ -139,8 +139,6 @@ In this section you can customize authentication flow in your application. You c
 
 Configure the authentication steps but adding the required authenticators to the step. Following GIF shows how you can drag and drop any authenticator and add it to a step an click **Update** button. The basic authenticator(prompts for user's username and password) will be configured by default.
 
-![image](../../assets/img/developer-portal/add-authenticator.gif)
-
 You can also add a new authentication step and add authenticators as mentioned in the section above.
 
 #### Script based configuration
