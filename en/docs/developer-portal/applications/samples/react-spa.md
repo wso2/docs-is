@@ -1,28 +1,9 @@
-# WSO2 Identity Server - Sample React SPA
+### Setup the sample
 
-This sample application will show case the usage of the of WSO2 Identity Server Javascript SDK and how you can integrate a SPA with Identity Server. The following guide will walk you through how you can try out this sample from the scratch.
+1. Extract the downloaded sample and replace the `config.json` file in the `src` folder with the downloaded configuration file or replace the config object in the existing `config.json` file.
+2. Run `yarn install` command within the root of the sample.
 
-## Getting started
+### Run the application
 
-### Running the sample
-
-1. Download the sample application from [here](https://github.com/wso2-extensions/identity-samples-js/releases/download/0.1.0/identity-authenticate-sample-js-spa.zip).
-2. Run `yarn install`
-3. Update your configurations in `src/app.js` with WSO2 Identity Server App Register details.
-
-    E.g.
-
-    ```javascript
-    const authConfig = {
-        ...
-        // ClientID generated for the application
-        clientID: "uxRd9AqFa3Blp1ASvKYaUizU7pca",
-    };
-    ```
-
-4. run `yarn start`
-5. Visit `http://localhost:3000` on browser
-
-## License
-
-Licenses this source under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
+1. Run `yarn start`.
+2. Navigate to `http://localhost:5000` from the browser.
