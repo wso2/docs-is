@@ -50,8 +50,10 @@ WSO2 Identity Server supports the following DBMSs.
 					<p><code>create database regdb <br> character set latin1; </code></p>
 				</div>
 				<li>MySQL 5.7</li>
+				<li>Oracle19c</li>
 				<li>Oracle 12c</li>
-				<li>Microsoft SQL Server 2016</li>
+				<li>SQLServer-SE-14.00</li>
+				<li>DB2 v11.5</li>
 				<li>DB2 v10.5 (Compatibility mode: MYS)</li>
 				<li>Postgres 11</li>
 			</ul>
