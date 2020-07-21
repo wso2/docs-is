@@ -76,7 +76,7 @@ necessary system requirements and a compatible environment.
 </tr>
 <tr class="even">
 <th>Load balancers</th>
-<td><p>For more information about load balancers, see <a href="https://docs.wso2.com/display/CLUSTER44x/Setting+up+a+Cluster#SettingupaCluster-Configuringtheloadbalancer">Configuring the load balancer</a> .</p></td>
+<td><p>For more information about load balancers, see <a href="../../administer/load-balancing/#types-of-load-balancers">Configuring the load balancer</a> .</p></td>
 </tr>
 </tbody>
 </table>
@@ -146,8 +146,7 @@ includes services, service descriptions, endpoints or data sources.
     see [Working with the Registry](../../administer/working-with-the-registry).
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
-governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server 
-5.9.0, config and governance registries are mounted by default.
+governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server, config and governance registries are mounted by default.
 
 !!! note
     The production recommendation is to set the `<versionResourcesOnChange>` property in the `registry.xml` 
