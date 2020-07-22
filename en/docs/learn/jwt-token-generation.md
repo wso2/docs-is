@@ -65,56 +65,20 @@ needed.
     ![jwt-token-issuer]( ../assets/img/using-wso2-identity-server/jwt-token-issuer.png) 
     
 
-**Calling the OAuth2ValidationService with a valid token**
+**Retrieving user claims with the JWT**
 
-After configuring the elements mentioned above, see the 
-[OAuth2 Token Validation and Introspection](../../learn/oauth2-token-validation-and-introspection) 
-topic to call the `OAuth2ValidationService` . The following screenshot is the request and response of the
-`OAuth2ValidationService` from the [SOAP UI](https://www.soapui.org/downloads/latest-release.html). Additionally, it shows the required claims of the user as required
-claim URIs. In the response, you can see the received JWT token under
-the `<tokenString>` element.
+User claims can be retrieved using the ID token or the userinfo endpoint. For more information, see [Basic Client Profile with Playground](../../learn/basic-client-profile-with-playground).
 
-!!! note
-    If there are no requested claim URIs defined, all the claims that carry
-    values for the user are returned.
-    
+You can access the userinfo endpoint with the received access token using the following curl command. As per the specification, the received bearer token is sent using the HTTP Authorization header.
 
-![jwt-request1]( ../assets/img/using-wso2-identity-server/jwt-request1.png) 
-
-**Header Metadata:**  
-The header contains the metadata for the token as seen below.
-```java
-<header> . <payload> . <signature>
-
-eyJhbGciOiJSUzI1NiIsIng1dCI6Ik5tSm1PR1V4TXpabFlqTTJaRFJoTlRabFlUQTFZemRoWlRSaU9XRTBOV0kyTTJKbU9UYzFaQSJ9
-.
-eyJodHRwOlwvXC93c28yLm9yZ1wvZ2F0ZXdheVwvYXBwbGljYXRpb25uYW1lIjoiT2F1dGg3IiwiZXhwIjoxNDUyNTk0ODkyLCJzdWIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJodHRwOlwvXC93c28yLm9yZ1wvZ2F0ZXdheVwvc3Vic2NyaWJlciI6ImFkbWluQGNhcmJvbi5zdXBlciIsImlzcyI6Imh0dHA6XC9cL3dzbzIub3JnXC9nYXRld2F5IiwiaHR0cDpcL1wvd3NvMi5vcmdcL2dhdGV3YXlcL2VuZHVzZXIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC9yb2xlIjoiYWRtaW4sQXBwbGljYXRpb25cL2Rld3ZkZXcsQXBwbGljYXRpb25cL09hdXRoNyxJbnRlcm5hbFwvZXZlcnlvbmUiLCJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC9lbWFpbGFkZHJlc3MiOiJhZG1pbkB3c28yLmNvbSIsImlhdCI6MTQ1MjU5MzI1NCwiaHR0cDpcL1wvd3NvMi5vcmdcL2NsYWltc1wvb3JnYW5pemF0aW9uIjoiV1NPMiJ9
-.
-WRo2p92f-pt1vH9xfLgmrPWNKJfmST2QSPYcth7gXKz64LdP9zAMUtfAk9DVRdHTIQR3gX0jF4Ohb4UbNN4Oo97a35oTL1iRxIRTKUkh8L1dpt3H03Z0Ze7Q2giHGZikMIQv3gavHRYKjNMoU\_1MuB90jiK7
 ```
-**Decoded Header:**
+curl -k -H "Authorization: Bearer 4164157d677a6cd3a22e26e24c30135d" https://localhost:9443/oauth2/userinfo?schema=openid
 ```
-{"alg":"RS256","x5t":"NmJmOGUxMzZlYjM2ZDRhNTZlYTA1YzdhZTRiOWE0NWI2M2JmOTc1ZA"}
 
-x5t : This header provides a base64url encoded SHA-256 thumbprint
-(a.k.a. digest) of the DER encoding of an X.509 certificate that can be
-used to match a certificate to validate the signature.
+As the response, WSO2 Identity Server returns a JSON with user claims.
+
 ```
-**Decoded Payload:**
-
-```java
-{  
-   "http://wso2.org/gateway/applicationname":"Oauth7",
-   "exp":1452594892,
-   "sub":"admin@carbon.super",
-   "http://wso2.org/gateway/subscriber":"admin@carbon.super",
-   "iss":"http://wso2.org/gateway",
-   "http://wso2.org/gateway/enduser":"admin@carbon.super",
-   "http://wso2.org/claims/role":"admin,Application/dewvdew,Application/Oauth7,Internal/everyone",
-   "http://wso2.org/claims/emailaddress":"admin@wso2.com",
-   "iat":1452593254,
-   "http://wso2.org/claims/organization":"WSO2"
-}
+{"sub":"PRIMARY\/alex","email":"alex@mymail.com","name":"Alex Anderson","family_name":"Anderson","preferred_username":"alexanders","given_name":"Alex"}
 ```
 
 ### Signature verification
