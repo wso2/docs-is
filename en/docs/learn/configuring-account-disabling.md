@@ -4,9 +4,9 @@ WSO2 Identity Server enables the privileged users to disable user accounts for l
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Robert** is an administrator at Pickup. **Larry** is an employee who had served Pickup for 7 years and he is entitled for sabbatical leave. As Larry is going on sabbatical leave for 2 years, Robert wants to disable Larry's account.  
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Sam** is an administrator at Pickup. **Alex** is an employee who had served Pickup for 7 years and is entitled for sabbatical leave. As Alex is going on sabbatical leave for 2 years, Sam wants to disable Alex's account.  
 
-Let's learn how Robert can disable Larry's user account! 
+Let's learn how Sam can disable Alex's user account! 
 
 ## Set up
 
@@ -63,7 +63,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 ## Try out
 
-1.	To create the user account for Larry:
+1.	To create the user account for Alex:
 
 	1.	On the **Main** menu of the Management Console, click **Identity > Users and Roles > Add**.
 
@@ -78,13 +78,13 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 		<img src="../../assets/img/learn/add-new-user-screen.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
 
 		-	**Domain**: `Primary`
-		-	**Username**: `Larry`
+		-	**Username**: `Alex`
 
 	4.	Click **Finish**. 
 
 2.	To assign login permissions to the user:
 	
-	1.	Click the **View Roles** option of Larry.
+	1.	Click the **View Roles** option of Alex.
 
 		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
@@ -96,13 +96,13 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/login-permission.png" alt="Login permission" width="700" style="border:1px solid grey">  
 
-3.	To disable Larry's user account:
+3.	To disable Alex's user account:
 	
-	1.	Click **User Profile** option of Larry.
+	1.	Click **User Profile** option of Alex.
 
 		<img src="../../assets/img/learn/user-profile-option.png" alt="User Profile option" width="700" style="border:1px solid grey">   
 
-	2.	Enter an email address to which Larry's account disabling emails will be sent and select the **User Locked** check box.
+	2.	Enter an email address to which Alex's account disabling emails will be sent and select the **User Locked** check box.
 
 		<img src="../../assets/img/learn/user-disabled.png" alt="User Disabled option" width="700" style="border:1px solid grey">    		
 
@@ -116,11 +116,11 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/dashboard-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
-	6.	Try logging in with Larry's credentials. Note that an error message appears.
+	6.	Try logging in with Alex's credentials. Note that an error message appears.
 
 4. To revoke the account disabling:
 
-	1.	Click **User Profile** option of Larry.
+	1.	Click **User Profile** option of Alex.
 
 	2.	Unselect the **User Disabled** check box.
 
@@ -130,4 +130,4 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/account-enabled-email.png" alt="Account Enabled email" width="500" style="border:1px solid grey"> 		
 
-	5.	Trying logging in to the WSO2 Identity Server Dashboard with Larry's credentials. The WSO2 Identity Server Dashboard home screen appears.
+	5.	Trying logging in to the WSO2 Identity Server Dashboard with Alex's credentials. The WSO2 Identity Server Dashboard home screen appears.

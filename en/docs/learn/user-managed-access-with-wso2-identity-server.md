@@ -7,11 +7,11 @@ authorization server to try out UMA for a sample scenario.
 ### Introduction
 
 To demonstrate the UMA flow using WSO2 IS as the authorization server,
-let’s consider a sample scenario where Kate (resource owner) wants to
-share her photo album (resource) on her cloud drive (resource server)
-with her friend Sam (requesting party).  Let's assume that Sam uses a
-mobile app (client) to view Kate’s photo album. Note that Kate wants to
-allow Sam to only have view permission to her photo album.
+let’s consider a sample scenario where Larry (resource owner) wants to
+share a photo album (resource) on the cloud drive (resource server)
+with a friend, Sam (requesting party).  Let's assume that Sam uses a
+mobile app (client) to view Larry’s photo album. Note that Larry wants to
+allow Sam to only have view permission to the photo album.
 
 Once you try out the tutorial you will understand how to use UMA 2.0 to
 do the following:
@@ -34,7 +34,7 @@ UMA flow.
 <a name="resourceowner"></a>
 #### Create the resource owner
 
-Follow the steps below to create a user named Kate who will act as the
+Follow the steps below to create a user named Larry who will act as the
 resource owner:
 
 1.  Start WSO2 Identity Server and access the management console. You
@@ -48,9 +48,9 @@ resource owner:
 
 
     | Domain           | `               PRIMARY              ` |
-    | Username         | `               kate              `    |
-    | Password         | `               kate123              ` |
-    | Confirm password | `               kate123              ` |
+    | Username         | `               Larry              `    |
+    | Password         | `               Larry123              ` |
+    | Confirm password | `               Larry123              ` |
 
 5.  Click **Next**.
 
@@ -84,7 +84,7 @@ behalf of the requesting party.
 1.  Follow the steps below to configure a service provider for the
     resource server:
     1.  On the **Main** tab, click **Add** under **Service Providers**.
-    2.  Enter `            kateSP           ` as the **Service Provider
+    2.  Enter `            LarrySP           ` as the **Service Provider
         Name** and click **Register**.
     3.  Expand **Inbound Authentication Configuration**, then expand
         **OAuth/OpenID Connect Configuration**, and then click
@@ -123,9 +123,9 @@ values to obtain the Protection API Access Token (PAT).
         -   In this tutorial, the grant type that is used to obtain the PAT
             is the password grant type. Therefore, you need to pass the
             resource owners credentials in the curl command. Since [you have
-            configured Kate as the resource
+            configured Larry as the resource
             owner](#resourceowner)
-           , you need to pass Kate's user name and password in the curl
+           , you need to pass Larry's user name and password in the curl
             command.
 
     ``` java
@@ -196,9 +196,9 @@ images.
 
 Follow the steps given below to create, register and publish a policy:
 
-1.  Sign in to the management console using Kate's credentials., which
-    has `          kate         ` as the username and
-    `          kate123         ` as the password:
+1.  Sign in to the management console using Larry's credentials., which
+    has `          Larry         ` as the username and
+    `          Larry123         ` as the password:
     `          https://localhost:9443/carbon         `
 2.  On the **Main** tab, go to the **Entitlement** section and click
     **Policy Administration** under **PAP**.
@@ -427,7 +427,7 @@ token that it has issued, which the resource server can use.
           "exp": 1553418559,
           "iat": 1553414959,
           "client_id": "JfTSiJ24gh8sYHTQVuOl5RoftkAa",
-          "username": "oliver.uma.demo"
+          "username": "Alex.uma.demo"
         }
     ```
 
@@ -459,7 +459,7 @@ This is how UMA works.
       "exp": 1553414723,
       "iat": 1553411123,
       "client_id": "JfTSiJ24gh8sYHTQVuOl5RoftkAa",
-      "username": "oliver.uma.demo"
+      "username": "Alex.uma.demo"
     }
     ```
     

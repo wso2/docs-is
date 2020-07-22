@@ -47,7 +47,7 @@ Access to the `/services` and `/carbon` contexts should be blocked from the DMZ 
 
 !!! tip
 
-	It is recommended to use a whitelisting approach when allowing access to resources in your product from the DMZ level.
+	It is recommended to use an allowlisting approach when allowing access to resources in your product from the DMZ level.
 
 
 
