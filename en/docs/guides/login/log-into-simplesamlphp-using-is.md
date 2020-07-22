@@ -1,4 +1,4 @@
-# Logging in to SimpleSAMLphp using WSO2 Identity Server
+# Log in to SimpleSAMLphp using WSO2 Identity Server
 
 This page guides you through using WSO2 Identity Server to log in to SimpleSAMLphp.
 

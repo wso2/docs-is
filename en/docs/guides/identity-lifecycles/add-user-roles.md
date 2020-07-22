@@ -1,4 +1,4 @@
-# Add a user role
+# Add a User Role
 
 This section will guide you through the ways of adding a user role to WSO2 Identity Server.
 

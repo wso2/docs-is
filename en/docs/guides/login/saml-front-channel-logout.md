@@ -1,4 +1,4 @@
-# Configure SAML 2.0 Front Channel logout
+# Configure SAML 2.0 Front Channel Logout
 
 This page guides you through [configuring SAML front channel logout](TODO:insert-link-to-concept) for applications with WSO2 Identity Server. This will ensure that the user is logged out from all configured applications with a single logout request via one of the applications. 
 

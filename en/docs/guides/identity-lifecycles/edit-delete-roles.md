@@ -1,4 +1,4 @@
-# Edit or delete a role
+# Edit or Delete a Role
 
 ## Edit or delete a role using the admin portal
 

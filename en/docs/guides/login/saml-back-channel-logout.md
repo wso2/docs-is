@@ -1,4 +1,4 @@
-# Configure SAML 2.0 Back-Channel logout
+# Configure SAML 2.0 Back-Channel Logout
 
 This page guides you through [configuring SAML back-channel logout](TODO:insert-link-to-concept) for applications with WSO2 Identity Server. This will ensure that the user is logged out from all configured applications with a single logout request via one of the applications. 
 
@@ -10,7 +10,7 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 ---
 
-The instructions below guide you through configuring SAML 2.0 back-channel Logout. 
+The instructions below guide you through configuring SAML 2.0 back-channel logout. 
 
 Register your applications with WSO2 Identity Server. Make sure you have a service provider configured in WSO2 Identity Server for every application that you are going to try this feature out on.  
 
