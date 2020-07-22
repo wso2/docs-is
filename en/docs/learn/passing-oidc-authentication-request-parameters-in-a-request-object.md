@@ -138,7 +138,7 @@ parameters in a request object via WSO2 IS:
 
     4.  Click **Update**.
 
-4.  Create a new user with the name `          tom         ` , and enter
+4.  Create a new user with the name `         Alex        ` , and enter
     values for the **email**, **country**, **challenge Question1** as
     well as **challenge Question 2** in the user profile. For detailed
     instructions on creating a user and customizing a user's profile,

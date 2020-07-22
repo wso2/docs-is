@@ -44,7 +44,7 @@ for forced password reset:
 4.  Create a new user with the username "Alex" and update the user
     profile with a valid email address and other information.
 5.  Create a new role called "test role" with login permissions and
-    assign it to the new user, "tom".
+    assign it to the new user, "alex".
 
     !!! tip You can verify this by logging in to the
     [user portal](https://localhost:9443/user-portal) as Tom. The log in
@@ -81,7 +81,7 @@ to see a sample of how this works.
     explained later in this page under [Invoke Admin Force Password Reset](#invoke-admin-force-password-reset).
     
 4.  Log out of the [user portal](https://localhost:9443/user-portal) and
-    attempt to log in as the user you created above, "Tom". The login
+    attempt to log in as the user you created above, "alex". The login
     attempt will fail and a password reset will be prompted in the form
     of an error message saying "Login failed! Please recheck the
     username and password and try again".
@@ -89,7 +89,7 @@ to see a sample of how this works.
     will see a new email with a password reset request.
 6.  Follow the link provided in the email to reset the password. You can
     now log in to the [user portal](https://localhost:9443/user-portal)
-    successfully as Tom using the new password.
+    successfully asAlexusing the new password.
 
 ## Password Reset via OTP
 
@@ -111,7 +111,7 @@ template for this option can be configured in the
     claim to **true** for the relevant users. To do this, follow the steps
     explained later in this page under [Invoke Admin Force Password Reset](#invoke-admin-force-password-reset).
 4.  Log out of the [user portal](https://localhost:9443/user-portal) and
-    attempt to login again as the user you created above, "Tom". The
+    attempt to login again as the user you created above, "alex". The
     login attempt will fail and a password reset will be prompted in the
     form of an error message saying "Login failed! Please recheck the
     username and password and try again".
@@ -144,7 +144,7 @@ template for this option can be configured in the
     claim to **true** for the relevant users. To do this, follow the steps
     explained later in this page under [Invoke Admin Force Password Reset](#invoke-admin-force-password-reset).
 7.  Log out of the [user portal](https://localhost:9443/user-portal) and
-    attempt to log in again as the user you created above, "Tom". The
+    attempt to log in again as the user you created above, "alex". The
     log in attempt will fail.
 8.  Log in again to the management console as the admin user and check
     Tom's user profile. You will see that there is now a code value in
@@ -156,7 +156,7 @@ template for this option can be configured in the
     new password.
 11. You can now log in to the
     [user portal](https://localhost:9443/user-portal) successfully as
-    Tom using the new password.
+   Alexusing the new password.
 
 ## Invoke Admin Force Password Reset
 
