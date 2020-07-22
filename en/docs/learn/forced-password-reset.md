@@ -89,7 +89,7 @@ to see a sample of how this works.
     will see a new email with a password reset request.
 6.  Follow the link provided in the email to reset the password. You can
     now log in to the [user portal](https://localhost:9443/user-portal)
-    successfully asAlexusing the new password.
+    successfully as Alex using the new password.
 
 ## Password Reset via OTP
 
