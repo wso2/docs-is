@@ -155,8 +155,7 @@ template for this option can be configured in the
     prompted to set a new password. Enter the relevant details to set a
     new password.
 11. You can now log in to the
-    [user portal](https://localhost:9443/user-portal) successfully as
-   Alexusing the new password.
+    [user portal](https://localhost:9443/user-portal) successfully as Alex using the new password.
 
 ## Invoke Admin Force Password Reset
 
