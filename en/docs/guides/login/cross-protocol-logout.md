@@ -1,4 +1,4 @@
-# Cross-Protocol Logout
+# Configure Cross-Protocol Logout
 
 This page guides you through enabling [cross-protocol logout](TODO:insert-link-to-concept) across different protocols such as SAML and OpenID Connect in WSO2 Identity Server. 
 

@@ -1,4 +1,4 @@
-# Use Advanced Paramters in Authentication Requests
+# Use Advanced Parameters in Authentication Requests
 
 This page guides you through sending [SAML](TODO:insert-link-to-concept) parameters with the SAML authentication request. 
 
