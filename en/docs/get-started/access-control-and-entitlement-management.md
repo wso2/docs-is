@@ -622,7 +622,7 @@ Advice is similar to obligations and it shares much of its syntax. The
 difference is contractual: the PEP can disregard any advice it receives.
 PEPs do not have to comply with advice statements; PEPs can consider or
 discard the statement. A common scenario is to explain why something was
-denied: “User bob is denied because he does not have a valid email”.
+denied: “User, Alex is denied because Alex does not have a valid email”.
 
 The XACML specification says that any advice returned with a decision
 can be safely ignored by compliant PEPs. This means that PEPs should

@@ -506,6 +506,7 @@ nav:
       - 'Developer guide': develop/developer-guide.md
       - 'Working with the Source Code': develop/working-with-the-source-code.md
       - 'Extending the Identity Server':
+        - 'Overview': develop/extending-the-identity-server.md
         - 'User Management for Developers':
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
