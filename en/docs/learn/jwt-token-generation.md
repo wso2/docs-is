@@ -75,10 +75,10 @@ You can access the userinfo endpoint with the received access token using the fo
 curl -k -H "Authorization: Bearer 4164157d677a6cd3a22e26e24c30135d" https://localhost:9443/oauth2/userinfo?schema=openid
 ```
 
-As the response, the WSO2 Identity Server returns a JSON with user claims.
+As the response, WSO2 Identity Server returns a JSON with user claims.
 
 ```
-{"sub":"PRIMARY\/sureshatt","email":"sureshgemunu@mymail.com","name":"Suresh Attanayake","family_name":"Attanayake","preferred_username":"sureshgemunu","given_name":"Suresh"}
+{"sub":"PRIMARY\/alex","email":"alex@mymail.com","name":"Alex Anderson","family_name":"Anderson","preferred_username":"alexanders","given_name":"Alex"}
 ```
 
 ### Signature verification
