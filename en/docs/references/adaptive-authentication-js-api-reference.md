@@ -425,7 +425,7 @@ var onLoginRequest = function(context) {
    executeStep(1, {
        onSuccess: function (context) {
            var username = context.steps[1].subject.username;
-           prompt("genericForm", {"username":username, "inputs":[{"id":fname,"label":"First Name"},{"id":lname,"label":"Last Name"}]}, {
+           prompt("genericForm", {"username":username, "inputs":[{"id":"fname","label":"First Name"},{"id":"lname","label":"Last Name"}]}, {
              onSuccess : function(context) {
                 var fname = context.request.params.fname[0];
                 var lname = context.request.params.lname[0];
