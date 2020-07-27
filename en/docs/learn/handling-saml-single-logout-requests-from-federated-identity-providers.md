@@ -100,8 +100,8 @@ and configure the service provider with the details given below.
 
     - Issuer : SP Entity Id of the Secondary IS
     - Assertion Consumer URL : URL of the endpoint which receives SAML responses from the identity provider
-    - Enable Single Logout (https://localhost:9443/commonauth)
-    - SLO Request URL ; "http:/localhost:8080/identity/saml/slo" 
+    - Enable Single Logout
+    - SLO Request URL : "https://localhost:9443/identity/saml/slo" 
 
     !!! info "Note"
     

@@ -4,7 +4,7 @@ This tutorial demonstrates user-store-based adaptive authentication with
 WSO2 Identity Server using sample authenticators. This is useful if you
 want to add security for users logging in from other user store domains.
 Using the user-store-based adaptive authentication template, you can
-whitelist certain user store domains so that users from the whitelisted
+add certain user store domains to the allowlist so that users from those
 domains are prompted to perform an additional level of authentication,
 while users from any other user store domain can simply provide their
 credentials (basic authentication) to access a resource.
@@ -15,7 +15,7 @@ Follow the instructions in the sections given below:
 
 Follow the instructions given below to create a new LDAP database and
 configure it as a user store in WSO2 IS. In this tutorial, the new
-secondary user store will be whitelisted in the authentication script so
+secondary user store will be added to the allowlist in the authentication script so
 that users beloging to the new user store are prompted for an extra step
 of authentication.
 
@@ -151,7 +151,7 @@ of authentication.
     
 5.  Log out and login again using Kim's credentials. Note that Kim is
     prompted for a second step of authentication (i.e., hardware key
-    authenticator) since she belongs to the whitelisted user store
+    authenticator) since she belongs to the allowlist user store
     domain " `           EMPLOYEES          ` ".  
     
     ![second-step-of-authentication](../assets/img/tutorials/second-step-of-authentication.png) 
