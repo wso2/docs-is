@@ -3,6 +3,14 @@
 WSO2 Identity Server 5.10.0 brings a range of new features and major improvements. In IS 5.10.0 following aspects has 
 been changed compared to the previous IS versions.
 
+This page provides details about the behavioral changes from WSO2 Identity Server 5.9.0 to 5.10.0.
+
+??? note "If you are migrating from an older version of Identity Server"
+    In order to find the changes introduced in the previous versions please checkout the relevant docs
+    
+    - Changes introduced in IS 5.9.0 can be found at [What Has Changed in IS 5.9.0](https://is.docs.wso2.com/en/latest/setup/migrating-what-has-changed/)
+    - Changes introduced in IS 5.8.0 and before can be found at [Migrating Configurations to IS 5.8.0](https://docs.wso2.com/display/IS580/Upgrading+From+an+Older+Version+of+WSO2+IS#UpgradingFromanOlderVersionofWSO2IS-Migratingtheconfigurations)
+
 ## Handling Last login Time as an Identity Claim
 In the previous versions of WSO2 Identity Server, the Last login time claim(used in account suspension) has been handled 
 as a default claim. From IS 5.10.0 onwards it will be handled as an identity claim. 
@@ -368,3 +376,12 @@ SMS provider.
     [authentication.authenticator.sms_otp.parameters]
     UseInternalErrorCodes = false
     ```
+## New User Store Managers with built in unique ID support. 
+
+New user store managers with inbuilt unique ID support will provide the capability to enhance the user store operations 
+that were initially architecturally impossible. These operations include username rename functionality and a
+ significant performance increase. as well. So migrating to new user store managers will allow us to use those new 
+ features whenever those new features available.  
+
+New user store managers are named with the `UniqueiId` prefix for the old user store managers. For example,
+`JDBCUserStoreManager` with unique ID capabilities will be named as `UniqueIDJDBCUserStoreManager`

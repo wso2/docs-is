@@ -79,7 +79,7 @@ define the logger. Then add the <Logger_Name> to the loggers list by comma-separ
 
 ```
     logger.<Logger_Name>.name = <Component_name>
-    logger.<Logger_Name>.type = INFO
+    logger.<Logger_Name>.level = INFO
 
     loggers = AUDIT_LOG, trace-messages, ..., <Logger_Name>
 ```

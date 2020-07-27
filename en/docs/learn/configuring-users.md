@@ -23,9 +23,12 @@ its role.
 3.  Click **Add New User**. The following screen appears.  
     ![new-user-in-management-console](../assets/img/using-wso2-identity-server/new-user-in-management-console.png) 
 
+    !!! warning
+    	**Do not** use the special character, "#" while defining any of the user naming attirbutes since it is reserved for a specific functionality. This condition applies across all user stores. 
+	
     !!! info 
          When giving a username, it should not contain backslash (“/”) or any
-         special character ("&", "$", "%"), in 
+         special character ("&", "$", "%").  In the
          `             <IS_HOME>/repository/conf/deployment.toml           ` file you can set a simple configuration according to your requirements.
          
          For example,

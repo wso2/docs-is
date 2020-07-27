@@ -5,11 +5,15 @@
 **WSO2 Identity Server 5.10.0** is the **latest WSO2 Identity Server release** and is the successor of WSO2 Identity Server 5.9.0. It contains the following new features and enhancements:
 
 <ul>
-    <li><b>Passwordless authentication support</b></li>
-    <li><b>An improved User Portal</b></li>
-    <li><b>New RESTful APIs for user self-services and server management</b></li>
-    <li><b>Scope based authorization for internal REST APIs</b></li>
-    <li><b>Unique User ID support</b></li>
+    <li><b><a href="../../learn/passwordless-authentication-using-fido2">Passwordless authentication support</a></b></li>
+    <li><b><a href="../../learn/user-portal">An improved User Portal</a></b></li>
+    <li><b><a href="../../develop/application-rest-api">New RESTful APIs for user self-services and server management</a></b></li>
+    <li><b><a href="../../develop/scope-based-authorization-for-internal-rest-apis">Scope based authorization for internal REST APIs</a></b></li>
+    <li><b>Introduce a unique user identifier across the system
+</b><br>
+Previously, the username of the user was considered as an immutable attribute across the system which had multiple limitations. Therefore a new unique user identifier has been introduced along with a new set of user core APIs.
+Also new user store managers have been introduced for all the types such as JDBC, Read-Only LDAP, Read-Write LDAP, and Active directory which can be compatible with the new unique user identifier implementation. 
+</li>
 </ul>
 
 

@@ -56,46 +56,10 @@ contains a CSRF token.
 ### Configuring applications in WSO2 product to mitigate CSRF attacks
 
 !!! note "Before you begin"   
-    -   For WSO2 Identity Server, the configurations for mitigating CSRF attacks 
-        are enabled by default
-        for all the applications that are built into the product. Therefore,
-        you need to apply these configurations manually, only if you have
-        any custom applications deployed in your product.
-    
-    -   **Important!** 
-    Some updates of JDK 1.8 (for example, **JDK1.8.0\_151** ) are affected by a [known issue]
-    (https://bugs.openjdk.java.net/browse/JDK-8189789) related to
-        GZIP decoding, which may prevent these CSRF-related configurations
-        from working for your product. Therefore, until this issue is fixed,
-        we recommend one of the following approaches:
-        -   Be sure that your product is running on **JDK1.8.0\_144** or
-            **JDK1.8.0\_077**. We have verified that these JDK versions are
-            not affected by the [known
-            issue](https://bugs.openjdk.java.net/browse/JDK-8189789).
-        -   Alternatively, you can disable GZIP decoding for your product by
-            following the steps given below. This will ensure that your
-            product is not affected by the [known
-            issue](https://bugs.openjdk.java.net/browse/JDK-8189789).
-            1.  Open the `              deployment.toml            `
-                file from the
-                `              <IS_HOME>/repository/conf/            `
-                directory.
-            2.  Set the `               compression              ` parameter
-                (under each of the connector configurations) to false by adding the 
-                following configuration as
-                shown below:
-    
-                ``` toml
-                [transport.http.properties]
-                compression = "off"
-                
-                [transport.https.properties]
-                compression = "off"
-
-                ```
-    
-            3.  Restart the server.
-    
+    For WSO2 Identity Server, the configurations for mitigating CSRF attacks 
+    are enabled by default for all the applications that are built into the product. Therefore,
+    you need to apply these configurations manually, only if you have
+    any custom applications deployed in your product.
 
 See the following for instructions on manually updating CSRF
 configurations in WSO2 products:  

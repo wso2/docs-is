@@ -10,118 +10,9 @@ Identity Server.
 
 Let's get started!
 
-## Enable SMSOTP
-
-Add the following configurations to `<IS_HOME>/repository/conf/deployment.toml` file to enable SMSOTP 
-for WSO2 Identity Server.
-
-```
-[authentication.authenticator.sms_otp] 
-name ="SMSOTP"
-enable=true
-
-[authentication.authenticator.sms_otp.parameters]
-SMSOTPAuthenticationEndpointURL= "smsotpauthenticationendpoint/smsotp.jsp"
-SMSOTPAuthenticationEndpointErrorPage= "smsotpauthenticationendpoint/smsotpError.jsp"
-MobileNumberRegPage = "smsotpauthenticationendpoint/mobile.jsp"
-RetryEnable = true
-ResendEnable = true
-BackupCode = true
-SMSOTPEnableByUserClaim = true
-SMSOTPMandatory = false
-CaptureAndUpdateMobileNumber = true
-SendOTPDirectlyToMobile = false
-redirectToMultiOptionPageOnFailure = false
-```
-
-
-<table style="width:100%; table-layout: fixed;">
-    <thead>
-        <tr>
-            <th width="40%">Value</th>
-            <th width="60%">Description</th>
-        </tr>			
-    </thead>
-    <tbody>
-        <tr>
-            <td>name</td>
-            <td>Define the authenticator as <code>SMSOTP</code>.</td>
-        </tr>
-        <tr>
-            <td>enable</td>
-            <td>Enable or disable the authenticator.</td>
-        </tr>
-        <tr>
-            <td>SMSOTPAuthenticationEndpointURL</td>
-            <td>Authentication endpoint URL of the authenticator.</td>
-        </tr>
-        <tr>
-            <td>SMSOTPAuthenticationEndpointErrorPage</td>
-            <td>Error page that will be displayed in an authentication failure.</td>
-        </tr>
-        <tr>
-            <td>MobileNumberRegPage</td>
-            <td>Range of usable mobile numbers to send SMSs.</td>
-        <tr>
-            <td>RetryEnable</td>
-            <td>Define whether to retry or not.</td>
-        </tr>
-        <tr>
-            <td>ResendEnable</td>
-            <td>Define whether to enable resending the SMSOTP or not in case a user 
-            enters an incorrect code.</td>
-        </tr>
-        <tr>
-            <td>BackupCode</td>
-            <td>Define whether to use a backup code instead of the actual SMS code or not.</td>
-        </tr>
-        <tr>
-            <td>SMSOTPMandatory</td>
-            <td>If the value is true, the second step will be enabled by the admin. The user cannot be 
-            authenticated without SMS OTP authentication. This parameter is used for both super tenant 
-            and tenant in the configuration. The value can be <code>true</code> or <code>false</code>.</td>
-        </tr>
-        <tr>
-            <td>SMSOTPEnableByUserClaim</td>
-            <td>Disabl the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
-            <code>false</code>. If the value is set to <code>true</code>, the user can enable and disable the 
-            SMS OTP according to what the admin selects in <code>SMSOTPMandatory</code> parameter value.</td>
-        </tr>
-        <tr>
-            <td>CaptureAndUpdateMobileNumber</td>
-            <td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user forgets to
-             update the mobile number in a specific user profile where this property is set to 
-             <code>true</code>, the user can update a mobile claim with value during the authentication time 
-             and use that mobile number to send OTP. 
-             This update functionality will happen in the first login only. For the next logins, the 
-             updated mobile number will be used.</td>
-        </tr>
-        <tr>
-            <td>SendOTPDirectlyToMobile</td>
-            <td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user does not exist 
-            in the user store and if the admin sets <code>SendOTPDirectlyToMobile</code> to <code>true
-            </code>, the user can enter the mobile number in authentication time in a mobile number 
-            request page; the OTP will be directly sent to that mobile number.</td>
-        </tr>
-        <tr>
-            <td>redirectToMultiOptionPageOnFailure</td>
-            <td>During a failed attempt enable redirect to the Multi Option Page where the user 
-            can select the authentication mechanism.</td>
-    </tbody>
-</table>
-
-!!! note
-
-    The SMS provider is the entity that is used to send the SMS. The SMSOTP connector has been configured 
-    such that it can be used with most types of SMS APIs. Some use the GET method with the client secret 
-    and API Key encoded in the URL (e.g., Nexmo), while some may use the POST method when sending the 
-    values in the headers and the message and telephone number in the payload (e.g., Clickatell). 
-    This could change significantly between different SMS providers. The configuration of the 
-    connector in the identity provider would also change based on this.
-
 ## Configuring the identity provider
 
-Now you have to configure WSO2 Identity Server by adding a new identity
+First you have to configure WSO2 Identity Server by adding a new identity
 provider.
 
 1.  [Start the Server](../../setup/running-the-product).
@@ -475,6 +366,140 @@ backup codes, follow the steps given below.
 		backup codes as comma separated values.
 
     ![define-backup-codes](../assets/img/tutorials/define-backup-codes.png)
+    
+## Advanced Configurations of SMS OTP authenticator
+
+### Disable SMS OTP
+ 
+From WSO2 Identity Server 5.9.0 onwards, SMS OTP authenticator is enabled by
+default.
+
+You can disable the SMS OTP authenticator by adding following
+configuration to the `deployment.toml` file in the
+`<IS_HOME>/repository/conf` folder.
+
+```toml
+[authentication.authenticator.sms_otp] 
+name ="SMSOTP"
+enable=false
+```
+
+### SMS OTP Configuration Properties
+
+You may configure any of the following parameters to change the
+behaviour of the SMS OTP authenticator according to your requirements.
+
+The following table describes the definition of the parameters and
+the various values you can configure for the authenticator.
+
+<table style="width:100%; table-layout: fixed;">
+    <thead>
+        <tr>
+            <th width="40%">Value</th>
+            <th width="60%">Description</th>
+        </tr>			
+    </thead>
+    <tbody>
+        <tr>
+            <td>name</td>
+            <td>Define the authenticator as <code>SMSOTP</code>.</td>
+        </tr>
+        <tr>
+            <td>enable</td>
+            <td>Enable or disable the authenticator.</td>
+        </tr>
+        <tr>
+            <td>SMSOTPAuthenticationEndpointURL</td>
+            <td>Authentication endpoint URL of the authenticator.</td>
+        </tr>
+        <tr>
+            <td>SMSOTPAuthenticationEndpointErrorPage</td>
+            <td>Error page that will be displayed in an authentication failure.</td>
+        </tr>
+        <tr>
+            <td>MobileNumberRegPage</td>
+            <td>Range of usable mobile numbers to send SMSs.</td>
+        <tr>
+            <td>RetryEnable</td>
+            <td>Define whether to retry or not.</td>
+        </tr>
+        <tr>
+            <td>ResendEnable</td>
+            <td>Define whether to enable resending the SMSOTP or not in case a user 
+            enters an incorrect code.</td>
+        </tr>
+        <tr>
+            <td>BackupCode</td>
+            <td>Define whether to use a backup code instead of the actual SMS code or not.</td>
+        </tr>
+        <tr>
+            <td>SMSOTPMandatory</td>
+            <td>If the value is true, the second step will be enabled by the admin. The user cannot be 
+            authenticated without SMS OTP authentication. This parameter is used for both super tenant 
+            and tenant in the configuration. The value can be <code>true</code> or <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td>SMSOTPEnableByUserClaim</td>
+            <td>Disabl the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
+            <code>false</code>. If the value is set to <code>true</code>, the user can enable and disable the 
+            SMS OTP according to what the admin selects in <code>SMSOTPMandatory</code> parameter value.</td>
+        </tr>
+        <tr>
+            <td>CaptureAndUpdateMobileNumber</td>
+            <td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user forgets to
+             update the mobile number in a specific user profile where this property is set to 
+             <code>true</code>, the user can update a mobile claim with value during the authentication time 
+             and use that mobile number to send OTP. 
+             This update functionality will happen in the first login only. For the next logins, the 
+             updated mobile number will be used.</td>
+        </tr>
+        <tr>
+            <td>SendOTPDirectlyToMobile</td>
+            <td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user does not exist 
+            in the user store and if the admin sets <code>SendOTPDirectlyToMobile</code> to <code>true
+            </code>, the user can enter the mobile number in authentication time in a mobile number 
+            request page; the OTP will be directly sent to that mobile number.</td>
+        </tr>
+        <tr>
+            <td>redirectToMultiOptionPageOnFailure</td>
+            <td>During a failed attempt enable redirect to the Multi Option Page where the user 
+            can select the authentication mechanism.</td>
+    </tbody>
+</table>
+
+
+You can configure any of the above as following in the
+`<IS_HOME>/repository/conf/deployment.toml` file. 
+```toml
+[authentication.authenticator.sms_otp.parameter] 
+<Property-name> = <Property-value> 
+```
+
+!!! Example "Sample configurations of the authenticator with default Values"
+
+    ```toml
+    [authentication.authenticator.sms_otp.parameters]
+    SMSOTPAuthenticationEndpointURL= "smsotpauthenticationendpoint/smsotp.jsp"
+    SMSOTPAuthenticationEndpointErrorPage= "smsotpauthenticationendpoint/smsotpError.jsp"
+    MobileNumberRegPage = "smsotpauthenticationendpoint/mobile.jsp"
+    RetryEnable = true
+    ResendEnable = true
+    BackupCode = true
+    SMSOTPEnableByUserClaim = true
+    SMSOTPMandatory = false
+    CaptureAndUpdateMobileNumber = true
+    SendOTPDirectlyToMobile = false
+    redirectToMultiOptionPageOnFailure = false
+    ```
+     
+!!! note
+
+    The SMS provider is the entity that is used to send the SMS. The SMSOTP connector has been configured 
+    such that it can be used with most types of SMS APIs. Some use the GET method with the client secret 
+    and API Key encoded in the URL (e.g., Nexmo), while some may use the POST method when sending the 
+    values in the headers and the message and telephone number in the payload (e.g., Clickatell). 
+    This could change significantly between different SMS providers. The configuration of the 
+    connector in the identity provider would also change based on this.
 
 !!! info
     For a full tutorial demonstrating multi-factor authentication with SMSOTP using a sample application, see  [Configuring Multifactor Authentication](../../learn/configuring-multifactor-authentication). 

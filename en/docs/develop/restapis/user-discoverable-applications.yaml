@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   description: >-
-    This is the RESTful API for user visible application management in WSO2 Identity Server
+    This is the RESTful API for user visible application management in WSO2 Identity Server.
   version: "v1"
   title: WSO2 Identity Server - User Application Management API
   contact:
@@ -16,7 +16,7 @@ servers:
     variables:
       tenant-domain:
         default: carbon.super
-        description: Tenant domain the API is invoked
+        description: Tenant domain in which the API is invoked.
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -27,8 +27,7 @@ paths:
         - Application Listing
       summary: List applications.
       description: |
-        This API provides the capability to retrive
-        the list of applications authorized to the user.
+        This API provides the capability to retrieve the list of applications to an authorized user.
       operationId: getApplications
       parameters:
         - $ref: '#/components/parameters/attributesQueryParam'
@@ -62,8 +61,7 @@ paths:
         - Application Listing
       summary: Get application by Id.
       description: >
-        This API provides the capability to retrieve an application authorized
-        to the user.
+        This API provides the capability to retrieve an application to an authorized user.
       operationId: getApplication
       parameters:
         - name: applicationId
@@ -115,7 +113,7 @@ components:
       in: query
       name: filter
       required: false
-      description: Condition to filter the retrival of records.
+      description: Condition to filter the retrieval of records.
       schema:
         type: string
       examples:
@@ -136,7 +134,7 @@ components:
       name: sortOrder
       required: false
       description: |
-        Define the order how the retrieved records should be sorted.
+        Define the order by which the retrieved records should be sorted.
         _This parameter is not supported yet._
       schema:
         type: string
@@ -159,7 +157,7 @@ components:
       name: attributes
       required: false
       description: >-
-        Define only the required attributes to be sent in the response object as a comma separated string.
+        Define only the required attributes to be sent in the response object as a comma-separated string.
       schema:
         type: string
       example: name,description,logo

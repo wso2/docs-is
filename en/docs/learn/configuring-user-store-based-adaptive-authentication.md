@@ -136,7 +136,7 @@ of authentication.
 1.  Create a new user named "Alex" in the `          PRIMARY         `
     user store. Select `          PRIMARY         ` as the **Domain**
     when creating the user.
-2.  Create another new user named "Kim" in the
+2.  Create another new user named "Sam" in the
     `          EMPLOYEES         ` user store. Select
     `          EMPLOYEES         ` as the **Domain** when creating the
     user.  
@@ -149,9 +149,9 @@ of authentication.
     successfully logged in to the application after going through only
     the basic authentication step.
     
-5.  Log out and login again using Kim's credentials. Note that Kim is
+5.  Log out and login again using Sam's credentials. Note that Sam is
     prompted for a second step of authentication (i.e., hardware key
-    authenticator) since she belongs to the allowlist user store
+    authenticator) since Sam belongs to the allowlisted user store
     domain " `           EMPLOYEES          ` ".  
     
     ![second-step-of-authentication](../assets/img/tutorials/second-step-of-authentication.png) 
@@ -168,5 +168,5 @@ of authentication.
 
     !!! tip
     
-        Ensure that the LDAP server in Apache DS is running when attempting to log in as Kim.
+        Ensure that the LDAP server in Apache DS is running when attempting to log in as Sam.
     
