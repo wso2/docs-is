@@ -47,7 +47,7 @@ In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/) the 
             <dispatcher>FORWARD</dispatcher>
         </filter-mapping>
     ```
-2.  Whitelist your hostname and port as a trusted FIDO2 origin.
+2.  Allowlist your hostname and port as a trusted FIDO2 origin.
 
 
 

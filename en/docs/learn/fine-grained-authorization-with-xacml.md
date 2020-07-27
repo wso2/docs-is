@@ -17,9 +17,9 @@ Pickup is a cab company that has many employees who use different credentials t
 
 Following are three Pickup employees:
 
--	**John**: A manager who has permission to view old and current driver allocations via Pickup Dispatch.
--	**Jane**: An executive officer who is responsible of allocating new vehicles to drivers via Pickup Dispatch. He also has permission to view old and current driver allocations. 
--	**Richard**: An HR manager who only has access to Pickup Manager.  
+-	**Larry**: A manager who has permission to view old and current driver allocations via Pickup Dispatch.
+-	**Sam**: An executive officer who is responsible of allocating new vehicles to drivers via Pickup Dispatch. Sam also has permission to view old and current driver allocations. 
+-	**Kim**: An HR manager who only has access to Pickup Manager.  
 
 <img src="../../assets/img/learn/pickup-access-control-with-xacml.png" alt="Scenario Diagram" width="800">  
 
