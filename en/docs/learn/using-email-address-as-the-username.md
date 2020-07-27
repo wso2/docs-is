@@ -114,8 +114,8 @@
 
     !!! info 
         With these configuration users can log in to super tenant with both
-        email user name (**`bob@gmail.com`**) or
-        non-email user names (**`alice`**). But for tenant only email user names
+        email user name (**`alex@gmail.com`**) or
+        non-email user names (`larry`). But for tenant only email user names
         allowed (**`tod@gmail.com@wso2.com`**). 
 
     !!! note

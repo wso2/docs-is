@@ -394,7 +394,7 @@ Let's begin.
 
 7.  Sign in to the Management Console.
 
-8.  Create a new user with the name `Alice`.
+8.  Create a new user with the name `Larry`.
 
 9.  Create a new user role called  `photoSharingRole` and assign it to the newly created user.
 
@@ -421,7 +421,7 @@ Let's begin.
     ![Playground app](../assets/img/using-wso2-identity-server/playground-app.jpeg)
     Note that you will be directed to WSO2 Identity Server login page.
 
-15. Provide the username and password of the user `Alice` who is in the
+15. Provide the username and password of the user `Larry` who is in the
     `photoSharingRole`. You are prompted to approve the app and logged
     in.
 
