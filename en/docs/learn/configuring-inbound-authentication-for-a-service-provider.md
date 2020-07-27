@@ -53,10 +53,10 @@ for instructions on configuring inbound authentication with Oauth/OpenID Comnnec
 See [here](../../learn/configuring-ws-federation-single-sign-on)
 for instructions on configuring inbound authentication with WS-Federation.
 
-### Configuring inbound authentication with WS-Trest Security Token Service
+### Configuring inbound authentication with WS-Trust Security Token Service
 
 See [here](../../learn/configuring-ws-trust-security-token-service)
-for instructions on configuring inbound authentication with ws-trest security token service.
+for instructions on configuring inbound authentication with ws-trust security token service.
 
 !!! info "Related Topics"
 

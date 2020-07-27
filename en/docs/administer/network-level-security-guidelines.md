@@ -46,8 +46,8 @@ Access to the `/services` and `/carbon` contexts should be blocked from the DMZ 
 -	In addition to the `/services` and `/carbon` contexts, be sure to expose only the required applications in your product to users beyond the DMZ level in your network.
 
 !!! tip
-
 	It is recommended to identify and use components listed under the allowlist when allowing access to resources in your product from the DMZ level.
+
 
 
 

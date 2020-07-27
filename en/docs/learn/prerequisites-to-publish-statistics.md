@@ -102,7 +102,6 @@ Follow the steps below to enable event publishing in WSO2 IS.
     </table>
     
     **Enable analytics for Password grant logins**
-                 
      Optionally, you can enable analytics for password grant type logins. Add the following configuration to the 
      deployment.toml file to enable this feature.
          
@@ -110,7 +109,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
      [analytics]
      publish_password_grant_logins=true
      ```
-
+     
 ### Step 03: Configure Event Publishers
 
 In a fresh WSO2 IS pack, you can view all the event publishers related

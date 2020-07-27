@@ -18,8 +18,6 @@ in Google too.
     -   You need to have a Google domain. Click
         [here](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/)
         for more information on creating the domain.
-    -   Make sure you have a WUM updated WSO2 Identity Server 5.4.0 pack.
-        For more information on how to WUM update, see [Updating WSO2 Products](../../administer/getting-wso2-updates)
     
 
 ### Configuring Google

@@ -13,10 +13,8 @@ the instructions found
 
 ### Running the STS client
 
-1.  The code for the sample can be checked out from the GitHub
-    repository. To do this, follow the instructions on the [Downloading
-    a Sample](../../learn/downloading-a-sample)
-    topic.
+1.  The code for the sample can be checked out from the [GitHub
+    repository](https://github.com/wso2/samples-is).
 
 2.  Once downloaded the identity server samples, go inside to
     `           IS-SAMPLES/modules/samples/sts/sts-client          `

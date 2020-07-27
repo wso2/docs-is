@@ -6,9 +6,9 @@ In this approach, an administrator first creates a user account with a default p
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Mark** is a new recruit. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Sam** is an administrator at Pickup, **Alex** is a new recruit. 
 
-Robert wants to register a user account with a default password for Mark and get it activated by requesting Mark to verify. 
+Sam wants to register a user account with a default password for Alex and get it activated by requesting Alex to verify. 
 
 <img src="../../assets/img/learn/pickup-user-registration-with-email-verification.png" alt="Scenario Diagram" width="800">  
 
@@ -91,7 +91,7 @@ You have now configured WSO2 Identity Server to send the user account confirmati
 
 ## Try out 
 
-1.	To create the user account for Mark, execute the following cURL.
+1.	To create the user account for Alex, execute the following cURL.
 
 	!!! tip
 
@@ -99,7 +99,7 @@ You have now configured WSO2 Identity Server to send the user account confirmati
 
 
 	```curl 
-	curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Mark","givenName":"Roe"},"userName":"Mark","password":"password","emails":[{"primary":true,"value":"<USER_EMAIL>"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
+	curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Alex","givenName":"Roe"},"userName":"Alex","password":"password","emails":[{"primary":true,"value":"<USER_EMAIL>"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
 	```
 
 2.	An email requesting to confirm the user creation is sent to the given email address. 
