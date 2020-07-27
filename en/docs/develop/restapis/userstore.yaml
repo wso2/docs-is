@@ -96,6 +96,32 @@ paths:
           $ref: '#/components/responses/ServerError'
         '501':
           $ref: '#/components/responses/NotImplemented'
+  '/userstores/primary':
+    get:
+      tags:
+        - User Store
+      summary: >-
+        Retrieve the configurations of primary userstore.
+      operationId: getPrimaryUserStore
+      description: >
+        This API provides the capability to retrieve the configurations of
+        primary user store.
+
+          <b>Permission required:</b>
+        */permission/admin
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStoreConfigurationsRes'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
   '/userstores/{userstore-domain-id}':
     get:
       tags:
@@ -705,3 +731,16 @@ components:
         description:
           type: string
           example: Description of the property
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attribute'
+    Attribute:
+      type: object
+      properties:
+        name:
+          type: string
+          example: category
+        value:
+          type: string
+          example: basic

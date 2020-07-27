@@ -75,14 +75,13 @@ credentials (basic authentication) to access a resource.
 4.  Click **Login** and enter Alex's credentials. Enter the username
     with the appended tenant domain (i.e., alex@abc.com).  
     ![pickup-sign-in-chris](../assets/img/tutorials/pickup-sign-in-chris.png)  
-    Note that you are prompted for hardware key authentication because
-    **abc.com** is an allowlisted tenant domain.
+    Note that you are prompted for harware key authentication because
+    **abc.com** is a domain that belongs to the allowlist.
 5.  Enter the 4 digit key and click **Sign In**. You are successfully
     logged in to the application.  
     ![hardware-key-authenticator](../assets/img/tutorials/hardware-key-authenticator.png)
 6.  Log out and log in with Kim's credentials. Kim is the admin of the
-    **123.com** tenant domain, which is not one of the allowlisted
-    domains.  
+    **123.com** tenant domain, which is not a part of the allowlist.
     ![pickup-sign-in-kim](../assets/img/tutorials/pickup-sign-in-kim.png)
 7.  Provide consent.  
     Note that you are successfully logged in to the application after

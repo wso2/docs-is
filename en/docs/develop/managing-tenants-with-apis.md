@@ -194,7 +194,8 @@ The following operations are available in the **TenantManagement**
 </tbody>
 </table>
 
-#### addTenant()
+
+#### addSkeletonTenant()
 
 <table>
 <tbody>
@@ -352,6 +353,7 @@ The following operations are available in the **TenantManagement**
 </tr>
 </tbody>
 </table>
+
 
 #### activateTenant()
 

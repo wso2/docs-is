@@ -98,8 +98,8 @@ The next step is to configure the Primary IS as a service provider in the Second
 
     - Issuer : SP Entity Id of the Secondary IS
     - Assertion Consumer URL : URL of the endpoint which receives SAML responses from the identity provider
-    - Enable Single Logout (https://localhost:9443/commonauth)
-    - SLO Request URL ; "http:/localhost:8080/identity/saml/slo" 
+    - Enable Single Logout
+    - SLO Request URL : "https://localhost:9443/identity/saml/slo" 
 
     !!! info "Note"
         Providing the SLO Request URL is a must. WSO2 IS receives the SAML single logout requests from this URL. For now, only front channel bindings are supported with this feature. For logout method, select one of the front channel bindings.
