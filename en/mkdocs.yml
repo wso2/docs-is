@@ -23,7 +23,7 @@ site_url: https://is.docs.wso2.com/en/latest/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/5.10.0/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -97,11 +97,25 @@ nav:
         - 'Provisioning':
           - 'Provisioning Overview': learn/provisioning-tutorials.md
           - 'Inbound Provisioning': learn/configuring-inbound-provisioning.md
-          - 'Outbound Provisioning': learn/configuring-outbound-provisioning.md
+          - 'Outbound Provisioning':
+            - 'Configuring Outbound Provisioning': learn/configuring-outbound-provisioning.md
+            - 'Provisioining Users to Salesforce': learn/provisioning-users-to-salesforce.md
+            - 'Provisioning users to Hubspot': learn/provisioning-users-to-hubspot.md
+          - 'Account Syncing':
+            - 'Exporting User Data From WSO2 Identity Server': learn/exporting-user-data-from-wso2-is.md
+            - 'Sync Accounts to HubSpot': learn/exporting-user-info-to-hubspot.md
+            - 'Sync Accounts to MailChimp': learn/exporting-user-info-to-mailChimp.md
+            - 'Sync Accounts to Pardot': learn/exporting-user-info-to-pardot.md
+            - 'Sync Accounts to Pipedrive CRM': learn/exporting-user-info-to-pipedrive.md
+            - 'Sync Accounts to Salesforce': learn/exporting-user-info-to-salesforce.md
+            - 'Sync Accounts to Sendgrid': learn/exporting-user-info-to-sendgrid.md
+            - 'Sync Accounts to Zoho CRM': learn/exporting-user-info-to-zoho.md
         - 'Multifactor Authentication': learn/configuring-multifactor-authentication.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
         - 'Multi-Tenancy': learn/configuring-multi-tenancy.md
-        - 'Analytics': learn/configuring-identity-analytics.md
+        - 'Analytics':
+          - 'Configuring Identity Analytics': learn/configuring-identity-analytics.md
+          - 'Web Analytics Solutions': learn/web-analytics-solutions.md
       - 'Single Sign-On':
         - 'Single Sign-On': learn/single-sign-on.md
         - 'Configuring Single Sign-On':
@@ -127,6 +141,9 @@ nav:
           - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
           - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
+        - 'Logging into WordPress using the Identity Server': learn/logging-in-to-wordpress-using-the-identity-server.md
+        - 'Logging into OpenCart using the Identity Server': learn/logging-in-to-opencart-using-the-identity-server.md
+        - 'Logging into Drupal using the Identity Server': learn/logging-into-drupal-using-the-identity-server.md
       - 'Authentication':
         - 'Passwordless authentication using FIDO2': learn/passwordless-authentication-using-fido2.md
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
@@ -158,6 +175,7 @@ nav:
         - 'Testing OIDC Encrypted ID Token with IS': learn/testing-oidc-encrypted-id-token-with-is.md
         - 'Passing OIDC Authentication Request Parameters in a Request Object': learn/passing-oidc-authentication-request-parameters-in-a-request-object.md
         - 'Enforcing Signature Validation for Request Objects': learn/enforcing-signature-validation-for-request-objects.md
+        - 'Logging in to Magento using the WSO2 Identity Server': learn/login-to-magento-using-wso2-identity-server.md
       - "Multi-factor Authentication" :
         - 'MFA in WSO2 Identity Server': learn/multi-factor-authentication.md
         - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
@@ -165,6 +183,7 @@ nav:
         - 'Configuring Email OTP': learn/configuring-email-otp.md
         - 'Configuring TOTP': learn/configuring-totp.md
         - 'MFA for Management Console': learn/multi-factor-authentication-for-wso2-is-management-console.md
+        - 'Configuring X509Certificate Authenticator': learn/x509certificate-authenticator.md
       - 'Adaptive Authentication':
         - 'Adaptive Authentication': learn/adaptive-authentication.md
         - 'Configuring a Service Provider for Adaptive Authentication': learn/configuring-a-service-provider-for-adaptive-authentication.md
@@ -178,6 +197,7 @@ nav:
           - 'New-Device-Based': learn/configuring-new-device-based-adaptive-authentication.md
           - 'ACR-Based': learn/configuring-acr-based-adaptive-authentication.md
           - 'Risk-Based': learn/configuring-risk-based-adaptive-authentication.md
+          - 'Login-Attempts-Based': learn/configuring-login-attempts-based-adaptive-authentication.md
           - 'With Function Library': learn/adaptive-authentication-with-function-library.md
           - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md
         - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
@@ -256,6 +276,8 @@ nav:
           - 'Sending Notifications to External PEP Endpoints': learn/sending-notifications-to-external-pep-endpoints.md
           - 'Writing an XACML 3.0 Policy Using XPath': learn/writing-a-xacml-3.0-policy-using-xpath.md
       - 'Deploying the Samples': learn/deploying-the-sample-app.md
+    - 'Integrations':
+      - 'Master Data Management': learn/configuring-master-data-management-solution.md
     - 'User Portal': learn/user-portal.md
     - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
@@ -452,8 +474,8 @@ nav:
           - 'Alert Types': learn/alert-types.md
           - 'Configuring Alerts': learn/configuring-alerts.md
           - 'Viewing Alerts': learn/viewing-alerts.md
+        - 'Integrating with Fraud Detection, Risk Based Authentication, Identity Verification and Business Intelligence Systems': learn/fraud-detection.md
       - 'Samples':
-        - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
           - 'Writing a Custom OAuth 2.0 Grant Type':
             - 'Writing a Custom OAuth 2.0 Grant Type': learn/writing-a-custom-oauth-2.0-grant-type.md
@@ -484,9 +506,11 @@ nav:
       - 'Developer guide': develop/developer-guide.md
       - 'Working with the Source Code': develop/working-with-the-source-code.md
       - 'Extending the Identity Server':
+        - 'Overview': develop/extending-the-identity-server.md
         - 'User Management for Developers':
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
+          - 'Writing a Custom Event Handler': develop/writing-a-custom-event-handler.md
           - 'User Store Listeners': develop/user-store-listeners.md
           - 'Writing a Post-Authentication Handler': develop/writing-a-post-authentication-handler.md
           - 'Using the User Management Errors Event Listener': develop/using-the-user-management-errors-event-listener.md
@@ -506,7 +530,7 @@ nav:
         - 'Access Control for Developers':
           - 'Writing a Custom Policy Info Point': develop/writing-a-custom-policy-info-point.md
         - 'Workflow Management for Developers':
-          - 'Writing a Custom Event Handler': develop/writing-a-custom-event-handler.md
+          - 'Extending the Workflow Event Handler': develop/extending-the-workflow-event-handler.md
           - 'Writing a Custom Workflow Template': develop/writing-a-custom-workflow-template.md
         - 'Adaptive Authentication for Developers':
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
@@ -516,12 +540,13 @@ nav:
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
+            - 'Rest APIs': develop/rest-apis.md
             - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
             - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
             - 'Application Management' : develop/application-rest-api.md
             - 'Approvals': develop/approvals-rest-api.md
             - 'Associations': develop/association-rest-api.md
-            - 'Authentication': develop/authentication-data-api.md
+            - 'Authentication Data': develop/authentication-data-api.md
             - 'Authentication': develop/using-the-authentication-rest-apis.md
             - 'Authorized Apps': develop/authorized-apps-rest-api.md
             - 'Challenge Question': develop/challenge-rest-api.md
@@ -531,6 +556,7 @@ nav:
                 - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
             - 'Consent Management': develop/using-the-consent-management-rest-apis.md
             - 'Email Templates': develop/email-templates-rest-api.md
+            - 'Entitlement': develop/entitlement-with-rest-apis.md
             - 'Fido': develop/fido-rest-api.md
             - 'Identity Governance': develop/identity-governance-rest-api.md
             - 'Identity Providers': develop/idp-rest-api.md
@@ -572,14 +598,14 @@ nav:
           - 'Managing Tenants with APIs': develop/managing-tenants-with-apis.md
           - 'Entitlement with APIs':
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
-            - 'Entitlement with REST APIs': develop/entitlement-with-rest-apis.md
-      - 'Customizing User Interfaces':
-        - 'Customizing WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
-        - 'Customizing Login Pages for Service Providers': develop/customizing-login-pages-for-service-providers.md
-        - 'Customizing the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md
-      - 'Customizing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
+      - 'Re-branding User Interfaces':
+        - 'Re-branding WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
+        - 'Re-branding the Default Login Page for Your Application': develop/customizing-login-pages-for-service-providers.md
+        - 'Re-branding the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md
+      - 'Changing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
+      - 'Setting-Up User Portal in a Development Environment': develop/setting-up-user-portal-in-a-dev-environment.md
   - 'Setup':
     - 'Install':
       - 'Installing the Product':
@@ -718,7 +744,6 @@ nav:
       - 'Working with the Registry':
         - 'Working with the Registry': administer/working-with-the-registry.md
         - 'Browsing the Registry': administer/browsing-the-registry.md
-      - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
@@ -819,4 +844,12 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 5.11.0
+  nav_list:
+    - Home
+    - Get Started
+    - Learn
+    - Develop
+    - Setup
+    - Administer
+    - Compliance
+    - References

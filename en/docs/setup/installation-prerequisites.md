@@ -12,10 +12,11 @@ development platforms before starting the installation.
 <tr class="odd">
 <th><p>Memory</p></th>
 <td><ul>
-<li>~ 2 GB minimum</li>
-<li>~ 512 MB heap size. This is generally sufficient on DEV/QA with a low number of users.</li>
-<li>~ 1 GB heap size for PROD environment, supporting the most common use cases (OAuth/SAML, Federation, etc.) with moderate traffic.</li>
-</ul></td>
+<li>4 vCPUs</li>
+<li>4 GB RAM</li>
+<li>10 GB Disk Space</li>
+</ul>
+<p>The above recommendations can change based on the expected concurrency & performance.</p></td>
 </tr>
 <tr class="even">
 <th><p>Disk</p></th>

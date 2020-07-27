@@ -274,8 +274,8 @@ You can click on “finish” and finish policy creation.
     similar to Obligations. But only different, when compared to
     Obligations, PEPs do not have to comply with advice statements. PEPs
     can consider or discard the statement. A common use case is to
-    explain why something was denied. “User Bob is denied because he has
-    not a valid email”  
+    explain why something was denied. “User Alex is denied because Alex does
+    not have a valid email”  
       
 -   Here the attribute, **Define Policy Obligation or Advice** is optional.
 

@@ -6,7 +6,7 @@ WSO2 Identity Server enables defining custom [password policies](../../learn/con
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. Robert, who is an administrator at Pickup, wants to enforce the following password pattern:
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. Sam, who is an administrator at Pickup, wants to enforce the following password pattern:
 
 -	Minimum password length: 6
 -	Maximum password length: 12
@@ -17,7 +17,7 @@ WSO2 Identity Server enables defining custom [password policies](../../learn/con
 
 ## Set up
 
-Follow the steps below to define the password policy that Robert wants to enforce.
+Follow the steps below to define the password policy that Sam wants to enforce.
 
 !!! tip "Before you begin"
 
@@ -85,7 +85,7 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 2.	Click **Add New User**.
 
-3.	Enter `Larry` as the user name and `test123` as the password.
+3.	Enter `Alex` as the user name and `test123` as the password.
 
 4.	Click **Finish**.  Note that the error message that you added for the password pattern appears.
 

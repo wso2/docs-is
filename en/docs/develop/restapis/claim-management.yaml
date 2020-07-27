@@ -42,7 +42,7 @@ paths:
       parameters:
         - in: body
           name: localClaim
-          description: Local claim to add.
+          description: Local claim to be added.
           schema:
             $ref: '#/definitions/LocalClaimReq'
       x-wso2-curl: |
@@ -99,7 +99,7 @@ paths:
         - management
       summary: Retrieve local claim.
       operationId: getLocalClaim
-      description: Retrieve a local claim matching the given claim id. <br>
+      description: Retrieve a local claim matching the given claim ID. <br>
         <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/claimmgt/metadata/view <br>
         <b>Scope required:</b> <br>
@@ -164,7 +164,7 @@ paths:
         - management
       summary: Delete a local claim.
       operationId: deleteLocalClaim
-      description: Delete a claim by claim id. <br>
+      description: Delete a claim by claim ID. <br>
         <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/claimmgt/metadata/delete <br>
         <b>Scope required:</b> <br>
@@ -256,7 +256,7 @@ paths:
         - management
       summary: Retrieve claim dialect.
       operationId: getClaimDialect
-      description: Retrieve a claim dialect matching the given dialect id. <br>
+      description: Retrieve a claim dialect matching the given dialect ID. <br>
         <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/claimmgt/metadata/view <br>
         <b>Scope required:</b> <br>
@@ -319,7 +319,7 @@ paths:
         - management
       summary: Delete a claim dialect.
       operationId: deleteClaimDialect
-      description: Delete a claim dialect by claim id. <br>
+      description: Delete a claim dialect by claim ID. <br>
         <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/claimmgt/metadata/delete <br>
         <b>Scope required:</b> <br>
@@ -415,7 +415,7 @@ paths:
         - management
       summary: Retrieve external claim.
       operationId: getExternalClaim
-      description: Retrieve an external claim matching the given dialect id and claim id. <br>
+      description: Retrieve an external claim matching the given dialect ID and claim ID. <br>
         <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/claimmgt/metadata/view <br>
         <b>Scope required:</b> <br>
@@ -482,7 +482,7 @@ paths:
         - management
       summary: Delete an external claim.
       operationId: deleteExternalClaim
-      description: Delete a claim by dialect id and claim id. <br>
+      description: Delete a claim by dialect ID and claim ID. <br>
         <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/claimmgt/metadata/delete <br>
         <b>Scope required:</b> <br>
@@ -511,27 +511,27 @@ parameters:
     in: query
     name: limit
     required: false
-    description: maximum number of records to return
+    description: Maximum number of records to return.
     type: integer
     format: int32
   offsetQueryParam:
     in: query
     name: offset
     required: false
-    description: number of records to skip for pagination
+    description: Number of records to skip for pagination.
     type: integer
     format: int32
   filterQueryParam:
     in: query
     name: filter
     required: false
-    description: Condition to filter the retrival of records.
+    description: Condition to filter the retrieval of records.
     type: string
   sortQueryParam:
     in: query
     name: sort
     required: false
-    description: Define the order how the retrieved records should be sorted.
+    description: Define the order by which the retrieved records should be sorted.
     type: string
   attributesQueryParam:
     in: query
@@ -620,7 +620,7 @@ definitions:
     properties:
       id:
         type: string
-        description: Claim id.
+        description: claim ID.
         example: "394b8adcce24c64a8a09a8d80abf8c337bd253de"
       claimURI:
         type: string
@@ -711,7 +711,7 @@ definitions:
     properties:
       id:
         type: string
-        description: Dialect id.
+        description: dialect ID.
         example: "394b8adcce24c64a8a09a0d80abf8c337bd253de"
       dialectURI:
         type: string
@@ -748,7 +748,7 @@ definitions:
     properties:
       id:
         type: string
-        description: External claim id.
+        description: External claim ID .
         example: "394b8adcce24c64a8a09a0d80abf8c337dd255de"
       claimURI:
         type: string
@@ -871,5 +871,5 @@ responses:
   Forbidden:
     description: Resource Forbidden.
 
-host: localhost:9443
+host: is.wso2.com
 basePath: /t/{tenant-domain}/api/server/v1

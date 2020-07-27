@@ -117,7 +117,7 @@ paths:
       summary: |
         Get script library.
       description: |
-        This API provides the capability to retrive the details of the script library using its name.<br>
+        This API provides the capability to retrieve the details of a script library using its name.<br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/functionsLibrarymgt/view <br>
         <b>Scope required:</b> <br>
@@ -266,7 +266,7 @@ paths:
       summary: |
         Get the content of the script library.
       description: |
-        This API provides the capability to retrive the content of script library using its name.<br>
+        This API provides the capability to retrieve the content of a script library using its name.<br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/functionsLibrarymgt/view <br>
         <b>Scope required:</b> <br>

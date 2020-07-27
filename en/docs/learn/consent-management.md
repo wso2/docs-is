@@ -179,6 +179,7 @@ provide consent management UI facilities for their end users.
 
 !!! tip For more information and instructions for setting up this use
     case, see [Using the Consent Management REST
+    APIs](../../develop/using-the-consent-management-rest-apis).
 
 ##### **Support for Kantara consent receipt (draft) specification**
 

@@ -80,7 +80,7 @@ the server.
 </tr>
 <tr class="odd">
 <td>-Dtenant.idle.time=&lt;time&gt;</td>
-<td>If a tenant is idle for the specified time, the tenant will be unloaded. The default tenant idle time is 30 minutes. This is required in clustered setups, which has master and worker nodes.</td>
+<td>If a tenant is idle for the specified time, the tenant will be unloaded. The default tenant idle time is 30 minutes. This is required in clustered setups, which has controller and worker nodes.</td>
 </tr>
 </tbody>
 </table>
