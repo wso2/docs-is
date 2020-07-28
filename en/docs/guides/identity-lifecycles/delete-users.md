@@ -1,5 +1,9 @@
 # Delete an existing user 
 
+This section guides you through deleting an exisiting user in WSO2 Identity Server.
+
+----
+
 ## Delete a user using the admin portal 
 
 {!fragments/insert-link!}
@@ -57,7 +61,7 @@ time a user is deleted:
 -   The timestamp that the user was deleted.
 
 You can use this log file as an input to the Identity Anonymization tool
-that is packaged with WSO2 Identity Server, to ensure that you [remove references to all deleted user identities](insert-link).
+that is packaged with WSO2 Identity Server, to ensure that you [remove references to all deleted user identities](TODO:insert-link).
 
 Follow the steps below to configure WSO2 Identity Server to log details
 related to user deletion each time you delete a user.
@@ -105,7 +109,9 @@ related to user deletion each time you delete a user.
     to a specified log file. You can extend this functionality to log the
     details in any other format that you want, and you can also extend the
     functionality to write the details to a text file, database, or any
-    other file depending on your requirement. For more information, see [Writing user deletion logs in other formats](insert-link).
+    other file depending on your requirement. For more information, see [Writing user deletion logs in other formats](TODO:insert-link).
+
+-----
     
 !!! info "Related Topics"
     - [Concept: Users](TODO:insert-link-to-concept)

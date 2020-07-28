@@ -97,3 +97,9 @@ authentication_page_url= "/authenticationendpoint/fido-auth.jsp"
 The <https://demo.yubico.com/u2f> site can be used to check the browser support for FIDO devices.
 
 As for now, Google Chrome (version 38 or later) has support for FIDO devices. Firefox does not support FIDO natively. An add-on must be added to Firefox to support FIDO devices. You can download and install the add-on from [here](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/).
+
+----
+
+!!! info "Related Topics"
+    - [Concept: Two-Factor Authentication](../../../concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)

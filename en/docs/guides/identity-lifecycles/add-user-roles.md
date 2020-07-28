@@ -1,10 +1,12 @@
 # Add a User Role
 
-This section will guide you through the ways of adding a user role to WSO2 Identity Server.
+This section guides you through the ways of adding a user role to WSO2 Identity Server.
+
+---
 
 ## Add a user role using the admin portal
 
-TODO: dev-portal-fragment
+(TODO: dev-portal-fragment)
 
 ---
 
@@ -84,6 +86,8 @@ services, see [Calling Admin Services.](insert-calling admin services)
         </soapenv:Body>
     </soapenv:Envelope>
     ```
+
+----
 
 !!! info "Related Topics"
     - [Concept: User Roles](TODO:insert-link-to-concept)

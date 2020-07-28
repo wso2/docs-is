@@ -3,7 +3,7 @@
 When using the WSO2 Identity Server (WSO2 IS) for user and role management, it is
 important to understand how to manage the attributes of users within it.
 The claim management functionality helps to map each user attribute to a relevant claim and thereafter manage it.
-For more information, see [managing user attributes](insert-link-concepts).
+For more information, see [managing user attributes](TODO:insert-link-concepts).
 
 The following topics provide instructions on how to manage user
 attributes in WSO2 IS.
@@ -14,8 +14,8 @@ The following are the three main ways to view, add, edit, and delete
 attributes of a user.
 
 1.  By accessing the profile of the user and changing the attributes
-    using the [admin Portal](link-admin-portal)
-2.  You can use the REST Web service according to the SCIM provisioning specification. For more information on this, see [Using the SCIM 2.0 REST APIs](link-using-the-scim-2.0-rest-apis).
+    using the [admin Portal](TODO:link-admin-portal)
+2.  You can use the REST Web service according to the SCIM provisioning specification. For more information on this, see [Using the SCIM 2.0 REST APIs](TODO:insert-link).
 3.  You can use the `           RemoteUserStoreManagerService          `
     API. This is a SOAP-based API and is very easy to use. For more
     information on using this, see [Managing Users and Roles with
@@ -36,15 +36,15 @@ attributes of a user.
 
 ## Claim mapping when using multiple user stores 
 
-{insert-fragment}
+(TODO:insert-fragment)
 
 ### Attributes with multiple values
 
-{insert-fragment}
+(TODO:insert-fragment)
 
 ### Writing custom attributes
 
-See [Writing a Custom User Store Manager](insert-writing-a-custom-user-store-manager) for more information on
+See [Writing a Custom User Store Manager](TODO:insert-link) for more information on
 this.
 
 ### Authentication using multiple attributes
@@ -74,7 +74,7 @@ LDAP.
 
 1.  Configure the LDAP user store-related configurations using the `deployment.toml` file found in the 
     `<IS_HOME>/repository/conf` directory. For more information on configuring user stores, see 
-    [Configuring the Realm](insert-configuring-the-realm).
+    [Configuring the Realm](TODO:insert-link).
     
     1.  Configure the `user_name_search_filter`
         property as shown below to search for the user object in the
@@ -137,16 +137,8 @@ This will return the email address of the authenticated user. It can be
 configured to return any attribute by changing the
 `         UserNameAttributeClaimUri        `  parameter.
 
+----
+
 !!! info "Related Topics"
-    -   For working with claim dialects and mapping claims, see [Claim
-        Management](insert-claim-management).
-    -   See [Configuring Claims for a Service
-        Provider](insert-configuring-claims-for-a-service-provider) on how to
-        configure claims when [adding a service
-        provider](insert-adding-and-configuring-a-service-provider).
-    -   See [Configuring Claims for an Identity
-        Provider](insert-configuring-claims-for-an-identity-provider) on how to
-        configure claims when [adding an identity
-        provider](insert-adding-and-configuring-an-identity-provider).
-    -   See [Writing a Custom User Store Manager](insert-writing-a-custom-user-store-manager) for instructions on
-        how to write a custom user store manager.
+    -   [Concept: User Attributes](TODO:insert-link-to-concept)
+
