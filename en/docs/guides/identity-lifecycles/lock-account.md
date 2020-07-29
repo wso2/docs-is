@@ -1,6 +1,6 @@
 # Lock and Unlock User Accounts
 
-Account locking and account disabling are security features in WSO2 Identity Server (IS) that can be used to prevent users from logging in to their account and from authenticating themselves using their WSO2 IS account. The account locking feature is used to **temporarily** block a user from logging in, for example, in instances where there have been many consecutive, unsuccessful login attempts.
+[Account locking and account disabling](TODO:link-to-concept) are security features in WSO2 Identity Server (IS) that can be used to prevent users from logging in to their account and from authenticating themselves using their WSO2 IS account. The account locking feature is used to **temporarily** block a user from logging in, for example, in instances where there have been many consecutive, unsuccessful login attempts.
 
 ## Lock user accounts using the admin portal
 
@@ -119,5 +119,8 @@ Similarly, you can use the `setUserClaimValues` operation, `RemoteUserStoreManag
 </soapenv:Envelope>
 ```
 
-!!! info 
-    To configure email notifications for account locking, see [here](admin-portal-section)
+----
+
+!!! info "Related Topics"
+   - [Concept: Account Locking](TODO:link-to-concept)
+   - [Guide: Configure Email Notifications](TODO:link-to-guide)

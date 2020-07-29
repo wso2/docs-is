@@ -97,3 +97,11 @@ admin services, see [Calling Admin Services](insert-calling admin services).
             </soapenv:Body>
         </soapenv:Envelope>
         ```
+
+----
+
+!!! info "Related Topics"
+    - [Concept: User Profiles](TODO:insert-link-to-concept)
+    - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
+    - [Guide: Search/List Users](../../identity-lifecycles/search-users)
+

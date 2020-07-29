@@ -2,7 +2,7 @@
 
 The WSO2 Identity Server (WSO2 IS) has the ability to provision users
 into different domains like Salesforce, Google, Facebook, etc., using
-its [identity provisioning framework](../../get-started/identity-provisioning-architecture).
+its [identity provisioning framework](TODO:link-to-concept).
 
 This topic provides instructions on how to configure Salesforce as the
 Identity Provider to provision users from WSO2 Identity Server. The
@@ -11,6 +11,8 @@ is the service provider, it is configured as the resident Service
 Provider. Therefore, after completing this tutorial you can see the
 users you add using WSO2 Identity Server being created in Salesforce
 too.
+
+-----
 
 ## Configure Salesforce
 
@@ -163,19 +165,19 @@ too.
 
 ## Configure email address as the username
 
-(insert-admin-portal)
+(TODO:insert-admin-portal)
 
 ---
 
 ## Configure Salesforce as the Identity Provider
 
-(insert-admin-portal)
+(TODO:insert-admin-portal)
 
 ---
 
 ## Configure WSO2 IS as the resident Service Provider
 
-(insert-admin-portal)
+(TODO: insert-admin-portal)
 
 ---
 
@@ -193,3 +195,11 @@ curl -v -k --header "Content-Type:application/json" --user kim@wso2.com:password
 You can see that the user has been created in the "Users" section in salesforce.
 
 ![salesforce-user](../../assets/img/guides/salesforce-user.png)
+
+----
+
+!!! info "Related Topics"
+   - [Concept: Outbound Provisioning](TODO:link-to-concept)
+   - [Guide: Configure Just-In-Time Provisioning for an Identity Provider](../jit-workflow/)
+
+

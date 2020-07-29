@@ -322,3 +322,9 @@ You can disable the SMS OTP authenticator by adding the following configuration 
 [authentication.authenticator.sms_otp] 
 enable=false
 ```
+----
+
+!!! info "Related Topics"
+    - [Concept: Two-Factor Authentication](../../../concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
+    - [Demo: Multi-Factor Authentication](../../../quickstarts/mfa-sample)

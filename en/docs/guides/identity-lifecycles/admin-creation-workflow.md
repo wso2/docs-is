@@ -83,9 +83,9 @@ admin services, see [Calling Admin Services](insert-calling admin services).
     There will be no SOAP response as this is a one-way SOAP operation. You can validate that the user creation is successful using the admin portal by clicking on <admin-portal-user-list-path> section.
     
 !!! info "Related Topics"
-    - [Email Templates](TODO: dev-portal-fragment)
-    - [Invitation Workflow](../../identity-lifecycles/invitation-workflow) 
-    - [User Self Registration Workflow](../../identity-lifecycles/self-register)
-    - [Just in Time User Provisioning Workflow](../../identity-lifecycles/user-account-overview)
-    - [Bulk Import Users](../../identity-lifecycles/import-users)
-    - [Outbound Provisioning](../../identity-lifecycles/outbound-provisioning)
+    - [Guide: Email Templates](TODO:dev-portal-link)
+    - [Guide: Invitation Workflow](../../identity-lifecycles/invitation-workflow) 
+    - [Guide: User Self Registration Workflow](../../identity-lifecycles/self-register)
+    - [Guide: Just in Time User Provisioning Workflow](../../identity-lifecycles/user-account-overview)
+    - [Guide: Bulk Import Users](../../identity-lifecycles/import-users)
+    - [Guide: Outbound Provisioning](../../identity-lifecycles/outbound-provisioning)

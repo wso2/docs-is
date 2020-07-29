@@ -128,3 +128,7 @@ This page guides you through configuring [two-factor authentication](../../../co
     ![disable-emailotp-claim](../../assets/img/guides/disable-emailotp-claim.png)
 
 ----
+
+!!! info "Related Topics"
+    - [Concept: Two-Factor Authentication](../../../concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
