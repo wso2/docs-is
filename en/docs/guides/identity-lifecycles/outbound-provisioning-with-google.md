@@ -1,7 +1,7 @@
 # Configure Outbound Provisioning with Google
 
 This topic provides instructions on how to configure Google as the
-Identity Provider to provision users from WSO2 Identity Server. The
+Identity Provider to [provision users](TODO:link-to-concept) from WSO2 Identity Server. The
 service provider in this scenario is WSO2 Identity Server(WSO2 IS). 
 
 !!! tip "Before you begin!"
@@ -9,6 +9,7 @@ service provider in this scenario is WSO2 Identity Server(WSO2 IS).
     [here](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/)
     for more information on creating the domain.
     
+----
 
 ## Configure Google
 
@@ -130,26 +131,22 @@ email address, configure the identity provider and the service provider.
 
 ## Configure Google as the identity provider
 
-(insert-admin-portal-content)
+(TODO:insert-admin-portal-content)
 
 ---
 
 ## Configure WSO2 IS as the resident service provider
 
-(insert-admin-portal-content)
+(TODO:insert-admin-portal-content)
 
 ---
 
 ## Manage users
 
-(insert-admin-portal-content)
+(TODO:insert-admin-portal-content)
 
 ---
 
-## What's next?
-
--   If you want to JIT provision users from Google to WSO2 Identity
-    Server in this use case, see [Configuring Just-In-Time Provisioning
-    for an Identity
-    Provider](insert-link)
-
+!!! info "Related Topics"
+   - [Concept: Outbound Provisioning](TODO:link-to-concept)
+   - [Guide: Configure Just-In-Time Provisioning for an Identity Provider](../jit-workflow/)

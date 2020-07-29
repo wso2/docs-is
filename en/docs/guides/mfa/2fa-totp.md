@@ -85,3 +85,9 @@ Optionally, you can set up TOTP so that users recieve an email consisting of the
 
         !!! tip
             Note that you can change the template details accordingly however, you must include `{{token}}` in the email body as a placeholder for the TOTP token generated during the authentication flow.
+
+----
+
+!!! info "Related Topics"
+    - [Concept: Two-Factor Authentication](../../../concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
