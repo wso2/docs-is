@@ -39,7 +39,7 @@ Change the default key stores and create new keys for all the cryptographic oper
 
 ## Passwords in config files
 
-WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Securing Passwords in Configuration Files](../../administer/encrypting-passwords-with-cipher-tool).
+WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Securing Passwords in Configuration Files](../../setup/encrypting-passwords-with-cipher-tool).
 
 
 ## Default ports
@@ -97,7 +97,7 @@ It is recommended to change this by configuring the server name in the `deployme
 For products based on Carbon 4.4.11 or later versions, HTTP Strict Transport Security (HSTS) is disabled for the applications with which WSO2 Identity Server is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.
 
 
-Make sure to enable  (HSTS) for all the applications that are deployed in your WSO2 Identity Server. This includes Management Console and any other web applications. For instructions, see <a href="../../setup/enabling-hsts">Enabling HTTP Strict Transport Security (HSTS) Headers</a>.
+Make sure to enable  (HSTS) for all the applications that are deployed in your WSO2 Identity Server. This includes Management Console and any other web applications. For instructions, see <a href="../../administer/enabling-hsts">Enabling HTTP Strict Transport Security (HSTS) Headers</a>.
 
 
 ## Browser cache
