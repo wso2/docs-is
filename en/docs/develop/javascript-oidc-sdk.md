@@ -1,12 +1,12 @@
-# Single Page Application SDK
+# Single Page Application Javascript SDK
 
-This page guides you through implementing authentication for a Javascript/Typescript client application using the OpenID Connect authentication SDK to with WSO2 Identity Server. The SDK handles a lot of authentication-related details such as the grant, protocol, token management, and token storage. 
+This page guides you through implementing authentication for a Javascript/Typescript client application using the OpenID Connect authentication SDK with WSO2 Identity Server. The SDK handles a lot of authentication-related details such as the grant, protocol, token management, and token storage. 
 
-The [OpenID Connect Javascript SDK library](https://github.com/wso2-extensions/identity-sdks-js/tree/master/identity-oidc-js) currently supports the[OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1) with [PKCE](https://tools.ietf.org/html/rfc7636).
+The [OpenID Connect Javascript SDK library](https://github.com/wso2-extensions/identity-sdks-js/tree/master/identity-oidc-js) currently supports the [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1) with [PKCE](https://tools.ietf.org/html/rfc7636).
 
 ---
 
-## Getting started
+## Get started
 
 1. Run the following command to install the SDK. 
 
