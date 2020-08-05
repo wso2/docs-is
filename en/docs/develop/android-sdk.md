@@ -98,7 +98,7 @@ To authenticate with WSO2 Identity Server using OAuth/OpenID Connect, add the ap
     
     - An `Activity` named **LoginActivity** is used to authenticate users. After successful authentication, the user will be redirected to another `Activity` named **UserInfoActivity**.
     
-    - A login button  has been added inside the `LoginActivity`. The button id is referred to as `login`.
+    - A login button is added inside the `LoginActivity`. The button id is referred to as `login`.
     
     - A method called `doLogin()` is called when the `login button` is clicked to initiate authentication with WSO2 Identity Server.
     
@@ -106,13 +106,13 @@ To authenticate with WSO2 Identity Server using OAuth/OpenID Connect, add the ap
     
     - You can pass either `true` or `false` for the `callUserInfo` parameter. If the `callUserInfo` value is `true`, then `userinfo request` will be made to WSO2 Identity Server after successful token exchange. Else, if the `callUserInfo` value is `false`, the SDK will not make any request to the `UserInfo Endpoint` after token flow.
 
-Once this is completed according to your own application, you can authenticate a user with WSO2 Identity Server. 
+Once this has been completed according to your own application, you can authenticate a user with WSO2 Identity Server. 
 
 ----
 
 ## Store authentication context
 
-After successful authentication, the `AuthenticationContext` object will be returned in the `Intent`. This `AuthenticationContext` Object is used to store all the context related to that authentication flow.
+After successful authentication, the `AuthenticationContext` object will be returned in the `Intent`. This `AuthenticationContext` object is used to store all the context related to that authentication flow.
 
 Use a method similar to the following sample to store the authentication context. 
 
