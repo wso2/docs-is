@@ -41,6 +41,7 @@ paths:
         - $ref: '#/components/parameters/offsetQueryParam'
         - $ref: '#/components/parameters/sortOrderQueryParam'
         - $ref: '#/components/parameters/sortByQueryParam'
+        - $ref: '#/components/parameters/requiredAttributesQueryParam'
       responses:
         '200':
           description: Search results matching the given criteria.
@@ -50,6 +51,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EmailTemplateTypeWithoutTemplates'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -439,6 +442,14 @@ components:
         option is not yet supported.<b>_
       schema:
         type: string
+    requiredAttributesQueryParam:
+      in: query
+      name: requiredAttributes
+      required: false
+      description: >-
+        Specifies the required parameters in the response.
+      schema:
+        type: string
   responses:
     NotFound:
       description: The specified resource is not found
@@ -499,6 +510,11 @@ components:
           type: string
           example: Account Confirmation
           description: Display name of the email template type.
+        templates:
+          type: array
+          description: Email templates for the template type.
+          items:
+            $ref: '#/components/schemas/EmailTemplateWithID'
         self:
           type: string
           example: /t/{tenant-domain}/api/server/v1/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg

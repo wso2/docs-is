@@ -35,7 +35,7 @@ paths:
       operationId: listApprovalTasksForLoggedInUser
       description: >
         Retrieve the available approval tasks in the system for the authenticated user. This API returns the following types of approvals:
-          * READY - Tasks that are _claimable_ by the user. If a particular task is in the READY state, the user is eligible to assign the task to himself and complete it.
+          * READY - Tasks that are _claimable_ by the user. If a particular task is in the READY state, the user is eligible to assign the task to themself and complete it.
           * RESERVED -  Tasks that are _assigned_ to the user and to be approved by this user.
           * COMPLETED - Tasks that are already _completed_ (approved or denied) by this user.
 

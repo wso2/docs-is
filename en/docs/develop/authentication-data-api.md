@@ -49,7 +49,7 @@ need to configure the Identity Server as follows.
             </tr>
             <tr>
                 <td>parameters</td>
-                <td>The list of parameters to be allowlisted/denylisted. The name attribute is used to specify the parameter name.</td>
+                <td>The list of parameters to be allowed/denied. The name attribute is used to specify the parameter name.</td>
             </tr>
             <tr>
                 <td>sessionDataKey</td>

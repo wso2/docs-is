@@ -1194,7 +1194,109 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>400</td>
         <td>Invalid SAML metadata.</td>
         <td>SAML metadata is invalid/empty.</td>
-      </tr>              
+      </tr>
+      <tr>
+        <td>IDP-65050</a></td>
+        <td>500</td>
+        <td>Unable to list existing identity provider templates</td>
+        <td>Error occured while listing identity provider templates.</td>
+      </tr> 
+      <tr>
+        <td>IDP-65051</a></td>
+        <td>500</td>
+        <td>Unable to add IDP template.</td>
+        <td>Error occurred while trying to add the IDP template.</td>
+      </tr>
+      <tr>
+        <td>IDP-65052</a></td>
+        <td>500</td>
+        <td>Unable to delete IDP template.</td>
+        <td>Error occurred while trying to delete the IDP template.</td>
+      </tr>
+      <tr>
+        <td>IDP-65053</a></td>
+        <td>500</td>
+        <td>Unable to update IDP template.</td>
+        <td>Error occurred while trying to update the IDP template.</td>
+      </tr>
+      <tr>
+        <td>IDP-65054</a></td>
+        <td>500</td>
+        <td>Unable to retrieve IDP template.</td>
+        <td>Error occurred while trying to retrieve the IDP template.</td>
+      </tr>
+      <tr>
+        <td>TMM_00001</a></td>
+        <td>500</td>
+        <td>Unable to list existing identity provider templates</td>
+        <td>Error occurred while listing identity provider templates.</td>
+      </tr>
+      <tr>
+        <td>TMM_00006</a></td>
+        <td>500</td>
+        <td>Unable to update identity provider template</td>
+        <td>Error occurred while updating identity provider template with id {template-id}.</td>
+      </tr>
+      <tr>
+        <td>TMM_00007</a></td>
+        <td>400</td>
+        <td>Unable to add/update IDP template.</td>
+        <td>Template name required.</td>
+      </tr>
+      <tr>
+        <td>TMM_00008</a></td>
+        <td>400</td>
+        <td>Unable to add/update IDP template.</td>
+        <td>Template script required.</td>
+      </tr>
+      <tr>
+        <td>TMM_00009</a></td>
+        <td>401</td>
+        <td>Unauthorized access.</td>
+        <td>No authenticated user found to perform action.</td>
+      </tr>
+      <tr>
+        <td>TMM_00011</a></td>
+        <td>401</td>
+        <td>Unauthorized access.</td>
+        <td>User is not authorized to perform the action.</td>
+      </tr>
+      <tr>
+        <td>TMM_00014</a></td>
+        <td>409</td>
+        <td>Unable to add/update IdP template.</td>
+        <td>Template with name {template-name} already exists.</td>
+      </tr>
+      <tr>
+        <td>TMM_00017</a></td>
+        <td>500</td>
+        <td>Unable to list existing identity provider templates</td>
+        <td>Error occurred while listing identity provider templates.</td>
+      </tr>
+      <tr>
+        <td>TMM_00018</a></td>
+        <td>500</td>
+        <td>Unable to delete IDP template.</td>
+        <td>Error occurred while trying to delete the IDP template.</td>
+      </tr>
+      <tr>
+        <td>TMM_00019</a></td>
+        <td>500</td>
+        <td>Unable to retrieve IDP template.</td>
+        <td>Error occurred while trying to retrieve the IDP template.</td>
+      </tr>
+      <tr>
+        <td>TMM_00021</a></td>
+        <td>404</td>
+        <td>Template not found</td>
+        <td>Template with given id {template-id} not found.</td>
+      </tr>
+      <tr>
+        <td>TMM_00022</a></td>
+        <td>400</td>
+        <td>Invalid template Id.</td>
+        <td>Provided template ID {template-id} is not valid.</td>
+      </tr>
   </tbody>
 </table>
 </div>

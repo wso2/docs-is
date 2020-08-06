@@ -217,11 +217,9 @@ Using the latest user portal, users can update their mobile numbers through whic
     ![fido-devices-list](../assets/img/using-wso2-identity-server/user-portal/account-recovery/fido-devices-list.png)
     
 !!! info "Using an older FIDO device"
+    If you are using an older FIDO device when registering the device, an error message mentioning that the device cannot be used will be displayed. 
+    This means the device is not capable of performing [passwordless authentication](../learn/passwordless-authentication-using-fido2.md) and can only be used as a [second factor](../learn/multi-factor-authentication-using-fido.md). The device will have to be added as an **"Older Device"**.
 
-    If you are using an old FIDO device when registering the device, an error message mentioning that the device cannot be used will be displayed. 
-    This means the device is not capable of performing [passwordless authentication](../learn/passowrdless-authentication-using-fido2.md) and can only be used as a [second factor](../learn/multi-factor-authentication-using-fido.md). The device will have to be added as an **Older Device**.
-
-    
     Follow the steps given below to add the device as an older device.
     
     1. Click **close**.

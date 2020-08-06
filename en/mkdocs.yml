@@ -564,6 +564,7 @@ nav:
             - 'Identity Governance': develop/identity-governance-rest-api.md
             - 'Identity Providers': develop/idp-rest-api.md
             - 'Keystore Management': develop/keystore-rest-api.md
+            - 'Server Configurations': develop/configs-rest-api.md
             - 'OAuth2 Scope Management': develop/oauth2-scope-management-rest-apis.md
             - 'OpenID Connect Scope Management': develop/oidc-scope-management-rest-apis.md
             - 'OIDC Dynamic Client Registration': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
@@ -575,6 +576,7 @@ nav:
             - 'Secondary User Store': develop/userstore-rest-api.md
             - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
             - 'Session Management': develop/session-mgt-rest-api.md
+            - 'Tenant Management': develop/tenant-management-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
             - 'User Discoverable Application Management': develop/user-discoverable-applications.md
           - 'Scope based Authorization for Internal REST APIs': develop/scope-based-authorization-for-internal-rest-apis.md
@@ -845,8 +847,6 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 5.10.0
-  
   nav_list:
     - Home
     - Get Started

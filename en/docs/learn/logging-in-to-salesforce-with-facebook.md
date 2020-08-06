@@ -184,8 +184,8 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 			
 			!!! info 
 				With these configuration users can log in to super tenant with both
-				email user name ( *[bob@gmal.com](mailto:bob@wso2.com)* ) or
-				non-email user names (alice). But for tenant only email user names
+				email user name ( *[alex@gmal.com](mailto:alex@wso2.com)* ) or
+				non-email user names (larry). But for tenant only email user names
 				allowed (tod@ [gmail.com](http://gmail.com) @
 				[wso2.com](http://wso2.com) )
 

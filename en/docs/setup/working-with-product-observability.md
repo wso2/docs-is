@@ -196,13 +196,13 @@ timing delays for the JDBC or LDAP calls.
 Following are a few advance scenarios that are related to product
 observability in WSO2 IS.
 
-#### Denylisting the threads
+#### Defining denylists for the threads
 
-Certain threads continuously print unnecessary logs. Denylisting
+Certain threads continuously print unnecessary logs. Defining denylists
 prevents the unwanted threads from printing logs thereby improving the
 readability of the logs.
 
-Follow the steps below to configure thread denylisting.
+Follow the steps below to configure denylists for threads. 
 
 1.  Open either of the following files in the
     `          <IS_HOME>/bin         ` directory on a command prompt.
@@ -222,7 +222,7 @@ Follow the steps below to configure thread denylisting.
     !!! note
     
         This configuration is not required by default, as all unnecessary
-        threads are already denylisted by the
+        threads are already a part of the denylist in the
         `           MessageDeliveryTaskThreadPool          ` thread. If the
         above configuration is added, the default value will be overridden.
         
