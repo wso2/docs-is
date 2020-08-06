@@ -505,6 +505,9 @@ nav:
     - 'Developer Guide':
       - 'Developer guide': develop/developer-guide.md
       - 'Working with the Source Code': develop/working-with-the-source-code.md
+      - 'Using SDKs':
+        - 'Using the Javascript SDK': develop/javascript-oidc-sdk.md
+        - 'Using the Android SDK': develop/android-sdk.md
       - 'Extending the Identity Server':
         - 'Overview': develop/extending-the-identity-server.md
         - 'User Management for Developers':
