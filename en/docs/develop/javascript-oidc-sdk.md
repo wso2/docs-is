@@ -1,4 +1,4 @@
-# Single Page Application Javascript SDK
+# Using the Javascript SDK
 
 This page guides you through implementing authentication for a Javascript/Typescript client application using the OpenID Connect authentication SDK with WSO2 Identity Server. The SDK handles a lot of authentication-related details such as the grant, protocol, token management, and token storage. 
 
@@ -8,13 +8,13 @@ The [OpenID Connect Javascript SDK library](https://github.com/wso2-extensions/i
 
 ## Get started
 
-1. Run the following command to install the SDK. 
+1. Use the following command to install the SDK. 
 
     ```
     npm i @wso2/identity-oidc-js
     ```
 
-2. Run the following command to run. 
+2. Use the following command to run the SDK. 
 
     ```
     yarn run build
@@ -220,7 +220,3 @@ Sends the logout request the openid provider. Requires the redirect uri of the a
 #### AuthenticateSessionUtil.endAuthenticatedSession()
 
 Terminates the user session and clears the session attributes. -->
-
-## License
-
-Licenses this source under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
