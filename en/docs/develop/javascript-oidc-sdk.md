@@ -220,7 +220,3 @@ Sends the logout request the openid provider. Requires the redirect uri of the a
 #### AuthenticateSessionUtil.endAuthenticatedSession()
 
 Terminates the user session and clears the session attributes. -->
-
-## License
-
-Licenses this source under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
