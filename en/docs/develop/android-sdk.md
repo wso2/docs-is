@@ -1,4 +1,4 @@
-# Android SDK
+# Using the Android SDK
 
 This page guides you through implementing authentication for an Android client application using the Android OpenID Connect authentication SDK with WSO2 Identity Server.
 
