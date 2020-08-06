@@ -8,13 +8,13 @@ The [OpenID Connect Javascript SDK library](https://github.com/wso2-extensions/i
 
 ## Get started
 
-1. Run the following command to install the SDK. 
+1. Use the following command to install the SDK. 
 
     ```
     npm i @wso2/identity-oidc-js
     ```
 
-2. Run the following command to run. 
+2. Use the following command to run the SDK. 
 
     ```
     yarn run build

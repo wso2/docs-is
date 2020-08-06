@@ -37,10 +37,6 @@ Install-Package org.wso2.identity.sdk.oidc -Version 1.0.0
 
 ----
 
-## Using the SDK
-
-Below explained key API methods that is available in the OIDC SDK and how to use them.
-
 ## Set up login
 
 1. Use the following code snippet to log a user in. 
