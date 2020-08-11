@@ -19,7 +19,7 @@ This is the main user store that is shared among all the
 [tenants](../../administer/introduction-to-multitenancy)
 in the system. Only one user store should be configured as the primary
 user store and it is configured in the
-`         <IS_HOME>/repository/conf/deployment.toml       ` file.By default,
+`         <IS_HOME>/repository/conf/deployment.toml       ` file. By default,
 WSO2 identity server uses an embedded Read/Write LDAP as the primary user store.
 It is recommended to change this default configuration in the production
 system.
