@@ -508,6 +508,7 @@ nav:
       - 'Using SDKs':
         - 'Using the Javascript SDK': develop/javascript-oidc-sdk.md
         - 'Using the Android SDK': develop/android-sdk.md
+        - 'Using the .NET SDK': develop/dotnet-sdk.md
       - 'Extending the Identity Server':
         - 'Overview': develop/extending-the-identity-server.md
         - 'User Management for Developers':
