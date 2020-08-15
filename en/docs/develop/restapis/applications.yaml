@@ -454,7 +454,8 @@ paths:
         Get Resident application
       operationId: getResidentApplication
       description: |
-        This API provides the capability to retrieve the resident application information. <br>
+        This API provides the capability to retrieve the resident application information.
+        <br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/view <br>
           <b>Scope required:</b> <br>
@@ -585,7 +586,7 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-        '403':	
+        '403':
           description: Forbidden
         '404':
           description: Not Found
@@ -635,7 +636,7 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-        '403':	
+        '403':
           description: Forbidden
         '404':
           description: Not Found
@@ -1423,7 +1424,8 @@ paths:
       summary: |
         Update the custom inbound authentication protocol parameters of application
       description: >
-        This API provides the capability to store custom inbound authentication protocol parameters of an application. <br>
+        This API provides the capability to store custom inbound authentication protocol parameters of an application.
+        <br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/update <br>
           <b>Scope required:</b> <br>
@@ -1550,7 +1552,8 @@ paths:
         Retrieve the list of inbound authentication protocols available
       description: >
         This API provides the capability to retrieve the list of inbound authentication protocols available.
-        If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed. <br>
+        If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed.
+        <br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/view <br>
           <b>Scope required:</b> <br>
@@ -1609,15 +1612,15 @@ paths:
                 $ref: '#/components/schemas/SAMLMetaData'
         '401':
           description: Unauthorized
-          content:	
-            application/json:	
-              schema:	
+          content:
+            application/json:
+              schema:
                 $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:	
-            application/json:	
-              schema:	
+          content:
+            application/json:
+              schema:
                 $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
@@ -1639,8 +1642,7 @@ paths:
       summary: |
         Retrieve all the metadata related to the authentication protocol OAuth / OIDC
       description: >
-        This API provides the capability to retrieve all the metadata related to the authentication
-         protocol OAuth / OIDC. <br>
+        This API provides the capability to retrieve all the metadata related to the authentication protocol OAuth / OIDC. <br>
            <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/view <br>
           <b>Scope required:</b> <br>
@@ -1715,7 +1717,7 @@ paths:
         Retrieve all the metadata related to the custom auth protocol identified by the inboundProtocolId
       description: >
         This API provides the capability to retrieve all the metadata related to the custom auth protocol
-        identified by the inboundProtocolId. The URL-encoded inbound protocol name is used as inboundProtocolId.<br>
+        identified by the inboundProtocolId. The URL encoded inbound protocol name is used as inboundProtocolId.<br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/view <br>
           <b>Scope required:</b> <br>
@@ -1789,6 +1791,244 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /applications/templates:
+    get:
+      tags:
+        - Application Templates
+      operationId: getAllApplicationTemplates
+      summary: |
+        List Application Templates
+      description: |
+        This API provides the capability to retrieve the list of templates available.
+      parameters:
+        - $ref: '#/components/parameters/limitWithoutDefaultQueryParam'
+        - $ref: '#/components/parameters/offsetWithoutDefaultQueryParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationTemplatesList'
+        '400':
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: "Unauthorized"
+        '403':
+          description: "Forbidden"
+        '404':
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: "Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: "Not Implemented"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Application Templates
+      summary: |
+        Add application template
+      operationId: createApplicationTemplate
+      description: >
+        This API provides the capability to store the application template provided by users.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationTemplateModel'
+        description: "This represents the application template to be created."
+        required: true
+      responses:
+        '201':
+          description: "Successful response."
+          headers:
+            Location:
+              description: "Location of the newly created application template."
+              schema:
+                type: string
+                example: "/t/wso2.com/api/server/v1/applications/templates/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+        '400':
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: "Unauthorized"
+        '403':
+          description: "Forbidden"
+        '409':
+          description: "Conflict"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: "Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: "Not Implemented"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /applications/templates/{template-id}:
+    get:
+      tags:
+        - Application Templates
+      summary: |
+        Retrieve application template by ID
+      operationId: getApplicationTemplate
+      description: >
+        This API provides the capability to retrieve the application template from the template id.
+      parameters:
+        - $ref: '#/components/parameters/templateIdPathParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationTemplateModel'
+        '400':
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: "Unauthorized"
+        '403':
+          description: "Forbidden"
+        '404':
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: "Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    put:
+      tags:
+        - Application Templates
+      summary: |
+        Update the application template by the template ID.
+      operationId: updateApplicationTemplate
+      description: |
+        This API provides the capability to update an application template by the template ID.
+      parameters:
+        - $ref: '#/components/parameters/templateIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationTemplateModel'
+        description: "This represents the new application template."
+        required: true
+      responses:
+        '200':
+          description: "Successfully Updated"
+        '400':
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: "Unauthorized"
+        '403':
+          description: "Forbidden"
+        '404':
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: "Conflict"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: "Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - Application Templates
+      summary: |
+        Delete application template by template ID.
+      operationId: deleteApplicationTemplate
+      description: |
+        This API provides the capability to delete an application template by template ID.
+      parameters:
+        - $ref: '#/components/parameters/templateIdPathParam'
+      responses:
+        '204':
+          description: "Successfully Deleted"
+        '400':
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: "Unauthorized"
+        '403':
+          description: "Forbidden"
+        '404':
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: "Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
 components:
   parameters:
     limitQueryParam:
@@ -1801,13 +2041,13 @@ components:
         type: integer
         minimum: 1
         default: 30
-    limitWithoutDefaultQueryParam:	
-      in: query	
-      name: limit	
-      required: false	
-      description: |	
-        Maximum number of records to return.	
-      schema:	
+    limitWithoutDefaultQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: |
+        Maximum number of records to return.
+      schema:
         type: integer
     offsetQueryParam:
       in: query
@@ -1818,13 +2058,13 @@ components:
       schema:
         type: integer
         default: 0
-    offsetWithoutDefaultQueryParam:	
-      in: query	
-      name: offset	
-      required: false	
-      description: |	
-        Number of records to skip for pagination.	
-      schema:	
+    offsetWithoutDefaultQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: |
+        Number of records to skip for pagination.
+      schema:
         type: integer
     filterQueryParam:
       in: query
@@ -1886,13 +2126,13 @@ components:
         type: boolean
         example: true
         default: false
-    templateIdPathParam:	
-      in: path	
-      name: template-id	
-      required: true	
-      description: |	
-        Application template ID. This should be a valid locale.	
-      schema:	
+    templateIdPathParam:
+      in: path
+      name: template-id
+      required: true
+      description: |
+        Application template ID. This should be a valid locale.
+      schema:
         type: string
   securitySchemes:
     BasicAuth:
@@ -1915,7 +2155,6 @@ components:
         rel:
           type: string
           example: "next"
-
 
     ApplicationListResponse:
       type: object
@@ -1984,6 +2223,9 @@ components:
         accessUrl:
           type: string
           example: 'https://example.com/login'
+        templateId:
+          type: string
+          example: "980b8tester24c64a8a09a0d80abf8c337bd2555"
         claimConfiguration:
           $ref: '#/components/schemas/ClaimConfiguration'
         inboundProtocolConfiguration:
@@ -2442,7 +2684,7 @@ components:
         defaultAssertionConsumerUrl:
           type: string
           description: "If not provided, the first assertion consumer URL on the assertionConsumerUrls will be picked as the default assertion consumer URL."
-        idpEntityIdAlias  :
+        idpEntityIdAlias:
           type: string
           description: "Default value is the IdP Entity ID value specified in Resident IdP."
 
@@ -2494,13 +2736,13 @@ components:
           description: Authorized redirect URIs
           example:
             - 'https://app.example.com/callback1'
-            - 'https://app.example.com/callback2'	
-          items:	
-            type: string	
-        allowedOrigins:	
-          type: array	
-          description: Authorized JavaScript origins	
-          example:	
+            - 'https://app.example.com/callback2'
+          items:
+            type: string
+        allowedOrigins:
+          type: array
+          description: Authorized JavaScript origins. CORS requests will be allowed to these origins.
+          example:
             - 'https://app.example.com/js'
           items:
             type: string
@@ -2528,16 +2770,10 @@ components:
         scopeValidators:
           type: array
           example:
-            - XACMLScopeValidator	
+            - XACMLScopeValidator
             - RoleBasedScopeValidator
           items:
             type: string
-        accessTokenBindingType:	
-          type: string	
-          description: Access token binding type.	
-          example:	
-            - sso-session	
-            - cookie
     OAuth2PKCEConfiguration:
       type: object
       properties:
@@ -2561,6 +2797,18 @@ components:
           type: integer
           format: int64
           example: 3600
+        bindingType:
+          type: string
+          description: "OAuth2 access token and refresh token can be bound to an external attribute during the token
+          generation so that it can be optionally validated during the API invocation."
+          default: "None"
+          example:
+            - sso-session
+            - cookie
+        revokeTokensWhenIDPSessionTerminated:
+          type: boolean
+          description: "If enabled, when the IDP session is terminated, all the access tokens bound to the session
+          will get revoked."
     RefreshTokenConfiguration:
       type: object
       properties:
@@ -2612,6 +2860,9 @@ components:
           example: 'https://app.example.com/frontchannel/callback'
     PassiveStsConfiguration:
       type: object
+      required:
+        - realm
+        - replyTo
       properties:
         realm:
           type: string
@@ -2738,6 +2989,22 @@ components:
         defaultValue:
           type: string
           example: 'Option 1'
+    GrantTypeMetaData:
+      type: object
+      properties:
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrantType'
+    GrantType:
+      type: object
+      properties:
+        name:
+          type: string
+          example: authorization_code
+        displayName:
+          type: string
+          example: Code
     SAMLMetaData:
       type: object
       properties:
@@ -2758,7 +3025,7 @@ components:
       type: object
       properties:
         allowedGrantTypes:
-          $ref: '#/components/schemas/MetadataProperty'
+          $ref: '#/components/schemas/GrantTypeMetaData'
         defaultUserAccessTokenExpiryTime:
           type: string
           example: '3600'
@@ -2778,6 +3045,8 @@ components:
         scopeValidators:
           $ref: '#/components/schemas/MetadataProperty'
         accessTokenType:
+          $ref: '#/components/schemas/MetadataProperty'
+        accessTokenBindingType:
           $ref: '#/components/schemas/MetadataProperty'
     WSTrustMetaData:
       type: object
@@ -2850,83 +3119,93 @@ components:
           type: string
           format: binary
           description: file to upload
-    ApplicationTemplatesList:	
-      type: object	
-      properties:	
-        templates:	
-          type: array	
-          items:	
-            $ref: '#/components/schemas/ApplicationTemplatesListItem'	
-    ApplicationTemplatesListItem:	
-      type: object	
-      properties:	
-        id:	
-          type: string	
-          example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"	
-        name:	
-          type: string	
-          example: "OIDC Protocol Template"	
-        description:	
-          type: string	
-          example: "Template to be used for Single Page Applications"	
-        image:	
-          type: string	
-          example: "https://example.com/logo/my-logo.png"	
-        authenticationProtocol:	
-          type: string	
-          example: "oidc"	
-        types:	
-          type: array	
-          items:	
-            type: string	
-            example:	
-              - react	
-              - angular	
-        category:	
-          type: string	
-          example: "Server Template"	
-        displayOrder:	
-          type: integer	
-          example: 2	
-        self:	
-          type: string	
-          example: "/t/wso2.com/api/server/v1/applications/templates/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"	
-    ApplicationTemplateModel:	
-      type: object	
-      properties:	
-        id:	
-          type: string	
-          readOnly: true	
-          example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"	
-        name:	
-          type: string	
-          example: "OIDC Protocol Template"	
-        description:	
-          type: string	
-          example: "Template to be used for Single Page Applications"	
-        image:	
-          type: string	
-          example: "https://example.com/logo/my-logo.png"	
-        authenticationProtocol:	
-          type: string	
-          example: "oidc"	
-        types:	
-          type: array	
-          items:	
-            type: string	
-          example:	
-            - react	
-            - angular	
-        category:	
-          type: string	
-          example: "Server Template"	
-        displayOrder:	
-          type: integer	
-          example: 2	
-        application:	
-          $ref : '#/components/schemas/ApplicationModel'	
-      required:	
-        - name	
+    ApplicationTemplatesList:
+      type: object
+      properties:
+        templates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationTemplatesListItem'
+
+    ApplicationTemplatesListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+        name:
+          type: string
+          example: "OIDC Protocol Template"
+        description:
+          type: string
+          example: "Template to be used for Single Page Applications"
+        image:
+          type: string
+          example: "https://example.com/logo/my-logo.png"
+        authenticationProtocol:
+          type: string
+          example: "oidc"
+        types:
+          type: array
+          items:
+            type: string
+            example:
+              - react
+              - angular
+        category:
+          type: string
+          enum: [DEFAULT, VENDOR]
+          example: 'DEFAULT'
+        displayOrder:
+          type: integer
+          example: 2
+        templateGroup:
+          type: string
+          example: "web-application"
+        self:
+          type: string
+          example: "/t/wso2.com/api/server/v1/applications/templates/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+
+    ApplicationTemplateModel:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+        name:
+          type: string
+          example: "OIDC Protocol Template"
+        description:
+          type: string
+          example: "Template to be used for Single Page Applications"
+        image:
+          type: string
+          example: "https://example.com/logo/my-logo.png"
+        authenticationProtocol:
+          type: string
+          example: "oidc"
+        types:
+          type: array
+          items:
+            type: string
+          example:
+            - react
+            - angular
+        category:
+          type: string
+          enum: [DEFAULT, VENDOR]
+          example: 'DEFAULT'
+        templateGroup:
+          type: string
+          example: "web-application"
+        displayOrder:
+          type: integer
+          example: 2
+        application:
+          $ref: '#/components/schemas/ApplicationModel'
+      required:
+        - name
         - application
     Error:
       type: object
