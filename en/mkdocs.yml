@@ -72,7 +72,10 @@ nav:
       - 'Single Sign On':
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
-      - 'Multi-Factor Authentication': quick-starts/mfa-sample.md
+      - 'Multi-Factor Authentication': 
+        - 'Possession Factor':  
+          - 'SMS OTP': quick-starts/mfa-sample.md
+          - 'X509': quickstarts/x509-sample.md
       - 'Request Path Authentication':
         - 'Basic-Auth': quick-starts/basic-auth-request-path-sample.md
         - 'OAuth-Bearer': quick-starts/oauth-request-path-sample.md
