@@ -40,7 +40,6 @@ Install-Package org.wso2.identity.sdk.oidc -Version 1.0.0
 ## Set up login
 
 1. Use the following code snippet to log a user in. 
-   
    Currently, all configurations are supported only via the `app.config` file. To add the necessary
  configurations, create a file as shown below and place it in the application path.
 
