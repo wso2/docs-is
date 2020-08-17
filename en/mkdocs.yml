@@ -23,7 +23,7 @@ site_url: https://wso2.com/identity-and-access-management/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/5.9.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/new_restructure/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -72,7 +72,10 @@ nav:
       - 'Single Sign On':
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
-      - 'Multi-Factor Authentication': quick-starts/mfa-sample.md
+      - 'Multi-Factor Authentication': 
+        - 'Possession Factor':  
+          - 'SMS OTP': quick-starts/mfa-sample.md
+          - 'X509': quickstarts/x509-sample.md
       - 'Request Path Authentication':
         - 'Basic-Auth': quick-starts/basic-auth-request-path-sample.md
         - 'OAuth-Bearer': quick-starts/oauth-request-path-sample.md
@@ -424,10 +427,49 @@ nav:
             - 'SAML Web Application': developer-portal/applications/add/saml.md
             - 'OIDC Mobile Application': developer-portal/applications/add/mobile.md
           - 'Edit Application':
-            - 'Single Page Aplication': developer-portal/applications/edit-spa.md
-            - 'OIDC Web Application': developer-portal/applications/edit-oidc.md
-            - 'SAML Web Application': developer-portal/applications/edit-saml.md
-            - 'OIDC Mobile Application': developer-portal/applications/edit-mobile.md
+            - 'Single Page Application': 
+              - developer-portal/applications/edit-spa.md
+              - 'Configurations':
+                - developer-portal/applications/overview.md
+                - 'OIDC': developer-portal/applications/oidc-configurations.md 
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
+                - 'React': developer-portal/applications/sdks/react-auth.md
+              - 'Samples': 
+                - developer-portal/applications/samples/overview.md
+                - 'React': developer-portal/applications/samples/react-spa.md
+            - 'OIDC Web Application': 
+              - developer-portal/applications/edit-oidc.md
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
+                - 'React': developer-portal/applications/sdks/react-auth.md
+              - 'Samples': developer-portal/applications/samples/overview.md
+            - 'SAML Web Application': 
+              - developer-portal/applications/edit-saml.md
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
+                - 'React': developer-portal/applications/sdks/react-auth.md
+              - 'Samples': developer-portal/applications/samples/overview.md
+            - 'OIDC Mobile Application': 
+              - developer-portal/applications/edit-mobile.md
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Android': developer-portal/applications/sdks/java-android.md
+              - 'Samples': 
+                - developer-portal/applications/samples/overview.md
+                - 'Android': developer-portal/applications/samples/android.md
+            - 'Windows Desktop Application':
+              - developer-portal/applications/edit-windows.md
+              - 'SDKs': 
+                - developer-portal/applications/sdks/overview.md
+                - 'Windows': developer-portal/applications/sdks/windows.md
+              - 'Samples': 
+                - developer-portal/applications/samples/overview.md
+                - 'Windows': quick-starts/windows-sample.md   
+
       - 'Identity Providers':
           - developer-portal/identity-providers/overview.md
           - 'Create New Identity Provider':
