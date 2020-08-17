@@ -220,14 +220,14 @@ false : Do not write groups to user store, so only internal roles can be created
 <td>PasswordHashMethod</td>
 <td>password_hash_method</td>
 <td>Password Hashing Algorithm</td>
-<td><p>Specifies the Password Hashing Algorithm used the hash the password before storing in the user store.<br />
+<td><p>Specifies the Password Hashing Algorithm used to hash the password before storing it in the userstore.<br />
 Possible values:<br />
 SHA - Uses SHA digest method. SHA-1, SHA-256<br />
 MD5 - Uses MD 5 digest method.<br />
 PLAIN_TEXT - Plain text passwords.</p>
-<p>If you just configure as SHA, It is considered as SHA-1, It is always better to configure algorithm with higher bit value as digest bit size would be increased.
+<p>If you just configure as SHA, It is considered as SHA-1. It is always better to configure algorithm with higher bit value as digest bit size would be increased.
 <br />
-The default value for JDBC user stores is SHA-256. 
+The default value for JDBC userstores is SHA-256. 
 </p></td>
 </tr>    
 <tr class="odd">
