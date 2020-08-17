@@ -225,7 +225,7 @@ Possible values:<br />
 SHA - Uses SHA digest method. SHA-1, SHA-256<br />
 MD5 - Uses MD 5 digest method.<br />
 PLAIN_TEXT - Plain text passwords.</p>
-<p>If you just configure as SHA, It is considered as SHA-1. It is always better to configure algorithm with higher bit value as digest bit size would be increased.
+<p>If you just enter the value `SHA`, it will be considered as `SHA-1`. It is always better to configure an algorithm with a higher bit value so that the digest bit size would be increased.
 <br />
 The default value for JDBC userstores is SHA-256. 
 </p></td>
