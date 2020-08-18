@@ -9,7 +9,7 @@ hands-on experience on handling SAML single logout requests from the federated i
 
 The diagram below shows a scenario where WSO2 Identity Server, App 01, and App 02 are service providers of the federated
 identity provider (IdP). App 03 and App 04 are service providers of WSO2 Identity Server. When a user attempts to log out 
-from App 01, WSO2 IS sends a logout request to the federated IdP. The IdP determines the session participants using
+from App 01, the service provider sends a logout request to the federated IdP. The IdP determines the session participants using
 the session index available in the logout request. Since WSO2 IS is a session participant, it receives a logout request
 from the federated IdP. WSO2 IS handles this request, terminates the session and responds with a valid logout response.
 
@@ -38,23 +38,19 @@ the sample applications.
 
 2. Log in to the management console as an administrator using the admin/admin credentials.
 
-3. Navigate to **Main** to access the Identity menu. 
+3. Navigate to **Main** to access the **Identity** menu. 
 
-4. Click **Add** under Identity Providers. 
+4. Click **Add** under **Identity Providers**. 
 
-4. Fill in the details in the Basic Information section. Give a suitable name for the Identity Provider.
+4. Fill in the details in the **Basic Information** section. Give a suitable name for the Identity Provider.
 
 5. Expand the **SAML2 Web SSO Configuration** section and fill the required details. 
-    
-
-   ![saml-slo-federated-idp-config](../assets/img/tutorials/saml-slo-federated-idp-config.png)
-
-
-  !!! info "Note"
-      Select **Specifies if logout request from the identity provider is accepted** to accept single logout requests from 
+   ![saml-slo-federated-idp-config](../assets/img/tutorials/saml-slo-federated-idp-config.png
+   
+   !!! info
+       Select **Specifies if logout request from the identity provider is accepted** to accept single logout requests from 
       the identity provider. Once this is enabled, WSO2 Identity Server accepts and handles the logout requests. 
-      This configuration is a must to try this scenario.
-      
+      This configuration is a must to try this scenario. 
 
    ![saml-slo-configuring-slo-requests-accept](../assets/img/tutorials/saml-slo-configuring-slo-requests-accept.png)
    
@@ -64,25 +60,13 @@ the sample applications.
 
 The next step is to configure the Pickup Dispatch application as a service provider in the Primary IS.
 
-1. Navigate to **Service Providers > Add** in the **Main** section of the management console.
-
-2. Add a new service provider called `saml2-web-app-dispatch.com`.
-   
-3. Expand the **Inbound Authentication configuration > SAML2 Web SSO configuration** section, and click **Configure**. 
-    Fill in the following fields. 
-
-    - Issuer:  saml2-web-app-pickup-dispatch.com
-    - Assertion Consumer URL:  http://localhost.com:8080/saml2-web-app-dispatch.com/consumer 
+1. Follow the steps in
+   [deploying **saml2-web-app-pickup-dispatch** webapp](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp)
+   to download, deploy and register **dispatch** sample.
     
-    ![saml-slo-pickup-dispatch-app-configuration](../assets/img/tutorials/saml-slo-pickup-dispatch-app-configuration.png)
-    
-3. Leave the rest of the default configurations as it is and click **Register**. 
-
-    !!! info "Note"
-        To enable federated authentication, go to the **Service Provider Configuration** and expand the **Local & Outbound
-        Authentication Configuration**. 
+2. Once you have added the saml2 service provider, go to the **Service Provider Configuration** and expand **Local & Outbound Authentication Configuration**. 
         
- 4. Expand **SAML2 Web SSO Configuration** and click on **Configure**. Enable federated authentication and select **Secondary IS** as the authenticator.
+3. Expand **SAML2 Web SSO Configuration** and click on **Configure**. Enable federated authentication and select **Secondary IS** as the authenticator.
  
  ![saml-slo-configuring-federated-authentication](../assets/img/tutorials/saml-slo-configuring-federated-authentication.png)
  
@@ -115,15 +99,7 @@ The next step is to configure the Primary IS as a service provider in the Second
 
 The next step is to configure the Pickup Manager application as a service provider in the Secondary IS.
  
-1. Follow the steps in [Configuring Pickup Dispatch application in the Primary IS](configuring-pickup-dispatch-application-in-the-primary-is) and configure the service provider with the following details.
- 
-  - Issuer:  saml2-web-app-pickup-manager.com
-  - Assertion Consumer URL:  http://localhost.com:8080/saml2-web-app-pickup-manager.com/consumer 
-  
-2. Leave the rest of the default configurations as it is and click **Register**. 
-  
-  ![saml-slo-pickup-manager-app-configuration](../assets/img/tutorials/saml-slo-pickup-manager-app-configuration.png)
-  
+Follow the steps in [deploying **saml2-web-app-pickup-manager** webapp](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-manager-webapp) to download, deploy and register **manager** sample.
   
 ## Try it out!
 
