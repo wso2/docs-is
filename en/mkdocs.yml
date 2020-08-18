@@ -503,6 +503,7 @@ nav:
         - 'Login to Identity Server using another Identity Server - OAuth2': learn/login-to-identity-server-using-another-identity-server-oauth2.md
       - 'CORS' :
         - 'CORS': learn/cors.md
+        - 'CORS Migration': learn/cors-migration.md
   - 'Develop':
     - 'Developer Guide':
       - 'Developer guide': develop/developer-guide.md
