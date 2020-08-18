@@ -18,8 +18,8 @@ prompted to reset the password.
     from the WSO2 connector store.
 
 2.  Add the following lines to the
-    `            identity-event.properties           ` file in the
-    `            <IS_HOME>/repository/conf/identity/           `
+    `            deployment.toml           ` file in the
+    `            <IS_HOME>/repository/conf/          `
     directory `            .           `
 
     ```toml
@@ -43,7 +43,7 @@ prompted to reset the password.
     
 
 4.  Place the authenticator .jar file (
-    `            org.wso2.carbon.extension.identity.authenticator.passwordpolicy.connector-1.0.3.jar           `
+    `            org.wso2.carbon.extension.identity.authenticator.passwordpolicy.connector-1.0.20.jar           `
     ) into the directory
     `            <IS_HOME>/repository/components/dropins           ` . (
     To download the authenticator, go to
