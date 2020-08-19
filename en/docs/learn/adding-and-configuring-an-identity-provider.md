@@ -149,6 +149,11 @@ Follow the instructions below to add a new identity provider.
     <td><p>The <strong>Alias</strong> is a value that has an equivalent value specified in the identity provider that we are configuring. This is required for authentication in some scenarios.</p></td>
     <td><code>               http://localhost:9443/oauth2/token              </code></td>
     </tr>
+    <tr class="even">
+        <td>Identity Provider's Issuer Name</td>
+        <td><p>The <strong>Identity Provider's Issuer Name</strong> is a optional property that can be used to define the issuer name of the Identity Provider if it is different from the <strong>Identity Provider Name</strong>.</p></td>   
+        <td><code>               http://is.wso2.com              </code></td>
+     </tr>
     </tbody>
     </table>
 
