@@ -149,6 +149,25 @@ Follow the instructions below to add a new identity provider.
     <td><p>The <strong>Alias</strong> is a value that has an equivalent value specified in the identity provider that we are configuring. This is required for authentication in some scenarios.</p></td>
     <td><code>               http://localhost:9443/oauth2/token              </code></td>
     </tr>
+    <tr class="even">
+        <td>Identity Provider's Issuer Name</td>
+        <td>
+        <div class="content-wrapper">
+        <p>The <strong>Identity Provider's Issuer Name</strong> is a optional property that can be used to define the issuer name of the Identity Provider if it is different from the <strong>Identity Provider Name</strong>.</p>
+        <div class="admonition warning">
+        <p class="admonition-title">Warning</p>
+            <p>
+            To make this property available, apply the 0224 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
+                (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid
+                subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For
+                more information on updating WSO2 Identity Server using WUM, see [Updating WSO2 Products](https://is.docs.wso2
+                .com/en/latest/administer/getting-wso2-updates/)
+            </p>
+        </div>
+        </div>
+        </td>   
+        <td><code>               http://is.wso2.com              </code></td>
+     </tr>
     </tbody>
     </table>
 
