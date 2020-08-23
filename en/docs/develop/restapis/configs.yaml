@@ -417,9 +417,9 @@ components:
           example: false
           default: false
     AuthenticatorListResponse:
-        type: array
-        items:
-          $ref: '#/components/schemas/AuthenticatorListItem'
+      type: array
+      items:
+        $ref: '#/components/schemas/AuthenticatorListItem'
     AuthenticatorListItem:
       type: object
       properties:
@@ -517,6 +517,10 @@ components:
           type: boolean
           description: If true, generic HTTP requests must be allowed to pass through the filter. Else, only valid and accepted CORS must be allowed (strict CORS filtering).
           example: true
+        allowAnyOrigin:
+          type: boolean
+          description: If true the CORS valve must allow requests from any origin, else the origin whitelist must be consulted.
+          example: false
         allowSubdomains:
           type: boolean
           description: If true, the CORS valve must allow requests from any origin which is a subdomain origin of the allowed origins.
@@ -527,6 +531,10 @@ components:
           items:
             type: string
             example: GET
+        supportAnyHeader:
+          type: boolean
+          description: If true the CORS valve must support any requested header, else the supported headers list must be consulted.
+          example: false
         supportedHeaders:
           type: array
           description: The names of the supported author request headers.
@@ -553,7 +561,7 @@ components:
         $ref: '#/components/schemas/CORSPatch'
     CORSPatch:
       type: object
-      required: 
+      required:
         - operation
         - path
         - value
