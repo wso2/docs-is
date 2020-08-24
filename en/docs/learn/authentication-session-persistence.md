@@ -107,10 +107,10 @@ few tasks to clean the data in the database for some given conditions.
 
 #### Task Pool
 
-We are storing above data within a critical path which controls the
-authentication. So we have introduced a pooling mechanism to put the
+We employed task pool on some older releases, when storing above data within a critical path which controls the
+authentication. Here we have introduced a pooling mechanism to put the
 data persistence tasks into that pool and continue the critical path
-without blocking it.
+without blocking it. However, this did not prove to provide the expected results. It further caused a few side effects. Hence, it was later reverted and it is not recommended to use this feature anymore.
 
 #### Data clean-up in a clustered environment
 
@@ -160,7 +160,7 @@ mentioned above.
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | enable_persistence                | This enables the persistence of session data. Therefore, this must be configured to `true` if you wish to enable session persistence.                                                                                                                                                                                          |
 | persist_temporary_data             | Setting this to `true` enables persistence of temporary caches that are created within an authentication request.                                                                                                                                                                                                              |
-| persistence_pool_size              | ‘persistence_pool_size’ equals to 0 means that it is disabled and then the authentication flow is blocked until this particular data persistence task is completed. To execute the persistence task in asynchronously, set the value to \>0 value. Based on the pool size, the system creates the task parallel to execute the persistence task that was in the queue. |
+| persistence_pool_size              | Keep this value as 0. ‘persistence_pool_size’ equals to 0 means that it is disabled and then the authentication flow is blocked until this particular data persistence task is complete. To execute the persistence task asynchronously, set the value to \>0 value. Based on the pool size, the system creates the task parallel to execute the persistence task that was in the queue. We have found that any value greater than 0 does not provide expected results, and sometimes causes unwanted side effects. |
 
 
 `[session_data.cleanup]` section of the configuration is related to the cleaning up of session data.    
