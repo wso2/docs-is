@@ -501,6 +501,8 @@ nav:
         - 'XACML Sample for an Online Trading Application': learn/xacml-sample-for-an-online-trading-application.md
         - 'Log in to the Identity Server using another Identity Server - SAML2': learn/log-in-to-the-identity-server-using-another-identity-server-saml2.md
         - 'Login to Identity Server using another Identity Server - OAuth2': learn/login-to-identity-server-using-another-identity-server-oauth2.md
+      - 'CORS' :
+        - 'CORS': learn/cors.md
   - 'Develop':
     - 'Developer Guide':
       - 'Developer guide': develop/developer-guide.md
@@ -558,6 +560,7 @@ nav:
             - 'Configuration Management':
                 - 'Configuration Management': develop/using-the-configuration-management-rest-apis.md
                 - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
+            - 'CORS' : develop/cors-rest-api.md
             - 'Consent Management': develop/using-the-consent-management-rest-apis.md
             - 'Email Templates': develop/email-templates-rest-api.md
             - 'Entitlement': develop/entitlement-with-rest-apis.md
