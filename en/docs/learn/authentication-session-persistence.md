@@ -107,7 +107,7 @@ few tasks to clean the data in the database for some given conditions.
 
 #### Task Pool
 
-We employed task pool on some older releases, when storing above data within a critical path which controls the
+On some older releases, the task pool was employed when storing above data within a critical path which controls the
 authentication. Here we have introduced a pooling mechanism to put the
 data persistence tasks into that pool and continue the critical path
 without blocking it. However, this did not prove to provide the expected results. It further caused a few side effects. Hence, it was later reverted and it is not recommended to use this feature anymore.
