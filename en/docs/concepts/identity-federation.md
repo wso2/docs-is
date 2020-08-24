@@ -4,7 +4,7 @@
 
 Identity federation is, very simply, an authentication method that allows users to use their user account and credentials from one application, to log in to a different application. 
 
-This means that an application does not really need to store the user's credentials in order to authenticate them. It can simply authenticate the user by communicating with a different trusted application, which acts as an identity provider and is already maintaining the user's electronic identity. In an identity federation flow, authentication is delegated to the identity provider. Authorization can also be a part of this federation arragement if required. 
+This means that an application does not really need to store the user's credentials in order to authenticate them. It can simply authenticate the user by communicating with a different trusted application, which acts as an identity provider and is already maintaining the user's electronic identity. In an identity federation flow, authentication is delegated to the identity provider. Authorization can also be a part of this federation arrangement if required. 
 
 A user's digital identity that has been linked or shared across multiple trust domains in this manner is called a **federated identity**. Identity federation makes gaining access to applications quick and easy, as users do not have to remember a different set of credentials for every application they use. 
 
@@ -14,9 +14,9 @@ A user's digital identity that has been linked or shared across multiple trust d
 
 The main parties involved in an identity federation flow are:
 
-- **Identity Provider (IdP)**: The application in which the user has created his/her account is called the **identity provider (IdP)** and it is responsible for maintaining the user's digital identity. 
+- **Identity Provider (IdP)**: The application in which the user has created their account is called the **identity provider (IdP)** and it is responsible for maintaining the user's digital identity. 
 
-- **Relying Party (RP)**: The application that is depending upon the identity provider to maintain and vouch for the user's identity is called the **relying party (RP)**. 
+- **Relying Party (RP)**: The application that depends upon the identity provider, to maintain and vouch for the user's identity is called the **relying party (RP)**. 
 
 The identity federation flow is as follows:
 
@@ -36,9 +36,9 @@ The identity federation flow is as follows:
 
 ## Identity federation with WSO2 Identity Server
 
-In a real-world implementation, organizations may have multiple relying party applications that need trust relationships with multiple identity providers, in order to authenticate users. Another requirement may be to enable relying party applications or services to provide access to identities that are *outside* the organization's traditional boundary/trust domain. These scenarios require an **identity broker** or a federated identity management system such as WSO2 Identity Server, which already has trust relationships with external identity providers and mechanisms. The identity broker can be used to set up a federation arrangement for multiple relying party applications. 
+In a real-world implementation, organizations may have multiple relying party applications that need trust relationships with multiple identity providers, in order to authenticate users. Another requirement may be to enable relying party applications or services to provide access to identities that are *outside* the organization's traditional boundary/trust domain. These scenarios require an **identity broker** or a federated identity management system such as WSO2 Identity Server (WSO2 IS), which already has trust relationships with external identity providers and mechanisms. The identity broker can be used to set up a federation arrangement for multiple relying party applications. 
 
-WSO2 Identity Server has federated authenticators for social idenity providers such as Google, Facebook, LinkedIn, Twitter, Salesforce, etc., as well as authenticators for protocols such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation (passive). A federated authenticator for a protocol (such as SAML) has to be associated with an identity provider using the same protocol. ,
+WSO2 IS has federated authenticators for social idenity providers such as Google, Facebook, LinkedIn, Twitter, Salesforce, etc., as well as authenticators for protocols such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation (passive). A federated authenticator for a protocol (such as SAML) has to be associated with an identity provider using the same protocol.
 
-You can register relying party applications in WSO2 Identity Server and configure which federated authenticators are to be used for each relying party. As it is highly extensible, you can also develop your own federated authenticator and plug it into WSO2 IS if required. 
+You can register relying party applications in WSO2 IS and configure which federated authenticators are to be used for each relying party. As it is highly extensible, you can also develop your own federated authenticator and plug it into WSO2 IS if required. 
 
