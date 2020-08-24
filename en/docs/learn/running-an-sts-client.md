@@ -17,13 +17,13 @@ the instructions found
     repository](https://github.com/wso2/samples-is).
 
 2.  Once downloaded the identity server samples, go inside to
-    `           IS-SAMPLES/modules/samples/sts/sts-client          `
+    `           SAMPLES-IS/sts/sts-client          `
     directory to build the STS client.  
 
     !!! info 
         When running the sts-client sample it sends the username and
         password that is defined in the
-        `            IS-SAMPLES/modules/samples/sts/sts-client/src/main/resources/client.properties           `
+        `            SAMPLES-IS/sts/sts-client/src/main/resources/client.properties           `
         file. WSO2 Identity Server authenticates if the user is in the
         system and if the user is in the system a token is sent to the
         requesting party, which is the sts-client application in this case.
