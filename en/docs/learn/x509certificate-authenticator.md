@@ -1,4 +1,4 @@
-# Configuring X509Certificate Authenticator
+# Configuring X509 Certificate Authenticator
 
 This page provides instructions on how to configure the X509 certificate authenticator and the WSO2 Identity Server using a sample app to demonstrate authentication.
 
