@@ -256,7 +256,7 @@ paths:
         - Groups Endpoint
       summary: Filter Groups
       description: |
-        This API returns groups according to the specified filter, sort and pagination parameters.
+        This API returns groups according to the specified filter, sort, and pagination parameters.
 
           <b>Permission required:</b>
           * / permission/admin/manage/identity/rolemgt/view
@@ -383,7 +383,7 @@ paths:
         - Groups Endpoint
       summary: Search Groups
       description: |
-        This API returns groups according to the specified filter, sort and pagination parameters.
+        This API returns groups according to the specified filter, sort, and pagination parameters.
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/create
