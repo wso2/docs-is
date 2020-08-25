@@ -7,7 +7,7 @@ You can perform data purging by clearing the session data using the script given
 
 !!! tip
     It is recommended to run these steps at the time where server traffic is low. Especially if you are running this in the production environment for the first time, since the data volume to be purged may be higher. However, consider this as a housekeeping task that needs to be run at regular intervals. 
-    If you are doing this for the very first time on the production system begin with steps 1. This is done as a best practice for introducing changes. Otherwise, you can skip the backup and verification steps, and schedule the aforementioned queries to be run at regular intervals.
+    If you are doing this for the very first time on the production system begin with step 1. This is done as a best practice for introducing changes. Otherwise, you can skip the backup and verification steps, and schedule the aforementioned queries to be run at regular intervals.
     
 
 1.  Take a backup of the running database.
