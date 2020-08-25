@@ -975,7 +975,7 @@ paths:
         - Roles Endpoint
       summary: Filter Roles
       description: |
-        This API returns roles according to the specified filter, sort and pagination parameters.
+        This API returns roles according to the specified filter, sort, and pagination parameters.
 
           <b>Permission required:</b>
 
