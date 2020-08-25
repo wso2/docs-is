@@ -41,7 +41,7 @@ You will receive a response similiar to the format below.
 ```
 
 !!! info "Support for refresh token grant - No"
-	This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
+	This grant type doesn't issue a refresh token, which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
 
 
 !!! info "Related Topics"
