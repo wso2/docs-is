@@ -8,9 +8,11 @@ Identity provisioning is the process of creating, updating, managing, and removi
 
 ## Why do I need provisioning?
 
-Most enterprise solutions adopt products and services from multiple cloud providers to accomplish various business requirements. This makes it insufficient to maintain user identities only in a corporate LDAP. Managing user accounts on multiple applications can be challenging and can lead to outdated information, outdated permissions, data mismatch, and security issues. Identity provisioning plays a key role in propagating user identities across different SaaS providers.
+Most enterprise solutions adopt products and services from multiple cloud or on premise providers, to accomplish various business requirements. This means user identity information must be maintained in multiple places and it is insufficient to maintain user identities only in a corporate user store (LDAP). Managing user accounts on multiple applications can be challenging and can lead to outdated information, outdated permissions, data mismatch, and security issues. Identity provisioning plays a key role in propagating user identities across different systems. It also supports updating or removing user identities across multiple systems. 
 
 For instance, if an employee leaves an organization, their user account may need to be removed and permissions may need to be revoked from multiple applications within the organization. However, it takes extra effort to ensure that it is properly removed from all applications, and doing this manually opens up the possibility of human error thereby possibly causing security issues. A much cleaner and more efficient approach would be to use identity provisioning to automate this and ensure that the account deletion or permission revoking reflects on the linked user accounts across all applications.
+
+The process of removing user identities and revoking permissions is known as **de-provisioning** and is a major requirement when complying with privacy regulations such as [GDPR](TODO:link-to-concept).
 
 ---
 
@@ -20,13 +22,13 @@ WSO2 IS can ensure that provisioning is made easy. A provisioning request can be
 
 <img name='identity-provisioning-diagram' src='../../../assets/img/concepts/identity-provisioning.png' class='img-zoomable'/>
 
-After a user has been provisioned, WSO2 IS can also help maintain the user's updated information across all configured applications. For example, to update a user attribute such as telephone number, you can update the information in one place and WSO2 IS will ensure that it is reflected in all connected user accounts.
+After a user has been provisioned, WSO2 IS can also help maintain the user's updated information across all configured applications. For example, to update a user attribute such as a telephone number, you can update the information in one place and WSO2 IS will ensure that it is reflected in all connected applications.
 
 ----
 
 ## Types of identity provisioning
 
-Provisioning is bi-directional, hence there are two main types.
+There are two main types of identity provisioning.
 
 - [Inbound Provisioning](TODO:link-to-concept)
 - [Outbound Provisioning](TODO:link-to-concept)
