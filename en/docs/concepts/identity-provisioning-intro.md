@@ -37,7 +37,7 @@ Provisioning is bi-directional, hence there are two main types.
     - [Concept: Provisioning Framework](TODO:link-to-concept)
     - [Concept: Inbound Provisioning](TODO:link-to-concept)
     - [Concept: Outbound Provisioning](TODO:link-to-concept)
-    - [Guide: Inbound Provisioning](../../../guides/identity-lifecycles/outbound-provisioning)
-    - [Guide: Outbound Provisioning](../../identity-lifecycles/inbound-provisioning)
+    - [Guide: Inbound Provisioning](../../../guides/identity-lifecycles/inbound-provisioning)
+    - [Guide: Outbound Provisioning](../../guides/identity-lifecycles/outbound-provisioning)
 
 
