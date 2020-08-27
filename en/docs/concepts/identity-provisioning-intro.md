@@ -2,13 +2,13 @@
 
 ## What is identity provisioning? 
 
-Identity provisioning is the process of creating, updating, managing, and removing digital identities in a system or application. The main purpose of identity provisioning using an identity management system like WSO2 Identity Server (WSO2 IS), is to automate the process of creating and managing these user identities so that it can be done as efficiently as possible, even on multiple platforms or applications. 
+Identity provisioning is the process of creating, updating, managing, and removing digital identities in a system or application. The main purpose of identity provisioning using an identity management system like WSO2 Identity Server (WSO2 IS), is to automate and optimize the process of creating and managing these user identities, even on multiple platforms or applications. 
 
 ----
 
 ## Why do I need provisioning?
 
-Most enterprise solutions adopt products and services from multiple cloud or on premise providers, to accomplish various business requirements. This means user identity information must be maintained in multiple places and it is insufficient to maintain user identities only in a corporate user store (LDAP). Managing user accounts on multiple applications can be challenging and can lead to outdated information, outdated permissions, data mismatch, and security issues. Identity provisioning plays a key role in propagating user identities across different systems. It also supports updating or removing user identities across multiple systems. 
+Most enterprise solutions adopt products and services from multiple cloud or on premise providers, to accomplish various business requirements. This means user identity information must be maintained in multiple places and it is insufficient to maintain user identities only in a corporate userstore (LDAP). Managing user accounts on multiple applications can be challenging and can lead to outdated information, outdated permissions, data mismatch, and security issues. Identity provisioning plays a key role in propagating user identities across different systems. It also supports updating or removing user identities across multiple systems. 
 
 For instance, if an employee leaves an organization, their user account may need to be removed and permissions may need to be revoked from multiple applications within the organization. However, it takes extra effort to ensure that it is properly removed from all applications, and doing this manually opens up the possibility of human error thereby possibly causing security issues. A much cleaner and more efficient approach would be to use identity provisioning to automate this and ensure that the account deletion or permission revoking reflects on the linked user accounts across all applications.
 
@@ -35,7 +35,7 @@ There are two main types of identity provisioning.
 
 ----
  
-!!! info "Related Links"
+!!! info "Related Topics"
     - [Concept: Provisioning Framework](TODO:link-to-concept)
     - [Concept: Inbound Provisioning](TODO:link-to-concept)
     - [Concept: Outbound Provisioning](TODO:link-to-concept)
