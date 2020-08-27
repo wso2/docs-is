@@ -4,9 +4,9 @@
 
 UMA 2.0 (User Managed Access) is a federated authorization standard protocol approved by the [Kantara Initiative](https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-grant-2.0.html). It is built on top of OAuth 2.0, which enables party-to-party sharing. 
 
-UMA enables users to share and control access to their protected resources with other parties that request access to them. Additionally, it also stregthens data privacy and helps to comply with modern-day privacy regulations such as [GDPR](TODO:insert-link) and [CCPA](TODO:insert-link). For instance, consider a patient who wishes to share their health data (such as medical prescriptions and lab reports) with their doctor, family members, and health insuarance company. They may wish to selectively share some health-related data with certain parties, but may not want to share everything with everyone, and may wish to give them permission to `view` the data, but not `edit` it. UMA 2.0 helps to effectively share this data as well as maintain control over the resource sharing in a secure and reliable manner. 
+UMA enables users to share and control access to their protected resources with other parties that request access to them. Additionally, it also strengthens data privacy and helps to comply with modern-day privacy regulations such as [GDPR](TODO:insert-link) and [CCPA](TODO:insert-link). For instance, consider a patient who wishes to share their health data (such as medical prescriptions and lab reports) with their doctor, family members, and health insurance company. They may wish to selectively share some health-related data with certain parties, but may not want to share everything with everyone, and may wish to give them permission to `view` the data, but not `edit` it. UMA 2.0 helps to effectively share this data as well as maintain control over the resource sharing in a secure and reliable manner. 
 
-This is done using authorization policies. The specialty of this protocol is that resource owners need not to be present online at the time of access, because the cross-party sharing is driven by pre-defined policies.
+This is done using authorization policies. The speciality of this protocol is that resource owners need not be present online at the time of access, because the cross-party sharing is driven by pre-defined policies.
 
 -----
 
@@ -16,7 +16,7 @@ UMA works by defining a workflow that creates authorization policies on a centra
 
 - **Resource owner**: The user or entity that grants access to a protected resource. 
 
-- **Resource server**: Hosts the protected resources. The resource server is capable of accepting and responding to requests for protected resources.
+- **Resource server**: Hosts the protected resources. The resource server is capable of accepting and responding to requests to access protected resources.
 
 - **Authorization server**: Protects the resources in the resource server on behalf of the resource owner. WSO2 Identity Server usually acts as the authorization server.
 
@@ -30,7 +30,7 @@ UMA works by defining a workflow that creates authorization policies on a centra
 
 2. The requesting party requests for access to the protected resource using the client. 
 
-2. The client, acting on behalf of the requesting party, interacts with the authorization server and provides the required claims that statisfy the resource owner's authorization policies.  
+2. The client, acting on behalf of the requesting party, interacts with the authorization server and provides the required claims that satisfy the resource owner's authorization policies.  
 
 3. The client then recieves a token from the authorization server. 
 
@@ -70,7 +70,7 @@ PAT is simply an OAuth access token with the scope  `uma_protection`, which repr
 
 The UMA grant is an extension of the OAuth 2.0 grant and enhances OAuth capabilities by enabling the following: 
 
-- **party-to-party authorization**: the resource ownwer can authorize access to their protected resource for clients used by entities that are a in a requesting party role.
+- **party-to-party authorization**: the resource owner can authorize access to their protected resource for clients used by entities that are in a requesting party role.
 
 - **pre-defined authorization grant rules**: the resource owner can configure authorization grant rules (policy conditions) at will rather than having to authorize access token issuance each time synchronously. The authorization server and resource server interact with the client and requesting party asynchronously with respect to the resource owner's interactions. 
 
