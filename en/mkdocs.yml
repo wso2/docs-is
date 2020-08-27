@@ -370,7 +370,7 @@ nav:
           - 'Outbound SSO': concepts/outbound-sso.md
       - 'Identity Federation': concepts/identity-federation.md
       - 'Identity Provisioning':
-          - 'Introduction': concepts/intro-provisioning.md
+          - 'Introduction': concepts/identity-provisioning-intro.md
           - 'Provisioning Framework': concepts/identity-provisioning-framework.md
           - 'Inbound Provisioning': concepts/inbound-provisioning.md
           - 'Outbound Provisioning': concepts/outbond-provisioning.md
