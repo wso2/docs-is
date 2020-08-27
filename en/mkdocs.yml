@@ -362,8 +362,8 @@ nav:
                                     - 'Token Introspection': concepts/authorization/introspection.md
                         - 'XACML':
                                     - 'Introduction to XACML': concepts/authorization/xacml.md
-                        - 'UMA':
-                                    - 'Introduction to UMA': concepts/authorization/uma.md
+                        - 'User Managed Access (UMA)':
+                                    - 'Introduction to UMA': concepts/authorization/user-managed-access.md
       - 'Single Sign On':
           - 'Introduction': concepts/intro-sso.md
           - 'Inbound SSO': concepts/inbound-sso.md
