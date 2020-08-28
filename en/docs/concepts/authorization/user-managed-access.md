@@ -60,7 +60,7 @@ The protection API provides the following endpoints:
 - **Token Introspection Endpoint (optional)** : provides a means for the resource server to introspect the RPT, which is required to access an UMA protected resource.
 
 !!! tip
-    For more detailed information about each of these endpoints and sample requests and responses, see [UMA Endpoints](TODO:insert-link). 
+    For more detailed information about each of these endpoints and sample requests and responses, see [Resource Registration Endpoint](../uma-resource-registration) or [Permissions Endpoint](../uma-permissions-endpoint).
 
 When the resource server makes an access request to the authorization server, it needs to access these three endpoints of the Protection API. In order to access the protection API, it is a must for the request made by the resource server to be accompanied with an access token, namely a Protection API Access Token (PAT). 
 
@@ -79,7 +79,8 @@ Using the UMA grant, a client application acting on behalf of the requesting par
 ---
      
 !!! info "Related Topics"
-    - [Concept: User Managed Access Endpoints](TODO:link-to-concept)
+    - [Concept: Resource Registration Endpoint](../uma-resource-registration)
+    - [Concept: Permissions Endpoint](../uma-permissions-endpoint)
     - [Guide: User Managed Access](TODO:link-to-guide)
     - [Demo: User Managed Access](TODO:link-to-demo)
 
