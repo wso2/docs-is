@@ -161,7 +161,7 @@ HTTP/1.1 200 OK
 
 ### Deleting a resource description
 
-This operation removed a previously registered resource and its information. If the request is successful, the authorization server responds with an `HTTP 200` or `204` status message.
+This operation removes a previously registered resource and its information. If the request is successful, the authorization server responds with an `HTTP 200` or `204` status message.
 
 ``` xml tab="Request"
 DELETE : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource/
