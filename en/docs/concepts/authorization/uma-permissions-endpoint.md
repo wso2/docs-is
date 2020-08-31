@@ -31,7 +31,7 @@ This API creates a permission ticket using the `POST HTTP` method. 
 
 The Protection API Access Token (PAT) provided in the request header is used by the authorization server to identify the relevant resource owner and resource server. If the permission request is successful, then the authorization server sends a permission ticket in the success response as shown below.
 
-If the permission request is authenticated successfully, but fails due to some other reason, you would recieve a failed response similar to the one shown below.
+If the permission request is authenticated successfully, but fails due to some other reason, you would receive a failed response similar to the one shown below.
 
 ``` xml tab="Request"
 POST https://localhost:9443/api/identity/oauth2/uma/permission/v1.0/permission 
