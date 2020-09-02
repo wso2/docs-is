@@ -31,7 +31,7 @@ When selecting either of these options, the administrator must enter an
   confirms the user upon visiting.
 
 !!! Note 
-    Please note that both of these functionalities cannot be achieeved combined and incase both are requested **Verify Email** flow takes precedence.
+    Please note that both of these functionalities cannot be achieved combined and incase both are requested, **Verify Email** flow takes precedence.
 
 
 ## Configuring the Feature
