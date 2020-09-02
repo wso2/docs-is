@@ -30,6 +30,9 @@ When selecting either of these options, the administrator must enter an
 - In **Verify Email** flow, the URL sent in the email is a link which
   confirms the user upon visiting.
 
+!!! Note 
+    Please note that both of these functionalities cannot be achived combined and incase both are requested **Verify Email** flow takes precedence.
+
 
 ## Configuring the Feature
 
