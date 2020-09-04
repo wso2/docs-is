@@ -27,7 +27,6 @@ distribution.
     2.  To download the pack without updates, click **DOWNLOAD**.
 
     !!! note
-    
         The installation prerequisites for WSO2 IS Analytics is as same as
         for WSO2 Stream Processor (WSO2 SP). Therefore, for detailed
         information about the supporting applications you need to install,
@@ -104,8 +103,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     **Enable analytics for Password grant logins**
          
      !!! warning
-     
-        To use this feature, apply the 0038 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
+         To use this feature, apply the 0038 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
          (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a 
          paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is 
          released. For more information on updating WSO2 Identity Server using WUM, see [Updating WSO2 Products]
