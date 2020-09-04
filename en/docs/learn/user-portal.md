@@ -2,10 +2,10 @@
 
 ## Introduction
 
-The new WSO2 Identity Server My Account application is packed with a number of new
+The new **WSO2 Identity Server My Account** application is packed with a number of new
 components through which users can manage their user account-related
 preferences with more convenience. The latest set of features that will be
-available with the new My Account includes:
+available with the new **My Account** includes:
 
 - User profile management
 - Linked accounts
