@@ -367,6 +367,8 @@ nav:
                                     - 'Introduction to XACML': concepts/authorization/xacml.md
                         - 'User Managed Access (UMA)':
                                     - 'Introduction to UMA': concepts/authorization/user-managed-access.md
+                                    - 'Resource Registration Endpoint': concepts/authorization/uma-resource-registration.md
+                                    - 'Permissions Endpoint': concepts/authorization/uma-permissions-endpoint.md
       - 'Single Sign On':
           - 'Introduction': concepts/intro-sso.md
           - 'Inbound SSO': concepts/inbound-sso.md
