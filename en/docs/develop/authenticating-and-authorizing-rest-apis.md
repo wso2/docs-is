@@ -66,6 +66,13 @@ cert_cns=["wso2is.org"]
 exempt_contexts=["dcr","scim2"]
 ```
 
+| Parameter           | Purpose                                                                                         |
+|---------------------|-------------------------------------------------------------------------------------------------|
+| **enable**          | Defines whether intermediate certificate validation is enabled or not.                          |
+| **cert_cns**        | Specifies the context paths of the intermediate certificates.                                   |
+| **exempt_contexts** | Specifies the context paths that needs to be exempted from intermediate certificate validation. |
+
+
 !!! info
     When using intermediate certificate validation, note that `CN` will be taken as the `username` instead of retrieving from the header.
 
