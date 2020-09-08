@@ -190,5 +190,5 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 	Following are more self-registration methods:
 
-	-	[Self-Registration with REST API](/develop/using-the-self-sign-up-rest-apis/)
-	-	[Self-Registration with SCIM/Me](/learn/creating-users-using-the-ask-password-option#ask-password)  
+	-	[Self-Registration with REST API](/develop/using-the-self-sign-up-rest-apis/) (Please add valid URL here)
+	-	[Self-Registration with SCIM/Me](/learn/creating-users-using-the-ask-password-option#ask-password)  (Please add valid URL here)
