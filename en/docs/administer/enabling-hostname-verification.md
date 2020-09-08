@@ -18,7 +18,7 @@ process.
 ### Configuring hostname verification
 
 
-In WSO2 Identity Server 5.9.0, hostname verification is **enabled** by default. This is
+In WSO2 Identity Server 5.10.0, hostname verification is **enabled** by default. This is
 done using the `         httpclient        ` 
 `         .hostnameVerifier        ` property in the product's startup
 script ( `         wso2server.sh        ` for Linux and
