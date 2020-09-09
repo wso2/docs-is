@@ -227,7 +227,7 @@ To change the administrator credentials:
 
 Majority of the users only need to sign in to the connected service providers via WSO2 Identity Server. Such users should not have permissions to sign in to the Management Console.
 
-Make sure that the permission for signing in to the Canagement Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a>.
+Make sure that the permission for signing in to the Management Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a>.
 
 ## Log rotation and monitoring
 

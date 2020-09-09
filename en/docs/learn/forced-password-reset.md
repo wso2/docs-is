@@ -43,13 +43,13 @@ for forced password reset:
     
 4.  Create a new user with the username "Alex" and update the user
     profile with a valid email address and other information.
+    
 5.  Create a new role called "test role" with login permissions and
     assign it to the new user, "alex".
 
-    !!! tip You can verify this by logging in to the
-    [user portal](https://localhost:9443/user-portal) as Tom. The log in
+    !!! tip 
+    	You can verify this by logging in to the [user portal](https://localhost:9443/user-portal) as Alex. The log in
     attempt should be successful. Log out from the portal.
-    
 
 6.  Click on **Resident** under **Identity Providers** found in the
     **Main** tab.
@@ -85,7 +85,7 @@ to see a sample of how this works.
     attempt will fail and a password reset will be prompted in the form
     of an error message saying "Login failed! Please recheck the
     username and password and try again".
-5.  Log in to the email account you provided in Tom's user profile. You
+5.  Log in to the email account you provided in Alex's user profile. You
     will see a new email with a password reset request.
 6.  Follow the link provided in the email to reset the password. You can
     now log in to the [user portal](https://localhost:9443/user-portal)
@@ -103,8 +103,10 @@ template for this option can be configured in the
 
 1.  Configure the properties mentioned above, start the IS server and
     navigate to the relevant interface.
+    
 2.  Select **Enable Password Reset via OTP** from the three options
     listed, and click **Update**.
+    
 3.  Once the option is selected, admin users can force a password reset
     flow by updating the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
@@ -115,14 +117,14 @@ template for this option can be configured in the
     login attempt will fail and a password reset will be prompted in the
     form of an error message saying "Login failed! Please recheck the
     username and password and try again".
-5.  Log in to the email account you provided in Tom's user profile. You
+5.  Log in to the email account you provided in Alex's user profile. You
     will see a new email with an OTP (one time password) provided to log
     in to the account.
-6.  Use the OTP provided in the email to log in as Tom. You will be
+6.  Use the OTP provided in the email to log in as Alex. You will be
     redirected to the password reset UI where you are prompted to set a
     new password. Enter the relevant details to set a new password.
 7.  You can now log in to the
-    [user portal](https://localhost:9443/user-portal) successfully as Tom
+    [user portal](https://localhost:9443/user-portal) successfully as Alex
     using the new password.
 
 ## Offline Password Reset
@@ -137,7 +139,7 @@ template for this option can be configured in the
     the **Supported by Default** checkbox. Click **Update** to save
     changes.
 5.  Navigate to **Users and Roles\>List\>Users** and check the user
-    profile of the user you created above (Tom). You will see that the
+    profile of the user you created above (Alex). You will see that the
     value for the **One Time Password** field is empty.
 6.  Next, admin users can force a password reset flow by updating the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
@@ -147,9 +149,9 @@ template for this option can be configured in the
     attempt to log in again as the user you created above, "alex". The
     log in attempt will fail.
 8.  Log in again to the management console as the admin user and check
-    Tom's user profile. You will see that there is now a code value in
+    Alex's user profile. You will see that there is now a code value in
     the **One Time Password** field.
-9.  Copy the code and use it as Tom's password to log in to the
+9.  Copy the code and use it as Alex's password to log in to the
     [user portal](https://localhost:9443/user-portal).
 10. You will be redirected to the password reset UI where you are
     prompted to set a new password. Enter the relevant details to set a
