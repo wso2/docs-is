@@ -50,6 +50,8 @@ permissions = ["p1","p2"]
 
 ## Configure intermediate certificate validation
 
+Configuring intermediate certificate validation enables you to restrict certificates that are used during mutualSSL authentication to certificates that are signed by the defined issuers(`cert_cns`). 
+
 Add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder. 
 
 ```toml tab="Config"
