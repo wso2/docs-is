@@ -366,10 +366,7 @@ nav:
                                     - 'Introduction to UMA': concepts/authorization/user-managed-access.md
                                     - 'Resource Registration Endpoint': concepts/authorization/uma-resource-registration.md
                                     - 'Permissions Endpoint': concepts/authorization/uma-permissions-endpoint.md
-      - 'Single Sign On':
-          - 'Introduction': concepts/intro-sso.md
-          - 'Inbound SSO': concepts/inbound-sso.md
-          - 'Outbound SSO': concepts/outbound-sso.md
+      - 'Single Sign On': concepts/single-sign-on.md
       - 'Identity Federation': concepts/identity-federation.md
       - 'Identity Provisioning':
           - 'Introduction': concepts/identity-provisioning-intro.md
