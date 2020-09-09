@@ -68,6 +68,11 @@
 	border-top: 4px solid #ff7043;
 }
 
+/* Added to keep the tiles intact */
+.md-container { 
+	height: auto !Important; 
+}
+
 .md-header-nav__button.md-logo>img {
 	width: 60px;
 	margin-top: 3px;
@@ -773,8 +778,7 @@ html .md-footer-meta.md-typeset a,
 	display: none;
 }
 
-.md-nav--secondary ul>li.md-nav__item {
-	border-left: 4px solid transparent;
+border-left: 4px solid transparent;
 	transition: border 500ms;
 	margin-left: -3px;
 }
