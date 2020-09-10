@@ -1,26 +1,28 @@
 # Users
 
-A user is the digital representation of a physical user who interacts with applications. A user can be a digital identity of a human or a machine. A user can be recognized by a number of attributes. These are called **user claims**. User claims are data that defines the user, i.e., anything the user is, owned by, or associated with.
+A user is the digital representation of a physical user who interacts with applications. A user can be a digital identity of a human or a machine. A user can be recognized by a number of attributes. These are called **user attributes**. User attributes are data that defines the user, i.e., anything the user is, owned by, or associated with.
 
-A unique **User account** is created for each user. Then they are assigned roles with a certain set of permissions. We will further discuss roles and permissions in the [next section](../../concepts/user-management/roles-and-permissions.md). 
+A unique **User account** is created for each user. Then they are assigned roles with a certain set of permissions. Roles and permissions will be discussed in the [next section](../../concepts/user-management/roles-and-permissions.md). 
 
-In this section, let's look at the various ways you can configure and manage users. 
+In this section, let's look at the various ways users can be configured and managed. 
 
 ---
 
 ## Add users
 
-You can create or add users to a user management console in more than one way. Following are a few way users can be created or added. 
+Users can be created and added to a user management console in more than one way. Following are a few ways users can be created or added. 
 
 - Using the user management console - Here, the user is created by the admin using the user management application. 
 
-- Using the **ask password** option - This option is widely preferred because the admin does not have to remember passwords of created users. This can be done by prompting the user to create a password for themselves while being on-boarded or administrators on-boarding user accounts to the system along with a default password, sending an email link to the user with the created account and asking the user to confirm the correctness of the account created by the admin. 
+- Using the **ask password** option - This option is widely preferred because the admin does not have to remember passwords of created users. This can be done by prompting the user to create a password for themselves while being on-boarded. Alternatively, administrators on-boarding user accounts to the system create a default password, send an email link to the user with the created account and ask the user to confirm the correctness of the account created by the admin. 
 
 - Using SCIM APIs - Users can be added to the user management system by giving the necessary user details as input values in a SCIM request. 
 
 - Using SOAP APIs - Users can be added to the user management system with the help of SOAP Web services as well. 
 
 - Self registration - Apart from these, user can register themselves using the self-signup portal. This is convenient to both the user and the admin.  
+
+- Importing users in bulk - In addition to manually adding individual users, multiple users can be imported in bulk. This is usually done by first exporting all the relevant user details to a comma-separated values (.csv) file or Microsoft Excel (.xls) file, and then importing this file with all the information to the user management system. 
 
 ---
 
@@ -30,15 +32,9 @@ User details might need to be updated from time to time to maintain the precisio
 
 ---
 
-## Import users 
-
-In addition to manually adding individual users, you can import multiple users in bulk. This is usually done by first exporting all the relevant user details to a comma-separated values (.csv) file or Microsoft Excel (.xls) file, and then importing this file with all the information to the user management system. 
-
----
-
 ## Search users 
 
-Once you have added users to a system, you can search for these users via the console, using SCIM requests, or SOAP APIs. A number of filters can be used to find a user or multiple users faster. For example, entering a username pattern will provide all the usernames that match that pattern as search results. 
+Once users have been added to the system, they can be searched via the console, using SCIM requests, or SOAP APIs. A number of filters can be used to find a user or multiple users faster. For example, entering a username pattern will provide all the usernames that match that pattern as search results. 
 
 ---
 
