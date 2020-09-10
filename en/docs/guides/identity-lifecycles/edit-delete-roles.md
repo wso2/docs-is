@@ -1,6 +1,6 @@
 # Edit or Delete a Role
 
-This section guides you through editing or deleting a user role to WSO2 Identity Server.
+This section guides you through editing or deleting a user role in WSO2 Identity Server.
 
 ----
 
@@ -133,7 +133,7 @@ some time.
 -----
 
 !!! info "Related Topics"
-    - [Concept: User Roles](TODO:insert-link-to-concept)
+    - [Concept: Roles and Permissions](../../../concepts/user-management/roles-and-permissions)
     - [Guide: Add Roles](../add-user-roles)
     - [Guide: Role Based Permissions](../edit-delete-roles)
 

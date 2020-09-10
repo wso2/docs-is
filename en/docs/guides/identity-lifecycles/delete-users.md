@@ -114,6 +114,6 @@ related to user deletion each time you delete a user.
 -----
     
 !!! info "Related Topics"
-    - [Concept: Users](TODO:insert-link-to-concept)
+    - [Concept: Users](../../../concepts/user-management/users)
     - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
     - [Guide: Search/List Users](../../identity-lifecycles/search-users)

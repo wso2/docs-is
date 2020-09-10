@@ -299,7 +299,10 @@ nav:
   - 'APIs':
     - 'REST API Reference': apis/rest-api-reference.md
   - 'Concepts':
-      - 'User Management': concepts/user-management.md
+      - 'User Management': 
+        - 'Overview': concepts/user-management/user-management.md
+        - 'Users': concepts/user-management/users.md
+        - 'Roles and Permissions': concepts/user-management/roles-and-permissions.md
       - 'Authentication':
           - 'Introduction': concepts/authentication/intro-authentication.md
           - 'Authentication Protocols':

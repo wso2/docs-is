@@ -96,8 +96,10 @@ add steps to import the csv file using the dev portal
 ----
     
 !!! info "Related Topics"
+    - [Concept: Users](../../../concepts/user-management/users)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
     - [Guide: User Self Registration Workflow](../self-registration-workflow)
     - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)
     - [Guide: Invitation Workflow](../invitation-workflow) 
     - [Guide: Outbound Provisioning](../outbound-provisioning)
+    
