@@ -1,6 +1,6 @@
 # Configure Adaptive Authentication for an Application
 
-This page guides you through setting up [adaptive authentication](insertlink) for an application. 
+This page guides you through setting up [adaptive authentication](../../concepts/authentication/adaptive-authentication) for an application. 
 
 -----
 
@@ -71,7 +71,7 @@ function someCommonFunction(context) {
 
 
 !!! info "Related Topics"
-    - [Concept: Adaptive-Authentication](TODO:insert-link-to-concept)
+    - [Concept: Adaptive-Authentication](../../concepts/authentication/adaptive-authentication)
     - [Guide: Ensure Assurance with ACR and AMR](../../adaptive-auth/work-with-acr-amr)
     - [Guide: Adaptive Authentication Using Function Library](../../adaptive-auth/adaptive-auth-with-function-lib)
     - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)

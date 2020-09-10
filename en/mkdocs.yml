@@ -339,7 +339,7 @@ nav:
                           - 'Introduction': concepts/authentication/ntlm.md
                   - 'Kerberos':
                           - 'Introduction to Kerberos': concepts/authentication/kerberos.md
-          - 'Adaptive Authentication': concepts/authentication/adaptive-auth.md
+          - 'Adaptive Authentication': concepts/authentication/adaptive-authentication.md
           - 'Multi Factor Authentication': concepts/authentication/mfa.md
       - 'Authorization':
           - 'Introduction': concepts/authorization/intro-authorization.md
