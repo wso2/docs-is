@@ -162,7 +162,7 @@ Send the following requests via your application to connect your application to 
   	
 
 !!! info "Related Topics"
-    - [Concept: Adaptive-Authentication](TODO:insert-link-to-concept)
+    - [Concept: Adaptive-Authentication](../../concepts/authentication/adaptive-authentication)
     - [Guide: Configure Adaptive Authentication for an Application](../configure-adaptive-auth)
     - [Guide: Adaptive Authentication Using Function Library](../adaptive-auth-with-function-lib)
     - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)
