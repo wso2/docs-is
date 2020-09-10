@@ -2,4 +2,4 @@ deployment:
   production:
     branch: structurechange
     commands:
-      - surge --project ./docs-is/en/ --domain https://is-staging.docs.wso2.com/en/staging/
+      - surge --project ./en/ --domain https://is-staging.docs.wso2.com/en/staging/
