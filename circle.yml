@@ -1,0 +1,5 @@
+deployment:
+  production:
+    branch: structurechange
+    commands:
+      - surge --project ./docs-is/en/ --domain https://is-staging.docs.wso2.com/en/staging/
