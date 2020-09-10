@@ -1,12 +1,12 @@
 # Introduction to Roles and Permissions
 
-Roles are groups of users categorized based on the tasks they are expected to perform. In a typical organization, roles can be based on (but not limited to) the department a user works for or the user's designation. Permissions define a targetted set of accesses a user is provided with to perform tasks that are a part of their role. 
+Roles are groups of users categorized based on the tasks they are expected to perform. In a typical organization, roles can be based on (but not limited to) the department a user works for or the user's designation. Permissions define a targeted set of accesses a user is provided with to perform tasks that are a part of their role. 
 
 ## Mapping roles and permissions
 
 Each of these roles have a defined set of permissions associated with them. Users who are assigned to a particular role are authorized to perform activities that align with the permissions of that particular role. Users can be assigned one or many roles. 
 
-WSO2 Identity Server enables role-based access. Simply put, access is granted based on a user's roles rather than each user's individual attributes. This makes it simpler to assign or de-assign permissions.
+WSO2 Identity Server enables role-based access. Simply put, access is granted based on a user's roles rather than each user's individual attributes. This makes it simpler to assign or unassign permissions.
 
 For example, a user who is assigned the role of an HR Manager in an organization, can view the information of all the other employees (i.e., the other users registered in the server) and modify them, while a user who is assigned the role of an Engineer can only view or modify the information specific to them. 
 
