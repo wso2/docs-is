@@ -132,8 +132,8 @@ steps to create and save the .xml file:
 
 2.  If the configuration is done for the super tenant, save the
     secondary user store definitions in
-    `           <IS_HOME>/repository/deployment/server/          `
-    userstores directory.
+    `           <IS_HOME>/repository/deployment/server/userstores
+    directory.
 
 3.  If the configuration is done for the tenant, save the configuration
     in
