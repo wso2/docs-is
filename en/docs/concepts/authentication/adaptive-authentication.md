@@ -40,7 +40,7 @@ Some of the most common needs addressed by adaptive authentication are:
 
 ## Using adaptive authentication
 
-WSO2 Identity Server (WSO2 IS) supports script-based adaptive authentication, which allows you to use a script to set up appropriate authentication factors depending on your scenario using the provided script editor. The script editor provides a set of predefined templates that you can use to easily set up adaptive authentication for some of the most common authentication scenarios. If necessary, the script editor can also be used to introduce new functions and fields to an authentication script based on specific requirements, and the script can then be engaged to the service provider’s authentication step configuration.
+WSO2 Identity Server (WSO2 IS) supports script-based adaptive authentication, which allows using a provided script editor to set up appropriate authentication factors depending on the requirement. The script editor provides a set of predefined templates that can be used to easily set up adaptive authentication for some of the most common authentication scenarios. If necessary, the script editor can also be used to introduce new functions and fields to an authentication script based on specific requirements, and the script can then be engaged to the service provider’s authentication step configuration.
 
 ----
 
