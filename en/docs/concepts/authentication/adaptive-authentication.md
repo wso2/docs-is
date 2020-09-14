@@ -4,7 +4,7 @@
 
 Adaptive authentication, also known as step-up authentication, is an evolved and flexible form of [multi-factor authentication](TODO:link-to-concept) that tightens security when the possibility of a security breach is higher. Additional authentication steps such as SMS OTP, FIDO, fingerprint authentication etc., can be configured and deployed in such a way so that the system is able to decide which steps to prompt during the authentication process depending on the user’s risk profile and their behaviour.  
 
-For instance, high-risk transactions such as a user attempting to tranfer a high sum of money causes the adaptive authentication mechanism to prompt an extra authentication step like sending a one time security code to the user's mobile phone, in order to increase security.
+For instance, high-risk transactions such as a user attempting to transfer a high sum of money causes the adaptive authentication mechanism to prompt an extra authentication step like sending a one-time security code to the user's mobile phone, in order to increase security.
 
 ![adaptive authentication](../../../assets/img/concepts/adaptive-authentication.png)
 
@@ -40,7 +40,7 @@ Some of the most common needs addressed by adaptive authentication are:
 
 ## Using adaptive authentication
 
-WSO2 Identity Server (WSO2 IS) supports script-based adaptive authentication, which allows you to use a script to set up appropriate authentication factors depending on your scenario using the provided script editor. The script editor provides a set of predefined templates that you can use to easily set up adaptive authentication for some of the most common authentication scenarios. If necessary, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement, and then engage the script to the service provider’s authentication step configuration.
+WSO2 Identity Server (WSO2 IS) supports script-based adaptive authentication, which allows you to use a script to set up appropriate authentication factors depending on your scenario using the provided script editor. The script editor provides a set of predefined templates that you can use to easily set up adaptive authentication for some of the most common authentication scenarios. If necessary, the script editor can also be used to introduce new functions and fields to an authentication script based on specific requirements, and the script can then be engaged to the service provider’s authentication step configuration.
 
 ----
 
