@@ -13,7 +13,7 @@ The identity provisioning framework is the main component that handles user / ro
 
 ## Inbound provisioning
 
-Inbound provisioning focuses on how to provision users to WSO2 Identity Server. By default, WSO2 IS supports inbound provisioning via a Simple Object Access Protocol (SOAP) based API as well as the System for Cross-domain Identity Management (SCIM) API therefore, provisioning requests can come in the form of SCIM or SOAP. Both APIs support HTTP Basic Authentication. 
+Inbound provisioning focuses on how to provision users to WSO2 IS. By default, WSO2 IS supports inbound provisioning via a Simple Object Access Protocol (SOAP) based API as well as the System for Cross-domain Identity Management (SCIM) API therefore, provisioning requests can come in the form of SCIM or SOAP. Both APIs support HTTP Basic Authentication. 
 
 The userstore manager receives provisioning requests from the provisioning framework. These provisioning requests are handled and the relevant userstore is updated. The request can affect multiple userstores if the configuration is such. Once this request has been handled, an update is sent back to the provisioning framework.
 
