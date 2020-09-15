@@ -303,6 +303,7 @@ nav:
         - 'Overview': concepts/user-management/user-management.md
         - 'Users': concepts/user-management/users.md
         - 'Roles and Permissions': concepts/user-management/roles-and-permissions.md
+        - 'Userstores': concepts/user-management/userstores.md
         - 'Realms': concepts/realm.md
       - 'Authentication':
           - 'Introduction': concepts/authentication/intro-authentication.md
