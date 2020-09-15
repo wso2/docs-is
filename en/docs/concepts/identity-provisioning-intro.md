@@ -36,7 +36,7 @@ There are two main types of identity provisioning.
 ----
  
 !!! info "Related Topics"
-    - [Concept: Provisioning Framework](TODO:link-to-concept)
+    - [Concept: Provisioning Framework](../provisioning-framework)
     - [Concept: Inbound Provisioning](TODO:link-to-concept)
     - [Concept: Outbound Provisioning](TODO:link-to-concept)
     - [Guide: Inbound Provisioning](../../../guides/identity-lifecycles/inbound-provisioning)
