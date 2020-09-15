@@ -388,8 +388,8 @@ nav:
                 - 'WS-Federation vs WS-Trust': concepts/federation-trust.md
                 - 'SSO vs Identity Federation': concepts/sso-vs-federation.md
       - 'Compliance':
-          - 'GDPR': concepts/gdpr.md
-          - 'eIDAS': concepts/eidas.md
+          - 'GDPR': concepts/compliance/gdpr.md
+          - 'eIDAS': concepts/compliance/eidas.md
       - 'Security Considerations':
           - 'Mitigating Cross Site Request Forgery Attacks': concepts/cross-site-request-forgery-attacks.md
           - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
