@@ -1,5 +1,5 @@
 
-# Identity provisioning framework 
+# Identity Provisioning Framework 
 
 The identity provisioning framework is the main component that handles user / role provisioning in WSO2 Identity Server (WSO2 IS). The WSO2 Identity Provisioning framework can be separated into three main components:
 
@@ -11,17 +11,17 @@ The identity provisioning framework is the main component that handles user / ro
 
 ---
 
-## Inbound provisioning component
+## Inbound provisioning
 
-The inbound provisioning component focuses on how to provision users to WSO2 Identity Server. By default, WSO2 IS supports inbound provisioning via a Simple Object Access Protocol (SOAP) based API as well as the System for Cross-domain Identity Management (SCIM) API therefore, provisioning requests can come in the form of SCIM or SOAP. Both APIs support HTTP Basic Authentication. 
+Inbound provisioning focuses on how to provision users to WSO2 Identity Server. By default, WSO2 IS supports inbound provisioning via a Simple Object Access Protocol (SOAP) based API as well as the System for Cross-domain Identity Management (SCIM) API therefore, provisioning requests can come in the form of SCIM or SOAP. Both APIs support HTTP Basic Authentication. 
 
 The userstore manager receives provisioning requests from the provisioning framework. These provisioning requests are handled and the relevant userstore is updated. The request can affect multiple userstores if the configuration is such. Once this request has been handled, an update is sent back to the provisioning framework.
 
 ---
 
-## Outbound provisioning component
+## Outbound provisioning
 
-The outbound provisioning component focuses on provisioning users to external systems. This can be initiated by any of the following.
+Outbound provisioning focuses on provisioning users to external systems. This can be initiated by any of the following.
 
 - An inbound provisioning request (initiated by a service provider or the resident service provider)
 - JIT provisioning (initiated by a service provider)
