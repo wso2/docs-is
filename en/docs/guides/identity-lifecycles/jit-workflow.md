@@ -1,6 +1,6 @@
 # Just-in-Time User Inbound Provisioning
 
-This page guides you through configuring [Just-in-Time (JIT) provisioning](TODO:insert-link-to-concept) users from external identity providers into WSO2 Identity Server at the point of federated authentication. 
+This page guides you through configuring [Just-in-Time (JIT) provisioning](../../../concepts/jit-provisioning) users from external identity providers into WSO2 Identity Server at the point of federated authentication. 
 
 -----
 
@@ -39,6 +39,6 @@ This page guides you through configuring [Just-in-Time (JIT) provisioning](TODO:
 ----
 
 !!! info "Related Topics"
-    - [Concept: Just-in-Time Provisioning](TODO:link-to-concept)
+    - [Concept: Just-in-Time Provisioning](../../../concepts/jit-provisioning)
     - [Guide: Outbound Just-in-Time Provisioning](TODO:link-to-guide)
     

@@ -30,15 +30,13 @@ After a user has been provisioned, WSO2 IS can also help maintain the user's upd
 
 There are two main types of identity provisioning.
 
-- [Inbound Provisioning](TODO:link-to-concept)
-- [Outbound Provisioning](TODO:link-to-concept)
+- [Inbound Provisioning](../provisioning-framework/#inbound-provisioning)
+- [Outbound Provisioning](../provisioning-framework/#outbound-provisioning)
 
 ----
  
 !!! info "Related Topics"
     - [Concept: Provisioning Framework](../provisioning-framework)
-    - [Concept: Inbound Provisioning](TODO:link-to-concept)
-    - [Concept: Outbound Provisioning](TODO:link-to-concept)
     - [Guide: Inbound Provisioning](../../../guides/identity-lifecycles/inbound-provisioning)
     - [Guide: Outbound Provisioning](../../guides/identity-lifecycles/outbound-provisioning)
 

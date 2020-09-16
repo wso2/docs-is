@@ -376,8 +376,6 @@ nav:
       - 'Identity Provisioning':
           - 'Introduction': concepts/identity-provisioning-intro.md
           - 'Provisioning Framework': concepts/provisioning-framework.md
-          - 'Inbound Provisioning': concepts/inbound-provisioning.md
-          - 'Outbound Provisioning': concepts/outbond-provisioning.md
           - 'JIT Provisioning': concepts/jit-provisioning.md
       - 'Consent Management': concepts/consent-management.md
       - 'Identity Anti-Patterns': concepts/identity-anti-patterns.md
