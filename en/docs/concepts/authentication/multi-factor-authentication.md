@@ -6,7 +6,7 @@ Multi-factor authentication (MFA) is an effective method of providing enhanced s
 
 Due to increasing digital crimes and internet fraud in the world, people are highly concerned about security. The traditional username and password method is not enough to secure the authentication. Processing speeds of CPUs have increased, so brute force attacks are a reality and dictionary attacks have become a common threat. GPGPU password cracking and rainbow tables have provided similar advantages to attackers.
 
-Thereby, MFA creates a layered defense and makes it more difficult for an unauthorized person to gain access. Even if the username and password is compromised, the attacker would still have atleast one more barrier to break through in order to successfully breach security. 
+To mitigate this, MFA creates a layered defense and makes it more difficult for an unauthorized person to gain access. Even if the username and password is compromised, the attacker would still have atleast one more barrier to break through in order to successfully breach security. 
 
 ---
 
