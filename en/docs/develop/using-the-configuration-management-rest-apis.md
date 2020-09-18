@@ -20,16 +20,16 @@ met.
     Clustering](../../setup/setting-up-separate-databases-for-clustering)
     .
 
-    !!! warning
-    
-       To use this feature, apply the `0263` WUM update for WSO2 Identity Server 5.10.0 using the WSO2 
-       Update Manager (WUM).To deploy a WUM update into production, you need to have a paid 
-       subscription. If you do not have a paid subscription, you can enable this feature by running the 
-       relevant query for your database from the queries given below, or use it with the next version of 
-       WSO2 Identity Server when it is released.
-       
-       For more information on updating WSO2 Identity Server using WUM, see 
-       [Updating WSO2 Products](https://is.docs.wso2.com/en/5.10.0/administer/getting-wso2-updates/).
+        !!! warning
+        
+           To use this feature, apply the `0263` WUM update for WSO2 Identity Server 5.10.0 using the WSO2 
+           Update Manager (WUM).To deploy a WUM update into production, you need to have a paid 
+           subscription. If you do not have a paid subscription, you can enable this feature by running the 
+           relevant query for your database from the queries given below, or use it with the next version of 
+           WSO2 Identity Server when it is released.
+           
+           For more information on updating WSO2 Identity Server using WUM, see 
+           [Updating WSO2 Products](https://is.docs.wso2.com/en/5.10.0/administer/getting-wso2-updates/).
 
     
     ``` sql tab="H2"
