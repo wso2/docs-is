@@ -158,7 +158,7 @@ nav:
         - 'Request Path Authentication':
           - 'Basic Auth Request Path Authentication': guides/basic-auth-request-path.md
           - 'OAuth Request Path Authentication': guides/oauth-request-path.md
-      - 'Multifactor Authentication':
+      - 'Multi-Factor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':
           - 'Password': guides/mfa/password.md
@@ -342,7 +342,7 @@ nav:
                   - 'Kerberos':
                           - 'Introduction to Kerberos': concepts/authentication/kerberos.md
           - 'Adaptive Authentication': concepts/authentication/adaptive-authentication.md
-          - 'Multi Factor Authentication': concepts/authentication/mfa.md
+          - 'Multi Factor Authentication': concepts/authentication/multi-factor-authentication.md
       - 'Authorization':
           - 'Introduction': concepts/authorization/intro-authorization.md
           - 'Authorization Protocols':
