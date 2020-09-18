@@ -799,4 +799,13 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
+  nav_list:
+    - Home
+    - Get Started
+    - Learn
+    - Develop
+    - Setup
+    - Administer
+    - Compliance
+    - References
   site_version: 5.9.0
