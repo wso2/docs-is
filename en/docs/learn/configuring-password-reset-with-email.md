@@ -64,7 +64,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
 
-2.	[Restart WSO2 Identity Server]((../../setup/running-the-product/).
+2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
 3.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator. 	 
 

@@ -18,7 +18,7 @@ prompted to reset the password.
     from the WSO2 connector store.
 
 2.  Add the following lines to the
-    `            identity-event.properties           ` file in the
+    `            deployment.toml           ` file in the
     `            <IS_HOME>/repository/conf/identity/           `
     directory `            .           `
 

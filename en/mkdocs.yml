@@ -18,12 +18,12 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://is.docs.wso2.com/en/latest/
+site_url: https://is.docs.wso2.com/en/5.11.0/
 
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/5.10.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/5.11.0/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
