@@ -343,6 +343,7 @@ nav:
                           - 'Introduction to Kerberos': concepts/authentication/kerberos.md
           - 'Adaptive Authentication': concepts/authentication/adaptive-authentication.md
           - 'Multi Factor Authentication': concepts/authentication/multi-factor-authentication.md
+          - 'FIDO': concepts/authentication/mfa-with-fido.md
       - 'Authorization':
           - 'Introduction': concepts/authorization/intro-authorization.md
           - 'Authorization Protocols':

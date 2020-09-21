@@ -1,6 +1,6 @@
 # Configure FIDO for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO](insertlink) as the second factor. 
+This page guides you through configuring [two-factor authentication](../../../concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO](../../../concepts/authentication/mfa-with-fido) as the second factor. 
 
 ----
 
@@ -102,4 +102,5 @@ As for now, Google Chrome (version 38 or later) has support for FIDO devices. Fi
 
 !!! info "Related Topics"
     - [Concept: Two-Factor Authentication](../../../concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Concept: FIDO](../../../concepts/authentication/mfa-with-fido)
     - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
