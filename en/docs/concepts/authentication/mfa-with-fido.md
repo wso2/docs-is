@@ -27,7 +27,8 @@ Universal Authentication Framework (UAF) involves a passwordless experience with
 
 U2F focuses on the second factor experience and has the following key processes:
 
--   The user carries the U2F device with built-in support for web browsers.
+-   The user carries the U2F device with built-in support for
+ web browsers.
 -   The user presents the U2F device.
 -   The website can simplify the password (for example, it can be simplified to a 4-digit PIN).
 
