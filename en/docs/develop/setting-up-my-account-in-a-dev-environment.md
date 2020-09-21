@@ -1,4 +1,4 @@
-# Setting-Up My Account in a Development Environment
+# Setting Up My Account in a Development Environment
 
 !!! note 
     The **My Account** application has been renamed as **My Account** from this release onwards.
@@ -78,7 +78,7 @@ Follow the steps given below to set up the repo in a development environment.
     2.  Click **Service Providers > List**.
     3.  Click **Edit** to edit the **My Account** service provider.
     4.  Expand **Inbound Authentication Configuration**, and then expand **OAuth/OpenID Connect Configuration**. Click **Edit**.
-    5.  Change the Callback URL field to reflect the port as 9000 or you can add a regexp as follows.
+    5.  Change the **Callback URL** field to reflect the port as 9000 or you can add a regexp as follows.
         ```
         regexp=(https://localhost:9443/user-portal/login|https://localhost:9000/user-portal/login)
         ```

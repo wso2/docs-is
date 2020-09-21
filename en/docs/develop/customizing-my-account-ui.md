@@ -20,20 +20,22 @@ This section explains how we can customize the theming of **My Account**.
 
     For information on the Semantic UI theming, see [Semantic UI documentation](https://semantic-ui.com/usage/theming.html).
 
-!!! note "Before you begin"
+### Before you begin
 
-    1. Check out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps)
-    and set it up in the [development environment](../../develop/setting-up-my-account-in-a-dev-environment). Checkout the latest tag of the identity-apps. The v1.0.72 tag is used in the sample mentioned below. 
+1. Check out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps)
+and set it up in the [development environment](../../develop/setting-up-my-account-in-a-dev-environment). Check out the latest tag of the identity-apps. The v1.0.72 tag is used in the sample mentioned below. 
 
-    ```java
-    $ git fetch --all --tags --prune
-    $ git checkout tags/v1.0.72 -b feature-dark-theme-demo
-    ```
+```java
+$ git fetch --all --tags --prune
+$ git checkout tags/v1.0.72 -b feature-dark-theme-demo
+```
 
-    2. Navigate to the `modules/theme/src/themes` folder within identity-apps. All the theme global variable overrides
-    can be found in the `modules/theme/src/themes/default/globals/site.variables` file. For the full set of variables,
-     see the [original theme variables file](https://github
-     .com/Semantic-Org/Semantic-UI-LESS/blob/master/themes/default/globals/site.variables).
+2. Navigate to the `modules/theme/src/themes` folder within identity-apps. All the theme global variable overrides
+can be found in the `modules/theme/src/themes/default/globals/site.variables` file. For the full set of variables,
+    see the [original theme variables file](https://github
+    .com/Semantic-Org/Semantic-UI-LESS/blob/master/themes/default/globals/site.variables).
+
+---
 
 Follow the steps given below to further customize **My Account**. 
 
@@ -61,7 +63,7 @@ In order to change the primary color of the portal, the variables in `site.varia
     @primaryColor        : @facebookBlue;
     ```
 
-3. Next, change the page background color and text color. In this example, the backgrround color is changed from white to dark gray and the default text color is changed to a
+3. Next, change the page background color and text color. In this example, the background color is changed from white to dark gray and the default text color is changed to a
 lighter shade. Add a new variable under the brand colors. It is called `globalBackgroundColor` in this example.
 
     ```java

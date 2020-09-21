@@ -20,7 +20,7 @@ available with the new **My Account** includes:
 - Consent management
 - Review pending approvals
 
-This section briefs what each of the above-mentioned features are and will explain how to use these features depending on user preferences and requirements.
+This section briefly explains what each of the above-mentioned features are and will explain how to use these features depending on user preferences and requirements.
 
 ---
 
@@ -180,9 +180,9 @@ The main part of account recovery is setting up security or challenge questions 
 
 ## Multi-factor authentication
 
-MFA creates a layered defense and makes it more difficult for an unauthorized person to access a target such as a physical location, computing device, web service, network, or database. If one factor is compromised or broken, the attacker still has at least one more barrier to breach before successfully breaking into the target. WSO2 Identity Server allows configuring multi-step authentication where you can define an authentication chain containing different authenticators in different steps.
+MFA creates a layered defense and makes it more difficult for an unauthorized person to access a target such as a physical location, computing device, web service, network, or database. If one factor is compromised or broken, the attacker still has at least one more barrier to breach before successfully breaking into the target. WSO2 Identity Server allows configuring multi-step authentication where you can define an authentication chain containing different authenticators in different steps. For more information on MFA, see [Multi-factor Authentication](../../learn/multi-factor-authentication).
 
-Using the latest **My Account** application, users can update their mobile numbers through which they can authenticate themselves using the one-time verification code. Also, they can add inherence factors like FIDO devices and fingerprint sensors. The following section will provide instructions on how to configure MFA options in WSO2 IS using **My Account**.
+Using the latest **My Account** application, users can update their mobile numbers through which they can authenticate themselves using the one-time verification code. Also, they can add inherence factors like FIDO devices and fingerprint sensors. The following section will provide instructions on how to configure MFA options in WSO2 IS using **My Account**. 
 
 ### Via SMS
 
@@ -262,7 +262,7 @@ Depending on the user’s preference, **My Account** allows the users either to 
 
 ## Consent management
 
-WSO2 IS provides a comprehensive consent management solution that can be used to manage consents related to Identity and Access Management (IAM), and also to manage consents that belong to third party applications.
+WSO2 IS provides a comprehensive consent management solution that can be used to manage consents related to Identity and Access Management (IAM), and also to manage consents that belong to third party applications. For more information, see [Consent Management](../../learn/consent-management).
 **My Account** allows users to revoke or edit the consent given to applications registered in WSO2 IS. In order to edit or revoke application consents, refer to the instructions given below.
 
 ### Revoke consent

@@ -95,6 +95,9 @@ By default, the `deployment.config.json` file has the following configurations.
 	}
 }
 ```
+
+---
+
 ## Configure basic settings
 
 The following basic settings can be configured.
@@ -107,7 +110,9 @@ The following basic settings can be configured.
 |`logoutCallbackPath`|This is the URL to which the user should be redirected to after the user is logged out. | `login`|
 |`serverOrigin`|This is the original server URL of WSO2 Identity Server. | `https://localhost:9443`|
 
- ## Customize My Account
+---
+
+## Customize My Account
  
 The **My Account** application can be customized to be consistent with the branding of the business. The following attributes under the `ui` attribute can be modified to brand the **My Account** application.
 
@@ -118,6 +123,8 @@ The **My Account** application can be customized to be consistent with the brand
 |`appTitle`|This is the `HTML` title of the application. This is the name that appears in the browser tab.|My Account|
 |`appName`| This is the name of the application and it appears in the header following the name of the organization.|My Account|
 |`appLogoPath`| This is the path of the logo that is displayed in the header. The logo of the application can be changed by assigning the path of a custom logo to this attribute.|/assets/images/logo.svg|
+
+---
 
 ## Change the theme of the application
 
@@ -131,6 +138,8 @@ Custom themes can be applied to the **My Account** application. Once a theme is 
 }
 ```
 
+---
+
 ## Configure session information
 
 Parameters such as how often the state of the session should be checked, how long a user should be allowed to remain idle etc., can be configured using the `session`. The `session` information has the following attributes.
@@ -142,9 +151,11 @@ Parameters such as how often the state of the session should be checked, how lon
 |`"sessionRefreshTimeout"`| This specifies how often the session should be refreshed. | 300|
 |`"checkSessionInterval"` | This specifies how often the session state should be checked. |3|
 
+---
+
 ## Disable using authenticator App as an authentication factor
 
-WSO2 Identity Server allows multi-Factor authentication via SMS, FIDO, and Authenticator Applications. The use of authenticator app can be disabled by setting the `enabled` key of the `authenticatorApp` under `ui` to `false`.
+WSO2 Identity Server allows multi-factor authentication via SMS, FIDO, and Authenticator Applications. The use of authenticator app can be disabled by setting the `enabled` key of the `authenticatorApp` under `ui` to `false`.
 
 ```json
 "ui":{
@@ -153,6 +164,8 @@ WSO2 Identity Server allows multi-Factor authentication via SMS, FIDO, and Authe
 	}
 }
 ```
+
+---
 
 ## Enable and Disable Application Features
 
@@ -169,11 +182,13 @@ WSO2 Identity Server allows multi-Factor authentication via SMS, FIDO, and Authe
 	}
 }
 ```
-The `"disabledFeatures"` attribute is used to disable sub features belonging to a feature.
 
-The `"enabled"` attribute can be used to toggle the feature as a whole. For instance, by setting the `"enabled"` attribute of the `"overview"` feature, you can disable the `"overview"` feature as a whole.
+- The `"disabledFeatures"` attribute is used to disable sub features belonging to a feature.
 
-The `"scopes"` attribute is used to specify the scopes that a user should be allowed in order to access the concerned feature. The `"scopes"` attribute has the following sub-attributes and each sub-attribute takes an array of scopes.
+- The `"enabled"` attribute can be used to toggle the feature as a whole. For instance, by setting the `"enabled"` attribute of the `"overview"` feature, you can disable the `"overview"` feature as a whole.
+
+- The `"scopes"` attribute is used to specify the scopes that a user should be allowed in order to access the concerned feature. The `"scopes"` attribute has the following sub-attributes and each sub-attribute takes an array of scopes.
+
 ```json
 "scopes":{
 	"create":[],
@@ -184,7 +199,9 @@ The `"scopes"` attribute is used to specify the scopes that a user should be all
 ```
 If you want a user to have a certain scope(s) to be able to create an application, then you can specify that/those scope(s) within the `"create"` array of the application feature.
 
-### The features
+---
+
+## The features
 
 These are the five features in **My Account**.
 
@@ -194,7 +211,7 @@ These are the five features in **My Account**.
 4.  Applications
 5.  Operations
 
-#### 1. Overview
+### 1. Overview
 
 The overview feature can be configured via the `"overview"` attribute of the `"features"` attribute under `"ui"`.
 
@@ -214,16 +231,16 @@ The overview feature can be configured via the `"overview"` attribute of the `"f
 	}
 }
 ```
-Set the `"enabled"` attribute to `false` to disable Overview altogether.
+Set the `"enabled"` attribute to `false` to disable the overview altogether.
 
-The Overview feature has the following sub-features that can be disabled:
+The overview feature has the following sub-features that can be disabled:
 
 |Sub-feature| Description|
 |--|--|
-"overview.accountStatus"|The widget that shows the account status in the Overview page.|
-"overview.accountActivity"|The widget that shows the account activity in the Overview page.|
-"overview.accountSecurity"|The widget that shows the account security information in the Overview page.|
-"overview.consents"|The widget that shows the consent information in the Overview page.|
+"overview.accountStatus"|The widget that shows the account status in the overview page.|
+"overview.accountActivity"|The widget that shows the account activity in the overview page.|
+"overview.accountSecurity"|The widget that shows the account security information in the overview page.|
+"overview.consents"|The widget that shows the consent information in the overview page.|
 
 To disable a sub-feature, pass the sub-feature name into the `"disabledFeatures"` array.
 
@@ -246,9 +263,9 @@ For example, to disable the account status widget do the following.
 }
 ```
 
-#### 2. Personal Info
+### 2. Personal Info
 
-The personal info feature can be configured via the `"personalInfo"` attribute of the `"features"` attribute under `"ui"`.
+The *Personal Info** feature can be configured via the `"personalInfo"` attribute of the `"features"` attribute under `"ui"`.
 
 ```json
 "ui":{
@@ -267,15 +284,15 @@ The personal info feature can be configured via the `"personalInfo"` attribute o
 }
 ```
 
-Set the `"enabled"` attribute to `false` to disable Personal Info altogether.
+Set the `"enabled"` attribute to `false` to disable this feature altogether.
 
-The Personal Info feature has the following sub-features that can be disabled:
+The **Personal Info** feature has the following sub-features that can be disabled:
 
 |Sub-feature| Description|
 |--|--|
-"profileInfo.linkedAccounts"|The Linked Accounts section in the Personal Info page.|
-"profileInfo.externalLogins"|The External Logins section in the Personal Info page.|
-"profileInfo.exportProfile"|The Export Profile section in the Personal Info page.|
+"profileInfo.linkedAccounts"|The Linked Accounts section in the **Personal Info** page.|
+"profileInfo.externalLogins"|The External Logins section in the **Personal Info** page.|
+"profileInfo.exportProfile"|The Export Profile section in the **Personal Info** page.|
 
 To disable a sub-feature, pass the name of the sub-feature into the `"disabledFeatures"` array.
 
@@ -297,7 +314,7 @@ For example, do the following to disable External Logins.
 	}
 }
 ```
-#### 3. Security
+### 3. Security
 
 The security feature can be configured via the `"security"` attribute of the `"features"` attribute under `"ui"`.
 
@@ -354,7 +371,7 @@ For example, do the following to disable the Active Sessions section.
 	}
 }
 ```
-#### 4. Applications
+### 4. Applications
 
 The applications feature can be configured via the `"applications"` attribute of the `"features"` attribute under `"ui"`.
 
@@ -379,7 +396,7 @@ Set the `"enabled"` attribute to `false` to disable Applications altogether.
 
 The applications feature does not have a sub-feature.
 
-#### 5. Operations
+### 5. Operations
 
 The operations feature can be configured via the `"operations"` attribute of the `"features"` attribute under `"ui"`.
 
