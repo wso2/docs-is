@@ -2,7 +2,7 @@
 
 ## What is FIDO?
 
-Fast IDentity Online (FIDO) is a set of protocols that supports authentication of any type including fingerprint, biometrics, and security tokens.. FIDO specifications support [multi-factor authentication](../multi-factor-authentication) and makes it simpler to authenticate users while also ensuring that security is enhanced. 
+Fast IDentity Online (FIDO) is a set of protocols that supports authentication of any type including fingerprint, biometrics, and security tokens. FIDO specifications support [multi-factor authentication](../multi-factor-authentication) and makes it simpler to authenticate users while also ensuring that security is enhanced. 
 
 FIDO protocols are based on public key cryptography and are strongly resistant to phishing. In order to address a wide range of use cases and deployment scenarios, FIDO provides two specifications that support two different user experience paths:
 
