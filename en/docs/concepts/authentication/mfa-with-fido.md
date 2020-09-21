@@ -2,7 +2,7 @@
 
 ## What is FIDO?
 
-Fast IDentity Online (FIDO) is a set of protocols that supports authentication of any type including fingerprint, biometrics, security tokens etc. FIDO specifications support [multi-factor authentication](../multi-factor-authentication) and makes it simpler to authenticate users while also ensuring that security is enhanced. 
+Fast IDentity Online (FIDO) is a set of protocols that supports authentication of any type including fingerprint, biometrics, and security tokens.. FIDO specifications support [multi-factor authentication](../multi-factor-authentication) and makes it simpler to authenticate users while also ensuring that security is enhanced. 
 
 FIDO protocols are based on public key cryptography and are strongly resistant to phishing. In order to address a wide range of use cases and deployment scenarios, FIDO provides two specifications that support two different user experience paths:
 
@@ -19,7 +19,7 @@ Universal Authentication Framework (UAF) involves a passwordless experience with
 
 -   The user carries the client device with the UAF stack installed. 
 -   The user presents a local biometric or PIN.
--   The website can choose whether to retain the password.
+-   The website can choose whether to retain the authentication information.
 
 ---
 
@@ -27,7 +27,7 @@ Universal Authentication Framework (UAF) involves a passwordless experience with
 
 U2F focuses on the second factor experience and has the following key processes:
 
--   The user carries the U2F device with built-in support in web browsers.
+-   The user carries the U2F device with built-in support for web browsers.
 -   The user presents the U2F device.
 -   The website can simplify the password (for example, it can be simplified to a 4-digit PIN).
 
@@ -66,6 +66,9 @@ For more information about FIDO and how it works, see the [official FIDO documen
 !!! info "Related Topics"
     - [Concept: Multi-Factor Authentication](../multi-factor-authentication)
     - [Guide: Configure Two-Factor Authentication with FIDO](../../../guides/mfa/2fa-fido)
+
+
+
 
 
 
