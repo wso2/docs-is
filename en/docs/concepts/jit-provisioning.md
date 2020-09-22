@@ -30,7 +30,7 @@ Using JIT provisioning saves time and cost as the provisioning is automated and 
 !!! info
     Optionally, you can also set up JIT provisioning to provision the new users persisted in WSO2 IS to the external system as well using [outbound provisioning](../provisioning-framework/#outbound-provisioning). 
 
-JIT provisioning is configured for a particular identity provider. Whenever you associate an identity provider with an application for outbound authentication, if JIT provisioning is enabled for that particular identity provider, the users from the external identity provider will be provisioned into WSO2 Identity Server's internal userstore. You can also pick the provisioning userstore that users are created in.
+JIT provisioning is configured for a particular identity provider. Whenever you associate an identity provider with an application for outbound authentication, if JIT provisioning is enabled for that particular identity provider, the users from the external identity provider will be provisioned into WSO2 Identity Server's internal userstore. You can also pick the provisioning userstore that the users are created in.
 
 ---
 
