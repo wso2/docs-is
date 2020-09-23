@@ -278,7 +278,7 @@ nav:
       - 'Deploying the Samples': learn/deploying-the-sample-app.md
     - 'Integrations':
       - 'Master Data Management': learn/configuring-master-data-management-solution.md
-    - 'User Portal': learn/user-portal.md
+    - 'My Account': learn/my-account.md
     - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
         - 'Users, Roles and Permissions':
@@ -610,7 +610,10 @@ nav:
       - 'Changing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
-      - 'Setting-Up User Portal in a Development Environment': develop/setting-up-user-portal-in-a-dev-environment.md
+      - 'My Account':
+        - 'Setting up in a Development Environment': develop/setting-up-my-account-in-a-dev-environment.md
+        - 'Customizing the UI': develop/customizing-my-account-ui.md
+        - 'Configuring the Application': develop/configure-my-account.md
   - 'Setup':
     - 'Install':
       - 'Installing the Product':
