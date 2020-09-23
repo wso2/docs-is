@@ -278,7 +278,7 @@ nav:
       - 'Deploying the Samples': learn/deploying-the-sample-app.md
     - 'Integrations':
       - 'Master Data Management': learn/configuring-master-data-management-solution.md
-    - 'User Portal': learn/my-account.md
+    - 'My Account': learn/my-account.md
     - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
         - 'Users, Roles and Permissions':
