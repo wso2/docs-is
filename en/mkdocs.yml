@@ -333,6 +333,7 @@ nav:
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
                   - 'SAML':
                           - 'Introduction': concepts/authentication/saml.md
+                          - 'SAML Front-Channel Logout': concepts/authentication/saml-front-channel.md
                   - 'WS-Federation':
                           - 'Introduction': concepts/authentication/ws-federation.md
                   - 'WS-Trust':
