@@ -13,13 +13,13 @@ The SAML 2.0 specification specifies three types of asynchronous (front-channel)
 
 - **HTTP POST binding**: This method transfers data using HTTP POST forms. The logout request is signed and the signature is embedded in the SAML request body. 
 
-- **Artifact binding**: Generally, SAML authentication requests and assertion data is sent through the browser using POST or Http Redirect binding. If you do not want to expose the entire message to the browser, you can use [artifact binding](TODO:link-to-guide/concept) instead. 
+- **Artifact binding**: Generally, SAML authentication requests and assertion data is sent through the browser using POST or HTTP Redirect binding. To avoid exposing the entire message to the browser this way, use [artifact binding](TODO:link-to-guide/concept) instead. 
 
 ---
 
 ## The flow
 
-Front-channel logout has two different usecases:
+Front-channel logout has two different use cases:
 
 1. **SP-initiated logout**: Logout initiated by the service provider application.
 
@@ -27,7 +27,7 @@ Front-channel logout has two different usecases:
 
 The following diagram illustrates the flow for **SP-initiated logout**. 
 
-![fido](../../assets/img/concepts/saml-front-channel.png)
+![saml-front-channel](../../assets/img/concepts/saml-front-channel.png)
 
 1. issue `<LogoutRequest>` 
 
@@ -50,7 +50,7 @@ The following diagram illustrates the flow for **SP-initiated logout**.
     The identity provider issues a `<LogoutResponse>` message to the original requesting session participant through the user agent. 
 
 !!! tip
-    In step 1,3,4 and 5 either HTTP Redirect, HTTP POST, or HTTP Artifact binding can be used to transfer the message to the identity provider through the user agent. 
+    In step 1,3,4, and 5 either HTTP Redirect, HTTP POST, or HTTP Artifact binding can be used to transfer the message to the identity provider through the user agent. 
 
 In an **IdP-initiated logout** scenario, the identity provider (acting as session authority) initiates this profile at step 2 and issues a `<LogoutRequest>` message to all session participants. Step 5 is skipped in this scenario. 
 
