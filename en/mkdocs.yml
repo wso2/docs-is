@@ -158,7 +158,7 @@ nav:
         - 'Request Path Authentication':
           - 'Basic Auth Request Path Authentication': guides/basic-auth-request-path.md
           - 'OAuth Request Path Authentication': guides/oauth-request-path.md
-      - 'Multifactor Authentication':
+      - 'Multi-Factor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':
           - 'Password': guides/mfa/password.md
@@ -342,7 +342,8 @@ nav:
                   - 'Kerberos':
                           - 'Introduction to Kerberos': concepts/authentication/kerberos.md
           - 'Adaptive Authentication': concepts/authentication/adaptive-authentication.md
-          - 'Multi Factor Authentication': concepts/authentication/mfa.md
+          - 'Multi Factor Authentication': concepts/authentication/multi-factor-authentication.md
+          - 'FIDO': concepts/authentication/mfa-with-fido.md
       - 'Authorization':
           - 'Introduction': concepts/authorization/intro-authorization.md
           - 'Authorization Protocols':
@@ -376,8 +377,6 @@ nav:
       - 'Identity Provisioning':
           - 'Introduction': concepts/identity-provisioning-intro.md
           - 'Provisioning Framework': concepts/provisioning-framework.md
-          - 'Inbound Provisioning': concepts/inbound-provisioning.md
-          - 'Outbound Provisioning': concepts/outbond-provisioning.md
           - 'JIT Provisioning': concepts/jit-provisioning.md
       - 'Consent Management': concepts/consent-management.md
       - 'Identity Anti-Patterns': concepts/identity-anti-patterns.md

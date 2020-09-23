@@ -40,8 +40,7 @@ etc. This method is stronger than single-factor authentication but weaker than m
 
 #### Multi-Factor Authentication
 This method utilizes factors that are independent of each other such as something you know, something you have, and 
-something you are, in order to eliminate any data exposure. For example, a system that is secured using multi-factor 
-authentication (MFA) can use three verification steps such as username-password credentials, SMS OTP, and fingerprint to authenticate
+something you are, in order to eliminate any data exposure. For example, a system that is secured using [multi-factor authentication (MFA)](../multi-factor-authentication) can use three verification steps such as username-password credentials, SMS OTP, and fingerprint to authenticate
 a user to the system.
 
 ![MFA](../../assets/img/concepts/multi-factor.png)
