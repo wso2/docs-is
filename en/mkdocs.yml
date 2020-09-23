@@ -329,6 +329,7 @@ nav:
                   - 'SAML':
                           - 'Introduction': concepts/authentication/saml.md
                           - 'SAML Front-Channel Logout': concepts/authentication/saml-front-channel.md
+                          - 'SAML Back-Channel Logout': concepts/authentication/saml-back-channel.md
                   - 'WS-Federation':
                           - 'Introduction': concepts/authentication/ws-federation.md
                   - 'WS-Trust':
