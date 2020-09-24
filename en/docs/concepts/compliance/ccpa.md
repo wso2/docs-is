@@ -29,7 +29,7 @@ The California Consumer Privacy Act (CCPA) is a bill passed by the California St
     By anonymizing data stored in a system, after an erasure, it ensures that there won’t be any information left in the system to identify PI. 
     Pseudonymization helps the system to keep the context related to the operation without keeping the actual PI.
 
-    WSO2 Identity Server introduced a privacy tool kit that can be used to delete all identifiable data from the data storage and log files whenever required. 
+    WSO2 Identity Server provides a privacy tool kit that can be used to delete all identifiable data from the data storage and log files whenever required. 
     
     This privacy toolkit provides the following functionalities.
 
