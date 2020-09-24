@@ -390,6 +390,7 @@ nav:
       - 'Compliance':
           - 'GDPR': concepts/compliance/gdpr.md
           - 'eIDAS': concepts/compliance/eidas.md
+          - 'CCPA': concepts/compliance/ccpa.md
       - 'Security Considerations':
           - 'Mitigating Cross Site Request Forgery Attacks': concepts/cross-site-request-forgery-attacks.md
           - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
