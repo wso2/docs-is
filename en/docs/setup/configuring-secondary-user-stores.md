@@ -131,12 +131,12 @@ steps to create and save the .xml file:
     throws an exception at start up.
 
 2.  If the configuration is done for the super tenant, save the
-    secondary user store definitions in
+    secondary user store definitions in the
     `           <IS_HOME>/repository/deployment/server/userstores
     directory.
 
 3.  If the configuration is done for the tenant, save the configuration
-    in
+    in the
     `           <IS_HOME>/repository/tenants/<tenantid>/userstores          `
     directory.
 
