@@ -509,6 +509,7 @@ nav:
       - 'Working with the Source Code': develop/working-with-the-source-code.md
       - 'Using SDKs':
         - 'Overview': develop/sdk-overview.md
+        - 'Enable Authentication for Spring Boot App': develop/spring-boot.md
       - 'Extending the Identity Server':
         - 'Overview': develop/extending-the-identity-server.md
         - 'User Management for Developers':
