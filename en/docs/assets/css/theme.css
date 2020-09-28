@@ -68,10 +68,17 @@
 	border-top: 4px solid #ff7043;
 }
 
+<<<<<<< HEAD
 /* Added to keep the tiles intact 
 .md-container { 
 	height: auto !Important; 
 }*/
+=======
+/* Added to keep the tiles intact
+.md-container { 
+	height: auto !Important; 
+} */
+>>>>>>> 5.10.0
 
 .md-header-nav__button.md-logo>img {
 	width: 60px;

@@ -8,7 +8,7 @@ including the sample requests and responses.
 - [Application Management](../../develop/application-rest-api)
 - [Approvals](../../develop/approvals-rest-api)
 - [Associations](../../develop/association-rest-api)
-- [Authentication](../../develop/authentication-data-api)
+- [Authentication Data](../../develop/authentication-data-api)
 - [Authentication](../../develop/using-the-authentication-rest-apis)
 - [Authorized Apps](../../develop/authorized-apps-rest-api)
 - [Challenge Question](../../develop/challenge-rest-api)

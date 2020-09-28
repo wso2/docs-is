@@ -192,8 +192,6 @@ To enable hostname verification:
 
 By default, XSS attacks are prevented in the latest WSO2 Identity Server versions. This is due to output encoding of the displaying values. 
 
-If additional protection is required, an input validation valve can be configured. For instructions, see <a href="../../administer/mitigating-cross-site-scripting-attacks">Mitigating Cross Site Scripting Attacks</a>.
-
 
 ## JSESSIONID length
 
@@ -227,7 +225,7 @@ To change the administrator credentials:
 
 Majority of the users only need to sign in to the connected service providers via WSO2 Identity Server. Such users should not have permissions to sign in to the Management Console.
 
-Make sure that the permission for signing in to the Canagement Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a>.
+Make sure that the permission for signing in to the Management Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a>.
 
 ## Log rotation and monitoring
 
@@ -271,4 +269,3 @@ Log forging can be prevented by appending a UUID to the log message.
 If mutual SSL is enabled, [enable intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
 
 If mutual SSL authentication capabilities are not required, you can [disable it](../../administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is).
-

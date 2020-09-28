@@ -79,6 +79,7 @@ exempt_contexts=["dcr","scim2"]
     When using intermediate certificate validation, note that `CN` will be taken as the `username` instead of retrieving it from the header therefore, the incoming certificate request CN should ideally be the username of the user who is sending the request. 
 
     The certificate CN should be in the following formats for the following cases.
+    
     - If the user is in the primary userstore, the incoming cert CN should be just the `<username>` e.g., `john`.
     - If the user is in a secondary userstore, the incoming cert CN should be `<userstore_domain>/<username>` e.g., `SECONDARY/john`.
     - If the user is not a super tenant and belongs to the primary userstore, the incoming cert CN should be `<username@tenant_doman>` e.g., `john@abc.com`.

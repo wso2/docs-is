@@ -21,7 +21,7 @@ Follow the steps below to define the password policy that Sam wants to enforce.
 
 !!! tip "Before you begin"
 
-	1.	[Run WSO2 Identity Sever](../../setup/running-the-product/).
+	1.	[Run WSO2 Identity Server](../../setup/running-the-product/).
 
 	2.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator.
 
