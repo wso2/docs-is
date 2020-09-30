@@ -1,11 +1,6 @@
 # SAML Front-Channel Logout
 
-SAML front-channel logout enables a user to log out of an application and simulatenously log out of other connected applications without having to explicity log out of them one by one. The [SAML 2.0](TODO:link-to-concept) protocol has two approaches for single logout. 
-
-1. Synchronous binding (back-channel)
-2. Asynchronous binding (front-channel)
-
-The main difference between back-channel logout and front-channel logout is that the front-channel method uses the web browser and user sessions to handle the logout, but the back-channel method does not use the web browser to terminate sessions. Instead, in back-channel logout, it is handled via server-to-server communication. 
+{!fragments/saml-logout-concept.md!}
 
 The SAML 2.0 specification specifies three types of asynchronous (front-channel) bindings to send a request to the identity provider through the user agent.
 
@@ -58,7 +53,7 @@ In an **IdP-initiated logout** scenario, the identity provider (acting as sessio
 
 !!! info "Related Topics"
     - [Concept: SAML 2.0](TODO:link-to-concept)
-    - [Concept: SAML Back-Channel Logout](TODO:link-to-concept)
+    - [Concept: SAML Back-Channel Logout](../saml-back-channel)
     - [Guide: SAML Front-Channel Logout](../../../guides/login/saml-front-channel-logout)
     - [Demo: SAML Front-Channel Logout](../../../quick-starts/saml-front-channel-logout)
     - [Guide: Use SAML Artifact Binding](../../../guides/login/use-artifact-binding)
