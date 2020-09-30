@@ -7,7 +7,7 @@
 ## Overview
 This showcases the capability to integrate a spring-boot application with WSO2 Identity Server for secure authentication using OpenID Connect standard.
 
-## Register Application
+## Register application
 
 1. Access the WSO2 Identity Server Management Console. 
 
@@ -191,7 +191,7 @@ Even though Spring Boot generates a default login page, follow the instructions 
     }
     ```
 
-2. Have a Login Controller Class and render the login page when the browser is redirected to `/oauth-login`. 
+2. Create a Login Controller Class and render the login page when the browser is redirected to `/oauth-login`. 
 
     ```java
 
@@ -227,7 +227,7 @@ Even though Spring Boot generates a default login page, follow the instructions 
     }
     ```
 
-#### Have a `oidc-login.html` page inside the `resources/templates` folder
+#### Create an `oidc-login.html` page inside the `resources/templates` folder
 
 Create a template at `src/main/resources/oidc-login.html` to display the login option.
 
@@ -250,7 +250,7 @@ Create a template at `src/main/resources/oidc-login.html` to display the login o
 
 ## Logout
 
-### Use the Default/logout endpoint
+### Use the default/logout endpoint
 
 By default, Spring Boot provides the `/logout` endpoint to provide the logout capability. 
 
@@ -311,7 +311,7 @@ Follow the instructions given below to configure the post logout URI.
 
 If you wish to customize the logout endpoint, follow the steps below. 
 
-1. Have a ConfigSecurity class by extending WebSecurityConfigurerAdapter and configure the logoutUrl
+1. Create a `ConfigSecurity` class by extending WebSecurityConfigurerAdapter and configure the logoutUrl
     ```java
 
 
@@ -347,7 +347,7 @@ If you wish to customize the logout endpoint, follow the steps below.
     }
 
     ```
-####  Have a Logout button and redirect to custom logout (“/applogout”) url
+####  Add a logout button and redirect to custom logout (“/applogout”) url
  
 Create a template at `src/main/resources/login.html` to display the Logout option and have a logout button.
 
@@ -363,7 +363,7 @@ Add the `/applogout` redirection when user clicks the `Logout` button.
 
 ```
 
-## Read User Information
+## Read user information
 
 * You can get the user information from `org.springframework.security.core.Authentication`and 
 `org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser` classes.
