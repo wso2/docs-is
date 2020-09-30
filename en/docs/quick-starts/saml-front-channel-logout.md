@@ -97,7 +97,9 @@ TODO: dev-portal-fragment
 7.  You will be successfully logged out of both the applications.
 
     ![spring-logout](../../assets/img/samples/spring-logout.png)
+
+---
     
 !!! info "Related Topics"
-    -   [Concept: Configuring SAML Front Channel Logout](TODO:insert-link-to-concept)
+    -   [Concept: Configuring SAML Front Channel Logout](../../../concepts/authentication/saml-front-channel)
     -   [Guide: Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)
