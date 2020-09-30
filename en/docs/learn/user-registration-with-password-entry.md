@@ -27,7 +27,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 		ask_password_from_user= true
 		```
 
-	2.	To configure the email server to send emails requesting passwor entry, add the following configurations.
+	2.	To configure the email server to send emails requesting password entry, add the following configurations.
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
 		-	**username**: This is the user name of the given email address.
@@ -108,7 +108,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 		-	**Username**: `Jane`
 		-	**Define password here**: Unselected
 		-	**Ask Password from user**: Selected
-		-	**Email Address**: Enter the email address to which you wish to recieve the account confirmation email. 
+		-	**Email Address**: Enter the email address to which you wish to receive the account confirmation email. 
 
 			!!! tip "Using special characters in the email address"
 

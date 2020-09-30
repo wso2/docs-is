@@ -27,7 +27,6 @@ distribution.
     2.  To download the pack without updates, click **DOWNLOAD**.
 
     !!! note
-    
         The installation prerequisites for WSO2 IS Analytics is as same as
         for WSO2 Stream Processor (WSO2 SP). Therefore, for detailed
         information about the supporting applications you need to install,

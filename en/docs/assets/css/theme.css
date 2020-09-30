@@ -68,10 +68,11 @@
 	border-top: 4px solid #ff7043;
 }
 
-/* Added to keep the tiles intact 
+/* Added to keep the tiles intact
 .md-container { 
 	height: auto !Important; 
-}*/
+} */
+
 
 .md-header-nav__button.md-logo>img {
 	width: 60px;

@@ -154,7 +154,7 @@ To remove a patch:
     (from the [backup](#applying-patches-to-the-product) that was
     created before applying the patch). Also if there were exploded
     artifacts (such as \*.war files in the
-    `          <IS_HOME>/repository/deployment/server/webaps         `
+    `          <IS_HOME>/repository/deployment/server/webapps         `
     directory), be sure to remove them as well.  
 3.  Restart the server. The remaining patches will now be reinstalled.  
 

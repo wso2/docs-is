@@ -108,5 +108,5 @@ using another endpoint you need to add the dependency as shown below.
 
 2.  Enable the CORS filter for the web application by adding the filter
     configuration to the web.xml in the
-    `          <SAMPLE_WEB_APP>/src/main/webapp/WEB-INF         `
+    `          <SAMPLE_WEB_APP>/src/main/webapps/WEB-INF         `
     directory as mentioned above in the second approach.
