@@ -334,7 +334,7 @@ nav:
                           - 'Back-channel-logout': concepts/authentication/back-channel-logout.md
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
                   - 'SAML':
-                          - 'Introduction': concepts/authentication/saml.md
+                          - 'Introduction': concepts/authentication/intro-saml.md
                           - 'SAML Front-Channel Logout': concepts/authentication/saml-front-channel.md
                           - 'SAML Back-Channel Logout': concepts/authentication/saml-back-channel.md
                   - 'WS-Federation':
