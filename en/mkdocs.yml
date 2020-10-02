@@ -297,7 +297,9 @@ nav:
     - 'Deploy': deploy/deploying-wso2-identity-server.md
     - 'choose your model': deploy/choose-your-model.md
   - 'APIs':
-    - 'REST API Reference': apis/rest-api-reference.md
+    - 'Overview': apis/rest-apis.md
+    - 'Authenticating and Authorizing': apis/authenticating-and-authorizing-rest-apis.md
+    - 'Application Management': apis/application-rest-api.md
   - 'Concepts':
       - 'User Management': 
         - 'Overview': concepts/user-management/user-management.md
