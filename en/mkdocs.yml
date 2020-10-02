@@ -298,8 +298,12 @@ nav:
     - 'choose your model': deploy/choose-your-model.md
   - 'APIs':
     - 'Overview': apis/rest-apis.md
-    - 'Authenticating and Authorizing': apis/authenticating-and-authorizing-rest-apis.md
-    - 'Application Management': apis/application-rest-api.md
+    - 'Authenticating and Authorizing APIs': apis/authenticating-and-authorizing-rest-apis.md
+    - 'Application Management APIs': apis/application-rest-api.md
+    - 'Challenge Questions Management APIs': apis/challenge-question-rest-api.md
+    - 'Attribute/Claim Management APIs': apis/claim-management-rest-api.md
+    - 'Email Templates Management APIs': apis/email-templates-rest-api.md
+    - 'FIDO APIs': apis/fido-rest-api.md
   - 'Concepts':
       - 'User Management': 
         - 'Overview': concepts/user-management/user-management.md
