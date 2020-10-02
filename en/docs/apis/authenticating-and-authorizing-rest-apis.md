@@ -20,6 +20,8 @@ service based on its own handlers.
 
 !!! note
     You can write your own handlers for both authentication and authorization and register them in OSGI.
+
+---
     
 ## Secure resources
 
@@ -47,6 +49,7 @@ secured = true
 http_method = "all"
 permissions = ["p1","p2"]
 ```
+---
 
 ## Configure intermediate certificate validation
 
