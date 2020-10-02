@@ -70,12 +70,9 @@ paths:
         * <b>INIT</b>- Generate TOTP QR code URL for the authenticated user
         * <b>REFRESH</b> - Refresh TOTP secret key of the authenticated user
         * <b>VALIDATE</b> - Validate the user entered verification code
-        
-        
+
         <b>Permission required:</b>
         * none
-        
-        
         <b>Scope required:</b>
         * internal_login
       summary: |
