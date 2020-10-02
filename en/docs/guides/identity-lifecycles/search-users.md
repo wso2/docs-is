@@ -52,6 +52,6 @@ you the user ID of the relevant username.
 ---
 
 !!! info "Related Topics"
-    - [Concept: Users](TODO:insert-link-to-concept)
+    - [Concept: Users](../../../concepts/user-management/users)
     - [Guide: Ways of User Onboarding](../onboard-overview)
     - [Guide: Delete Users](../delete-users)

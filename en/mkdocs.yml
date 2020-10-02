@@ -299,7 +299,12 @@ nav:
   - 'APIs':
     - 'REST API Reference': apis/rest-api-reference.md
   - 'Concepts':
-      - 'User Management': concepts/user-management.md
+      - 'User Management': 
+        - 'Overview': concepts/user-management/user-management.md
+        - 'Users': concepts/user-management/users.md
+        - 'Roles and Permissions': concepts/user-management/roles-and-permissions.md
+        - 'Userstores': concepts/user-management/userstores.md
+        - 'Realms': concepts/realm.md
       - 'Authentication':
           - 'Introduction': concepts/authentication/intro-authentication.md
           - 'Authentication Protocols':
@@ -384,8 +389,9 @@ nav:
                 - 'WS-Federation vs WS-Trust': concepts/federation-trust.md
                 - 'SSO vs Identity Federation': concepts/sso-vs-federation.md
       - 'Compliance':
-          - 'GDPR': concepts/gdpr.md
-          - 'eIDAS': concepts/eidas.md
+          - 'GDPR': concepts/compliance/gdpr.md
+          - 'eIDAS': concepts/compliance/eidas.md
+          - 'CCPA': concepts/compliance/ccpa.md
       - 'Security Considerations':
           - 'Mitigating Cross Site Request Forgery Attacks': concepts/cross-site-request-forgery-attacks.md
           - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
