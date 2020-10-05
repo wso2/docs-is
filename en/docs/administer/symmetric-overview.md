@@ -1,0 +1,29 @@
+# An Overview of Symmetric Encryption
+
+With symmetric encryption a single key will be shared for encryption and decryption of information. From WSO2 Identity Server 5.11.0 onwards, symmetric encryption will be used by default. You can switch to [asymmetric key encryption](../../administer/using-asymmetric-encryption) if required.
+
+Follow the steps given below to enable symmetric encryption. 
+
+1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
+2.  Add the following configuration.
+
+    The `key = "value"` property is used to specify the secret alias if secure vault has been used to encrypt the secret key.
+
+    ``` toml
+    [encryption]
+    key = "value"
+    ```
+    
+!!! note "Why is symmetric key encryption used by default instead of asymmetric encryption now?"
+    The asymmetric key encryptio was used for encrypting internal data as well as for signing purposes for all versions prior to WSO2 IS 5.11.0.
+    Instead, this release uses symmetric key encryption as the default encryption mechanism to encrypt internal sensitive data. Following are the reasons for this decision.
+    
+    - **Capability to change the keystores easily** - 
+    Earlier, since internal data was also encrypted using asymmetric key encryption, whenever the certificates expired, or when the keystore needed to be changed, all the data encrypted using the old keystore had to be migrated.
+    Now, with the introduction of symmetric key encryption for internal sensitive data, this overhead is resolved. The secret key in symmetric key encryption will be encrypted using asymmetric key encryption. So, the secret key of symmetric key encryption needs to be re-encrypted only when a keystore change is required.
+    
+    - **Industry wide usage** - 
+       Symmetric key encryption is used as an accepted industry-wide mechanism for encrypting internal sensitive data. This included both on-prremise as well as cloud platforms. 
+
+
+For more information on how to configure the properties related to symmetric key encryption, see [Configurations Related to Symmetric Key Encryption](../../administer/using-symmetric-encryotion).

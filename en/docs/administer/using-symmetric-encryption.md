@@ -1,15 +1,59 @@
-# Using Symmetric Encryption
+# Configurations Related to Symmetric Key Encryption
 
-With symmetric encryption a single key will be shared for encryption and decryption of information. Even though, WSO2 Identity Server uses [asymmetric encryption](../../administer/using-asymmetric-encryption) by default, you can switch to symmetric encryption. 
+This section explains the default configurations related to [symmetric key encryption](../../administer/symmetric-overview).
 
-Follow the steps given below to enable symmetric encryption. 
+## Algorithm used
 
-1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
-2.  Add the following configuration.
+`AES/GCM/NoPadding` is used as the symmetric key encryption algorithm. 
 
-    The `key = "value"` property is used to specify the secret alias if secure vault has been used to encrypt the secret key.
+GCM is a stream cipher. Hence, there is a performance advantage of using it due to parallel encryption of each block. There is no need to use a padding mechanism in GCM mode. In GCM mode, the initialization vector (IV) should be a unique value for each encryption request. The corresponding IVs of each unique value should be kept track of in order to decrypt. The keysize supported is AES-128. 
 
-    ``` toml
-    [encryption]
-    key = "value"
-    ```
+The following configuration is enabled by default in the `<IS_HOME>/repository/conf/carbon.properties` file for the algorithm to be used.
+
+```xml
+org.wso2.CipherTransformation=AES/GCM/NoPadding
+```
+
+---
+
+## Internal crypto provider
+
+The `org.wso2.carbon.crypto.provider.SymmetricKeyInternalCryptoProvider` provider is used as the internal crypto provider. When configuring the `SymmetricKeyInternalCryptoProvider` the secret key value needs to be provided in the configuration as well. 
+
+The following configuration is enabled by default in the `<IS_HOME>/repository/resources/conf/default.json` file to use the above-mentioned internal crypto provider.
+
+```xml 
+"encryption.internal_crypto_provider": "org.wso2.carbon.crypto.provider.SymmetricKeyInternalCryptoProvider",
+"encryption.key": "03BAFEB27A8E871CAD83C5CD4E771DAB"
+```
+
+The corresponding xml configuration can be found in the `<IS_HOME>/repository/conf/carbon.xml` file. 
+
+```xml 
+<InternalCryptoProviderClassName>org.wso2.carbon.crypto.provider.SymmetricKeyInternalCryptoProvider</InternalCryptoProviderClassName>
+<Secret>03BAFEB27A8E871CAD83C5CD4E771DAB</Secret>
+```
+
+The `encryption.key` or `<Secret>` value is a dummy value. Generate a unique secret key using a tool like openssl as shown below. 
+
+```xml 
+openssl enc -nosalt -aes-128-cbc -k hello-world -P
+```
+
+Once a secure secret key is generated, configure it using the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+```toml
+[encryption]
+key = "83BAREB27A8E871CAD83C5CD4E771DAB"
+```
+
+---
+
+## Userstore password encryption
+
+Earlier, there was a configuration to enable the preferred keystore (Internal or primary) to encrypt secondary userstore passwords.
+However, with symmetric key encryption keystore references are not required. So, this configuration has a blank as its value. 
+
+```toml
+"keystore.userstore_password_encryption": "",
+```
