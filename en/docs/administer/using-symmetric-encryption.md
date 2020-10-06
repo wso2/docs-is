@@ -1,12 +1,13 @@
 # Configurations Related to Symmetric Key Encryption
 
-This section explains the default configurations related to [symmetric key encryption](../../administer/symmetric-overview).
+This section explains the default configurations related to [symmetric key encryption](../../administer/symmetric-overview). From WSO2 Identity Server 5.11.0 onwards, symmetric encryption will be used by default. You can switch to [asymmetric key encryption](../../administer/using-asymmetric-encryption) if required.
+
 
 ## Algorithm used
 
 `AES/GCM/NoPadding` is used as the symmetric key encryption algorithm. 
 
-GCM is a stream cipher. Hence, there is a performance advantage of using it due to parallel encryption of each block. There is no need to use a padding mechanism in GCM mode. In GCM mode, the initialization vector (IV) should be a unique value for each encryption request. The corresponding IVs of each unique value should be kept track of in order to decrypt. The keysize supported is AES-128. 
+GCM is a stream cipher. Hence, there is a performance advantage of using it due to parallel encryption of each block. There is no need to use a padding mechanism in GCM mode. In GCM mode, the initialization vector (IV) should be a unique value for each encryption request. The corresponding IVs of each unique value should be kept track of in order to decrypt this internal data. The keysize supported is AES-128. 
 
 The following configuration is enabled by default in the `<IS_HOME>/repository/conf/carbon.properties` file for the algorithm to be used.
 
@@ -51,7 +52,7 @@ key = "83BAREB27A8E871CAD83C5CD4E771DAB"
 
 ## Userstore password encryption
 
-Earlier, there was a configuration to enable the preferred keystore (Internal or primary) to encrypt secondary userstore passwords.
+Prior to 5.11.0, there was a configuration to enable the preferred keystore (internal or primary) to encrypt secondary userstore passwords.
 However, with symmetric key encryption keystore references are not required. So, this configuration has a blank as its value. 
 
 ```toml
