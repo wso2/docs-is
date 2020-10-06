@@ -21,7 +21,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: ".../../apis/restapis/approvals.yaml",
+    url: "../../apis/restapis/approvals.yaml",
     name: "Download the yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
