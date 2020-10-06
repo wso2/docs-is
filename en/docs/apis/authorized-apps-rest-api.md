@@ -19,7 +19,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: ".../../apis/restapis/authorizedapps.yaml",
+    url: "../../apis/restapis/authorizedapps.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
