@@ -7,13 +7,14 @@ template: templates/swagger.html
 !!! Note 
     Before invoking the session management REST APIs, create some sessions for the user. You can create active 
     sessions for the users as follows.
-       1. Register a service provider in the WSO2 Identity Server so that the authentication for the application will
-        be handled by the Identity Server.
-       2. Login to the application with valid credentials.
+       1. Register a service provider in WSO2 Identity Server (WSO2 IS) so that the authentication for the application will
+        be handled by WSO2 IS.
+       2. Log in to the application with valid credentials.
+
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server (WSO2 IS). 
     
        1.  Click **Authorize** and provide desired values for authentication. 
-       2.  Expand the relevant API operation and click the **Try it Out** button.  
+       2.  Expand the relevant API operation and click **Try it Out**.  
        3.  Fill in relevant sample values for the input parameters and click **Execute**. 
             You will receive a sample curl command with the sample values you filled in. 
        4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2

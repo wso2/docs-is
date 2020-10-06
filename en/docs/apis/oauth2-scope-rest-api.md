@@ -13,7 +13,7 @@ scope names in WSO2 IS. For information about the OIDC scope endpoint, see [OIDC
     To try some APIs, a tenant needs to be created with the domain name as 'wso2.com'. 
     See [here](TODO:insert-link-to-guide) for more details on this.
     
-    1.  Click **Authorize**  and provide the desired values for authentication. 
+    1.  Click **Authorize** and provide the desired values for authentication. 
     2.  Expand the relevant API operation and click **Try it Out**.  
     3.  Fill in relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
