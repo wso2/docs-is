@@ -299,7 +299,16 @@ nav:
   - 'APIs':
     - 'Overview': apis/rest-apis.md
     - 'Authenticating and Authorizing APIs': apis/authenticating-and-authorizing-rest-apis.md
+    - 'Account Recovery': apis/insert-page
     - 'Application Management APIs': apis/application-rest-api.md
+    - 'Approvals': apis/approvals-rest-api.md
+    - 'Associations': apis/association-rest-api.md
+    - 'Authentication Data': apis/authentication-data-api.md
+    - 'Authentication': apis/insert-page
+    - 'Authorized Apps': apis/authorized-apps-rest-api.md
+    - 'Configuration Management': 
+      - 'Overview': apis/using-the-configuration-management-rest-apis.md
+      - 'Retrieving Tenant Resources Based on Search Parameters': apis/retrieving-tenant-resources-based-on-search-parameters.md
     - 'Challenge Questions Management APIs': apis/challenge-question-rest-api.md
     - 'Attribute/Claim Management APIs': apis/claim-management-rest-api.md
     - 'Email Templates Management APIs': apis/email-templates-rest-api.md
