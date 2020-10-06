@@ -1,11 +1,16 @@
 ---
 template: templates/swagger.html
 ---
+# OpenID Connect Scope Management Rest API Definition - v1
 
-# Email Template Management API Definition - v1
+The OIDC scope API in WSO2 Identity Server(IS) can be used to manage OIDC scopes and map claims.
+Since OIDC scope is a sub category of OAuth2 scopes, these end points cannot have the same scope names in WSO2 IS. 
+For more information about the OAuth2 scope endpoint, see [OAuth2 Scope Management REST APIs](../../apis/oauth2-scope-rest-api).
 
 !!! Note 
-    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server (WSO2 IS). 
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 IS.
+    To try some APIs, a tenant needs to be created with the domain name as 'wso2.com'. 
+    See [here](TODO:insert-link-to-guide) for more details on this.
     
     1.  Click **Authorize** and provide the desired values for authentication. 
     2.  Expand the relevant API operation and click **Try it Out**.  
@@ -21,7 +26,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../apis/restapis/email-template.yaml",
+    url: "../../apis/restapis/oidc-scope-management.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
@@ -38,3 +43,5 @@ window.onload = function() {
   window.ui = ui
 }
 </script>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fb712a9e2a2f92c54d8f)
