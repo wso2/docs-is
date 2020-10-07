@@ -312,6 +312,7 @@ nav:
     - 'Challenge Questions Management APIs': apis/challenge-question-rest-api.md
     - 'Attribute/Claim Management APIs': apis/claim-management-rest-api.md
     - 'Email Templates Management APIs': apis/email-templates-rest-api.md
+    - 'Entitlement': apis/entitlement-with-rest-apis.md
     - 'FIDO APIs': apis/fido-rest-api.md
     - 'Identity Providers Management APIs': apis/idp-rest-api.md
     - 'Keystore Management APIs': apis/keystore-rest-api.md
@@ -319,6 +320,7 @@ nav:
     - 'OpenID Connect Scope Management': apis/oidc-scope-rest-api.md
     - 'Permission Management' : apis/permission-rest-api.md
     - 'Script Libraries': apis/script-library-rest-api.md
+    - 'Scope-based Authorization': apis/scope-based-authorization-for-internal-rest-apis.md
     - 'Secondary User Store': apis/user-store-rest-api.md
     - 'Session Management': apis/session-rest-api.md
     - 'TOTP': apis/totp-rest-api.md
