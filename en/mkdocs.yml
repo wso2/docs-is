@@ -310,19 +310,24 @@ nav:
       - 'Overview': apis/using-the-configuration-management-rest-apis.md
       - 'Retrieving Tenant Resources Based on Search Parameters': apis/retrieving-tenant-resources-based-on-search-parameters.md
     - 'Challenge Questions Management APIs': apis/challenge-question-rest-api.md
+    - 'CORS APIs': apis/cors-rest-api.md
     - 'Attribute/Claim Management APIs': apis/claim-management-rest-api.md
     - 'Email Templates Management APIs': apis/email-templates-rest-api.md
     - 'FIDO APIs': apis/fido-rest-api.md
+    - 'Identity Governance APIs': apis/identity-governance-rest-api.md
     - 'Identity Providers Management APIs': apis/idp-rest-api.md
     - 'Keystore Management APIs': apis/keystore-rest-api.md
-    - 'OAuth2 Scope Management': apis/oauth2-scope-rest-api.md
-    - 'OpenID Connect Scope Management': apis/oidc-scope-rest-api.md
-    - 'Permission Management' : apis/permission-rest-api.md
-    - 'Script Libraries': apis/script-library-rest-api.md
-    - 'Secondary User Store': apis/user-store-rest-api.md
-    - 'Session Management': apis/session-rest-api.md
-    - 'TOTP': apis/totp-rest-api.md
-    - 'User Discoverable Application Management': apis/user-discoverable-app-rest-api.md
+    - 'SCIM 2.0.APIs': apis/scim-rest-api.md
+    - 'Server Configuration APIs': apis/server-configs-rest-api.md
+    - 'OAuth2 Scope Management APIs': apis/oauth2-scope-rest-api.md
+    - 'OpenID Connect Scope Management APIs': apis/oidc-scope-rest-api.md
+    - 'Permission Management APIs' : apis/permission-rest-api.md
+    - 'Script Libraries APIs': apis/script-library-rest-api.md
+    - 'Secondary User Store APIs': apis/user-store-rest-api.md
+    - 'Session Management APIs': apis/session-rest-api.md
+    - 'Tenant Management APIs': apis/tenant-rest-api.md
+    - 'TOTP APIs': apis/totp-rest-api.md
+    - 'User Discoverable Application Management APIs': apis/user-discoverable-app-rest-api.md
   - 'Concepts':
       - 'User Management': 
         - 'Overview': concepts/user-management/user-management.md
