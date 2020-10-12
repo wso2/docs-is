@@ -49,7 +49,7 @@ To mitigate this, enable cleaning data in chunks by configuring the following pr
 
 ``` toml
 [session_data.cleanup]
-clean_expired_session_data_in_chunks_of = true
+clean_expired_session_data_in_chunks_of = "8192"
 ```
 
 !!! info 
