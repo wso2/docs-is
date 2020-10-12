@@ -36,6 +36,14 @@ wise, follow the steps below:
         ```
     
         Restart the server to save the changes. Once you add these global configurations, each tenant that is created after adding the configuration will inherit the same configurations.
+        
+!!! note 
+    With every authentication, the value of `remember_me_session_timeout` is updated for each user. To disable extending this expiry time with each authentication request, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+    
+    ``` toml
+    [session.timeout]
+    extend_remember_me_session_timeout_on_auth=false
+    ```
 
 Now the SSO session is timed out according to the newly configured value
 and users need to be re-authenticated once the session times out. If a
