@@ -20,16 +20,10 @@ met.
     Clustering](../../setup/setting-up-separate-databases-for-clustering)
     .
 
-        !!! warning
-        
-           To use this feature, apply the `0263` WUM update for WSO2 Identity Server 5.10.0 using the WSO2 
-           Update Manager (WUM).To deploy a WUM update into production, you need to have a paid 
-           subscription. If you do not have a paid subscription, you can enable this feature by running the 
-           relevant query for your database from the queries given below, or use it with the next version of 
-           WSO2 Identity Server when it is released.
-           
-           For more information on updating WSO2 Identity Server using WUM, see 
-           [Updating WSO2 Products](https://is.docs.wso2.com/en/5.10.0/administer/getting-wso2-updates/).
+    !!! warning
+        To use this feature, apply the `0263` WUM update for WSO2 Identity Server 5.10.0 using the WSO2 
+        Update Manager (WUM).To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can enable this feature by running the relevant query for your database from the queries given below, or use it with the next version of WSO2 Identity Server when it is released.
+        For more information on updating WSO2 Identity Server using WUM, see [Updating WSO2 Products](https://is.docs.wso2.com/en/5.10.0/administer/getting-wso2-updates/).
 
     
     ``` sql tab="H2"
@@ -60,7 +54,7 @@ met.
     CREATE TABLE IF NOT EXISTS IDN_CONFIG_ATTRIBUTE (
     ID         VARCHAR(255)  NOT NULL,
     RESOURCE_ID  VARCHAR(255)  NOT NULL,
-    ATTR_KEY   VARCHAR(1023) NOT NULL,
+    ATTR_KEY   VARCHAR(255) NOT NULL,
     ATTR_VALUE VARCHAR(1023) NULL,
     PRIMARY KEY (ID),
     UNIQUE (RESOURCE_ID, ATTR_KEY, ATTR_VALUE)
@@ -214,10 +208,10 @@ met.
     CREATE TABLE IF NOT EXISTS IDN_CONFIG_ATTRIBUTE (
       ID         VARCHAR(255)  NOT NULL,
       RESOURCE_ID  VARCHAR(255) NOT NULL,
-      ATTR_KEY   VARCHAR(1023) NOT NULL,
+      ATTR_KEY   VARCHAR(255) NOT NULL,
       ATTR_VALUE VARCHAR(1023) NULL,
       PRIMARY KEY (ID),
-      CONSTRAINT RESOURCE_KEY_VAL_CONSTRAINT UNIQUE (RESOURCE_ID(64), ATTR_KEY(703))
+      CONSTRAINT RESOURCE_KEY_VAL_CONSTRAINT UNIQUE (RESOURCE_ID(64), ATTR_KEY(255))
     );
     ALTER TABLE IDN_CONFIG_ATTRIBUTE ADD CONSTRAINT RESOURCE_ID_ATTRIBUTE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
     
