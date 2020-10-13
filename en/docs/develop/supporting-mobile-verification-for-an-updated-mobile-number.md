@@ -1,18 +1,18 @@
-#Support Mobile Number Verification for an Updated Mobile Number 
+# Enable Mobile Number Verification for an Updated Mobile Number 
 
 This feature enables mobile number verification when the user updates the user profile with a new mobile number, so that the new mobile number can be taken into consideration for all further activities performed by the user.
 
-When a user updates his mobile number in the user profile, an SMS OTP is sent to the new mobile number. Until the new mobile number is successfully verified, the existing mobile number of the user will not be overridden.
+When a user updates their mobile number in the user profile, an SMS OTP is sent to the new mobile number. Until the new mobile number is successfully verified, the existing mobile number of the user will not be overridden.
 
-!!! warning 
-    -   This feature can be invoked via a PUT/PATCH request to SCIM 2.0 /Users endpoint or /Me endpoint.
+!!! note 
+    -   This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
     -   The verification on update capability is **only** supported for the http://wso2.org/claims/mobile claim.
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
-##Step 01 - Configuring mobile claim verification on update
+## Step 01 - Configuring mobile claim verification on update
 
-1. Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to subscribe `userMobileVerification` handler to `PRE_SET_USER_CLAIMS` and `POST_SET_USER_CLAIMS` events.
+1. Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to subscribe the `userMobileVerification` handler to `PRE_SET_USER_CLAIMS` and `POST_SET_USER_CLAIMS` events.
 
     ```toml 
     [[event_handler]]
@@ -20,7 +20,7 @@ When a user updates his mobile number in the user profile, an SMS OTP is sent to
     subscriptions =["PRE_SET_USER_CLAIMS","POST_SET_USER_CLAIMS"]
     ```
 
-2. Define an attribute for a new claim `pendingMobileNumber` using **Enterprise User Extension** for SCIM2 by adding below configuration to `IS_HOME/repository/conf/scim2-schema-extension.config` file.
+2. Define an attribute for a new claim `pendingMobileNumber` using **Enterprise User Extension** for SCIM2 by adding the following configuration to the `IS_HOME/repository/conf/scim2-schema-extension.config` file.
 (Add this before the last element of the JSON array.)
 
     ```
@@ -69,8 +69,7 @@ When a user updates his mobile number in the user profile, an SMS OTP is sent to
     </configuration>
     ```
 
-4. Add an event publisher to `IS_HOME/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. Following is a sample publisher to call a REST Service 
-to send confirmation codes.
+4. Add an event publisher to `IS_HOME/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
 
     ??? info "Sample Event Publisher"
         ```
@@ -94,15 +93,15 @@ to send confirmation codes.
         ``` 
         
         !!! note
-            This publisher uses NEXMO as the SMS REST service provider. For more information 
+            This publisher uses [NEXMO](https://www.nexmo.com/) as the SMS REST service provider. For more information 
             on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
             /display/DAS300/HTTP+Event+Publisher). 
             
-5. Restart the server to apply above configurations.
+5. Restart the server to apply the configurations.
 
-##Step 02 - Adding the claim to store verification pending mobile number
+## Step 02 - Adding the pending mobile number claim to store verification
 
-1.  In the management console, navigate to **Main > Claims > Add > Add Local Claim**. Provide the below details and click **Add**.
+1.  On the management console, navigate to **Main > Claims > Add > Add Local Claim**. Provide the following details and click **Add**.
     -   **Claim URI:** http://wso2.org/claims/identity/mobileNumber.pendingValue
     -   **Display Name:** Verification Pending Mobile
     -   **Description:** To store the updated mobile number until it is verified.
@@ -111,7 +110,7 @@ to send confirmation codes.
 
 ![pending-mobile-claim-config](../assets/img/develop/pending-mobile-claim-config.png)
 
-2.  To map the above created claim to the attribute we created in **Enterprise User Extension**, navigate to **Main > Claims > Add > Add External Claim**.
+2.  To map the claim created above to the attribute that was created in **Enterprise User Extension**, navigate to **Main > Claims > Add > Add External Claim**.
 Add the external claim configurations as shown below and click **Add**.
     -   **Dialect URI:** urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
     -   **External Claim URI:** urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:pendingMobileNumber
@@ -119,9 +118,9 @@ Add the external claim configurations as shown below and click **Add**.
 
 ![pending-mobile-external-claim-config](../assets/img/develop/pending-mobile-external-claim-config.png)
 
-##Step 03 - Enable the feature in the management console
+## Step 03 - Enable the feature via the management console
 
-1.  In the management console, navigate to **Main > Identity Providers > Resident > Account Management Policies > User Claim Update**.
+1.  On the management console, navigate to **Main > Identity Providers > Resident > Account Management Policies > User Claim Update**.
    
 2.  Enable **Enable user mobile number verification on update**. Additionally, you can define the expiry time (in minutes) for the verification SMS OTP to match your requirement. 
     
@@ -141,9 +140,9 @@ Add the external claim configurations as shown below and click **Add**.
         sms_otp_validity = “15”
         ```
 
-##Try it Out 
+## Try it out 
 
-### Updating Mobile Number
+### Updating the mobile number
  
 Given below is a sample request and the relevant response for updating the mobile number via a PATCH operation to SCIM 2.0 Users endpoint.
 
@@ -202,10 +201,10 @@ curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api
 }
 ```
 
-Upon receiving the response as given above, the user will receive an SMS notification with a verification code to the new mobile number. 
+Upon receiving the response given above, the user will receive an SMS notification with a verification code to the new mobile number. 
 
-For validating the verification code sent to the user, we use the existing `validate-code` and `resend-code` APIS of the
- [Self Registration REST APIs](https://docs.wso2.com/display/IS510/apidocs/self-registration/)
+To validate the verification code sent to the user, use the existing `validate-code` and `resend-code` APIS of the
+ [Self Registration REST APIs](https://docs.wso2.com/display/IS510/apidocs/self-registration/). 
  
 ### Validating the verification code
 
