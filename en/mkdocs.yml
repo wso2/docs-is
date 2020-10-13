@@ -520,7 +520,7 @@ nav:
             - 'Customizing Error Pages': develop/customizing-error-pages.md
             - 'Error Codes and Descriptions': develop/error-codes-and-descriptions.md
           - 'Supporting Email Account Verification for an Updated Email Address' : develop/supporting-email-account-verification-for-an-updated-email-address.md
-          - 'Supporting Mobile Number Verification for an Updated Mobile Number' : develop/supporting-mobile-verification-for-an-updated-mobile-number.md
+          - 'Enable Mobile Number Verification for an Updated Mobile Number' : develop/enable-mobile-verification-for-an-updated-mobile-number.md
         - 'Provisioning for Developers':
           - 'Extending SCIM 2.0 User Schemas': develop/extending-scim2-user-schemas.md
           - 'Writing an Outbound Provisioning Connector': develop/writing-an-outbound-provisioning-connector.md
