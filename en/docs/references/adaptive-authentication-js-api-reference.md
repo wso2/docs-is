@@ -552,7 +552,7 @@ step number.
 
 -   `          request.headers[“<header_name>”]         ` : Request’s
     header value for the given header name by &lt;header\_name&gt;
--   `          request.params[“<param_name>”]         ` : Request’s
+-   `          request.params.param_name[0]         ` : Request’s
     parameter value for the given parameter name by
     &lt;parameter\_name&gt;
 -   `          request.cookies[“<cookie_name”]         ` : Request’s
