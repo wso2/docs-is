@@ -135,9 +135,9 @@ Add the external claim configurations as shown below and click **Add**.
     2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature and to configure the verification OTP expiry time.
 
         ```toml 
-        [identity_mgt.user_claim_update.mobile_num]
+        [identity_mgt.user_claim_update.mobile]
         enable_verification = true
-        sms_otp_validity = “15”
+        verification_sms_otp_validity = “5”
         ```
 
 ## Try it out 
