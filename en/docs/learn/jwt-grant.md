@@ -325,10 +325,10 @@ To add the application as a service provider in WSO2 Identity Server:
 
 		While configuring the JWT bearer grant type, the **iat** validating time period can also be configured in the `deployment.toml` file in the `<IS_HOME>/repository/conf` as shown below. The default value is 30 minutes. 
 		
-		```json
-[oauth.grant_type.jwt]
-enable_iat_validation="true"
-iat_validity_period=30
+		```toml
+		[oauth.grant_type.jwt]
+		enable_iat_validation="true"
+		iat_validity_period=30
 		```  
 
 ## Try out
