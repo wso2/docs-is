@@ -72,4 +72,4 @@ $ cd en && mkdocs serve
 
 ## License
 
-Licenses this source under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
+Licenses this source under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License. All good
