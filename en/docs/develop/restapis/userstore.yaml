@@ -33,7 +33,6 @@ paths:
         */permission/admin/manage/identity/userstore/config/create<br>
         <b>Scope required:</b><br>
         */internal_userstore_create
-
       responses:
         '201':
           description: Successful response

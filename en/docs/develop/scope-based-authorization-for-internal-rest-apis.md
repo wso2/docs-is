@@ -15,10 +15,10 @@ authorization for internal REST APIs.
 When obtaining a token to consume the API, you can define the scope
 corresponding to the permission required to consume the API.
 
-For example, let's assume that a user whose username is Bob, wants to 
+For example, let's assume that a user whose username is Alex, wants to 
 retrieve the challenges available by calling the **/{user-id}/challenges** GET API available in [Challenge Question](../../develop/challenge-rest-api) REST API. This requires the user-id as an input. 
-To retrieve the challenges, Bob requires `/permission/admin/manage/identity/identitymgt/view`
-permission and `internal_identity_mgt_view` scope. Hence, Bob can invoke the following 
+To retrieve the challenges, Alex requires `/permission/admin/manage/identity/identitymgt/view`
+permission and `internal_identity_mgt_view` scope. Hence, Alex can invoke the following 
 cURL command with `scope=internal_identity_mgt_view` and obtain a token.
 
 **Request**
@@ -28,7 +28,7 @@ curl -v -X POST -H "Authorization: Basic <base64encoded clientId:clientSecrect>"
 
 **Example Request**
 ``` java
-curl -k -X POST -H "Authorization: Basic MUxGVzl5NERkYzZxaHVGQnBLX1JyOHA0WU1FYTpDUGl5V0hTeVp6VmJmRTFzanFNc2Vrc053Szhh" -k -d "grant_type=password&username=bob&password=bob123&scope=internal_identity_mgt_view" -H "Content-Type: application/x-www-form-urlencoded" 'https://localhost:9443/oauth2/token'
+curl -k -X POST -H "Authorization: Basic MUxGVzl5NERkYzZxaHVGQnBLX1JyOHA0WU1FYTpDUGl5V0hTeVp6VmJmRTFzanFNc2Vrc053Szhh" -k -d "grant_type=password&username=alex&password=alex123&scope=internal_identity_mgt_view" -H "Content-Type: application/x-www-form-urlencoded" 'https://localhost:9443/oauth2/token'
 ```
 
 When the above cURL command is called, a token of the following format

@@ -6,7 +6,7 @@ In this approach, when a user self-registers, a user account gets created and an
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Sam** is an administrator at Pickup, **Alex** is a new recruit who wishes to use the self-registration option to create a user account. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Sam** is a new recruit who wishes to use the self-registration option to create a user account. 
 
 When Alex self-registers, an email requesting for account creation confirmation is sent to Alex's registered email account. Alex should respond to the confirmation email before the confirmation acceptance window expires. If Alex fails to confirm the account creation, the user account will be locked and Sam will be able to delete this user account. 
 
@@ -190,5 +190,5 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 	Following are more self-registration methods:
 
-	-	[Self-Registration with REST API](/develop/using-the-self-sign-up-rest-apis/)
-	-	[Self-Registration with SCIM/Me](/learn/creating-users-using-the-ask-password-option#ask-password)  
+	-	[Self-Registration with REST API](../../develop/using-the-self-sign-up-rest-apis/)
+	-	[Self-Registration with SCIM/Me](../../learn/creating-users-using-the-ask-password-option/#ask-password)  

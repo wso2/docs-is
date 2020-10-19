@@ -3,7 +3,7 @@
 Human tasks are the steps that require human interaction in order to allow the process of the operation to proceed.  Follow the steps below to test the workflow.
 
 1.  Sign in to WSO2 Identity Server with the admin credentials.
-2.  Create a user with the name `Bobby`. After you successfully create the
+2.  Create a user with the name `Alex`. After you successfully create the
     user, it will be greyed out as shown below until a manager approves
     the addition of the user account.
 
@@ -19,7 +19,7 @@ Human tasks are the steps that require human interaction in order to allow the p
 
     ![pending-approvals](../assets/img/using-wso2-identity-server/pending-list.png)       
     
-5.  To view more information about the request, click the **show more** button corresponding to the request made for user, Bobby.
+5.  To view more information about the request, click the **show more** button corresponding to the request made for user, Alex.
 
     ![workflow-task-status](../assets/img/using-wso2-identity-server/pending-info.png) 
 

@@ -217,6 +217,20 @@ true : Write groups to user store<br />
 false : Do not write groups to user store, so only internal roles can be created. Depending on the value of ReadGroups property, it will read existing groups from user store or not</p></td>
 </tr>
 <tr class="odd">
+<td>PasswordHashMethod</td>
+<td>password_hash_method</td>
+<td>Password Hashing Algorithm</td>
+<td><p>Specifies the Password Hashing Algorithm used to hash the password before storing it in the userstore.<br />
+Possible values:<br />
+SHA - Uses SHA digest method. SHA-1, SHA-256<br />
+MD5 - Uses MD 5 digest method.<br />
+PLAIN_TEXT - Plain text passwords.</p>
+<p>If you just enter the value `SHA`, it will be considered as `SHA-1`. It is always better to configure an algorithm with a higher bit value so that the digest bit size would be increased.
+<br />
+The default value for JDBC userstores is SHA-256. 
+</p></td>
+</tr> 
+<tr class="odd">
 <td>UsernameJavaRegEx</td>
 <td>username_java_regex</td>
 <td>UsernameJavaRegEx</td>

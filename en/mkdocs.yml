@@ -18,12 +18,12 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://is.docs.wso2.com/en/latest/
+site_url: https://is.docs.wso2.com/en/5.11.0/
 
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/5.10.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/5.11.0/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -278,7 +278,7 @@ nav:
       - 'Deploying the Samples': learn/deploying-the-sample-app.md
     - 'Integrations':
       - 'Master Data Management': learn/configuring-master-data-management-solution.md
-    - 'User Portal': learn/user-portal.md
+    - 'My Account': learn/my-account.md
     - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
         - 'Users, Roles and Permissions':
@@ -413,7 +413,7 @@ nav:
             - 'Refresh Token Grant': learn/refresh-token-grant.md
             - 'Kerberos Grant': learn/kerberos-grant.md
             - 'Device Authorization grant': learn/device-flow-grant.md
-            - 'JWT Grant': learn/jwt-grant.md
+            - 'JWT Bearer Grant': learn/jwt-grant.md
           - 'SAML2 Bearer Assertion Profile for OAuth 2.0': learn/saml2-bearer-assertion-profile-for-oauth-2.0.md
           - 'Setting Up OAuth Token Hashing': learn/setting-up-oauth-token-hashing.md
           - 'JWT Token Generation': learn/jwt-token-generation.md
@@ -501,10 +501,15 @@ nav:
         - 'XACML Sample for an Online Trading Application': learn/xacml-sample-for-an-online-trading-application.md
         - 'Log in to the Identity Server using another Identity Server - SAML2': learn/log-in-to-the-identity-server-using-another-identity-server-saml2.md
         - 'Login to Identity Server using another Identity Server - OAuth2': learn/login-to-identity-server-using-another-identity-server-oauth2.md
+      - 'CORS' :
+        - 'CORS': learn/cors.md
   - 'Develop':
     - 'Developer Guide':
       - 'Developer guide': develop/developer-guide.md
       - 'Working with the Source Code': develop/working-with-the-source-code.md
+      - 'Using SDKs':
+        - 'Overview': develop/sdk-overview.md
+        - 'Enable Authentication for Spring Boot App': develop/spring-boot.md
       - 'Extending the Identity Server':
         - 'Overview': develop/extending-the-identity-server.md
         - 'User Management for Developers':
@@ -554,6 +559,7 @@ nav:
             - 'Configuration Management':
                 - 'Configuration Management': develop/using-the-configuration-management-rest-apis.md
                 - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
+            - 'CORS' : develop/cors-rest-api.md
             - 'Consent Management': develop/using-the-consent-management-rest-apis.md
             - 'Email Templates': develop/email-templates-rest-api.md
             - 'Entitlement': develop/entitlement-with-rest-apis.md
@@ -605,7 +611,10 @@ nav:
       - 'Changing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
-      - 'Setting-Up User Portal in a Development Environment': develop/setting-up-user-portal-in-a-dev-environment.md
+      - 'My Account':
+        - 'Setting up in a Development Environment': develop/setting-up-my-account-in-a-dev-environment.md
+        - 'Customizing the UI': develop/customizing-my-account-ui.md
+        - 'Configuring the Application': develop/configure-my-account.md
   - 'Setup':
     - 'Install':
       - 'Installing the Product':
@@ -770,7 +779,9 @@ nav:
           - 'Managing Keystores via UI': administer/managing-keystores-with-the-ui.md
           - 'Adding Multiple Keys to the Primary Keystore': administer/adding-multiple-keys-to-the-primary-keystore.md
           - 'Migrating the Secondary Userstore Password to the Internal Keystore': administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md
-        - 'Symmetric Encryption': administer/using-symmetric-encryption.md
+        - 'Symmetric Encryption': 
+          - 'Overview': administer/symmetric-overview.md
+          - 'Related Configurations': administer/using-symmetric-encryption.md
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
       - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
       - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md

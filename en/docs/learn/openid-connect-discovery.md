@@ -127,7 +127,6 @@ acct:admin@ wso2.com@localhost (for tenant)</td>
 </tbody>
 </table>
 
-
 Sample requests and responses are given below:
 
 <table>
@@ -171,7 +170,7 @@ Sample requests and responses are given below:
 <strong>Sample Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">curl -v -k https:<span class="co">//localhost:9443/.well-known/webfinger?resource=&#39;acct:admin%40wso2.com@localhost&amp;rel=http://openid.net/specs/connect/1.0/issuer&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">curl -v -k  https:<span class="co">//localhost:9443/.well-known/webfinger?resource=&#39;acct:admin%40wso2.com@localhost&amp;rel=http://openid.net/specs/connect/1.0/issuer&#39;</span></a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -223,7 +222,7 @@ OpenID Proivder.
     <strong>Sample Request</strong>
     </div>
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k https:<span class="co">//localhost:9443/oauth2/token/.well-known/openid-configuration</span></a></code></pre></div>
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v https:<span class="co">//localhost:9443/oauth2/token/.well-known/openid-configuration</span></a></code></pre></div>
     </div>
     </div>
     </div></td>

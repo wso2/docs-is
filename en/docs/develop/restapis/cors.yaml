@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: 'WSO2 Identity Server - CORS API Definition'
+  description: 'This document specifies a **RESTful API** for **WSO2 Identity Server CORS**'
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /cors/origins:
+    get:
+      tags:
+        - CORS origins
+      summary: Retrieve the CORS origins.
+      operationId: getCORSOrigins
+      description: |
+        This API provides the capability to retrieve the list of the allowed CORS origins for the tenant.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/cors/origins/view <br>
+          <b>Scope required:</b> <br>
+              * internal_cors_origins_view
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CORSOriginsGetResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cors/origins/{cors-origin-id}/applications:
+    get:
+      tags:
+        - Application associations
+      summary: Retrieve the Applications associated with a CORS origin by ID.
+      operationId: getAssociatedAppsByCORSOrigin
+      description: |
+        This API provides the capability to retrieve the Applications associated with a CORS origin by ID.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/cors/origins/view <br>
+          <b>Scope required:</b> <br>
+              * internal_cors_origins_view
+      parameters:
+        - name: cors-origin-id
+          in: path
+          description: ID of a CORS origin
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CORSOriginApplicationsGetResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+servers:
+  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: carbon.super
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
+  parameters:
+    typeQueryParam:
+      in: query
+      name: type
+      required: false
+      description: |
+        Type of authenticators. Can be either 'LOCAL' or 'REQUEST_PATH'
+      schema:
+        type: string
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message.
+        description:
+          type: string
+          example: Some Error Description.
+        traceId:
+          type: string
+          example: "e0fbcfeb-3617-43c4-8dd0-7b7d38e13047"
+    CORSOriginsGetResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/CORSOriginObject'
+    CORSOriginObject:
+      type: object
+      required:
+        - url
+      properties:
+        id:
+          type: string
+          description: The CORS resource ID.
+          example: "123456"
+        url:
+          type: string
+          description: The CORS origin.
+          example: "http://wso2.is"
+    CORSOriginApplicationsGetResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/CORSApplicationObject'
+    CORSApplicationObject:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          description: The application resource ID.
+          example: "74070bae-df8c-42bf-8754-5173c237c936"
+          default: ""
+        name:
+          type: string
+          description: The application name.
+          example: "Developer Portal"
+          default: ""

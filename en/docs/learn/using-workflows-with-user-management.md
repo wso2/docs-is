@@ -9,7 +9,7 @@ can configure workflows to do the following.
 
 -   **User specific approvals** : You can configure a specific user to
     approve the user account. For example, you may want only the user
-    named "Bob" to approve accounts.
+    named "Alex" to approve accounts.
 -   **Multi-step approvals** : You can configure multiple steps for
     approval, where the approval is first done by one user and then by
     another user. For example, you need "Alex" to approve the accounts

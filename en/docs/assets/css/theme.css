@@ -16,7 +16,7 @@
  * under the License.
  */
 
-.md-main > .md-main__inner > .md-content {
+ .md-main > .md-main__inner > .md-content {
     -webkit-transition: margin 0.2s linear;
     -khtml-transition: margin 0.2s linear;
     -moz-transition: margin 0.2s linear;
@@ -67,6 +67,12 @@
 	color: #212121;
 	border-top: 4px solid #ff7043;
 }
+
+/* Added to keep the tiles intact
+.md-container { 
+	height: auto !Important; 
+} */
+
 
 .md-header-nav__button.md-logo>img {
 	width: 60px;
@@ -773,8 +779,7 @@ html .md-footer-meta.md-typeset a,
 	display: none;
 }
 
-.md-nav--secondary ul>li.md-nav__item {
-	border-left: 4px solid transparent;
+border-left: 4px solid transparent;
 	transition: border 500ms;
 	margin-left: -3px;
 }
