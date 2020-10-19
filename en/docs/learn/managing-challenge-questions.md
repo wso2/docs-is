@@ -168,10 +168,10 @@ not given answers for the minimum number of forced challenge questions).
 Configuring a regex pattern for challenge question answers will ensure the uniqueness of an answer and can ensure that more than one question does not have the same answer. To configure a regex pattern for challenge questions answers and validate the answers based on the given regex, follow the instructions below. 
 
 1. Log in to the management console using admin credentials.
-2. In the **Identity** section of the **Main** menu, click **Resident** under **Identity Providers**.
+2. Under the **Identity** section of the **Main** menu, click **Resident** under **Identity Providers**.
 3. Navigate to **Account Management Policies>Account Recovery**.
-4. Add the required challenge answer regex under the **Challenge question answer regex** feild.
-5. Select **Enforce challenge question answer uniqueness** to validate the challenge answers' uniqueness.
+4. Add the required challenge answer regex under the **Challenge question answer regex** field.
+5. Select **Enforce challenge question answer uniqueness** to validate the challenge answer's uniqueness.
 
 ![validating-challenge-question-answers.png](../assets/img/using-wso2-identity-server/validating-challenge-question-answers.png)
 
