@@ -178,7 +178,7 @@ Configuring a regex pattern for challenge question answers will ensure the uniqu
 Alternatively, you can enable this server-wide instead of tenant-wise by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ``` toml
-identity_mgt.password_reset_challenge_questions]
+[identity_mgt.password_reset_challenge_questions]
 answer_regex = “$answer_regex”
 enforce_answer_uniqueness = true
 ```
