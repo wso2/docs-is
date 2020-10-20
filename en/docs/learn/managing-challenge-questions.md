@@ -163,3 +163,22 @@ process to the following page (redirection happens only if the user has
 not given answers for the minimum number of forced challenge questions).
     ![answering-challenge-questions.png](../assets/img/using-wso2-identity-server/answering-challenge-questions.png)
 
+### Validating challenge question answers
+
+Configuring a regex pattern for challenge question answers will ensure the uniqueness of an answer and can ensure that more than one question does not have the same answer. To configure a regex pattern for challenge questions answers and validate the answers based on the given regex, follow the instructions below. 
+
+1. Log in to the management console using admin credentials.
+2. Under the **Identity** section of the **Main** menu, click **Resident** under **Identity Providers**.
+3. Navigate to **Account Management Policies>Account Recovery**.
+4. Add the required challenge answer regex under the **Challenge question answer regex** field.
+5. Select **Enforce challenge question answer uniqueness** to validate the challenge answer's uniqueness.
+
+![validating-challenge-question-answers.png](../assets/img/using-wso2-identity-server/validating-challenge-question-answers.png)
+
+Alternatively, you can enable this server-wide instead of tenant-wise by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+``` toml
+[identity_mgt.password_reset_challenge_questions]
+answer_regex = “$answer_regex”
+enforce_answer_uniqueness = true
+```
