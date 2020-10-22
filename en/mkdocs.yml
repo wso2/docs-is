@@ -582,7 +582,8 @@ nav:
             - 'Tenant Management': develop/tenant-management-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
             - 'User Discoverable Application Management': develop/user-discoverable-applications.md
-          - 'Scope based Authorization for Internal REST APIs': develop/scope-based-authorization-for-internal-rest-apis.md
+            - 'Scope based Authorization for Internal REST APIs': develop/scope-based-authorization-for-internal-rest-apis.md
+            - 'User Functionality Management REST APIs': develop/user-functionality-mgt-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
