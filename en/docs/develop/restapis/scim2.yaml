@@ -1327,6 +1327,43 @@ paths:
             $ref: '#/definitions/ErrorForbidden'
         409:
           description: Users already exists
+    delete:
+      tags:
+        - Bulk Endpoint
+      summary: Delete Users in Bulk
+      description: |
+        This API is used to delete multiple users at once.
+         <b>Permission required:</b>
+         * /permission/admin/manage/identity/usermgt/delete
+
+      operationId: deleteBulkUsers
+      consumes:
+        - application/scim+json
+      produces:
+        - application/scim+json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/BulkUserDeleteRequestObject'
+      responses:
+        204:
+          description: User group is deleted
+          schema:
+            $ref: '#/definitions/BulkUserDeleteResponseObject'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Valid group is not found
+          schema:
+            $ref: '#/definitions/ErrorNoGroupAvailable'
 
   /ResourceTypes:
     get:
@@ -2482,6 +2519,88 @@ definitions:
           code:
             type: string
             example: "201"
+
+  #-----------------------------------------------------
+  # Bulk User Delete Request Object
+  #-----------------------------------------------------
+  BulkUserDeleteRequestObject:
+    type: object
+    properties:
+      failOnErrors:
+        type: integer
+        example: 1
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+      Operations:
+        type: array
+        items:
+          $ref: '#/definitions/BulkUserDeleteOb'
+
+
+
+  BulkUserDeleteOb:
+    type: object
+    properties:
+      method:
+        type: string
+        example: "DELETE"
+      path:
+        type: string
+        example: "/Users"
+      bulkId:
+        type: string
+        example: "ytrewq"
+      data:
+        type: object
+        properties:
+          schemas:
+            type: array
+            items:
+              type: string
+              example:
+                "urn:ietf:params:scim:schemas:core:2.0:User"
+          username:
+            type: string
+            example: "jesse"
+          password:
+            type: string
+            example: "jesspass"
+
+  #-----------------------------------------------------
+  # Bulk User Delete Response Object
+  #-----------------------------------------------------
+  BulkUserDeleteResponseObject:
+    type: object
+    properties:
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkResponse"
+      Operations:
+        $ref: '#/definitions/OperationDeleteObBulk'
+
+  OperationDeleteObBulk:
+    type: object
+    properties:
+      bulkId:
+        type: string
+        example: "qwerty"
+      method:
+        type: string
+        example: "DELETE"
+      location:
+        type: string
+        example: "https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1"
+      status:
+        type: object
+        properties:
+          code:
+            type: string
+            example: "204"
 
   #-----------------------------------------------------
   # Resource Type response
