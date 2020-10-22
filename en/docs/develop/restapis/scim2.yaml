@@ -689,7 +689,7 @@ paths:
         This API creates a user and returns the user details along with the user's unique ID.
 
         <b>Permission required:</b>
-        * /permission/admin/manage/identity/usermgt/view
+        * /permission/admin/manage/identity/usermgt/create
       operationId: createUser
       consumes:
         - application/scim+json
