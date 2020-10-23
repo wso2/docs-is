@@ -163,18 +163,7 @@ template for this option can be configured in the
 
 ### Using SCIM 2.0 API
 
-1. Login to the Management Console.
-2. Add a new external claim by following `main` -> `Claims` -> `Add` ->
-   `Add External Claim`.
-3. Use following values and add.
-    
-	| Field              | Value                                                                       |
-    |--------------------|-----------------------------------------------------------------------------|
-    | Dialect URI*       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:forcePasswordReset|
-    |External Claim URI* |forcePasswordReset                                                           | 
-    |Mapped Local Claim* |http://wso2.org/claims/identity/adminForcedPasswordReset                     |
-    
-4. Use following SCIM 2.0 Request to trigger a password reset
+Use following SCIM 2.0 Request to trigger a password reset.
     
     You need to set the **forcePasswordReset** attribute under the`
     urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` schema as
