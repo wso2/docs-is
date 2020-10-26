@@ -121,7 +121,7 @@ You can skip this step if you are using your own application.
         };
     ```
 
-    Using the function `invokeOPA` in adaptive scripts, you can pass any JSON object with the context as the payload and then using OPA, it is possible to process the data object and extract the required information. The OPA engine will then execute the defined policies and send back a JSON response to WSO2 IS. The final authentication or authorization decision will be made by OPA according to the policies that have been defined.
+    Using the function `invokeOPA` in adaptive scripts, you can pass any JSON object with the context as the payload and then, using OPA, it is possible to process the data object and extract the required information. The OPA engine will then execute the defined policies and send back a JSON response to WSO2 IS. The final authentication or authorization decision will be made by OPA according to the policies that have been defined.
 
 6. Add two authentication steps. 
 
