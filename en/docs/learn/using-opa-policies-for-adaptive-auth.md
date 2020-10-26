@@ -33,7 +33,7 @@ The [Open Policy Agent](https://www.openpolicyagent.org/docs/latest/) is an open
 
 ## Run OPA engine
 
-1. Run the following command on a command prompt/terminal window to start the OPA service. For more information, see [OPA Documentation: Running OPA](https://www.openpolicyagent.org/docs/latest/#running-opa)
+1. Run the following command on a command prompt/terminal window to start the OPA service. For more information, see [OPA Documentation: Running OPA](https://www.openpolicyagent.org/docs/latest/#running-opa).
 
     ```
     ./opa run --server
@@ -161,7 +161,7 @@ You can skip this step if you are using your own application.
 
     ![hardware key authenticator](../assets/img/tutorials/hardware-key-authenticator.png)
 
-4. Next, log out of the application and log in again as a different user that is not assigned to any role. You will see that this will redirect you to an error page telling “You need to be an admin or a manager.”
+4. Next, log out of the application and log in again as a different user that is not assigned to any role. You will see that this will redirect you to an error page that displays the following error message: “You need to be an admin or a manager.”
     
 
  
