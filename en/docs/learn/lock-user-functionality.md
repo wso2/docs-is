@@ -5,16 +5,9 @@ An admin user can lock and unlock functionalities on a per-user basis. This allo
 !!! tip
     This can also be done using the [User Functionality Management REST APIs](../../develop/user-functionality-mgt-rest-api/). Using the REST API is the recommended approach. 
 
-## Step 1: enable per-user functionality locking
+---
 
-Per-user functionality locking is disabled in WSO2 Identity Server by default. To enable this, add the following configuration in the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` folder. 
-
-```
-[user]
-enable_per_user_functionality_locking="true"
-```
-
-## Step 2: Configure tenant-wide properties 
+## Configure tenant-wide properties 
 
 The following properties related to the functionality need to be defined and will affect all the users in a tenant. 
 
@@ -84,7 +77,7 @@ To store these configurations for per-user functionality locking, you must first
     }
     ```
 
-3. If you wish to update the configuration properties set for security question based password recovery, you can use the following command. In this example, the `MaxAttempts` property value is updated to `3`. 
+3. If you wish to update the configuration properties set for security-question-based password recovery, you can use the following command. In this example, the `MaxAttempts` property value is updated to `3`. 
 
     ```tab="Sample Request"
     curl -k -X PUT https://localhost:9443/api/identity/config-mgt/v1.0/resource/functionalityLock/SecurityQuestionBasedPasswordRecovery -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"key": "MaxAttempts", "value": "3"}'
@@ -131,4 +124,14 @@ To store these configurations for per-user functionality locking, you must first
     }
     ```
 
+---
+
+## Disable per-user functionality locking
+
+Per-user functionality locking is enabled in WSO2 Identity Server by default. If you wish to disable this, add the following configuration in the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` folder. 
+
+```
+[user]
+enable_per_user_functionality_locking="false"
+```
 
