@@ -24,11 +24,7 @@ Server).
     First, get a copy of
     `         <IS_HOME>/repository/deployment/server/webapps        `
     `         /authenticationendpoin.war        ` to
-    `         <WebApp_HOME>/        ` and unzip it. Make sure to get the
-    `         authenticationendpoin.war        ` after the WUM update and
-    NOT the extracted `         authentication        `
-    `         endpoint        ` in
-    `         <IS_HOME>/repository/deployment/server/webapps/        `
+    `         <WebApp_HOME>/        ` and unzip it.      `
     
 
 1.  Copy the following .jar files from the

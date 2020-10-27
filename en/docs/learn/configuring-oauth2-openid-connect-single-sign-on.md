@@ -192,7 +192,7 @@ Let's get started to configure the service provider you created!
             <div class="admonition tip">
                <p class="admonition-title">Tip</p>
                <ul>
-                  <li>If you want to enable default token generation for a service provider, select <strong>Default</strong> as the <strong>Token Issuer</strong>. This is the default Token Issuer that is selected when you apply the WUM update.<br />
+                  <li>If you want to enable default token generation for a service provider, select <strong>Default</strong> as the <strong>Token Issuer</strong>. <br />
                      When you enable default token generation, the hash value of the token is stored in the ACCESS_TOKEN_HASH column, and the plain text token is stored in the ACCESS_TOKEN column
                   </li>
                   <li>If you want to enable JWT token generation for a service provider, select <strong>JWT</strong> as the <strong>Token Issuer</strong>.<br />

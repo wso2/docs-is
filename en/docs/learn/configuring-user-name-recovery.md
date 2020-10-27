@@ -1,19 +1,19 @@
-# Configuring User Name Recovery
+# Configuring Username Recovery
 
-WSO2 Identity Server enables recovering user accounts where the user has forgotten the user name. This is done by matching the user claims that are related to user attributes. The user will be prompted to enter values for these user attributes. If the value entered by the user matches with the claims, the corresponding user name will be emailed to the user’s registered email ID.  
+WSO2 Identity Server enables recovering user accounts where the user has forgotten the username. This is done by matching the user claims that are related to user attributes. The user will be prompted to enter values for these user attributes. If the value entered by the user matches with the claims, the corresponding username will be emailed to the user’s registered email ID.  
 
 <img src="../../assets/img/learn/user-name-recovery-overview.png" alt="User Name Recovery" width="700"> 
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Alex** who is a new recruit at Pickup has forgotten the user name. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Alex** who is a new recruit at Pickup has forgotten the username. 
 
 Let's learn how Alex can recover the password by providing the corresponding profile information!
 
 
 ## Set up
 
-Follow the steps below to configure WSO2 Identity Server to enable user name recovery.
+Follow the steps below to configure WSO2 Identity Server to enable username recovery.
 
 1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
@@ -31,7 +31,7 @@ Follow the steps below to configure WSO2 Identity Server to enable user name rec
 	2.	To configure the email server to send emails requesting password reset, add the following configurations.
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
-		-	**username**: This is the user name of the given email address.
+		-	**username**: This is the username of the given email address.
 		-	**password**: This is the password of the given email address. 
 
 		```toml tab="Format"
@@ -130,7 +130,7 @@ Follow the steps below to configure WSO2 Identity Server to enable user name rec
 
 	3. Click **Update**. 
 
-4.	To mimic a forgotten user name:
+4.	To mimic a forgotten username:
 
 	1.	On the Sign In screen of the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`, click
 	 **Username**.
@@ -143,7 +143,7 @@ Follow the steps below to configure WSO2 Identity Server to enable user name rec
 
 	4.	Click **Submit**. 
 
-	5.	An email with the user name is sent to the given email address.		
+	5.	An email with the username is sent to the given email address.		
 
 		<img src="../../assets/img/learn/account-recovery-email.png" alt="Account Recovery email" width="500" style="border:1px solid grey"> 
 	

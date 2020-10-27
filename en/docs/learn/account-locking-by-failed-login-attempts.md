@@ -199,7 +199,6 @@ failed login attempts. To configure this, follow the steps below.
         how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
 
-#### Configuring email templates for WUM Updated version
 
 WSO2 Identity Server uses separate email templates for notifying, 
 
