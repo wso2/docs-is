@@ -11,9 +11,9 @@ A datasource is used to establish the connection to a database. By
 default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
 to the default  H2 database. 
 
-- `WSO2_SHARED_DB` - The database which stores registry and user management
+- `WSO2_SHARED_DB` - The datasource which stores registry and user management
                      data.
-- `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
+- `WSO2_IDENTITY_DB` - The datasource specific for the identity server which stores
                        identity related data
                        
 After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or 
@@ -77,15 +77,15 @@ Following are the basic configurations and their descriptions.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
           
-		  !!! info 
-		  	  While running the DB2 scripts via the terminal, use the following DB2 command to run the DB2 scripts with the delimeter "/" since the default delimiter script for DB2 is ";". 
-			  
-			  ```xml
-			  db2 -td/ -f db2.sql
-			  ```		
            - `<IS-HOME>/dbscripts/identity/db2.sql`
            - `<IS-HOME>/dbscripts/identity/uma/db2.sql`
            - `<IS-HOME>/dbscripts/consent/db2.sql`
+
+            !!! info 
+                While running the DB2 scripts via the terminal, use the following DB2 command to run the DB2 scripts with the delimeter "/" since the default delimiter script for DB2 is ";". 
+                ```xml
+                db2 -td/ -f db2.sql
+                ```		
          
    2. `WSO2_SHARED_DB`
         
@@ -123,7 +123,7 @@ Following are the basic configurations and their descriptions.
            
             
 
-*Advanced Database Configurations.**
+**Advanced Database Configurations**
 
 Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
 
