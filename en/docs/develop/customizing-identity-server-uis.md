@@ -252,4 +252,6 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
     ![image](https://user-images.githubusercontent.com/9637873/69425805-a6319200-0d51-11ea-860b-9cab9245c3d7.png)
     <span class="figcaption_hack">Customized Self signup page</span>
 
+!!! note  
+    One advantage of this approach is that WUM updates will not affect your UI changes and you need not worry about manually adding your changes. 
 

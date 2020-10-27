@@ -21,10 +21,7 @@ Server).
 ## Moving the authenticationendpoint from WSO2IS and hosting it on a separate web server
 
 !!! tip "Before you begin"
-    First, get a copy of
-    `         <IS_HOME>/repository/deployment/server/webapps        `
-    `         /authenticationendpoin.war        ` to
-    `         <WebApp_HOME>/        ` and unzip it.      `
+    First, get a copy of the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint.war` file to `<WEBAPP_HOME>/` and unzip it. Make sure to get the `authenticationendpoint.war` after the WUM update and NOT the extracted `authenticationendpoint.war` in the `<IS_HOME>/repository/deployment/server/webapps/` folder.
     
 
 1.  Copy the following .jar files from the
