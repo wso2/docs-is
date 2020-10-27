@@ -2,15 +2,8 @@
 
 From [WSO2 Identity Server 5.9.0](https://wso2.com/identity-and-access-management/) onwards, a new UI extension has been introduced to easily re-brand  basic user interfaces like the login page, username and password recovery pages, and single sign-on pages.
 
-
 All these UIs are available in the **`authenticationendpoint`** and **`accountrecoveryendpoint`** web apps that are located in the `<IS_HOME>/repository/deployment/server/webapps` folder. To customize these pages, follow the steps below. 
 
-!!! warning
-    To modify the endpoints, apply the 0003 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
-    (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid
-    subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For
-    more information on updating WSO2 Identity Server using WUM, see [Updating WSO2 Products](https://is.docs.wso2
-    .com/en/latest/administer/getting-wso2-updates/)
 
 ## Step 1: Create the extensions folder
 
@@ -259,7 +252,6 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
     ![image](https://user-images.githubusercontent.com/9637873/69425805-a6319200-0d51-11ea-860b-9cab9245c3d7.png)
     <span class="figcaption_hack">Customized Self signup page</span>
 
-
 !!! note  
     One advantage of this approach is that WUM updates will not affect your UI changes and you need not worry about manually adding your changes. 
-    
+

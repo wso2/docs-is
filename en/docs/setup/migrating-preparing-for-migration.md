@@ -398,8 +398,8 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
 1.  Create a new databases for the new WSO2 Identity Server version (5.10.0) 
     that you are migrating to.
-2.  Unzip a WSO2 Identity Server 5.10.0 distribution (use a WUM updated distribution 
-    if possible). This will be used as the data sync tool between the Identity 
+2.  Unzip a WSO2 Identity Server 5.11.0 distribution (use a WUM updated distribution 
+    if available). This will be used as the data sync tool between the Identity 
     Server versions. We will refer to WSO2 Identity Server distribution as 
     “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
 3.  Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.92/org.wso2.is.data.sync.client-1.0.92.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.

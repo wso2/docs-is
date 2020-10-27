@@ -126,12 +126,7 @@ To configure manually,
 			<tr>
 				<td>ACS URL</td>
 				<td>
-					<p>This is the identity provider's SAML2 ACS URL.</p>
-					<div class="admonition warning">
-					<p class="admonition-title">Warning</p>
-					<p>To configure this, apply the <b>2020-01-17 WUM update</b> to WSO2 Identity Server 5.9.0 using the WSO2 Update Manager (WUM).</p>
-				    <p>To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see [Getting Started with WUM in the WSO2 Administration Guide](https://docs.wso2.com/display/updates/Getting+Started).</p> 
-					</div> 				
+					<p>This is the identity provider's SAML2 ACS URL.</p>			
 				</td>
 				<td>If not entered, the default ACS URL will be used.</td>
 			</tr>

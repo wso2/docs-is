@@ -16,10 +16,10 @@ distribution.
 2.  Download the WSO2 Identity Server Analytics 5.8.0 pack.
     
     !!! Note 
-        WSO2 Identity Server 5.10.0 analytics capabilities are fully
+        WSO2 Identity Server 5.11.0 analytics capabilities are fully
         compatible with WSO2 IS Analytics 5.8.0. Please note that **WSO2 IS
         Analytics 5.8.0 is the recommended version for WSO2 Identity Server
-        5.10.0**.
+        5.11.0**.
     
     1.  To download the pack with updates, click **SIGN-IN & DOWNLOAD**
         .
