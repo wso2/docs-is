@@ -201,6 +201,7 @@ nav:
           - 'With Function Library': learn/adaptive-authentication-with-function-library.md
           - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md
         - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
+        - 'Using OPA Policies for Adaptive Authentication': learn/using-opa-policies-for-adaptive-auth.md
         - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
       - 'Identity Federation':
         - 'Identity Federation': learn/identity-federation.md
