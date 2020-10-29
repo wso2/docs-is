@@ -174,7 +174,8 @@ enable_saml_sp_certificate_expiry_validation= false
 
 The token binding validation is a feature that was introduced with WSO2 IS 5.10.0. Intially, if `tokenBindingType` is provided when creating the OpenID Connect service provider, the token binding validation is enabled by default. With the WSO2 IS WUM-updated pack, you can disable it by unticking the **Validate token bindings** property. However, if this property is not available for the existing service providers, token binding will still be enabled by default. 
 
-From 5.11.0 onwards, this behaviour has been changed. The property is available for all new service providers. For the exisiting service providers that do not have this property, token binding validation is disabled. To maintain backward compatibility, the property will be enabled during migration for those exisiting service providers. 
+From 5.11.0 onwards, this behavior has been changed. The property is available for all new service providers. For the existing service providers that do not have this property, token binding validation is disabled. 
+To maintain backward compatibility, the property will be enabled during migration for those existing service providers which has the `tokenBindingType` as **cookie**
 
 Hence, with this change, after 5.11.0, there will be no service providers without the **Validate token bindings** property. 
 
