@@ -61,7 +61,7 @@ paths:
     get:
       tags:
         - User Store
-      summary: Retrieve or List the configured secondary user stores.
+      summary: Retrieve or list the configured secondary user stores.
       operationId: getSecondaryUserStores
       description: >
         This API provides the capability to list the configured secondary userstores.
@@ -209,16 +209,16 @@ paths:
               $ref: '#/components/schemas/UserStoreReq'
               # But not allowing to change the typeName and name in the PUT request.
         description: >-
-          The secondary user store values which are need to be edited of the
+          The secondary user store values which are needed to be edited for a
           given domain id.
     patch:
       tags:
         - User Store
-      summary: Patch the secondary user store by it's domain id.
+      summary: Patch the secondary user store by its domain id.
       operationId: patchUserStore
       description: >
         This API provides the capability to update the secondary user store's
-        property using patch request by using it's domain id.
+        property using patch request by using its domain id.
 
          <b>Permission required:</b>
          */permission/admin
@@ -379,14 +379,14 @@ components:
       in: query
       name: filter
       required: false
-      description: Condition to filter the retrival of records.
+      description: Condition to filter the retrieval of records.
       schema:
         type: string
     sortQueryParam:
       in: query
       name: sort
       required: false
-      description: Define the order how the retrieved records should be sorted.
+      description: Define the order of how the retrieved records should be sorted.
       schema:
         type: string
     requiredAttributesQueryParam:
@@ -577,7 +577,7 @@ components:
         name:
           type: string
           example: JDBC-SECONDARY
-          description: domain name of the secondary user store
+          description: Domain name of the secondary user store.
         description:
           type: string
           example: Some description of the user store
