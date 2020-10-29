@@ -154,7 +154,7 @@ To do this, remove the whole tag under the filter class named `com.thetransactio
 
 ## Configuring the certificate used to encrypt SAML assertions 
 
-In earlier versions, the certificate alias defined in SAML configuration was used to encrypt the SAML assertion. From WSO2 IS 5.11.0 onwards, an application certificate (if present) is used for this task. To revert to the old behaviour, add the following property to the `deployment.toml` file and set it to **false**. 
+In earlier versions, the certificate alias defined in SAML configuration was used to encrypt the SAML assertion. From WSO2 IS 5.11.0 onwards, an application certificate (if present) is used for this task. To revert to the old behavior, add the following property to the `deployment.toml` file and set it to **false**. 
 
 ```toml
 [saml.metadata]
@@ -163,7 +163,7 @@ assertion_encrypt_with_app_cert= false
 
 ## SAML service provider certificate expiry validation
 
-In earlier versions, service provider certificate expiry validation was not enabled by default. From 5.11.0 onwards, this validation is enabled by default. To revert to the old behaviour, add the following property to the `deployment.toml` file to disable the validation. 
+In earlier versions, service provider certificate expiry validation was not enabled by default. From 5.11.0 onwards, this validation is enabled by default. To revert to the old behavior, add the following property to the `deployment.toml` file to disable the validation. 
 
 ```toml
 [saml]
@@ -175,7 +175,7 @@ enable_saml_sp_certificate_expiry_validation= false
 The token binding validation is a feature that was introduced with WSO2 IS 5.10.0. Intially, if `tokenBindingType` is provided when creating the OpenID Connect service provider, the token binding validation is enabled by default. With the WSO2 IS WUM-updated pack, you can disable it by unticking the **Validate token bindings** property. However, if this property is not available for the existing service providers, token binding will still be enabled by default. 
 
 From 5.11.0 onwards, this behavior has been changed. The property is available for all new service providers. For the existing service providers that do not have this property, token binding validation is disabled. 
-To maintain backward compatibility, the property will be enabled during migration for those existing service providers which has the `tokenBindingType` as **cookie**
+To maintain backward compatibility, the property will be enabled during migration for those existing service providers that have the `tokenBindingType` as **cookie**.
 
 Hence, with this change, after 5.11.0, there will be no service providers without the **Validate token bindings** property. 
 
@@ -189,7 +189,7 @@ With 5.11.0, these two properties are added to the [Application Management Rest 
 
 ## Skip challenge question recovery option 
 
-With WSO2 IS 5.11.0, the challenge question recovery option is skipped by default if the user has not provided the challenge question answers set. To revert to the old behaviour, you can disable this configuration by adding the following property to the `deployment.toml` file. 
+With WSO2 IS 5.11.0, the challenge question recovery option is skipped by default if the user has not provided the challenge question answers set. To revert to the old behavior, you can disable this configuration by adding the following property to the `deployment.toml` file. 
 
 ```toml
 [identity_mgt.password_reset_challenge_questions]
@@ -198,7 +198,7 @@ skip_on_insufficient_answers = false
 
 ## Deprecated features
 
-OAuth 1.0 and `identity/connect/dcr` APIs are depecrated in WSO2 IS 5.11.0. If you wish to revert to the previous behaviour, add the following property to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+OAuth 1.0 and `identity/connect/dcr` APIs are depecrated in WSO2 IS 5.11.0. If you wish to revert to the previous behavior, add the following property to the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
 **To enable OAuth 1.0**
 
@@ -244,7 +244,7 @@ However, if the server issues custom JWT tokens which fail validation with the a
 
 Therefore, it is important to verify that the JWT token validator can avoid the scenarios mentioned above. If not, it needs to be handled by deploying a custom JWT token validator that will avoid the issues mentioned above.
 
-To revert to the previous behaviour and disable this feature, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+To revert to the previous behavior and disable this feature, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```toml
 [oauth]
@@ -259,3 +259,19 @@ Appending additional parameters to the OAuth2/OIDC error response has been disab
 [oauth.allow_additional_params_from_error_url]
 enable = true
 ```
+
+## Disabled device authorization grant
+
+The device authorization grant was introduced with WSO2 IS 5.10.0. It has been disabled by default in the 5.11.0 version. However, if you have enabled it in your setup, you can enable it for backward compatibility. To enable the grant and revert to the old behavior, add the following configuration to the `deployment.toml` file.
+
+!!! warning 
+    Note that this configuration is not production-ready and is ideally not recommended for use. 
+
+```toml
+[oauth.response_type.device]
+enable=true
+[oauth.grant_type.device_code]
+enable=true
+```
+
+
