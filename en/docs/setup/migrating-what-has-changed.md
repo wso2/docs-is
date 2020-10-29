@@ -112,7 +112,7 @@ Complete the following steps for the CORS migration.
 1. Remove any CORS configurations defined in the `<IS_HOME>/repository/resources/conf/tomcat/web.xml` file. 
 To do this, remove the whole tag under the filter class named `com.thetransactioncompany.cors.CORSFilter`. 
 
-2. In order to complete the CORS migration, any CORS configurations defined at the `web.xml` file should be reconfigured in the `deployment.toml` file. The following table shows how the old configurations in the `web.xml.j2` file are mapped to the new ones in the `deployment.toml` file. 
+2. In order to complete the CORS migration, any CORS configurations defined at the `web.xml` file should be reconfigured in the `deployment.toml` file. The following table shows how the old configurations in the `web.xml` file are mapped to the new ones in the `deployment.toml` file. 
 
     | Old (xml) configuration | New (toml) configuration |
     |-|-|
