@@ -6,93 +6,103 @@ By default, the `deployment.config.json` file has the following configurations.
 
 ```json
 {
-	"appBaseName": "myaccount",
-	"clientID": "USER_PORTAL",
-	"loginCallbackPath": "/login",
-	"logoutCallbackPath": "/login",
-	"productVersion": "some",
-	"serverOrigin": "https://localhost:9443",
-	"routePaths": {
-		"home": "/overview",
-		"login": "/login",
-		"logout": "/logout"
-	},
-	"session": {
-		"userIdleTimeOut": 600,
-		"userIdleWarningTimeOut": 580,
-		"sessionRefreshTimeOut": 300,
-		"checkSessionInterval": 3
-	},
-	"ui": {
-		"appCopyright": "WSO2 Identity Server",
-		"appTitle": "My Account | WSO2 Identity Server",
-		"appName": "My Account",
-		"appLogoPath": "/assets/images/logo.svg",
-		"authenticatorApp": {
-			"enabled": true
-		},
-		"features": {
-			"applications": {
-				"disabledFeatures": [],
-				"enabled": true,
-				"scopes": {
-					"create": [],
-					"read": [],
-					"update": [],
-					"delete": []
-				}
-			},
-			"operations": {
-				"disabledFeatures": [],
-				"enabled": true,
-				"scopes": {
-					"create": [],
-					"read": [ "internal_humantask_view" ],
-					"update": [],
-					"delete": []
-				}
-			},
-			"overview": {
-				"disabledFeatures": ["overview.accountStatus"],
-				"enabled": true,
-				"scopes": {
-					"create": [],
-					"read": [],
-					"update": [],
-					"delete": []
-				}
-			},
-			"personalInfo": {
-				"disabledFeatures": [],
-				"enabled": true,
-				"scopes": {
-					"create": [],
-					"read": [],
-					"update": [],
-					"delete": []
-				}
-			},
-			"security": {
-				"disabledFeatures": [],
-				"enabled": true,
-				"scopes": {
-					"create": [],
-					"read": [],
-					"update": [],
-					"delete": []
-				}
-			}
-		},
-		"productName": "Identity Server",
-		"productVersionConfig": {
-			"allowSnapshot": true,
-			"textCase": "uppercase",
-			"labelColor": "primary"
-		},
-		"theme": {
-			"name": "default"
-		}
-	}
+    "appBaseName": "myaccount",
+    "clientID": "MY_ACCOUNT",
+    "loginCallbackPath": "/login",
+    "logoutCallbackPath": "/login",
+    "productVersion": "5.x.x",
+    "routePaths": {
+            "home": "/overview",
+            "login": "/login",
+            "logout": "/logout"
+    },
+    "extensions": {
+    },
+    "session": {
+                "userIdleWarningTimeOut": 580.0,
+                "sessionRefreshTimeOut": 300.0,
+                "userIdleTimeOut": 600.0,
+                "checkSessionInterval": 3.0
+    },
+    "ui": {
+        "announcements": [
+        ],
+        "appCopyright": "WSO2 Identity Server",
+        "appTitle": "My Account | WSO2 Identity Server",
+        "appName": "My Account",
+        "appLogoPath": "/assets/images/logo.svg",
+        "authenticatorApp": {
+                "enabled": true
+        },
+        "features": {
+            "applications": {
+                "disabledFeatures": [
+                ],
+                "enabled": true,
+                "scopes": {
+                        "create": [],
+                        "read": [],
+                        "update": [],
+                        "delete": []
+                }
+            },
+            "operations": {
+                "disabledFeatures": [
+                ],
+                "enabled": true,
+                "scopes": {
+                    "create": [
+                    ],
+                    "read": [
+                            "internal_humantask_view"
+                    ],
+                    "update": [
+                    ],
+                    "delete": [
+                    ]
+                }
+            },
+            "overview": {
+                "disabledFeatures": [
+                ],
+                "enabled": true,
+                "scopes": {
+                        "create": [],
+                        "read": [],
+                        "update": [],
+                        "delete": []
+                }
+            },
+            "personalInfo": {
+                "disabledFeatures": [
+                ],
+                "enabled": true,
+                "scopes": {
+                        "create": [],
+                        "read": [],
+                        "update": [],
+                        "delete": []
+                }
+            },
+            "security": {
+                "disabledFeatures": [
+                ],
+                "enabled": true,
+                "scopes": {
+                        "create": [],
+                        "read": [],
+                        "update": [],
+                        "delete": []
+                }
+            }
+        },
+        "productName": "Identity Server",
+        "productVersionConfig": {
+        },
+        "theme": {
+            "name": "default"
+        }
+    }
 }
 ```
 

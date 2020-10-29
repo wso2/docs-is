@@ -1,387 +1,277 @@
 # What Has Changed
 
-WSO2 Identity Server 5.10.0 brings a range of new features and major improvements. In IS 5.10.0 following aspects has 
-been changed compared to the previous IS versions.
+WSO2 Identity Server 5.11.0 brings a range of new features and major improvements. The following aspects have changed in 5.11.0 compared to the previous WSO2 IS versions.
 
-This page provides details about the behavioral changes from WSO2 Identity Server 5.9.0 to 5.10.0.
+This page provides details about the behavioral changes from WSO2 Identity Server 5.10.0 to 5.11.0.
 
-??? note "If you are migrating from an older version of Identity Server"
-    In order to find the changes introduced in the previous versions please checkout the relevant docs
+!!! info "If you are migrating from an older version of Identity Server"
+    To find the changes introduced in the previous versions, you can refer to the following documentation:
     
-    - Changes introduced in IS 5.9.0 can be found at [What Has Changed in IS 5.9.0](https://is.docs.wso2.com/en/latest/setup/migrating-what-has-changed/)
-    - Changes introduced in IS 5.8.0 and before can be found at [Migrating Configurations to IS 5.8.0](https://docs.wso2.com/display/IS580/Upgrading+From+an+Older+Version+of+WSO2+IS#UpgradingFromanOlderVersionofWSO2IS-Migratingtheconfigurations)
+    - Changes introduced in IS 5.10.0 can be found at [What Has Changed in IS 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-what-has-changed/#what-has-changed).
+    - Changes introduced in IS 5.9.0 can be found at [What Has Changed in IS 5.9.0](https://is.docs.wso2.com/en/latest/setup/migrating-what-has-changed/).
+    - Changes introduced in IS 5.8.0 and before can be found at [Migrating Configurations to IS 5.8.0](https://docs.wso2.com/display/IS580/Upgrading+From+an+Older+Version+of+WSO2+IS#UpgradingFromanOlderVersionofWSO2IS-Migratingtheconfigurations).
 
-## Handling Last login Time as an Identity Claim
-In the previous versions of WSO2 Identity Server, the Last login time claim(used in account suspension) has been handled 
-as a default claim. From IS 5.10.0 onwards it will be handled as an identity claim. 
 
-!!! note "NOTE" 
-    If you want to have the previous behaviour please add the following property in the `deployment.toml` file located at 
-    `<IS_HOME>/repository/conf/` directory.
-    ```toml
-    [identity_mgt_account_suspension]
-    use_identity_claims = false
-    ```
+## Renamed 'User Portal' to 'MyAccount'
 
-## SCIM has been enabled by default
-From WSO2 Identity Server 5.10.0 onwards SCIM has been enabled by default for all the User Store Manager types. 
+A new portal named "User Portal" was released with WSO2 Identity Server 5.10.0 which replaced the legacy Jaggery-based end-user dashboard. With WSO2 IS 5.11.0 onwards, this portal has been renamed to “My Account” and will be onboarded as a SaaS application.
 
-## Email Templates has been changed for Account Lock
-From IS 5.10.0 onwards, different set of email templates will be used for account lock feature to notify the below 
-events,
+The following configurations changed in the application.
 
-- Account locking by exceeding `Maximum Failed Login Attempts` - **AccountLockFailedAttempt**
-- Account unlocking by exceeding `Account Unlock Time` - **AccountUnlockTimeBased**
-- Account locking by administrator - **AccountLockAdmin**
-- Account unlocking by administrator - **AccountUnlockAdmin**
+| Configuration | 5.10.0 value | 5.11.0 value |
+|-|-|-|
+| name | User Portal | My Account |
+| description | This is the user portal application. | This is the my account application. |
+| client_id | USER_PORTAL | MY_ACCOUNT |
+| callback_url | /user-portal/login | /myaccount/login |
 
-If the above new templates are not available in the server, then the old templates will be used to notify account lock 
-events which are **AccountLock** and **AccountUnLock**. 
+For more information, see [Configuring My Account Application](../../develop/configure-my-account).
 
-If you wish to have the new templates, then please add the following templates at management by referring to the 
-instructions at [Customizing AutomatedEmails](../../learn/customizing-automated-emails). Consider that you should
- migrate the customization done to the previous templates to the newly added templates. 
- 
-??? Sample template for "AccountLockFailedAttempt"
-     
-     - Email Template Type: AccountLockFailedAttempt
-     - Email Template Locale: English(United States)
-     - Email Content Type:text/html
-     - Email Template Subject: WSO2 - Your Account has been Locked
-     - Email Body: 
-     ```  
-     <![CDATA[
-     <table align="center" cellpadding="0" cellspacing="0" border="0" width="100%"bgcolor="#f0f0f0">
-     <tr>
-       <td style="padding: 30px 30px 20px 30px;">
-          <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="max-width: 650px; margin: auto;">
-             <tr>
-                <td colspan="2" align="center" style="background-color: #333; padding: 40px;">
-                   <a href="http://wso2.com/" target="_blank"><img src="http://cdn.wso2.com/wso2/newsletter/images/nl-2017/wso2-logo-transparent.png" border="0"/></a>
-                </td>
-             </tr>
-             <tr>
-                <td colspan="2" align="center" style="padding: 50px 50px 0px 50px;">
-                   <h1 style="padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;">
-                      Account Locked
-                   </h1>
-                </td>
-             </tr>
-             <tr>
-                <td style="text-align: left; padding: 0px 50px;" valign="top">
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                      Hi {{user.claim.givenname}},
-                   </p>
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                      Please note that the account registered with the user name <b>{{user-name}}</b> has been locked. Please try again later. <br>
-                   </p>
-                </td>
-             </tr>
-             <tr>
-                <td style="text-align: left; padding: 30px 50px 50px 50px" valign="top">
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
-                      Thanks,<br/>WSO2 Identity Server Team
-                   </p>
-                </td>
-             </tr>
-             <tr>
-                <td colspan="2" align="center" style="padding: 20px 40px 40px 40px;" bgcolor="#f0f0f0">
-                   <p style="font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;">
-                      &copy; 2018
-                      <a href="http://wso2.com/" target="_blank" style="color: #777; text-decoration: none">WSO2</a>
-                      <br>
-                      787 Castro Street, Mountain View, CA 94041.
-                   </p>
-                </td>
-             </tr>
-          </table>
-       </td>
-     </tr>
-     </table>
-     ]]
-     ```
-     - Email Footer: ---
- 
-??? Sample template for "AccountUnlockTimeBased"
- 
-     - Email Template Type: AccountUnlockTimeBased
-     - Email Template Locale: English(United States)
-     - Email Content Type:text/html
-     - Email Template Subject: WSO2 - Your Account has been Unlocked
-     - Email Body: 
-     ```  
-     <![CDATA[<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%"bgcolor="#f0f0f0">
-        <tr>
-        <td style="padding: 30px 30px 20px 30px;">
-            <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="max-width: 650px; margin: auto;">
-            <tr>
-                <td colspan="2" align="center" style="background-color: #333; padding: 40px;">
-                    <a href="http://wso2.com/" target="_blank"><img src="http://cdn.wso2.com/wso2/newsletter/images/nl-2017/wso2-logo-transparent.png" border="0" /></a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center" style="padding: 50px 50px 0px 50px;">
-                    <h1 style="padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;">
-                        Account Unlocked
-                    </h1>
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: left; padding: 0px 50px;" valign="top">
-                    <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                        Hi {{user.claim.givenname}},
-                    </p>
-                    <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                        Please note that the account registered with the user name <b>{{user-name}}</b> has been unlocked automatically as locked time exceeded.  <br>
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: left; padding: 30px 50px 50px 50px" valign="top">
-                    <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
-                        Thanks,<br/>WSO2 Identity Server Team
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center" style="padding: 20px 40px 40px 40px;" bgcolor="#f0f0f0">
-                    <p style="font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;">
-                        &copy; 2018
-                        <a href="http://wso2.com/" target="_blank" style="color: #777; text-decoration: none">WSO2</a>
-                        <br>
-                        787 Castro Street, Mountain View, CA 94041.
-                    </p>
-                </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        </table>]]>
-     ```
-     - Email Footer: ---
-     
-??? Sample template for "AccountLockAdmin"
-    
-    - Email Template Type: AccountLockAdmin
-    - Email Template Locale: English(United States)
-    - Email Content Type:text/html
-    - Email Template Subject: WSO2 - Your Account has been Locked
-    - Email Body: 
-    ```  
-    <![CDATA[<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%"bgcolor="#f0f0f0">
-       <tr>
-       <td style="padding: 30px 30px 20px 30px;">
-           <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="max-width: 650px; margin: auto;">
-           <tr>
-               <td colspan="2" align="center" style="background-color: #333; padding: 40px;">
-                   <a href="http://wso2.com/" target="_blank"><img src="http://cdn.wso2.com/wso2/newsletter/images/nl-2017/wso2-logo-transparent.png" border="0"/></a>
-               </td>
-           </tr>
-           <tr>
-               <td colspan="2" align="center" style="padding: 50px 50px 0px 50px;">
-                   <h1 style="padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;">
-                       Account Locked
-                   </h1>
-               </td>
-           </tr>
-           <tr>
-               <td style="text-align: left; padding: 0px 50px;" valign="top">
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                       Hi {{user.claim.givenname}},
-                   </p>
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                       Please note that the account registered with the user name <b>{{user-name}}</b> has been locked. Please Contact the Administrator.<br>
-                   </p>
-               </td>
-           </tr>
-           <tr>
-               <td style="text-align: left; padding: 30px 50px 50px 50px" valign="top">
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
-                       Thanks,<br/>WSO2 Identity Server Team
-                   </p>
-               </td>
-           </tr>
-           <tr>
-               <td colspan="2" align="center" style="padding: 20px 40px 40px 40px;" bgcolor="#f0f0f0">
-                   <p style="font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;">
-                       &copy; 2018
-                       <a href="http://wso2.com/" target="_blank" style="color: #777; text-decoration: none">WSO2</a>
-                       <br>
-                       787 Castro Street, Mountain View, CA 94041.
-                   </p>
-               </td>
-           </tr>
-           </table>
-       </td>
-       </tr>
-       </table>]]>
-    ```
-    - Email Footer: ---
+## Symmetric key encryption for internal data
 
-??? Sample template for "AccountUnlockAdmin"
+Up to version 5.10.0, WSO2 IS has been using asymmetric key encryption for encrypting internal data as well as for signing purposes.
+With 5.11.0 onwards, symmetric key encryption is the default encryption mechanism to encrypt internal sensitive data because:
 
-    - Email Template Type: AccountUnlockAdmin
-    - Email Template Locale: English(United States)
-    - Email Content Type:text/html
-    - Email Template Subject: WSO2 - Your Account has been Unlocked
-    - Email Body: 
-    ```  
-    <![CDATA[<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%"bgcolor="#f0f0f0">
-       <tr>
-       <td style="padding: 30px 30px 20px 30px;">
-           <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="max-width: 650px; margin: auto;">
-           <tr>
-               <td colspan="2" align="center" style="background-color: #333; padding: 40px;">
-                   <a href="http://wso2.com/" target="_blank"><img src="http://cdn.wso2.com/wso2/newsletter/images/nl-2017/wso2-logo-transparent.png" border="0" /></a>
-               </td>
-           </tr>
-           <tr>
-               <td colspan="2" align="center" style="padding: 50px 50px 0px 50px;">
-                   <h1 style="padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;">
-                       Account Unlocked
-                   </h1>
-               </td>
-           </tr>
-           <tr>
-               <td style="text-align: left; padding: 0px 50px;" valign="top">
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                       Hi {{user.claim.givenname}},
-                   </p>
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                       Please note that the account registered with the user name <b>{{user-name}}</b> has been unlocked by administrator. <br>
-                   </p>
-               </td>
-           </tr>
-           <tr>
-               <td style="text-align: left; padding: 30px 50px 50px 50px" valign="top">
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
-                       Thanks,<br/>WSO2 Identity Server Team
-                   </p>
-               </td>
-           </tr>
-           <tr>
-               <td colspan="2" align="center" style="padding: 20px 40px 40px 40px;" bgcolor="#f0f0f0">
-                   <p style="font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;">
-                       &copy; 2018
-                       <a href="http://wso2.com/" target="_blank" style="color: #777; text-decoration: none">WSO2</a>
-                       <br>
-                       787 Castro Street, Mountain View, CA 94041.
-                   </p>
-               </td>
-           </tr>
-           </table>
-       </td>
-       </tr>
-       </table>]]>
-    <![CDATA[<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%"bgcolor="#f0f0f0">
-       <tr>
-       <td style="padding: 30px 30px 20px 30px;">
-           <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="max-width: 650px; margin: auto;">
-           <tr>
-               <td colspan="2" align="center" style="background-color: #333; padding: 40px;">
-                   <a href="http://wso2.com/" target="_blank"><img src="http://cdn.wso2.com/wso2/newsletter/images/nl-2017/wso2-logo-transparent.png" border="0" /></a>
-               </td>
-           </tr>
-           <tr>
-               <td colspan="2" align="center" style="padding: 50px 50px 0px 50px;">
-                   <h1 style="padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;">
-                       Account Unlocked
-                   </h1>
-               </td>
-           </tr>
-           <tr>
-               <td style="text-align: left; padding: 0px 50px;" valign="top">
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                       Hi {{user.claim.givenname}},
-                   </p>
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                       Please note that the account registered with the user name <b>{{user-name}}</b> has been unlocked by administrator. <br>
-                   </p>
-               </td>
-           </tr>
-           <tr>
-               <td style="text-align: left; padding: 30px 50px 50px 50px" valign="top">
-                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
-                       Thanks,<br/>WSO2 Identity Server Team
-                   </p>
-               </td>
-           </tr>
-           <tr>
-               <td colspan="2" align="center" style="padding: 20px 40px 40px 40px;" bgcolor="#f0f0f0">
-                   <p style="font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;">
-                       &copy; 2018
-                       <a href="http://wso2.com/" target="_blank" style="color: #777; text-decoration: none">WSO2</a>
-                       <br>
-                       787 Castro Street, Mountain View, CA 94041.
-                   </p>
-               </td>
-           </tr>
-           </table>
-       </td>
-       </tr>
-       </table>]]>
-    ```
-    - Email Footer: ---
+-  Capability to change keystores easily
+    Prior to 5.10.0, since internal data was also encrypted using asymmetric key encryption, whenever the certificates expired or needed to be moved to a different keystore, all the data encrypted using the old keystore needed to be migrated.
+    Now, with symmetric key encryption for internal sensitive data, this is no longer an overhead. The secret key in symmetric key encryption is now encrypted using asymmetric key encryption so only the secret key of symmetric key encryption needs to re-encrypted whenever a keystore change is required.
 
-## Handling Internal Scopes
-From IS 5.10.0 onwards, internal scopes validation while accessing internal resources will be enabled by default, 
-but this will break existing applications using some APIs such as scim2/Me.
+- Symmetric key encryption for encrypting internal sensitive data is used industry-wide
 
-!!! note "NOTE"
-    We can go back to the previous behaviour and disable scope based permissions with the following config in the 
-    `deployment.toml` file.
-    ```toml
-    [resource_access_control]
-    disable_scope_validation=true
-    ```
+For more information, see [An Overview of Symmetric Encryption](../../administer/symmetric-overview).
 
-## Introducing two Separate Configuration to Manage OIDC Consent Flow
-This will introduce the following two new properties in the `identity.xml` inside OpenIDConnect tag to manage the 
-consent during OIDC login and logout flows.
-- SkipLoginConsent - Skip the OIDC login consent
-- SkipLogoutConsent - Skip the OIDC logout consent
+## The algorithm used for symmetric key encryption 
 
-If these properties are not defined, the value will be retrieved from SkipUserConsent
+WSO2 IS 5.11.0 uses ‘AES/GCM/NoPadding’ as the encryption algorithm. GCM is a stream cypher. Therefore, there is a performance advantage of using it due to the parallel encryption of each block. 
 
-These properties can be managed by adding the below configuration to `deployment.toml` file
+- There is no need to use a padding mechanism in GCM mode. 
+- In GCM mode, the IV (initialization vector) should be a unique value for each encryption request. 
+- Along with each value that is encrypted, the relevant IV related to that should be tracked in order to do the decryption. 
+- AES-128 is supported as the key size.
+
+For more information, see [Using Symmetric Key Encryption](../../administer/using-symmetric-encryption).
+
+## Group and role separation
+
+In versions up to WSO2 Identity Server 5.10.0, there were no separate entity for groups. Both groups and roles were considered as roles in the system and roles could be managed via the WSO2 IS management console or the SCIM groups endpoint. 
+
+From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups and roles are considered separate entities in the system as described below. They can be managed using the new console or via SCIM APIs.
+
+- **User**: An identity of a person stored in the IAM system.
+- **Group**: A representation of a set of users in the userstore.
+- **Role**: Roles within the IAM solution that bind with permissions defined for resources within the IAM solution. It can be mapped to old hybrid roles.
+
+**Relationship between roles, groups, and users**
+
+- A role can be assigned to multiple groups
+- A group can have multiple roles
+- A role can be assigned to multiple users
+- A user can have multiple roles
+- A group can be assigned to multiple users
+- A user can have multiple groups
+
+![relationship-between-groups-and-roles](../../assets/img/setup/groups-roles-relationship.png)
+
+
+## Tenant-qualified WSO2 endpoints
+
+Up to version WSO2 Identity Server 5.10.0, there were different ways of passing the tenant domain when calling an endpoint such as via a query param, a path param, or based on a parameter in the request.
+
+With WSO2 Identity Server 5.11.0, the experience is unified by qualifying all URLs with the tenant domain as a path param. The tenant-qualified URL pattern for the endpoints should take the form '/t/{tenant.domain}'. The tenant domain in the path always indicates that it’s the respective tenant domain’s resources being accessed. 
+
+This feature is disabled in the product by default. To enable it, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
 ```toml
-[oauth]
-prompt_login_consent = false
-prompt_logout_consent = false
+[tenant_context]
+enable_tenant_qualified_urls = true
 ```
 
-## WSDL of the Application Management Service has been changed
-In IS 5.10.0, there are significant changes has been introduced to the WSDL of the Application Management Admin Service 
-with the addition of new properties to the service provider model object. Therefore SOAP API consumers should 
-regenerate the stub or upgrade the dependency version of the stub.
+## Hosting account recovery endpoint on a different server
 
-## WSDL of the Identity Provider Management Service has been changed
-In IS 5.10.0, there are significant changes has been introduced to the WSDL of the Identity Provider Management 
-Admin Service with the addition of new properties to the service provider model object. Therefore SOAP API consumers 
-should regenerate the stub or upgrade the dependency version of the stub.
+With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you enable the tenant-qualify URL feature and host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/services` part as shown below. 
 
-## WSDL of the User Account Association Service has been changed 
-In IS 5.10.0, there are significant changes has been introduced to the WSDL of the User Account Association 
-Admin Service with the addition of new properties to the service provider model object. Therefore SOAP API consumers 
-should regenerate the stub or upgrade the dependency version of the stub.
+```tab="Example"
+identity.server.service.contextURL=https://localhost:9443/
+```
 
-## Handling SMS OTP Error Response using Internal Error Codes 
-From IS 5.10.0 onwards, SMS-OTP webapp uses internal error codes when there is an error response returned from the 
-SMS provider.
+## Deprecrating WebContextRoot configuration 
 
-!!! note "NOTE"
-    To have the previous behaviour where the SMS-Provider error codes were used by SMS-OTP webapp, please add the 
-    below configuration in the `deployment.toml` file located at `<IS_HOME>/repository/conf/` directory.
+The `WebContextRoot` configuration was included in the `<IS_HOME>/repository/conf/carbon.xml` file and it was the configuration used to build the URLs within the WSO2 IS product. However, it was observed that this has not been consistent in all places across the product and therefore the usage of this config has been very minimal. 
+ 
+From WSO2 Identity Server 5.11.0 onwards, we have deprecated the `WebContextRoot` configuration. Alternatively, you can use the `ProxyContextPath` configuration by adding it to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below.
+
+```
+[server]
+proxy_context_path="abc"
+```
+
+## Configuring CORS tenant-wise
+
+Complete the following steps for the CORS migration.
+
+1. Remove any CORS configurations defined in the `<IS_HOME>/repository/resources/conf/tomcat/web.xml` file. 
+To do this, remove the whole tag under the filter class named `com.thetransactioncompany.cors.CORSFilter`. 
+
+2. In order to complete the CORS migration, any CORS configurations defined at the `web.xml` file should be reconfigured in the `deployment.toml` file. The following table shows how the old configurations in the `web.xml` file are mapped to the new ones in the `deployment.toml` file. 
+
+    | Old (xml) configuration | New (toml) configuration |
+    |-|-|
+    | cors.allowGenericHttpRequests | allow_generic_http_requests |
+    | cors.allowOrigin {"*"} | allow_any_origin |
+    | cors.allowOrigin | allowed_origins |
+    | cors.allowSubdomains | allow_subdomains |
+    | cors.supportedMethods | supported_methods |
+    | cors.supportedHeaders {"*"} | support_any_header |
+    | cors.supportedHeaders | supported_headers |
+    | cors.exposedHeaders | exposed_headers |
+    | cors.supportsCredentials | supports_credentials |
+    | cors.maxAge | max_age |
+    | cors.tagRequests | tag_requests |
+
+    A sample CORS toml configuration is shown below.
+
     ```toml
-    [authentication.authenticator.sms_otp.parameters]
-    UseInternalErrorCodes = false
+    [cors]
+    allow_generic_http_requests = true
+
+    allowed_origins = [
+        "http://wso2.is"
+    ]
+    allow_subdomains = false
+    supported_methods = [
+        "GET",
+        "POST",
+        "HEAD",
+        "OPTIONS"
+    ]
+    support_any_header = true
+    supported_headers = []
+    exposed_headers = []
+    supports_credentials = true
+    max_age = 3600
+    tag_requests = false
     ```
-## New User Store Managers with built in unique ID support. 
 
-New user store managers with inbuilt unique ID support will provide the capability to enhance the user store operations 
-that were initially architecturally impossible. These operations include username rename functionality and a
- significant performance increase. as well. So migrating to new user store managers will allow us to use those new 
- features whenever those new features available.  
+## Configuring the certificate used to encrypt SAML assertions 
 
-New user store managers are named with the `UniqueiId` prefix for the old user store managers. For example,
-`JDBCUserStoreManager` with unique ID capabilities will be named as `UniqueIDJDBCUserStoreManager`
+In earlier versions, the certificate alias defined in SAML configuration was used to encrypt the SAML assertion. From WSO2 IS 5.11.0 onwards, an application certificate (if present) is used for this task. To revert to the old behavior, add the following property to the `deployment.toml` file and set it to **false**. 
+
+```toml
+[saml.metadata]
+assertion_encrypt_with_app_cert= false
+```
+
+## SAML service provider certificate expiry validation
+
+In earlier versions, service provider certificate expiry validation was not enabled by default. From 5.11.0 onwards, this validation is enabled by default. To revert to the old behavior, add the following property to the `deployment.toml` file to disable the validation. 
+
+```toml
+[saml]
+enable_saml_sp_certificate_expiry_validation= false
+```
+
+## OAuth 2.0 token binding validation
+
+The token binding validation is a feature that was introduced with WSO2 IS 5.10.0. Intially, if `tokenBindingType` is provided when creating the OpenID Connect service provider, the token binding validation is enabled by default. With the WSO2 IS WUM-updated pack, you can disable it by unticking the **Validate token bindings** property. However, if this property is not available for the existing service providers, token binding will still be enabled by default. 
+
+From 5.11.0 onwards, this behavior has been changed. The property is available for all new service providers. For the existing service providers that do not have this property, token binding validation is disabled. 
+To maintain backward compatibility, the property will be enabled during migration for those existing service providers that have the `tokenBindingType` as **cookie**.
+
+Hence, with this change, after 5.11.0, there will be no service providers without the **Validate token bindings** property. 
+
+## Configurations for managing OIDC consent flow 
+
+With WSO2 IS 5.10.0, two new properties shown below were introduced to the `<IS_HOME>/repository/conf/identity/identity.xml` file within the `OpenIDConnect` tag to manage consent during OpenID Connect login and logout flows. 
+- `SkipLoginConsent`:  Skip the OIDC login consent 
+- `SkipLogoutConsent`: Skip the OIDC logout consent
+
+With 5.11.0, these two properties are added to the [Application Management Rest API](../../develop/application-rest-api) so that they can be viewed and modified. The `skipConsent` attribute in the **AdvancedApplicationConfiguration** model has been removed the two properties `skipLoginConsent` and `skipLogoutConsent` have been added instead. 
+
+## Skip challenge question recovery option 
+
+With WSO2 IS 5.11.0, the challenge question recovery option is skipped by default if the user has not provided the challenge question answers set. To revert to the old behavior, you can disable this configuration by adding the following property to the `deployment.toml` file. 
+
+```toml
+[identity_mgt.password_reset_challenge_questions]
+skip_on_insufficient_answers = false
+```
+
+## Deprecated features
+
+OAuth 1.0 and `identity/connect/dcr` APIs are depecrated in WSO2 IS 5.11.0. If you wish to revert to the previous behavior, add the following property to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+
+**To enable OAuth 1.0**
+
+```toml
+[[legacy_feature]]
+id = "oauth"
+version = "1.0"
+enable = true
+```
+
+**To enable identity/connect/dcr**
+
+```toml
+[[legacy_feature]]
+id = "identity/connect/dcr"
+enable = true
+```
+
+## WS-Trust authenticator moved to the connector store
+
+WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. To use WS-Trust authentication, [configure the connector](TODO:insert-link-to-connector-doc). 
+
+## Migration of user store managers with unique ID support
+
+New user store managers with inbuilt unique ID support was introduced in WSO2 5.10.0 and named with the `UniqueID` prefix. User store managers that do not have `UniqueID` as part of the user store manager name are only available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server. If you are using any such user store managers, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to support using the user store in the management console or console application.
+
+```toml
+[[allowed_user_stores]]
+class = "org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"
+```
+
+## JWT validation at introspection
+
+JWT validation at introspection is enabled by default in WSO2 IS 5.11.0. The server identifies a JWT token at the introspection endpoint by attempting a JWT token parsing. If identified, introspection is performed by treating the token as a JWT access token.
+
+**Note** that enabling this feature will validate the token using the available JWT token validator for instance, in the default pack, it will use the `Default JWT token validator`. So any valid and parsable JWT token should be able to be successfully validated against the available JWT token validator in the system. 
+
+However, if the server issues custom JWT tokens which fail validation with the available JWT token validator, the existing flow can break. In a migrated setup, this condition can fail in scenarios such as:
+
+- There are custom token issuers that issue valid and parsable JWT tokens which fail the default JWT token validator shipped with the pack. e.g., a custom token not having the `jti` claim.
+
+- Both a custom JWT token validator and the default JWT token validator co-exist in the system. There also exists an invalid custom token which is successfully validated with the default validator but fails to be validated with the custom validator. The token may still pass the introspection validation.
+
+Therefore, it is important to verify that the JWT token validator can avoid the scenarios mentioned above. If not, it needs to be handled by deploying a custom JWT token validator that will avoid the issues mentioned above.
+
+To revert to the previous behavior and disable this feature, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+```toml
+[oauth]
+enable_jwt_token_validation_during_introspection=false
+```
+
+## Disabled appending params to OAuth2/OIDC error responses
+
+Appending additional parameters to the OAuth2/OIDC error response has been disabled by default. As a result, the parameters 'sp' and 'tenant_domain' which was set to the callback url in error responses in previous WSO2 IS versions will also not be available. If any configured error param needs to be sent back to the callback url in an error response, add the following config to the `deployment.toml` file.
+
+```toml
+[oauth.allow_additional_params_from_error_url]
+enable = true
+```
+
+## Disabled device authorization grant
+
+The device authorization grant was introduced with WSO2 IS 5.10.0. It has been disabled by default in the 5.11.0 version. However, you can enable it for backward compatibility if you had previously enabled this in your setup. To enable the grant and revert to the old behavior, add the following configuration to the `deployment.toml` file.
+
+!!! warning 
+    Note that this configuration is not production-ready and is ideally not recommended for use. 
+
+```toml
+[oauth.response_type.device]
+enable=true
+[oauth.grant_type.device_code]
+enable=true
+```
+
+
