@@ -259,8 +259,12 @@ current Identity Server and run the below scripts against the database that is u
         
         delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL;
         
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY);
-        
+        create index REG_RESOURCE_PROPERTY_REG_PROPERTY_ID_INDEX ON REG_RESOURCE_PROPERTY(REG_PROPERTY_ID);
+
+        create index REG_PROPERTY_REG_ID_INDEX ON REG_PROPERTY(REG_ID);
+
+        delete from REG_PROPERTY WHERE NOT EXISTS (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY where REG_PROPERTY.REG_ID=REG_RESOURCE_PROPERTY.REG_PROPERTY_ID);
+
         delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG);
         
         delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT);
@@ -276,6 +280,9 @@ current Identity Server and run the below scripts against the database that is u
         
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
         
+        drop index REG_RESOURCE_PROPERTY_REG_PROPERTY_ID_INDEX;
+
+        drop index REG_PROPERTY_REG_ID_INDEX;
         ```
        
 !!! warning "Not recommended"
