@@ -327,3 +327,61 @@ Following are the sample email templates.
        </table>]]>
     ```
     - Footer : ---
+    
+### Configuring WSO2 IS for Failed OTP attempts based account locking
+
+WSO2 Identity Server can be configured to lock a user account when the number of consecutive failed OTP attempts exceeded. 
+First, you need to configure the WSO2 Identity Server for user account locking and disabling according to 
+[Configuring WSO2 IS for account locking](../../learn/account-locking-by-failed-login-attempts/#configuring-wso2-is-for-account-locking).
+
+1. Add following configurations into `<IS_HOME>/repository/conf/deployment.toml` file to enable account locking for 
+each type of OTP attempts.
+
+    - For Email OTP:
+    ```
+    [authentication.authenticator.email_otp.parameters]
+    EnableAccountLockingForFailedAttempts = true
+    ```
+    
+    - For SMS OTP:
+    ```
+    [authentication.authenticator.sms_otp.parameters]
+    EnableAccountLockingForFailedAttempts = true
+    ```
+   
+        !!! note
+            Since `BackupCode = true` in the default configuration, configure the backup code claim according to 
+            [Configuring Backup Codes for SMSOTP](../../learn/configuring-sms-otp/#configuring-backup-codes-for-smsotp). 
+            Otherwise, disable the backup codes for SMS OTP.
+            ```
+            [authentication.authenticator.sms_otp.parameters]
+            BackupCode = false
+            ```
+   
+    - For TOTP:
+    ```
+    [authentication.authenticator.totp.parameters]
+    EnableAccountLockingForFailedAttempts = true
+    ```
+   
+2. Navigate to **Main menu > Identity > Claims > Add > Add Local Claim**.
+3. Click **http://wso2.org/claims**.
+
+4. Once the user account get locked **Account Locked** attribute will be updated as **true**.
+In order to check it via user profile,
+    1. Click **Edit** in **Account Locked**.
+    2. Select **Support by Default** and click **Update**.
+  
+5. **Failed Email OTP Attempts**, **Failed SMS Attempts**, and **Failed TOTP Attempts** attribute values will be incremented 
+for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. In order to check it via user profile,
+    - For Email OTP:
+        1. Click **Edit** in **Failed Email OTP Attempts**.
+        2. Select **Support by Default** and click **Update**.
+      
+    - For SMS OTP:
+        1. Click **Edit** in **Failed SMS Attempts**.
+        2. Select **Support by Default** and click **Update**.
+      
+    - For TOTP:
+        1. Click **Edit** in **Failed TOTP Attempts**.
+        2. Select **Support by Default** and click **Update**.
