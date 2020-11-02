@@ -94,7 +94,7 @@ With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hoste
 identity.server.service.contextURL=https://localhost:9443/
 ```
 
-## Deprecrating WebContextRoot configuration 
+## Deprecating WebContextRoot configuration 
 
 The `WebContextRoot` configuration was included in the `<IS_HOME>/repository/conf/carbon.xml` file and it was the configuration used to build the URLs within the WSO2 IS product. However, it was observed that this has not been consistent in all places across the product and therefore the usage of this config has been very minimal. 
  
@@ -274,4 +274,45 @@ enable=true
 enable=true
 ```
 
+## Email Templates 
 
+From WSO2 Identity Server 5.11.0 onwards, we have provided five new email 
+templates. 
+
+- TenantRegistrationConfirmation
+- LiteUserEmailConfirmation
+- ResendLiteUserEmailConfirmation
+- ResendVerifyEmailOnUpdate
+- SelfSignUpSuccess
+
+Apart from these new email templates we have added Email Content Type as `text/html` for `Totp` email template.
+
+## Logging
+
+### Archived log file names
+
+In versions up to WSO2 Identity Server 5.10.0, archived log file names only include the date.
+
+    ``` java tab="Example"
+        wso2carbon-10-12-2020.log
+    ```
+But, from WSO2 Identity Server 5.11.0 onwards we have added `i` which
+represents number of rollovers. This avoids target file overwriting on every rollover.
+
+    ``` java tab="Example"
+        wso2carbon-10-12-2020.1.log
+    ```
+### Access log pattern
+
+In versions up to WSO2 Identity Server 5.10.0, access logs are getting printed as below. 
+
+    ``` java tab="Example"
+        127.0.0.1 - - [26/Apr/2020:22:35:52 +0530] GET /carbon/admin/images/favicon.ico HTTP/1.1 200 17542 https://is.wso2.com:9443/carbon/admin/login.jsp Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36 0.001
+    ```
+Here the user agent is `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36`.
+Referer is `https://is.wso2.com:9443/carbon/admin/login.jsp`. As you can see the user agent has white spaces in between. Due to that access log analyzer tools can't process the log lines properly.
+As a solution from WSO2 Identity Server 5.11.0 onwards user agent and referer will be printed within double quotes. 
+
+    ``` java tab="Example"
+        127.0.0.1 - - [21/Oct/2020:11:46:54 +0530] GET /favicon.ico HTTP/1.1 401 - "https://localhost:9443/oauth2/authorize?sessionDataKey=d7ccf253-4abd-4a33-a79b-d7a71aa631d0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36" 0.001
+    ```
