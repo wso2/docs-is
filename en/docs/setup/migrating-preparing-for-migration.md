@@ -7,19 +7,19 @@
 !!! note
     In this section, `<OLD_IS_HOME> ` is the directory that current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
-    directory that WSO2 Identity Server 5.10.0 resides in. 
+    directory that WSO2 Identity Server 5.11.0 resides in. 
     
 ## Disabling versioning in the registry configuration
 If there are frequently updating registry properties, having the versioning enabled for 
 registry resources in the registry can lead to unnecessary growth in the registry related
 tables in the database. To avoid this, we have disabled versioning by default in Identity 
-Server 5.10.0.
+Server 5.11.0.
 
-Therefore, when migrating to IS 5.10.0 it is **required** to turn off the registry versioning in your
+Therefore, when migrating to IS 5.11.0 it is **required** to turn off the registry versioning in your
 current Identity Server and run the below scripts against the database that is used by the registry.
 
 !!! note "NOTE"
-    Alternatively, it is possible to turn on registry versioning in IS 5.10.0 and continue. But this is
+    Alternatively, it is possible to turn on registry versioning in IS 5.11.0 and continue. But this is
     highly **NOTE RECOMMENDED** and these configurations should only be changed once.
 
 !!! info "Turning off registry versioning in your current IS and running the scripts"
@@ -299,7 +299,7 @@ Ideally, the internal keystore should be used for encrypting internal critical d
 previous versions, the secondary userstore passwords are encrypted using the primary keystore, 
 which is also used to sign and encrypt tokens.
 
-In WSO2 Identity Server 5.10.0 we have moved the secondary userstore password encryption functionality 
+In WSO2 Identity Server 5.11.0 we have moved the secondary userstore password encryption functionality 
 from the primary keystore to the internal keystore.
 
 Check this [link](../../administer/migrating-the-secondary-userstore-password-to-the-internal-keystore) 
@@ -308,7 +308,7 @@ to see the instructions on migrating the secondary userstore password to encrypt
 
 ## Migrating custom components
 
-In WSO2 Identity Server 5.10.0 we have done a major upgrade to our kernel and our main components. 
+In WSO2 Identity Server 5.11.0 we have done a major upgrade to our kernel and our main components. 
 Any custom OSGI bundles which are added manually should be recompiled with new dependency versions 
 that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the 
 `<OLD_IS_HOME>/repository/components/dropins` directory.
