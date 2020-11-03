@@ -167,7 +167,7 @@
         `             <NEW_IS_HOME>            ` root directory.
 
     4.  Ensure that the property values are as follows in the
-        `  <NEW_IS_HOME>/migration-resources migration-config.yaml ` file.
+        `  <NEW_IS_HOME>/migration-resources/migration-config.yaml ` file.
 
         ``` java
         migrationEnable: "true"

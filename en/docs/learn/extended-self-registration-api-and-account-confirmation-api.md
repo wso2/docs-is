@@ -14,11 +14,11 @@ email or mobile as the preferred account confirmation channel for the user.
     ```text
     Channel Type: SMS
     Claim: http://wso2.org/claims/mobile
-    Channel Verified Claim:	http://wso2.org/claims/identity/emailVerified
-    
+    Channel Verified Claim: http://wso2.org/claims/identity/phoneVerified
+
     Channel Type: EMAIL
     Claim: http://wso2.org/claims/emailaddress
-    Channel Verified Claim: http://wso2.org/claims/identity/phoneVerified
+    Channel Verified Claim:	http://wso2.org/claims/identity/emailVerified
     ```
 
 The account confirmation channel is selected based on the following scenarios.

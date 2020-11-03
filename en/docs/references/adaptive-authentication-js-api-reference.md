@@ -589,9 +589,9 @@ step number.
 
 -   `          request.headers[“<header_name>”]         ` : Request’s
     header value for the given header name by &lt;header\_name&gt;
--   `          request.params[“<param_name>”]         ` : Request’s
-    parameter value for the given parameter name by
-    &lt;parameter\_name&gt;
+-   `          request.params.param_name[0]         ` : Request’s
+    parameter value for the given parameter name by the
+    &lt;param\_name&gt; index (`param_name` is an array). 
 -   `          request.cookies[“<cookie_name”]         ` : Request’s
     cookie value for the given cookie name by &lt;cookie\_name&gt;
 -   `          request.ip         ` : The client IP address of the user
