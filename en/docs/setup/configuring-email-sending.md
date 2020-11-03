@@ -1,11 +1,8 @@
 # Configuring the Email Sending Module
 
-This document explains the steps to configure WSO2 Identity Server to
-send emails during multiple email related identity and access management
-tasks such as [email OTP](../../learn/configuring-email-otp), [email
-notifications](../../learn/enabling-notifications-for-user-operations),
-[account recovery](../../learn/password-recovery).
+This document explains the steps to configure WSO2 Identity Server to send emails during multiple email related identity and access management tasks such as [email OTP](../../learn/configuring-email-otp), [email notifications](../../learn/enabling-notifications-for-user-operations),[account recovery](../../learn/password-recovery).
 
+## Configure email sending
 1.  Shut down the server if it is running.
 2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
 
@@ -58,3 +55,48 @@ notifications](../../learn/enabling-notifications-for-user-operations),
         **Allow less secure apps**.  
         ![allow-less-secure-apps](../assets/img/using-wso2-identity-server/allow-less-secure-apps.png)        
     
+
+----
+
+## Configure email masking pattern
+
+Follow the instructions below to make the email masking regex pattern configurable for account recovery flows. 
+
+1. On the management console, navigate to **Main > Identity > Claims > List**.
+2. Click "http://wso2.org/claims".
+3. Under **Email**, click **Edit**.
+4. Click **Add Claim Property**. 
+5. Enter "MaskingRegEx" as the **Property Name** and enter a suitable masking regex pattern as the **Property Value**. Ensure that the regex pattern is XML encoded.
+
+Alternatively, you can also add a claim mapping using the configuration file instead of via the management console. To do this:
+
+1. Open the `claim-config.xml` file found in the `<IS_HOME>/repository/conf/` folder.
+
+2. Add the **MaskingRegEx** property for http://wso2.org/claims/emailaddress claim URI under the `http://wso2.org/claims` claim dialect. A sample is given below. 
+
+    ```xml
+    <Claim>
+    <ClaimURI>http://wso2.org/claims/emailaddress</ClaimURI>
+    <DisplayName>Email</DisplayName>
+    <AttributeID>mail</AttributeID>
+    <Description>Email Address</Description>
+    <Required />
+    <DisplayOrder>6</DisplayOrder>
+    <SupportedByDefault />
+    <RegEx>^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$</RegEx>
+    <MaskingRegEx>
+    (?&lt;=.)[^@\n](?=[^@\n]*?[^@\n]@)|(?:(?&lt;=@.)|(?!^)\G(?=[^@\n]*$)).(?=.*[^@\n]\.)
+    (?&lt;=.)[^@\n](?=[^@\n]*?[^@\n]@)|(?:(?&lt;=@.)|(?!^)\G(?=[^@\n]*$)).(?=.*[^@\n]\.)
+    </MaskingRegEx>
+    </Claim>
+    ```
+
+    !!! tip
+        Ensure that the regex pattern is XML encoded.
+
+3. Save the file and restart the server.
+
+!!! note 
+    Note that claims configured in `<IS_HOME>/repository/conf/claim-config.xml` file get applied only when you start the product for the first time, or for any newly created tenants.
+
+

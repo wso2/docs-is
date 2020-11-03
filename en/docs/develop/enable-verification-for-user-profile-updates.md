@@ -1,4 +1,8 @@
-# Enable Mobile Number Verification for an Updated Mobile Number 
+# Enable Verification for User Profile Updates
+
+This page guides you through verifying a user's details when the user profile is updated with values for mobile number or email address. 
+
+## Mobile number verification
 
 This feature enables mobile number verification when the user updates the user profile with a new mobile number, so that the new mobile number can be taken into consideration for all further activities performed by the user.
 
@@ -10,7 +14,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
-## Step 01 - Add an event publisher to send SMS
+### Step 01 - Add an event publisher to send SMS
 
 1. Add an event publisher to `IS_HOME/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
 
@@ -40,7 +44,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
             on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
             /display/DAS300/HTTP+Event+Publisher). 
 
-## Step 02 - Enable the feature via the management console
+### Step 02 - Enable the feature via the management console
 
 1.  On the management console, navigate to **Main > Identity Providers > Resident > Other Settings > User Claim Update**.
    
@@ -62,30 +66,24 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         verification_sms_otp_validity = “5”
         ```
 
-## Try it out 
+### Try it out 
 
-### Updating the mobile number
+**Updating the mobile number**
  
 Given below is a sample request and the relevant response for updating the mobile number via a PATCH operation to SCIM 2.0 Users endpoint.
 
-**Request**
-
-```curl
+```curl tab="Request"
 curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":[{"op":[operation],
 "value":{[attributeName]:[attribute value]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[user ID]
 ```
 
-**Sample Request**
-
-```curl
+```curl tab="Sample Request"
 curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
 "Operations":[{"op":"replace","value":{"phoneNumbers":[{"type":"mobile","value":"0123456789"}]}}]}' 
 --header "Content-Type:application/json" https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
 ```
 
-**Sample Response**
-
-```
+```curl tab="Sample Response"
 {
     "emails": [
         "bobsmith@abc.com"
@@ -128,62 +126,62 @@ Upon receiving the response given above, the user will receive an SMS notificati
 To validate the verification code sent to the user, use the existing `validate-code` and `resend-code` APIS of the
  [Self Registration REST APIs](https://docs.wso2.com/display/IS511/apidocs/self-registration/). 
  
-### Validating the verification code
+**Validating the verification code**
 
 The user can submit the SMS OTP code using the validate-code API.
 Given below is a sample request and the relevant response to submit the received verification code.
 
-**Request**
 
-```curl
+```curl tab="Request"
 curl -k -v -X POST -H "Authorization: <Base64Encoded_username:password>" -H "Content-Type: application/json" -d 
 '{ "code": "<validation_code>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
 ```
 
-**Sample Request**
-
-```curl
+```curl tab="Sample Request"
 curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "123ABC","properties": []}'
  "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
 ```
 
-**Response**
-
-```
+```curl tab="Sample Response"
 "HTTP/1.1 202 Accepted"
 ```
 
-### Resending the verification code
+**Resending the verification code**
 
-The user can request to resend a new SMS OTP code using the resend-code API.
-Given below is a sample request and the relevant response to request a new verification code.
-
-**Request**
-
-```curl
-curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"properties": []}' 
-"https://localhost:9443/api/identity/user/v1.0/me/resend-code"
-```
-
-The verification scenario should be specified in the properties parameter of the request body as follows :
+The user can request to resend a new SMS OTP code using the resend-code API. The verification scenario should be specified in the properties parameter of the request body as follows :
 
 ```
 "properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]
 ```
+Given below is a sample request and the relevant response to request a new verification code.
 
-**Sample Request**
+```curl tab="Request"
+curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"properties": []}' 
+"https://localhost:9443/api/identity/user/v1.0/me/resend-code"
+```
 
-```curl
+```curl tab="Sample Request"
 curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]}' 
 "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
 ```
 
-**Response**
-
-```
+```curl tab="Sample Response"
 "HTTP/1.1 201 Created"
 ```
 
+----
+
+## Email address verification
+
+Run the following curl command to resend email verification upon updating the email address. 
+
+```curl tab="Request"
+curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": <USERNAME>,"realm": <REALM>"},"properties": [{"key":"RecoveryScenario","value":"EMAIL_VERIFICATION_ON_UPDATE"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
+```
+
+```curl tab="Response"
+HTTP/1.1 201 Created
+```
 
 !!! info "Related Topics"
     See [SCIM 2.0 Rest APIs](../../develop/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
