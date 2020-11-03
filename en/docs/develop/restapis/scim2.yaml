@@ -1477,7 +1477,7 @@ definitions:
             value: "kim@gmail.com"
             primary: true
           - type: "work"
-            value: "kim@wso2,com"
+            value: "kim@wso2.com"
       urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
