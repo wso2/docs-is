@@ -201,6 +201,7 @@ nav:
           - 'With Function Library': learn/adaptive-authentication-with-function-library.md
           - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md
         - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
+        - 'Using OPA Policies for Adaptive Authentication': learn/using-opa-policies-for-adaptive-auth.md
         - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
       - 'Identity Federation':
         - 'Identity Federation': learn/identity-federation.md
@@ -360,6 +361,7 @@ nav:
           - 'Monitoring Workflow Requests': learn/monitoring-workflow-requests.md
         - 'Customizing Automated Emails': learn/customizing-automated-emails.md
         - 'Enabling Notifications for User Operations': learn/enabling-notifications-for-user-operations.md
+        - 'Locking Functionality Per User': learn/lock-user-functionality.md
         - 'Tenant Wise Email Sender Configuration': learn/tenant-wise-email-sender-configuration.md
         - 'Associating User Accounts': learn/associating-user-accounts.md
         - 'Managing User Attributes': learn/managing-user-attributes.md
@@ -582,7 +584,8 @@ nav:
             - 'Tenant Management': develop/tenant-management-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
             - 'User Discoverable Application Management': develop/user-discoverable-applications.md
-          - 'Scope based Authorization for Internal REST APIs': develop/scope-based-authorization-for-internal-rest-apis.md
+            - 'Scope based Authorization for Internal REST APIs': develop/scope-based-authorization-for-internal-rest-apis.md
+            - 'User Functionality Management REST APIs': develop/user-functionality-mgt-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
@@ -718,8 +721,7 @@ nav:
       - 'Migration Guide':
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
-          - "Migrating to 5.10.0" : setup/migrating-to-5100.md
-          - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
+          - "Migrating to 5.11.0" : setup/migrating-to-5110.md
           - 'Migrating Data Publishers': setup/migrating-data-publishers.md
           - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
     - 'Environment Compatibilty': setup/environment-compatibility.md

@@ -32,13 +32,6 @@ the users with an authorization server-based authentication.
         
     !!! note
         WSO2 Identity Server supports RP-initiated logout requests to OpenID Connect identity providers.
-
-        To use this feature, apply the **0147** WUM update for WSO2 Identity Server 5.9.0 using the WSO2
-        Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If
-        you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server
-        when it is released. For more information on updating WSO2 Identity Server using WUM, see [Getting
-        Started with WUM.](../../administer/getting-wso2-updates)
-        ![oauth2-openid-connect-federated-logout](../assets/img/tutorials/oidc-federated-logout.png)
     
 5.  Fill in the following fields where relevant.
 
