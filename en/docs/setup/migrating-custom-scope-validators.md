@@ -22,7 +22,7 @@ Server (WSO2 IS), you will understand that,
 
 Therefore, if you have added any custom scope validators to your
 existing version of WSO2 IS, and you want to migrate those custom scope
-validators to IS 5.10.0, follow the instructions below:
+validators to IS 5.11.0, follow the instructions below:
 
 !!! tip
     
@@ -49,9 +49,9 @@ validators to IS 5.10.0, follow the instructions below:
 
 2.  If you have custom scope validators that you have configured
     globally, and you want to configure those scope validators in all
-    service providers in WSO2 IS 5.10.0, add the following snippet to the
+    service providers in WSO2 IS 5.11.0, add the following snippet to the
     appropriate migration script in the
-    `           <IS5.10.0_MIGRATION_TOOL_HOME>/migration-resources/migration-resources/5.5.0/dbscripts/step2/identity          `
+    `           <IS5.11.0_MIGRATION_TOOL_HOME>/migration-resources/migration-resources/5.5.0/dbscripts/step2/identity          `
     directory.
 
     ``` sql

@@ -106,14 +106,14 @@ In the authentication flow shown above, the following extension points are avail
 
 #### Custom adaptive authentication script
 
-With the [adaptive authentication feature](https://is.docs.wso2.com/en/5.10.0/learn/adaptive-authentication/) in WSO2
+With the [adaptive authentication feature](../../learn/adaptive-authentication/) in WSO2
  Identity Server, it is possible to dynamically alter the authentication sequence with Javascript-based
  authentication schemes. WSO2 IS has some predefined javascript functions to perform authenticated user-related
  operations. WSO2 IS also allows you the flexibility of plugging in custom functions for desired use cases. This
  means that you can implement desired use-cases. Similarly we can implement a custom function to invoke a third-party
   system to detect fraudulent behaviors, evaluate the risk associated with the authenticated user, and also to
   verify the identity of the authenticated user. More details on how to write a custom adaptive function can be found
-   [here](https://is.docs.wso2.com/en/5.10.0/develop/writing-custom-functions-for-adaptive-authentication/).
+   [here](../../develop/writing-custom-functions-for-adaptive-authentication/).
 
 The following code block shows a sample script.
 
@@ -306,6 +306,5 @@ CustomUserstoreManager extends ReadWriteLDAPUserstoreManager {
 }
 ```
 
-For more information on writing a custom user store manager, refer to this [link](https://is.docs.wso2
-.com/en/5.10.0/setup/writing-a-custom-user-store-manager/).
+For more information on writing a custom user store manager, refer to this [link](../../setup/writing-a-custom-user-store-manager/).
 
