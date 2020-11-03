@@ -7,7 +7,7 @@
 !!! note ""
     In this section, `<OLD_IS_HOME> ` is the directory that the current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
-    directory that WSO2 Identity Server 5.10.0 resides in. 
+    directory that WSO2 Identity Server 5.11.0 resides in. 
 
 ??? info "If you are using DB2"
     Move indexes to the TS32K Tablespace. The index tablespace in the 
@@ -208,7 +208,7 @@
     
     Under each migrator's parameters, find the property value of **currentEncryptionAlgrithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
             
-10.  Start the WSO2 Identity Server 5.10.0 with the following command to
+10.  Start the WSO2 Identity Server 5.11.0 with the following command to
     execute the migration client.
 
     1.  Linux/Unix:
