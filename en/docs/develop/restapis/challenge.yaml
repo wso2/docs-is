@@ -594,7 +594,7 @@ definitions:
         description: The locale of the question.
       question:
         type: string
-        example: What is your favorite travel destination ?
+        example: Favorite vacation location ?
         description: Challenge question display value.
       questionId:
         type: string
@@ -611,7 +611,7 @@ definitions:
     properties:
       questionSetId:
         type: string
-        example: challengeQuestionSet1
+        example: challengeQuestion1
         description: A unique ID to identify the challenge set.
       challengeQuestion:
         $ref: '#/definitions/ChallengeQuestion'
@@ -646,11 +646,11 @@ definitions:
     properties:
       questionSetId:
         type: string
-        example: challengeQuestionSet1
+        example: challengeQuestion1
         description: A unique ID to identify the challenge set.
       question:
         type: string
-        example: What is your favorite travel destination ?
+        example: Favorite vacation location ?
         description: Challenge question display value.
       answer:
         type: string
@@ -717,4 +717,4 @@ responses:
     description: Resource Forbidden
 
 host: localhost:9443
-basePath: /t/carbon.super/api/users/v1
+basePath: /t/{tenant-domain}/api/users/v1
