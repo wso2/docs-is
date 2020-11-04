@@ -256,8 +256,8 @@ enable_jwt_token_validation_during_introspection=false
 Appending additional parameters to the OAuth2/OIDC error response has been disabled by default. As a result, the parameters 'sp' and 'tenant_domain' which was set to the callback url in error responses in previous WSO2 IS versions will also not be available. If any configured error param needs to be sent back to the callback url in an error response, add the following config to the `deployment.toml` file.
 
 ```toml
-[oauth.allow_additional_params_from_error_url]
-enable = true
+[oauth]
+allow_additional_params_from_error_url = true
 ```
 
 ## Disabled device authorization grant

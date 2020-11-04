@@ -1,4 +1,4 @@
-# Migrating to 5.10.0
+# Migrating to 5.11.0
 
 !!! note "Before you begin"
     -   Make sure you satisfy the prerequisites in [Before you begin](../../setup/migration-guide).
@@ -7,7 +7,7 @@
 !!! note ""
     In this section, `<OLD_IS_HOME> ` is the directory that the current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
-    directory that WSO2 Identity Server 5.10.0 resides in. 
+    directory that WSO2 Identity Server 5.11.0 resides in. 
 
 ??? info "If you are using DB2"
     Move indexes to the TS32K Tablespace. The index tablespace in the 
@@ -93,7 +93,7 @@
     directory.
     
     !!! warning "Important" 
-        You may need to update the custom components to work with WSO2 Identity Server 5.10.0. 
+        You may need to update the custom components to work with WSO2 Identity Server 5.11.0. 
         Refer [Migrating custom components](../../setup/migrating-preparing-for-migration/#migrating-custom-components).
         If applicable, migrate
         [Data Publishers](../../setup/migrating-data-publishers) and
@@ -112,7 +112,7 @@
     directory.
 
     !!! note
-        In WSO2 Identity Server 5.10.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` to configure internal and primary keystores. 
+        In WSO2 Identity Server 5.11.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` to configure internal and primary keystores. 
 
         ```toml
         [keystore.primary]
@@ -145,13 +145,11 @@
     
 6. Ensure that you have migrated the configurations into the new version as
    advised in [preparing for migration section.](../../setup/migrating-preparing-for-migration/#migrating-the-configurations)
-   
-7. Migrate [Log4j2 configurations](../../setup/migrating-to-log4j2).
 
-8. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with
+7. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with
    `<OLD_IS_HOME>/repository/conf/email/email-admin-config.xml`.   
     
-9. Follow the steps given below to perform database updates:
+8. Follow the steps given below to perform database updates:
     1.     To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**. Unzip it to a local directory.
         
         !!! Note 
@@ -176,7 +174,7 @@
 
         currentVersion: "5.7.0"
 
-        migrateVersion: "5.10.0"
+        migrateVersion: "5.11.0"
         ```
         
         !!! note
@@ -189,10 +187,28 @@
             
             ALTER USER <user> WITH SUPERUSER;
 
-10. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow 
-    the guidelines given in the [Migrating User Store Managers](../../setup/migrating-userstore-managers) before moving to the next section.
+9. Configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
+
+    1. Generate your own secret key using a tool like OpenSSL.
+
+        ```tab="Example"
+        openssl enc -nosalt -aes-128-cbc -k hello-world -P
+        ```
+    
+    2. Add the configuration to the `<NEW_IS_HOME>/repository/conf/deployment.toml` file. 
+
+        ```toml
+        [encryption]
+        key = "<provide-your-key-here>"
+        ```
+    
+    3. Open the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file. The following two migrators are configured under **migratorConfigs** for 5.11.0. 
+        - EncryptionAdminFlowMigrator
+        - EncryptionUserFlowMigrator 
+    
+    Under each migrator's parameters, find the property value of **currentEncryptionAlgrithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
             
-11.  Start the WSO2 Identity Server 5.10.0 with the following command to
+10.  Start the WSO2 Identity Server 5.11.0 with the following command to
     execute the migration client.
 
     1.  Linux/Unix:
@@ -207,7 +223,7 @@
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
-12.  Stop the server once the migration client execution is complete.
+11.  Stop the server once the migration client execution is complete.
     
 ## Executing the sync tool
 

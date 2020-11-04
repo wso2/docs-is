@@ -720,8 +720,7 @@ nav:
       - 'Migration Guide':
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
-          - "Migrating to 5.10.0" : setup/migrating-to-5100.md
-          - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
+          - "Migrating to 5.11.0" : setup/migrating-to-5110.md
           - 'Migrating Data Publishers': setup/migrating-data-publishers.md
           - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
     - 'Environment Compatibilty': setup/environment-compatibility.md

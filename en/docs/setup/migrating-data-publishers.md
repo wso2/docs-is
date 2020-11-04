@@ -54,12 +54,12 @@ instead.
 
 1.  If you have enabled `org.wso2.carbon.identity.data.publisher.application.authentication.impl.DASSessionDataPublisherImpl`
     in `<OLD_IS_HOME>/repository/conf/identity.xml` do not enable it in
-    the WSO2 Identity Server 5.10.0 configurations. Simply, skip
+    the WSO2 Identity Server 5.11.0 configurations. Simply, skip
     migrating this particular configuration and it will disable the old
     event listener.
     
     !!! note 
-        For the new configuration model introduced in WSO2 Identity Server 5.9.0, see 
+        For the new configuration model introduced from WSO2 Identity Server onwards, see 
         [New Configuration Model](../../references/new-configuration-model) for more information.
         
         If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through 
