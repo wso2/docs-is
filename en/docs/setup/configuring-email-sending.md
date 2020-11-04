@@ -1,11 +1,8 @@
 # Configuring the Email Sending Module
 
-This document explains the steps to configure WSO2 Identity Server to
-send emails during multiple email related identity and access management
-tasks such as [email OTP](../../learn/configuring-email-otp), [email
-notifications](../../learn/enabling-notifications-for-user-operations),
-[account recovery](../../learn/password-recovery).
+This document explains the steps to configure WSO2 Identity Server to send emails during multiple email related identity and access management tasks such as [email OTP](../../learn/configuring-email-otp), [email notifications](../../learn/enabling-notifications-for-user-operations),[account recovery](../../learn/password-recovery).
 
+## Configure email sending
 1.  Shut down the server if it is running.
 2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
 

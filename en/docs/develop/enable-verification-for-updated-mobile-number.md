@@ -1,4 +1,4 @@
-# Enable Mobile Number Verification for an Updated Mobile Number 
+# Enable Mobile Number Verification for an Updated Mobile Number
 
 This feature enables mobile number verification when the user updates the user profile with a new mobile number, so that the new mobile number can be taken into consideration for all further activities performed by the user.
 

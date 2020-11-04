@@ -337,6 +337,7 @@ nav:
             - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
           - 'Emails with Special Characters': learn/adding-email-special-characters.md
+          - 'Configuring Email Masking Pattern': learn/configure-email-masking-pattern.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
           - 'Resending Account Recovery Confirmation Emails': learn/resending-account-recovery-confirmation-emails.md
@@ -524,8 +525,8 @@ nav:
             - 'Customizing Authentication Error Messages': develop/customizing-authentication-error-messages.md
             - 'Customizing Error Pages': develop/customizing-error-pages.md
             - 'Error Codes and Descriptions': develop/error-codes-and-descriptions.md
-          - 'Supporting Email Account Verification for an Updated Email Address' : develop/supporting-email-account-verification-for-an-updated-email-address.md
-          - 'Enable Mobile Number Verification for an Updated Mobile Number' : develop/enable-mobile-verification-for-an-updated-mobile-number.md
+          - 'Enable Email Account Verification for an Updated Email Address' : develop/enable-email-account-verification-for-an-updated-email-address.md
+          - 'Enable Mobile Number Verification for an Updated Mobile Number' : develop/enable-verification-for-updated-mobile-number.md
         - 'Provisioning for Developers':
           - 'Extending SCIM 2.0 User Schemas': develop/extending-scim2-user-schemas.md
           - 'Writing an Outbound Provisioning Connector': develop/writing-an-outbound-provisioning-connector.md
