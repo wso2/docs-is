@@ -1,6 +1,6 @@
 # Configure Email Masking Pattern
 
-This page guides you through configuring the email masking regex pattern to mask the user's email address when the HTTP response body is returned during account recovery flows. 
+This page guides you through configuring the email masking regex pattern to mask the user's email address returned in the HTTP response body when initiating the password recovery API where notification-based password recovery is enabled.
 
 Follow the instructions below to make the email masking regex pattern configurable.
 
@@ -51,6 +51,5 @@ Alternatively, you can also add a claim mapping using the configuration file ins
 
 !!! info "Related Topics"
     - 
-
 
 
