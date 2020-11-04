@@ -16,7 +16,12 @@ password recovery:
     5.2.0](https://docs.wso2.com/display/IS520/Password+Recovery). The old
     implementation has been retained within the WSO2 IS pack for backward
     compatitbility and can still be used if required.
-    
+
+!!! note
+	WSO2 IS validates whether the user account is locked or disabled prior to account recovery. In addition, if any customization prior to account recovery such as checking the eligibility of the user for account recovery by validating certain conditions/ user claims is needed, WSO2 Identity Server provides an extension for that.
+
+	WSO2 IS triggers the `PRE_ACCOUNT_RECOVERY` event prior to user account recovery using the WSO2 IS eventing framework. A custom event handler can be written upon which the `PRE_ACCOUNT_RECOVERY` event is triggered. For more information on how to write a custom handler and trigger an event, see [Writing a custom handler](../../develop/writing-a-custom-event-handler).
+
 
 ### Recovery using notifications
 
