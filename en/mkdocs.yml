@@ -337,6 +337,7 @@ nav:
             - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
           - 'Emails with Special Characters': learn/adding-email-special-characters.md
+          - 'Configuring Email Masking Pattern': learn/configure-email-masking-pattern.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
           - 'Resending Account Recovery Confirmation Emails': learn/resending-account-recovery-confirmation-emails.md
