@@ -78,10 +78,14 @@ with email notification.
     ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery.png)
     
     !!! info 
-        To enable password recovery with reCaptcha verification, select the
-        **Enable reCaptcha for Password Recovery** checkbox. For more
-        information, see [Configuring reCaptcha for Password
-        Recovery](../../learn/configuring-recaptcha-for-password-recovery).
+        - To enable password recovery with reCaptcha verification, select the **Enable reCaptcha for Password Recovery** checkbox. For more information, see [Configuring reCaptcha for Password Recovery](../../learn/configuring-recaptcha-for-password-recovery).
+
+        - To enable auto-login after password reset, select the **Enable Auto Login After Password Reset** checkbox. Alternatively, you can enable this server-wide by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+
+        ```toml
+        [identity_mgt.recovery]
+        enable_auto_login=true
+        ```
 
 5.  To enable sending a confirmation email to the user's registered
     email address after the password reset, select the **Notify when
@@ -180,16 +184,16 @@ feature. To do this, do the following.
     Starts** checkbox to send an email notification to the user when the
     question based recovery starts.
 
-    !!! note
-    
-        You can also select the **Enable reCaptcha for Password Recovery**
-        checkbox to enable password recovery with reCaptcha verification.
-        For more information, see Configuring reCaptcha for Password
-        Recovery.
-    
-        ![enable-recaptch-for-password-recovery](../assets/img/using-wso2-identity-server/enable-recaptch-for-password-recovery.png) 
-    
+    !!! info 
+        - To enable password recovery with reCaptcha verification, select the **Enable reCaptcha for Password Recovery** checkbox. For more information, see [Configuring reCaptcha for Password Recovery](../../learn/configuring-recaptcha-for-password-recovery).
 
+        - To enable auto-login after password reset, select the **Enable Auto Login After Password Reset** checkbox. Alternatively, you can enable this server-wide by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+
+        ```toml
+        [identity_mgt.recovery]
+        enable_auto_login=true
+        ```
+        
 You can set up challenge questions for users in one of the following
 ways:
 
