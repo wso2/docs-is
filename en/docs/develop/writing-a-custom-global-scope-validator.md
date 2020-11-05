@@ -69,7 +69,7 @@ public CustomScopeValidator implements ScopeValidator {
 
 //handle implementation 
 
- Return true;
+ return true;
 }
 
     /**
