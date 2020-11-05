@@ -311,6 +311,15 @@ In the example given above, the user agent is `Mozilla/5.0 (Macintosh; Intel Mac
 
 As a solution to this, the user agent and referer will be printed within double quotes from WSO2 Identity Server 5.11.0 onwards. 
 
-    ``` java tab="Example"
-        127.0.0.1 - - [21/Oct/2020:11:46:54 +0530] GET /favicon.ico HTTP/1.1 401 - "https://localhost:9443/oauth2/authorize?sessionDataKey=d7ccf253-4abd-4a33-a79b-d7a71aa631d0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36" 0.001
-    ```
+``` java tab="Example"
+127.0.0.1 - - [21/Oct/2020:11:46:54 +0530] GET /favicon.ico HTTP/1.1 401 - "https://localhost:9443/oauth2/authorize?sessionDataKey=d7ccf253-4abd-4a33-a79b-d7a71aa631d0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36" 0.001
+```
+
+## Extending expiry time of commonAuth cookie
+
+With WSO2 IS 5.11.0 onwards, the expiry time of the the commonAuth cookie is extended with each authentication request. This is enabled by default in 5.11.0 but was disabled by default in the WSO2 IS 5.10.0 WUM-updated pack. If you do not require this feature, you can disable it by adding the following configuration to the `deployment.toml` file. 
+
+```toml
+[session.timeout]
+extend_remember_me_session_timeout_on_auth=false
+```
