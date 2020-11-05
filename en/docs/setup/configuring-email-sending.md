@@ -1,11 +1,8 @@
 # Configuring the Email Sending Module
 
-This document explains the steps to configure WSO2 Identity Server to
-send emails during multiple email related identity and access management
-tasks such as [email OTP](../../learn/configuring-email-otp), [email
-notifications](../../learn/enabling-notifications-for-user-operations),
-[account recovery](../../learn/password-recovery).
+This document explains the steps to configure WSO2 Identity Server to send emails during multiple email related identity and access management tasks such as [email OTP](../../learn/configuring-email-otp), [email notifications](../../learn/enabling-notifications-for-user-operations),[account recovery](../../learn/password-recovery).
 
+## Configure email sending
 1.  Shut down the server if it is running.
 2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
 
@@ -18,6 +15,7 @@ notifications](../../learn/enabling-notifications-for-user-operations),
     port= 587
     enable_start_tls= true
     enable_authentication= true
+    signature = "ABC.com"
     ```
     
     |                                                   |                                                |
@@ -28,7 +26,8 @@ notifications](../../learn/enabling-notifications-for-user-operations),
     | `               host                        ` | The SMTP server to connect to. |
     | `               port                         `|The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25. |
    | `               enable_start_tls`            | If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust theserver's certificate. Defaults to false.
-   | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to false.
+   | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to false.|
+   | `signature`                                   | Signature of the sender account |
     
     !!! Tip 
         For information about the SMTP, see

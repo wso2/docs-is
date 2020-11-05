@@ -1456,10 +1456,10 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       userName:
@@ -1472,13 +1472,13 @@ definitions:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:

@@ -337,6 +337,7 @@ nav:
             - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
           - 'Emails with Special Characters': learn/adding-email-special-characters.md
+          - 'Configuring Email Masking Pattern': learn/configure-email-masking-pattern.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
           - 'Resending Account Recovery Confirmation Emails': learn/resending-account-recovery-confirmation-emails.md
@@ -414,7 +415,6 @@ nav:
             - 'Client Credentials Grant': learn/client-credentials-grant.md
             - 'Refresh Token Grant': learn/refresh-token-grant.md
             - 'Kerberos Grant': learn/kerberos-grant.md
-            - 'Device Authorization grant': learn/device-flow-grant.md
             - 'JWT Bearer Grant': learn/jwt-grant.md
           - 'SAML2 Bearer Assertion Profile for OAuth 2.0': learn/saml2-bearer-assertion-profile-for-oauth-2.0.md
           - 'Setting Up OAuth Token Hashing': learn/setting-up-oauth-token-hashing.md
@@ -489,7 +489,6 @@ nav:
             - 'Try Implicit Grant': learn/try-implicit-grant.md
             - 'Try Password Grant': learn/try-password-grant.md
             - 'Try Request Path Authentication': learn/try-request-path-authentication.md
-          - 'Device Flow with WSO2 Device Flow Demo App': learn/try-device-flow.md
           - 'Setting up a SAML2 Bearer Assertion Profile for OAuth 2.0': learn/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0.md
         - 'OpenIDConnect':
           - 'Basic Client Profile with Playground': learn/basic-client-profile-with-playground.md
@@ -526,7 +525,8 @@ nav:
             - 'Customizing Authentication Error Messages': develop/customizing-authentication-error-messages.md
             - 'Customizing Error Pages': develop/customizing-error-pages.md
             - 'Error Codes and Descriptions': develop/error-codes-and-descriptions.md
-          - 'Supporting Email Account Verification for an Updated Email Address' : develop/supporting-email-account-verification-for-an-updated-email-address.md
+          - 'Enable Email Account Verification for an Updated Email Address' : develop/enable-email-account-verification-for-an-updated-email-address.md
+          - 'Enable Mobile Number Verification for an Updated Mobile Number' : develop/enable-verification-for-updated-mobile-number.md
         - 'Provisioning for Developers':
           - 'Extending SCIM 2.0 User Schemas': develop/extending-scim2-user-schemas.md
           - 'Writing an Outbound Provisioning Connector': develop/writing-an-outbound-provisioning-connector.md
