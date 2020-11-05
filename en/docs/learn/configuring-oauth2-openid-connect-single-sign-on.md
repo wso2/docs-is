@@ -239,10 +239,12 @@ Let's get started to configure the service provider you created!
 
         Add the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
     
-        ``` toml
-        [oauth]
-        hash_tokens_and_secrets= true
-        ```
+		``` toml
+		[oauth]
+		hash_tokens_and_secrets= true
+		[oauth.extensions]
+		token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor"
+		```
 
     After updating the configuration, make sure to restart the server
     for the changes to be applied on WSO2 IS.

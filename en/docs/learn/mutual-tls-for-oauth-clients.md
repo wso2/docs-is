@@ -71,9 +71,9 @@ with a sample.
         `             want            ` in the same configuration similar to following.
 
         ``` toml
-            [transport.https]
-            trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
-            clientAuth="want"
+        [transport.https]
+        trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
+        clientAuth="want"
         ```
 
 3.  Download Mutual TLS Client Authenticator v2.0.3 connector from
@@ -208,12 +208,13 @@ Follow the steps below to test the configurations.
         ![add-new-sp]( ../assets/img/using-wso2-identity-server/add-new-sp-1.png) 
     4.  Copy the content in your client application's certificate in PEM
         format into the **Application Certificate** text field.  
+        
         ![add-sp-cert]( ../assets/img/using-wso2-identity-server/add-sp-cert.png)   
+        
         !!! note
             Instead of uploading the service provider certificate as shown
             above, you can choose to use the JWKS enpoint as shown below and
             add the relevant JWKS URI.
-    
             ![configure-jwks-endpoint]( ../assets/img/using-wso2-identity-server/configure-jwks-endpoint.png) 
 
     5.  Expand **Inbound Authentication Configuration \> OAuth/OpenID
@@ -245,7 +246,7 @@ Follow the steps below to test the configurations.
     **Sample token request using mutual TLS client authentication**
 
     ``` java
-        curl -k -d "grant_type=password&username=admin&password=admin&client_id=qiB6avlILBqnJLSxOfadoJYwOnQa" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -i  --cert certificate.pem --key key.pem
+    curl -k -d "grant_type=password&username=admin&password=admin&client_id=qiB6avlILBqnJLSxOfadoJYwOnQa" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -i  --cert certificate.pem --key key.pem
     ```
 
     Note that an access token gets generated. You can use this access

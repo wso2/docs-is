@@ -71,15 +71,15 @@ exempt_contexts=["dcr","scim2"]
 | Parameter           | Purpose                                                                                                                                                                                     |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **enable**          | Defines whether intermediate certificate validation is enabled or not.                                                                                                                      |
-| **cert_cns**        | Specifies the context paths of the intermediate certificates. Multiple context paths can be defined for multiple certificates as follows:  `cert_cns=["wso2is.org","abc.com"]`       |
-| **exempt_contexts** | Specifies the context paths that needs to be exempted from intermediate certificate validation.  Multiple context paths can be defined as follows: `exempt_contexts=["dcr","scim2"]` |
+| **cert_cns**        | Specifies the context paths of the intermediate certificates. Multiple context paths can be defined for multiple certificates as follows:  ` `cert_cns=["wso2is.org","abc.com"]`        |
+| **exempt_contexts** | Specifies the context paths that needs to be exempted from intermediate certificate validation.  Multiple context paths can be defined as follows:  ` exempt_contexts=["dcr","scim2"]` |
 
 
 !!! info
     When using intermediate certificate validation, note that `CN` will be taken as the `username` instead of retrieving it from the header therefore, the incoming certificate request CN should ideally be the username of the user who is sending the request. 
 
     The certificate CN should be in the following formats for the following cases.
-
+    
     - If the user is in the primary userstore, the incoming cert CN should be just the `<username>` e.g., `john`.
     - If the user is in a secondary userstore, the incoming cert CN should be `<userstore_domain>/<username>` e.g., `SECONDARY/john`.
     - If the user is not a super tenant and belongs to the primary userstore, the incoming cert CN should be `<username@tenant_doman>` e.g., `john@abc.com`.

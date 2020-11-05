@@ -32,4 +32,4 @@ Now let's assume you have an AD user store as the primary user store and you hav
 !!! info 
     For information about Local Claim Dialect attributes, click [here](../../learn/adding-claim-mapping).
 
-You can see the sample cURL commands for all SCIM 2.0 operations [here](../../develop/using-the-scim-2.0-rest-apis). 
+You can see the sample cURL commands for all SCIM 2.0 operations [here](../../develop/scim2-rest-apis). 

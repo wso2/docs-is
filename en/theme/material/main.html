@@ -40,6 +40,12 @@
   </script>
 {% endblock %}
 
+{% block site_meta %}
+  <meta charset="utf-8"/>
+  <meta name="docsearch:language" content="en" />
+  <meta name="docsearch:version" content="latest" />
+{% endblock %}
+
 {% block scripts %}
       <script src="{{ 'assets/javascripts/application.162298c2.js' | url }}"></script>
       {% if lang.t("search.language") != "en" %}

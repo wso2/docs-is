@@ -167,7 +167,7 @@ to the extracted product directory location. For example, if you want to
 run WSO2 IS 5.10.0 as a Windows service, you would set ` carbon_home ` to the
 extracted ` wso2is-5.10.0 ` directory.
 
-![Edit System Variable window](../assets/img/setup/edit-system-variable-window.png)
+![Edit System Variable window](../assets/img/setup/add-carbon-home-system-variable-window.png)
 
 ### Running the product in console mode
 

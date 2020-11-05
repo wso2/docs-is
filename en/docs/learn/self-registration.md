@@ -2,7 +2,7 @@
 
 Self-registration is an [account management](../../learn/managing-user-accounts) feature offered by WSO2 Identity Server. 
 
-In this approach, when a user self-registers, a user account gets created and an email requesting for account confirmation is send to the user's registerd email ID. The account remains locked for a predefined duration during which the user should confirm the account creation. If the user does not confirm the account creation before the predefined duration, the user account gets locked. Such accounts can be deleted by administrators to manage resources effectively.
+In this approach, when a user self-registers, a user account gets created and an email requesting for account confirmation is sent to the user's registered email ID. The account remains locked for a predefined duration during which the user should confirm the account creation. If the user does not confirm the account creation before the predefined duration, the user account gets locked. Such accounts can be deleted by administrators to manage resources effectively.
 
 ## Scenario
 
@@ -138,7 +138,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 		8. 	Click **Finish**. Note that the Consent Purposes screen appears.
 
-		9.	Clic **Finish**. Note that the User Self Registration screen appears. 	
+		9.	Click **Finish**. Note that the User Self Registration screen appears. 	
 
 7.	Click **Update**.
 
@@ -190,5 +190,5 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 	Following are more self-registration methods:
 
-	-	[Self-Registration with REST API](/develop/using-the-self-sign-up-rest-apis/)
-	-	[Self-Registration with SCIM/Me](/learn/creating-users-using-the-ask-password-option#ask-password)  
+	-	[Self-Registration with REST API](../../develop/using-the-self-sign-up-rest-apis/)
+	-	[Self-Registration with SCIM/Me](../../learn/creating-users-using-the-ask-password-option/#ask-password)  
