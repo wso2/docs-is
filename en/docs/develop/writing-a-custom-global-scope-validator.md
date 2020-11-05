@@ -49,7 +49,7 @@ public CustomScopeValidator implements ScopeValidator {
      * no scopes are requested, otherwise false.
      * @throws IdentityOAuth2Exception Identity Oauth Exception.
      */
-     Public boolean validateScope(OAuthTokenReqMessageContext tokenReqMessageContext) throws IdentityOAuth2Exception {
+     public boolean validateScope(OAuthTokenReqMessageContext tokenReqMessageContext) throws IdentityOAuth2Exception {
 
 //handle implementation 
  return true;
