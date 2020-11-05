@@ -37,7 +37,7 @@ public CustomScopeValidator implements ScopeValidator {
     Public boolean validateScope(OAuthAuthzReqMessageContext authzReqMessageContext) throws IdentityOAuth2Exception {
 
 //handle implementation 
-    Return true
+    return true;
 }
 
     /**
