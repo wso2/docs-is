@@ -13,7 +13,7 @@ default. Follow the steps below to view and invoke it:
 
     ```toml
     [admin_service.wsdl]
-    enable = "true"
+    enable = true
     ```
 
 2.  Restart WSO2 Identity Server.
