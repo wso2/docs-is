@@ -515,6 +515,7 @@ nav:
         - 'Overview': develop/extending-the-identity-server.md
         - 'User Management for Developers':
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
+          - 'Writing a Custom Global Scope Validator': develop/writing-a-custom-global-scope-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
           - 'Writing a Custom Event Handler': develop/writing-a-custom-event-handler.md
           - 'User Store Listeners': develop/user-store-listeners.md
