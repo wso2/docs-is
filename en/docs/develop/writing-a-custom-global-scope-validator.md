@@ -64,7 +64,7 @@ public CustomScopeValidator implements ScopeValidator {
      * @return True if scopes present in the tokens are validated successfully, otherwise false.
      * @throws IdentityOAuth2Exception Identity Oauth Exception.
      */
-   Public boolean validateScope(OAuth2TokenValidationMessageContext tokenValidationMessageContext)
+   public boolean validateScope(OAuth2TokenValidationMessageContext tokenValidationMessageContext)
             throws IdentityOAuth2Exception {
 
 //handle implementation 
