@@ -77,7 +77,7 @@ public CustomScopeValidator implements ScopeValidator {
      *
      * @return Name of the scope validator.
      */
-   Public String getName(){
+   public String getName(){
   Return “CustomGlobalScopeValidator”
 }
 }
