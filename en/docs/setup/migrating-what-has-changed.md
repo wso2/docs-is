@@ -274,4 +274,20 @@ enable=true
 enable=true
 ```
 
+## Extending expiry time of commonAuth cookie
+
+With WSO2 IS 5.11.0 onwards, the expiry time of the the commonAuth cookie is extended with each authentication request. This is enabled by default in 5.11.0 but was disabled by default in the WSO2 IS 5.10.0 WUM-updated pack. If you do not require this feature, you can disable it by adding the following configuration to the `deployment.toml` file. 
+
+```toml
+[session.timeout]
+extend_remember_me_session_timeout_on_auth=false
+```
+
+
+
+
+
+
+
+
 
