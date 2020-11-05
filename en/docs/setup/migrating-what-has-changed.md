@@ -282,12 +282,3 @@ With WSO2 IS 5.11.0 onwards, the expiry time of the the commonAuth cookie is ext
 [session.timeout]
 extend_remember_me_session_timeout_on_auth=false
 ```
-
-
-
-
-
-
-
-
-
