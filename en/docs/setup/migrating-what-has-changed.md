@@ -317,9 +317,27 @@ As a solution to this, the user agent and referer will be printed within double 
 
 ## Extending expiry time of commonAuth cookie
 
-With WSO2 IS 5.11.0 onwards, the expiry time of the the commonAuth cookie is extended with each authentication request. This is enabled by default in 5.11.0 but was disabled by default in the WSO2 IS 5.10.0 WUM-updated pack. If you do not require this feature, you can disable it by adding the following configuration to the `deployment.toml` file. 
+From WSO2 IS 5.11.0 onwards, the expiry time of the commonAuth cookie is extended with each authentication request. This is enabled by default in 5.11.0 but was disabled by default in the WSO2 IS 5.10.0 WUM-updated pack. If you do not require this feature, you can disable it by adding the following configuration to the `deployment.toml` file. 
 
 ```toml
 [session.timeout]
 extend_remember_me_session_timeout_on_auth=false
 ```
+
+## Revoke access tokens on logout/session expiry
+
+There are two types of access token binding supported with WSO2 IS; **Cookie Based** and **SSO Session Based**. If you have enabled one of these binding types for a service provider when configuring OAuth/OIDC inbound authentication for an application, with WSO2 IS 5.11.0 you can also enable revoking access tokens when the access token binding expires. 
+
+WSO2 IS 5.11.0 supports the functionality to revoke access tokens issued for the application once the IDP session terminates.  When the user logs out of the application, the access tokens of the token binding reference issued for the application gets revoked. This functionality can be enabled when configuring the service provider OAuth/OIDC inbound authentication. 
+
+![revoke-tokens](../../assets/img/learn/revoke-tokens-config.png)
+
+WSO2 IS 5.11.0 also supports revoking the issued tokens for a session that has expired due to a session idle timeout when a user tries to use single sign-on, log in again, or log out after a session has expired.
+
+For both usecases mentioned above, token revoking is enabled by default in 5.11.0. If you wish to disable this, add the following configuration to the `deployment.toml` file. 
+
+```toml
+[identity_mgt.events.schemes.TokenBindingExpiryEventHandler.properties]
+enable = false
+```
+
