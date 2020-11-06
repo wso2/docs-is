@@ -344,6 +344,7 @@ nav:
         - 'Password Policies':
           - 'Password History Validation': learn/password-history-validation.md
           - 'Password Patterns': learn/password-patterns.md
+          - 'Password Expiry': learn/password-expiry.md
         - 'Login Policies':
           - 'User Account Locking and Account Disabling':
             - 'Overview': learn/user-account-locking-and-account-disabling.md
