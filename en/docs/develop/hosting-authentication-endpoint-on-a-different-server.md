@@ -12,94 +12,98 @@ Server).
     
 1.  Copy the following .jar files from the `<IS_HOME>/repository/components/plugins/` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib` directory.
 
-    ```
-    cp $IS_HOME/repository/components/plugins/abdera_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/ant_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/axiom_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/axis2_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/bcprov-jdk15on_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-cli_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-collections_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-dbcp_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-fileupload_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-httpclient_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-io_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-lang_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-pool_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/compass_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/encoder_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/com.google.gson_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/hazelcast_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/httpclient_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/httpcore_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/javax.cache.wso2_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/jdbc-pool_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/joda-time_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/json_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/jstl_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/neethi_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/opensaml_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.eclipse.equinox.http.helper_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.eclipse.osgi_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.base_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.eclipse.osgi_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.eclipse.osgi.services_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.base_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.crypto.api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.database.utils_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.application.common_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.base_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.template.mgt_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.queuing_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.registry.api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.registry.core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.securevault_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.user.api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.user.core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.utils_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.securevault_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/rampart-core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/slf4j.api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/tomcat-catalina-ha_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/tomcat-servlet-api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/wsdl4j_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/XmlSchema_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.ui_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.application.authentication.endpoint.util_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.user.registration.stub_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.mgt.stub_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.mgt_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.mgt.ui_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.oauth_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/features/org.wso2.carbon.identity.application.authentication.framework.server_*/runtimes/cxf3/org.wso2.carbon.identity.application.authentication.endpoint.util-*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/jettison_*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/javax.ws.rs-api-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-core-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-frontend-jaxrs-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-rs-client-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-rs-extension-providers-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-rs-extension-search-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-rs-service-description-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-transports-http-*.jar $WEB_APP_LIB
-    cp $IS_HOME/bin/org.wso2.carbon.bootstrap-*.jar $WEB_APP_LIB
-    cp $IS_HOME/bin/tomcat-juli-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/xercesImpl-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/geronimo-jta_*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/stax2-api-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/woodstox-core-asl-*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/tools/forget-me/lib/log4j-*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/tools/forget-me/lib/pax-logging-api-*.jar $WEB_APP_LIB
+    ``` xml
+    - abdera_*.jar 
+    - ant_*.jar 
+    - axiom_*.jar 
+    - axis2_*.jar 
+    - bcprov-jdk15on_*.jar 
+    - commons-cli_*.jar 
+    - commons-collections_*.jar 
+    - commons-dbcp_*.jar 
+    - commons-fileupload_*.jar 
+    - commons-httpclient_*.jar 
+    - commons-io_*.jar 
+    - commons-lang_*.jar 
+    - commons-pool_*.jar 
+    - compass_*.jar 
+    - encoder_*.jar 
+    - com.google.gson_*.jar 
+    - hazelcast_*.jar 
+    - httpclient_*.jar 
+    - httpcore_*.jar 
+    - javax.cache.wso2_*.jar 
+    - jdbc-pool_*.jar 
+    - joda-time_*.jar 
+    - json_*.jar 
+    - jstl_*.jar 
+    - neethi_*.jar 
+    - opensaml_*.jar 
+    - org.eclipse.equinox.http.helper_*.jar 
+    - org.eclipse.osgi_*.jar 
+    - org.wso2.carbon.base_*.jar 
+    - org.eclipse.osgi_*.jar 
+    - org.eclipse.osgi.services_*.jar 
+    - org.wso2.carbon.base_*.jar 
+    - org.wso2.carbon.core_*.jar 
+    - org.wso2.carbon.crypto.api_*.jar 
+    - org.wso2.carbon.database.utils_*.jar 
+    - org.wso2.carbon.identity.application.common_*.jar 
+    - org.wso2.carbon.identity.base_*.jar 
+    - org.wso2.carbon.identity.template.mgt_*.jar 
+    - org.wso2.carbon.queuing_*.jar 
+    - org.wso2.carbon.registry.api_*.jar 
+    - org.wso2.carbon.registry.core_*.jar 
+    - org.wso2.carbon.securevault_*.jar 
+    - org.wso2.carbon.user.api_*.jar 
+    - org.wso2.carbon.user.core_*.jar 
+    - org.wso2.carbon.utils_*.jar 
+    - org.wso2.securevault_*.jar 
+    - rampart-core_*.jar 
+    - slf4j.api_*.jar 
+    - tomcat-catalina-ha_*.jar 
+    - tomcat-servlet-api_*.jar 
+    - wsdl4j_*.jar 
+    - XmlSchema_*.jar 
+    - org.wso2.carbon.ui_*.jar 
+    - org.wso2.carbon.identity.application.authentication.endpoint.util_*.jar 
+    - org.wso2.carbon.identity.core_*.jar 
+    - org.wso2.carbon.identity.user.registration.stub_*.jar 
+    - org.wso2.carbon.identity.mgt.stub_*.jar 
+    - org.wso2.carbon.identity.mgt_*.jar 
+    - org.wso2.carbon.identity.mgt.ui_*.jar 
+    - org.wso2.carbon.identity.oauth_*.jar 
+    - org.wso2.carbon.identity.application.authentication.endpoint.util-*.jar 
+    - jettison_*.jar 
+    - javax.ws.rs-api-*.jar 
+    - cxf-core-*.jar 
+    - cxf-rt-frontend-jaxrs-*.jar 
+    - cxf-rt-rs-client-*.jar 
+    - cxf-rt-rs-extension-providers-*.jar 
+    - cxf-rt-rs-extension-search-*.jar 
+    - cxf-rt-rs-service-description-*.jar 
+    - cxf-rt-transports-http-*.jar 
+    - org.wso2.carbon.bootstrap-*.jar 
+    - tomcat-juli-*.jar 
+    - xercesImpl-*.jar 
+    - geronimo-jta_*.jar 
+    - stax2-api-*.jar 
+    - woodstox-core-asl-*.jar 
+    - log4j-*.jar 
+    - pax-logging-api-*.jar 
     ```
 
 2.  Copy the following .jar files from the `IS_HOME>/lib/runtimes/cxf/` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib`
     directory.  
-    -   `javax.ws.rs-`
-        api `-2.0-m10.jar`
-    -   cxf `-bundle-2.7.16.wso2v1.jar`
-    -   neethi `-3.0.3.jar`
-    -   `wsdl4j-1.6.3.jar`
+    
+    ```xml
+    - javax.ws.rs-
+    - api `-2.0-m10.jar
+    - cxf `-bundle-2.7.16.wso2v1.jar
+    - neethi `-3.0.3.jar
+    - wsdl4j-1.6.3.jar
+    ```
+
 3.  Uncomment following section in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/web.xml` and point to identity server URLs.
 
     ``` xml
@@ -211,85 +215,85 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
 
 4.  Copy the following dependencies to  `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/lib`
     
-    ```
-    cp $IS_HOME/repository/components/plugins/abdera_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/ant_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/axiom_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/axis2_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/bcprov-jdk15on_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-cli_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-collections_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-dbcp_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-fileupload_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-httpclient_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-io_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-lang_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/commons-pool_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/compass_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/encoder_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/com.google.gson_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/hazelcast_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/httpclient_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/httpcore_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/javax.cache.wso2_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/jdbc-pool_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/joda-time_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/json_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/jstl_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/neethi_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/opensaml_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.eclipse.equinox.http.helper_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.eclipse.osgi_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.base_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.eclipse.osgi_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.eclipse.osgi.services_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.base_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.crypto.api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.database.utils_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.application.common_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.base_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.template.mgt_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.queuing_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.registry.api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.registry.core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.securevault_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.user.api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.user.core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.utils_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.securevault_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/rampart-core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/slf4j.api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/tomcat-catalina-ha_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/tomcat-servlet-api_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/wsdl4j_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/XmlSchema_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.ui_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.application.authentication.endpoint.util_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.core_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.user.registration.stub_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.mgt.stub_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.mgt_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.mgt.ui_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.oauth_*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/features/org.wso2.carbon.identity.application.authentication.framework.server_*/runtimes/cxf3/org.wso2.carbon.identity.application.authentication.endpoint.util-*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/plugins/jettison_*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/javax.ws.rs-api-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-core-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-frontend-jaxrs-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-rs-client-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-rs-extension-providers-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-rs-extension-search-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-rs-service-description-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/runtimes/cxf3/cxf-rt-transports-http-*.jar $WEB_APP_LIB
-    cp $IS_HOME/bin/org.wso2.carbon.bootstrap-*.jar $WEB_APP_LIB
-    cp $IS_HOME/bin/tomcat-juli-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/xercesImpl-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/geronimo-jta_*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/stax2-api-*.jar $WEB_APP_LIB
-    cp $IS_HOME/lib/woodstox-core-asl-*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/tools/forget-me/lib/log4j-*.jar $WEB_APP_LIB
-    cp $IS_HOME/repository/components/tools/forget-me/lib/pax-logging-api-*.jar $WEB_APP_LIB
+    ``` xml
+    - abdera_*.jar 
+    - ant_*.jar 
+    - axiom_*.jar 
+    - axis2_*.jar 
+    - bcprov-jdk15on_*.jar 
+    - commons-cli_*.jar 
+    - commons-collections_*.jar 
+    - commons-dbcp_*.jar 
+    - commons-fileupload_*.jar 
+    - commons-httpclient_*.jar 
+    - commons-io_*.jar 
+    - commons-lang_*.jar 
+    - commons-pool_*.jar 
+    - compass_*.jar 
+    - encoder_*.jar 
+    - com.google.gson_*.jar 
+    - hazelcast_*.jar 
+    - httpclient_*.jar 
+    - httpcore_*.jar 
+    - javax.cache.wso2_*.jar 
+    - jdbc-pool_*.jar 
+    - joda-time_*.jar 
+    - json_*.jar 
+    - jstl_*.jar 
+    - neethi_*.jar 
+    - opensaml_*.jar 
+    - org.eclipse.equinox.http.helper_*.jar 
+    - org.eclipse.osgi_*.jar 
+    - org.wso2.carbon.base_*.jar 
+    - org.eclipse.osgi_*.jar 
+    - org.eclipse.osgi.services_*.jar 
+    - org.wso2.carbon.base_*.jar 
+    - org.wso2.carbon.core_*.jar 
+    - org.wso2.carbon.crypto.api_*.jar 
+    - org.wso2.carbon.database.utils_*.jar 
+    - org.wso2.carbon.identity.application.common_*.jar 
+    - org.wso2.carbon.identity.base_*.jar 
+    - org.wso2.carbon.identity.template.mgt_*.jar 
+    - org.wso2.carbon.queuing_*.jar 
+    - org.wso2.carbon.registry.api_*.jar 
+    - org.wso2.carbon.registry.core_*.jar 
+    - org.wso2.carbon.securevault_*.jar 
+    - org.wso2.carbon.user.api_*.jar 
+    - org.wso2.carbon.user.core_*.jar 
+    - org.wso2.carbon.utils_*.jar 
+    - org.wso2.securevault_*.jar 
+    - rampart-core_*.jar 
+    - slf4j.api_*.jar 
+    - tomcat-catalina-ha_*.jar 
+    - tomcat-servlet-api_*.jar 
+    - wsdl4j_*.jar 
+    - XmlSchema_*.jar 
+    - org.wso2.carbon.ui_*.jar 
+    - org.wso2.carbon.identity.application.authentication.endpoint.util_*.jar 
+    - org.wso2.carbon.identity.core_*.jar 
+    - org.wso2.carbon.identity.user.registration.stub_*.jar 
+    - org.wso2.carbon.identity.mgt.stub_*.jar 
+    - org.wso2.carbon.identity.mgt_*.jar 
+    - org.wso2.carbon.identity.mgt.ui_*.jar 
+    - org.wso2.carbon.identity.oauth_*.jar 
+    - org.wso2.carbon.identity.application.authentication.endpoint.util-*.jar 
+    - jettison_*.jar 
+    - javax.ws.rs-api-*.jar 
+    - cxf-core-*.jar 
+    - cxf-rt-frontend-jaxrs-*.jar 
+    - cxf-rt-rs-client-*.jar 
+    - cxf-rt-rs-extension-providers-*.jar 
+    - cxf-rt-rs-extension-search-*.jar 
+    - cxf-rt-rs-service-description-*.jar 
+    - cxf-rt-transports-http-*.jar 
+    - org.wso2.carbon.bootstrap-*.jar 
+    - tomcat-juli-*.jar 
+    - xercesImpl-*.jar 
+    - geronimo-jta_*.jar 
+    - stax2-api-*.jar 
+    - woodstox-core-asl-*.jar 
+    - log4j-*.jar 
+    - pax-logging-api-*.jar 
     ```
 
     !!! note
