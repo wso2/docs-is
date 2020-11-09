@@ -602,6 +602,7 @@ nav:
         - 'Re-branding WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Re-branding the Default Login Page for Your Application': develop/customizing-login-pages-for-service-providers.md
         - 'Re-branding the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md
+        - 'Re-branding the User Portal UI': develop/customizing-user-portal-ui.md
       - 'Changing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
