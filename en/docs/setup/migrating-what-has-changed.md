@@ -72,20 +72,6 @@ From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups an
 
 ![relationship-between-groups-and-roles](../../assets/img/setup/groups-roles-relationship.png)
 
-
-## Tenant-qualified WSO2 endpoints
-
-Up to version WSO2 Identity Server 5.10.0, there were different ways of passing the tenant domain when calling an endpoint such as via a query param, a path param, or based on a parameter in the request.
-
-With WSO2 Identity Server 5.11.0, the experience is unified by qualifying all URLs with the tenant domain as a path param. The tenant-qualified URL pattern for the endpoints should take the form '/t/{tenant.domain}'. The tenant domain in the path always indicates that it’s the respective tenant domain’s resources being accessed. 
-
-This feature is disabled in the product by default. To enable it, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
-
-```toml
-[tenant_context]
-enable_tenant_qualified_urls = true
-```
-
 ## Hosting account recovery endpoint on a different server
 
 With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you enable the tenant-qualify URL feature and host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/services` part as shown below. 
