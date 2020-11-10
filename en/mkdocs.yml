@@ -432,6 +432,7 @@ nav:
           - 'Writing A New OAuth Client Authenticator': learn/writing-a-new-oauth-client-authenticator.md
           - 'Private Key JWT Client Authentication for OIDC': learn/private-key-jwt-client-authentication-for-oidc.md
           - 'Mutual TLS for OAuth Clients': learn/mutual-tls-for-oauth-clients.md
+          - 'Mutual TLS Client Authentication and Certificate-Bound Access Tokens': learn/mutual-tls-client-auth.md
           - 'Microprofile JWT 1.0 support for IS':
             - 'Microprofile JWT 1.0 support for IS': learn/microprofile-jwt-1.0-support-for-is.md
             - 'Running the MP-JWT Sample': learn/running-the-mp-jwt-sample.md
