@@ -461,7 +461,7 @@ configurations are handled by the a single file named
 
 !!! warn "Note" 
     When you are migrating from an older version of WSO2
-    Identity Server to 5.10.0, you need to convert old configurations to new
+    Identity Server to 5.11.0, you need to convert old configurations to new
     configuration model as well.
 
 Refer to the relevant feature documents and
@@ -477,7 +477,7 @@ necessary configurations according to the new configuration model.
 
 !!! info
     If you do not require a zero down time migration, then you can directly proceed to the
-    next section, [Migrating to 5.10.0](../../setup/migrating-to-5100).
+    next section, [Migrating to 5.11.0](../../setup/migrating-to-5110).
     
 A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, 
 usually when there’s a patch, or critical security upgrade for products used in the solution, 
@@ -665,4 +665,4 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 9.  Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) 
 and restore in the new databases created.
 
-10. Proceed to the next section [Migrating to 5.10.0](../../setup/migrating-to-5100).
+10. Proceed to the next section [Migrating to 5.11.0](../../setup/migrating-to-5110).
