@@ -465,17 +465,23 @@ provider in WSO2 IS.
     </table>
 
     
-    !!! tip
-        **Follow the steps below to get the Salesforce Assertion Consumer URL**
-        <ol>
-        <li>Login to the Salesforce developer account: <a href="https://login.salesforce.com/?lt=de">https://login.salesforce.com/</a>.</li>
-        <li>Search for My Domain in the search bar that is on the left navigation panel.</li>
-        <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a>.</p></li>
-        <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
-        <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
-        <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../../assets/img/tutorials/Click-sso-setting-name.png" /></li>
-        <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../../assets/img/tutorials/login-url-to-access-salesforce.png" /></li>
-        </ol>
+    !!! tip "Follow the steps below to get the Salesforce Assertion Consumer URL"
+        1. Login to the Salesforce developer account: <https://login.salesforce.com>
+
+        2. Search for **My Domain** in the search bar that is on the left navigation panel.
+
+        3. Click **My Domain**. You are navigated to the domain you created when [configuring salesforce](../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce)
+        
+        4. Click **Edit** under **Authentication Configurations**. 
+        You are navigated to a new page having the following URl: `https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp`
+
+        5. On the left navigation menu, search for **Single Sign-On Settings** , and click it.
+
+        6. Click on the name of the Single Sign-On Setting you created. In this case, click **SSO**. 
+            ![sso-setting](../../assets/img/tutorials/Click-sso-setting-name.png)
+
+        7. Copy the URL that is defined as the **Login URL** to access Salesforce. 
+            ![login-url-to-access-salesforce](../../assets/img/tutorials/login-url-to-access-salesforce.png)
     
 7.  Click **Update** to save your configurations.
 
