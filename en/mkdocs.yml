@@ -727,6 +727,7 @@ nav:
           - "Migrating to 5.11.0" : setup/migrating-to-5110.md
           - 'Migrating Data Publishers': setup/migrating-data-publishers.md
           - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
+      - 'IAM Feature Maintenance Policy': setup/iam-feature-maintenance-policy.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
