@@ -10,7 +10,7 @@ including the sample requests and responses.
 - [Associations](../../develop/association-rest-api)
 - [Authentication Data](../../develop/authentication-data-api)
 - [Authentication](../../develop/using-the-authentication-rest-apis)
-- [Authorized Apps](../../develop/authorized-apps-rest-api)
+- [Authorized Apps](../../develop/authorized-apps-v2-rest-api)
 - [Challenge Question](../../develop/challenge-rest-api)
 - [Claim Management](../../develop/claim-management-rest-api)
 - [Configuration Management](../../develop/using-the-configuration-management-rest-apis)
