@@ -43,17 +43,23 @@ attacks.
 4.  Click **Resident Identity Provider** and expand the **Login Attempts Security** tab. Then, expand the **reCaptcha for SSO Login** tab.
 5.  Select the relevant option according to your requirement:
 
-    - **Always prompt reCaptcha:** Select this option to prompt users for reCaptcha with every SSO login attempt. 
+    - **Always prompt reCaptcha:** 
 
-    - **Prompt reCaptcha after max failed attempts:** Select this option to prompt reCaptcha only after the number of max failed attempts has been exceeded. 
+        Select this option to prompt users for reCaptcha with every SSO login attempt. 
+
+    - **Prompt reCaptcha after max failed attempts:** 
+    
+        Select this option to prompt reCaptcha only after the number of max failed attempts has been exceeded. 
     
         If this option is selected, enter a value for the **Max failed attempts for reCaptcha** field as well. For example, if you enter 3, reCaptcha will be re-enabled after 3 failed attempts.  
         ![configure-captcha-for-sso](../assets/img/learn/recaptcha-sso.png)
+        
+        Note the following when selecting this option:
+        
+        - Account locking must be enabled to enable **Prompt reCaptcha after max failed attempts**.
 
-        !!! tip
-        
-            Note that account locking must be enabled to enable **Prompt reCaptcha after max failed attempts** and the **Max failed attempts for reCaptcha** value must be lower than the **Maximum failed login attempts** value configured under the **Account Lock** tab.
-        
+        - The **Max failed attempts for reCaptcha** value must be lower than the **Maximum failed login attempts** value configured under the **Account Lock** tab.
+    
             ![configure-account-locking](../assets/img/tutorials/configure-account-locking.png)
     
 
