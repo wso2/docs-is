@@ -1,7 +1,7 @@
 # Setting Up My Account in a Development Environment
 
 !!! note 
-    The **My Account** application has been renamed as **My Account** from this release onwards.
+    The **User Portal** application has been renamed as **My Account** from this release onwards.
 
 In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/)(WSO2 IS), **My Account** can be accessed via the URL `http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/myaccount`. 
 
