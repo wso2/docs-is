@@ -2,7 +2,7 @@
 
 WSO2 Identity Server supports API authentication using 
 OAuth2 common flows, where users can obtain a token using an 
-oauth2 flow and use it to invoke the API.
+oauth2 flow dand use it to invoke the API.
 
 Authorization for the APIs in WSO2 Identity Server is enforced
 at the endpoint level using **permissions**. Each secured endpoint
@@ -21,13 +21,11 @@ To retrieve the challenges, Alex requires `/permission/admin/manage/identity/ide
 permission and `internal_identity_mgt_view` scope. Hence, Alex can invoke the following 
 cURL command with `scope=internal_identity_mgt_view` and obtain a token.
 
-**Request**
-``` java
+``` java tab="Request"
 curl -v -X POST -H "Authorization: Basic <base64encoded clientId:clientSecrect>" -k -d "grant_type=password&username=alex&password=alex123&scope=somescope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
 ```
 
-**Example Request**
-``` java
+``` java tab="Sample Request"
 curl -k -X POST -H "Authorization: Basic MUxGVzl5NERkYzZxaHVGQnBLX1JyOHA0WU1FYTpDUGl5V0hTeVp6VmJmRTFzanFNc2Vrc053Szhh" -k -d "grant_type=password&username=alex&password=alex123&scope=internal_identity_mgt_view" -H "Content-Type: application/x-www-form-urlencoded" 'https://localhost:9443/oauth2/token'
 ```
 
@@ -36,8 +34,8 @@ will be generated. If the user that requests the token has sufficient
 permissions to the scope defined in the request, the response will contain
 the scope specified in the above command. 
 
-**Example Response**
-``` java
+
+``` java tab="Sample Response"
 {"access_token":"bf01d540-fa67-314f-9ff3-3ed5ef9fa5bd",
 "Refresh_token":"dc3906cc-34f9-376c-a6f4-1c2e6b9626c7",
 "Scope":"internal_identity_mgt_view",
