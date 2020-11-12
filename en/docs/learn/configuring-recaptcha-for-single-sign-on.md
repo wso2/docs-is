@@ -14,9 +14,9 @@ attacks.
     how to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha](../../learn/setting-up-recaptcha).
 
-    !!! note
+    !!! tip
     
-        **Note:** To modify the filter mapping for reCaptcha, open the
+        To modify the filter mapping for reCaptcha, open the
         `           web.xml          ` file located in the
         `           <IS_HOME>/repository/conf/tomcat/carbon/WEB-INF          `
         directory and find the following filter. You can modify the relevant
@@ -40,19 +40,21 @@ attacks.
 2.  Start the WSO2 IS Server and login to the management console.
 3.  Click **List** under **Identity Providers** found in the **Main**
     tab.
-4.  Click **Resident Identity Provider** and expand the **Login
-    Policies** tab. Then, expand the **Captcha for SSO Login** tab.
-5.  Select **Enable** and enter a value for the **Max failed attempts**
-    field. For example, if you enter 3, reCaptcha will be re-enabled
-    after 3 failed attempts.  
-    ![configure-captcha-for-sso](../assets/img/learn/recaptcha-sso.png)
+4.  Click **Resident Identity Provider** and expand the **Login Attempts Security** tab. Then, expand the **reCaptcha for SSO Login** tab.
+5.  Select the relevant option according to your requirement:
 
-    !!! note
+    - **Always prompt reCaptcha:** Select this option to prompt users for reCaptcha with every SSO login attempt. 
+
+    - **Prompt reCaptcha after max failed attempts:** Select this option to prompt reCaptcha only after the number of max failed attempts has been exceeded. 
     
-        **Note:** This value should be less than the number of failed
-        attempts configured in the account locking connector.
-    
-        ![configure-account-locking](../assets/img/tutorials/configure-account-locking.png)
+        If this option is selected, enter a value for the **Max failed attempts for reCaptcha** field as well. For example, if you enter 3, reCaptcha will be re-enabled after 3 failed attempts.  
+        ![configure-captcha-for-sso](../assets/img/learn/recaptcha-sso.png)
+
+        !!! tip
+        
+            Note that account locking must be enabled to enable **Prompt reCaptcha after max failed attempts** and the **Max failed attempts for reCaptcha** value must be lower than the **Maximum failed login attempts** value configured under the **Account Lock** tab.
+        
+            ![configure-account-locking](../assets/img/tutorials/configure-account-locking.png)
     
 
 6.  You have now successfully configured reCaptcha for the single sign

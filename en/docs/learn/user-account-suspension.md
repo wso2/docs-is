@@ -112,9 +112,8 @@ task that checks for idle accounts is common to all tenants.
 1.  Start the WSO2 IS and log into the management console using your
     tenant credentials.
 2.  Click **Resident** under **Identity Providers** found in the
-    **Main** tab. Expand the **Login Policies** tab.
-3.  Expand the **Account Locking** tab and select the **Account Lock
-    Enabled** checkbox. Click **Update** to save changes.  
+    **Main** tab. Expand the **Login Attempts Security** tab.
+3.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
     
     | Field              | Description                                                                                                                                                                                                                                                                                                                                                                                   | Sample Value |
     |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
