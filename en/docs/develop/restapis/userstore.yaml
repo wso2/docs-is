@@ -27,8 +27,11 @@ paths:
       description: |
         This API provides the capability to add a secondary user store.
 
+        **NOTE:**
+          To retrieve the available user store classes/types, use the **api/server/v1/userstores/meta/types** API.
+
          <b>Permission required:</b>
-          */permission/admin
+          - permission/admin
       responses:
         '201':
           description: Successful response
