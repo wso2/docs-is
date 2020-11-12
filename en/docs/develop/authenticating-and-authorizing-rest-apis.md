@@ -15,7 +15,35 @@ WSO2 Identity Server supports three ways of API authentication:
 
 !!! note 
     Unless one of the above authentication elements is sent in an API invocation request, the 401 Unauthorized HTTP response will be returned.
-    
+
+--- 
+
+## Secure resources
+
+From 5.9.0 onwards, all endpoints are secured by default. To configure user role permissions, use the following configuration:
+
+1.  Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory.
+
+2.  Specify the resource that you want to secure as shown below.
+
+| Parameter            | Description                                                                                                                                                 | Sample Value                                               |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| **context** | This defines the resource context relative to the root context, which needs to be secured.                                                                  | `                 /api/identity/*                `         |
+| **secured**          | This specifies whether to enable or disable security in the given resource context.                                                                         | `                 true                `                    |
+| **http_method**      | This defines the method as `                 all                `, `                 post                `, `                 get                `, etc. | `                 all                `                     |
+| **permissions**      | This defines the user role permission that is required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
+| **scope**      | This defines scopes that an access token requires to access the resource. You can enter multiple scopes in a comma-separated list.     | `                 internal_idp_create                ` |
+
+
+```toml tab="Example"
+[resource.access_control]
+context = "/api/identity/*"
+secured = true
+http_method = "all"
+permissions = ["p1","p2"]
+scope = ["scope1", "scope2"]
+```
+
 ---
 
 ## Configure intermediate certificate validation
@@ -55,6 +83,7 @@ exempt_contexts=["dcr","scim2"]
     - If the user is not a super tenant and belongs to the primary userstore, the incoming cert CN should be `<username@tenant_doman>` e.g., `john@abc.com`.
     - If the user is not a super tenant and belongs to a secondary userstore, the incoming cert CN should be `<userstore_domain>/<username@tenant_doman>` e.g.,             `SECONDARY/john@abc.com`.
 
+
 ----
 
 ## Scope-based authorization for REST APIs
@@ -88,7 +117,7 @@ When the above cURL command is called, a token of the following format will be g
 If the response with the generated token contains the scope specified in the cURL request, the received access token can be used to consume the API that requires the particular scope.
 
 !!! note
-    If you want to obtain a token with all the scopes corresponding to the permissions assigned to the user, you can use **scope=SYSTEM**. It will generate a token with all the scopes corresponding to the permissions of the user.   
+     To obtain a token with all the scopes corresponding to the permissions assigned to the user, you can use **scope=SYSTEM**. It will generate a token with all the scopes corresponding to the permissions of the user.   
    
 --- 
 
@@ -96,5 +125,5 @@ If the response with the generated token contains the scope specified in the cUR
     -   See [Scopes Corresponding to Permissions Required to Invoke API Calls](../../references/scopes-corresponding-to-api-permissions) 
     for a list of scopes corresponding to the permissions required for different REST APIs.
 
-    -   You can find the permissions and scopes required for each REST API under API description in the corresponding
+    -   The permissions and scopes required for each REST API can be found under API description in the corresponding
     API Documentation in the [REST APIs](../../develop/rest-apis) section.
