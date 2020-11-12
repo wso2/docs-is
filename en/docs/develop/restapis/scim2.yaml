@@ -45,9 +45,11 @@ paths:
       description: |
         This API returns the user details of the currently authenticated user.
 
-
           <b>Permission required:</b>
             * /permission/admin/login
+          
+          <b>Scope required:</b>
+            * internal_login
 
       parameters:
         - name: attributes
@@ -84,6 +86,9 @@ paths:
 
          <b>Permission required:</b>
             * /permission/admin/manage/identity/usermgt/create
+            
+         <b>Scope required:</b>
+            * internal_user_mgt_create
 
       operationId: createUserMe
       consumes:
@@ -142,6 +147,9 @@ paths:
 
           <b>Permission required:</b>
           * /permission/admin/login
+          
+          <b>Scope required:</b>
+            * internal_login
 
       operationId: updateUserMe
       consumes:
@@ -186,6 +194,9 @@ paths:
 
           <b>Permission required:</b>
            * /permission/admin/manage/identity/usermgt/delete
+           
+           <b>Scope required:</b>
+            * internal_user_mgt_delete
 
       operationId: deleteUserMe
       produces:
@@ -215,6 +226,10 @@ paths:
 
           <b>Permission required:</b>
            * /permission/admin/login
+           
+           <b>Scope required:</b>
+            * internal_login
+         
 
       operationId: patchUserMe
       consumes:
@@ -260,6 +275,9 @@ paths:
 
           <b>Permission required:</b>
           * / permission/admin/manage/identity/rolemgt/view
+          
+          <b>Scope required:</b>
+            * internal_role_mgt_view
 
       operationId: getGroup
       produces:
@@ -335,6 +353,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/create
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_create
+            
       operationId: createGroup
       consumes:
         - application/scim+json
@@ -387,6 +409,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/create
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_view
+            
       operationId: getGroupsByPost
       consumes:
         - application/scim+json
@@ -425,6 +451,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/view
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_view
+            
       operationId: getGroup by id
       produces:
         - application/scim+json
@@ -471,6 +501,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/update
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_update
+            
       operationId: updateGroup
       consumes:
         - application/scim+json
@@ -527,6 +561,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/delete
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_delete
+            
       operationId: deleteGroup
       produces:
         - application/scim+json
@@ -560,6 +598,9 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/update
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_update
 
       operationId: patchGroup
       consumes:
@@ -615,6 +656,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/usermgt/view
+        
+        <b>Scope required:</b>
+            * internal_user_mgt_list
+            
       operationId: getUser
       produces:
         - application/scim+json
@@ -690,6 +735,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/usermgt/create
+        
+        <b>Scope required:</b>
+            * internal_user_mgt_create
+            
       operationId: createUser
       consumes:
         - application/scim+json
@@ -749,6 +798,10 @@ paths:
 
          <b>Permission required:</b>
           * /permission/admin/manage/identity/usermgt/create
+          
+          <b>Scope required:</b>
+            * internal_user_mgt_create
+            
       operationId: getUsersByPost
       consumes:
         - application/scim+json
@@ -785,8 +838,13 @@ paths:
       summary: Get User by ID
       description: |
         Return user details if a user found.
+        
         <b>Permission required:</b>
         * /permission/admin/manage/identity/usermgt/view
+        
+        <b>Scope required:</b>
+            * internal_user_mgt_list
+            
       operationId: getUser by id
       produces:
         - application/scim+json
@@ -830,8 +888,13 @@ paths:
       summary: Update User - PUT
       description: |
         This API updates user details and returns the updated user details using a PUT operation.
+        
          <b>Permission required:</b>
           * /permission/admin/manage/identity/usermgt/update
+          
+          <b>Scope required:</b>
+            * internal_user_mgt_update
+            
       operationId: updateUser
       consumes:
         - application/scim+json
@@ -885,6 +948,9 @@ paths:
 
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt/delete
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_delete
 
       operationId: deleteUser
       produces:
@@ -919,12 +985,15 @@ paths:
 
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt/update
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_update
 
         <b>Supported Operations:</b>
-
             * add
             * replace
             * remove
+            
       operationId: patchUser
       consumes:
         - application/scim+json
@@ -978,8 +1047,11 @@ paths:
         This API returns roles according to the specified filter, sort, and pagination parameters.
 
           <b>Permission required:</b>
-
             * / permission/admin/manage/identity/rolemgt/view
+            
+           <b>Scope required:</b>
+            * internal_role_mgt_view
+            
       operationId: getRole
       produces:
         - application/scim+json
@@ -1038,8 +1110,11 @@ paths:
         This API creates a role and returns the details of the created role including its unique ID.
 
         <b>Permission required:</b>
-
             * /permission/admin/manage/identity/rolemgt/create
+            
+         <b>Scope required:</b>
+            * internal_role_mgt_create
+            
       operationId: createRole
       consumes:
         - application/scim+json
@@ -1081,8 +1156,11 @@ paths:
         This API returns roles according to the specified filter, sort and pagination parameters.
 
         <b>Permission required:</b>
-
             * /permission/admin/manage/identity/rolemgt/create
+            
+        <b>Scope required:</b>
+            * internal_role_mgt_create
+            
       operationId: getRolesByPost
       consumes:
         - application/scim+json
@@ -1120,8 +1198,11 @@ paths:
         This API returns the role details of a particular role using its unique ID.
 
         <b>Permission required:</b>
-
             * /permission/admin/manage/identity/rolemgt/view
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_view
+            
       operationId: getRolebyId
       produces:
         - application/scim+json
@@ -1166,8 +1247,11 @@ paths:
         This API updates the role details and returns the updated role details using a PUT operation.
 
         <b>Permission required:</b>
-
             * /permission/admin/manage/identity/rolemgt/update
+            
+        <b>Scope required:</b>
+            * internal_role_mgt_update
+            
       operationId: updateRole
       consumes:
         - application/scim+json
@@ -1217,8 +1301,11 @@ paths:
         This API deletes a particular role using its unique ID.
 
         <b>Permission required:</b>
-
             * /permission/admin/manage/identity/rolemgt/delete
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_delete
+            
       operationId: deleteRole
       produces:
         - application/scim+json
@@ -1251,8 +1338,11 @@ paths:
         This API updates the role details and returns the updated role details using a PATCH operation.
 
         <b>Permission required:</b>
-
             * /permission/admin/manage/identity/rolemgt/update
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_update
+            
       operationId: patchRole
       consumes:
         - application/scim+json
@@ -1298,8 +1388,12 @@ paths:
       summary: Create Users in Bulk
       description: |
         This API is used to create multiple users at once.
+        
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_create
 
       operationId: createBulkUsers
       consumes:
@@ -1333,8 +1427,12 @@ paths:
       summary: Delete Users in Bulk
       description: |
         This API is used to delete multiple users at once.
+        
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt/delete
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_delete
 
       operationId: deleteBulkUsers
       consumes:
@@ -1490,34 +1588,7 @@ definitions:
               value:
                 type: string
                 example: "Taylor"
-      groups:
-        type: array
-        items:
-          type: object
-          properties:
-            $ref:
-              type: string
-              example: "https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469"
-            display:
-              type: string
-              example: 'PRIMARY/manager'
-            value:
-              type: string
-              example: '7bac6a86-1f21-4937-9fb1-5be4a93ef469'
-      roles:
-        type: array
-        items:
-          type: object
-          properties:
-            $ref:
-              type: string
-              example: "https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0"
-            display:
-              type: string
-              example: 'loginRole'
-            value:
-              type: string
-              example: '4645709c-ea8c-4495-8590-e1fa0efe3de0'
+
 
   #-----------------------------------------------------
   # The User Response object
@@ -1556,23 +1627,23 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       emails:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1604,10 +1675,10 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       userName:
@@ -1617,13 +1688,13 @@ definitions:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1703,23 +1774,23 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       emails:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:

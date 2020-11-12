@@ -19,33 +19,25 @@ in Google too.
         [here](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/)
         for more information on creating the domain.
     
+---
 
-### Configuring Google
+## Configuring Google
 
 In this section, you are going to create a service account using the
-Google domain you created before you started this guide. Don't have a
-Google domain yet? Follow the steps given here.
+Google domain you created before you started this guide. 
 
-!!! note "Things to note!"
 
-    Sample values are used to explain the tutorial. **Make sure to replace
-    those listed below** with your values when configuring the steps.
+1.  Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager) to create a new project.
 
-    -   The Google domain: mydomain.com.
-    -   The email address: alex@mydomain.com.
-
-1.  Open the [Google developers
-    console](https://console.developers.google.com/cloud-resource-manager)
-    and click the Menu icon in the top left corner.  
-    ![google-developers-console](../assets/img/using-wso2-identity-server/google-developers-console.png) 
+    ![create-a-new-project](../assets/img/learn/create-project.png)
 
 2.  Create a new project:
 
-    1.  Click **+ CREATE PROJECT** on the top of the page.
+    1.  Click **CREATE PROJECT** on the top of the page.
 
     2.  Provide a name for your project and click **Create**.
 
-    ![create-a-new-project](../assets/img/using-wso2-identity-server/create-a-new-project.png) 
+    ![add-project-name](../assets/img/learn/new-project-google.png) 
 
 3.  Search for the project you created and click it.
 
@@ -53,74 +45,73 @@ Google domain yet? Follow the steps given here.
 
     1.  Click **IAM and admin \> Service accounts**.
 
-    2.  Click **Create** under the **IAM & admin Service accounts**
-        panel.
+    2.  Click **Create service account** on the top panel.  
+        ![create-service-account](../assets/img/learn/service-account.png) 
 
-    3.  Click **Create service account**.  
-        ![create-service-account](../assets/img/using-wso2-identity-server/create-service-account.png) 
+    3.  Fill in the form to create the service account:
 
-    4.  Fill in the form to create the service account:
+        -   Provide a service account name and click on **Create**.
 
-        -   Provide a service account name
-        -   Optionally, assign the role Service Account Actor.  Click
-            **Project \>  Service Account Actor**.
-        -   Select **Furnish a new private key** and make sure that
-            **P12** is selected for the Key type. aef
+            ![add-account-name](../assets/img/learn/service-account-name.png)
+        
+        -   Optionally, assign a role from the list of roles given. 
+        -   Click on **Continue**.
+        -   Click on **Create Key**.
 
-        ![furnish-a-new-private-key](../assets/img/using-wso2-identity-server/furnish-a-new-private-key.png)
+            ![create-key](../assets/img/learn/create-key.png)
 
-    5.  <a name="create"></a>Click CREATE.  
+        -   Choose your key type as `P12` and click on **Create**. 
+
+    4.  <a name="create"></a>Click CREATE.  
         The Service account and key created message is displayed and
-        the service account's P12 file is downloaded to your machine.
+        the service account's `P12` file is downloaded to your machine.
 
+        ![key-created](../assets/img/learn/key-created.png)
+        
         !!! info 
-            Remember the location of and the name of this downloaded file as
+            Remember the location and name of this downloaded file as
             it is required later on in this guide.
 
 5.  Get the Client ID of the service account.
-    1.  Click **IAM and admin \> Service accounts,** click the menu icon
-        at the end the service account you created, and click **Edit**
-.  
-        ![edit-service-account](../assets/img/using-wso2-identity-server/edit-service-account.png) 
-    2.  Select **Enable G Suite Domain-wide Delegation** and click
-        **SAVE**.  
-        ![enable-g-suite-domain-wide-delegation](../assets/img/using-wso2-identity-server/enable-g-suite-domain-wide-delegation.png)
+    1.  Click **IAM and admin \> Service accounts**. Choose **Edit** from the action items corresponding to the service account you just created. 
+        ![edit-service-account](../assets/img/learn/choose-edit.png) 
 
-    3.  <a name="copy"></a>Click View Client ID and copy the value for the Client ID.  
-        ![copy-client-id](../assets/img/using-wso2-identity-server/copy-client-id.png)
+    2.  Click on **Show domain-wide delegation**. 
+    
+    3.  Select **Enable G Suite Domain-wide Delegation**, give a product name of your choice, and click **SAVE**. 
+
+        ![enable-g-suite-domain-wide-delegation](../assets/img/learn/enable-domain-wide-delegation.png)
+
+    4.  <a name="copy"></a>Click **View Client ID** and copy the value for the Client ID.  
+        ![copy-client-id](../assets/img/learn/view-client-id.png)
 
 6.  Manage the API client access:
-    1.  Go to your domains admin console via
-        [`             https://admin.google.com            `
-.](https://admin.google.com/.)
-    2.  Click Security.
+    1.  Go to your domain's admin console via <https://admin.google.com>.
+    2.  Click **Security**.
 
-        Can't see the Security section? Click the **MORE CONTROLS** bar
-        at the bottom and you can see the Security section.
-
-        ![more-controls](../assets/img/using-wso2-identity-server/more-controls.png) 
+        ![admin-console-security](../assets/img/learn/admin-console-security.png) 
 
     3.  Click **Advanced settings \> Manage API client access**.
     4.  Fill the following values:
-        1.  Paste the [Client ID value you copied
-            previously](../../learn/outbound-provisioning-with-google#copy)
+        1.  Paste the [Client ID value you copied previously](#copy)
             as the value for Client Name.
         2.  Enter
             `                             https://www.googleapis.com/auth/admin.directory.user,https://www.googleapis.com/auth/admin.directory.orgunit,https://www.googleapis.com/auth/admin.directory.group                           `
             as the value for scopes.
         3.  Click **Authorize**.
 
-        ![manage-api-client-access](../assets/img/using-wso2-identity-server/manage-api-client-access.png) 
+        ![manage-api-client-access](../assets/img/learn/manage-api-client.png) 
 
-7.  Enable Amin SDK.
-    1.  On the Open the [Google developers
-        console](https://console.developers.google.com/cloud-resource-manager)
-       , click the menu icon, and click **APIs & Services**.
-    2.  Click **Dashboards \> + ENABLE API AND SERVICES**.  
-        ![enable-api-and-services](../assets/img/using-wso2-identity-server/enable-api-and-services.png) 
+7.  Enable Admin SDK.
+    1.  Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager).
+    2.  Click the menu icon, and click **APIs & Services** > **Dashboards**.
+    2.  Click on **Enable APIs AND Services**.  
     3.  Search for Admin SDK and click **Enable**.
 
-### Configuring the Identity Server to use email address as the username
+        ![admin-sdk](../assets/img/learn/admin-sdk.png)
+
+
+## Configuring the Identity Server to use email address as the username
 
 Provisioning is the process of coordinating the creation of user
 accounts, e-mail authorizations in the form of rules and roles, and
@@ -147,7 +138,9 @@ new users.
 Now that you are done with configuring WSO2 Identity Server to use the
 email address, configure the identity provider and the service provider.
 
-### Configuring Google as the Identity Provider
+---
+
+## Configuring Google as the Identity Provider
 
 This section includes steps on how to register Google as an Identity
 Provider.
@@ -220,7 +213,9 @@ Provider.
 
 6.  Click **Register**.
 
-### Configuring WSO2 IS as the resident Service Provider
+---
+
+## Configuring WSO2 IS as the resident Service Provider
 
 With outbound provisioning, the users you create in one application or
 service provider needs to be stored in the Google identity provider you
@@ -251,7 +246,9 @@ provider](../../learn/adding-and-configuring-a-service-provider#configuring-a-re
 
 4.  Click **Update**.
 
-### Working with users
+---
+
+## Working with users
 
 The next step is to check if Google is configured properly with the
 Identity Server. If you add a user to the Identity Server via the
@@ -276,7 +273,9 @@ management console, this user should also appear in Google too.
 You have successfully completed the configurations to provision users
 from WSO2 IS to Google.
 
-### What's next?
+---
+
+## What's next?
 
 -   If you want to JIT provision users from Google to WSO2 Identity
     Server in this use case, see [Configuring Just-In-Time Provisioning

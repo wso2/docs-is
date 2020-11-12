@@ -629,7 +629,12 @@ To check the **photo-edit** sample application, navigate to
 on your browser.
 
 For example,
-`                     http://localhost.com:8080/photo-edit/index.jsp                 .         `
+`                     http://localhost.com:8080/photo-edit/index.jsp                 . 
+
+!!! note
+    -   The default password configuration for photo-editor and photo-viewer is `admin`. If a different password needs to be used to test the samples, change the hardcoded password in `<TOMCAT_HOME>/webapps/photo-view/WEB-INF/classes/apptwo.properties` or `<TOMCAT_HOME>/webapps/photo-edit/WEB-INF/classes/apptwo.properties`. 
+
+    -    All the directories of the tomcat server should be accessible even without root access. Otherwise, the application fails due to insufficient permissions. `
     
 ### Configuring the service provider
 
