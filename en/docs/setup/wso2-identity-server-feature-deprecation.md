@@ -1,6 +1,6 @@
-# IAM Feature Maintenance Policy
+# WSO2 Identity Server Feature Deprecation
 
-## Feature Deprecation
+### Reasons for feature deprecation
 
 Features/APIs in the server can be deprecated for several reasons such as
 
@@ -8,7 +8,7 @@ Features/APIs in the server can be deprecated for several reasons such as
 *   Standard alternatives available OOTB
 *   Security risks involved
 
-### Feature Deprecation Life-Cycle
+### Feature deprecation life-cycle
 
 While deprecated features can still be available and support for existing users, they will not be further enhanced, nor recommended for use. Removal of deprecated capabilities will occur over a deprecation window, in which the feature will undergo several phases in the deprecation life-cycle. 
 
@@ -28,10 +28,11 @@ The following terms refer to the different phases of the feature deprecation lif
 
     At this phase, we decide not to incorporate the feature with new releases. For versions released, until the respective version goes end of license, feature maintenance and security updates will be provided for subscriptions
 
-### Feature Deprecation Matrix
+### Feature deprecation matrix
 
 Feature deprecation matrix keeps track of the WSO2 Identity Server Feature Deprecation timelines with their respective EOL versions in accordance with the IAM feature maintenance policy. Users are advised to review if they make use of the feature in their current deployment, and make plans to change their implementation. Please refer the matrix to identify the target timelines of feature removal from the product and EOL for maintenance, in order to plan your environment and projects accordingly.
 
+The matrix includes the product release versions that each feature will be deprecated or retired from. **FUTURE** tag is used to indicate deprecation/retired timelines which are not yet finalized and **FUTURE** on Deprecated In column indicate that the feature is in **Planned** phase, and the deprecated timeline is not yet finalized.
 
 <table>
   <tr>
@@ -49,7 +50,13 @@ Feature deprecation matrix keeps track of the WSO2 Identity Server Feature Depre
    </td>
    <td>This is the old implementation of OIDC DCR endpoint (/identity/connector/dcr)
 <p>
-The deprecated DCR endpoint is currently disabled in the product and can be enabled by adding the following config to deployment. toml. It will be removed in the near future.
+The deprecated DCR endpoint is currently disabled in the product and can be enabled by adding the following config to `deployment.toml`. It will be removed in the near future.
+
+    ```toml
+    [[legacy_feature]]
+    id = "identity/connect/dcr"
+    enable = true
+    ```
 <p>
 Our recommendation is to migrate to identity/oauth2/dcr/v1.1
    </td>
@@ -61,9 +68,16 @@ Our recommendation is to migrate to identity/oauth2/dcr/v1.1
   <tr>
    <td>OAuth 1.0
    </td>
-   <td>OAuth 1.0 implementation has been deprecated in the product as the new version of the spec (2.0) is already supported and widely-used.
+   <td>
+   OAuth 1.0 implementation has been deprecated in the product as the new version of the spec (2.0) is already supported and widely-used.
 <p>
-This feature is currently disabled in the product and can be enabled by adding the following config to deployment. toml. However, it will be removed in the near future.
+This feature is currently disabled in the product and can be enabled by adding the following config to `deployment.toml`. However, it will be removed in the near future.
+
+    ```toml
+    [[legacy_feature]]
+    id = "identity/connect/dcr"
+    enable = true
+    ```
 <p>
 Our recommendation is to migrate to OAuth 2.0
    </td>
@@ -93,6 +107,8 @@ Our recommendation is to migrate to OAuth 2.0
    </td>
   </tr>
 </table>
+
+Please refer EOL dates of a product from here: [WSO2 Product Support Lifecycle](https://wso2.com/products/support-matrix/).
 
 ### Support / SLA for Deprecated Features
 
