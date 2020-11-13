@@ -845,7 +845,7 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 5.10.0
+
   
   nav_list:
     - Home
