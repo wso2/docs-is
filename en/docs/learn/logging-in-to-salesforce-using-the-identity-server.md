@@ -179,7 +179,7 @@ Server credentials.
 			!!! note
 				You can configure email user name without enabling
 				**`                EnableEmailUserName               `** property,
-				then users can login to both super tenant and tenant using email and
+				then users can log into both super tenant and tenant using email and
 				non-email user names. But super tenant users should always use
 				***@carbon.super*** at the end of user names.
 	
@@ -466,7 +466,7 @@ provider in WSO2 IS.
 
     
     !!! tip "Follow the steps below to get the Salesforce Assertion Consumer URL"
-        1. Login to the Salesforce developer account: <https://login.salesforce.com>
+        1. Log into the Salesforce developer account: <https://login.salesforce.com>
 
         2. Search for **My Domain** in the search bar that is on the left navigation panel.
 
@@ -571,7 +571,7 @@ Salesforce and the Identity Server.
 			click, **Single Sign-On Settings**.
 			
 		5.  Click on the name of the Single Sign-On Setting you created. In
-			this use case click **SSO**.  
+			this case, click **SSO**.  
 			![single-sign-on-setting](../assets/img/tutorials/single-sign-on-setting.png)
 			
 		6.  Copy the URL that is defined for Login URL to access
