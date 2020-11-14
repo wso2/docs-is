@@ -6,7 +6,7 @@
 
 <ul>
     <li><b>New react based console application(BETA) with developer and administrator views to manage and maintain the features offered by the Identity Server.</b></li>
-    <li><b>Enhanced My Account application for users to manage their account-related preferences.</b></li>
+    <li><b>Enhanced My Account application(known as User Portal in 5.10.0) for users to manage their account-related preferences.</b></li>
     <li><b>Data protection with symmetric key encryption.</b></li>
     <li><b>Role management API.</b></li>
     <li><b>CORS management APIs.</b></li>
