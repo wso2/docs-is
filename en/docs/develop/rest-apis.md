@@ -37,4 +37,4 @@ including the sample requests and responses.
 - [Session Management](../../develop/session-mgt-rest-api)
 - [TOTP](../../develop/totp-rest-api)
 - [User Discoverable Application Management](../../develop/user-discoverable-applications)
-- [Scope based Authorization for Internal REST APIs](../../develop/scope-based-authorization-for-internal-rest-apis)
+
