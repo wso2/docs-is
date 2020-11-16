@@ -132,9 +132,11 @@
 
         Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
 
-4.  If you have created tenants in the previous WSO2 Identity Server
-    version that contain resources, copy the content from `          <OLD_IS_HOME>/repository/tenants         ` directory,
-    to the `          <NEW_IS_HOME>/repository/tenants         ` directory.
+4.  To migrate the super tenant, copy the content from `<OLD_IS_HOME>/repository/deployment/server` directory to the `<NEW_IS_HOME>/repository/deployment/server` directory. 
+
+    If you have created tenants in the previous WSO2 Identity Server
+    version that contain resources, copy the content from `<OLD_IS_HOME>/repository/tenants` directory,
+    to the `<NEW_IS_HOME>/repository/tenants` directory.
     
 5.  If you have created secondary user stores in the previous WSO2 IS
     version, copy the content in the

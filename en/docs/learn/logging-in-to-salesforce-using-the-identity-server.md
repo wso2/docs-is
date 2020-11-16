@@ -179,7 +179,7 @@ Server credentials.
 			!!! note
 				You can configure email user name without enabling
 				**`                EnableEmailUserName               `** property,
-				then users can login to both super tenant and tenant using email and
+				then users can log into both super tenant and tenant using email and
 				non-email user names. But super tenant users should always use
 				***@carbon.super*** at the end of user names.
 	
@@ -371,6 +371,29 @@ Let's get started!
     
 13. Click **Save**.
 
+## Configure claims
+
+Follow the steps below to map the Salesforce attributes to WSO2 IS claims using the WSO2 IS console. 
+
+1.  Log in to the [Management Console](../../setup/getting-started-with-the-management-console).
+      
+    The default username and password of the administrator is both
+    **admin**.
+
+2. On the **Main** menu, click **Claims > Add**. 
+
+3. Click **Add Local Claim**.
+
+4. Add the following claim:
+
+    - **Claim URI:** http://wso2.org/claims/sf.username
+    - **Display Name:** Salesforce username
+    - **Description:** Salesforce username
+    - **Mapped Attribute:** mail
+    - **Supported by Default:** *Selected*
+
+        ![salesforce-username-claim](../../assets/img/learn/salesforce-username-claim.png)
+
 ## Configuring the service provider
 
 Follow the steps given below to configure salesforce as a service
@@ -402,7 +425,7 @@ provider in WSO2 IS.
     Configuration](../../learn/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-saml2-web-sso)
 .
 
-    <table>
+    <table style="width: 100%">
     <thead>
     <tr class="header">
     <th>Field</th>
@@ -419,18 +442,7 @@ provider in WSO2 IS.
     <tr class="even">
     <td>Assertion Consumer URL</td>
     <td nowrap>
-    <details class="note" open="">
-    <summary>Click here and follow the steps to get the Assertion Consumer URL.</summary>
-    <p>Follow the steps given below to get the Salesforce URL:</p>
-    <ol>
-    <li>Login to the Salesforce developer account: <a href="https://login.salesforce.com/?lt=de">https://login.salesforce.com/</a>.</li>
-    <li>Search for My Domain in the search bar that is on the left navigation panel.</li>
-    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a>.</p></li>
-    <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
-    <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
-    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../../assets/img/tutorials/Click-sso-setting-name.png" /></li>
-    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../../assets/img/tutorials/login-url-to-access-salesforce.png" /></li>
-    </ol>
+    <p> See the steps in the tip given below the table </br> for instructions on how to get </br> the Salesforce Assertion Consumer URL.</p>
     </td>
     <td width="40%">This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. In this case, you must use your Salesforce login URL. In Salesforce, click <strong>Security Controls</strong> on your left menu and then click <strong>Single Sign-On Settings</strong>. In the page that appears, click on the SSO settings that you created to view the details. Use the <strong>Salesforce Login URL</strong> listed there for this value.</td>
     </tr>
@@ -452,7 +464,55 @@ provider in WSO2 IS.
     </tbody>
     </table>
 
+    
+    !!! tip "Follow the steps below to get the Salesforce Assertion Consumer URL"
+        1. Log into the Salesforce developer account: <https://login.salesforce.com>
+
+        2. Search for **My Domain** in the search bar that is on the left navigation panel.
+
+        3. Click **My Domain**. You are navigated to the domain you created when [configuring salesforce](../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce)
+        
+        4. Click **Edit** under **Authentication Configurations**. 
+        You are navigated to a new page having the following URl: `https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp`
+
+        5. On the left navigation menu, search for **Single Sign-On Settings** , and click it.
+
+        6. Click on the name of the Single Sign-On Setting you created. In this case, click **SSO**. 
+            ![sso-setting](../../assets/img/tutorials/Click-sso-setting-name.png)
+
+        7. Copy the URL that is defined as the **Login URL** to access Salesforce. 
+            ![login-url-to-access-salesforce](../../assets/img/tutorials/login-url-to-access-salesforce.png)
+    
 7.  Click **Update** to save your configurations.
+
+8. Expand the **Claim Configuration** tab. 
+
+9. Select **Define Custom Claim Dialect** and then click **Add Claim URI** to add the following set of claims. 
+    
+    | Service Provider Claim | Local Claim | Requested Claim | Mandatory Claim |
+    |-|-|-|-|
+    | User.ProfileId | https://wso2.org/claims/role | Selected | Selected |
+    | User.Username | https://wso2.org/claims/username | Selected | Selected |
+    | User.Email | https://wso2.org/claims/emailaddress | Selected | Selected |
+    | User.LastName | https://wso2.org/claims/lastname | Selected | Selected |
+
+    ![salesforce-claim-config](../../assets/img/learn/salesforce-claim-config.png)
+
+10. Select `User.Username` as the **Subject Claim URI**. 
+
+11. Expand the **Role/Permission Configuration** tab and expand **Role Mapping**. 
+
+12. Click **Add Role Mapping** to add the following role mappings.
+
+    | Local Role | Service Provider Role |
+    |-|-|
+    | sales_user | Standard Platform User |
+    | solution_manager | Solution Manager |
+
+    ![salesforce-role-mapping](../../assets/img/learn/salesforce-role-mapping.png)
+
+13. Click **Update** to save the configurations. 
+
 
 ## Testing the configurations
 
@@ -511,7 +571,7 @@ Salesforce and the Identity Server.
 			click, **Single Sign-On Settings**.
 			
 		5.  Click on the name of the Single Sign-On Setting you created. In
-			this use case click **SSO**.  
+			this case, click **SSO**.  
 			![single-sign-on-setting](../assets/img/tutorials/single-sign-on-setting.png)
 			
 		6.  Copy the URL that is defined for Login URL to access

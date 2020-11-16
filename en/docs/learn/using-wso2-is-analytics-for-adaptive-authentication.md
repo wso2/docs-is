@@ -1,23 +1,23 @@
-# Using WSO2 Stream Processor for Adaptive Authentication
+# Using WSO2 Identity Server Analytics for Adaptive Authentication
 
-WSO2 Stream Processor (SP) is a lightweight, lean, streaming SQL-based
+WSO2 Identity Server Analytics (WSO2 IS Analytics) is a lightweight, lean, streaming SQL-based
 stream processing platform that allows you to collect events, analyze
 them in real-time, identify patterns, map their impacts, and communicate
 the results within milliseconds.  It is powered by
 [Siddhi](https://wso2.github.io/siddhi/documentation/siddhi-quckstart-4.0/)
 to be extremely high performing.
 
-This tutorial demonstrates using WSO2 Stream Processor to publish
+This tutorial demonstrates using WSO2 IS Analytics to publish
 transactional data and assess an end user's risk score based on the
 user's transaction history in an adaptive authentication scenario.
 Consider a business use case where a bank wants to prompt an additional
 authentication step when a user attempts to log in to the system after a
 doing a transaction of over $10,000.This usecase can be achieved by
-creating a Siddhi application in WSO2 SP and configuring a conditional
+creating a Siddhi application in WSO2 IS Analytics and configuring a conditional
 authentication script in the service provider configuration of the WSO2
 Identity Server (WSO2 IS).
 
-WSO2 SP has 4 main runtimes. This tutorial demonstrates the use of the
+WSO2 IS Analytics has 4 main runtimes. This tutorial demonstrates the use of the
 **Editor** runtime to create a Siddhi application and the **Worker**
 runtime to run the script. Follow the instructions given in the sections
 below to create and deploy a Siddhi application that can be used with
@@ -25,31 +25,29 @@ WSO2 Identity Server for risk-based login.
 
 ### Creating a Siddhi application
 
-1.  Download the latest version of [WSO2 Stream
-    Processor](https://github.com/wso2/product-sp/releases).
+1.  Download the latest version of [WSO2 IS Analytics](TODO).
 2.  Extract the downloaded zip and navigate to the
-    `          <SP_HOME>/bin         ` directory (
-    `          <SP_HOME>         ` is the extracted directory).
-3.  Issue one of the following commands to start the WSO2 Stream
-    Processor Studio.
+    `          <ISANALYTICS_HOME>/bin         ` directory (
+    `          <ISANALYTICS_HOME>         ` is the extracted directory).
+3.  Issue one of the following commands to start the WSO2 IS Analytics Editor (WSO2 Stream Processor Studio).
     -   For Windows: `            editor.bat           `
     -   For Linux: ./ `            editor.sh           `
-4.  Access the Stream Processor Studio through the following URL:
+4.  Access the WSO2 IS Analytics Editor through the following URL:
     http://\<HOST\_NAME\>:\<EDITOR\_PORT\>/editor.
 
     !!! info 
         The default URL is: <http://localhost:9390/editor>.
 
-    The Stream Processor Studio opens as shown below.
+    The WSO2 IS Analytics Editor opens as shown below.
 
 5.  Click **New** to start creating a new Siddhi application.
 
 6.  Enter a name for your Siddhi application. In this scenario, let's
-    name the application `           RiskBasedLogin          ` as shown
+    name the application `IS_ANALYTICS_RiskBasedLogin` as shown
     below.
 
     ``` java
-    @App:name("RiskBasedLogin")
+    @App:name("IS_ANALYTICS_RiskBasedLogin")
     ```
 
     ![sp-risk-based-login](../assets/img/tutorials/sp-risk-based-login.png)
@@ -67,8 +65,8 @@ WSO2 Identity Server for risk-based login.
     **Sample HTTP Source**
 
     ``` java
-	@Source(type = 'http', receiver.url="http://localhost:8281/RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
-	define stream TransactionInputStream (transaction double, username string);
+	@Source(type = 'http', receiver.url="http://localhost:8281/IS_ANALYTICS_RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
+	define stream TransactionInputStream (transaction:double, username:string);
     ```
 
     ??? note "Click to see more information about streams, sources, and sinks"
@@ -120,7 +118,7 @@ WSO2 Identity Server for risk-based login.
 
     ``` java
     curl -kv -X POST -u admin:admin \
-      http://localhost:8281/RiskBasedLogin/TransactionInputStream \
+      http://localhost:8281/IS_ANALYTICS_RiskBasedLogin/TransactionInputStream \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -d '{
@@ -161,7 +159,7 @@ WSO2 Identity Server for risk-based login.
     **HTTP-request source**
 
     ``` java
-	@Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
+	@Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/IS_ANALYTICS_RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
 	define stream InputStream (messageId string, username string);
     ```
 
@@ -218,13 +216,13 @@ WSO2 Identity Server for risk-based login.
 13. The final Siddhi application is as follows.
 
     ``` java
-	@App:name("RiskBasedLogin")
+	@App:name("IS_ANALYTICS_RiskBasedLogin")
 	@App:description("Description of the plan")
 
-	@Source(type = 'http', receiver.url="http://localhost:8281/RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
-	define stream TransactionInputStream (transaction double, username string);
+	@Source(type = 'http', receiver.url="http://localhost:8281/IS_ANALYTICS_RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
+	define stream TransactionInputStream (transaction:double, username:string);
 
-	@Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
+	@Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/IS_ANALYTICS_RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
 	define stream InputStream (messageId string, username string);
 
 	@sink(type='http-response', source.id='testsource', message.id='{{messageId}}', @map(type='json'))
@@ -255,7 +253,7 @@ instructions given in the next section to test it out.
     the user's risk score.
 
     ``` java
-	curl -X POST  https://localhost:8280/RiskBasedLogin/InputStream -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{
+	curl -X POST  https://localhost:8280/IS_ANALYTICS_RiskBasedLogin/InputStream -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{
 		"event": {
 			"username": "admin"
 		}
@@ -272,7 +270,7 @@ instructions given in the next section to test it out.
     transaction made by the user.
 
     ``` java
-	curl -kv -X POST http://localhost:8281/RiskBasedLogin/TransactionInputStream -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{
+	curl -kv -X POST http://localhost:8281/IS_ANALYTICS_RiskBasedLogin/TransactionInputStream -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{
 		"event": {
 			"username": "admin",
 			"transaction": 12000
@@ -284,7 +282,7 @@ instructions given in the next section to test it out.
     re-evaluate the risk score after a new transaction was added.
 
     ``` java
-	curl -X POST  https://localhost:8280/RiskBasedLogin/InputStream -H 'Accept: application/json' -H 'Content-Type: application/json'   -d '{
+	curl -X POST  https://localhost:8280/IS_ANALYTICS_RiskBasedLogin/InputStream -H 'Accept: application/json' -H 'Content-Type: application/json'   -d '{
 		"event": {
 			"username": "admin"
 		}
@@ -303,14 +301,14 @@ instructions given in the next section to test it out.
 
 This section demonstrates how to configure the analytics engine in WSO2
 Identity Server that establishes the connection between WSO2 Identity
-Server and WSO2 Stream Processor.
+Server and WSO2 IS Analytics.
 
 1.  Start the WSO2 Identity Server and log in to the management console
     using admin/admin credentials.
 2.  Click **Resident** under **Identity Providers** and expand
-    **Adaptive Engine\>Analytics Engine**.
+    **Analytics Engine > Analytics Engine Configuration**.
 3.  Configure the following properties accordingly. For this tutorial
-    scenario, you can leave the default configurations as they are.  
+    scenario, you can change the User ID to a value like `admin` and leave the rest of the default configurations as they are.  
     ![analytics-engine-properties](../assets/img/tutorials/analytics-engine-properties.png)
 
     <table>
@@ -323,7 +321,7 @@ Server and WSO2 Stream Processor.
     <tbody>
     <tr class="odd">
     <td>Target Host</td>
-    <td>The target hostname and target port for the WSO2 SP endpoint.</td>
+    <td>The target hostname and target port for the WSO2 IS Analytics endpoint.</td>
     </tr>
     <tr class="even">
     <td>Enable Basic Authentication</td>
@@ -331,11 +329,11 @@ Server and WSO2 Stream Processor.
     </tr>
     <tr class="odd">
     <td>User ID</td>
-    <td>The username of the WSO2 SP admin.</td>
+    <td>The username of the WSO2 IS Analytics admin.</td>
     </tr>
     <tr class="even">
     <td>Secret</td>
-    <td>The password of the WSO2 SP admin.</td>
+    <td>The password of the WSO2 IS Analytics admin.</td>
     </tr>
     <tr class="odd">
     <td>HTTP Connection Timeout</td>
@@ -347,7 +345,7 @@ Server and WSO2 Stream Processor.
     </tr>
     <tr class="odd">
     <td>HTTP Connection Request Timeout</td>
-    <td>The timeout interval in milliseconds for requesting a connection with WSO2 SP.</td>
+    <td>The timeout interval in milliseconds for requesting a connection with WSO2 IS Analytics.</td>
     </tr>
     <tr class="even">
     <td>Hostname Verification</td>
@@ -358,31 +356,31 @@ Server and WSO2 Stream Processor.
     </table>
 
 4.  An HTTP connection is used to communicate between WSO2 IS and WSO2
-    SP. Therefore, you must add the certificate of WSO2 SP to WSO2 IS.
-    Follow the steps given below to import the certificate from WSO2 SP
+    IS Analytics. Therefore, you must add the certificate of WSO2 IS Analytics to WSO2 IS.
+    Follow the steps given below to import the certificate from WSO2 IS Analytics
     to WSO2 IS. This example uses the default keystores and
     certificates.
 
     1.  Navigate to the
-        `             <SP_HOME>/resources/security            `
+        `             <ISANALYTICS_HOME>/resources/security            `
         directory on a new terminal window and run the following
-        command.
+        command. The default keystore password is `wso2carbon`.
 
         ``` java
         keytool -export -alias wso2carbon -keystore wso2carbon.jks -file sp.pem
         ```
 
     2.  Navigate to the
-        `             <IS_HOME>/repository/resources/security            `
+        `             <ISANALYTICS_HOME>/repository/resources/security            `
         directory and run the following command.
 
         !!! info 
-			Replace the `              <SP_HOME>             ` placeholder
+			Replace the `              <ISANALTICS_HOME>             ` placeholder
 			in the command with the filepath location of your
-			`              <SP_HOME>             ` folder.
+			`              <ISANALYTICS_HOME>             ` folder.
 
         ``` java
-        keytool -import -alias certalias -file <SP_HOME>/resources/security/sp.pem -keystore client-truststore.jks -storepass wso2carbon
+        keytool -import -alias certalias -file <ISANALYTICS_HOME>/resources/security/sp.pem -keystore client-truststore.jks -storepass wso2carbon
         ```
 
 ### Deploying the Siddhi application
@@ -390,39 +388,14 @@ Server and WSO2 Stream Processor.
 You have successfully created the Siddhi application and tested the
 functionality using the **Editor**. The **Editor** is useful for
 testing purposes however, you must deploy the application properly in
-WSO2 SP to use it in production. Follow these instructions to deploy the
+WSO2 IS Analytics to use it in production. Follow these instructions to deploy the
 application.
 
 1.  On the Editor, click **File\>Export File**.
 2.  A file named
-    `                     RiskBasedLogin.siddhi                   ` is
+    `                     IS_ANALYTICS_RiskBasedLogin.siddhi                   ` is
     downloaded onto your machine. Place it in the
-    `          <SP_HOME>/deployment/siddhi-files         ` directory.
-3.  Port offset the 9443 port in WSO2 Stream Processor. This is required
-    because WSO2 IS also runs on the 9443 port.
-
-    1.  Open the `             deployment.yaml            ` file found
-        in the `             <SP_HOME>/conf/worker/            ` folder.
-
-    2.  Change the `             Port: 9443            ` to
-        `              9444             ` under
-        `             listenerConfigurations            ` .
-
-        ``` java
-	  	listenerConfigurations:
-		-
-		  id: "default"
-		  host: "0.0.0.0"
-		  port: 9090
-		-
-		  id: "msf4j-https"
-		  host: "0.0.0.0"
-		  port: 9444
-		  scheme: https
-		  keyStoreFile: "${carbon.home}/resources/security/wso2carbon.jks"
-		  keyStorePassword: wso2carbon
-		  certPass: wso2carbon
-        ```
+    `          <ISANALYTICS_HOME>/deployment/siddhi-files         ` directory.
 
 4.  Stop the **Editor** and start WSO2 Stream Processor in a **Worker**
     profile.  

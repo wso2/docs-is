@@ -122,8 +122,7 @@ vulnerable to attacks if the hacker has enough computing resources.
     DSA and RSA.
     
     **Note** : This tip is not applicable when you are disabling weak
-    ciphers in [WSO2 Identity
-    Server](https://is.docs.wso2.com/en/5.9.0/)
+    ciphers in WSO2 Identity Server.
 
   
 ### Changing the server name in HTTP response headers

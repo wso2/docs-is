@@ -50,6 +50,9 @@ Various elements of the **My Account** application can be managed by the users t
 3. Click on the pencil icon aligning with the field that needs to be edited.
 4. Update the new value in the profile and click **Save**.
 
+!!! tip
+    To add custom attributes to the user profile, see [Extending SCIM2 User Schemas](../../develop/extending-scim2-user-schemas/)
+
 ### Add and update profile picture
 
 1. [Access **My Account**](#access-my-account-and-its-components).
@@ -290,3 +293,10 @@ WSO2 IS enables more control over the tasks that are executed using workflows. T
 Whenever a user gets created in the system, that task will appear under the **ready** section waiting for approval. Whenever a task  is reviewed and claimed, that task will be listed under the **reserved** section of approvals. Once the task is approved or denied, it will appear under the **completed** section.
 
 ![pending-approvals-all](../assets/img/using-wso2-identity-server/user-portal/pending-approvals/pending-approvals-all.png)
+
+---
+
+!!! info "Related Topics"
+    - To change the look and feel of the My Account UI, see [Customizing the My Account UI](../../develop/customizing-my-account-ui).
+    - To set up My Account in a dev environment, see [Setting Up My Account in a Development Environment](../../develop/setting-up-my-account-in-a-dev-environment).
+    - To configure the My Account application and customize features, theme, etc., see [Configuring My Account Application](../../develop/configure-my-account)

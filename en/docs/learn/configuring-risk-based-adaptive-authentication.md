@@ -1,19 +1,18 @@
 # Configuring Risk-Based Adaptive Authentication
 
-WSO2 Stream Processor (SP) is a lightweight, lean, streaming SQL-based
-stream processing platform that allows you to collect events, analyze
+WSO2 Identity Server Analytics allows you to collect events, analyze
 them in real-time, identify patterns, map their impacts, and communicate
 the results within milliseconds.  It is powered by
 [Siddhi](https://wso2.github.io/siddhi/documentation/siddhi-quckstart-4.0/)
 to be extremely high performing.
 
-This tutorial demonstrates using WSO2 Stream Processor to publish
+This tutorial demonstrates using WSO2 Identity Server Analytics to publish
 transactional data and assess an end user's risk score based on the
 user's transaction history in an adaptive authentication scenario.
 Consider a business use case where a bank wants to prompt an additional
 authentication step when a user attempts to log in to the system after a
-doing a transaction of over $10,000.This usecase can be achieved by
-creating a Siddhi application in WSO2 SP and configuring a conditional
+doing a transaction of over $10,000. This usecase can be achieved by
+creating a Siddhi application with WSO2 IS Analytics and configuring a conditional
 authentication script in the service provider configuration of the WSO2
 Identity Server (WSO2 IS).
 
@@ -24,20 +23,20 @@ Follow the instructions given in the sections below to set this up.
 ### Risk profiling flow
 
 The diagram below shows how the connection between the client
-applications, WSO2 Stream Processor, and WSO2 Identity Server works to
+applications, WSO2 IS Analytics, and WSO2 Identity Server works to
 assess risk and provide adaptive authentication to users.
 
 ![risk-based-adaptive-authentication](../assets/img/tutorials/risk-based-adaptive-authentication.png)
 
 1.  The user performs bank transactions through different applications.
 2.  Transactional data from all these applications are published to the
-    WSO2 Stream Processor Analytics engine.
+    WSO2 IS Analytics engine.
 3.  The user attempts to access a service provider application that uses
     WSO2 IS as the identity provider.
 4.  The service provider sends an authentication request to WSO2 IS.
 5.  The user is prompted to log in and WSO2 IS authenticates the user
     using basic authentication (username/password credentials).
-6.  WSO2 IS publishes an event to the Siddhi application in WSO2 SP,
+6.  WSO2 IS publishes an event to the Siddhi application in WSO2 IS Analytics,
     which computes the user's risk score based on the user's transaction
     history using the data received in step 2. If the user has made
     transactions that total to over $10,000 spent within the last five
@@ -46,25 +45,25 @@ assess risk and provide adaptive authentication to users.
     authentication for the user (i.e., entering a hardware key number)
     before allowing the user to access the service provider application.
 
-### Configuring WSO2 Stream Processor
+### Configuring WSO2 IS Analytics
 
 First, create a Siddhi application as instructed below. The application
 has two endpoints; one to publish transactional data, and the other to
 get the user's risk score.
 
-1.  Download the latest version of WSO2 Stream Processor.
+1.  Download the latest version of WSO2 IS Analytics.
 
-2.  Create and deploy the following Siddhi application on a WSO2 SP
+2.  Create and deploy the following Siddhi application on a WSO2 IS Analytics
     worker node.  
     For more detailed instructions on how to create and deploy the
-    Siddhi application, see [Using WSO2 Stream Processor for Adaptive
-    Authentication](../../learn/using-wso2-stream-processor-for-adaptive-authentication).
+    Siddhi application, see [Using WSO2 Identity Server Analytics for Adaptive
+    Authentication](../../learn/using-wso2-is-analytics-for-adaptive-authentication).
 
     ``` java
-    @App:name("RiskBasedLogin")
+    @App:name("IS_ANALYTICS_RiskBasedLogin")
     @App:description("Description of the plan")
 
-    @Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
+    @Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/IS_ANALYTICS_RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
     define stream InputStream (messageId string, username string);
 
     @sink(type='http-response', source.id='testsource', message.id='{{messageId}}', @map(type='json'))
@@ -72,7 +71,7 @@ get the user's risk score.
 
     define stream TempStream (messageId string, username string, sumTransactions double);
 
-    @Source(type = 'http', receiver.url="http://localhost:8281/RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
+    @Source(type = 'http', receiver.url="http://localhost:8281/IS_ANALYTICS_RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
     define stream TransactionInputStream (transaction double, username string);
 
     from TransactionInputStream#window.time(5 min)
@@ -138,44 +137,20 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
 1.  Start the Tomcat server and a ccess the following sample PickUp
     application URL:
     <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> .
-2.  Port offset the 9443 port in WSO2 Stream Processor. This is required
-    because WSO2 IS also runs on the 9443 port.
 
-    1.  Open the `             deployment.yaml            ` file found
-        in the `             <SP_HOME>/conf/worker/            ` folder.
-
-    2.  Change the `             Port: 9443            ` to
-        **`              9444             `** under
-        `             listenerConfigurations            ` .  
-
-        ``` java
-        listenerConfigurations:
-          -
-		   id: "default"
-		   host: "0.0.0.0"
-		   port: 9090
-          -
-           id: "msf4j-https"
-           host: "0.0.0.0"
-           port: 9444
-		   scheme: https
-	       keyStoreFile: "${carbon.home}/resources/security/wso2carbon.jks"
-		   keyStorePassword: wso2carbon
-		   certPass: wso2carbon
-        ```
-
-3.  Start the WSO2 SP server in a **Worker** profile.  
+2.  Start the WSO2 IS Analaytics server in a **Worker** profile.  
     -   For Windows: `            worker.bat           `
     -   For Linux: ./ `            worker.sh           `
-4.  Log in by giving username and password credentials. You are logged
+
+3.  Log in by giving username and password credentials. You are logged
     in to the application.
 
     !!! note 
         The user is authenticated with basic authentication only.
 
-5.  Log out of the application.
+4.  Log out of the application.
 
-6.  Execute the following cURL command. This command publishes an event
+5.  Execute the following cURL command. This command publishes an event
     about a user bank transaction exceeding $10,000.
 
     !!! tip
@@ -186,7 +161,7 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
     
 
     ``` java
-    curl -v -X POST   http://localhost:8281/RiskBasedLogin/TransactionInputStream   -H 'Accept: application/json'   -H 'Cache-Control: no-cache'   -H 'Content-Type: application/json'   -H 'Postman-Token: 7847a682-012d-4939-88f5-6e8ec781c144'   -d '{    "event": {
+    curl -v -X POST   http://localhost:8281/IS_ANALYTICS_RiskBasedLogin/TransactionInputStream   -H 'Accept: application/json'   -H 'Cache-Control: no-cache'   -H 'Content-Type: application/json'   -H 'Postman-Token: 7847a682-012d-4939-88f5-6e8ec781c144'   -d '{    "event": {
             "username": "chris",
             "transaction": 12000
         }
