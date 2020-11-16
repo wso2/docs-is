@@ -18,12 +18,12 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://is.docs.wso2.com/en/5.11.0/
+site_url: https://is.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/5.11.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -726,6 +726,7 @@ nav:
           - "Migrating to 5.11.0" : setup/migrating-to-5110.md
           - 'Migrating Data Publishers': setup/migrating-data-publishers.md
           - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
+      - 'WSO2 Identity Server Feature Deprecation': setup/wso2-identity-server-feature-deprecation.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
@@ -859,6 +860,8 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
+  site_version: 5.11.0
+  
   nav_list:
     - Home
     - Get Started
