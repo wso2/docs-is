@@ -22,7 +22,6 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
 ## Deprecated Features
 
 - /identity/connect/register API
-- Template Mgt API
 - OAuth 1.0
 
 For more information, see [What Has Changed:Deprecated Features](../../setup/migrating-what-has-changed/#deprecated-features) and [WSO2 Identity Server Feature Deprecation](../../setup/wso2-identity-server-feature-deprecation/).
@@ -74,4 +73,4 @@ release.
 
 ## Known issues
 
--   For a complete list of open issues related to the WSO2 Identity Server runtime, see [WSO2 IS Runtime - Open Issues](https://github.com/wso2/product-is/issues).
+For a complete list of open issues related to the WSO2 Identity Server runtime, see [WSO2 IS Runtime - Open Issues](https://github.com/wso2/product-is/issues).
