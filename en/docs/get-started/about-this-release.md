@@ -1,6 +1,6 @@
 # About this release
 
-WSO2 Identity Server 5.11.0 is the **latest** WSO2 Identity Server release and is the successor of WSO2 Identity Server 5.10.0. 
+WSO2 Identity Server 5.11.0 is the **latest** WSO2 Identity Server (WSO2 IS) release and is the successor of WSO2 Identity Server 5.10.0. 
 
 ## What's new in this release
 
@@ -22,7 +22,6 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
 ## Deprecated Features
 
 - /identity/connect/register API
-- SCIM 1.1 API
 - Template Mgt API
 - OAuth 1.0
 
@@ -75,6 +74,4 @@ release.
 
 ## Known issues
 
--   For a complete list of open issues related to the WSO2 Identity
-    Server runtime, see [WSO2 IS Runtime - Open
-    Issues](https://github.com/wso2/product-is/issues).
+-   For a complete list of open issues related to the WSO2 Identity Server runtime, see [WSO2 IS Runtime - Open Issues](https://github.com/wso2/product-is/issues).
