@@ -10,7 +10,7 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
 
 - Enhanced **My Account** application (known as "User Portal" in 5.10.0) for users to manage their account-related preferences. For more information, see [My Account](../../learn/my-account).
 
-- Switched to symmetric key encryption as the default encryption method for data protection. For more information, see [Symmetric Key Encryptio Overview](../../administer/symmetric-overview).
+- Switched to symmetric key encryption as the default encryption method for data protection. For more information, see [Symmetric Key Encryption Overview](../../administer/symmetric-overview).
 
 - Separated 'user groups' and 'roles', and introduced new role management APIs. For more information, see [SCIM 2.0 REST APIs](../../develop/scim2-rest-apis) and [What Has Changed: Group and role separation](../../setup/migrating-what-has-changed/#group-and-role-separation).
 
