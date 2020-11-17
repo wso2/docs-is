@@ -42,19 +42,17 @@ the sample applications.
 
 4. Click **Add** under **Identity Providers**. 
 
-4. Fill in the details in the **Basic Information** section. Give a suitable name for the Identity Provider.
+5. Fill in the details in the **Basic Information** section. Give a suitable name for the Identity Provider.
 
-5. Expand the **SAML2 Web SSO Configuration** section and fill the required details. 
-   ![saml-slo-federated-idp-config](../assets/img/tutorials/saml-slo-federated-idp-config.png
+6. Expand the **SAML2 Web SSO Configuration** section and fill the required details. 
+    ![saml-slo-federated-idp-config](../assets/img/tutorials/saml-slo-federated-idp-config.png)
    
-   !!! info
-       Select **Specifies if logout request from the identity provider is accepted** to accept single logout requests from 
-      the identity provider. Once this is enabled, WSO2 Identity Server accepts and handles the logout requests. 
-      This configuration is a must to try this scenario. 
+    !!! info
+        Select **Specifies if logout request from the identity provider is accepted** to accept single logout requests from the identity provider. Once this is enabled, WSO2 Identity Server accepts and handles the logout requests. This configuration is a must to try this scenario. 
 
-   ![saml-slo-configuring-slo-requests-accept](../assets/img/tutorials/saml-slo-configuring-slo-requests-accept.png)
+    ![saml-slo-configuring-slo-requests-accept](../assets/img/tutorials/saml-slo-configuring-slo-requests-accept.png)
    
-6. After providing the values for the required fields, click **Register**.
+7. After providing the values for the required fields, click **Register**.
 
 ### Configuring Pickup Dispatch application in the Primary IS
 
