@@ -70,6 +70,7 @@ Follow the instructions given in [Deploying the Sample App](../../learn/deployin
         ``` tab="Sample"
         openssl req -newkey rsa:2048 -x509 -keyout key.pem -out client-certificate.pem -days 3650 -nodes
         ```
+        
     2. You will see the client certificate content in the `client-certificate.pem` file. A sample client certificate is shown below.
 
         ```
@@ -189,7 +190,7 @@ curl -X POST \
   -d 'grant_type=refresh_token&refresh_token=47757b20-1013-3fd7-a547-c8b080427abd&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa'
 ```
 
- ```tab="Sample Response"
+```tab="Sample Response"
 {"access_token":"e01612d2-5538-32ac-9b1c-c2978ce47e91","refresh_token":"0278af3e-e75b-3f66-bad5-13a773397b8e","scope":"openid","id_token":"eyJ4NXQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmciLCJraWQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmdfUlMyNTYiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSHJsTl9PNGZ3THNldnlRWXcxdjdGdyIsImF1ZCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJzdWIiOiJhZG1pbiIsIm5iZiI6MTU4Njg5MTU4MywiYXpwIjoiaDlnZDFiTEVnelV3ZnRBaG5yb2YwZlpXY1p3YSIsImFtciI6WyJyZWZyZXNoX3Rva2VuIl0sImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTU4Njg5NTE4MywiaWF0IjoxNTg2ODkxNTgzfQ.XonQryWAEoUAsEWBYh97N8Wra1o1g-gs_VQfD1jeKpIMXONrRJt9ArTwf7THE0AmwoiHqv3JDsFDfj7FY4-xMEXb9bbwm2CB7ptWdw_Z0_rEoLv8uFo69k0G07C1bPsE4Lfdg4_BKMWN5-h8U0l7p35AQW-hT4qGkASOkgo0xz2AaBpXgItP91NsUoJ3Xmr1E9Bmv_0vIO8XK1hvZkk95inCVp2HVBBRuQNIO4PIaqrGNijMUoKN5DokUr_pyZ3xHbHL8pJ5Smg5wLfDAng7BSwiBd1Lf_8wyWaNSHCvI27sVtU8fLRi7X0_p-4mVtmfK2Qe-hK8wQA3E_vFLr3WMA","token_type":"Bearer","expires_in":3600}
 ```
 
