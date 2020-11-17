@@ -76,7 +76,7 @@ The next step is to configure the Primary IS as a service provider in the Second
 
 2. Log in to the management console of the Secondary IS.
 
-3. Follow the steps in [Configuring Pickup Dispatch application in the Primary IS](configuring-pickup-dispatch-application-in-the-primary-is) and configure the service provider with the details given below.
+3. Follow the steps in [Configuring Pickup Dispatch application in the Primary IS](#configuring-pickup-dispatch-application-in-the-primary-is) and configure the service provider with the details given below.
 
     - Issuer : SP Entity Id of the Secondary IS
     - Assertion Consumer URL : URL of the endpoint which receives SAML responses from the identity provider
