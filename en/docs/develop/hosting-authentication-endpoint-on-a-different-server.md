@@ -186,10 +186,11 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     Get a copy of `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint` folder to `<WEBAPP_HOME>/`.
     
 
-1.  Open the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file, uncomment the following config, and change it to `identity server`.
+1.  Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
-    ``` xml
-    identity.server.service.contextURL=https://localhost:9443/services/
+    ``` toml
+    [identity.auth_framework.endpoint]
+    identity_server_service_url="https://$ref{server.hostname}:9443/services"
     ```
 
 2.  Uncomment and change the user portal reference in `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/web.xml`.
@@ -409,13 +410,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     …
     ```
 
-13. Open the `<TOMCAT_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file, uncomment the following config, and change it to `identity server`.
-
-    ``` xml
-    identity.server.service.contextURL=https://localhost:9443/services/
-    ```
-
-14. Uncomment and change the user portal reference in the `<TOMCAT_HOME>/accountrecoveryendpoint/WEB-INF/web.xml` file.
+13. Uncomment and change the user portal reference in the `<TOMCAT_HOME>/accountrecoveryendpoint/WEB-INF/web.xml` file.
 
     ``` xml
     …
@@ -425,3 +420,11 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     </context-param>
     ...
     ```
+
+14. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+
+    ``` toml
+    [identity.auth_framework.endpoint]
+    identity_server_service_url="https://$ref{server.hostname}:9443/services"
+    ```
+    
