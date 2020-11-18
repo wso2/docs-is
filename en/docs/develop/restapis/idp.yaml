@@ -1290,6 +1290,14 @@ paths:
         includes the ability to enable/disable JIT provisioning, change
         provisioning userstore and enable/disable user prompts for username,
         password and consent. <br>
+        The schemes supported for JIT provisioning are, <br>
+        <ol>
+          <li><code>PROVISION_SILENTLY</code> : Provision without any prompts</li>
+          <li><code>PROMPT_CONSENT</code> : Prompt user for consent when provisioning</li>
+          <li><code>PROMPT_PASSWORD_CONSENT</code> : Prompt user for password and consent when provisioning</li>
+          <li><code>PROMPT_USERNAME_PASSWORD_CONSENT</code> : Prompt user for username, password and consent when
+                provisioning</li>
+        </ol>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
