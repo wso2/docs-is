@@ -1295,7 +1295,7 @@ paths:
           <li><code>PROVISION_SILENTLY</code> : Provision without any prompts</li>
           <li><code>PROMPT_CONSENT</code> : Prompt user for consent when provisioning</li>
           <li><code>PROMPT_PASSWORD_CONSENT</code> : Prompt user for password and consent when provisioning</li>
-          <li><code>PROMPT_USERNAME_PASSWORD_CONSENT</code> : Prompt user for username, password and consent when
+          <li><code>PROMPT_USERNAME_PASSWORD_CONSENT</code> : Prompt user for username, password, and consent when
                 provisioning</li>
         </ol>
         <b>Permission required:</b> <br>
