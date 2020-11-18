@@ -581,6 +581,12 @@ step number.
     (Read/Write) User’s attribute (claim) value for the given
     “local\_claim\_url”. If the user is a federated user, this will be
     the value of the mapped remote claim from the IdP.
+    
+    !!! note 
+        `          user.localClaims[“<local_claim_url>”]         ` updates the claim value in the user store. 
+        
+-   `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
+
 -   `          user.remoteClaims[“<remote_claim_url”]         ` :
     (Read/Write) User’s attribute (claim) as returned by IdP for the
     given “remote\_claim\_url”. Applicable only for federated users.
