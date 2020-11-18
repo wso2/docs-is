@@ -82,12 +82,12 @@ the users with an authorization server-based authentication.
     <tbody>
     <tr>
         <td>Enable OAuth2/OpenIDConnect</td>
-        <td>Selecting this option enables OAuth2/OpenID Connect to be used as an authenticator for users provisioned to the Identity Server.</td>
+        <td>Selecting this option enables OAuth2/OpenID Connect to be used as an authenticator for users provisioned to WSO2 Identity Server.</td>
         <td>Selected</td>
     </tr>
     <tr>
         <td>Default</td>
-        <td>Selecting the Default check box signifies that the OAuth2/OpenID Connect credentials are the main/default form of authentication. <br>This removes the selection made for any other Default checkboxes for other authenticators.</td>
+        <td>Selecting the <strong>Default</strong> check box signifies that the OAuth2/OpenID Connect credentials are the main/default form of authentication. <br>This removes the selection made for any other <strong>Default</strong/> checkboxes for other authenticators.</td>
         <td>Selected</td>
     </tr>
     <tr>
@@ -102,12 +102,12 @@ the users with an authorization server-based authentication.
     </tr>
     <tr>
         <td>Client Id</td>
-        <td>Client ID of the application you registered in the IDP for Identity Server.</td>
+        <td>Client ID of the application you registered in the IDP for WSO2 Identity Server.</td>
         <td><code>1421263438188909</code></td>
     </tr>
     <tr>
         <td>Client Secret</td>
-        <td>Client Secret of the application you registered in the IDP for Identity server. Click the Show button to view the value you enter.</td>
+        <td>Client Secret of the application you registered in the IDP for WSO2 Identity server. Click the <strong>Show</strong> button to view the value you enter.</td>
         <td><code>12ffb4dfb2fed67a00846b42126991f8</code></td>
     </tr>
     <tr>
@@ -117,7 +117,7 @@ the users with an authorization server-based authentication.
     </tr>
     <tr>
         <td>OpenID Connect User ID Location</td>
-        <td>Select whether the User ID is found in the 'sub' attribute that is sent with the OpenID Connect request or if it is found among claims.</td>
+        <td>Select whether the User ID is found in the 'sub' attribute that is sent with the OpenID Connect request, or if it is found among claims.</td>
         <td>User ID found in 'sub' attribute</td>
     </tr>
     <tr>
