@@ -60,7 +60,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/scriptLibraryPOSTRequest'
+              $ref: '#/components/schemas/ScriptLibraryPOSTRequest'
         description: This represents the script library to be created
         required: true
     get:
@@ -256,7 +256,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/scriptLibraryPUTRequest'
+              $ref: '#/components/schemas/ScriptLibraryPUTRequest'
         description: This represents the script library details to be updated.
         required: true
   /script-libraries/{script-library-name}/content:
@@ -390,7 +390,7 @@ components:
           description: 'Set of script libraries.'
           items:
             $ref: '#/components/schemas/ScriptLibrary'
-    scriptLibraryPOSTRequest:
+    ScriptLibraryPOSTRequest:
       type: object
       required:
         - name
@@ -399,16 +399,16 @@ components:
         name:
           type: string
           description: 'Name of the script library.'
-          example: 'script library name'
+          example: 'script_library_name.js'
         description:
           type: string
           description: 'Description of the script library.'
           example: 'script library description'
         content:
           type: string
-          description: 'Content or the code of the script library.'
+          description: 'Content or the code file of the script library.'
           format: binary
-    scriptLibraryPUTRequest:
+    ScriptLibraryPUTRequest:
       type: object
       required:
         - content
@@ -419,7 +419,7 @@ components:
           example: 'script library description'
         content:
           type: string
-          description: 'Content or the code of the script library.'
+          description: 'Content or the code file of the script library.'
           format: binary
     Error:
       type: object
