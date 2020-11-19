@@ -28,7 +28,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 		enable = true
 		```
 
-	2.	To configure the email server to send emails requesting passwor reset, add the following configurations.
+	2.	To configure the email server to send emails requesting password reset, add the following configurations.
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
 		-	**username**: This is the user name of the given email address.
