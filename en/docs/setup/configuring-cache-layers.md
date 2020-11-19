@@ -16,10 +16,6 @@ WSO2 Identity Server enables configuring the following identity application mana
 
 -	**AppAuthFrameworkSessionContextCache**: The `SessionContextCache` object contains details about the authenticated user. This must be shared across the nodes in the cluster because this is the unique representation of the authenticated user.
 
--	**AuthenticationContextCache**: Until the authentication request is successfully authenticated, all authentication information is stored in the `AuthenticationContextCache` object, which needs to be shared across all nodes in the cluster. Once the user is 
-
--	**AppAuthFrameworkSessionContextCache**: The `SessionContextCache` object contains details about the authenticated user. This must be shared across the nodes in the cluster because this is the unique representation of the authenticated user.
-
 -	**AuthenticationContextCache**: Until the authentication request is successfully authenticated, all authentication information is stored in the `AuthenticationContextCache` object, which needs to be shared across all nodes in the cluster. Once the user is authenticated successfully, this object will is removed from the cache and the required information is stored in the SessionContext cache.
 
 -	**AuthenticationRequestCache**: The `AuthenticationRequestCache` object holds all the required details from the authentication request until the authentication flow is completed by the authentication framework. Note that this is not from the inbound protocol validator level. The Authentication Framework wraps the information to the AuthenticationRequestCache object and stores it in the cache.
