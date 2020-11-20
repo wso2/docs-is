@@ -1,4 +1,4 @@
-# Configuring Mutli-Factor Authentication
+# Configuring Multi-Factor Authentication
 
 Multi-factor authentication is an authentication mechanism that enhances security by granting access to users only after they have successfully passed two or more layers of authentication to prove their identity. For example, in addition to providing a username and password to login, an application can be configured to request users to provide a one time password (OTP) or fingerprint verification as an extra authentication step. 
 
