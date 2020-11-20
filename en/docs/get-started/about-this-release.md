@@ -1,20 +1,32 @@
 # About this release
 
-### What is new in this release
+WSO2 Identity Server 5.11.0 is the **latest** WSO2 Identity Server (WSO2 IS) release and is the successor of WSO2 Identity Server 5.10.0. 
 
-**WSO2 Identity Server 5.11.0** is the **latest WSO2 Identity Server release** and is the successor of WSO2 Identity Server 5.10.0. It contains the following new features and enhancements:
+## What's new in this release
 
-<ul>
-    <li><b>New react based console application(BETA) with developer and administrator views to manage and maintain the features offered by the Identity Server.</b></li>
-    <li><b><a href="../../learn/user-portal">Enhanced My Account application(known as User Portal in 5.10.0) for users to manage their account-related preferences.</a></b></li>
-    <li><b><a href="../../administer/symmetric-overview">Data protection with symmetric key encryption.</a></b></li>
-    <li><b><a href=".../../develop/scim2-rest-apis">User groups and roles separation and a new Role Management API.</a></b></li>
-    <li><b><a href="../../develop/cors-rest-api">CORS management APIs.</a></b></li>
-    <li><b>Open SAML 3 upgrade.</b></li>
-</ul>
+WSO2 IS 5.11.0 contains the following new features and enhancements:
+
+- Introduced a new react-based console application (BETA version) with developer and administrator views to manage and maintain the features offered by WSO2 Identity Server.
+
+- Enhanced **My Account** application (known as "User Portal" in 5.10.0) for users to manage their account-related preferences. For more information, see [My Account](../../learn/my-account).
+
+- Switched to symmetric key encryption as the default encryption method for data protection. For more information, see [Symmetric Key Encryption Overview](../../administer/symmetric-overview).
+
+- Separated 'user groups' and 'roles', and introduced new role management APIs. For more information, see [SCIM 2.0 REST APIs](../../develop/scim2-rest-apis) and [What Has Changed: Group and role separation](../../setup/migrating-what-has-changed/#group-and-role-separation).
+
+- Introduced CORS management APIs. For more information, see [CORS management APIs](../../develop/cors-rest-api).
+
+- Upgraded to Open SAML 3
 
 
-### Fixed issues
+## Deprecated Features
+
+- /identity/connect/register API
+- OAuth 1.0
+
+For more information, see [What Has Changed:Deprecated Features](../../setup/migrating-what-has-changed/#deprecated-features) and [WSO2 Identity Server Feature Deprecation](../../setup/wso2-identity-server-feature-deprecation/).
+
+## Fixed issues
 
 Refer below for the improvements and bug fixes available with this
 release.
@@ -59,8 +71,6 @@ release.
 * [5.11.0-M4 Fixes](https://github.com/wso2/product-is/milestone/133?closed=1)
 
 
-### Known issues
+## Known issues
 
--   For a complete list of open issues related to the WSO2 Identity
-    Server runtime, see [WSO2 IS Runtime - Open
-    Issues](https://github.com/wso2/product-is/issues).
+For a complete list of open issues related to the WSO2 Identity Server runtime, see [WSO2 IS Runtime - Open Issues](https://github.com/wso2/product-is/issues).
