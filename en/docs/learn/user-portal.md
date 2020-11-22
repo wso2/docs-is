@@ -27,6 +27,27 @@ This section briefs you on what each of the above-mentioned features are. It wil
 
 3. The user portal appears.  
 
+!!! note "Display Name of the User Portal"
+       In the user portal a welcome message will be displayed with the user's First Name, Last Name, Display Name 
+       or the User Name. Now if the Display Name of the corresponding user is present in the user's profile details,
+        that Display Name can be displayed in the user portal. To maintain the backward compatibility, this was introduced with a 
+        configuration that can be used to enable this feature. 
+        To enable the feature, add the following configuration to the `runtime-config.js` file located in 
+        `<IS-HOME>/repository/deployment/server/webapps/user-portal/` directory.
+        `useUserProfileDisplayName : true`
+        The final view of the `runtime-config.js` file after applying the configuration is as followed.
+        
+        window.userConfig = {
+             useUserProfileDisplayName : true
+         };
+         
+    !!! warning
+            To enable the user profile's Display Name view in the user portal, apply the 0479 WUM update for WSO2 Identity Server
+             5.10.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid 
+             subscription. If you do not have a paid subscription, you can use this feature with the next version of 
+             WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, 
+             see [Updating WSO2 Products](https://is.docs.wso2.com/en/latest/administer/getting-wso2-updates/)
+
 ## User Profile Management
 
 You can manage your profile details using the user portal by following the instructions given below.
