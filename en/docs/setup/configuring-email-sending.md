@@ -48,10 +48,8 @@ This document explains the steps to configure WSO2 Identity Server to send email
     provide access to third-party applications.
 
     1.  Navigate to <https://myaccount.google.com/security>.
-    2.  Click **Signing in to Google** on the left menu and make sure
-        that the **2-step Verification** is disabled or off.  
-        ![google-2-step-verification](../assets/img/using-wso2-identity-server/google-2-step-verification.png)
-    3.  Click **Connected apps and sites** on the left menu and enable
-        **Allow less secure apps**.  
-        ![allow-less-secure-apps](../assets/img/using-wso2-identity-server/allow-less-secure-apps.png)        
+    2.  Click **Security** on the left menu and make sure
+        that **2-step Verification** under **Signing in to Google** is disabled or off.  
+    3.  Enable **Less secure app access**.  
+               
     
