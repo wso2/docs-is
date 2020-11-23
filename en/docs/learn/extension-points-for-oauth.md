@@ -563,7 +563,7 @@ Implementations supporting both JSON and JWT response formats are available. By 
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td><p>This can be used to add custom <code>GrantTypeValidatorImplClasses</code> to the <code>refresh_token</code> grant type<br /></td>
+<td><p>This can be used to add a custom <code>GrantTypeValidatorImplClass</code> to the <code>refresh_token</code> grant type<br /></td>
 </tr>
 <tr class="even">
 <td>Configuration</td>

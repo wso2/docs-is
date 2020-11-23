@@ -173,7 +173,7 @@ WSO2 Identity Server enables configuring the following identity claim metadata l
 
 ## Adding a new CacheManager
 
-To add a new cache manager, add the following configuration in `<IS-HOME>/repository/conf/deployment.toml`. 
+To add a new cache manager, add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`. 
 
 ```toml 
 [[cache_config.cache_manager]]
@@ -192,7 +192,7 @@ timeout=300
 capacity=5000
 ```
 
-This will add the following custom `CacheManager` configuration in `<IS_HOME>/repository/conf/identity/identity.xml`.
+This will add the following custom `CacheManager` configuration to `<IS_HOME>/repository/conf/identity/identity.xml`.
 
 ```xml
 <CacheManager name="sampleCacheManager">
@@ -216,4 +216,3 @@ This will add the following custom `CacheManager` configuration in `<IS_HOME>/re
         isDistributed="false"/>
  </CacheManager>
  ```
-

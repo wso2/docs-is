@@ -149,7 +149,7 @@ name in the `deployment.toml` file.
 
 ## Enabling/disabling http/https transport
 
-By default, both the http and https connectors are enabled. To disable either the http or https connector, add the corresponding configuration in `<IS-HOME>/repository/conf/deployment.toml` as shown below. 
+By default, both the http and https connectors are enabled. To disable either the http or https connector, add the corresponding configuration to `<IS-HOME>/repository/conf/deployment.toml` as shown below. 
 
 ```toml
 [transport]
