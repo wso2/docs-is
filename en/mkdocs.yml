@@ -23,7 +23,7 @@ site_url: https://is.docs.wso2.com/en/latest/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/5.11.0/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -790,6 +790,7 @@ nav:
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
       - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
       - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
+      - 'Samesite Attribute Support': administer/samesite-attribute-support.md
       - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
