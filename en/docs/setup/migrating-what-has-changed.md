@@ -327,3 +327,24 @@ For both usecases mentioned above, token revoking is enabled by default in 5.11.
 enable = false
 ```
 
+## Configurable system apps
+
+In WSO2 5.11.0, the **My Account** and **Console** applications are `readonly` apps by default. To make the callback URLs for these apps configurable, add the following configuration to the `deployment.toml` file. 
+
+```toml
+[system_applications]
+read_only_apps = []
+```
+
+## Configuring approval step for workflows
+
+When creating roles through the management console in WSO2 IS-5.11.0 onwards, the domain must be specified as **Internal**. Else, it will be created as a group. 
+
+![workflow-roles](../../assets/img/setup/workflow-roles.png)
+
+When adding workflows, groups will not be listed as roles under the approval step. Hence, to select a 'role' for a particular approval step in a workflow, create that role with the **Internal** domain via the management console.  
+
+
+
+
+
