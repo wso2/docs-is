@@ -1691,13 +1691,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-60008</td>
     <td>400</td>
     <td>Unable to add tenant.</td>
-    <td>User name : {username} exists in the system. Please pick another user name for tenant Administrator.</td>
+    <td>User name : {username} exists in the system. Please pick another user name for tenant administrator.</td>
   </tr>
   <tr>
     <td>TM-60009</td>
     <td>400</td>
     <td>Unable to add tenant.</td>
-    <td>A tenant with same domain {tenant-domain} already exist. Please use a different domain name.</td>
+    <td>A tenant with same domain {tenant-domain} already exists. Please use a different domain name.</td>
   </tr>
   <tr>
     <td>TM-60010</td>
@@ -1733,13 +1733,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-60015</td>
     <td>400</td>
     <td>Unable to retrieve tenant.</td>
-    <td>Tenant cannot be found for the provided domain: {tenant-domain}.</td>
+    <td>Tenant can not be found for the provided domain: {tenant-domain}.</td>
   </tr>
   <tr>
     <td>TM-60016</td>
     <td>400</td>
     <td>Error while deleting the tenant metadata.</td>
-    <td>Tenant deletion property Tenant.TenantDelete is not enabled in carbon.xml file./td>
+    <td>Tenant deletion property <Tenant.TenantDelete> is not enabled in carbon.xml file./td>
   </tr>
   <tr>
     <td>TM-65001</td>
