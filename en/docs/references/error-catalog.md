@@ -1628,7 +1628,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
 </table>
 </div>
 
-## Tenant Management
+## Tenant Management Errors
 
 <div class="errorcode">
 <table>
