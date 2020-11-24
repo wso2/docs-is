@@ -19,9 +19,9 @@ without PKCE.
     Attacks](../../administer/mitigating-authorization-code-interception-attacks)
     to configure PKCE for an OAuth application.
 
-#### **Running the application (without PKCE)**
+## Running the application (without PKCE)
 
-1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
+1.  Visit the URL <http://localhost:8080/playground2/oauth2.jsp> to
     start the application.
 
 2.  Enter the following details and click **Authorize**. For
@@ -35,14 +35,13 @@ without PKCE.
     [application registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1)
     
     **Callback URL:**
-    <http://wso2is.local:8080/playground2/oauth2client>  
+    <http://localhost:8080/playground2/oauth2client>  
     
     **Authorize Endpoint:** <https://localhost:9443/oauth2/authorize>
     
     **Scope:** Any scope you wish to obtain the token for (Optional)
 
-      
-    ![running-app-without-pkce](../assets/img/using-wso2-identity-server/running-app-without-pkce.png) 
+    ![running-app-without-pkce](../assets/img/learn/oauth-play.png) 
     
     !!! Tip 
         The playground application will send an
@@ -66,54 +65,21 @@ without PKCE.
             ``` 
 
 3.  Log in with the user credentials.  
-    ![log-into-app](../assets/img/using-wso2-identity-server/log-into-app.png) 
+    ![log-into-app](../assets/img/learn/login-oauth.png) 
 
-      
+4.  Click **Allow**.
+    ![select-attributes-and-consent](../assets/img/learn/remember-consent.png) 
 
-4.  Select **Approve Once** or **Approve Always** in Access to profile
-    information section. Also, select the attributes you agree to share.
-    Click **Continue**.  
-    ![select-attributes-and-consent](../assets/img/using-wso2-identity-server/select-attributes-and-consent.png) 
+5.  Provide the following details and click **Get Access Token**.
 
-      
+    -   Callback URL: `http://wso2is.local:8080/playground2/oauth2client`
+    -   Access Token Endpoint: `https://localhost:9443/oauth2/token`
+    -   Client Secret: (client secret received at the application registration)
 
-5.  Provide the following details and click on **Get Access Token**.
+6.  Now you should be able to view the information as shown below.
+    ![access-token-info](../assets/img/learn/playground-screen.png)
 
-    Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
-    Access Token Endpoint: <https://localhost:9443/oauth2/token>  
-    Client Secret: (client secret received at the [application
-                                    registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
-
-    ![access-token-endpoint](../assets/img/using-wso2-identity-server/access-token-endpoint.png)   
-      
-
-    At this point, the application receives the Access Token. Enter the
-    introspection endpoint (i.e,
-    <https://localhost:9443/oauth2/introspect> ) and click **Get
-    TokenInfo** to get the token information.  
-      
-
-    ??? note "Click here for more information on OAuth 2.0 Token Introspection"
-        OAuth 2.0 Token Introspection defines a protocol that allows
-        authorized protected resources to query the authorization server to
-        determine the set of metadata for a given token that was presented
-        to them by an OAuth Client. This metadata includes whether or not
-        the token is currently active (or if it has expired or otherwise
-        been revoked), what rights of access the token carries (usually
-        conveyed through OAuth 2.0 scopes), and the authorization context in
-        which the token was granted (including who authorized the token and
-        which client it was issued to). Token introspection allows a
-        protected resource to query this information regardless of whether
-        or not it is carried in the token itself, allowing this method to be
-        used along with or independently of structured token values.
-
-    ![get-access-token](../assets/img/using-wso2-identity-server/get-access-token.png)
-
-6.  Now you should be able to see the access token information as seen
-    below, as long as the provided access token is valid.  
-    ![access-token-info](../assets/img/using-wso2-identity-server/access-token-info.png)
-
-#### **Running the application (with PKCE)**
+## Running the application (with PKCE)
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
@@ -123,59 +89,28 @@ without PKCE.
     Authorization Grant Type: Authorization Code  
     Client ID: (the client id received at the [application
                                     registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
-    Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
+    Callback URL: <http://localhost:8080/playground2/oauth2client>  
     Authorize Endpoint: <https://localhost:9443/oauth2/authorize>  
     Use PKCE: Yes  
     PKCE Challenge Method:
 
-    ![enter-details-to-authorize](../assets/img/using-wso2-identity-server/enter-details-to-authorize.png)
-
-      
+    ![enter-details-to-authorize](../assets/img/learn/playground-pkce.png)
 
 3.  Log in with the user credentials.  
-    ![sign-in-with-pkce](../assets/img/using-wso2-identity-server/sign-in-with-pkce.png)
+    ![sign-in-with-pkce](../assets/img/learn/login-oauth.png)
 
-4.  Click **Approve** to consent to this action.
+4.  Click **Allow**.
+    ![select-attributes-and-consent](../assets/img/learn/remember-consent.png)
 
-    ![approve-consent-with-pkce.png](../assets/img/using-wso2-identity-server/approve-consent-with-pkce.png)
+5.  Provide the following details and click **Get Access Token**.
 
-5.  Provide the following details and click on **Get Access Token**.
+    -   Callback URL: `http://localhost:8080/playground2/oauth2client`
+    -   Access Token Endpoint: `https://localhost:9443/oauth2/token`
+    -   Client Secret: (client secret received at the application registration)
 
-    Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
-    Access Token Endpoint: <https://localhost:9443/oauth2/token>  
-    Client Secret: (client secret received at the [application
-                                        registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))    
-    PKCE Verifier: (this will be populated using the value generated in
-    step 1)
-
-    ![access-token-end-point](../assets/img/using-wso2-identity-server/access-token-end-point.png)  
-      
-
-6.  At this point, the application receives the Access Token. Enter the
-    introspection endpoint (i.e,
-    <https://localhost:9443/oauth2/introspect> ) and click **Get
-    TokenInfo** to get the token information.
-
-    ??? note "Click here for more information on OAuth 2.0 Token Introspection"
-        OAuth 2.0 Token Introspection defines a protocol that allows
-        authorized protected resources to query the authorization server to
-        determine the set of metadata for a given token that was presented
-        to them by an OAuth Client. This metadata includes whether or not
-        the token is currently active (or if it has expired or otherwise
-        been revoked), what rights of access the token carries (usually
-        conveyed through OAuth 2.0 scopes), and the authorization context in
-        which the token was granted (including who authorized the token and
-        which client it was issued to). Token introspection allows a
-        protected resource to query this information regardless of whether
-        or not it is carried in the token itself, allowing this method to be
-        used along with or independently of structured token values.
-
-      
-    ![introspection-endpoint](../assets/img/using-wso2-identity-server/introspection-endpoint.png)
-
-7.  Now you should be able to see the access token information as seen
-    below, as long as the provided access token is valid.  
-    ![token-info-with-pkce](../assets/img/using-wso2-identity-server/token-info-with-pkce.png) 
+6.  Now you should be able to view the information as shown
+    below.
+    ![token-info-with-pkce](../assets/img/learn/pkce-info.png) 
 
 !!! info "Related Topics"
     -   See [Invoke the OAuth Introspection
