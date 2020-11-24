@@ -22,8 +22,8 @@ provider.
     on the address bar.  
     
     !!! example
-        If you wish to have NEXMO as your SMS provider, navigate to
-        [https://www.nexmo.com](https://www.nexmo.com/), and click the
+        If you wish to have Vonage as your SMS provider, navigate to
+        [https://www.vonage.com/communications-apis/](https://www.vonage.com/communications-apis/), and click the
         padlock next to the URL on Chrome and download the certificate.
         
 3.  Navigate to the
@@ -32,7 +32,7 @@ provider.
     into the WSO2 IS client keystore.
 
     ``` java
-    keytool -importcert -file <CERTIFICATE_FILE_PATH> -keystore client-truststore.jks -alias "Nexmo" 
+    keytool -importcert -file <CERTIFICATE_FILE_PATH> -keystore client-truststore.jks -alias "Vonage" 
     ```
 
 4.  You are prompted to enter the keystore password. The default
@@ -64,22 +64,23 @@ provider.
 			`              $ctx.msg             ` respectively.
 
 		-   Optionally, enter the HTTP response code the SMS service
-			provider sends when the API is successfully called. Nexmo API
+			provider sends when the API is successfully called. Vonage API
 			and  Bulksms API sends 200 as the code, while Clickatell
 			and Plivo send 202. If this value is unknown, leave it blank and
 			the connector checks if the response is 200, 201 or 202.
 
-    ??? Note "Click here to configure Nexmo as the service provider."
+    ??? Note "Click here to configure Vonage as the service provider."
 
-		Follow the steps given below if Nexmo is used as the SMS provider:
+		"Nexmo" was rebranded to "Vonage", which is why some of the URLs and configurations below still contain the word "Nexmo".
+        Follow the steps given below to use Vonage as the SMS provider:
 
 		1.  Go to <https://dashboard.nexmo.com/sign-up> and sign up.
 		2.  Once you successfully register, the API **key** and **secret**
 			are displayed. Copy and save them as you need them for the next
 			step.  
 			Example:  
-			![nexmo-config](../assets/img/tutorials/nexmo-config.png)
-		3.  The Nexmo API requires the parameters to be encoded in the URL,
+			![vonage-config](../assets/img/tutorials/vonage-config.png)
+		3.  The Vonage API requires the parameters to be encoded in the URL,
 			so the SMS URL would be as follows.
 			<html><table>
 			<tbody>
@@ -496,7 +497,7 @@ You can configure any of the above as following in the
 
     The SMS provider is the entity that is used to send the SMS. The SMSOTP connector has been configured 
     such that it can be used with most types of SMS APIs. Some use the GET method with the client secret 
-    and API Key encoded in the URL (e.g., Nexmo), while some may use the POST method when sending the 
+    and API Key encoded in the URL (e.g., Vonage), while some may use the POST method when sending the 
     values in the headers and the message and telephone number in the payload (e.g., Clickatell). 
     This could change significantly between different SMS providers. The configuration of the 
     connector in the identity provider would also change based on this.

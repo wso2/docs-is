@@ -19,7 +19,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/cors.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.cors/org.wso2.carbon.identity.api.server.cors.v1/src/main/resources/cors.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

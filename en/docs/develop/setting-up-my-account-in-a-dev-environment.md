@@ -1,7 +1,7 @@
 # Setting Up My Account in a Development Environment
 
 !!! note 
-    The **My Account** application has been renamed as **My Account** from this release onwards.
+    The **User Portal** application has been renamed as **My Account** from this release onwards.
 
 In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/)(WSO2 IS), **My Account** can be accessed via the URL `http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/myaccount`. 
 
@@ -23,56 +23,51 @@ Follow the steps given below to set up the repo in a development environment.
 
 1.  Enable cross-origin requests for WSO2 Identity Server.
 
-    Cross-origin requests are blocked by default in WSO2 IS as a security measure. Add the following CORS filter to
-    the `<IS_HOME>/repository/resources/conf/templates/repository/conf/tomcat/web.xml.j2` file to enable it.
+    Cross-origin requests are blocked by default in WSO2 IS as a security measure. Add the following CORS configuration to
+    the `<IS_HOME>/repository/resources/conf/deployment.toml` file to enable it.
+
+    ``` toml
+    [cors]
+    allow_generic_http_requests = true
+    allow_any_origin = false
+    allowed_origins = [
+        "https://localhost:9000"
+    ]
+    allow_subdomains = false
+    supported_methods = [
+        "GET",
+        "POST",
+        "HEAD",
+        "OPTIONS",
+        "DELETE",
+        "PATCH",
+        "PUT"
+    ]
+    support_any_header = true
+    supported_headers = []
+    exposed_headers = [Location]
+    supports_credentials = true
+    max_age = 3600
+    tag_requests = false
+    ```
+
+2.  Allowlist your hostname and port as a trusted FIDO2 origin by adding the dev url as an allowed origin in the `<IS_HOME>/repository/resources/conf/deployment.toml` file.
     
-    ```
-    <filter>
-        <filter-name>CORS</filter-name>
-        <filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
-        <init-param>
-            <param-name>cors.allowOrigin</param-name>
-            <param-value>https://localhost:9000</param-value>
-        </init-param>
-        <init-param>
-            <param-name>cors.supportedMethods</param-name>
-            <param-value>GET, HEAD, POST, DELETE, OPTIONS, PATCH, PUT</param-value>
-        </init-param>
-        <init-param>
-            <param-name>cors.exposedHeaders</param-name>
-            <param-value>Location</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>CORS</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-    </filter-mapping>
+    ```toml
+    [fido.trusted]
+    origins=["https://localhost:9000"]
     ```
 
-2.  Allowlist your hostname and port as a trusted FIDO2 origin.
-
-    Add the dev url to the <Origin> tag of the FIDO configurations in the
-    `<IS_HOME>/repository/resources/conf/templates/repository/conf/identity/identity.xml.j2` file.
+3. Make the callback URL configurable by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
     
-    ```
-    <FIDO>
-        <WebAuthn>
-            <Enable>{{fido.webauthn.enable}}</Enable>
-        </WebAuthn>
-        <FIDO2TrustedOrigins>
-                {% for origin in fido.trusted.origins %}
-                <Origin>{{origin}}</Origin>
-                {% endfor %}
-                <Origin>https://localhost:9000</Origin>
-        </FIDO2TrustedOrigins>
-    </FIDO>
+    ```toml
+    [system_applications]
+    read_only_apps = []
     ```
 
-3.  Restart WSO2 IS.
+4.  Restart WSO2 IS.
 
-4.  Configure the callback URLs for **My Account**.
+5.  Configure the callback URLs for **My Account**.
 
     1.  Log in to the WSO2 IS management console.
     2.  Click **Service Providers > List**.
