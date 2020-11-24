@@ -211,9 +211,16 @@ WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and 
 
 New user store managers with inbuilt unique ID support was introduced in WSO2 5.10.0 and named with the `UniqueID` prefix. User store managers that do not have `UniqueID` as part of the user store manager name are only available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server. If you are using any such user store managers, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to support using the user store in the management console or console application.
 
-```toml
-[[allowed_user_stores]]
-class = "org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"
+Note that both existing user stores as well as new user stores must be configured as shown below. 
+
+```toml tab="Format"
+[user_store_mgt]
+allowed_user_stores=[<existing userstores..>,"<new userstore>"]
+```
+
+```toml tab="Sample"
+[user_store_mgt]
+allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager", "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager","org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"]
 ```
 
 ## JWT validation at introspection
