@@ -1685,19 +1685,19 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-60007</td>
     <td>400</td>
     <td>Unable to add tenant.</td>
-    <td>The tenant domain %s contains one or more illegal characters. The valid characters are lowercase letters, numbers, '.', '-' and '_'.</td>
+    <td>The tenant domain {tenant-domain} contains one or more illegal characters. The valid characters are lowercase letters, numbers, '.', '-' and '_'.</td>
   </tr>
   <tr>
     <td>TM-60008</td>
     <td>400</td>
     <td>Unable to add tenant.</td>
-    <td>User name : %s exists in the system. Please pick another user name for tenant Administrator.</td>
+    <td>User name : {username} exists in the system. Please pick another user name for tenant Administrator.</td>
   </tr>
   <tr>
     <td>TM-60009</td>
     <td>400</td>
     <td>Unable to add tenant.</td>
-    <td>A tenant with same domain %s already exist. Please use a different domain name.</td>
+    <td>A tenant with same domain {tenant-domain} already exist. Please use a different domain name.</td>
   </tr>
   <tr>
     <td>TM-60010</td>
@@ -1721,19 +1721,19 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-60013</td>
     <td>400</td>
     <td>Invalid Request</td>
-    <td>Required parameter %s is not specified.</td>
+    <td>Required parameter {required-parameter} is not specified.</td>
   </tr>
   <tr>
     <td>TM-60014</td>
     <td>400</td>
     <td>Unable to retrieve tenant.</td>
-    <td>Tenant cannot be found for the provided id: %s.</td>
+    <td>Tenant cannot be found for the provided id: {tenant-unique-id}.</td>
   </tr>
   <tr>
     <td>TM-60015</td>
     <td>400</td>
     <td>Unable to retrieve tenant.</td>
-    <td>Tenant cannot be found for the provided domain: %s.</td>
+    <td>Tenant cannot be found for the provided domain: {tenant-domain}.</td>
   </tr>
   <tr>
     <td>TM-60016</td>
@@ -1757,19 +1757,19 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-65003</td>
     <td>500</td>
     <td>Unable to retrieve tenant.</td>
-    <td>Server encountered an error while retrieving the tenant for identifier %s.</td>
+    <td>Server encountered an error while retrieving the tenant for identifier {tenant-unique-id}.</td>
   </tr>
   <tr>
     <td>TM-65004</td>
     <td>500</td>
     <td>Error while updating the tenant.</td>
-    <td>Server encountered an error while the tenant life cycle status activated: %s .</td>
+    <td>Server encountered an error while the tenant life cycle status activated: {status-of-lifecycle} .</td>
   </tr>
   <tr>
     <td>TM-65005</td>
     <td>500</td>
     <td>Error building page links</td>
-    <td>Error occurred during building page links. %s</td>
+    <td>Error occurred during building page links.</td>
   </tr>
   <tr>
     <td>TM-65006</td>
@@ -1793,7 +1793,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-65009</td>
     <td>500</td>
     <td>Error while deleting the tenant metadata.</td>
-    <td>Server encountered an error while deleting the tenant metadata identified by %s .</td>
+    <td>Server encountered an error while deleting the tenant metadata identified by {tenant-unique-id}.</td>
   </tr>
   </tbody>
 </table>
