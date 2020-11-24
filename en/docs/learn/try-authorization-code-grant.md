@@ -21,7 +21,7 @@ without PKCE.
 
 ## Running the application (without PKCE)
 
-1.  Visit the URL <http://localhost:8080/playground2/oauth2.jsp> to
+1.  Visit the URL <http://localhost.com:8080/playground2/oauth2.jsp> to
     start the application.
 
 2.  Enter the following details and click **Authorize**. For
@@ -35,9 +35,9 @@ without PKCE.
     [application registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1)
     
     **Callback URL:**
-    <http://localhost:8080/playground2/oauth2client>  
+    <http://localhost.com:8080/playground2/oauth2client>  
     
-    **Authorize Endpoint:** <https://localhost:9443/oauth2/authorize>
+    **Authorize Endpoint:** <https://localhost.com:9443/oauth2/authorize>
     
     **Scope:** Any scope you wish to obtain the token for (Optional)
 
@@ -58,7 +58,7 @@ without PKCE.
         
         !!! Example
             ```java
-            https://localhost:9443/oauth2/authorize?response_type=code
+            https://localhost.com:9443/oauth2/authorize?response_type=code
             &client_id=Cx4LKFNObeuXocx7xgOpz5vfzFoa
             &redirect_uri=http://wso2is.local:8080/playground2/oauth2client
             &scope=openid
@@ -72,8 +72,8 @@ without PKCE.
 
 5.  Provide the following details and click **Get Access Token**.
 
-    -   Callback URL: `http://localhost:8080/playground2/oauth2client`
-    -   Access Token Endpoint: `https://localhost:9443/oauth2/token`
+    -   Callback URL: `http://localhost.com:8080/playground2/oauth2client`
+    -   Access Token Endpoint: `https://localhost.com:9443/oauth2/token`
     -   Client Secret: (client secret received at the application registration)
 
 6.  Now you should be able to view the information as shown below.
@@ -81,7 +81,7 @@ without PKCE.
 
 ## Running the application (with PKCE)
 
-1.  Visit the URL <http://localhost:8080/playground2/oauth2.jsp> to
+1.  Visit the URL <http://localhost.com:8080/playground2/oauth2.jsp> to
     start the application.
 
 2.  Enter the following details and click **Authorize**.
@@ -89,8 +89,8 @@ without PKCE.
     Authorization Grant Type: Authorization Code  
     Client ID: (the client id received at the [application
                                     registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
-    Callback URL: <http://localhost:8080/playground2/oauth2client>  
-    Authorize Endpoint: <https://localhost:9443/oauth2/authorize>  
+    Callback URL: <http://localhost.com:8080/playground2/oauth2client>  
+    Authorize Endpoint: <https://localhost.com:9443/oauth2/authorize>  
     Use PKCE: Yes  
     PKCE Challenge Method:
 
@@ -104,8 +104,8 @@ without PKCE.
 
 5.  Provide the following details and click **Get Access Token**.
 
-    -   Callback URL: `http://localhost:8080/playground2/oauth2client`
-    -   Access Token Endpoint: `https://localhost:9443/oauth2/token`
+    -   Callback URL: `http://localhost.com:8080/playground2/oauth2client`
+    -   Access Token Endpoint: `https://localhost.com:9443/oauth2/token`
     -   Client Secret: (client secret received at the application registration)
 
 6.  Now you should be able to view the information as shown
