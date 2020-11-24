@@ -1739,7 +1739,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-60016</td>
     <td>400</td>
     <td>Error while deleting the tenant metadata.</td>
-    <td>Tenant deletion property <Tenant.TenantDelete> is not enabled in carbon.xml file./td>
+    <td>Tenant deletion property {Tenant.TenantDelete} is not enabled in carbon.xml file.</td>
   </tr>
   <tr>
     <td>TM-65001</td>
