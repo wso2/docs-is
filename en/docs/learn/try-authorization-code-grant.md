@@ -72,7 +72,7 @@ without PKCE.
 
 5.  Provide the following details and click **Get Access Token**.
 
-    -   Callback URL: `http://wso2is.local:8080/playground2/oauth2client`
+    -   Callback URL: `http://localhost:8080/playground2/oauth2client`
     -   Access Token Endpoint: `https://localhost:9443/oauth2/token`
     -   Client Secret: (client secret received at the application registration)
 
@@ -81,7 +81,7 @@ without PKCE.
 
 ## Running the application (with PKCE)
 
-1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
+1.  Visit the URL <http://localhost:8080/playground2/oauth2.jsp> to
     start the application.
 
 2.  Enter the following details and click **Authorize**.
