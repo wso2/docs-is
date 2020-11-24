@@ -74,7 +74,7 @@ From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups an
 
 ## Hosting account recovery endpoint on a different server
 
-With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you enable the tenant-qualify URL feature and host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/services` part as shown below. 
+With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/services` part as shown below. 
 
 ```tab="Example"
 identity.server.service.contextURL=https://localhost:9443/
