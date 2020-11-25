@@ -169,7 +169,7 @@ The APIs can be used to retrieve the above mentioned categories, connectors of t
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/identity-governance.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.identity.governance/org.wso2.carbon.identity.api.server.identity.governance.v1/src/main/resources/identity-governance.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
