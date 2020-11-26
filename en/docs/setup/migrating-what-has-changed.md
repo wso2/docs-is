@@ -352,6 +352,19 @@ When creating roles through the management console in WSO2 IS-5.11.0 onwards, th
 When adding workflows, groups will not be listed as roles under the approval step. Hence, to select a 'role' for a particular approval step in a workflow, create that role with the **Internal** domain via the management console.  
 
 
+## Validation of issuer in .well-known endpoint URL
+
+With 5.11.0, there is an extra validation to check if the issuer part of the .well-known endpoint URL is equal to the issuer attribute of the response returned by the .well-known endpoint. If you use a custom domain and proxy requests to WSO2 IS, then the issuer in the token as well as the response returned by the .well-known endpoint, will have the port number `443` in the issuer URL. However, the URL of the .well-known endpoint would not have the `443` port number. Due to this, the validation can fail. If this validation fails, the id token validation for the **Console** and **My Account** applications  will also fail during the login flow. 
+
+If this happens, do the following to manually change the following configuration via the management console **after migration**. 
+
+1. Log in to the management console using administrator credentials. 
+2. Click **Resident** under **Identity Providers**.
+3. Expand **Inbound Authentication Configuration** and then expand **OAuth2/OpenID Connect Configuration**.
+4. Remove the port number `:443` from the **Identity Provider Entity ID** URL. 
+
+
+
 
 
 
