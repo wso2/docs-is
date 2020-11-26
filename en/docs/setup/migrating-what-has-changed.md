@@ -91,7 +91,7 @@ From WSO2 Identity Server 5.11.0 onwards, we have deprecated the `WebContextRoot
 proxy_context_path="abc"
 ```
 
-## Configuring CORS tenant-wise
+## Configuring CORS
 
 Complete the following steps for the CORS migration.
 
