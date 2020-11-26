@@ -1527,7 +1527,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
 </div>
 
 
-## Uder Functionality Management Errors
+## User Functionality Management Errors
 
 <div class="errorcode">
 <table>
@@ -1554,13 +1554,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>UFM-10003</a></td>
         <td>404</td>
         <td>Invalid UserID provided.</td>
-        <td>The provided userId is invalid.</td>
+        <td>The provided userID is invalid.</td>
       </tr>
       <tr>
         <td>UFM-10004</a></td>
         <td>400</td>
         <td>Invalid Request.</td>
-        <td>The request provided is invalid.</td>
+        <td>The provided request is invalid.</td>
       </tr>
       <tr>
         <td>UFM-10005</a></td>
@@ -1584,7 +1584,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>UFM-15003</a></td>
         <td>500</td>
         <td>Failed to unlock the functionality.</td>
-        <td>A system error occurred while locking the functionality.</td>
+        <td>A system error occurred while unlocking the functionality.</td>
       </tr> 
   </tbody>
 </table>
