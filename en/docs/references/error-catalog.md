@@ -1525,3 +1525,67 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
+
+## User Functionality Management Errors
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+      <tr>
+        <td>UFM-10001</a></td>
+        <td>415</td>
+        <td>Unsupported parameter.</td>
+        <td>Only action parameter is needed for unlocking a functionality.</td>
+      </tr>
+      <tr>
+        <td>UFM-10002</a></td>
+        <td>403</td>
+        <td>User is not permitted to unlock.</td>
+        <td>The user is not permitted to unlock the functionality.</td>
+      </tr>
+      <tr>
+        <td>UFM-10003</a></td>
+        <td>404</td>
+        <td>Invalid UserID provided.</td>
+        <td>The provided userID is invalid.</td>
+      </tr>
+      <tr>
+        <td>UFM-10004</a></td>
+        <td>400</td>
+        <td>Invalid Request.</td>
+        <td>The provided request is invalid.</td>
+      </tr>
+      <tr>
+        <td>UFM-10005</a></td>
+        <td>403</td>
+        <td>Functionality is already locked.</td>
+        <td>This functionality is already locked.</td>
+      </tr>
+      <tr>
+        <td>UFM-15001</a></td>
+        <td>500</td>
+        <td>Failed to get the lock status.</td>
+        <td>A system error occurred while getting status of the functionality.</td>
+      </tr>
+      <tr>
+        <td>UFM-15002</a></td>
+        <td>500</td>
+        <td>Failed to lock the functionality.</td>
+        <td>A system error occurred while locking the functionality.</td>
+      </tr>
+      <tr>
+        <td>UFM-15003</a></td>
+        <td>500</td>
+        <td>Failed to unlock the functionality.</td>
+        <td>A system error occurred while unlocking the functionality.</td>
+      </tr> 
+  </tbody>
+</table>
+</div>
