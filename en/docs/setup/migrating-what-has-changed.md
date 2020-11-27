@@ -205,7 +205,7 @@ enable = true
 
 ## WS-Trust authenticator moved to the connector store
 
-WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. To use WS-Trust authentication, [configure the connector](TODO:insert-link-to-connector-doc). 
+WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. To use WS-Trust authentication, [configure the connector](https://github.com/wso2-extensions/identity-inbound-auth-sts/tree/master/docs). 
 
 ## Migration of user store managers with unique ID support
 
