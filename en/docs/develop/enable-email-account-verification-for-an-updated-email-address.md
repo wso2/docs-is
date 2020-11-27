@@ -8,6 +8,7 @@ When users update their email addresses in the user profile, an email verificati
     -   This feature can be invoked via a PUT/PATCH request to SCIM 2.0 /Users endpoint or /Me endpoint.
     -   The verification on update capability is **only** supported for the http://wso2.org/claims/emailaddress claim.
     -   An email verification is not triggered if the email address to be updated is the same as the previously verified email address of the user.
+    -   Sending the email verification email is skipped when updating the email address for the first time as long as the `verifyEmail` claim set to true) is not sent with the update request.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
 ## Step 01 - Configure the email adapter to send emails

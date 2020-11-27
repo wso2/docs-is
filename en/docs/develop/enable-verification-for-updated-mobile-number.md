@@ -8,6 +8,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     -   This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
     -   The verification on update capability is **only** supported for the http://wso2.org/claims/mobile claim.
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
+    -   Sending the SMS OTP verification is skipped when updating the mobile number for the first time as long as the `verifyMobile` claim (set to true) is not sent with the update request.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
 ## Step 01 - Add an event publisher to send SMS
