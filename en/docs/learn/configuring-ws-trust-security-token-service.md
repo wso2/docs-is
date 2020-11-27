@@ -7,6 +7,11 @@ issuance. This API can be secured with the
 `         UserNameToken        ` or with any other WS-Security mechanism
 as explained below.
 
+!!! Tip "Before you begin"
+    WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. 
+    In order to use WS-Trust authentication, first you should download the connector from 
+    [WSO2 Connector Store](https://store.wso2.com/store/assets/isconnector/list) and [install](https://github.com/wso2-extensions/identity-inbound-auth-sts/blob/master/docs/config.md#installing-the-connector) it.
+
 #### Securing the Security Token Service
 
 According to the Trust Brokering model defined in the WS-Trust
