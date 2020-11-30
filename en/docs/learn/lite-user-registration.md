@@ -62,7 +62,7 @@ This will also trigger an email with a confirmation code. `LiteUserEmailConfirma
 Execute the following command to validate the confirmation code. 
 
 ```curl 
-curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "17f00958-a1d7-47b9-8183-be99c08a800f"}' "https://<host>:<port>/api/identity/user/v1.0/introspect-code"
+curl -k -v -X POST -H "Authorization: Basic [Base64encode(Username>:<Password>)]=" -H "Content-Type: application/json" -d '{ "code": "17f00958-a1d7-47b9-8183-be99c08a800f"}' "https://<host>:<port>/api/identity/user/v1.0/introspect-code"
 ```
 
 Further scenario executions can be implemented to consume this valid confirmation and let the user build the user profile providing a password, create tenants, etc. With lite user registration, minimum resources are consumed until a user proves to have a valid email address.
