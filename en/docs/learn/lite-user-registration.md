@@ -1,6 +1,6 @@
 # Lite User Registration
 
-Lite user registration lets users register without defining a password. Autheticatioon and user profile creation is initiated merely using the email address. Follow the steps given below to enable and use lite user registration. 
+Lite user registration lets users register without defining a password. Authetication and user profile creation is initiated merely using the email address. Follow the steps given below to enable and use lite user registration. 
 
 ## Enable the LiteUserRegistration handler 
 
@@ -48,24 +48,24 @@ enable = true
 Execute the following cURL command to create a user using the email address alone. 
 
 !!! note 
-	Make sure the user store regex patterns allow email to be used as the user name
+	Make sure the user store regex patterns allow email to be used as the user name.
 
 ```curl 
-curl -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{"email
+curl -X POST -H "Authorization: Basic [Base64encode(Username>:<Password>)]=" -H "Content-Type: application/json" -d '{"email
 ": "<regsiter_email>","realm": "PRIMARY","preferedChannel":"Email","claims":[], "properties": []}' "https://localhost:9443/api/identity/user/v1.0/lite"
 ```
 
-This will also trigger an email with a confirmation code. 
+This will also trigger an email with a confirmation code. `LiteUserEmailConfirmation` is the email template used. Modifications can be performed on the template if required. `ResendLiteUserEmailConfrimation` is the email template used for resending the code. 
 
 ## Introspect the code 
 
 Execute the following command to validate the confirmation code. 
 
 ```curl 
-curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "17f00958-a1d7-47b9-8183-be99c08a800f"}' "https://dev.portal.asgardio.io/api/identity/user/v1.0/introspect-code"
+curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "17f00958-a1d7-47b9-8183-be99c08a800f"}' "https://<host>:<port>/api/identity/user/v1.0/introspect-code"
 ```
 
-This command validates if the provided confirmation code is valid or not along with other details. Based on this response, the user can make changes to the application as per the requirement and use this confirmation code as the authorization input.  
+Further scenario executions can be implemented to consume this valid confirmation and let the user build the user profile providing a password, create tenants, etc. With lite user registration, minimum resources are consumed until a user proves to have a valid email address.
 
 
 
