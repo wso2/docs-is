@@ -1,6 +1,6 @@
 # Lite User Registration
 
-Lite user registration lets users register without defining a password. Authetication and user profile creation is initiated merely using the email address. Follow the steps given below to enable and use lite user registration. 
+Lite user registration lets users register without defining a password. Authentication and user profile creation is initiated merely using the email address. Follow the steps given below to enable and use lite user registration. 
 
 ## Enable the LiteUserRegistration handler 
 
