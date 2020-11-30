@@ -10,7 +10,45 @@ Server.
     [server]
     hostname = "is.dev.wso2.com"
     ```
-
+    
+    1.  Configuring internal host name
+    
+        If you expect to configure a server hostname for internal API calls, it can be configured as follows. 
+        This is an optional config with the default value `localhost`. This configuration will be utilized to build the 
+        internal absolute url of a service endpoint, that will be consumed at places that will generate internal API calls.
+            
+        ``` toml
+        [server]
+        internal_hostname = "internal.wso2.is"
+        ```
+    
+    2.  Configuring internal host name for evaluations
+    
+        If you are configuring the hostnames for evaluations (when there is no Load Balancer or Proxy), you can follow 
+        one of the below two approaches according to your requirement.
+        
+        - **Approach 1**
+        
+        Configure the same name for the `hostname`, and the `internal_hostname` as follows. 
+        In this case you can follow the same steps starting from 2. 
+    
+        ``` toml
+        [server]
+        hostname = "is.dev.wso2.com"
+        internal_hostname = "is.dev.wso2.com"
+        ``` 
+    
+        - **Approach 2**
+        
+        If you need to configure a different name for the `internal_hostname` from the `hostname` as follows. 
+        In this case you have to follow the same steps to generate the keystore for internal_hostname as well.
+    
+        ``` toml
+        [server]
+        hostname = "is.dev.wso2.com"
+        internal_hostname = "internal.is.dev.wso2.com"
+        ``` 
+    
 2.  All keystores in WSO2 IS are stored in the
     `           <IS_HOME>/repository/resources/security          `
     folder. Navigate to the security folder on the command prompt and
