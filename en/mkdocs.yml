@@ -335,6 +335,7 @@ nav:
           - 'Self-Registration and Account Confirmation':
             - 'Self-Registration and Account Confirmation': learn/self-registration-and-account-confirmation.md
             - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md
+          - 'Lite User Registration': learn/lite-user-registration.md
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
           - 'Emails with Special Characters': learn/adding-email-special-characters.md
           - 'Configuring Email Masking Pattern': learn/configure-email-masking-pattern.md
