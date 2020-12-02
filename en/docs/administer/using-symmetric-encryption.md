@@ -58,3 +58,7 @@ However, with symmetric key encryption keystore references are not required. So,
 ```toml
 "keystore.userstore_password_encryption": "",
 ```
+
+## Encrypting symmetric encryption key with cipher tool
+
+It is adviced to encrypt the symmetric encryption key with cipher tool as mentioned [here](../../setup/encrypting-passwords-with-cipher-tool)
