@@ -4,7 +4,7 @@ WSO2 Identity Server 5.11.0 brings a range of new features and major improvement
 
 This page provides details about the behavioral changes from WSO2 Identity Server 5.10.0 to 5.11.0.
 
-!!! info "If you are migrating from an older version of Identity Server"
+!!! note "If you are migrating from an older version of Identity Server"
     To find the changes introduced in the previous versions, you can refer to the following documentation:
     
     - Changes introduced in IS 5.10.0 can be found at [What Has Changed in IS 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-what-has-changed/#what-has-changed).
@@ -12,7 +12,7 @@ This page provides details about the behavioral changes from WSO2 Identity Serve
     - Changes introduced in IS 5.8.0 and before can be found at [Migrating Configurations to IS 5.8.0](https://docs.wso2.com/display/IS580/Upgrading+From+an+Older+Version+of+WSO2+IS#UpgradingFromanOlderVersionofWSO2IS-Migratingtheconfigurations).
 
 
-## Renamed 'User Portal' to 'MyAccount'
+## Renamed 'User Portal' to 'My Account'
 
 A new portal named "User Portal" was released with WSO2 Identity Server 5.10.0 which replaced the legacy Jaggery-based end-user dashboard. With WSO2 IS 5.11.0 onwards, this portal has been renamed to “My Account” and will be onboarded as a SaaS application.
 
@@ -38,7 +38,7 @@ With 5.11.0 onwards, symmetric key encryption is the default encryption mechanis
 
 - Symmetric key encryption for encrypting internal sensitive data is used industry-wide
 
-For more information, see [An Overview of Symmetric Encryption](../../administer/symmetric-overview).
+For more information about new configurations, see [Configurations Related to Symmetric Key Encryption](../../administer/using-symmetric-encryption).
 
 ## The algorithm used for symmetric key encryption 
 
@@ -49,7 +49,7 @@ WSO2 IS 5.11.0 uses ‘AES/GCM/NoPadding’ as the encryption algorithm. GCM is 
 - Along with each value that is encrypted, the relevant IV related to that should be tracked in order to do the decryption. 
 - AES-128 is supported as the key size.
 
-For more information, see [Using Symmetric Key Encryption](../../administer/using-symmetric-encryption).
+For more information, see [Using Symmetric Key Encryption](../../administer/using-symmetric-encryption) and [An Overview of Symmetric Encryption](../../administer/symmetric-overview).
 
 ## Group and role separation
 
@@ -168,14 +168,16 @@ Hence, with this change, after 5.11.0, there will be no service providers withou
 ## Configurations for managing OIDC consent flow 
 
 With WSO2 IS 5.10.0, two new properties shown below were introduced to the `<IS_HOME>/repository/conf/identity/identity.xml` file within the `OpenIDConnect` tag to manage consent during OpenID Connect login and logout flows. 
+
 - `SkipLoginConsent`:  Skip the OIDC login consent 
 - `SkipLogoutConsent`: Skip the OIDC logout consent
 
-With 5.11.0, these two properties are added to the [Application Management Rest API](../../develop/application-rest-api) so that they can be viewed and modified. The `skipConsent` attribute in the **AdvancedApplicationConfiguration** model has been removed the two properties `skipLoginConsent` and `skipLogoutConsent` have been added instead. 
+With 5.11.0, these two properties are added to the [Application Management Rest API](../../develop/application-rest-api), so that they can be viewed and modified. The `skipConsent` attribute 
+has been removed and the two properties `skipLoginConsent` , `skipLogoutConsent` have been added in the **AdvancedApplicationConfiguration** model of [Application Management Rest API](../../develop/application-rest-api). 
 
 ## Skip challenge question recovery option 
 
-With WSO2 IS 5.11.0, the challenge question recovery option is skipped by default if the user has not provided the challenge question answers set. To revert to the old behavior, you can disable this configuration by adding the following property to the `deployment.toml` file. 
+With WSO2 IS 5.11.0, the challenge question recovery option is skipped by default, if the user has not provided the challenge question answers set. To revert to the old behavior, you can disable this configuration by adding the following property to the `deployment.toml` file. 
 
 ```toml
 [identity_mgt.password_reset_challenge_questions]
@@ -227,7 +229,7 @@ allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManage
 
 JWT validation at introspection is enabled by default in WSO2 IS 5.11.0. The server identifies a JWT token at the introspection endpoint by attempting a JWT token parsing. If identified, introspection is performed by treating the token as a JWT access token.
 
-**Note** that enabling this feature will validate the token using the available JWT token validator for instance, in the default pack, it will use the `Default JWT token validator`. So any valid and parsable JWT token should be able to be successfully validated against the available JWT token validator in the system. 
+Note that enabling this feature will validate the token using the available JWT token validator for instance, in the default pack, it will use the `Default JWT token validator`. So any valid and parsable JWT token should be able to be successfully validated against the available JWT token validator in the system. 
 
 However, if the server issues custom JWT tokens which fail validation with the available JWT token validator, the existing flow can break. In a migrated setup, this condition can fail in scenarios such as:
 
@@ -288,6 +290,7 @@ In versions up to WSO2 Identity Server 5.10.0, archived log file names only incl
 ``` java tab="Example"
 wso2carbon-10-12-2020.log
 ```
+
 However, from WSO2 Identity Server 5.11.0 onwards, a integer `i` has been added to the file name to represent the number of rollovers. This avoids target file overwriting on every rollover.
 
 ``` java tab="Example"
@@ -300,6 +303,7 @@ In versions up to WSO2 Identity Server 5.10.0, access logs are printed as seen b
 ``` java tab="Example"
 127.0.0.1 - - [26/Apr/2020:22:35:52 +0530] GET /carbon/admin/images/favicon.ico HTTP/1.1 200 17542 https://is.wso2.com:9443/carbon/admin/login.jsp Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36 0.001
 ```
+
 In the example given above, the user agent is `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36` and the referer is `https://is.wso2.com:9443/carbon/admin/login.jsp`. As you can see, the user agent has white spaces in between, which prevents access log analyzer tools from processing the log lines properly.
 
 As a solution to this, the user agent and referer will be printed within double quotes from WSO2 Identity Server 5.11.0 onwards. 

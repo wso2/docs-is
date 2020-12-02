@@ -18,6 +18,7 @@ your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
     environment and the new environment will be running until all the traffic is routed to the new 
     environment.
 
+---
 
 ## Before migrating to a production environment
 
@@ -32,6 +33,8 @@ dependant WSO2 components and re-build the customized component.
 - As a practice, WSO2 does not make API changes in minor releases of the dependency jars. However, if 
 there are API changes, update the custom code and re-build.
 -  For more information about migrating customizations, see [Migrating Custom Components](../migration-guide/#migrating-custom-components).
+
+---
                         
 ###  Step-by-step instructions 
 
