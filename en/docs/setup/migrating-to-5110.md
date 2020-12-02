@@ -1,10 +1,13 @@
 # Migrating to 5.11.0
 
-!!! note "Before you begin"
-    -   Make sure you satisfy the prerequisites in [Before you begin](../../setup/migration-guide).
-    -   Carry out the pre-processing steps in [Preparing for migration](../../setup/migrating-preparing-for-migration).
+## Prerequisites
 
-!!! note ""
+Make sure you have met the following prerequisites before proceeding with the instructions to migrate to 5.11.0. 
+
+1.  Make sure you satisfy the prerequisites in [Before you begin](../../setup/migration-guide).
+2.  Carry out the pre-processing steps in [Preparing for migration](../../setup/migrating-preparing-for-migration).
+
+!!! note
     In this section, `<OLD_IS_HOME> ` is the directory that the current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
     directory that WSO2 Identity Server 5.11.0 resides in. 
@@ -86,6 +89,12 @@
       EXTENTSIZE 4;
     ```
 
+---
+
+## Steps to migrate to 5.11.0
+
+Once all the above prerequisites have been met, follow the instructions given below to migrate to the latest version. 
+
 1.  If you have manually added any custom OSGI bundles to the
     `          <OLD_IS_HOME>/repository/components/dropins         `
     directory, copy those OSGI bundles to the
@@ -95,9 +104,6 @@
     !!! warning "Important" 
         You may need to update the custom components to work with WSO2 Identity Server 5.11.0. 
         Refer [Migrating custom components](../../setup/migrating-preparing-for-migration/#migrating-custom-components).
-        If applicable, migrate
-        [Data Publishers](../../setup/migrating-data-publishers) and
-        [Custom Scope validators](../../setup/migrating-custom-scope-validators).
 
 2.  If you have manually added any JAR files to the
     `           <OLD_IS_HOME>/repository/components/lib          `
@@ -208,6 +214,18 @@
         - EncryptionAdminFlowMigrator
         - EncryptionUserFlowMigrator 
     
+    4.  Open the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file. Change the value of `transformToSymmetric` to `true` as shown below. 
+
+        ```yaml 
+        name: "KeyStorePasswordMigrator"
+        order: 9
+        parameters:
+        schema: "identity"
+        currentEncryptionAlgorithm: "RSA"
+        migratedEncryptionAlgorithm: "RSA/ECB/OAEPwithSHA1andMGF1Padding"
+        transformToSymmetric: "true"
+        ```
+    
     Under each migrator's parameters, find the property value of **currentEncryptionAlgrithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
             
 10.  Start the WSO2 Identity Server 5.11.0 with the following command to
@@ -226,7 +244,9 @@
         ```
 
 11.  Stop the server once the migration client execution is complete.
-    
+
+---
+
 ## Executing the sync tool
 
 !!! warning
@@ -256,6 +276,8 @@ to the new WSO2 Identity Server database.
 4.  Allow the sync client to run for some time to sync the entries that were not synced before switching 
 the deployments. When the number of entries synced by the sync tool becomes zero, stop the sync client.
     
+---
+
 ## Verifying the migration
 
 After the migration is complete, proceed to the following verification steps.
@@ -264,11 +286,12 @@ After the migration is complete, proceed to the following verification steps.
 +   Monitor the WSO2 logs to see if there are errors logged in the log files.
 +   Run functional tests against the migrated deployment to verify that all the functionalies are working as expected.
 
-If you see any problems in the migrated system, revert the traffic back to the previous setup and 
-investigate the problem.
+
+!!! note 
+    If you see any problems in the migrated system, revert the traffic back to the previous setup and investigate the problem.
 
 !!! tip
-    If the id token validation for the **Console** and **My Account** applications are failing, see [What Has Changed: Validation of issuer in .well-known endpoint URL](../../setup/migrating-what-has-changed/#validation-of-issuer-in-well-known-endpoint-url).
+    If the id token validation for the **Console** and **My Account** applications are failing, see [Validation of issuer in .well-known endpoint URL](../../setup/migrating-what-has-changed/#validation-of-issuer-in-well-known-endpoint-url).
     
     
     
