@@ -266,6 +266,9 @@ After the migration is complete, proceed to the following verification steps.
 
 If you see any problems in the migrated system, revert the traffic back to the previous setup and 
 investigate the problem.
+
+!!! tip
+    If the id token validation for the **Console** and **My Account** applications are failing, see [What Has Changed: Validation of issuer in .well-known endpoint URL](../../setup/migrating-what-has-changed/#validation-of-issuer-in-well-known-endpoint-url).
     
     
     

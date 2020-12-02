@@ -16,10 +16,6 @@ WSO2 Identity Server enables configuring the following identity application mana
 
 -	**AppAuthFrameworkSessionContextCache**: The `SessionContextCache` object contains details about the authenticated user. This must be shared across the nodes in the cluster because this is the unique representation of the authenticated user.
 
--	**AuthenticationContextCache**: Until the authentication request is successfully authenticated, all authentication information is stored in the `AuthenticationContextCache` object, which needs to be shared across all nodes in the cluster. Once the user is 
-
--	**AppAuthFrameworkSessionContextCache**: The `SessionContextCache` object contains details about the authenticated user. This must be shared across the nodes in the cluster because this is the unique representation of the authenticated user.
-
 -	**AuthenticationContextCache**: Until the authentication request is successfully authenticated, all authentication information is stored in the `AuthenticationContextCache` object, which needs to be shared across all nodes in the cluster. Once the user is authenticated successfully, this object will is removed from the cache and the required information is stored in the SessionContext cache.
 
 -	**AuthenticationRequestCache**: The `AuthenticationRequestCache` object holds all the required details from the authentication request until the authentication flow is completed by the authentication framework. Note that this is not from the inbound protocol validator level. The Authentication Framework wraps the information to the AuthenticationRequestCache object and stores it in the cache.
@@ -171,6 +167,48 @@ WSO2 Identity Server enables configuring the following identity claim metadata l
 	</CacheManager>
 	```
 
+## Adding a new CacheManager
 
+To add a new cache manager, add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`. 
 
+```toml 
+[[cache_config.cache_manager]]
+name="sampleCacheManager"
+[[cache_config.cache_manager.cache]]
+name="sampleCache1"
+timeout=300
+capacity=5000
+[[cache_config.cache_manager.cache]]
+name="sampleCache2"
+timeout=300
+capacity=5000
+[[cache_config.cache_manager.cache]]
+name="sampleCache3"
+timeout=300
+capacity=5000
+```
 
+This will add the following custom `CacheManager` configuration to `<IS_HOME>/repository/conf/identity/identity.xml`.
+
+```xml
+<CacheManager name="sampleCacheManager">
+     <Cache
+        name="sampleCache1"
+        timeout="300"
+        capacity="5000"
+        enable="true"
+        isDistributed="false"/>
+     <Cache
+        name="sampleCache2"
+        timeout="300"
+        capacity="5000"
+        enable="true"
+        isDistributed="false"/>
+     <Cache
+        name="sampleCache3"
+        timeout="300"
+        capacity="5000"
+        enable="true"
+        isDistributed="false"/>
+ </CacheManager>
+ ```

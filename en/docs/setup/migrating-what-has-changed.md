@@ -74,7 +74,7 @@ From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups an
 
 ## Hosting account recovery endpoint on a different server
 
-With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you enable the tenant-qualify URL feature and host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/service` part as shown below. 
+With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/services` part as shown below. 
 
 ```tab="Example"
 identity.server.service.contextURL=https://localhost:9443/
@@ -91,7 +91,7 @@ From WSO2 Identity Server 5.11.0 onwards, we have deprecated the `WebContextRoot
 proxy_context_path="abc"
 ```
 
-## Configuring CORS tenant-wise
+## Configuring CORS
 
 Complete the following steps for the CORS migration.
 
@@ -207,15 +207,22 @@ enable = true
 
 ## WS-Trust authenticator moved to the connector store
 
-WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. To use WS-Trust authentication, [configure the connector](TODO:insert-link-to-connector-doc). 
+WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. To use WS-Trust authentication, [configure the connector](https://github.com/wso2-extensions/identity-inbound-auth-sts/tree/master/docs). 
 
 ## Migration of user store managers with unique ID support
 
 New user store managers with inbuilt unique ID support was introduced in WSO2 5.10.0 and named with the `UniqueID` prefix. User store managers that do not have `UniqueID` as part of the user store manager name are only available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server. If you are using any such user store managers, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to support using the user store in the management console or console application.
 
-```toml
-[[allowed_user_stores]]
-class = "org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"
+Note that both existing user stores as well as new user stores must be configured as shown below. 
+
+```toml tab="Format"
+[user_store_mgt]
+allowed_user_stores=[<existing userstores..>,"<new userstore>"]
+```
+
+```toml tab="Sample"
+[user_store_mgt]
+allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager", "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager","org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"]
 ```
 
 ## JWT validation at introspection
@@ -330,4 +337,38 @@ For both usecases mentioned above, token revoking is enabled by default in 5.11.
 [identity_mgt.events.schemes.TokenBindingExpiryEventHandler.properties]
 enable = false
 ```
+
+## Configurable system apps
+
+In WSO2 5.11.0, the **My Account** and **Console** applications are `readonly` apps by default. To make the callback URLs for these apps configurable, add the following configuration to the `deployment.toml` file. 
+
+```toml
+[system_applications]
+read_only_apps = []
+```
+
+## Configuring approval step for workflows
+
+When creating roles through the management console in WSO2 IS-5.11.0 onwards, the domain must be specified as **Internal**. Else, it will be created as a group. 
+
+![workflow-roles](../../assets/img/setup/workflow-roles.png)
+
+When adding workflows, groups will not be listed as roles under the approval step. Hence, to select a 'role' for a particular approval step in a workflow, create that role with the **Internal** domain via the management console.  
+
+
+## Validation of issuer in .well-known endpoint URL
+
+With 5.11.0, there is an extra validation to check if the issuer part of the .well-known endpoint URL is equal to the issuer attribute of the response returned by the .well-known endpoint. If you use a custom domain and proxy requests to WSO2 IS, then the issuer in the token as well as the response returned by the .well-known endpoint, will have the port number `443` in the issuer URL. However, the URL of the .well-known endpoint would not have the `443` port number. Due to this, the validation can fail. If this validation fails, the id token validation for the **Console** and **My Account** applications  will also fail during the login flow. 
+
+If this happens, do the following to manually change the following configuration via the management console **after migration**. 
+
+1. Log in to the management console using administrator credentials. 
+2. Click **Resident** under **Identity Providers**.
+3. Expand **Inbound Authentication Configuration** and then expand **OAuth2/OpenID Connect Configuration**.
+4. Remove the port number `:443` from the **Identity Provider Entity ID** URL. 
+
+
+
+
+
 
