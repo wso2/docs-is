@@ -222,7 +222,7 @@ class = "org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"
 
 JWT validation at introspection is enabled by default in WSO2 IS 5.11.0. The server identifies a JWT token at the introspection endpoint by attempting a JWT token parsing. If identified, introspection is performed by treating the token as a JWT access token.
 
-**Note** that enabling this feature will validate the token using the available JWT token validator for instance, in the default pack, it will use the `Default JWT token validator`. So any valid and parsable JWT token should be able to be successfully validated against the available JWT token validator in the system. 
+Note that enabling this feature will validate the token using the available JWT token validator for instance, in the default pack, it will use the `Default JWT token validator`. So any valid and parsable JWT token should be able to be successfully validated against the available JWT token validator in the system. 
 
 However, if the server issues custom JWT tokens which fail validation with the available JWT token validator, the existing flow can break. In a migrated setup, this condition can fail in scenarios such as:
 
