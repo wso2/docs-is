@@ -12,7 +12,7 @@ This page provides details about the behavioral changes from WSO2 Identity Serve
     - Changes introduced in IS 5.8.0 and before can be found at [Migrating Configurations to IS 5.8.0](https://docs.wso2.com/display/IS580/Upgrading+From+an+Older+Version+of+WSO2+IS#UpgradingFromanOlderVersionofWSO2IS-Migratingtheconfigurations).
 
 
-## Renamed 'User Portal' to 'MyAccount'
+## Renamed 'User Portal' to 'My Account'
 
 A new portal named "User Portal" was released with WSO2 Identity Server 5.10.0 which replaced the legacy Jaggery-based end-user dashboard. With WSO2 IS 5.11.0 onwards, this portal has been renamed to “My Account” and will be onboarded as a SaaS application.
 
