@@ -80,17 +80,6 @@ With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hoste
 identity.server.service.contextURL=https://localhost:9443/
 ```
 
-## Deprecating WebContextRoot configuration 
-
-The `WebContextRoot` configuration was included in the `<IS_HOME>/repository/conf/carbon.xml` file and it was the configuration used to build the URLs within the WSO2 IS product. However, it was observed that this has not been consistent in all places across the product and therefore the usage of this config has been very minimal. 
- 
-From WSO2 Identity Server 5.11.0 onwards, we have deprecated the `WebContextRoot` configuration. Alternatively, you can use the `ProxyContextPath` configuration by adding it to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below.
-
-```
-[server]
-proxy_context_path="abc"
-```
-
 ## Configuring CORS
 
 Complete the following steps for the CORS migration.
@@ -203,6 +192,17 @@ enable = true
 [[legacy_feature]]
 id = "identity/connect/dcr"
 enable = true
+```
+
+**Deprecating WebContextRoot configuration**
+
+The `WebContextRoot` configuration was included in the `<IS_HOME>/repository/conf/carbon.xml` file and it was the configuration used to build the URLs within the WSO2 IS product. However, it was observed that this has not been consistent in all places across the product and therefore the usage of this config has been very minimal. 
+ 
+From WSO2 Identity Server 5.11.0 onwards, we have deprecated the `WebContextRoot` configuration. Alternatively, you can use the `ProxyContextPath` configuration by adding it to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below.
+
+```
+[server]
+proxy_context_path="abc"
 ```
 
 ## WS-Trust authenticator moved to the connector store
