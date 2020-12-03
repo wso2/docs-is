@@ -19,7 +19,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/email-template.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.email.template/org.wso2.carbon.identity.rest.api.server.email.template.v1/src/main/resources/email-template.yml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

@@ -4,7 +4,7 @@ WSO2 Identity Server 5.11.0 brings a range of new features and major improvement
 
 This page provides details about the behavioral changes from WSO2 Identity Server 5.10.0 to 5.11.0.
 
-!!! info "If you are migrating from an older version of Identity Server"
+!!! note "If you are migrating from an older version of Identity Server"
     To find the changes introduced in the previous versions, you can refer to the following documentation:
     
     - Changes introduced in IS 5.10.0 can be found at [What Has Changed in IS 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-what-has-changed/#what-has-changed).
@@ -38,7 +38,7 @@ With 5.11.0 onwards, symmetric key encryption is the default encryption mechanis
 
 - Symmetric key encryption for encrypting internal sensitive data is used industry-wide
 
-For more information, see [An Overview of Symmetric Encryption](../../administer/symmetric-overview).
+For more information about new configurations, see [Configurations Related to Symmetric Key Encryption](../../administer/using-symmetric-encryption).
 
 ## The algorithm used for symmetric key encryption 
 
@@ -49,7 +49,7 @@ WSO2 IS 5.11.0 uses ‘AES/GCM/NoPadding’ as the encryption algorithm. GCM is 
 - Along with each value that is encrypted, the relevant IV related to that should be tracked in order to do the decryption. 
 - AES-128 is supported as the key size.
 
-For more information, see [Using Symmetric Key Encryption](../../administer/using-symmetric-encryption).
+For more information, see [Using Symmetric Key Encryption](../../administer/using-symmetric-encryption) and [An Overview of Symmetric Encryption](../../administer/symmetric-overview).
 
 ## Group and role separation
 
@@ -74,7 +74,7 @@ From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups an
 
 ## Hosting account recovery endpoint on a different server
 
-With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you enable the tenant-qualify URL feature and host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/services` part as shown below. 
+With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/services` part as shown below. 
 
 ```tab="Example"
 identity.server.service.contextURL=https://localhost:9443/
@@ -91,7 +91,7 @@ From WSO2 Identity Server 5.11.0 onwards, we have deprecated the `WebContextRoot
 proxy_context_path="abc"
 ```
 
-## Configuring CORS tenant-wise
+## Configuring CORS
 
 Complete the following steps for the CORS migration.
 
@@ -168,14 +168,16 @@ Hence, with this change, after 5.11.0, there will be no service providers withou
 ## Configurations for managing OIDC consent flow 
 
 With WSO2 IS 5.10.0, two new properties shown below were introduced to the `<IS_HOME>/repository/conf/identity/identity.xml` file within the `OpenIDConnect` tag to manage consent during OpenID Connect login and logout flows. 
+
 - `SkipLoginConsent`:  Skip the OIDC login consent 
 - `SkipLogoutConsent`: Skip the OIDC logout consent
 
-With 5.11.0, these two properties are added to the [Application Management Rest API](../../develop/application-rest-api) so that they can be viewed and modified. The `skipConsent` attribute in the **AdvancedApplicationConfiguration** model has been removed the two properties `skipLoginConsent` and `skipLogoutConsent` have been added instead. 
+With 5.11.0, these two properties are added to the [Application Management Rest API](../../develop/application-rest-api), so that they can be viewed and modified. The `skipConsent` attribute 
+has been removed and the two properties `skipLoginConsent` , `skipLogoutConsent` have been added in the **AdvancedApplicationConfiguration** model of [Application Management Rest API](../../develop/application-rest-api). 
 
 ## Skip challenge question recovery option 
 
-With WSO2 IS 5.11.0, the challenge question recovery option is skipped by default if the user has not provided the challenge question answers set. To revert to the old behavior, you can disable this configuration by adding the following property to the `deployment.toml` file. 
+With WSO2 IS 5.11.0, the challenge question recovery option is skipped by default, if the user has not provided the challenge question answers set. To revert to the old behavior, you can disable this configuration by adding the following property to the `deployment.toml` file. 
 
 ```toml
 [identity_mgt.password_reset_challenge_questions]
@@ -205,22 +207,29 @@ enable = true
 
 ## WS-Trust authenticator moved to the connector store
 
-WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. To use WS-Trust authentication, [configure the connector](TODO:insert-link-to-connector-doc). 
+WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. To use WS-Trust authentication, [configure the connector](https://github.com/wso2-extensions/identity-inbound-auth-sts/tree/master/docs). 
 
 ## Migration of user store managers with unique ID support
 
 New user store managers with inbuilt unique ID support was introduced in WSO2 5.10.0 and named with the `UniqueID` prefix. User store managers that do not have `UniqueID` as part of the user store manager name are only available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server. If you are using any such user store managers, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to support using the user store in the management console or console application.
 
-```toml
-[[allowed_user_stores]]
-class = "org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"
+Note that both existing user stores as well as new user stores must be configured as shown below. 
+
+```toml tab="Format"
+[user_store_mgt]
+allowed_user_stores=[<existing userstores..>,"<new userstore>"]
+```
+
+```toml tab="Sample"
+[user_store_mgt]
+allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager", "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager","org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"]
 ```
 
 ## JWT validation at introspection
 
 JWT validation at introspection is enabled by default in WSO2 IS 5.11.0. The server identifies a JWT token at the introspection endpoint by attempting a JWT token parsing. If identified, introspection is performed by treating the token as a JWT access token.
 
-**Note** that enabling this feature will validate the token using the available JWT token validator for instance, in the default pack, it will use the `Default JWT token validator`. So any valid and parsable JWT token should be able to be successfully validated against the available JWT token validator in the system. 
+Note that enabling this feature will validate the token using the available JWT token validator for instance, in the default pack, it will use the `Default JWT token validator`. So any valid and parsable JWT token should be able to be successfully validated against the available JWT token validator in the system. 
 
 However, if the server issues custom JWT tokens which fail validation with the available JWT token validator, the existing flow can break. In a migrated setup, this condition can fail in scenarios such as:
 
@@ -281,6 +290,7 @@ In versions up to WSO2 Identity Server 5.10.0, archived log file names only incl
 ``` java tab="Example"
 wso2carbon-10-12-2020.log
 ```
+
 However, from WSO2 Identity Server 5.11.0 onwards, a integer `i` has been added to the file name to represent the number of rollovers. This avoids target file overwriting on every rollover.
 
 ``` java tab="Example"
@@ -293,6 +303,7 @@ In versions up to WSO2 Identity Server 5.10.0, access logs are printed as seen b
 ``` java tab="Example"
 127.0.0.1 - - [26/Apr/2020:22:35:52 +0530] GET /carbon/admin/images/favicon.ico HTTP/1.1 200 17542 https://is.wso2.com:9443/carbon/admin/login.jsp Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36 0.001
 ```
+
 In the example given above, the user agent is `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36` and the referer is `https://is.wso2.com:9443/carbon/admin/login.jsp`. As you can see, the user agent has white spaces in between, which prevents access log analyzer tools from processing the log lines properly.
 
 As a solution to this, the user agent and referer will be printed within double quotes from WSO2 Identity Server 5.11.0 onwards. 
@@ -326,4 +337,38 @@ For both usecases mentioned above, token revoking is enabled by default in 5.11.
 [identity_mgt.events.schemes.TokenBindingExpiryEventHandler.properties]
 enable = false
 ```
+
+## Configurable system apps
+
+In WSO2 5.11.0, the **My Account** and **Console** applications are `readonly` apps by default. To make the callback URLs for these apps configurable, add the following configuration to the `deployment.toml` file. 
+
+```toml
+[system_applications]
+read_only_apps = []
+```
+
+## Configuring approval step for workflows
+
+When creating roles through the management console in WSO2 IS-5.11.0 onwards, the domain must be specified as **Internal**. Else, it will be created as a group. 
+
+![workflow-roles](../../assets/img/setup/workflow-roles.png)
+
+When adding workflows, groups will not be listed as roles under the approval step. Hence, to select a 'role' for a particular approval step in a workflow, create that role with the **Internal** domain via the management console.  
+
+
+## Validation of issuer in .well-known endpoint URL
+
+With 5.11.0, there is an extra validation to check if the issuer part of the .well-known endpoint URL is equal to the issuer attribute of the response returned by the .well-known endpoint. If you use a custom domain and proxy requests to WSO2 IS, then the issuer in the token as well as the response returned by the .well-known endpoint, will have the port number `443` in the issuer URL. However, the URL of the .well-known endpoint would not have the `443` port number. Due to this, the validation can fail. If this validation fails, the id token validation for the **Console** and **My Account** applications  will also fail during the login flow. 
+
+If this happens, do the following to manually change the following configuration via the management console **after migration**. 
+
+1. Log in to the management console using administrator credentials. 
+2. Click **Resident** under **Identity Providers**.
+3. Expand **Inbound Authentication Configuration** and then expand **OAuth2/OpenID Connect Configuration**.
+4. Remove the port number `:443` from the **Identity Provider Entity ID** URL. 
+
+
+
+
+
 
