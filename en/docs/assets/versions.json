@@ -1,16 +1,21 @@
 {
   "staging": "new_restructure",
-  "5.11.0": "master",
+  "5.12.0": "master",
   "latest": "iam-c",
-  "current": "master",
+  "current": "5.11.0",
   "list": [ 
-    "5.10.0", 
+    "5.11.0", 
+    "5.10.0",
     "5.9.0"
   ],
   "all": {
+    "5.11.0": {
+        "doc": "5.11.0",
+        "notes": "5.11.0/get-started/about-this-release"
+    },
     "5.10.0": {
-        "doc": "5.10.0",
-        "notes": "5.10.0/get-started/about-this-release"
+      "doc": "https://is.docs.wso2.com/en/5.10.0",
+      "notes": "https://is.docs.wso2.com/en/5.10.0/get-started/about-this-release"
     },
     "5.9.0": {
       "doc": "https://is.docs.wso2.com/en/5.9.0",
