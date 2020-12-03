@@ -18,7 +18,7 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://is.docs.wso2.com/en/5.11.0/
+site_url: https://is.docs.wso2.com/en/5.12.0/
 
 # Repository
 repo_name: wso2/docs-is
@@ -861,7 +861,7 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 5.11.0
+  site_version: 5.12.0
   
   nav_list:
     - Home
