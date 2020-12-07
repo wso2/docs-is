@@ -84,7 +84,7 @@ In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/) the 
 Fork the original repository to start working on it. You can also directly clone the original repo but it is
 recommended to create your own fork.
 ```java
-    git clone https://github.com/brionmario/identity-apps
+    git clone https://github.com/wso2/identity-apps
     cd identity-apps
     mvn clean install or npm run build
 ```
