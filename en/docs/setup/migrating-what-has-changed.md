@@ -367,11 +367,11 @@ If this happens, do the following to manually change the following configuration
 3. Expand **Inbound Authentication Configuration** and then expand **OAuth2/OpenID Connect Configuration**.
 4. Remove the port number `:443` from the **Identity Provider Entity ID** URL. 
 
-## Upgrade from OpenSAML2 to OpenSAML3
+## Upgrade from OpenSAML 2 to OpenSAML 3
 
 With 5.11.0, WSO2 IS has upgraded to OpenSAML 3. Follow the instructions given below to make sure this upgrade does not cause any issue.
 
-- If you have done any customizations by extending the WSO2 IS code base, make sure that you make changes to it in such a way that it adheres to OpenSAML 3 standards. Following is a list of classes that need to change to OpenSAML 3 with 5.11.0. 
+- If you have implemented any customizations by using the following extension points, make sure to change your custom code base in such a way that it adheres to the OpenSAML 3 plugin.
 
     | Classes | Repo Names |
     |-|-|
