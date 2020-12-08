@@ -367,8 +367,24 @@ If this happens, do the following to manually change the following configuration
 3. Expand **Inbound Authentication Configuration** and then expand **OAuth2/OpenID Connect Configuration**.
 4. Remove the port number `:443` from the **Identity Provider Entity ID** URL. 
 
+## Upgrade from OpenSAML2 to OpenSAML3
 
+With 5.11.0, WSO2 IS has upgraded to OpenSAML 3. Follow the instructions given below to make sure this upgrade does not cause any issue.
 
+- If you have done any customizations by extending the WSO2 IS code base, make sure that you make changes to it in such a way that it adheres to OpenSAML 3 standards. Following is a list of classes that need to change to OpenSAML 3 with 5.11.0. 
 
+    | Classes | Repo Names |
+    |-|-|
+    | LogoutRequestBuilder | identity-carbon-auth-saml2 |
+    | SAMLAttributeQueryProcessor | identity-inbound-auth-saml |
+    | SAMLAuthzDecisionProcessor | identity-inbound-auth-saml |
+    | SAMLIDRequestProcessor | identity-inbound-auth-saml |
+    | SAMLSubjectQueryProcessor | identity-inbound-auth-saml |
+    | DefaultIDPMetadataBuilder | identity-metada-saml2 |
+    | DefaultIDPMetadataBuilder | identity-metada-saml2 |
+    | SAMLSignatureValidatorImplementation | tomcat-extension-samlsso |
+    | DefaultSSOEncrypter | identity-inbound-aut-saml-cloud |
+    | DefaultSSOSigner | identity-inbound-aut-saml-cloud |
+    | CASResponse| identity-inbound-auth-cas |
 
-
+- If you have written a custom code using the OpenSAML 2 plugin, then add the openSAML2 plugin to the `<IS-HOME>/repository/components/dropins/` directory before starting the server.
