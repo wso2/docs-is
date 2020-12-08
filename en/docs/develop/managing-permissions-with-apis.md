@@ -491,6 +491,56 @@ xmlns:ax2600="http://api.user.carbon.wso2.org/xsd"&gt;
   </tr>
 </table>
 
+### getAllowedUIResourcesForRole
+
+<table>
+  <tr>
+    <th>Description</th>
+    <td>This function retrieves the list of UI resources in the specified root path for a given role. </td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>roleName</code>: The name of the specific role, e.g., <code>admin</code>.</li>
+        <li><code>permissionRootPath</code>: The permission root path.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+    <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org">
+      &lt;soapenv:Header/&gt;
+      &lt;soapenv:Body&gt;
+          &lt;ser:getAllowedUIResourcesForRole&gt;
+            &lt;ser:roleName&gt;admin&lt;/ser:roleName&gt;
+            &lt;ser:permissionRootPath&gt;/&lt;/ser:permissionRootPath&gt;
+          &lt;/ser:getAllowedUIResourcesForRole&gt;
+      &lt;/soapenv:Body&gt;
+    &lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+  <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   &lt;soapenv:Body>
+      &lt;ns:getAllowedUIResourcesForRoleResponse xmlns:ns="http://service.ws.um.carbon.wso2.org" xmlns:ax2716="http://core.user.carbon.wso2.org/xsd" xmlns:ax2717="http://api.user.carbon.wso2.org/xsd">
+         &lt;ns:return&gt;/permission&lt;/ns:return&gt;
+         &lt;ns:return&gt;/permission/admin/configure/security/usermgt&lt;/ns:return&gt;
+         &lt;ns:return&gt;/permission/admin/login&lt;/ns:return&gt;
+         &lt;ns:return&gt;/permission/admin/manage/identity/applicationmgt&lt;/ns:return&gt;
+      &lt;/ns:getAllowedUIResourcesForRoleResponse&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</code></pre>
+    </td>
+  </tr>
+  </table>
+
 ### isRoleAuthorized
 
 <table>
