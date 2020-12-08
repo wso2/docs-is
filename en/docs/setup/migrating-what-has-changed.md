@@ -72,6 +72,24 @@ From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups an
 
 ![relationship-between-groups-and-roles](../../assets/img/setup/groups-roles-relationship.png)
 
+## Upgrade from OpenSAML2 to OpenSAML3
+
+With 5.11.0, WSO2 IS has upgraded to OpenSAML 3. Follow the instructions given below to make sure this upgrade does not cause any issue.
+
+- If you have done any customizations by extending the WSO2 IS code base, make sure that you make changes to it in such a way that it adheres to OpenSAML 3 standards. Following is a list of classes that need to change to OpenSAML 3 with 5.11.0. 
+
+    | Classes | Repo Names |
+    |-|-|
+    | LogoutRequestBuilder | [identity-carbon-auth-saml2](https://github.com/wso2-extensions/identity-carbon-auth-saml2/blob/af769aea10361d6753e094029c09b9c826e1928c/components/org.wso2.carbon.identity.authenticator.saml2.sso.common/src/main/java/org/wso2/carbon/identity/authenticator/saml2/sso/common/builders/LogoutRequestBuilder.java#L48) |
+    | SAMLAttributeQueryProcessor | [identity-inbound-auth-saml](https://github.com/wso2-extensions/identity-inbound-auth-saml/blob/2419ad3ddd82835c21b9005ee18664856020e8ad/components/org.wso2.carbon.identity.query.saml/src/main/java/org/wso2/carbon/identity/query/saml/processor/SAMLAttributeQueryProcessor.java#L55) |
+    | SAMLAuthzDecisionProcessor | [identity-inbound-auth-saml](https://github.com/wso2-extensions/identity-inbound-auth-saml/blob/2419ad3ddd82835c21b9005ee18664856020e8ad/components/org.wso2.carbon.identity.query.saml/src/main/java/org/wso2/carbon/identity/query/saml/processor/SAMLAuthzDecisionProcessor.java#L63) |
+    | SAMLIDRequestProcessor | [identity-inbound-auth-saml](https://github.com/wso2-extensions/identity-inbound-auth-saml/blob/2419ad3ddd82835c21b9005ee18664856020e8ad/components/org.wso2.carbon.identity.query.saml/src/main/java/org/wso2/carbon/identity/query/saml/processor/SAMLIDRequestProcessor.java#L58) |
+    | SAMLSubjectQueryProcessor | [identity-inbound-auth-saml](https://github.com/wso2-extensions/identity-inbound-auth-saml/blob/2419ad3ddd82835c21b9005ee18664856020e8ad/components/org.wso2.carbon.identity.query.saml/src/main/java/org/wso2/carbon/identity/query/saml/processor/SAMLSubjectQueryProcessor.java#L63) |
+    | DefaultIDPMetadataBuilder | [identity-metada-saml2](https://github.com/wso2-extensions/identity-metadata-saml2/blob/15dcde2681d66897cddc54074f79b0f9a024d340/components/org.wso2.carbon.identity.idp.metadata.saml2/src/main/java/org/wso2/carbon/identity/idp/metadata/saml2/builder/IDPMetadataBuilder.java#L112) |
+    | SAMLSignatureValidatorImplementation | [tomcat-extension-samlsso](https://github.com/wso2-extensions/tomcat-extension-samlsso/blob/d8d4bccedc76bb57f3ec66cb0bdf0578bd98a3ae/modules/samlsso/src/main/java/org/wso2/appserver/webapp/security/saml/signature/SAMLSignatureValidatorImplementation.java#L30) |
+    
+- If you have written a custom code using the OpenSAML 2 plugin, then add the openSAML2 plugin to the `<IS-HOME>/repository/components/dropins/` directory before starting the server.
+
 ## Hosting account recovery endpoint on a different server
 
 With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/services` part as shown below. 
@@ -367,24 +385,3 @@ If this happens, do the following to manually change the following configuration
 3. Expand **Inbound Authentication Configuration** and then expand **OAuth2/OpenID Connect Configuration**.
 4. Remove the port number `:443` from the **Identity Provider Entity ID** URL. 
 
-## Upgrade from OpenSAML 2 to OpenSAML 3
-
-With 5.11.0, WSO2 IS has upgraded to OpenSAML 3. Follow the instructions given below to make sure this upgrade does not cause any issue.
-
-- If you have implemented any customizations by using the following extension points, make sure to change your custom code base in such a way that it adheres to the OpenSAML 3 plugin.
-
-    | Classes | Repo Names |
-    |-|-|
-    | LogoutRequestBuilder | identity-carbon-auth-saml2 |
-    | SAMLAttributeQueryProcessor | identity-inbound-auth-saml |
-    | SAMLAuthzDecisionProcessor | identity-inbound-auth-saml |
-    | SAMLIDRequestProcessor | identity-inbound-auth-saml |
-    | SAMLSubjectQueryProcessor | identity-inbound-auth-saml |
-    | DefaultIDPMetadataBuilder | identity-metada-saml2 |
-    | DefaultIDPMetadataBuilder | identity-metada-saml2 |
-    | SAMLSignatureValidatorImplementation | tomcat-extension-samlsso |
-    | DefaultSSOEncrypter | identity-inbound-aut-saml-cloud |
-    | DefaultSSOSigner | identity-inbound-aut-saml-cloud |
-    | CASResponse| identity-inbound-auth-cas |
-
-- If you have written a custom code using the OpenSAML 2 plugin, then add the openSAML2 plugin to the `<IS-HOME>/repository/components/dropins/` directory before starting the server.
