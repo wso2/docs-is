@@ -84,7 +84,7 @@ Fork the original repository to start working on it. You can also directly clone
 recommended to create your own fork.
 
 ```java
-git clone https://github.com/brionmario/identity-apps
+git clone https://github.com/wso2/identity-apps
 cd identity-apps
 mvn clean install or npm run build
 ```
