@@ -1187,7 +1187,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>IDP-60025</a></td>
         <td>400</td>
         <td>Invalid input.</td>
-        <td>One of the given inputs is invalid.</td>
+        <td>One of the given inputs is invalid.{Optional Details, if any}</td>
       </tr>
       <tr>
         <td>IDP-60026</a></td>
