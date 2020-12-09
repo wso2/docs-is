@@ -163,7 +163,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
 ### GET/ Get User by ID
 
-This API is used to retrieve users by their user ID. It returns an `           HTTP 200          ` response if the user is not found. 
+This API is used to retrieve users by their user ID. It returns an `           HTTP 200          ` response if the user is found. 
 
 ```
 GET https://localhost:9443/t/{tenant-domain}/scim2/Users/{id}
