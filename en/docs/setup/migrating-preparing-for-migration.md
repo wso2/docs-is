@@ -302,7 +302,7 @@ which is also used to sign and encrypt tokens.
 In WSO2 Identity Server 5.9.0 we have moved the secondary userstore password encryption functionality 
 from the primary keystore to the internal keystore.
 
-Check this [link](../../administer/migrating-the-secondary-userstore-password-to-the-internal-keystore) 
+Check this [link](../../setup/migrating-the-secondary-userstore-password-to-the-internal-keystore) 
 to see the instructions on migrating the secondary userstore password to encrypt using internal keystore. 
 
 
