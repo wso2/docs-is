@@ -12,8 +12,8 @@ Server.
 
     - **Option 1**
 
-    If you are configuring the hostnames in production for a proxied server, you need to configure
-    only the `hostname` as follows in `<IS_HOME>/repository/conf/deployment.toml`.
+    If you are configuring the hostnames in production for or a load-balanced or proxied deployment, you need 
+    to configure only the `hostname` as follows in `<IS_HOME>/repository/conf/deployment.toml`.
 
     ``` toml
     [server]
