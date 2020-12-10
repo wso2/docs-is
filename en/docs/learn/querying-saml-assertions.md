@@ -84,7 +84,7 @@ Follow the steps below to query assertions with `AssertionID` using a WSO2 Ident
 
 8. To query the assertions:
 
-    1.  Copy the attribute **ID** value that is located inside the tag `<saml2:Assertion>` of the created assertion. You may use this Id to query the assertion using a `AssertionIDRequest`.
+    1.  Copy the attribute **ID** value that is located inside the tag `<saml2:Assertion>` of the created assertion. You may use this Id to query the assertion using an `AssertionIDRequest`.
 
     ![assertion-samlid](../assets/img/tutorials/assertion-samlid.png)
 
