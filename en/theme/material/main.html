@@ -16,7 +16,6 @@
  * under the License.
 -->
 
-
 {% extends "base.html" %}
 
 {% block styles %}
@@ -37,7 +36,7 @@
     indexName: 'wso2_is',
     inputSelector: '.md-search__input',
     debug: false, // Set debug to true if you want to inspect the dropdown
-    algoliaOptions: {"facetFilters":["language:en","version:latest"]}  
+    algoliaOptions: {"facetFilters":["language:en","version:5.10.0"]} 
     });
   </script>
 {% endblock %}
@@ -45,7 +44,7 @@
 {% block site_meta %}
   <meta charset="utf-8"/>
   <meta name="docsearch:language" content="en" />
-  <meta name="docsearch:version" content="latest" />
+  <meta name="docsearch:version" content="5.10.0" />
 {% endblock %}
 
 {% block scripts %}

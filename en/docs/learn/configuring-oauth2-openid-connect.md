@@ -56,7 +56,8 @@ the users with an authorization server-based authentication.
     
         If you want to change the format in which the **Client Secret** is
         stored, open the `	<IS_HOME>/repository/conf/deployment.toml	` file and add the following configuration.
-        ```xml
+
+        ```toml
         [oauth]
 		hash_tokens_and_secrets = true 
 		```
@@ -70,20 +71,73 @@ the users with an authorization server-based authentication.
         Server.
     
 
-    | Field                           | Description                                                                                                                                                                                                                          | Sample value                               |
-    |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-    | Enable OAuth2/OpenIDConnect     | Selecting this option enables OAuth2/OpenID Connect to be used as an authenticator for users provisioned to the Identity Server.                                                                                                     | Selected                                   |
-    | Default                         | Selecting the **Default** check box signifies that the OAuth2/OpenID Connect credentials are the main/default form of authentication. This removes the selection made for any other **Default** checkboxes for other authenticators. | Selected                                   |
-    | Authorization Endpoint URL      | This is a standard OAuth Authorization Endpoint URL of the federated IDP.                                                                                                                                                            | <https://localhost:9443/oauth2/authorize/> |
-    | Token Endpoint URL              | This is a standard OAuth Token Endpoint URL of the federated IDP.                                                                                                                                                                    | <https://localhost:9443/oauth2/token/>     |
-    | Client Id                       | Client ID of the application you registered in the IDP for Identity server.                                                                                                                                                          | 1421263438188909                           |
-    | Client Secret                   | Client Secret of the application you registered in the IDP for Identity server. Click the **Show** button to view the value you enter.                                                                                               | 12ffb4dfb2fed67a00846b42126991f8           |
-    | Callback URL                    | This is the URL to which the browser should be redirected after the authentication is successful. It should be the commonauth endpoint of Identity server                                                                            | <https://localhost:9443/commonauth>        |
-    | Userinfo Endpoint URL           | This is the URL of the federated identity provider's userinfo URL                                                                         | <https://localhost:9443/oauth/userinfo>        |
-    | OpenID Connect User ID Location | Select whether the User ID is found in the 'sub' attribute that is sent with the OpenID Connect request or if it is found among claims.                                                                                              | User ID found in 'sub' attribute           |
-    | Additional Query Parameters     | This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here.                                                 | paramName1=value1                          |
-    | Enable HTTP basic auth for      | Selecting this option enables HTTP basic authentication to be used for client authentication, else client credentials will be included in the request body                                                                           | Selected                                   |
-    | client authentication           |                                                                                                                                                                                                                                      |                                            |
+    <div class="tg-wrap"><table>
+    <thead>
+    <tr>
+        <th>Field </th>
+        <th>Description</th>
+        <th>Sample Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Enable OAuth2/OpenIDConnect</td>
+        <td>Selecting this option enables OAuth2/OpenID Connect to be used as an authenticator for users provisioned to WSO2 Identity Server.</td>
+        <td>Selected</td>
+    </tr>
+    <tr>
+        <td>Default</td>
+        <td>Selecting the <strong>Default</strong> check box signifies that the OAuth2/OpenID Connect credentials are the main/default form of authentication. <br>This removes the selection made for any other <strong>Default</strong/> checkboxes for other authenticators.</td>
+        <td>Selected</td>
+    </tr>
+    <tr>
+        <td>Authorization Endpoint URL</td>
+        <td>This is a standard OAuth Authorization Endpoint URL of the federated IDP.</td>
+        <td><code>https://localhost:9443/oauth2/authorize/</code></td>
+    </tr>
+    <tr>
+        <td>Token Endpoint URL</td>
+        <td>This is a standard OAuth Token Endpoint URL of the federated IDP.</td>
+        <td><code>https://localhost:9443/oauth2/token/</code></td>
+    </tr>
+    <tr>
+        <td>Client Id</td>
+        <td>Client ID of the application you registered in the IDP for WSO2 Identity Server.</td>
+        <td><code>1421263438188909</code></td>
+    </tr>
+    <tr>
+        <td>Client Secret</td>
+        <td>Client Secret of the application you registered in the IDP for WSO2 Identity server. Click the <strong>Show</strong> button to view the value you enter.</td>
+        <td><code>12ffb4dfb2fed67a00846b42126991f8</code></td>
+    </tr>
+    <tr>
+        <td>Callback URL</td>
+        <td>This is the URL to which the browser should be redirected after the authentication is successful. It should be the <code>commonauth</code> endpoint of Identity server</td>
+        <td><code>https://localhost:9443/commonauth</code></td>
+    </tr>
+    <tr>
+        <td>OpenID Connect User ID Location</td>
+        <td>Select whether the User ID is found in the 'sub' attribute that is sent with the OpenID Connect request, or if it is found among claims.</td>
+        <td>User ID found in 'sub' attribute</td>
+    </tr>
+    <tr>
+        <td>Additional Query Parameters</td>
+        <td>This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here.
+        <div class="admonition note">
+        <p>If you wish to send query parameters that need to be updated dynamically with each OIDC request, the value needs to be defined within parenthesis.This value should be the key of the query parameter sent in the OIDC request URL. </br>
+        <strong>Format:</strong> <code> login_hint={paramName}</code> </br>
+        </br>
+        Multiple parameters can be defined by separation of query parameters using the & character.</br>
+        <strong>Sample:</strong></br> <code>login_hint={paramName}&scope=openid email profile </code></br> </br>
+        Alternatively, use the following format to send query parameters that are resolved using an adaptive authentication script. </br>
+        <strong>Format:</strong> <code>login_hint=$authparam{paramName} </code> </br>
+        </p>
+        </div>
+        </td>
+        <td>paramName1=value1</td>
+    </tr>
+    </tbody>
+    </table></div>
 
 !!! info "Related Topics"
 

@@ -30,6 +30,7 @@ with a sample.
 
 !!! tip "Before you begin"  
     1.  Disable the mutual SSL authenticator:
+        
         !!! warning
             The mutual SSL authenticator allows the OAuth client to access the
             WSO2 Identity Server admin services without having the required

@@ -18,7 +18,7 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://is.docs.wso2.com/en/latest/
+site_url: https://is.docs.wso2.com/en/5.10.0/
 
 # Repository
 repo_name: wso2/docs-is
@@ -342,6 +342,7 @@ nav:
         - 'Password Policies':
           - 'Password History Validation': learn/password-history-validation.md
           - 'Password Patterns': learn/password-patterns.md
+          - 'Password Expiry': learn/password-expiry.md
         - 'Login Policies':
           - 'User Account Locking and Account Disabling':
             - 'Overview': learn/user-account-locking-and-account-disabling.md
@@ -520,6 +521,7 @@ nav:
             - 'Customizing Error Pages': develop/customizing-error-pages.md
             - 'Error Codes and Descriptions': develop/error-codes-and-descriptions.md
           - 'Supporting Email Account Verification for an Updated Email Address' : develop/supporting-email-account-verification-for-an-updated-email-address.md
+          - 'Enable Mobile Number Verification for an Updated Mobile Number' : develop/enable-mobile-verification-for-an-updated-mobile-number.md
         - 'Provisioning for Developers':
           - 'Extending SCIM 2.0 User Schemas': develop/extending-scim2-user-schemas.md
           - 'Writing an Outbound Provisioning Connector': develop/writing-an-outbound-provisioning-connector.md
@@ -600,6 +602,7 @@ nav:
         - 'Re-branding WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Re-branding the Default Login Page for Your Application': develop/customizing-login-pages-for-service-providers.md
         - 'Re-branding the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md
+        - 'Re-branding the User Portal UI': develop/customizing-user-portal-ui.md
       - 'Changing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
