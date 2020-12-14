@@ -16,7 +16,7 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
 
 - Introduced CORS management APIs. For more information, see [CORS management APIs](../../develop/cors-rest-api).
 
-- Upgraded to Open SAML 3
+- Upgraded to OpenSAML 3
 
 
 ## Deprecated Features

@@ -335,8 +335,9 @@ nav:
           - 'Self-Registration and Account Confirmation':
             - 'Self-Registration and Account Confirmation': learn/self-registration-and-account-confirmation.md
             - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md
+            - 'Lite User Registration': learn/lite-user-registration.md
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
-          - 'Emails with Special Characters': learn/adding-email-special-characters.md
+          - 'Emails with Special Characters': learn/addi    ng-email-special-characters.md
           - 'Configuring Email Masking Pattern': learn/configure-email-masking-pattern.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
@@ -725,8 +726,6 @@ nav:
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
           - "Migrating to 5.11.0" : setup/migrating-to-5110.md
-          - 'Migrating Data Publishers': setup/migrating-data-publishers.md
-          - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
       - 'WSO2 Identity Server Feature Deprecation': setup/wso2-identity-server-feature-deprecation.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
@@ -784,7 +783,6 @@ nav:
           - 'Renewing a CA-Signed Certificate': administer/renewing-a-ca-signed-certificate-in-a-keystore.md
           - 'Managing Keystores via UI': administer/managing-keystores-with-the-ui.md
           - 'Adding Multiple Keys to the Primary Keystore': administer/adding-multiple-keys-to-the-primary-keystore.md
-          - 'Migrating the Secondary Userstore Password to the Internal Keystore': administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md
         - 'Symmetric Encryption': 
           - 'Overview': administer/symmetric-overview.md
           - 'Related Configurations': administer/using-symmetric-encryption.md

@@ -106,6 +106,13 @@ By default, the `deployment.config.json` file has the following configurations.
 }
 ```
 
+!!! note 
+	In WSO2 5.11.0, the **My Account** application is `readonly` by default. To make the callback URLs configurable, add the following configuration to the `deployment.toml` file. 
+
+	```toml
+	[system_applications]
+	read_only_apps = []
+	```
 ---
 
 ## Configure basic settings
