@@ -79,7 +79,7 @@ contain the following two request parameters.
 -   `          mobileNumber=044322433         `
 
 You can access the new grant type project sample from
-[here](https://github.com/wso2/product-is/tree/master/modules/samples/oauth2/custom-grant)
+[here](https://github.com/wso2/samples-is/tree/master/oauth2/custom-grant)
 . The grant handler and validator class is inside the
 `         org.wso2.sample.identity.oauth2.grant.mobile        ` package.
 This can be modified as required.
