@@ -76,7 +76,7 @@ From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups an
 
 With 5.11.0, WSO2 IS has upgraded to OpenSAML 3. Follow the instructions given below to make sure this upgrade does not cause any issue.
 
-- If you have done any customizations by extending the WSO2 IS code base, make sure that you make changes to it in such a way that it adheres to OpenSAML 3 standards. Following is a list of classes that need to change to OpenSAML 3 with 5.11.0. 
+- If you have done any customizations by extending the following classes, make sure that you make changes to it in such a way that it adheres to OpenSAML 3 standards. 
 
     | Classes | Repo Names |
     |-|-|
