@@ -714,6 +714,7 @@ nav:
           - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
           - 'Migrating Data Publishers': setup/migrating-data-publishers.md
           - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
+          - 'Migrating Userstore Managers': setup/migrating-userstore-managers.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
