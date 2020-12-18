@@ -11,7 +11,7 @@ if there are any warnings in the generated migration report, it is recommended t
 
 ### How to Run
 
-Configure the migration report path using the value of `reportPath` `<IS_HOME>/migration-resources/migration-config.yaml` in the migration-config.yaml. 
+Configure the migration report path using the value of `reportPath` `<IS_HOME>/migration-resources/migration-config.yaml` in the `migration-config.yaml`. 
 This path should be an absolute path. 
 
 Run the migration utility with system property “dryRun”. 
@@ -37,8 +37,8 @@ configuration section below. If you need to migrate all of them, use the `migrat
 
 If the user store is an LDAP user store and SCIM is enabled for that user store, migrating that user store is not
  required. 
-As SCIM will create a user id for the users in that user store, SCIM id can be used as the unique user id. To do that, 
-change the `user_id_attribute` to the value of SCIM id, in the `<IS_HOME>/repository/conf/deployment.toml` file.
+As SCIM will create a user ID for the users in that user store, the SCIM ID can be used as the unique user ID. To do that, 
+change the `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ## Configurations
 
@@ -62,10 +62,10 @@ The following configurations are only needed to migrate a few tenants. The forma
 | ------------- | ----------- |
 | tenantDomain | Domain name of the tenant. (Mandatory) |
 | increment | Number of users to be updated in each iteration. (Optional) |
-| startingPoint | Where should the migration start from (Offset). This is useful if the migration stopped middle and needs to restart. (Optional) |
-| scimEnabled | Whether SCIM enabled for user stores in this tenant. (Optional) |
-| migratingDomains | List of comma separated domain names which should be migrated in this domain. (Optional) |
-| forceUpdateUserId | Mark whether user IDs should be updated even though there is already an ID there. (Optional) |
+| startingPoint | Where should the migration start from (Offset). This is useful if the migration stopped in the middle and needs to restart. (Optional) |
+| scimEnabled | Whether SCIM is enabled for user stores in this tenant. (Optional) |
+| migratingDomains | List of comma-separated domain names that should be migrated to this domain. (Optional) |
+| forceUpdateUserId | Mark whether user IDs should be updated even though there is already an existing ID. (Optional) |
 
 ## Database changes for migration
 
@@ -565,4 +565,3 @@ These steps should be carried out for the old database before the migration. A b
 
     UPDATE UM_USER SET UM_USER_ID =LOWER(NEWID())  WHERE UM_USER_ID='N' ;
     ```
-
