@@ -48,7 +48,7 @@ change the `user_id_attribute` to the value of SCIM id, in the `<IS_HOME>/reposi
 | reportPath | Absolute path for the dry report. This is required in the dry run mode. |
 
 
-Following configurations are only needed to migrate a few tenants. Configuration format should be similar to the one mentioned below. tenant-param is a place holder name to represent each tenant uniquely. Ex: tenant1
+The following configurations are only needed to migrate a few tenants. The format should be similar to the one mentioned below. `Tenant-param` is a place holder name to represent each tenant uniquely, e.g., tenant1.
 
 ```  
 -
@@ -71,7 +71,7 @@ Following configurations are only needed to migrate a few tenants. Configuration
 
 These steps should be carried out for the old database before the migration. A backup of UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps the backup database should be migrated to the next version.
 
-1.  If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the um database. This will add a `UM_USER_ID` column to the `UM_USER` table with a random `UUID` as the default value for `UM_USER_ID`.
+1.  If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the UM database. This will add a `UM_USER_ID` column to the `UM_USER` table with a random `UUID` as the default value for `UM_USER_ID`.
 
     ```sql tab="Postgresql"
     /* User should have the Superuser permission */
