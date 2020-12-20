@@ -12,31 +12,46 @@ Server.
 
     - **Option 1**
 
-    If you are configuring the hostnames in production for or a load-balanced or proxied deployment, you need 
-    to configure only the `hostname` as follows in `<IS_HOME>/repository/conf/deployment.toml`.
+    Configure the `hostname` as follows in `<IS_HOME>/repository/conf/deployment.toml`.
 
     ``` toml
     [server]
     hostname = "is.dev.wso2.com"
-    ``` 
+    ```
+    
+    Add 'localhost' as SAN for the certificate (-ext SAN=dns:localhost) as the internal hostname is by default 
+    `localhost`. For that, navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt 
+    and use the following command to create a new keystore with `CN=is.dev.wso2.com` and `localhost` as SAN.
 
+    **Format**
+
+    ``` java
+    keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost
+    ```
+
+    Replace the values enclosed in `           <>          ` in the
+    command given above with a value you prefer as shown in the following sample
+    command.
+
+    **Sample keytool command**
+
+    ``` java
+    keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
+    ```
+    
     - **Option 2**
 
-    If you are configuring the hostnames for evaluations (when there is no load balancer or proxy), you can 
-    configure the same name for the `hostname`, and the `internal_hostname` as follows in 
-    `<IS_HOME>/repository/conf/deployment.toml`.
+    Instead of adding SAN, you can configure the same name for the `hostname`, and 
+    the `internal_hostname` as follows in`<IS_HOME>/repository/conf/deployment.toml`.
 
     ``` toml
     [server]
     hostname = "is.dev.wso2.com"
     internal_hostname = "is.dev.wso2.com"
-    ``` 
+    ```
 
-2.  All keystores in WSO2 IS are stored in the
-    `           <IS_HOME>/repository/resources/security          `
-    folder. Navigate to the security folder on the command prompt and
-    use the following command to create a new keystore with
-    `           CN=is.dev.wso2.com          `.
+    Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and
+    use the following command to create a new keystore with `CN=is.dev.wso2.com`.
 
     **Format**
 
@@ -54,7 +69,7 @@ Server.
     keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword
     ```
 
-3.  If the keystore name and password is changed, all the references to
+2.  If the keystore name and password is changed, all the references to
     it within the WSO2 Identity Server must be updated as well. Add
     following configuration to `deployment.toml` file in the
     `<IS_HOME>/repository/conf/` folder.
@@ -67,7 +82,7 @@ Server.
     key_password = "new-private-key-password"
     ```
 
-4.  Export the public key from your key store .jks file using the
+3.  Export the public key from your key store .jks file using the
     following command:
 
     **Format**
@@ -86,7 +101,7 @@ Server.
     keytool -export -alias newcert -keystore newkeystore.jks -file pkn.pem
     ```
 
-5.  Import the public key you extracted in the previous step to the `
+4.  Import the public key you extracted in the previous step to the `
     client-truststore.jks ` file using the following command: 
 
     **Format**
@@ -119,10 +134,10 @@ Server.
         ```
     
 
-6.  Verfiy the hostname change by attempting to log into the dashboard,
+5.  Verfiy the hostname change by attempting to log into the dashboard,
     getting a token from any grant type, etc.
 
-7.  If you are trying this out on your local machine, open `etc/hosts/`
+6.  If you are trying this out on your local machine, open `etc/hosts/`
     file and add the following entry to map the new hostname. **NOTE:**
     `is.dev.wso2.com` is used as an example in the sample entry shown
     below.
