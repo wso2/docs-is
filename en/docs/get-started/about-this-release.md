@@ -26,14 +26,14 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
     - [Trigger email validation upon email address change](../../develop/enable-email-account-verification-for-an-updated-email-address)
     - [Trigger SMS-based verification upon mobile number change](../../develop/enable-verification-for-updated-mobile-number)
     - Enforcing uniqueness and regex validation for challenge question answers to avoid risks due to weaker answers 
-    - Auto-log in the user upon successful password recovery
+    - Auto log in the user upon successful password recovery
     - [Revoke session-bounded tokens upon logout and session expiry events](../../setup/migrating-what-has-changed/#revoke-access-tokens-on-logoutsession-expiry)
 
 ### Beta features
 
-- **React based console application** with developer and administrator views to manage and maintain the features offered by WSO2 Identity Server. This is an ongoing effort to improve the user experience with the product.
+- **React-based console application** with developer and administrator views to manage and maintain the features offered by WSO2 Identity Server. This is an ongoing effort to improve the user experience with the product.
 
-- **Tenant qualified URLs** with the option of switching to tenant qualified endpoints, which consistently qualifies every URL/endpoint of WSO2 Identity Server with the tenant in a `path` parameter. This improves flexibility for tenant-wise sharding and branding than previous releases.
+- **Tenant-qualified URLs** with the option of switching to tenant qualified endpoints, which consistently qualifies every URL/endpoint of WSO2 Identity Server with the tenant in a `path` parameter. This improves flexibility for tenant-wise sharding and branding compared to previous releases.
 
 - **Managing CORS configurations tenant-wise** is possible with this release as the CORS configurations can now be made at application level and enforced at tenant level. 
 
