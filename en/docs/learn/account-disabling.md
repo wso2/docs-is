@@ -15,7 +15,7 @@ locking and disabling. Follow the below steps to do this configuration.
     your tenant credentials.
 2.  <a name = "accountdisabling"></a> Click **Resident** under **Identity Providers** found in the
     **Main** tab.
-3.  Expand the **Login Policies** tab.
+3.  Expand the **Account Management** tab.
 4.  Expand the **Account Disabling** tab and select the **Enable Account
     Disabling** checkbox. Click **Update** to save changes.  
     ![account-disabling](../assets/img/using-wso2-identity-server/account-disabling.png) 
@@ -36,9 +36,8 @@ locking and disabling. Follow the below steps to do this configuration.
         [identity_mgt.account_disabling]
         enable_account_disabling=false
         ```
-5.  Next, enable account locking. Expand the **Login Policies** tab.
-6.  Expand the **Account Locking** tab and select the **Account Lock
-    Enabled** checkbox. Click **Update** to save changes.  
+5.  Next, enable account locking. Expand the **Login Attempts Security** tab.
+6.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
     ![enable-locking](../assets/img/using-wso2-identity-server/enable-locking.png) 
 
     !!! tip

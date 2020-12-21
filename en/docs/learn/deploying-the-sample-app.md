@@ -33,7 +33,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/travelocity.com.war) the `travelocity.com.war` file from the latest release
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/travelocity.com.war) the `travelocity.com.war` file from the latest release
    assets.
 
 ### Deploy the sample web application
@@ -172,7 +172,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/playground2.war)
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/playground2.war)
    the `playground2.war` file from the latest release assets.
 
 ### Deploy the sample web app
@@ -312,7 +312,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -390,7 +390,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -470,7 +470,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
 
     
 ### Configuring the service provider
@@ -540,7 +540,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-manager.war) the `pickup-manager.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) the `pickup-manager.war` file from the
    latest release assets.
 
 ### Configuring the service provider
@@ -557,7 +557,7 @@ The first step is to configure the service provider.
 4. In the **Inbound Authentication Configuration** section, click
     **Configure** under the **OAuth/OpenID Connect Configuration** section.
     
-5. Enter the following value as the **Callback URL**: http://localhost.com:8080/pickup-dispatch/oauth2client
+5. Enter the following value as the **Callback URL**: http://localhost.com:8080/pickup-manager/oauth2client
 
     !!! Tip
         The callback URL is the service provider URL to which the authorization codes are sent. Upon successful authentication, the browser should be redirected to this URL. 
@@ -609,9 +609,9 @@ it onto your machine first.
 Follow the instructions below to download the samples from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/photo-edit.war) the `photo-edit.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/photo-edit.war) the `photo-edit.war` file from the
    latest release assets.
-3. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/photo-view.war) the `photo-view.war` file from the
+3. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/photo-view.war) the `photo-view.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -629,7 +629,12 @@ To check the **photo-edit** sample application, navigate to
 on your browser.
 
 For example,
-`                     http://localhost.com:8080/photo-edit/index.jsp                 .         `
+`                     http://localhost.com:8080/photo-edit/index.jsp                 . 
+
+!!! note
+    -   The default password configuration for photo-editor and photo-viewer is `admin`. If a different password needs to be used to test the samples, change the hardcoded password in `<TOMCAT_HOME>/webapps/photo-view/WEB-INF/classes/apptwo.properties` or `<TOMCAT_HOME>/webapps/photo-edit/WEB-INF/classes/apptwo.properties`. 
+
+    -    All the directories of the tomcat server should be accessible even without root access. Otherwise, the application fails due to insufficient permissions. `
     
 ### Configuring the service provider
 
@@ -668,7 +673,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/PassiveSTSSampleApp.war) the `PassiveSTSSampleApp.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/PassiveSTSSampleApp.war) the `PassiveSTSSampleApp.war` file from the
    latest release assets.
 
 ### Deploy the sample web app

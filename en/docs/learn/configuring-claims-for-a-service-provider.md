@@ -135,13 +135,20 @@ adding a service provider, it is necessary to map the values of the claims local
 provided in this drop-down list which are local to the Identity Server. This should be done for all values in the
 service provider unless they use the same claim name.
 
-Marking a claim as a **Mandatory Claim** would ensure that
+Adding a mapped claim as a **Requested Claim** would ensure
+that the Identity Server sends this claim to the service provider 
+if the requested claim value is available. However, the user will not
+be prompted to enter the values if the Requested Claim values cannot be
+provided by the identity provider. Requested Claims are useful particularly in cases where
+there are hundreds of claims and only specific ones need to
+be sent to the service provider.
+
+Marking a Requested Claim as a **Mandatory Claim** would ensure that
 the WSO2 IS will definitely send a value for this claim to
 the service provider.  When a user logs into this service
 provider, if the identity provider does not provide a value
 for any of the mandatory claims, the user will be prompted
-to provide them at the time of login as shown in the image
-below.  
+to provide them at the time of login.
 
 ??? tip "Testing mandatory claims"
     To test out mandatory claims,
@@ -166,13 +173,6 @@ below.
         necessary claim values. Provide the necessary claim
         values and click **Submit**.
     7.  You will be successfully logged in to the application.
-
-
-Marking a mapped claim as a **Requested Claim** would ensure
-that the service provider definitely sends this claim to the
-Identity Server. This is useful particularly in cases where
-there are hundreds of claims and only specific ones need to
-be sent to the Identity Server.
 
 **Collecting consent for requested and mandatory claims**
 

@@ -45,9 +45,8 @@ disabling. The following section explain how to configure this.
 
 3.  Click **Resident** under **Identity Providers** found in the
     **Main** tab.
-4.  Expand the **Login Policies** tab.
-5.  Expand the **Account Locking** tab and select the **Account Lock
-    Enabled** checkbox. Click **Update** to save changes.  
+4.  Expand the **Login Attempts Security** tab.
+5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
     ![account-lock-enabled](../assets/img/using-wso2-identity-server/account-lock-enabled.png) 
 
     !!! tip
@@ -199,15 +198,8 @@ failed login attempts. To configure this, follow the steps below.
         how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
 
-#### Configuring email templates for WUM Updated version
 
-!!! warning
-    To use this feature, apply the `0015` WUM update for WSO2 Identity Server 5.9.0 using the WSO2 Update Manager 
-    (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, 
-    you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating 
-    WSO2 Identity Server using WUM, see [Updating WSO2 Products](../../administer/getting-wso2-updates)
-    
-WUM Updated WSO2 Identity Server 5.9.0 uses separate email templates for notifying, 
+WSO2 Identity Server uses separate email templates for notifying, 
 
 - Account locking by exceeding `Maximum Failed Login Attempts`
 - Account unlocking by exceeding `Account Unlock Time`
@@ -334,3 +326,65 @@ Following are the sample email templates.
        </table>]]>
     ```
     - Footer : ---
+    
+### Configuring WSO2 IS for Failed OTP attempts based account locking
+
+WSO2 Identity Server can be configured to lock a user account when the number of consecutive failed OTP attempts is exceeded. 
+First, you need to configure the WSO2 Identity Server for user account locking and disabling according to 
+[Configuring WSO2 IS for account locking](../../learn/account-locking-by-failed-login-attempts/#configuring-wso2-is-for-account-locking).
+
+1. Add the following configurations into `<IS_HOME>/repository/conf/deployment.toml` file to enable account locking for 
+each type of OTP attempts.
+
+    - For Email OTP:
+    ```
+    [authentication.authenticator.email_otp.parameters]
+    EnableAccountLockingForFailedAttempts = true
+    ```
+    
+    - For SMS OTP:
+    ```
+    [authentication.authenticator.sms_otp.parameters]
+    EnableAccountLockingForFailedAttempts = true
+    ```
+   
+        !!! note
+            Since `BackupCode = true` in the default configuration, configure the backup code claim according to 
+            [Configuring Backup Codes for SMSOTP](../../learn/configuring-sms-otp/#configuring-backup-codes-for-smsotp). 
+            Alternatively, you can disable the backup codes for SMS OTP by setting the property to **false**.
+            ```
+            [authentication.authenticator.sms_otp.parameters]
+            BackupCode = false
+            ```
+   
+    - For TOTP:
+    ```
+    [authentication.authenticator.totp.parameters]
+    EnableAccountLockingForFailedAttempts = true
+    ```
+   
+2. Navigate to **Main > Identity > Claims > Add > Add Local Claim**.
+3. Click **http://wso2.org/claims**.
+
+4. Once the user account gets locked, the **Account Locked** attribute will be updated to **true**.
+To check this via the user profile:
+    1. Click **Edit** under the **Account Locked** claim.
+    2. Select **Supported by Default** and click **Update**.
+    3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
+  
+5. **Failed Email OTP Attempts**, **Failed SMS Attempts**, and **Failed TOTP Attempts** attribute values will be incremented 
+for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. To check this via the user profile.
+    - For Email OTP:
+        1. Click **Edit** under the **Failed Email OTP Attempts** claim.
+        2. Select **Supported by Default** and click **Update**.
+        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
+      
+    - For SMS OTP:
+        1. Click **Edit** under the **Failed SMS Attempts** claim.
+        2. Select **Supported by Default** and click **Update**.
+        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
+      
+    - For TOTP:
+        1. Click **Edit** under the **Failed TOTP Attempts** claim.
+        2. Select **Supported by Default** and click **Update**.
+        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 

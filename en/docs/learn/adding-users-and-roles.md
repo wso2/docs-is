@@ -2,7 +2,8 @@
 
 User management involves defining and managing users, roles, and access levels in a system. A typical user management implementation involves a wide range of functionality such as adding/deleting users, controlling user activity through permissions, and managing user roles.  
 
-This tutorial demonstrates how to create a new user, create a role with a set of permissions, and then log in to the WSO2 Identity Server dashboard using the newly created user's credentials. 
+This tutorial demonstrates how to create a new user, create a role with a set of permissions, and then log in to the
+ WSO2 Identity Server user portal using the newly created user's credentials. 
 
 ## Scenario
 
@@ -62,7 +63,7 @@ To achieve this, Pickup's administrator can create user roles for each designati
 
 2. Click **Add New User**. 
 
-    ![add-new-role](../assets/img/learn/add-new-role.png)
+    ![add-new-user](../assets/img/learn/add-new-user.png)
 
 3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
 
@@ -93,7 +94,8 @@ To achieve this, Pickup's administrator can create user roles for each designati
 
 2. Create a new role named "Manager" with `Login` permission and assign the user Alex to this role. 
 
-3. Navigate to the following URL on a new browser window to access the WSO2 Identity Server dashboard: https://localhost:9443/dashboard
+3. Navigate to the following URL on a new browser window to access the WSO2 Identity Server user portal: https
+://localhost:9443/user-portal
 
 4. Log in using the credentials for Alex's user account. Note that you are successfully logged in.
 

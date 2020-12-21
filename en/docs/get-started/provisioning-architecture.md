@@ -52,9 +52,9 @@ systems. This can be initiated by any of the following.
 -   Inbound provisioning request (initiated by a service provider or the
     resident service provider)
 -   JIT provisioning (initiated by a service provider)
--   Adding a user via the management console (initiated by the the
+-   Adding a user via the management console (initiated by the
     resident service provider)
--   Assigning a user to a provisioning role (initiated by the the
+-   Assigning a user to a provisioning role (initiated by the
     resident service provider)
 
 WSO2 Identity Server supports outbound provisioning with the following
@@ -73,7 +73,7 @@ of the corresponding service provider.
 
 JIT provisioning happens while in the middle of an authentication flow.
 The provisioning can happen in a blocking mode or in a non-blocking
-mode. In the blocking mode, the authentication flow will be blocked till
+mode. In the blocking mode, the authentication flow will be blocked until
 the provisioning finishes - while in the non-blocking mode, provisioning
 happens in a different thread.
 
@@ -87,7 +87,7 @@ provisioning configuration of the corresponding identity provider.
 ### SCIM implementation using WSO2 Charon
 
 WSO2 Charon is an open source implementation of SCIM protocol, which is
-an open standard for Identity Provisioning. It can be used by any one
+an open standard for Identity Provisioning. It can be used by anyone
 who wants to add SCIM-based provisioning support for their
 applications. WSO2 Charon is integrated with WSO2 Identity Server. This
 page demonstrates the utilization of SCIM endpoints which expose User
@@ -102,7 +102,7 @@ WSO2 Charon is one of the SCIM implementations that are made available
 under Apache 2.0 license. Charon includes libraries used by SCIM in the
 WSO2 Identity Server.
 
-The following diagram provides an overview on the module breakdown of
+The following diagram provides an overview of the module breakdown of
 Charon along with purpose of each module and planned tasks of them.
 
 ![charon-module-breakdown](../assets/img/getting-started/charon-module-breakdown.png)

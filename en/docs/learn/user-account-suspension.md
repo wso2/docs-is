@@ -5,10 +5,10 @@ accounts that have been idle for a pre-configured amount of time.
 
 Prior to account suspension, set up the notification system to send a
 warning notification to the user announcing that the account will be
-suspended. For instance, if a user has not logged in to his/her account
-for 90 days, the user can be notified that his account will be suspended
+suspended. For instance, if users have not logged in to their accounts
+for 90 days, they can be notified that their accounts will be suspended
 within the next 7 days if there continues to be no activity, after
-which, the account will be suspended.
+which, the accounts will be suspended.
 
 !!! note
     Once an account is suspended, only an administrative user can
@@ -112,9 +112,17 @@ task that checks for idle accounts is common to all tenants.
 1.  Start the WSO2 IS and log into the management console using your
     tenant credentials.
 2.  Click **Resident** under **Identity Providers** found in the
-    **Main** tab. Expand the **Login Policies** tab.
-3.  Expand the **Account Locking** tab and select the **Account Lock
-    Enabled** checkbox. Click **Update** to save changes.  
+    **Main** tab. Expand the **Login Attempts Security** tab.
+3.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
+    
+    | Field              | Description                                                                                                                                                                                                                                                                                                                                                                                   | Sample Value |
+    |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+    | Account Lock Enabled | This specifies whether account locking should be enabled for failed logins.                                                                                                                                                                                                                                        |            |
+    | Maximum Failed Login Attempts | This specifies the number of consecutive attempts that a user can try to log in without the account getting locked. For example, if the value you specify is 5, the account gets locked after 5 consecutive failed login attempts.                                                                                                                                                                                                                                      | 5           |
+    | Lock Unlock time | This specifies how long the account is locked for. The time span is given in minutes.                                                                                                                                                                                                                                          | 5           |
+    | Lock Timeout Increment Factor | This specifies the increment factor of the lock timeout. If the lock timeout increment factor is set to 2, then the timeout increments by 2 to the power of the number of failed login attempts. [Timeout increment = (Lock Timeout Increment Factor)<sup>(Number of Failed Attempts)</sup>] (If the number of failed login attempts is 3, timeout increment is 2<sup>3</sup>=8)                                                                                                                                                                                                                                           |  2          |
+    | Enable Notification Internally Management | The field is set false if the client application handles notification sending.                                                                                                                                                                                                                                           |False            |
+    
     ![account-lock-enabled](../assets/img/using-wso2-identity-server/account-lock-enabled.png)
     
 4.  Expand the **Account Management Policies** tab.

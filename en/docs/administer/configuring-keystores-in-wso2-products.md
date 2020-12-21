@@ -15,7 +15,7 @@ The `wso2carbon.jks` keystore file, which is shipped with WSO2 Identity Server, 
 
 !!! info
 
-    The WSO2 Identity Server keystore is located at `<IS_HOME>/resources/security/wso2carbon.jks` while the default trust-store is at `<IS_HOME>/repository/resources/security/client-truststore.jks`. This can be configured by specifying it in the `deployment.toml` file that is stored in the `<IS_HOME>/repository/conf/` directory. This keystore is used for the following functions in WSO2 Identity Server by default.
+    The WSO2 Identity Server keystore is located at `<IS_HOME>/repository/resources/security/wso2carbon.jks` while the default trust-store is at `<IS_HOME>/repository/resources/security/client-truststore.jks`. This can be configured by specifying it in the `deployment.toml` file that is stored in the `<IS_HOME>/repository/conf/` directory. This keystore is used for the following functions in WSO2 Identity Server by default.
 
 -   **Encrypting/decrypting** passwords and other confidential information, which are maintained in various configuration files as well as internal data stores. Note that you also have the option of
     [separating the keystore for encrypting information in internal data stores](#configuring-a-separate-keystore-for-encrypting-data-in-internal-data-stores).
@@ -56,10 +56,10 @@ If you need to configure a different keystore for SSL, you may change the values
     
 ```toml 
 [transport.https.sslHostConfig.certificate.properties]
-certificateKeystoreFile = "${carbon.home}/repository/resources/security/$ref{keystore.tls.file_name}",
-certificateKeystorePassword = "$ref{keystore.tls.password}"",
-certificateKeystoreType = "$ref{keystore.tls.type}",
-certificateKeyAlias = "$ref{keystore.tls.alias}",
+certificateKeystoreFile = "${carbon.home}/repository/resources/security/$ref{keystore.tls.file_name}"
+certificateKeystorePassword = "$ref{keystore.tls.password}"
+certificateKeystoreType = "$ref{keystore.tls.type}"
+certificateKeyAlias = "$ref{keystore.tls.alias}"
 certificateKeyPassword = "$ref{keystore.tls.key_password}"
 ```
   

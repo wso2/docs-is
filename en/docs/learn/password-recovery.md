@@ -16,7 +16,12 @@ password recovery:
     5.2.0](https://docs.wso2.com/display/IS520/Password+Recovery). The old
     implementation has been retained within the WSO2 IS pack for backward
     compatitbility and can still be used if required.
-    
+
+!!! note
+	WSO2 IS validates whether the user account is locked or disabled prior to account recovery. In addition, if any customization prior to account recovery such as checking the eligibility of the user for account recovery by validating certain conditions/ user claims is needed, WSO2 Identity Server provides an extension for that.
+
+	WSO2 IS triggers the `PRE_ACCOUNT_RECOVERY` event prior to user account recovery using the WSO2 IS eventing framework. A custom event handler can be written upon which the `PRE_ACCOUNT_RECOVERY` event is triggered. For more information on how to write a custom handler and trigger an event, see [Writing a custom handler](../../develop/writing-a-custom-event-handler).
+
 
 ### Recovery using notifications
 
@@ -78,10 +83,14 @@ with email notification.
     ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery.png)
     
     !!! info 
-        To enable password recovery with reCaptcha verification, select the
-        **Enable reCaptcha for Password Recovery** checkbox. For more
-        information, see [Configuring reCaptcha for Password
-        Recovery](../../learn/configuring-recaptcha-for-password-recovery).
+        - To enable password recovery with reCaptcha verification, select the **Enable reCaptcha for Password Recovery** checkbox. For more information, see [Configuring reCaptcha for Password Recovery](../../learn/configuring-recaptcha-for-password-recovery).
+
+        - To enable auto-login after password reset, select the **Enable Auto Login After Password Reset** checkbox. Alternatively, you can enable this server-wide by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+
+        ```toml
+        [identity_mgt.recovery]
+        enable_auto_login=true
+        ```
 
 5.  To enable sending a confirmation email to the user's registered
     email address after the password reset, select the **Notify when
@@ -129,11 +138,12 @@ with email notification.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given.
-3.  Access the WSO2 Identity Server dashboard using the following link:
-    `          https://localhost:<port_number>/dashboard         `.
+3.  Access the WSO2 Identity Server user portal using the following link:
+    `          https://localhost:<port_number>/user-portal         `.
 4.  Click the **Forgot Password** link.
-5.  Enter the user's username and select **Recover with Emai** l. Click
+5.  Enter the user's username and select **Recover with Mail**. Click
     **Submit**.  
+    
     ![recover-with-email](../assets/img/using-wso2-identity-server/recover-with-email.png) 
 
     !!! note
@@ -179,16 +189,16 @@ feature. To do this, do the following.
     Starts** checkbox to send an email notification to the user when the
     question based recovery starts.
 
-    !!! note
-    
-        You can also select the **Enable reCaptcha for Password Recovery**
-        checkbox to enable password recovery with reCaptcha verification.
-        For more information, see Configuring reCaptcha for Password
-        Recovery.
-    
-        ![enable-recaptch-for-password-recovery](../assets/img/using-wso2-identity-server/enable-recaptch-for-password-recovery.png) 
-    
+    !!! info 
+        - To enable password recovery with reCaptcha verification, select the **Enable reCaptcha for Password Recovery** checkbox. For more information, see [Configuring reCaptcha for Password Recovery](../../learn/configuring-recaptcha-for-password-recovery).
 
+        - To enable auto-login after password reset, select the **Enable Auto Login After Password Reset** checkbox. Alternatively, you can enable this server-wide by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+
+        ```toml
+        [identity_mgt.recovery]
+        enable_auto_login=true
+        ```
+        
 You can set up challenge questions for users in one of the following
 ways:
 
@@ -198,7 +208,7 @@ To set up challenge questions or to manage the questions with different
 locales (languages), see [Managing Challenge
 Questions](../../learn/managing-challenge-questions).
 
-#### Using the end user dashboard
+#### Using the user portal
 
 To try this out, first create a user in the Identity Server.
 
@@ -210,21 +220,21 @@ To try this out, first create a user in the Identity Server.
     ![add-new-user](../assets/img/using-wso2-identity-server/add-new-user.png) 
 
 4.  Log out of the Identity Server.
-5.  The URL for accessing dashboard is the following if the hostname is
+5.  The URL for accessing user portal is the following if the hostname is
     localhost and the Identity Server is running on port 9443:
-    <https://localhost:9443/dashboard/>. Click this link to access the
-    dashboard and log in using the credentials of the user you just
+    <https://localhost:9443/user-portal/>. Click this link to access the
+    user portal and log in using the credentials of the user you just
     created.  
     ![enter-using-credentials](../assets/img/using-wso2-identity-server/enter-using-credentials.png)   
-6.  Click the **View Details** button under the **Account Recovery**
-    section in the end user dashboard.  
-    ![view-details-account-recovery](../assets/img/using-wso2-identity-server/view-details-account-recovery.png) 
+6.  Go to the **Security** tab. Click the **+** button near **Security questions** under the
+    **Account Recovery** section.  
+    ![view-details-account-recovery](../assets/img/using-wso2-identity-server/security-account-recovery.png) 
 7.  Set challenge questions for the user account. There are two sets of
     challenge questions by default. You can pick one question for each
     set and give an answer for the question.  
     ![answer-challenge-questions](../assets/img/using-wso2-identity-server/answer-challenge-questions.png)   
-8.  Click **Update**.
-9.  Sign out of the dashboard and click **Forgot Password** on the login
+8.  Click **Save**.
+9.  Sign out of the user portal and click **Forgot Password** on the login
     screen.  
     ![choose-forgot-password](../assets/img/using-wso2-identity-server/choose-forgot-password.png) 
 10. Enter the username and select **Recover with Security Questions**.

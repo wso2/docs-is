@@ -412,7 +412,7 @@ Do the following steps to write the custom user store manager.
     import java.util.Map;
 
     public class CustomUserStoreManager extends JDBCUserStoreManager {
-        private static Log log = LogFactory.getLog(StarkUserStoreManager.class);
+        private static Log log = LogFactory.getLog(CustomUserStoreManager.class);
         // This instance is used to generate the hash values
         private static StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
 
@@ -514,11 +514,18 @@ in your WSO2 product.
     any dependency .jar files, copy them to the
     `           <IS_HOME>/repository/components/lib          `
     directory.
-2.  Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to use our custom
-    implementation for user store management.
-    ``` xml
-    [user_store]
-    class="com.wso2.custom.usermgt.CustomUserStoreManager"
+
+2.  Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to use our custom implementation for user store management.
+    Although the existing `UniqueID` user stores are allowed by default, when adding a new user store, note that both existing user stores as well as new user stores must be configured as shown below. 
+
+    ```toml tab="Format"
+    [user_store_mgt]
+    allowed_user_stores=[<existing userstores..>,"<new userstore>"]
+    ```
+
+    ```toml tab="Sample"
+    [user_store_mgt]
+    allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager", "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager","org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"]
     ```
 
     !!! tip

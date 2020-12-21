@@ -14,7 +14,7 @@ To configure this feature, follow the instructions below.
 
 ### Enabling log masking
 
-1.  Log masking is by default enabled in WSO2 Identity Server 5.9.0.However, you need 
+1.  Log masking is enabled by default from WSO2 Identity Server 5.9.0 onwards.However, you need 
     to configure required masking patterns.
 
 2.  These patterns are configured in the `<IS-HOME>/repository/conf/wso2-log-masking.properties`. You can change 

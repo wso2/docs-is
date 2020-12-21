@@ -7,308 +7,24 @@
 !!! note
     In this section, `<OLD_IS_HOME> ` is the directory that current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
-    directory that WSO2 Identity Server 5.9.0 resides in. 
-    
-## Disabling versioning in the registry configuration
-If there are frequently updating registry properties, having the versioning enabled for 
-registry resources in the registry can lead to unnecessary growth in the registry related
-tables in the database. To avoid this, we have disabled versioning by default in Identity 
-Server 5.9.0.
+    directory that WSO2 Identity Server 5.11.0 resides in. 
 
-Therefore, when migrating to IS 5.9.0 it is **required** to turn off the registry versioning in your
-current Identity Server and run the below scripts against the database that is used by the registry.
+!!! info "Important" 
+    Before proceeding with the migration, change the following property to `false` in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-!!! note "NOTE"
-    Alternatively, it is possible to turn on registry versioning in IS 5.9.0 and continue. But this is
-    highly **NOTE RECOMMENDED** and these configurations should only be changed once.
-
-!!! info "Turning off registry versioning in your current IS and running the scripts"
-    Open the `registry.xml` file in the `<OLD_IS_HOME>/repository/conf` directory.
-    Set the `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings`
-    false.
-    
+    ```toml
+    [super_admin]
+    create_admin_account = false 
     ```
-    <staticConfiguration>
-          <versioningProperties>false</versioningProperties>
-          <versioningComments>false</versioningComments>
-          <versioningTags>false</versioningTags>
-          <versioningRatings>false</versioningRatings>
-    </staticConfiguration>
-    ```
-    
-    !!! warning
-        If the above configurations are already set as `false` you should not run the below scripts.
-    
-    When the above configurations are turned off, we need to remove the versioning detatils from the
-    database in order for the registry resources to work properly. Choose the relevant DB type and run the
-    script against the DB that the registry resides in.
-    
-    ??? info "DB Scripts"
-        ```tab="H2"
-        -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
         
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-        
-        -- Delete versioned tags, were the PATH_ID will be null for older versions --
-        delete from REG_RESOURCE_PROPERTY where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_RATING where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_TAG where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL;
-        
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY);
-        
-        delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG);
-        
-        delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT);
-        
-        delete from REG_RATING where REG_ID NOT IN (select REG_RATING_ID from REG_RESOURCE_RATING);
-        
-        -- Update the REG_PATH_NAME column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-        
-        ```
-    
-        ```tab="DB2"
-        -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION)
-        /
-        
-        -- Delete versioned tags, were the PATH_ID will be null for older versions --
-        delete from REG_RESOURCE_PROPERTY where REG_PATH_ID is NULL
-        /
-        delete from REG_RESOURCE_RATING where REG_PATH_ID is NULL
-        /
-        delete from REG_RESOURCE_TAG where REG_PATH_ID is NULL
-        /
-        delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL
-        /
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY)
-        /
-        delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG)
-        /
-        delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT)
-        /
-        delete from REG_RATING where REG_ID NOT IN (select REG_RATING_ID from REG_RESOURCE_RATING)
-        /
-        
-        -- Update the REG_PATH_NAME column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION)
-        /
-        
-        ```
-    
-        ```tab="MSSQL"
-        -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_PATH_ID=(SELECT REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_COMMENT SET REG_PATH_ID=(SELECT REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_PROPERTY SET REG_PATH_ID=(SELECT REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_RATING SET REG_PATH_ID=(SELECT REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-        
-        -- Delete versioned tags, were the PATH_ID will be null for older versions --
-        delete from REG_RESOURCE_PROPERTY where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_RATING where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_TAG where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL;
-        
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY);
-        
-        delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG);
-        
-        delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT);
-        
-        delete from REG_RATING where REG_ID NOT IN (select REG_RATING_ID from REG_RESOURCE_RATING);
-        
-        -- Update the REG_PATH_NAME column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-        
-        ```
+## Groups and Roles Migration 
 
-        ```tab="MySQL"
-        -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-        
-        -- Delete versioned tags, were the PATH_ID will be null for older versions --
-        delete from REG_RESOURCE_PROPERTY where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_RATING where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_TAG where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL;
-        
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY);
-        
-        delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG);
-        
-        delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT);
-        
-        delete from REG_RATING where REG_ID NOT IN (select REG_RATING_ID from REG_RESOURCE_RATING);
-        
-        -- Update the REG_PATH_NAME column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-        
-        ```
-    
-        ```tab="Oracle"
-        -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_PATH_ID=(SELECT REG_RESOURCE.REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION)
-        /
-        
-        -- Delete versioned tags, were the PATH_ID will be null for older versions --
-        delete from REG_RESOURCE_PROPERTY where REG_PATH_ID is NULL
-        /
-        delete from REG_RESOURCE_RATING where REG_PATH_ID is NULL
-        /
-        delete from REG_RESOURCE_TAG where REG_PATH_ID is NULL
-        /
-        delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL
-        /
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY)
-        /
-        delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG)
-        /
-        delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT)
-        /
-        delete from REG_RATING where REG_ID NOT IN (select REG_RATING_ID from REG_RESOURCE_RATING)
-        /
-        
-        -- Update the REG_PATH_NAME column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_TAG.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_PROPERTY.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_COMMENT.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION)
-        /
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_RATING.REG_RESOURCE_NAME=(SELECT REG_RESOURCE.REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION)
-        /
-        
-        ```
-        
-        ```tab="PostgreSQL"
-        -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_PATH_ID=(SELECT REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_COMMENT SET REG_PATH_ID=(SELECT REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_PROPERTY SET REG_PATH_ID=(SELECT REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_RATING SET REG_PATH_ID=(SELECT REG_PATH_ID FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-        
-        -- Delete versioned tags, were the PATH_ID will be null for older versions --
-        delete from REG_RESOURCE_PROPERTY where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_RATING where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_TAG where REG_PATH_ID is NULL;
-        
-        delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL;
-        
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY);
-        
-        delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG);
-        
-        delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT);
-        
-        delete from REG_RATING where REG_ID NOT IN (select REG_RATING_ID from REG_RESOURCE_RATING);
-        
-        -- Update the REG_PATH_NAME column mapped with the REG_RESOURCE table --
-        UPDATE REG_RESOURCE_TAG SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_TAG.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_PROPERTY SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_PROPERTY.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_COMMENT SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_COMMENT.REG_VERSION);
-        
-        UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
-        
-        ```
-       
-!!! warning "Not recommended"
-    If you decide to proceed with registry resource versioning enabled, Add the following
-    configuration to the `deployment.toml` file of new WSO2 Identity Server. 
-    `<NEW_IS_HOME>/repository/conf/deployment.toml`
-    
-    ```
-    [registory.static_configuration]
-    enable=false
-    ```
-    
-    !!! note "NOTE"
-        Changing these configuration should only be done before the initial Identity
-        Server startup. If changes are done after the initial startup, the registry resource created
-        previously will not be available.
-   
-## Migrating the Secondary Userstore Password to the Internal Keystore
-
-Ideally, the internal keystore should be used for encrypting internal critical data. However, in 
-previous versions, the secondary userstore passwords are encrypted using the primary keystore, 
-which is also used to sign and encrypt tokens.
-
-In WSO2 Identity Server 5.9.0 we have moved the secondary userstore password encryption functionality 
-from the primary keystore to the internal keystore.
-
-Check this [link](../../administer/migrating-the-secondary-userstore-password-to-the-internal-keystore) 
-to see the instructions on migrating the secondary userstore password to encrypt using internal keystore. 
+With WSO2 Identity Server 5.11.0, groups and roles are separated. For more information, see [What Has Changed in 5.11.0](../../setup/migrating-what-has-changed#group-and-role-separation).
 
 
 ## Migrating custom components
 
-In WSO2 Identity Server 5.9.0 we have done a major upgrade to our kernel and our main components. 
+In WSO2 Identity Server 5.11.0 we have done a major upgrade to our kernel and our main components. 
 Any custom OSGI bundles which are added manually should be recompiled with new dependency versions 
 that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the 
 `<OLD_IS_HOME>/repository/components/dropins` directory.
@@ -317,7 +33,7 @@ that are relevant to the new WSO2 IS version.  All custom OSGI components reside
 
 2.  Change the dependency versions in the relevant POM files according to the WSO2 IS version that 
     you are upgrading to, and compile them. The compatible dependency versions can be found 
-    [here](https://github.com/wso2/product-is/blob/v5.9.0/pom.xml). 
+    [here](https://github.com/wso2/product-is/blob/v5.11.0-rc1/pom.xml). 
 
 3.  If you come across any compile time errors, refer to the WSO2 IS code base and make the 
     necessary changes related to that particular component version.
@@ -326,29 +42,11 @@ that are relevant to the new WSO2 IS version.  All custom OSGI components reside
 
 5.  If there were any custom OSGI components in `<OLD_IS_HOME>/repository/components/lib` directory, 
     add newly compiled versions of those components to the `<NEW_IS_HOME>/repository/components/lib`  directory.
-
-!!! warning 
-    WSO2 Identity Server 5.9.0 switched from log4j to log4j2. If any custom components are already using 
-    `carbon.logging` jar for logging purposes, make sure to update the custom components for logging to 
-    work with log4j2. For instructions, see [Migrating to log4j2](../../setup/migrating-to-log4j2).
     
-
 ## Migrating the configurations
 
-Previous WSO2 Identity Server versions supported multiple configuration files 
-such as <code>carbon.xml</code>, <code>identity.xml</code>, and <code>axis2.xml</code>. With the 
-[new configuration model](../../references/new-configuration-model) in WSO2 Identity Server 5.9.0, 
-configurations are handled by the a single file named 
-`deployment.toml` in the `<IS_HOME>/repository/conf` directory.
-
-!!! warn "Note" 
-    When you are migrating from older version of WSO2
-    Identity Server that 5.9.0, you need to convert old configurations to new
-    configuration model as well.
-
 Refer to the relevant feature documents and
-[What Has Changed](../../setup/migrating-what-has-changed) to add the
-necessary configurations according to the new configuration model.
+[What Has Changed](../../setup/migrating-what-has-changed) to do the configuration migration.
 
 !!! info
     If you have a WSO2 Subscription, it is highly recommended to reach 
@@ -359,7 +57,7 @@ necessary configurations according to the new configuration model.
 
 !!! info
     If you do not require a zero down time migration, then you can directly proceed to the
-    next section, [Migrating to 5.9.0](../../setup/migrating-to-590).
+    next section, [Migrating to 5.11.0](../../setup/migrating-to-5110).
     
 A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, 
 usually when there’s a patch, or critical security upgrade for products used in the solution, 
@@ -396,13 +94,13 @@ All the other data will not be preserved in the new system.
 
 Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
-1.  Create a new databases for the new WSO2 Identity Server version (5.9.0) 
+1.  Create a new databases for the new WSO2 Identity Server version (5.11.0) 
     that you are migrating to.
-2.  Unzip a WSO2 Identity Server 5.9.0 distribution (use a WUM updated distribution 
-    if possible). This will be used as the data sync tool between the Identity 
+2.  Unzip a WSO2 Identity Server 5.11.0 distribution (use a WUM updated distribution 
+    if available). This will be used as the data sync tool between the Identity 
     Server versions. We will refer to WSO2 Identity Server distribution as 
     “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
-3.  Copy the [sync client jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.23/org.wso2.is.data.sync.client-1.0.23.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
+3.  Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.134/org.wso2.is.data.sync.client-1.0.134.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
 4.  Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` 
     with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). 
     This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory 
@@ -547,4 +245,4 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 9.  Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) 
 and restore in the new databases created.
 
-10. Proceed to the next section [Migrating to 5.9.0](../../setup/migrating-to-590).
+10. Proceed to the next section [Migrating to 5.11.0](../../setup/migrating-to-5110).

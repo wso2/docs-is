@@ -16,7 +16,7 @@ providers offer OAuth IdP services.
 
 In most instances it is necessary to secure the Security Token Service.
 According to the Trust Brokering model defined in the WS-Trust
-specification, the subject (user) should authenticate himself to the STS
+specification, the subject (user) should authenticate themself to the STS
 before obtaining a token. STS may use this authentication information
 when constructing the security token. For example, STS may populate the
 required claims based on the user name provided by the subject.

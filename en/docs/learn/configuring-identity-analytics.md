@@ -18,23 +18,23 @@ To do this, the developers need to view authentication statistics about the logi
 
 Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and add the following event listeners to enable analytics in WSO2 Identity Server. 
  
-    ``` toml
-    [[event_listener]]
-    id = "authn_data_publisher_proxy"
-    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
-    name = "org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy" 
-    order = 11 
-    ```
+``` toml
+[[event_listener]]
+id = "authn_data_publisher_proxy"
+type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
+name = "org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy" 
+order = 11 
+```
 
-    ``` toml
-    [identity_mgt.analytics_login_data_publisher]
-    enable=true
-    ```
+``` toml
+[identity_mgt.analytics_login_data_publisher]
+enable=true
+```
 
-    ```toml
-    [identity_mgt.analytics_session_data_publisher] 
-    enable=true
-    ```
+```toml
+[identity_mgt.analytics_session_data_publisher] 
+enable=true
+```
 
 The rest of the configurations required to connect the analytics distribution with the WSO2 IS distribution have already been pre-configured for fresh distributions. To see more information about these pre-configurations, see [Prerequisites to Publish Statistics](../../learn/prerequisites-to-publish-statistics). 
 
@@ -77,7 +77,7 @@ If you do not need to change the default values, proceed to start the servers.
 
 Let's create some basic authentication statistics. To do this, log in to the WSO2 IS dashboard. This login attempt will be published to WSO2 IS Analytics and you will be able to view the login attempt using the WSO2 IS Analytics dashboard. 
 
-1. Log in to the [WSO2 Identity Server User Dashboard](https://localhost:9443/dashboard/) using admin/admin credentials. 
+1. Log in to the [WSO2 Identity Server User Portal](https://localhost:9443/user-portal/) using admin/admin credentials. 
 
 2. Next, access the WSO2 Identity Server Analytics Dashboard at the following URL: 
 

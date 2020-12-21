@@ -68,9 +68,8 @@ This sample can be modified further by editing the policy files or
 adding new policies. Follow the instructions below to test out the
 sample.
 
-1.  The code for the sample can be checked out from the GitHub
-    repository. To do this, follow the instructions on the [Downloading
-    a Sample](../../learn/downloading-a-sample) topic.
+1.  The code for the sample can be checked out from the [GitHub
+    repository](https://github.com/wso2/samples-is).
 
 2.  Start up [Identity Server](../../setup/running-the-product) and log in to the
     management console.

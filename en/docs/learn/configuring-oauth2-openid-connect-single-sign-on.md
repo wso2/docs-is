@@ -134,6 +134,30 @@ Let's get started to configure the service provider you created!
          <td><strong>Allow Authentication without the client secret</strong></td>
          <td>This enables authenticating the client without the <code>               client secret              </code>.</td>
       </tr>
+            <tr class="even">
+               <td>
+                  <div class="content-wrapper">
+                     <p><strong>Access Token Binding Type</strong></p>
+                  </div>
+               </td>
+               <td>
+                  This section provides the capability to attach the OAuth2 access token and refresh token to an external attribute during the token generation and optionally validate the external attribute during the API invocation.
+                  <ul>
+                     <li><strong>None</strong> : No binding.</li>
+                     <li><strong>Cookie Based</strong> : This binding type is designed to improve the security of Single Page Applications(SPA) where access_token is stored at the browser. With this binding, additionally to the access token validation, a cookie with <code>Secure</code> and <code>HttpOnly</code> parameters will be validated to grant access.  In the current implementation, this binding type can be enabled for authorization code grant with <strong>Allow Authentication without the client secret</strong> option. When this is enabled new cookie named <strong>atbv</strong> will be returned with the authorization code to the client browser. When the application makes the token request with this cookie, that cookie will get validated and attached to the generated tokens. Now, whenever the SPA tries to access the Identity Server API, it needs to present the access token + cookie for successful authorization.</li>
+                     <li><strong>SSO Session Based</strong> : This binding type is designed to <strong>generate different tokens</strong> for each new browser instance. With this, you can avoid the same access token getting shared with multiple browser instances of the same application. Also, you can revoke the access token when you are logging out from one application(browser) instance and not break other instances. This binding type is supported for <strong>authorization code</strong> grant type.</li>
+                  </ul>
+               </td>
+            </tr>
+      <tr class="odd">
+         <td>
+            <p><strong>Revoke tokens upon user logout</strong></p>
+            <p><strong><br />
+               </strong>
+            </p>
+         </td>
+         <td> If you have enabled the <strong>Cookie Based</strong> or <strong>SSO Session Based</strong> binding type, you can also enable this configuration to enable revoking access tokens when the access token binding expires. <br/> <br/>When the user logs out of the application, the access tokens of the token binding reference issued for the application, gets revoked. Additionally, issued access tokens for a session that has expired due to a session idle timeout when a user tries to use single sign-on, log in again, or log out after a session has expired, also gets revoked.</td>
+      </tr>
       <tr class="odd">
          <td>
             <p><strong>User Access Token Expiry Time, Application Access Token Expiry Time, Refresh Token Expiry Time, Id Token Expiry Time</strong></p>
@@ -177,7 +201,7 @@ Let's get started to configure the service provider you created!
             <div class="admonition tip">
                <p class="admonition-title">Tip</p>
                <ul>
-                  <li>If you want to enable default token generation for a service provider, select <strong>Default</strong> as the <strong>Token Issuer</strong>. This is the default Token Issuer that is selected when you apply the WUM update.<br />
+                  <li>If you want to enable default token generation for a service provider, select <strong>Default</strong> as the <strong>Token Issuer</strong>. <br />
                      When you enable default token generation, the hash value of the token is stored in the ACCESS_TOKEN_HASH column, and the plain text token is stored in the ACCESS_TOKEN column
                   </li>
                   <li>If you want to enable JWT token generation for a service provider, select <strong>JWT</strong> as the <strong>Token Issuer</strong>.<br />
@@ -224,10 +248,12 @@ Let's get started to configure the service provider you created!
 
         Add the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
     
-        ``` toml
-        [oauth]
-        hash_tokens_and_secrets= true
-        ```
+		``` toml
+		[oauth]
+		hash_tokens_and_secrets= true
+		[oauth.extensions]
+		token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor"
+		```
 
     After updating the configuration, make sure to restart the server
     for the changes to be applied on WSO2 IS.

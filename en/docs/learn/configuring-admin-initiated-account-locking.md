@@ -4,9 +4,9 @@ WSO2 Identity Server enables the privileged users to temporarily lock suspicious
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Larry** is a new recruit. Due to suspicious user activity, Robert wants to lock Larry's account.  
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Sam** is an administrator at Pickup, **Alex** is a new recruit. Due to suspicious user activity, Sam wants to lock Alex's account.  
 
-Let's learn how Robert can lock Larry's user account! 
+Let's learn how Sam can lock Alex's user account! 
 
 ## Set up
 
@@ -63,7 +63,7 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 ## Try out
 
-1.	To create the user account for Larry:
+1.	To create the user account for Alex:
 
 	1.	On the **Main** menu of the Management Console, click **Identity > Users and Roles > Add**.
 
@@ -78,13 +78,13 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 		<img src="../../assets/img/learn/add-new-user-screen.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
 
 		-	**Domain**: `Primary`
-		-	**Username**: `Larry`
+		-	**Username**: `Alex`
 
 	4.	Click **Finish**. 
 
 2.	To assign login permissions to the user:
 	
-	1.	Click the **View Roles** option of Larry.
+	1.	Click the **View Roles** option of Alex.
 
 		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
@@ -96,13 +96,13 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 		<img src="../../assets/img/learn/login-permission.png" alt="Login permission" width="700" style="border:1px solid grey">  
 
-3.	To lock Larry's user account:
+3.	To lock Alex's user account:
 	
-	1.	Click **User Profile** option of Larry.
+	1.	Click **User Profile** option of Alex.
 
 		<img src="../../assets/img/learn/user-profile-option.png" alt="User Profile option" width="700" style="border:1px solid grey">   
 
-	2.	Enter an email address to which Larry's account locking emails will be sent and select the **User Locked** check box.
+	2.	Enter an email address to which Alex's account locking emails will be sent and select the **User Locked** check box.
 
 		<img src="../../assets/img/learn/user-locked.png" alt="User Email option" width="700" style="border:1px solid grey">    		
 
@@ -112,17 +112,18 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 		<img src="../../assets/img/learn/account-locked-email.png" alt="Account Locked email" width="500" style="border:1px solid grey"> 
 
-	5.	Access the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
+	5.	Access the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.
 
-		<img src="../../assets/img/learn/dashboard-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
+		 solid grey"> 	
 
-	6.	Try logging in with Larry's credentials. Note that an error message appears.
+	6.	Try logging in with Alex's credentials. Note that an error message appears.
 
-	7.	Wait for 15 minutes and try to log in again. The WSO2 Identity Server Dashboard home screen appears.  
+	7.	Wait for 15 minutes and try to log in again. The WSO2 Identity Server User Portal home screen appears.  
 
-4. To unlock Larry's user account:
+4. To unlock Alex's user account:
 
-	1.	Click **User Profile** option of Larry.
+	1.	Click **User Profile** option of Alex.
 
 	2.	Unselect the **User Locked** check box.
 
@@ -132,4 +133,5 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 		<img src="../../assets/img/learn/account-unlocked-email.png" alt="Account Unlocked email" width="500" style="border:1px solid grey"> 		
 
-	5.	Try logging in to the WSO2 Identity Server Dashboard with Larry's credentials. The WSO2 Identity Server Dashboard home screen appears.
+	5.	Try logging in to the WSO2 Identity Server User Portal with Alex's credentials. The WSO2 Identity Server
+	 User Portal home screen appears.

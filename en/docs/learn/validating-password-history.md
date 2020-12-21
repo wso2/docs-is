@@ -6,15 +6,15 @@ WSO2 Identity Server enables restricting the user from re-entering recently used
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. Robert, who is an administrator at Pickup, wants to restrict users from re-using the three most recently used passwords when setting a new password.
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. Sam, who is an administrator at Pickup, wants to restrict users from re-using the three most recently used passwords when setting a new password.
 
 ## Set up
 
-Follow the steps below to define the password policy that Robert wants to enforce.
+Follow the steps below to define the password policy that Sam wants to enforce.
 
 !!! tip "Before you begin"
 
-	1.	[Run WSO2 Identity Sever](../../setup/running-the-product/).
+	1.	[Run WSO2 Identity Server](../../setup/running-the-product/).
 
 	2.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator.
 
@@ -60,13 +60,13 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 	2.	Click **Add New User**.
 
-	3.	Enter `Larry` as the user name and `testwso2is` as the password.
+	3.	Enter `Alex` as the user name and `testwso2is` as the password.
 
 	4.	Click **Finish**.
 
 2.	To assign login permissions to the user:
 	
-	1.	Click the **View Roles** option of Larry.
+	1.	Click the **View Roles** option of Alex.
 
 		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
@@ -80,34 +80,31 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 3.	To change the password:
 
-	1.	Access WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
+	1.	Access WSO2 Identity Server user portal at `https://localhost:9443/user-portal/`.
 
 	2.	Log in with the credentials of the user account that you created.
 
 		<img src="../../assets/img/learn/sign-in-form.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
-	3.	Consent to share the shown attributes with the given service provider.
+	3.	Under **Security**, click **Change your password**. 
 
-		<img src="../../assets/img/learn/consent-form.png" alt="Consent form" width="400" style="border:1px solid grey">
+		<img src="../../assets/img/learn/userportal-change-password-option.png" alt="Change Passwrod option" width="700
+		" style="border:1px solid grey">
 
-	4.	Under **Change Password**, click **View details**. 
-
-		<img src="../../assets/img/learn/dashboard-change-password-option.png" alt="Change Passwrod option" width="700" style="border:1px solid grey">
-
-	5.	Enter `testwso2is` in **Current Password**, **New Password**, and **Confirm New Password** text boxes.
+	4.	Enter `testwso2is` in **Current Password**, **New Password**, and **Confirm Password** text boxes.
 
 		<img src="../../assets/img/learn/change-password-form.png" alt="Change Password form" width="700" style="border:1px solid grey"> 
 
-	6.	Click **Update**. An error message appears. 
+	5.	Click **Update**. An error message appears. 
 
 		<img src="../../assets/img/learn/passwore-history-error-message.png" alt="Passwrod History Validation error message" width="600" style="border:1px solid grey">
 
-	7.	To mimic three consecutive password changes, change Larry's password to the following sequentially. 
+	6.	To mimic three consecutive password changes, change Alex's password to the following sequentially. 
 
 		-	`test123`
 		-	`test234`
 		-	`test345`
 
-		Note that these passwords gets successfully added to the system. 
+		Note that these passwords get successfully added to the system. 
 
-	8.	Now, change Larry's password back to `testwso2is`. Note that the password gets successfully changed. 
+	7.	Now, change Alex's password back to `testwso2is`. Note that the password gets successfully changed. 

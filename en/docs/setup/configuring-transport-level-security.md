@@ -5,7 +5,7 @@ are required for WSO2 Identity Server. See the following topics for
 instructions.
 
 
-### Enabling SSL protocols and ciphers in ThriftAuthenticationService
+## Enabling SSL protocols and ciphers in ThriftAuthenticationService
 
 Do the following to enable SSL protocols and ciphers in the
 `         ThriftAuthenticationService.        `
@@ -16,8 +16,8 @@ Do the following to enable SSL protocols and ciphers in the
     element.
 
     ``` java
-        <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols
-        <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+        <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>
+        <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF</Ciphers>
     ```
 
     !!! tip
@@ -39,7 +39,7 @@ Do the following to enable SSL protocols and ciphers in the
 2.  Restart the server.
 
 
-### Disabling weak ciphers
+## Disabling weak ciphers
 
 A cipher is an algorithm for performing encryption or decryption. When
 you set the `         sslprotocol        ` of your server to TLS, the
@@ -58,7 +58,7 @@ server to support in a comma-separated list in the
 cipher attribute or keep it blank, the browser will support all the SSL
 ciphers by JSSE. This will enable the weak ciphers.
 
-#### Disable weak ciphers in Carbon server
+### Disable weak ciphers in Carbon server
 
 A cipher is an algorithm for performing encryption or decryption. When the sslprotocol is set to "TLS", only the TLS and default ciphers are enabled by default. However, note that the strength of the ciphers will not be considered when they are enabled. Therefore, to disable the weak ciphers, you must ensure that only the ciphers you want your server to support are entered for the ciphers attribute in a comma-separated list. Also, if you do not add this cipher attribute or keep it blank, all SSL ciphers by JSSE will be supported by your server, thereby enabling the weak ciphers.
 
@@ -71,7 +71,7 @@ that you want your server to support as follows: ciphers="<cipher-name>,<cipher-
 
 ```toml
 [transport.https.sslHostConfig.properties]
-ciphers="SSL_RSA_WITH_RC4_128_MD5,SSL_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA"
+ciphers="TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF"
 ```
     See the list of [supported cipher suites](../../administer/supported-cipher-suites).
 
@@ -122,11 +122,10 @@ vulnerable to attacks if the hacker has enough computing resources.
     DSA and RSA.
     
     **Note** : This tip is not applicable when you are disabling weak
-    ciphers in [WSO2 Identity
-    Server](https://is.docs.wso2.com/en/5.9.0/)
+    ciphers in WSO2 Identity Server.
 
   
-### Changing the server name in HTTP response headers
+## Changing the server name in HTTP response headers
 
 By default, WSO2 Identity Server pass "WSO2 Carbon Server" as the server
 value in HTTP headers when sending HTTP responses. This means that
@@ -148,6 +147,20 @@ name in the `deployment.toml` file.
     server="WSO2 Carbon Server"
     ```
 
+## Enabling/disabling http/https transport
+
+By default, both the http and https connectors are enabled. To disable either the http or https connector, add the corresponding configuration to `<IS-HOME>/repository/conf/deployment.toml` as shown below. 
+
+```toml
+[transport]
+http.enabled=false
+```
+
+```toml 
+[transport]
+https.enabled=false
+```
+
 See the [Security Guidelines for Production
 Deployment](../../administer/security-guidelines-for-production-deployment) for the
-full list of security-related recommendations for WSO2 Identity Server
+full list of security-related recommendations for WSO2 Identity Server.

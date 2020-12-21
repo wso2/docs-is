@@ -29,7 +29,7 @@ case, the identity provider is the WSO2 Identity Server (IS).
 
 3. Within WSO2 IS:
 
-    1.  The user authenticates himself.
+    1.  The users authenticate themselves.
 
     2.  Approves any user consents regarding the application.
 

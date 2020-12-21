@@ -4,9 +4,9 @@ WSO2 Identity Server enables resetting user passwords by correctly responding to
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Larry** who is a new recruit at Pickup has forgotten his password. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Alex** who is a new recruit at Pickup has forgotten the password. 
 
-Let's learn how he can recover his password by answering to a challenge question!
+Let's learn how Alex can recover the password by answering to a challenge question!
 
 ## Set up
 
@@ -38,7 +38,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 ## Try out
 
-1.	To create the user account for Larry:
+1.	To create the user account for Alex:
 
 	1.	On the **Main** menu of the Management Console, click **Identity > Users and Roles > Add**.
 
@@ -53,13 +53,13 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 		<img src="../../assets/img/learn/add-new-user-screen.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
 
 		-	**Domain**: `Primary`
-		-	**Username**: `Larry`
+		-	**Username**: `Alex`
 
 	4.	Click **Finish**. 
 
 2.	To assign login permissions to the user:
 	
-	1.	Click the **View Roles** option of Larry.
+	1.	Click the **View Roles** option of Alex.
 
 		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
@@ -73,50 +73,49 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 3.	To configure the challenge questions:
 
-	1.	Access WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`. 		
+	1.	Access WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`. 		
 
 	2.	Log in with the credentials of the user account that you created.
 
-		<img src="../../assets/img/learn/sign-in-form.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
-	3.	Consent to share the shown attributes with the given service provider.
+	3.	Under **Account Recovery**, click **+** to add or update security questions.
 
-		<img src="../../assets/img/learn/consent-form.png" alt="Consent form" width="400" style="border:1px solid grey">
+		<img src="../../assets/img/learn/userportal-account-recovery-option.png" alt="Change Passwrod option" width="700
+		" style="border:1px solid grey">
 
-	4.	Under **Account Recovery**, click **View details**.
+	4.	Configure the challenge questions as given below:
 
-		<img src="../../assets/img/learn/dashboard-account-recovery-option.png" alt="Change Passwrod option" width="700" style="border:1px solid grey">
+		-	**Challenge Question 1**: `Name of your first pet?`
+		-	**Your Answer**: `Tom`
+		-	**Challenge Question 2**: `Favourite food?`
+		-	**Your Answer**: `Pizza`
 
-	5.	Configure the challenge questions as given below:
+		<img src="../../assets/img/learn/userportal-account-recovery-form.png" alt="Challenge Question form" width="700
+		" style="border:1px solid grey">
 
-		-	**Challenge Question 1**: `City where you were born?`
-		-	**Your Answer**: `Seattle`
-		-	**Challenge Question 2**: `Favourite sport?`
-		-	**Your Answer**: `Baseball`
+	5. Click **Update**.
 
-		<img src="../../assets/img/learn/dashboard-account-recovery-form.png" alt="Challenge Question form" width="700" style="border:1px solid grey">
-
-	6. Click **Update**.
-
-	7. Sign out.  
+	6. Sign out.  
 
 4.	To mimic a forgotten password:
 
-	1.	On the Sign In screen of the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`, click **Password**.
+	1.	On the Sign In screen of the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`, click
+	 **Password**.
 
 		<img src="../../assets/img/learn/forgotten-password-option.png" alt="Sign In form" width="700" style="border:1px solid grey"> 	
 
-	3.	Enter the user name as `Larry` and select the **Recover with Security Questions** option.
+	3.	Enter the user name as `Alex` and select the **Recover with Security Questions** option.
 
 		<img src="../../assets/img/learn/recover-password-screen.png" alt="Consent form" width="600" style="border:1px solid grey">
 
 	4.	Click **Submit**. 
 
-	5.	Enter the first challenge question answer as `Seattle` and click **Submit**.
+	5.	Enter the first challenge question answer as `Tom` and click **Submit**.
 
 		<img src="../../assets/img/learn/first-security-question.png" alt="First Security Question" width="400" style="border:1px solid grey">
 
-	6.	Enter the second challenge question answer as `Baseball` and click **Submit**.
+	6.	Enter the second challenge question answer as `Pizza` and click **Submit**.
 
 		<img src="../../assets/img/learn/second-security-question.png" alt="First Security Question" width="400" style="border:1px solid grey">  
 

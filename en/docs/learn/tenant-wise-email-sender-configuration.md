@@ -1,14 +1,14 @@
-# Tenant Wise Email Sender Configuration
+# Tenant-Wise Email Sender Configuration
 
-When handling notifications such as, 
+When handling notifications such as the ones given below, the email-sender configuration needs to be changed in `<IS-HOME>/repository/conf/deployment.toml`. 
 
 - [EmailOTP](../../learn/configuring-email-otp)
 - [Password Recovery](../../learn/password-recovery)
 - [Username Recovery](../../learn/username-recovery)
 - [Creating Users using the Ask PasswordOption](../../learn/creating-users-using-the-ask-password-option)
 
-We are configuring email-sender configurations by adding the following configuration to 
-`<IS-HOME>/repository/conf/deployment.toml` file.  
+
+**Email configurations**
 
  ``` toml
  [output_adapter.email]
@@ -20,30 +20,31 @@ We are configuring email-sender configurations by adding the following configura
  enable_start_tls= true
  enable_authentication= true
  ```
+ However, this configuration will apply to all the tenants. If you wish to configure them tenant-wise follow the instructions given below instead. 
  
- But this configuration will apply to all the tenants. If you are having a requirement to configure them tenant wise please follow the following instructions. 
- 
-1. Configure [Configuration Management REST API](../../develop/using-the-configuration-management-rest-apis). 
+1. Configure the [Configuration Management REST API](../../develop/using-the-configuration-management-rest-apis). 
 2. Execute the following curl command for creating a resource type named `Publisher`. 
 
     **Sample Request**
     ``` java 
-    curl -X POST "https://localhost/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource-type" -H "accept: application/json" -H 
-    "Content-Type: application/json" -d "{ \"name\": \"Publisher\", \"description\": \"Publisher Configurations\"}"
+    curl -X POST "https://localhost:9443/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource-type" -H "accept: 
+    application/json" -H 
+    "Content-Type: application/json" -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d "{ \"name\": \"Publisher\", \"description\": \"Publisher Configurations\"}"
     ```
 3. Execute the following curl command for creating a resource named `EmailPublisher`. 
 
     **Sample Request**
     ``` java 
-    curl -X POST "https://localhost/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource/Publisher" -H "accept: application/json" -H "Content-Type: application/json" -d 
-    "{ \"name\": \"EmailPublisher\", \"attributes\": [ { \"key\": \"email\", \"value\": \"string\" } ]}"
+    curl -X POST "https://localhost:9443/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource/Publisher" -H "accept: 
+    application/json" -H "Content-Type: application/json" -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d "{ \"name\": \"EmailPublisher\", \"attributes\": [ { \"key\": \"email\", \"value\": \"string\" } ]}"
     ```
 4. Execute the following curl command for creating a file named `EmailPublisher`. 
 
     **Sample Request**
     ``` java 
-    curl -X POST "https://localhost/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource/Publisher/EmailPublisher/file" -H "accept: application/json" -H 
-    "Content-Type: multipart/form-data" -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "file-name=EmailPublisher"
+    curl -X POST "https://localhost:9443/t/{tenant-domain}/api/identity/config-mgt/v1
+    .0/resource/Publisher/EmailPublisher/file" -H "accept: application/json" -H 
+    "Content-Type: multipart/form-data" -H 'Authorization: Basic YWRtaW46YWRtaW4=' -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "fileName=EmailPublisher"
     ```
     This `EmailPublisher.xml` file will be used as the tenant's email publisher file. We can configure the tenant 
     wise email configurations here. 
@@ -97,33 +98,33 @@ We are configuring email-sender configurations by adding the following configura
     </tbody>
     </table>
     
-    Following is a sample configuration for `EmailPublisher.xml` file. 
+    Following is a sample configuration for the `EmailPublisher.xml` file. 
     
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <eventPublisher name="EmailPublisher" statistics="disable"
-      trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
-      <from streamName="id_gov_notify_stream" version="1.0.0"/>
-      <mapping customMapping="enable" type="text">
-        <inline>{{body}}{{footer}}</inline>
-      </mapping>
-      <to eventAdapterType="email">
-        <property name="email.address">{{send-to}}</property>
-        <property name="email.type">{{content-type}}</property>
-        <property name="email.subject">{{subject}}</property>
-        <property name="mail.smtp.password">xxxxx</property>
-        <property name="mail.smtp.from">resourcesiam@gmail.com</property>
-        <property name="mail.smtp.user">resourcesiam</property>
-      </to>
-    </eventPublisher>
-    ```
+    ??? info "Sample Email Publisher"
+        ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <eventPublisher name="EmailPublisher" statistics="disable"
+          trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+          <from streamName="id_gov_notify_stream" version="1.0.0"/>
+          <mapping customMapping="enable" type="text">
+            <inline>{{body}}{{footer}}</inline>
+          </mapping>
+          <to eventAdapterType="email">
+            <property name="email.address">{{send-to}}</property>
+            <property name="email.type">{{content-type}}</property>
+            <property name="email.subject">{{subject}}</property>
+            <property name="mail.smtp.password">xxxxx</property>
+            <property name="mail.smtp.from">resourcesiam@gmail.com</property>
+            <property name="mail.smtp.user">resourcesiam</property>
+          </to>
+        </eventPublisher>
+        ``` 
+        
     !!! note
-        You do not need to configure all the configurable parameters. If you havent configured in the `EmailPublisher.xml`,
-        Configurations in the `output-event-adapters.xml` will be used for unconfigured parameters. 
+        You do not need to configure all the configurable parameters. If a parameter has not been configured in the `EmailPublisher.xml` file, configurations in the `output-event-adapters.xml` will be used instead. 
     
-5. Configure tenant loading and unloading for your tenant. [Configuring the Tenant Loading Policy](../../administer/configuring-the-tenant-loading-policy) 
-
-6. These configurations will apply to the tenant loading process.
+5. Since these configurations will be applicable during the tenant loading process, [Configure tenant loading and 
+unloading for your tenant](../../administer/configuring-the-tenant-loading-policy). 
 
     !!! tip
         Only one `EmailPublisher.xml` file with the name `EmailPublisher` should be added for a tenant.

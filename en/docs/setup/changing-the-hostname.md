@@ -4,10 +4,9 @@ This section guides you through changing the hostname of WSO2 Identity
 Server.
 
 1.  Change the hostname 
-    
+
     Server hostname for internal API calls, is by default configured as `localhost`. This configuration is utilized 
-    to build the internal absolute url of a service endpoint, that will be consumed at places that will generate 
-    internal API calls. Hence, when configuring the hostname you can follow one from the below two options 
+    to build the internal absolute url of a service endpoint that will be consumed whenever internal API calls are generated. To configure the hostname, follow one of the two options given below
     according to your requirement.
 
     - **Option 1**
@@ -52,6 +51,25 @@ Server.
 
     Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and
     use the following command to create a new keystore with `CN=is.dev.wso2.com`.
+
+    - **Option 2**
+
+    If you are configuring the hostnames for evaluations (when there is no load balancer or proxy), you can 
+    configure the same name for the `hostname`, and the `internal_hostname` as follows in 
+    `<IS_HOME>/repository/conf/deployment.toml`.
+
+    ``` toml
+    [server]
+    hostname = "is.dev.wso2.com"
+    internal_hostname = "is.dev.wso2.com"
+    ``` 
+
+2.  All keystores in WSO2 IS are stored in the
+    `           <IS_HOME>/repository/resources/security          `
+    folder. Navigate to the security folder on the command prompt and
+    use the following command to create a new keystore with
+    `           CN=is.dev.wso2.com          `.
+
 
     **Format**
 

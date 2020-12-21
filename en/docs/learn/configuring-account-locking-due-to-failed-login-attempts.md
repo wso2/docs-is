@@ -6,9 +6,9 @@ WSO2 Identity Server enables privileged users to define the maximum number of fa
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Larry** is a new recruit. To prevent unauthorized access, Robert wants to temporarily lock accounts to which more than 3 failed login attempts were made.
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Sam** is an administrator at Pickup, **Alex** is a new recruit. To prevent unauthorized access, Sam wants to temporarily lock accounts to which more than 3 failed login attempts were made.
 
-Let's learn how Robert implements this!  
+Let's learn how Sam implements this!  
 
 ## Set up
 
@@ -48,7 +48,7 @@ Follow the steps below to configure account locking due to failed login attempts
 
 ## Try out
 
-1.	To create the user account for Larry:
+1.	To create the user account for Alex:
 
 	1.	On the **Main** menu of the Management Console, click **Identity > Users and Roles > Add**.
 
@@ -63,13 +63,13 @@ Follow the steps below to configure account locking due to failed login attempts
 		<img src="../../assets/img/learn/add-new-user-screen.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
 
 		-	**Domain**: `Primary`
-		-	**Username**: `Larry`
+		-	**Username**: `Alex`
 
 	4.	Click **Finish**. 
 
 2.	To assign login permissions to the user:
 	
-	1.	Click the **View Roles** option of Larry.
+	1.	Click the **View Roles** option of Alex.
 
 		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
@@ -81,13 +81,13 @@ Follow the steps below to configure account locking due to failed login attempts
 
 		<img src="../../assets/img/learn/login-permission.png" alt="Login permission" width="700" style="border:1px solid grey">  
 
-3.	To configure Larry's email account:
+3.	To configure Alex's email account:
 	
-	1.	Click **User Profile** option of Larry.
+	1.	Click **User Profile** option of Alex.
 
 		<img src="../../assets/img/learn/user-profile-option.png" alt="User Profile option" width="700" style="border:1px solid grey">   
 
-	2.	Enter an email address to which Larry's account locking emails should be sent.
+	2.	Enter an email address to which Alex's account locking emails should be sent.
 
 		<img src="../../assets/img/learn/user-email.png" alt="User Email option" width="700" style="border:1px solid grey">    		
 
@@ -95,11 +95,12 @@ Follow the steps below to configure account locking due to failed login attempts
 
 4.	To mimic account locking:
 
-	1.	Access the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.  
+	1.	Access the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.  
 
-		<img src="../../assets/img/learn/dashboard-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
+		 solid grey"> 	
 
-	2.	To mimic three consecutive erroneous login attempts, log in with Larry's user name and the following as passwords sequentially:
+	2.	To mimic three consecutive erroneous login attempts, log in with Alex's user name and the following as passwords sequentially:
 
 		-	`test123`
 		-	`test234`
@@ -109,7 +110,8 @@ Follow the steps below to configure account locking due to failed login attempts
 
 		<img src="../../assets/img/learn/account-locked-email.png" alt="Account Locked email" width="500" style="border:1px solid grey">  
 
-	4.	Wait for 15 minutes and try to log in again with the correct credentials. The WSO2 Identity Server Dashboard home screen appears.  
+	4.	Wait for 15 minutes and try to log in again with the correct credentials. The WSO2 Identity Server User Portal
+	 home screen appears.  
 
 
 	

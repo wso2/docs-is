@@ -19,8 +19,8 @@ Follow the instructions given in the sections below to set this up.
 
 ### Configuring the service provider
 
-1.  Before you begin this guide you have deployed and
-    [registered the `playground2` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1).
+1.  Before you begin this guide you should [deploy and
+    register](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1) the `playground2` webapp.
     Let's edit the same service provider to configure **ACR-Based**.
     authentication flow.
     

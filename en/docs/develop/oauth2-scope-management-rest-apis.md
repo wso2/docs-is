@@ -29,7 +29,7 @@ see [OIDC Scope Management REST APIs](../../develop/oidc-scope-management-rest-a
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/oauth2-scope-management.yaml",
+    url: "https://raw.githubusercontent.com/wso2-extensions/identity-inbound-auth-oauth/master/components/org.wso2.carbon.identity.oauth.scope.endpoint/src/main/resources/api.identity.oauth2.scope.endpoint.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

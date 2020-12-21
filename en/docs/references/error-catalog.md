@@ -1187,14 +1187,116 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>IDP-60025</a></td>
         <td>400</td>
         <td>Invalid input.</td>
-        <td>One of the given inputs is invalid.</td>
+        <td>One of the given inputs is invalid.{Optional Details, if any}</td>
       </tr>
       <tr>
         <td>IDP-60026</a></td>
         <td>400</td>
         <td>Invalid SAML metadata.</td>
         <td>SAML metadata is invalid/empty.</td>
-      </tr>              
+      </tr>
+      <tr>
+        <td>IDP-65050</a></td>
+        <td>500</td>
+        <td>Unable to list existing identity provider templates</td>
+        <td>Error occured while listing identity provider templates.</td>
+      </tr> 
+      <tr>
+        <td>IDP-65051</a></td>
+        <td>500</td>
+        <td>Unable to add IDP template.</td>
+        <td>Error occurred while trying to add the IDP template.</td>
+      </tr>
+      <tr>
+        <td>IDP-65052</a></td>
+        <td>500</td>
+        <td>Unable to delete IDP template.</td>
+        <td>Error occurred while trying to delete the IDP template.</td>
+      </tr>
+      <tr>
+        <td>IDP-65053</a></td>
+        <td>500</td>
+        <td>Unable to update IDP template.</td>
+        <td>Error occurred while trying to update the IDP template.</td>
+      </tr>
+      <tr>
+        <td>IDP-65054</a></td>
+        <td>500</td>
+        <td>Unable to retrieve IDP template.</td>
+        <td>Error occurred while trying to retrieve the IDP template.</td>
+      </tr>
+      <tr>
+        <td>TMM_00001</a></td>
+        <td>500</td>
+        <td>Unable to list existing identity provider templates</td>
+        <td>Error occurred while listing identity provider templates.</td>
+      </tr>
+      <tr>
+        <td>TMM_00006</a></td>
+        <td>500</td>
+        <td>Unable to update identity provider template</td>
+        <td>Error occurred while updating identity provider template with id {template-id}.</td>
+      </tr>
+      <tr>
+        <td>TMM_00007</a></td>
+        <td>400</td>
+        <td>Unable to add/update IDP template.</td>
+        <td>Template name required.</td>
+      </tr>
+      <tr>
+        <td>TMM_00008</a></td>
+        <td>400</td>
+        <td>Unable to add/update IDP template.</td>
+        <td>Template script required.</td>
+      </tr>
+      <tr>
+        <td>TMM_00009</a></td>
+        <td>401</td>
+        <td>Unauthorized access.</td>
+        <td>No authenticated user found to perform action.</td>
+      </tr>
+      <tr>
+        <td>TMM_00011</a></td>
+        <td>401</td>
+        <td>Unauthorized access.</td>
+        <td>User is not authorized to perform the action.</td>
+      </tr>
+      <tr>
+        <td>TMM_00014</a></td>
+        <td>409</td>
+        <td>Unable to add/update IdP template.</td>
+        <td>Template with name {template-name} already exists.</td>
+      </tr>
+      <tr>
+        <td>TMM_00017</a></td>
+        <td>500</td>
+        <td>Unable to list existing identity provider templates</td>
+        <td>Error occurred while listing identity provider templates.</td>
+      </tr>
+      <tr>
+        <td>TMM_00018</a></td>
+        <td>500</td>
+        <td>Unable to delete IDP template.</td>
+        <td>Error occurred while trying to delete the IDP template.</td>
+      </tr>
+      <tr>
+        <td>TMM_00019</a></td>
+        <td>500</td>
+        <td>Unable to retrieve IDP template.</td>
+        <td>Error occurred while trying to retrieve the IDP template.</td>
+      </tr>
+      <tr>
+        <td>TMM_00021</a></td>
+        <td>404</td>
+        <td>Template not found</td>
+        <td>Template with given id {template-id} not found.</td>
+      </tr>
+      <tr>
+        <td>TMM_00022</a></td>
+        <td>400</td>
+        <td>Invalid template Id.</td>
+        <td>Provided template ID {template-id} is not valid.</td>
+      </tr>
   </tbody>
 </table>
 </div>
@@ -1522,6 +1624,177 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>Invalid input.</td>
         <td>One of the given inputs is invalid.</td>
       </tr>
+  </tbody>
+</table>
+</div>
+
+## Tenant Management Errors
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>TM-60000</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>Provided email is empty.</td>
+  </tr>
+  <tr>
+    <td>TM-60001</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>Wrong characters in the email.</td>
+  </tr>
+  <tr>
+    <td>TM-60002</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>Invalid email address is provided.</td>
+  </tr>
+  <tr>
+    <td>TM-60003</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>You can not use a registry reserved word as a tenant domain. Please choose a different one.</td>
+  </tr>
+  <tr>
+    <td>TM-60004</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>Provided domain name is empty.</td>
+  </tr>
+  <tr>
+    <td>TM-60005</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>You should have an extension to your domain.</td>
+  </tr>
+  <tr>
+    <td>TM-60006</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>Invalid domain. Domain should not start with '.'</td>
+  </tr>
+  <tr>
+    <td>TM-60007</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>The tenant domain {tenant-domain} contains one or more illegal characters. The valid characters are lowercase letters, numbers, '.', '-' and '_'.</td>
+  </tr>
+  <tr>
+    <td>TM-60008</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>User name : {username} exists in the system. Please pick another user name for tenant administrator.</td>
+  </tr>
+  <tr>
+    <td>TM-60009</td>
+    <td>400</td>
+    <td>Unable to add tenant.</td>
+    <td>A tenant with same domain {tenant-domain} already exists. Please use a different domain name.</td>
+  </tr>
+  <tr>
+    <td>TM-60010</td>
+    <td>400</td>
+    <td>Invalid Request</td>
+    <td>Limit should not be negative.</td>
+  </tr>
+  <tr>
+    <td>TM-60011</td>
+    <td>400</td>
+    <td>Invalid Request</td>
+    <td>Offset should not be negative.</td>
+  </tr>
+  <tr>
+    <td>TM-60012</td>
+    <td>400</td>
+    <td>Invalid Request</td>
+    <td>Required parameter owner is not specified.</td>
+  </tr>
+  <tr>
+    <td>TM-60013</td>
+    <td>400</td>
+    <td>Invalid Request</td>
+    <td>Required parameter {required-parameter} is not specified.</td>
+  </tr>
+  <tr>
+    <td>TM-60014</td>
+    <td>400</td>
+    <td>Unable to retrieve tenant.</td>
+    <td>Tenant cannot be found for the provided id: {tenant-unique-id}.</td>
+  </tr>
+  <tr>
+    <td>TM-60015</td>
+    <td>400</td>
+    <td>Unable to retrieve tenant.</td>
+    <td>Tenant can not be found for the provided domain: {tenant-domain}.</td>
+  </tr>
+  <tr>
+    <td>TM-60016</td>
+    <td>400</td>
+    <td>Error while deleting the tenant metadata.</td>
+    <td>Tenant deletion property {Tenant.TenantDelete} is not enabled in carbon.xml file.</td>
+  </tr>
+  <tr>
+    <td>TM-65001</td>
+    <td>500</td>
+    <td>Unable to list existing tenants.</td>
+    <td>Server encountered an error while listing the tenants.</td>
+  </tr>
+  <tr>
+    <td>TM-65002</td>
+    <td>500</td>
+    <td>Unable to add tenant.</td>
+    <td>Server encountered an error while adding the tenant.</td>
+  </tr>
+  <tr>
+    <td>TM-65003</td>
+    <td>500</td>
+    <td>Unable to retrieve tenant.</td>
+    <td>Server encountered an error while retrieving the tenant for identifier {tenant-unique-id}.</td>
+  </tr>
+  <tr>
+    <td>TM-65004</td>
+    <td>500</td>
+    <td>Error while updating the tenant.</td>
+    <td>Server encountered an error while the tenant life cycle status activated: {status-of-lifecycle} .</td>
+  </tr>
+  <tr>
+    <td>TM-65005</td>
+    <td>500</td>
+    <td>Error building page links</td>
+    <td>Error occurred during building page links.</td>
+  </tr>
+  <tr>
+    <td>TM-65006</td>
+    <td>501</td>
+    <td>Filtering not supported.</td>
+    <td>Filtering capability is not supported in this version of the API.</td>
+  </tr>
+  <tr>
+    <td>TM-65007</td>
+    <td>500</td>
+    <td>Unable to add tenant.</td>
+    <td>Error occurred in validating the code.</td>
+  </tr>
+  <tr>
+    <td>TM-65008</td>
+    <td>500</td>
+    <td>Unable to check availability of domain.</td>
+    <td>Server encountered an error while checking for tenant domain</td>
+  </tr>
+  <tr>
+    <td>TM-65009</td>
+    <td>500</td>
+    <td>Error while deleting the tenant metadata.</td>
+    <td>Server encountered an error while deleting the tenant metadata identified by {tenant-unique-id}.</td>
+  </tr>
   </tbody>
 </table>
 </div>

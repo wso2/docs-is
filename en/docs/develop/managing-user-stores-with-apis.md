@@ -9,11 +9,11 @@ This section guides you through invoking and working with the `UserStoreConfigAd
 `UserStoreConfigAdminService` is an admin service of WSO2 Identity Server. As admin services are secured to prevent anonymous invocations, you cannot view the WSDL of the admin service by
 default. Follow the steps below to view and invoke it:
 
-1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and set the `admin_service.wsdl` element to `false`.
+1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and set the `admin_service.wsdl` element to `true`.
 
     ```toml
     [admin_service.wsdl]
-    enable = "false"
+    enable = "true"
     ```
 
 2.  Restart WSO2 Identity Server.

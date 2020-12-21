@@ -152,13 +152,13 @@ and properties of connectors as mentioned below. <br>
     | HTTP Connection Request Timeout | adaptive_authentication.analytics.HTTPConnectionRequestTimeout | HTTP Connection Request Timeout in milliseconds |
     | Hostname verification | adaptive_authentication.analytics.hostnameVerfier | Hostname verification. (STRICT, ALLOW_ALL) |
 
-The APIs can be used to retrieve the above mentioned categories, connectors of the categories, properties of the categories, and update the property values..
+The APIs can be used to retrieve the above mentioned categories, connectors of the categories, properties of the categories, and update the property values.
 
 ??? Note "Click For Instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
     1.  Click **Authorize** and provide desired values for authentication. 
-    2.  Expand the relevant API operation and click the **Try it Out**.  
+    2.  Expand the relevant API operation and click **Try it Out**.  
     3.  Fill in relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
     4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
@@ -169,7 +169,7 @@ The APIs can be used to retrieve the above mentioned categories, connectors of t
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/identity-governance.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.identity.governance/org.wso2.carbon.identity.api.server.identity.governance.v1/src/main/resources/identity-governance.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,

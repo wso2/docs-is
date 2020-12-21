@@ -1,5 +1,8 @@
 # Configuring Instagram Authenticator
 
+!!! note
+	This authenticator is now deprecated as the Instagram API Platform which supported authentication is no longer available. The [Facebook Authenticator](../../learn/configuring-facebook) can be used as an alternative to this.
+
 The Instagram authenticator allows users to log in to your
 organization's applications using
 [Instagram](https://www.instagram.com/), which is an online mobile

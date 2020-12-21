@@ -36,7 +36,7 @@ To configure SAML2 Web SSO:
 #### Manual configuration
 
 1.  Select **Manual Configuration** and enter the required details as
-    giveb below. ![manual-config](../assets/img/tutorials/manual-config.png)
+    given below. ![manual-config](../assets/img/tutorials/manual-config.png)
     <table>
     <thead>
     <tr class="header">
@@ -178,7 +178,11 @@ To configure SAML2 Web SSO:
     </tr>
     <tr class="even">
     <td><strong>Enable Signature Validation in Authentication Requests and Logout Requests</strong></td>
-    <td>Select <strong>Enable Signature Validation in Authentication Requests and Logout Requests</strong> if you need this functionality configured. This specifies whether the identity provider must validate the signature of the SAML2 authentication request and the SAML2 logout request that are sent by the service provider.</td>
+    <td>Select <strong>Enable Signature Validation in Authentication Requests and Logout Requests</strong> if you need this functionality configured. This specifies whether the identity provider must validate the signature of the SAML2 authentication request and the SAML2 logout request that are sent by the service provider.
+	<div class="admonition tip">
+    <p class="admonition-title">Tip</p>
+    <p>To find the configuration recommended to enable signature validation in Travelocity, refer [Testing with tenants](../../setup/configuring-a-sp-and-idp-using-configuration-files#testing-with-tenants).</p></div>
+    </td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">

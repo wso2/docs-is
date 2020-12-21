@@ -21,7 +21,7 @@ dialect link. Follow the instructions below to edit a claim dialect.
     ![edit-claim-link](../assets/img/using-wso2-identity-server/edit-claim-link.png)
 5.  Enter the new claim information in the required fields and click on
     the **Update** button.  
-    ![new-claim-info](../assets/img/using-wso2-identity-server/new-claim-info.png)
+    ![update-local-claim](../assets/img/using-wso2-identity-server/update-local-claim.png) 
 
     | Attribute            | Description                                                                | Sample value                                                                                                                       |
     |----------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -34,28 +34,6 @@ dialect link. Follow the instructions below to edit a claim dialect.
     | Supported by Default | Whether the claim is displayed in the profile of the user.                 | Enabled                                                                                                                            |
     | Required             | Whether the claim is mandatory.                                            | Enabled                                                                                                                            |
     | Read-only            | Whether the claim cannot be updated later (Read only).                     | Enabled                                                                                                                            |
-
-    !!! note
-    
-        When you are using [more than one user
-        store](../../setup/configuring-secondary-user-stores), you must map the
-        attributes correctly using claim management. Under “Mapped
-        Attribute(s)” you need to follow the pattern.
-    
-        ``` java
-        {domain_name/attribute_Name};{domain_name/attribute_Name}; {domain_name/attribute_Name};
-        ```
-    
-        However, for the default user store, you do not need to provide the
-        domain name. As an example, if you have two user stores, one is the
-        default and another one with domain “LDAP” then the pattern would be
-        as follows for “
-        `                       http://wso2.org/claims/emailaddress                     `
-        ".
-    
-        ``` java
-            email;LDAP/mail
-        ```
     
 
 ### Using the configuration file

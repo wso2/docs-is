@@ -10,23 +10,6 @@ in an authorization request selects the hybrid flow for authentication:
 -   [code id\_token](#code-id_token)
 -   [code id\_token token](#code-id_token-token)
 
-To configure WSO2 Identity Server to support the OpenID Connect hybrid
-flow for authentication, you need to add following to the
-`         <IS_HOME>/repository/conf/deployment.toml        ` file.
-
-```toml
-[[oauth.custom_response_type]]
-name="code token"
-class="org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandle"
-
-[[oauth.custom_response_type]]
-name="code id_token"
-class="org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler"
-
-[[oauth.custom_response_type]]
-name="code id_token token"
-class="org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler"
-```
 
 To understand how the `         response_type        ` value specified
 in an authorization request selects the hybrid flow to be the

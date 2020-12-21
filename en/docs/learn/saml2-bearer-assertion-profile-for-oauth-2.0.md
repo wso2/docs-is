@@ -30,7 +30,7 @@ is entirely different from the IDP. Especially if there could be a cut
 down in the number of steps performed in the OAuth 2.0 dance in
 obtaining an access token due to the fact that the clients have already
 authenticated themselves to the IDP and the resource owner has
-authenticated himself and authorized the client, enterprises are going
+authenticated themself and authorized the client, enterprises are going
 to love it. The SAML2 Bearer Assertion Profile for OAuth 2.0 is the
 answer to the question of how we leverage on the existing trust
 relationship between the SP and the IDP, by presenting the SAML 2.0

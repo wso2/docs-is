@@ -16,53 +16,55 @@ with Remote H2:
     the local registry in a registry mount.
     
 
-## Setting up datasource configurations
+## Datasource configurations
 
 A datasource is used to establish the connection to a database. By
 default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
 to the default  H2 database. 
 
-- `WSO2_SHARED_DB` - The database which stores registry and user management
+- `WSO2_SHARED_DB` - The datasource which stores registry and user management
                      data.
-- `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
+- `WSO2_IDENTITY_DB` - The datasource specific for the identity server which stores
                        identity related data
                        
 After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB`, or both to that H2 database by following the instructions given below.
 
-### Changing the default datasource
+## Changing the default datasource
 
-1.  **Minimum Configurations for changing default datasource to H2.**
+**Minimum Configurations for changing default datasource to H2**
  
- Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
- Following are the basic configurations and their descriptions. 
-      <table>
-      <thead>
-      <tr class="header">
-      <th>Element</th>
-      <th>Description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr class="even">
-      <td><strong>username</strong> and <strong>password</strong></td>
-      <td>The name and password of the database user.</td>
-      </tr>
-      <tr class="even">
-      <td><strong>driver</strong></td>
-      <td>The jdbc driver of the database.</td>
-      </tr>
-      <tr class="even">
-      <td><strong>url</strong></td>
-      <td>The url of the database.</td>
-      </tr>
-      </table>   
+You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+
+Following are the basic configurations and their descriptions. 
+
+<table>
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+<td><strong>username</strong> and <strong>password</strong></td>
+<td>The name and password of the database user.</td>
+</tr>
+<tr class="even">
+<td><strong>driver</strong></td>
+<td>The jdbc driver of the database.</td>
+</tr>
+<tr class="even">
+<td><strong>url</strong></td>
+<td>The url of the database.</td>
+</tr>
+</table>   
  
- A Sample configuration is given below.
+ A sample configuration is given below.
 
    1. `WSO2_IDENTITY_DB` 
     
-       1. `deployment.toml` Configurations
+       1. Configure the `deployment.toml` file.
 
            ``` toml
             [database.identity_db]
@@ -80,7 +82,7 @@ After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or
             defaultAutoCommit=false
            ```
        
-       1. Executing database scripts.
+       1. Execute database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
@@ -90,7 +92,7 @@ After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or
          
    2. `WSO2_SHARED_DB`
         
-       1. `deployment.toml` Configurations
+       1. Configure the `deployment.toml` file.
 
            ``` toml
             [database.shared_db]
@@ -127,11 +129,11 @@ After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or
            
             
 
-   2.**Advanced Database Configurations.**
+**Advanced Database Configurations.**
 
 Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
 
-- `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+- `WSO2_IDENTITY_DB` `deployment.toml` configurations:
     
    ``` toml
    [database.identity_db.pool_options]
@@ -144,7 +146,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     defaultAutoCommit=false
    ```
    
-- `WSO2_SHARED_DB` `deployment.toml` Configurations.
+- `WSO2_SHARED_DB` `deployment.toml` configurations:
         
    ``` toml
    [database.shared_db.pool_options]
@@ -200,21 +202,14 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     JDBC Connection
     Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
     
-!!! note
 
-    "Configuring the connection pool behavior on return" 
-    When a database connection is returned to the pool, by default 
-    the product rolls back the pending transactions if defaultAutoCommit
-    =true. However, if required you can disable the latter mentioned
-    default behavior by disabling the
-    `            ConnectionRollbackOnReturnInterceptor           `,
-    which is a JDBC-Pool JDBC interceptor, and setting the connection
-    pool behavior on return via the datasource configurations by using
-    the following options.
-    
-    
+## Configuring the connection pool behavior on return 
 
-### Configure the connection pool to commit pending transactions on connection return  
+By default, when a database connection is returned to the pool, the product rolls back the pending transactions if `defaultAutoCommit=true`. 
+
+However, if required, you can disable the latter mentioned default behavior by disabling the JDBC-Pool JDBC interceptor, `ConnectionRollbackOnReturnInterceptor`, and setting the connection pool behavior on return via the datasource configurations using one of the following options.
+
+**Configure the connection pool to commit pending transactions on connection return**  
         
   1.  Navigate to either one of the following locations based on your OS.
         -   On Linux/Mac OS:
@@ -251,7 +246,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
         commitOnReturn="true"
        ```    
             
-### Configure the connection pool to rollback pending transactions on connection return
+**Configure the connection pool to rollback pending transactions on connection return**
 
   1.  Navigate to the
         `<IS_HOME>/repository/conf/deployment.toml`            `
@@ -264,7 +259,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
         property to the datasources as true.
 
 
-    - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+    - `WSO2_IDENTITY_DB` `deployment.toml` configurations:
         
        ``` toml
        [database.identity_db.pool_options]
@@ -272,7 +267,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
         rollbackOnReturn="true"
        ```
        
-    - `WSO2_SHARED_DB` `deployment.toml` Configurations.
+    - `WSO2_SHARED_DB` `deployment.toml` configurations:
             
        ``` toml
        [database.shared_db.pool_options]
