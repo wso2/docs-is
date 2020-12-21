@@ -151,6 +151,15 @@ Let's get started to configure the service provider you created!
             </tr>
       <tr class="odd">
          <td>
+            <p><strong>Revoke tokens upon user logout</strong></p>
+            <p><strong><br />
+               </strong>
+            </p>
+         </td>
+         <td> If you have enabled the <strong>Cookie Based</strong> or <strong>SSO Session Based</strong> binding type, you can also enable this configuration to enable revoking access tokens when the access token binding expires. <br/> <br/>When the user logs out of the application, the access tokens of the token binding reference issued for the application, gets revoked. Additionally, issued access tokens for a session that has expired due to a session idle timeout when a user tries to use single sign-on, log in again, or log out after a session has expired, also gets revoked.</td>
+      </tr>
+      <tr class="odd">
+         <td>
             <p><strong>User Access Token Expiry Time, Application Access Token Expiry Time, Refresh Token Expiry Time, Id Token Expiry Time</strong></p>
             <p><strong><br />
                </strong>

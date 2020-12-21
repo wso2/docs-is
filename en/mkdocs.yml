@@ -18,7 +18,7 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://is.docs.wso2.com/en/5.11.0/
+site_url: https://is.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-is
@@ -200,7 +200,7 @@ nav:
           - 'Login-Attempts-Based': learn/configuring-login-attempts-based-adaptive-authentication.md
           - 'With Function Library': learn/adaptive-authentication-with-function-library.md
           - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md
-        - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
+        - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-is-analytics-for-adaptive-authentication.md
         - 'Using OPA Policies for Adaptive Authentication': learn/using-opa-policies-for-adaptive-auth.md
         - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
       - 'Identity Federation':
@@ -335,8 +335,9 @@ nav:
           - 'Self-Registration and Account Confirmation':
             - 'Self-Registration and Account Confirmation': learn/self-registration-and-account-confirmation.md
             - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md
+            - 'Lite User Registration': learn/lite-user-registration.md
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
-          - 'Emails with Special Characters': learn/adding-email-special-characters.md
+          - 'Emails with Special Characters': learn/addi    ng-email-special-characters.md
           - 'Configuring Email Masking Pattern': learn/configure-email-masking-pattern.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
@@ -344,6 +345,7 @@ nav:
         - 'Password Policies':
           - 'Password History Validation': learn/password-history-validation.md
           - 'Password Patterns': learn/password-patterns.md
+          - 'Password Expiry': learn/password-expiry.md
         - 'Login Policies':
           - 'User Account Locking and Account Disabling':
             - 'Overview': learn/user-account-locking-and-account-disabling.md
@@ -431,6 +433,7 @@ nav:
           - 'Writing A New OAuth Client Authenticator': learn/writing-a-new-oauth-client-authenticator.md
           - 'Private Key JWT Client Authentication for OIDC': learn/private-key-jwt-client-authentication-for-oidc.md
           - 'Mutual TLS for OAuth Clients': learn/mutual-tls-for-oauth-clients.md
+          - 'Mutual TLS Client Authentication and Certificate-Bound Access Tokens': learn/mutual-tls-client-auth.md
           - 'Microprofile JWT 1.0 support for IS':
             - 'Microprofile JWT 1.0 support for IS': learn/microprofile-jwt-1.0-support-for-is.md
             - 'Running the MP-JWT Sample': learn/running-the-mp-jwt-sample.md
@@ -515,6 +518,7 @@ nav:
         - 'Overview': develop/extending-the-identity-server.md
         - 'User Management for Developers':
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
+          - 'Writing a Custom Global Scope Validator': develop/writing-a-custom-global-scope-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
           - 'Writing a Custom Event Handler': develop/writing-a-custom-event-handler.md
           - 'User Store Listeners': develop/user-store-listeners.md
@@ -555,7 +559,9 @@ nav:
             - 'Associations': develop/association-rest-api.md
             - 'Authentication Data': develop/authentication-data-api.md
             - 'Authentication': develop/using-the-authentication-rest-apis.md
-            - 'Authorized Apps': develop/authorized-apps-rest-api.md
+            - 'Authorized Apps':
+              - 'Authorized Apps V1': develop/authorized-apps-rest-api.md
+              - 'Authorized Apps V2': develop/authorized-apps-v2-rest-api.md
             - 'Challenge Question': develop/challenge-rest-api.md
             - 'Claim Management' : develop/claim-management-rest-api.md
             - 'Configuration Management':
@@ -584,8 +590,8 @@ nav:
             - 'Tenant Management': develop/tenant-management-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
             - 'User Discoverable Application Management': develop/user-discoverable-applications.md
-            - 'Scope based Authorization for Internal REST APIs': develop/scope-based-authorization-for-internal-rest-apis.md
             - 'User Functionality Management REST APIs': develop/user-functionality-mgt-rest-api.md
+            - 'Workflow Engine Management REST APIs': develop/workflow-engine-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
@@ -722,8 +728,7 @@ nav:
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
           - "Migrating to 5.11.0" : setup/migrating-to-5110.md
-          - 'Migrating Data Publishers': setup/migrating-data-publishers.md
-          - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
+      - 'WSO2 Identity Server Feature Deprecation': setup/wso2-identity-server-feature-deprecation.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
@@ -787,6 +792,7 @@ nav:
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
       - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
       - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
+      - 'Samesite Attribute Support': administer/samesite-attribute-support.md
       - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
@@ -857,6 +863,8 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
+  site_version: 5.11.0
+  
   nav_list:
     - Home
     - Get Started

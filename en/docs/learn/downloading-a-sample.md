@@ -35,7 +35,7 @@ Follow the instructions below to download a sample from GitHub.
 
     ``` bash
     cd ../..
-    git checkout -b v5.9.0 v5.9.0
+    git checkout -b v5.11.0 v5.11.0
     ```
 
     Access the samples by navigating to the ` is-samples/modules/samples

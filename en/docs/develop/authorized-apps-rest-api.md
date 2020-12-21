@@ -4,6 +4,11 @@ template: templates/swagger.html
 
 # OAuth2 Authorized Apps API Definition - v1
 
+!!! warning
+    This API version will be deprecated in future versions of WSO2 IS. 
+    You can use [OAuth2 Authorized Apps 
+    API Definition - v2](../../develop/authorized-apps-v2-rest-api) instead.
+
 ??? Note "Click For Instructions"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
@@ -19,7 +24,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/authorizedapps.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-user/master/components/org.wso2.carbon.identity.api.user.authorized.apps/org.wso2.carbon.identity.rest.api.user.authorized.apps.v2/src/main/resources/authorizedApps.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,

@@ -19,7 +19,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/script-library.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.script.library/org.wso2.carbon.identity.api.server.script.library.v1/src/main/resources/scriptLibrary.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

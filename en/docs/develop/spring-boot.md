@@ -4,8 +4,7 @@
     To try this out, see [Run Spring-boot Sample](https://github.com/wso2-extensions/identity-samples-spring-boot).
     
 
-## Overview
-This showcases the capability to integrate a spring-boot application with WSO2 Identity Server for secure authentication using OpenID Connect standard.
+This page guides you through integrating a spring-boot application with WSO2 Identity Server for secure authentication using OpenID Connect.
 
 ## Register application
 
@@ -21,9 +20,9 @@ This showcases the capability to integrate a spring-boot application with WSO2 I
 
 6. Enter `http://localhost:8080/spring-boot-sample/login/oauth2/code/wso2 ` as the **Callback Url**. 
    
-   !!!tip
-      The **Callback URL** is the exact location of the service provider's application to which the authorization code should be sent. 
-      This should always be `{baseUrl}/login/oauth2/code/wso2`.
+    !!! tip
+        The **Callback URL** is the exact location of the service provider's application to which the authorization code should be sent. 
+        This should always be `{baseUrl}/login/oauth2/code/wso2`.
       
 7. Select **Enable OIDC Backchannel Logout** if you wish to configure a logout URL. 
 
@@ -33,17 +32,17 @@ This showcases the capability to integrate a spring-boot application with WSO2 I
 
 10. Note the **Client ID** and **Client Secret** that appear.
 
-| Field                 | Value                               | Sample Value                                                 |
-| --------------------- | ------------------------------      | -------------------------------------------                  |
-| Service Provider Name | your-application-name               | sample-app                                                   |
-| Description           | This is a spring-boot application   | This is a spring-boot application                            |
-| CallBack Url          | {baseUrl}/login/oauth2/code/wso2    | http://localhost:8080/sprinb-boot-app/login/oauth2/code/wso2 |
-| Logout Url            | {baseUrl}/login                     | http://localhost:8080/spring-boot-app                        |
+    | Field                 | Value                               | Sample Value                                                 |
+    | --------------------- | ------------------------------      | -------------------------------------------                  |
+    | Service Provider Name | your-application-name               | sample-app                                                   |
+    | Description           | This is a spring-boot application   | This is a spring-boot application                            |
+    | CallBack Url          | {baseUrl}/login/oauth2/code/wso2    | http://localhost:8080/sprinb-boot-app/login/oauth2/code/wso2 |
+    | Logout Url            | {baseUrl}/login                     | http://localhost:8080/spring-boot-app                        |
                         
 
 ### Add the dependency 
 
-Add the following dependencies in the pom file in the spring-boot-project.
+Add the following dependencies to the pom file in the spring-boot-project.
 
 ```xml
 <dependencies>
@@ -97,40 +96,37 @@ Add the following configurations related to WSO2 Identity Server and the applica
    ```
 
    ```yaml tab="Example"
-  provider:
-    host: https://localhost:9443 #Change the host
-    
-  spring:
-    security:
-      oauth2:
-        client:
-          registration:
-            wso2:
-              client-name : WSO2 Identity Server
-              client-id: LQTLEgDFil5Tyf0wS5KWUShkMDEa #Change client-id
-              client-secret: uFwLrbBKhp74NWT1zBIjXuXuYUa # Change client-secret
-              authorization-grant-type: authorization_code
-              scope: openid
-          provider:
-            wso2:
-              issuer-uri: ${provider.host}/oauth2/oidcdiscovery
+    provider:
+        host: https://localhost:9443 #Change the host
+        
+    spring:
+        security:
+        oauth2:
+            client:
+            registration:
+                wso2:
+                client-name : WSO2 Identity Server
+                client-id: LQTLEgDFil5Tyf0wS5KWUShkMDEa #Change client-id
+                client-secret: uFwLrbBKhp74NWT1zBIjXuXuYUa # Change client-secret
+                authorization-grant-type: authorization_code
+                scope: openid
+            provider:
+                wso2:
+                issuer-uri: ${provider.host}/oauth2/oidcdiscovery
 
-    thymeleaf:
-      cache: false
+        thymeleaf:
+        cache: false
    ```
 
 ## Login
 
 ### Use the default `/login` endpoint
 
-- Spring Boot generates a default login page. All the endpoints of the application are secured except the `/login`
- page. 
-- Try to access any of the application pages. It will redirect to WSO2 Identity Server login page since all the pages are secure. 
+Spring Boot generates a default login page. All the endpoints of the application are secured except the `/login` page. 
 
-- If the `/login` endpoint is accessed, it redirects to the default login page of the spring-boot application.
+Try to access any of the application pages. It will redirect to WSO2 Identity Server login page since all the pages are secured. If the `/login` endpoint is accessed, it redirects to the default login page of the spring-boot application.
 
-
-### Remove the default “/login” page and redirect directly to IS login page.
+### Remove the default “/login” page and redirect directly to the WSO2 IS login page
 
 1. Create a `ConfigSecurity` class and extend `WebSecurityConfigurerAdapter`.
 
@@ -149,20 +145,17 @@ Add the following configurations related to WSO2 Identity Server and the applica
                    .oauth2Login().loginPage("/login");
        }
     }
-
     ```
 
 2. When the application tries to call the `/login` endpoint, add redirection to `"/oauth2/authorization/wso2"` in the Controller. This will skip the login page.
     
-   ```java
-
+    ```java
     @GetMapping("/login")
     public String getLoginPage(Model model) {
 
-       return "redirect:/oauth2/authorization/wso2";
+        return "redirect:/oauth2/authorization/wso2";
     }
-
-   ```
+    ```
 
 ### Customize the login page and use another login endpoint
 
@@ -191,10 +184,9 @@ Even though Spring Boot generates a default login page, follow the instructions 
     }
     ```
 
-2. Create a Login Controller Class and render the login page when the browser is redirected to `/oauth-login`. 
+2. Create a `Login Controller Class` and render the login page when the browser is redirected to `/oauth-login`. 
 
     ```java
-
     @Controller
     public class LoginController {
 
@@ -227,26 +219,23 @@ Even though Spring Boot generates a default login page, follow the instructions 
     }
     ```
 
-#### Create an `oidc-login.html` page inside the `resources/templates` folder
+3. Create a template at `src/main/resources/templates/oidc-login.html` to display the login option.
 
-Create a template at `src/main/resources/oidc-login.html` to display the login option.
-
-```html
-
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-   <meta charset="UTF-8">
-   <title>Title</title>
-</head>
-<body>
-<h3>Login with:</h3>
-<p th:each="url : ${urls}">
-   <a th:text="${url.key}" th:href="${url.value}">Client</a>
-</p>
-</body>
-</html>
-```
+    ```html
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    </head>
+    <body>
+    <h3>Login with:</h3>
+    <p th:each="url : ${urls}">
+    <a th:text="${url.key}" th:href="${url.value}">Client</a>
+    </p>
+    </body>
+    </html>
+    ```
 
 ## Logout
 
@@ -296,7 +285,7 @@ Follow the instructions given below to configure the post logout URI.
 2. Create a template at `src/main/resources/login.html` to display the logout option and have a logout button.
 
 
-3.  Add the `/logout` redirection when user clicks the Logout button. 
+3.  Add the `/logout` redirection when user clicks the **Logout** button. 
 
     ```html
     <div style="float:right">
@@ -309,80 +298,72 @@ Follow the instructions given below to configure the post logout URI.
 
 ### Customize the logout endpoint
 
-If you wish to customize the logout endpoint, follow the steps below. 
+To customize the logout endpoint, create a `ConfigSecurity` class by extending `WebSecurityConfigurerAdapter`, and configure the `logoutUrl`.
+    
+```java
+@EnableWebSecurity
+public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 
-1. Create a `ConfigSecurity` class by extending WebSecurityConfigurerAdapter and configure the logoutUrl
-    ```java
+    protected void configure(HttpSecurity http) throws Exception {
 
-
-    @EnableWebSecurity
-    public class ConfigSecurity extends WebSecurityConfigurerAdapter {
-
-       protected void configure(HttpSecurity http) throws Exception {
-
-           http.authorizeRequests()
-                   .antMatchers("/login")
-                   .permitAll()
-                   .anyRequest()
-                   .authenticated()
-                   .and().oauth2Login().loginPage("/login")
-                   .and().logout().logoutUrl("/applogout)
-                   .logoutSuccessHandler(oidcLogoutSuccessHandler());
-
-       }
-    @Autowired
-       private ClientRegistrationRepository clientRegistrationRepository;
-
-       private LogoutSuccessHandler oidcLogoutSuccessHandler() {
-           OidcClientInitiatedLogoutSuccessHandler oidcLogoutSuccessHandler =
-                   new OidcClientInitiatedLogoutSuccessHandler(
-                           this.clientRegistrationRepository);
-
-           oidcLogoutSuccessHandler.setPostLogoutRedirectUri(
-                   URI.create("http://localhost:8080/sprinb-boot-app"));
-
-           return oidcLogoutSuccessHandler;
-       }
+        http.authorizeRequests()
+                .antMatchers("/login")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and().oauth2Login().loginPage("/login")
+                .and().logout().logoutUrl("/applogout)
+                .logoutSuccessHandler(oidcLogoutSuccessHandler());
 
     }
+@Autowired
+    private ClientRegistrationRepository clientRegistrationRepository;
 
-    ```
-####  Add a logout button and redirect to custom logout (“/applogout”) url
- 
-Create a template at `src/main/resources/login.html` to display the Logout option and have a logout button.
+    private LogoutSuccessHandler oidcLogoutSuccessHandler() {
+        OidcClientInitiatedLogoutSuccessHandler oidcLogoutSuccessHandler =
+                new OidcClientInitiatedLogoutSuccessHandler(
+                        this.clientRegistrationRepository);
 
-Add the `/applogout` redirection when user clicks the `Logout` button.  
+        oidcLogoutSuccessHandler.setPostLogoutRedirectUri(
+                URI.create("http://localhost:8080/sprinb-boot-app"));
 
-```html
+        return oidcLogoutSuccessHandler;
+    }
 
-<div style="float:right">
-   <form method="post" th:action="@{/applogout}"  class="navbar-form navbar-right">
-       <button id="logout-button" type="submit" class="btn btn-danger">Logout</button>
-   </form>
-</div>
+}
 
 ```
+####  Add a logout button and redirect to custom logout (“/applogout”) url
+ 
+1. Create a template at `src/main/resources/login.html` to display the Logout option and have a logout button.
+
+2. Add the `/applogout` redirection when user clicks the `Logout` button.  
+
+    ```html
+    <div style="float:right">
+    <form method="post" th:action="@{/applogout}"  class="navbar-form navbar-right">
+        <button id="logout-button" type="submit" class="btn btn-danger">Logout</button>
+    </form>
+    </div>
+    ```
 
 ## Read user information
 
-* You can get the user information from `org.springframework.security.core.Authentication`and 
-`org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser` classes.
+You can get the user information from `org.springframework.security.core.Authentication` and  `org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser` classes.
 
-1. Add a method to handle redirection to the `/userinfo` endpoint. Add a method in your controller class to get 
- information from the id token.
+1. Add a method to handle redirection to the `/userinfo` endpoint. Add a method in your controller class to get information from the id token.
  
-   ```java
-  @GetMapping("/userinfo")
-      public String getUser(Authentication authentication, Model model) {
+    ```java
+    @GetMapping("/userinfo")
+        public String getUser(Authentication authentication, Model model) {
 
-          model.addAttribute("userName", userName);
-          model.addAttribute("idtoken", user.getClaims());
-          LOGGER.log(Level.INFO, "UserName : " + userName);
-          LOGGER.log(Level.INFO, "User Attributes: " + user.getClaims());
-          return "userinfo";
-      }
-
-  ```
+            model.addAttribute("userName", userName);
+            model.addAttribute("idtoken", user.getClaims());
+            LOGGER.log(Level.INFO, "UserName : " + userName);
+            LOGGER.log(Level.INFO, "User Attributes: " + user.getClaims());
+            return "userinfo";
+        }
+    ```
   
 2. Create another template `userinfo.html` at `src/main/resources/templates` to display the idtoken claims.
 

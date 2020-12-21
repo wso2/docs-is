@@ -24,7 +24,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/session.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-user/master/components/org.wso2.carbon.identity.api.user.session/org.wso2.carbon.identity.api.user.session.v1/src/main/resources/session.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,

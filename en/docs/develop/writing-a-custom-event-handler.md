@@ -16,39 +16,20 @@ Therefore, the email can be sent through an event handler that is subscribed to 
 
 The following list is a list of sample events. 
 
+- `AUTHENTICATION_STEP_SUCCESS`
+- `AUTHENTICATION_STEP_FAILURE`
+- `AUTHENTICATION_SUCCESS`
+- `AUTHENTICATION_FAILURE`
 - `PRE_AUTHENTICATION`
 - `POST_AUTHENTICATION`
 - `PRE_SET_USER_CLAIMS`
 - `POST_SET_USER_CLAIMS`
 - `PRE_ADD_USER`
 - `POST_ADD_USER`
-- `PRE_UPDATE_CREDENTIAL`
-- `POST_UPDATE_CREDENTIAL`
-- `PRE_UPDATE_CREDENTIAL_BY_ADMIN`
-- `POST_UPDATE_CREDENTIAL_BY_ADMIN`
-- `PRE_DELETE_USER`
-- `POST_DELETE_USER`
-- `PRE_SET_USER_CLAIM`
-- `PRE_GET_USER_CLAIM`
-- `POST_GET_USER_CLAIMS`
-- `POST_GET_USER_CLAIM`
-- `POST_SET_USER_CLAIM`
-- `PRE_DELETE_USER_CLAIMS`
-- `POST_DELETE_USER_CLAIMS`
-- `PRE_DELETE_USER_CLAIM`
-- `POST_DELETE_USER_CLAIM`
-- `PRE_ADD_ROLE`
-- `POST_ADD_ROLE`
-- `PRE_DELETE_ROLE`
-- `POST_DELETE_ROLE`
-- `PRE_UPDATE_ROLE`
-- `POST_UPDATE_ROLE`
-- `PRE_UPDATE_USER_LIST_OF_ROLE`
-- `POST_UPDATE_USER_LIST_OF_ROLE`
-- `PRE_UPDATE_ROLE_LIST_OF_USER`
-- `POST_UPDATE_ROLE_LIST_OF_USER`
-- `UPDATE_GOVERNANCE_CONFIGURATION`
-- `TRIGGER_NOTIFICATION`
+
+!!! info
+    The other events available with WSO2 Identity Server can be found from the `Event` class [here](https://github.com/wso2/carbon-identity-framework/blob/master/components/identity-event/org.wso2.carbon.identity.event/src/main/java/org/wso2/carbon/identity/event/IdentityEventConstants.java)
+
 
 ## Writing an event handler
 
@@ -58,7 +39,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
     ```
     public String getName() {
-    return "emailSender";
+    return "customEventHandler";
     }
 
     @Override
@@ -68,7 +49,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     ```
 
 2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations. 
-
+   The `handleEvent()` method should be called from the relevant method, which is written to execute a certain operation and the handlers will be executed once the operation is triggered.
     ```
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
@@ -104,11 +85,11 @@ Add the event handler configuration to the `<IS_HOME>/repository/conf/deployment
 
 ```
 [[event_handler]]
-name= "emailSender"
-subscriptions =["POST_ADD_USER"]
+name= "customEventHandler"
+subscriptions =["CUSTOM_EVENT"]
 ```
 
-When you want to execute an operation related to an event, publish the event. Then, the handler that is subscribed for the relevant events will be used to execute those events. In the sample configuration given above, the `emailSender` handler is subscribed to the `POST_ADD_USER` operation.
+When you want to execute an operation related to an event, publish the event. Then, the handler that is subscribed for the relevant events will be used to execute those events. In the sample configuration given above, the `customEventHandler` handler is subscribed to the `CUSTOM_EVENT` operation.
 
 !!! info
     The following sample event handlers are available with WSO2 Identity Server.

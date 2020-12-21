@@ -38,9 +38,8 @@ account locking, expand the section below for instructions.
 
       3.  Click **Resident** under **Identity Providers** found in the
          **Main** tab.
-      4.  Expand the **Login Policies** tab.
-    5.  Expand the **Account Locking** tab and select the **Account Lock
-        Enabled** checkbox. Click **Update** to save changes.  
+      4.  Expand the **Login Attempts Security** tab.
+    5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
         ![login-policies](../assets/img/using-wso2-identity-server/login-policies.png) 
 
         !!! tip

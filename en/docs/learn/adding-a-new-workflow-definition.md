@@ -6,7 +6,7 @@ Let's get started.
 
 !!! tip "Before you begin"
     
-    1.  Create the user roles that you plan to approve users with along with the following permissions.
+    1.  Create the user roles that you plan to approve users with along with the following permissions. Note that the domain must be specified as **Internal**, else it will be considered as a 'group' instead of a 'role'. 
         -   Login
         -   Human Tasks > View Task List
         -   Workflow Management > BPS Profiles >View
