@@ -492,6 +492,28 @@ You can configure any of the above as following in the
     SendOTPDirectlyToMobile = false
     redirectToMultiOptionPageOnFailure = false
     ```
+
+## Validating the mobile number format of the user
+
+Follow the steps given below to validate the mobile number of the users in
+WSO2 IS.
+
+!!! note
+The `CaptureAndUpdateMobileNumber` property in the SMS OTP configuration properties should be set to **true**.
+
+1.  Expand **SMS OTP Configuration** under **Federated Authenticators**.
+
+2.  Enter the regex pattern you wish to validate the mobile number against when the user enters the mobile number on the registration page.
+
+	![add-mobile-number-regex-pattern](../assets/img/tutorials/sms-otp/add-mobile-number-regex-pattern.png)
+
+	!!! info
+	-	For example, if the entered mobile number is to be validated against the **E.164** format, enter the regex pattern as `\\+[1-9]\\d{1,14}\$`.
+
+3.  Enter the error message that should be displayed to the user when the mobile number is entered in the incorrect format.
+
+	![add-regex-violation-error-message](../assets/img/tutorials/sms-otp/add-regex-violation-error-message.png)
+
      
 !!! note
 
