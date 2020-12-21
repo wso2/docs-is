@@ -6,19 +6,17 @@ Server.
 1.  Change the hostname 
     
     Server hostname for internal API calls, is by default configured as `localhost`. This configuration is utilized 
-    to build the internal absolute url of a service endpoint, that will be consumed at places that will generate 
-    internal API calls. Hence, when configuring the hostname you can follow one from the below two options 
+    to build the internal absolute url of a service endpoint that will be consumed whenever internal API calls are generated. To configure the hostname, follow one of the two options given below
     according to your requirement.
 
     - **Option 1**
 
-    If you are configuring the hostnames in production for or a load-balanced or proxied deployment, you need 
-    to configure only the `hostname` as follows in `<IS_HOME>/repository/conf/deployment.toml`.
+    If you are configuring the hostnames in production for or a load-balanced or proxied deployment, configure only the `hostname` as follows in `<IS_HOME>/repository/conf/deployment.toml`.
 
     ``` toml
     [server]
     hostname = "is.dev.wso2.com"
-    ``` 
+    ```
 
     - **Option 2**
 
