@@ -90,7 +90,7 @@ Add the following configurations related to WSO2 Identity Server and the applica
                 scope: openid
             provider:
               wso2:
-                issuer-uri: ${provider.host}/oauth2/oidcdiscovery
+                issuer-uri: ${provider.host}/oauth2/token
       thymeleaf:
         cache: false
    ```
@@ -112,7 +112,7 @@ Add the following configurations related to WSO2 Identity Server and the applica
                 scope: openid
             provider:
                 wso2:
-                issuer-uri: ${provider.host}/oauth2/oidcdiscovery
+                issuer-uri: ${provider.host}/oauth2/token
 
         thymeleaf:
         cache: false
