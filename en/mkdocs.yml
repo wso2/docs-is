@@ -559,7 +559,9 @@ nav:
             - 'Associations': develop/association-rest-api.md
             - 'Authentication Data': develop/authentication-data-api.md
             - 'Authentication': develop/using-the-authentication-rest-apis.md
-            - 'Authorized Apps': develop/authorized-apps-rest-api.md
+            - 'Authorized Apps':
+              - 'Authorized Apps V1': develop/authorized-apps-rest-api.md
+              - 'Authorized Apps V2': develop/authorized-apps-v2-rest-api.md
             - 'Challenge Question': develop/challenge-rest-api.md
             - 'Claim Management' : develop/claim-management-rest-api.md
             - 'Configuration Management':
@@ -726,6 +728,7 @@ nav:
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
           - "Migrating to 5.11.0" : setup/migrating-to-5110.md
+          - 'Migrating Userstore Managers': setup/migrating-userstore-managers.md
       - 'WSO2 Identity Server Feature Deprecation': setup/wso2-identity-server-feature-deprecation.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
