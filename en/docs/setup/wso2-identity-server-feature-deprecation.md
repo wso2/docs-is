@@ -106,6 +106,16 @@ Our recommendation is to migrate to OAuth 2.0
    <td>FUTURE
    </td>
   </tr>
+  <tr>
+   <td>Tenant Management REST API
+   </td>
+   <td>Tenant qualified urls will not be supported for tenant management REST APIs.
+   </td>
+   <td>5.12.0
+   </td>
+   <td>5.12.0
+   </td>
+  </tr>
 </table>
 
 Please refer EOL dates of a product from here: [WSO2 Product Support Lifecycle](https://wso2.com/products/support-matrix/).
