@@ -25,7 +25,7 @@ see [OAuth2 Scope Management REST APIs](../../develop/oauth2-scope-management-re
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.oidc.scope.management/org.wso2.carbon.identity.api.server.oidc.scope.management.v1/src/main/resources/oidc-scope-management.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/v1.0.190/components/org.wso2.carbon.identity.api.server.oidc.scope.management/org.wso2.carbon.identity.api.server.oidc.scope.management.v1/src/main/resources/oidc-scope-management.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
