@@ -109,7 +109,7 @@ Our recommendation is to migrate to OAuth 2.0
   <tr>
    <td>Tenant Management REST API
    </td>
-   <td>Tenant qualified urls will not be supported for tenant management REST APIs.
+   <td>Tenant qualified URLs will not be supported for tenant management REST APIs.
    </td>
    <td>5.12.0
    </td>
