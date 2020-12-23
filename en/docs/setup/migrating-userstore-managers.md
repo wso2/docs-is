@@ -67,7 +67,7 @@ The following configurations are only needed to migrate a few tenants. The forma
 | migratingDomains | List of comma-separated domain names that should be migrated to this domain. (Optional) |
 | forceUpdateUserId | Mark whether user IDs should be updated even though there is already an existing ID. (Optional) |
 
-## Database changes for migration
+## Populating UserIds to the userstores
 
 These steps should be carried out for the old database before the migration. A backup of UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps the backup database should be migrated to the next version.
 
