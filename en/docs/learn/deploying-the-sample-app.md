@@ -117,7 +117,7 @@ For example,
 
 !!! note "Important"
 
-    SAML2 POST Binding requires CORS configs set up. Before configuring the service provider, make sure you add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
+    SAML2 POST Binding requires CORS configurations. Before configuring the service provider, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
 
     ```toml
     [cors]
