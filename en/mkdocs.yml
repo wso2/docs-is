@@ -299,11 +299,21 @@ nav:
   - 'APIs':
     - 'Overview': apis/rest-apis.md
     - 'Authenticating and Authorizing APIs': apis/authenticating-and-authorizing-rest-apis.md
+    - 'Account Recovery': apis/insert-page
     - 'Application Management APIs': apis/application-rest-api.md
+    - 'Approvals': apis/approvals-rest-api.md
+    - 'Associations': apis/association-rest-api.md
+    - 'Authentication Data': apis/authentication-data-api.md
+    - 'Authentication': apis/insert-page
+    - 'Authorized Apps': apis/authorized-apps-rest-api.md
+    - 'Configuration Management': 
+      - 'Overview': apis/using-the-configuration-management-rest-apis.md
+      - 'Retrieving Tenant Resources Based on Search Parameters': apis/retrieving-tenant-resources-based-on-search-parameters.md
     - 'Challenge Questions Management APIs': apis/challenge-question-rest-api.md
     - 'CORS APIs': apis/cors-rest-api.md
     - 'Attribute/Claim Management APIs': apis/claim-management-rest-api.md
     - 'Email Templates Management APIs': apis/email-templates-rest-api.md
+    - 'Entitlement APIs': apis/entitlement-with-rest-apis.md
     - 'FIDO APIs': apis/fido-rest-api.md
     - 'Identity Governance APIs': apis/identity-governance-rest-api.md
     - 'Identity Providers Management APIs': apis/idp-rest-api.md
@@ -313,6 +323,7 @@ nav:
     - 'OAuth2 Scope Management APIs': apis/oauth2-scope-rest-api.md
     - 'OpenID Connect Scope Management APIs': apis/oidc-scope-rest-api.md
     - 'Permission Management APIs' : apis/permission-rest-api.md
+    - 'Scope-based Authorization for Internal APIs': apis/scope-based-authorization-for-internal-rest-apis.md
     - 'Script Libraries APIs': apis/script-library-rest-api.md
     - 'Secondary User Store APIs': apis/user-store-rest-api.md
     - 'Session Management APIs': apis/session-rest-api.md
