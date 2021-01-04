@@ -25,7 +25,7 @@ Server.
     **Format**
 
     ``` java
-    keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost
+    keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost -ext ExtendedKeyUsage=serverAuth -validity 825
     ```
 
     Replace the values enclosed in `           <>          ` in the
@@ -35,7 +35,7 @@ Server.
     **Sample keytool command**
 
     ``` java
-    keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
+    keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost -ext ExtendedKeyUsage=serverAuth -validity 825
     ```
     
     - **Option 2**
