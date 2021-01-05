@@ -19,6 +19,14 @@ template: templates/swagger.html
        4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
          IS. 
          
+!!! Note
+    
+    - From 5.12 version onwards, We revoke the access tokens  mapped with the session via REST API.
+    - This is applicable for authorization code grant, implicit flow, refresh token grant and hybrid flow. 
+    - If the same accesstoken is used my multiple sessions, then if one session is terminated via API, 
+      the other sessions may loose the tokens. So it is recommended to use sso-session binding if you want to have the 
+      functionality to revoke the accesstoken when the session is termianted via REST API.
+    
 <div id="swagger-ui"></div>
 <script>
 window.onload = function() {
