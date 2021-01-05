@@ -83,7 +83,7 @@ The following section provides the instructions to define properties for each no
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/notification-sender.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.notification.sender/org.wso2.carbon.identity.api.server.notification.sender.v1/src/main/resources/notification-sender.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
