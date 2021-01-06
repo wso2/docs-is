@@ -25,7 +25,7 @@ Server.
     **Format**
 
     ``` java
-    keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost -ext ExtendedKeyUsage=serverAuth -validity 825
+    keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name>.jks -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost
     ```
 
     Replace the values enclosed in `           <>          ` in the
@@ -35,7 +35,7 @@ Server.
     **Sample keytool command**
 
     ``` java
-    keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost -ext ExtendedKeyUsage=serverAuth -validity 825
+      keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
     ```
     
     - **Option 2**
@@ -47,29 +47,10 @@ Server.
     [server]
     hostname = "is.dev.wso2.com"
     internal_hostname = "is.dev.wso2.com"
-    ```
-
-    Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and
-    use the following command to create a new keystore with `CN=is.dev.wso2.com`.
-
-    - **Option 2**
-
-    If you are configuring the hostnames for evaluations (when there is no load balancer or proxy), you can 
-    configure the same name for the `hostname`, and the `internal_hostname` as follows in 
-    `<IS_HOME>/repository/conf/deployment.toml`.
-
-    ``` toml
-    [server]
-    hostname = "is.dev.wso2.com"
-    internal_hostname = "is.dev.wso2.com"
     ``` 
 
-2.  All keystores in WSO2 IS are stored in the
-    `           <IS_HOME>/repository/resources/security          `
-    folder. Navigate to the security folder on the command prompt and
-    use the following command to create a new keystore with
-    `           CN=is.dev.wso2.com          `.
-
+    Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and
+    use the following command to create a new keystore with `CN=is.dev.wso2.com`.        `.
 
     **Format**
 
