@@ -15,7 +15,7 @@ to the default  H2 database.
                        identity related data
                        
 After setting up the MariaDB database, you can point the `WSO2_IDENTITY_DB` or 
-`WSO2_SHARED_DB` or both to that MariaDB database by following below instructions.
+`WSO2_SHARED_DB` or both to that MariaDB database by following the instructions given below.
 
 ## Changing the default datasource
 
