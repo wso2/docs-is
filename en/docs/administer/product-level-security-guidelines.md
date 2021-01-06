@@ -268,3 +268,49 @@ Log forging can be prevented by appending a UUID to the log message.
 If mutual SSL is enabled, [enable intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
 
 If mutual SSL authentication capabilities are not required, you can [disable it](../../administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is).
+
+## Configuring Application Authentication
+
+Client authentication is used to identify the application or the client that is making the request. There are default credentials used by the out-of-the-box web applications to authenticate with Product's REST APIs that are marked as secure under the 'ResourceAccessControl' tag of identity.xml file. 
+
+In order to change the default credentials do the below steps:
+
+1.  Before apply the configurations, make sure that you get the latest WUM updates for this release. You can use [WSO2 
+Update Manager](https://wso2.com/updates/wum)(WUM) to get any
+    fixes or latest updates for this release.
+
+    !!! note "Important"
+        If you are upgrading to use this version in your production
+        environment, use WSO2 Update Manager to get the latest updates
+        available for WSO2 IS 5.9.0. For more information on how to use WSO2
+        Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).        
+2.  Shutdown the server, if you have already started. 
+3.  Add the following configuration changes to /repository/conf/deployment.toml file.
+    
+    - Add the 'app_password' property value of '[identity.auth_framework.endpoint]' to a preferred password.
+      
+       ``` toml
+       [identity.auth_framework.endpoint] 
+       app_password="<value of preferred password>"
+
+        ```  
+    - Add SHA-256 hash value of the added 'app_password' property value to the 'hash' property value of '[account_recovery.endpoint.auth]'.
+    
+         ``` toml
+         [account_recovery.endpoint.auth]
+         hash="<SHA-256 hash of the newly added app_password property value>"
+
+         ```  
+    If the 'authenticationendpoint' web app is hosted externally. Open the 'EndpointConfig.properties' file found in the root of the 'authenticationendpoint' folder. Change the 'app.password' property value to the value added as 'app_password' in the 'deployment.toml' file. 
+    And do the same changes to the 'EndpointConfig.properties' file located in the "/WEB-INF/classes'' directory.
+    
+    If the 'accountrecoveryendpoint' web app is hosted externally. Open the 'RecoveryEndpointConfig. properties' file found in the root of the 'accountrecoveryendpoint' folder. Change the 'app.password' property value to the value added as 'app_password' in the 'deployment.toml' file. 
+    And do the same changes to the “RecoveryEndpointConfig.properties” file located in the "/WEB-INF/classes'' directory.
+4.  Once above configuration changes are completed, restart the server with :
+    
+    - Linux/Unix : sh wso2server.sh
+    - Windows : wso2server.bat
+    
+
+        
+
