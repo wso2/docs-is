@@ -19,7 +19,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/wso2-extensions/identity-local-auth-fido/master/components/org.wso2.carbon.identity.application.authenticator.fido2.endpoint/src/main/resources/fido.yaml",
+    url: "https://raw.githubusercontent.com/wso2-extensions/identity-local-auth-fido/v5.2.8/components/org.wso2.carbon.identity.application.authenticator.fido2.endpoint/src/main/resources/fido.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
