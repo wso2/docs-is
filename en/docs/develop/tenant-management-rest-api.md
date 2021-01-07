@@ -36,4 +36,4 @@ window.onload = function() {
 }
 </script>
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/42f50c4510ed5e47f9f2)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/4b7454af08aaa3c5de3c)
