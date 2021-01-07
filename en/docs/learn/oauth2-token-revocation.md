@@ -89,6 +89,6 @@ The `         callback        ` parameter is optional.
 
 !!! Note
     When a session is terminated via rest api, WSO2 Identity Server will 
-    revoke the mapped accesstoken as well. There can be some instances where same access token is used across 
-    multiple sessions. So it is always recommended to use sso-session binding if you are using session management 
-    rest api to terminate the sessions.
+    revoke the mapped access token as well. There can be some instances where same access token is used across 
+    multiple sessions. Therefore, it is always recommended to use sso-session binding if you are using the [session management 
+    REST API](../develop/session-mgt-rest-api) to terminate the sessions.

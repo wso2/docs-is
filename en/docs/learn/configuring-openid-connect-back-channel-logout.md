@@ -221,5 +221,5 @@ the newly registered service provider:
     ![]( ../assets/img/112390325/112391429.png) 
 
 !!! Note
-    When a session is terminated via the [Session Management REST API](../develop/session-mgt-rest-api)], 
-    WSO2 Identity Server will send back-channel logout notification.
+    When a session is terminated via the [Session Management REST API](../develop/session-mgt-rest-api), 
+    WSO2 Identity Server will send a back-channel logout notification.
