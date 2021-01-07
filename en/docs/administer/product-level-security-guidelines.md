@@ -273,8 +273,7 @@ If mutual SSL authentication capabilities are not required, you can [disable it]
 ## Configuring client authentication
 
 Client authentication is used to identify the application or the client that is making the request. 
-The web applications provided out-of-the-box use a set of default credentials to authenticate with WSO2 Identity Server REST APIs that are marked as **secure** under the 'ResourceAccessControl' tag of the the`<IS_HOME>/repository/conf/identity/identity.xml` file. 
-
+The web applications provided out-of-the-box use a set of default credentials to authenticate with WSO2 Identity Server REST APIs that are marked as **secure** under the `ResourceAccessControl` tag of the the `<IS_HOME>/repository/conf/identity/identity.xml` file.
 Follow the steps below to change the default credentials.
 
 1.  Before applying the configurations, make sure that you get the latest WUM updates for this release. See [WSO2 
