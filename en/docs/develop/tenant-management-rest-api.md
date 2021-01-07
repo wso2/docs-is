@@ -18,7 +18,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.tenant.management/org.wso2.carbon.identity.api.server.tenant.management.v1/src/main/resources/tenant-management.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/v1.0.190/components/org.wso2.carbon.identity.api.server.tenant.management/org.wso2.carbon.identity.api.server.tenant.management.v1/src/main/resources/tenant-management.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
