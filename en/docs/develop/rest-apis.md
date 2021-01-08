@@ -23,6 +23,7 @@ including the sample requests and responses.
 - [Identity Governance](../../develop/identity-governance-rest-api)
 - [Identity Providers](../../develop/idp-rest-api)
 - [Keystore Management](../../develop/keystore-rest-api)
+- [Notification Senders](../../develop/notification-sender-rest-api)
 - [OAuth2 Scope Management](../../develop/oauth2-scope-management-rest-apis)
 - [OpenID Connect Scope Management](../../develop/oidc-scope-management-rest-apis)
 - [OIDC Dynamic Client Registration](../../develop/using-the-openid-connect-dynamic-client-registration-rest-apis)
