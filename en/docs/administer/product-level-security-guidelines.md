@@ -277,9 +277,19 @@ The web applications provided out-of-the-box use a set of default credentials to
 
 Follow the steps below to change the default credentials.
 
-1.  Shut the server down in case you have already started it. 
+1.  Before applying the configurations, make sure that you get the latest WUM updates for this release. See [WSO2 
+    Update Manager](https://wso2.com/updates/wum)(WUM) to get any
+        fixes or latest updates for this release.
+    
+        !!! note "Important"
+            If you are upgrading to use this version in your production
+            environment, use WSO2 Update Manager to get the latest updates
+            available for WSO2 IS 5.9.0. For more information on how to use WSO2
+            Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
-2.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
+2.  Shut the server down in case you have already started it. 
+
+3.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
     
     -   Add the `app_password` property and enter a preferred password as the value.
       
@@ -311,7 +321,7 @@ Follow the steps below to change the default credentials.
 
             c.   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
     
-3.  Once these changes are configured, restart the server with,
+4.  Once these changes are configured, restart the server with,
     
     - Linux/Unix : sh wso2server.sh
     - Windows : wso2server.bat
