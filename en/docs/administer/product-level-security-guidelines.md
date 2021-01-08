@@ -299,15 +299,15 @@ Follow the steps below to change the default credentials.
         hash="<SHA-256 hash of the newly added app_password property value>"
         ``` 
         
-    a.  If the `authenticationendpoint` web app is hosted externally, do the following:
-        -   Open the `EndpointConfig.properties` file found in the root of the `authenticationendpoint` folder. 
-        -   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
-        -   Do the same changes to the `EndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes` directory.
+If the `authenticationendpoint` web app is hosted externally, do the following:
+    -   Open the `EndpointConfig.properties` file found in the root of the `authenticationendpoint` folder. 
+    -   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
+    -   Do the same changes to the `EndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes` directory.
     
-    b.  If the `accountrecoveryendpoint` web app is hosted externally, do the following:
-        -   Open the `RecoveryEndpointConfig. properties` file found in the root of the `accountrecoveryendpoint` folder. 
-        -   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
-        -   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
+If the `accountrecoveryendpoint` web app is hosted externally, do the following:
+    -   Open the `RecoveryEndpointConfig. properties` file found in the root of the `accountrecoveryendpoint` folder. 
+    -   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
+    -   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
     
 4.  Once these changes are configured, restart the server with,
     
