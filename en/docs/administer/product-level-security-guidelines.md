@@ -273,49 +273,55 @@ If mutual SSL authentication capabilities are not required, you can [disable it]
 ## Configuring client authentication
 
 Client authentication is used to identify the application or the client that is making the request. 
-The web applications provided out-of-the-box use a set of default credentials to authenticate with WSO2 Identity Server REST APIs that are marked as **secure** under the `ResourceAccessControl` tag of the the `<IS_HOME>/repository/conf/identity/identity.xml` file.
+The web applications provided out-of-the-box use a set of default credentials to authenticate with WSO2 Identity Server REST APIs that are marked as **secure** under the 'ResourceAccessControl' tag of the the`<IS_HOME>/repository/conf/identity/identity.xml` file. 
+
 Follow the steps below to change the default credentials.
 
 1.  Before applying the configurations, make sure that you get the latest WUM updates for this release. See [WSO2 
-Update Manager](https://wso2.com/updates/wum)(WUM) to get any
-    fixes or latest updates for this release.
+    Update Manager](https://wso2.com/updates/wum)(WUM) to get any
+        fixes or latest updates for this release.
+    
+        !!! note "Important"
+            If you are upgrading to use this version in your production
+            environment, use WSO2 Update Manager to get the latest updates
+            available for WSO2 IS 5.10.0. For more information on how to use WSO2
+            Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
-    !!! note "Important"
-        If you are upgrading to use this version in your production
-        environment, use WSO2 Update Manager to get the latest updates
-        available for WSO2 IS 5.9.0. For more information on how to use WSO2
-        Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).        
 2.  Shut the server down in case you have already started it. 
+
 3.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
     
-    - Add the `app_password` property and enter a preferred password as the value.
+    -   Add the `app_password` property and enter a preferred password as the value.
       
-       ``` toml
-       [identity.auth_framework.endpoint] 
-       app_password="<value of preferred password>"
+        ``` toml
+        [identity.auth_framework.endpoint] 
+        app_password="<value of preferred password>"
         ```  
-    - Add the `hash` property and enter the SHA-256 hash value of the `app_password` as the property value.
-    
-         ``` toml
-         [account_recovery.endpoint.auth]
-         hash="<SHA-256 hash of the newly added app_password property value>"
-         ```  
-    If the `authenticationendpoint` web app is hosted externally, do the following:
-    
-     1. Open the `EndpointConfig.properties` file found in the root of the `authenticationendpoint` folder. 
-     2. Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
-     3. Do the same changes to the `EndpointConfig.properties` file located in the 
-        `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes` directory.
-    
-    If the `accountrecoveryendpoint` web app is hosted externally, do the following:
-    
-      1. Open the `RecoveryEndpointConfig. properties` file found in the root of the `accountrecoveryendpoint` folder. 
-      2. Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
-      3. Do the same changes to the `RecoveryEndpointConfig.properties` file located in the 
-        `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
+        
+    -   Add the `hash` property and enter the SHA-256 hash value of the `app_password` as the property value.
+
+        ``` toml
+        [account_recovery.endpoint.auth]
+        hash="<SHA-256 hash of the newly added app_password property value>"
+        ``` 
+        
+    - If the `authenticationendpoint` web app is hosted externally, do the following:
+
+            a.  Open the `EndpointConfig.properties` file found in the root of the `authenticationendpoint` folder. 
+
+            b.   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
+
+            c.   Do the same changes to the `EndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes` directory.
+
+    - If the `accountrecoveryendpoint` web app is hosted externally, do the following:
+
+            a.   Open the `RecoveryEndpointConfig. properties` file found in the root of the `accountrecoveryendpoint` folder. 
+
+            b.   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
+
+            c.   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
     
 4.  Once these changes are configured, restart the server with,
     
     - Linux/Unix : sh wso2server.sh
     - Windows : wso2server.bat
-    
