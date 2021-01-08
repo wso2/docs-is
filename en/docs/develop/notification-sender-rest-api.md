@@ -5,8 +5,8 @@ template: templates/swagger.html
 # Notification Senders API Definition - v1
 
 This is the RESTful API for managing notification sender configurations in WSO2 Identity Server. 
-It mainly supports Email and SMS as the notification channels. 
-The following section provides the instructions to define properties for each notification sender type.<br>
+It supports Email and SMS as the notification channels. 
+The following section provides the instructions to contruct requests for each notification sender type.<br>
 
 ??? "NOTE"
 
