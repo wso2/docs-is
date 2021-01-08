@@ -87,6 +87,7 @@ nav:
             - 'Admin-Initiated': learn/configuring-admin-initiated-account-locking.md
             - 'Failed Login Attempts': learn/configuring-account-locking-due-to-failed-login-attempts.md
           - 'Account Disabling': learn/configuring-account-disabling.md
+          - 'Pending Account Status': learn/pending-account-status.md
         - 'Single Sign-On':
           - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
