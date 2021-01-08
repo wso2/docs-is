@@ -284,7 +284,7 @@ Follow the steps below to change the default credentials.
         !!! note "Important"
             If you are upgrading to use this version in your production
             environment, use WSO2 Update Manager to get the latest updates
-            available for WSO2 IS 5.9.0. For more information on how to use WSO2
+            available for WSO2 IS 5.10.0. For more information on how to use WSO2
             Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
 2.  Shut the server down in case you have already started it. 
