@@ -214,7 +214,7 @@ curl -X POST \
   -d token=9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade
 ```
 
- ```tab="Sample Response"
+```tab="Sample Response"
 {
     "nbf": 1586929210,
     "scope": "openid",
