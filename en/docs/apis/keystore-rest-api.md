@@ -4,16 +4,14 @@ template: templates/swagger.html
 
 # Keystore Management API Definition - v1
 
-!!! Note 
-    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server (WSO2 IS). 
-    To try some APIs, a tenant needs to be created with the domain name, 'wso2.com'. See [Adding a new tenant](TODO:insert-link-to-guide) for more information.
+??? Note "Click For Instructions"
+    Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
+    To try some APIs, a tenant needs to be created with the domain name, 'wso2.com'. See [Adding a new tenant](../../../guides/tenants/managing-tenants-with-apis#addtenant) for more information.
     
-    1.  Click **Authorize** and provide the desired values for authentication. 
-    2.  Expand the relevant API operation and click **Try it Out**.  
-    3.  Fill in relevant sample values for the input parameters and click **Execute**. 
+    1.  Expand the relevant API operation and click **Try It Out**.  
+    2.  Fill in relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
-    4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
-     IS. 
+    3.  Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS. 
     
 <div id="swagger-ui"></div>
 <script src="../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
@@ -22,7 +20,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../apis/restapis/keystore.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/v1.0.190/components/org.wso2.carbon.identity.api.server.keystore.management/org.wso2.carbon.identity.api.server.keystore.management.v1/src/main/resources/keystore.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

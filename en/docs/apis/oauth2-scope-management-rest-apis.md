@@ -6,19 +6,18 @@ template: templates/swagger.html
 
 The OAuth2 scope API in WSO2 Identity Server (IS) can be used to manage oauth2 scopes and scope bindings such as 
 roles and permissions. Since OIDC scope is a sub category of OAuth2 scopes, these end points cannot have the same 
-scope names in WSO2 IS. For information about the OIDC scope endpoint, see [OIDC Scope Management REST APIs](../../apis/oidc-scope-rest-api)
+scope names in WSO2 IS. For information about the OIDC scope endpoint,  
+see [OIDC Scope Management REST APIs](../../apis/oidc-scope-management-rest-apis.md)
 
-!!! Note
+??? Note "Click For Instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 IS.
     To try some APIs, a tenant needs to be created with the domain name as 'wso2.com'. 
-    See [here](TODO:insert-link-to-guide) for more details on this.
+    See [here](../../../guides/tenants/managing-tenants-with-apis#addtenant) for more details on this.
     
-    1.  Click **Authorize** and provide the desired values for authentication. 
-    2.  Expand the relevant API operation and click **Try it Out**.  
-    3.  Fill in relevant sample values for the input parameters and click **Execute**. 
+    1.  Expand the relevant API operation and click **Try It Out** button.  
+    2.  Fill in relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
-    4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
-     IS. 
+    3. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS. 
     
 <div id="swagger-ui"></div>
 <script src="../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
@@ -27,7 +26,7 @@ scope names in WSO2 IS. For information about the OIDC scope endpoint, see [OIDC
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../apis/restapis/oauth2-scope-management.yaml",
+    url: "https://raw.githubusercontent.com/wso2-extensions/identity-inbound-auth-oauth/v6.4.111/components/org.wso2.carbon.identity.oauth.scope.endpoint/src/main/resources/api.identity.oauth2.scope.endpoint.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
