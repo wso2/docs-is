@@ -611,7 +611,13 @@ paths:
         - Users Endpoint
       summary: Filter Users
       description: |
-        This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores.
+        This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores. </br></br>
+
+        By default, duplicate user entries in the SCIM2 users response are removed. To persist the duplicate user
+        entries and resolve the inconsistencies in the user listing, add the following configuration to the deployment.toml file. </br> </br>
+
+        [scim2]
+        remove_duplicate_users_in_users_response = false
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/usermgt/view
