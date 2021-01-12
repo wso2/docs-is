@@ -654,6 +654,12 @@ paths:
       description: |
         This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores.
 
+        By default, duplicate user entries in the SCIM2 users response are persisted.
+        To remove the duplicate user entries, add the following configuration to the deployment.toml file.
+
+        [scim2]
+        remove_duplicate_users_in_users_response = true
+
         <b>Permission required:</b>
         * /permission/admin/manage/identity/usermgt/view
         
