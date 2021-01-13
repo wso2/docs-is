@@ -305,7 +305,7 @@ nav:
       - 'Rest APIs': apis/rest-apis.md
       - 'Authenticating and Authorizing': apis/authenticating-and-authorizing-rest-apis.md
       - 'Account Recovery': apis/using-the-account-recovery-rest-apis.md
-      - 'Application Management' : apis/application-rest-api.md
+      - 'Application Management': apis/application-rest-api.md
       - 'Approvals': apis/approvals-rest-api.md
       - 'Associations': apis/association-rest-api.md
       - 'Authentication Data': apis/authentication-data-api.md
@@ -318,7 +318,7 @@ nav:
       - 'Configuration Management':
           - 'Configuration Management': apis/using-the-configuration-management-rest-apis.md
           - 'Retrieving Tenant Resources Based on Search Parameters': apis/retrieving-tenant-resources-based-on-search-parameters.md
-      - 'CORS' : apis/cors-rest-api.md
+      - 'CORS': apis/cors-rest-api.md
       - 'Consent Management': apis/using-the-consent-management-rest-apis.md
       - 'Email Templates': apis/email-templates-rest-api.md
       - 'Entitlement': apis/entitlement-with-rest-apis.md
@@ -330,7 +330,7 @@ nav:
       - 'OAuth2 Scope Management': apis/oauth2-scope-management-rest-apis.md
       - 'OpenID Connect Scope Management': apis/oidc-scope-management-rest-apis.md
       - 'OIDC Dynamic Client Registration': apis/using-the-openid-connect-dynamic-client-registration-rest-apis.md
-      - 'Permission Management' : apis/permission-management-rest-api.md
+      - 'Permission Management': apis/permission-management-rest-api.md
       - 'Personal Information Export': apis/using-the-personal-information-export-rest-apis.md
       - 'SCIM 2.0': apis/scim2-rest-apis.md
       - 'Script Libraries': apis/script-library-rest-api.md

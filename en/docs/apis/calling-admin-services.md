@@ -37,7 +37,7 @@ below is how to discover them using the
  
     
 2.  Go to `           <IS_HOME>/bin/          ` folder and start
-    the WSO2 product as follows,
+    the WSO2 product as follows.
 
     ``` java tab="In Linux Environment"
     sh wso2server.sh -DosgiConsole

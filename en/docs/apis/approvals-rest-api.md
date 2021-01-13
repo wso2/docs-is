@@ -9,11 +9,11 @@ template: templates/swagger.html
       
       1. [Add a new workflow definition](../../../guides/workflows/adding-a-new-workflow-definition/) 
       and [engage the workflow in an operation](../../guides/workflows/engaging-a-workflow-in-an-operation/)
-      2. Perfom few related operations to generate few human task approvals.
-      3. Click on **Authorize** button and provide desired values for authentication.
+      2. Perfom a few related operations to generate a few human task approvals.
+      3. Click **Authorize** and provide the desired values for authentication.
       4. Expand the relevant API operation and click the **Try It Out** button.  
       5. Fill in relevant sample values for the input parameters and click **Execute**. 
-      You will receive generated sample curl command with the sample values you filled in. 
+      You will receive a generated sample curl command with the sample values you filled in. 
       6.  Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of 
       WSO2 IS. 
 

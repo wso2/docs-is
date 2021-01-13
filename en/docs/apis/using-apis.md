@@ -1,6 +1,6 @@
 # Using APIs
 
-The following sections list out key APIs relevant for Developers: 
+The following sections list out key APIs relevant for developers: 
 
 -	[Calling Admin Services](../../apis/calling-admin-services)
 -	[REST APIs](../../apis/rest-apis)
