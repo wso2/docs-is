@@ -2,7 +2,7 @@
 
 This section guides you through using the `         /search        `
 endpoint of the [Configuration Management REST
-API](../../develop/using-the-configuration-management-rest-apis) to search for
+API](../../apis/using-the-configuration-management-rest-apis) to search for
 tenant resources.  
 
 ---
@@ -20,14 +20,14 @@ The search context URL should be as follows:
 Here, the value of `         {search-query}        ` should be in the
 form of a configuration management search query. For information on how
 to write a search condition that is in the form of a configuration
-management search query, follow the sections below. 
-
+management search query, see [Writing a configuration management search
+query](#writing-a-configuration-management-search-query).
 
 ---
 
 ## Writing a configuration management search query
 
-Configuration management search query is an [Open Data
+Configuration management search query is a [Open Data
 Protocol](https://www.odata.org/) based search query supported via
 [Apache CXF](http://cxf.apache.org/docs/jax-rs-search.html#JAX-RSSearch-OpenDataProtocol).
 
@@ -37,15 +37,13 @@ form of a string. The following topics describe the configuration
 management search conditions that you can use to write a configuration
 management search query.
 
----
-
-#### Configuration management primitive search condition
+### Configuration management primitive search condition
 
 A primitive search condition is a string in the following form:  
 `         {RESOURCE_SEARCH_PARAMETER} {PRIMITIVE_CONDITION_OPERATOR} '{VALUE}'        `
 
 Following are the parameters of a resource supported in a primitive
-search condition and the corresponding values replace the
+search condition and the corresponding values to replace the
 `         {RESOURCE_SEARCH_PARAMETER}        ` place holder :
 
 <table>
@@ -92,7 +90,7 @@ search condition and the corresponding values replace the
 </table>
 
 Following are the operators supported in a primitive condition and the
-corresponding values replace the
+corresponding values to replace the
 `         {PRIMITIVE_CONDITION_OPERATOR}        ` place holder :
 
 <table>
@@ -134,9 +132,7 @@ corresponding values replace the
 </tbody>
 </table>
 
----
-
-#### Configuration management complex search condition
+### Configuration management complex search condition
 
 A complex search condition is generally built by combining primitive
 search conditions. The simplest form of a complex search condition
@@ -145,7 +141,7 @@ string is as follows:
 `         {PRIMITIVE_SEARCH_CONDITION_1} {COMPLEX_CONDITION_OPERATOR} {PRIMITIVE_SEARCH_CONDITION_2}        `
 
 Two complex search condition created as mentioned above can also be
-joined as follows to form another complex search condition.
+joined as follows to form another complex search condition:
 
 `         {COMPLEX_SEARCH_CONDITION_1} {COMPLEX_CONDITION_OPERATOR} {COMPLEX_SEARCH_CONDITION_2}        `
 
@@ -190,7 +186,7 @@ condition and the corresponding values to replace the
 
 ---
 
-### Search scenarios
+## Search scenarios
 
 This section demonstrates the different ways of searching for resources
 (i.e. different search scenarios). In the scenarios given below, an HTTP
@@ -352,9 +348,7 @@ database:
 -   Meta-data based search
 -   Attribute-based search
 
----
-
-#### Meta-data based search
+### Meta-data based search
 
 Use the following meta-data parameters to search for resources.
 
@@ -491,7 +485,9 @@ resources that are created in the super tenant domain.
 </tbody>
 </table>
 
-**Search for resources in a specific tenant domain using the resource name**
+**  
+Search for resources in a specific tenant domain using the resource
+name**
 
 The table below shows a sample search query that is used to search for
 resources named "resource\_1" and "resource\_2" in the super tenant
@@ -574,9 +570,7 @@ domain using the resource name.
 </tbody>
 </table>
 
----
-
-#### Attribute-based search
+### Attribute-based search
 
 There are two parameters in any attribute; a key, and a value. The
 search queries given below are used to search for a resource using a
@@ -729,6 +723,7 @@ value is equal to "abc.com".
     </tbody>
     </table>
     
+   
 
 **Search for resources using an attribute key**
 

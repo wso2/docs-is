@@ -1,14 +1,16 @@
 # Entitlement with REST APIs
 
 Entitlement management is the process that grants, resolves, enforces,
-revokes, and administers fine-grained access privileges. The WSO2
+revokes and administers fine-grained access privileges. The WSO2
 Identity Server supports REST APIs for entitlement management via the
 `         https://{IS_IP}:{IS_PORT}/api/identity/entitlement/decision/        `
-endpoint.
+endpoint
 
 -   If your WSO2 Identity Server is running on localhost (127.0.0.1) and
     on the default port (without offset), the entitlement endpoint is as
     follows:
+
+    **Endpoint**
 
     ``` java
     https://localhost:9443/api/identity/entitlement/decision/
@@ -29,11 +31,11 @@ endpoint.
 
             ``` java
             Authorization: Basic YWRtaW46YWRtaW4=
-            ```   
-
+            ```
+    
 ---
 
-##  Get API resource list
+####  Get API resource list
 
 <table>
 <tbody>
@@ -211,7 +213,7 @@ A sample request and response is as follows:
 
 ---
 
-## Evaluate XACML request
+#### Evaluate XACML request
 
 <table>
 <colgroup>
@@ -450,9 +452,9 @@ A sample request and response is as follows:
 </tbody>
 </table>
 
----
+---  
 
-## Evaluate XACML request by attributes
+#### Evaluate XACML request by attributes
 
 <table>
 <tbody>
@@ -657,7 +659,7 @@ A sample request and response are as follows,
 
 ---
 
-## Evaluate XACML request by attributes and receive boolean response
+#### Evaluate XACML request by attributes and receive boolean response
 
 <table>
 <tbody>
@@ -852,7 +854,7 @@ A sample request and response are as follows,
 
 --- 
 
-## Get entitled attributes
+#### Get entitled attributes
 
 <table>
 <tbody>
@@ -1082,7 +1084,7 @@ A sample request and response are as follows,
 
 ---
 
-## Get all entitlements
+#### Get all entitlements
 
 <table>
 <tbody>

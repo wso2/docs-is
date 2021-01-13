@@ -9,7 +9,7 @@ in WSO2 Identity Server. These configurations are grouped into five main
 categories. Each category has subcategories which are called connectors,
 and properties of connectors as mentioned below. <br>
 
-??? tip "Password Policies"
+??? "Password Policies"
 
     **Password History**
     
@@ -29,7 +29,7 @@ and properties of connectors as mentioned below. <br>
     | Password Policy Pattern   | passwordPolicy.pattern   | Allowed password regex pattern |
     | Password Policy Error Message   | passwordPolicy.errorMsg   | Error message for invalid password patterns |
 
-??? tip "Login Policies"
+??? "Login Policies"
 
     **Account Locking**
     
@@ -56,7 +56,7 @@ and properties of connectors as mentioned below. <br>
     | Enable captcha after the Max failed attempts   | sso.login.recaptcha.enable   | Enable captcha verification during SSO login after allowing a certain number of failed attempts |
     | Max failed attempts   | sso.login.recaptcha.on.max.failed.attempts   | Number of failed attempts allowed without showing the captcha |
 
-??? tip "Account Management Policies"
+??? "Account Management Policies"
 
     **Lock Idle Accounts**
     
@@ -118,7 +118,7 @@ and properties of connectors as mentioned below. <br>
     | Enable Password Reset via OTP  | Recovery.AdminPasswordReset.OTP  | User gets notified with a one time password to try out SSO login |
     | Enable Password Reset Offline  | Recovery.AdminPasswordReset.Offline  | An OTP generated and stored in users claims |
 
-??? tip "Consent Management"
+??? "Consent Management"
 
     **Consent Management**
     
@@ -137,7 +137,7 @@ and properties of connectors as mentioned below. <br>
     | Postal Code | postalCode | Postal Code of the Controller |
     | Street Address | streetAddress | Street Address of the Controller |
 
-??? tip "Analytics Engine"
+??? "Analytics Engine"
 
     **Analytics Engine Configuration**
     
@@ -154,21 +154,22 @@ and properties of connectors as mentioned below. <br>
 
 The APIs can be used to retrieve the above mentioned categories, connectors of the categories, properties of the categories, and update the property values.
 
-!!! Note 
-    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server (WSO2 IS). 
+??? Note "Click for instructions"
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
     1.  Click **Authorize** and provide desired values for authentication. 
     2.  Expand the relevant API operation and click **Try it Out**.  
     3.  Fill in relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
-    4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS. 
+    4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
+     IS.
     
 <div id="swagger-ui"></div>
 <script>
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../apis/restapis/identity-governance.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/v1.0.190/components/org.wso2.carbon.identity.api.server.identity.governance/org.wso2.carbon.identity.api.server.identity.governance.v1/src/main/resources/identity-governance.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,

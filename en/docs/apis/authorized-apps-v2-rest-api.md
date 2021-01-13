@@ -1,18 +1,19 @@
 ---
 template: templates/swagger.html
 ---
-# User Discoverable Application Management Rest API Definition - v1
+# OAuth2 Authorized Apps API Definition - v2
 
-!!! Note 
-    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server (WSO2 IS).
+??? Note "Click for instructions"
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server 
+    (WSO2 IS)
 
-    1.  Click **Authorize** and provide the desired values for authentication. 
-    2.  Expand the relevant API operation and click **Try it Out**.  
+    1.  Click on **Authorize** button and provide desired values for authentication. 
+    2.  Expand the relevant API operation and click the **Try It Out** button.  
     3.  Fill in relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
     4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
      IS. 
-
+             
 <div id="swagger-ui"></div>
 <script src="../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
 <script src="../../assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
@@ -20,7 +21,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../apis/restapis/user-discoverable-applications.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-user/v1.1.17/components/org.wso2.carbon.identity.api.user.authorized.apps/org.wso2.carbon.identity.rest.api.user.authorized.apps.v2/src/main/resources/authorizedApps.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
@@ -38,4 +39,4 @@ window.onload = function() {
 }
 </script>
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ebffbe675a969aafea00)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/112cf1de37658c1b09d5)
