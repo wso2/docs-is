@@ -17,7 +17,8 @@ many of the following reasons.
 
 ## Configure Authentication Data API
 
-To make these parameters available via the Authentication Data API, apply the following configurations. 
+To make these parameters available via the Authentication Data API, we
+need to configure the Identity Server as follows.
 
 1.  Configure the following parameters in the
     `                       deployment.toml                      `

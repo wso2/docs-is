@@ -4,8 +4,8 @@ template: templates/swagger.html
 
 # Keystore Management API Definition - v1
 
-??? Note "Click For Instructions"
-    Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
+??? Note "Click for instructions"
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     To try some APIs, a tenant needs to be created with the domain name, 'wso2.com'. See [Adding a new tenant](../../../guides/tenants/managing-tenants-with-apis#addtenant) for more information.
     
     1.  Expand the relevant API operation and click **Try It Out**.  

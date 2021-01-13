@@ -8,7 +8,7 @@ Since OIDC scope is a sub category of OAuth2 scopes, these end points cannot hav
 For more information about the OAuth2 scope endpoint,  
 see [OAuth2 Scope Management REST APIs](../../apis/oauth2-scope-management-rest-apis.md).
 
-??? Note "Click For Instructions"
+??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 IS.
     To try some APIs, a tenant needs to be created with the domain name as 'wso2.com'. 
     See [here](../../../guides/tenants/managing-tenants-with-apis#addtenant) for more details on this.

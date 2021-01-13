@@ -4,13 +4,13 @@ template: templates/swagger.html
 
 # User's Session Management API Definition - v1
 
-??? Note "Click For Instructions"
+??? Note "Click for instructions"
     Before invoking the session management REST APIs, create some sessions for the user. You can create active 
     sessions for the users as follows.
        1. Register a service provider in the WSO2 Identity Server so that the authentication for the application will
         be handled by the Identity Server.
        2. Login to the application with valid credentials.
-    Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
        1.  Click on **Authorize** button and provide desired values for authentication. 
        2.  Expand the relevant API operation and click the **Try It Out** button.  

@@ -4,8 +4,8 @@ template: templates/swagger.html
 
 # SCIM 2.0 API Definition
 
-??? Note "Click to view"
-    Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
+??? Note "Click for instructions"
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
     1.  Click **Authorize** and provide the desired values for authentication. 
     2.  Expand the relevant API operation and click **Try It Out**.  

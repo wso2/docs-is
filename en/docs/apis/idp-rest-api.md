@@ -3,8 +3,8 @@ template: templates/swagger.html
 ---
 # Identity Provider Management API definition - v1
 
-??? Note "Click For Instructions"
-    Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server.
+??? Note "Click for instructions"
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server.
 
     1.  Expand the relevant API operation and click **Try It Out**.
     2.  Fill in relevant sample values for the input parameters and click **Execute**.

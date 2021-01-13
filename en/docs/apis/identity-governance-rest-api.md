@@ -11,7 +11,7 @@ and properties of connectors as mentioned below. <br>
 
 ??? "Password Policies"
 
-    * Password History
+    **Password History**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -19,7 +19,7 @@ and properties of connectors as mentioned below. <br>
     | Password History validation count   | passwordHistory.count   | Restrict reusing last x number of passwords 
     when updating the password |
     
-    * Password Patterns
+    **Password Patterns**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -31,7 +31,7 @@ and properties of connectors as mentioned below. <br>
 
 ??? "Login Policies"
 
-    * Account Locking
+    **Account Locking**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -41,14 +41,14 @@ and properties of connectors as mentioned below. <br>
     | Lock Timeout Increment Factor   | account.lock.handler.login.fail.timeout.ratio   |  |
     | Internal Notification Management   | account.lock.handler.notification.manageInternally   | Error message for invalid password patterns |
     
-    * Account Disabling
+    **Account Disabling**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
     | Enable Account Disabling   | account.disable.handler.enable   | Enable account disable Feature |
     | Internal Notification Management   | account.disable.handler.notification.manageInternally   | Set false if the client application handles notification sending |
     
-    * Captcha for SSO Login
+    **Captcha for SSO Login**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -58,7 +58,7 @@ and properties of connectors as mentioned below. <br>
 
 ??? "Account Management Policies"
 
-    * Lock Idle Accounts
+    **Lock Idle Accounts**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -66,7 +66,7 @@ and properties of connectors as mentioned below. <br>
     | Lock Account After (days)   | suspension.notification.account.disable.delay   |  |
     | Alert Users before account locking in days (comma-separated list)   | suspension.notification.delays   |  |
     
-    * Account Recovery
+    **Account Recovery**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -85,7 +85,7 @@ and properties of connectors as mentioned below. <br>
     | Enable forced challenge questions   | Recovery.Question.Password.Forced.Enable   | Force users to provide answers to challenge questions during sign in |
     | Recovery callback URL regex   | Recovery.CallbackRegex   |  |
     
-    * User Self Registration
+    **User Self Registration**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -98,7 +98,7 @@ and properties of connectors as mentioned below. <br>
     | User self registration callback URL regex  | SelfRegistration.CallbackRegex  | User self registration callback URL regex |
     | Manage Self-Sign-Up purposes  | _url_listPurposeSelfSignUp  | Click here to manage Self-Sign-Up purposes |
     
-    * User Onboarding
+    **User Onboarding**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -110,7 +110,7 @@ and properties of connectors as mentioned below. <br>
     | Temporary password generation extension class  | EmailVerification.AskPassword.PasswordGenerator  | Temporary password generation extension point in ask password feature) |
     | Manage Just In Time Provisioning purposes  | _url_listPurposeJITProvisioning  | Click here to manage JIT purposes |
     
-    * Account Management Policies
+    **Account Management Policies**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -120,7 +120,7 @@ and properties of connectors as mentioned below. <br>
 
 ??? "Consent Management"
 
-    * Consent Management
+    **Consent Management**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -139,7 +139,7 @@ and properties of connectors as mentioned below. <br>
 
 ??? "Analytics Engine"
 
-    * Analytics Engine Configuration
+    **Analytics Engine Configuration**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -154,7 +154,7 @@ and properties of connectors as mentioned below. <br>
 
 The APIs can be used to retrieve the above mentioned categories, connectors of the categories, properties of the categories, and update the property values.
 
-??? Note "Click For Instructions"
+??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
     1.  Click **Authorize** and provide desired values for authentication. 

@@ -5,7 +5,7 @@ template: templates/swagger.html
 # Claim Management API Definition - v1
 
 ??? note "Click for instructions"
-    Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
     1.  Click **Authorize** and provide the desired values for authentication. 
     2.  Expand the relevant API operation and click **Try It Out**.  

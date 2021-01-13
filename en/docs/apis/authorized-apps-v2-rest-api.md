@@ -3,8 +3,8 @@ template: templates/swagger.html
 ---
 # OAuth2 Authorized Apps API Definition - v2
 
-??? Note "Click Here For Instructions"
-    Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server 
+??? Note "Click for instructions"
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server 
     (WSO2 IS)
 
     1.  Click on **Authorize** button and provide desired values for authentication. 
