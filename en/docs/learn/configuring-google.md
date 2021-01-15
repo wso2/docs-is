@@ -10,14 +10,14 @@ Server. Follow the instructions given below to configure WSO2 Identity Server t
         
     3.  Fill in the details in the **Basic Information** section. 
 
-2.  Register OAuth 2.0 Application in Google. As the first step, go to [Google API Console](https://console.developers.google.com)
+2.  Register OAuth 2.0 Application in Google. First, go to [Google API Console](https://console.developers.google.com)
     and navigate to the **Credentials** tab from the sidebar. 
     
-3.  Click **Create credentials** in the top navigation.
+3.  Click **Create credentials** on the top navigation.
 
     ![create-credentials](../assets/img/learn/create-credentials.png)
 
-4.  You can configure the OAuth web application in Google by selecting **OAuth Client ID**. You can find more details [here](https://developers.google.com/identity/protocols/OpenIDConnect).
+4.  Select **OAuth Client ID** to configure the OAuth web application in Google. For more information, see the [OpenID Connect] (https://developers.google.com/identity/protocols/OpenIDConnect)topic in the Google Developer documentation.
       
     ![register-oauth2](../assets/img/learn/oauth-clientid.png)
 
@@ -27,11 +27,11 @@ Server. Follow the instructions given below to configure WSO2 Identity Server t
      
 6.  Enter a name (e.g., SampleWebApplication). 
       
-7.  Add a redirect URI, `https://localhost:9443/commonauth` by clicking **ADD URI** within **Authorized redirect URIs** (this is the endpoint in WSO2 Identity Server that accepts the response sent by Google).  
+7.  Click **ADD URI** within **Authorized redirect URIs** and add `https://localhost:9443/commonauth` as a redirect URI (this is the WSO2 Identity Server endpoint that accepts the response sent by Google).  
 
     ![redirect-uris](../assets/img/learn/redirect-uris.png)
 
-8.  Click **Create**. Make note of the **Client ID** and **Client Secret** which appears in the pop-up. 
+8.  Click **Create**. Make note of the **Client ID** and **Client Secret** that appears in the pop-up. 
 
     ![client-details](../assets/img/learn/client-details.png)
 
