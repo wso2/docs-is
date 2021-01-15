@@ -1,49 +1,48 @@
 # Configuring Google
 
-Google can be used as a federated authenticator in the Identity
-Server. Do the following to configure the Identity Server to
-authenticate users using their Google user accounts.
+Google can be used as a federated authenticator in WSO2 Identity
+Server. Follow the instructions given below to configure WSO2 Identity Server to authenticate users using their Google user accounts.
 
-1.  To navigate to the federated authenticators configuration section,
-    do the following.
-    1.  Sign in. Enter your username and password to log on to the
-        [Management Console](../../setup/getting-started-with-the-management-console).
+1.  To navigate to the federated authenticators configuration section, follow the instructions given below.
+    1.  Sign in. Enter your username and password to log on to the [Management Console](../../setup/getting-started-with-the-management-console).
         
-    2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Identity Providers**.  
-        For more information, see [Adding and Configuring an Identity
-        Provider](../../learn/adding-and-configuring-an-identity-provider).
+    2.  Navigate to the **Main** menu to access the **Identity** menu. Click **Add** under **Identity Providers**. For more information, see [Adding and Configuring an Identity Provider](../../learn/adding-and-configuring-an-identity-provider).
         
-    3.  Fill in the details in the **Basic Information** section.
+    3.  Fill in the details in the **Basic Information** section. 
 
-2.  Register OAuth 2.0 Application in Google. As the first step, go to
-    [Google API Console](https://console.developers.google.com)
-    and navigate to the **Credentials** tab from the sidebar. You can
-    configure OAuth web application in Google by selecting **OAuth
-    Client ID** . You can find more details from
-    [here](https://developers.google.com/identity/protocols/OpenIDConnect).
-      
-    ![register-oauth2](../assets/img/tutorials/register-oauth2.png)
-      
-    Select a web application and give it a name (e.g.,
-    SampleWebApllication). Enter the Authorized **redirect URI** as
-    `                     https://localhost:9443/commonauth                   `
-    (this is the endpoint in WSO2 Identity Server that accepts the
-    response sent by Google).  
+2.  Register OAuth 2.0 Application in Google. First, go to [Google API Console](https://console.developers.google.com)
+    and navigate to the **Credentials** tab from the sidebar. 
     
-    ![create-client-id](../assets/img/tutorials/create-client-id.png)
+3.  Click **Create credentials** on the top navigation.
+
+    ![create-credentials](../assets/img/learn/create-credentials.png)
+
+4.  Select **OAuth Client ID** to configure the OAuth web application in Google. For more information, see the [OpenID Connect] (https://developers.google.com/identity/protocols/OpenIDConnect)topic in the Google Developer documentation.
+      
+    ![register-oauth2](../assets/img/learn/oauth-clientid.png)
+
+5.  Select **Web application** as the **Application type** in the dropdown. 
+
+    ![choose-application-type](../assets/img/learn/choose-application-type.png)
      
-3.  Expand the **Google Configuration** form and configure the Google
+6.  Enter a name (e.g., SampleWebApplication). 
+      
+7.  Click **ADD URI** within **Authorized redirect URIs** and add `https://localhost:9443/commonauth` as a redirect URI (this is the WSO2 Identity Server endpoint that accepts the response sent by Google).  
+
+    ![redirect-uris](../assets/img/learn/redirect-uris.png)
+
+8.  Click **Create**. Make note of the **Client ID** and **Client Secret** that appears in the pop-up. 
+
+    ![client-details](../assets/img/learn/client-details.png)
+
+9.  Expand the **Google Configuration** form and configure the Google
     authenticator as shown below. Make sure to add your Redirect URI as
     the Callback URL and Client id and Secret which is generated from
-    above Google application. You can find the client id and secret
-    from edit OAuth client.  
+    above Google application. 
     
-    ![google-app](../assets/img/tutorials/google-app.png)
-     
     ![google-configuration](../assets/img/tutorials/google-configuration.png)
     
-4.  Fill in the following fields where relevant.
+10.  Fill in the following fields where relevant.
 
     | Field                       | Description                                                                                                                                                                                                                                                                                                                                           | Sample value                      |
     |-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
