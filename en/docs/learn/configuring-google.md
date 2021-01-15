@@ -35,14 +35,14 @@ Server. Follow the instructions given below to configure WSO2 Identity Server t
 
     ![client-details](../assets/img/learn/client-details.png)
 
-8.  Expand the **Google Configuration** form and configure the Google
+9.  Expand the **Google Configuration** form and configure the Google
     authenticator as shown below. Make sure to add your Redirect URI as
     the Callback URL and Client id and Secret which is generated from
     above Google application. 
     
     ![google-configuration](../assets/img/tutorials/google-configuration.png)
     
-9.  Fill in the following fields where relevant.
+10.  Fill in the following fields where relevant.
 
     | Field                       | Description                                                                                                                                                                                                                                                                                                                                           | Sample value                      |
     |-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
