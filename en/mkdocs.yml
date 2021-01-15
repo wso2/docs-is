@@ -342,6 +342,26 @@ nav:
       - 'User Discoverable Application Management': apis/user-discoverable-applications.md
       - 'User Functionality Management REST APIs': apis/user-functionality-mgt-rest-api.md
       - 'Workflow Engine Management REST APIs': apis/workflow-engine-rest-api.md
+    - 'SOAP APIs':
+      - 'SOAP APIs': apis/soap-apis.md
+      - 'User Management':
+        - 'User Management': apis/user-management-with-apis.md
+        - 'Managing Users and Roles': apis/managing-users-and-roles-with-apis.md
+        - 'Managing Claims': apis/managing-claims-with-apis.md
+        - 'Managing Permissions': apis/managing-permissions-with-apis.md
+        - 'Counting Users and User Roles': apis/counting-users-and-roles-using-management-console-and-admin-services.md
+        - 'Managing User Stores': apis/managing-user-stores-with-apis.md
+      - 'User Information Recovery': apis/user-information-recovery-service.md
+      - 'Identity Application Management':
+        - 'Identity Application Management': apis/identity-application-management-api.md
+        - 'Using the Service Provider': apis/using-the-service-provider-api.md
+        - 'Service Provider Configurations used with APIs': apis/service-provider-configurations-used-with-apis.md
+      - 'Identity Provider Management':
+        - 'Identity Provider Management': apis/identity-provider-management-api.md
+        - 'Using the Identity Provider': apis/using-the-identity-provider-api.md
+        - 'Identity Provider Configurations used with APIs': apis/identity-provider-configurations-used-with-apis.md
+    - 'Entitlement with APIs':
+      - 'Entitlement with APIs': apis/entitlement-with-apis.md
   - 'Concepts':
       - 'User Management': 
         - 'Overview': concepts/user-management/user-management.md
