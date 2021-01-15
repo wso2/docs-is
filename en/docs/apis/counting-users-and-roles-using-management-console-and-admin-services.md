@@ -18,7 +18,7 @@ Let's get started!
 
 ## Count via management console 
 
-Follow the steps below to count users via the Managemet Console: 
+Follow the steps below to count users via the Management Console: 
 
 1.  On the **Main** menu of the Management Console, click **Identity > Users and Roles > List**.
 2.  To count users:
