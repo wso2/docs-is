@@ -37,7 +37,7 @@ To do this, decode the ID token and read the value of the claim `isk`, which is 
 curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/identity/extend-session?idpSessionKey=<SESSION_IDENTIFIER>'
 ```
 
-`<SESSION_IDENTIFIER>` should be replaced with the `isk` value obtained from the ID token. This method is ideal
+Replace the `<SESSION_IDENTIFIER>` with the `isk` value obtained from the ID token. This method is ideal
  in cases where the use of third party cookies has been blocked.
 
 ##### Sending session identifier as a cookie
