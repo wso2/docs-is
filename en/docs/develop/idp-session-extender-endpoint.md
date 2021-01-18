@@ -2,7 +2,9 @@
 
 !!! info
     To access this endpoint, use the following URL.
-    `https://<IS_HOST>:<IS_PORT>/identity/extend-session`
+    ```
+    https://<IS_HOST>:<IS_PORT>/identity/extend-session
+    ```
 
 This endpoint can be used to extend the user's session at the Identity Provider. In order to identify the session that
  needs to be extended, this endpoint requires one of the following.
