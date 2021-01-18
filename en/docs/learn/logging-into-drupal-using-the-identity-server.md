@@ -1,6 +1,6 @@
 # Logging into Drupal using the Identity Server
 
-Drupal is an open source content management software distributed under the terms of the[ GNU General Public License](http://www.gnu.org/copyleft/gpl.html) (GPL). This topic provides instructions on how to log into Drupal using your WSO2 Identity Server credentials. In this tutorial, Drupal acts as the service provider and WSO2 Identity Server acts as the identity provider.
+Drupal is an open-source content management software distributed under the terms of the[ GNU General Public License](http://www.gnu.org/copyleft/gpl.html) (GPL). This topic provides instructions on how to log into Drupal using your WSO2 Identity Server credentials. In this tutorial, Drupal acts as the service provider and WSO2 Identity Server acts as the identity provider.
 
 Let's get started!
 
@@ -102,7 +102,7 @@ Let's get started!
 
 4. Expand **Inbound Authentication Configuration** and then expand **SAML2 Web SSO Configuration**.
 
-5. Enter the value you configured as the **Entity ID** in the the `config/authsources.php` file as the **Issuer**.
+5. Enter the value you configured as the **Entity ID** in the `config/authsources.php` file as the **Issuer**.
 
 6. Enter** `http://$host/simplesaml/module.php/saml/sp/metadata.php/default-sp` as the **Assertion Consumer URL**.
 
@@ -124,7 +124,7 @@ Let's get started!
 
     ![image alt text](../assets/img/tutorials/drupal-sp-claim-config.png)
 
-11. Click **Update** to save .
+11. Click **Update** to save.
 
 ## Try SAML 2.0 authentication 
 
