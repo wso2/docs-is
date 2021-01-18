@@ -27,8 +27,7 @@ enabled = true
 ### Extracting the session identifier value
 
 If the above config has been enabled, the session identifier can be extracted from the ID token. 
-The ID token should be decoded, and the value of the claim `isk`, which is the identifier of the session, should be
- read.
+To do this, decode the ID token and read the value of the claim `isk`, which is the identifier of the session.
  
 ### Supported requests
 
