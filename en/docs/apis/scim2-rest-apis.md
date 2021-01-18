@@ -2,9 +2,9 @@
 template: templates/swagger.html
 ---
 
-# Claim Management API Definition - v1
+# SCIM 2.0 API Definition
 
-??? note "Click for instructions"
+??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
     1.  Click **Authorize** and provide the desired values for authentication. 
@@ -19,7 +19,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/wso2/identity-api-server/v1.0.190/components/org.wso2.carbon.identity.api.server.claim.management/org.wso2.carbon.identity.rest.api.server.claim.management.v1/src/main/resources/claim-management.yaml",
+    url: "../../apis/restapis/scim2.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -38,4 +38,3 @@ window.onload = function() {
 }
 </script>
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4bc7377da85b9dcd0516).

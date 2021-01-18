@@ -2,15 +2,15 @@
 template: templates/swagger.html
 ---
 
-# OAuth2 Authorized Apps API Definition - v1
+# User's Session Management API Definition - v1
 
-!!! warning
-    This API version will be deprecated in future versions of WSO2 IS. 
-    You can use [OAuth2 Authorized Apps 
-    API Definition - v2](../..apis/authorized-apps-v2-rest-api) instead.
-
-??? Note "Click For instructions"
-    Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
+??? Note "Click for instructions"
+    Before invoking the session management REST APIs, create some sessions for the user. You can create active 
+    sessions for the users as follows.
+       1. Register a service provider in the WSO2 Identity Server so that the authentication for the application will
+        be handled by the Identity Server.
+       2. Login to the application with valid credentials.
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
        1.  Click on **Authorize** button and provide desired values for authentication. 
        2.  Expand the relevant API operation and click the **Try It Out** button.  
@@ -24,7 +24,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/wso2/identity-api-user/v1.1.17/components/org.wso2.carbon.identity.api.user.authorized.apps/org.wso2.carbon.identity.rest.api.user.authorized.apps.v1/src/main/resources/authorizedApps.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-user/v1.1.17/components/org.wso2.carbon.identity.api.user.session/org.wso2.carbon.identity.api.user.session.v1/src/main/resources/session.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -38,7 +38,8 @@ window.onload = function() {
     layout: "StandaloneLayout"
   })
   // End Swagger UI call region
-
   window.ui = ui
 }
 </script>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fc9461875e367a944219)
