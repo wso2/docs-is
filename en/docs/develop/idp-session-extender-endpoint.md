@@ -1,13 +1,13 @@
-# Identity Provider Session Extender Endpoint
+# Identity Provider Session Extending API
 
 !!! info
-    To access this endpoint, use the following URL.
+    To access this API, use the following endpoint URL.
     ```
-    https://<IS_HOST>:<IS_PORT>/identity/extend-session
+    https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/identity/extend-session
     ```
 
-This endpoint can be used to extend the user's session at the identity provider. To identify the session that
- needs to be extended, this endpoint requires one of the following.
+This API can be used to extend the user's session at the identity provider. To identify the session that
+ needs to be extended, this API requires one of the following.
 
 1. **Session identifier as a request parameter:** This can be obtained from the ID token.
 2. **Session identifier cookie:** This is the `commonAuthId` cookie.
@@ -34,7 +34,7 @@ To do this, decode the ID token and read the value of the claim `isk`, which is 
 ##### Sending session identifier as a request parameter
 
 ```java
-curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/identity/extend-session?idpSessionKey=<SESSION_IDENTIFIER>'
+curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/identity/extend-session?idpSessionKey=<SESSION_IDENTIFIER>'
 ```
 
 Replace the `<SESSION_IDENTIFIER>` with the `isk` value obtained from the ID token. This method is ideal
@@ -43,7 +43,7 @@ Replace the `<SESSION_IDENTIFIER>` with the `isk` value obtained from the ID tok
 ##### Sending session identifier as a cookie
 
 ```java
-curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/identity/extend-session' \
+curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/identity/extend-session' \
 --header 'Cookie: <SESSION_IDENTIFIER>'
 ```
 
@@ -53,7 +53,7 @@ In this case, replace the `<SESSION_IDENTIFIER>` with the `commonAuthId` cookie.
 
 If session extension has been successful, a `200 OK` response will be returned.
 
-If session extension has failed, the response could be as follows.
+If session extension has failed, the response could be one of the following.
 
 | Response status code  |  Error code  | Description                                      |
 |-----------------------|--------------|--------------------------------------------------|
