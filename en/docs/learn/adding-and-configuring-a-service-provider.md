@@ -73,6 +73,15 @@ the following:
     Name** is a required field.  
     ![sp-name](../assets/img/using-wso2-identity-server/sp-name.png)
 
+    !!! note "Configure validation for service provider name"
+           The default javascript regex used to validate the service provider name entered in the Management Console is `^[a-zA-Z0-9\\s.+_-]*$`. 
+           This regex can be modified by adding the following configuration to the `deployment.toml` file located in `<IS_HOME>/repository/conf/`.
+
+        ``` java
+        [service_provider]
+        sp_name_java_script_regex = '<required_javascript_regex>'
+        ```          
+
 4.  Click **Register** to add the new service provider.
 
     !!! note
