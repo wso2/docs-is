@@ -72,6 +72,23 @@ the following:
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.  
     ![sp-name](../assets/img/using-wso2-identity-server/sp-name.png)
+    
+        
+    !!! note "Configure Service Provider name validation"
+           The default regex used to validate the service provider name entered in the UI is `^[a-zA-Z0-9\\s.+_-]*$`. 
+           This regex can be modifed by add the following configuration to the `deployment.toml` file located in `<IS_HOME>/repository/conf/`.
+           
+           ```java
+             [service_provider]
+             sp_name_java_script_regex = '<required_javascript_regex>'
+             ```
+
+        !!! warning
+                To enable the user profile's Display Name view in the user portal, apply the 0480 WUM update for WSO2 Identity Server
+                 5.10.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid 
+                 subscription. If you do not have a paid subscription, you can use this feature with the next version of 
+                 WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, 
+                 see [Updating WSO2 Products](https://is.docs.wso2.com/en/latest/administer/getting-wso2-updates/)
 
 4.  Click **Register** to add the new service provider.
 
