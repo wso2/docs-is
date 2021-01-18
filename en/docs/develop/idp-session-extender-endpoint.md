@@ -6,7 +6,7 @@
     https://<IS_HOST>:<IS_PORT>/identity/extend-session
     ```
 
-This endpoint can be used to extend the user's session at the Identity Provider. In order to identify the session that
+This endpoint can be used to extend the user's session at the identity provider. To identify the session that
  needs to be extended, this endpoint requires one of the following.
 
 1. **Session identifier as a request parameter:** This can be obtained from the ID token.
