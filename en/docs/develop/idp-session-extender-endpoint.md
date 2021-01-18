@@ -47,7 +47,7 @@ curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/identity/extend-sessi
 --header 'Cookie: <SESSION_IDENTIFIER>'
 ```
 
-In this case, `<SESSION_IDENTIFIER>` should be replaced with the `commonAuthId` cookie.
+In this case, replace the `<SESSION_IDENTIFIER>` with the `commonAuthId` cookie.
 
 ### API responses
 
