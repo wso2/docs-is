@@ -2,11 +2,11 @@
 
 The [OpenID Connect Session Management
 specification](http://openid.net/specs/openid-connect-session-1_0.html)
-, provides a way for a Relying Party (RP) to monitor the login status of
-an end user with an OpenID Connect Provider (OP) so that the RP
-application can log-out any end users that have logged out of the OP
+ provides a way for a Relying Party (RP) to monitor the login status of
+an end-user with an OpenID Connect Provider (OP) so that the RP
+application can log-out any end-users that have logged out of the OP
 (i.e., the WSO2 Identity Server). For instance, if there are two RP
-applications relying on WSO2 Identity Server, when an end user logs-out
+applications relying on WSO2 Identity Server, when an end-user logs-out
 of one of the applications, he/she can be automatically logged out of
 the other one as well.
 
@@ -27,10 +27,10 @@ as follows.
     'unchanged' or 'error'.
 3.  If the session state is 'changed', the RP sends a passive request
     for re-authentication.
-4.  If the end user has logged out from the OP, the RP will receive an
+4.  If the end-user has logged out from the OP, the RP will receive an
     authentication failure message along with a new session state value.
-    The RP handles this as a end user logout.
-5.  If the end user has not logged out, the RP will receive a successful
+    The RP handles this as an end-user logout.
+5.  If the end-user has not logged out, the RP will receive a successful
     authentication response along with a new session state value.
   
 
