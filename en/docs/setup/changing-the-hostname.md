@@ -35,7 +35,7 @@ Server.
     **Sample keytool command**
 
     ``` java
-      keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost  -ext ExtendedKeyUsage=serverAuth -validity 825
+      keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost -ext ExtendedKeyUsage=serverAuth -validity 825
     ```
     
     - **Option 2**
