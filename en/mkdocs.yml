@@ -325,7 +325,7 @@ nav:
       - 'Fido': apis/fido-rest-api.md
       - 'Identity Governance': apis/identity-governance-rest-api.md
       - 'Identity Providers': apis/idp-rest-api.md
-      - 'IdP Session Extending API': apis/idp-session-extender-endpoint.md
+      - 'IdP Session Extending': apis/idp-session-extender-endpoint.md
       - 'Keystore Management': apis/keystore-rest-api.md
       - 'Server Configurations': apis/configs-rest-api.md
       - 'OAuth2 Scope Management': apis/oauth2-scope-management-rest-apis.md
