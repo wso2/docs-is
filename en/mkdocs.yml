@@ -311,39 +311,71 @@ nav:
     - 'Deploy': deploy/deploying-wso2-identity-server.md
     - 'choose your model': deploy/choose-your-model.md
   - 'APIs':
-    - 'Overview': apis/rest-apis.md
-    - 'Authenticating and Authorizing APIs': apis/authenticating-and-authorizing-rest-apis.md
-    - 'Account Recovery': apis/insert-page
-    - 'Application Management APIs': apis/application-rest-api.md
-    - 'Approvals': apis/approvals-rest-api.md
-    - 'Associations': apis/association-rest-api.md
-    - 'Authentication Data': apis/authentication-data-api.md
-    - 'Authentication': apis/insert-page
-    - 'Authorized Apps': apis/authorized-apps-rest-api.md
-    - 'Configuration Management': 
-      - 'Overview': apis/using-the-configuration-management-rest-apis.md
-      - 'Retrieving Tenant Resources Based on Search Parameters': apis/retrieving-tenant-resources-based-on-search-parameters.md
-    - 'Challenge Questions Management APIs': apis/challenge-question-rest-api.md
-    - 'CORS APIs': apis/cors-rest-api.md
-    - 'Attribute/Claim Management APIs': apis/claim-management-rest-api.md
-    - 'Email Templates Management APIs': apis/email-templates-rest-api.md
-    - 'Entitlement APIs': apis/entitlement-with-rest-apis.md
-    - 'FIDO APIs': apis/fido-rest-api.md
-    - 'Identity Governance APIs': apis/identity-governance-rest-api.md
-    - 'Identity Providers Management APIs': apis/idp-rest-api.md
-    - 'Keystore Management APIs': apis/keystore-rest-api.md
-    - 'SCIM 2.0.APIs': apis/scim-rest-api.md
-    - 'Server Configuration APIs': apis/server-configs-rest-api.md
-    - 'OAuth2 Scope Management APIs': apis/oauth2-scope-rest-api.md
-    - 'OpenID Connect Scope Management APIs': apis/oidc-scope-rest-api.md
-    - 'Permission Management APIs' : apis/permission-rest-api.md
-    - 'Scope-based Authorization for Internal APIs': apis/scope-based-authorization-for-internal-rest-apis.md
-    - 'Script Libraries APIs': apis/script-library-rest-api.md
-    - 'Secondary User Store APIs': apis/user-store-rest-api.md
-    - 'Session Management APIs': apis/session-rest-api.md
-    - 'Tenant Management APIs': apis/tenant-rest-api.md
-    - 'TOTP APIs': apis/totp-rest-api.md
-    - 'User Discoverable Application Management APIs': apis/user-discoverable-app-rest-api.md
+    - 'Using APIs': apis/using-apis.md
+    - 'Calling Admin Services':
+      - 'Calling Admin Services': apis/calling-admin-services.md
+      - 'Admin Services for One Way Operations': apis/admin-services-for-one-way-operations.md
+    - 'REST APIs':
+      - 'Rest APIs': apis/rest-apis.md
+      - 'Authenticating and Authorizing': apis/authenticating-and-authorizing-rest-apis.md
+      - 'Account Recovery': apis/using-the-account-recovery-rest-apis.md
+      - 'Application Management': apis/application-rest-api.md
+      - 'Approvals': apis/approvals-rest-api.md
+      - 'Associations': apis/association-rest-api.md
+      - 'Authentication Data': apis/authentication-data-api.md
+      - 'Authentication': apis/using-the-authentication-rest-apis.md
+      - 'Authorized Apps':
+        - 'Authorized Apps V1': apis/authorized-apps-rest-api.md
+        - 'Authorized Apps V2': apis/authorized-apps-v2-rest-api.md
+      - 'Challenge Question': apis/challenge-rest-api.md
+      - 'Claim Management' : apis/claim-management-rest-api.md
+      - 'Configuration Management':
+          - 'Configuration Management': apis/using-the-configuration-management-rest-apis.md
+          - 'Retrieving Tenant Resources Based on Search Parameters': apis/retrieving-tenant-resources-based-on-search-parameters.md
+      - 'CORS': apis/cors-rest-api.md
+      - 'Consent Management': apis/using-the-consent-management-rest-apis.md
+      - 'Email Templates': apis/email-templates-rest-api.md
+      - 'Entitlement': apis/entitlement-with-rest-apis.md
+      - 'Fido': apis/fido-rest-api.md
+      - 'Identity Governance': apis/identity-governance-rest-api.md
+      - 'Identity Providers': apis/idp-rest-api.md
+      - 'Keystore Management': apis/keystore-rest-api.md
+      - 'Server Configurations': apis/configs-rest-api.md
+      - 'OAuth2 Scope Management': apis/oauth2-scope-management-rest-apis.md
+      - 'OpenID Connect Scope Management': apis/oidc-scope-management-rest-apis.md
+      - 'OIDC Dynamic Client Registration': apis/using-the-openid-connect-dynamic-client-registration-rest-apis.md
+      - 'Permission Management': apis/permission-management-rest-api.md
+      - 'Personal Information Export': apis/using-the-personal-information-export-rest-apis.md
+      - 'SCIM 2.0': apis/scim2-rest-apis.md
+      - 'Script Libraries': apis/script-library-rest-api.md
+      - 'Secondary User Store': apis/userstore-rest-api.md
+      - 'Self Sign-Up': apis/using-the-self-sign-up-rest-apis.md
+      - 'Session Management': apis/session-mgt-rest-api.md
+      - 'Tenant Management': apis/tenant-management-rest-api.md
+      - 'TOTP': apis/totp-rest-api.md
+      - 'User Discoverable Application Management': apis/user-discoverable-applications.md
+      - 'User Functionality Management REST APIs': apis/user-functionality-mgt-rest-api.md
+      - 'Workflow Engine Management REST APIs': apis/workflow-engine-rest-api.md
+    - 'SOAP APIs':
+      - 'SOAP APIs': apis/soap-apis.md
+      - 'User Management':
+        - 'User Management': apis/user-management-with-apis.md
+        - 'Managing Users and Roles': apis/managing-users-and-roles-with-apis.md
+        - 'Managing Claims': apis/managing-claims-with-apis.md
+        - 'Managing Permissions': apis/managing-permissions-with-apis.md
+        - 'Counting Users and User Roles': apis/counting-users-and-roles-using-management-console-and-admin-services.md
+        - 'Managing User Stores': apis/managing-user-stores-with-apis.md
+      - 'User Information Recovery': apis/user-information-recovery-service.md
+      - 'Identity Application Management':
+        - 'Identity Application Management': apis/identity-application-management-api.md
+        - 'Using the Service Provider': apis/using-the-service-provider-api.md
+        - 'Service Provider Configurations used with APIs': apis/service-provider-configurations-used-with-apis.md
+      - 'Identity Provider Management':
+        - 'Identity Provider Management': apis/identity-provider-management-api.md
+        - 'Using the Identity Provider': apis/using-the-identity-provider-api.md
+        - 'Identity Provider Configurations used with APIs': apis/identity-provider-configurations-used-with-apis.md
+    - 'Entitlement with APIs':
+      - 'Entitlement with APIs': apis/entitlement-with-apis.md
   - 'Concepts':
       - 'User Management': 
         - 'Overview': concepts/user-management/user-management.md

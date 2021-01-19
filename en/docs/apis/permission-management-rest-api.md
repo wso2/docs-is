@@ -2,11 +2,10 @@
 template: templates/swagger.html
 ---
 
-# Keystore Management API Definition - v1
+# Permission Management API definition - v1
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
-    To try some APIs, a tenant needs to be created with the domain name, 'wso2.com'. See [Adding a new tenant](../../../guides/tenants/managing-tenants-with-apis#addtenant) for more information.
     
     1.  Expand the relevant API operation and click **Try It Out**.  
     2.  Fill in relevant sample values for the input parameters and click **Execute**. 
@@ -20,7 +19,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/wso2/identity-api-server/v1.0.190/components/org.wso2.carbon.identity.api.server.keystore.management/org.wso2.carbon.identity.api.server.keystore.management.v1/src/main/resources/keystore.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/v1.0.190/components/org.wso2.carbon.identity.api.server.permission.management/org.wso2.carbon.identity.api.server.permission.management.v1/src/main/resources/permission-management.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
@@ -37,5 +36,3 @@ window.onload = function() {
   window.ui = ui
 }
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9ac2c33f2f4ea5f9b041)
