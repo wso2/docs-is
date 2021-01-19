@@ -26,7 +26,7 @@ To do this, decode the ID token and read the value of the claim `isk`, which is 
 
 ## Supported requests
 
-##### Sending session identifier as a request parameter
+### Send session identifier as a request parameter
 
 ```java
 curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/identity/extend-session?idpSessionKey=<SESSION_IDENTIFIER>'
