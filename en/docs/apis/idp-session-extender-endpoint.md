@@ -17,7 +17,7 @@ This API can be used to extend the user's session at the identity provider. To i
 
 ---
 
-### Extracting the session identifier value
+## Extract the session identifier value
 
 If the above config has been enabled, the session identifier can be extracted from the ID token. 
 To do this, decode the ID token and read the value of the claim `isk`, which is the identifier of the session.
