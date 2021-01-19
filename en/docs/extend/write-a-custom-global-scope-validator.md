@@ -1,4 +1,4 @@
-# Writing a Custom Global Scope Validator
+# Write a Custom Global Scope Validator
 
 WSO2 Identity Server (WSO2 IS) version 5.5.0 and later support configuring scope validators for a service provider. This is a scope validation that can be enforced at the server level. Similar to validators engaged at application level, it has the capability to register multiple validators and execute the chain.
 
@@ -18,7 +18,7 @@ WSO2 Identity Server (WSO2 IS) version 5.5.0 and later support configuring scope
 
 ---
 
-## Writing a custom global scope validator
+## Write a custom global scope validator
 
 You can write the custom classes for scope validators by extending the `org.wso2.carbon.identity.oauth2.validators.scope.ScopeValidator` interface.
 
@@ -89,7 +89,7 @@ After writing the custom scope validator, register the class as an OSGI bundle a
 
 ---
 
-## Deploying and configuring the custom scope validator
+## Deploy and configure the custom scope validator
 
 Follow the instructions given below to deploy and enforce the custom global scope validator in WSO2 IS.
 

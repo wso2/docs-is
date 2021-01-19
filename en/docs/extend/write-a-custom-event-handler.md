@@ -1,4 +1,4 @@
-# Writing a Custom Event Handler
+# Write a Custom Event Handler
 
 The WSO2 Identity Server eventing framework can be used to trigger events such as user operation events like `PRE_SET_USER_CLAIMS`,`POST_ADD_USER`. A full list of the sample events can be found below. The eventing framework also supports handlers which can be used to do operations upon a triggered event. For instance, an event handler can be used to validate the changed user password against previously used entries when a `PRE_UPDATE_CREDENTIAL` event is triggered. 
 
@@ -69,7 +69,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     ```
 
 ---
-## Registering the event handler 
+## Register the event handler 
 
 Register the event handler in the service component as follows.
 
@@ -86,7 +86,7 @@ class.getName(),new SampleEventHandler(), null);
 
 ---
 
-## Configuring the event handler
+## Configure the event handler
 
 Add the event handler configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. The events that need to subscribe to the handler can be listed in subscriptions.
 

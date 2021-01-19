@@ -1,4 +1,4 @@
-# Using the User Management Errors Event Listener
+# User Management Errors Event Listener
 
 The `UserManagementErrorEventListener` (i.e. `org.wso2.carbon.user.core.listener.UserManagementErrorEventListener`) is a new type of event listener that facilitates additional activities in the event of failures when executing user management scenarios or operations. The relevant caller class for this listener is `org.wso2.carbon.user.core.common.AbstractUserManagementErrorListener`. This type of event listener is similar to the [UserOperation Listeners](../../develop/user-store-listeners). The registered event listeners of this type are called when there is a failure while doing user management related tasks.
 

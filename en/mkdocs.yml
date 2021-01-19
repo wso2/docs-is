@@ -295,17 +295,17 @@ nav:
     - 'Configuration Catalog': extend/configuration-catalog.md
     - 'Extending the Identity Server':
         - 'User Management for Developers':
-          - 'Writing a Custom Password Validator': extend/writing-a-custom-password-validator.md
-          - 'Writing a Custom Global Scope Validator': extend/writing-a-custom-global-scope-validator.md
-          - 'Writing a Custom Claim Handler': extend/writing-a-custom-claim-handler.md
-          - 'Writing a Custom Event Handler': extend/writing-a-custom-event-handler.md
+          - 'Write a Custom Password Validator': extend/write-a-custom-password-validator.md
+          - 'Write a Custom Global Scope Validator': extend/write-a-custom-global-scope-validator.md
+          - 'Write a Custom Claim Handler': extend/write-a-custom-claim-handler.md
+          - 'Write a Custom Event Handler': extend/write-a-custom-event-handler.md
           - 'User Store Listeners': extend/user-store-listeners.md
-          - 'Writing a Post-Authentication Handler': extend/writing-a-post-authentication-handler.md
-          - 'Using the User Management Errors Event Listener': extend/using-the-user-management-errors-event-listener.md
+          - 'Write a Post-Authentication Handler': extend/write-a-post-authentication-handler.md
+          - 'User Management Errors Event Listener': extend/user-management-errors-event-listener.md
           - 'Carbon Remote User Store Manager': extend/carbon-remote-user-store-manager.md
         - 'Provisioning for Developers':
-          - 'Extending SCIM 2.0 User Schemas': extend/extending-scim2-user-schemas.md
-          - 'Writing an Outbound Provisioning Connector': extend/writing-an-outbound-provisioning-connector.md
+          - 'Extend SCIM 2.0 User Schemas': extend/extend-scim2-user-schemas.md
+          - 'Write an Outbound Provisioning Connector': extend/write-an-outbound-provisioning-connector.md
           - 'Extensible SCIM User Schemas With WSO2 Identity Server': extend/extensible-scim-user-schemas-with-wso2-identity-server.md
   - 'Deploy':
     - 'Deploy': deploy/deploying-wso2-identity-server.md

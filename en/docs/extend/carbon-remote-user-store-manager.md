@@ -8,7 +8,7 @@ Consider a scenario where two instances of the WSO2 Identity Server are configur
 
 ---
 
-## Configuring a carbon remote user store manager 
+## Configure a carbon remote user store manager 
 
 To configure a carbon remote user store manager, you can follow the following steps.
 

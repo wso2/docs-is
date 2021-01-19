@@ -1,4 +1,4 @@
-# Writing a Custom Password Validator
+# Write a Custom Password Validator
 
 !!! warning
     These instructions will be deprecated.
@@ -9,7 +9,7 @@
 
 ---
 
-## Configuring password policy extensions
+## Configure password policy extensions
 
 1.  Enable the `IdentityMgtEventListener` by adding the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder. 
 
@@ -33,7 +33,7 @@
 
 ---
 
-## Writing the custom password policy
+## Write the custom password policy
 
 You can write the custom classes for password policies by extending the `org.wso2.carbon.identity.mgt.policy.AbstractPasswordPolicyEnforcer` abstract class.
 
@@ -94,7 +94,7 @@ public boolean enforce(Object... args) {
 
 ---
 
-## Deploying and configuring the custom password validator
+## Deploy and configure the custom password validator
 
 Do the following to deploy and enforce the custom password policy in the
 WSO2 Identity Server.

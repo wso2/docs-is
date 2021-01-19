@@ -1,4 +1,4 @@
-# Writing a Custom Claim Handler
+# Write a Custom Claim Handler
 
 WSO2 Identity Server (WSO2 IS) supports SAML authentication and single sign-on capabilities where WSO2 IS can act as the identity provider for a relying party application (i.e., service provider). When SAML single sign-on is used in an enterprise system, it is through the SAML response that the relying party gets to know whether a user is authenticated or not. At this point the relying party application is not aware of the attributes of an authenticated user, which would be required for certain business and authorization purposes. You can use WSO2 IS to provide these attribute details to the relying party application, by configuring WSO2 IS to send user claims in a SAML response using the service provider claim configuration. For information on how to configure WSO2 IS to send user claims in a SAML response, see [Configuring Claims for a Service Provider](../../learn/configuring-claims-for-a-service-provider).
 
@@ -79,7 +79,7 @@ a custom claim handler.
 
 ---
 
-## Writing the custom claim handler
+## Write the custom claim handler
 
 Follow the steps below:
 
@@ -176,7 +176,7 @@ Follow the steps below:
 
 ---
 
-## Deploying the custom claim handler
+## Deploy the custom claim handler
 
 Follow the steps below to deploy the custom claim handler that you implemented:
 

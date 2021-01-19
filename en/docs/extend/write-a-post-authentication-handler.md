@@ -1,4 +1,4 @@
-# Writing a Post-Authentication Handler
+# Write a Post-Authentication Handler
 
 WSO2 Identity Server authentication framework facilitates you with the pluggable architecture of multiple inbound/outbound protocols as well as local and federated authenticators including a large number of extension points. The Post Authentication Handler is one such extension point which allows you to do a task upon successful authentication. Authentication to the system is only successful once the execution of post-authentication handlers is completed. The following handlers are examples of post-authentication handlers that are available by default.
 
@@ -10,7 +10,7 @@ WSO2 Identity Server authentication framework facilitates you with the pluggable
 
 ---
 
-## Writing a post-authentication handler
+## Write a post-authentication handler
 
 Writing a custom post-authentication handler is fairly simple. For a sample implementation consisting of the disclaimer dialog, see the [sample post-authentication handler](https://github.com/wso2/samples-is/tree/master/etc/sample-post-authentication-handler). Follow the instructions on the readme to try it out.
 
