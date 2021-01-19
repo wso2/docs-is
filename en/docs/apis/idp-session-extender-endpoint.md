@@ -46,7 +46,7 @@ In this case, replace the `<SESSION_IDENTIFIER>` with the `commonAuthId` cookie.
 
 ---
 
-### API responses
+## API responses
 
 If session extension has been successful, a `200 OK` response will be returned.
 
