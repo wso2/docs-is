@@ -200,7 +200,7 @@ WSO2 Identity Server uses separate email templates for notifying:
 - Account locking by administrator
 - Account unlocking by administrator 
 
-Add the following email templates by referring to the instructions in [Customizing AutomatedEmails](../../learn/customizing-automated-emails).
+Add the following email templates by referring to the instructions in [Customizing Automated Emails](../../learn/customizing-automated-emails).
 
 Following are the sample email templates.
 
@@ -366,4 +366,3 @@ Following are the sample email templates.
        </table>]]>
     ```
     - Footer : ---
-
