@@ -27,7 +27,7 @@ In the older IS versions before IS5.7.0, Identity Server used to send two mails 
     - Account Lock mail
 
 With this improvement, these flows will only send a confirmation mail if the `accountState` claim is engaged and the user is in 
-**PENDING** state (PENDING_AP, PENDING_EV,PENDING_SR).
+**PENDING** state (PENDING_AP, PENDING_EV,PENDING_SR,PENDING_LR).
 Once the user confirms the email, the state will be moved to **UNLOCKED**.
  
 This account status can have the following values.
@@ -36,8 +36,9 @@ This account status can have the following values.
     2. PENDING_AP
     3. PENDING_EV
     4. PENDING_SR
-    5. DISABLED
-    6. UNLOCKED
+    5. PENDING_LR
+    6. DISABLED
+    7. UNLOCKED
  
 Find the description of the status
 
@@ -47,6 +48,7 @@ Find the description of the status
 | PENDING_AP            | Ask password email is sent and the email is not verified          | 
 | PENDING_EV            | Email Verification email is sent and the email is not verified    | 
 | PENDING_SR            | Self registration email is sent and the email is not verified yet | 
+| PENDING_LR            | Lite User registration email is sent and the email is not verified yet|
 | DISABLED              | Account is disabled                                               | 
 | UNLOCKED              | Account is neither disabled nor locked                            |
            
