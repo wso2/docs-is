@@ -1,38 +1,16 @@
 # Writing a Custom Claim Handler
 
-WSO2 Identity Server (WSO2 IS) supports SAML authentication and single
-sign-on capabilities where WSO2 IS can act as the identity provider for
-a relying party application (i.e., service provider). When SAML single
-sign-on is used in an enterprise system, it is through the SAML response
-that the relying party gets to know whether a user is authenticated or
-not. At this point the relying party application is not aware of the
-attributes of an authenticated user, which would be required for certain
-business and authorization purposes. You can use WSO2 IS to provide
-these attribute details to the relying party application, by configuring
-WSO2 IS to send user claims in a SAML response using the service
-provider claim configuration. For information on how to configure WSO2
-IS to send user claims in a SAML response, see [Configuring Claims for a
-Service Provider](../../learn/configuring-claims-for-a-service-provider).
+WSO2 Identity Server (WSO2 IS) supports SAML authentication and single sign-on capabilities where WSO2 IS can act as the identity provider for a relying party application (i.e., service provider). When SAML single sign-on is used in an enterprise system, it is through the SAML response that the relying party gets to know whether a user is authenticated or not. At this point the relying party application is not aware of the attributes of an authenticated user, which would be required for certain business and authorization purposes. You can use WSO2 IS to provide these attribute details to the relying party application, by configuring WSO2 IS to send user claims in a SAML response using the service provider claim configuration. For information on how to configure WSO2 IS to send user claims in a SAML response, see [Configuring Claims for a Service Provider](../../learn/configuring-claims-for-a-service-provider).
 
-The claims that you can send using the service provider claim
-configuration are default user claims, which can be read from the
-underlying user store. However, there can be scenarios where you want to
-send claims that need to be read from an external data source (i.e.,
-custom claims) based on certain user attributes requested by a relying
-party application. If you want to add such custom claims to a SAML
-response, you need to write a custom claim handler to extend WSO2 IS.
+The claims that you can send using the service provider claim configuration are default user claims, which can be read from the underlying user store.However, there can be scenarios where you want to send claims that need to be read from an external data source (i.e., custom claims) based on certain user attributes requested by a relying party application. If you want to add such custom claims to a SAML response, you need to write a custom claim handler to extend WSO2 IS.
 
-Let’s look at how to add custom claims to a SAML response using a sample
-scenario where you need to provide several local attributes of a user,
-which are stored in user store, together with a few additional
-attributes that should be read from an external data source.
+Let’s look at how to add custom claims to a SAML response using a sample scenario where you need to provide several local attributes of a user, which are stored in user store, together with a few additional attributes that should be read from an external data source.
 
 ---
 
 ## Introduction
 
-The SAML response that should be sent from WSO2 IS to the relying party
-application is as follows:
+The SAML response that should be sent from WSO2 IS to the relying party application is as follows:
 
 ``` java
 <?xml version="1.0"?>
@@ -89,11 +67,10 @@ application is as follows:
 </saml2p:Response>
 ```
 
-This response has one local attribute named `         role        `,
-and two external attributes as follows:
+This response has one local attribute named `role`, and two external attributes as follows:
 
--   `                     http://test.org/claims/keplerNumber                   `
--   `                                 http://test.org/claims/status                              `
+-   `http://test.org/claims/keplerNumber`
+-   `http://test.org/claims/status`
 
 The external attributes can be read from either a database, or a file, or via any other mechanism depending on your requirement.
 
@@ -109,19 +86,12 @@ Follow the steps below:
 -   Implement the custom logic to retrieve external claims. When you
     implement the custom logic, keep the following in mind:
 
-    -   The custom implementation should either implement the
-        `            org.wso2.carbon.identity.application.authentication.framework.handler.claims.ClaimHandler           `
-        interface, or should extend the default implementation of the
-        `            org.wso2.carbon.identity.application.authentication.framework.handler.claims.impl.DefaultClaimHandler           `
-        interface.
-    -   The map that returns at the
-        `            public Map<String, String> handleClaimMappings           `
-        method should contain all the attributes that you want to add to
+    -   The custom implementation should either implement the `org.wso2.carbon.identity.application.authentication.framework.handler.claims.ClaimHandler`
+        interface, or should extend the default implementation of the `org.wso2.carbon.identity.application.authentication.framework.handler.claims.impl.DefaultClaimHandler` interface.
+    -   The map that returns at the `public Map<String, String> handleClaimMappings`method should contain all the attributes that you want to add to
         the SAML response.
 
-        Following is a sample custom claim handler that implements the
-        `           org.wso2.carbon.identity.application.authentication.framework.handler.claims.ClaimHandler          `
-        interface:
+        Following is a sample custom claim handler that implements the `org.wso2.carbon.identity.application.authentication.framework.handler.claims.ClaimHandler` interface:
 
         ``` java
         public class CustomClaimHandler implements ClaimHandler {
@@ -202,20 +172,17 @@ Follow the steps below:
         }
         ```
 
-        After you write the custom claim handler, and register the class as
-        an OSGI bundle, you can deploy the OSGi bundle in WSO2 IS.
+        After you write the custom claim handler, and register the class as an OSGI bundle, you can deploy the OSGi bundle in WSO2 IS.
 
 ---
 
 ## Deploying the custom claim handler
 
-Follow the steps below to deploy the custom claim handler that you
-implemented:
+Follow the steps below to deploy the custom claim handler that you implemented:
 
-1.  Add the compiled OSGi bundle to the
-    `          IS_HOME/repository/components/dropins         `
-    directory.
-2.  Open the ` deployment.toml ` file in ` IS_HOME/repository/conf ` folder and add the custom claim handler package name under the `[authentication.framework.extensions]` tag as shown below.   
+1.  Add the compiled OSGi bundle to the `IS_HOME/repository/components/dropins` directory.
+
+2.  Open the ` deployment.toml ` file in ` IS_HOME/repository/conf` folder and add the custom claim handler package name under the `[authentication.framework.extensions]` tag as shown below.   
     
     ```toml
         [authentication.framework.extensions] 
