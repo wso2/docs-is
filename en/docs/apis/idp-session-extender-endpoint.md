@@ -35,7 +35,7 @@ curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/ide
 Replace the `<SESSION_IDENTIFIER>` with the `isk` value obtained from the ID token. This method is ideal
  in cases where the use of third party cookies has been blocked.
 
-##### Sending session identifier as a cookie
+### Send session identifier as a cookie
 
 ```java
 curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/identity/extend-session' \
