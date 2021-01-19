@@ -24,7 +24,7 @@ To do this, decode the ID token and read the value of the claim `isk`, which is 
 
 ---
 
-### Supported requests
+## Supported requests
 
 ##### Sending session identifier as a request parameter
 
