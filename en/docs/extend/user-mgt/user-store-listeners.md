@@ -93,7 +93,7 @@ Likewise, you can add custom extensions to any method of the user core.
     
 The following are the steps to configure the custom implementation.
 
-1.  Listeners are registered as OSGI components. Therefore you need to register this class in an OSGI framework. You can go through **[this](https://svn.wso2.org/repos/wso2/people/asela/user-mgt/custom-listener/),** which is the complete sample project.
+1.  Listeners are registered as OSGI components. Therefore you need to register this class in an OSGI framework. You can go through [this](https://svn.wso2.org/repos/wso2/people/asela/user-mgt/custom-listener/),which is the complete sample project.
 
 2.  Copy the OSGI bundle file in to the `<IS_HOME>/repository/components/dropins` directory.
 

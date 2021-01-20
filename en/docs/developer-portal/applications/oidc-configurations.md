@@ -14,8 +14,8 @@ Now that you have created an application in the Identity Server using a template
 
 This certificate is used to validate the signatures of the signed requests from the application (service provider) to WSO2 IS. Therefore, the certificate is used for the following scenarios:
 
-- [Configuring single sign-on](../../guides/login/saml-app-config-advanced/#certificate-alias) - the certificate is used to validate the signature of the SAML2 authentication requests and the SAML2 logout requests that are sent by the service provider.
-- [Passing OIDC authentication request parameters](../../guides/login/oidc-request-object) - the certificate is used to:
+- [Configuring single sign-on](../../../guides/login/saml-app-config-advanced/#certificate-alias) - the certificate is used to validate the signature of the SAML2 authentication requests and the SAML2 logout requests that are sent by the service provider.
+- [Passing OIDC authentication request parameters](../../../guides/login/oidc-request-object) - the certificate is used to:
     - Encrypt the `id_token` sent to the service provider in the OIDC Authentication Response.
     - Validate the signed `Request Object` sent in the OAuth2/OIDC Authorization Request.
 
