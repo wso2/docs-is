@@ -30,7 +30,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
 
 ---
 
-## Challenge question management
+## Challenge question management errors
 
 <div class="errorcode">
 <table>
