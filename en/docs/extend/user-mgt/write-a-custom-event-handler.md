@@ -35,7 +35,7 @@ The following list is a list of sample events.
 
 ---
 
-## Writing an event handler
+## Write an event handler
 
 To write a new event handler, you must extend the `org.wso2.carbon.identity.event.handler.AbstractEventHandler`. 
 
