@@ -19,11 +19,15 @@ product, the management console port will be changed from the default of
 [here](#changing-the-offset-for-default-ports) for more information on
 changing the offset.
 
+---
+
 ## Common ports
 
 The following ports are common to all WSO2 products that provide the
 given feature. Some features are bundled in the WSO2 Carbon platform
 itself and therefore are available in all WSO2 products by default.
+
+---
 
 ## Management console ports
 
@@ -34,17 +38,23 @@ servlet transport ports:
     console is https://localhost:9443/carbon )
 -   9763 - HTTP servlet transport
 
-### LDAP server ports
+---
+
+## LDAP server ports
 
 Provided by default in the WSO2 Carbon platform.
 
 -   10389 - Used in WSO2 products that provide an embedded LDAP server
 
-### KDC ports
+---
+
+## KDC ports
 
 -   8000 - Used to expose the Kerberos key distribution center server
 
-### JMX monitoring ports
+---
+
+## JMX monitoring ports
 
 WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance
 using a JMX client such as JConsole. By default, JMX is enabled in all
@@ -54,7 +64,9 @@ products. To disable it, see [Disabling JMX for the server](../../../deploy/moni
 -   9999 - RMIServer port. Used along with the RMIRegistry port when
     Carbon is monitored from a JMX client that is behind a firewall
 
-### Clustering ports
+---
+
+## Clustering ports
 
 To cluster any running Carbon instance, either one of the following
 ports must be opened.
@@ -62,7 +74,9 @@ ports must be opened.
 -   45564 - Opened if the membership scheme is multicast
 -   4000 - Opened if the membership scheme is wka
 
-### Random ports
+---
+
+## Random ports
 
 Certain ports are randomly opened during server startup. This is due to
 specific properties and configurations that become effective when the
@@ -90,9 +104,9 @@ every time the server is started.
     #appender.syslog.filter.threshold.type = ThresholdFilter
     #appender.syslog.filter.threshold.level = DEBUG
     ```
+---
 
-
-### WSO2 Identity Server ports
+## WSO2 Identity Server ports
 
 WSO2 IS also opens the following additional ports.
 
@@ -100,8 +114,9 @@ WSO2 IS also opens the following additional ports.
     Center) server runs
 -   10500 - `ThriftEntitlementReceivePort`
 
+---
 
-## Changing the offset for default ports
+## Change the offset for default ports
 
 When you run multiple WSO2 products, multiple instances of the same
 product, or multiple WSO2 product clusters on the same server or virtual
