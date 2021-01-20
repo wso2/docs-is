@@ -295,18 +295,18 @@ nav:
     - 'Configuration Catalog': extend/configuration-catalog.md
     - 'Extending the Identity Server':
         - 'User Management for Developers':
-          - 'Write a Custom Password Validator': extend/write-a-custom-password-validator.md
-          - 'Write a Custom Global Scope Validator': extend/write-a-custom-global-scope-validator.md
-          - 'Write a Custom Claim Handler': extend/write-a-custom-claim-handler.md
-          - 'Write a Custom Event Handler': extend/write-a-custom-event-handler.md
-          - 'User Store Listeners': extend/user-store-listeners.md
-          - 'Write a Post-Authentication Handler': extend/write-a-post-authentication-handler.md
-          - 'User Management Errors Event Listener': extend/user-management-errors-event-listener.md
-          - 'Carbon Remote User Store Manager': extend/carbon-remote-user-store-manager.md
+          - 'Write a Custom Password Validator': extend/user-mgt/write-a-custom-password-validator.md
+          - 'Write a Custom Global Scope Validator': extend/user-mgt/write-a-custom-global-scope-validator.md
+          - 'Write a Custom Claim Handler': extend/user-mgt/write-a-custom-claim-handler.md
+          - 'Write a Custom Event Handler': extend/user-mgt/write-a-custom-event-handler.md
+          - 'User Store Listeners': extend/user-mgt/user-store-listeners.md
+          - 'Write a Post-Authentication Handler': extend/user-mgt/write-a-post-authentication-handler.md
+          - 'User Management Errors Event Listener': extend/user-mgt/user-management-errors-event-listener.md
+          - 'Carbon Remote User Store Manager': extend/user-mgt/carbon-remote-user-store-manager.md
         - 'Provisioning for Developers':
-          - 'Extend SCIM 2.0 User Schemas': extend/extend-scim2-user-schemas.md
-          - 'Write an Outbound Provisioning Connector': extend/write-an-outbound-provisioning-connector.md
-          - 'Extensible SCIM User Schemas With WSO2 Identity Server': extend/extensible-scim-user-schemas-with-wso2-identity-server.md
+          - 'Extend SCIM 2.0 User Schemas': extend/provisioning/extend-scim2-user-schemas.md
+          - 'Write an Outbound Provisioning Connector': extend/provisioning/write-an-outbound-provisioning-connector.md
+          - 'Extensible SCIM User Schemas With WSO2 Identity Server': extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
   - 'Deploy':
     - 'Deploy': deploy/deploying-wso2-identity-server.md
     - 'choose your model': deploy/choose-your-model.md
