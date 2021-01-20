@@ -122,7 +122,7 @@ If you have your own application, click the button below.
     particular page after the RP sends the OpenID Connect logout request.
     For more information on how to configure the redirect logout, see
     [OpenID Connect Logout URL
-    Redirection](../../learn/openid-connect-logout-url-redirection/).
+    Redirection](../../../guides/login/oidc-logout-url-redirection/).
 
 -----
 

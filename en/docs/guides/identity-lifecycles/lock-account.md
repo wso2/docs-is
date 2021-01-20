@@ -122,5 +122,5 @@ Similarly, you can use the `setUserClaimValues` operation, `RemoteUserStoreManag
 ----
 
 !!! info "Related Topics"
-   - [Concept: Account Locking](TODO:link-to-concept)
-   - [Guide: Configure Email Notifications](TODO:link-to-guide)
+    - [Concept: Account Locking](TODO:link-to-concept)
+    - [Guide: Configure Email Notifications](TODO:link-to-guide)
