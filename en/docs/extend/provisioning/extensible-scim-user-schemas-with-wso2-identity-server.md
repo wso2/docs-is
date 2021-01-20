@@ -23,7 +23,7 @@ WSO2 Identity Server allows users to define their own user schema in a configura
 
 ## Map claims
 
-Log into WSO2 Identity Server and do the claim mapping for the following claim URIs (see [here](../../learn configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning) for more information on how to do claim mappings).
+Log into WSO2 Identity Server and do the claim mapping for the following claim URIs (see [here](TODO:insert-link../../learn configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning) for more information on how to do claim mappings).
 
 -   `urn:scim:schemas:extension:wso2:1.0:wso2Extension.costCenter`
 -   `urn:scim:schemas:extension:wso2:1.0:wso2Extension.department`
