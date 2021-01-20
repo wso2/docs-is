@@ -3,6 +3,8 @@
 The following table lists out the various operations that can be
 performed with different permission levels.
 
+---
+
 ## Tenant level permissions
 
 
@@ -605,7 +607,9 @@ performed with different permission levels.
 </tbody>
 </table>
 
-### Super tenant level permissions
+---
+
+## Super tenant level permissions
 
 <table>
 <tbody>
@@ -688,7 +692,9 @@ performed with different permission levels.
 </tbody>
 </table>
 
-### Special cases 
+---
+
+## Special cases 
 
 **These operations require multiple permission levels.**
 
