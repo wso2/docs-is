@@ -550,6 +550,20 @@ nav:
             - 'Manual Setup': developer-portal/identity-providers/add/manual-setup.md
           - 'Edit Identity Provider':
             - developer-portal/identity-providers/edit-identity-provider.md
+  - 'References':
+    - 'Overview': references/references-overview.md
+    - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
+    - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
+    - 'API Permissions': references/api-permissions.md
+    - 'New Configuration Model': references/new-configuration-model.md
+    - 'Error Catalog': references/error-catalog.md
+    - 'Product Startup Options': references/product-startup-options.md
+    - 'Supported Cipher Suites': references/supported-cipher-suites.md
+    - 'Directory Structure of WSO2 Products': references/directory-structure-of-wso2-products.md
+    - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
+    - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
+    - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
+    - 'Scopes Corresponding to Permissions Required to Invoke API Calls' : references/scopes-corresponding-to-api-permissions.md
   - '': page-not-found.md
 
 # Extensions
@@ -609,3 +623,4 @@ extra:
     - Deploy
     - APIs
     - Concepts
+    - References
