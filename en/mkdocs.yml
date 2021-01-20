@@ -564,7 +564,7 @@ nav:
     - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
-    - 'Scopes Corresponding to Permissions Required to Invoke API Calls' : references/scopes-corresponding-to-api-permissions.md
+    - 'Scopes Corresponding to Permissions Required to Invoke API Calls': references/scopes-corresponding-to-api-permissions.md
   - '': page-not-found.md
 
 # Extensions
