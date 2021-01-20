@@ -1,4 +1,4 @@
-# Extensible SCIM User Schemas With WSO2 Identity Server
+# Extensible SCIM User Schemas with WSO2 Identity Server
 
 The System for Cross-Domain Identity Management (SCIM)) specification defines a [fixed set of default attributes](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-11.2) for the user object. This set is defined to ensure the interoperability and it can cater to most of the industry's identity management requirements. Given below is a sample user object with the default attributes set.
 
