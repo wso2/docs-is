@@ -76,6 +76,8 @@ The following are some of the advantages you can have with SSO:
 -   User identities are managed at a central point. This is more secure,
     less complex and easily manageable.
 
+For more information on SSO, see [here](../../concepts/single-sign-on).
+
 With the release of WSO2 Identity Server 3.0, it supports the SAML 2.0
 web browser based SSO profile. WSO2 Identity Server can act as the
 identity provider of a single sign on system with minimal
