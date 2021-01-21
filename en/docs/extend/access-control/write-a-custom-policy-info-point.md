@@ -4,9 +4,9 @@ According to the XACML reference architecture, PIP (Policy Info Point) is the sy
 
 This topic provides instructions on how to write a simple PIP attribute finder module to plug in to the WSO2 Identity Server. There are two ways that you can write a PIP attribute finder module.
 
-1.  By implementing the `PIPAttributeFinder` interface. You can find the latest interface [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/PIPAttributeFinder.java).
+1.  **By implementing the `PIPAttributeFinder` interface** - You can find the latest interface [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/PIPAttributeFinder.java).
 
-2.  By extending the `AbstractPIPAttributeFinder` abstract class You can find the latest abstract class [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/AbstractPIPAttributeFinder.java).
+2.  **By extending the `AbstractPIPAttributeFinder` abstract class** -  You can find the latest abstract class [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/AbstractPIPAttributeFinder.java).
 
 Out of the methods mentioned above, it would be easier to extend the `AbstractPIPAttributeFinder` abstract class and write a PIP attribute finder module.
 
@@ -68,7 +68,7 @@ K-Market is an online trading company that has control over online trading based
     password = "wso2istest"
     ```
 
-7.  If you configure a new datasource, register your PIP module by adding the following properties to the     `deployment.toml`. The following is a sample configuration for this scenario.
+7.  If you configure a new datasource, register your PIP module by adding the following properties to the `deployment.toml`. The following is a sample configuration for this scenario.
 
     ```toml
     [[xacml.pip.attribute_designator]]
@@ -95,7 +95,7 @@ Use the following steps to check the PIP module.
 
 4.  To test this attribute finder, you can use [this](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/resources/Kmarket-Test-Policy.xml) policy and [this](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/resources/Test-Request.xml) request.
 
-5. [Upload the policy](../../learn/creating-a-xacml-policy) into the WSO2 Identity Server, then publish it to PDP and enable it.
+5. [Upload the policy](TODO:../../learn/creating-a-xacml-policy) into the WSO2 Identity Server, then publish it to PDP and enable it.
 
 6.  You can then [try out the policy with TryIt PEP](TODO:../../../administer/using-the-xacml-tryit-tool).
 

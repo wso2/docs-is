@@ -1,7 +1,6 @@
 # Error Codes and Descriptions
 
-The following topic provides a list of error codes in the WSO2 Identity
-Server. 
+The following topic provides a list of error codes in the WSO2 Identity Server. 
 
 | Error Code | Description                                                                                                                                                              |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -9,13 +8,13 @@ Server.
 | 17002      | This error occurs when invalid credentials are provided.                                                                                                                 |
 | 17003      | This error occurs when an [account is locked](TODO:../../../learn/account-locking-by-failed-login-attempts) after multiple incorrect login attempts and the user attempts to log in again. |
 | 17004      | This error occurs when the user account is disabled.                                                                                                                     |
-| 18001      | Invalid validation code.                                                                                                                                                 |
+| 18001      | Invalid validation code                                                                                                                                                 |
 | 18002      | The key/confirmation code provided has expired.                                                                                                                          |
 | 18003      | Invalid user (invalid username).                                                                                                                                         |
 | 18004      | Captcha answer is invalid.                                                                                                                                               |
-| 18013      | Unexpected error.                                                                                                                                                        |
+| 18013      | Unexpected error                                                                                                                                                        |
 | 18015      | This error occurs when sending a recovery notification fails.                                                                                                            |
-| 18016      | Invalid tenant.                                                                                                                                                          |
+| 18016      | Invalid tenant                                                                                                                                                          |
 | 18017      | Challenge question not found.                                                                                                                                            |
 | 20001      | Registry exception while getting challenge question.                                                                                                                     |
 | 20002      | Registry exception while setting challenge question.                                                                                                                     |
@@ -24,8 +23,8 @@ Server.
 | 20005      | Error while setting challenge question.                                                                                                                                  |
 | 20006      | Error while setting challenge question of user.                                                                                                                          |
 | 20007      | Error while hashing the security answer.                                                                                                                                 |
-| 20008      | Invalid answer.                                                                                                                                                          |
-| 20009      | Invalid answer for security question.                                                                                                                                    |
+| 20008      | Invalid answe                                                                                                                                                          |
+| 20009      | Invalid answer for security question                                                                                                                                    |
 | 20010      | Need to answer more security questions.                                                                                                                                  |
 | 20011      | Error while triggering notifications for user.                                                                                                                           |
 | 20012      | Need to answer all requested security questions.                                                                                                                         |
@@ -51,7 +50,7 @@ Server.
 | 20032      | Multiple users found.                                                                                                                                                    |
 | 20033      | Error loading signup configurations.                                                                                                                                     |
 | 20034      | Error occurred while updating user claims.                                                                                                                               |
-| 20035      | Password policy violation.                                                                                                                                               |
+| 20035      | Password policy violation                                                                                                                                              |
 | 20036      | Provided confirmation code is not valid.                                                                                                                                 |
 | 20037      | No confirmation code is provided for user.                                                                                                                               |
 | 20038      | No recovery scenario is provided for user.                                                                                                                               |
@@ -76,4 +75,4 @@ Server.
 | 51003      | Error occurred while retrieving scope.                                                                                                                                   |
 | 51004      | Error occurred while deleting scope.                                                                                                                                     |
 | 51005      | Error occurred while updating scope.                                                                                                                                     |
-| 51007      | Unexpected Error.                                                                                                                                                        |
+| 51007      | Unexpected Error                                                                                                                                                        |
