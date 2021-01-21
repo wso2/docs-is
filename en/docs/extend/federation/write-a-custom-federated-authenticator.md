@@ -109,7 +109,7 @@ This API can be used to configure a custom authenticator. As an example, a Twitt
 
 ### Write a custom authenticator for Twitter
 
-The WSO2 Identity Server comes with several built in authenticators like Facebook, Google, OpenID, and SAML. This topic provides instructions on how to authenticate users via Twitter using the SAML configurations available in the Identity Server.
+WSO2 Identity Server comes with several built in authenticators like Facebook, Google, OpenID, and SAML. This topic provides instructions on how to authenticate users via Twitter using the SAML configurations available in WSO2 Identity Server.
 
 !!! info "Related links"
     -   See [here](https://dev.twitter.com/web/sign-in/desktop-browser) for
