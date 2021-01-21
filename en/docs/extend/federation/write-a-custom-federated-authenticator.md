@@ -924,7 +924,7 @@ This section includes the code used to write the custom authenticator for Google
     $ mvn clean install
     ```
 
-3.  Copy the `org.wso2.carbon.identity.application.authenticator.custom.google­5.0.0.jar` file found inside the **target** folder and paste it in the `<IS_HOME>/repository/components/dropins` folder.
+3.  Copy the `org.wso2.carbon.identity.application.authenticator.custom.google­5.0.0.jar` file found inside the `target` folder and paste it in the `<IS_HOME>/repository/components/dropins` folder.
 
     ??? info "Click here to view the source code"
         ``` java
