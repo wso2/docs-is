@@ -1,4 +1,4 @@
-# Extending the Workflow Event Handler
+# Extend the Workflow Event Handler
 
 By default, WSO2 Identity Server only supports user store operations to be engaged with workflows. However, this is an extensible feature where you can implement workflow support for any other operation such as SP/IDP operations, XACML policy creation, tenant operations, etc., which has an implemented interceptor that gets executed before method execution.
 
