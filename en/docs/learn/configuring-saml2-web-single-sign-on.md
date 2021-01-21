@@ -126,7 +126,7 @@ To configure SAML2 Web SSO:
     <p class="admonition-title">Tip</p>
     <p>From WSO2 IS 5.12.0 onwards, the <strong>Certificate Alias</strong> option is hidden from the application
      configurations. To enable the <strong>Certificate Alias</strong> option in the console UI, add the following
-      configuration to the <code>                &lt;IS_HOME&gt;/repository/deployment.toml</code>.
+      configuration to the <code>                &lt;IS_HOME&gt;/repository/deployment.toml</code> file.
       
       ```toml
           [console.applications.ui]
