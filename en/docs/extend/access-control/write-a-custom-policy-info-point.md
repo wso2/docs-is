@@ -68,7 +68,7 @@ K-Market is an online trading company that has control over online trading based
     password = "wso2istest"
     ```
 
-7.  If you configure a new datasource, register your PIP module by adding the following properties to the     `deployment.toml`. The following is a sample configuration for this scenario.
+7.  If you configure a new datasource, register your PIP module by adding the following properties to the `deployment.toml`. The following is a sample configuration for this scenario.
 
     ```toml
     [[xacml.pip.attribute_designator]]
