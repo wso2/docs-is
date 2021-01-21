@@ -307,6 +307,18 @@ nav:
           - 'Extend SCIM 2.0 User Schemas': extend/provisioning/extend-scim2-user-schemas.md
           - 'Write an Outbound Provisioning Connector': extend/provisioning/write-an-outbound-provisioning-connector.md
           - 'Extensible SCIM User Schemas With WSO2 Identity Server': extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
+        - 'Identity Federation for Developers':
+          - 'Write a Custom Federated Authenticator': extend/federation/write-a-custom-federated-authenticator.md
+          - 'Write a Custom Local Authenticator': extend/federation/write-a-custom-local-authenticator.md
+        - 'Access Control for Developers':
+          - 'Write a Custom Policy Info Point': extend/access-control/write-a-custom-policy-info-point.md
+        - 'Workflow Management for Developers':
+          - 'Extend the Workflow Event Handler': extend/workflows/extend-the-workflow-event-handler.md
+          - 'Write a Custom Workflow Template': extend/workflows/write-a-custom-workflow-template.md
+        - 'Working with Errors':
+          - 'Customize Authentication Error Messages': extend/errors/customize-authentication-error-messages.md
+          - 'Customize Error Pages': extend/errors/customize-error-pages.md
+          - 'Error Codes and Descriptions': extend/errors/error-codes-and-descriptions.md
   - 'Deploy':
     - 'Deploy': deploy/deploying-wso2-identity-server.md
     - 'choose your model': deploy/choose-your-model.md
