@@ -1,6 +1,6 @@
 # Write a Custom Federated Authenticator
 
-It is possible to use the extension points available in the WSO2 Identity Server to create custom federated authenticators.
+It is possible to use the extension points available in WSO2 Identity Server to create custom federated authenticators.
 
 ---
 
@@ -109,7 +109,7 @@ This API can be used to configure a custom authenticator. As an example, a Twitt
 
 ### Write a custom authenticator for Twitter
 
-The WSO2 Identity Server comes with several built in authenticators like Facebook, Google, OpenID, and SAML. This topic provides instructions on how to authenticate users via Twitter using the SAML configurations available in the Identity Server.
+WSO2 Identity Server comes with several built in authenticators like Facebook, Google, OpenID, and SAML. This topic provides instructions on how to authenticate users via Twitter using the SAML configurations available in WSO2 Identity Server.
 
 !!! info "Related links"
     -   See [here](https://dev.twitter.com/web/sign-in/desktop-browser) for
@@ -924,7 +924,7 @@ This section includes the code used to write the custom authenticator for Google
     $ mvn clean install
     ```
 
-3.  Copy the `org.wso2.carbon.identity.application.authenticator.custom.google­5.0.0.jar` file found inside the **target** folder and paste it in the `<IS_HOME>/repository/components/dropins` folder.
+3.  Copy the `org.wso2.carbon.identity.application.authenticator.custom.google­5.0.0.jar` file found inside the `target` folder and paste it in the `<IS_HOME>/repository/components/dropins` folder.
 
     ??? info "Click here to view the source code"
         ``` java

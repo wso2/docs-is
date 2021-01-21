@@ -25,4 +25,4 @@ The following query parameters are sent to the web application from authenticati
 -   failedUsername
 -   remainingAttempts
 
-The error messages can be customized based on these query parameters in the jsp files as in  `authenticationendpoint/login.jsp`. 
+The error messages can be customized based on these query parameters in the jsp files as in  `authenticationendpoint/login.jsp`.

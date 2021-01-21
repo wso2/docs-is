@@ -83,7 +83,7 @@ Now you have successfully registered a PIP attribute finder with WSO2 Identity S
 
 ----
 
-## Testing the sample PIP module
+## Test the sample PIP module
 
 Use the following steps to check the PIP module.
 
