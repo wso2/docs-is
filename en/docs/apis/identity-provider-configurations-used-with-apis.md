@@ -381,7 +381,7 @@ custom federated authenticator, see [Writing a Custom Federated Authenticator](.
 An outbound provisioning connector is used to provision users to
 external systems (e.g. Google, SalesForce).  To write your own custom
 outbound provisioning connector, see [Writing an Outbound Provisioning
-Connector](../../develop/writing-an-outbound-provisioning-connector/).
+Connector](../../../extend/writing-an-outbound-provisioning-connector/).
 
 !!! warning
     The `              <provisioningConnectorConfigs>             ` and `              <defaultProvisioningConnectorConfig>             ` tags

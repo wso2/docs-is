@@ -74,7 +74,7 @@ For details on configuring WSO2 Identity Server to use an email address as the u
 
 ## Configure the service provider
 
-1.  Sign in to the WSO2 Identity Server [Developer Portal](../../setup/getting-started-with-the-management-console).
+1.  Sign in to the WSO2 Identity Server [Management Console](TODO:../../setup/getting-started-with-the-management-console).
 2.  Select **Applications** from the left panel and click on **New Application**.
 3.  Select **SAML web application**. 
 3.  Fill in the **Service Provider Name**, and provide a brief
