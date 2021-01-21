@@ -98,7 +98,7 @@ You can customize the above error message by following the instructions given be
         new HTML error page you add.
     
 
-12. Restart the WSO2 Identity Server.
+12. Restart WSO2 Identity Server.
 
 13. Access the following URL again, to test the error page you customized: https://localhost:9443/abc.  
     
