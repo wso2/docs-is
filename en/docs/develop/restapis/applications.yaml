@@ -2110,14 +2110,18 @@ components:
           description: Decides whether the application is visible for end users.
         certificate:
           $ref: '#/components/schemas/Certificate'
-        skipLoginConsent:
+        skipConsent:
           type: boolean
           example: false
-          description: Decides whether user consent needs to be skipped during login flows.
-        skipLogoutConsent:	
-          type: boolean	
-          example: false	
-          description: Decides whether user consent needs to be skipped during logout flows.  
+          description: >-
+            Decides whether user consent needs to be skipped during login flows.
+            Note:
+            In addition to login flows, if you need to skip consent during logout flows via the 'skipConsent' property
+            , apply the 0623 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager (WUM). To deploy
+            a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription,
+            you can use this feature with the next version of WSO2 Identity Server when it is released. For more
+            information on updating WSO2 Identity Server using WUM, see
+            [Updating WSO2 Products](https://is.docs.wso2.com/en/latest/administer/getting-wso2-updates/)
         returnAuthenticatedIdpList:
           type: boolean
           example: false
