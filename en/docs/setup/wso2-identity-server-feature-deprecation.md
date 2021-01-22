@@ -75,7 +75,8 @@ This feature is currently disabled in the product and can be enabled by adding t
 
     ```toml
     [[legacy_feature]]
-    id = "identity/connect/dcr"
+    id = "oauth"
+    version = "1.0"
     enable = true
     ```
 <p>
