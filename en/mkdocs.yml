@@ -320,8 +320,32 @@ nav:
           - 'Customize Error Pages': extend/errors/customize-error-pages.md
           - 'Error Codes and Descriptions': extend/errors/error-codes-and-descriptions.md
   - 'Deploy':
-    - 'Deploy': deploy/deploying-wso2-identity-server.md
-    - 'choose your model': deploy/choose-your-model.md
+    - 'Get Started':
+      - 'Install': deploy/get-started/install.md
+      - 'Run': deploy/get-started/running-the-product.md
+      - 'Management Console':
+        - 'Overview': deploy/get-started/getting-started-with-the-management-console.md
+        - 'Customize': deploy/get-started/customizing-the-management-console.md
+    - 'Mitigate Attacks':
+      - 'Mitigate Cross Site Request Forgery Attacks': deploy/mitigate-attacks/mitigating-cross-site-request-forgery-attacks.md 
+      - 'Mitigate Authorization Code Interception Attacks': deploy/mitigate-attacks/mitigating-authorization-code-interception-attacks.md
+      - 'Mitigate Brute Force Attacks': deploy/mitigate-attacks/mitigating-brute-force-attacks.md
+      - 'Mitigate Replay Attacks': deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
+    - 'Work with Databases':
+      - 'Overview': deploy/working-with-databases.md
+      - 'Change the Carbon Database':
+        - 'Change to IBM DB2': deploy/changing-to-ibm-db2.md
+        - 'Change to MariaDB': deploy/changing-to-mariadb.md
+        - 'Change to MSSQL': deploy/changing-to-mssql.md
+        - 'Change to MySQL': deploy/changing-to-mysql.md
+        - 'Change to Oracle': deploy/changing-to-oracle.md
+        - 'Change to Oracle RAC': deploy/changing-to-oracle-rac.md
+        - 'Change to PostgreSQL': deploy/changing-to-postgresql.md
+        - 'Change to remote H2': deploy/changing-to-remote-h2.md
+    - 'Deployment Patterns': deploy/deployment-guide.md
+    - 'Set up WSO2 clusters with Nginx': deploy/fronting-with-the-nginx-load-balancer.md
+    - 'Set up Separate Databases for Clustering': deploy/settinng-up-separate-databases-for-clustering.md
+    - 'Change the hostname': deploy/changing-the-hostname.md
   - 'APIs':
     - 'Using APIs': apis/using-apis.md
     - 'Calling Admin Services':
