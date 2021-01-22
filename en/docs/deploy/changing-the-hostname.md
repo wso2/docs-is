@@ -4,8 +4,8 @@ This section guides you through changing the hostname of WSO2 Identity Server.
 
 1.  Change the hostname 
     
-    Server hostname for internal API calls, is by default configured as `localhost`. This configuration is utilized 
-    to build the internal absolute url of a service endpoint that will be consumed whenever internal API calls are generated. To configure the hostname, follow one of the two options given below
+    Server hostname for internal API calls is by default configured as `localhost`. This configuration is utilized 
+    to build the internal absolute URL of a service endpoint that will be consumed whenever internal API calls are generated. To configure the hostname, follow one of the two options given below
     according to your requirement.
 
     - **Option 1**
