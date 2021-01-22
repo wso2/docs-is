@@ -101,7 +101,11 @@ You have now configured WSO2 Identity Server to send the user account confirmati
 	```curl 
 	curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Alex","givenName":"Roe"},"userName":"Alex","password":"password","emails":[{"primary":true,"value":"<USER_EMAIL>"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
 	```
-
+    !!! tip "Using special characters in the username"
+                
+        Please note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and whitespaces are
+         not allowed in usernames as they have been reserved for other purposes.
+                     
 2.	An email requesting to confirm the user creation is sent to the given email address. 
 
 	<img src="../../assets/img/learn/user-registration-verification-email.png" alt="Account Creation verification email" width="500" style="border:1px solid grey">  	  
