@@ -87,7 +87,7 @@ necessary system requirements and a compatible environment.
 
 ---
 
-## Configure Databases
+## Configure databases
 
 In a clustered deployment, all WSO2 Identity Server nodes are pointed to the same databases to ensure the integrity 
 of the data. Also, you can configure multiple logical databases if you require to keep your data logically separated 

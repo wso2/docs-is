@@ -48,7 +48,7 @@ features that you can use. These are divided among the following menu items.
 
 ---
 
-### Main menu
+## Main menu
 
 The main menu in the Management Console includes the main list of
 features that the WSO2 Identity Server provides. The main menu is
@@ -56,7 +56,7 @@ divided into different sections.
 
 ---
 
-#### Identity section
+### Identity section
 
 ![identity-section-mgt-console](../../assets/img/deploy/identity-section-mgt-console.png)
 
@@ -71,7 +71,7 @@ divided into different sections.
 
 ---
 
-#### Entitlement section
+### Entitlement section
 
 ![entitlement-section-mgt-console](../../assets/img/deploy/entitlement-section-mgt-console.png)
 
@@ -85,7 +85,7 @@ divided into different sections.
 
 ---
 
-#### Manage section
+### Manage section
 
 ![manage-section-mgt-console](../../assets/img/deploy/manage-section-mgt-console.png)
 
@@ -106,7 +106,7 @@ divided into different sections.
 
 ---
 
-### Monitor menu
+## Monitor menu
 
 The monitor menu includes a list of features focused on providing logs
 and statistics related to the Identity Server. For more
@@ -118,7 +118,7 @@ information on these features and their usage, see the topics on
 
 ---
 
-### Configure menu
+## Configure menu
 
 The configure menu is mainly a list of administration features which can
 help you customize and configure the Identity Server to suit your
@@ -140,7 +140,7 @@ specific requirements.
 
 ---
 
-### Tools menu
+## Tools menu
 
 The tools menu includes SAML and XACML tools. For more details on each
 of these tools and their usage, see the topics on [working with tools](TO-DO:../../administer/using-tools).
