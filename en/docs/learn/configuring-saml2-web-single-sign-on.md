@@ -123,6 +123,17 @@ To configure SAML2 Web SSO:
     <tr class="even">
     <td><strong>Certificate Alias</strong></td>
     <td><div class="content-wrapper">
+    <p class="admonition-title">Tip</p>
+    <p>From WSO2 IS 5.12.0 onwards, the <strong>Certificate Alias</strong> option is hidden from the application
+     configurations. To enable the <strong>Certificate Alias</strong> option in the console UI, add the following
+      configuration to the <code>                &lt;IS_HOME&gt;/repository/deployment.toml</code> file.
+      
+    ```toml
+    [console.applications.ui]
+    certificate_alias_enabled=true
+    ```
+    </p>
+    
     <p>Select the <strong>Certificate Alias</strong> from the dropdown. This is used to validate the signature of SAML2 requests and is used to generate encryption. Basically the service provider’s certificate must be selected here. Note that this can also be the Identity Server tenant's public certificate in a scenario where you are doing a tenant specific configuration.</p>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
