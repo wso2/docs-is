@@ -294,6 +294,10 @@ nav:
     - 'Authentication Script API': extend/authentication-script-reference.md
     - 'Configuration Catalog': extend/configuration-catalog.md
     - 'Extending the Identity Server':
+        - 'Work with the Source Code': extend/work-with-the-source-code.md
+        - 'Using SDKs':
+          - 'Overview': extend/sdks/sdk-overview.md
+          - 'Enable Authentication for Spring Boot App': extend/sdks/spring-boot.md
         - 'User Management for Developers':
           - 'Write a Custom Password Validator': extend/user-mgt/write-a-custom-password-validator.md
           - 'Write a Custom Global Scope Validator': extend/user-mgt/write-a-custom-global-scope-validator.md
