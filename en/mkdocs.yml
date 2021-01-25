@@ -312,9 +312,22 @@ nav:
           - 'Write a Custom Local Authenticator': extend/federation/write-a-custom-local-authenticator.md
         - 'Access Control for Developers':
           - 'Write a Custom Policy Info Point': extend/access-control/write-a-custom-policy-info-point.md
+        - 'Adaptive Authentication for Developers':
+          - 'Write Custom Functions for Adaptive Authentication': extend/write-custom-functions-for-adaptive-authentication.md
         - 'Workflow Management for Developers':
           - 'Extend the Workflow Event Handler': extend/workflows/extend-the-workflow-event-handler.md
           - 'Write a Custom Workflow Template': extend/workflows/write-a-custom-workflow-template.md
+        - 'My Account':
+          - 'Set up in a Development Environment': extend/myaccount/set-up-my-account-in-a-dev-environment.md
+          - 'Customize the UI': extend/myaccount/customize-my-account-ui.md
+          - 'Configure the Application': extend/myaccount/configure-my-account.md
+        - 'Re-brand User Interfaces':
+          - 'Re-brand WSO2 Identity Server UIs': extend/rebranding/customizing-identity-server-uis.md
+          - 'Re-brand the Default Login Page for Your Application': extend/rebranding/rebrand-login-pages-for-service-providers.md
+          - 'Re-brand the SSO Redirection Page': extend/rebranding/rebrand-the-sso-redirection-page.md
+        - 'Change the Authentication Endpoint': extend/change-the-authentication-endpoint.md
+        - 'Localization Support in Identity Server': extend/localization-support-in-identity-server.md
+        - 'Host Authentication Endpoint on a Different Server': extend/host-authentication-endpoint-on-a-different-server.md
         - 'Working with Errors':
           - 'Customize Authentication Error Messages': extend/errors/customize-authentication-error-messages.md
           - 'Customize Error Pages': extend/errors/customize-error-pages.md
