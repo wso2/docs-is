@@ -104,7 +104,8 @@ You have now configured WSO2 Identity Server to send the user account confirmati
     !!! tip "Using special characters in the username"
                 
         Please note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and whitespaces are
-         not allowed in usernames as they have been reserved for other purposes.
+         not allowed in usernames as they have been reserved for other purposes. See [Usernames in Identity
+          Server](../references/usernames-in-identity-server.md) for more information on this.
                      
 2.	An email requesting to confirm the user creation is sent to the given email address. 
 
