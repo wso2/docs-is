@@ -1,6 +1,6 @@
 # Usernames in Identity Server
 
-Selecting a good username is important as it is a prime link to your identity. Hence, please make sure to adhere to
+Selecting a good username is important as it is a prime link to your identity. Hence, make sure to adhere to
  the following best practices when creating usernames.
  
 ## Best Practices for Username Creation
