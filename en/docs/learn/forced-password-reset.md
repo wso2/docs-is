@@ -169,14 +169,14 @@ template for this option can be configured in the
 	```xml 
 	{ "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:adminForcedPasswordReset", "attributeName":"adminForcedPasswordReset", "dataType":"boolean", "multiValued":"false", "description":"Enable password change required notification in the user creation.", "required":"false", "caseExact":"false", "mutability":"readwrite", "returned":"default", "uniqueness":"none", "subAttributes":"null", "canonicalValues":[], "referenceTypes":[] },
 	```
-3. Add the attribute names to the scim2-schema-extension.config file as `subAttributes` of the wso2Extension attribute as shown below.
+3. Add the attribute names to the `scim2-schema-extension.config` file as `subAttributes` of the wso2Extension attribute as shown below.
 	
 	```xml
 	{ "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", "attributeName":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", "dataType":"complex", "multiValued":"false", "description":"Enterprise User", "required":"false", "caseExact":"false", "mutability":"readWrite", "returned":"default", "uniqueness":"none", "subAttributes":"verifyEmail askPassword employeeNumber costCenter organization division department manager adminForcedPasswordReset", "canonicalValues":[], "referenceTypes":["external"] }
 	```
 
-4. Restart the server
-5. Login to the Management Console.
+4. Restart the server.
+5. Log in to the Management Console.
 6. Add a new external claim by following `main` -> `Claims` -> `Add` ->
    `Add External Claim`. 
 7. Add this new external claim under urn:ietf:params:scim:schemas:extension:enterprise:2.0:User dialect as shown below. Make sure the name entered in the `Dialect URI` is the same as the one configured as `attributeURI` in step 2. 
