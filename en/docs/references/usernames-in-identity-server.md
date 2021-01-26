@@ -1,4 +1,4 @@
-# Usernames in Identity Server
+# Usernames in WSO2 Identity Server
 
 Selecting a good username is important as it is a prime link to your identity. Hence, make sure to adhere to
  the following best practices when creating usernames.
