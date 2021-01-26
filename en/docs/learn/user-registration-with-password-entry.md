@@ -116,7 +116,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
                 
                    Note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and
                       whitespaces are not allowed in usernames as they have been reserved for other purposes. See
-                       [Usernames in Identity Server](../references/usernames-in-identity-server.md) for more
+                       [Usernames in WSO2 Identity Server](../references/usernames-in-identity-server.md) for more
                         information on this.
 
 			    - **In the email address**
