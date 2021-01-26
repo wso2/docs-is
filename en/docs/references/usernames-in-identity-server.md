@@ -3,7 +3,7 @@
 Selecting a good username is important as it is a prime link to your identity. Hence, make sure to adhere to
  the following best practices when creating usernames.
  
-## Best Practices for Username Creation
+## Best practices for username creation
 
 - A username should be easy to remember and difficult to guess.
 - Make sure the username does not give any hints to guess your password.
