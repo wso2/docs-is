@@ -179,7 +179,7 @@ template for this option can be configured in the
 5. Login to the Management Console.
 6. Add a new external claim by following `main` -> `Claims` -> `Add` ->
    `Add External Claim`. 
-7. Add a new external claim under urn:ietf:params:scim:schemas:extension:enterprise:2.0:User dialect as shown below. Make sure the name entered in the `Dialect URI` is the same as the one configured as `attributeURI` in step 2. 
+7. Add this new external claim under urn:ietf:params:scim:schemas:extension:enterprise:2.0:User dialect as shown below. Make sure the name entered in the `Dialect URI` is the same as the one configured as `attributeURI` in step 2. 
     
 	| Field              | Value                                                                       |
     |--------------------|-----------------------------------------------------------------------------|
