@@ -10,7 +10,7 @@ Selecting a good username is important as it is a prime link to your identity. H
 - It is better to avoid using combinations of special characters such as `'`, `"`, `,`, `.`, `:`, and `;` as they may be
  difficult to distinguish when being read.
 
-## Restricted Special Characters in Usernames
+## Restricted special characters in usernames
 
 The following is a list of characters that have been reserved for other purposes. These characters should not used in
  usernames except for the intended purpose.
