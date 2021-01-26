@@ -187,7 +187,7 @@ template for this option can be configured in the
     |External Claim URI* |forcePasswordReset                                                           | 
     |Mapped Local Claim* |http://wso2.org/claims/identity/adminForcedPasswordReset                     |
     
-8. Use following SCIM 2.0 Request to trigger a password reset
+8. Use the following SCIM 2.0 request to trigger a password reset.
     
     You need to set the **forcePasswordReset** attribute under the`
     urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` schema as
