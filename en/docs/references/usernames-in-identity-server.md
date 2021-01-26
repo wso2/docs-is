@@ -22,5 +22,5 @@ The following is a list of characters that have been reserved for other purposes
 
 !!! warning "Unsupported special characters in usernames"
                 
-        Please note that the use of special characters `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and whitespaces is
+        Note that the use of special characters `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and whitespaces is
          not supported in this version of WSO2 Identity Server.
