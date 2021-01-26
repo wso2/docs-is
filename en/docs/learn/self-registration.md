@@ -160,7 +160,7 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
     !!! tip "Using special characters in the username"
                 
         Note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and whitespaces are
-         not allowed in usernames as they have been reserved for other purposes. See [Usernames in Identity Server
+         not allowed in usernames as they have been reserved for other purposes. See [Usernames in WSO2 Identity Server
          ](../references/usernames-in-identity-server.md) for more information on this.
                      
 	The **Create New Account** screen appears.
