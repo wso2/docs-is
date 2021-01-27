@@ -326,7 +326,7 @@ nav:
           - 'Customize the UI': extend/myaccount/customize-my-account-ui.md
           - 'Configure the Application': extend/myaccount/configure-my-account.md
         - 'Re-brand User Interfaces':
-          - 'Re-brand WSO2 Identity Server UIs': extend/rebranding/customizing-identity-server-uis.md
+          - 'Re-brand WSO2 Identity Server UIs': extend/rebranding/rebrand-identity-server-uis.md
           - 'Re-brand the Default Login Page for Your Application': extend/rebranding/rebrand-login-pages-for-service-providers.md
           - 'Re-brand the SSO Redirection Page': extend/rebranding/rebrand-the-sso-redirection-page.md
         - 'Change the Authentication Endpoint': extend/change-the-authentication-endpoint.md

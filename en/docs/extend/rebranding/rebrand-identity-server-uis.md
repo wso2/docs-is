@@ -243,18 +243,18 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
 
     Restarting the server is NOT required to reflect the changes—browser refresh will display the changes. 
 
-    ![image](https://user-images.githubusercontent.com/9637873/69425601-420ece00-0d51-11ea-9ce6-b38b3382ae86.png)
+    ![image](../../assets/img/extend/rebranded-ui-1.png)
     <span class="figcaption_hack">Customized Login Page</span>
 
 
-    ![image](https://user-images.githubusercontent.com/9637873/69425723-7d110180-0d51-11ea-9467-0297f3933823.png)
+    ![image](../../assets/img/extend/rebranded-ui-2.png)
     <span class="figcaption_hack">Customized Recover Username page</span>
 
-    ![image](https://user-images.githubusercontent.com/9637873/69425759-8b5f1d80-0d51-11ea-8dd0-947b06a93a5e.png)
+    ![image](../../assets/img/extend/rebranded-ui-3.png)
     <span class="figcaption_hack">Customized Recover Password page</span>
 
 
-    ![image](https://user-images.githubusercontent.com/9637873/69425805-a6319200-0d51-11ea-860b-9cab9245c3d7.png)
+    ![image](../../assets/img/extend/rebranded-ui-4.png)
     <span class="figcaption_hack">Customized Self signup page</span>
 
 !!! note  
