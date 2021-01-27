@@ -215,7 +215,7 @@ property2 = "property-2-value"
 ```
 
 
-??? Tip 
+??? Tip "Click to see sample health checker configuration"
     A sample configuration section of `deployment.toml` related to
     health checkers is shown below. 
             ```toml 

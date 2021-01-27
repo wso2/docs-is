@@ -198,23 +198,23 @@ This will add the following custom `CacheManager` configuration to `<IS_HOME>/re
 
 ```xml
 <CacheManager name="sampleCacheManager">
-     <Cache
-        name="sampleCache1"
-        timeout="300"
-        capacity="5000"
-        enable="true"
-        isDistributed="false"/>
-     <Cache
-        name="sampleCache2"
-        timeout="300"
-        capacity="5000"
-        enable="true"
-        isDistributed="false"/>
-     <Cache
-        name="sampleCache3"
-        timeout="300"
-        capacity="5000"
-        enable="true"
-        isDistributed="false"/>
+	<Cache
+	name="sampleCache1"
+	timeout="300"
+	capacity="5000"
+	enable="true"
+	isDistributed="false"/>
+	<Cache
+	name="sampleCache2"
+	timeout="300"
+	capacity="5000"
+	enable="true"
+	isDistributed="false"/>
+	<Cache
+	name="sampleCache3"
+	timeout="300"
+	capacity="5000"
+	enable="true"
+	isDistributed="false"/>
  </CacheManager>
  ```

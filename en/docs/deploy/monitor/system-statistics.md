@@ -41,7 +41,7 @@ This panel provides the following information:
 
 ---
 
-### Server information
+## Server information
 
 This panel provides the following information:
 
@@ -56,7 +56,7 @@ This panel provides the following information:
 
 ---
 
-### Response time graph
+## Response time graph
 
 ![](../../../assets/img/deploy/monitor/response-time.png)
 
@@ -64,7 +64,7 @@ This graph shows the temporal variation of the Average Response time.
 
 ---
 
-### Memory graph
+## Memory graph
 
 This graph shows a temporal variation of the server memory.
 
@@ -72,7 +72,7 @@ This graph shows a temporal variation of the server memory.
 
 ---
 
-### Statistics configuration panel
+## Statistics configuration panel
 
 Use the **Statistics Configuration** panel to configure the statistics
 view.
