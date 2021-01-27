@@ -1,8 +1,4 @@
----
-template: templates/single-column.html
----
-
-# Deploying WSO2 Identity Server using AWS CloudFormation
+# Deploy WSO2 Identity Server using AWS CloudFormation
 
 ## Prerequisites
 
@@ -105,7 +101,8 @@ In AWS, web servers are fronted with a Load balancer. While deploying WSO2 Ident
 		```curl 
 		vi  ~/.aws/credentials
 		```			
-		
+
+---
 
 ## Step 2 - Create an EC2 key pair for the desired region
 
@@ -119,6 +116,8 @@ aws ec2 create-key-pair --key-name <key-pair-name>
 	1. Click on **Create Key Pair**.
 
 	2. Enter a key pair name of your choice. Then choose a file format and click on **Create Key Pair** to create your key pair. 
+
+---
 
 ## Step 3 - Create a stack
 
@@ -139,6 +138,8 @@ aws ec2 create-key-pair --key-name <key-pair-name>
 !!! note "" 
 	The stack resources might take upto 15 minutes to get created. You can view the porgress of the creation in the **Events** tab of the AWS console. 
 
+---
+
 ## Step 4 - Access the management console 
 
 You can access the WSO2 Identity Server management console by clicking on the `MgtConsoleUrl` mentioned in the **Outputs** tab of the stack that you created in step 3. 
@@ -151,9 +152,6 @@ You can access the WSO2 Identity Server management console by clicking on the `M
     -  Working with different user stores <insert-link>
     -  Configuring the User Realm <insert-link>
 
----
-
-To try out deploying WSO2 Identity Server on other platforms, see [here](../../deploy/deploying-wso2-identity-server/).
 
 
 

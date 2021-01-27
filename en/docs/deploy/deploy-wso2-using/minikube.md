@@ -1,8 +1,4 @@
----
-template: templates/single-column.html
----
-
-# Deploying WSO2 Identity Server on Kubernetes using Minikube
+# Deploy WSO2 Identity Server on Kubernetes using Minikube
 
 ## Prerequisites
 
@@ -65,6 +61,8 @@ kubeconfig: Configured
 git clone https://github.com/wso2/kubernetes-is.git
 ```
 
+---
+
 ## Step 2 - Change the configurations as required 
 
 1.	The default configurations work well for the basic deployment of the product. However, if there is anything specific that needs to be configured, change the respective files in `<HELM_HOME>/is-pattern-1/`. 
@@ -74,6 +72,8 @@ git clone https://github.com/wso2/kubernetes-is.git
     !!!note ""
         Change the initial delay seconds of the `livenessProbe` to 250 in the `<HELM_HOME>/is-pattern-1/values.yaml` file. This is to avoid the cluster being terminated due to delays, before it is live.
 
+---
+
 ## Step 3 - Deploy WSO2 Identity Server
 
 Execute the following command to deploy the product. Here, `NAMESPACE` is the Kubernetes Namespace in which the resources are deployed and the `<RELEASE_NAME>` can be any name that you choose for the deployed instance. 
@@ -81,6 +81,7 @@ Execute the following command to deploy the product. Here, `NAMESPACE` is the Ku
 ```java
 helm install --dep-up --name <RELEASE_NAME> <HELM_HOME>/is-pattern-1 --namespace <NAMESPACE>
 ```
+---
 
 ## Step 4 - Expose the external IP address
 
@@ -126,6 +127,8 @@ spec:
     minikube ip
     ```
 
+---
+
 ## Step 5 - Access the management console
 
 To access the console in the environment,
@@ -150,9 +153,9 @@ To access the console in the environment,
 
 3.	Navigate to `https://<RELEASE_NAME>/carbon` on a new browser window.
 
-## Try it Out 
+## Try it out 
 
-You can now test the functionalities of WSO2 Identity Server with your app. You can alternatively choose a sample app from [here](../../quick-starts/overview) and follow the steps given to deploy the chosen application. 
+You can now test the functionalities of WSO2 Identity Server with your app. You can alternatively choose a sample app from [here](../../../quick-starts/overview) and follow the steps given to deploy the chosen application. 
 
 Make sure you add the proxy port configuration to `<KUBERNETES_HOME>/advanced/is-pattern-1/values.yaml`. 
 
@@ -170,12 +173,6 @@ proxyPort = 443
 
 !!! info "Related Topics"
 
-    -  Working with different databases <insert-link>
-    -  Working with different user stores <insert-link>
-    -  Configuring the User Realm <insert-link>
-
----
-
-- To try out deploying WSO2 Identity Server on other platforms, see [here](../../deploy/deploying-wso2-identity-server/).
-
-- To try out deploying WSO2 Identity Server on another Kubernetes Provider, see [here](../../deploy/choose-your-provider/).
+    -  [Working with different databases](../../../deploy/working-with-databases)
+    -  [Working with different user stores](../../../deploy/configuring-user-stores)
+    -  [Configuring the User Realm](../../../deploy/configuring-the-realm)
