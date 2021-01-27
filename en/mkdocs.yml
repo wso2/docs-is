@@ -361,6 +361,20 @@ nav:
     - 'Performance':
       - 'Performance Tuning Recommendations': deploy/performance/performance-tuning-recommendations.md
       - 'Configure Cache Layers': deploy/performance/configuring-cache-layers.md
+    - 'Migrate':
+      - 'Migration Process': deploy/migrate/migration-process.md
+      - 'What has Changed': deploy/migrate/migrating-what-has-changed.md
+      - 'Migration Guide':
+        - 'Before you Begin': deploy/migrate/migration-guide.md
+        - 'Prepare for Migration': deploy/migrate/migrating-preparing-for-migration.md
+        - 'Migrate to 5.11.0': deploy/migrate/migrating-to-5110.md
+        - 'Migrate Userstore Managers': deploy/migrate/migrating-userstore-managers.md
+      - 'Feature Deprecation': deploy/migrate/wso2-identity-server-feature-deprecation.md
+    - 'Deployment Options':
+      - 'AWS': deploy/deployment-options/aws.md
+      - 'Docker Desktop': deploy/deployment-options/docker-desktop.md
+      - 'EKS': deploy/deployment-options/eks.md
+      - 'Minikube': deploy/deployment-options/minikube.md
     - 'Deployment Patterns': deploy/deployment-guide.md
     - 'Set up WSO2 clusters with Nginx': deploy/fronting-with-the-nginx-load-balancer.md
     - 'Set up Separate Databases for Clustering': deploy/settinng-up-separate-databases-for-clustering.md
