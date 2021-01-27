@@ -325,7 +325,7 @@ nav:
       - 'Run': deploy/get-started/running-the-product.md
       - 'Management Console':
         - 'Overview': deploy/get-started/getting-started-with-the-management-console.md
-        - 'Customize': deploy/get-started/customizing-the-management-console.md
+        - 'Customize': deploy/get-started/customizing-the-management-console.md  
     - 'Mitigate Attacks':
       - 'Mitigate Cross Site Request Forgery Attacks': deploy/mitigate-attacks/mitigating-cross-site-request-forgery-attacks.md 
       - 'Mitigate Authorization Code Interception Attacks': deploy/mitigate-attacks/mitigating-authorization-code-interception-attacks.md
@@ -342,6 +342,25 @@ nav:
         - 'Change to Oracle RAC': deploy/changing-to-oracle-rac.md
         - 'Change to PostgreSQL': deploy/changing-to-postgresql.md
         - 'Change to remote H2': deploy/changing-to-remote-h2.md
+    - 'Monitor':
+      - 'Overview': deploy/monitor/monitoring-the-identity-server.md
+      - 'Monitor Logs':
+        - 'Overview': deploy/monitor/monitoring-logs.md
+        - 'HTTP Access Logging': deploy/monitor/http-access-logging.md
+        - 'Mask Sensitive Information in Logs': deploy/monitor/masking-sensitive-information-in-logs.md
+        - 'Log Claims in Audit Logs': deploy/monitor/logging-claims-in-audit-logs.md
+      - 'System Statistics': deploy/monitor/system-statistics.md
+      - 'Monitor TCP-Based Messages':
+        - 'Monitor TCP-based Messages': deploy/monitor/monitoring-tcp-based-messages.md
+        - 'Message Monitoring with TCPMon': deploy/monitor/message-monitoring-with-tcpmon.md
+        - 'Other Usages of TCPMon': deploy/monitor/other-usages-of-tcpmon.md
+      - 'Monitor Server Health': deploy/monitor/monitoring-server-health.md
+      - 'JMX-Based Monitoring': deploy/monitor/jmx-based-monitoring.md
+      - 'Work with Product Observability': deploy/monitor/working-with-product-observability.md
+      - 'Troubleshoot in Production Environments': deploy/monitor/troubleshooting-in-production-environments.md
+    - 'Performance':
+      - 'Performance Tuning Recommendations': deploy/performance/performance-tuning-recommendations.md
+      - 'Configure Cache Layers': deploy/performance/configuring-cache-layers.md
     - 'Deployment Patterns': deploy/deployment-guide.md
     - 'Set up WSO2 clusters with Nginx': deploy/fronting-with-the-nginx-load-balancer.md
     - 'Set up Separate Databases for Clustering': deploy/settinng-up-separate-databases-for-clustering.md
