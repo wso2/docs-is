@@ -1,4 +1,4 @@
-# Deploy WSO2 Identity Server on Kubernetes using AWS-EKS
+# Deploy WSO2 Identity Server on Kubernetes Using AWS-EKS
 
 ## Prerequisites
 
@@ -153,7 +153,7 @@ proxyPort = 443
 !!! info "Related Topics"
 
     -  [Working with different databases](../../../deploy/working-with-databases)
-    -  [Working with different user stores](../../../deploy/configuring-user-stores)
+    -  [Working with different userstores](../../../deploy/configuring-user-stores)
     -  [Configuring the User Realm](../../../deploy/configuring-the-realm)
 
 

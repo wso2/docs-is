@@ -1,4 +1,4 @@
-# Deploy WSO2 Identity Server using AWS CloudFormation
+# Deploy WSO2 Identity Server Using AWS CloudFormation
 
 ## Prerequisites
 
@@ -148,10 +148,9 @@ You can access the WSO2 Identity Server management console by clicking on the `M
 
 !!! info "Related Topics"
 
-    -  Working with different databases <insert-link>
-    -  Working with different user stores <insert-link>
-    -  Configuring the User Realm <insert-link>
-
+    -  [Working with different databases](../../../deploy/working-with-databases)
+    -  [Working with different userstores](../../../deploy/configuring-user-stores)
+    -  [Configuring the User Realm](../../../deploy/configuring-the-realm)
 
 
 

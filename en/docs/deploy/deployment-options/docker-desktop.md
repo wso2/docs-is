@@ -1,4 +1,4 @@
-# Deploy WSO2 Identity Server on Kubernetes using Docker Desktop 
+# Deploy WSO2 Identity Server on Kubernetes Using Docker Desktop 
 
 ## Prerequisites
 
@@ -110,6 +110,6 @@ proxyPort = 443
 !!! info "Related Topics"
 
     -  [Working with different databases](../../../deploy/working-with-databases)
-    -  [Working with different user stores](../../../deploy/configuring-user-stores)
+    -  [Working with different userstores](../../../deploy/configuring-user-stores)
     -  [Configuring the User Realm](../../../deploy/configuring-the-realm)
 

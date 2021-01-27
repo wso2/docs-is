@@ -1,14 +1,14 @@
 # Migrate Userstores
 
-Before doing the actual user store migration, it is recommended to do a dry run and analyze the generated report for 
+Before doing the actual userstore migration, it is recommended to do a dry run and analyze the generated report for 
 any recommendations related to the migration. 
 
 ---
 
 ## Dry run
 
-Dry-run capability in the user store migrator will allow the migration utility to validate the system for the 
-user store configurations and generate a report regarding the migration compatibility. In the generated migration report, 
+Dry-run capability in the userstore migrator will allow the migration utility to validate the system for the 
+userstore configurations and generate a report regarding the migration compatibility. In the generated migration report, 
 if there are any warnings in the generated migration report, it is recommended to contact the WSO2 support to identify the best migration strategy.
 
 ---
@@ -36,16 +36,16 @@ After that analyze the generated report that resides in the provided location.
 
 ## Migrate userstores
 
-If you have multiple tenants and multiple user stores and you only need to migrate a few of them, refer to the 
+If you have multiple tenants and multiple userstores and you only need to migrate a few of them, refer to the 
 configuration section below. If you need to migrate all of them, use the `migrateAll` property (This is set to true by default).  
 
 ---
 
-### Special scenarios
+## Special scenarios
 
-If the user store is an LDAP user store and SCIM is enabled for that user store, migrating that user store is not
+If the userstore is an LDAP userstore and SCIM is enabled for that userstore, migrating that userstore is not
  required. 
-As SCIM will create a user ID for the users in that user store, the SCIM ID can be used as the unique user ID. To do that, 
+As SCIM will create a user ID for the users in that userstore, the SCIM ID can be used as the unique user ID. To do that, 
 change the `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ---
@@ -54,7 +54,7 @@ change the `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/re
 
 | Property Name | Description |
 | ------------- | ----------- |
-| migrateAll | Migrate all the tenants and all the user store domains in it. |
+| migrateAll | Migrate all the tenants and all the userstore domains in it. |
 | reportPath | Absolute path for the dry report. This is required in the dry run mode. |
 
 
@@ -73,17 +73,17 @@ The following configurations are only needed to migrate a few tenants. The forma
 | tenantDomain | Domain name of the tenant. (Mandatory) |
 | increment | Number of users to be updated in each iteration. (Optional) |
 | startingPoint | Where should the migration start from (Offset). This is useful if the migration stopped in the middle and needs to restart. (Optional) |
-| scimEnabled | Whether SCIM is enabled for user stores in this tenant. (Optional) |
+| scimEnabled | Whether SCIM is enabled for userstores in this tenant. (Optional) |
 | migratingDomains | List of comma-separated domain names that should be migrated to this domain. (Optional) |
 | forceUpdateUserId | Mark whether user IDs should be updated even though there is already an existing ID. (Optional) |
 
 ---
 
-## Populate UserIds for the userstores
+## Populate User IDs for the userstores
 
 These steps should be carried out for the old database before the migration. A backup of UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps the backup database should be migrated to the next version.
 
-1.  If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the UM database. This will add a `UM_USER_ID` column to the `UM_USER` table with a random `UUID` as the default value for `UM_USER_ID`.
+1.  If you have JDBC secondary userstores with SCIM disabled, execute the following queries on the UM database. This will add a `UM_USER_ID` column to the `UM_USER` table with a random `UUID` as the default value for `UM_USER_ID`.
 
     ```sql tab="Postgresql"
     /* User should have the Superuser permission */
@@ -162,7 +162,7 @@ These steps should be carried out for the old database before the migration. A b
     /
     ```
 
-2.  If you have JDBC secondary user stores with SCIM enabled, execute the following queries on the UM database.
+2.  If you have JDBC secondary userstores with SCIM enabled, execute the following queries on the UM database.
 
     ```sql tab="PostgreSQL"
     SELECT DISTINCT t.ATTRIBUTE_NAME

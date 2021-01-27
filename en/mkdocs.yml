@@ -370,11 +370,11 @@ nav:
         - 'Migrate to 5.11.0': deploy/migrate/migrating-to-5110.md
         - 'Migrate Userstore Managers': deploy/migrate/migrating-userstore-managers.md
       - 'Feature Deprecation': deploy/migrate/wso2-identity-server-feature-deprecation.md
-    - 'Deploy WSO2 Using':
-      - 'AWS': deploy/deploy-wso2-using/aws.md
-      - 'Docker Desktop': deploy/deploy-wso2-using/docker-desktop.md
-      - 'EKS': deploy/deploy-wso2-using/eks.md
-      - 'Minikube': deploy/deploy-wso2-using/minikube.md
+    - 'Deployment Options':
+      - 'AWS': deploy/deployment-options/aws.md
+      - 'Docker Desktop': deploy/deployment-options/docker-desktop.md
+      - 'EKS': deploy/deployment-options/eks.md
+      - 'Minikube': deploy/deployment-options/minikube.md
     - 'Deployment Patterns': deploy/deployment-guide.md
     - 'Set up WSO2 clusters with Nginx': deploy/fronting-with-the-nginx-load-balancer.md
     - 'Set up Separate Databases for Clustering': deploy/settinng-up-separate-databases-for-clustering.md
