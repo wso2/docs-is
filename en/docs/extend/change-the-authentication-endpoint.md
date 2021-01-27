@@ -69,7 +69,7 @@ and only needs to enter the username (i.e., test1) in the username
 textbox on the login page, without having to type it with
 "@tenant-domain".  
   
-Do the following configurations to enable this feature.
+Configure the following to enable this feature.
 
 1.  Add the following configuration to the
     `           <IS_HOME>/repository/conf/tomcat/deployment.toml          `
