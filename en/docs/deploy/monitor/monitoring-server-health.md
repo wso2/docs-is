@@ -139,7 +139,7 @@ If the request is successful, you will recieve a 200 OK response
 The following responses are possible error responses that you may
 receive.
 
-The code block below shows a sample 503 Unavailable response with an
+The code block below shows a sample `503 Unavailable` response with an
 array of errors.
 
 ``` java

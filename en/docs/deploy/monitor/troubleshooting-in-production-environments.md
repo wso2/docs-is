@@ -121,7 +121,7 @@ The tool captures the following information about the system:
 
 ---
 
-### View process threads in Solaris
+## View process threads in Solaris
 
 This information is useful to know in situations when the database
 processes are not fully utilizing the CPU's threading capabilities. It
