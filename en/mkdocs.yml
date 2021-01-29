@@ -816,6 +816,7 @@ nav:
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
     - 'Scopes Corresponding to Permissions Required to Invoke API Calls' : references/scopes-corresponding-to-api-permissions.md
+    - 'Usernames in WSO2 Identity Server' : references/usernames-in-identity-server.md
   - '': page-not-found.md
 
 
