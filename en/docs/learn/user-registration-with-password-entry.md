@@ -110,9 +110,18 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 		-	**Ask Password from user**: Selected
 		-	**Email Address**: Enter the email address to which you wish to receive the account confirmation email. 
 
-			!!! tip "Using special characters in the email address"
+            !!! tip "Using special characters"
+            
+                - **In the username**
+                
+                    Note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and
+                      whitespaces are not allowed in usernames as they have been reserved for other purposes. See
+                       [Usernames in WSO2 Identity Server](../references/usernames-in-identity-server.md) for more
+                        information on this.
 
-				If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters](../../learn/adding-email-special-characters).
+			    - **In the email address**
+
+                    If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters](../../learn/adding-email-special-characters).
 
 
 	4.	Click **Finish**. 
