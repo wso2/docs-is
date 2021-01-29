@@ -1,15 +1,9 @@
 # Configuring TLS Termination
 
-When you have Carbon servers fronted by a load balancer, you have the
-option of terminating SSL for HTTPS requests. This means that the load
-balancer will be decrypting incoming HTTPS messages and forwarding them
-to the Carbon servers as HTTP. This is useful when you want to reduce
-the load on your Carbon servers due to encryption. To achieve this, the
-load balancer should be configured with TLS termination and the Tomcat
-RemoteIpValve should be enabled for Carbon servers.
+When you have Carbon servers fronted by a load balancer, you have the option of terminating SSL for HTTPS requests. This means that the load balancer will decrypt incoming HTTPS messages and forward them to WSO2 Identity Server again with HTTPS using private or self-signed certificates. Also, make sure that the load balancer is configured with TLS termination and the Tomcat `RemoteIpValve` is enabled for Carbon servers.
 
-When you work with Carbon servers, this will allow you to access admin
-services and the admin console of your product using HTTP (without SSL).
+!!! note "Important"
+    In the past we recommended using HTTP for internal communication to save some CPU overhead on TLS. However, modern security-conscious deployments benefit from having TLS for the traffic even when it is in between private endpoints. Hence, using HTTP endpoints is no-longer recommended on WSO2 Identity Server.
 
 Given below are the steps you need to follow:
 
