@@ -337,8 +337,65 @@ nav:
           - 'Customize Error Pages': extend/errors/customize-error-pages.md
           - 'Error Codes and Descriptions': extend/errors/error-codes-and-descriptions.md
   - 'Deploy':
-    - 'Deploy': deploy/deploying-wso2-identity-server.md
-    - 'choose your model': deploy/choose-your-model.md
+    - 'Get Started':
+      - 'Install': deploy/get-started/install.md
+      - 'Run': deploy/get-started/running-the-product.md
+      - 'Management Console':
+        - 'Overview': deploy/get-started/getting-started-with-the-management-console.md
+        - 'Customize': deploy/get-started/customizing-the-management-console.md  
+    - 'Mitigate Attacks':
+      - 'Mitigate Cross Site Request Forgery Attacks': deploy/mitigate-attacks/mitigating-cross-site-request-forgery-attacks.md 
+      - 'Mitigate Authorization Code Interception Attacks': deploy/mitigate-attacks/mitigating-authorization-code-interception-attacks.md
+      - 'Mitigate Brute Force Attacks': deploy/mitigate-attacks/mitigating-brute-force-attacks.md
+      - 'Mitigate Replay Attacks': deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
+    - 'Work with Databases':
+      - 'Overview': deploy/working-with-databases.md
+      - 'Change the Carbon Database':
+        - 'Change to IBM DB2': deploy/changing-to-ibm-db2.md
+        - 'Change to MariaDB': deploy/changing-to-mariadb.md
+        - 'Change to MSSQL': deploy/changing-to-mssql.md
+        - 'Change to MySQL': deploy/changing-to-mysql.md
+        - 'Change to Oracle': deploy/changing-to-oracle.md
+        - 'Change to Oracle RAC': deploy/changing-to-oracle-rac.md
+        - 'Change to PostgreSQL': deploy/changing-to-postgresql.md
+        - 'Change to remote H2': deploy/changing-to-remote-h2.md
+    - 'Monitor':
+      - 'Overview': deploy/monitor/monitoring-the-identity-server.md
+      - 'Monitor Logs':
+        - 'Overview': deploy/monitor/monitoring-logs.md
+        - 'HTTP Access Logging': deploy/monitor/http-access-logging.md
+        - 'Mask Sensitive Information in Logs': deploy/monitor/masking-sensitive-information-in-logs.md
+        - 'Log Claims in Audit Logs': deploy/monitor/logging-claims-in-audit-logs.md
+      - 'System Statistics': deploy/monitor/system-statistics.md
+      - 'Monitor TCP-Based Messages':
+        - 'Monitor TCP-based Messages': deploy/monitor/monitoring-tcp-based-messages.md
+        - 'Message Monitoring with TCPMon': deploy/monitor/message-monitoring-with-tcpmon.md
+        - 'Other Usages of TCPMon': deploy/monitor/other-usages-of-tcpmon.md
+      - 'Monitor Server Health': deploy/monitor/monitoring-server-health.md
+      - 'JMX-Based Monitoring': deploy/monitor/jmx-based-monitoring.md
+      - 'Work with Product Observability': deploy/monitor/working-with-product-observability.md
+      - 'Troubleshoot in Production Environments': deploy/monitor/troubleshooting-in-production-environments.md
+    - 'Performance':
+      - 'Performance Tuning Recommendations': deploy/performance/performance-tuning-recommendations.md
+      - 'Configure Cache Layers': deploy/performance/configuring-cache-layers.md
+    - 'Migrate':
+      - 'Migration Process': deploy/migrate/migration-process.md
+      - 'What has Changed': deploy/migrate/migrating-what-has-changed.md
+      - 'Migration Guide':
+        - 'Before you Begin': deploy/migrate/migration-guide.md
+        - 'Prepare for Migration': deploy/migrate/migrating-preparing-for-migration.md
+        - 'Migrate to 5.11.0': deploy/migrate/migrating-to-5110.md
+        - 'Migrate Userstore Managers': deploy/migrate/migrating-userstore-managers.md
+      - 'Feature Deprecation': deploy/migrate/wso2-identity-server-feature-deprecation.md
+    - 'Deployment Options':
+      - 'AWS': deploy/deployment-options/aws.md
+      - 'Docker Desktop': deploy/deployment-options/docker-desktop.md
+      - 'EKS': deploy/deployment-options/eks.md
+      - 'Minikube': deploy/deployment-options/minikube.md
+    - 'Deployment Patterns': deploy/deployment-guide.md
+    - 'Set up WSO2 clusters with Nginx': deploy/fronting-with-the-nginx-load-balancer.md
+    - 'Set up Separate Databases for Clustering': deploy/settinng-up-separate-databases-for-clustering.md
+    - 'Change the hostname': deploy/changing-the-hostname.md
   - 'APIs':
     - 'Using APIs': apis/using-apis.md
     - 'Calling Admin Services':
@@ -368,6 +425,7 @@ nav:
       - 'Fido': apis/fido-rest-api.md
       - 'Identity Governance': apis/identity-governance-rest-api.md
       - 'Identity Providers': apis/idp-rest-api.md
+      - 'IdP Session Extending': apis/idp-session-extender-endpoint.md
       - 'Keystore Management': apis/keystore-rest-api.md
       - 'Server Configurations': apis/configs-rest-api.md
       - 'OAuth2 Scope Management': apis/oauth2-scope-management-rest-apis.md
@@ -593,6 +651,21 @@ nav:
             - 'Manual Setup': developer-portal/identity-providers/add/manual-setup.md
           - 'Edit Identity Provider':
             - developer-portal/identity-providers/edit-identity-provider.md
+  - 'References':
+    - 'Overview': references/references-overview.md
+    - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
+    - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
+    - 'API Permissions': references/api-permissions.md
+    - 'New Configuration Model': references/new-configuration-model.md
+    - 'Error Catalog': references/error-catalog.md
+    - 'Product Startup Options': references/product-startup-options.md
+    - 'Supported Cipher Suites': references/supported-cipher-suites.md
+    - 'Directory Structure of WSO2 Products': references/directory-structure-of-wso2-products.md
+    - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
+    - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
+    - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
+    - 'Scopes Corresponding to Permissions Required to Invoke API Calls': references/scopes-corresponding-to-api-permissions.md
+    - 'Usernames in WSO2 Identity Server': references/usernames-in-identity-server.md
   - '': page-not-found.md
 
 # Extensions
@@ -652,3 +725,4 @@ extra:
     - Deploy
     - APIs
     - Concepts
+    - References
