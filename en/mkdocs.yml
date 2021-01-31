@@ -323,6 +323,7 @@ nav:
     - 'Get Started':
       - 'Install': deploy/get-started/install.md
       - 'Run': deploy/get-started/running-the-product.md
+      - 'Get WSO2 Updates': deploy/get-started/getting-wso2-updates.md
       - 'Management Console':
         - 'Overview': deploy/get-started/getting-started-with-the-management-console.md
         - 'Customize': deploy/get-started/customizing-the-management-console.md  
@@ -342,6 +343,48 @@ nav:
         - 'Change to Oracle RAC': deploy/changing-to-oracle-rac.md
         - 'Change to PostgreSQL': deploy/changing-to-postgresql.md
         - 'Change to remote H2': deploy/changing-to-remote-h2.md
+        - 'Change the Default Datasource of BPS': deploy/changing-the-default-datasource-for-bps.md
+        - 'Change the Default Datasource for Consent Management': deploy/changing-datasource-consent-management.md
+      - 'Browse the H2 Database': deploy/browsing-the-h2-database.md
+    - 'Configure the User Realm':
+      - 'Overview': deploy/configuring-the-realm.md
+      - 'Configure the Authorization Manager': deploy/configuring-the-authorization-manager.md
+      - 'Configure the System Administrator': deploy/configuring-the-system-administrator.md
+      - 'Configure Userstores':
+        - 'Overview': deploy/configuring-user-stores.md
+        - 'Configure the Primary Userstore': 
+          - 'Overview': deploy/configuring-the-primary-user-store.md
+          - 'Configure a JDBC Userstore': deploy/configuring-a-jdbc-user-store.md
+          - 'Configure a Read-only LDAP Userstore': deploy/configuring-a-read-only-ldap-user-store.md
+          - 'Configure a Read-write Active Directory Userstore': deploy/configuring-a-read-write-active-directory-user-store.md
+          - 'Configure a Read-write LDAP Userstore': deploy/configuring-a-read-write-ldap-user-store.md
+        - 'Add High Availability for LDAP': deploy/adding-high-availability-for-ldap.md
+        - 'Configure Secondary Userstores': deploy/configuring-secondary-user-stores.md
+        - 'Work with Properties of Userstores': deploy/working-with-properties-of-user-stores.md
+        - 'Write a Custom Userstore Manager': deploy/writing-a-custom-user-store-manager.md
+    - 'Work with Tokens': 
+      - 'Add Logs for Tokens': deploy/adding-logs-for-tokens.md
+      - 'Token Persistence': deploy/token-persistence.md
+      - 'Remove Unused Tokens from the Database': deploy/removing-unused-tokens-from-the-database.md
+      - 'Enable Assertions In Access Tokens': deploy/enable-assertions-in-access-tokens.md
+    - 'Data Purging': deploy/data-purging.md
+    - 'Remove References to Deleted User Identities': deploy/removing-references-to-deleted-user-identities.md
+    - 'Configure rsync for Deployment Synchronization': deploy/configuring-rsync-for-deployment-synchronization.md
+    - 'Configure an SP and IdP Using Configuration Files': deploy/configuring-a-sp-and-idp-using-configuration-files.md
+    - 'Configure the Email Sending Module': deploy/configuring-email-sending.md
+    - 'Configure Hazelcast': deploy/configuring-hazelcast.md
+    - 'Deployment Checklist': deploy/deployment-checklist.md
+    - 'Backup and Recovery Recommendations': deploy/backup-and-recovery-recommendations.md
+    - 'SameSite Attribute Support': deploy/samesite-attribute-support.md
+    - 'Enable HostName Verification': deploy/enabling-hostname-verification.md
+    - 'Configure TLS Termination': deploy/configuring-tls-termination.md
+    - 'Environment Compatibility': deploy/environment-compatibility.md
+    - 'Data Dictionary':
+      - 'Registry Related Tables': deploy/registry-related-tables.md
+      - 'User Management Related Tables': deploy/user-management-related-tables.md
+      - 'Identity Related Tables': deploy/identity-related-tables.md
+      - 'Service Provider Related Tables': deploy/service-provider-related-tables.md
+      - 'Identity Provider Related Tables': deploy/identity-provider-related-tables.md
     - 'Monitor':
       - 'Overview': deploy/monitor/monitoring-the-identity-server.md
       - 'Monitor Logs':
@@ -379,6 +422,8 @@ nav:
     - 'Set up WSO2 clusters with Nginx': deploy/fronting-with-the-nginx-load-balancer.md
     - 'Set up Separate Databases for Clustering': deploy/settinng-up-separate-databases-for-clustering.md
     - 'Change the hostname': deploy/changing-the-hostname.md
+    - 'Introduction to User Management': deploy/introduction-to-user-management.md
+
   - 'APIs':
     - 'Using APIs': apis/using-apis.md
     - 'Calling Admin Services':
