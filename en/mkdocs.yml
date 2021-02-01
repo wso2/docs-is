@@ -182,6 +182,7 @@ nav:
           - 'Admin Creation Workflow': guides/identity-lifecycles/admin-creation-workflow.md
           - 'Invitation Workflow': guides/identity-lifecycles/invitation-workflow.md
           - 'User Self-Registration Workflow': guides/identity-lifecycles/self-registration-workflow.md
+          - 'Lite User Registration Workflow': guides/identity-lifecycles/lite-user-registration.md
           - 'Bulk Import Users': guides/identity-lifecycles/import-users.md
         - 'Manage Users':
           - 'Overview': guides/identity-lifecycles/manage-user-overview.md
@@ -191,6 +192,7 @@ nav:
           - 'Manage User Attributes': guides/identity-lifecycles/manage-user-attributes.md
           - 'Recover Username': guides/identity-lifecycles/recover-username.md
           - 'Enable Using Email Address as the Username': guides/identity-lifecycles/enable-email-as-username.md
+          - 'Configure Email Masking Pattern': guides/identity-lifecycles/configure-email-masking-pattern.md
         - 'Manage Roles': 
           - 'Overview': guides/identity-lifecycles/manage-roles-overview.md
           - 'Add User Roles': guides/identity-lifecycles/add-user-roles.md
@@ -294,6 +296,10 @@ nav:
     - 'Authentication Script API': extend/authentication-script-reference.md
     - 'Configuration Catalog': extend/configuration-catalog.md
     - 'Extending the Identity Server':
+        - 'Work with the Source Code': extend/work-with-the-source-code.md
+        - 'Using SDKs':
+          - 'Overview': extend/sdks/sdk-overview.md
+          - 'Enable Authentication for Spring Boot App': extend/sdks/spring-boot.md
         - 'User Management for Developers':
           - 'Write a Custom Password Validator': extend/user-mgt/write-a-custom-password-validator.md
           - 'Write a Custom Global Scope Validator': extend/user-mgt/write-a-custom-global-scope-validator.md
@@ -303,6 +309,8 @@ nav:
           - 'Write a Post-Authentication Handler': extend/user-mgt/write-a-post-authentication-handler.md
           - 'User Management Errors Event Listener': extend/user-mgt/user-management-errors-event-listener.md
           - 'Carbon Remote User Store Manager': extend/user-mgt/carbon-remote-user-store-manager.md
+          - 'Enable Email Account Verification for an Updated Email Address ': extend/user-mgt/enable-email-account-verification.md
+          - 'Enable Mobile Number Verification for an Updated Mobile Number': extend/user-mgt/enable-verification-for-updated-mobile-number.md
         - 'Provisioning for Developers':
           - 'Extend SCIM 2.0 User Schemas': extend/provisioning/extend-scim2-user-schemas.md
           - 'Write an Outbound Provisioning Connector': extend/provisioning/write-an-outbound-provisioning-connector.md
@@ -312,9 +320,22 @@ nav:
           - 'Write a Custom Local Authenticator': extend/federation/write-a-custom-local-authenticator.md
         - 'Access Control for Developers':
           - 'Write a Custom Policy Info Point': extend/access-control/write-a-custom-policy-info-point.md
+        - 'Adaptive Authentication for Developers':
+          - 'Write Custom Functions for Adaptive Authentication': extend/write-custom-functions-for-adaptive-authentication.md
         - 'Workflow Management for Developers':
           - 'Extend the Workflow Event Handler': extend/workflows/extend-the-workflow-event-handler.md
           - 'Write a Custom Workflow Template': extend/workflows/write-a-custom-workflow-template.md
+        - 'My Account':
+          - 'Set up in a Development Environment': extend/myaccount/set-up-my-account-in-a-dev-environment.md
+          - 'Customize the UI': extend/myaccount/customize-my-account-ui.md
+          - 'Configure the Application': extend/myaccount/configure-my-account.md
+        - 'Re-brand User Interfaces':
+          - 'Re-brand WSO2 Identity Server UIs': extend/rebranding/rebrand-identity-server-uis.md
+          - 'Re-brand the Default Login Page for Your Application': extend/rebranding/rebrand-login-pages-for-service-providers.md
+          - 'Re-brand the SSO Redirection Page': extend/rebranding/rebrand-the-sso-redirection-page.md
+        - 'Change the Authentication Endpoint': extend/change-the-authentication-endpoint.md
+        - 'Localization Support in Identity Server': extend/localization-support-in-identity-server.md
+        - 'Host Authentication Endpoint on a Different Server': extend/host-authentication-endpoint-on-a-different-server.md
         - 'Working with Errors':
           - 'Customize Authentication Error Messages': extend/errors/customize-authentication-error-messages.md
           - 'Customize Error Pages': extend/errors/customize-error-pages.md
