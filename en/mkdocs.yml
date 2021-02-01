@@ -423,7 +423,6 @@ nav:
     - 'Set up Separate Databases for Clustering': deploy/settinng-up-separate-databases-for-clustering.md
     - 'Change the hostname': deploy/changing-the-hostname.md
     - 'Introduction to User Management': deploy/introduction-to-user-management.md
-
   - 'APIs':
     - 'Using APIs': apis/using-apis.md
     - 'Calling Admin Services':

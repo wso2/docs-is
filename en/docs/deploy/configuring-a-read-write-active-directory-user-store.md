@@ -463,7 +463,7 @@ conversion when reading from/writing to userstore.
         the steps given in [Configuring the Primary User
         Store](../../../deploy/configuring-the-primary-user-store).
     -   For configuring a secondary userstore please read the topic: 
-        [Configuring Secondary UserStores](../../../deploy/configuring-secondary-user-stores)
+        [Configuring Secondary Userstores](../../../deploy/configuring-secondary-user-stores)
 
 
   

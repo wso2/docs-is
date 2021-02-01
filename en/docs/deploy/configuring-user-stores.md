@@ -38,7 +38,7 @@ You can use the management console to create secondary userstores or
 you can create them manually. These will be stored in an xml file with the
 configurations corresponding to the secondary userstore.
 
-see, [Configuring a Secondary User Store](../../../deploy/configuring-secondary-user-stores)
+see, [Configuring a Secondary Userstore](../../../deploy/configuring-secondary-user-stores)
 
 ---
 

@@ -5,7 +5,7 @@ attributes in the WSO2 Identity Server database.
 
 ---
 
-#### SP_APP
+## SP_APP
 
 When a Service Provider is added, the details are stored in this table.
 The APP_NAME column represents the Service Provider name. Following are
@@ -28,7 +28,7 @@ the columns of the table.
 
 ---
 
-#### SP_INBOUND_AUTH
+## SP_INBOUND_AUTH
 
 Inbound authentication configuration details of a Service Provider are
 stored in this table. For each type of associated inbound authentication
@@ -49,7 +49,7 @@ column `PROP_NAME` and the value is a random integer stored in
 
 --- 
 
-#### SP_AUTH_STEP
+## SP_AUTH_STEP
 
 The Service Providers can define how to authenticate users at the
 Identity Server, for authentication requests initiated by it. While
@@ -70,7 +70,7 @@ column. Following are the columns of the table.
 
 --- 
 
-#### SP_FEDERATED_IDP
+## SP_FEDERATED_IDP
 
 For a Service Provider, Federated Identity Providers can be added for
 authentication. The Federated Identity Providers for a Service Provider
@@ -83,7 +83,7 @@ the `SP_AUTH_STEP` table. Following are the columns of the table.
 
 --- 
 
-#### SP_CLAIM_MAPPING
+## SP_CLAIM_MAPPING
 
 When the claims of the Identity Provider are different from the Service
 Provider, corresponding claims can be mapped from this table for each
@@ -101,7 +101,7 @@ claims respectively. Following are the columns of the table.
 
 --- 
 
-#### SP_ROLE_MAPPING
+## SP_ROLE_MAPPING
 
 When there are user roles defined in the Identity Provider side (here
 WSO2 Identity Server) and also in the client application side, the roles
@@ -121,7 +121,7 @@ the columns of the table.
 
 ---
 
-#### SP_REQ_PATH_AUTHENTICATOR
+## SP_REQ_PATH_AUTHENTICATOR
 
 If a RequestPathAuthenticator is added to a Service Provider, that is
 recorded in this table. Service Provider ID is given in `APP_ID`.
@@ -135,7 +135,7 @@ authenticator.  Following are the columns of the table.
 
 ---  
 
-#### SP_PROVISIONING_CONNECTOR
+## SP_PROVISIONING_CONNECTOR
 
 Outbound Provisioning Connectors can be added to the Identity Providers
 for user provisioning. Those Provisioning Connectors can be linked to a

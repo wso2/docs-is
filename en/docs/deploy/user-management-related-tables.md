@@ -3,7 +3,7 @@
 This section lists out all the user management related tables and their
 attributes in the WSO2 Identity Server database.
 
-#### UM_TENANT
+## UM_TENANT
 
 When creating a tenant, the details of the tenant are stored in this
 table. `UM_ID` is the auto generated tenant ID. Following are the columns
@@ -18,7 +18,7 @@ of the table.
 
 ---
 
-#### UM_DOMAIN
+## UM_DOMAIN
 
 The user store domains of all tenants are stored in this table. By
 default for a tenant, there are three domains as `PRIMARY`, `SYSTEM` and
@@ -31,7 +31,7 @@ store domain details for that also will get stored in this table.
 
 ---
 
-#### UM_USER
+## UM_USER
 
 When a JDBC user store is used as a primary or secondary user store, the
 user details will be stored in this table upon user creation. Following
@@ -47,7 +47,7 @@ are the columns of the table.
 
 ---
 
-#### UM_ROLE
+## UM_ROLE
 
 When a JDBC user store is used as a primary or secondary user store, the
 user role details will be stored in this table upon creation of a role.
@@ -60,7 +60,7 @@ Following are the columns of the table.
 
 ---
 
-#### UM_MODULE
+## UM_MODULE
 
 This table is not being used in Identity Server latest version.
 
@@ -69,7 +69,7 @@ This table is not being used in Identity Server latest version.
 
 ---
 
-#### UM_MODULE_ACTIONS
+## UM_MODULE_ACTIONS
 
 This table is not being used in Identity Server latest version.
 
@@ -78,7 +78,7 @@ This table is not being used in Identity Server latest version.
 
 ---
 
-#### UM_PERMISSION
+## UM_PERMISSION
 
 The permission tree is stored in this table. These are the permissions
 to be assigned for user roles. Following are the columns of the table.
@@ -91,7 +91,7 @@ to be assigned for user roles. Following are the columns of the table.
 
 ---
 
-#### UM_ROLE_PERMISSION
+## UM_ROLE_PERMISSION
 
 All the permissions assigned to a role are stored in this table. A role
 can have multiple records in this table and each record is associated
@@ -108,7 +108,7 @@ columns of the table.
 
 ---
 
-#### UM_USER_PERMISSION
+## UM_USER_PERMISSION
 
 This table is not used in the latest Identity Server version. Following
 are the columns of the table.
@@ -121,7 +121,7 @@ are the columns of the table.
 
 ---
 
-#### UM_USER_ROLE
+## UM_USER_ROLE
 
 The relationship with users and roles is stored in this table. One user
 can have multiple roles assigned and similarly, one role can have
@@ -136,7 +136,7 @@ table.
 
 ---
 
-#### UM_SHARED_USER_ROLE
+## UM_SHARED_USER_ROLE
 
 This table is not being used in the latest version of the Identity
 Server.
@@ -148,7 +148,7 @@ Server.
 
 ---
 
-#### UM_ACCOUNT_MAPPING
+## UM_ACCOUNT_MAPPING
 
 This table is not being used in the latest version of the Identity
 Server.
@@ -161,7 +161,7 @@ Server.
 
 ---
 
-#### UM_USER_ATTRIBUTE
+## UM_USER_ATTRIBUTE
 
 When a JDBC user store is used and a user is created in that user store,
 attributes can be added for the user profile. Each attribute will have a
@@ -182,7 +182,7 @@ are the columns of the table.
 
 ---
 
-#### UM_DIALECT
+## UM_DIALECT
 
 In claim management, all the claims are grouped into dialects. A claim
 dialect is a group of claims. One claim dialect can have multiple
@@ -195,7 +195,7 @@ are stored in this table. Following are the columns of the table.
 
 ---
 
-#### UM_CLAIM
+## UM_CLAIM
 
 All the claims of all claim dialects are stored in this table. Following
 are the columns of the table.
@@ -217,7 +217,7 @@ are the columns of the table.
 
 ---
 
-#### UM_PROFILE_CONFIG
+## UM_PROFILE_CONFIG
 
 This table is not being used in the Identity Server latest version.
 Following are the columns in the table.
@@ -229,7 +229,7 @@ Following are the columns in the table.
 
 ---
 
-#### UM_HYBRID_ROLE
+## UM_HYBRID_ROLE
 
 All the `internal` roles are stored in this table. By default `everyone`
 role is there for each tenant. Apart from that, for each Service
@@ -242,7 +242,7 @@ as the Service Provider name. Following are the columns of the table.
 
 ---
 
-#### UM_HYBRID_USER_ROLE
+## UM_HYBRID_USER_ROLE
 
 When a user is assigned an `internal` role, that is recorded in this
 table. The `internal` roles are stored in `UM_HYBRID_ROLE` table and
@@ -257,7 +257,7 @@ columns of the table.
 
 ---
 
-#### UM_SYSTEM_USER
+## UM_SYSTEM_USER
 
 System users of the Identity Server are stored in this table. The
 `wso2.anonymous.user` user is by default created. Following are the
@@ -273,7 +273,7 @@ columns of the table.
 
 ---
 
-#### UM_SYSTEM_ROLE
+## UM_SYSTEM_ROLE
 
 System roles of the Identity Server are stored in this table. The
 `wso2.anonymous.role` is created by default which is a special role that
@@ -288,7 +288,7 @@ using the respective permalinks. Following are the columns of the table.
 
 ---
 
-#### UM_SYSTEM_USER_ROLE
+## UM_SYSTEM_USER_ROLE
 
 Storing the system roles assigned to the the system users is done with
 this table. `UM_USER_NAME` contains the username of the system user.
@@ -304,7 +304,7 @@ user in this table. Following are the columns of the table.
 
 ---
 
-#### UM_HYBRID_REMEMBER_ME
+## UM_HYBRID_REMEMBER_ME
 
 When login to the management console of the Identity Server, user can
 select the `Remember Me` option. Upon successful login, a record will be

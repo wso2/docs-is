@@ -367,7 +367,7 @@ To set up this implementation, do the following.
 
     Now your basic implementation is ready.
 
-### Write a custom userstore manager for a sample scenario
+## Write a custom userstore manager for a sample scenario
 
 As a sample of how this can be done, consider a scenario where you want
 to use a custom hashing method using a 3rd party library such as
@@ -508,7 +508,7 @@ Do the following steps to write the custom userstore manager.
         with relevant arguments.
     
 
-### Deploy and configure the custom userstore manager
+## Deploy and configure the custom userstore manager
 
 Do the following to deploy and configure the custom userstore manager
 in your WSO2 product.

@@ -35,6 +35,8 @@ system:
 -   The permissions assigned to the default **admin** role cannot be
     modified.
 
+---
+
 ## Before you begin
 
 Ensure that you have a primary user store (for storing users and roles)
@@ -42,6 +44,8 @@ and an RDBMS (for storing information related to permissions). See the
 [related
 documentation](#related-topics) for
 instructions on how to set up these repositories.
+
+---
 
 ## Update the administrator
 

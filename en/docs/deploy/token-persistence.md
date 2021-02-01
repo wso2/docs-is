@@ -90,7 +90,7 @@ access tokens so that other threads can retrieve from it.
 
 ### Synchronous token persistence
 
-#### The flow
+### The flow
 
 The flow of the synchronous token persistence when receiving two
 identical access token requests is as follows:
@@ -107,7 +107,7 @@ identical access token requests is as follows:
     to the client but the other node will receive an error due to the
     violation of the `          CON_APP_KEY         ` constraint.
 
-#### The recovery flow
+### The recovery flow
 
 The process flow now moves on to the recovery flow described above in
 order to handle the `         CON_APP_KEY        ` constraint violation
