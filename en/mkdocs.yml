@@ -182,6 +182,7 @@ nav:
           - 'Admin Creation Workflow': guides/identity-lifecycles/admin-creation-workflow.md
           - 'Invitation Workflow': guides/identity-lifecycles/invitation-workflow.md
           - 'User Self-Registration Workflow': guides/identity-lifecycles/self-registration-workflow.md
+          - 'Lite User Registration Workflow': guides/identity-lifecycles/lite-user-registration.md
           - 'Bulk Import Users': guides/identity-lifecycles/import-users.md
         - 'Manage Users':
           - 'Overview': guides/identity-lifecycles/manage-user-overview.md
@@ -191,6 +192,7 @@ nav:
           - 'Manage User Attributes': guides/identity-lifecycles/manage-user-attributes.md
           - 'Recover Username': guides/identity-lifecycles/recover-username.md
           - 'Enable Using Email Address as the Username': guides/identity-lifecycles/enable-email-as-username.md
+          - 'Configure Email Masking Pattern': guides/identity-lifecycles/configure-email-masking-pattern.md
         - 'Manage Roles': 
           - 'Overview': guides/identity-lifecycles/manage-roles-overview.md
           - 'Add User Roles': guides/identity-lifecycles/add-user-roles.md
@@ -307,6 +309,8 @@ nav:
           - 'Write a Post-Authentication Handler': extend/user-mgt/write-a-post-authentication-handler.md
           - 'User Management Errors Event Listener': extend/user-mgt/user-management-errors-event-listener.md
           - 'Carbon Remote User Store Manager': extend/user-mgt/carbon-remote-user-store-manager.md
+          - 'Enable Email Account Verification for an Updated Email Address ': extend/user-mgt/enable-email-account-verification.md
+          - 'Enable Mobile Number Verification for an Updated Mobile Number': extend/user-mgt/enable-verification-for-updated-mobile-number.md
         - 'Provisioning for Developers':
           - 'Extend SCIM 2.0 User Schemas': extend/provisioning/extend-scim2-user-schemas.md
           - 'Write an Outbound Provisioning Connector': extend/provisioning/write-an-outbound-provisioning-connector.md
