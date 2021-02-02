@@ -1,4 +1,4 @@
-# Configuring Claims
+# Configure Claims
 
 A claim is a piece of information about a particular subject. It can be
 anything that the subject is owned by or associated with, such as name,

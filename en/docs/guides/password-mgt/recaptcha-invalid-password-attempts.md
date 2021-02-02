@@ -17,9 +17,6 @@ By configuring reCaptcha, you can mitigate or block brute force attacks.
 
 There are two ways to configure this feature.
 
-1.  [Enable password recovery with reCaptcha for a tenant](#enable-password-recovery-with-recaptcha-for-a-tenant)
-2.  [Enable password recovery with reCaptcha globally](#enable-password-recovery-with-recaptcha-globally)
-
 ---
 
 ## Enable password recovery with reCaptcha for a tenant
@@ -68,7 +65,7 @@ the recaptcha option.
 
 ## Enable password recovery with reCaptcha globally
 
-Follow the instructions given below to configure password recovery with
+Alternatively, follow the instructions given below to configure password recovery with
 reCaptcha globally.  
 
 1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to enable 
