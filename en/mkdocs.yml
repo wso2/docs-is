@@ -431,6 +431,33 @@ nav:
     - 'Performance':
       - 'Performance Tuning Recommendations': deploy/performance/performance-tuning-recommendations.md
       - 'Configure Cache Layers': deploy/performance/configuring-cache-layers.md
+    - 'Security':
+      - 'Maintain Logins and Passwords': deploy/security/maintaining-logins-and-passwords.md
+      - 'Secure Passwords in Configuration Files': 
+        - 'Encrypt Passwords with Cipher Tool': deploy/security/encrypting-passwords-with-cipher-tool.md
+        - 'Resolve Encrypted Passwords': deploy/security/resolving-encrypted-passwords.md
+        - 'Customize Secure Vault': deploy/security/customizing-secure-vault.md
+        - 'Set Passwords using Environment Variables/System Properties': deploy/security/set-passwords-using-environment-variables-or-system-properties.md
+      - 'Enable HTTP Strict Transport Security (HSTS) Headers': deploy/security/enabling-hsts.md
+      - 'Prevent Browser Caching': deploy/security/preventing-browser-caching.md
+      - 'Configure Transport Level Security': deploy/security/configuring-transport-level-security.md
+      - 'Enable Java Security Manager': deploy/security/enabling-java-security-manager.md
+      - 'Security Guidelines':
+        - 'Overview': deploy/security/security-guidelines-for-production-deployment.md
+        - 'Product-Level': deploy/security/product-level-security-guidelines.md
+        - 'OS-Level': deploy/security/os-level-security-guidelines.md 
+        - 'Network-Level': deploy/security/network-level-security-guidelines.md
+      - 'Encryption':
+        - 'Asymmetric Encryption':
+          - 'Use Asymmetric Encryption': deploy/security/using-asymmetric-encryption.md
+          - 'Create New Keystores': deploy/security/creating-new-keystores.md
+          - 'Configure Keystores': deploy/security/configuring-keystores-in-wso2-products.md
+          - 'Renew a CA-Signed Certificate in a Keystore': deploy/security/renewing-a-ca-signed-certificate-in-a-keystore.md
+          - 'Manage Keystores via UI': deploy/security/managing-keystores-with-the-ui.md
+          - 'Add Multiple Keys to the Primary Keystore': deploy/security/adding-multiple-keys-to-the-primary-keystore.md
+        - 'Symmetric Encryption':
+          - 'Overview': deploy/security/symmetric-overview.md
+          - 'Configurations Related to Symmetric Key Encryption': deploy/security/using-symmetric-encryption.md
     - 'Migrate':
       - 'Migration Process': deploy/migrate/migration-process.md
       - 'What has Changed': deploy/migrate/migrating-what-has-changed.md
