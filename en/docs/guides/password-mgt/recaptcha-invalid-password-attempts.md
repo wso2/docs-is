@@ -30,7 +30,7 @@ reCaptcha for a specific tenant.
 1.  Enable the **EnableMultiTenancy** context-parameter in the
     **accountreoceryendpoint web.xml** file.
 
-2.  Start WSO2 Identity Server and log into the [management
+2.  Start WSO2 Identity Server and log in to the [management
     console](https://localhost:9443/carbon/admin/login.jsp) as a tenant
     admin.
 
@@ -55,7 +55,7 @@ reCaptcha for a specific tenant.
         the port or hostname accordingly.
     
 
-7.  Click on **Forgot Password**.
+7.  Click **Forgot Password**.
 
 ![forgot-password](../../assets/img/guides/forgotten-password-option.png)
 
@@ -76,7 +76,7 @@ password recovery with reCaptcha.
 
     !!! tip
     
-        To avoid any configuration issues, perofrm **step-1** before
+        To avoid any configuration issues, perform **step-1** before
         starting the WSO2 Identity Server product instance.
     
     ``` toml    
