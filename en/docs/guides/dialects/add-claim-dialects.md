@@ -65,7 +65,7 @@ start up** of the WSO2 Identity Server instance.
 
     !!! note
     
-        The dialects configured in `<IS_HOME>/repository/conf/claim-config.xml` file get applied only when you start the product for the first time, or for any newly created tenants. With the first startup, dialects and claims will be loaded from the file and persisted in the database. Any consecutive updates to the file will not be picked up and dialects and claims will be loaded from the database.
+        The dialects configured in the `<IS_HOME>/repository/conf/claim-config.xml` file get applied only when you start the product for the first time, or for any newly created tenants. With the first startup, dialects and claims will be loaded from the file and persisted in the database. Any consecutive updates to the file will not be picked up and dialects and claims will be loaded from the database.
     
 ----
 

@@ -19,7 +19,7 @@ instructions.
 !!! tip "Alternative"
     
     Alternatively, you also can do this by deleting claim mappings from the
-    `claim-config.xml` located in then
+    `claim-config.xml` located in the
     `<IS_HOME>/repository/conf/` folder.
     
     Note that any edits made to the `                   <IS_HOME>/repository/conf/claim-config.xml        ` file get applied only when you start the product for the first time, or for any newly created tenants. With the first startup, claim dialects and claims will be loaded from the file and persisted in the database. Any consecutive updates to the file will not be picked up and claim dialects and claims will be loaded from the database.
