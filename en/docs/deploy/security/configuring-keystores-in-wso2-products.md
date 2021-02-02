@@ -54,7 +54,7 @@ This feature allows you to create a separate keystore for encrypting data in in
 
 ---
 
-## Configuring a secondary keystore for SSL connections
+## Configure a secondary keystore for SSL connections
 
 The default keystore configurations should be updated with the keystore used for certifying SSL connections to WSO2 Identity Server. Given below is the default configuration used internally, which points to the default keystore in your product. 
 

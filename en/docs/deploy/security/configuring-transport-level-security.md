@@ -126,7 +126,7 @@ vulnerable to attacks if the hacker has enough computing resources.
     ciphers in WSO2 Identity Server.
 
   
-## Changing the server name in HTTP response headers
+## Change the server name in HTTP response headers
 
 By default, WSO2 Identity Server pass "WSO2 Carbon Server" as the server
 value in HTTP headers when sending HTTP responses. This means that
@@ -148,7 +148,7 @@ name in the `deployment.toml` file.
     server="WSO2 Carbon Server"
     ```
 
-## Enabling/disabling http/https transport
+## Enable/disable http/https transport
 
 By default, both the http and https connectors are enabled. To disable either the http or https connector, add the corresponding configuration to `<IS-HOME>/repository/conf/deployment.toml` as shown below. 
 
