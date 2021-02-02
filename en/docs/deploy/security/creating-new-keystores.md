@@ -178,6 +178,8 @@ Follow the steps given below to import the same CA-signed public key certificate
 
     For information on the keystore concepts and how keystores are used in WSO2 Identity Server, see [Using Asymmetric Encryption](../../../develop/security/using-asymmetric-encryption).
 
+---
+
 ## What's next?
 
 Once you have created a new keystore in your product as explained above, update the relevant configuration files as explained in [Configuring Keystores in WSO2 Products](../../../deploy/security/configuring-keystores-in-wso2-products).

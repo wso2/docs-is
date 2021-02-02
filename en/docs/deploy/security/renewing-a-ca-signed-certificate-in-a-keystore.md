@@ -56,6 +56,8 @@ Follow one of the steps below to view the validity period of a certificate:
 
 Once you view the validity period of a certificate and if it says that the certificate is about to expire or has already expired, the next step you should generate a Certificate Signing Request (CSR) and get a new certificate generated from the CA.
 
+---
+
 ## Step 2: Generate a CSR
 
 Depending on the type of keystore you have, follow one of the steps below to generate a Certificate Signing Request (CSR):
@@ -85,6 +87,8 @@ Depending on the type of keystore you have, follow one of the steps below to gen
 Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. For testing purposes you can go to <http://www.getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.
 
 After you obtain a new certificate, you have to import the new certificate to a keystore if you are using a java keystore.
+
+---
 
 ## Step 3: Import the new certificate to the keystore
 

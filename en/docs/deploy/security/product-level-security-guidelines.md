@@ -299,7 +299,7 @@ Log forging can be prevented by appending a UUID to the log message.
 
 If mutual SSL is enabled, [enable intermediate certificate validation](../../../apis/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
 
-If mutual SSL authentication capabilities are not required, you can [disable it](TBD:../../administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is).
+If mutual SSL authentication capabilities are not required, you can [disable it](TODO:../../administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is).
 
 ---
 

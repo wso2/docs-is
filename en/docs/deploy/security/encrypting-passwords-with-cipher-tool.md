@@ -5,7 +5,6 @@ The instructions on this page explain how plain text passwords in configuration 
 
 !!! tip "Before you begin"
     - If you are using Windows, you need to have **Ant** (<http://ant.apache.org/>) installed before using the Cipher Tool.
-    - If required, you can enable [single key encryption](../../../deploy/security/using-symmetric-encryption) instead of (the default) asymmetric encryption.
 
 ---
 
@@ -75,7 +74,7 @@ log4j.appender.LOGEVENT.password=secretAlias:log4j.appender.LOGEVENT.password
 ## Change encrypted passwords
 
 To change any password that we have encrypted already, follow the below steps:
-
+    
 1. Be sure to shut down the server.
 2. Navigate to the <IS_HOME>/bin/ directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
 3. Execute the following command for your OS:

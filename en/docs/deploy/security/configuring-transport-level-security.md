@@ -6,7 +6,7 @@ instructions.
 
 ---
 
-## Enabling SSL protocols and ciphers in ThriftAuthenticationService
+## Enable SSL protocols and ciphers in ThriftAuthenticationService
 
 Do the following to enable SSL protocols and ciphers in the
 `         ThriftAuthenticationService.        `
@@ -17,18 +17,17 @@ Do the following to enable SSL protocols and ciphers in the
     element.
 
     ``` java
-        <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>
-        <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF</Ciphers>
+    <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>
+    <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF</Ciphers>
     ```
 
     !!! tip
-    
-        **Tip:** You can also add the following additional cipher suites to
+        You can also add the following additional cipher suites to
         the `           <Ciphers>          ` property if JCE Unlimited
         Strength Jurisdiction Policy is enabled in Java.
     
         ``` java
-            TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
+        TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
         ```
 
     If you wish to remove `           TLSv1          ` or
@@ -39,8 +38,9 @@ Do the following to enable SSL protocols and ciphers in the
 
 2.  Restart the server.
 
+---
 
-## Disabling weak ciphers
+## Disable weak ciphers
 
 A cipher is an algorithm for performing encryption or decryption. When
 you set the `         sslprotocol        ` of your server to TLS, the
@@ -59,30 +59,29 @@ server to support in a comma-separated list in the
 cipher attribute or keep it blank, the browser will support all the SSL
 ciphers by JSSE. This will enable the weak ciphers.
 
-### Disable weak ciphers in Carbon server
+### Disable weak ciphers in WSO2 IS
 
 A cipher is an algorithm for performing encryption or decryption. When the sslprotocol is set to "TLS", only the TLS and default ciphers are enabled by default. However, note that the strength of the ciphers will not be considered when they are enabled. Therefore, to disable the weak ciphers, you must ensure that only the ciphers you want your server to support are entered for the ciphers attribute in a comma-separated list. Also, if you do not add this cipher attribute or keep it blank, all SSL ciphers by JSSE will be supported by your server, thereby enabling the weak ciphers.
 
 1.  Go to the ` deployment.toml ` file in the ` <IS_HOME>/repository/conf   ` directory.
 
-2.  Take a backup of the ` deployment.toml ` file and stop the Carbon server.
+2.  Take a backup of the ` deployment.toml ` file and stop the WSO2 IS server.
 
 3.  Add the following configuration to the ` deployment.toml ` file by adding the list of ciphers 
 that you want your server to support as follows: ciphers="<cipher-name>,<cipher-name>".
 
-```toml
-[transport.https.sslHostConfig.properties]
-ciphers="TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF"
-```
-    See the list of [supported cipher suites](../../administer/supported-cipher-suites).
+    ```toml
+    [transport.https.sslHostConfig.properties]
+    ciphers="TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF"
+    ```
 
 4.  Start the server.
 
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](../assets/attachments/TestSSLServer.jar).
+    and run the [TestSSLServer.jar](../../../assets/attachments/TestSSLServer.jar).
 
     ``` java
-        $ java -jar TestSSLServer.jar localhost 9443
+    $ java -jar TestSSLServer.jar localhost 9443
     ```
 
     !!! note
@@ -93,8 +92,7 @@ ciphers="TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_G
         -   The "Supported cipher suites" section in the output does not
             contain any EXPORT ciphers.
     
-        -   When you use the supported cipher suites listed
-            [here](Supported_Cipher_Suites), the BEAST attack status will
+        -   When you use the supported cipher suites, the BEAST attack status will
             be shown as vulnerable. Note that this is a client-side
             vulnerability caused by the TLSv1 protocol. You can make the
             BEAST status protected by removing TLSv1, which will make
@@ -125,10 +123,11 @@ vulnerable to attacks if the hacker has enough computing resources.
     **Note** : This tip is not applicable when you are disabling weak
     ciphers in WSO2 Identity Server.
 
+---
   
 ## Change the server name in HTTP response headers
 
-By default, WSO2 Identity Server pass "WSO2 Carbon Server" as the server
+By default, WSO2 Identity Server pass "WSO2 WSO2 IS server" as the server
 value in HTTP headers when sending HTTP responses. This means that
 information about the WSO2 product stack will be exposed through HTTP
 responses. It is recommended to change this by configuring the server
@@ -142,11 +141,12 @@ name in the `deployment.toml` file.
 
     ``` toml
     [transport.https.properties]
-    server="WSO2 Carbon Server"
+    server="WSO2 WSO2 IS server"
     
     [transport.http.properties]
-    server="WSO2 Carbon Server"
+    server="WSO2 WSO2 IS server"
     ```
+---
 
 ## Enable/disable http/https transport
 
@@ -163,5 +163,5 @@ https.enabled=false
 ```
 
 See the [Security Guidelines for Production
-Deployment](../../administer/security-guidelines-for-production-deployment) for the
+Deployment](../../../deploy/security/security-guidelines-for-production-deployment) for the
 full list of security-related recommendations for WSO2 Identity Server.
