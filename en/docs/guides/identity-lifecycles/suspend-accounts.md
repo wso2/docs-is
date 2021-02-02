@@ -66,16 +66,12 @@ task that checks for idle accounts is common to all tenants.
 3.  Add the following property under all the relevant userstores that
     you are using in the deployment.toml file.
 
-    **LDAP Userstore**
-
-    ``` toml
+    ``` toml tab="LDAP Userstore"
     [user_store]
     notification_receivers_retrieval_class = "org.wso2.carbon.identity.account.suspension.notification.task.ldap.LDAPNotificationReceiversRetrieval"
     ```
 
-    **JDBC Userstore**
-
-    ``` toml
+    ``` toml tab="JDBC Userstore"
     [user_store]
     notification_receivers_retrieval_class = "org.wso2.carbon.identity.account.suspension.notification.task.jdbc.JDBCNotificationReceiversRetrieval"
     ```
