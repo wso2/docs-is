@@ -1,0 +1,63 @@
+# Edit Claim Dialects
+
+There are two ways you can use to edit dialects in WSO2 Identity Server.
+
+## Use the management console
+
+You can edit existing dialects by clicking on any available
+dialect link. Follow the instructions below to edit a dialect.
+
+1.  Sign in. Enter your username and password to log on to the [Management Console](../../../deploy/get-started/get-started-with-the-management-console) .
+2.  Click **Main** to access the **Main** menu and click **List** under
+    **Claims**.
+3.  Click on any available dialect links.  
+    ![dialect-links](../../assets/img/guides/dialect-links.png)
+4.  From the **Claim Dialect** view, you can view the claims defined for
+    that particular dialect. If you need to edit a claim, click on the
+    appropriate **Edit** link.  
+    ![edit-claim-link](../../assets/img/guides/edit-claim-link.png)
+5.  Enter the new claim information in the required fields and click on
+    the **Update** button.  
+    ![update-local-claim](../../assets/img/guides/update-local-claim.png) 
+
+    | Attribute            | Description                                                                | Sample value                                                                                                                       |
+    |----------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+    | Display Name         | The name of the claim value which is display to the user.                  | Street Address                                                                                                                     |
+    | Desciption           | A small description of the claim to help the user to understand it easily. | Address of the street                                                                                                              |
+    | Claim Uri            | The URI which defines the claim.                                           | `                               http://schemas.xmlsoap.org/ws/2005/05//identity/claims/streetaddress                             ` |
+    | Mapped Attribute     | The attribute which mapped to the claim.                                   | streetAddress                                                                                                                      |
+    | Regular Expression   | A regular expression that helps to verify the input.                       | A street address can be an integer or a string, therefore regex can be like " ****^ \\d { 1, 45 } $**** "                         |
+    | Display Order        | Order to display claims.                                                   | 1                                                                                                                                  |
+    | Supported by Default | Whether the claim is displayed in the profile of the user.                 | Enabled                                                                                                                            |
+    | Required             | Whether the claim is mandatory.                                            | Enabled                                                                                                                            |
+    | Read-only            | Whether the claim cannot be updated later (Read only).                     | Enabled                                                                                                                            |
+    
+---
+
+## Use the configuration file
+
+**Alternatively,** instead of editing the dialect using the management
+console, you can also modify it by editing the
+`         claim-config.xml        ` configuration file located in the
+`         <IS_HOME>/repository/conf        ` folder. A sample claim
+dialect is given below.
+
+``` java
+<Dialect dialectURI="http://wso2.org/SampleAppClaims">    
+    <Claim>
+        <ClaimURI>http://wso2.org/SampleAppClaims/givenname</ClaimURI>
+        <DisplayName>First Name</DisplayName>
+        <MappedLocalClaim>http://wso2.org/claims/givenname</MappedLocalClaim>
+    </Claim>
+    <Claim>
+        <ClaimURI>http://wso2.org/SampleAppClaims/nickName</ClaimURI>
+        <DisplayName>Nick Name</DisplayName>
+        <MappedLocalClaim>http://wso2.org/claims/nickname</MappedLocalClaim>
+    </Claim>
+</Dialect>
+```
+
+!!! note
+    
+    Edits to the dialects configured in the `<IS_HOME>/repository/conf/claim-config.xml` file get applied only when you start the product for the first time, or for any newly created tenants. With the first startup, claim dialects and claims will be loaded from the file and persisted in the database. Any consecutive updates to the file will not be picked up and claim dialects and claims will be loaded from the database.
+    

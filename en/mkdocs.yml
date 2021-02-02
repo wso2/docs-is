@@ -265,8 +265,14 @@ nav:
           - 'Log in with Microsoft Live': guides/identity-federation/microsoft-live.md
           - 'Log in with Twitter': guides/identity-federation/twitter.md
         - 'Receive Claims from the Identity Provider': guides/identity-federation/receive-claims-idp.md
-      - 'Attribute Dialects':
-        - 'Configure Attribute Dialects': guides/attribute-dialects/configure-dialects.md
+      - 'Claim Dialects':
+        - 'Add Claim Dialects': guides/dialects/add-claim-dialects.md
+        - 'Edit Claim Dialects': guides/dialects/edit-claim-dialects.md
+        - 'Delete Claim Dialects': guides/dialects/delete-claim-dialects.md
+        - 'Configure Claims': guides/dialects/configure-claims.md
+        - 'Add Claim Mapping': guides/dialects/add-claim-mapping.md
+        - 'Edit Claim Mapping': guides/dialects/edit-claim-mapping.md
+        - 'Delete Claim Mapping': guides/dialects/delete-claim-mapping.md
         - 'Use a Custom Attribute Dialect': guides/attribute-dialects/custom-dialect.md
         - 'Map Attributes': guides/attribute-dialects/map-attributes.md
         - 'Configure Attribute Metadata': guides/attribute-dialects/metadata.md
