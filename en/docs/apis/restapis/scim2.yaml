@@ -310,18 +310,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
         - name: domain
           in: query
           description: The name of the user store where filtering needs to be applied.
@@ -692,18 +680,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses.
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
         - name: domain
           in: query
           description: The name of the user store where filtering needs to be applied.
@@ -1073,18 +1049,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
       responses:
         200:
           description: Valid roles are found
