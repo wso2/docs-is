@@ -26,7 +26,7 @@ below. If required, you can update these default values.
 rmi_registry_port = "9999"
 
 [monitoring.jmx]
-rmi_server_por = "11111"
+rmi_server_port = "11111"
 ```
 
 #### Disabling JMX for the server
