@@ -302,7 +302,7 @@ RelayState parameter itself.
 	service provider is allowed to do SP initiated SSO as well.
 
 !!! info "Related Topics"
-	-   See [Configuring SAML2 Web Single-Sign-On](../../learn/configuring-saml2-web-single-sign-On) to configure
+	-   See [Configuring SAML2 Web Single-Sign-On](../../learn/configuring-saml2-web-single-sign-on) to configure
 		SAML2 Web Single-Sign-On in WSO2 Identity Server.
 	-   See [Configuring SAML2 Single-Sign-On Across Different WSO2
 		Products](../../learn/configuring-saml2-single-sign-on-across-different-wso2-products)
