@@ -6,7 +6,7 @@ specification](http://openid.net/specs/openid-connect-session-1_0.html)
 an end-user with an OpenID Connect Provider (OP) so that the RP
 application can log-out any end user that has logged out of the OP
 (i.e., the WSO2 Identity Server). For instance, if there are two RP
-applications relying on WSO2 Identity Server, when an end-user logs-out
+applications relying on WSO2 Identity Server, when an end user logs out
 of one of the applications, he/she can be automatically logged out of
 the other one as well.
 
@@ -18,7 +18,7 @@ the OP. When authenticating, the OP sends an iframe to the RP. The RP
 embed this OP-provided iframe into the RP. The RP checks the session
 state via the RP iframe by continuously polling the embedded OP provided
 iframe, without causing network traffic. Thereby, the RP is notified
-when the session state of the end-user has changed. The flow of this is
+when the session state of the end user has changed. The flow of this is
 as follows.
 
 1.  The RP iframe polls the OP iframe for a session status.
