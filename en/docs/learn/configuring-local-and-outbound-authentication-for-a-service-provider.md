@@ -25,6 +25,12 @@ You can configure the following for local and outbound authentication.
     -   **Assert identity using mapped local subject identifier** :
         Select this to use the local subject identifier when asserting
         the identity.
+
+        !!! note
+            After the update **4.6.0-0505** behavior for scope authorization have been changed. 
+            Users are required to enable the above option to enable scope based authorization 
+            for federated users.
+        
     -   **Always send back the authenticated list of identity
         providers** : Select this to send back the list of identity
         providers that the current user is authenticated by.
