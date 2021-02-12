@@ -27,7 +27,7 @@ You can configure the following for local and outbound authentication.
         the identity.
         
         !!! note
-            It is mandatory to enable above option to authorise scopes for provisioned 
+            It is mandatory to enable the above option to authorize scopes for provisioned 
             federated users. 
         
     -   **Always send back the authenticated list of identity
