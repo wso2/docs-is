@@ -7,7 +7,7 @@
 <ul>
     <li><b><a href="../../learn/passwordless-authentication-using-fido2">Passwordless authentication support</a></b></li>
     <li><b><a href="../../learn/user-portal">An improved User Portal</a></b></li>
-    <li><b><a href="../../develop/application-rest-api">New RESTful APIs for user self-services and server management</a></b></li>
+    <li><b><a href="../../develop/rest-apis">New RESTful APIs for user self-services and server management</a></b></li>
     <li><b><a href="../../develop/scope-based-authorization-for-internal-rest-apis">Scope based authorization for internal REST APIs</a></b></li>
     <li><b>Introduce a unique user identifier across the system
 </b><br>
