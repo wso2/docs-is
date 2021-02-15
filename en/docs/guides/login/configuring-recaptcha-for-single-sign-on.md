@@ -10,9 +10,7 @@ attacks.
     -   For more information on brute force attacks, see [Mitigating Brute
     Force Attacks](../../../deploy/mitigate-attacks/mitigating-brute-force-attacks/).
 
-1.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
-    how to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha](TO-DO:../../learn/setting-up-recaptcha).
+1.  {! fragments/set-up-recaptcha.md !}
 
     !!! tip
     
