@@ -1,34 +1,6 @@
 
 {!fragments/deploying-sample-apps.md!}
 
-### Register a service provider
-
-1.  Log in to the [Developer portal](insertlink) using admin/admin credentials. 
-
-2.  Select **Applications** from the left panel. 
-
-3.  Enter a **Name** and optionally, a **Description**.
-
-4.  Click **Next**. 
-
-5.  Enter the value of the issuer as **travelocity.com**. 
-
-6.  Enter the assertion URL as `http://wso2is.local:8080/travelocity.com/home.jsp`. 
-
-7.  Check your configurations and click **Finish**. 
-
-8.  Navigate to the **Access** tab of your application. 
-
-9.  Enable **Sign SAML responses** in the **Assertion/Response Signing** section. 
-
-10. Enable **Single Logout Profile**. 
-
-11. Enable **attribute profile** and enable **Always include attributes in response**. 
-
-12. Select **Enable request signature validation** in the **Request validation** section. 
-
-13. Click **Update**. 
-
 ### Download the sample
 
 To be able to deploy a WSO2 Identity Server sample, you need to download
