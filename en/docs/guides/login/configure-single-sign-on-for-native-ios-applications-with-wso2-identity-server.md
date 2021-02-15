@@ -389,7 +389,7 @@ Follow the steps below to sign out of the sample application:
 2.  Click **Yes**. This will sign you out from the sample application.
     You will also see a message as follows notifying that you are going
     to be redirected to a page to log out of WSO2 Identity Server.  
-    ![pickup-logout-redirection-notice](../assets/img/tutorials/pickup-logout-redirection-notice.png)
+    ![pickup-logout-redirection-notice](../../../assets/img/guides/pickup-logout-redirection-notice.png)
 
 3.  Click **Ok**. You will see a message as follows:
 
