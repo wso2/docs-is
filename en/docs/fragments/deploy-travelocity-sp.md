@@ -62,7 +62,7 @@ The next step is to configure the service provider.
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Configuring SAML2 WEB Single-Sign-On](../../../guides/identity-federation/configure-saml-2.0-web-sso)
+        see, [Configuring SAML2 WEB Single-Sign-On](../../../guides/identity-federation/configure-saml-2.0-web-sso).
 
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.

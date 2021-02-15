@@ -15,7 +15,7 @@ In a web browser-based SSO system, the flow can be started by the user
 either by attempting to access a service at the service provider, or by
 directly accessing the identity provider itself.
 
-## Preliminary Configs
+## Preliminary configs
 
 Follow the steps below to navigate to the federated authenticators configuration section.
 

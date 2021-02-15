@@ -13,7 +13,7 @@ Follow the steps given below to add WSO2 IS as the relying party AD FS.
 2. Right click on **Relying Party Trust** and select **Add Relying Party
 Trust**.  
 
-3. Click Start -> Next on the wizard.
+3. Click **Start > Next** on the wizard.
 
 4. Enter a preferred name to represent WSO2 Identity Server (relying party)
 and click **Next**.
