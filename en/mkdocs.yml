@@ -123,8 +123,9 @@ nav:
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
           - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
           - 'SSO For SAML Applications': guides/login/sso-for-saml.md
-          - 'SSO For WS-Federation Applications': guides/login/sso-for-ws-fed.md
-          - 'Single Sign-On for Native iOS Applications': guides/login/sso-native-ios.md
+          - 'SSO For WS-Federation Applications': guides/login/configure-ws-federation-single-sign-on.md
+          - 'Single Sign-On for Native iOS Applications': guides/login/configure-single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
+          - 'Recaptcha for SSO': guides/login/configuring-recaptcha-for-single-sign-on.md
         - 'Single Logout':
           - 'OpenID Connect':
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
@@ -251,11 +252,11 @@ nav:
           - 'Use SAML2 Bearer Type Tokens': guides/access-delegation/saml2-bearer-assertion-profile.md
       - 'Identity Federation':
         - 'Enterprise Identity Federation':
-          - 'SAML': guides/identity-federation/log-in-with-saml-idp.md
-          - 'OpenID Connect': guides/identity-federation/log-in-with-oidc-idp.md
-          - 'ADFS': guides/identity-federation/adfs.md
+          - 'SAML': guides/identity-federation/configure-saml-2.0-web-sso.md
+          - 'OpenID Connect': guides/identity-federation/configure-oauth2-openid-connect.md
+          - 'ADFS': guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
           - 'Microsoft Azure': guides/identity-federation/microsoft-azure.md
-          - 'Shibboleth': guides/identity-federation/shibboleth.md
+          - 'Shibboleth': guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider.md
           - 'Federated Logout':
             - 'Application-Initiated Federated Logout': guides/identity-federation/app-initiated-logout.md
             - 'IdP-Initiated Federated Logout': guides/identity-federation/idp-initiated-logout.md
@@ -277,13 +278,15 @@ nav:
         - 'Map Attributes': guides/attribute-dialects/map-attributes.md
         - 'Configure Attribute Metadata': guides/attribute-dialects/metadata.md
       - 'Workflows':
-        - 'Define a Workflow': guides/workflows/define-workflow.md
-        - 'Enage a Workflow to an Operation': guides/workflows/engage-workflow.md
-        - 'Approve Workflow Requests': guides/workflows/approve-workflow-requests.md
+        - 'Define a Workflow': guides/workflows/add-a-new-workflow-definition.md
+        - 'Engage a Workflow to an Operation': guides/workflows/engage-a-workflow-in-an-operation.md
+        - 'Manage Human Tasks': guides/workflows/manage-human-tasks.md
         - 'Monitor Workflow Requests': guides/workflows/monitor-workflow-requests.md
       - 'Tenants':
-        - 'Set Up a Tenant Loading Policy': guides/tenants/setup-tenant-loading.md
-        - 'Manage Tenants': guides/tenants/manage-tenants.md
+        - 'Set Up a Tenant Loading Policy': guides/tenants/configure-the-tenant-loading-policy.md
+        - 'Add New Tenants': guides/tenants/add-new-tenants.md
+      - 'My Account': 
+        - 'Overview': guides/my-account/my-account.md
       - 'Federation - To Remove':
         - 'Facebook': guides/federation/facebook.md
         - 'Google': guides/federation/google.md
@@ -508,6 +511,7 @@ nav:
       - 'Identity Providers': apis/idp-rest-api.md
       - 'IdP Session Extending': apis/idp-session-extender-endpoint.md
       - 'Keystore Management': apis/keystore-rest-api.md
+      - 'Manage Tenants': apis/manage-tenants-with-apis.md
       - 'Server Configurations': apis/configs-rest-api.md
       - 'OAuth2 Scope Management': apis/oauth2-scope-management-rest-apis.md
       - 'OpenID Connect Scope Management': apis/oidc-scope-management-rest-apis.md
