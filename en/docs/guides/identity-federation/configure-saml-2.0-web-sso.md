@@ -15,6 +15,8 @@ In a web browser-based SSO system, the flow can be started by the user
 either by attempting to access a service at the service provider, or by
 directly accessing the identity provider itself.
 
+---
+
 ## Preliminary configs
 
 Follow the steps below to navigate to the federated authenticators configuration section.
@@ -76,7 +78,7 @@ Follow the steps below to navigate to the federated authenticators configuration
 
 ---
 
-### Manual Configs
+## Manual configs
 
 To configure manually, 
 
@@ -328,7 +330,7 @@ To configure manually,
 
 ---
 
-### File-Based Configs
+## File-Based configs
 
 !!! info "About Metadata upload"
 
@@ -459,7 +461,7 @@ To configure through file upload:
 
 ---
 
-## Advanced Configs   
+## Advanced configs   
 
 
 !!! tip "Configure ACL URL in a production environment"
