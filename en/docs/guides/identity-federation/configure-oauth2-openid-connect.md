@@ -36,7 +36,7 @@ the users with an authorization server-based authentication.
     Prior to this, you need to configure an oauth application in the
     federated authorization server and get the application information
     such as client ID and secret. For example, see
-    [configuring OAuth2-OpenID Connect single sign-on](../../../guides/login/sso-for-oidc).
+    [configuring OAuth2-OpenID Connect single sign-on](../../../guides/login/webapp-oidc/).
 
     !!! tip
         By default, the **Client Id** and **Client Secret** are stored as
