@@ -13,11 +13,11 @@ Integrated Windows Authentication (IWA) is an authentication mechanism
 introduced by Microsoft to authenticate users in Microsoft Windows NT
 based operating systems. IWA authentication provides an easier way for
 users to log in to web applications that use Windows Active Directory as
-an user store. This is a popular choice of authentication among Windows
+a user store. This is a popular choice of authentication among Windows
 server users and administrators.
 
 Most often, we log in to web applications by providing a user name and
-password in a HTML page. This type of authentication system is called
+password in an HTML page. This type of authentication system is called
 form-based authentication. However, there are several other ways where
 the need for user name and password is eliminated when the user is
 already authenticated. Integrated Windows Authentication is one such
@@ -43,10 +43,10 @@ The following diagram indicates how the authentication procedure works.
     a web application (protected by IWA).
 2.  The server rejects the request and sends a response saying the user
     needs to be authenticated using NTLM.
-3.  The client browser get the user's credentials which was used to log
+3.  The client browser gets the user's credentials which were used to log
     into Windows, takes the hash of it and sends it to the server.
 4.  With the hash received, the server looks up the user store and
-    identifies the user and creates an unique and encrypted challenge to
+    identifies the user and creates a unique and encrypted challenge to
     send back to the client browser. That challenge can be only
     decrypted using the user's password which the browser already has
     with itself.
@@ -55,7 +55,7 @@ The following diagram indicates how the authentication procedure works.
     back to the server.
 6.  The server checks whether the response for the challenge is correct
     and serves the user requested resource if the answer is correct. If
-    the answer is wrong, the server denies the access to the requested
+    the answer is wrong, the server denies access to the requested
     resources and sends the unauthorized message.
 
 ### Pros and Cons of IWA
@@ -66,13 +66,13 @@ the Windows domain they are automatically authenticated for the IWA
 enabled web apps if the user is a valid user.
 
 In IWA authentication, the user name and password are not sent over the
-network. Instead it uses a hash function and a challenge response scheme
+network. Instead, it uses a hash function and a challenge response scheme
 to authenticate. That makes the authentication more secure from
 man-in-the-middle type of attacks.
 
 The disadvantage is that since the authentication is done using the
 Windows Active Directory it needs both the client and the server to use
-Microsoft Windows NT based operating systems. Also the clients need to
+Microsoft Windows NT based operating systems. Also, the clients need to
 be connected to the domain hosted by the server. This can be used only
 within an intranet. Also IWA may need some configuration on certain
 browsers like Mozilla Firefox.
@@ -87,7 +87,7 @@ the ability of enabling the IWA for the Java web applications. Here are
 some of those libraries:
 
 -   **JCIFS** – JCIFS is an open source library that had been commonly
-    used few years ago for IWA authentication of Java web applications.
+    used a few years ago for IWA authentication of Java web applications.
     However this library is no longer maintained and it is not
     recommended to use because of security flaws.
 -   **JESPA** – JESPA is a commercial library that can be used to enable
