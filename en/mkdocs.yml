@@ -111,8 +111,8 @@ nav:
         - 'Web Application':
           - 'OIDC': guides/login/webapp-oidc.md
           - 'SAML': guides/login/webapp-saml.md
-          - 'WS-Federation': guides/login/webapp-wsfed.md
-          - 'IWA': guides/login/webapp-iwa.md
+          - 'WS-Federation': guides/login/configure-ws-federation-single-sign-on.md
+          - 'IWA': guides/login/configure-iwa-on-linux.md
         - 'Client-Side Application': guides/login/client-side-app.md
         - 'SaaS Applications':
           - 'Salesforce': guides/login/log-into-salesforce-using-is.md
@@ -126,6 +126,7 @@ nav:
           - 'SSO For WS-Federation Applications': guides/login/configure-ws-federation-single-sign-on.md
           - 'Single Sign-On for Native iOS Applications': guides/login/configure-single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
           - 'Recaptcha for SSO': guides/login/configuring-recaptcha-for-single-sign-on.md
+          - 'Connfigure IWA Single Sign On': guides/login/configure-iwa-single-sign-on.md
         - 'Single Logout':
           - 'OpenID Connect':
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
@@ -184,6 +185,7 @@ nav:
           - 'Invitation Workflow': guides/identity-lifecycles/invitation-workflow.md
           - 'User Self-Registration Workflow': guides/identity-lifecycles/self-registration-workflow.md
           - 'Lite User Registration Workflow': guides/identity-lifecycles/lite-user-registration.md
+          - 'Recaptcha for Self-Registration': guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
           - 'Bulk Import Users': guides/identity-lifecycles/import-users.md
         - 'Manage Users':
           - 'Overview': guides/identity-lifecycles/manage-user-overview.md
@@ -202,7 +204,7 @@ nav:
         - 'Outbound Provision Users':
           - 'Overview': guides/identity-lifecycles/outbound-provisioning.md
           - 'SCIM2.0': guides/identity-lifecycles/outbound-provisioning-with-scim.md
-          - 'Microsoft Azure AD': guides/identity-lifecycles/outbound-provisioning-with-azure.md
+          - 'Microsoft Azure AD': guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
           - 'Google Directory': guides/identity-lifecycles/outbound-provisioning-with-google.md
           - 'Salesforce': guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
           - 'Role Based Provisioning': guides/identity-lifecycles/role-based-provisioning.md
@@ -210,7 +212,7 @@ nav:
         - 'Inbound Provision Users':
           - 'Overview': guides/identity-lifecycles/inbound-provisioning.md
           - 'Configure User Stores for SCIM 2.0': guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
-          - 'Configure Active Directory User Stores': guides/identity-lifecycles/configure-ad.md
+          - 'Configure Active Directory Userstores': guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
         - 'Just-in-Time Provision Users':
           - 'Configure Just-In-Time Provisioning for an Identity Provider': guides/identity-lifecycles/jit-workflow.md
         - 'Manage User Stores':
@@ -242,7 +244,7 @@ nav:
           - 'OAuth 2.0 Tokens': guides/access-delegation/configure-kerberos-grant.md
           - 'Invoke the OAuth 2.0 Introspection Endpoint': guides/access-delegation/configure-jwt-grant.md
           - 'OAuth 2.0 Dynamic Client Registration': guides/access-delegation/oauth-dynamic-client-registration.md
-          - 'OAuth 2.0 Client Authentication': guides/access-delegation/client-authentication.md
+          - 'OAuth 2.0 Client Authentication': guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
           - 'Authorizing for the OAuth 2.0 Scopes': guides/access-delegation/invoke-oauth-introspection-endpoint.md
           - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
         - 'User Managed Access': guides/access-delegation/uma.md
@@ -257,6 +259,7 @@ nav:
           - 'ADFS': guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
           - 'Microsoft Azure': guides/identity-federation/microsoft-azure.md
           - 'Shibboleth': guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider.md
+          - 'WS-Federation': guides/identity-federation/configure-ws-federation.md
           - 'Federated Logout':
             - 'Application-Initiated Federated Logout': guides/identity-federation/app-initiated-logout.md
             - 'IdP-Initiated Federated Logout': guides/identity-federation/idp-initiated-logout.md
