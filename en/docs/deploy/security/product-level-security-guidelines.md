@@ -37,14 +37,14 @@ Change the default key stores and create new keys for all the cryptographic oper
 
 !!! info
 
-    For more information, see [Recommendations for using keystores](../../../deploy/security/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products) and [Creating New Keystores](../../../deploy/security/creating-new-keystores).
+    For more information, see [Recommendations for using keystores](../../../deploy/security/use-asymmetric-encryption-basic#recommendations-for-setting-up-keystores-in-wso2-products) and [Creating New Keystores](../../../deploy/security/create-new-keystores).
 
 
 ---
 
 ## Passwords in config files
 
-WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Securing Passwords in Configuration Files](../../../deploy/security/encrypting-passwords-with-cipher-tool).
+WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Securing Passwords in Configuration Files](../../../deploy/security/encrypt-passwords-with-cipher-tool).
 
 ---
 
@@ -58,7 +58,7 @@ All the default ports that are used by WSO2 Identity Server are listed in <a hre
 
 ### Read-only access
 
-If your WSO2 Identity Server is connecting to an external user store, such as Microsoft Active Directory, for the purpose of reading and retrieving user information, make sure to enable read-only access to that user store. For instructions, see <a href="../../../deploy/configuring-user-stores">Configuring User Stores</a>.
+If your WSO2 Identity Server is connecting to an external user store, such as Microsoft Active Directory, for the purpose of reading and retrieving user information, make sure to enable read-only access to that user store. For instructions, see <a href="../../../deploy/configure-user-stores">Configuring User Stores</a>.
 
 ### TLS
 
@@ -78,7 +78,7 @@ When connecting WSO2 Identity Server to external databases or user stores (LDAP)
 
 To have strong transport-level security, use TLS 1.2 and disable SSL, TLS 1.0, and 1.1. 
 
-The TLS protocol and ciphers are configured for an HTTP connector using the `SSLEnabled` element in the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. For instructions, see <a href="../../../deploy/security/configuring-transport-level-security">Configuring Transport-Level Security</a>. 
+The TLS protocol and ciphers are configured for an HTTP connector using the `SSLEnabled` element in the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. For instructions, see <a href="../../../deploy/security/configure-transport-level-security">Configuring Transport-Level Security</a>. 
 
 !!! note 
     <ul>
@@ -102,7 +102,7 @@ The TLS protocol and ciphers are configured for an HTTP connector using the `SSL
 
 When sending HTTP responses, by default, WSO2 Identity Server passes `WSO2 Carbon Server` as the **server value** in HTTP headers. This means that information about WSO2 Identity Server stack will be exposed through HTTP responses. 
 
-It is recommended to change this by configuring the server name in the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory. For instructions, see <a href="../../../deploy/security/configuring-transport-level-security">Configuring Transport Level Security</a>.
+It is recommended to change this by configuring the server name in the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory. For instructions, see <a href="../../../deploy/security/configure-transport-level-security">Configuring Transport Level Security</a>.
 
 ---
 
@@ -111,7 +111,7 @@ It is recommended to change this by configuring the server name in the `deployme
 For products based on Carbon 4.4.11 or later versions, HTTP Strict Transport Security (HSTS) is disabled for the applications with which WSO2 Identity Server is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.
 
 
-Make sure to enable  (HSTS) for all the applications that are deployed in your WSO2 Identity Server. This includes Management Console and any other web applications. For instructions, see <a href="../../../deploy/security/enabling-hsts">Enabling HTTP Strict Transport Security (HSTS) Headers</a>.
+Make sure to enable  (HSTS) for all the applications that are deployed in your WSO2 Identity Server. This includes Management Console and any other web applications. For instructions, see <a href="../../../deploy/security/enable-hsts">Enabling HTTP Strict Transport Security (HSTS) Headers</a>.
 
 ---
 
@@ -121,7 +121,7 @@ If there are dynamic pages in your application with sensitive information, you n
 
 !!! tip 
 
-    By default, cache prevention headers are enabled for the applications with which the product is shipped by default. Therefore, you need to manually enable cache prevention headers only for all the new applications that you deploy in your server. For instructions, see <a href="../../../deploy/security/preventing-browser-caching">Preventing browser caching</a>. 
+    By default, cache prevention headers are enabled for the applications with which the product is shipped by default. Therefore, you need to manually enable cache prevention headers only for all the new applications that you deploy in your server. For instructions, see <a href="../../../deploy/security/prevent-browser-caching">Preventing browser caching</a>. 
 
 ---
 
@@ -205,7 +205,7 @@ To enable hostname verification:
 
 !!! info 
 
-    For more information, see <a href="../../../deploy/enabling-hostname-verification">Enabling HostName Verification</a>.
+    For more information, see <a href="../../../deploy/enable-hostname-verification">Enabling HostName Verification</a>.
 
 ---
 
@@ -269,7 +269,7 @@ log4j.appender.CARBON_LOGFILE.MaxBackupIndex=10
 
 !!! info 
 
-    For information on configuring logging details, see <a href="../../../deploy/monitor/monitoring-logs/">Monitoring Logs</a>.
+    For information on configuring logging details, see <a href="../../../deploy/monitor/monitor-logs/">Monitoring Logs</a>.
 
 ---
 
@@ -279,7 +279,7 @@ Log forging can be prevented by appending a UUID to the log message.
 
 !!! info
 
-    For more information on configuring the `log4j.properties` file, see <a href="../../../deploy/monitor/monitoring-logs/">Monitoring Logs</a>.
+    For more information on configuring the `log4j.properties` file, see <a href="../../../deploy/monitor/monitor-logs/">Monitoring Logs</a>.
 
 ---
 

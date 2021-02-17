@@ -17,7 +17,7 @@ enable = true
 
 ## Enable Lite User Registration 
 
-1.	Sign in to the WSO2 Identity Server [Management Console](../../../deploy/get-started/getting-started-with-the-management-console).
+1.	Sign in to the WSO2 Identity Server [Management Console](../../../deploy/get-started/get-started-with-the-management-console).
 
 2.	On the **Main** menu, click **Identity > Identity Providers > Resident**. 
 

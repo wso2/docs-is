@@ -287,10 +287,10 @@ in the Identity Server.
     [install](../../../deploy/get-started/install/)
     the WSO2 Identity Server.
     
-2.  [Start WSO2 Identity Server](../../../deploy/get-started/running-the-product).
+2.  [Start WSO2 Identity Server](../../../deploy/get-started/run-the-product).
 
 3.  Log in to WSO2 Identity Server [management
-    console](../../../deploy/get-started/getting-started-with-the-management-console).
+    console](../../../deploy/get-started/get-started-with-the-management-console).
     
 4.  Register new federated identity provider in the Identity Server.
 

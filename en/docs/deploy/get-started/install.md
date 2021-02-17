@@ -41,13 +41,13 @@ development platforms before starting the installation.
 <td><div class="content-wrapper">
 <ul>
 <li>WSO2 Identity Server requires an Oracle JDK 11 or JDK 8 compliant JDK. This will run on most common platforms that <strong>support Java 11 or Java 8.</strong> .</li>
-<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../../deploy/working-with-databases">Working with Databases</a> .</li>
+<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../../deploy/work-with-databases">Working with Databases</a> .</li>
 <li>WSO2 Identity Server supports using any of the following as a user store :
 <ul>
 <li>RDBMS</li>
 <li>An LDAP such as OpenLDAP</li>
 <li>Active Directory</li>
-<li><a href="../../../deploy/configuring-user-stores">Custom user stores</a></li>
+<li><a href="../../../deploy/configure-user-stores">Custom user stores</a></li>
 </ul></li>
 </ul>
 <div class="admonition note">
@@ -431,7 +431,7 @@ set JAVA_HOME
 ```
 
 The system returns the JDK installation path. You are now ready to [run
-the product.](../../../deploy/get-started/running-the-product)
+the product.](../../../deploy/get-started/run-the-product)
 
 <a name="java-home"></a>
 
@@ -644,7 +644,7 @@ configuration for running a WSO2 product as a Windows Service.
         If you wish to set additional properties from an external registry
         at runtime, store sensitive information like usernames and passwords
         for connecting to the registry in a properties file, and secure it
-        with the [cipher tool](../../../deploy/security/encrypting-passwords-with-cipher-tool).
+        with the [cipher tool](../../../deploy/security/encrypt-passwords-with-cipher-tool).
 
     ??? note "Click to view a sample"
 
