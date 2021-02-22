@@ -11,6 +11,7 @@ As WSO2 Identity Server is a Java application, you can generally run them on mos
 		<td>
 			<ul>
 				<li>CorrettoJDK 8</li>
+				<li>CorrettoJDK 11</li>
 				<li>AdoptOpenJDK 8</li>
 				<li>AdoptOpenJDK 11</li>
 				<li>OpenJDK 8</li>
@@ -62,6 +63,7 @@ WSO2 Identity Server supports the following DBMSs.
 				<li>DB2 v10.5 (Compatibility mode: MYS)</li>
 				<li>Postgres 11</li>
 				<li>Postgresql 10.5</li>
+				<li>Postgresql 12.4</li>
 			</ul>
 		</td>
 	</tr>
