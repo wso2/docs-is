@@ -1,7 +1,7 @@
 # Private Key JWT Client Authentication for OIDC
 
 This section introduces you to Private Key JWT Client Authentication for
-OIDC and describes how this method is used by clients when
+OpenID Connect (OIDC) and describes how this method is used by clients when
 authenticating to the authorization server.
 
 ---
@@ -92,10 +92,10 @@ artifacts.
 
 	{! fragments/register-a-service-provider.md !}
 
-7.  **Expand** the OAuth/OpenID Connect Configuration under Inbound
-    Authentication section and click **Configure**.
+7.  Expand **OAuth/OpenID Connect Configuration** under **Inbound
+    Authentication** and click **Configure**.
 
-8.  Enter a callback url (ex:
+8.  Enter a callback URL (ex:
     `                       http://localhost:8080/playground2/oauth2client                     `
     ) and click **Add**. (The OAuth Client Key and OAuth Client Secret
     will now be visible.)
