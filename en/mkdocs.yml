@@ -18,7 +18,7 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://is.docs.wso2.com/en/latest/
+site_url: https://is.docs.wso2.com/en/5.12.0/
 
 # Repository
 repo_name: wso2/docs-is
@@ -615,6 +615,7 @@ nav:
           - 'Managing Tenants with APIs': develop/managing-tenants-with-apis.md
           - 'Entitlement with APIs':
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
+          - 'IdP Session Extending API': develop/idp-session-extender-endpoint.md
       - 'Re-branding User Interfaces':
         - 'Re-branding WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Re-branding the Default Login Page for Your Application': develop/customizing-login-pages-for-service-providers.md
@@ -817,6 +818,7 @@ nav:
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
     - 'Scopes Corresponding to Permissions Required to Invoke API Calls' : references/scopes-corresponding-to-api-permissions.md
+    - 'Usernames in WSO2 Identity Server' : references/usernames-in-identity-server.md
   - '': page-not-found.md
 
 
