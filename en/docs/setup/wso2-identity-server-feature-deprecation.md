@@ -75,7 +75,8 @@ This feature is currently disabled in the product and can be enabled by adding t
 
     ```toml
     [[legacy_feature]]
-    id = "identity/connect/dcr"
+    id = "oauth"
+    version = "1.0"
     enable = true
     ```
 <p>
@@ -104,6 +105,16 @@ Our recommendation is to migrate to OAuth 2.0
    <td>5.12.0
    </td>
    <td>FUTURE
+   </td>
+  </tr>
+  <tr>
+   <td>Tenant Management REST API
+   </td>
+   <td>Tenant qualified URLs will not be supported for tenant management REST APIs.
+   </td>
+   <td>5.12.0
+   </td>
+   <td>5.12.0
    </td>
   </tr>
 </table>

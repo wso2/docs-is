@@ -154,10 +154,12 @@ Once all the above prerequisites have been met, follow the instructions given be
 6. Ensure that you have migrated the configurations into the new version as
    advised in [preparing for migration section.](../../setup/migrating-preparing-for-migration/#migrating-the-configurations)
 
-7. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with
+7.  Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
+
+8. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with
    `<OLD_IS_HOME>/repository/conf/email/email-admin-config.xml`.   
     
-8. Follow the steps given below to perform database updates:
+9. Follow the steps given below to perform database updates:
     1.     To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**. Unzip it to a local directory.
         
         !!! Note 
@@ -195,7 +197,7 @@ Once all the above prerequisites have been met, follow the instructions given be
             
             ALTER USER <user> WITH SUPERUSER;
 
-9. Configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
+10. Configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
 
     1. Generate your own secret key using a tool like OpenSSL.
 
@@ -228,7 +230,7 @@ Once all the above prerequisites have been met, follow the instructions given be
     
     Under each migrator's parameters, find the property value of **currentEncryptionAlgrithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
             
-10.  Start the WSO2 Identity Server 5.11.0 with the following command to
+11.  Start the WSO2 Identity Server 5.11.0 with the following command to
     execute the migration client.
 
     1.  Linux/Unix:
@@ -243,7 +245,7 @@ Once all the above prerequisites have been met, follow the instructions given be
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
-11.  Stop the server once the migration client execution is complete.
+12.  Stop the server once the migration client execution is complete.
 
 ---
 

@@ -310,18 +310,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
         - name: domain
           in: query
           description: The name of the user store where filtering needs to be applied.
@@ -408,7 +396,7 @@ paths:
         This API returns groups according to the specified filter, sort, and pagination parameters.
 
         <b>Permission required:</b>
-        * /permission/admin/manage/identity/rolemgt/create
+        * /permission/admin/manage/identity/rolemgt/view
         
         <b>Scope required:</b>
             * internal_role_mgt_view
@@ -652,7 +640,12 @@ paths:
         - Users Endpoint
       summary: Filter Users
       description: |
-        This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores.
+        This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores. </br></br>
+
+        By default, duplicate user entries in the SCIM2 users response are persisted. To remove the duplicate user entries, add the following configuration to the deployment.toml file. </br> </br>
+
+        [scim2]
+        remove_duplicate_users_in_users_response = true
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/usermgt/view
@@ -692,18 +685,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses.
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
         - name: domain
           in: query
           description: The name of the user store where filtering needs to be applied.
@@ -797,10 +778,10 @@ paths:
         This API returns users according to the filter, sort and pagination parameters.
 
          <b>Permission required:</b>
-          * /permission/admin/manage/identity/usermgt/create
+          * /permission/admin/manage/identity/usermgt/list
           
           <b>Scope required:</b>
-            * internal_user_mgt_create
+            * internal_user_mgt_list
             
       operationId: getUsersByPost
       consumes:
@@ -1073,18 +1054,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
       responses:
         200:
           description: Valid roles are found
@@ -1156,10 +1125,10 @@ paths:
         This API returns roles according to the specified filter, sort and pagination parameters.
 
         <b>Permission required:</b>
-            * /permission/admin/manage/identity/rolemgt/create
+            * /permission/admin/manage/identity/rolemgt/view
             
         <b>Scope required:</b>
-            * internal_role_mgt_create
+            * internal_role_mgt_view
             
       operationId: getRolesByPost
       consumes:

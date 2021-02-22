@@ -35,7 +35,32 @@ As WSO2 Identity Server is a Java application, you can generally run them on mos
 	</tr>
 </table>>
 
-The WSO2 Identity Server Analytics is supported with JDK 1.8.
+Given below are the JDKs and Operating Systems we have tested WSO2 Identity Server Analytics with.
+
+<table>
+	<tr>
+		<th>Supported JDK versions</th>	
+		<td>
+			<ul>
+				<li>OpenJDK 8</li>
+				<li>Oracle JDK 8</li>
+				<li>AdoptOpenJDK 8</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th>Supported Operating Systems</th>
+		<td>
+			<ul>
+				<li>macOS Catalina 10.15.7</li>
+				<li>Ubuntu 20.04</li>
+				<li>Ubuntu 18.04</li>
+				<li>Windows 10</li>
+				<li>openSUSE Tumbleweed 20201114</li>
+			</ul>
+		</td>
+	</tr>
+</table>
 
 ### Tested DBMSs
 
@@ -70,8 +95,14 @@ WSO2 Identity Server supports the following DBMSs.
 		<td>
 			<ul>
 				<li>MySQL 5.7.15</li>
+				<li>MySQL 8.0</li>
 				<li>Microsoft SQL Server  2014</li>
+				<li>Microsoft SQL Server 2019</li>
 				<li>Oracle 12.1.0.2.0</li>
+				<li>Oracle 12.2.0.1</li>
+				<li>Oracle 19c</li>
+				<li>Postgres 11</li>
+				<li>Postgres 10.5</li>
 			</ul>
 		</td>
 	</tr>

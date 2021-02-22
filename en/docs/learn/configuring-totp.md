@@ -186,9 +186,9 @@ You can configure any of the above as following in the
     enrolUserInAuthenticationFlow=true
     usecase="local"
     secondaryUserstore="primary"
-    TOTPAuthenticationEndpointURL="totpauthenticationendpoint/totp.jsp"
-    TOTPAuthenticationEndpointErrorPage="totpauthenticationendpoint/totpError.jsp"
-    TOTPAuthenticationEndpointEnableTOTPPage="totpauthenticationendpoint/enableTOTP.jsp"
+    TOTPAuthenticationEndpointURL="authenticationendpoint/totp.do"
+    TOTPAuthenticationEndpointErrorPage="authenticationendpoint/totp_error.do"
+    TOTPAuthenticationEndpointEnableTOTPPage="authenticationendpoint/totp_enroll.do"
     Issuer="WSO2"
     UseCommonIssuer=true
     ```

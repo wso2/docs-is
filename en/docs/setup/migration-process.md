@@ -45,25 +45,27 @@ Follow the steps given below once you have followed the steps above to migrate c
     !!! important
         This step is crucial to verify that the migrated environment works as expected.     
 
-2.  Identify the configuration migrations required for the new setup. For more information, see [What Has Changed](../../setup/migrating-what-has-changed).
+2.  Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
+
+3.  Identify the configuration migrations required for the new setup. For more information, see [What Has Changed](../../setup/migrating-what-has-changed).
         
-3.  Prepare a test setup of the migrating version with customizations and necessary config changes, and 
+4.  Prepare a test setup of the migrating version with customizations and necessary config changes, and 
 test your functional and nonfunctional requirements.
 
-4.  Before starting the migration, run the [token and session 
+5.  Before starting the migration, run the [token and session 
 cleanup scripts](../../setup/removing-unused-tokens-from-the-database#using-stored-procedures-for-token-cleanup)
  in the databases of the environment, if you are not doing regular cleanups.
     
     !!! info
         Clean-up scripts can be found in the relevant db folder in `<IS-HOME>/dbscripts/identity/stored-procedures`
         
-5.  Start the migration from the lowest environment such as dev and continue up to the highest before the production 
+6.  Start the migration from the lowest environment such as dev and continue up to the highest before the production 
 such as pre-prod. 
 
-6.  Run the test cases in the migrated environments to confirm that your functional and nonfunctional 
+7.  Run the test cases in the migrated environments to confirm that your functional and nonfunctional 
 requirements are met in the migrated environment.
 
-7. Prior to the production migration, run a pilot migration on your pre-prod environment. It would be 
+8. Prior to the production migration, run a pilot migration on your pre-prod environment. It would be 
 ideal if the pre-prod environment is similar to the production environment.
     +   If possible, restore a database dump of the production environment to the pre-prod environment and 
     perform the pilot migration.

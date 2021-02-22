@@ -37,7 +37,7 @@ theme:
     accent: deep-orange
   custom_dir: theme/material
   logo: images/logo.svg
-  favicon: images/favicon.png
+  favicon: assets/img/favicon.png/
   highlightjs: true
   feature:
     tabs: true
@@ -87,6 +87,7 @@ nav:
             - 'Admin-Initiated': learn/configuring-admin-initiated-account-locking.md
             - 'Failed Login Attempts': learn/configuring-account-locking-due-to-failed-login-attempts.md
           - 'Account Disabling': learn/configuring-account-disabling.md
+          - 'Pending Account Status': learn/pending-account-status.md
         - 'Single Sign-On':
           - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
@@ -335,9 +336,9 @@ nav:
           - 'Self-Registration and Account Confirmation':
             - 'Self-Registration and Account Confirmation': learn/self-registration-and-account-confirmation.md
             - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md
-          - 'Lite User Registration': learn/lite-user-registration.md
+            - 'Lite User Registration': learn/lite-user-registration.md
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
-          - 'Emails with Special Characters': learn/adding-email-special-characters.md
+          - 'Emails with Special Characters': learn/addi    ng-email-special-characters.md
           - 'Configuring Email Masking Pattern': learn/configure-email-masking-pattern.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
@@ -559,7 +560,9 @@ nav:
             - 'Associations': develop/association-rest-api.md
             - 'Authentication Data': develop/authentication-data-api.md
             - 'Authentication': develop/using-the-authentication-rest-apis.md
-            - 'Authorized Apps': develop/authorized-apps-rest-api.md
+            - 'Authorized Apps':
+              - 'Authorized Apps V1': develop/authorized-apps-rest-api.md
+              - 'Authorized Apps V2': develop/authorized-apps-v2-rest-api.md
             - 'Challenge Question': develop/challenge-rest-api.md
             - 'Claim Management' : develop/claim-management-rest-api.md
             - 'Configuration Management':
@@ -573,6 +576,7 @@ nav:
             - 'Identity Governance': develop/identity-governance-rest-api.md
             - 'Identity Providers': develop/idp-rest-api.md
             - 'Keystore Management': develop/keystore-rest-api.md
+            - 'Notification Senders': develop/notification-sender-rest-api.md
             - 'Server Configurations': develop/configs-rest-api.md
             - 'OAuth2 Scope Management': develop/oauth2-scope-management-rest-apis.md
             - 'OpenID Connect Scope Management': develop/oidc-scope-management-rest-apis.md
@@ -727,6 +731,7 @@ nav:
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
           - "Migrating to 5.11.0" : setup/migrating-to-5110.md
+          - 'Migrating Userstore Managers': setup/migrating-userstore-managers.md
       - 'WSO2 Identity Server Feature Deprecation': setup/wso2-identity-server-feature-deprecation.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
@@ -784,7 +789,6 @@ nav:
           - 'Renewing a CA-Signed Certificate': administer/renewing-a-ca-signed-certificate-in-a-keystore.md
           - 'Managing Keystores via UI': administer/managing-keystores-with-the-ui.md
           - 'Adding Multiple Keys to the Primary Keystore': administer/adding-multiple-keys-to-the-primary-keystore.md
-          - 'Migrating the Secondary Userstore Password to the Internal Keystore': administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md
         - 'Symmetric Encryption': 
           - 'Overview': administer/symmetric-overview.md
           - 'Related Configurations': administer/using-symmetric-encryption.md

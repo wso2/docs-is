@@ -19,6 +19,16 @@ template: templates/swagger.html
        4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
          IS. 
          
+!!! Note
+    
+    - From WSO2 IS 5.12 onwards, access tokens that are mapped with the session via REST API can be revoked. 
+      This is applicable for authorization code grant, implicit flow, refresh token grant, and hybrid flow. 
+    - If one session is terminated via the API and the same access token is used by multiple sessions,
+      the other sessions may then lose their tokens. Therefore, it is recommended to use sso-session binding if 
+      you wish to retain the capability to revoke the access token when the session is terminated via REST API.
+    - WSO2 Identity Server sends SAML/OIDC back-channel logouts also when session is terminated via API. To support 
+      this, the application should be configured to enable back-channel logout.
+    
 <div id="swagger-ui"></div>
 <script>
 window.onload = function() {
