@@ -48,7 +48,7 @@ for forced password reset:
     assign it to the new user, "alex".
 
     !!! tip 
-    	You can verify this by logging in to the [user portal](https://localhost:9443/user-portal) as Alex. The log in
+    	You can verify this by logging in to the [user portal](https://localhost:9443/myaccount) as Alex. The log in
     attempt should be successful. Log out from the portal.
 
 6.  Click on **Resident** under **Identity Providers** found in the
