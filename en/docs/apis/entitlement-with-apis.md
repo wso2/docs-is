@@ -29,7 +29,7 @@ Entitlement Mangement APIs.
     
     For more information on WSO2 admin services and how to invoke an admin
     service using either SoapUI or any other client program, see [Calling
-    Admin Services](../../apis/calling-admin-services).
+    Admin Services](../../apis/call-admin-services).
     
 
 The following section guides you on entitlement management in two

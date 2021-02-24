@@ -111,7 +111,7 @@ Using the **export user profile** feature in **My Account**, a JSON file can be 
         in WSO2 IS, log out, then log back in. Now approve the consent again. A new consent 
         receipt will be generated for that application consent).
 
-    2.  Use the [Consent Management REST APIs](../../../apis/using-the-consent-management-rest-apis) to revoke the
+    2.  Use the [Consent Management REST APIs](../../../apis/use-the-consent-management-rest-apis) to revoke the
         existing consent and add a new consent.
 
 You can export your profile by following the instructions given below.

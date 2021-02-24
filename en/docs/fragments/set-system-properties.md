@@ -13,6 +13,6 @@ you can take the following approaches:
     code that reads the properties at runtime from that registry. Be
     sure to store sensitive data such as username and password to
     connect to the registry in a properties file instead of in the Java
-    code and secure the properties file with the [cipher tool](../../../deploy/security/encrypting-passwords-with-cipher-tool).
+    code and secure the properties file with the [cipher tool](../../../deploy/security/encrypt-passwords-with-cipher-tool).
 
-You are now ready to [run the product](../../../deploy/get-started/running-the-product).
+You are now ready to [run the product](../../../deploy/get-started/run-the-product).

@@ -109,7 +109,7 @@ proxyPort = 443
 
 !!! info "Related Topics"
 
-    -  [Working with different databases](../../../deploy/working-with-databases)
-    -  [Working with different userstores](../../../deploy/configuring-user-stores)
-    -  [Configuring the User Realm](../../../deploy/configuring-the-realm)
+    -  [Working with different databases](../../../deploy/work-with-databases)
+    -  [Working with different userstores](../../../deploy/configure-user-stores)
+    -  [Configuring the User Realm](../../../deploy/configure-the-realm)
 

@@ -11,7 +11,7 @@ response time.
     Follow the instructions below to access the system statistics.
 
     1.  Sign in. Enter your user name and password to log on to the
-        [Management Console](../../../deploy/get-started/getting-started-with-the-management-console).        
+        [Management Console](../../../deploy/get-started/get-started-with-the-management-console).        
         
     2.  Navigate to the **Monitor** menu and click on **System Statistics**. The **System Statistics** page appears with statistics related to
         the Identity Server usage.  

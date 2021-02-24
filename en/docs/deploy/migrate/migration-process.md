@@ -32,7 +32,7 @@ However, if a custom requirement is not available in the latest version, follow 
 dependant WSO2 components and re-build the customized component.
 - As a practice, WSO2 does not make API changes in minor releases of the dependency jars. However, if 
 there are API changes, update the custom code and re-build.
--  For more information about migrating customizations, see [Migrating Custom Components](../../../deploy/migrate/migrating-preparing-for-migration/#migrate-custom-components).
+-  For more information about migrating customizations, see [Migrating Custom Components](../../../deploy/migrate/prepare-for-migration/#migrate-custom-components).
 
 ---
                         
@@ -47,13 +47,13 @@ Follow the steps given below once you have followed the steps above to migrate c
 
 2.  Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
 
-3.  Identify the configuration migrations required for the new setup. For more information, see [What Has Changed](../../../deploy/migrate/migrating-what-has-changed).
+3.  Identify the configuration migrations required for the new setup. For more information, see [What Has Changed](../../../deploy/migrate/what-has-changed).
         
 4.  Prepare a test setup of the migrating version with customizations and necessary config changes, and 
 test your functional and nonfunctional requirements.
 
 5.  Before starting the migration, run the [token and session 
-cleanup scripts](../../../deploy/removing-unused-tokens-from-the-database#using-stored-procedures-for-token-cleanup)
+cleanup scripts](../../../deploy/remove-unused-tokens-from-the-database#using-stored-procedures-for-token-cleanup)
  in the databases of the environment, if you are not doing regular cleanups.
     
     !!! info
