@@ -1,4 +1,4 @@
-# Manage UserStores with APIs
+# Manage Userstores with APIs
 
 The `UserStoreConfigAdminService` allows you to add, retrieve, edit, and delete user stores within WSO2 Identity Server. 
 
