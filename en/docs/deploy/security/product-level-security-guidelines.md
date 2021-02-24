@@ -37,7 +37,7 @@ Change the default key stores and create new keys for all the cryptographic oper
 
 !!! info
 
-    For more information, see [Recommendations for using keystores](../../../deploy/security/use-asymmetric-encryption-basic#recommendations-for-setting-up-keystores-in-wso2-products) and [Creating New Keystores](../../../deploy/security/create-new-keystores).
+    For more information, see [Recommendations for using keystores](../../../deploy/security/use-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products) and [Creating New Keystores](../../../deploy/security/create-new-keystores).
 
 
 ---
@@ -297,7 +297,7 @@ Log forging can be prevented by appending a UUID to the log message.
 
 ## Mutual SSL
 
-If mutual SSL is enabled, [enable intermediate certificate validation](../../../apis/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
+If mutual SSL is enabled, [enable intermediate certificate validation](../../../apis/authenticate-and-authorize-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
 
 If mutual SSL authentication capabilities are not required, you can [disable it](TODO:../../administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is).
 

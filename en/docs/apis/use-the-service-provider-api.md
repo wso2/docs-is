@@ -20,7 +20,7 @@ The Identity Application Management API enables creating a service provider, upd
         https://localhost:9443/services/IdentityApplicationManagementService?wsdl
         ```
 
-    -   To enable the admin service, follow the instructions given in [Calling Admin Services](../../apis/calling-admin-services).  
+    -   To enable the admin service, follow the instructions given in [Calling Admin Services](../../apis/call-admin-services).  
 
 
 !!! info "About creating applications"

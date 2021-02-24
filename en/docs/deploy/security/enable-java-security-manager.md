@@ -48,7 +48,7 @@ Let's get started!
 	Now you have created a new keystore (`signkeystore.jks`) with a new public key certificate (`signFiles`). 	 	
 
 	!!! info  
-		For more information on keystores, see [About keystores and truststores](../../../deploy/security/use-asymmetric-encryption-basic#about-keystores-and-truststores).
+		For more information on keystores, see [About keystores and truststores](../../../deploy/security/use-asymmetric-encryption#about-keystores-and-truststores).
 
 2.	By default, WSO2 Identity Server uses the default `wso2carbon.jks` keystore to sign JARs. This keystore is located in the `<IS_HOME>/repository/resources/security` directory. Therefore, next you need to add newly created `signFiles` public key certificate into the `wso2carbon.jks` keystore.
 

@@ -23,7 +23,7 @@ by different identity systems.
 
 When working with both external and internal users and merging different
 systems together, you are faced with technicalities related to
-management of multiple heterogeneous user stores, different types of
+management of multiple heterogeneous userstores, different types of
 authentication protocols, legacy systems and many more.
 
 SAML, OpenID Connect, and WS-Federation all support identity federation
@@ -114,3 +114,4 @@ pattern.
     a proprietary federation protocol, then you only need to add that
     capability to the identity bus. No need to implement it at each and
     every identity provider or service provider.
+

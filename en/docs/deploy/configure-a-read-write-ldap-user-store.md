@@ -57,7 +57,7 @@ Following are the minimum userstore properties that are needed to be provided to
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of userstore to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-<a href="../../../deploy/security/use-asymmetric-encryption-basic">Using asymmetric encryption</a><br />
+<a href="../../../deploy/security/use-asymmetric-encryption">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
 <a href="../../../deploy/performance/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>

@@ -1,6 +1,6 @@
 # Configurations Related to Symmetric Key Encryption
 
-This section explains the configurations related to [symmetric key encryption](../../../deploy/security/symmetric-overview). From WSO2 Identity Server 5.11.0 onwards, symmetric encryption will be used by default. You can switch to [asymmetric key encryption](../../../deploy/security/use-asymmetric-encryption-basic) if required.
+This section explains the configurations related to [symmetric key encryption](../../../deploy/security/symmetric-overview). From WSO2 Identity Server 5.11.0 onwards, symmetric encryption will be used by default. You can switch to [asymmetric key encryption](../../../deploy/security/use-asymmetric-encryption) if required.
 
 ---
 

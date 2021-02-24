@@ -1,12 +1,12 @@
 # Create New Keystores
 
-WSO2 Identity Server is shipped with a default [keystore](../../../deploy/security/use-asymmetric-encryption-basic#keystores) named **wso2carbon.jks** that is stored in the `<IS_HOME>/repository/resources/security` directory. This keystore comes with a private/public key pair that is used for all purposes, such as encrypting sensitive information, communicating over SSL and for message encryption/signing purposes in WS-Security. You can either use one new keystore for all purposes in your product, or you can create multiple keystores for each purpose. 
+WSO2 Identity Server is shipped with a default [keystore](../../../deploy/security/use-asymmetric-encryption#keystores) named **wso2carbon.jks** that is stored in the `<IS_HOME>/repository/resources/security` directory. This keystore comes with a private/public key pair that is used for all purposes, such as encrypting sensitive information, communicating over SSL and for message encryption/signing purposes in WS-Security. You can either use one new keystore for all purposes in your product, or you can create multiple keystores for each purpose. 
 
 Let's get started with creating new keystores.
 
 
 !!! tip "Before you begin" 
-    To understand the types of keystores you need, see [recommendations for setting up keystores in WSO2 Identity Server](../../../deploy/security/use-asymmetric-encryption-basic#recommendations-for-setting-up-keystores).
+    To understand the types of keystores you need, see [recommendations for setting up keystores in WSO2 Identity Server](../../../deploy/security/use-asymmetric-encryption#recommendations-for-setting-up-keystores).
 
 ---
 
@@ -15,7 +15,7 @@ Let's get started with creating new keystores.
 There are two ways to create keystores for WSO2 Identity Server. You can either generate a keystore using an already existing public key certificate (CA-signed), or you can create the public key certificate at the time of generating the keystore. See the instructions given below.
 
 !!! note "Important"
-    If you are creating a new keystore for [data encryption](../../../deploy/security/encrypt-passwords-with-cipher-tool), make sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in [recommendations for setting up keystores](../../../deploy/security/use-asymmetric-encryption-basic#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
+    If you are creating a new keystore for [data encryption](../../../deploy/security/encrypt-passwords-with-cipher-tool), make sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in [recommendations for setting up keystores](../../../deploy/security/use-asymmetric-encryption#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
     
     ``` java tab="Error"
     Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200)... 1 more
@@ -176,7 +176,7 @@ Follow the steps given below to import the same CA-signed public key certificate
 
 !!! info 
 
-    For information on the keystore concepts and how keystores are used in WSO2 Identity Server, see [Using Asymmetric Encryption](../../../develop/security/use-asymmetric-encryption-basic).
+    For information on the keystore concepts and how keystores are used in WSO2 Identity Server, see [Using Asymmetric Encryption](../../../develop/security/use-asymmetric-encryption).
 
 ---
 

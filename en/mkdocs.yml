@@ -373,7 +373,7 @@ nav:
         - 'Change to Oracle RAC': deploy/change-to-oracle-rac.md
         - 'Change to PostgreSQL': deploy/change-to-postgresql.md
         - 'Change to remote H2': deploy/change-to-remote-h2.md
-        - 'Change the Default Datasource of BPS': deploy/changing-the-default-datasource-for-bps.md
+        - 'Change the Default Datasource of BPS': deploy/change-datasource-bpsds.md
         - 'Change the Default Datasource for Consent Management': deploy/change-datasource-consent-management.md
       - 'Browse the H2 Database': deploy/browse-the-h2-database.md
     - 'Configure the User Realm':
@@ -452,7 +452,7 @@ nav:
         - 'Network-Level': deploy/security/network-level-security-guidelines.md
       - 'Encryption':
         - 'Asymmetric Encryption':
-          - 'Use Asymmetric Encryption': deploy/security/use-asymmetric-encryption-basic.md
+          - 'Use Asymmetric Encryption': deploy/security/use-asymmetric-encryption.md
           - 'Create New Keystores': deploy/security/create-new-keystores.md
           - 'Configure Keystores': deploy/security/configure-keystores-in-wso2-products.md
           - 'Renew a CA-Signed Certificate in a Keystore': deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md
@@ -460,7 +460,7 @@ nav:
           - 'Add Multiple Keys to the Primary Keystore': deploy/security/add-multiple-keys-to-the-primary-keystore.md
         - 'Symmetric Encryption':
           - 'Overview': deploy/security/symmetric-overview.md
-          - 'Configurations Related to Symmetric Key Encryption': deploy/security/using-symmetric-encryption.md
+          - 'Configurations Related to Symmetric Key Encryption': deploy/security/use-symmetric-encryption.md
     - 'Migrate':
       - 'Migration Process': deploy/migrate/migration-process.md
       - 'What has Changed': deploy/migrate/what-has-changed.md
@@ -481,29 +481,29 @@ nav:
     - 'Change the hostname': deploy/change-the-hostname.md
     - 'Introduction to User Management': deploy/introduction-to-user-management.md
   - 'APIs':
-    - 'Using APIs': apis/using-apis.md
+    - 'Using APIs': apis/use-apis.md
     - 'Calling Admin Services':
-      - 'Calling Admin Services': apis/calling-admin-services.md
+      - 'Calling Admin Services': apis/call-admin-services.md
       - 'Admin Services for One Way Operations': apis/admin-services-for-one-way-operations.md
     - 'REST APIs':
       - 'Rest APIs': apis/rest-apis.md
-      - 'Authenticating and Authorizing': apis/authenticating-and-authorizing-rest-apis.md
-      - 'Account Recovery': apis/using-the-account-recovery-rest-apis.md
+      - 'Authenticating and Authorizing': apis/authenticate-and-authorize-rest-apis.md
+      - 'Account Recovery': apis/use-the-account-recovery-rest-apis.md
       - 'Application Management': apis/application-rest-api.md
       - 'Approvals': apis/approvals-rest-api.md
       - 'Associations': apis/association-rest-api.md
       - 'Authentication Data': apis/authentication-data-api.md
-      - 'Authentication': apis/using-the-authentication-rest-apis.md
+      - 'Authentication': apis/use-the-authentication-rest-apis.md
       - 'Authorized Apps':
         - 'Authorized Apps V1': apis/authorized-apps-rest-api.md
         - 'Authorized Apps V2': apis/authorized-apps-v2-rest-api.md
       - 'Challenge Question': apis/challenge-rest-api.md
       - 'Claim Management' : apis/claim-management-rest-api.md
       - 'Configuration Management':
-          - 'Configuration Management': apis/using-the-configuration-management-rest-apis.md
-          - 'Retrieving Tenant Resources Based on Search Parameters': apis/retrieving-tenant-resources-based-on-search-parameters.md
+          - 'Configuration Management': apis/use-the-configuration-management-rest-apis.md
+          - 'Retrieving Tenant Resources Based on Search Parameters': apis/retrieve-tenant-resources-based-on-search-parameters.md
       - 'CORS': apis/cors-rest-api.md
-      - 'Consent Management': apis/using-the-consent-management-rest-apis.md
+      - 'Consent Management': apis/use-the-consent-management-rest-apis.md
       - 'Email Templates': apis/email-templates-rest-api.md
       - 'Entitlement': apis/entitlement-with-rest-apis.md
       - 'Fido': apis/fido-rest-api.md
@@ -515,13 +515,13 @@ nav:
       - 'Server Configurations': apis/configs-rest-api.md
       - 'OAuth2 Scope Management': apis/oauth2-scope-management-rest-apis.md
       - 'OpenID Connect Scope Management': apis/oidc-scope-management-rest-apis.md
-      - 'OIDC Dynamic Client Registration': apis/using-the-openid-connect-dynamic-client-registration-rest-apis.md
+      - 'OIDC Dynamic Client Registration': apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
       - 'Permission Management': apis/permission-management-rest-api.md
-      - 'Personal Information Export': apis/using-the-personal-information-export-rest-apis.md
+      - 'Personal Information Export': apis/use-the-personal-information-export-rest-apis.md
       - 'SCIM 2.0': apis/scim2-rest-apis.md
       - 'Script Libraries': apis/script-library-rest-api.md
       - 'Secondary User Store': apis/userstore-rest-api.md
-      - 'Self Sign-Up': apis/using-the-self-sign-up-rest-apis.md
+      - 'Self Sign-Up': apis/use-the-self-sign-up-rest-apis.md
       - 'Session Management': apis/session-mgt-rest-api.md
       - 'Tenant Management': apis/tenant-management-rest-api.md
       - 'TOTP': apis/totp-rest-api.md
@@ -532,19 +532,19 @@ nav:
       - 'SOAP APIs': apis/soap-apis.md
       - 'User Management':
         - 'User Management': apis/user-management-with-apis.md
-        - 'Managing Users and Roles': apis/managing-users-and-roles-with-apis.md
-        - 'Managing Claims': apis/managing-claims-with-apis.md
-        - 'Managing Permissions': apis/managing-permissions-with-apis.md
-        - 'Counting Users and User Roles': apis/counting-users-and-roles-using-management-console-and-admin-services.md
-        - 'Managing User Stores': apis/managing-user-stores-with-apis.md
+        - 'Managing Users and Roles': apis/manage-users-and-roles-with-apis.md
+        - 'Managing Claims': apis/manage-claims-with-apis.md
+        - 'Managing Permissions': apis/manage-permissions-with-apis.md
+        - 'Counting Users and User Roles': apis/count-users-and-roles-using-management-console-and-admin-services.md
+        - 'Managing User Stores': apis/manage-user-stores-with-apis.md
       - 'User Information Recovery': apis/user-information-recovery-service.md
       - 'Identity Application Management':
         - 'Identity Application Management': apis/identity-application-management-api.md
-        - 'Using the Service Provider': apis/using-the-service-provider-api.md
+        - 'Using the Service Provider': apis/use-the-service-provider-api.md
         - 'Service Provider Configurations used with APIs': apis/service-provider-configurations-used-with-apis.md
       - 'Identity Provider Management':
         - 'Identity Provider Management': apis/identity-provider-management-api.md
-        - 'Using the Identity Provider': apis/using-the-identity-provider-api.md
+        - 'Using the Identity Provider': apis/use-the-identity-provider-api.md
         - 'Identity Provider Configurations used with APIs': apis/identity-provider-configurations-used-with-apis.md
     - 'Entitlement with APIs':
       - 'Entitlement with APIs': apis/entitlement-with-apis.md

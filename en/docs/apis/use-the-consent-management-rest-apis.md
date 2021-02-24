@@ -26,7 +26,7 @@ management.
     PII Controller to collect, use and disclose the PII Principal’s PII
     in accordance to an agreed set of terms.
 -   **PII Controller**: A private stakeholder that determines the purposes and means for
-    processing personally identifiable information (PII) other than the
+    processing personally identifiable information (PII) other  than the
     natural persons who use data for personal purposes.  
 Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 

@@ -53,4 +53,3 @@ With the help of the Claim Management feature, different claims can be
 mapped with the attributes of the user that are associated with their
 profile.
 
-You can do the following tasks with the Claim Management feature.
