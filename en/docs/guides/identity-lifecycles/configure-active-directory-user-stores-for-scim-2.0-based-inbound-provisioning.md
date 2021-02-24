@@ -20,12 +20,12 @@ When a user or a group is created with SCIM 2.0, there are a set of mandatory SC
 
 Log in to WSO2 Identity Server using your credentials.This claim mapping can be done through the WSO2 Identity Server Claim Management Feature.
 
-1.  Go to the Main menu in the Management Console menu and click List under Claims.
+1.  Go to the **Main** menu in the Management Console and click **List** under **Claims**.
 2.  Select `http://wso2.org/claims` from the list.
-3.  Choose the Location claim and click on Edit.
+3.  Choose the Location claim and click on **Edit**.
     ![location-claim-scim2](../../../assets/img/guides/location-claim-scim2.png)
 
-4.  Change the Mapped Attribute value to homePostalAddress and click Update.
+4.  Change the Mapped Attribute value to `homePostalAddress` and click **Update**.
     ![mapped-attribute-scim2](../../../assets/img/guides/mapped-attribute-scim2.png)
 
 5.  Edit the other four claims in the same way.

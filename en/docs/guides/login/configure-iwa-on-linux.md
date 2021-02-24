@@ -1,11 +1,6 @@
 # Configure IWA on Linux
 
-Integrated Windows Authentication (IWA) is a popular authentication
-mechanism that is used to authenticate users in Microsoft Windows
-servers. It uses Negotiate/Kerberos or NTLM to authenticate users based
-on an encrypted ticket/message passed between a browser and a server.
-Follow the instructions in the sections below to configure IWA for local
-or federated authentication in WSO2 Identity Server (IS).
+For information on Integrated Windows Authentication (IWA), see [IWA](TO-DO: concepts).
 
 !!! tip
     

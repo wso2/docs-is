@@ -1,25 +1,6 @@
 # Configure WS-Federation
 
-WS-Federation (Web Services Federation) describes the management and
-brokering of trust relationships and security token exchange across Web
-services and organizational boundaries. WS-Federation is a part of the
-larger WS-Security framework. For example, WS-Federation builds on the
-Security Token Service (STS) by providing mechanisms that facilitate
-interactions. In the WS-Federation Model, an Identity Provider is a
-Security Token Service (STS). Service Providers depend on an Identity
-Provider or Security Token Service to do the user authentication. OAuth
-is an important protocol for IdP services as most major Web services are
-also identity providers, mainly through the use of OAuth. These Web
-services include Google, Facebook, Yahoo, AOL, Microsoft, PayPal,
-MySpace, and Flickr among much more. Furthermore, all major email
-providers offer OAuth IdP services.
-
-In most instances it is necessary to secure the Security Token Service.
-According to the Trust Brokering model defined in the WS-Trust
-specification, the subject (user) should authenticate themself to the STS
-before obtaining a token. STS may use this authentication information
-when constructing the security token. For example, STS may populate the
-required claims based on the user name provided by the subject.
+For information on WS-Federation (Web Services Federation), see [Ws-Federation](TO-DO: concepts).
 
 To navigate to the federated authenticators configuration section, do
 the following.
@@ -33,12 +14,10 @@ the following.
     
 3.  Fill in the details in the **Basic Information** section.
 
-<!-- -->
-
-1.  Expand the **WS-Federation(Passive) Configuration** form.  
+4.  Expand the **WS-Federation(Passive) Configuration** form.  
     ![ws-federation-passive-configuration](../../../assets/img/guides/ws-federation-passive-configuration.png)
     
-2.  Fill in the following fields where relevant.
+5.  Fill in the following fields where relevant.
 
     <table>
     <colgroup>
@@ -107,7 +86,7 @@ the following.
 
 	!!! info
 	
-		- If the certificate is self-signed, import the service
+		If the certificate is self-signed, import the service
 		provider's public key to the IS client trust store to ensure that the
 		SSL handshake in the SLO request is successful. For more information on
 		how to do this, see [Managing Keystores with the UI](../../../deploy/security/managing-keystores-with-the-ui) in

@@ -122,8 +122,6 @@ like Salesforce and Google Apps.
         enabled.
 5.  Click **Update** to save your configurations.
 
----
-
 ### Configure a service provider
 
 You can configure a service provider instead of a resident service
