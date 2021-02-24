@@ -1,4 +1,4 @@
-# Configure Email Masking Pattern
+# Configure Email Masking Pattern for Notification Based Password Recovery
 
 This page guides you through configuring the email masking regex pattern to mask the user's email address returned in the HTTP response body when initiating the password recovery API where notification-based password recovery is enabled.
 
