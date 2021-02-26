@@ -17,7 +17,7 @@ This section provides details on Fast IDentity Online (FIDO) and instructions on
     -   Firefox (FIREFOX 60)
     -   Edge (EDGE 17723)
 
-    To define the set of origin URLs where the WSO2 Identity Server User Portal will be hosted (e.g., `https://localhost:9443`):
+    To define the set of origin URLs where the WSO2 Identity Server my account will be hosted (e.g., `https://localhost:9443`):
 
     1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
     2. Add the following configuration.

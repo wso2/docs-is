@@ -1,7 +1,7 @@
 # Setting Up My Account in a Development Environment
 
 !!! note 
-    The **User Portal** application has been renamed as **My Account** from this release onwards.
+    The **my account** application has been renamed as **My Account** from this release onwards.
 
 In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/)(WSO2 IS), **My Account** can be accessed via the URL `http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/myaccount`. 
 
@@ -75,7 +75,7 @@ Follow the steps given below to set up the repo in a development environment.
     4.  Expand **Inbound Authentication Configuration**, and then expand **OAuth/OpenID Connect Configuration**. Click **Edit**.
     5.  Change the **Callback URL** field to reflect the port as 9000 or you can add a regexp as follows.
         ```
-        regexp=(https://localhost:9443/user-portal/login|https://localhost:9000/user-portal/login)
+        regexp=(https://localhost:9443/myaccount/login|https://localhost:9443/myaccount/login)
         ```
 
 ### Step 2: Build the Identity Apps repository

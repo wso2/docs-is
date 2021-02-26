@@ -9,7 +9,7 @@ have logged on.
 
 !!! note
     If you want to associate user accounts of federated users via the
-    user portal, add the following configuration to the `/repository/conf/deployment.toml`
+    my account, add the following configuration to the `/repository/conf/deployment.toml`
     file.
     
     ``` toml
@@ -18,7 +18,7 @@ have logged on.
     ```    
 
     The **recommended approach** is to have the `enable_for_federated_users` parameter set to `false` so that manual
-     federated user association is not allowed by default via the user portal.
+     federated user association is not allowed by default via the my account.
         
 
   
@@ -41,7 +41,7 @@ The following actions can be performed using above admin service.
 -   Switch between associated user accounts without re-authenticate with
     the system
 
-## Using the user portal
+## Using the my account
 
 The WSO2 Identity Server [my account](../learn/my-account.md) can be used to associate the
 accounts. You can associate a local user account or a federated user

@@ -54,7 +54,7 @@ You have succesfully created a user in the `pickup-eats` tenant. Now repeat step
 
 ## Try it out
 
-1. Log in to the [WSO2 Identity Server User Portal](https://localhost:9443/user-portal) using the pickup-eats user
+1. Log in to the [WSO2 Identity Server my account](https://localhost:9443/myaccount) using the pickup-eats user
  credentials.
 
     - `Username:` cameron@pickup-eats.com
@@ -66,7 +66,7 @@ You have succesfully created a user in the `pickup-eats` tenant. Now repeat step
     - `Password:` alex123
 
 Note the relevant tenant domain appended to the user name of each user. You have successfully configured two separate
- tenants for PickupEats and PickupTaxis with shared access to the user portal.
+ tenants for PickupEats and PickupTaxis with shared access to the my account.
 
 
 

@@ -123,7 +123,7 @@ users created in WSO2 Identity Server can also be provisioned to external system
 
 ## Try it out
 
-1. Access WSO2 Identity Server [User Portal](https://localhost:9443/user-portal/).
+1. Access WSO2 Identity Server [my account](https://localhost:9443/myaccount).
 2. Click **Create Account**.
 
     ![sign-in](../assets/img/tutorials/sign-in.png)
@@ -145,7 +145,7 @@ users created in WSO2 Identity Server can also be provisioned to external system
 7. Login to HubSpot.
 8. On the navigation panel, click **contacts**. You will see that the user you created in WSO2 IS has also been created in 
 HubSpot.
-9. Then try to edit user details through the user portal as follows.
+9. Then try to edit user details through the my account as follows.
 
     ![personal-info](../assets/img/tutorials/personal-info.png)
 

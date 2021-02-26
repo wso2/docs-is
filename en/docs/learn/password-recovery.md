@@ -138,7 +138,7 @@ with email notification.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given.
-3.  Access the WSO2 Identity Server user portal using the following link:
+3.  Access the WSO2 Identity Server my account using the following link:
     `          https://localhost:<port_number>/user-portal         `.
 4.  Click the **Forgot Password** link.
 5.  Enter the user's username and select **Recover with Mail**. Click
@@ -208,7 +208,7 @@ To set up challenge questions or to manage the questions with different
 locales (languages), see [Managing Challenge
 Questions](../../learn/managing-challenge-questions).
 
-#### Using the user portal
+#### Using the my account
 
 To try this out, first create a user in the Identity Server.
 
@@ -220,10 +220,10 @@ To try this out, first create a user in the Identity Server.
     ![add-new-user](../assets/img/using-wso2-identity-server/add-new-user.png) 
 
 4.  Log out of the Identity Server.
-5.  The URL for accessing user portal is the following if the hostname is
+5.  The URL for accessing my account is the following if the hostname is
     localhost and the Identity Server is running on port 9443:
-    <https://localhost:9443/user-portal/>. Click this link to access the
-    user portal and log in using the credentials of the user you just
+    <https://localhost:9443/myaccount>. Click this link to access the
+    my account and log in using the credentials of the user you just
     created.  
     ![enter-using-credentials](../assets/img/using-wso2-identity-server/enter-using-credentials.png)   
 6.  Go to the **Security** tab. Click the **+** button near **Security questions** under the
@@ -234,7 +234,7 @@ To try this out, first create a user in the Identity Server.
     set and give an answer for the question.  
     ![answer-challenge-questions](../assets/img/using-wso2-identity-server/answer-challenge-questions.png)   
 8.  Click **Save**.
-9.  Sign out of the user portal and click **Forgot Password** on the login
+9.  Sign out of the my account and click **Forgot Password** on the login
     screen.  
     ![choose-forgot-password](../assets/img/using-wso2-identity-server/choose-forgot-password.png) 
 10. Enter the username and select **Recover with Security Questions**.

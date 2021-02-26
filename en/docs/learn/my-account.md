@@ -1,7 +1,7 @@
 # My Account
 
 !!! note 
-    The **User Portal** application has been renamed as **My Account** from this release onwards.
+    The **my account** application has been renamed as **My Account** from this release onwards.
 
 ## Introduction
 
