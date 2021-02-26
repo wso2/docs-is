@@ -43,8 +43,7 @@ The following actions can be performed using above admin service.
 
 ## Using the user portal
 
-The WSO2 Identity Server [user
-portal](../../learn/user-portal) can be used to associate the
+The WSO2 Identity Server [my account](../learn/my-account.md) can be used to associate the
 accounts. You can associate a local user account or a federated user
-account. See [Linked Accounts](../../learn/user-portal/#linked-accounts) under
-User Portal for details.
+account. See [Linked Accounts](../learn/my-account.md#linked-accounts) under
+My Account for details.
