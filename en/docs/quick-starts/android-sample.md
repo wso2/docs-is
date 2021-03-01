@@ -14,8 +14,7 @@ using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
 
 ## Set up the sample
 
-1.  Download the [android sample](https://github.com/wso2-extensions/identity-samples-android/archive/master.zip) and
- Unzip it.
+1.  Download the [android sample](https://github.com/wso2-extensions/identity-samples-android/archive/master.zip) and unzip it.
 
 2.  Else, clone the sample from this [sample repository](https://github.com/wso2-extensions/identity-samples-android.git).
 
