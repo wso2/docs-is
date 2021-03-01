@@ -33,7 +33,7 @@ supports adaptive authentication.
 
 The WSO2 IS management console provides an **authentication script
 editor** that allows you to define authentication scripts using
-JavaScript . The script editor provides a set of **predefined
+JavaScript. The script editor provides a set of **predefined
 templates** that you can use to easily set up adaptive
 authentication for some of the most common authentication scenarios. You
 can define scripts that can consider the following evaluation criteria:
