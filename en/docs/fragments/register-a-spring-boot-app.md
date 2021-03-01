@@ -14,7 +14,7 @@
 
 8.	Click **Update**.
 
-9.	Once the service provider is registered, you will be redirected to the **Service Provider Details** page. Here, expand the **Inbound Authentication 			Configuration** section and click the **OAuth/OpenID Connect Configuration** section. Copy the value of  `OAuth Client Key` shown here.
+9.	Expand the **Inbound Authentication 			Configuration** section and click the **OAuth/OpenID Connect Configuration** section. Copy the value of  `OAuth Client Key` shown here.
 
  
 | Field                 | Value                                                                                                 | 
@@ -22,3 +22,5 @@
 | Service Provider Name | sample-app                                                                                            |
 | Description           | This is a spring-boot application                                                                     | 
 | CallBack Url          | http://localhost:8080/spring-boot-app/login/oauth2/code/wso2                                          |
+
+

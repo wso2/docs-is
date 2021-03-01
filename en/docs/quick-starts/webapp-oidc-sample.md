@@ -9,7 +9,8 @@ If you have your own application, click the button below.
 
 ----
 
-(TODO: dev-portal-fragment)
+## Set up the sample
+
 {!fragments/pickup-dispatch-oidc.md!}
 
 ----
@@ -17,10 +18,6 @@ If you have your own application, click the button below.
 ## Log in to the application
 
 1. Start the Tomcat server and access the following URL on your browser: <http://wso2is.local:8080/pickup-dispatch/home.jsp>.
-
-	```
-	http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch/home.jsp
-	```
 
 2. Click **Login**. You will be redirected to the login page of WSO2 Identity Server. 
 
@@ -33,7 +30,7 @@ You have successfully configured authentication for an OpenID Connect applicatio
 !!! info "Related Topics"
     - [Concept: OpenID Connect](../../../concepts/authentication/intro-oidc)
     - [Guide: Enable Login for a Sample OpenID Connect Web Application](../../../guides/login/webapp-oidc)
-    - [Guides: OAuth Grant Types](../../guides/access-delegation/oauth-grant-types)
+    - [Guide: OAuth Grant Types](../../../guides/access-delegation/oauth-grant-types)
 
 
 

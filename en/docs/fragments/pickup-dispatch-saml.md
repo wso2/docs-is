@@ -2,9 +2,67 @@
 
 ### Register a service provider
 
-(TODO: insert-portal-content)
+!!! note "Important"
 
-### Download the samples
+    SAML2 POST Binding requires CORS configs set up. Before configuring the service provider, make sure you add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
+
+    ```toml
+    [cors]
+    allow_generic_http_requests = true
+    allow_any_origin = false
+    allowed_origins = [
+        "http://localhost:8080"
+    ]
+    allow_subdomains = false
+    supported_methods = [
+        "GET",
+        "POST",
+        "HEAD",
+        "OPTIONS"
+    ]
+    support_any_header = true
+    supported_headers = []
+    exposed_headers = []
+    supports_credentials = true
+    max_age = 3600
+    tag_requests = false
+    ```
+
+1.  Log in to the Management Console (https://<IS_HOST\>:<PORT\>/carbon) using admin/admin credentials. 
+
+2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
+
+3.  Enter **saml2-web-app-pickup-dispatch** in the **Service Provider Name** text box,
+    and click **Register**.
+
+4.  In the **Inbound Authentication Configuration** section, click
+    **Configure** under the **SAML2 Web SSO Configuration** section.
+
+    1.  Now set the configuration as follows:
+
+        1.  **Issuer** : `saml2-web-app-pickup-dispatch.com`
+
+        2.  **Assertion Consumer URL** :  ` http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp `                       
+        
+        Click Yes, in the message that appears.
+
+    2.  Select the following check-boxes:
+        1.  **Enable Response Signing**
+
+        2.  **Enable Single Logout**
+
+        3.  **Enable Attribute Profile**
+
+        4.  **Include Attributes in the Response Always**  
+        
+        5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
+    
+    !!! tip
+        For more information on the advanced configurations, see [Configuring SAML2 Web Single-Sign-On](../../../guides/login/webapp-saml/)
+
+5.  Click **Register** to save the changes.  
+
+### Download the sample
 
 To be able to deploy a WSO2 Identity Server sample, you need to download
 it onto your machine first.
@@ -13,7 +71,7 @@ Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-2. [Download](https://github.com/wso2/samples-is/releases/download/ v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
 
 ### Deploy the sample web app
 
