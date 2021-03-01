@@ -14,13 +14,11 @@ using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
 
 ## Set up the sample
 
-1.  Download the [android sample](https://github.com/wso2-extensions/identity-samples-android/archive/master.zip) and unzip it.
+Clone the sample from this [sample repository](https://github.com/asgardeo/asgardeo-android-oidc-sdk).
 
-2.  Else, clone the sample from this [sample repository](https://github.com/wso2-extensions/identity-samples-android.git).
-
-    ```
-    git clone https://github.com/wso2-extensions/identity-samples-android.git
-    ```
+```
+git clone https://github.com/asgardeo/asgardeo-android-oidc-sdk
+```
 
 ### Add configurations
 
@@ -108,4 +106,4 @@ You need to add application configuration in your android project in order to au
 
 !!! info 
 
-    To try out the sdk, see [Start enable Authentication for Android App](../../../quick-starts/android)
+    To try out the sdk, follow the instructions in the .readme file in [this repository](https://github.com/asgardeo/asgardeo-android-oidc-sdk).
