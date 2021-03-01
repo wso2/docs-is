@@ -17,7 +17,7 @@ If you have your own application, click the button below.
 
 ## Log in to the application
 
-1. Start the Tomcat server and access the following URL on your browser: <http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com>.
+1. Start the Tomcat server and access the following URL on your browser: `http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com`.
 
 	```
 	http://<TOMCAT_host>:<TOMCAT_port>/saml2-web-app-pickup-dispatch.com
@@ -33,7 +33,7 @@ You have successfully configured authentication for a SAML application.
 
 ## Configure single logout
 
-1. Access the Management Console (https://<IS_HOST\>:<PORT\>/carbon) and click **List** under **Service Providers**. 
+1. Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) and click **List** under **Service Providers**. 
 
 2. Click **Edit** to edit the SAML service provider you created.
 

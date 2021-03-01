@@ -5,29 +5,7 @@
 
 !!! note "Important"
 
-    SAML2 POST Binding requires CORS configurations. Before configuring the service provider, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
-
-    ```toml
-    [cors]
-    allow_generic_http_requests = true
-    allow_any_origin = false
-    allowed_origins = [
-        "http://localhost:8080"
-    ]
-    allow_subdomains = false
-    supported_methods = [
-        "GET",
-        "POST",
-        "HEAD",
-        "OPTIONS"
-    ]
-    support_any_header = true
-    supported_headers = []
-    exposed_headers = []
-    supports_credentials = true
-    max_age = 3600
-    tag_requests = false
-    ```
+    {! fragments/cors-config.md !}
 
 1.  Access the WSO2 IS Management Console (https://<IS_HOST\>:<PORT\>/carbon). 
 
@@ -41,10 +19,9 @@
 
     1.  Now set the configurations as follows:
 
-        1.  **Issuer** : `               travelocity.com              `
+        1.  **Issuer** : `travelocity.com`
 
-        2.  **Assertion Consumer URL** :
-            `                               http://wso2is.local:8080/travelocity.com/home.jsp                        `  
+        2.  **Assertion Consumer URL** : `http://wso2is.local:8080/travelocity.com/home.jsp`  
             Click Yes, in the message that appears.
 
     2.  Select the following check-boxes:
@@ -85,7 +62,7 @@ Deploy this sample web app on a web container.
     example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
     
 2.  Open a terminal window and add the following entry to the
-    `           /etc/hosts          ` file of your machine to configure
+    `/etc/hosts` file of your machine to configure
     the hostname.
 
     ``` bash
@@ -111,7 +88,7 @@ Deploy this sample web app on a web container.
 		sudo nano /etc/hosts
 		```
 		
-3.  Open the ` travelocity.properties ` file found in the `
+3.  Open the `travelocity.properties` file found in the `
     <TOMCAT_HOME>/webapps/travelocity.com/WEB-INF/classes ` directory
     and configure the following property with the hostname ( `
     wso2is.local ` ) that you configured above. Finally restart the

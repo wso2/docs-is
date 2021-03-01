@@ -17,7 +17,7 @@ If you have your own application, click the button below.
 
 ## Log in to the application
 
-1. Start the Tomcat server and access the following URL on your browser: <http://wso2is.local:8080/pickup-dispatch/home.jsp>.
+1. Start the Tomcat server and access the following URL on your browser: `http://wso2is.local:8080/pickup-dispatch/home.jsp`.
 
 2. Click **Login**. You will be redirected to the login page of WSO2 Identity Server. 
 
