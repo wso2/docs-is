@@ -9,7 +9,7 @@ WSO2 Identity Server (WSO2 IS) version 5.5.0 and later support configuring scope
 | Implementation | You can write some classes implementing this interface and register it as a service |
 
 !!! note 
-    The following is an optional configuration. If you have some scopes to be allowed without getting validated, this config can be used. These scopes will be considered as approved scopes without any validation by the scope validators. 
+    The following is an optional configuration. If you have some scopes to be allowed without getting validated, this config should be added to the `<IS_HOME>/repository/conf/deployment.toml` file. These scopes will be considered as approved scopes without any validation by the scope validators. 
 
     ```toml 
     [oauth]
@@ -85,7 +85,7 @@ public CustomScopeValidator implements ScopeValidator {
 }
 ```
 
-After writing the custom scope validator, register the class as an OSGI bundle and deploy it in WSO2 IS.
+The custom scope validator needs to be registered as an OSGI bundle.
 
 ---
 
