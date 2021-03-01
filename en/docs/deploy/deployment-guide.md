@@ -99,7 +99,7 @@ database (**UM_DB**).
     This will **NOT** make a difference in performance and is not mandatory. Separating databases logically may 
     sometimes help to have a different backup and scaling strategy when the deployment is large and complex.
     If you do wish to separate the data logically into separate databases, 
-    see [Setting Up Separate Databases for Clustering](../../../deploy/setting-up-separate-databases-for-clustering).
+    see [Setting Up Separate Databases for Clustering](../../../deploy/set-up-separate-databases-for-clustering).
 
 !!! tip
     If you have configured the shared database correctly, the `deployment.toml` in 
@@ -133,7 +133,7 @@ are used.
 !!! note
     For instructions on how to configure the data sources for other databases and 
     more information related to databases, 
-    see [Working with Databases](../../../deploy/working-with-databases)
+    see [Working with Databases](../../../deploy/work-with-databases)
 
 ---
 
@@ -351,7 +351,7 @@ WSO2 supports the following membership schemes for clustering
                                 timeout is 15 minutes), there is a security risk in this method. To reduce 
                                 the risk, reduce the default cache timeout period. To learn how to reduce the 
                                 default cache timeout period, 
-                                see [Configuring Cache Layers - timeout](../../../deploy/performance/configuring-cache-layers#timeout).</li>
+                                see [Configuring Cache Layers - timeout](../../../deploy/performance/configure-cache-layers#timeout).</li>
                             </ul>
                         </td>
                     </tr>
@@ -471,7 +471,7 @@ You can use any load balancer that is available to your system.
 
 !!! info
     To learn how to front the 2 node cluster with an Nginx load balance, 
-    see [Set up WSO2 clusters with Nginx](../../../deploy/fronting-with-the-nginx-load-balancer). 
+    see [Set up WSO2 clusters with Nginx](../../../deploy/front-with-the-nginx-load-balancer). 
     If you’ve changed the hostnames of nodes, make sure to keep that in mind when you’re configuring your 
     load balancer.
 

@@ -44,7 +44,7 @@ by setting the relavent parameter in the <code>               &lt;IS_HOME&gt;/re
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
-<li><a href="../../../deploy/changing-the-hostname">Changing the hostname</a></li>
+<li><a href="../../../deploy/change-the-hostname">Changing the hostname</a></li>
 </ul></li>
 </div>
 </div>

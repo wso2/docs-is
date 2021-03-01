@@ -17,7 +17,7 @@ the users with an authorization server-based authentication.
 
 1.  Sign in. Enter your username and password to log on to the
     [Management
-    Console](../../../deploy/get-started/getting-started-with-the-management-console).
+    Console](../../../deploy/get-started/get-started-with-the-management-console).
     
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.  

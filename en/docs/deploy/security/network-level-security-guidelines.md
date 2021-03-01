@@ -11,7 +11,7 @@ When WSO2 Identity Server is clustered, you need to regularly monitor the health
 
 	-	For information on configuring failover, [Deployment and Clustering Key Concepts](../../../deploy/clustering-overview).
 
-	-	For information on WSO2 Identity Server monitoring options, see [Monitoring WSO2 Identity Server](../../../deploy/monitor/monitoring-the-identity-server).
+	-	For information on WSO2 Identity Server monitoring options, see [Monitoring WSO2 Identity Server](../../../deploy/monitor/monitor-the-identity-server).
 
 ---
 

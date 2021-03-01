@@ -1,6 +1,6 @@
 # Scopes Corresponding to Permissions Required to Invoke API Calls
 
-The list of permission levels and the corresponding scopes given below, can be used in various [REST API](../../apis/using-apis) calls. 
+The list of permission levels and the corresponding scopes given below, can be used in various [REST API](../../apis/use-apis) calls. 
 
 <table>
 <tbody>

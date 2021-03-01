@@ -23,9 +23,9 @@ Follow the steps below to navigate to the federated authenticators configuration
 
 !!! tip "Before you begin"
 
-	1.	[Run WSO2 Identity Server](../../../deploy/get-started/running-the-product/).
+	1.	[Run WSO2 Identity Server](../../../deploy/get-started/run-the-product/).
 
-	2.	Sign in to the WSO2 Identity Server [Management Console](../../../deploy/get-started/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator. 	  
+	2.	Sign in to the WSO2 Identity Server [Management Console](../../../deploy/get-started/get-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator. 	  
 
    
 1.  On the **Main** menu of the Management Console, click **Identity > Identity Providers > Add**.
@@ -498,7 +498,7 @@ To configure through file upload:
 	- If the certificate is self-signed, import the service
 	provider's public key to the IS client trust store to ensure that the
 	SSL handshake in the SLO request is successful. For more information on
-	how to do this, see [Managing Keystores with the UI](../../../deploy/security/managing-keystores-with-the-ui) in
+	how to do this, see [Managing Keystores with the UI](../../../deploy/security/manage-keystores-with-the-ui) in
 	the WSO2 Product Administration Guide.
     
 

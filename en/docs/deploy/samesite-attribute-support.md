@@ -40,7 +40,7 @@ The SameSite attribute can be assigned one of the following values:
 ## Cross-Site request attack mitigations in WSO2 Identity Server
 
 WSO2 Identity Server uses “Double Submit Cookie" and "Synchronize Token Pattern” to prevent CSRF attacks. For more information,
-refer to [Mitigating Cross Site Request Forgery Attacks](../../../deploy/mitigate-attacks/mitigating-cross-site-request-forgery-attacks/).
+refer to [Mitigating Cross Site Request Forgery Attacks](../../../deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks/).
 Providing support for the SameSite attribute, on top of the current mitigation techniques in WSO2 Identity Server, 
 gives an additional layer of defense for attacks caused by cross-site requests.
  
