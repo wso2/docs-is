@@ -2,15 +2,21 @@
 
 !!! Tip 
     [Try Our Sample](../android-sample)
-     
+
+---
+
 ## Overview
 This android library currently supports:
 
 - OpenID Connect Authorization Code Flow using the [PKCE extension](https://tools.ietf.org/html/rfc7636)
 
+---
+
 ## Register Application
 
-{!fragments/register-mobile-application!}
+{! fragments/register-mobile-application.md !}
+
+---
 
 ## Installation
 
@@ -100,7 +106,7 @@ Create the `oidc_config.json` file inside the `res/raw` folder.
  another `Activity`. Let's name it as `UserInfoActivity`.
 
 ```java
-    LoginService mLoginService = new DefaultLoginService(this);
+LoginService mLoginService = new DefaultLoginService(this);
 ```
 
 
@@ -158,7 +164,7 @@ Now you will be able to authenticate the user with Identity Server.
 ``` 
 
 
-### Get User Details.
+#### Get User Details.
 
 In order to get user-related information,
 
@@ -167,10 +173,7 @@ In order to get user-related information,
                 
 `Map<String, Object> userAttributes = mAuthenticationContext.getUser().getAttributes();`
 
-
-# Authentication Context Information
-
-## Get information related to token response
+#### Get information related to token response
 
 To get information related to token response, first you need to get `OAuth2TokenResponse` from
  `AuthenticationContext`. You can use the following code blocks.
@@ -188,9 +191,9 @@ String refreshToken = oAuth2TokenResponse.getRefreshToken();
 ```
 
 !!! Tip 
-    To get refresh token from WSO2 Identity Server, you need to enable [**Refresh Token**](refresh-token-grant.md) grant type.
+    To get refresh token from WSO2 Identity Server, you need to enable [Refresh Token](../../../guides/access-delegation/configure-refresh-token) grant type.
 
-## Get claims from IDToken
+#### Get claims from IDToken
 
 To get information from idToken , first you need to get `IDTokenResponse` from `OAuth2TokenResponse`. 
 You can use the following code blocks.
@@ -219,50 +222,48 @@ To get a specific String claim
 
 `String claimValue = idTokenResponse.getClaim(claimName)`
 
-## Get userinfo response
+#### Get userinfo response
 
-### Get userinfo response from authentication context
+-   Get userinfo response from authentication context
 
-If you called `LoginService.authorize(PendingIntent successIntent, PendingIntent failureIntent
-, Boolean callUserInfo)` with `callUserInfo` parameter as `true`, then `UserInfoResponse` will be
- stored in the `AuthenticationContext` object.
- 
- To get `UserInfoResponse` from `AuthenticationContext`,
-
-```UserInfoResponse userInfoResponse = mAuthenticationContext.getUserInfoResponse();```
- 
-- To get the subject,
-
-    `String subject = userInfoResponse.getSubject();`
- 
-- To get some specific claim,
-
-    `String email = userInfoResponse.getUserInfoProperty("email");`
+    If you called `LoginService.authorize(PendingIntent successIntent, PendingIntent failureIntent
+    , Boolean callUserInfo)` with `callUserInfo` parameter as `true`, then `UserInfoResponse` will be
+    stored in the `AuthenticationContext` object.
     
-- To get all claims,
+    To get `UserInfoResponse` from `AuthenticationContext`,
 
-    `JSONObject userClaims = userInfoResponse.getUserInfoProperties();`
+    ```UserInfoResponse userInfoResponse = mAuthenticationContext.getUserInfoResponse();```
+    
+    - To get the subject,
 
- 
+        `String subject = userInfoResponse.getSubject();`
+    
+    - To get some specific claim,
 
-### Call UserInfo explicitly.
+        `String email = userInfoResponse.getUserInfoProperty("email");`
+        
+    - To get all claims,
 
-You can get userclaims by calling `getUserInfo(..)` method in the `LoginService`.
+        `JSONObject userClaims = userInfoResponse.getUserInfoProperties();`
 
-```java
-private void getUserInfo(){
-   mLoginService.getUserInfo(mAuthenticationContext,
-                  new UserInfoRequestHandler.UserInfoResponseCallback() {
-               @Override
-               public void onUserInfoRequestCompleted(UserInfoResponse userInfoResponse,
-                       ServerException e) {
-                   if (userInfoResponse != null) {
-                       mSubject = userInfoResponse.getSubject();
-                       mEmail = userInfoResponse.getUserInfoProperty("email");
-                       JSONObject userInfoProperties = userInfoResponse.getUserInfoProperties();
-                   }
-    }
-```
+-   Call UserInfo explicitly.
+
+    You can get userclaims by calling `getUserInfo(..)` method in the `LoginService`.
+
+    ```java
+    private void getUserInfo(){
+    mLoginService.getUserInfo(mAuthenticationContext,
+                    new UserInfoRequestHandler.UserInfoResponseCallback() {
+                @Override
+                public void onUserInfoRequestCompleted(UserInfoResponse userInfoResponse,
+                        ServerException e) {
+                    if (userInfoResponse != null) {
+                        mSubject = userInfoResponse.getSubject();
+                        mEmail = userInfoResponse.getUserInfoProperty("email");
+                        JSONObject userInfoProperties = userInfoResponse.getUserInfoProperties();
+                    }
+        }
+    ```
 
 ### Logout
 
@@ -283,10 +284,6 @@ private void logout() {
     }
 ```
 
-## Sample app
-Refer this [repository](https://github.com/wso2-extensions/identity-samples-android.git) for a sample.
+!!! info "Related Topics"
 
-!!! Tip "What's Next?"
-
-    - [Enable single sign-on with another mobile application]
-    - [Check out Detailed guide](../guides/login/mobile-app.md)    
+    To try out a sample, refer [this repository](https://github.com/wso2-extensions/identity-samples-android.git).
