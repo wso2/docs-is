@@ -11,10 +11,18 @@
 6.	Expand the  **Inbound Authentication Configuration** section and click **Configure** under the **OAuth/OpenID Connect Configuration** section.
 
 7.	Provide the callback URL as `http://localhost:8080/spring-boot-app/login/oauth2/code/wso2`.
+   
+   !!!tip
+      The **Callback URL** is the exact location in the service provider's application where a authorization code
+      would be sent. This should be always `{baseUrl}/login/oauth2/code/wso2`.
+
+      Example: http://localhost:8080/login/oauth2/code/wso2
+
+      If you want configure oidc logout, then you need to add a post-logout-url as well.
 
 8.	Click **Update**.
 
-9.	Once the service provider is registered, you will be redirected to the **Service Provider Details** page. Here, expand the **Inbound Authentication 			Configuration** section and click the **OAuth/OpenID Connect Configuration** section. Copy the value of  `OAuth Client Key` shown here.
+9.	Expand the **Inbound Authentication Configuration** section and click the **OAuth/OpenID Connect Configuration** section. Copy the value of  `OAuth Client Key` shown here.
 
  
 | Field                 | Value                                                                                                 | 
