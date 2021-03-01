@@ -55,7 +55,7 @@ nav:
       - 'Login':
         - 'OpenID Connect': quick-starts/webapp-oidc-sample.md
         - 'SAML': quick-starts/webapp-saml-sample.md
-        - 'Query SAMl Assertions': quick-starts/query-saml-assertions-sample.md
+        - 'Query SAML Assertions': quick-starts/query-saml-assertions-sample.md
         - 'Use SAML Artifact Binding': quick-starts/use-artifact-binding-sample.md
         - 'Configure Attributes': quick-starts/attribute-config-sample.md
         - 'Integrate with a Custom Protocol': quick-starts/webapp-custom-sample.md
