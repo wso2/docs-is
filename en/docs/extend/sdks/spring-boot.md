@@ -10,29 +10,25 @@ This page guides you through integrating a spring-boot application with WSO2 Ide
 
 ## Register application
 
-1. Access the WSO2 Identity Server Management Console. 
+{!fragments/register-a-service-provider.md!}
 
-2. Enter a **Service Provider Name**. Optionally, enter a description. 
+5. Expand **Inbound Authentication Configuration**. 
 
-3. Click **Register**. 
+6. Expand **OAuth/OpenID Connect Configuration** and click **Configure**. 
 
-4. Expand **Inbound Authentication Configuration**. 
-
-5. Expand **OAuth/OpenID Connect Configuration** and click **Configure**. 
-
-6. Enter `http://localhost:8080/spring-boot-sample/login/oauth2/code/wso2 ` as the **Callback Url**. 
+7. Enter `http://localhost:8080/spring-boot-sample/login/oauth2/code/wso2 ` as the **Callback Url**. 
    
     !!! tip
         The **Callback URL** is the exact location of the service provider's application to which the authorization code should be sent. 
         This should always be `{baseUrl}/login/oauth2/code/wso2`.
       
-7. Select **Enable OIDC Backchannel Logout** if you wish to configure a logout URL. 
+8. Select **Enable OIDC Backchannel Logout** if you wish to configure a logout URL. 
 
-8. Enter `http://localhost:8080/spring-boot-app/login` as the **Backchannel Logout Url**.
+9. Enter `http://localhost:8080/spring-boot-app/login` as the **Backchannel Logout Url**.
 
-9. Select **Add**.
+10. Select **Add**.
 
-10. Note the **Client ID** and **Client Secret** that appear.
+11. Note the **Client ID** and **Client Secret** that appear.
 
     | Field                 | Value                               | Sample Value                                                 |
     | --------------------- | ------------------------------      | -------------------------------------------                  |
