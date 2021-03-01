@@ -1,34 +1,24 @@
-1. Access WSO2 Identity Server Developer Portal .
- 
- 2. Go to **Applications** and click **New Application**.
-  
- 3. Click **Show More**
- 
- 4. Open the **Mobile Application** template.
-  
- 5. Enter a **Name** for the application 
-    
-    This indicates the name of your application.
-    
-    **Example**: sample-app
-    
+1.	Start WSO2 IS.
+2.	Access the Management Console (https://<IS_HOST\>:<PORT\>/carbon) to create a service provider.
+	![Management Console](../../../assets/img/fragments/android-sp.png)
 
- 6. Click **Next**.
- 
- 7. Enter **Callback URL**. 
- 
-    The **Callback URL** is the exact location in the service provider's application where authorization code 
-    would be sent. This URL should be the redirect scheme of the application that the user is redirected to after successful authentication.
-    
-    **Example**: wso2sample://oauth2
-        
-    !!! Tip    
-        This [deep-linking](https://developer.android.com/training/app-links#app-links-vs-deep-links) allows the developers to register an app for a URI scheme.
-        
-        
-     
- 8. Click **Next**
- 
- 9. View the application details and Click **Finish**
- 
- 10. Click on the **Access** tab and note the **Client ID** that appears. 
+3.	Navigate to the **Service Providers** tab listed under the **Identity** section and click **Add**.
+
+4.	Provide the name for the service provider as `sample-app` and click **Register**. 
+
+5.	Now you will be redirected to the **Edit Service Provider** page.
+
+6.	Expand the  **Inbound Authentication Configuration** section and click **Configure** under the **OAuth/OpenID Connect Configuration** section.
+
+7.	Provide the following values for the respective fields and click **Update** while keeping other default settings as it is.
+	-  Callback Url - wso2sample://oauth2
+	-  PKCE Mandatory - True
+	-  Allow authentication without the client secret - True
+
+8.	Click **Update**.
+
+9.	Once the service provider is registered, you will be redirected to the **Service Provider Details** page. Here, expand the **Inbound Authentication 			Configuration** section and click the **OAuth/OpenID Connect Configuration** section. Copy the value of  `OAuth Client Key` shown here.
+	
+	![android-client-id](../../../assets/img/fragments/android-client-id.png)
+
+
