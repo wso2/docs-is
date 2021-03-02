@@ -217,6 +217,7 @@ nav:
         - 'Manage Account States':
           - 'Overview': guides/identity-lifecycles/account-states-overview.md
           - 'Lock/Unlock Accounts': guides/identity-lifecycles/lock-account.md
+          - 'Account Locking by Failed Login Attempts': guides/identity-lifecycles/account-locking-by-failed-login-attempts.md
           - 'Suspend Accounts': guides/identity-lifecycles/suspend-accounts.md
           - 'Disable Accounts': guides/identity-lifecycles/enable-account.md
         - 'Enable Verification for Updated User Attributes':
