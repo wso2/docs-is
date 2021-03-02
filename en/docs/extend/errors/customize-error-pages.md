@@ -100,6 +100,6 @@ You can customize the above error message by following the instructions given be
 
 12. Restart WSO2 Identity Server.
 
-13. Access the following URL again, to test the error page you customized: `https://localhost:9443/abc`.  
+13. Access the following URL again to test the error page you customized: `https://localhost:9443/abc`.  
     
     You will view the new error page with the following content: "Sorry, this resource is not found."

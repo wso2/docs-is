@@ -1,11 +1,11 @@
-# Account Locking by Failed Login Attempts
+# Lock accounts by failed login attempts
 
 WSO2 Identity Server can be configured to lock a user account when a
 number of consecutive failed login attempts are exceeded. First, you
 need to configure WSO2 Identity Server for user account locking and
 disabling. The following section explain how to configure this.
 
-### Configuring WSO2 IS for account locking
+### Configure WSO2 IS for account locking
 
 1.  Ensure that the identity listener
     with the `            priority=50           ` is set to **false**
@@ -29,7 +29,7 @@ disabling. The following section explain how to configure this.
         enable = true
         ```
     
-2.  <a name= "failedloginattempts"></a> Start the Identity Server and log into the management console using
+2.  <a name= "failedloginattempts"></a> Start the Identity Server and log in to the management console using
     your tenant credentials.
 
     !!! tip
@@ -37,7 +37,7 @@ disabling. The following section explain how to configure this.
         **Alternatively**, you can also use the
         `                         IdentityGovernanceAdminService                       `
         SOAP service to do this instead of using the management console UI.
-        See [Calling Admin Services](../../develop/calling-admin-services) for more
+        See [Calling Admin Services](../../../apis/call-admin-services) for more
         information on how to invoke this SOAP service. If you are using the
         SOAP service to configure this, you do not need to follow the steps
         given below this note.
@@ -47,7 +47,7 @@ disabling. The following section explain how to configure this.
     **Main** tab.
 4.  Expand the **Login Attempts Security** tab.
 5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
-    ![account-lock-enabled](../assets/img/using-wso2-identity-server/account-lock-enabled.png) 
+    ![account-lock-enabled](../../assets/img/guides/account-lock-enabled.png)
 
     !!! tip
     
@@ -60,8 +60,7 @@ disabling. The following section explain how to configure this.
                 default. But generally a new user is not assigned the
                 **Internal/system** role by default. Required roles can be assigned
                 to a user depending on the set of permission a user needs to have.
-                For more information on roles and permission, see [Configuring Roles
-                and Permissions](../../learn/configuring-roles-and-permissions).
+                For more information on roles and permission, see [Manage User Roles](../../../guides/identity-lifecycles/manage-roles-overview).
                 
                 Although the **Internal/system** role is configured by default in
                 WSO2 Identity Server, you can delete the role if necessary. To allow
@@ -175,11 +174,10 @@ tenants.
     by setting the <strong>Account Unlock Time</strong> period.
     
     If the lock time is set to 0, the account has to be unlocked by an admin
-    user. For more information about this, see [Account locking for a
-    particular user](../../learn/locking-a-specific-user-account).
+    user. For more information about this, see [Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account/).
     
 
-### Sending email notifications for account locking
+### Send email notifications for account locking
 
 Once you have configured WSO2 Identity Server for account locking by
 failed login attempts, you can also configure the WSO2 IS to send an
@@ -187,7 +185,7 @@ email to the user's email address when the user account is locked due to
 failed login attempts. To configure this, follow the steps below.
 
 -  Enable the email sending configurations of the WSO2 Identity Server
-    as explained [here](../../setup/configuring-email-sending).
+    as explained [here](../../../deploy/configure-email-sending/).
 
     !!! tip
     
@@ -327,11 +325,11 @@ Following are the sample email templates.
     ```
     - Footer : ---
     
-### Configuring WSO2 IS for Failed OTP attempts based account locking
+### Configure WSO2 IS for Failed OTP attempts based account locking
 
 WSO2 Identity Server can be configured to lock a user account when the number of consecutive failed OTP attempts is exceeded. 
 First, you need to configure the WSO2 Identity Server for user account locking and disabling according to 
-[Configuring WSO2 IS for account locking](../../learn/account-locking-by-failed-login-attempts/#configuring-wso2-is-for-account-locking).
+[Configure WSO2 IS for account locking](#configure-wso2-is-for-account-locking).
 
 1. Add the following configurations into `<IS_HOME>/repository/conf/deployment.toml` file to enable account locking for 
 each type of OTP attempts.
@@ -350,7 +348,7 @@ each type of OTP attempts.
    
         !!! note
             Since `BackupCode = true` in the default configuration, configure the backup code claim according to 
-            [Configuring Backup Codes for SMSOTP](../../learn/configuring-sms-otp/#configuring-backup-codes-for-smsotp). 
+            [Configuring Backup Codes for SMSOTP](../../mfa/2fa-sms-otp/#configuring-backup-codes-for-smsotp)
             Alternatively, you can disable the backup codes for SMS OTP by setting the property to **false**.
             ```
             [authentication.authenticator.sms_otp.parameters]
