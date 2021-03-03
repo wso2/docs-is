@@ -289,7 +289,7 @@ This section provides instructions on how to
     curl --user <Client_id>:<Client_secret> -k -d "grant_type=mobile&mobileNumber=0333444" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
 
-    **Erroneous** **Path**
+    **Erroneous Path**
 
     ``` powershell
     curl -v --user vSfeQ9jfNodY1tv9KLNNxLOw7kwa:CEUWu7fDNy_RYg5lO_mp8PLf7nQa -k -d "grant_type=mobile&mobileNumber=0363444" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
