@@ -31,17 +31,17 @@ To configure WS-Federation SSO:
 
         !!! tip
         
-                If you want to configure an expiration time for the security
-                token, you need to add the following configuration in the
-                `             <IS_HOME>/repository/conf/deployment.toml             `
-                file, under the `             <Server>            ` element:
-        
-                ``` java
-                [sts]
-                time_to_live = "8000"
-        		```
+            If you want to configure an expiration time for the security
+            token, you need to add the following configuration in the
+            `             <IS_HOME>/repository/conf/deployment.toml             `
+            file, under the `             <Server>            ` element:
 
-     Here, the expiration time should be specified in milliseconds.
+            ``` java
+            [sts]
+            time_to_live = "8000"
+            ```
+
+    Here, the expiration time should be specified in milliseconds.
 
     ![ws-federation-passive.png](../../../assets/img/guides/ws-federation-passive.png)
 
@@ -63,4 +63,4 @@ To configure WS-Federation SSO:
 
 !!! info "Related Topics" 
     -   To test out WSO2 Identity Server's passive security token service
-    using a sample, see [Configuring Single Sign On Using WS-Federation](TO-DO:../../learn/configuring-single-sign-on-wsfed).
+    using a sample, see [Configuring Single Sign On Using WS-Federation](../../../guides/login/configure-ws-federation-single-sign-on/).
