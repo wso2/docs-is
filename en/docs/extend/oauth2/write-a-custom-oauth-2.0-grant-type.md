@@ -118,15 +118,8 @@ directly used as well.
 
 4.  Restart the server.
 
-5.  Configure the new OAuth grant type.  
-    1.  Sign in to the WSO2 Identity Server. Enter your username and
-        password to log on to the [Management
-        Console](../../../deploy/get-started/run-the-product/)
-        .
-    2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Service Providers**.
-    3.  Fill in the **Service Provider Name** and provide a brief
-        **Description** of the service provider. 
+5.  Configure the new OAuth grant type. 
+    {! fragments/register-a-service-provider.md !}
     4.  Expand the **OAuth/OpenID Connect Configuration** and click
         **Configure**.
     5.  Enter a callback URL. For example,
@@ -193,14 +186,7 @@ This section provides instructions on how to
 3.  Restart the server.
 
 4.  Configure the OAuth grant type you customized.  
-    1.  Sign in to the WSO2 Identity Server. Enter your username and
-        password to log on to the [Management
-        Console](../../../deploy/get-started/run-the-product/)
-        .
-    2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Service Providers**.
-    3.  Fill in the **Service Provider Name** and provide a brief
-        **Description** of the service provider. 
+    {! fragments/register-a-service-provider.md !} 
     4.  Expand the **OAuth/OpenID Connect Configuration** and click
         **Configure**.
     5.  Enter a callback URL. For example,
