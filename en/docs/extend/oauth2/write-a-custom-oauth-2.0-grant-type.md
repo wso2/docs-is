@@ -277,7 +277,7 @@ This section provides instructions on how to
 
     !!! note
         
-        The code within lines 71-75 sets a custom response header in case an
+        The `ResponseHeader` code chunk sets a custom response header in case an
         invalid mobile number is sent.
         
 
@@ -325,7 +325,7 @@ This section provides instructions on how to
     ```
 
     !!! info 
-        Line 12 shows the custom header appearing in the headers.
+        Line 12 (`SampleHeader-999...) shows the custom header appearing in the headers.
 
     Similarly this can be used to transfer any custom information to the
     client, in a flexible manner.
