@@ -3,11 +3,10 @@
 ### Register a service provider
 
 !!! note "Important"
-
     {! fragments/cors-config.md !}
 
 
-1.  Log in to the Management Console (https://<IS_HOST\>:<PORT\>/carbon) using admin/admin credentials. 
+1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials. 
 
 2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
 

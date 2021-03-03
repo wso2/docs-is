@@ -1,13 +1,13 @@
-1.  Navigate to the **Attributes** tab. 
+1.	Select **Main** > **Identity** > **Service Providers** > **List** and select the Service Provider you created in the first step.
 
-2.  Click the edit icon. 
+2.	Click **Edit**.
 
-3.  Select the required local attributes for this application. For this scenario, select `address`, `country`, `email`, and `name`. 
+3.	Expand **Claim Configuration**. 
 
-    ![choose-attribute-oidc.png](../../assets/img/samples/choose-attribute-oidc.png)
+4.	Choose **Use Local Claim Dialect**.
 
-4.  Click **Save**. 
+5.	Click **Add Claim URI** and add the claims for `address`, `country`, `email`, and `name`.
 
-5.  You can select any or all of these attribute as mandatory attirbutes as shown below. 
+6.	To make a selected claim mandatory, enable the corresponding checkboxes as shown below.
 
-    ![choose-mandatory-playground](../../assets/img/samples/choose-mandatory-playground.png))
+	![claim mapping oidc](../../../assets/img/fragments/claim-mapping-oidc.png)

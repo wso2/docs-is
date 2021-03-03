@@ -1,15 +1,11 @@
-1.  Navigate to the **Attributes** tab of the application you registered in the previous step. 
+1.	Select **Main** > **Identity** > **Service Providers** > **List** and select the Service Provider you created in the first step.
 
-2.  Enable attribute mapping by clicking on the toggle button, **Enable mapping**. 
+2.	Click **Edit**.
 
-3.  Click on the edit icon. 
+3.	Expand **Claim Configuration**. 
 
-4.  Select the attributes that you require for this application. For this scenario, select `Country`, `Username`, and `Email`. 
+4.	Choose **Use Local Claim Dialect**.
 
-    ![choose-attibutes](../../assets/img/samples/choose-attributes.png)
-
-5.  Click **Save**. 
-
-6.  Give appropriate names for the application attribute to which the local attributes are to be mapped. 
-
-    ![attribute-mapping-saml](../../assets/img/samples/attribute-mapping-saml.png))
+5.	Click **Add Claim URI** and add the following claims.
+    
+    ![claim-mapping-saml](../../../assets/img/fragments/claim-mapping-saml.png)

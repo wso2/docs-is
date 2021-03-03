@@ -1,7 +1,7 @@
 
 # Request Attributes for the Application
 
-This page guides you through configuring [requested attributes](TODO:insert-link-to-concept) for a web application using OIDC and SAML. 
+This page guides you through configuring requested attributes for a web application using OIDC and SAML. 
 This is demonstrated using two sample applications, **Travelocity** and **Playground2**.
 
 ----
@@ -26,6 +26,8 @@ If you have your own application, click the button below.
 ### Set role attribute URI
 
 {! fragments/set-role-attribute.md !}
+
+1.  Select **Update**. 
 
 ### Try it out 
 
@@ -83,6 +85,6 @@ If you have your own application, click the button below.
     <img src="../../assets/img/samples/playground-sub.png" alt="alt text" width="500" height="500">
 
 !!! info "Related topics" 
-    -   [Concept: Attribute Management](TODO:insert-link-to-concept)
-    -   [Guide: Request attributes](../../../guides/login/request-app-claims)
+    -   [Concept: Attribute Management](../../../concepts/claim-management/)
+    -   [Guide: Request attributes](../../../guides/login/request-attributes)
     

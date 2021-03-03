@@ -314,6 +314,8 @@ nav:
         - 'User Store Listeners': extend/user-mgt/user-store-listeners.md
         - 'Write a Post-Authentication Handler': extend/user-mgt/write-a-post-authentication-handler.md
         - 'User Management Errors Event Listener': extend/user-mgt/user-management-errors-event-listener.md
+      - 'OAuth2':
+        - 'Write a Custom OAuth2 Grant Type': extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
       - 'Provisioning for Developers':
         - 'Extend SCIM 2.0 User Schemas': extend/provisioning/extend-scim2-user-schemas.md
         - 'Write an Outbound Provisioning Connector': extend/provisioning/write-an-outbound-provisioning-connector.md
@@ -577,6 +579,7 @@ nav:
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
                   - 'SAML':
                           - 'Introduction': concepts/authentication/intro-saml.md
+                          - 'SAML2 Artifact Binding': concepts/authentication/saml2-artifact-binding.md
                           - 'SAML Front-Channel Logout': concepts/authentication/saml-front-channel.md
                           - 'SAML Back-Channel Logout': concepts/authentication/saml-back-channel.md
                   - 'WS-Federation':
