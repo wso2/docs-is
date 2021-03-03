@@ -1,4 +1,4 @@
-# Manage UserStores with APIs
+# Manage Userstores with APIs
 
 The `UserStoreConfigAdminService` allows you to add, retrieve, edit, and delete user stores within WSO2 Identity Server. 
 
@@ -23,7 +23,7 @@ default. Follow the steps below to view and invoke it:
     !!! info
 
         For more information on WSO2 admin services and how to invoke an admin service using either SoapUI or any other client program, see [Calling
-        Admin Services](../../apis/calling-admin-services).
+        Admin Services](../../apis/call-admin-services).
 
 ---
 
@@ -66,7 +66,7 @@ The following operations are available in **UserStoreConfigAdminService**.
                                 <li><a href="../../../guides/identity-lifecycles/configuring-a-read-write-active-directory-user-store">Properties used in Read-write Active Directory user store manager</a></li>
                                 <li><a href="../../../guides/identity-lifecycles/configuring-a-read-only-ldap-user-store">Properties used in Read-only LDAP user store manager</a></li>
                                 <li><a href="../../../guides/identity-lifecycles/configuring-a-read-write-ldap-user-store">Properties used in Read-write LDAP user store manager</a></li>
-                                <li><a href="../../../extend/user-management-for-developers/carbon-remote-user-store-manager">Properties used in Carbon Remote user store manager</a></li>
+                                <li><a href="../../../guides/identity-lifecycles/carbon-remote-user-store-manager">Properties used in Carbon Remote user store manager</a></li>
                             </ul>
                         <p>Note that some of these parameters such as connection URL, username, password, and driver name are mandatory when creating a secondary keystore. See the relevant sample request in the code block below.</p>
                     </div>

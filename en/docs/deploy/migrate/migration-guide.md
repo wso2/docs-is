@@ -13,7 +13,7 @@ users receive the latest updates for the product.
     deprecated in this release, see [About this
     release](TBD:../../get-started/about-this-release).
 -   For a detailed overview of behavioral changes in this release, see
-    [What Has Changed](../../../deploy/migrate/migrating-what-has-changed).
+    [What Has Changed](../../../deploy/migrate/what-has-changed).
 
 ---
     
@@ -21,7 +21,7 @@ users receive the latest updates for the product.
 
 1.  Review what has been changed in this release. For a detailed list of
     changes from 5.10.0 to 5.11.0, see
-    [What Has Changed](../../../deploy/migrate/migrating-what-has-changed).
+    [What Has Changed](../../../deploy/migrate/what-has-changed).
 
 2.  Before you migrate, refer to [Migration Process](../../../deploy/migrate/migration-process/) 
     to get an understanding on the migration process.
@@ -34,4 +34,4 @@ users receive the latest updates for the product.
 
 5.  Download WSO2 Identity Server 5.11.0 and unzip it in the `<NEW_IS_HOME>` directory.
 
-6.  Next, refer to the [Preparing for migration](../../../deploy/migrate/migrating-preparing-for-migration) section.
+6.  Next, refer to the [Preparing for migration](../../../deploy/migrate/prepare-for-migration) section.

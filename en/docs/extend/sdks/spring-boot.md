@@ -1,45 +1,40 @@
 # Enable Authentication for Spring Boot App
 
-!!! Tip 
-    To try this out, see [Run Spring-boot Sample](https://github.com/wso2-extensions/identity-samples-spring-boot).
-    
+This page guides you through integrating your spring-boot application with WSO2 Identity Server for secure authentication using OpenID Connect standard.
 
-This page guides you through integrating a spring-boot application with WSO2 Identity Server for secure authentication using OpenID Connect.
+!!! Tip 
+    If you want to try out an existing sample, see [Run Spring-boot sample](https://github.com/wso2-extensions/identity-samples-spring-boot).
 
 ---
 
 ## Register application
 
-1. Access the WSO2 Identity Server Management Console. 
+{!fragments/register-a-service-provider.md!}
 
-2. Enter a **Service Provider Name**. Optionally, enter a description. 
+5. Expand **Inbound Authentication Configuration**. 
 
-3. Click **Register**. 
+6. Expand **OAuth/OpenID Connect Configuration** and click **Configure**. 
 
-4. Expand **Inbound Authentication Configuration**. 
-
-5. Expand **OAuth/OpenID Connect Configuration** and click **Configure**. 
-
-6. Enter `http://localhost:8080/spring-boot-sample/login/oauth2/code/wso2 ` as the **Callback Url**. 
+7. Enter `http://localhost:8080/spring-boot-sample/login/oauth2/code/wso2 ` as the **Callback Url**. 
    
     !!! tip
-        The **Callback URL** is the exact location of the service provider's application to which the authorization code should be sent. 
+        The **Callback Url** is the exact location of the service provider's application to which the authorization code should be sent. 
         This should always be `{baseUrl}/login/oauth2/code/wso2`.
       
-7. Select **Enable OIDC Backchannel Logout** if you wish to configure a logout URL. 
+8. Select **Enable OIDC Backchannel Logout** if you wish to configure a logout URL. 
 
-8. Enter `http://localhost:8080/spring-boot-app/login` as the **Backchannel Logout Url**.
+9. Enter `http://localhost:8080/spring-boot-app/login` as the **Backchannel Logout Url**.
 
-9. Select **Add**.
+10. Select **Add**.
 
-10. Note the **Client ID** and **Client Secret** that appear.
+11. Note the **Client ID** and **Client Secret** that appear.
 
     | Field                 | Value                               | Sample Value                                                 |
     | --------------------- | ------------------------------      | -------------------------------------------                  |
     | Service Provider Name | your-application-name               | sample-app                                                   |
     | Description           | This is a spring-boot application   | This is a spring-boot application                            |
     | CallBack Url          | {baseUrl}/login/oauth2/code/wso2    | http://localhost:8080/sprinb-boot-app/login/oauth2/code/wso2 |
-    | Logout Url            | {baseUrl}/login                     | http://localhost:8080/spring-boot-app                        |
+    | Logout Url            | {baseUrl}/login                     | http://localhost:8080/spring-boot-app/login                  |
                         
 ---
 
@@ -127,9 +122,13 @@ Add the following configurations related to WSO2 Identity Server and the applica
 
 ### Use the default `/login` endpoint
 
-Spring Boot generates a default login page. All the endpoints of the application are secured except the `/login` page. 
+- Spring Boot generates a default login page. All the endpoints of the application are secured except the `/login`
+ page.
+  
+- If you try to access any page of your application, it will redirect to WSO2 Identity Server login page since all the
+ pages are secured. 
 
-Try to access any of the application pages. It will redirect to WSO2 Identity Server login page since all the pages are secured. If the `/login` endpoint is accessed, it redirects to the default login page of the spring-boot application.
+- If the `/login` endpoint is accessed, it redirects to the default login page of the spring-boot application.
 
 ### Remove the default “/login” page and redirect directly to the WSO2 IS login page
 
@@ -189,7 +188,7 @@ Even though Spring Boot generates a default login page, follow the instructions 
     }
     ```
 
-2. Create a `Login Controller Class` and render the login page when the browser is redirected to `/oauth-login`. 
+2. Create a `LoginController` class and render the login page when the browser is redirected to `/oauth-login`. 
 
     ```java
     @Controller
@@ -340,7 +339,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 }
 
 ```
-####  Add a logout button and redirect to custom logout (“/applogout”) url
+###  Have a Logout button and redirect to custom logout (“/applogout”) url
  
 1. Create a template at `src/main/resources/login.html` to display the Logout option and have a logout button.
 

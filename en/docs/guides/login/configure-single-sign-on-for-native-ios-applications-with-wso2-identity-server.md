@@ -60,7 +60,7 @@ add a self-signed certificate to both WSO2 Identity Server and the
 simulator.
 
 1.  Follow the steps
-    [here](../../../deploy/security/creating-new-keystores#add-ca-signed-certificate-to-keystores)
+    [here](../../../deploy/security/create-new-keystores#add-ca-signed-certificate-to-keystores)
     to add a self-signed certificate to WSO2 Identity Server.
 
     !!! note
@@ -69,7 +69,7 @@ simulator.
         DNS entry to a custom domain name and generate self-signed
         certificates to that particular domain. If you are doing this, you
         also need to [change the WSO2 Identity Server
-        host](../../../deploy/get-started/running-the-product#access-the-management-console)
+        host](../../../deploy/get-started/run-the-product#access-the-management-console)
         accordingly and add the local DNS entry to your hosts file.
     
 
@@ -77,7 +77,7 @@ simulator.
     can sign in using `          admin         ` as the username and
     password. For detailed instructions on accessing the management
     console of WSO2 Identity Server, see [Accessing the Management
-    Console](../../../deploy/get-started/running-the-product#access-the-management-console).
+    Console](../../../deploy/get-started/run-the-product#access-the-management-console).
 3.  On the **Main** tab of the management console, go to **Identity**
     -\> **Service Provider** and click **Add**.
 4.  Enter an appropriate name for the new service provider and click

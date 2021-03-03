@@ -8,7 +8,7 @@ attacks.
     -   For more information on configuring single sign on, see [Configuring
     Single Sign-On](../../../guides/login/enable-single-sign-on/).
     -   For more information on brute force attacks, see [Mitigating Brute
-    Force Attacks](../../../deploy/mitigate-attacks/mitigating-brute-force-attacks/).
+    Force Attacks](../../../deploy/mitigate-attacks/mitigate-brute-force-attacks/).
 
 1.  {! fragments/set-up-recaptcha.md !}
 

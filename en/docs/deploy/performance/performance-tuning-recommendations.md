@@ -170,7 +170,7 @@ create index
 !!! info
     If you want to remove unused tokens from the database, see [Removing
     Unused Tokens from the
-    Database](../../../deploy/removing-unused-tokens-from-the-database).
+    Database](../../../deploy/remove-unused-tokens-from-the-database).
 
 ---
 
@@ -192,7 +192,7 @@ validationQuery = ""
 MaxPermSize = ""
 ```
 !!! info
-    For more information on configuring pooling configurations for other databases, see [Working with Databases](../../../deploy/working-with-databases).
+    For more information on configuring pooling configurations for other databases, see [Working with Databases](../../../deploy/work-with-databases).
 
 The following parameters should be considered when tuning the
 connection pool:
