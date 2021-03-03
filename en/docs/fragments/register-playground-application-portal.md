@@ -1,27 +1,37 @@
 ## Register an application
 
-(TODO: dev-portal-fragment)
+1.  Access the WSO2 IS management console (`https://<IS_HOST>:<PORT>/carbon`).
 
-1.	Log in to the [Developer Portal](insertlink) using admin/admin credentials. 
+2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
 
-2.	Select **Applications** from the left panel. 
+3.  Enter **playground2** in the **Service Provider Name** text box, and click **Register**.
+        ![](../../../assets/img/fragments/register-sp-playground.png) 
+    
+4.  Expand the **Inbound Authentication Configuration** section and then
+    the **OAuth/OpenID Connect Configuration** and click **Configure.**   
+    
+5.  Fill in the form that appears. For the Allowed Grant Types, you can disable the ones you do not require or block.
+        
+    !!! note
+        The grant type highlighted below is a **custom** grant type. This
+        will only appear on the UI if you have configured the JWT grant
+        type. The value specified as the `name`
+        of the `oauth.custom_grant_type` in the `deployment.toml` file when
+        creating the custom grant type is the value that will appear on the
+        UI. For more information on writing a custom grant type, see
+        [Writing a Custom OAuth 2.0 Grant Type](../../../extend/oauth2/write-a-custom-oauth-2.0-grant-type).
+        
+6.  Fill the `Callback Url` field. 
 
-3.	Click **New Application**. 
+    Example : `http://wso2is.local:8080/playground2/oauth2client`
+    
+    ![configure-oauth-oidc](../../../assets/img/fragments/configure-oauth-oidc.png)
 
-4.	Select **OIDC web application**. 
+    !!! tip
+        For more information on other advanced configurations
+        refer, [Advanced OpenID Connect](../../../guides/login/oidc-parameters-in-auth-request/)
+        
+7.  Click **Add**. Note that `client key` and `client secret` get generated.  
+    ![generated-key-secret](../../../assets/img/fragments/generated-key-secret.png) 
 
-5.	Enter playground2 as the **Name**. 	
-
-6.	Click **Next**. 
-
-7.	Enter the **Callback URL** as `http://wso2is.local:8080/playground2/oauth2client` and click the add icon besides the field. 
-
-8.	Click **Next**. 
-
-9.	Check the configurations and click **Finish**. 
-
-10.	Navigate to the **Access** tab. 
-
-11.	Select all the options given under **Allowed grant type**.
-
-12. Navigate to the **Sign-on Method** tab.
+8.  Update the service provider you have created by clicking the **Update** button.

@@ -1,17 +1,15 @@
 # Use SAML2 Artifact Binding
 
-This page guides you through enabling [SAML2 artifact binding](TODO:insert-link-to-concept) with WSO2 Identity Server.
+This page guides you through enabling [SAML2 artifact binding](../../../concepts/authentication/saml2-artifact-binding) with WSO2 Identity Server.
 
 ----
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/login/use-artifact-binding" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../../guides/login/use-artifact-binding" rel="nofollow noopener">I have my own application</a>
 
 ----
 
 ## Set up Pickup Dispatch sample
-
-(TO DO: dev-portal-fragment)
 
 {!fragments/pickup-dispatch-saml.md!}
 
@@ -47,7 +45,6 @@ You have successfully set up SAML artifact binding. See the sections below for m
 -----
 
 !!! info "Related Topics"
-    - [Concept: SAML2 Artifact Binding](TODO:insert-link-to-concept)
-    - [Guide: Use SAML2 Artifact Binding](../../guides/login/use-artifact-binding-sample)
-    - [Guide: Enable Login for a SAML Application](../../guides/login/webapp-saml)
-    - [Guide: SAML Authentication Errors](TODO:insert-link)
+    - [Concept: SAML2 Artifact Binding](../../../concepts/authentication/saml2-artifact-binding)
+    - [Guide: Use SAML2 Artifact Binding](../../../guides/login/use-artifact-binding)
+    - [Guide: Enable Login for a SAML Application](../../../guides/login/webapp-saml)

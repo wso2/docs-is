@@ -8,6 +8,6 @@
 
     ![enable-artifact-binding](../../../assets/img/fragments/enable-artifact-binding.png)
 
-4.  You can also enable signature validation by selecting **Enable signature validation for artifact binding**. Once this is enabled, WSO2 IS expects to receive signed artifact resolve requests and validates that signature against the service provider certificate. For more information, see the [Resolving SAML2 artifacts with WSO2 IS](#resolve-saml2-artifacts-with-wso2-is) section.
+4.  You can also enable signature validation by selecting **Enable signature validation for artifact binding**. Once this is enabled, WSO2 IS expects to receive signed artifact resolve requests and validates that signature against the service provider certificate. For more information, see the [Resolving SAML2 artifacts with WSO2 IS](../../../quick-starts/use-artifact-binding-sample#resolve-artifacts-with-wso2-is) section.
 
 5.  Leave the rest of the default configurations as it is and click **Update**.

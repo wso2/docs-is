@@ -1,5 +1,9 @@
-Under the **Role** section, select a role attribute in the application attributes dropdown list. For this example, select `Name` as the role attribute.
+1.	Expand **Roles/Permission Configuration**.
 
-Select **admin** as the local role in the **Role Mapping** section. Choose **Application/travelocity.com** as the application role. 
+2.	Expand **Role Mapping**.
 
-![role-claim](../../assets/img/samples/role-claim.png))
+3.	Enter the value of the **Local Role** as `admin`. 
+
+4.	Enter the value of the **Service Provider Role** as `Application/travelocity.com`.
+    
+	![role map saml](../../../assets/img/fragments/role-map-saml.png)

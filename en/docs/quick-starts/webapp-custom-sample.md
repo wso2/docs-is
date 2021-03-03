@@ -1,4 +1,5 @@
 # Enable Login for a Sample Custom Web Application
+
 This page guides you through integrating custom inbound authenticator with WSO2 Identity Server.
 
 ----
@@ -11,6 +12,7 @@ If you have your own application, click the button below.
 {!fragments/deploying-sample-apps.md!}
 
 ----
+
 ## Download the sample
 To be able to deploy a WSO2 Identity Server sample, you need to download it onto your machine first.
 
