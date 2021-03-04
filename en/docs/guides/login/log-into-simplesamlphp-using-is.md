@@ -164,41 +164,14 @@ This page guides you through using WSO2 Identity Server to log in to SimpleSAMLp
 
 ## Configure the service provider in WSO2 IS
 
-1.  [Start WSO2 Identity Server](TODO:insert-link). 
+{! fragments/register-a-service-provider.md !}
 
-2.  Sign in. Enter your username and password to log on to the
-    [Developer Portal](https://localhost:9443/developer-portal).
 
-3.  Select **Applications** from the left hand side panel. 
-
-4.  Click on **New Application**.
-
-5.  Click on **SAML Web Application**.
-
-6.  Fill in the **Name** and optionally, provide a brief
-    **Description** of the application.  
-
-7.  Click **Next**.
-
-8.  Enter the **issuer ID** as simplesaml
-
-9.  Enter the **assertion consumer URL** as `http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/wso2-sp`.
-
-10. Click **Next**. 
-
-11. Check your configurations and click **Finish**. 
-
-12. Navigate to the **Access** tab of your newly created application.
-
-13. Enable **Single Logout Profile**. 
-
-14. Enter `http://localhost/simplesamlphp/www/module.php/saml/sp/saml2-logout.php/wso2-sp` as the **Single logout response URL**. 
-
-15. Click **Update**.
+{! fragments/simplesaml-config-sample.md !}
 
 ## Configure a resident identity provider in WSO2 IS
 
-(TODO: dev-portal-content)
+{! fragments/resident-saml-sample.md !}
 
 -----
 
@@ -213,4 +186,4 @@ For more information on SimpleSAMLphp, click <https://simplesamlphp.org/docs/sta
 ----
 
 !!! info "Related Topics"
-    - [Concept: Identity Federation](TODO:insert-link-to-concept)
+    - [Concept: Identity Federation](../../../concepts/identity-federation/)

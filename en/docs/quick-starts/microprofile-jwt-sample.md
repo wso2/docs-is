@@ -19,13 +19,14 @@ If you have your own application, click the button below.
 
 First, let's configure the sample. Follow the steps given below:
 
-1.  Navigate to `<SAMPLE_HOME>/microprofile/microprofile-jwt/src/main/liberty/config` and open `server.xml` .
+1.  Clone `https://github.com/wso2/samples-is.git`.
+2.  Navigate to `<SAMPLE_HOME>/microprofile/microprofile-jwt/src/main/liberty/config` and open `server.xml`.
 
-2.  Replace `${CARBON_HOME}` with the directory where WSO2 Identity Server is installed on your machine.
+3.  Replace `${CARBON_HOME}` with the directory where WSO2 Identity Server is installed on your machine.
 
-3.  Navigate back to `<SAMPLE_HOME>/microprofile/microprofile-jwt` and open `pom.xml`. 
+4.  Navigate back to `<SAMPLE_HOME>/microprofile/microprofile-jwt` and open `pom.xml`. 
     
-4.  Uncomment the following section:
+5.  Uncomment the following section:
 
     ``` xml
     <!--<executions>-->
@@ -49,7 +50,7 @@ First, let's configure the sample. Follow the steps given below:
     <!--</executions>-->
     ```
 
-5.  Now, build the sample using the following command:
+6.  Now, build the sample using the following command:
 
     ``` xml
     mvn clean install
@@ -57,9 +58,9 @@ First, let's configure the sample. Follow the steps given below:
 
     This will generate a `microprofile-jwt-<VERSION>-resources.zip` in the target folder.
 
-6.  Unzip the `microprofile-jwt-<VERSION>-resources.zip` and navigate to the `sample-configuration-resources` folder.
+7.  Unzip the `microprofile-jwt-<VERSION>-resources.zip` and navigate to the `sample-configuration-resources` folder.
     
-7.  Now run the following command to do the necessary configurations.
+8.  Now run the following command to do the necessary configurations.
 
     ``` xml
     sh configure_sample.sh
