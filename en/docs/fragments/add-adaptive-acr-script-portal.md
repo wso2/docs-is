@@ -1,8 +1,7 @@
 
-13. Go to **Script based configuration** configuration section.
-
-14. From the templates select **Request** and add **ACR-Based** template.
-
-15. Configure the authentication steps accordingly based on the script. (add screen shots)
-
-TODO: dev-portal-fragment 
+1.	**Edit** the same service provider you created previously to configure the **ACR-Based** authentication flow.
+    
+2.	Expand **Local and Outbound Configuration** and click **Advanced Configuration**.
+   
+3.	Click on **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **ACR-Based**.  
+    ![acr-based-template-config](../../../assets/img/fragments/acr-based-template-config.png)

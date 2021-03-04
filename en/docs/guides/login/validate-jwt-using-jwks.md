@@ -30,7 +30,7 @@ Follow the below steps to configure JWKS based JWT Validator.
 
 ----
 
-(TODO: dev-portal-fragment)
+
 {!fragments/register-an-identity-provider.md!}
 
 {!fragments/jwks-uri-in-idp.md!}
@@ -64,5 +64,5 @@ tokens from JWT assertion.
 ----
 
 !!! info "Related Topics"
-    - [Concept: JSON Web Key Set](../../../concepts/jwks)
+    - [Concept: JSON Web Key Set](../../../concepts/authentication/jwks/)
     - [Guide: Obtain Key Set Using JSON Web Key Set](../using-jwks)

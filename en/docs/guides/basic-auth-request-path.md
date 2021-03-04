@@ -14,7 +14,6 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-(TODO: dev-portal-fragment)
 
 {!fragments/register-a-service-provider.md!}
 
@@ -41,11 +40,11 @@ Replace the **` <SEC_TOKEN>,CLIENT_ID>`** and **`<REDIRECT_URI>`** tags with the
 
     
 ```tab="Request Format"
-    curl -v -X POST -H "Authorization: Basic <Base64 encoded value of username:password>" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "response_type=<code>&client_id=<client_id>&redirect_uri=<redirect_uri>&scope=openid&prompt=none"  http://<host>:9443/oauth2/authorize
+curl -v -X POST -H "Authorization: Basic <Base64 encoded value of username:password>" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "response_type=<code>&client_id=<client_id>&redirect_uri=<redirect_uri>&scope=openid&prompt=none"  http://<host>:9443/oauth2/authorize
 ```
 
 ```tab="Response Format"
-    Location: <callbackurl>?code=8a498de9-1f5d-3bd0-a3c9c06be6e08151&session_state=61cd6d0ac6f73bf2bab6f5d710d446c6592b6bedb01c240c1377312118f3e186.N92JLOL5gufcXSwxh2V4xg
+Location: <callbackurl>?code=8a498de9-1f5d-3bd0-a3c9c06be6e08151&session_state=61cd6d0ac6f73bf2bab6f5d710d446c6592b6bedb01c240c1377312118f3e186.N92JLOL5gufcXSwxh2V4xg
 ```
 
 !!! note

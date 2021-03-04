@@ -1,7 +1,5 @@
 ## Register an application
 
-TODO : This fragment should be updated with screen shots of dev portal.
-
 {!fragments/register-playground-application-portal.md!}
 
 13. Check **oauth-bearer** under **Request Path Authentication**.
