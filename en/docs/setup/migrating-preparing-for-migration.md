@@ -94,6 +94,10 @@ All the other data will not be preserved in the new system.
 
 Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
+!!! info
+    Note that this **data sync tool** is only recommended for use with MySQL and Oracle databases
+    since it has been tested with MySQL and Oracle only.
+
 1.  Create a new databases for the new WSO2 Identity Server version (5.11.0) 
     that you are migrating to.
 2.  Unzip a WSO2 Identity Server 5.11.0 distribution (use a WUM updated distribution 
