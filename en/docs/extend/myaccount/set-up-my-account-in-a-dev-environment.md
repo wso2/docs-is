@@ -1,17 +1,15 @@
 # Set Up My Account in a Development Environment
 
-!!! note 
-    The **User Portal** application has been renamed as **My Account** from this release onwards.
+In WSO2 Identity Server (WSO2 IS), **My Account** can be accessed 
+via the URL `http(s)://<SERVER_HOST>:<PORT>/t/<TENANT_DOMAIN>/myaccount`. 
 
-In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/)(WSO2 IS), **My Account** can be accessed via the URL `http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/myaccount`. 
-
-Follow the steps given below to set up the repo in a development environment.
+Follow the steps given below to set up My Account in a development environment.
 
 !!! note "Before you begin"
 
     1. Install [node](https://nodejs.org/en/download/) if you have not already installed it. Npm is already bundled with node.
     2. Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
-    3. A running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
+    3. A running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is#building-the-distribution-from-source).
 
 ---
 
@@ -88,7 +86,17 @@ recommended to create your own fork.
 ```java
 git clone https://github.com/wso2/identity-apps
 cd identity-apps
-mvn clean install or npm run build
+```
+
+Build the project using either of the following commands.
+
+```java
+mvn clean install
+```
+or 
+
+```java
+npm run build
 ```
 
 ---
