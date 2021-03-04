@@ -53,6 +53,7 @@ nav:
         - 'React': quick-starts/react-sample.md
         - 'Java': quick-starts/java-sample.md
       - 'Login':
+        - 'Overview': quick-starts/enable-login.md
         - 'OpenID Connect': quick-starts/webapp-oidc-sample.md
         - 'SAML': quick-starts/webapp-saml-sample.md
         - 'Query SAML Assertions': quick-starts/query-saml-assertions-sample.md
@@ -66,6 +67,7 @@ nav:
         - 'SAML Back-Channel Logout': quick-starts/saml-back-channel-logout.md
         - 'Cross-Protocol Logout': quick-starts/cross-protocol-logout-sample.md
       - 'Single Sign On':
+        - 'Overview': quick-starts/single-sign-on.md
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
       - 'Multi-Factor Authentication': 
@@ -88,6 +90,7 @@ nav:
         - 'Using Function Library': quick-starts/adaptive-auth-with-function-lib-sample.md
         - 'Limiting Active User Sessions': quick-starts/limiting-active-sessions-adaptive-auth.md
       - 'Access Delegation':
+        - 'Overview':  quick-starts/access-delegation.md
         - 'Authorization Code Grant': quick-starts/auth-code-playground.md
         - 'Implicit Grant': quick-starts/implicit-playground.md
         - 'Client Credentials Grant': quick-starts/client-credentials-playground.md
@@ -97,6 +100,7 @@ nav:
         - 'Encrypt ID Tokens': quick-starts/oidc-token-encryption-sample.md
         - 'Passing OIDC Parameters as a Request Object': quick-starts/request-object.md
       - 'Federation':
+        - 'Overview': quick-starts/federated-authenticators.md
         - 'Facebook': quick-starts/fb-as-federated-authenticator-sample.md
         - 'Google': quick-starts/google-as-federated-authenticator-sample.md
         - 'Twitter': quick-starts/twitter-as-federated-authenticator-sample.md
@@ -159,15 +163,18 @@ nav:
       - 'Multi-Factor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Use a Knowledge Factor':
+          - 'Overview': guides/mfa/knowledge-factor.md
           - 'Password': guides/mfa/password.md
           - 'IWA': guides/mfa/iwa.md
         - 'Use a Possession Factor':
+          - 'Overview': guides/mfa/possession-factor.md
           - 'SMS OTP': guides/mfa/2fa-sms-otp.md
           - 'Email OTP': guides/mfa/2fa-email-otp.md
           - 'TOTP': guides/mfa/2fa-totp.md
           - 'X509': guides/mfa/x509.md
           - 'FIDO': guides/mfa/2fa-fido.md
         - 'Use an Inherence Factor':
+          - 'Overview': guides/mfa/inherence-factor.md
           - 'MePIN': guides/mfa/mepin.md
           - 'Biometrics': mfa/3fa-basic-fido-biometrics.md
       - 'Adaptive Authentication':
@@ -254,6 +261,7 @@ nav:
           - 'Use SAML2 Bearer Type Tokens': guides/access-delegation/saml2-bearer-assertion-profile.md
       - 'Identity Federation':
         - 'Enterprise Identity Federation':
+          - 'Overview': guides/identity-federation/enterprise-identity-federation.md
           - 'SAML': guides/identity-federation/configure-saml-2.0-web-sso.md
           - 'OpenID Connect': guides/identity-federation/configure-oauth2-openid-connect.md
           - 'ADFS': guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
@@ -264,6 +272,7 @@ nav:
             - 'Application-Initiated Federated Logout': guides/identity-federation/app-initiated-logout.md
             - 'IdP-Initiated Federated Logout': guides/identity-federation/idp-initiated-logout.md
         - 'Social Login':
+          - 'Overview': guides/identity-federation/social-login.md
           - 'Log in with Facebook': guides/identity-federation/facebook.md
           - 'Log in with Google': guides/identity-federation/google.md
           - 'Log in with Microsoft Live': guides/identity-federation/microsoft-live.md
@@ -640,6 +649,7 @@ nav:
                 - 'WS-Federation vs WS-Trust': concepts/federation-trust.md
                 - 'SSO vs Identity Federation': concepts/sso-vs-federation.md
       - 'Compliance':
+          - 'Overview': concepts/compliance/compliance.md
           - 'GDPR': concepts/compliance/gdpr.md
           - 'eIDAS': concepts/compliance/eidas.md
           - 'CCPA': concepts/compliance/ccpa.md
