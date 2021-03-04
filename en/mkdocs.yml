@@ -262,6 +262,7 @@ nav:
           - 'OAuth 2.0 Client Authentication': guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
           - 'Authorizing for the OAuth 2.0 Scopes': guides/access-delegation/invoke-oauth-introspection-endpoint.md
           - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
+          - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
         - 'User Managed Access': guides/access-delegation/uma.md
         - 'WS-Trust':
           - 'Obtain Tokens with Holder-Of-Key Subject Confirmation': guides/access-delegation/obtain-tokens-holder-of-key.md
