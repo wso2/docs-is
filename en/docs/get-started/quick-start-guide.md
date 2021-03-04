@@ -1,4 +1,4 @@
-# Quick Start Guide
+# Feature Tour
 
 WSO2 Identity Server is a comprehensive identity and access management
 (IAM) solution. It caters to identity management requirements across
