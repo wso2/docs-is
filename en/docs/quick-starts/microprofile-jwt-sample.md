@@ -19,7 +19,8 @@ If you have your own application, click the button below.
 
 First, let's configure the sample. Follow the steps given below:
 
-1.  Navigate to `<SAMPLE_HOME>/microprofile/microprofile-jwt/src/main/liberty/config` and open `server.xml` .
+1.  Download the sample
+1.  Navigate to `https://github.com/wso2/samples-is/tree/master/microprofile/microprofile-jwt/src/main/liberty/config` and open `server.xml` .
 
 2.  Replace `${CARBON_HOME}` with the directory where WSO2 Identity Server is installed on your machine.
 
