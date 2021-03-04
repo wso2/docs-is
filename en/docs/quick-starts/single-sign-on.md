@@ -1,7 +1,7 @@
 # Single Sign-On for Applications
 
 With WSO2 Identity Server, [Single sign-on](../../../concepts/single-sign-on) can be implemented via various open 
-standards like OpenID connect, Security Assertion Markup language (SAML) and WS-Federation.
+standards like OpenID connect, Security Assertion Markup language (SAML), and WS-Federation.
 
 Try out the following quick starts for SSO with various standard protocols: 
 

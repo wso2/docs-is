@@ -1,8 +1,7 @@
 # Possession Factor
 
 Possession factors are hardware entities owned by the user which are used as authentication means to connect to systems. 
-The advantage of possession factors is that remote hackers can't perform any malicious attack to the system as the 
-possession factor is something only the user possess.
+The advantage of possession factors is that the remote hackers cannot perform any malicious attacks on the system.
 
 -   [Configure SMS OTP for 2-Factor Authentication](../2fa-sms-otp) 
 

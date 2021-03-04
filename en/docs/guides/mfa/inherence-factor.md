@@ -1,6 +1,6 @@
 # Inherence Factor
 
-Inherence factors are almost 100% unique to the user, often biometric data.
+Inherence factors are almost 100% unique to the user, often comprising of biometric data.
 
 -   [MePIN](../mepin) 
 

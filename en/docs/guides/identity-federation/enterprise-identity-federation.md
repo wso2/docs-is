@@ -2,7 +2,7 @@
 
 Identity federation enables users to access multiple applications using the same access credentials.
 
-WSO2 Identity Server supports various standard federations protocols with common enterprise identity providers.
+WSO2 Identity Server supports various standard federation protocols with common enterprise identity providers.
 
 - [Configure SAML 2.0 Web SSO](../configure-saml-2.0-web-sso/)
 

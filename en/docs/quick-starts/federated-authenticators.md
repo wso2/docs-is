@@ -1,7 +1,7 @@
 # Federated Authenticators
 
 
-The responsibility of the federated authenticators is to authenticate the user with an external system. 
+The responsibility of federated authenticators is to authenticate the user with an external system. 
 
 Try out the following federated authenticators:
 
