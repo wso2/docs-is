@@ -77,7 +77,7 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
      name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.org/claims/country=France,http://wso2.org/claims/identity/askPassword=true
      ```
      
-### Importing users from the CSV/Excel file
+### Import users from the CSV/Excel file
 
 To import users in bulk:
 
