@@ -1,9 +1,9 @@
 # Set Up My Account in a Development Environment
 
-In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/) (WSO2 IS), **My Account** can be accessed 
+In WSO2 Identity Server (WSO2 IS), **My Account** can be accessed 
 via the URL `http(s)://<SERVER_HOST>:<PORT>/t/<TENANT_DOMAIN>/myaccount`. 
 
-Follow the steps given below to set up My Account in a Development Environment.
+Follow the steps given below to set up My Account in a development environment.
 
 !!! note "Before you begin"
 
