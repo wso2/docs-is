@@ -15,4 +15,5 @@
 3.	Click **Register**
 
 
+    ![simplesamlphp-sp.png](../../../assets/img/fragments/simplesamlphp-sp.png)
 
