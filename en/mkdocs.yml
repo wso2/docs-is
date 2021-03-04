@@ -46,7 +46,15 @@ theme:
 # Navigation
 nav:
   - 'Home': index.md
-  - 'Quick Starts':
+  - 'Get Started':
+    - 'Introduction': get-started/overview.md
+    - 'Architecture':
+      - 'Architecture': get-started/architecture.md
+      - 'Provisioning Architecture': get-started/provisioning-architecture.md
+      - 'User Management Architecture': get-started/user-management-architecture.md
+    - 'About this Release': get-started/about-this-release.md
+    - 'Feature Tour': get-started/quick-start-guide.md
+  - 'Samples':
       - 'Overview': quick-starts/overview.md
       - 'Choose a Sample Type':
         - 'Android': quick-starts/android-sample.md
@@ -815,7 +823,8 @@ extra:
 
   nav_list:
     - Home
-    - Quick Starts
+    - Get Started
+    - Samples
     - Guides
     - Extend
     - Deploy

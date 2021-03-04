@@ -12,8 +12,8 @@ template: templates/single-column.html
     </div>
     <div class="md-main md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:-510px; margin-top:5px">
     <a class="homepgbtn_a" href="https://wso2.com/identity-and-access-management/"   rel="nofollow noopener"> Download WSO2 Identity Server</a>
-    <a class="homepgbtn_a" href="../../deploy/get-started/install/"   rel="nofollow noopener"> Get Started</a>
-    <a class="homepgbtn_a" href=""   rel="nofollow noopener"> What's New in this Release</a>
+    <a class="homepgbtn_a" href="../../deploy/get-started/run-the-product/"   rel="nofollow noopener"> Get Started</a>
+    <a class="homepgbtn_a" href="../../get-started/about-this-release"   rel="nofollow noopener"> What's New in this Release</a>
     </div>
     <gr>
    <div class="md-main md-content" style="width:100%">
@@ -59,7 +59,6 @@ template: templates/single-column.html
             <ul id="tilelist">
                <li><a href="../../guides/identity-federation/social-login/"> Social Login</a> </li>
                <li><a href="../../guides/identity-federation/enterprise-identity-federation/"> Protocol-Based Login</a> </li>
-                <a class="tutorialbtn_a" href="../../quick-starts/enable-login/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
                 <a class="tutorialbtn_a" href="../../quick-starts/federated-authenticators"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
             </ul>
             </div>
@@ -148,10 +147,10 @@ template: templates/single-column.html
             </div>
             <div class= "curatedCardArticles--16lzh">
             <ul>
-               <li><a href="../../guides/identity-lifecycles/onboard-overview/"> Onboard</a> </li>
-               <li><a href="../../guides/identity-lifecycles/manage-user-overview/"> Manage </a> </li>
-               <li><a href="../../guides/identity-lifecycles/outbound-provisioning/"> Outbound Provisioning</a> </li>
-               <li><a href="../../guides/identity-lifecycles/inbound-provisioning/"> Inbound Provisioning </a> </li>
+               <li><a href="../../guides/identity-lifecycles/onboard-overview/"> Onboard Users</a> </li>
+               <li><a href="../../guides/identity-lifecycles/manage-user-overview/"> Manage Users </a> </li>
+               <li><a href="../../guides/identity-lifecycles/outbound-provisioning/"> Outbound Provisioning Users</a> </li>
+               <li><a href="../../guides/identity-lifecycles/inbound-provisioning/"> Inbound Provisioning Users </a> </li>
             </ul>
             </div>
          </div>
