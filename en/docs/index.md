@@ -8,13 +8,12 @@ template: templates/single-column.html
         <h1>WSO2 Identity Server Documentation</h1>
     </header>
      <div class="md-main md-content" style="float:left; width: 60%;  text-align:justify; max-height:100%; ">
-        <p>WSO2 Identity Server is an API-driven open source IAM product designed to help you build effective CIAM solutions. It is based on open standards such as SAML, OAuth/OpenID Connect with deployment options for on-premise, cloud, and hybrid. It supports complex IAM requirements given its high extensibility.</p> 
         <p>Within these pages you will find tutorials that help you understand and try out capabilities such as SSO, identity federation, authentication;  be it multi-factor authentication or adaptive authentication, and more. You can also browse through our API catalog and extend/customize using our extension points.</p>
     </div>
     <div class="md-main md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:-510px; margin-top:5px">
-    <a class="homepgbtn_a" href=""   rel="nofollow noopener"> Download WSO2 Identity Server</a>
+    <a class="homepgbtn_a" href="https://wso2.com/identity-and-access-management/"   rel="nofollow noopener"> Download WSO2 Identity Server</a>
+    <a class="homepgbtn_a" href="../../deploy/get-started/install/"   rel="nofollow noopener"> Get Started</a>
     <a class="homepgbtn_a" href=""   rel="nofollow noopener"> What's New in this Release</a>
-    <a class="homepgbtn_a" href=""   rel="nofollow noopener"> Start Building</a>
     </div>
     <gr>
    <div class="md-main md-content" style="width:100%">
@@ -34,10 +33,10 @@ template: templates/single-column.html
             </div>
             <div class= "curatedCardArticles--16lzh">
             <ul id="tilelist">
-               <li><a href=""> SAML</a> </li>
-               <li><a href=""> OAuth/OpenID Connect</a> </li>
-               <li><a href=""> More...</a> 
-               <a class="tutorialbtn_a" href=""   rel="nofollow noopener" style="font-size:17px">Demo</a>
+               <li><a href="../../guides/login/sso-for-saml/"> SAML</a> </li>
+               <li><a href="../../guides/login/sso-for-oidc/"> OAuth/OpenID Connect</a> </li>
+               <li><a href="../../guides/login/configure-ws-federation-single-sign-on/"> WS-Fed</a> 
+               <a class="tutorialbtn_a" href="../../quick-starts/single-sign-on/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
                </li>
             </ul>
             </div>
@@ -54,15 +53,14 @@ template: templates/single-column.html
                 </div></div>
          <div class="curatedCardMain--3EYmT">
             <div class="curatedCardHeader--2-q4h">
-               <h3>Social Login</h3>
+               <h3>Identity Providers</h3>
             </div>
             <div class= "curatedCardArticles--16lzh">
             <ul id="tilelist">
-               <li><a href=""> Social IdPs</a> </li>
-               <li><a href=""> Protocol-Based</a> </li>
-               <li><a href=""> External Connectors</a> 
-                <a class="tutorialbtn_a" href=""   rel="nofollow noopener" style="font-size:17px">Demo</a>
-               </li>
+               <li><a href="../../guides/identity-federation/social-login/"> Social Login</a> </li>
+               <li><a href="../../guides/identity-federation/enterprise-identity-federation/"> Protocol-Based Login</a> </li>
+                <a class="tutorialbtn_a" href="../../quick-starts/enable-login/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
+                <a class="tutorialbtn_a" href="../../quick-starts/federated-authenticators"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
             </ul>
             </div>
          </div>
@@ -82,10 +80,10 @@ template: templates/single-column.html
             </div>
             <div class= "curatedCardArticles--16lzh">
             <ul id="tilelist">
-               <li><a href=""> Knowledge Factor</a> </li>
-               <li><a href=""> Ownership Factor</a> </li>
-               <li><a href=""> Inherence Factor</a> 
-               <a class="tutorialbtn_a" href=""   rel="nofollow noopener" style="font-size:17px">Demo</a>
+               <li><a href="../../guides/mfa/knowledge-factor/"> Knowledge Factor</a> </li>
+               <li><a href="../../guides/mfa/possession-factor/"> Possession Factor</a> </li>
+               <li><a href="../../guides/mfa/inherence-factor/"> Inherence Factor</a> 
+               <a class="tutorialbtn_a" href="../../quick-starts/mfa-sample/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
                </li>
             </ul>
             </div>
@@ -106,11 +104,9 @@ template: templates/single-column.html
             </div>
             <div class= "curatedCardArticles--16lzh">
             <ul id="tilelist">
-               <li><a href=""> Risk-Based</a> </li>
-               <li><a href=""> Context-Based</a> </li>
-               <li><a href=""> More...</a> 
-                <a class="tutorialbtn_a" href="../../guides/configure-adaptive-auth"   rel="nofollow noopener" style="font-size:17px">Demo</a>
-               </li>
+               <li><a href="../../guides/adaptive-auth/configure-adaptive-auth/"> Script-based authentication</a> </li>
+               <li><a href="../../references/adaptive-authentication-js-api-reference"> JS API Reference</a> </li>
+                <a class="tutorialbtn_a" href="../../quick-starts/adaptive-auth-overview/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
             </ul>
             </div>
          </div>
@@ -130,11 +126,9 @@ template: templates/single-column.html
             </div>
             <div class= "curatedCardArticles--16lzh">
             <ul id="tilelist">
-               <li><a href=""> OAuth Grant Types</a> </li>
-               <li><a href=""> User Managed Access</a> </li>
-               <li id="loadMore"><a href=""> More...</a> 
-                <a class="tutorialbtn_a" href="../../guides/configure-adaptive-auth"   rel="nofollow noopener" style="font-size:17px">Demo</a>
-               </li>
+               <li><a href="../../guides/access-delegation/oauth-grant-types/"> OAuth Grant Types</a> </li>
+               <li><a href="../guides/access-delegation/uma"> User Managed Access</a> </li>
+               <a class="tutorialbtn_a" href="../../quick-starts/access-delegation/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
             </ul>
             </div>
          </div>
@@ -154,11 +148,10 @@ template: templates/single-column.html
             </div>
             <div class= "curatedCardArticles--16lzh">
             <ul>
-               <li><a href=""> Users</a> </li>
-               <li><a href=""> Tenants </a> </li>
-               <li><a href=""> More...</a> 
-                <a class="tutorialbtn_a" href=""   rel="nofollow noopener" style="font-size:17px">Demo</a>
-               </li>
+               <li><a href="../../guides/identity-lifecycles/onboard-overview/"> Onboard</a> </li>
+               <li><a href="../../guides/identity-lifecycles/manage-user-overview/"> Manage </a> </li>
+               <li><a href="../../guides/identity-lifecycles/outbound-provisioning/"> Outbound Provisioning</a> </li>
+               <li><a href="../../guides/identity-lifecycles/inbound-provisioning/"> Inbound Provisioning </a> </li>
             </ul>
             </div>
          </div>
@@ -171,22 +164,22 @@ template: templates/single-column.html
    </header>
    <div class="homepgfooter" style="float:right; width: 100%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:100%; margin-top:5px;box-shadow: 0 2px 8px 0 rgba(92,102,111,.15);text-align: center; font-size:large; padding-top: 20px;">
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href=""   rel="nofollow noopener">Community</a>
+        <a  href="https://wso2.com/community"   rel="nofollow noopener">Community</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href=""   rel="nofollow noopener">Blogs/Articles</a>
+        <a  href="https://wso2.com/blog/identity-and-access-management/"   rel="nofollow noopener">Blogs/Articles</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href=""   rel="nofollow noopener">Compatibility</a>
+        <a  href="../../deploy/environment-compatibility/"   rel="nofollow noopener">Compatibility</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href=""   rel="nofollow noopener">Training</a>
+        <a  href="https://wso2.com/training/identity-server-fundamentals"   rel="nofollow noopener">Training</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href=""   rel="nofollow noopener">Developer Portal</a>
+        <a  href="https://store.wso2.com/store/assets/isconnector/list"   rel="nofollow noopener">Connectors</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href=""   rel="nofollow noopener">Compliance</a>
+        <a  href="../../concepts/compliance/compliance"   rel="nofollow noopener">Compliance</a>
         </div>
    </div>
 </div>
