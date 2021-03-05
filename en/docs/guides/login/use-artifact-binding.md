@@ -12,7 +12,9 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-(TO DO: dev-portal-fragment)
+{! fragments/register-a-service-provider.md !}
+
+{! fragments/saml-app-config-basic.md !}
 
 ----
 
@@ -45,8 +47,7 @@ You have successfully set up SAML artifact binding. See the sections below for m
 -----
 
 !!! info "Related Topics"
-    - [Concept: SAML2 Artifact Binding](TODO:insert-link-to-concept)
+    - [Concept: SAML2 Artifact Binding](../../../concepts/authentication/saml2-artifact-binding/)
     - [Demo: Use SAML2 Artifact Binding](../../../quick-starts/use-artifact-binding-sample)
     - [Guide: Enable Login for a SAML Application](../webapp-saml)
-    - [Guide: SAML Authentication Errors](TODO:insert-link)
 

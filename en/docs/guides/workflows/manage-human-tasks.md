@@ -13,7 +13,7 @@ Human tasks are the steps that require human interaction in order to allow the p
     
     ![workflow-pending-status](../../../assets/img/guides/workflows/console.png)  
 
-3.  [Sign in to the User Portal](../../../guides/my-account/#access-the-user-portal-and-its-components) as a manager. 
+3.  [Sign in to the User Portal](../../../guides/my-account/my-account) as a manager. 
 
 4.  Choose **Operations** from the left panel. Select **Ready** tab in **Pending Approvals**.  
 
@@ -37,9 +37,9 @@ Human tasks are the steps that require human interaction in order to allow the p
 !!! info 
     The workflow comes with some advanced features such as:
 
-    -   [Multi-step approvals](../../../guides/workflows/use-workflows-with-user-management)
-    -   [User specific approvals](../../../guides/workflows/use-workflows-with-user-management)
-    -   [Multiple role based approvals](../../../guides/workflows/use-workflows-with-user-management)
+    -   Multi-step approvals
+    -   User specific approvals
+    -   Multiple role based approvals
 
     Instead of a one-step approval, there can be multiple steps to the approval flow. For example, a workflow with two-step approval where in the first step the role to authorize the request is the Manager and in the second step the role to authorize the request is the SeniorManager. In this case, when a user is added to the system, only users with Manager role can initially see the pending approvals. After the users with this role approves the pending tasks, then the users with SeniorManager role can see the pending tasks. After both the users approve, the task is completed.
     

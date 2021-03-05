@@ -47,7 +47,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ## Try it out
 
-This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token](TODO:insert-link-to-guide).
+This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token](../../../guides/login/oidc-token-decryption).
 
 1. See [OAuth Grant Types](../../access-delegation/oauth-grant-types) and try out one of the grant types with the `openid` scope to obtain an access token.
 

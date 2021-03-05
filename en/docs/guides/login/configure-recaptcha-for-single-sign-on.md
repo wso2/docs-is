@@ -10,30 +10,30 @@ attacks.
     -   For more information on brute force attacks, see [Mitigating Brute
     Force Attacks](../../../deploy/mitigate-attacks/mitigate-brute-force-attacks/).
 
-1.  {! fragments/set-up-recaptcha.md !}
+{! fragments/set-up-recaptcha.md !}
 
-    !!! tip
+!!! tip
     
-        To modify the filter mapping for reCaptcha, open the
-        `           web.xml          ` file located in the
-        `           <IS_HOME>/repository/conf/tomcat/carbon/WEB-INF          `
-        directory and find the following filter. You can modify the relevant
-        URL patterns if required.
-    
-        ``` xml
-        <filter>
-                <filter-name>CaptchaFilter</filter-name>
-                <filter-class>org.wso2.carbon.identity.captcha.filter.CaptchaFilter</filter-class>
-            </filter>
-            <filter-mapping>
-                <filter-name>CaptchaFilter</filter-name>
-                <url-pattern>/samlsso</url-pattern>
-                <url-pattern>/oauth2</url-pattern>
-                <url-pattern>/commonauth</url-pattern>
-                <dispatcher>FORWARD</dispatcher>
-                <dispatcher>REQUEST</dispatcher>
-            </filter-mapping>
-        ```
+    To modify the filter mapping for reCaptcha, open the
+    `           web.xml          ` file located in the
+    `           <IS_HOME>/repository/conf/tomcat/carbon/WEB-INF          `
+    directory and find the following filter. You can modify the relevant
+    URL patterns if required.
+
+    ``` xml
+    <filter>
+        <filter-name>CaptchaFilter</filter-name>
+        <filter-class>org.wso2.carbon.identity.captcha.filter.CaptchaFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CaptchaFilter</filter-name>
+        <url-pattern>/samlsso</url-pattern>
+        <url-pattern>/oauth2</url-pattern>
+        <url-pattern>/commonauth</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    ```
 
 2.  Start the WSO2 IS Server and login to the management console.
 3.  Click **List** under **Identity Providers** found in the **Main**

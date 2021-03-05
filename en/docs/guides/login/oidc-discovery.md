@@ -24,8 +24,6 @@ oidc_discovery_url= "${carbon.protocol}://${carbon.host}:${carbon.management.por
 
 ----
 
-(TODO: dev-portal-content)
-
 ## Configure the OpenID Provider issuer location
 
 In WSO2 Identity Server, the resident IdP Entity ID for OpenID Connect can be configured as the OpenID Provider Issuer location. 
@@ -64,11 +62,11 @@ In WSO2 Identity Server, the resident IdP Entity ID for OpenID Connect can be co
     {Host}/oauth2/{issuer}
     ```
 
--   **{Host}:** The host number of WSO2 Identity Server (e.g.,https://localhost:9443)
+	-   **{Host}:** The host number of WSO2 Identity Server (e.g.,https://localhost:9443)
 
--   **{issuer}:** The issuer path component. This value can be either `token` or `oidcdiscovery`.
+	-   **{issuer}:** The issuer path component. This value can be either `token` or `oidcdiscovery`.
 
--   **Sample OpenID Provider Issuer location:** <https://localhost:9443/oauth2/token>
+	-   **Sample OpenID Provider Issuer location:** <https://localhost:9443/oauth2/token>
 
 ----
 

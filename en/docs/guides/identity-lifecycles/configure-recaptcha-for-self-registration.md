@@ -14,7 +14,7 @@ brute force attacks.
         [Self-Registration and Account
         Confirmation](../../../guides/identity-lifecycles/self-registration-workflow).
     -   For more information on brute force attacks, see [Mitigating Brute
-        Force Attacks](../../../deploy/mitigate-attacks/mitigating-brute-force-attacks).
+        Force Attacks](../../../deploy/mitigate-attacks/mitigate-brute-force-attacks).
 
 You can either configure the recaptcha for a tenant, or configure it globally. 
 
@@ -136,7 +136,7 @@ You can either configure the recaptcha for a tenant, or configure it globally.
 3.  To configure sending a confirmation email for
     self-registration, enable the email sending configurations
     of the WSO2 Identity Server as explained
-    [here](../../../deploy/configuring-email-sending).
+    [here](../../../deploy/configure-email-sending).
     
 4.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see the [section](#configure-self-registration-with-recaptcha-for-a-specific-tenant) above. 
