@@ -27,7 +27,7 @@ Location: <callback_url>#access_token=2YotnFZFEjr1zCsicMWpAA
  
 ## Nonce Parameter
 
-Use the [nonce parameter](../../authentication/concepts/traditional-authentication-request#nonce-parameter) to validate an ID token issued by WSO2 Identity Server.
+Use the [nonce parameter](../../../concepts/authentication/traditional-authentication-request/#nonce-parameter) to validate an ID token issued by WSO2 Identity Server.
 
 The `nonce` claim embedded in the ID token must contain the exact value that was sent in the request. 
 If not, authentication should be rejected by the application.
@@ -51,11 +51,11 @@ The decoded ID token is as follows.
  
 ## Prompt Parameter
 
-The [prompt parameter](../../authentication/concepts/traditional-authentication-request#prompt-parameter) which can be sent with the authentication requests, can have the following three values.
+The [prompt parameter](../../../concepts/authentication/traditional-authentication-request/#prompt-parameter) which can be sent with the authentication requests, can have the following three values.
     
-    -   none         `
-    -   login         `
-    -   consent
+-   none         
+-   login         
+-   consent
     
 ### prompt=none
 The silent authentication can be initiated by using the prompt=none parameter with the authentication request.
@@ -73,16 +73,16 @@ https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4
 **Error Response**
 
 ```
-   https://callback_url
-   error_description=ERROR_DESCRIPTION&
-   error=ERROR_CODE&
-   session_state==...
+https://callback_url
+error_description=ERROR_DESCRIPTION&
+error=ERROR_CODE&
+session_state==...
 ```
     
-   | Error                 | Error Description         | 
-   | --------------------- | ------------- | 
-   | login_required | Occurs when the user does not have a login session  |                            
-   | consent_required           | Occurs when the user has a login session but does not have a pre-configured consent  |                              
+| Error                 | Error Description         | 
+| --------------------- | ------------- | 
+| login_required | Occurs when the user does not have a login session  |                            
+| consent_required           | Occurs when the user has a login session but does not have a pre-configured consent  |                              
    
 ----
 
@@ -104,15 +104,15 @@ https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4
 **Error Response**
 
 ```
-   https://callback_url
-   error_description=ERROR_DESCRIPTION&
-   error=ERROR_CODE&
-   session_state==...
+https://callback_url
+error_description=ERROR_DESCRIPTION&
+error=ERROR_CODE&
+session_state==...
 ```
 
 | Error                  | Error Description         | 
-   | --------------------- | ------------- | 
-   | login_required | Occurs when WSO2 Identity Server can not re-authenticate the user  |                            
+| --------------------- | ------------- | 
+| login_required | Occurs when WSO2 Identity Server can not re-authenticate the user  |                            
    
    ----
    
@@ -132,16 +132,16 @@ Use the `prompt=consent` parameter with the authentication request to force prom
  
 **Error Response**
 
- ```
-    https://callback_url
-    error_description=ERROR_DESCRIPTION&
-    error=ERROR_CODE&
-    session_state==...
- ```
+```
+https://callback_url
+error_description=ERROR_DESCRIPTION&
+error=ERROR_CODE&
+session_state==...
+```
  
- | Error                 | Error Description         | 
-    | --------------------- | ------------- | 
-    | consent_required | Occurs when the user cannot provide the consent again  | 
+| Error                 | Error Description         | 
+| --------------------- | ------------- | 
+| consent_required | Occurs when the user cannot provide the consent again  | 
     
 
 ----

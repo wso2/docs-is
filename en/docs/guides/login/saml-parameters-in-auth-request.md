@@ -1,6 +1,6 @@
 # Use Advanced Parameters in Authentication Requests
 
-This page guides you through sending [SAML](TODO:insert-link-to-concept) parameters with the SAML authentication request. 
+This page guides you through sending [SAML](../../../concepts/authentication/intro-saml/) parameters with the SAML authentication request. 
 
 -----
 
@@ -45,8 +45,7 @@ https://localhost:9443/samlsso?spEntityID=foo.com&tenantDomain=abc.com&forceAuth
 -----
 
 !!! info "Related Topics"
-    - [Concept: SAML](TODO:insert-link-to-concept)
+    - [Concept: SAML](../../../concepts/authentication/intro-saml/)
     - [Guide: Single Sign-On](../enable-single-sign-on)
     - [Guide: Enable Login for a SAML Application](../webapp-saml)
-    - [Guide: SAML Authentication Error Codes](TODO:insertlink)
 
