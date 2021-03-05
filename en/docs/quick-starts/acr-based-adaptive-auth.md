@@ -19,7 +19,7 @@ The instructions below guide you through specifying authentication steps based o
 
 ## Deploy sample authenticators
 
-1.  Download the [the sample authenticators](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.10.0.jar) file and paste it inside the `<IS_HOME>/repository/components/dropins` directory.
+1.  Download the [the sample authenticators](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.11.0-m33.jar) file and paste it inside the `<IS_HOME>/repository/components/dropins` directory.
 
     This `.jar` file contains an implementation of a Demo HardwareKey authenticator, Demo Fingerprint authenticator, and Demo FaceID authenticator.
             
