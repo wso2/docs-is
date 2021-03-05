@@ -1,6 +1,6 @@
 # Configure My Account Application
 
-The **My Account** application can be configured by modifying the `deployment.config.json` file. This file can be found at the root of the app directory (`$IS_SERVER/repository/deployment/server/webapps/myaccount`) in production and in `apps/myaccount/src/public/`  in the dev environment.
+The **My Account** application can be configured by modifying the `deployment.config.json` file. This file can be found at the root of the app directory (`<IS_HOME>/repository/deployment/server/webapps/myaccount`) in production and in `apps/myaccount/src/public/`  in the dev environment.
 
 By default, the `deployment.config.json` file has the following configurations.
 
@@ -186,7 +186,7 @@ WSO2 Identity Server allows multi-factor authentication via SMS, FIDO, and Authe
 
 ## Enable and Disable Application Features
 
-**My Account** has several features and those features, in turn, have several sub features. These features can be configured by using the `"features"` attribute under `"ui"`. Each feature under the `"features"` attribute has the following format.
+**My Account** has several [features](#the-features) and those features, in turn, have several sub features. These features can be configured by using the `"features"` attribute under `"ui"`. Each feature under the `"features"` attribute has the following format.
 ```json
 "feature":{
 	"disabledFeatures": [],
@@ -230,7 +230,7 @@ These are the five features in **My Account**.
 
 ### 1. Overview
 
-The overview feature can be configured via the `"overview"` attribute of the `"features"` attribute under `"ui"`.
+The *overview* feature can be configured via the `"overview"` attribute of the `"features"` attribute under `"ui"`.
 
 ```json
 "ui":{
@@ -250,14 +250,14 @@ The overview feature can be configured via the `"overview"` attribute of the `"f
 ```
 Set the `"enabled"` attribute to `false` to disable the overview altogether.
 
-The overview feature has the following sub-features that can be disabled:
+The **overview** feature has the following sub-features that can be disabled:
 
 |Sub-feature| Description|
 |--|--|
-"overview.accountStatus"|The widget that shows the account status in the overview page.|
-"overview.accountActivity"|The widget that shows the account activity in the overview page.|
-"overview.accountSecurity"|The widget that shows the account security information in the overview page.|
-"overview.consents"|The widget that shows the consent information in the overview page.|
+"overview.accountStatus"|The widget that shows the account status in the **overview** page.|
+"overview.accountActivity"|The widget that shows the account activity in the **overview** page.|
+"overview.accountSecurity"|The widget that shows the account security information in the **overview** page.|
+"overview.consents"|The widget that shows the consent information in the **overview** page.|
 
 To disable a sub-feature, pass the sub-feature name into the `"disabledFeatures"` array.
 
@@ -282,7 +282,7 @@ For example, to disable the account status widget do the following.
 
 ### 2. Personal Info
 
-The *Personal Info** feature can be configured via the `"personalInfo"` attribute of the `"features"` attribute under `"ui"`.
+The *Personal Info* feature can be configured via the `"personalInfo"` attribute of the `"features"` attribute under `"ui"`.
 
 ```json
 "ui":{
@@ -333,7 +333,7 @@ For example, do the following to disable External Logins.
 ```
 ### 3. Security
 
-The security feature can be configured via the `"security"` attribute of the `"features"` attribute under `"ui"`.
+The *security* feature can be configured via the `"security"` attribute of the `"features"` attribute under `"ui"`.
 
 ```json
 "ui":{
@@ -353,20 +353,20 @@ The security feature can be configured via the `"security"` attribute of the `"f
 ```
 Set the `"enabled"` attribute to `false` to disable Security altogether.
 
-The Security feature has the following sub-features that can be disabled:
+The **Security** feature has the following sub-features that can be disabled:
 
 |Sub-feature| Description|
 |--|--|
-|"security.changePassword"| The Change Password section of the Security page.|
-|"security.accountRecovery"| The Account Recovery section of the Security page.|
-|"security.accountRecovery.challengeQuestions"| The Challenge Questions section under the Account Recovery section of the Security page.|
-|"security.accountRecovery.emailRecovery"| The Email Recovery Section under the Account Recovery section of the Security page.|
-|"security.mfa"| The Multi-factor Authentication section of the Security page.|
-|"security.mfa.sms"| The SMS feature of the Multi-factor Authentication section of the Security page.|
-|"security.mfa.fido"| The Device feature of the Multi-factor  Authentication section of the Security page.|
-|"security.mfa.totp"| The Authenticator App feature of the Multi-factor  Authentication section of the Security page.|
-|"security.activeSessions"| The Active IDP Sessions section of the Security page.|
-|"security.manageConsents"| The Manage Consents section of the Security page.|
+|"security.changePassword"| The Change Password section of the **Security** page.|
+|"security.accountRecovery"| The Account Recovery section of the **Security** page.|
+|"security.accountRecovery.challengeQuestions"| The Challenge Questions section under the Account Recovery section of the **Security** page.|
+|"security.accountRecovery.emailRecovery"| The Email Recovery Section under the Account Recovery section of the **Security** page.|
+|"security.mfa"| The Multi-factor Authentication section of the **Security** page.|
+|"security.mfa.sms"| The SMS feature of the Multi-factor Authentication section of the **Security** page.|
+|"security.mfa.fido"| The Device feature of the Multi-factor  Authentication section of the **Security** page.|
+|"security.mfa.totp"| The Authenticator App feature of the Multi-factor  Authentication section of the **Security** page.|
+|"security.activeSessions"| The Active IDP Sessions section of the **Security** page.|
+|"security.manageConsents"| The Manage Consents section of the **Security** page.|
 
 To disable a sub-feature, pass the name of the sub-feature into the `"disabledFeatures"` array.
 
@@ -390,7 +390,7 @@ For example, do the following to disable the Active Sessions section.
 ```
 ### 4. Applications
 
-The applications feature can be configured via the `"applications"` attribute of the `"features"` attribute under `"ui"`.
+The *applications* feature can be configured via the `"applications"` attribute of the `"features"` attribute under `"ui"`.
 
 ```json
 "ui":{
@@ -411,11 +411,11 @@ The applications feature can be configured via the `"applications"` attribute of
 
 Set the `"enabled"` attribute to `false` to disable Applications altogether.
 
-The applications feature does not have a sub-feature.
+The **applications** feature does not have a sub-feature.
 
 ### 5. Operations
 
-The operations feature can be configured via the `"operations"` attribute of the `"features"` attribute under `"ui"`.
+The *operations* feature can be configured via the `"operations"` attribute of the `"features"` attribute under `"ui"`.
 
 ```json
 "ui":{
@@ -435,4 +435,4 @@ The operations feature can be configured via the `"operations"` attribute of the
 ```
 Set the `"enabled"` attribute to `false` to disable Operations altogether.
 
-The Operations feature has no sub-features.
+The **operations** feature has no sub-features.
