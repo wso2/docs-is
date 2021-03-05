@@ -1,6 +1,6 @@
 ## Register an identity provider
 
-1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
+1. Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials. 
 
 2. Click **Identity Providers >Add**.
 
