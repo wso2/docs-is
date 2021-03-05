@@ -15,7 +15,7 @@ The `RelayState` parameter is used so that an application can pass some value to
 You can use the `RelayState` parameter as follows.
 
 ```
-<https://localhost:9443/samlsso?spEntityID=foo.com&RelayState=http://localhost:8080/foo.com/my-home.jsp>
+https://localhost:9443/samlsso?spEntityID=foo.com&RelayState=http://localhost:8080/foo.com/my-home.jsp
 ```
 
 This request will authenticate and redirect the user to the URL in the `RelayState` parameter itself.
@@ -36,7 +36,7 @@ https://localhost:9443/samlsso?spEntityID=foo.com&IsPassive=true
 
 ## forceAuthn
 
-The `forceAuth` parameter is used to force authentication. If this parameter is set to `true` the user will be forced to re-authenticate even if a valid session for that user exists with WSO2 Identity Server already. 
+The `forceAuthn` parameter is used for force authentication. If this parameter is set to `true` the user will be forced to re-authenticate even if a valid session for that user exists with WSO2 Identity Server already. 
 
 ```
 https://localhost:9443/samlsso?spEntityID=foo.com&tenantDomain=abc.com&forceAuthn=true
@@ -48,4 +48,3 @@ https://localhost:9443/samlsso?spEntityID=foo.com&tenantDomain=abc.com&forceAuth
     - [Concept: SAML](../../../concepts/authentication/intro-saml/)
     - [Guide: Single Sign-On](../enable-single-sign-on)
     - [Guide: Enable Login for a SAML Application](../webapp-saml)
-
