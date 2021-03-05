@@ -4,12 +4,6 @@ This page guides you through importing users in bulk using either the WSO2 Ident
 
 -----
 
-## Import users using the admin portal
-
-TODO: dev-portal-fragment
-
----
-
 ## Import users using SCIM
 You can create users in bulk using a SCIM request as shown below. 
 
@@ -83,15 +77,33 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
      name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.org/claims/country=France,http://wso2.org/claims/identity/askPassword=true
      ```
      
-### Import users using the created file
-TODO: dev-portal-fragment
-add steps to import the csv file using the dev portal
+### Import users from the CSV/Excel file
+
+To import users in bulk:
+
+1.  Log in to the management console.
+2.  Click **Add** under **Users and Roles** in the **Main** menu.
+3.  In the **Add Users** and **Roles** screen, click **Bulk Import
+    Users**.
+4.  The user stores configured for your product will be listed in the
+    **Domain** field. Select the user store to which you want to import
+    the users from the list.
+5.  Click **Choose File** to give the path to the CSV/Excel file that
+    contains the users that you want to import.
+6.  Click **Finish** to start importing.
+
+!!! info
+      The default password of the imported users is valid only for 24 hours.
+      As the system administrator, you can resolve issues of expired passwords
+      by logging in as the Admin and changing the user's password from the
+      **User Management -\>** **Users** page. The 'Everyone' role will be
+      assigned to the users by default.
 
 ----
 
 ### Import users by plugging in a user store
 
-    Apart from this, users can also be added by directly plugging user stores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](TODO:insertlink).
+Apart from this, users can also be added by directly plugging user stores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](../../../deploy/configure-secondary-user-stores/).
 
 ----
     

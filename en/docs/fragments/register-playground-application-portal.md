@@ -1,4 +1,3 @@
-## Register an application
 
 1.  Access the WSO2 IS management console (`https://<IS_HOST>:<PORT>/carbon`).
 
@@ -33,5 +32,3 @@
         
 7.  Click **Add**. Note that `client key` and `client secret` get generated.  
     ![generated-key-secret](../../../assets/img/fragments/generated-key-secret.png) 
-
-8.  Update the service provider you have created by clicking the **Update** button.

@@ -1,6 +1,6 @@
 # Ensure Assurance with Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)
 
-This page guides you through enforcing additional assurance in the user authentication flow using [**Authentication Context Class Reference** (ACR)](TODO:insert-link-to-concept)  and [**Authentication Method Reference** (AMR)](TODO:insert-link-to-concept)
+This page guides you through enforcing additional assurance in the user authentication flow using Authentication Context Class Reference (ACR) and **Authentication Method Reference** (AMR).
 
 ---
 
@@ -13,36 +13,38 @@ This guide assumes you have your own application. If you wish to try out this fl
 {!fragments/register-playground-application-portal.md!}
 
 {!fragments/add-adaptive-acr-script-portal.md!}
-Replace the authentication script added from the template with the following. 
 
-        var supportedAcrValues = ['LOA1', 'LOA2', 'LOA3'];
-		var onLoginRequest = function(context) {
-		   
-		  Log.info("ACR : "+context.requestedAcr);
-		  var acr_values = context.requestedAcr;
-		  var needLevel1 = (acr_values.indexOf("LOA1") > -1);
-		  var needLevel2 = (acr_values.indexOf("LOA2") > -1);
-		  var needLevel3 = (acr_values.indexOf("LOA3") > -1);
-		   
-		  executeStep(1);
-		  if(needLevel1) {
-		    executeStep(2);
-		    context.selectedAcr="LOA1";  //Sets your ACR value to be returned
-		  }
-		  if(needLevel2) {
-		    executeStep(3);
-		    context.selectedAcr="LOA2";
-		  }
-		  if(needLevel3) {
-		    executeStep(4);
-		    context.selectedAcr="LOA3";
-		  }
-		}
+1.  Replace the authentication script added from the template with the following. 
+
+          var supportedAcrValues = ['LOA1', 'LOA2', 'LOA3'];
+        var onLoginRequest = function(context) {
+        
+        Log.info("ACR : "+context.requestedAcr);
+        var acr_values = context.requestedAcr;
+        var needLevel1 = (acr_values.indexOf("LOA1") > -1);
+        var needLevel2 = (acr_values.indexOf("LOA2") > -1);
+        var needLevel3 = (acr_values.indexOf("LOA3") > -1);
+        
+        executeStep(1);
+        if(needLevel1) {
+          executeStep(2);
+          context.selectedAcr="LOA1";  //Sets your ACR value to be returned
+        }
+        if(needLevel2) {
+          executeStep(3);
+          context.selectedAcr="LOA2";
+        }
+        if(needLevel3) {
+          executeStep(4);
+          context.selectedAcr="LOA3";
+        }
+      }
 
 !!! note
     When requesting the ACR values from the service provider, you can define an ordered list of ACR values that you will only accept. The following functions will be used to execute this: 
     -	**`selectAcrFrom`**: This inbuilt function evaluates the best/strongest ACR from the received and configured ACR lists.
     -	**`context.selectedAcr`**: This function sets the ACR value that needs to be returned to the caller.   		
+
 ----
 		
 ## Configure the client application
@@ -162,7 +164,7 @@ Send the following requests via your application to connect your application to 
   	
 
 !!! info "Related Topics"
-    - [Concept: Adaptive-Authentication](../../concepts/authentication/adaptive-authentication)
+    - [Concept: Adaptive-Authentication](../../../concepts/authentication/adaptive-authentication)
     - [Guide: Configure Adaptive Authentication for an Application](../configure-adaptive-auth)
     - [Guide: Adaptive Authentication Using Function Library](../adaptive-auth-with-function-lib)
     - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)

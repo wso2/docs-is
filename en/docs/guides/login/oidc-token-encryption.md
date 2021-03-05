@@ -1,6 +1,6 @@
 # Encrypt ID Tokens
 
-This page guides you through configuring [token encryption for ID tokens](TODO:insert-link-to-concept). 
+This page guides you through configuring token encryption for ID tokens. 
 
 ----
 
@@ -10,17 +10,17 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-(TODO: dev-portal-fragment)
+## Configure the service provider
+
 {!fragments/register-a-service-provider.md!}
 
 ----
 
-(TODO: dev-portal-fragment)
+
 {!fragments/oauth-app-config-basic.md!}
 
 -----
 
-(TODO: dev-portal-content)
 
 ## Enable ID token encryption
 
@@ -41,7 +41,6 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-(TODO: dev-portal-fragment)
 {!fragments/encrypt-id-tokens.md!}
 
 ----
@@ -130,11 +129,9 @@ This section guides you through obtaining an encrypted ID token and decrypting i
 ----
 
 !!! info "Related Topics"
-    - [Concept: Token Encryption for ID Tokens](TODO:insert-link-to-concept)
     - [Concept: ID Token](../../../concepts/authentication/id-token)
     - [Demo: OpenID Connect Token Encryption](../../../quick-starts/oidc-token-encryption-sample)
     - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)
-    - [Guide: Decrypt the ID Token](TODO:insert-link-to-guide)
     - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)
     - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)
 
