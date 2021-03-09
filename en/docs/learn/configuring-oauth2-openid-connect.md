@@ -128,7 +128,7 @@ the users with an authorization server-based authentication.
         <strong>Format:</strong> <code> login_hint={paramName}</code> </br>
         </br>
         Multiple parameters can be defined by separation of query parameters using the & character.</br>
-        <strong>Sample:</strong></br> <code>login_hint={paramName}&scope=openid email profile </code></br> </br>
+        <strong>Sample:</strong></br> <code>login_hint=${paramName}&scope=openid email profile </code></br> </br>
         Alternatively, use the following format to send query parameters that are resolved using an adaptive authentication script. </br>
         <strong>Format:</strong> <code>login_hint=$authparam{paramName} </code> </br>
         </p>
