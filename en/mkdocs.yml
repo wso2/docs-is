@@ -599,6 +599,7 @@ nav:
                           - 'Session Management and Logout': concepts/authentication/session-management.md
                           - 'Back-channel-logout': concepts/authentication/back-channel-logout.md
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
+                          - 'Microprofile JWT 1.0': concepts/authentication/microprofile-jwt.md
                   - 'SAML':
                           - 'Introduction': concepts/authentication/intro-saml.md
                           - 'SAML2 Artifact Binding': concepts/authentication/saml2-artifact-binding.md

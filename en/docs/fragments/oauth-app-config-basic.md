@@ -4,7 +4,8 @@
 
 2. Enter the **Callback URL** and click **Add**. 
 
-    The **Callback URL** is the exact location in the service provider's application where an access token would be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
+    !!! note
+        The **Callback URL** is the exact location in the service provider's application to which an access token will be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
     
 3. To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced). 
 

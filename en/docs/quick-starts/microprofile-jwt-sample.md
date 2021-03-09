@@ -1,6 +1,6 @@
-# Configuring Microprofile JWT
+# Configure Microprofile JWT
 
-This page guides you through configuring [microprofile JWT (MP-JWT)](insertlink) for an OAuth/OpenID Connect web application. This is demonstrated using a **sample application** and describes how to generate JWT tokens by invoking the endpoints.
+This page guides you through configuring [microprofile JWT (MP-JWT)](../../../concepts/authentication/microprofile-jwt/) for an OAuth/OpenID Connect web application. This is demonstrated using a **sample application** and describes how to generate JWT tokens by invoking the endpoints.
 
 ----
 If you have your own application, click the button below.
@@ -9,17 +9,20 @@ If you have your own application, click the button below.
 
 ----
 
+## Pre-requisites
+
+- [Maven 3.x](https://maven.apache.org/download.cgi)
+- [Java](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [xmllint](http://xmlsoft.org/xmllint.html)
+    
+----
 
 ## Set up the sample
 
-!!! note "Pre-requisites" 
-    Before running the samples, make sure you have [maven
-    3.x](https://maven.apache.org/download.cgi) installed.
-    
-
 First, let's configure the sample. Follow the steps given below:
 
-1.  Clone `https://github.com/wso2/samples-is.git`.
+1.  Clone [https://github.com/wso2/samples-is.git](https://github.com/wso2/samples-is.git).
+
 2.  Navigate to `<SAMPLE_HOME>/microprofile/microprofile-jwt/src/main/liberty/config` and open `server.xml`.
 
 3.  Replace `${CARBON_HOME}` with the directory where WSO2 Identity Server is installed on your machine.
@@ -131,7 +134,12 @@ curl -H "Authorization: Basic bGk2Sk1ialc2V0RNS1RXc1JuR2NqcDV6Y0doaTpOTUIzRUFmeG
 
 You need to provide the obtained JWT token in the authorization header as a bearer token.
 
-If you try to invoke the endpoints without an authorization header, you
-will receive an HTTP 401 Unauthorized response.
+If you try to invoke the endpoints without an authorization header, you will receive an `HTTP 401 Unauthorized` response.
 
-If you invoke an endpoint with a token obtained for a user that has no access, you will receive an HTTP 403 Forbidden response. For instance, if you try to invoke the /debit endpoint while you only have the Creditor role, you will get HTTP 403 response.
+If you invoke an endpoint with a token obtained for a user that has no access, you will receive an `HTTP 403 Forbidden` response. For instance, if you try to invoke the /debit endpoint while you only have the Creditor role, you will get the `HTTP 403 Forbidden` response.
+
+---
+
+!!! info "Related Topics"
+    - [Concept: Microprofile JWT 1.0](../../../concepts/authentication/microprofile-jwt/)
+    - [Guide: Configure Microprofile JWT](../../../guides/access-delegation/microprofile-jwt/)
