@@ -8,7 +8,7 @@ how to associate all your user accounts to the account with which you
 have logged on.
 
 !!! note
-    If you want to associate user accounts of federated users via the
+    If you want to associate user accounts of federated users via
     my account, add the following configuration to the `/repository/conf/deployment.toml`
     file.
     
