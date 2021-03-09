@@ -79,10 +79,10 @@ authentication.
         [Consent management](../../learn/user-portal/#consent-management)
         .
 
-    -   The application requires new mandatory claims that the user has
-        not consented to previously. If the service provider requests
-        for any new mandatory claim values, the user will only be
-        prompted to provide consent for the newly added mandatory claims
+    -   The application requires new claim that the user has
+        not consented previously. If the service provider requests
+        for any  claim values, the user will only be prompted to provide 
+        consent for the newly added claims.
 
 ### Trying out consent management for SSO
 
