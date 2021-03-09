@@ -118,7 +118,7 @@ sample iOS application.
     `           <SAMPLES_HOME>          ` throughout this tutorial.
 
 3.  Open the
-    `           <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcworkspace          `
+    `<SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcworkspace`
     file in Xcode.
 
     !!! note
@@ -126,7 +126,7 @@ sample iOS application.
         Note
     
         Ensure that you do not open the
-        `           <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/           WSO2-IS-SampleApp.xcodeproj          `
+        `<SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcodeproj          `
         file as it will not resolve the [CocoaPods](https://cocoapods.org)
         dependencies.
     
@@ -222,7 +222,7 @@ you run the application.
 ### Configure application settings
 
 To configure application settings, right click on the
-`         <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp/Info.plist        `
+`<SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp/Info.plist`
 file and open it with a source code editor.
 
 -   In the source code, you will see the following lines of code:
@@ -288,7 +288,7 @@ file and open it with a source code editor.
 ### Configure endpoints and OAuth client settings
 
 To configure endpoint and OAuth client settings, right click on the
-`         <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp/Config.plist        `
+`SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp/Config.plist        `
 file and open it with a source code editor.
 
 -   In the source code, you will see several OAuth related properties
@@ -343,7 +343,7 @@ Follow the steps below to use the iOS simulator and run the sample
 application:
 
 1.  Open the
-    `           <SAMPLES_HOME>/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcworkspace          `
+    `<SAMPLES_HOME>/client-samples/oidc-client-app-samples/ios-client-app-sample/WSO2-IS-SampleApp.xcworkspace`
     file in Xcode. You may already have this file open in Xcode if you
     followed the steps in the Setting up the iOS client sample
     application section.
