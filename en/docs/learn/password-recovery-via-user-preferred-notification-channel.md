@@ -5,7 +5,7 @@ forgotten password.
 
 !!! Note
     This feature is only available via Account Recovery REST APIs. Currently, WSO2 IS does not 
-    support this feature via the my account.
+    support this feature via the **My Account**.
 
 **Password Recovery Flow**
 

@@ -92,7 +92,7 @@ and security during the authentication for this application.
 ## Configuring the user profile
 
 1.  Login to the
-    [my account](../learn/my-account.md) and go to **Personal info**.  
+    [**My Account**](../learn/my-account.md) and go to **Personal info**.  
 2.  Update your email address in **Profile**(this email address is used to send the
     token).
     ![my-profile-gadget](../assets/img/tutorials/update-email-in-profile.png)
@@ -247,9 +247,9 @@ configuration change in the `<IS_HOME>/repository/conf/deployment.toml ` file.
         property values.
 
 
-## Obtaining the QR code without using the my account
+## Obtaining the QR code without using the **My Account**
 
-If you need to obtain the QR code without using the my account,
+If you need to obtain the QR code without using the **My Account**,
 you can call the REST API or call the Admin Service(SOAP) that does
 this.
 

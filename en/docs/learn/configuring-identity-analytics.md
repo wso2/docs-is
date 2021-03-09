@@ -77,7 +77,7 @@ If you do not need to change the default values, proceed to start the servers.
 
 Let's create some basic authentication statistics. To do this, log in to the WSO2 IS dashboard. This login attempt will be published to WSO2 IS Analytics and you will be able to view the login attempt using the WSO2 IS Analytics dashboard. 
 
-1. Log in to the [WSO2 Identity Server my account](https://localhost:9443/myaccount) using admin/admin credentials. 
+1. Log in to the [WSO2 Identity Server **My Account**](https://localhost:9443/myaccount) using admin/admin credentials. 
 
 2. Next, access the WSO2 Identity Server Analytics Dashboard at the following URL: 
 

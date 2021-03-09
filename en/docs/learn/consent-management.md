@@ -124,7 +124,7 @@ WSO2 IS.
     selectively opt-in/opt-out on each of the purposes.
 
 -   Users can review or revoke already given consent by logging in to
-    WSO2 IS my account (self-care portal).
+    WSO2 IS **My Account** (self-care portal).
 
 -   Personal data processing applications can check for consent for each
     user through the consent REST API before carrying out any data
@@ -158,7 +158,7 @@ supported in WSO2 IS.
     the consent that the user approves at this point.
 
 -   Users can review or revoke already given consent by logging in to
-    the WSO2 IS my account (self-care portal).
+    the WSO2 IS **My Account** (self-care portal).
 
 !!! tip
     

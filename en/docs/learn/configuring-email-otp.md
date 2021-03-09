@@ -82,8 +82,8 @@ as explained [here](../../setup/configuring-email-sending).
                         <ul>
                             <li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore . The federated username must be the same as the local username.</li>
                             <li><code>assocication</code>: The federated username must be associated with the
-                                local account in advance in the my account. The local username is retrieved
-                                from the association. To associate the user, log into the  [my account](../../learn
+                                local account in advance in the **My Account**. The local username is retrieved
+                                from the association. To associate the user, log into the  [**My Account**](../../learn
                                 /user-portal)  and go to  **Associated Account**  by clicking  **View details**.</li>
                             <li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service provider section in UI, this is used as the username of the  <code>EmailOTP</code> authenticator.</li>
                             <li>

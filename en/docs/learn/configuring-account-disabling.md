@@ -112,7 +112,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/account-disabled-email.png" alt="Account Disabled email" width="500" style="border:1px solid grey"> 
 
-	5.	Access the WSO2 Identity Server my account at `https://localhost:9443/myaccount`.
+	5.	Access the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`.
 
 		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
 		 solid grey"> 	
@@ -131,5 +131,5 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/account-enabled-email.png" alt="Account Enabled email" width="500" style="border:1px solid grey"> 		
 
-	5.	Trying logging in to the WSO2 Identity Server my account with Alex's credentials. The WSO2 Identity Server
-	 my account home screen appears.
+	5.	Trying logging in to the WSO2 Identity Server **My Account** with Alex's credentials. The WSO2 Identity Server
+	 **My Account** home screen appears.

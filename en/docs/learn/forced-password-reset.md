@@ -48,7 +48,7 @@ for forced password reset:
     assign it to the new user, "alex".
 
     !!! tip 
-    	You can verify this by logging in to the [my account](https://localhost:9443/myaccount) as Alex. The log in
+    	You can verify this by logging in to the [**My Account**](https://localhost:9443/myaccount) as Alex. The log in
     attempt should be successful. Log out from the portal.
 
 6.  Click on **Resident** under **Identity Providers** found in the
@@ -80,7 +80,7 @@ to see a sample of how this works.
     'true' for the relevant users. To do this, follow the steps
     explained later in this page under [Invoke Admin Force Password Reset](#invoke-admin-force-password-reset).
     
-4.  Log out of the [my account](https://localhost:9443/myaccount) and
+4.  Log out of the [**My Account**](https://localhost:9443/myaccount) and
     attempt to log in as the user you created above, "alex". The login
     attempt will fail and a password reset will be prompted in the form
     of an error message saying "Login failed! Please recheck the
@@ -88,7 +88,7 @@ to see a sample of how this works.
 5.  Log in to the email account you provided in Alex's user profile. You
     will see a new email with a password reset request.
 6.  Follow the link provided in the email to reset the password. You can
-    now log in to the [my account](https://localhost:9443/myaccount)
+    now log in to the [**My Account**](https://localhost:9443/myaccount)
     successfully as Alex using the new password.
 
 ## Password Reset via OTP
@@ -112,7 +112,7 @@ template for this option can be configured in the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
     claim to **true** for the relevant users. To do this, follow the steps
     explained later in this page under [Invoke Admin Force Password Reset](#invoke-admin-force-password-reset).
-4.  Log out of the [my account](https://localhost:9443/myaccount) and
+4.  Log out of the [**My Account**](https://localhost:9443/myaccount) and
     attempt to login again as the user you created above, "alex". The
     login attempt will fail and a password reset will be prompted in the
     form of an error message saying "Login failed! Please recheck the
@@ -124,7 +124,7 @@ template for this option can be configured in the
     redirected to the password reset UI where you are prompted to set a
     new password. Enter the relevant details to set a new password.
 7.  You can now log in to the
-    [my account](https://localhost:9443/myaccount) successfully as Alex
+    [**My Account**](https://localhost:9443/myaccount) successfully as Alex
     using the new password.
 
 ## Offline Password Reset
@@ -145,19 +145,19 @@ template for this option can be configured in the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
     claim to **true** for the relevant users. To do this, follow the steps
     explained later in this page under [Invoke Admin Force Password Reset](#invoke-admin-force-password-reset).
-7.  Log out of the [my account](https://localhost:9443/myaccount) and
+7.  Log out of the [**My Account**](https://localhost:9443/myaccount) and
     attempt to log in again as the user you created above, "alex". The
     log in attempt will fail.
 8.  Log in again to the management console as the admin user and check
     Alex's user profile. You will see that there is now a code value in
     the **One Time Password** field.
 9.  Copy the code and use it as Alex's password to log in to the
-    [my account](https://localhost:9443/myaccount).
+    [**My Account**](https://localhost:9443/myaccount).
 10. You will be redirected to the password reset UI where you are
     prompted to set a new password. Enter the relevant details to set a
     new password.
 11. You can now log in to the
-    [my account](https://localhost:9443/myaccount) successfully as Alex using the new password.
+    [**My Account**](https://localhost:9443/myaccount) successfully as Alex using the new password.
 
 ## Invoke Admin Force Password Reset
 
