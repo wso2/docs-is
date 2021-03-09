@@ -247,7 +247,7 @@ configuration change in the `<IS_HOME>/repository/conf/deployment.toml ` file.
         property values.
 
 
-## Obtaining the QR code without using the my account
+## Obtaining the QR code without using My Account
 
 If you need to obtain the QR code without using the my account,
 you can call the REST API or call the Admin Service(SOAP) that does
