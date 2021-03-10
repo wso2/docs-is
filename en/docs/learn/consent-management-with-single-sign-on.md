@@ -80,8 +80,8 @@ authentication.
         .
 
     -   The application requires new claim that the user has
-        not consented previously. If the service provider requests
-        for any  claim values, the user will only be prompted to provide 
+        not consented previously. If the service provider is configured to request
+        for any claim values, the user will only be prompted to provide 
         consent for the newly added claims.
 
 ### Trying out consent management for SSO
