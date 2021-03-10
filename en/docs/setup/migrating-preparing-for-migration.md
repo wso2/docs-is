@@ -146,6 +146,25 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         defaultAutoCommit="false"
 
         ```
+
+    ??? tip "A sample configuration written for the Oracle DB type will look this"
+
+        ```
+        [[datasource]]
+        id="source"
+        url="jdbc:oracle:thin:@localhost:1521/SID"
+        username="sourceUsername"
+        password="sourcePassword"
+        driver="oracle.jdbc.OracleDriver"
+        
+        [[datasource]]
+        id="target"
+        url="jdbc:oracle:thin:@localhost:1521/SID"
+        username="targetUsername"
+        password="targetPassword"
+        driver="oracle.jdbc.OracleDriver"
+
+        ```
                 
 6.  Create a property file with below properties as required and name it as `sync.properties`.
     
