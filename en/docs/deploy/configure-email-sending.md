@@ -21,7 +21,7 @@ This document explains the steps to configure WSO2 Identity Server to send email
     signature = "ABC.com"
     ```
     
-    |                                                   |                                                |
+    |                    Property                       |                Description                     |
     |---------------------------------------------------|------------------------------------------------|
     | `               from_address                `     | The mail address from where you want to send the notification. It can be any working mail address. |
     | `               username                    `     | Provide the username of the SMTP account. <br/> User name of the the mail you have provide in **from_address**    |
@@ -30,7 +30,7 @@ This document explains the steps to configure WSO2 Identity Server to send email
     | `               port                         `|The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25. |
    | `               enable_start_tls`            | If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust theserver's certificate. Defaults to false.
    | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to false.|
-   | `signature`                                   | Signature of the sender account |
+   | `signature`                                   | Signature of the sender account. |
     
     !!! Tip 
         For information about the SMTP, see
@@ -53,6 +53,8 @@ This document explains the steps to configure WSO2 Identity Server to send email
     1.  Navigate to <https://myaccount.google.com/security>.
     2.  Click **Security** on the left menu and make sure
         that **2-step Verification** under **Signing in to Google** is disabled or off.  
+        ![google-2-step-verification](../../assets/img/fragments/google-2-step-verification.png)  
     3.  Enable **Less secure app access**.  
+        ![allow-less-secure-apps](../../assets/img/fragments/allow-less-secure-apps.png)
                
     
