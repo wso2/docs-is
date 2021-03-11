@@ -405,7 +405,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
 !!! info
     Note that this **data sync tool** is only recommended for use with MySQL and Oracle databases
-    since it has been tested with MySQL and Oracle only.
+    since it has only been tested with MySQL and Oracle.
 
 1.  Create a new databases for the new WSO2 Identity Server version (5.10.0) 
     that you are migrating to.
@@ -421,7 +421,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 5.  Add the data sources used in **source** and **target** WSO2 Identity Server deployments involved in the migration 
     to `deployment.toml` file located `<SYNC-TOOL-HOME>/repository/conf/deployment.toml`.
     
-    ??? tip "A sample configuration written for the MySQL DB type will look this"
+    ??? tip "Sample configuration written for the MySQL DB type"
             
         ```
         [[datasource]]
@@ -456,7 +456,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
         ```
 
-    ??? tip "A sample configuration written for the Oracle DB type will look this"
+    ??? tip "Sample configuration written for the Oracle DB type"
 
         ```
         [[datasource]]
