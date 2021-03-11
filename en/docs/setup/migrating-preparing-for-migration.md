@@ -94,13 +94,17 @@ All the other data will not be preserved in the new system.
 
 Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
+!!! info
+    Note that this **data sync tool** is only recommended for use with MySQL and Oracle databases
+    since it has only been tested with MySQL and Oracle.
+
 1.  Create a new databases for the new WSO2 Identity Server version (5.11.0) 
     that you are migrating to.
 2.  Unzip a WSO2 Identity Server 5.11.0 distribution (use a WUM updated distribution 
     if available). This will be used as the data sync tool between the Identity 
     Server versions. We will refer to WSO2 Identity Server distribution as 
     “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
-3.  Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.134/org.wso2.is.data.sync.client-1.0.134.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
+3.  Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.146/org.wso2.is.data.sync.client-1.0.146.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
 4.  Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` 
     with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). 
     This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory 
@@ -108,7 +112,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 5.  Add the data sources used in **source** and **target** WSO2 Identity Server deployments involved in the migration 
     to `deployment.toml` file located `<SYNC-TOOL-HOME>/repository/conf/deployment.toml`.
     
-    ??? tip "A sample configuration written for the MySQL DB type will look this"
+    ??? tip "Sample configuration written for the MySQL DB type"
             
         ```
         [[datasource]]
@@ -140,6 +144,25 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         validationQuery="SELECT 1"
         validationInterval="30000"
         defaultAutoCommit="false"
+
+        ```
+
+    ??? tip "Sample configuration written for the Oracle DB type"
+
+        ```
+        [[datasource]]
+        id="source"
+        url="jdbc:oracle:thin:@localhost:1521/SID"
+        username="sourceUsername"
+        password="sourcePassword"
+        driver="oracle.jdbc.OracleDriver"
+        
+        [[datasource]]
+        id="target"
+        url="jdbc:oracle:thin:@localhost:1521/SID"
+        username="targetUsername"
+        password="targetPassword"
+        driver="oracle.jdbc.OracleDriver"
 
         ```
                 
