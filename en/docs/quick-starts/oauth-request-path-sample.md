@@ -31,8 +31,7 @@ If you have your own application, click the button below.
  -   **Client Secret:** The client secret received at the application registration 
  -   **Resource Owner User Name:** User Name
  -   **Resource Owner Password:** Password of the user
- -   **Callback URL:**
-     `                               http://wso2is.local:8080/playground2/oauth2client                             `
+ -   **Scope**: `openid`
  
  -   **Access Token Endpoint:**
      `                               https://localhost:9443/oauth2/token                             `

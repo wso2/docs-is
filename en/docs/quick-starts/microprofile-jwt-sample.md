@@ -65,6 +65,9 @@ First, let's configure the sample. Follow the steps given below:
     
 8.  Now run the following command to do the necessary configurations.
 
+    !!! info 
+        Make sure you have [xmllint](http://www.xmlsoft.org/downloads.html) installed to avoid errors due to unformatted responses.
+
     ``` xml
     sh configure_sample.sh
     ```
