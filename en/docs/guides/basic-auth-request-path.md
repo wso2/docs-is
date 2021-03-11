@@ -51,8 +51,10 @@ Location: <callbackurl>?code=8a498de9-1f5d-3bd0-a3c9c06be6e08151&session_state=6
     You can also skip prompting the user consent page using one of the following methods.
     
     * You can skip prompting consent for a particular request by sending the `prompt=none` attribute in the authorization request
-    * You can skip prompting consent for an application by enabling the **Skip Consent** option on the developer portal.
-    ![](insertlink in portal)
+    * You can skip prompting consent for an application by enabling the **Skip Login Consent** option on the developer portal.
+    
+	![](../../../assets/img/guides/skip-consent.png)
+
     * You can skip re-prompting consent by selecting the **Approve always** option for an application and user before sending the request.
     * You can add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to disable prompting
      consent for all applications in WSO2 Identity Server.

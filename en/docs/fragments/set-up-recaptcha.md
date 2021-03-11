@@ -10,13 +10,17 @@ First, you will need to register and create an API key pair for the required dom
     your identity server domain and click **Register**. The following
     are sample values:
     -   **Label:** WSO2 Identity Server
-    -   Select the reCAPTCHA V2 or Invisible reCAPTCHA option.
+    -   Select the reCAPTCHA V2 option.
     -   **Domains:** is.wso2.com  
 
-    ![configuring-recaptcha-api-keys](../../assets/img/guides//configuring-recaptcha-api-keys.png) 
+3.	Accept the terms of service. 
+
+3.  Click **Submit**.
+
+    ![configuring-recaptcha-api-keys](../../../assets/img/fragments/recaptcha-new-sso.png) 
 
 3.  Take note of the site key and secret that you receive.
-    ![note-site-key-secret](../../assets/img/guides/note-site-key-secret.png) 
+    ![note-site-key-secret](../../../assets/img/fragments/copy-key.png) 
 
 4.  Open the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory and add the following configurations.
 

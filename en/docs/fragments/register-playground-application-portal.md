@@ -12,8 +12,7 @@
 5.  Fill in the form that appears. For the Allowed Grant Types, you can disable the ones you do not require or block.
         
     !!! note
-        The grant type highlighted below is a **custom** grant type. This
-        will only appear on the UI if you have configured the JWT grant
+        The **custom** grant type will only appear on the UI if you have configured the JWT grant
         type. The value specified as the `name`
         of the `oauth.custom_grant_type` in the `deployment.toml` file when
         creating the custom grant type is the value that will appear on the

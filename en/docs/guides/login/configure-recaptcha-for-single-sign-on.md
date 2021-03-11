@@ -36,9 +36,9 @@ attacks.
     ```
 
 2.  Start the WSO2 IS Server and login to the management console.
-3.  Click **List** under **Identity Providers** found in the **Main**
+3.  Click **Resident** under **Identity Providers** found in the **Main**
     tab.
-4.  Click **Resident Identity Provider** and expand the **Login Attempts Security** tab. Then, expand the **reCaptcha for SSO Login** tab.
+4.  Expand the **Login Attempts Security** tab. Then, expand the **reCaptcha for SSO Login** tab.
 5.  Select the relevant option according to your requirement:
 
     - **Always prompt reCaptcha:** 
