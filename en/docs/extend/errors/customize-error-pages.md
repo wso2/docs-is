@@ -1,6 +1,6 @@
 # Customize Error Pages
 
-WSO2 Identity Server display errors, exceptions, and HTTP status codes in full detail. These are known as Verbose error messages. These error messages contain technical details such as stack traces. There may also disclose other sensitive details. Attackers may fingerprint the server, based on the information disclosed in error messages. Alternatively, attackers may attempt to trigger specific error messages to obtain technical information about the server. You can avoid these situations by configuring the server to display generic, non-detailed error messages in Apache Tomcat.
+WSO2 Identity Server display errors, exceptions, and HTTP status codes in full detail. These are known as verbose error messages. These error messages contain technical details such as stack traces. There may also disclose other sensitive details. Attackers may fingerprint the server, based on the information disclosed in error messages. Alternatively, attackers may attempt to trigger specific error messages to obtain technical information about the server. You can avoid these situations by configuring the server to display generic, non-detailed error messages in Apache Tomcat.
 
 The pages that should be displayed on a certain throwable exception, error or an HTTP status code are specified in the
 `<IS_HOME>repository/conf/tomcat/carbon/WEB-INF/web.xml` file. You can customize those error pages as preferred. For example, if you try to access a resource that is not available in the Carbon server (e.g., https://localhost:9443/abc), you will see the "Error 404 - Not Found" page.
@@ -32,32 +32,32 @@ You can customize the above error message by following the instructions given be
     </html>
     ```
 
-5.  Add the `new_ error_404.html` file inside the `<PROJECT_HOME>/src/main/web` directory.
+5.  Add the `new_error_404.html` file inside the `<PROJECT_HOME>/src/main/resources/web` directory.
 
 6.  Add the following property below the `<version>` element in the `<PROJECT_HOME>/pom.xml` file.
 
-     ```xml
-    <packaging>bundle</packaging> 
+    ``` xml
+    <packaging>bundle</packaging>
     ```
 
 7.  Add the following configurations inside the `<plugins>` element in the `<PROJECT_HOME>/pom.xml` file.
 
     ``` xml
     <plugin>
-    <groupId>org.apache.felix</groupId>
-    <artifactId>maven-bundle-plugin</artifactId>
-    <extensions>true</extensions>
-    <configuration>
-        <instructions>
-            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Bundle-Name>${project.artifactId}</Bundle-Name>
-            <Import-Package>
-                                            org.osgi.framework,
-                                            org.osgi.service.http,
-                                            org.wso2.carbon.ui,
-                                            javax.servlet.*;version="2.4.0",
-                                            *;resolution:=optional
-                                        </Import-Package>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+            <instructions>
+                <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                <Bundle-Name>${project.artifactId}</Bundle-Name>
+                <Import-Package>
+                    org.osgi.framework,
+                    org.osgi.service.http,
+                    org.wso2.carbon.ui,
+                    javax.servlet.*;version="2.4.0",
+                    *;resolution:=optional
+                </Import-Package>
                 <Fragment-Host>org.wso2.carbon.ui</Fragment-Host>
                 <Carbon-Component>UIBundle</Carbon-Component>
             </instructions>
@@ -100,6 +100,6 @@ You can customize the above error message by following the instructions given be
 
 12. Restart WSO2 Identity Server.
 
-13. Access the following URL again, to test the error page you customized: https://localhost:9443/abc.  
+13. Access the following URL again to test the error page you customized: `https://localhost:9443/abc`.  
     
     You will view the new error page with the following content: "Sorry, this resource is not found."
