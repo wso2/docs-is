@@ -37,7 +37,7 @@ theme:
     accent: deep-orange
   custom_dir: theme/material
   logo: images/logo.svg
-  favicon: assets/img/favicon.png/
+  favicon: assets/img/favicon.png
   highlightjs: true
   feature:
     tabs: true
