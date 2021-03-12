@@ -4,8 +4,8 @@ This feature enables email account verification when the user updates the user p
 
 When users update their email addresses in the user profile, an email verification is triggered to the new email address. Until the new email address is verified successfully, the user's existing email address is not overridden.
 
-!!! warning 
-    -   The verification on update capability is **only** supported for the http://wso2.org/claims/emailaddress claim.
+!!! warning "Important" 
+    -   The verification on update capability is **only** supported for the `http://wso2.org/claims/emailaddress` claim.
     -   An email verification is not triggered if the email address to be updated is the same as the previously verified email address of the user.
     -   Triggering an email account verification is skipped if the `verifyEmail` claim is not set to true.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
@@ -22,6 +22,8 @@ When users update their email addresses in the user profile, an email verificati
 1.  In the management console, navigate to **Main > Identity Providers > Resident > Other Settings > User Claim Update**.
 
 2.  Mark **Enable user email verification on update**. Additionally, you can define the expiry time for the verification link to match your requirement.
+    
+    ![](../../assets/img/guides/email-verification-on-update-config.png)
 
 3.  Click **Update** to save the changes. 
 
@@ -36,7 +38,7 @@ When users update their email addresses in the user profile, an email verificati
         enable_verification = true
         verification_email_validity = "1440"
         ```
-
+    3. Restart the server.
 ---
 
 ## Try it out 
@@ -72,20 +74,51 @@ This feature can also be invoked via a PUT/PATCH request to SCIM 2.0 /Users endp
 
 Given below is a sample request and the relevant response for updating the email address via a PATCH operation to SCIM 2.0 Users endpoint.
 
-**Request**
-
-```curl
+```curl tab="Request"
 curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], "Operations":[{"op":[operation], "value":{ "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {"verifyEmail": [true/false]}, "emails":[{"primary":true, "value":[new email]}]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[user ID]
 ```
 
-**Sample**
-
-```curl tab="Request"
+```curl tab="Example" 
 curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], "Operations":[{"op":"replace","value":{ "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {"verifyEmail": "true"}, "emails":[{"primary":true,"value":"kim.jackson.new@gmail.com"}]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
 ```
 
-```curl tab="Response" 
-{"emails":["kimjack@gmail.com"],"meta":{"created":"2020-01-07T09:32:18","location":"https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21,"lastModified":"2020-01-07T14:18:49","resourceType":"User"},"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"pendingEmails":[{"value":"kim.jackson.new@gmail.com"}]},"roles":[{"type":"default","value":"Internal/everyone"}],"name":{"givenName":"kim","familyName":"jackson"},"id":"1e624046-520c-4628-a245-091e04b03f21","userName":"kim"}
+**Sample Response**
+
+```
+{
+    "emails":[
+        "kimjack@gmail.com"
+    ],
+    "meta":{
+        "created":"2020-01-07T09:32:18",
+        "location":"https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21",
+        "lastModified":"2020-01-07T14:18:49",
+        "resourceType":"User"
+    },
+    "schemas":[
+        "urn:ietf:params:scim:schemas:core:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+    ],
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{
+        "pendingEmails":[
+            {
+                "value":"kim.jackson.new@gmail.com"
+             }
+        ]
+    },
+    "roles":[
+        {
+            "type":"default",
+            "value":"Internal/everyone"
+        }
+    ],
+    "name":{
+        "givenName":"kim",
+        "familyName":"jackson"
+    },
+    "id":"1e624046-520c-4628-a245-091e04b03f21",
+    "userName":"kim"
+}
 ```
 
 The new email address is represented in the SCIM response as an attribute of Enterprise User Extension. Given below is the extracted representation of it.
