@@ -25,30 +25,6 @@ curl -v -k --user admin:admin --data '{"failOnErrors":1,"schemas":["urn:ietf:par
 
 ---
 
-## Import users using SOAP
-
-You can also import users from a `.csv` file by initiating a SOAP request as shown below. 
-
-```curl
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:bulkImportUsers>
-         <!--Optional:-->
-         <!--Optional:-->
-         <xsd:fileName>bulkUserImport.csv</xsd:fileName>
-         <!--Optional:-->
-         <xsd:handler>cid:133299223356</xsd:handler>
-         <!--Optional:-->
-         <xsd:defaultPassword>admin</xsd:defaultPassword>
-      </xsd:bulkImportUsers>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-You can find a sample csv file to try this in the [product-is repo](https://github.com/wso2/product-is/blob/master/modules/integration/tests-ui-integration/src/test/resources/artifacts/IS/userMgt/bulkUserImport.csv). 
-
----
-
 ## Import users using CSV files
 
 ### Create a file with user attributes
