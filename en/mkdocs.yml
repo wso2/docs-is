@@ -53,6 +53,7 @@ nav:
       - 'Provisioning Architecture': get-started/provisioning-architecture.md
       - 'User Management Architecture': get-started/user-management-architecture.md
     - 'About this Release': get-started/about-this-release.md
+    - 'Community': get-started/community.md
     - 'Feature Tour': get-started/quick-start-guide.md
   - 'Samples':
       - 'Overview': quick-starts/overview.md
