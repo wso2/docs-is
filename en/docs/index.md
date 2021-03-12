@@ -163,7 +163,7 @@ template: templates/single-column.html
    </header>
    <div class="homepgfooter" style="float:right; width: 100%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:100%; margin-top:5px;box-shadow: 0 2px 8px 0 rgba(92,102,111,.15);text-align: center; font-size:large; padding-top: 20px;">
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="https://wso2.com/community"   rel="nofollow noopener">Community</a>
+        <a  href="../../get-started/community/"   rel="nofollow noopener">Community</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
         <a  href="https://wso2.com/blog/identity-and-access-management/"   rel="nofollow noopener">Blogs/Articles</a>
