@@ -4,11 +4,13 @@ This feature enables mobile number verification when the user updates the user p
 
 When a user updates their mobile number in the user profile, an SMS OTP is sent to the new mobile number. Until the new mobile number is successfully verified, the existing mobile number of the user will not be overridden.
 
-!!! note 
+!!! warning "Important" 
     -   This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
-    -   The verification on update capability is **only** supported for the http://wso2.org/claims/mobile claim.
+    -   The verification on update capability is **only** supported for the `http://wso2.org/claims/mobile` claim.
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
-    -   Sending the SMS OTP verification is skipped when updating the mobile number as long as the `verifyMobile` claim is not set to true.
+    -   Sending the SMS OTP verification is skipped in the following instances:
+        1. The `verifyMobile` claim is not set to true in the SCIM 2.0 request.
+        2. The claim update is invoked by a user other than the claim owner.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
 ---
@@ -39,8 +41,9 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         ``` 
         
         !!! note
-            This publisher uses [NEXMO](https://www.nexmo.com/) as the SMS REST service provider. For more information 
-            on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
+            This publisher uses [NEXMO](https://www.nexmo.com/) as the SMS REST service provider. The 
+            `api_key` and `api_secret` needs to be replaced with the appropriate values copied from the NEXMO API Dashboard. 
+            For instructions on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
             /display/DAS300/HTTP+Event+Publisher). 
 
 ----
@@ -49,9 +52,9 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
 
 1.  On the management console, navigate to **Main > Identity Providers > Resident > Other Settings > User Claim Update**.
    
-2.  Enable **Enable user mobile number verification on update**. Additionally, you can define the expiry time (in minutes) for the verification SMS OTP to match your requirement. 
+2.  Select **Enable user mobile number verification on update**. Additionally, you can define the expiry time (in minutes) for the verification SMS OTP to match your requirement. 
     
-    ![](../../assets/img/extend/mobile-verification-on-update-config.png)
+    ![](../../assets/img/guides/mobile-verification-on-update-config.png)
 
 3.  Click **Update** to save the changes. 
 
@@ -64,9 +67,9 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         ```toml 
         [identity_mgt.user_claim_update.mobile]
         enable_verification = true
-        verification_sms_otp_validity = “5”
+        verification_sms_otp_validity = "5"
         ```
-
+    3. Restart the server.
 ---
 
 ## Try it out 
@@ -85,8 +88,9 @@ curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":
 **Sample Request**
 
 ```curl
-curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-"Operations":[{"op":"replace","value":{"phoneNumbers":[{"type":"mobile","value":"0123456789"}]}}]}' 
+curl -v -k --user bob:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+"Operations":[{"op":"replace","value":{"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {"verifyMobile": "true"},
+"phoneNumbers":[{"type":"mobile","value":"0123456789"}]}}]}' 
 --header "Content-Type:application/json" https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
 ```
 
@@ -131,9 +135,6 @@ curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api
 ```
 
 Upon receiving the response given above, the user will receive an SMS notification with a verification code to the new mobile number. 
-
-To validate the verification code sent to the user, use the existing `validate-code` and `resend-code` APIS of the
- [Self Registration REST APIs](https://docs.wso2.com/display/IS511/apidocs/self-registration/). 
  
 ### Validating the verification code
 
