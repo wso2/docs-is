@@ -121,7 +121,7 @@ with the WSO2 IS.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given here.
-3.  Access the [WSO2 Identity Server User Portal](https://localhost:9443/user-portal/).
+3.  Access the [WSO2 Identity Server **My Account**](https://localhost:9443/myaccount).
 4.  Click the **Forgot Username** link.
 5.  Enter the required fields and click **Submit**.  
     ![enter-fields-dashboard](../assets/img/using-wso2-identity-server/enter-fields-userportal.png) 

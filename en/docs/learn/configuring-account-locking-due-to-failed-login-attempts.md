@@ -95,7 +95,7 @@ Follow the steps below to configure account locking due to failed login attempts
 
 4.	To mimic account locking:
 
-	1.	Access the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.  
+	1.	Access the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`.  
 
 		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
 		 solid grey"> 	
@@ -110,7 +110,7 @@ Follow the steps below to configure account locking due to failed login attempts
 
 		<img src="../../assets/img/learn/account-locked-email.png" alt="Account Locked email" width="500" style="border:1px solid grey">  
 
-	4.	Wait for 15 minutes and try to log in again with the correct credentials. The WSO2 Identity Server User Portal
+	4.	Wait for 15 minutes and try to log in again with the correct credentials. The WSO2 Identity Server **My Account**
 	 home screen appears.  
 
 

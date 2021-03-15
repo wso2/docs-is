@@ -76,7 +76,7 @@ authentication.
 
     -   The user has revoked consent for the application. For more
         information on revoking user consent, see 
-        [Consent management](../../learn/user-portal/#consent-management)
+        [Consent management](../learn/my-account.md/#consent-management)
         .
 
     -   The application requires new claim that the user has
@@ -140,7 +140,7 @@ authentication.
     !!! tip
     
         For more information on revoking/accepting user consent, see
-        [Consent management](../../learn/user-portal/#consent-management)
+        [Consent management](../learn/my-account.md#consent-management)
         .
     
 

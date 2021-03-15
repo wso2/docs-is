@@ -80,7 +80,7 @@ Follow the steps below to define the password policy that Sam wants to enforce.
 
 3.	To change the password:
 
-	1.	Access WSO2 Identity Server user portal at `https://localhost:9443/user-portal/`.
+	1.	Access WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`.
 
 	2.	Log in with the credentials of the user account that you created.
 

@@ -193,7 +193,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     identity_server_service_url="https://$ref{server.hostname}:9443/services"
     ```
 
-2.  Uncomment and change the user portal reference in `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/web.xml`.
+2.  Uncomment and change the my account reference in `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/web.xml`.
 
     ``` xml
     <context-param>
@@ -410,7 +410,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     …
     ```
 
-13. Uncomment and change the user portal reference in the `<TOMCAT_HOME>/accountrecoveryendpoint/WEB-INF/web.xml` file.
+13. Uncomment and change the my account reference in the `<TOMCAT_HOME>/accountrecoveryendpoint/WEB-INF/web.xml` file.
 
     ``` xml
     …

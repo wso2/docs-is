@@ -129,12 +129,12 @@ parameters in a request object via WSO2 IS:
         	-   Mark the claims given above as **Mandatory Claims**. This
         		will ensure that the user will be prompted once again to
         		provide consent for the newly added/changed claims.
-        	-   Log in to the user portal, revoke the consent reciept
+        	-   Log in to the **My Account**, revoke the consent reciept
         		for the application, and then attempt to log in to the
         		application again. Now you will be prompted to provide
         		consent for all requested claims, including the newly
         		added/changed claims. For more information on
-        		revoking/accepting user consent, see [Consent management](../../learn/user-portal/#consent-management).
+        		revoking/accepting user consent, see [Consent management](../learn/my-account.md#consent-management).
 
     4.  Click **Update**.
 

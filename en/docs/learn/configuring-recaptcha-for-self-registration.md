@@ -33,8 +33,8 @@ You can either configure the recaptcha for a tenant, or configure it globally.
     ![self-registration-enable-recaptcha](../assets/img/using-wso2-identity-server/self-registration-enable-recaptcha.png)
 7.  You have now successfully configured reCaptcha for the self
     registration flow. Start the WSO2 Identity Server and log in to the
-    user portal using the following link:
-    <https://localhost:9443/user-portal>
+    **My Account** using the following link:
+    <https://localhost:9443/myaccount>
 
     !!! tip
         If you have changed the port offset or modified the hostname, change the port or
@@ -140,8 +140,8 @@ You can either configure the recaptcha for a tenant, or configure it globally.
 4.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha](../../learn/setting-up-recaptcha).
-5.  Start the WSO2 Identity Server and log in to the user portal
-    using the following link: `<https://localhost:9443/user-portal>`
+5.  Start the WSO2 Identity Server and log in to the **My Account**
+    using the following link: `<https://localhost:9443/myaccount>`
 
     !!! tip
         If you have changed the port offset or modified the hostname, change the port or

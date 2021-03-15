@@ -132,7 +132,7 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 
 4.	To mimic a forgotten username:
 
-	1.	On the Sign In screen of the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`, click
+	1.	On the Sign In screen of the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`, click
 	 **Username**.
 
 		<img src="../../assets/img/learn/forgotten-user-name-option.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	

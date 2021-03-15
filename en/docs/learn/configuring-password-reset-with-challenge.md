@@ -73,7 +73,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 3.	To configure the challenge questions:
 
-	1.	Access WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`. 		
+	1.	Access WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`. 		
 
 	2.	Log in with the credentials of the user account that you created.
 
@@ -100,7 +100,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 4.	To mimic a forgotten password:
 
-	1.	On the Sign In screen of the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`, click
+	1.	On the Sign In screen of the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`, click
 	 **Password**.
 
 		<img src="../../assets/img/learn/forgotten-password-option.png" alt="Sign In form" width="700" style="border:1px solid grey"> 	
@@ -123,4 +123,4 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 		<img src="../../assets/img/learn/password-reset-form.png" alt="Password Reset form" width="500" style="border:1px solid grey">  	  
 
-	8.	Enter the user name and new password and click **Sign In**. The User Portal home screen appears. 
+	8.	Enter the user name and new password and click **Sign In**. The **My Account** home screen appears. 

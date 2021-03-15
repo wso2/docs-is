@@ -1,7 +1,12 @@
 # Setting Up My Account in a Development Environment
 
 !!! note 
+<<<<<<< HEAD
+    The **user portal** application has been renamed as **My Account** from this release onwards.
+=======
     The **User Portal** application has been renamed as **My Account** from this release onwards.
+>>>>>>> b32ebc7751fa4bc34c009b9ab213156efe77687e
+
 In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/)(WSO2 IS), **My Account** can be accessed via the URL `http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/myaccount`. 
 
 Follow the steps given below to set up the repo in a development environment.
