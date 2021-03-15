@@ -1,95 +1,64 @@
-# Overview
+# Overview 
 
-As an enterprise's applications, services, and API adoptions grow,
-managing identities (such as employees, vendors, partners, and
-customers) across internal, shared, and SaaS services becomes a
-significant challenge. The [WSO2 Identity
-Server](http://wso2.com/products/identity-server/) is a product that can
-meet this challenge and also provide options to solve identity problems
-you may encounter in future.
+Are you new to WSO2 Identity Server? Let's get to know about what we are all about! 
 
-WSO2 Identity Server is fully open source and is released under [Apache
-Software License Version
-2.0,](http://www.apache.org/licenses/LICENSE-2.0) one of the most
-business-friendly licenses available today.
+WSO2 Identity Server (WSO2 IS) is all about simplifying the Identity and Access Management (IAM) needs of your organization. It is based on open standards and is fully open source. It is released under the [Apache Software License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-### About identity in the digital business
+The product ensures easy integration with a variety of applications to facilitate single sign-on (SSO) using industry-wide accepted standards, social login, identity federation, API security, strong authentication, account management, privacy compliance, and more. 
 
-In the digital world of today, the modern enterprises have to offer
-their numerous customers remote access to sizable amounts of sensitive
-and confidential information, while still maintaining access control and
-stringent information security at all times. Additionally, all of this
-needs to take place at the bat of an eyelid.
+Basically, WSO2 Identity Server takes care of secure yet convenient sign-ins of your customers and employees, and then manages them efficiently as well, while you focus on your core business. 
 
-A typical digital business of today relies on users who are constantly
-on the move and using various applications and devices. These users are
-now using their own devices for ease of access and prefer to sign in
-just once. Basically, the digital business caters to people who would
-like to use their Facebook, Google, or LinkedIn credentials to access
-other information on their own devices. Here’s the catch: an
-individual’s identity needs to be validated across these applications,
-and this needs to take place in a manner that will ensure security as
-well as speed of access and ease of use.
+<iframe width="800" height="250" src="https://www.youtube.com/embed/QUlcGOOdXU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Identity management
+---
 
-Identity management is used to directly influence the security and
-productivity of an organization. This can enforce consistency in
-security policies across the organization. Identity management is
-particularly advantageous when complying with rules and regulations
-enforced in some critical domains by governments. This can also be a
-means to provide access to resources to outside parties without
-compromising security. Controlling access to resources increases
-organizational security. A system that uses a proper identity management
-solution is easier to audit. Additionally, there are automated password
-reset capabilities.
+## Who uses WSO2 Identity Server?
 
-An identity management system would typically have the following.
+- **Application developers** who build extensive IAM and CIAM solutions for organizations by integrating them with other applications, is responsible for the implementation and deployment of SSO and MFA solutions in the organization, integrate third party applications to their applications/portals via APIs, integrate standards-based IAM products with homegrown IAM solutions, and extends the platform to enhance capabilities using several extension points. 
 
--   User stores and directories
--   Authentication of users
--   Authorization of users
--   Single sign-on
--   Provisioning
--   Access delegation
--   Password reset
--   Self-registration
--   Account locking
+- **Administrators** or **Team leaders** looking for an easy but secure way to onboard their users to their portals and manage their accounts effectively. 
 
-### The Identity Server and the solution it provides
+- **Data Protection Officers** who need to implement and monitor a system that adheres to privacy protection regulations across the organization
 
-WSO2 Identity Server provides secure identity management for enterprise
-web applications, services, and APIs by managing identity and
-entitlements of the users securely and efficiently. The Identity Server
-enables enterprise architects and developers to reduce identity
-provisioning time, guarantee secure online interactions, and deliver a
-reduced single sign-on environment. The WSO2 Identity Server decreases
-the identity management and entitlement management administration burden
-by including the role-based access control (RBAC) convention,
-fine-grained policy-based access control, and Single-Sign-On (SSO)
-bridging.
+- **Insight managers** who need precise data on logins, registrations, and user activities to derive at business insights. 
 
-The Identity Server enables you to create, maintain and terminate user
-accounts along with user identities across multiple systems including
-Cloud applications. When there are multiple applications that
-require authentication, users should be able to log in at one place and
-still have seamless access to all the other applications.
+---
 
-Additionally, the Identity Server brings about a new and improved
-approach to federation. There is a centralized Identity as a Service
-Provider. It is still an overall n to n relationship. There is a 1 to n
-relationship from a federation partner to consumer services (where
-multiple consumer services rely on a single centralized federated
-Identity Provider for security) and a 1 to n relationship from consumer
-service to federation partners (where a single consumer service can rely
-on multiple Identity providers for security). This model ensures greater
-efficiency.
+## Why WSO2 Identity Server?
 
-WSO2 Identity Server has the ‘ [Jaggery](http://jaggeryjs.org/) ’ user
-interface for end users. Apart from the [Management
-Console](../../setup/getting-started-with-the-management-console), an [end user
-view](../../learn/user-portal) is available to manage profiles,
-to recover accounts and to manage authorized apps. The log in and
-consent pages in the UI can be completely customized because they run on
-a separate context as a separate web application. These web applications
-can even be dropped into a separate application server if required.
+![iam functionality](../../../assets/img/guides/iam-functionality.png)
+
+- **To unify sign-ins** - Typically in an organization, you need to work with several heterogenous applications. You also need to integrate with a number of external applications for your day to day activities. As unrelated as these applications might be to each other, a user needs to sign in to many of them at the same time. WSO2 facilitates single sign-on (SSO) that eliminates the need to sign in separately to each application and instead, allows users to stay signed in to multiple applications by signing in once. This is more user-friendly and less time-consuming. 
+
+- **To give the right access to the right people** - Having said that accessing an application should be convenient, you might not need all your users accessing all the applications. For example, you wouldn't want everyone accessing the payroll information and would want to give the access only to a dedicated finance team. This is just one example where users need to be authenticated based on their role. 
+
+- **To enforce strong authentication** - Authenticating a user using their username and password alone might not be the best idea with increasing phishing atttacks and data breaches. WSO2 Identity Server offers multi-factor and adaptive authentication capabilities on top of its default basic authentication. It comprehensively supports MFA with authenticators such as Email OTP, SMS OTP, FIDO etc. While ensuring maximum security using MFA, it also does not want to compromise on the usability, hence providing a number of factors based on which additional authentication would be required like the volatile nature of user devices, networks, locations, and usage contexts. The users who are not prone to mishaps via any of these factors can just skip the additional steps of authentication.  
+
+- **To empower users to manage their own accounts** - Your company might be working in a very dynamic industry where you cannot sit around waiting for things to happen. WSO2 Identity Server provides an option for users to register to applications by themselves, view, and manage their profiles. This reduces the waiting time of the application user while also taking some burden off the administrator who has to take care of the overwhelming task of onboarding all the users. 
+
+- **To manage users and their accounts** - WSO2 Identity Server takes care of the whole identity lifecycle management for each account right from onboaring users, managing their profiles, managing passwords, locking or unlocking accounts, suspending accounts, and disabling accounts. You can also provision users from WSO2 Identity Server to a trusted identity provider such as Google or Salesforce, or provision users or groups to the WSO2 Identity Server’s userstore via an external application. It also has the ability to integrate with heterogeneous userstores such as LDAP, Active Directory, and JDBC.
+
+- **To secure ever-growing APIs** - Gone are the days where API security simple meant a secure authorization. Any organization that operates based on API interactions, needs to implement a secure framework around it. This is an expecation of both customers and regulatory authorities. While building an ecosystem for API security, WSO2 Identity Server plays a key role as the Authorization Server that supports several OAuth related standards or profiles. It supports open standards such as OAuth, OpenID Connect, SAML 2.0, and XACML. It also enables high availability, failover, and performance for a smooth operation. 
+
+
+- **To safeguard user data and give them control over it** - With increasing regulations imposed by GDPR and similar privacy laws such as CCPA or LGDP, privacy has become key to business sustainability. WSO2 Identity Server enables recording, reviewing, and revoking user consents by adhering to privacy by design principles and industry standards and regulations. It also gives users the control over what they share and lets them be aware of how their data is used.
+
+---
+
+## What is WSO2 CIAM?
+
+WSO2 Customer Identity and Access Management is all about ensuring your customer's convenience, and securing their identity and profile data. 
+
+Smooth registration and access to your application means more engaged and less frustrate customers. This is acheieved in WSO2 CIAM via a multitude of techniques including self registration, single sign-on, and social logins with BYOID. 
+
+This frictionless access is always accompanied by a secure profile management. Privacy and consent are of top priority and includes apt practices for consent management, preference management, profile management, and user pseudonimization or anonymization. 
+
+It also provides a number of extension points to gather data for your business insights by integrating with CRM and marketing tools while ensuring privacy compliance.
+
+---
+
+!!! info ""
+    To know more about the product and to try out its offerings, see [WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
+
+
+
