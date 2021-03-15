@@ -211,7 +211,7 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
 
     1. Open the `product-footer.jsp` file in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
 
-    2. To add the company name, replace the content of the `<footer>` tag with the following code.
+    2. For example, to add the company name, you can replace the content of the `<footer>` tag with the following code.
     ```html
         <footer class="footer">
             <div class="container-fluid">
