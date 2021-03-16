@@ -228,6 +228,7 @@ nav:
           - 'Client-side Support for SAML Artifact Binding': learn/client-side-support-for-saml-artifact-binding.md
           - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': learn/eidas-saml-attribute-profile-support-via-wso2-identity-server.md
           - 'Handling SAML Single Logout Requests from Federated identity Providers': learn/handling-saml-single-logout-requests-from-federated-identity-providers.md
+          - 'Configuring OIDC Federated Identity Provider Initiated Logout': learn/configuring-oidc-federated-idp-initiated-logout.md
       - 'Access Control':
         - 'Access Control Overview': learn/access-control.md
         - 'Working with Entitlement':

@@ -11,25 +11,28 @@ configured as service providers in the OIDC provider. OIDC provider is configure
 Application 1 is configured as a service provider in the WSO2 IS. When the user initiates the logout from Application 2,
 first the federated OIDC provider handles the request and propagates the logout request to WSO2 IS. After receiving the
 logout request from the federated identity provider, WSO2 IS processes the request and terminates the sessions and sends
-back a valid logout response.
+back a valid logout response. User is logged out from the Application 1.
 
-![oidc-fed-idp-init-logout-scenario](../assets/img/tutorials/oidc-fedidpinitlogout-scenario.png)
+![oidc-fed-idp-init-logout-scenario](../assets/img/tutorials/oidc-fed-idp-init-logout-scenario.png)
 
 ## Trying out the flow with WSO2 Identity Server
 
 To demonstrate the OIDC federated identity provider initiated logout, this tutorial uses two WSO2 identity servers which
 are running on port 9443 (Primary IS) and 9444 (Secondary IS), and two sample web applications, “Pickup-Dispatch” and
 “Pickup-Manager”. In this scenario Secondary IS acts as a federated OIDC identity provider and “Pickup-Dispatch” and
-“Pickup-Manager” acts as Application 1 and Application 2. Following section provides a guide for configuring the OIDC
-federated identity provider initiated logout and trying it out with the sample applications.
+“Pickup-Manager” acts as Application 1 and Application 2 respectively. Following section provides a guide for
+configuring the OIDC federated identity provider initiated logout and trying it out with the sample applications.
 
 1. Configure Primary IS as a Service Provider in the Secondary IS
 2. Configuring Secondary IS as an Identity Provider in the Primary IS
 3. Configuring Pickup Dispatch application in the Primary IS
 4. Configuring Pickup Manager application in the Secondary IS
 
-> Note - Since there can be issues with cookies due to same hostname in both WSO2 identity servers, follow the
-> https://is.docs.wso2.com/en/latest/setup/changing-the-hostname guide to change the hostname of the Secondary IS. In this guide hostname of the SecondaryIS is configured as “localhost.com”.
+!!! note
+
+      Since there can be issues with cookies due to same hostname in both WSO2 identity servers, follow the 
+      https://is.docs.wso2.com/en/latest/setup/changing-the-hostname guide to change the hostname of the 
+      Secondary IS. In this guide hostname of the SecondaryIS is configured as “localhost.com”.
 
 ### Configure Primary IS as a Service Provider in the Secondary IS
 
@@ -41,12 +44,12 @@ federated identity provider initiated logout and trying it out with the sample a
    “PrimaryIS” and click **Register**.
 6. Expand the **OAuth2/OpenID Connect Configuration** section under the **Inbound Authentication Configuration** section
    and click **Configure**.
-7. Add https://localhost:9443/commonauth as **Callback Url**.
+7. Add `https://localhost:9443/commonauth` as **Callback Url**.
 
    ![oidc-federated-idp-config](../assets/img/tutorials/oidc-federated-idp-config.png)
 
-8. Tick the **Enable OIDC Back-channel Logout** checkbox and add https://localhost:9443/identity/oidc/slo as **
-   Back-channel Logout Url**.
+8. Tick the **Enable OIDC Back-channel Logout** checkbox and add `https://localhost:9443/identity/oidc/slo` as
+   **Back-channel Logout Url**.
 
    ![oidc-back-channel-logout-url](../assets/img/tutorials/oidc-back-channel-logout-url.png)
 
@@ -62,24 +65,25 @@ federated identity provider initiated logout and trying it out with the sample a
 6. Expand the **OAuth2/OpenID Connect Configuration** section under **Federated Authenticators** section.
 7. Fill the fields as follows.
 
-   Here client id and secret is the Oauth Client Key and Secret generated in the above step.
-    - Authorization Endpoint URL - https://localhost.com:9444/oauth2/authorize
-    - Token Endpoint URL - https://localhost.com:9444/oauth2/token
-    - Callback Url - https://localhost.com>:9443/commonauth
-    - Userinfo Endpoint URL - https://localhost.com:9444/oauth2/userinfo
-    - Logout Endpoint URL - https://localhost.com:9444/oidc/logout
+Here client id and secret is the Oauth Client Key and Secret generated in the above step.
 
-   Add `scope=openid` in the **Additional Query Parameters**.
+- Authorization Endpoint URL - https://localhost.com:9444/oauth2/authorize
+- Token Endpoint URL - https://localhost.com:9444/oauth2/token
+- Callback Url - https://localhost.com>:9443/commonauth
+- Userinfo Endpoint URL - https://localhost.com:9444/oauth2/userinfo
+- Logout Endpoint URL - https://localhost.com:9444/oidc/logout
 
-   ![oidc-fed-idp-config-in-primary-idp](../assets/img/tutorials/oidc-fed-idp-config-in-primary-idp.png)
+Add `scope=openid` in the **Additional Query Parameters**.
+
+![oidc-fed-idp-config-in-primary-idp](../assets/img/tutorials/oidc-fed-idp-config-in-primary-idp.png)
 
 8. Signature of the logout token is validated using either, using registered JWKS uri or uploaded certificate to the
    relevant identity provider.
 
-    - Under the **Basic Information** section select the **Use IDP JWKS endpoint** option from **Choose IDP certificate
-      type** and add the JWKS uri
-      https://localhost.com:9444/oauth2/jwks to Identity Provider's JWKS Endpoint.
-      ![oidc-primary-idp-certificate-config](../assets/img/tutorials/oidc-primary-idp-certificate-config.png)
+   - Under the **Basic Information** section select the **Use IDP JWKS endpoint** option from **Choose IDP certificate
+     type** and add the JWKS uri
+     `https://localhost.com:9444/oauth2/jwks` to Identity Provider's JWKS Endpoint.
+     ![oidc-primary-idp-certificate-config](../assets/img/tutorials/oidc-primary-idp-certificate-config.png)
 
     - Alternatively, select the **Upload IDP certificate** option from **Choose IDP certificate type** and upload the
       certificate of the SecondaryIS.
@@ -111,7 +115,7 @@ the [OIDC back-channel logout specification](https://openid.net/specs/openid-con
 for the token signature and
 `iss`, `aud`, `iat`, `sub`, `sid`, `events` and `nonce` claims.
 
-## Configure “iat” claim validation
+### Configure “iat” claim validation
 
 To disable or change the “iat” claim validation, following configuration needs to be added into the **deployment. toml**
 file in <PRIMARY_IS_HOME>/repository/resources/conf/
@@ -124,7 +128,7 @@ iatValidityPeriod = "30"
 
 - `iatValidityPeriod` should be in minutes.
 
-- If the “iat” claim validation is enabled in the PrimaryIS, the token shouldn’t be issued before the specified time.
+- If the `iat` claim validation is enabled in the PrimaryIS, the token shouldn’t be issued before the specified time.
 
 ## Identifying Session Using ‘sub’ or ‘sid’ Claim
 
@@ -133,6 +137,27 @@ iatValidityPeriod = "30"
   claim.
 - If the logout token only contains a `sub` claim, IS will terminate all the session for that “sub” claim value
 
+## Try it out!
+
+Once you have completed configuring WSO2 IS as instructed in the above sections, try out the flow by running the sample
+applications.
+
+1. Access the following URL on a browser
+   window, [http://localhost.com:8080/pickup-dispatch/](http://localhost.com:8080/pickup-dispatch/)
+2. Click Login. You will be redirected to the WSO2 Identity Server login page (PrimaryIS - port 9443).
+3. Log in using your WSO2 Identity Server credentials. You will be redirected to the Pickup Dispatch application home
+   page.
+4. Now access the following URL on another browser window to access the Pickup Manager application, which is registered
+   in the federated identity
+   provider: [http://localhost.com:8080/pickup-manager/](http://localhost.com:8080/pickup-manager/).
+
+   You will be redirected to the WSO2 Identity Server login page (SecondaryIS - port 9444).
+5. You will be automatically logged in and redirected to the Pickup Manager application home page.
+6. Log out of the Pickup Manager application. You will be redirected back to the login page of the application.
+7. Now attempt to access the Pickup Dispatch application. You will be automatically logged out of this application as
+   well.
+
+This means that you have successfully configured OIDC federated identity provider initiated logout.
 
 
 
