@@ -259,7 +259,7 @@ nav:
           - 'Web Applications':
             - 'Authorization Code': guides/access-delegation/authorization-code.md
             - 'Client Credentials': guides/access-delegation/client-credentials.md
-            - 'Resource Owner Password Credentials' : guides/access-delegation/password-grant.md
+            - 'Resource Owner Password Credentials': guides/access-delegation/password-grant.md
             - 'SAML2 Bearer Assertion': guides/access-delegation/saml2-bearer-assertion-profile.md
           - 'Client Side Applications':
             - 'Implicit': guides/access-delegation/implicit.md
