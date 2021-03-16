@@ -142,6 +142,7 @@ nav:
           - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
           - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
+          - 'Configuring OIDC Federated Identity Provider Initiated Logout': learn/configuring-oidc-federated-idp-initiated-logout.md
         - 'Logging into WordPress using the Identity Server': learn/logging-in-to-wordpress-using-the-identity-server.md
         - 'Logging into OpenCart using the Identity Server': learn/logging-in-to-opencart-using-the-identity-server.md
         - 'Logging into Drupal using the Identity Server': learn/logging-into-drupal-using-the-identity-server.md
@@ -228,7 +229,6 @@ nav:
           - 'Client-side Support for SAML Artifact Binding': learn/client-side-support-for-saml-artifact-binding.md
           - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': learn/eidas-saml-attribute-profile-support-via-wso2-identity-server.md
           - 'Handling SAML Single Logout Requests from Federated identity Providers': learn/handling-saml-single-logout-requests-from-federated-identity-providers.md
-          - 'Configuring OIDC Federated Identity Provider Initiated Logout': learn/configuring-oidc-federated-idp-initiated-logout.md
       - 'Access Control':
         - 'Access Control Overview': learn/access-control.md
         - 'Working with Entitlement':
