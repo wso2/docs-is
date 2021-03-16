@@ -83,5 +83,5 @@ http://wso2is.local:8080/playground2/oauth2client#access_token=80c7c0d7-070a-38f
 
 !!! info "Related Topics"
     - [Concept: OpenID Connect Implicit Client](../../../concepts/authentication/implicit-client-profile/)
-    - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
+    - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
     
