@@ -101,5 +101,5 @@ TODO: dev-portal-fragment
 ---
     
 !!! info "Related Topics"
-    -   [Concept: Configuring SAML Front Channel Logout](../../../concepts/authentication/saml-front-channel)
+    -   [Concept: Configuring SAML Front Channel Logout](../../../references/concepts/authentication/saml-front-channel)
     -   [Guide: Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)

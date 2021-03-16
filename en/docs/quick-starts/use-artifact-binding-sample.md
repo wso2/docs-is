@@ -1,6 +1,6 @@
 # Use SAML2 Artifact Binding
 
-This page guides you through enabling [SAML2 artifact binding](../../../concepts/authentication/saml2-artifact-binding) with WSO2 Identity Server.
+This page guides you through enabling [SAML2 artifact binding](../../../references/concepts/authentication/saml2-artifact-binding) with WSO2 Identity Server.
 
 ----
 If you have your own application, click the button below.
@@ -45,6 +45,6 @@ You have successfully set up SAML artifact binding. See the sections below for m
 -----
 
 !!! info "Related Topics"
-    - [Concept: SAML2 Artifact Binding](../../../concepts/authentication/saml2-artifact-binding)
+    - [Concept: SAML2 Artifact Binding](../../../references/concepts/authentication/saml2-artifact-binding)
     - [Guide: Use SAML2 Artifact Binding](../../../guides/login/use-artifact-binding)
     - [Guide: Enable Login for a SAML Application](../../../guides/login/webapp-saml)

@@ -1,6 +1,6 @@
 # Enable Login for a Client Side Application
 
-This page guides you through enabling authentication using the [Authorization Code](../../../concepts/authorization/authorization-code-grant) 
+This page guides you through enabling authentication using the [Authorization Code](../../../references/concepts/authorization/authorization-code-grant) 
 grant type with [PKCE](TODO:insert-link-to-concepts) for client side applications (e.g.,mobile application , single page application) that uses OpenID Connect. 
 
 ---
@@ -77,7 +77,7 @@ Make the following requests via your application to connect your application to 
 ----
 
 !!! info "Related Topics"
-    - [Concept: Authorization Code Grant](../../../concepts/authorization/authorization-code-grant)
+    - [Concept: Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant)
     - [Concept: PKCE](TODO:insert-link-to-concepts)
     - [Demo: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
     - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)

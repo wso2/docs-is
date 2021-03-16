@@ -1,6 +1,6 @@
 # Implicit Grant
 
-This page guides you through using [Implicit Grant](../../../../concepts/authorization/implicit-grant/) 
+This page guides you through using [Implicit Grant](../../../references/concepts/authorization/implicit-grant/) 
 to configure authentication for an OAuth/OpenID Connect application. 
 
 ----
@@ -56,6 +56,6 @@ http://wso2is.local:8080/playground2/oauth2client#access_token=317c19b3-73e3-390
 ```
 
 !!! info "Related Topics"
-    - [Concept: Implicit Grant](../../../../concepts/authorization/implicit-grant/)
+    - [Concept: Implicit Grant](../../../references/concepts/authorization/implicit-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
     - [Demo: Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground)

@@ -46,16 +46,16 @@ theme:
 # Navigation
 nav:
   - 'Home': index.md
-  - 'Get Started':
+  - 'Overview':
     - 'Introduction': get-started/overview.md
     - 'Architecture':
       - 'Architecture': get-started/architecture.md
       - 'Provisioning Architecture': get-started/provisioning-architecture.md
       - 'User Management Architecture': get-started/user-management-architecture.md
     - 'About this Release': get-started/about-this-release.md
-    - 'Community': get-started/community.md
+    - 'Contribute': get-started/community.md
     - 'Feature Tour': get-started/quick-start-guide.md
-  - 'Samples':
+  - 'Quick Starts':
       - 'Overview': quick-starts/overview.md
       - 'Choose a Sample Type':
         - 'Android': quick-starts/android-sample.md
@@ -311,11 +311,6 @@ nav:
         - 'Use a Custom Attribute Dialect': guides/attribute-dialects/custom-dialect.md
         - 'Map Attributes': guides/attribute-dialects/map-attributes.md
         - 'Configure Attribute Metadata': guides/attribute-dialects/metadata.md
-      - 'Workflows':
-        - 'Define a Workflow': guides/workflows/add-a-new-workflow-definition.md
-        - 'Engage a Workflow to an Operation': guides/workflows/engage-a-workflow-in-an-operation.md
-        - 'Manage Human Tasks': guides/workflows/manage-human-tasks.md
-        - 'Monitor Workflow Requests': guides/workflows/monitor-workflow-requests.md
       - 'Tenants':
         - 'Set Up a Tenant Loading Policy': guides/tenants/configure-the-tenant-loading-policy.md
         - 'Add New Tenants': guides/tenants/add-new-tenants.md
@@ -578,109 +573,7 @@ nav:
         - 'Identity Provider Configurations used with APIs': apis/identity-provider-configurations-used-with-apis.md
     - 'Entitlement with APIs':
       - 'Entitlement with APIs': apis/entitlement-with-apis.md
-  - 'Concepts':
-      - 'User Management': 
-        - 'Overview': concepts/user-management/user-management.md
-        - 'Users': concepts/user-management/users.md
-        - 'Roles and Permissions': concepts/user-management/roles-and-permissions.md
-        - 'Userstores': concepts/user-management/userstores.md
-        - 'Realms': concepts/realm.md
-      - 'Authentication':
-          - 'Introduction': concepts/authentication/intro-authentication.md
-          - 'Authentication Protocols':
-                  - 'Introduction': concepts/authentication/intro-protocols.md
-                  - 'OIDC':
-                          - 'Introduction': concepts/authentication/intro-oidc.md
-                          - 'OIDC Client Profiles':
-                                    - 'Introduction': concepts/authentication/intro-profiles.md
-                                    - 'Basic Client Profile': concepts/authentication/basic-client-profile.md
-                                    - 'Implicit Profile': concepts/authentication/implicit-client-profile.md
-                                    - 'Hybrid Profile': concepts/authentication/hybrid-client-profile.md
-                          - 'OIDC Tokens':
-                                    - 'Overview':  concepts/authentication/oidc-tokens.md
-                                    - 'ID Tokens':  concepts/authentication/id-token.md
-                          - 'End-User Authentication':
-                                    - 'Overview': concepts/authentication/end-user-authentication.md
-                                    - 'Request Object': concepts/authentication/request-object.md
-                                    - 'Traditional Authentication Request': concepts/authentication/traditional-authentication-request.md
-                          - 'User Information': concepts/authentication/user-information.md
-                          - 'Scopes And Claims': concepts/authentication/scopes-claims.md
-                          - 'Discovery': concepts/authentication/discovery.md
-                          - 'JWKS': concepts/authentication/jwks.md
-                          - 'Dynamic Client Registration': concepts/authorization/dcr.md
-                          - 'Session Management and Logout': concepts/authentication/session-management.md
-                          - 'Back-channel-logout': concepts/authentication/back-channel-logout.md
-                          - 'OIDC Device Flow': concepts/authentication/device-flow.md
-                          - 'Microprofile JWT 1.0': concepts/authentication/microprofile-jwt.md
-                  - 'SAML':
-                          - 'Introduction': concepts/authentication/intro-saml.md
-                          - 'SAML2 Artifact Binding': concepts/authentication/saml2-artifact-binding.md
-                          - 'SAML Front-Channel Logout': concepts/authentication/saml-front-channel.md
-                          - 'SAML Back-Channel Logout': concepts/authentication/saml-back-channel.md
-                  - 'WS-Federation':
-                          - 'Introduction': concepts/authentication/ws-federation.md
-                  - 'WS-Trust':
-                          - 'Introduction': concepts/authentication/ws-trust.md
-                  - 'NTLM':
-                          - 'Introduction': concepts/authentication/ntlm.md
-                  - 'Kerberos':
-                          - 'Introduction to Kerberos': concepts/authentication/kerberos.md
-          - 'Adaptive Authentication': concepts/authentication/adaptive-authentication.md
-          - 'Multi Factor Authentication': concepts/authentication/multi-factor-authentication.md
-          - 'FIDO': concepts/authentication/mfa-with-fido.md
-      - 'Authorization':
-          - 'Introduction': concepts/authorization/intro-authorization.md
-          - 'Authorization Protocols':
-                        - 'OAuth2':
-                                    - 'Introduction': concepts/authorization/intro-oauth2.md
-                                    - 'OAuth 2.0 Client Types': concepts/authorization/client-types.md
-                                    - 'Grant Types':
-                                          - 'Overview': concepts/authorization/grant-types.md
-                                          - 'Authorization Code Grant Type': concepts/authorization/authorization-code-grant.md
-                                          - 'Implicit Grant Type': concepts/authorization/implicit-grant.md
-                                          - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner-grant.md
-                                          - 'Client Credentials Grant Type': concepts/authorization/client-credential-grant.md
-                                          - 'Refresh Token Grant Type': concepts/authorization/refresh-token-grant.md
-                                          - 'Device Flow Grant Type': concepts/authorization/device-flow-grant.md
-                                    - 'JWT Bearer Grant Type': concepts/authorization/jwt_bearer_grant.md
-                                    - 'SAML2 Bearer Assertion Profile': concepts/authorization/saml2_bearer_assertion_profile.md
-                                    - 'Tokens':
-                                          - 'Overview': concepts/authorization/overview.md
-                                          - 'Access Tokens': concepts/authorization/access-token.md
-                                          - 'Refresh Tokens': concepts/authorization/refresh-token.md
-                                    - 'Client Authentication': concepts/authorization/client-authentication.md
-                                    - 'Token Introspection': concepts/authorization/introspection.md
-                        - 'XACML':
-                                    - 'Introduction to XACML': concepts/authorization/xacml.md
-                        - 'User Managed Access (UMA)':
-                                    - 'Introduction to UMA': concepts/authorization/user-managed-access.md
-                                    - 'Resource Registration Endpoint': concepts/authorization/uma-resource-registration.md
-                                    - 'Permissions Endpoint': concepts/authorization/uma-permissions-endpoint.md
-      - 'Single Sign On': concepts/single-sign-on.md
-      - 'Identity Federation': concepts/identity-federation.md
-      - 'Identity Provisioning':
-          - 'Introduction': concepts/identity-provisioning-intro.md
-          - 'Provisioning Framework': concepts/provisioning-framework.md
-          - 'JIT Provisioning': concepts/jit-provisioning.md
-      - 'Consent Management': concepts/consent-management.md
-      - 'Identity Anti-Patterns and the Identity Bus': concepts/identity-anti-patterns-and-the-identity-bus.md
-      - 'Claim Management': concepts/claim-management.md
-      - 'Integrated Windows Authentication': concepts/integrated-windows-authentication-overview.md
-      - 'Comparisions':
-                - 'OAuth2 vs OIDC vs SAML': concepts/oauth-oidc-saml.md
-                - 'NTLM vs Kerberos': concepts/ntlm-kerberos.md
-                - 'WS-Federation vs WS-Trust': concepts/federation-trust.md
-                - 'SSO vs Identity Federation': concepts/sso-vs-federation.md
-      - 'Compliance':
-          - 'Overview': concepts/compliance/compliance.md
-          - 'GDPR': concepts/compliance/gdpr.md
-          - 'eIDAS': concepts/compliance/eidas.md
-          - 'CCPA': concepts/compliance/ccpa.md
-      - 'Security Considerations':
-          - 'Mitigating Cross Site Request Forgery Attacks': concepts/cross-site-request-forgery-attacks.md
-          - 'Mitigating Authorization Code Interception Attacks': concepts/authorization-code-intreception-attacks.md
-          - 'Mitigating Brute Force Attacks': concepts/brute-force-attacks.md
-          - 'Timestamp in WS-Security to Mitigate Replay Attacks': concepts/replay-attacks.md
+  
   - 'Pickup quick-starts':
       - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
       - 'Pickup Dispatch SAML': fragments/pickup-dispatch-saml.md
@@ -785,6 +678,109 @@ nav:
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
     - 'Scopes Corresponding to Permissions Required to Invoke API Calls': references/scopes-corresponding-to-api-permissions.md
     - 'Usernames in WSO2 Identity Server': references/usernames-in-identity-server.md
+    - 'Concepts':
+      - 'User Management': 
+        - 'Overview': references/concepts/user-management/user-management.md
+        - 'Users': references/concepts/user-management/users.md
+        - 'Roles and Permissions': references/concepts/user-management/roles-and-permissions.md
+        - 'Userstores': references/concepts/user-management/userstores.md
+        - 'Realms': references/concepts/realm.md
+      - 'Authentication':
+          - 'Introduction': references/concepts/authentication/intro-authentication.md
+          - 'Authentication Protocols':
+                  - 'Introduction': references/concepts/authentication/intro-protocols.md
+                  - 'OIDC':
+                          - 'Introduction': references/concepts/authentication/intro-oidc.md
+                          - 'OIDC Client Profiles':
+                                    - 'Introduction': references/concepts/authentication/intro-profiles.md
+                                    - 'Basic Client Profile': references/concepts/authentication/basic-client-profile.md
+                                    - 'Implicit Profile': references/concepts/authentication/implicit-client-profile.md
+                                    - 'Hybrid Profile': references/concepts/authentication/hybrid-client-profile.md
+                          - 'OIDC Tokens':
+                                    - 'Overview':  references/concepts/authentication/oidc-tokens.md
+                                    - 'ID Tokens':  references/concepts/authentication/id-token.md
+                          - 'End-User Authentication':
+                                    - 'Overview': references/concepts/authentication/end-user-authentication.md
+                                    - 'Request Object': references/concepts/authentication/request-object.md
+                                    - 'Traditional Authentication Request': references/concepts/authentication/traditional-authentication-request.md
+                          - 'User Information': references/concepts/authentication/user-information.md
+                          - 'Scopes And Claims': references/concepts/authentication/scopes-claims.md
+                          - 'Discovery': references/concepts/authentication/discovery.md
+                          - 'JWKS': references/concepts/authentication/jwks.md
+                          - 'Dynamic Client Registration': references/concepts/authorization/dcr.md
+                          - 'Session Management and Logout': references/concepts/authentication/session-management.md
+                          - 'Back-channel-logout': references/concepts/authentication/back-channel-logout.md
+                          - 'OIDC Device Flow': references/concepts/authentication/device-flow.md
+                          - 'Microprofile JWT 1.0': references/concepts/authentication/microprofile-jwt.md
+                  - 'SAML':
+                          - 'Introduction': references/concepts/authentication/intro-saml.md
+                          - 'SAML2 Artifact Binding': references/concepts/authentication/saml2-artifact-binding.md
+                          - 'SAML Front-Channel Logout': references/concepts/authentication/saml-front-channel.md
+                          - 'SAML Back-Channel Logout': references/concepts/authentication/saml-back-channel.md
+                  - 'WS-Federation':
+                          - 'Introduction': references/concepts/authentication/ws-federation.md
+                  - 'WS-Trust':
+                          - 'Introduction': references/concepts/authentication/ws-trust.md
+                  - 'NTLM':
+                          - 'Introduction': references/concepts/authentication/ntlm.md
+                  - 'Kerberos':
+                          - 'Introduction to Kerberos': references/concepts/authentication/kerberos.md
+          - 'Adaptive Authentication': references/concepts/authentication/adaptive-authentication.md
+          - 'Multi Factor Authentication': references/concepts/authentication/multi-factor-authentication.md
+          - 'FIDO': references/concepts/authentication/mfa-with-fido.md
+      - 'Authorization':
+          - 'Introduction': references/concepts/authorization/intro-authorization.md
+          - 'Authorization Protocols':
+                        - 'OAuth2':
+                                    - 'Introduction': references/concepts/authorization/intro-oauth2.md
+                                    - 'OAuth 2.0 Client Types': references/concepts/authorization/client-types.md
+                                    - 'Grant Types':
+                                          - 'Overview': references/concepts/authorization/grant-types.md
+                                          - 'Authorization Code Grant Type': references/concepts/authorization/authorization-code-grant.md
+                                          - 'Implicit Grant Type': references/concepts/authorization/implicit-grant.md
+                                          - 'Resource Owner Password Credentials Grant Type': references/concepts/authorization/resource-owner-grant.md
+                                          - 'Client Credentials Grant Type': references/concepts/authorization/client-credential-grant.md
+                                          - 'Refresh Token Grant Type': references/concepts/authorization/refresh-token-grant.md
+                                          - 'Device Flow Grant Type': references/concepts/authorization/device-flow-grant.md
+                                    - 'JWT Bearer Grant Type': references/concepts/authorization/jwt_bearer_grant.md
+                                    - 'SAML2 Bearer Assertion Profile': references/concepts/authorization/saml2_bearer_assertion_profile.md
+                                    - 'Tokens':
+                                          - 'Overview': references/concepts/authorization/overview.md
+                                          - 'Access Tokens': references/concepts/authorization/access-token.md
+                                          - 'Refresh Tokens': references/concepts/authorization/refresh-token.md
+                                    - 'Client Authentication': references/concepts/authorization/client-authentication.md
+                                    - 'Token Introspection': references/concepts/authorization/introspection.md
+                        - 'XACML':
+                                    - 'Introduction to XACML': references/concepts/authorization/xacml.md
+                        - 'User Managed Access (UMA)':
+                                    - 'Introduction to UMA': references/concepts/authorization/user-managed-access.md
+                                    - 'Resource Registration Endpoint': references/concepts/authorization/uma-resource-registration.md
+                                    - 'Permissions Endpoint': references/concepts/authorization/uma-permissions-endpoint.md
+      - 'Single Sign On': references/concepts/single-sign-on.md
+      - 'Identity Federation': references/concepts/identity-federation.md
+      - 'Identity Provisioning':
+          - 'Introduction': references/concepts/identity-provisioning-intro.md
+          - 'Provisioning Framework': references/concepts/provisioning-framework.md
+          - 'JIT Provisioning': references/concepts/jit-provisioning.md
+      - 'Consent Management': references/concepts/consent-management.md
+      - 'Identity Anti-Patterns and the Identity Bus': references/concepts/identity-anti-patterns-and-the-identity-bus.md
+      - 'Claim Management': references/concepts/claim-management.md
+      - 'Integrated Windows Authentication': references/concepts/integrated-windows-authentication-overview.md
+      - 'Comparisions':
+                - 'OAuth2 vs OIDC vs SAML': references/concepts/oauth-oidc-saml.md
+                - 'NTLM vs Kerberos': references/concepts/ntlm-kerberos.md
+                - 'WS-Federation vs WS-Trust': references/concepts/federation-trust.md
+                - 'SSO vs Identity Federation': references/concepts/sso-vs-federation.md
+      - 'Compliance':
+          - 'Overview': references/concepts/compliance/compliance.md
+          - 'GDPR': references/concepts/compliance/gdpr.md
+          - 'eIDAS': references/concepts/compliance/eidas.md
+          - 'CCPA': references/concepts/compliance/ccpa.md
+      - 'Security Considerations':
+          - 'Mitigating Cross Site Request Forgery Attacks': references/concepts/cross-site-request-forgery-attacks.md
+          - 'Mitigating Authorization Code Interception Attacks': references/concepts/authorization-code-intreception-attacks.md
+          - 'Mitigating Brute Force Attacks': references/concepts/brute-force-attacks.md
+          - 'Timestamp in WS-Security to Mitigate Replay Attacks': references/concepts/replay-attacks.md
   - '': page-not-found.md
 
 # Extensions
@@ -838,11 +834,10 @@ extra:
 
   nav_list:
     - Home
-    - Get Started
-    - Samples
+    - Overview
+    - Quick Starts
     - Guides
     - Extend
     - Deploy
     - APIs
-    - Concepts
     - References

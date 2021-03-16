@@ -1,6 +1,6 @@
 # OAuth Dynamic Client Registration
 
-This page guides you through using [OAuth Dynamic Client Registration](../../../concepts/authorization/dcr) registering and managing an OAuth application using REST APIs.
+This page guides you through using [OAuth Dynamic Client Registration](../../../references/concepts/authorization/dcr) registering and managing an OAuth application using REST APIs.
 
 -----
 

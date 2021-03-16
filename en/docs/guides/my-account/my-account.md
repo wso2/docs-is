@@ -265,7 +265,7 @@ Depending on the user’s preference, **My Account** allows the users either to 
 
 ## Consent management
 
-WSO2 IS provides a comprehensive consent management solution that can be used to manage consents related to Identity and Access Management (IAM), and also to manage consents that belong to third party applications. For more information, see [Consent Management](../../../concepts/consent-management).
+WSO2 IS provides a comprehensive consent management solution that can be used to manage consents related to Identity and Access Management (IAM), and also to manage consents that belong to third party applications. For more information, see [Consent Management](../../../references/concepts/consent-management).
 **My Account** allows users to revoke or edit the consent given to applications registered in WSO2 IS. In order to edit or revoke application consents, refer to the instructions given below.
 
 ### Revoke consent

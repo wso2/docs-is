@@ -89,4 +89,4 @@ admin services, see [Calling Admin Services](insert-calling admin services).
     - [Guide: Just in Time User Provisioning Workflow](../../identity-lifecycles/user-account-overview)
     - [Guide: Bulk Import Users](../../identity-lifecycles/import-users)
     - [Guide: Outbound Provisioning](../../identity-lifecycles/outbound-provisioning)
-    - [Concept: Users](../../../concepts/user-management/users)
+    - [Concept: Users](../../../references/concepts/user-management/users)

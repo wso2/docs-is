@@ -500,6 +500,6 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
 </table>
 
 !!! info "Related Topics"
-    - [Concept: Roles and Permissions](../../../concepts/user-management/roles-and-permissions)
+    - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)
     - [Guide: Edit/Delete Roles](../../identity-lifecycles/edit-delete-roles)
     - [Guide: Role Based Permissions](../../identity-lifecycles/edit-delete-roles)

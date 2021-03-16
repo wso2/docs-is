@@ -84,7 +84,7 @@ Apart from this, users can also be added by directly plugging user stores into W
 ----
     
 !!! info "Related Topics"
-    - [Concept: Users](../../../concepts/user-management/users)
+    - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
     - [Guide: User Self Registration Workflow](../self-registration-workflow)
     - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)

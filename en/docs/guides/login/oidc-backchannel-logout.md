@@ -1,6 +1,6 @@
 # Configure OpenID Connect Back-Channel Logout
 
-This page guides you through configuring [OpenID Connect back-channel logout](../../../concepts/authentication/back-channel-logout) between OpenID Connect Relying Parties (RP) or client applications. 
+This page guides you through configuring [OpenID Connect back-channel logout](../../../references/concepts/authentication/back-channel-logout) between OpenID Connect Relying Parties (RP) or client applications. 
 
 ----
 
@@ -12,9 +12,9 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 The following three single logout mechanisms are supported by OpenID Connect:  
 
-- [OpenID Connect Session Management](../../../concepts/authentication/session-management) is enabled by default for all OAuth/OpenID Connect service providers in WSO2 Identity Server. For more information on configuring an OAuth/OpenID Connect application, see [Enable Authentication for an OIDC Web Application](..//webapp-oidc.md). 
+- [OpenID Connect Session Management](../../../references/concepts/authentication/session-management) is enabled by default for all OAuth/OpenID Connect service providers in WSO2 Identity Server. For more information on configuring an OAuth/OpenID Connect application, see [Enable Authentication for an OIDC Web Application](..//webapp-oidc.md). 
 
-- [OpenID Connect Back-Channel Logout](../../../concepts/authentication/back-channel-logout) can be configured using one of the following methods:
+- [OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout) can be configured using one of the following methods:
     - via OpenID Connect Dynamic Client Registration (DCR)
     - manually via the WSO2 IS management console
 
@@ -57,7 +57,7 @@ To enable OIDC back-channel logout, the relying party/client application needs t
 ----
 
 !!! info "Related Topics"
-    - [Concept: OpenID Connect Back-Channel Logout](../../../concepts/authentication/back-channel-logout)
+    - [Concept: OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout)
     - [Demo: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
     - [Guide: OpenID Connect Session Management](../session-management-logout)
 

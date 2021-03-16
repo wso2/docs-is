@@ -2,7 +2,7 @@
 
 This section provides information about the expected requests and the
 relevant responses that the WSO2 Identity Server would generate for the
-[OpenID Connect Implicit Client](../../../concepts/authentication/implicit-client-profile/) flow.
+[OpenID Connect Implicit Client](../../../references/concepts/authentication/implicit-client-profile/) flow.
 
 ### Register a service provider
 
@@ -82,6 +82,6 @@ http://wso2is.local:8080/playground2/oauth2client#access_token=80c7c0d7-070a-38f
 ```
 
 !!! info "Related Topics"
-    - [Concept: OpenID Connect Implicit Client](../../../concepts/authentication/implicit-client-profile/)
+    - [Concept: OpenID Connect Implicit Client](../../../references/concepts/authentication/implicit-client-profile/)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
     

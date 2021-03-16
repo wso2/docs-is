@@ -133,7 +133,7 @@ some time.
 -----
 
 !!! info "Related Topics"
-    - [Concept: Roles and Permissions](../../../concepts/user-management/roles-and-permissions)
+    - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)
     - [Guide: Add Roles](../add-user-roles)
     - [Guide: Role Based Permissions](../edit-delete-roles)
 

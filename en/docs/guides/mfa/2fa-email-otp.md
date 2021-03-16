@@ -1,6 +1,6 @@
 # Configure EMAIL OTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [EMAIL OTP](insertlink) as the second factor. 
+This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [EMAIL OTP](insertlink) as the second factor. 
 
 ----
 
@@ -130,5 +130,5 @@ This page guides you through configuring [two-factor authentication](../../../co
 ----
 
 !!! info "Related Topics"
-    - [Concept: Two-Factor Authentication](../../../concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
     - [Guide: Configure an Authentication Journey](../configure-authentication-journey)

@@ -43,7 +43,7 @@ application as it is hidden by the claim management.
     file after the first startup would not have any effect.
 
     For more information on SCIM, click
-    [here](../../../concepts/identity-provisioning-intro/)
+    [here](../../../references/concepts/identity-provisioning-intro/)
     .
 
 A set of claims is identified as a dialect. Different dialects represent

@@ -1,6 +1,6 @@
 # Manage User Sessions and Logout
 
-This page guides you through [managing user sessions and logout](../../../concepts/authentication/session-management) for OpenID Connect applications with WSO2 Identity Server. 
+This page guides you through [managing user sessions and logout](../../../references/concepts/authentication/session-management) for OpenID Connect applications with WSO2 Identity Server. 
 
 ---
 
@@ -47,7 +47,7 @@ To do this, add an iframe to the service provider application which sends a `pro
 ----
         
 !!! info "Related Topics"
-    - [Concept: Manage User Sessions and Logout](../../../concepts/authentication/session-management)
+    - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
     - [Demo: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)
     - [Guide: OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout)
 

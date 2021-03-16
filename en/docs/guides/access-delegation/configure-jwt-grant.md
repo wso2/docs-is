@@ -1,6 +1,6 @@
 # Configure JWT Grant
 
-This page guides you through the flow involved in exchanging a JWT assertion with an OAuth 2.0 access token in order to access protected resources on behalf of the resource owner. To learn more, see [JWT Grant](../../../concepts/authorization/jwt-bearer-grant-type).
+This page guides you through the flow involved in exchanging a JWT assertion with an OAuth 2.0 access token in order to access protected resources on behalf of the resource owner. To learn more, see [JWT Grant](../../../references/concepts/authorization/jwt-bearer-grant-type).
 
 ----
 

@@ -1,6 +1,6 @@
 # Manage User Sessions and Logout
 
-This page guides you through [managing user sessions and logout](../../../concepts/authentication/session-management) of a web application using a **sample application** called Playground.
+This page guides you through [managing user sessions and logout](../../../references/concepts/authentication/session-management) of a web application using a **sample application** called Playground.
 
 ----
 If you have your own application, click the button below.
@@ -127,6 +127,6 @@ If you have your own application, click the button below.
 -----
 
 !!! info "Related Topics"
-    - [Concept: Manage User Sessions and Logout](../../../concepts/authentication/session-management)
+    - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
     - [Guide: Manage User Sessions and Logout](../../../guides/login/session-management-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout)

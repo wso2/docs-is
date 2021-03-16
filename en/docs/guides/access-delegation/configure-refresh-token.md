@@ -1,6 +1,6 @@
 # Configure Refresh Token Grant
 
-This page guides you through configuring and obtaining [refresh tokens](../../../concepts/authorization/refresh-token) using the [refresh token grant](../../../concepts/authorization/refresh-token-grant).
+This page guides you through configuring and obtaining [refresh tokens](../../../references/concepts/authorization/refresh-token) using the [refresh token grant](../../../references/concepts/authorization/refresh-token-grant).
 
 ----
 

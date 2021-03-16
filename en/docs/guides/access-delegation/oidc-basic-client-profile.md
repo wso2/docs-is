@@ -2,7 +2,7 @@
 
 This section provides information about the expected requests and the
 relevant responses that the WSO2 Identity Server would generate for the
-[OpenID Connect Basic Client](../../../concepts/authentication/basic-client-profile/) flow.
+[OpenID Connect Basic Client](../../../references/concepts/authentication/basic-client-profile/) flow.
  
 
 ## Register a service provider
@@ -110,5 +110,5 @@ relevant responses that the WSO2 Identity Server would generate for the
         ``` 
 
 !!! info "Related Topics"
-    - [Concept: OpenID Connect Implicit Client](../../../concepts/authentication/basic-client-profile/)
+    - [Concept: OpenID Connect Implicit Client](../../../references/concepts/authentication/basic-client-profile/)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)

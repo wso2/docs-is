@@ -1,6 +1,6 @@
 # Discover OpenID Connect Provider
 
-This page guides you through using [OpenID Connect Discovery](../../../concepts/authentication/discovery) to discover an end user's OpenID provider, and to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. 
+This page guides you through using [OpenID Connect Discovery](../../../references/concepts/authentication/discovery) to discover an end user's OpenID provider, and to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. 
 
 You can use this OIDC Discovery document to automatically configure applications. The OpenID Connect discovery endpoint is as follows:
 
@@ -267,5 +267,7 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
 -----
 
 !!! info "Related Topics"
-    - [Concept: OpenID Connect Discovery](../../../concepts/authentication/discovery)
+<<<<<<< HEAD
+    - [Concept: OpenID Connect Discovery](../../../references/concepts/authentication/discovery)
+    - [Guide: OpenID Connect Grant Types](../../access-delegation/oidc-grant-types)
     - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)

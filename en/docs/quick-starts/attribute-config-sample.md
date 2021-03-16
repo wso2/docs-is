@@ -85,6 +85,6 @@ If you have your own application, click the button below.
     <img src="../../assets/img/samples/playground-sub.png" alt="alt text" width="500" height="500">
 
 !!! info "Related topics" 
-    -   [Concept: Attribute Management](../../../concepts/claim-management/)
+    -   [Concept: Attribute Management](../../../references/concepts/claim-management/)
     -   [Guide: Request attributes](../../../guides/login/request-attributes)
     
