@@ -257,7 +257,7 @@ nav:
       - 'Access Delegation':
         - 'OAuth 2.0':
           - 'Web Applications':
-            - 'Authorization Code' : guides/access-delegation/authorization-code.md
+            - 'Authorization Code': guides/access-delegation/authorization-code.md
             - 'Client Credentials': guides/access-delegation/client-credentials.md
             - 'Resource Owner Password Credentials' : guides/access-delegation/password-grant.md
             - 'SAML2 Bearer Assertion': guides/access-delegation/saml2-bearer-assertion-profile.md
