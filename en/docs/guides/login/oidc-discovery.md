@@ -270,7 +270,4 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
 <<<<<<< HEAD
     - [Concept: OpenID Connect Discovery](../../../references/concepts/authentication/discovery)
     - [Guide: OpenID Connect Grant Types](../../access-delegation/oidc-grant-types)
-=======
-    - [Concept: OpenID Connect Discovery](../../../concepts/authentication/discovery)
->>>>>>> 52b33a9697701bf97dc91cf08681812124a33b91
     - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)
