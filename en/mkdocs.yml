@@ -256,8 +256,15 @@ nav:
         - 'Interactive Account Linking': guides/account-linking/interactive-account-link.md
       - 'Access Delegation':
         - 'OAuth 2.0':
-          - 'Web Applications': guides/access-delegation/overview.md
-          - 'Client Side Applications': guides/access-delegation/oauth-grant-types.md
+          - 'Web Applications':
+            - 'Authorization Code' : guides/access-delegation/authorization-code.md
+            - 'Client Credentials': guides/access-delegation/client-credentials.md
+            - 'Resource Owner Password Credentials' : guides/access-delegation/password-grant.md
+            - 'SAML2 Bearer Assertion': guides/access-delegation/saml2-bearer-assertion-profile.md
+          - 'Client Side Applications':
+            - 'Implicit': guides/access-delegation/implicit.md
+            - 'Authorization Code ': guides/access-delegation/authorization-code-without-pkce.md
+            - 'Authorization Code with PKCE': guides/access-delegation/authorization-code-with-pkce.md
           - 'IoT Devices': guides/access-delegation/configure-refresh-token.md
           - 'OAuth 2.0 Tokens': guides/access-delegation/configure-kerberos-grant.md
           - 'Invoke the OAuth 2.0 Introspection Endpoint': guides/access-delegation/configure-jwt-grant.md
@@ -266,11 +273,14 @@ nav:
           - 'Authorizing for the OAuth 2.0 Scopes': guides/access-delegation/invoke-oauth-introspection-endpoint.md
           - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
           - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
+        - 'OpenID Connect':
+          - 'OpenID Connect Basic Client Profile': guides/access-delegation/oidc-basic-client-profile.md
+          - 'OpenID Connect Implicit Client Profile': guides/access-delegation/oidc-implicit-client-profile.md
+          - 'OpenID Connect Hybrid Flow': guides/access-delegation/oidc-hybrid-flow.md
         - 'User Managed Access': guides/access-delegation/uma.md
         - 'WS-Trust':
           - 'Obtain Tokens with Holder-Of-Key Subject Confirmation': guides/access-delegation/obtain-tokens-holder-of-key.md
           - 'Access Claim-Aware Services using STS Secured with Non-Repudiation': guides/access-delegation/claim-aware-services.md
-          - 'Use SAML2 Bearer Type Tokens': guides/access-delegation/saml2-bearer-assertion-profile.md
       - 'Identity Federation':
         - 'Enterprise Identity Federation':
           - 'Overview': guides/identity-federation/enterprise-identity-federation.md

@@ -1,11 +1,11 @@
-## Discover OpenID Connect provider
+# Discover OpenID Connect Provider
 
 This page guides you through using [OpenID Connect Discovery](../../../concepts/authentication/discovery) to discover an end user's OpenID provider, and to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. 
 
 You can use this OIDC Discovery document to automatically configure applications. The OpenID Connect discovery endpoint is as follows:
 
 ```
-https://localhost:9443/.well-known/oidcdiscovery
+https://localhost:9443/oauth2/oidcdiscovery
 ```
 
 -----
@@ -14,12 +14,11 @@ https://localhost:9443/.well-known/oidcdiscovery
 
 OpenID Provider Issuer discovery refers to the process of determining the location of the OpenID Provider.
 
-In WSO2 Identity Server, the default OpenID Provider Issuer location path is set to `oidcdiscovery/.well-known/openid-configuration` .
-To move the OpenID provider issuer location path to the root `<issuer>/.well-known/openid-configuration`, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+To move the OpenID Provider configuration information to `https://<HOST>:<PORT>/oauth2/token/.well-known/openid-configuration`, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
     
 ``` java
 [oauth.endpoints]
-oidc_discovery_url= "${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token</"
+oidc_discovery_url= "${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token"
 ```
 
 ----
@@ -28,45 +27,28 @@ oidc_discovery_url= "${carbon.protocol}://${carbon.host}:${carbon.management.por
 
 In WSO2 Identity Server, the resident IdP Entity ID for OpenID Connect can be configured as the OpenID Provider Issuer location. 
 
-1.  Add the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder.
+1.  Log in to the management console.
 
-    ``` java
-    [oauth]
-    use_entityid_as_issuer_in_oidc_discovery= "true"
-    ```
+2.  Click **Identity Providers > Resident**. 
 
-    !!! warning
-        In future releases, the Entity ID will be used as the OpenID
-        Provider Issuer location by default and will not need to be enabled
-        manually using the property mentioned above. Therefore, the
-        `            use_entityid_as_issuer_in_oidc_discovery           `
-        property will be deprecated in the next release.
-    
+3.  Expand **Inbound Authentication Configuration** section and then **OAuth2/OpenID Connect Configuration**.
 
-2.  Log in to the management console.
-
-3.  Click **Identity Providers > Resident**. 
-
-4.  Expand **Inbound Authentication Configuration** section and then **OAuth2/OpenID Connect Configuration**.
-
-5.  Enter a valid OpenID Provider issuer location as the **Identity Provider Entity Id** value.  
+4.  Enter a valid OpenID Provider issuer location as the **Identity Provider Entity Id** value.  
 
     ![idp-entity-id]( ../../assets/img/guides/idp-entity-id.png) 
 
-    A valid OpenID Provider Issuer location in WSO2 Identity Server has
-    the following format.
+    !!! Tip
+        A valid OpenID Provider Issuer location in WSO2 Identity Server has the following format.
 
-    **OpenID Provider Issuer URL format**
+        ``` java
+        {host}/oauth2/{issuer}
+        ```
 
-    ``` java
-    {Host}/oauth2/{issuer}
-    ```
+	    -   **{host}:** The host number of WSO2 Identity Server (e.g.,https://localhost:9443)
 
-	-   **{Host}:** The host number of WSO2 Identity Server (e.g.,https://localhost:9443)
+	    -   **{issuer}:** The issuer path component. This value can be either `token` or `oidcdiscovery`.
 
-	-   **{issuer}:** The issuer path component. This value can be either `token` or `oidcdiscovery`.
-
-	-   **Sample OpenID Provider Issuer location:** <https://localhost:9443/oauth2/token>
+	    -   **Sample OpenID Provider Issuer location:** <https://localhost:9443/oauth2/token>
 
 ----
 
@@ -103,17 +85,12 @@ acct:admin@ wso2.com@localhost (for tenant)</td>
 </tbody>
 </table>
 
-By default, all endpoints in the WSO2 Identity Server are secured with basic authentication. You will need authentication details to call an
-endpoint. 
-
-By default, you can use admin credentials, or an access token for the request. For more information on how to obtain an access token, see [OpenID Connect Grant Types](../../access-delegation/oidc-grant-types).
-
 Sample requests and responses are given below.
 
 **Super tenant**
 
 ```tab="Request"
-curl -v -k --user admin:admin https://localhost:9443/.well-known/webfinger?resource='acct:admin@localhost&rel=http://openid.net/specs/connect/1.0/issuer'
+curl -v -k https://localhost:9443/.well-known/webfinger?resource='acct:admin@localhost&rel=http://openid.net/specs/connect/1.0/issuer'
 ```
 
 ```tab="Response"
@@ -130,8 +107,10 @@ curl -v -k --user admin:admin https://localhost:9443/.well-known/webfinger?resou
 
 **Tenant-specific**
 
+The following sample request is for a tenant called as `wso2.com`.
+
 ```tab="Request"
-curl -v -k --user admin:admin https://localhost:9443/.well-known/webfinger?resource='acct:admin%40wso2.com@localhost&rel=http://openid.net/specs/connect/1.0/issuer'
+curl -v -k https://localhost:9443/.well-known/webfinger?resource='acct:admin%40wso2.com@localhost&rel=http://openid.net/specs/connect/1.0/issuer'
 ```
 
 ```tab="Response"
@@ -152,7 +131,7 @@ curl -v -k --user admin:admin https://localhost:9443/.well-known/webfinger?resou
 
 Follow the steps below to obtain configuration details of the OpenID Provider.
 
-1.  Once you receive the response as shown in the sample response of the previous section, append `/.well-known/openid-configuration` to the href value that you received.
+1.  Once you receive the response as shown in the sample response of the previous section, append `/.well-known/openid-configuration` to the href value that you received in the previous step.
 
     ``` java
     https://localhost:9443/oauth2/token/.well-known/openid-configuration
@@ -161,74 +140,132 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
 2.  Send a request to the endpoint as shown below.
 
     ```tab="Request"
-    curl -v -k --user admin:admin https://localhost:9443/oauth2/token/.well-known/openid-configuration
+    curl -v -k https://localhost:9443/oauth2/token/.well-known/openid-configuration
     ```
     
     ```tab="Response"
-    {
-    "scopes_supported": [
-        "address",
-        "phone",
-        "email",
-        "profile",
-        "openid"
-    ],
-    "check_session_iframe": "https://localhost:9443/oidc/checksession",
-    "issuer": "https://localhost:9443/oauth2/token",
-    "authorization_endpoint": "https://localhost:9443/oauth2/authorize",
-    "claims_supported": [
-        "formatted",
-        "name",
-        "phone_number",
-        "given_name",
-        "picture",
-        "region",
-        "street_address",
-        "postal_code",
-        "zoneinfo",
-        "locale",
-        "profile",
-        "locality",
-        "sub",
-        "updated_at",
-        "email_verified",
-        "nickname",
-        "middle_name",
-        "email",
-        "family_name",
-        "website",
-        "birthdate",
-        "address",
-        "preferred_username",
-        "phone_number_verified",
-        "country",
-        "gender",
-        "iss",
-        "acr"
-    ],
-    "token_endpoint": "https://localhost:9443/oauth2/token",
-    "response_types_supported": [
-        "id_token token",
-        "code",
-        "id_token",
-        "token"
-    ],
-    "end_session_endpoint": "https://localhost:9443/oidc/logout",
-    "userinfo_endpoint": "https://localhost:9443/oauth2/userinfo",
-    "jwks_uri": "https://localhost:9443/oauth2/jwks",
-    "subject_types_supported": [
-        "pairwise"
-    ],
-    "id_token_signing_alg_values_supported": [
-        "RS256"
-    ],
-    "registration_endpoint": "https://localhost:9443/identity/connect/register"
-    }
+        {
+           "request_parameter_supported":true,
+           "claims_parameter_supported":true,
+           "introspection_endpoint":"https://localhost:9443/oauth2/introspect",
+           "Response_modes_supported":[
+              "query",
+              "fragment",
+              "form_post"
+           ],
+           "scopes_supported":[
+              "address",
+              "phone",
+              "openid",
+              "profile",
+              "email"
+           ],
+           "check_session_iframe":"https://localhost:9443/oidc/checksession",
+           "backchannel_logout_supported":true,
+           "issuer":"https://localhost:9443/oauth2/token",
+           "authorization_endpoint":"https://localhost:9443/oauth2/authorize",
+           "introspection_endpoint_auth_methods_supported":[
+              "client_secret_basic",
+              "client_secret_post"
+           ],
+           "claims_supported":[
+              "zoneinfo",
+              "profile",
+              "phone_number_verified",
+              "picture",
+              "postal_code",
+              "name",
+              "groups",
+              "locale",
+              "address",
+              "preferred_username",
+              "middle_name",
+              "street_address",
+              "country",
+              "website",
+              "phone_number",
+              "formatted",
+              "gender",
+              "sub",
+              "nickname",
+              "email",
+              "upn",
+              "birthdate",
+              "given_name",
+              "updated_at",
+              "locality",
+              "region",
+              "email_verified",
+              "family_name",
+              "iss",
+              "acr"
+           ],
+           "userinfo_signing_alg_values_supported":[
+              "RS256"
+           ],
+           "token_endpoint_auth_methods_supported":[
+              "client_secret_basic",
+              "client_secret_post"
+           ],
+           "response_modes_supported":[
+              "query",
+              "fragment",
+              "form_post"
+           ],
+           "backchannel_logout_session_supported":true,
+           "token_endpoint":"https://localhost:9443/oauth2/token",
+           "response_types_supported":[
+              "id_token token",
+              "code",
+              "code id_token token",
+              "code id_token",
+              "id_token",
+              "code token",
+              "none",
+              "token"
+           ],
+           "revocation_endpoint_auth_methods_supported":[
+              "client_secret_basic",
+              "client_secret_post"
+           ],
+           "grant_types_supported":[
+              "refresh_token",
+              "urn:ietf:params:oauth:grant-type:saml2-bearer",
+              "password",
+              "client_credentials",
+              "iwa:ntlm",
+              "authorization_code",
+              "urn:ietf:params:oauth:grant-type:uma-ticket",
+              "account_switch",
+              "urn:ietf:params:oauth:grant-type:jwt-bearer"
+           ],
+           "end_session_endpoint":"https://localhost:9443/oidc/logout",
+           "revocation_endpoint":"https://localhost:9443/oauth2/revoke",
+           "userinfo_endpoint":"https://localhost:9443/oauth2/userinfo",
+           "code_challenge_methods_supported":[
+              "S256",
+              "plain"
+           ],
+           "jwks_uri":"https://localhost:9443/oauth2/jwks",
+           "subject_types_supported":[
+              "public"
+           ],
+           "id_token_signing_alg_values_supported":[
+              "RS256"
+           ],
+           "registration_endpoint":"https://localhost:9443/api/identity/oauth2/dcr/v1.1/register",
+           "request_object_signing_alg_values_supported":[
+              "RS256",
+              "RS384",
+              "RS512",
+              "PS256",
+              "none"
+           ]
+        }
     ```
 
 -----
 
 !!! info "Related Topics"
     - [Concept: OpenID Connect Discovery](../../../concepts/authentication/discovery)
-    - [Guide: OpenID Connect Grant Types](../../access-delegation/oidc-grant-types)
     - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)
