@@ -1,7 +1,7 @@
 # Authorization Code Grant With PKCE
 
 PKCE is a recommended security measure used to mitigate a [code interception attack](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/). 
-This page guides you through using [Authorization Code Grant](../../../concepts/authorization/authorization-code-grant/) with PKCE 
+This page guides you through using [Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant/) with PKCE 
 to configure authentication for native mobile applications.
 
 ----

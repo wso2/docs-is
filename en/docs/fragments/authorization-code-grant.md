@@ -1,6 +1,6 @@
 # Authorization Code Grant
 
-This page guides you through using [Authorization Code Grant](../../../../concepts/authorization/authorization-code-grant/) 
+This page guides you through using [Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant/) 
 to configure authentication for an OAuth/OpenID Connect application. 
 
 ----
@@ -81,7 +81,7 @@ to configure authentication for an OAuth/OpenID Connect application.
     ```
 
 !!! info "Related Topics"
-    - [Concept: Authorization Code Grant](../../../../concepts/authorization/authorization-code-grant/)
+    - [Concept: Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
     - [Demo: Authorization Code Grant with OAuth 2.0 Playground](../../../quick-starts/auth-code-playground)
     
