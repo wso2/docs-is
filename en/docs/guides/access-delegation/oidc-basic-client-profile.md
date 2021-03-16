@@ -5,7 +5,7 @@ relevant responses that the WSO2 Identity Server would generate for the
 [OpenID Connect Basic Client](../../../concepts/authentication/basic-client-profile/) flow.
  
 
-### Register a service provider
+## Register a service provider
 
 {!fragments/register-a-service-provider.md!}
 
@@ -21,7 +21,7 @@ relevant responses that the WSO2 Identity Server would generate for the
         
 6.  Click **Add**. 
 
-### Try out the flow
+## Try out the flow
 
 1. Use the following authorization request with `code` as the response_type to obtain the authorization code from the authorization endpoint.
 
