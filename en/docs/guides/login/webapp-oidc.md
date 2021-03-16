@@ -1,6 +1,6 @@
 # Enable Login for an OIDC Web Application
 
-This page guides you through enabling login for an [OpenID Connect](../../../concepts/authentication/intro-oidc) web application. 
+This page guides you through enabling login for an [OpenID Connect](../../../references/concepts/authentication/intro-oidc) web application. 
 
 ---
 
@@ -56,7 +56,7 @@ Make the following requests via your application to connect your application to 
 ----
 
 !!! info "Related Topics"
-    - [Concept: OpenID Connect](../../../concepts/authentication/intro-oidc)
+    - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
     - [Demo: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
     - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)
     - [Guide: Manage User Sessions](../session-management-logout)

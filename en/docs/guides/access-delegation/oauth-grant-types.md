@@ -1,6 +1,6 @@
 # Configure OAuth Grant Types
 
-This page guides you through using one of the [OAuth Grant Types](../../../../concepts/authorization/grant-types) to configure authentication for an OAuth/OpenID Connect web application. 
+This page guides you through using one of the [OAuth Grant Types](../../../../references/concepts/authorization/grant-types) to configure authentication for an OAuth/OpenID Connect web application. 
 
 ----
 

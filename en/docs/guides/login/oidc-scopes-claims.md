@@ -1,6 +1,6 @@
 # Map OpenID Connect Scopes and Claims
 
-This page guides you through mapping [OpenID Connect (OIDC) scopes and claims](../../../concepts/authentication/scopes-claims). 
+This page guides you through mapping [OpenID Connect (OIDC) scopes and claims](../../../references/concepts/authentication/scopes-claims). 
 
     
 -----
@@ -67,5 +67,5 @@ Thereafter the changes which we do to this file wont be applicable.
 ----
 
 !!! info "Related Topics"
-    - [Concept: OpenID Connect Scopes and Claims](../../../concepts/authentication/scopes-claims)
+    - [Concept: OpenID Connect Scopes and Claims](../../../references/concepts/authentication/scopes-claims)
     - [Guide: OpenID Connect Authentication](../webapp-oidc)

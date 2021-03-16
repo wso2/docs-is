@@ -1,6 +1,6 @@
 # Obtain Key Set Using JSON Web Key Set
 
-The [JSON Web Key Set (JWKS) endpoint](http://openid.net/specs/openid-connect-discovery-1_0.html) is a read-only endpoint that returns the Identity Server's public key set in the [JWKS](../../../concepts/authentication/jwks) format. 
+The [JSON Web Key Set (JWKS) endpoint](http://openid.net/specs/openid-connect-discovery-1_0.html) is a read-only endpoint that returns the Identity Server's public key set in the [JWKS](../../../references/concepts/authentication/jwks) format. 
 
 You can follow this guide when your relying party (RP) application needs to validate JWT Token signatures issued by WSO2 Identity Server.
 
@@ -126,5 +126,5 @@ For more information, see the [JWKS specification](https://tools.ietf.org/html/r
 -----
 
 !!! info "Related Topics"
-    - [Concept: JSON Web Key Set](../../../concepts/authentication/jwks)
+    - [Concept: JSON Web Key Set](../../../references/concepts/authentication/jwks)
     - [Guide: Validate a JWT Based on JWKS](../validate-jwt-using-jwks)

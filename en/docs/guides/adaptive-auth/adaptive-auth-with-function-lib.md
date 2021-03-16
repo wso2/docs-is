@@ -199,7 +199,7 @@ Follow the instructions below to delete a function library.
     ```
     
 !!! info "Related Topics"
-    - [Concept: Adaptive-Authentication](../../concepts/authentication/adaptive-authentication)
+    - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
     - [Guide: Configure Adaptive Authentication for an Application](../../guides/adaptive-auth/configure-adaptive-auth)
     - [Guide: Ensure Assurance with ACR and AMR](../../guides/adaptive-auth/work-with-acr-amr)
     - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)

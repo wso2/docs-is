@@ -121,7 +121,7 @@ template: templates/single-column.html
                 </div></div>
          <div class="curatedCardMain--3EYmT">
             <div class="curatedCardHeader--2-q4h">
-               <h3>Access Management</h3>
+               <h3>API Security</h3>
             </div>
             <div class= "curatedCardArticles--16lzh">
             <ul id="tilelist">
@@ -178,7 +178,7 @@ template: templates/single-column.html
         <a  href="https://store.wso2.com/store/assets/isconnector/list"   rel="nofollow noopener">Connectors</a>
         </div>
         <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="../../concepts/compliance/compliance"   rel="nofollow noopener">Compliance</a>
+        <a  href="../../../references/concepts/compliance/compliance"   rel="nofollow noopener">Compliance</a>
         </div>
    </div>
 </div>

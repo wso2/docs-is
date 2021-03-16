@@ -24,7 +24,7 @@ For information on Integrated Windows Authentication (IWA), see [IWA](TO-DO: con
 !!! info "Related Links"
 
 	-   For more information about IWA, see [Integrated Windows
-		Authentication](../../../concepts/authentication/integrated-windows-authentication-overview)
+		Authentication](../../../references/concepts/authentication/integrated-windows-authentication-overview)
     
 	-   To configure Active Directory as a user store, see [Configuring a
 		Read-write Active Directory Userstore](../../../deploy/configuring-a-read-write-active-directory-user-store/).

@@ -1,6 +1,6 @@
 # Enable Login for SAML Web Application
 
-This page guides you through enabling login for a [SAML](../../../concepts/authentication/intro-saml/) web application using a **sample application** called Pickup. 
+This page guides you through enabling login for a [SAML](../../../references/concepts/authentication/intro-saml/) web application using a **sample application** called Pickup. 
 
 ----
 
@@ -44,7 +44,7 @@ You have successfully configured authentication for a SAML application.
 -----
 
 !!! info "Related Topics"
-    - [Concept: SAML](../../../concepts/authentication/intro-saml/)
+    - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)
     - [Guide: Enable Login for a SAML Web Application](../../../guides/login/webapp-saml/)
     - [Guide: SAML Front-Channel Logout](../../../guides/login/saml-front-channel-logout)
     - [Guide: SAML Back-Channel Logout](../../../guides/login/saml-back-channel-logout)

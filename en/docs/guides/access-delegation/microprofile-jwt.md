@@ -1,6 +1,6 @@
 # Configure Microprofile JWT 1.0 
 
-This page guides you through configuring [microprofile JWT (MP-JWT) 1.0](../../../concepts/authentication/microprofile-jwt/) support for WSO2 Identity Server to provide role-based access control for microservices. 
+This page guides you through configuring [microprofile JWT (MP-JWT) 1.0](../../../references/concepts/authentication/microprofile-jwt/) support for WSO2 Identity Server to provide role-based access control for microservices. 
 
 !!! tip
     To generate a MP-JWT-compatible token, all you need to do is set up the service provider to request the following claims.
@@ -94,6 +94,6 @@ As you can see in the decoded response, the `upn` and `groups` claims which map 
 ---
 
 !!! info "Related Topics"
-    - [Concept: Microprofile JWT 1.0](../../../concepts/authentication/microprofile-jwt/)
+    - [Concept: Microprofile JWT 1.0](../../../references/concepts/authentication/microprofile-jwt/)
     - [Demo: Configure Microprofile JWT](../../../quick-starts/microprofile-jwt-sample)
 

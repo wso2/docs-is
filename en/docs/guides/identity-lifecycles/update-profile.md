@@ -101,7 +101,7 @@ admin services, see [Calling Admin Services](insert-calling admin services).
 ----
 
 !!! info "Related Topics"
-    - [Concept: Users](../../../concepts/user-management/users)
+    - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
     - [Guide: Search/List Users](../../identity-lifecycles/search-users)
 

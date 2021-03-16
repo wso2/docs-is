@@ -1,4 +1,4 @@
-# Overview 
+# What is WSO2 Identity Server? 
 
 Are you new to WSO2 Identity Server? Let's get to know about what we are all about! 
 

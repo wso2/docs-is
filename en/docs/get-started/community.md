@@ -1,4 +1,4 @@
-# Community
+# WSO2 Identity Server Community
 
 WSO2 Identity Server welcomes anyone who is interested in getting involved and contributing in the WSO2 Identity Server 
 community. Your feedback on our product is much appreciated, as it will help us to drive our product roadmap and the 

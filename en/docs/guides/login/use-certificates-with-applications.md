@@ -1,6 +1,6 @@
 # Use Certificates with Applications
 
-Follow the steps given below to configure your application to use a public certificate instead of the default [JWKS](../../../concepts/authentication/jwks) endpoint. This configuration is required to follow the scenarios mentioned below. 
+Follow the steps given below to configure your application to use a public certificate instead of the default [JWKS](../../../references/concepts/authentication/jwks) endpoint. This configuration is required to follow the scenarios mentioned below. 
 
 1.  OIDC Token Encryption
 2.  Request Object flow
@@ -22,7 +22,7 @@ Follow the steps given below to configure your application to use a public certi
 ---
 
 !!! info "Related Topics" 
-    -  [Concept: JWKS](../../../concepts/authentication/jwks)
+    -  [Concept: JWKS](../../../references/concepts/authentication/jwks)
     -  [Guide: Generate and Encrypt ID Tokens](../oidc-token-encryption)
     -  [Demo: OpenID Connect Token Encryptuon](../../../quick-starts/oidc-token-encryption-sample)
     -  [Guide: Call the JSON Web Key Set (JWKS) Endpoint](../using-jwks)

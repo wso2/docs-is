@@ -1,12 +1,12 @@
 # Use Advanced Parameters in Authentication Requests
 
-This page guides you through some special request parameters used with [OpenID Connect](../../../concepts/authentication/intro-oidc) authentication requests.
+This page guides you through some special request parameters used with [OpenID Connect](../../../references/concepts/authentication/intro-oidc) authentication requests.
 
  ----
  
 ## State parameter
 
-Use the [state parameter](../../../concepts/authentication/traditional-authentication-request#state-parameter) to maintain a correlation between the request and the response.
+Use the [state parameter](../../../references/concepts/authentication/traditional-authentication-request#state-parameter) to maintain a correlation between the request and the response.
 
 ```tab="Sample Request"
 https://<host>:/authorize?
@@ -27,7 +27,7 @@ Location: <callback_url>#access_token=2YotnFZFEjr1zCsicMWpAA
  
 ## Nonce Parameter
 
-Use the [nonce parameter](../../../concepts/authentication/traditional-authentication-request/#nonce-parameter) to validate an ID token issued by WSO2 Identity Server.
+Use the [nonce parameter](../../../references/concepts/authentication/traditional-authentication-request/#nonce-parameter) to validate an ID token issued by WSO2 Identity Server.
 
 The `nonce` claim embedded in the ID token must contain the exact value that was sent in the request. 
 If not, authentication should be rejected by the application.
@@ -51,7 +51,7 @@ The decoded ID token is as follows.
  
 ## Prompt Parameter
 
-The [prompt parameter](../../../concepts/authentication/traditional-authentication-request/#prompt-parameter) which can be sent with the authentication requests, can have the following three values.
+The [prompt parameter](../../../references/concepts/authentication/traditional-authentication-request/#prompt-parameter) which can be sent with the authentication requests, can have the following three values.
     
 -   none         
 -   login         
@@ -147,7 +147,7 @@ session_state==...
 ----
      
 !!! info "Related Topics"
-     - [Concept: OpenID Connect](../../../concepts/authentication/intro-oidc)
-     - [Concept: OpenID Connect Authentication Parameters](../../../concepts/authentication/traditional-authentication-request)
+     - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
+     - [Concept: OpenID Connect Authentication Parameters](../../../references/concepts/authentication/traditional-authentication-request)
      - [Guide: Enable Login for a OpenID Connect Web Application](../webapp-oidc)
      - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)

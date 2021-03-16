@@ -1,6 +1,6 @@
 # Pass OIDC Authentication Request Parameters in a Request Object
 
-This page guides you through passing a set of request parameters as its claims using a JWT in a [request object](../../../concepts/authentication/request-object). 
+This page guides you through passing a set of request parameters as its claims using a JWT in a [request object](../../../references/concepts/authentication/request-object). 
 If you want to pass any sensitive parameter with the authentication request which needs additional security you can pass it as a request object.
 
 ---
@@ -22,6 +22,6 @@ This guide assumes you have your own application. If you wish to try out this fl
 ----
 
 !!! info "Related Topics"
-    - [Concept: Request Object](../../../concepts/authentication/request-object)
+    - [Concept: Request Object](../../../references/concepts/authentication/request-object)
     - [Demo: OpenID Connect Request Object](../../../quick-starts/request-object)
     - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)

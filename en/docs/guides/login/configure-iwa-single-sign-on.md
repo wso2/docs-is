@@ -7,7 +7,7 @@ may cause conflict with other authenticators. Therefore, the IWA
 authenticator is not enabled in WSO2 Identity Server by default but can
 be enabled in WSO2 Identity Server with some configurations. For more
 information on how IWA is used for single-sign-on, see the [Integrated
-Windows Authentication](../../../concepts/authentication/integrated-windows-authentication-overview) page.
+Windows Authentication](../../../references/concepts/authentication/integrated-windows-authentication-overview) page.
 
 ---
 
