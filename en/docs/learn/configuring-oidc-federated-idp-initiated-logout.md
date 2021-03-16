@@ -150,10 +150,12 @@ applications.
 4. Now access the following URL on another browser window to access the Pickup Manager application, which is registered
    in the federated identity
    provider: [http://localhost.com:8080/pickup-manager/](http://localhost.com:8080/pickup-manager/).
-
-   You will be redirected to the WSO2 Identity Server login page (SecondaryIS - port 9444).
-5. You will be automatically logged in and redirected to the Pickup Manager application home page.
-6. Log out of the Pickup Manager application. You will be redirected back to the login page of the application.
+   
+5. Once you click Login, you will be automatically logged in and redirected to the Pickup Manager application home 
+   page. 
+   
+6. Log out of the Pickup Manager application. You will be redirected back to the login page of the application. 
+   
 7. Now attempt to access the Pickup Dispatch application. You will be automatically logged out of this application as
    well.
 
