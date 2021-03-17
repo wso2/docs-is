@@ -4,12 +4,6 @@ This page guides you through configuring IP-based adaptive authentication for a 
 
 ----
 
-If you have your own application, click the button below.
-
-<a class="samplebtn_a" href="../../guides/configure-adaptive-auth"   rel="nofollow noopener">I have my own application</a>
-
-----
-
 ## Scenario
 
 Consider a scenario where you wish to add security for users logging in from external networks or other geographic locations. Using the IP-based adaptive authentication template, you can specify network ranges using the ip address so that users logging in from an external network that is not listed in the authentication script are prompted to perform an additional level of authentication. Users logging in from the internally configured network specified on the script, can simply provide their credentials (basic authentication) to access a resource.
@@ -32,7 +26,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **IP-Based**. 
 
-    ![ip-based-template](../assets/img/samples/ip-based-template.png)
+    ![ip-based-template](../../../assets/img/samples/ip-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps are configured. 
     
@@ -52,10 +46,10 @@ Consider a scenario where you wish to add security for users logging in from ext
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../assets/img/samples/delete-authenticator-1.png)
+        ![delete authenticator](../../../assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
 
 9.  Click **Update**.
 
@@ -64,11 +58,11 @@ Consider a scenario where you wish to add security for users logging in from ext
 ## Add a user
 
 
-1.  Start the server and log in to the [management console](insertlink).
+1.  Start the server and log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 2.  Create a new user named 'Alex' with login permission. Do not assign any roles.
 
-    For instructions, see [Adding Users and Roles](insertlink).
+    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/).
 
 ----
 
@@ -76,7 +70,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 1.  Access the following sample PickUp application URL:
 
-    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
+    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
 2.  Click **Login** and enter Alex's credentials. 
 
@@ -99,13 +93,13 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 8.  Access the following sample PickUp application URL:
 
-    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
+    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
 9. Click **Login** and enter Alex's credentials. 
 
     Note that you are now prompted to provide hardware key authentication because you are logging in from an IP address that is external to the configured network.
 
-    ![hardware-key-authenticator](../assets/img/samples/hardware-key-authenticator.png)
+    ![hardware-key-authenticator](../../../assets/img/samples/hardware-key-authenticator.png)
 
     !!! tip
         You can also try this scenario with two different machines

@@ -4,12 +4,6 @@ This page guides you through configuring device-based adaptive authentication fo
 
 ----
 
-If you have your own application, click the button below.
-
-<a class="samplebtn_a" href="../../guides/configure-adaptive-auth"   rel="nofollow noopener">I have my own application</a>
-
-----
-
 ## Scenario
 
 The instructions below guide you through specifying authentication steps based on the device that the user uses to log in to the application. In this example, if the user uses a new device or a new browser to log in to the application, the user is prompted for a second step of authentication. The new device or browser is identified by a cookie, therefore, once the cookie expires (this expiry time is specified in the authentication script), the same browser or device is considered as a new device.
@@ -32,7 +26,7 @@ The instructions below guide you through specifying authentication steps based o
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **New-Device-Based**. 
 
-    ![device-based-template](../assets/img/samples/device-based-template.png)
+    ![device-based-template](../../../assets/img/samples/device-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -55,10 +49,10 @@ The instructions below guide you through specifying authentication steps based o
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../assets/img/samples/delete-authenticator-1.png)
+        ![delete authenticator](../../../assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
 
 9.  Click **Update**.
 
@@ -67,11 +61,11 @@ The instructions below guide you through specifying authentication steps based o
 ## Add a user
 
 
-1.  Start the server and log in to the [management console](insertlink).
+1.  Start the server and log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 2.  Create a new user named 'Kim' with login permission. Do not assign any roles.
 
-    For instructions, see [Adding Users and Roles](insertlink).
+    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/).
 
 ----
 
@@ -79,9 +73,9 @@ The instructions below guide you through specifying authentication steps based o
 
 1.  Access the following sample PickUp application URL:
     
-    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
+    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    ![dispatch-login](../assets/img/samples/dispatch-login.png)
+    ![dispatch-login](../../../assets/img/samples/dispatch-login.png)
 
 2.  Click **Login** and enter Kim's credentials. 
 
@@ -91,14 +85,14 @@ The instructions below guide you through specifying authentication steps based o
 
     You are successfully logged in to the application.  
 
-    ![hardware-key-authenticator](../assets/img/samples/hardware-key-authenticator.png) 
+    ![hardware-key-authenticator](../../../assets/img/samples/hardware-key-authenticator.png) 
 
 4.  Log out and log in again using Kim's credentials on the same browser window. 
 
     Note that you are logged in successfully without being prompted for hardware key authentication again. This is because this browser and device is now trusted.  
 
 5.  Open a new browser window of a different browser and access the
-    PickUp application URL: <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
+    PickUp application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
 6.  Click **Login** and enter Kim's credentials. 
 

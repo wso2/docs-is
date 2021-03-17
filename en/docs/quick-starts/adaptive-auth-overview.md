@@ -9,7 +9,6 @@ This section guides you through using pre-defined templates for common adaptive 
    - [IP-Based](ip-based-adaptive-auth.md)
    - [New-Device-Based](device-based-adaptive-auth.md)
    - [ACR-Based](acr-based-adaptive-auth.md)
-   - [Risk-Based](risk-based-adaptive-auth.md)
    - [With Function Library](adaptive-auth-with-function-lib-sample.md)
    - [Limiting Active User Sessions](limiting-active-sessions-adaptive-auth.md)
    
