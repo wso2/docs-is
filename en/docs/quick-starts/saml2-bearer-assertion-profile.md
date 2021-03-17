@@ -10,47 +10,157 @@ If you have your own application, click the button below.
 
 ----
 
+## Create a service provider
+
 {!fragments/register-a-service-provider.md!}
 
 ----
 
 {!fragments/oauth-app-config-basic.md!}
 
-!!! tip
+!!! Note
     -   Make sure the **SAML2** grant is enabled under **Allowed Grant Types** when configuring OAuth/OpenID Connect.
-
-    -   You can provide any valid URL as the **Callback URL**. This URL value is not used for any other operations during this sample.
+    -   You can provide any valid URL as the **Callback Url**. This URL value is not used for any other operations during this sample.
 
 ----
+
+## SAML2 Web SSO configuration
+
+1. In the **Inbound Authentication Configuration** section of the previously created service provider, click **Configure** under the **SAML2 Web SSO Configuration** section.
+
+    1.  Now set the configurations as follows:
+
+        1.  **Issuer** : `travelocity.com`
+
+        2.  **Assertion Consumer URL** : `http://wso2is.local:8080/travelocity.com/home.jsp`  
+            Click Yes, in the message that appears.
+
+    2.  Select the following check-boxes:
+    
+        1.  **Enable Response Signing**
+
+        2.  **Enable Single Logout**
+
+        3.  **Enable Attribute Profile**
+
+        4.  **Include Attributes in the Response Always**  
+        
+        5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
+        
+    3. Select the the following check-boxes and enter the following values:
+           1. **Enable Audience Restriction**
+            - **Audience**: `https://localhost:9443/oauth2/token`
+           2. **Enable Recipient Validation**
+            - **Recipient**: `https://localhost:9443/oauth2/token`
+
+           ![enable-audience-restriction](../assets/img/samples/enable-audience-restriction.png) 
+    
+    !!! tip
+        For more information on other advanced configurations refer, [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced/)
+
+5.  Click **Register** to save the changes.  
+
+---
 
 ## Set up the sample application
 
-{!fragments/travelocity.md!}
+{!fragments/deploying-sample-apps.md!}
+
+### Download the sample
+
+To be able to deploy a WSO2 Identity Server sample, you need to download
+it onto your machine first.
+
+Follow the instructions below to download the sample from GitHub.
+
+1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
+
+2. Download the `travelocity.com.war` file from the latest release assets.
+
+
+### Deploy the sample web app
+
+Deploy this sample web app on a web container.
+
+1.  Copy the `travelocity.com.war`file into the `webapps` folder. For
+    example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
+    
+2.  Open a terminal window and add the following entry to the
+    `/etc/hosts` file of your machine to configure
+    the hostname.
+
+    ``` bash
+    127.0.0.1   wso2is.local
+    ```
+
+    !!!info "Why is this step needed?"
+		Some browsers do not allow you to create cookies for a naked
+		hostname, such as `localhost`. Cookies are
+		required when working with SSO . Therefore, to ensure that the SSO
+		capabilities work as expected in this tutorial, you need to
+		configure the `etc/host` file as explained in
+		this step.
+
+		The `etc/host` file is a read-only file.
+		Therefore, you won't be able to edit it by opening the file via a
+		text editor. Instead, edit the file using the terminal commands.  
+		For example, use the following command if you are working on a
+		Mac/Linux environment.
+
+		``` java
+		sudo nano /etc/hosts
+		```
+		
+3.  Open the `travelocity.properties` file found in the `
+    <TOMCAT_HOME>/webapps/travelocity.com/WEB-INF/classes ` directory
+    and configure the following property with the hostname ( `
+    wso2is.local ` ) that you configured above.
+
+    ``` text
+    #The URL of the SAML 2.0 Assertion Consumer
+    SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
+    ```
+    
+4.  Restart the Tomcat server.
+
+To check the sample application, navigate to
+`http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp`
+on your browser.
+
+For example,
+`http://wso2is.local:8080/travelocity.com/index.jsp`
+
+!!! tip
+    
+    If you wish to change properties like the issuer ID, consumer
+    URL, and IdP URL, you can edit the **travelocity.properties** file found
+    in the `         travelocity.com/WEB-INF/classes        ` directory.
+    Also if the service provider is configured in a tenant you can use
+    "QueryParams" property to send the tenant domain.For example,
+    "QueryParams=tenantDomain=wso2.com".
+    
+    This sample uses the following default values.
+    
+    | Properties                                                                                                                                                                          | Description                                                        |
+    |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+    | `             SAML2.SPEntityId=travelocity.com                         `                                                                                                            | A unique identifier for this SAML 2.0 Service Provider application |
+    | `              SAML2.AssertionConsumerURL=                                             http://wso2is.local:8080/travelocity.com/home.jsp                                          ` | The URL of the SAML 2.0 Assertion Consumer                         |
+    | `              SAML2.IdPURL=                                             https://localhost:9443/samlsso                                          `                                  | The URL of the SAML 2.0 Identity Provider                          |
+    | `             SAML2.IsPassiveAuthn=true                         `                                                                                                                   | Set this to send SAML2 passive authentication requests             |
+    
+    If you edit the `travelocity.properties` file, restart the
+    Apache Tomcat server for the changes to take effect.
 
 ----
 
-## Configure SSO for the sample app
+### CORS configuration
 
-1. Click **List** under **Service Providers**.
-
-2. Click **Edit** to modify the service provider you created for the Travelocity sample. 
-
-3. Modify the **SAML2 Web SSO Configuration** and enable the following fields.
-    - **Enable Audience Restriction**
-    - **Enable Recipient Validation**
-
-4. Enter the following values. 
-    - **Audience**: `https://localhost:9443/oauth2/token`
-    - **Recipient**: `https://localhost:9443/oauth2/token`
-
-    ![enable-audience-restriction](../assets/img/samples/enable-audience-restriction.png) 
-
-5. Click **Update** to save changes. 
+{!fragments/cors-config.md!}
 
 -----
 
     
-## Enable SAML2 grant
+## Enable SAML2 grant in the sample application
 
 1. Open the `travelocity.properties` file found in the `<TOMCAT_HOME>/webapps/travelocity.com/WEB-INF/classes` folder.
 
@@ -71,19 +181,15 @@ If you have your own application, click the button below.
 
 ## Try it out
 
-1. Start the Tomcat server and access the following URL on your browser: <http://wso2is.local:8080/travelocity.com>
-
-	```
-	http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com
-	```
+1. Start the Tomcat server and access the following URL on your browser: `http://wso2is.local:8080/travelocity.com`
 
 2. Click **Click here to login with SAML from Identity Server (Post binding or Redirect Binding)**. 
 
     You are redirected to WSO2 Identity Server for authentication. 
 
-3.  Enter the username and password and click **SIGN IN**.  
+3.  Enter the username and password and click **Continue**.  
 
-    ![travelocity-sign-in](../assets/img/samples/travelocity-sign-in.png) 
+    ![login-page](../assets/img/samples/sign-in-sample.png) 
 
 4.  Click **Request OAuth2 Access Token** to receive the access token.  
 
@@ -130,3 +236,7 @@ If you have your own application, click the button below.
     ``` java
     {"totalResults":1,"schemas":["urn:scim:schemas:core:1.0"],"Resources":[{"meta":{"created":"2017-11-15T11:23:25","location":"https://localhost:9443/wso2/scim/Users/admin","lastModified":"2017-11-15T11:23:25"},"id":"0fb2af3f-03f2-4d6b-8340-957012df23f4","userName":"admin"}]}
     ```
+
+!!! info "Related Topics"
+    -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../../references/concepts/authorization/saml2-bearer-assertion-profile)
+    -   [Guide: Set Up SAML2 Bearer Assertion Profile](../../../guides/access-delegation/saml2-bearer-assertion-profile/)

@@ -1,13 +1,11 @@
 
 {!fragments/deploying-sample-apps.md!}
 
+---
+
 ### Register a service provider
 
-!!! note "Important"
-
-    {! fragments/cors-config.md !}
-
-1.  Access the WSO2 IS Management Console (https://<IS_HOST\>:<PORT\>/carbon). 
+1.  Access the WSO2 IS Management Console (`https://<IS_HOST>:<PORT>/carbon`). 
 
 2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
 
@@ -36,11 +34,18 @@
         5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
     
     !!! tip
-        For more information on the advanced configurations
-        refer, [Configuring SAML2 Web Single-Sign-On](../../../guides/login/webapp-saml/)
+        For more information on other advanced configurations refer, [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced/)
 
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
+
+---
+
+### CORS configuration
+
+{!fragments/cors-config.md!}
+
+---
 
 ### Download the sample
 
@@ -53,6 +58,7 @@ Follow the instructions below to download the sample from GitHub.
 
 2. Download the `travelocity.com.war` file from the latest release assets.
 
+---
 
 ### Deploy the sample web app
 
@@ -91,15 +97,14 @@ Deploy this sample web app on a web container.
 3.  Open the `travelocity.properties` file found in the `
     <TOMCAT_HOME>/webapps/travelocity.com/WEB-INF/classes ` directory
     and configure the following property with the hostname ( `
-    wso2is.local ` ) that you configured above. Finally restart the
-    tomcat server.
+    wso2is.local ` ) that you configured above.
 
     ``` text
     #The URL of the SAML 2.0 Assertion Consumer
     SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
     ```
     
-4.  Start the Tomcat server.
+4.  Restart the Tomcat server.
 
 To check the sample application, navigate to
 `http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp`

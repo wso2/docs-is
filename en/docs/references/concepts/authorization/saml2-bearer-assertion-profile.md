@@ -35,4 +35,4 @@ token to the authorization server and exchanging it directly to an OAuth
 2.0 access token.
 
 
-![saml-2.0-flow](../../assets/img/concepts/saml-2.0-flow.jpg)
+![saml-2.0-flow](../../../assets/img/concepts/saml-2.0-flow.jpg)
