@@ -144,10 +144,10 @@ file in `<PRIMARY_IS_HOME>/repository/resources/conf/`
 ``` 
 [authentication.authenticator.oidc.parameters] 
 enableIatValidation = true 
-iatValidityPeriod = "30" 
+iatValidityPeriod = "150" 
 ```
 
-- `iatValidityPeriod` should be in minutes.
+- `iatValidityPeriod` should be in seconds.
 
 - If the `iat` claim validation is enabled in the PrimaryIS, the token shouldn’t be issued before the specified time.
 
