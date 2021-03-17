@@ -1,4 +1,4 @@
-# Configuring Multi-Factor Authentication
+# Configure Multi-Factor Authentication
 
 This page guides you through configuring [multi-factor authentication](../../../references/concepts/authentication/multi-factor-authentication) for an OAuth/OpenID Connect web application. This is demonstrated using a **sample application** called Pickup Dispatch and uses Nexmo as the sample SMS authenticator. 
 
@@ -17,17 +17,13 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 ----
 
-(TODO: dev-portal-fragment)
 {!fragments/connect-sms-provider.md!}
 
 ----
 
-(TODO: dev-portal-fragment)
 {!fragments/register-an-identity-provider.md!}
 
 ----
-
-(TODO: dev-portal-content)
 
 ## Configure SMSOTP
 
@@ -41,7 +37,7 @@ To ensure that only their own drivers can log into the application, Pickup decid
     2.  Once you have registered successfully, the API **key** and **secret**
         are displayed. Copy and save them as you need them for the next
         step.  
-        ![nexmo-config](../assets/img/guides/nexmo-config.png)
+        ![nexmo-config](../../../assets/img/guides/nexmo-config.png)
 
     3.  The Nexmo API requires the parameters to be encoded in the URL,
         so the SMS URL would be as follows.
@@ -62,12 +58,10 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 ## Set up Pickup Dispatch sample
 
-(TODO: dev-portal-fragment)
 {!fragments/pickup-dispatch-saml.md!}
 
 ----
 
-(TODO: dev-portal-content)
 ## Add authentication steps
 
 1. Click **Service Providers** > **List**.
@@ -103,11 +97,10 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 ----
 
-(TODO: dev-portal-content)
 
 ## Add a user 
 
-1. Add a new user called "Alex" with login permission. For instructions, see [Adding Users and Roles](insertlink).
+1. Add a new user called "Alex" with login permission. For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/) and [Adding Roles](../../../guides/identity-lifecycles/add-user-roles/).
 
 2. Click **Users and Roles > List** and edit Alex's **User Profile**.
 
@@ -125,14 +118,14 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 ## Try it out
 
-1. Navigate to <http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com> on your browser and click **Login**.
+1. Navigate to `http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com` on your browser and click **Login**.
 
-    ![dispatch-login](../assets/img/samples/dispatch-login.png)
+    ![dispatch-login](../../../assets/img/samples/dispatch-login.png)
 
 2. You will be redirected to the login page of WSO2 Identity Server. Log in using Alex's credentials. 
 
 3. Note that you are now prompted to enter a code. The SMSOTP code will be sent to your mobile number. Enter the code and click **Authenticate**. 
 
-    ![authenticate-with-smsotp](../assets/img/samples/authenticating-with-smsotp.png)
+    ![authenticate-with-smsotp](../../../assets/img/samples/authenticating-with-smsotp.png)
 
 You are redirected to the Pickup Dispatch home page. You have succesfully configured and logged in using two factor authentication.

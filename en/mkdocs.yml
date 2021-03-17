@@ -67,8 +67,6 @@ nav:
         - 'SAML': quick-starts/webapp-saml-sample.md
         - 'Query SAML Assertions': quick-starts/query-saml-assertions-sample.md
         - 'Use SAML Artifact Binding': quick-starts/use-artifact-binding-sample.md
-        - 'Configure Attributes': quick-starts/attribute-config-sample.md
-        - 'Integrate with a Custom Protocol': quick-starts/webapp-custom-sample.md
       - 'Logout':
         - 'Session Management and Logout': quick-starts/oidc-session-management.md
         - 'OpenID Connect Back-Channel Logout': quick-starts/oidc-backchannel-logout-sample.md
@@ -79,10 +77,6 @@ nav:
         - 'Overview': quick-starts/single-sign-on.md
         - 'OAuth/OIDC Apps': quick-starts/sso-for-oidc-apps.md
         - 'SAML Apps': quick-starts/sso-for-saml-apps.md
-      - 'Multi-Factor Authentication': 
-        - 'Possession Factor':  
-          - 'SMS OTP': quick-starts/mfa-sample.md
-          - 'X509': quickstarts/x509-sample.md
       - 'Request Path Authentication':
         - 'Basic-Auth': quick-starts/basic-auth-request-path-sample.md
         - 'OAuth-Bearer': quick-starts/oauth-request-path-sample.md

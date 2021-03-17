@@ -1,21 +1,21 @@
-# OpenID Connect Session Management - staging
+# OpenID Connect Session Management
 
 [The OpenID Connect Session Management specification](https://openid.net/specs/openid-connect-session-1_0.html)
 defines methodologies to manage user sessions and log-out end-users at the authorization server using front-channel communication.
 In this approach the login/logout requests from the RP (Relying Party or the client application) to OP (OpenID Provider)
 and OP to RP is done via the User Agent (browser based).
 
-###Obtaining user’s logging state.
-To obtain the user’s logging state, the specification recommends the approach of polling a hidden [OP iframe](OP-iframe)
-from an [RP iframe](RP-iframe) with an origin restricted postMessage. The main advantage of this approach is that, it will not 
+##Obtain user’s logging state
+To obtain the user’s logging state, the specification recommends the approach of polling a hidden [OP iframe](#op-iframe)
+from an [RP iframe](#rp-iframe) with an origin restricted postMessage. The main advantage of this approach is that, it will not 
 cause any network traffic.
 
-####OP iframe
+###OP iframe
 The OP iframe loads in RP side based on the OP’s **check_session_iframe** endpoint.
 The OP iframe must enforce that the caller has the same origin as its parent frame.
 It must reject postMessage requests from any other source origin.
 
-####RP iframe
+###RP iframe
 This iframe loads in RP side and it should know the ID of the OP iframe.
 This iframe can postMessage to the OP iframe. RP iframe should continuously post messages (poll)
 to the OP iframe at an interval as per the application requirements.
@@ -31,16 +31,17 @@ OpenID Connect uses the following two endpoints for the session management.
 
 1. **check_session_iframe**
 This endpoint supports cross-origin communications for session state information with the client, using the HTML5 postMessage API.
-It accepts postMessage requests from the relevant [RP iframe](insertlink) and uses postMessage to post back the login
+It accepts postMessage requests from the relevant [RP iframe](#rp-iframe) and uses postMessage to post back the login
 status of the End-User at the OpendID Provider.
 
 2. **end_session_endpoint**
 This endpoint responsibles to logging out an end-user once the client performs a redirect request.
 
 ###How does OpenID Connect Session Management Works?
+
 Following diagram represents the flow.
 
-![session-management](../../assets/img/concepts/session-management.png)
+![session-management](../../../assets/img/concepts/session-management.png)
 
 - Once the end-user needs to login to the RP, the RP sends an authentication request to the OP.
 - The OP responds back with the **session_state**.
@@ -49,9 +50,9 @@ Following diagram represents the flow.
 
 The status can be either;
 
-    - changed
-    - unchanged
-    - error
+- changed
+- unchanged
+- error
     
 - If the state is `unchanged`, this indicates that user-session is still valid at the OP. RP will continue to poll
   OP iframe to detect any session changes. 

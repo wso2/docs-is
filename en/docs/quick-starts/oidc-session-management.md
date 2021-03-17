@@ -8,15 +8,14 @@ If you have your own application, click the button below.
 <a class="samplebtn_a" href="../../guides/login/session-management-logout"   rel="nofollow noopener">I have my own application</a>
 
 ----
+## Register a Service Provider
 
-(TODO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 {!fragments/oauth-app-config-basic.md!}
 {!fragments/local-outbound.md!}
 
 ---
 
-(TODO: dev-portal-fragment)
 {!fragments/deploying-sample-apps.md!}
 {!fragments/deploy-playground.md!}
 
@@ -49,8 +48,6 @@ If you have your own application, click the button below.
     work, and without passive requests, the SLO protocol will not work. 
     Do this to avoid errors during execution.
 
-    <img name='playground-login' src='../../assets/img/samples/playground-login.png' class='img-zoomable'/>
-
 3.  Once it is successfully authenticated, the OpenIDConnect
     Provider(OP) will redirect back to the client application with the
     authorization code and the session state. You can see this in the
@@ -65,13 +62,13 @@ If you have your own application, click the button below.
     -   **Client Secret:** Enter the client secret of playground2
         application
         
-    <img name='authorization-code' src='../../assets/img/samples/authorization-code.png' class='img-zoomable'/>
+    <img name='authorization-code' src='../../../assets/img/samples/authorization-code.png' class='img-zoomable'/>
     
 5.  You will receive the access token. You can also enter the **UserInfo
     Endpoint** as
     `                     https://localhost:9443/oauth2/userinfo                  `
     to use the received access token to obtain user claims if needed.  
-    <img name='access-token' src='../../assets/img/samples/access-token.png' class='img-zoomable'/> 
+    <img name='access-token' src='../../../assets/img/samples/access-token.png' class='img-zoomable'/> 
     
 6.  Access the following URL on a separate window of the browser, and
     click on **Import Photos:**
@@ -101,7 +98,7 @@ If you have your own application, click the button below.
     received, the app will update it’s session state value and keep
     polling the OP iframe again.
 
-    <img name='sesion-state' src='../../assets/img/samples/session-state.png' class='img-zoomable'/> 
+    <img name='sesion-state' src='../../../assets/img/samples/session-state.png' class='img-zoomable'/> 
 
 9. Go back to the browser window of the playground3 app, and click
     **Logout**. Click **Approve** when prompted for consent.
@@ -111,12 +108,10 @@ If you have your own application, click the button below.
     passive authentication request and has received an error since the
     end user session has ended. This means the app has successfully
     handled this as a single logout scenario.  
-   <img name='import-photos' src='../../assets/img/samples/import-photos.png' class='img-zoomable'/> 
+   <img name='import-photos' src='../../../assets/img/samples/import-photos.png' class='img-zoomable'/> 
 
 
-!!! tip
-    
-    Redirect to a logout URL after RP-initiated logout
+!!! tip "Redirect to a logout URL after RP-initiated logout"
     
     You can specify a logout URL so that the application redirects to a
     particular page after the RP sends the OpenID Connect logout request.

@@ -27,7 +27,7 @@ Ensure to replace all values that refer to "playground2" with "playground3" incl
 
 ## Try it out
 
-1. Access the following URLs on a browser window: <http://wso2is.local:8080/playground2/>
+1. Access the following URLs on a browser window: `http://wso2is.local:8080/playground2/`
 
 2. Click **Import Photos** and enter the following details.
 
@@ -35,9 +35,9 @@ Ensure to replace all values that refer to "playground2" with "playground3" incl
     
     - **Client ID:** The OAuth Client Key recieved when registering the "playground2" service provider.
     
-    - **Callback URL:** http://wso2is.local:8080/playground2/oauth2client
+    - **Callback URL:** `http://wso2is.local:8080/playground2/oauth2client`
 
-	- **Authorize Endpoint:** https://localhost:9443/oauth2/authorize
+	- **Authorize Endpoint:** `https://localhost:9443/oauth2/authorize`
     
     <img name='implicit-with-playground' src='../../assets/img/samples/implicit-with-playground.png' class='img-zoomable'/>
 	
@@ -47,7 +47,7 @@ Ensure to replace all values that refer to "playground2" with "playground3" incl
 
 	<img name='implicit-id-token' src='../../assets/img/samples/implicit-id-token.png' class='img-zoomable'/>
 
-5. Now, access the following URL on a browser window to access "playground3": <http://wso2is.local:8080/playground3/>
+5. Now, access the following URL on a browser window to access "playground3": `http://wso2is.local:8080/playground3/`
 
 6. Repeat steps 1-4 for the "playground3" application.
 
