@@ -56,7 +56,7 @@ nav:
     - 'Contribute': get-started/community.md
     - 'Feature Tour': get-started/quick-start-guide.md
   - 'Quick Starts':
-      - 'Overview': quick-starts/overview.md
+      #- 'Overview': quick-starts/overview.md
       - 'Choose a Sample Type':
         - 'Android': quick-starts/android-sample.md
         - 'React': quick-starts/react-sample.md
@@ -109,7 +109,7 @@ nav:
         - 'Twitter': quick-starts/twitter-as-federated-authenticator-sample.md
         - 'Microsoft Azure': quick-starts/ms-azure-as-federated-authenticator-sample.md
   - 'Guides':
-      - 'Get Started': guides/before-you-start.md
+      #- 'Get Started': guides/before-you-start.md
       - 'Login':
         - 'Web Application':
           - 'OIDC': guides/login/webapp-oidc.md
@@ -737,7 +737,7 @@ nav:
                                           - 'Refresh Token Grant Type': references/concepts/authorization/refresh-token-grant.md
                                           - 'Device Flow Grant Type': references/concepts/authorization/device-flow-grant.md
                                     - 'JWT Bearer Grant Type': references/concepts/authorization/jwt_bearer_grant.md
-                                    - 'SAML2 Bearer Assertion Profile': references/concepts/authorization/saml2_bearer_assertion_profile.md
+                                    - 'SAML2 Bearer Assertion Profile': references/concepts/authorization/saml2-bearer-assertion-profile.md
                                     - 'Tokens':
                                           - 'Overview': references/concepts/authorization/overview.md
                                           - 'Access Tokens': references/concepts/authorization/access-token.md
