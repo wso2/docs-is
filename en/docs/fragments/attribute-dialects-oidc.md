@@ -9,5 +9,6 @@
 5.	Click **Add Claim URI** and add the claims for `address`, `country`, `email`, and `name`.
 
 6.	To make a selected claim mandatory, enable the corresponding checkboxes as shown below.
+	
+	![claim mapping oidc](../../assets/img/fragments/claim-mapping-oidc.png)
 
-	![claim mapping oidc](../../../assets/img/fragments/claim-mapping-oidc.png)

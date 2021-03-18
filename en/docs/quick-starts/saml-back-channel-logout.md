@@ -1,6 +1,6 @@
 # Configure SAML 2.0 Back-Channel Logout 
 
-This page guides you through configuring [SAML 2.0 back-channel logout](TODO:insert-link-to-concept). This is demonstrated using two sample applications, **Pickup Dispatch** and **Pickup Manager**.
+This page guides you through configuring [SAML 2.0 back-channel logout](../../../references/concepts/authentication/saml-back-channel/). This is demonstrated using two sample applications, **Pickup Dispatch** and **Pickup Manager**.
 
 ----
 If you have your own application, click the button below.
@@ -29,13 +29,13 @@ The user is required to log in to two different applications. For convenience an
 
 ## Try it out
 
-1.  Access the Pickup Dispatch application, <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/index.jsp>.
+1.  Access the Pickup Dispatch application, `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/index.jsp`.
 
 2.  Log in using admin/admin credentials. 
 
     ![pickup-dispatch](../../../assets/img/samples/pickup-dispatch.png)
 
-3.  Access the Pickup Manager application, <http://localhost.com:8080/saml2-web-app-pickup-manager.com/index.jsp>.
+3.  Access the Pickup Manager application, `http://localhost.com:8080/saml2-web-app-pickup-manager.com/index.jsp`.
 
 4.  Log in using admin/admin credentials. 
 

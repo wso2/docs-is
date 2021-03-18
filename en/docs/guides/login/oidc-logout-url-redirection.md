@@ -8,9 +8,7 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 
 -----
 
-## Sending a GET logout request
-
-(TODO: dev-portal-fragment)
+## Send a GET logout request
 
 {!fragments/register-a-service-provider.md!}
 
@@ -19,7 +17,7 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 4. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced).
+        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced).
 
 5. Enter a logout URL along with the callback URL. 
 
@@ -69,7 +67,7 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 
 -----
 
-## Sending a POST logout request
+## Send a POST logout request
 
 Sending an OIDC logout request as a POST request is useful in certain scenarios. For example, consider a service provider that builds an HTML page with the required parameters to render a page in a browser. This scenario requires an OIDC logout request sent as a POST request to the logout endpoint.
 

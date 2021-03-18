@@ -1,8 +1,48 @@
 {!fragments/deploying-sample-apps.md!}
 
+### CORS configuration
+
+{!fragments/cors-config.md!}
+
 ### Register a service provider
 
-insert portal content
+
+1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+
+2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
+
+3.  Enter **saml2-web-app-pickup-manager** in the **Service Provider Name** text box,
+    and click **Register**.
+
+4.  In the **Inbound Authentication Configuration** section, click
+    **Configure** under the **SAML2 Web SSO Configuration** section.
+
+    1.  Now set the configuration as follows:
+
+        1.  **Issuer** : `               saml2-web-app-pickup-manager.com             `
+
+        2.  **Assertion Consumer URL** :
+            `                               http://localhost.com:8080/saml2-web-app-pickup-manager.com/home.jsp`                        
+                 
+            Click Yes, in the message that appears.
+
+    2.  Select the following check-boxes:
+        1.  **Enable Response Signing**
+
+        2.  **Enable Single Logout**
+
+        3.  **Enable Attribute Profile**
+
+        4.  **Include Attributes in the Response Always**  
+        
+        5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
+            
+    
+    !!! tip
+        For more information on the advanced configurations
+        refer, [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced)
+
+5.  Click **Register** to save the changes.  
 
 ### Download the sample
 
@@ -13,7 +53,7 @@ Follow the instructions below to download the sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-2. [Download](https://github.com/wso2/samples-is/releases/download/ v4.3.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the latest release assets.
 
 ### Deploy the sample web app
 

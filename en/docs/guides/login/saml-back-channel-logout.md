@@ -18,10 +18,12 @@ Register your applications with WSO2 Identity Server. Make sure you have a servi
 
 ## Register your applications with WSO2 Identity Server
 
-TODO: dev-portal-fragment
+{!fragments/register-a-service-provider.md!}
+
+{!fragments/saml-app-config-basic.md!}
 
 Once you have configured all your applications, access them on separate tabs in your browser. When you log out from one of the applications, it should log you out from all the other configured applications. 
 
 !!! info "Related Topics"
-    -   [Concept: Configuring SAML Back-Channel Logout](TODO:insert-link-to-concept)
+    -   [Concept: Configuring SAML Back-Channel Logout](../../../references/concepts/authentication/saml-back-channel/)
     -   [Guide: Configure SAML 2.0 Back-Channel Logout](../../../quick-starts/saml-back-channel-logout)
