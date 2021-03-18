@@ -2,12 +2,6 @@
 
 This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [SMS OTP](insertlink) as the second factor. 
 
----
-
-This guide assumes you have your own application. If you wish to try out this flow with a sample application and a sample authenticator, click the button below. 
-
-<a class="samplebtn_a" href="../../../quick-starts/mfa-sample"   rel="nofollow noopener">Try it with the sample</a>
-
 ----
 
 {!fragments/connect-sms-provider.md!}

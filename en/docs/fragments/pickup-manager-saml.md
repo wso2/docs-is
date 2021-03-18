@@ -1,38 +1,15 @@
 {!fragments/deploying-sample-apps.md!}
 
+### CORS configuration
+
+{!fragments/cors-config.md!}
+
 ### Register a service provider
 
-!!! note "Important"
 
-    SAML2 POST Binding requires CORS configs set up. Before configuring the service provider, make sure you add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
+1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
-    ```toml
-    [cors]
-    allow_generic_http_requests = true
-    allow_any_origin = false
-    allowed_origins = [
-        "http://localhost:8080"
-    ]
-    allow_subdomains = false
-    supported_methods = [
-        "GET",
-        "POST",
-        "HEAD",
-        "OPTIONS"
-    ]
-    support_any_header = true
-    supported_headers = []
-    exposed_headers = []
-    supports_credentials = true
-    max_age = 3600
-    tag_requests = false
-    ```
-
-The next step is to configure the service provider.
-
-1.  Return to the WSO2 IS management console.
-
-2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
+2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
 
 3.  Enter **saml2-web-app-pickup-manager** in the **Service Provider Name** text box,
     and click **Register**.
@@ -63,7 +40,7 @@ The next step is to configure the service provider.
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Configuring SAML2 WEB Single-Sign-On](../../../guides/login/webapp-saml/)
+        refer, [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced)
 
 5.  Click **Register** to save the changes.  
 
@@ -76,7 +53,7 @@ Follow the instructions below to download the sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-2. [Download](https://github.com/wso2/samples-is/releases/download/ v4.3.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the latest release assets.
 
 ### Deploy the sample web app
 
