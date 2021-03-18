@@ -56,7 +56,7 @@ The exact flow differs based on the authentication flow or the grant type.  Howe
 
 The following steps explain how this protocol works in a simple manner.
 
-  ![oidc-flow](../../assets/img/concepts/oidc-basic-flow.png)
+  ![oidc-flow](../../../assets/img/concepts/oidc-basic-flow.png)
   
 Once a user attempts to access an application and initiates the flow: 
   

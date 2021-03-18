@@ -120,7 +120,7 @@ nav:
         - 'Web Application':
           - 'OIDC': guides/login/webapp-oidc.md
           - 'SAML': guides/login/webapp-saml.md
-          - 'WS-Federation': guides/login/configure-ws-federation-single-sign-on.md
+          - 'WS-Federation': guides/login/webapp-sts.md
           - 'IWA': guides/login/configure-iwa-on-linux.md
         - 'Client-Side Application': guides/login/client-side-app.md
         - 'SaaS Applications':
