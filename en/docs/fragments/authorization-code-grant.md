@@ -24,7 +24,7 @@ to configure authentication for an OAuth/OpenID Connect application.
 9.  Click **Add**. 
 
     !!! note
-        Note the generated **OAuth Client Key** and **Client Secret**. You will need these values later on when sending 
+        Note the generated **OAuth Client Key** and **OAuth Client Secret**. You will need these values later on when sending 
         the requesting the code and the access token.
 
 ----
@@ -39,7 +39,7 @@ to configure authentication for an OAuth/OpenID Connect application.
     ``` tab="Request Format"
     https://<host>:<port>/oauth2/authorize?
     response_type=code&
-    client_id=<client_ID>&
+    client_id=<oauth_client_key>&
     redirect_uri=<callback_url>&
     scope=<scope>
     ```
@@ -67,7 +67,7 @@ to configure authentication for an OAuth/OpenID Connect application.
 2. Run the following curl command using the authorization code received, to obtain the access token. 
 
     ``` tab="Request Format"
-    curl -v -X POST --basic -u <client_ID>:<client_secret> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=<callback_url> <token_endpoint>
+    curl -v -X POST --basic -u <oauth_client_key>:<oauth_client_secret> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=<callback_url> <token_endpoint>
     ```
 
     ``` tab="Sample Request"

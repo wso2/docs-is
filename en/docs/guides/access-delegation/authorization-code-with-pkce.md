@@ -29,7 +29,7 @@ to configure authentication for native mobile applications.
 10. Click **Add**. 
 
     !!! note
-        Note the generated **OAuth Client Key** and **Client Secret**. You will need these values later on when sending 
+        Note the generated **OAuth Client Key** and **OAuth Client Secret**. You will need these values later on when sending 
         the requesting the code and the access token.
 
 ----
