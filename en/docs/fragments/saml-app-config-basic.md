@@ -8,5 +8,6 @@
      
      - The **Assertion Consumer URL** is the Assertion Consumer Service (ACS) URL of the service provider. This URL should be the URL of the page to which the browser is redirected to after successful authentication.
     
-3. To configure more advanced configurations, see [SAML Configurations](../../../guides/login/saml-app-config-advanced). 
+!!! tip
+     To configure more advanced configurations, see [SAML Configurations](../../../guides/login/saml-app-config-advanced). 
 
