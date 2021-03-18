@@ -18,7 +18,7 @@ The instructions below guide you through specifying authentication steps based o
 
 1.  Start the server and log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
-2.  Click **List** under **Claims** and click http://wso2.org/claims (`https://localhost:9443/carbon/identity-claim-mgt/list-local-claims.jsp`).
+2.  Click **List** under **Claims** and click `http://wso2.org/claims`.
 
 3.  Click on the **Edit** corresponding to the **BirthDate** claim.
 
@@ -33,7 +33,7 @@ The instructions below guide you through specifying authentication steps based o
 
 1.  Create a user called "Alex" with login permission.
 
-    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/).
+    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/) and [Adding Roles](../../../guides/identity-lifecycles/add-user-roles/).
 
 2. Edit Alex's user profile and enter a birth date that specifies Alex as under 18 years of age.  
     For instructions, see [Editing User Profile](../../../guides/identity-lifecycles/update-profile/).
