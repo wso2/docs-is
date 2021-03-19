@@ -10,27 +10,9 @@ to configure authentication for native mobile applications.
 
 {!fragments/register-a-service-provider.md!}
 
-5. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
+---
 
-6. Click **Configure.**   
-
-7. Make sure **Code** is selected from the **Allowed Grant Types** list.
-        
-8. Enter the **Callback Url**.
-
-    !!! tip
-        The **Callback Url** is the exact location in the service provider's application to which an access token will 
-        be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
-
-9. Select **PKCE Mandatory** in order to enable PKCE. 
-
-    ![enable-pkce](../../assets/img/guides/enable-pkce.png)
-           
-10. Click **Add**. 
-
-    !!! note
-        Note the generated **OAuth Client Key** and **Client Secret**. You will need these values later on when sending 
-        the requesting the code and the access token.
+{!fragments/oauth-app-pkce.md!}
 
 ----
 
@@ -71,7 +53,7 @@ Make the following requests via your application to connect your application to 
     http://wso2is.local:8080/playground2/oauth2client?code=9142d4cad58c66d0a5edfad8952192
     ```
     
-2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` recieved in step 1, and the `<OAuth Client Key>` and `<OAuth Client Secret>` obtained when configuring the service provider.
+2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` received in step 1, and the `<OAuth Client Key>` and `<OAuth Client Secret>` obtained when configuring the service provider.
 
     ```tab="Request Format"
     curl -i -X POST -u <OAuth Client Key>:<Client Secret> -k -d 

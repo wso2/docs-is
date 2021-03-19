@@ -9,24 +9,16 @@ relevant responses that the WSO2 Identity Server would generate for the
 
 {!fragments/register-a-service-provider.md!}
 
-3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
+{!fragments/oauth-app-config-basic.md!}
 
-4. Click **Configure.**   
-
-5. Enter the **Callback Url**.
-
-    !!! tip
-        The **Callback Url** is the exact location in the service provider's application to which an access token will 
-        be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
-        
-6.  Click **Add**. 
+---
 
 ## Try out the flow
 
 1. Use the following authorization request with `code` as the response_type to obtain the authorization code from the authorization endpoint.
 
     ```tab="Request Format"
-    https://<host>:<port>/oauth2/authorize?response_type=code&client_id=<client_id>&nonce=<nonce_value>&redirect_uri=<redirect_uri>&scope=openid
+    https://<host>:<port>/oauth2/authorize?response_type=code&client_id=<oauth_client_key>&nonce=<nonce_value>&redirect_uri=<redirect_uri>&scope=openid
     ```
 
     ```tab="Sample Request"
@@ -42,7 +34,7 @@ relevant responses that the WSO2 Identity Server would generate for the
 2. Send the code to the token endpoint using the following curl command to request for an access token, refresh token, and id_token.
 
     ``` tab="Request Format"
-    curl -k -v --basic -u <client_id>:<client_secret> -d "grant_type=<grant_type>&code=<code>&redirect_uri=<redirect_uri>" https://<host>:<port>/oauth2/token
+    curl -k -v --basic -u <oauth_client_key>:<oauth_client_secret> -d "grant_type=<grant_type>&code=<code>&redirect_uri=<redirect_uri>" https://<host>:<port>/oauth2/token
     ```
 
     ``` tab="Sample Request"
