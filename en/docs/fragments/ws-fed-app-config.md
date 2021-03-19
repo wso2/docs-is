@@ -1,6 +1,6 @@
 ## Configure WS-Federation
 
-1.  Expand the **Inbound Authentication Configuration** followed by the
+1.  Expand **Inbound Authentication Configuration** followed by the
     **WS-Federation (Passive) Configuration** section and provide the
     following values. 
 
