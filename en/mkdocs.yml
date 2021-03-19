@@ -146,6 +146,7 @@ nav:
             - 'Back-Channel Logout': guides/login/saml-back-channel-logout.md
           - 'Cross Protocol Logout': guides/login/cross-protocol-logout.md
         - 'Advanced OpenID Connect':
+          - 'Advanced Configurations': guides/login/oauth-app-config-advanced.md
           - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
           - 'Pass Parameters as a Request Object': guides/login/oidc-request-object.md
           - 'Manage Scopes and Claims': guides/login/oidc-scopes-claims.md
@@ -155,6 +156,7 @@ nav:
           - 'Obtain Key Set Using JWKS': guides/login/using-jwks.md
           - 'Validate JWT based on JWKS': guides/login/validate-jwt-using-jwks.md
         - 'Advanced SAML':
+          - 'Advanced Configurations': guides/login/saml-app-config-advanced.md
           - 'Use Advanced Parameters in the Authentication Request': guides/login/saml-parameters-in-auth-request.md
           - 'Use SAML Artifact Binding': guides/login/use-artifact-binding.md
           - 'Query SAML Assertions': guides/login/query-saml-assertions.md
@@ -583,7 +585,7 @@ nav:
     - 'Register an Application': fragments/register-a-service-provider.md
     - 'OAuth/OIDC':
       - 'Basic': fragments/oauth-app-config-basic.md
-      - 'Advanced': guides/login/oauth-app-config-advanced.md
+      #- 'Advanced': guides/login/oauth-app-config-advanced.md
       - 'Client Configurations':
         - 'Regular OAuth/OIDC Application': fragments/configure-client-regular-oidc-app.md
         - 'OIDC Back-Channel Logout': fragments/oidc-backchannel-logout.md
@@ -591,7 +593,7 @@ nav:
         - 'OAuth/OIDC Grants': fragments/oauth-oidc-grants.md
     - 'SAML':
       - 'Basic': fragments/saml-app-config-basic.md
-      - 'Advanced': guides/login/saml-app-config-advanced.md
+      #- 'Advanced': guides/login/saml-app-config-advanced.md
       - 'Client Configurations':
         - 'SAML Application': fragments/configure-client-regular-saml-app.md
         - 'Retrieve User Information to the Client Application': fragments/get-user-information-to-the-saml-application.md

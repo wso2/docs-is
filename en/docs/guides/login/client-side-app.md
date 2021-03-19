@@ -1,7 +1,10 @@
 # Enable Login for a Client Side Application
 
 This page guides you through enabling authentication using the [Authorization Code](../../../references/concepts/authorization/authorization-code-grant) 
-grant type with [PKCE](TODO:insert-link-to-concepts) for client side applications (e.g.,mobile application , single page application) that uses OpenID Connect. 
+grant type with PKCE for client side applications (e.g.,mobile application , single page application) that uses OpenID Connect. 
+
+!!! tip
+    PKCE is a recommended security measure used to mitigate a [code interception attack](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/).
 
 ---
 
@@ -10,34 +13,28 @@ This guide assumes you have your own application. If you wish to try out this fl
 <a class="samplebtn_a" href="../../../quick-starts/webapp-oidc-sample"   rel="nofollow noopener">Try it with the sample</a>
 
 ----
-(TODO: dev-portal-fragment)
+
+## Create a service provider
 
 {!fragments/register-a-service-provider.md!}
 
 ----
-(TODO: dev-portal-fragment)
-{!fragments/oauth-app-config-basic.md!}
+
+{!fragments/oauth-app-pkce.md!}
 
 ----
 
-
-## Enable PKCE
-
-When configuring **OAuth/OpenID Connect Configuration** for the service provider, select **PKCE Mandatory** in order to enable PKCE. 
-
-![enable-pkce](../../assets/img/guides/enable-pkce.png)
-
-----
-
-## Configure the client application
+## Try out the flow
 
 Make the following requests via your application to connect your application to WSO2 IS. 
 
 1. Obtain the `authorization_code` by sending an authorization request to the authorization endpoint. 
 
     !!! tip
-        You can use [an online tool](https://tonyxu-io.github.io/pkce-generator/) to generate PKCE code challenges to include the `code challenge` and `code_challenge_method` parameters. 
-
+        You can use this [online tool](https://tonyxu-io.github.io/pkce-generator/) to generate PKCE code challenges to include the `code challenge` and `code_challenge_method` parameters. 
+        First click on `Generate Code Verifier` and then on `Generate Code Challenge`. 
+        Make note of the two values. The code challenge you get here is the base64 URL encoded value of the SHA256 hashed code_verifier so the code challenge method will be `S256`.    
+    
     ```tab="Request Format"
     https://<host>/oauth2/authorize?scope=openid&response_type=code
     &redirect_uri=<redirect_uri>
@@ -55,7 +52,6 @@ Make the following requests via your application to connect your application to 
     ```
     
 2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` recieved in step 1, and the `<OAuth Client Key>` and `<OAuth Client Secret>` obtained when configuring the service provider.
-
 
     ```tab="Request Format"
     curl -i -X POST -u <OAuth Client Key>:<Client Secret> -k -d 
@@ -78,10 +74,11 @@ Make the following requests via your application to connect your application to 
 
 !!! info "Related Topics"
     - [Concept: Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant)
-    - [Concept: PKCE](TODO:insert-link-to-concepts)
     - [Demo: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
     - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)
     - [Guide: Manage User Sessions](../session-management-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
+    - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
+    - [Deploy: Mitigate Authorization Code Interception Attacks](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)    
 
 

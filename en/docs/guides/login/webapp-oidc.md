@@ -74,6 +74,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 !!! info "Related Topics"
     - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
     - [Demo: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
+    - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
     - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)
     - [Guide: Manage User Sessions](../session-management-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
