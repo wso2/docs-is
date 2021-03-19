@@ -33,7 +33,7 @@ Make the following requests via your application to connect your application to 
     !!! tip
         You can use this [online tool](https://tonyxu-io.github.io/pkce-generator/) to generate PKCE code challenges to include the `code challenge` and `code_challenge_method` parameters. 
         First click on `Generate Code Verifier` and then on `Generate Code Challenge`. 
-        Make note of the two values. The code challenge you get here is the base64 URL encoded value of the SHA256 hashed code_verifier so the code challenge method will be `S256`.    
+        Note the two values. The code challenge you get here is the base64 URL encoded value of the SHA256 hashed `code_verifier` so the code challenge method will be `S256`.    
     
     ```tab="Request Format"
     https://<host>/oauth2/authorize?scope=openid&response_type=code
@@ -80,5 +80,4 @@ Make the following requests via your application to connect your application to 
     - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
     - [Deploy: Mitigate Authorization Code Interception Attacks](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)    
-
 
