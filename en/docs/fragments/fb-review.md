@@ -1,5 +1,4 @@
-!!! info "About accessing the app"
-
+!!!	info "About accessing the app"
 	The app is not available to general public yet. To make to app available
 	to every Facebook user, you have to submit the app for review. After a
 	review, Facebook makes the app available to every Facebook user. You can
@@ -12,5 +11,5 @@
 	until the app goes public. To do this, click on **Roles** in the left
 	navigation menu of the dashboard and specify the required Facebook users
 	as Developers or Testers.
-
-	![submit-fb-app-for-review](../../assets/img/samples/add-app-roles.png)
+	
+	![submit-fb-app-for-review](../../../assets/img/samples/add-app-roles.png))

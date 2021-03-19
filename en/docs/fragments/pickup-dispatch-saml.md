@@ -34,7 +34,7 @@
         5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
     
     !!! tip
-        For more information on the advanced configurations, see [Configuring SAML2 Web Single-Sign-On](../../../guides/login/webapp-saml/)
+        For more information on the advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced/)
 
 5.  Click **Register** to save the changes.  
 

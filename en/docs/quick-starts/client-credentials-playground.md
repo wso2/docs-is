@@ -1,6 +1,6 @@
 # Client Credentials Grant with OAuth 2.0 Playground
 
-This page guides you through using a **sample Playground application** to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Client Credentials](insertlink) grant type.
+This page guides you through using a **sample Playground application** to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Client Credentials](../../../references/concepts/authorization/client-credential-grant/) grant type.
 
 ----
 
@@ -18,9 +18,9 @@ This page guides you through using a **sample Playground application** to try ou
 
 	- **Client Secret:** The Client Secret recieved when registering the service provider.
 
-	- **Access Token Endpoint:** https://localhost:9443/oauth2/token
+	- **Access Token Endpoint:** `https://localhost:9443/oauth2/token`
 
-	<img name='client-credentials-with-playground' src='../../assets/img/samples/client-credentials-with-playground.png' class='img-zoomable'/>
+		![client-credential](../../../assets/img/samples/client-credentials-with-playground.png)
     
 2. Click **Authorize**. 
 
@@ -47,14 +47,14 @@ This page guides you through using a **sample Playground application** to try ou
 	grant_type=client_credentials
 	``` 
 
-3. Log in with user credentials (e.g., admin/admin). At this point, the application receives the access token. 
+3. Log in with user credentials (e.g., `admin`/`admin`). At this point, the application receives the access token. 
 
-4. Enter the **Introspection Endpoint** (i.e, https://localhost:9443/oauth2/introspect) and click **Get TokenInfo** to get the token   information. 
-
-	For more information, see [OAuth Token Introspection](insertlink).
+4. Enter the **Introspection Endpoint** (i.e, `https://localhost:9443/oauth2/introspect`) and click **Get TokenInfo** to get the token   information. 
 
 5.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
 
-	<img name='access-token-info' src='../../assets/img/samples/access-token-info.png' class='img-zoomable'/>
+	![access token](../../../assets/img/samples/access-token-info.png)
+
+
 

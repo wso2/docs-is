@@ -1,4 +1,4 @@
-# Passing OIDC Authentication Parameters as a Request Object
+# Pass OIDC Authentication Parameters as a Request Object
 
 This page guides you through passing OpenID Connect authentication request parameters in a self contained JWT, instead of passing plain request parameters using a sample application. A JWT that contains a set of request parameters as its claims is known as a request object.
 
@@ -25,10 +25,10 @@ If you have your own application, click the button below.
 
 1. Create a user called "Tom" with login permission.
 
-    For instructions, see [Adding Users and Roles](insertlink).
+    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/) and [Adding Roles](../../../guides/identity-lifecycles/add-user-roles/).
 
 2. Edit Tom's user profile and enter values for **email**, **country**, **challenge Question1**, and **challenge Question 2**. 
-    For instructions, see [Editing User Profile](insertlink).
+    For instructions, see [Editing User Profile](../../../guides/identity-lifecycles/update-profile/).
 
 3. Create a JWT with the following payload and sign(RSA256) it with the private key of the keystore you created above.
 
@@ -108,10 +108,10 @@ Request objects can either be signed or unsigned. Therefore, if you want to only
 
     If signature validation is successfully enforced, the request should get rejected and you should see an error page.
 
-    ![signature-validation-successful](../../assets/img/samples/signature-validation-successful.png)
+    ![signature-validation-successful](../../../assets/img/samples/signature-validation-successful.png)
 
 ---- 
 
 !!! info "Related Topics"
-    - [Pass OIDC Authentication Request Parameters in a Request Object](../../../login/request-object)
-    - [Use Advanced Parameters in Authentication Requests ](insertlink)
+    - [Pass OIDC Authentication Request Parameters in a Request Object](../../../guides/login/oidc-request-object/)
+    - [Use Advanced Parameters in Authentication Requests ](../../../guides/login/oidc-parameters-in-auth-request/)

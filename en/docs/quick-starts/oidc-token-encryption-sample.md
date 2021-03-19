@@ -1,6 +1,6 @@
 # Encrypt ID Tokens
 
-This page guides you through configuring [token encryption for ID tokens](insertlink) using the WSO2 IS playground sample application. 
+This page guides you through configuring token encryption for ID tokens using the WSO2 IS playground sample application. 
 
 ----
 
@@ -51,7 +51,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
 ## Try authorization grant flow
 
-1.  Visit the URL, <http://wso2is.local:8080/playground2/oauth2.jsp> to start the application.
+1.  Visit the URL, `http://wso2is.local:8080/playground2/oauth2.jsp` to start the application.
 
 2.  Enter the following details and click **Authorize**.
 
@@ -61,9 +61,9 @@ You have successfully set up token encryption and the sample Playground applicat
 
     -   **Scope:** openid
 
-    -   **Callback URL:** <http://wso2is.local:8080/playground2/oauth2client>
+    -   **Callback URL:** `http://wso2is.local:8080/playground2/oauth2client`
 
-    -   **Authorize Endpoint:** <https://localhost:9443/oauth2/authorize>
+    -   **Authorize Endpoint:** `https://localhost:9443/oauth2/authorize`
 
 3.  Sign in with user credentials.
 
@@ -71,9 +71,9 @@ You have successfully set up token encryption and the sample Playground applicat
 
 5.  Provide the following details and click **Get Access Token**.  
 
-    -   **Callback URL:**  <http://wso2is.local:8080/playground2/oauth2client>
+    -   **Callback URL:**  `http://wso2is.local:8080/playground2/oauth2client`
 
-    -   **Access Token Endpoint:** <https://localhost:9443/oauth2/token>
+    -   **Access Token Endpoint:** `https://localhost:9443/oauth2/token`
 
     -   **Client Secret:** (the client secret received when you registered the service provider)  
 
@@ -97,7 +97,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
     4.  Copy only the key string as shown in the sample below.
 
-        ![sample-key-string](../../assets/img/guides/sample-key-string.png)
+        ![sample-key-string](../../../assets/img/guides/sample-key-string.png)
 
 8.  Paste the copied private key in the **Client Private Key** text area.
 
@@ -105,7 +105,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
 ## Try implicit grant flow
 
-1.  Visit the URL, <http://wso2is.local:8080/playground2/oauth2.jsp> to
+1.  Visit the URL, `http://wso2is.local:8080/playground2/oauth2.jsp` to
     start the application.
 
 2.  Enter the following details and click **Authorize**.
@@ -116,9 +116,9 @@ You have successfully set up token encryption and the sample Playground applicat
 
     -   **Scope:** openid 
 
-    -   **Callback URL:** <http://wso2is.local:8080/playground2/oauth2client>
+    -   **Callback URL:** `http://wso2is.local:8080/playground2/oauth2client`
 
-    -   **Authorize Endpoint:** <https://localhost:9443/oauth2/authorize>
+    -   **Authorize Endpoint:** `https://localhost:9443/oauth2/authorize`
 
 4.  Sign in with the user credentials.  
 
@@ -144,7 +144,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
     4.  Copy only the key string as shown in the sample below.
 
-        ![sample-key-string](../../assets/img/guides/sample-key-string.png)
+        ![sample-key-string](../../../assets/img/guides/sample-key-string.png)
 
 8.  Paste the copied private key in the **Client Private Key** text area.
 
@@ -154,7 +154,7 @@ You have successfully set up token encryption and the sample Playground applicat
 ## Try password grant flow 
 
 
-1. Visit the URL, <http://wso2is.local:8080/playground2/oauth2.jsp> to start the application.
+1. Visit the URL, `http://wso2is.local:8080/playground2/oauth2.jsp` to start the application.
 
 2. Enter the following details and click **Authorize**.
 
@@ -170,7 +170,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
     -   **Scope:** openid 
 
-    -   **Access Token Endpoint:** <https://localhost:9443/oauth2/token>
+    -   **Access Token Endpoint:** `https://localhost:9443/oauth2/token`
 
 4.  At this point, the application receives the access token and the encrypted ID Token.  
 
@@ -191,7 +191,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
     4.  Copy only the key string as shown in the sample below.
 
-        ![sample-key-string](../../assets/img/guides/sample-key-string.png)
+        ![sample-key-string](../../../assets/img/guides/sample-key-string.png)
 
 
 6.  Paste the copied private key in the **Client Private Key** text area.

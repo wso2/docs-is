@@ -1,6 +1,6 @@
 # Implicit Grant with OAuth 2.0 Playground
 
-This page guides you through using a **sample Playground application** to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Implicit](insertlink) grant type.
+This page guides you through using a **sample Playground application** to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Implicit](../../../references/concepts/authorization/implicit-grant/) grant type.
 
 ----
 
@@ -16,11 +16,11 @@ This page guides you through using a **sample Playground application** to try ou
     
     - **Client ID:** The OAuth Client Key recieved when registering the service provider.
     
-    - **Callback URL:** http://wso2is.local:8080/playground2/oauth2client
+    - **Callback URL:** `http://wso2is.local:8080/playground2/oauth2client`
 
-	- **Authorize Endpoint:** https://localhost:9443/oauth2/authorize
+	- **Authorize Endpoint:** `https://localhost:9443/oauth2/authorize`
     
-    <img name='implicit-with-playground' src='../../assets/img/samples/implicit-with-playground.png' class='img-zoomable'/>
+    ![implicit](../../../assets/img/samples/implicit-with-playground.png)
 	
 2. Click **Authorize**. 
 
@@ -45,7 +45,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 3. Log in with user credentials (e.g., admin/admin). At this point, the application receives the ID token. 
 
-	<img name='implicit-id-token' src='../../assets/img/samples/implicit-id-token.png' class='img-zoomable'/>
+	<img name='implicit-id-token' src='../../../assets/img/samples/implicit-id-token.png' class='img-zoomable'/>
 	
 
 

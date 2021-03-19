@@ -15,11 +15,12 @@ If you have your own application, click the button below.
 The instructions below guide you through specifying authentication steps based on the authentication context value used when logging in.
 
 ----
+
 {! fragments/oauth-playground.md !}
 
 ## Deploy sample authenticators
 
-1.  Download the [the sample authenticators](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.11.0-m33.jar) file and paste it inside the `<IS_HOME>/repository/components/dropins` directory.
+1.  Download the [the sample authenticators](../../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.11.0-m33.jar) file and paste it inside the `<IS_HOME>/repository/components/dropins` directory.
 
     This `.jar` file contains an implementation of a Demo HardwareKey authenticator, Demo Fingerprint authenticator, and Demo FaceID authenticator.
             
@@ -48,7 +49,7 @@ The instructions below guide you through specifying authentication steps based o
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **ACR-Based**. 
 
-    ![acr-based-template](../assets/img/samples/acr-based-template.png)
+    ![acr-based-template](../../../assets/img/samples/acr-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -70,17 +71,17 @@ The instructions below guide you through specifying authentication steps based o
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../assets/img/samples/delete-authenticator-1.png)
+        ![delete authenticator](../../../assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
 
     3.  Click **Delete** to remove the `            fido           `
         authenticator from Step 3.  
-        ![delete authenticator](../assets/img/samples/delete-authenticator-2.png)
+        ![delete authenticator](../../../assets/img/samples/delete-authenticator-2.png)
 
     4.  Select **Demo FaceID Authenticator** and click **Add**.  
-        ![add new authenticator](../assets/img/samples/add-new-authenticator-2.png)
+        ![add new authenticator](../../../assets/img/samples/add-new-authenticator-2.png)
 
 8.  Click **Update**.
 
@@ -89,11 +90,11 @@ The instructions below guide you through specifying authentication steps based o
 ## Try it out
 
 1.  Access the following sample Playground application URL:
-    <http://wso2is.local:8080/playground2/index.jsp> 
+    `http://wso2is.local:8080/playground2/index.jsp`
 
 2.  Click **Import Photos**.  
 
-    ![import-photos](../assets/img/samples/import-photos.png)
+    ![import-photos](../../../assets/img/samples/import-photos.png)
     
 3.  Enter the client ID of the OAuth service provider application you
     registered above and enter 'acr2' as the **Authentication Context
@@ -101,7 +102,7 @@ The instructions below guide you through specifying authentication steps based o
 
     Leave the rest of the configurations as they are.  
 
-    ![authentication-context-class](../assets/img/samples/authentication-context-class.png)
+    ![authentication-context-class](../../../assets/img/samples/authentication-context-class.png)
 
 4.  You are now prompted for basic authentication. Sign in with a user's
     credentials or use the admin/admin credentials to log in.  
@@ -114,14 +115,11 @@ The instructions below guide you through specifying authentication steps based o
         are then prompted for step 1 and 3 (basic authentication and Demo
         FaceID authentication).
     
-    ![hardware-key-authenticator](../assets/img/samples/hardware-key-authenticator.png) 
+    ![hardware-key-authenticator](../../../assets/img/samples/hardware-key-authenticator.png) 
 
 6.  Provide the required consent.  
     
 7.  You are now successfully logged in to the application. You can click the **Logout** button to log out and try this flow with different ACR values. 
 
-    ![login-successful-acr-based](../assets/img/samples/login-successful-acr-based.png)
+    ![login-successful-acr-based](../../../assets/img/samples/login-successful-acr-based.png)
 
-!!! Tip 
-    Read more about ACR and AMR
-    [here](insertlink)
