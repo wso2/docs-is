@@ -105,7 +105,7 @@ If you have your own application, click the button below.
     <td><p>This is the Callback URL you entered at the Twitter application registration. This is the URL to which the browser should be redirected after the authentication is successful.</p>
     <p>URL format: <code>                https://&lt;host-name&gt;:&lt;port&gt;/acs               </code></p>
     <p>The acs indicates the Assertion Consumer URL of the WSO2 Identity Server endpoint that accepts the responses sent by Twitter.</p></td>
-    <td><code>                               https://wso2.com:9443/commonauth                             </code></td>
+    <td><code>                               https://&lt;IS_HOST&gt:&ltPORT&gt/commonauth                             </code></td>
     </tr>
     </tbody>
     </table>

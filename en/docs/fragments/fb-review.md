@@ -1,5 +1,5 @@
 !!!	info "About accessing the app"
-	The app is not available to general public yet. To make to app available
+	The app is not available to the general public yet. To make the app available
 	to every Facebook user, you have to submit the app for review. After a
 	review, Facebook makes the app available to every Facebook user. You can
 	find more information on the review process by clicking on **App

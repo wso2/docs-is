@@ -1,5 +1,5 @@
 All the basic information of a user/application is stored in the form of
-claims. But for the same information, different Identity Providers(IDP)
+claims. However, for the same information, different Identity Providers(IDP)
 have different claims. Therefore, there should be a proper mechanism to
 map those claims within Identity Providers.
 
@@ -26,32 +26,34 @@ them with Facebook.
     
 6.  Now add custom claim mappings as follows.  
     ![custom-claim-mapping](../../../assets/img/fragments/custom-claim-mapping.png)
+
+    !!! note 
     
-7.  You can retrieve all the public information of the user and the
-    email address. The following are some common attribute names.
+		You can retrieve all the public information of the user and the
+		email address. The following are some common attribute names.
 
-    -	id  
-    -	email  
-    -	name  
-    -	first\_name  
-    -	last\_name  
-    -	link  
-    -	gender  
-    -	locale  
-    -	age\_range
+		-	id  
+		-	email  
+		-	name  
+		-	first\_name  
+		-	last\_name  
+		-	link  
+		-	gender  
+		-	locale  
+		-	age\_range
 
-    More information is available from the following link:
-    <https://developers.facebook.com/docs/facebook-login/permissions/v2.0>
+		More information is available from the following link:
+		<https://developers.facebook.com/docs/facebook-login/permissions/v2.0>
 
-    You can map these attributes to any **Local Claim URI** that is
-    suitable.
+		You can map these attributes to any **Local Claim URI** that is
+		suitable.
 
-8.  From the receiving claims, you can select one claim as the user
+7.  From the receiving claims, you can select one claim as the user
     identifier for that particular identity provider. You can configure
     this through **User ID Claim URI** (e.g., email).
-9.  Click **Update** to save changes.
+8.  Click **Update** to save changes.
 
-## Configuring requested claims for travelocity.com (optional)
+## Configure requested claims for travelocity.com (optional)
 
 Generally, the service providers need some information from the Identity
 Provider side after the authentication process in order to provide their

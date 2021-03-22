@@ -51,7 +51,7 @@
     <tr class="odd">
     <td>Callback Url</td>
     <td>This is the URL to which the browser should be redirected after the authentication is successful. This should be the commonauth endpoint of Identity server.</td>
-    <td><a href="https://localhost:9443/commonauth">https://localhost:9443/commonauth</a></td>
+    <td><code>&quot;https://&lthost&gt:&ltport&gt/commonauth&quot;</code></a></td>
     </tr>
     </tbody>
     </table>
