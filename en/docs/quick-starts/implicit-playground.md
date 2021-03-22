@@ -16,9 +16,9 @@ This page guides you through using a **sample Playground application** to try ou
     
     - **Client ID:** The OAuth Client Key recieved when registering the service provider.
     
-    - **Callback URL:** `http://wso2is.local:8080/playground2/oauth2client`
+    - **Callback URL:** `http://<IS_HOST>:<IS_PORT>/playground2/oauth2client`
 
-	- **Authorize Endpoint:** `https://localhost:9443/oauth2/authorize`
+	- **Authorize Endpoint:** `https://<IS_HOST>:<IS_PORT>/oauth2/authorize`
     
     ![implicit](../../../assets/img/samples/implicit-with-playground.png)
 	

@@ -34,7 +34,7 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 7. Select **Website** as the platform for the app used in this sample.
 
-8. Enter `https://localhost:9443/` as the **Site URL** and click **Save**.
+8. Enter `https://<IS_HOST>:<IS_PORT>/` as the **Site URL** and click **Save**.
 
 	![enter-url](../../../assets/img/samples/enter-url.png)
 
@@ -46,7 +46,7 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
         
     2.  Set **Web OAuth Login** to **Yes**.  
         
-    3.  Enter  ` https://localhost:9443/commonauth.  ` as the value for **Valid OAuth redirect URIs**. 
+    3.  Enter  ` https://<IS_HOST>:<IS_PORT>/commonauth.  ` as the value for **Valid OAuth redirect URIs**. 
 
 10. Click **Save Changes**.
 
@@ -56,7 +56,7 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 12. Click **Settings** on the left menu and navigate to the **Basic** tab. 
 
-13. Add the **App Domains** as `localhost`. 
+13. Add the **App Domains** as shown below. 
 
 	![details-basic](../../../assets/img/samples/details-basic.png)
 
@@ -90,7 +90,7 @@ Now you have finished configuring Facebook as an Identity Provider.
 
 ## Test it out
 
-1. To test the sample, go to the following URL: `http://wso2is.local:8080/travelocity.com`.
+1. To test the sample, go to the following URL: `http://<IS_HOST>:<IS_PORT>/travelocity.com`.
 
 	![travelocity-app](../../../assets/img/samples/travelocity-fb.png)
 

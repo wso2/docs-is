@@ -20,9 +20,9 @@ This page guides you through using a **sample Playground application** to try ou
 
     - **Client ID:** The OAuth Client Key recieved when registering the service provider.
 
-    - **Callback URL:** `http://wso2is.local:8080/playground2/oauth2client`
+    - **Callback URL:** `http://<IS_HOST>:<IS_PORT>/playground2/oauth2client`
 
-    - **Authorize Endpoint:** `https://localhost:9443/oauth2/authorize`
+    - **Authorize Endpoint:** `https://<IS_HOST>:<IS_PORT>/oauth2/authorize`
 
     - **Scope:** Any scope you wish to obtain the token for. To use the sample application with OpenID Connect, enter the value `openid` as the scope. This field is optional. 
 
@@ -61,9 +61,9 @@ This page guides you through using a **sample Playground application** to try ou
 
 4. Provide the requested consent and enter the following details on the screen that appears. 
 
-    - **Callback URL:** `http://wso2is.local:8080/playground2/oauth2client`
+    - **Callback URL:** `http://<IS_HOST>:<IS_PORT>/playground2/oauth2client`
 
-    - **Access Token Endpoint:** `https://localhost:9443/oauth2/token` 
+    - **Access Token Endpoint:** `https://<IS_HOST>:<IS_PORT>/oauth2/token` 
 
     - **Client Secret:** The client secret received when registering the service provider.
 
@@ -71,7 +71,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 5. Click **Get Access Token**. At this point, the application receives the access token. 
 
-6. Enter the **Introspection Endpoint** (i.e, `https://localhost:9443/oauth2/introspect`) and click **Get TokenInfo** to get the token information. 
+6. Enter the **Introspection Endpoint** (i.e, `https://<IS_HOST>:<IS_PORT>/oauth2/introspect`) and click **Get TokenInfo** to get the token information. 
 
 7.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
