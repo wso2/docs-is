@@ -14,7 +14,7 @@ are used to authenticate a request for an access token.
 The diagram below illustrates the implicit grant flow.
 
 
-![client-credential-grant](../../assets/img/concepts/client-credential-flow.png)
+![client-credential-grant](../../../assets/img/concepts/client-credential-flow.png)
 
 One of the following cURL commands can be used to try this grant type.
 

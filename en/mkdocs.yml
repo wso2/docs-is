@@ -57,10 +57,10 @@ nav:
     - 'Feature Tour': get-started/quick-start-guide.md
   - 'Quick Starts':
       #- 'Overview': quick-starts/overview.md
-      - 'Choose a Sample Type':
-        - 'Android': quick-starts/android-sample.md
-        - 'React': quick-starts/react-sample.md
-        - 'Java': quick-starts/java-sample.md
+      #- 'Choose a Sample Type':
+        #- 'Android': quick-starts/android-sample.md
+        #- 'React': quick-starts/react-sample.md
+        #- 'Java': quick-starts/java-sample.md
       - 'Login':
         - 'Overview': quick-starts/enable-login.md
         - 'OpenID Connect': quick-starts/webapp-oidc-sample.md
@@ -113,7 +113,7 @@ nav:
         - 'Facebook': quick-starts/fb-as-federated-authenticator-sample.md
         - 'Google': quick-starts/google-as-federated-authenticator-sample.md
         - 'Twitter': quick-starts/twitter-as-federated-authenticator-sample.md
-        - 'Microsoft Azure': quick-starts/ms-azure-as-federated-authenticator-sample.md
+        #- 'Microsoft Azure': quick-starts/ms-azure-as-federated-authenticator-sample.md
   - 'Guides':
       #- 'Get Started': guides/before-you-start.md
       - 'Login':
