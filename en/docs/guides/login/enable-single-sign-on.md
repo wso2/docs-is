@@ -13,8 +13,8 @@ This section guides you through enabling SSO for your application using WSO2 Ide
     -   [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
     -   [Guide: SSO for OIDC applications](../sso-for-oidc)
     -   [Guide: SSO for SAML applications](../sso-for-saml)
-    -   [Guide: SSO for WS-Federation applications](TODO:insert-link-to-guides)
-    -   [Guide: SSO for Native iOS Applications](TODO:insert-link-to-guides)
-    -   [Guide: SSO between apps that use Heterogeneous Authentication Protocols](TODO:insert-link-to-guides)
+    -   [Guide: SSO for WS-Federation applications](../configure-ws-federation-single-sign-on)
+    <!--- -   [Guide: SSO for Native iOS Applications](../configure-single-sign-on-for-native-ios-applications-with-wso2-identity-server)-->
+    <!--- -   [Guide: SSO between apps that use Heterogeneous Authentication Protocols](TODO:insert-link-to-guides)-->
     -   [Library Article: SSO for Microsoft Sharepoint Web Applications](https://wso2.com/library/tutorials/2015/05/tutorial-sso-for-microsoft-sharepoint-web-applications-with-wso2-identity-server/)
 

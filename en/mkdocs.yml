@@ -126,14 +126,14 @@ nav:
         - 'SaaS Applications':
           - 'Salesforce': guides/login/log-into-salesforce-using-is.md
           - 'Google': guides/login/log-into-google-using-is.md
-          - 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
+          #- 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
         - 'Request Attributes for the Application': guides/login/request-attributes.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
           - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
           - 'SSO For SAML Applications': guides/login/sso-for-saml.md
           - 'SSO For WS-Federation Applications': guides/login/configure-ws-federation-single-sign-on.md
-          - 'Single Sign-On for Native iOS Applications': guides/login/configure-single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
+          #- 'Single Sign-On for Native iOS Applications': guides/login/configure-single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
           - 'Recaptcha for SSO': guides/login/configure-recaptcha-for-single-sign-on.md
           - 'Configure IWA Single Sign On': guides/login/configure-iwa-single-sign-on.md
         - 'Single Logout':
