@@ -174,7 +174,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
 
 ---
 
-## SAML Configurations
+### SAML Configurations
 
 Make the following changes to the created service provider.
 
@@ -211,12 +211,9 @@ Make the following changes to the created service provider.
 Do the following steps to test out the configurations for a new user in
 Salesforce and the Identity Server.
 
-1.  Create a user in WSO2 IS.  
-    1.  Once you log in to the Identity Server, navigate to the **Main** menu in the Management Console, click **Add** 
-    under **Users and Roles**.
-    2.  Click **Users**. This link is only visible to users with the Admin role.
-    3.  Click **Add New User**.  When adding a new user, use an email address as the username. Since it is not mandatory 
-        to assign a role to a user in this tutorial, click **Finish**.
+1.  Create a user in WSO2 IS. 
+ 
+    {!fragments/create-user.md!}
         
 2.  Create a user in Salesforce. This user should have the same
     email address as the user in WSO2 IS  
