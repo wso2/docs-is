@@ -1,5 +1,7 @@
 ## Basic SAML Configurations 
 
+Make the following changes to the created service provider.
+
 1. Expand **Inbound Authentication Configuration > SAML Configuration** and click **Configure**.
 
 2. Enter the **Issuer** and **Assertion Consumer URL**. Click **Add**. 

@@ -24,7 +24,8 @@ Make the following requests via your application to connect your application to 
 
     !!! tip
         You can use this [online tool](https://tonyxu-io.github.io/pkce-generator/) to generate PKCE code challenges to include the `code challenge` and `code_challenge_method` parameters. 
-        First click on `Generate Code Verifier` and then on `Generate Code Challenge`. 
+        First click **Generate Code Verifier**. 
+        Now click **Generate Code Challenge**. 
         Make note of the two values. The code challenge you get here is the base64 URL encoded value of the SHA256 hashed code_verifier so the code challenge method will be `S256`.
 
     ```tab="Request Format"
