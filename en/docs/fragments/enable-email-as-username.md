@@ -122,7 +122,7 @@
 
         - You can configure email user name without enabling
         **`enable_email_domain`** property (step 5), then
-        users can login to both super tenant and tenant using email and
+        users can log in to both the super tenant and the tenant using email and
         non-email user names. However, super tenant users should always use
         ***@carbon.super*** at the end of user names.
     
