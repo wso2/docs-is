@@ -23,7 +23,7 @@
     enable_email_domain= true
     ```
     
-6. Configure the following set of parameters in the user store
+6. Configure the following set of parameters in the userstore
     configuration, depending on the type of user store you are connected
     to (LDAP/Active Directory/ JDBC).
     <table>
