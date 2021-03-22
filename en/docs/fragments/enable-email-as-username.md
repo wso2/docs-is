@@ -117,14 +117,14 @@
 
     !!! info 
         - With these configuration users can log in to super tenant with both
-        email user name (**`alex@gmail.com`**) or
-        non-email user names (`larry`). However, for tenants, only email user names are allowed. (**`tod@gmail.com@wso2.com`**). 
+        email username (**`alex@gmail.com`**) or
+        non-email usernames (`larry`). However, for tenants, only email usernames are allowed. (**`tod@gmail.com@wso2.com`**). 
 
         - You can configure email username without enabling
        the  **`enable_email_domain`** property (step 5). Then
         users can log in to both the super tenant and the tenant using email and
-        non-email user names. However, super tenant users should always use
-        ***@carbon.super*** at the end of user names.
+        non-email usernames. However, super tenant users should always use
+        ***@carbon.super*** at the end of usernames.
     
 
 7.  Restart the server.
