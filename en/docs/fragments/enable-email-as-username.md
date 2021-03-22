@@ -6,7 +6,7 @@
     **make sure to configure it before you begin working with WSO2 IS**.
     
 
-1.  Login to the management console and click **Claims > List > http://wso2.org/claims**.
+1.  Log in to the Management Console and click **Claims > List > http://wso2.org/claims**.
    
 2. Click the **Edit** link corresponding to the **Username** claim and configure the `Mapped Attribute` property to `mail`.
 
@@ -120,9 +120,9 @@
         email user name (**`alex@gmail.com`**) or
         non-email user names (`larry`). However, for tenants, only email user names are allowed. (**`tod@gmail.com@wso2.com`**). 
 
-        - You can configure email user name without enabling
-        **`enable_email_domain`** property (step 5), then
-        users can login to both super tenant and tenant using email and
+        - You can configure email username without enabling
+       the  **`enable_email_domain`** property (step 5). Then
+        users can log in to both the super tenant and the tenant using email and
         non-email user names. However, super tenant users should always use
         ***@carbon.super*** at the end of user names.
     
