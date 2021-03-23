@@ -78,7 +78,7 @@ First, you will need to register and create an API key pair for the required dom
         
 2. Restart the WSO2 IS server.
 
-3. Login to the management console.
+3. Log in to the management console.
 
 4. Click **Resident** under **Identity Providers** found in the **Main** tab.
 
