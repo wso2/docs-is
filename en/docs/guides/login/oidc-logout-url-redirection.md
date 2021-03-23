@@ -16,7 +16,7 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 
 Make the following changes to the created service provider.
 
-1. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
+1. Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration**. 
 
 2. Enter the **Callback Url**.
 
