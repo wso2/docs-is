@@ -13,8 +13,8 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 
 ## Configure Google
 
-1.  Access your domain's admin console via
-    `                     https://admin.google.com                   `.
+1.  Access your domain's admin console via [https://admin.google.com](https://admin.google.com).
+
 2.  Click **Security**.
 
     !!! info 
@@ -25,16 +25,18 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 
 3.  Click **Set up single sign-on (SSO) with a third party IdP**.
 
+    ![third-party-idp](../../assets/img/guides/setup-sso-google.png)
+
 4.  Enter the following URLs to your third-party Identity Provider
     (IdP).
 
     -   **Sign-in page URL:**
-        `             https://<SERVER_HOSTNAME>:9443/samlsso            `
+        `             https://<IS_HOSTNAME>:<IS_PORT>/samlsso            `
 
     -   **Sign-out page URL:**
-        `             https://<SERVER_HOSTNAME>:9443/samlsso            `
+        `             https://<IS_HOSTNAME>:<IS_POST>/samlsso            `
 
-    ![third-party-idp](../../assets/img/guides/setup-sso-google.png)
+    ![sso-fill-google.png](../../assets/img/guides/sso-fill-google.png)
 
 5.  Upload the Identity Server certificate:  
     The certificate file must contain the public key for Google to
@@ -60,27 +62,27 @@ This page guides you through using WSO2 Identity Server to log in to Google.
     3.  Click **Replace certificate** and upload the
         `           .pem           ` file you just generated.
 
-    ![sso-fill-google.png](../../assets/img/guides/sso-fill-google.png)
-
     4.  Click **Save**. 
 
 -----
 
-## Configure WSO2 IS to use the email as the username
-
-For details on configuring WSO2 Identity Server to use an email address as the username, refer [Using Email Address as the Username](TODO:insert-link).
+{!fragments/enable-email-as-username.md!}
 
 -----
 
-## Configure the service provider
+## Create the service provider
 
-1.  Sign in to the WSO2 Identity Server [Management Console](TODO:../../setup/getting-started-with-the-management-console).
-2.  Select **Applications** from the left panel and click on **New Application**.
-3.  Select **SAML web application**. 
-3.  Fill in the **Service Provider Name**, and provide a brief
-    **Description** of the service provider if required. 
-4.  Click **Next**. 
-5.  Fill in the value for **Issuer** and **Assertion consumer URL** as shown below. 
+{!fragments/register-a-service-provider.md!}
+
+---
+
+### SAML Configurations
+
+Make the following changes to the created service provider.
+
+1. Expand **Inbound Authentication Configuration > SAML Configuration** and click **Configure**.
+
+2.  Fill in the value for **Issuer** and **Assertion consumer URL** as shown below. 
 
     <table>
     <thead>
@@ -106,17 +108,12 @@ For details on configuring WSO2 Identity Server to use an email address as the u
     </tr>
     </table>
 
-6.  Click **Finish**.
+3. Select **Enable Response Signing** to sign the SAML2 Responses returned after the authentication process.
 
-7.  Navigate to the **Access** tab of the service provider created. 
+4. Select **Enable Attribute Profile** and **Include Attributes in the Response Always** so that the the identity provider 
+    will always include the attribute values related to the selected claims in the SAML2 attribute statement.
 
-8.  Enable **Assertion/Response Signing**. 
-
-9.  Enable **Attribute Profile**. 
-
-10. Enable **Always include attributes in response**. 
-
-11. Click **Update**. 
+5. Click **Register**. 
 
 -----
 
@@ -132,11 +129,10 @@ Now, you have successfully configured Google and WSO2 Identity Server.
 
 1.  Create a user in WSO2 Identity Server. Make sure that the same user
     exists in your Google domain.  
-    Example: In this example, `          alex@wso2support.com         `
-    is in the Google domain that is used for this tutorial. Therefore,
-    we create the same user in WSO2 Identity Server. 
+    In this example, `alex@wso2support.com`
+    is in the Google domain. Therefore, we need to create the same user in WSO2 Identity Server. 
 
-    {! fragments/create-users.md !} 
+    {!fragments/create-user.md!} 
 
 2.  Navigate to
     `          https://google.com/a/<ENTER_YOUR_DOMAIN>/acs         `
@@ -157,7 +153,5 @@ Now, you have successfully configured Google and WSO2 Identity Server.
 ----
 
 !!! info "Related Topics"
-    - [Concept: Identity Federation](TODO:insert-link-to-concept)
-    
-
+    - [Concept: Identity Federation](../../../references/concepts/identity-federation/)    
     

@@ -14,3 +14,6 @@ This page guides you through enabling [Single Sign-On](../../../references/conce
 {!fragments/register-a-service-provider.md!}
 
 {!fragments/ws-fed-app-config.md!}
+
+!!! info "Related Topics"
+    - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)

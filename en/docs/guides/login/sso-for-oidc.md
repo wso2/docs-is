@@ -10,6 +10,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+## Create a service provider
+
 {!fragments/register-a-service-provider.md!}
 
 ----
