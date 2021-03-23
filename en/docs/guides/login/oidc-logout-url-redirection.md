@@ -39,7 +39,7 @@ Make the following changes to the created service provider.
 
 ## Configure to sign the ID token
 
-1. Open the `deployment.toml` configuration file found in the `<IS_HOME>/repository/conf` folder. 
+1. Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. 
 
 2. Add the following configuration. 
     ```toml
