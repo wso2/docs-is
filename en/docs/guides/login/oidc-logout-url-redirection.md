@@ -8,18 +8,22 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 
 -----
 
-## Send a GET logout request
+## Configure a service provider
 
 {!fragments/register-a-service-provider.md!}
 
-3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
+## OAuth/OpenID Connect Configuration
 
-4. Enter the **Callback Url**.
+Make the following changes to the created service provider.
+
+1. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
+
+2. Enter the **Callback Url**.
 
     !!! tip
         For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced).
 
-5. Enter a logout URL along with the callback URL. 
+3. Enter a logout URL along with the callback URL. 
 
     ```
     regexp=(callback_url|logout_url)
@@ -30,23 +34,33 @@ However, there can be instances where you cannot use a GET request as the OIDC l
     ```tab="Sample"
     regexp=(http://localhost:8080/playground2/oauth2client|http://localhost:8080/playground2/logout)
     ```
+    
+4. Click **Add** to save the changes.
 
-6. Open the `deployment.toml` configuration file found in the `<IS_HOME>/repository/conf` folder. 
+## Configure to sign the ID token
 
-7. If the following configuration is set to `sp`, the JWT is signed with the application tenant key. If it is set to `user`, the tenant is decided by the subject of the id token, although the subject would not contain the tenant domain by default. 
+1. Open the `deployment.toml` configuration file found in the `<IS_HOME>/repository/conf` folder. 
 
+2. Add the following configuration. 
     ```toml
     [authentication]
     sign_auth_response_with_tenant_of= "sp" #user
     ```
+    
+    !!! note
+        - If the aforementioned configuration is set to `sp`, the JWT is signed with the application tenant key.
+        - If it is set to `user`, the tenant is decided by the subject of the id token, although the subject would not contain the tenant domain by default. 
+        If the configured option is `user`, expand **Local & Outbound Authentication Configuration** on the management console service provider configuration and select **Use tenant domain in local subject identifier**. 
+        ![use-tenant-domain-in-subject.png](../../../assets/img/guides/use-tenant-domain-in-subject.png)
 
-    If it is set to `user`, expand **Local & Outbound Authentication Configuration** on the management console service provider configuration and select **Use tenant domain in local subject identifier**. 
+3. Restart the server.
 
+## Send a GET logout request
 
 8. Use the following cURL command to retrieve the `id_token` using the client ID, client secret, and authorization code.
 
     ```tab="Request Format"
-    curl -k -v --user <client_id>:<client_secret> -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=<redirect_uri>" https://localhost:9443/oauth2/token
+    curl -k -v --user <client_id>:<client_secret> -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=<redirect_uri>" https://<IS_HOST>:<IS_PORT>/oauth2/token
     ```
 
     ``` tab="Sample Request"
@@ -155,6 +169,8 @@ For a description of the parameters included in the HTML form, see [logout reque
 
 !!! info "Related Topics"
     - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
+    - [Concept: OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
     - [Guide: OpenID Connect Session Management](../session-management-logout)
     - [Demo: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
+    - [Demo: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)
