@@ -144,7 +144,7 @@ Follow the same steps and change the values for sample2 and register another ser
 
 5.  Similar to the first application, select **localhost**, click on **Start single sign-on**, and sign in as the admin. 
 
-     <img src="../../assets/img/samples/sign-in-sample.png" alt="alt text" width="300" height="400" class="center">
+    ![sign-in-sample](../../assets/img/samples/sign-in-sample.png)
 
 6.  On any one of the applications click **Global Logout**.
 

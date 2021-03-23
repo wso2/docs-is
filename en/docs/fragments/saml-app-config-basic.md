@@ -2,7 +2,7 @@
 
 Make the following changes to the created service provider.
 
-1. Expand **Inbound Authentication Configuration > SAML Configuration** and click **Configure**.
+1. Expand **Inbound Authentication Configuration > SAML2 Web SSO Configuration** and click **Configure**.
 
 2. Enter the **Issuer** and **Assertion Consumer URL**. Click **Add**. 
 
