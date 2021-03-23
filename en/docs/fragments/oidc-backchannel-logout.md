@@ -5,7 +5,7 @@
 
 2. Click **Edit** to edit the OIDC service provider you created.
 
-3. Expand **Inbound Authentication Configuration** and then expand **OAuth/OpenID Connect Configuration**. 
+3. Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration**. 
 
 4. Click **Edit**.
 
