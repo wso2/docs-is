@@ -12,11 +12,17 @@ If you have your own application, click the button below.
 
 {!fragments/register-a-service-provider.md!}
 {!fragments/oauth-app-config-basic.md!}
+
 {!fragments/local-outbound.md!}
 
 ---
 
+## Set up the sample
+
 {!fragments/deploying-sample-apps.md!}
+
+---
+
 {!fragments/deploy-playground.md!}
 
 ---

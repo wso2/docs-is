@@ -10,16 +10,16 @@ If you have your own application, click the button below.
 
 ----
 
-{!fragments/deploying-sample-apps.md!}
-
-----
-
 ## Register a service provider 
 
 {!fragments/register-an-application-request-path.md!}
 
 ----
-## Deploy the sample application
+## Set up the sample application
+
+{!fragments/deploying-sample-apps.md!}
+
+---
 
 {!fragments/deploy-playground.md!}
 
