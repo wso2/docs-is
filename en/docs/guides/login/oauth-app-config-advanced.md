@@ -14,7 +14,7 @@ The following grant types can be used to generate the access token.
 
 - **Code**: Entering the username and password required at the service provider will result in a code being generated. This code can be used to obtain the access token. For more information on this grant type, see [Authorization Code specification](https://tools.ietf.org/html/rfc6749#section-4.1).
 
-- **Password**: This grant authenticates the user using the password provided and the access token is provided. For more information on this grant type, see [Resource Owner Password Credentials Grant specification](https://tools.ietf.org/html/rfc6749#section-4.3).
+- **Password**: This grant authenticates the user using the password obtained and provides the access token. For more information on this grant type, see [Resource Owner Password Credentials Grant specification](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 - **Implicit**: This is similar to the code grant type, but instead of generating a code, this directly provides the access token. For more information on this grant type, see [Implicit Grant specification](https://tools.ietf.org/html/rfc6749#section-4.2).
 
@@ -131,4 +131,3 @@ When using the **Authorization Code** grant type, the received authorization cod
 [oauth.token_validation]
 authorization_code_validity= "300"
 ```
-
