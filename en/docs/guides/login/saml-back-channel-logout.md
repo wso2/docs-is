@@ -12,7 +12,7 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 !!! note
     Make sure you have a service provider configured in WSO2 Identity Server for every application that you are going 
-    to try out this feature. 
+    to try out this feature for. 
 ---
 
 ## Register your applications with WSO2 Identity Server
