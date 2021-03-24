@@ -200,8 +200,8 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
     2. Add the following includes.
 
        ```
-       <%@include file=”../includes/localize.jsp” %>
-       <%@include file=”../includes/init-url.jsp” %>
+       <%@include file="../includes/localize.jsp" %>
+       <%@include file="../includes/init-url.jsp" %>
        ``` 
 
     3. Replace the contents of the `<style>` tag, with the styles you created in [Step 3](#create-styling) inside
@@ -211,6 +211,27 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
 
     1. Open the `product-footer.jsp` file in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
 
+    2. For example, to add the company name, you can replace the content of the `<footer>` tag with the following code.
+    ```html
+        <footer class="footer">
+            <div class="container-fluid">
+                <p>XYZ Company | &copy;
+                    <script>document.write(new Date().getFullYear());</script>
+                    <a href="<%=AuthenticationEndpointUtil.i18n(resourceBundle, "business.homepage")%>"
+                       target="_blank">
+                       <i class="icon fw fw-wso2"></i>
+                       <%=AuthenticationEndpointUtil.i18n(resourceBundle, "Inc")%>
+                    </a>
+                    . <%=AuthenticationEndpointUtil.i18n(resourceBundle, "All.rights.reserved")%>
+                </p>
+            </div>
+        </footer>
+    ```
+      
+3. Similarly, you can re-brand the **accountrecovery** web application header and footer.
+
+    1. Open the `product-footer.jsp` file in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/extensions` folder.
+    
     2. To add the company name, replace the content of `<footer> tag` with the following.
     ```html
         <footer class="footer">
@@ -227,15 +248,13 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
             </div>
         </footer>
     ```
-      
-3. Similarly, you can re-brand the **accountrecovery** web application header and footer.
 
     !!! note
     
         Make sure to add the following include to the top, when editing the `header.jsp` file of the **accountrecovery** web application.
     
            ```
-           <%@include file=”../localize.jsp” %>
+           <%@include file="../localize.jsp" %>
            ```
 
 4. Refresh the browser and check out the modified header and footer content. 
