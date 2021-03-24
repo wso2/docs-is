@@ -54,7 +54,7 @@ tokens from JWT assertion.
     jwks\_uri.
 
     ``` xml
-    curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<jwt_assertion>&scope=openid" -H "Authorization: Basic <Base64 encoded consumer key:consumer secret>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS server>/oauth2/token
+    curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<jwt_assertion>&scope=openid" -H "Authorization: Basic <Base64 encoded consumer key:consumer secret>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
     ```
 
     In case of key-rollover at the external IDP, the latest keys will be
