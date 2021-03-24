@@ -5,11 +5,11 @@ This page lists out all the advanced configurations related to OAuth/OpenID Conn
 
 --- 
 
-#### OAuth Version 
+## OAuth Version 
 Selecting OAuth Version as **1.0a** removes all the configurable Allowed Grant Types. This is because this version of OAuth does not support grant types.
 
 ---
-#### Allowed Grant Types
+## Allowed Grant Types
 The following grant types can be used to generate the access token.
 
 - **Code**: Entering the username and password required at the service provider will result in a code being generated. This code can be used to obtain the access token. For more information on this grant type, see [Authorization Code specification](https://tools.ietf.org/html/rfc6749#section-4.1).
@@ -30,7 +30,7 @@ The following grant types can be used to generate the access token.
 
 ---
 
-#### Callback URL
+## Callback URL
 This is the exact location in the service provider's application where an access token would be sent. This is a required field (if the grant type is anything other than 'Code' or 'Implicit') and it is important to configure, as it is imperative that the service provider receives the access token. This is necessary for security purposes to ensure that the token is not compromised.
 
 ??? note "Click for information on configuring multiple callback URLs"
@@ -48,7 +48,7 @@ This is the exact location in the service provider's application where an access
 
 ---
 
-#### PKCE Configurations
+## PKCE Configurations
 
 - **PKCE Mandatory**: Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. 
 
@@ -59,13 +59,13 @@ This is the exact location in the service provider's application where an access
 
 ---
 
-#### Allow Authentication without the client secret
+## Allow Authentication without the client secret
 
 This enables authenticating the client without the client secret.
 
 ----
 
-#### Token Expiry Time
+## Token Expiry Time
 
 Set the validity period (in seconds) for the following access tokens. 
 
@@ -76,39 +76,39 @@ Set the validity period (in seconds) for the following access tokens.
 
 -----
 
-#### Enable Audience Restriction
+## Enable Audience Restriction
 
 Select this to enable audience restrictions for OAuth applications. If necessary, you can add multiple audiences. To add an audience, specify a required **Audience** value and click **Add**. All audience values that you add would be available in the ID token generated for the corresponding application.
 
 ----
 
-#### Enable Request Object Signature Validation
+## Enable Request Object Signature Validation
 
 This is to define whether to only accept signed request objects in an authorization request or not. 
 <!--- For more information, see [Enforcing Signature Validation for Request Objects](insertlink).-->
 
 ----
 
-#### Enable ID Token Encryption
+## Enable ID Token Encryption
 
 This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see [Test OIDC Encrypted ID Token with IS](../../../guides/login/oidc-token-encryption/).
 
 ----
 
-#### Enable OIDC Back Channel Logout
+## Enable OIDC Back Channel Logout
 
 This is to define whether OIDC back channel logout should be enabled or not. For more information, see [Configure OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout/).
 
 ----
 
-#### Scope Validators
+## Scope Validators
 
 This is to define the scope validation mechanisms. 
 <!--- For more information on XACML scope validation, see [Validating the Scope of OAuth Access Tokens using XACML Policies](insertlink).-->
 
 ----
 
-#### Token Issuer
+## Token Issuer
 
 Select either JWT or Default as the token issuer for the service provider.
 
@@ -118,7 +118,9 @@ Select either JWT or Default as the token issuer for the service provider.
     - If you want to enable JWT token generation for a service provider, select **JWT** as the Token Issuer.
       When you enable JWT token generation, the hash value of the JWT is stored in the `ACCESS_TOKEN_HASH` column, and the full JWT is stored in the `ACCESS_TOKEN` column.
 
-#### Authorization Code Validity Period
+---
+
+## Authorization Code Validity Period
 
 !!! warning
     This is a file configuration and does not appear on the management console.
