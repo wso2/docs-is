@@ -125,7 +125,7 @@ Select either JWT or Default as the token issuer for the service provider.
 !!! warning
     This is a file configuration and does not appear on the management console.
 
-When using the **Authorization Code** grant type, the received authorization code can only be used once to get a valid access token and has a expiry time. The expiry time can be configured by adding the following property to the `<IS_HOME>/repository/conf/deployment.toml` file. The default expiry time is 300 seconds.
+When using the **Authorization Code** grant type, the received authorization code can only be used once to get a valid access token and has an expiry time. The expiry time can be configured by adding the following property to the `<IS_HOME>/repository/conf/deployment.toml` file. The default expiry time is 300 seconds.
 
 ``` toml
 [oauth.token_validation]
