@@ -14,12 +14,12 @@ This guide assumes you have your own applications. If you wish to try out this f
     Make sure you have a service provider configured in WSO2 Identity Server for every application that you are going 
     to try out this feature.  
 
-## Create a Service Provider
+## Register your applications with WSO2 Identity Server
 
 {!fragments/register-a-service-provider.md!}
 
 ---
-## SAML Configurations 
+### SAML Configurations 
 
 Make the following changes to the created service provider.
 
@@ -50,4 +50,4 @@ Once you have configured all your applications, access them in separate tabs in 
 
 !!! info "Related Topics"
     -   [Concept: SAML 2.0 front channel logout](../../../references/concepts/authentication/saml-front-channel/)
-    -   [Guide: Configure SAML 2.0 Front Channel Logout](../../../quick-starts/saml-front-channel-logout)
+    -   [Demo: Configure SAML 2.0 Front Channel Logout](../../../quick-starts/saml-front-channel-logout)
