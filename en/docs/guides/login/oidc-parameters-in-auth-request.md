@@ -24,7 +24,7 @@ response_type=token
 &redirect_uri=https://localhost.com:8080/callback
 ```
 
-You will receive a response similar to shown below.
+You will receive a response similar to the one shown below.
 
 ```tab="Response Format"
 HTTP/1.1 302 Found
