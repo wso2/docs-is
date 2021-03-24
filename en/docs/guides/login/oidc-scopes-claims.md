@@ -53,7 +53,7 @@ When the existing claim mappings are not enough for your requirement and if you 
     The `oidc-scope-config.xml` file enables grouping of claims that are bound to a scope value in OpenID Connect (OIDC). 
     By default, the `oidc-scope-config.xml` file is located inside the `<IS_HOME>/repository/conf/identity` directory. 
     In the very first server start-up, the scopes and claims values defined in this file will be stored in the database. 
-    Thereafter the changes which we do to this file won't be applicable.
+    Thereafter the changes made to this file will not be applicable.
 
 ----
 
