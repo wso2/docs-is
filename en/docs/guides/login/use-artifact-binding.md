@@ -1,6 +1,6 @@
 # Use SAML2 Artifact Binding
 
-This page guides you through enabling [SAML2 artifact binding](TODO:insert-link-to-concept) with WSO2 Identity Server. 
+This page guides you through enabling [SAML2 artifact binding](../../../references/concepts/authentication/saml2-artifact-binding/) with WSO2 Identity Server. 
 
 Generally, SAML authentication requests and assertion data is sent through the browser using POST or Http Redirect binding. If you do not want to expose the entire message to the browser, you can use artifact binding instead. 
 
@@ -12,13 +12,13 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{! fragments/register-a-service-provider.md !}
+## Create a service provider
 
-{! fragments/saml-app-config-basic.md !}
+{! fragments/register-a-service-provider.md !}
 
 ----
 
-{!fragments/enable-artifact-binding.md!}
+{!fragments/saml-app-artifact-binding-config.md!}
 
 ---
 

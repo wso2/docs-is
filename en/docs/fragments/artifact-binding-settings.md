@@ -23,8 +23,8 @@ According to the SAML Specification, issued SAML artifacts should be resolved, o
 WSO2 Identity Server supports SOAP Binding to resolve SAML artifacts according to Section 3.6 of the [SAML 2.0 Binding
 Specification](http://www.oasis-open.org/committees/download.php/35387/sstc-saml-bindings-errata-2.0-wd-05-diff.pdf).
 
-!!! tip
-    WSO2 IS Artifact Resolution Endpoint: https://wso2.is.com:9443/samlartresolve
+!!! info
+    WSO2 IS Artifact Resolution Endpoint: `https://<IS_HOST>:<IS_PORT>/samlartresolve`
 
 The application should send an `<ArtifactResolve>` message wrapped in a SOAP envelope to the WSO2 Identity Server artifact resolution endpoint. The following example shows a SAML artifact resolve request.
 
