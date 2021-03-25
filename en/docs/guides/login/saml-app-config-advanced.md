@@ -21,7 +21,7 @@ You can configure a number of SAML SPs with the same Issuer and different Servic
 When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (e.g., "saml-pickup-dispatch.com"). The service provider qualifier value should be sent as a query parameter, `spQualifier` with the HTTP request in the following format.
 
 ```
-https://{host-name}:{Port}/samlsso?spQualifier={Service Provider Qualifier}
+https://{host-name}:{port}/samlsso?spQualifier={Service Provider Qualifier}
 ```
 
 ----
@@ -56,9 +56,9 @@ Since there can be multiple assertion consumer URLs, you must define a **Default
 
      In an identity provider initiated single sign-on setup, the following needs to be considered.
 
-     - If the “acs” query parameter is not present in the request, the Identity Server sends the response to default ACS URL of the service provider.
+     - If the `acs` query parameter is not present in the request, the Identity Server sends the response to default ACS URL of the service provider.
 
-     - If the "acs” parameter is present and the value of that parameter matches with any of the registered ACS URLs of the service provider, then the Identity Server sends the response to the matched one.
+     - If the `acs` parameter is present and the value of that parameter matches with any of the registered ACS URLs of the service provider, then the Identity Server sends the response to the matched one.
 
 ----
 
@@ -97,27 +97,27 @@ Select the **Certificate Alias** from the dropdown. This is used to validate the
 
 #### Response Signing Algorithm
 
-Specifies the ‘SignatureMethod’ algorithm to be used in the ‘Signature’ element in POST binding. The default value can be configured through the `<IS_HOME>/repository/deployment.toml` file by adding the following config.
+Specifies the `SignatureMethod` algorithm to be used in the `Signature` element in POST binding. The default value can be configured through the `<IS_HOME>/repository/deployment.toml` file by adding the following config.
 
 ```toml
 [saml]
 signing_alg="signing algorithm"
 ```
 
-If it is not provided the default algorithm is RSA­SHA 1, at URI 'http://www.w3.org/2000/09/xmldsig#rsa­sha1'.
+If it is not provided the default algorithm is `RSA­SHA 1`, at URI `http://www.w3.org/2000/09/xmldsig#rsa­sha1`.
 
 ----
 
 #### Response Digest Algorithm
 
-Specifies the ‘DigestMethod’ algorithm to be used in the ‘Signature’ element in POST binding. The default value can be configured in the `<IS_HOME>/repository/conf/deployment.toml` file by adding the following config.
+Specifies the `DigestMethod` algorithm to be used in the `Signature` element in POST binding. The default value can be configured in the `<IS_HOME>/repository/conf/deployment.toml` file by adding the following config.
 
 ```toml
 [saml]
 digest_alg="digest algorithm"
 ```
 
-If it is not provided the default algorithm is SHA 1, at URI 'http://www.w3.org/2000/09/xmldsig#sha1'.
+If it is not provided the default algorithm is `SHA 1`, at URI `http://www.w3.org/2000/09/xmldsig#sha1`.
 
 ----
 
@@ -207,13 +207,13 @@ Select the **Enable IdP Initiated SLO** checkbox to enable this functionality. Y
 
 #### Enable Assertion Query Request Profile
 
-Select the **Enable Assertion Query Request Profile** checkbox to query assertions that are persisted to the database when you login to the service provider application. For more information, see [Querying SAML Assertions](insertlink) .
+Select the **Enable Assertion Query Request Profile** checkbox to query assertions that are persisted to the database when you login to the service provider application. For more information, see [Query SAML 2.0 Assertions](../../../guides/login/query-saml-assertions) .
 
 ----
 
 #### Enable SAML2 Artifact Binding
 
-This is to define SAML2 artifact binding is enabled or not so that WSO2 Identity Server responds to each SAML SSO authentication request with an artifact. For more information, see [Configuring SAML 2.0 Artifact Binding](insertlink).
+This is to define whether SAML2 artifact binding is enabled or not so that WSO2 Identity Server responds to each SAML SSO authentication request with an artifact. For more information, see [Use SAML 2.0 Artifact Binding](../../../guides/login/use-artifact-binding).
 
 ----
 
