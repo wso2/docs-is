@@ -56,7 +56,7 @@ Since there can be multiple assertion consumer URLs, you must define a **Default
 
      In an identity provider initiated single sign-on setup, the following needs to be considered.
 
-     - If the `acs` query parameter is not present in the request, the Identity Server sends the response to default ACS URL of the service provider.
+     - If the `acs` query parameter is not present in the request, the Identity Server sends the response to the default ACS URL of the service provider.
 
      - If the `acs` parameter is present and the value of that parameter matches with any of the registered ACS URLs of the service provider, then the Identity Server sends the response to the matched one.
 
