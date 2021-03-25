@@ -5,7 +5,7 @@
       2. Enter the **jwks\_uri** of the identity provider as the **Identity Provider's JWKS Endpoint**. 
 
         ```
-        [https://exampleidp.com/oauth2/default/v1/keys](https://dev-838836.oktapreview.com/oauth2/default/v1/keys)
+        https://exampleidp.com/oauth2/default/v1/keys
         ```
         
 5. Click **Register** to save the details.
