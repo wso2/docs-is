@@ -11,13 +11,13 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-(TODO: dev-portal-fragment)
-{!fragments/encrypt-id-tokens.md!}
+## Create  a service provider
+
+{!fragments/register-a-service-provider.md!}
 
 ----
 
-(TODO: dev-portal-fragment)
-{!fragments/add-certificate-to-sp.md!}
+{!fragments/encrypt-id-tokens.md!}
 
 ----
 

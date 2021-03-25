@@ -126,18 +126,19 @@ nav:
         - 'SaaS Applications':
           - 'Salesforce': guides/login/log-into-salesforce-using-is.md
           - 'Google': guides/login/log-into-google-using-is.md
-          - 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
+          #- 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
         - 'Request Attributes for the Application': guides/login/request-attributes.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
           - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
           - 'SSO For SAML Applications': guides/login/sso-for-saml.md
           - 'SSO For WS-Federation Applications': guides/login/configure-ws-federation-single-sign-on.md
-          - 'Single Sign-On for Native iOS Applications': guides/login/configure-single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
-          - 'Recaptcha for SSO': guides/login/configure-recaptcha-for-single-sign-on.md
-          - 'Configure IWA Single Sign On': guides/login/configure-iwa-single-sign-on.md
+          #- 'Single Sign-On for Native iOS Applications': guides/login/configure-single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
+          - 'reCAPTCHA for SSO': guides/login/configure-recaptcha-for-single-sign-on.md
+          #- 'Configure IWA Single Sign On': guides/login/configure-iwa-single-sign-on.md
         - 'Single Logout':
           - 'OpenID Connect':
+            - 'Overview': guides/login/slo-for-oidc.md
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
             - 'Session Management and Logout': guides/login/session-management-logout.md
             - 'Logout URL Redirection': guides/login/oidc-logout-url-redirection.md
@@ -200,7 +201,7 @@ nav:
           - 'Invitation Workflow': guides/identity-lifecycles/invitation-workflow.md
           - 'User Self-Registration Workflow': guides/identity-lifecycles/self-registration-workflow.md
           - 'Lite User Registration Workflow': guides/identity-lifecycles/lite-user-registration.md
-          - 'Recaptcha for Self-Registration': guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
+          - 'reCAPTCHA for Self-Registration': guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
           - 'Bulk Import Users': guides/identity-lifecycles/import-users.md
         - 'Manage Users':
           - 'Overview': guides/identity-lifecycles/manage-user-overview.md
@@ -250,8 +251,8 @@ nav:
         - 'Password Recovery Using Email Verification': guides/password-mgt/recover-password.md
         - 'Password Recovery Using Challenge Question': guides/password-mgt/challenge-question.md
         - 'Resend Account Recovery Confirmation Mail': guides/password-mgt/recovery-confirmation.md
-        - 'ReCaptcha on Invalid Password Attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
-        - 'ReCaptcha on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
+        - 'reCAPTCHA on Invalid Password Attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
+        - 'reCAPTCHA on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
         - 'Configure Email Masking Pattern for Notification Based Password Recovery': guides/identity-lifecycles/configure-email-masking-pattern.md
       - 'Federated Account Linking':
         - 'Automatic Account Linking During JIT': guides/account-linking/automatic-account-link.md

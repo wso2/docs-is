@@ -10,13 +10,14 @@ If you have your own application, click the button below.
 
 ----
 
-{!fragments/deploying-sample-apps.md!}
-
-----
-
 {!fragments/register-an-application-oauth-request-path.md!}
 
 ----
+## Set up the sample 
+
+{!fragments/deploying-sample-apps.md!}
+
+---
 
 {!fragments/deploy-playground.md!}
 

@@ -13,16 +13,15 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     3.  Click **Allow** to enable Salesforce to access your basic
     information. This message pops up only when you log in to Salesforce
     for the first time.
-
+    4. You will be navigated to the lightening theme of Salesforce.
+    
+       ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png) 
+       
     !!! note    
         This document is explained using the Salesforce lightning theme. If
         you are using the classic theme, click **Switch to Lightning Experience** on the top panel. 
 
         ![lighteninig-experience](../../assets/img/guides/switch-to-lightening.png)
-
-        You will be navigated to the lightening theme of Salesforce.
-
-        ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png) 
 
 4.  Once you are logged in, create a new domain and access it. To do
     this, do the following steps.  
@@ -93,13 +92,13 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     <p><code>                 wso2.crt                </code></p>
     <div class="admonition note">
 	<p class="admonition-title">Note</p>
-	<p>To create the Identity Provider Certificate, open the terminal, traverse to the <code><\IS_HOME>/repository/resources/security/ </code>directory. 
+	<p>To create the Identity Provider Certificate, open the terminal, traverse to the `<IS_HOME>/repository/resources/security` directory. 
 	Next, execute the following command.
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
 	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
 	<code>keytool -export -alias wso2carbon -file wso2.crt -keystore wso2carbon.jks -storepass wso2carbon</code></pre></div></div>
-	<p>Once this command is run, the <code>wso2.crt</code> file is generated and can be found in the <code> <\IS_HOME>/repository/resources/security/</code> directory.
+	<p>Once this command is run, the <code>wso2.crt</code> file is generated and can be found in the `<IS_HOME>/repository/resources/security` directory.
 	 Click <b>Choose File</b> and navigate to this location in order to obtain and upload this file.
 	</div>
     </div></td>
@@ -165,57 +164,45 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
 
 ----
 
-## Configure email address as the username
-
-For details on configuring WSO2 Identity Server to use an email address as the username, refer [Using Email Address as the Username](TODO:insert-link).
+{!fragments/enable-email-as-username.md!}
 
 -----
 
-## Configure the service provider
+## Create the service provider
 
-Follow the steps given below to configure salesforce as a service
-provider in WSO2 IS.
+{!fragments/register-a-service-provider.md!}
 
-1.  Sign in. Enter your username and password to log on to the
-    [Developer Portal](https://localhost:9443/developer-portal).
-      
-    You can login using the user name, **admin@wso2.com** and password, **admin** for the first time. 
+---
+
+### SAML Configurations
+
+Make the following changes to the created service provider.
+
+1. Expand **Inbound Authentication Configuration > SAML Configuration** and click **Configure**.
+
+2. Enter the **Issuer** as `https://saml.salesforce.com`.
+
+    !!! note 
+        The **Issuer** is the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider.
+        
+3. Enter **Assertion Consumer URL** and click **Add**. 
     
-2.  Select **Applications** from the left hand side panel. 
+    !!! note
+        The **Assertion Consumer URL** is the URL of the page to which the browser is redirected to after successful authentication.
+        To obtain the **Assertion Consumer URL** from Salesforce, follow the below provided steps. <br>
+        1. Navigate to **Identity > Single Sign-On Settings** from the left hand side panel.  <br>
+        2. Click on the name of the SAML SSO component created.  <br>
+        3. Note down the login URL. 
 
-3. Click on **New Application**.
+9. Select **Enable Response Signing** to sign the SAML2 Responses returned after the authentication process.
 
-    ![add-sp-salesforce.png](../../assets/img/guides/add-sp-salesforce.png)
+10. Select **Enable Attribute Profile** and **Include Attributes in the Response Always** so that the the identity provider 
+    will always include the attribute values related to the selected claims in the SAML2 attribute statement.
 
-4. Click on **SAML Web Application**.
-    
-3.  Fill in the **Name** and optionally, provide a brief
-    **Description** of the application.  
+12. Click **Register**. 
 
-    ![service-provider-name](../../assets/img/guides/create-saml-app-salesforce.png)
-    
-4.  Click **Next**.
-
-5. Enter the **Issuer** as `https://saml.salesforce.com`. 
-
-6. Enter the **assertion consumer URL**. This can be obtained from Salesforce. 
-
-    !!! note "Obtaining the assertion consumer URL from Salesforce"
-        1.  Navigate to **Identity > Single Sign-On Settings** from the left hand side panel. 
-        2.  Click on the name of the SAML SSO component created. 
-        3.  Note down the login URL. 
-
-7.   Click **Next**. 
-
-8. Check your configurations and click **Finish**. 
-
-9. Navigate to the **Access** tab of your newly created application. 
-
-10. Enable **Sign SAML responses** under the **Assertion/Response Signing** section. 
-
-11. Select **Enable** and **Always include attributes in the response** in the **Attribute Profile** section. 
-
-12. Click **Update**. 
+!!! tip
+     To configure more advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced). 
 
 -----
 
@@ -224,9 +211,9 @@ provider in WSO2 IS.
 Do the following steps to test out the configurations for a new user in
 Salesforce and the Identity Server.
 
-1.  Create a user in WSO2 IS.  
-
-    {! fragments/create-users.md !}
+1.  Create a user in WSO2 IS. 
+ 
+    {!fragments/create-user.md!}
         
 2.  Create a user in Salesforce. This user should have the same
     email address as the user in WSO2 IS  
@@ -290,4 +277,4 @@ Further information regarding the steps are available
 ----
 
 !!! info "Related Topics"
-    - [Concept: Identity Federation](TODO:insert-link-to-concept)
+    - [Concept: Identity Federation](../../../references/concepts/identity-federation/)
