@@ -117,7 +117,7 @@ Specifies the `DigestMethod` algorithm to be used in the `Signature` element in 
 digest_alg="digest algorithm"
 ```
 
-If it is not provided the default algorithm is `SHA 1`, at URI `http://www.w3.org/2000/09/xmldsig#sha1`.
+If it is not provided, the default algorithm is `SHA 1` at URI `http://www.w3.org/2000/09/xmldsig#sha1`.
 
 ----
 
