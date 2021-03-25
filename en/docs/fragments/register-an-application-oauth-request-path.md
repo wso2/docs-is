@@ -1,5 +1,3 @@
-## Register an application
-
 {!fragments/register-playground-application-portal.md!}
 
 13. Expand **Request Path Authentication**.

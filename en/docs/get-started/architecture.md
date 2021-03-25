@@ -9,8 +9,8 @@ without configuration changes.
 
 WSO2 Identity Server is used directly by multiple users, through its
 user-friendly
-[Management Console](../../setup/getting-started-with-the-management-console).
-Apart from the default admin user (with the user name ‘admin’), other
+[Management Console](../../../deploy/get-started/get-started-with-the-management-console/).
+Apart from the default admin user (with the username ‘admin’), other
 users can be created later by the admin users that have the privileges
 to create a new user, or by signing up. Each user can have roles, where
 each role can have privileges assigned to them. A user’s roles can be
@@ -20,12 +20,12 @@ Apart from such registered users, Identity Server is also used as an
 identity provider for third party applications, which also have their
 own sets of users.
 
-### Architecture and process flow
+## Architecture and process flow
 
 The following diagram depicts the architecture of the Identity Server
 and the various processes that take place within it.
 
-![architecture-diagram](../assets/img/getting-started/architecture-diagram.png)
+![architecture-diagram](../../../assets/img/get-started/architecture-diagram.png)
 
 Watch the following video for a quick overview of the process flow of
 the Identity Server architecture and how the various components interact
@@ -37,12 +37,12 @@ with each other.
 
 ------------------------------------------------------------------------
 
-### Authentication framework
+## Authentication framework
 
 The following are the authenticator types in the authentication
 framework.
 
-#### Inbound authenticators
+### Inbound authenticators
 
 The responsibility of inbound authenticators is to identify and parse
 all the incoming authentication requests and then build the
@@ -68,12 +68,12 @@ it. Both the request processors and the response builders are protocol
 aware, while the authentication framework is not coupled to any
 protocol.
 
-#### Local authenticators
+### Local authenticators
 
 The responsibility of the local authenticators is to authenticate the
-user with locally available credentials. This can be either user name
-/password or even [IWA (Integrated Windows
-Authentication)](../../learn/integrated-windows-authentication-overview). Local
+user with locally available credentials. This can be either username
+/password or even IWA (Integrated Windows
+Authentication). Local
 authenticators are decoupled from the Inbound Authenticators. Once the
 initial request is handed over to the authentication framework from an
 inbound authenticator, the authentication framework talks to the service
@@ -89,7 +89,7 @@ corresponding response builder of the inbound authenticator.
 You can develop your own local authenticators and plug them into the
 Identity Server.
 
-#### Outbound/federated authenticators
+### Outbound/federated authenticators
 
 The responsibility of the federated authenticators is to authenticate
 the user with an external system. This can be with Facebook, Google,
@@ -127,7 +127,7 @@ while the authentication framework is not coupled to any protocol.
 You can develop your own federated authenticators and plug them into the
 Identity Server.
 
-#### Multi-option authenticators
+### Multi-option authenticators
 
 The service provider can define how to authenticate users at the
 Identity Server, for authentication requests initiated by it. While
@@ -135,7 +135,7 @@ doing that, each service provider can pick more than one authenticator
 to allow end users to get multiple login options. This can be a
 combination of local authenticators and federated authenticators.
 
-#### Multi-factor authenticators
+### Multi-factor authenticators
 
 The service provider can define how to authenticate users at the
 Identity Server, for authentication requests initiated by it. While
@@ -148,12 +148,12 @@ authenticators in a given step.
 
 ------------------------------------------------------------------------
 
-### Provisioning framework
+## Provisioning framework
 
 The following are the provisioning components available in the
 provisioning framework.
 
-#### Inbound provisioning
+### Inbound provisioning
 
 Inbound provisioning focuses on how to provision users to the Identity
 Server. Out-of-the-box, the Identity Server supports inbound
@@ -161,7 +161,7 @@ provisioning via a Simple Object Access Protocol ( SOAP) based API as
 well as the System for Cross-domain Identity Management ( SCIM) 1.1 API.
 Both the APIs support HTTP Basic Authentication. If you invoke the
 provisioning API with Basic Authentication credentials, then where to
-provision the user (to which user store) will be decided based on the
+provision the user (to which userstore) will be decided based on the
 inbound provisioning configuration of the resident service provider.
 
 The SCIM API also supports OAuth 2.0. If the user authenticates to the
@@ -172,7 +172,7 @@ mobile application, we would highly recommend you to use OAuth instead
 of Basic Authentication. You simply need to register your application as
 a service provider in Identity Server and then generate OAuth keys.
 
-#### Just-in-time provisioning
+### Just-in-time provisioning
 
 Just-in-time (JIT) provisioning talks about how to provision users to
 the Identity Server at the time of federated authentication. A service
@@ -181,7 +181,7 @@ to the Identity Server and then Identity Server redirects the user to an
 external identity provider for authentication. Just-in-time provisioning
 gets triggered in such a scenario when the Identity Server receives a
 positive authentication response from the external identity provider.
-The Identity Server will provision the user to its internal user store
+The Identity Server will provision the user to its internal userstore
 with the user claims from the authentication response.
 
 You configure JIT provisioning against an identity provider - not
@@ -189,8 +189,8 @@ against service providers. Whenever you associate an identity provider
 with a service provider for outbound authentication, if the JIT
 provisioning is enabled for that particular identity provider, then the
 users from the external identity provider will be provisioned into the
-Identity Server's internal user store. In the JIT provisioning
-configuration you can also pick the provisioning user store.
+Identity Server's internal userstore. In the JIT provisioning
+configuration you can also pick the provisioning userstore.
 
 JIT provisioning happens while in the middle of an authentication flow.
 The provisioning can happen in a blocking mode or in a non-blocking
@@ -198,7 +198,7 @@ mode. In the blocking mode, the authentication flow will be blocked till
 the provisioning finishes - while in the non-blocking mode, provisioning
 happens in a different thread.
 
-#### Outbound provisioning
+### Outbound provisioning
 
 Outbound provisioning talks about provisioning users to external
 systems. This can be initiated by any of the following.
@@ -227,7 +227,7 @@ of the corresponding service provider.
 
 ------------------------------------------------------------------------
 
-### Components of the architecture
+## Components of the architecture
 
 The following table lists out the components pertaining to the
 architecture of the WSO2 Identity Server, which are depicted in the
@@ -246,31 +246,27 @@ above figure and video.
 <a name="service-provider-section"></a>
 <td>Service providers</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/service-provider.png" title = "service providers" alt="service providers"></p>
+<p><img src="../../../assets/img/get-started/service-provider.png" title = "service providers" alt="service providers"></p>
 <p>A Service Provider (SP) is an entity that provides Web services. A service provider relies on a trusted Identity Provider (IdP) for authentication and authorization. In this case, the Identity Server acts as the IdP and does the task of authenticating and authorizing the user of the service provider.</p>
 <p>Salesforce and Google Apps are examples of service providers and are used as such in this case.</p>
-<div class="admonition info">
-<p class="admonition-title">Related Links</p>
-<p>For information on how to add a service provider to the Identity Server, and do the necessary configurations to integrate the SP with the Identity Server, see <a href="../../learn/adding-and-configuring-a-service-provider">Adding and Configuring a Service Provider</a> .</p>
-</div>
-</div></td>
+</td>
 <td><div class="content-wrapper">
 <p>A user of the service provider (SP) attempts to log into the SPs application. The service provider sends an authentication request to the Identity Server. This request is met by the Inbound Authentication component of the Identity Server and comes in one of the following forms.</p>
 <ul>
-<li><a href="../../learn/saml-2.0-web-sso">SAML</a> SSO</li>
-<li><a href="../../learn/oauth2-openid-connect-overview">OAuth/OpenID Connect</a></li>
+<li><a href="../../../guides/login/sso-for-saml">SAML</a> SSO</li>
+<li><a href="../../../guides/login/sso-for-oidc">OAuth/OpenID Connect</a></li>
 <li>Passive STS</li>
 </ul>
 <p>The service provider receives the authentication confirmation from the Identity Server once it follows all the specified processes required in order to authenticate the SP's user.</p>
-<p><img src="../../assets/img/getting-started/sp-inbound-authentication.png" title = "service provider inbound authentication" alt = "service provider inbound authentication"></p>
+<p><img src="../../../assets/img/get-started/sp-inbound-authentication.png" title = "service provider inbound authentication" alt = "service provider inbound authentication"></p>
 <p>Additionally, if a user registers in the service provider's application, a Simple Object Access Protocol ( SOAP) or System for Cross-domain Identity Management ( SCIM) request can be sent to the Identity Server. The request is met by the Inbound Provisioning component of the Identity Server.</p>
-<p><img src="../../assets/img/getting-started/sp-inbound-provisioning.png" title = "service provider inbound provisioning" alt = "service provider inbound provisioning"></p>
+<p><img src="../../../assets/img/get-started/sp-inbound-provisioning.png" title = "service provider inbound provisioning" alt = "service provider inbound provisioning"></p>
 </div></td>
 </tr>
 <tr class="even">
 <td>Inbound authentication</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/inbound-authentication.png" title = "inbound authentication" alt = "inbound authentication"></p>
+<p><img src="../../../assets/img/get-started/inbound-authentication.png" title = "inbound authentication" alt = "inbound authentication"></p>
 <p>The Inbound Authentication component of the Identity Server can handle any of the following requests.</p>
 <ul>
 <li><strong>SAML SSO</strong> : <a href="http://saml.xml.org/saml-specifications/">Security Assertion Markup Language (SAML)</a> is an OASIS open standard for representing and exchanging user identity and authentication data between parties. SAML provides the web-based Single-Sign-On capability. WSO2 IS supports SAML 2.0.</li>
@@ -278,26 +274,21 @@ above figure and video.
 <li><strong>Passive STS</strong> : A Security Token Service (STS) is a software based identity provider responsible for issuing security tokens, especially software tokens, as part of a claims-based identity system. <strong><br />
 </strong></li>
 </ul>
-<div class="admonition info">
-<p class="admonition-title">Related Links</p>
-<p>For information on how to configure inbound authentication, see <a href="../../learn/configuring-inbound-authentication-for-a-service-provider/">Configuring Inbound Authentication for a Service Provider</a> .</p>
-</div>
-</div>
-</div></td>
+</td>
 <td><div class="content-wrapper">
 <p>The inbound authentication component of the Identity Server receives the authentication request from the service provider. You can configure the Identity Server to receive either SAML SSO, OAuth/OpenID Connect, or WS-Federation requests. Your configuration depends on the service provider in question.</p>
 <p>Once the conditions are met in the inbound authentication component, the request is sent on to the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/inbound-authentication-request.png" title = "inbound authentication request" alt = "inbound authentication request"></p>
+<p><img src="../../../assets/img/get-started/inbound-authentication-request.png" title = "inbound authentication request" alt = "inbound authentication request"></p>
 <p>Once the request is acted upon, a response from the OUT channel of the authentication framework is received by the inbound authentication component .</p>
-<p><img src="../../assets/img/getting-started/authentication-framework-response.png" title="authentication framework response" alt="authentication framework response"></p>
+<p><img src="../../../assets/img/get-started/authentication-framework-response.png" title="authentication framework response" alt="authentication framework response"></p>
 <p>This response is sent back to the service provider.</p>
-<p><img src="../../assets/img/getting-started/response-to-sp.png" title="inbound authentication response to the service provider" alt="inbound authentication response to the service provider"></p>
+<p><img src="../../../assets/img/get-started/response-to-sp.png" title="inbound authentication response to the service provider" alt="inbound authentication response to the service provider"></p>
 </div></td>
 </tr>
 <tr class="odd">
 <td>Authentication framework</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/authentication-framework.png" title="authentication framework" alt="authentication framework"></p>
+<p><img src="../../../assets/img/get-started/authentication-framework.png" title="authentication framework" alt="authentication framework"></p>
 <p>Claim management is a key aspect of the Identity Server, which helps to map local claims to service provider claims and vice versa. It also enables you to map local claims to identity provider claims and vice versa.</p>
 <p>Just-in-Time (JIT) provisioning allows you to create users on the fly without having to create user accounts in advance. For example, if you recently added a user to your application, you don't need to manually create the user in the Identity Server. When they log in with single sign-on, their account is automatically created for them, eliminating the time and effort related to creating the account. Just-in-Time provisioning works with your identity provider to pass the correct user information to the Identity Server.</p>
 <div class="panel" style="border-width: 1px;">
@@ -305,9 +296,8 @@ above figure and video.
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
 <ul>
-<li>For information on mapping local claims and service provider claims, see <a href="../../learn/configuring-claims-for-a-service-provider">Configuring Claims for a Service Provider</a> .</li>
-<li>For mapping local claims and identity provider claims, see <a href="../../learn/configuring-claims-for-an-identity-provider">Configuring Claims for an Identity Provider</a> .</li>
-<li>For information on configuring Just-in-Time provisioning, see <a href="../../learn/configuring-just-in-time-provisioning-for-an-identity-provider">Configuring Just-In-Time Provisioning for an Identity Provider</a> .</li>
+For information on configuring claims, see <a href="../../../guides/dialects/configure-claims">Configure Claims</a>.
+</li>
 </ul>
 </div>
 </div>
@@ -315,38 +305,35 @@ above figure and video.
 </div></td>
 <td><div class="content-wrapper">
 <p>The inbound authentication component sends the authentication request to the IN channel of the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/inbound-authentication-request.png" title="request to the authentication framework" alt="request to the authentication framework"></p>
+<p><img src="../../../assets/img/get-started/inbound-authentication-request.png" title="request to the authentication framework" alt="request to the authentication framework"></p>
 <p>Here claim mapping is checked based on the configurations. Once this is done, the authentication request is sent onwards to either the local authenticators, the federated authenticators or both.</p>
-<p><img src="../../assets/img/getting-started/authentication-framework-request.png" title="request to local or federated authenticators" alt="request to local or federated authenticators"></p>
+<p><img src="../../../assets/img/get-started/authentication-framework-request.png" title="request to local or federated authenticators" alt="request to local or federated authenticators"></p>
 <p>Once the authentication is complete, a response is sent from the local and/or federated authenticators to the OUT channel of the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/local-federated-response.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
+<p><img src="../../../assets/img/get-started/local-federated-response.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
 <p>The authentication framework handles mapping local claims to the IdP as required.</p>
 <p>Then the JIT provisioning component within the authentication framework sends this on to the provisioning framework.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework.png" title="request to the provisioning framework" alt="request to the provisioning framework"></p>
+<p><img src="../../../assets/img/get-started/provisioning-framework.png" title="request to the provisioning framework" alt="request to the provisioning framework"></p>
 <p>Once the request is acted upon, a response is sent from the OUT channel of the authentication framework back to the inbound authentication.</p>
-<p><img src="../../assets/img/getting-started/authentication-framework-to-inbound-authentication.png" title="response to the inbound authentication" alt="response to the inbound authentication"></p>
+<p><img src="../../../assets/img/get-started/authentication-framework-to-inbound-authentication.png" title="response to the inbound authentication" alt="response to the inbound authentication"></p>
 </div></td>
 </tr>
 <tr class="even">
 <td>Local authenticators</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/local-authenticators.png" title="local authenticators" alt="local authenticators"></p>
-<p>Local authenticators are authentication processes available within the Identity Server itself. User name /password authentication happens by authenticating the credentials entered against the values in the user store connected to the Identity Server.</p>
+<p><img src="../../../assets/img/get-started/local-authenticators.png" title="local authenticators" alt="local authenticators"></p>
+<p>Local authenticators are authentication processes available within the Identity Server itself. username /password authentication happens by authenticating the credentials entered against the values in the userstore connected to the Identity Server.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
 <p>
-<ul>
-<li>For more information on how to configure local authenticators in the Identity Server, See <a href="../../learn/configuring-local-and-outbound-authentication-for-a-service-provider">Configuring Local and Outbound Authentication for a Service Provider</a> .</li>
-<li>For more information about windows-based authentication, see <a href="../../learn/integrated-windows-authentication-overview">Integrated Windows Authentication</a> .</li>
-</ul>
+For more information about windows-based authentication, see <a href="../../../references/concepts/integrated-windows-authentication-overview/">Integrated Windows Authentication</a> .
 </div>
 </div>
 </td>
 <td><div class="content-wrapper">
 <p>The IN channel of the authentication framework sends the authentication request to the local authenticators component.</p>
-<p><img src="../../assets/img/getting-started/in-channel-to-local-authenticator.png" title="request to the local authenticators" alt="request to the local authenticators"></p>
-<p>The local authenticator does the authentication by checking the user name and password or by using <a href="../../learn/integrated-windows-authentication-overview">Integrated Windows Authentication (IWA)</a> . Once this is authentication is done, it provides the authentication response to the OUT channel of the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/out-channel-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
+<p><img src="../../../assets/img/get-started/in-channel-to-local-authenticator.png" title="request to the local authenticators" alt="request to the local authenticators"></p>
+<p>The local authenticator does the authentication by checking the username and password or by using <a href="../../references/concepts/integrated-windows-authentication-overview">Integrated Windows Authentication (IWA)</a> . Once this is authentication is done, it provides the authentication response to the OUT channel of the authentication framework.</p>
+<p><img src="../../../assets/img/get-started/out-channel-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
 <p><br/>
 </p>
 </div></td>
@@ -354,44 +341,44 @@ above figure and video.
 <tr class="odd">
 <td>Federated authenticators</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/federated-authenticators.png" title="federated authenticators" alt="federated authenticators"></p>
+<p><img src="../../../assets/img/get-started/federated-authenticators.png" title="federated authenticators" alt="federated authenticators"></p>
 <p>Federated authenticators are authentication processes that are not available within the Identity Server. These need to be configured to reach out to external applications to do the authentication process and send the response back to the Identity Server.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
-<p>For more information on how to configure federated authenticators with the various identity providers, see <a href="../../learn/configuring-federated-authentication">Configuring Federated Authentication</a> .</p>
+<p>For more information on how to configure federated authenticators with the various identity providers, see <a href="../../../guides/identity-federation/enterprise-identity-federation/">Configuring Federated Authentication</a> .</p>
 </div>
 </div></td>
 <td><div class="content-wrapper">
 <p>The IN channel of the authentication framework sends the authentication request to the federated authenticators component.</p>
-<p><img src="../../assets/img/getting-started/in-channel-to-federated-authenticators.png" title="request to the federated authenticators" alt="request to the federated authenticators"></p>
+<p><img src="../../../assets/img/get-started/in-channel-to-federated-authenticators.png" title="request to the federated authenticators" alt="request to the federated authenticators"></p>
 <p>The federated authenticators do the authentication by checking the authentication request in the specified authenticator. For example, if Facebook is configured, the authentication process will reflect that. Once this authentication is done, it provides the authentication response to the OUT channel of the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/federated-authenticators-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
+<p><img src="../../../assets/img/get-started/federated-authenticators-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
 </div></td>
 </tr>
 <tr class="even">
 <td>Identity providers</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/identity-providers.png" title="identity providers" alt="identity providers"></p>
+<p><img src="../../../assets/img/get-started/identity-providers.png" title="identity providers" alt="identity providers"></p>
 <p>Identity providers perform authentication. To receive authentication requests from the Identity Server, configurations need to be done at the identity provider side as well . Identity providers are also known as external applications. The protocol specific authenticators (SAML2, OpenID Connect, WS-Federation (Passive)) represent applications that use these protocols for authentication requests.</p>
 </div></td>
 <td><div class="content-wrapper">
 <p>The authentication request comes in from the federated authenticators component and is sent to the relevant identity provider (External application). The user is authenticated and logged in to the relevant external application.</p>
-<p><img src="../../assets/img/getting-started/federated-authenticators-to-external-applications.png" title="request to external applications" alt="request to external applications"></p>
+<p><img src="../../../assets/img/get-started/federated-authenticators-to-external-applications.png" title="request to external applications" alt="request to external applications"></p>
 <p>A single authentication request can require authentication from multiple external applications.</p>
 </div></td>
 </tr>
 <tr class="odd">
 <td>Provisioning framework</td>
 <td><div class="content-wrapper">
-<p>The provisioning framework is responsible for all provisioning work done by the Identity Server. This framework integrates with the User Store Manager component and also receives provisioning requests from the authentication framework.</p>
+<p>The provisioning framework is responsible for all provisioning work done by the Identity Server. This framework integrates with the userstore Manager component and also receives provisioning requests from the authentication framework.</p>
 </div></td>
 <td><div class="content-wrapper">
-<p>The JIT provisioning component of the OUT channel in the authentication framework sends on the request to the provisioning framework. This occurs if the user is not added into the user store and needs to be added in on-the-fly.</p>
-<p><img src="../../assets/img/getting-started/authentication-framework-to-provisioning-framework.png" title="request to the provisioning framework" alt="request to the provisioning framework"></p>
-<p>The provisioning framework sends the user details to the user store manager and the user is added. Once the user is added, the user store manager contacts the provisioning framework with the response.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework-user-store-manager-interaction.png" title="request to the user store manager and response" alt="request to the user store manager and response"></p>
-<p>The SCIM and SOAP requests that arrive from the service provider are added to the user store manager. This information is also sent on the provisioning framework. The provisioning framework sends this along to the outbound provisioning component.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework-to-outbound-provisioning.png" title="passing on the scim and soap requests to outbound provisioning" alt="passing on the scim and soap requests to outbound provisioning"></p>
+<p>The JIT provisioning component of the OUT channel in the authentication framework sends on the request to the provisioning framework. This occurs if the user is not added into the userstore and needs to be added in on-the-fly.</p>
+<p><img src="../../../assets/img/get-started/authentication-framework-to-provisioning-framework.png" title="request to the provisioning framework" alt="request to the provisioning framework"></p>
+<p>The provisioning framework sends the user details to the userstore manager and the user is added. Once the user is added, the userstore manager contacts the provisioning framework with the response.</p>
+<p><img src="../../../assets/img/get-started/provisioning-framework-user-store-manager-interaction.png" title="request to the userstore manager and response" alt="request to the userstore manager and response"></p>
+<p>The SCIM and SOAP requests that arrive from the service provider are added to the userstore manager. This information is also sent on the provisioning framework. The provisioning framework sends this along to the outbound provisioning component.</p>
+<p><img src="../../../assets/img/get-started/provisioning-framework-to-outbound-provisioning.png" title="passing on the scim and soap requests to outbound provisioning" alt="passing on the scim and soap requests to outbound provisioning"></p>
 </div></td>
 </tr>
 <tr class="even">
@@ -399,72 +386,57 @@ above figure and video.
 <td><div class="content-wrapper">
 <p>WSO2 Identity Server contains an advanced entitlement auditing and management. It provides entitlement management for any REST or SOAP calls. WSO2 Identity Server provides attribute and claim-based access control via XACML, WS-Trust, OpenID Connect and claim management. WSO2 Identity Server also provides role-based access control (RBAC) and fine-grained policy-based access control via XACML.</p>
 <p>WSO2 Identity Server provides a friendly user interface for policy editing. It also supports multiple Policy Information Point (PIP) and policy distribution to various Policy Decision Points (PDPs). It provides a high-performance network protocol (over Thrift) for PEP/PDP interaction, and policy decision and attribute caching. Notifications are provided for policy updates. Moreover, the WSO2 Carbon TryIt tool that comes bundled with the Identity Server lets the user explore the policy impact.</p>
-<div class="admonition info">
-<p class="admonition-title">Related Links</p>
-<p>For more information on how to use and manage entitlement within the Identity Server, see <a href="../../learn/access-control">Working with Entitlement</a> .</p>
-</div>
-</div></td>
+</td>
 <td>Authorization does not play a direct role in the process flow but as a component, it integrates with various other components in the Identity Server. This is primarily a functionality that can be managed using APIs that are written to perform authorization tasks.</td>
 </tr>
 <tr class="odd">
 <td>IdP and SP configurations</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/idp-and-sp-configurations.png" title="idp and sp configurations" alt="idp and sp configurations"></p>
+<p><img src="../../../assets/img/get-started/idp-and-sp-configurations.png" title="idp and sp configurations" alt="idp and sp configurations"></p>
 <p>The identity provider and service provider configurations provide the basis for all actions that happen within the authentication framework and provisioning framework.</p>
-<div class="admonition info">
-<p class="admonition-title">Related Links</p>
-<ul>
-<li>For more information on how to configure the service provider, see <a href="../../learn/adding-and-configuring-a-service-provider">Adding and Configuring a Service Provider</a> .</li>
-<li>For more information on how to configure the identity provider, see <a href="../../learn/adding-and-configuring-an-identity-provider">Adding and Configuring an Identity Provider</a> .</li>
-</ul>
-</div>
-</div></td>
+</td>
 <td><div class="content-wrapper">
 <p>The identity provider and service provider configurations go to both the authentication framework and provisioning framework.</p>
-<p><img src="../../assets/img/getting-started/idp-and-sp-to-authentication-framework.png" title="idp and sp configurations for authentication activities" alt="idp and sp configurations for authentication activities"></p>
-<p><img src="../../assets/img/getting-started/idp-and-sp-to-provisioning-framework.png" title="idp and sp configurations for provisioning activities" alt="idp and sp configurations for provisioning activities"></p>
+<p><img src="../../../assets/img/get-started/idp-and-sp-to-authentication-framework.png" title="idp and sp configurations for authentication activities" alt="idp and sp configurations for authentication activities"></p>
+<p><img src="../../../assets/img/get-started/idp-and-sp-to-provisioning-framework.png" title="idp and sp configurations for provisioning activities" alt="idp and sp configurations for provisioning activities"></p>
 </div></td>
 </tr>
 <tr class="even">
 <td>Inbound provisioning</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/inbound-provisioning.png" title="inbound provisioning" alt="inbound provisioning"></p>
+<p><img src="../../../assets/img/get-started/inbound-provisioning.png" title="inbound provisioning" alt="inbound provisioning"></p>
 <p>Inbound provisioning requests can come in the form of SCIM or SOAP.</p>
 <p>The System for Cross-domain Identity Management (SCIM) specification is designed to make managing user identities in the WSO2 Identity Server easier. Identity provisioning is a key aspect of any Identity Management Solution. In simple terms, it is to create, maintain and delete user accounts and related identities in one or more systems or applications in response to business processes which are initiated either by humans directly or by automated tasks.</p>
 <p>Simple Object Access Protocol (SOAP) is a protocol for exchanging XML-based messages over a network, normally using HTTP. SOAP forms the foundation layer of the Web services stack, providing a basic messaging framework that more abstract layers can build on. SOAP services are defined using Web Services Definition Language (WSDL) and are accessible using a URL that is known as a SOAP endpoint. Here, a SOAP API is used to provision users to the Identity Server.</p>
-<div class="admonition info">
-<p class="admonition-title">Related Links</p>
-<p>For more information on configuring inbound provisioning, see <a href="../../learn/configuring-inbound-provisioning-for-a-service-provider">Configuring Inbound Provisioning for a Service Provider</a> .</p>
-</div>
 </div></td>
 <td><div class="content-wrapper">
 <p>The SCIM or SOAP request comes into the inbound provisioning component from the service provider.</p>
-<p><img src="../../assets/img/getting-started/service-provider-to-inbound-provisioning.png" title="request to inbound provisioning" alt="request to inbound provisioning"></p>
-<p>The inbound provisioning component receives this request, processes it based on the configurations and sends the request on to the user store manager.</p>
-<p><img src="../../assets/img/getting-started/inbound-provisioning-to-user-store-manager.png" title="request to the user store manager" alt="request to the user store manager"></p>
+<p><img src="../../../assets/img/get-started/service-provider-to-inbound-provisioning.png" title="request to inbound provisioning" alt="request to inbound provisioning"></p>
+<p>The inbound provisioning component receives this request, processes it based on the configurations and sends the request on to the userstore manager.</p>
+<p><img src="../../../assets/img/get-started/inbound-provisioning-to-user-store-manager.png" title="request to the userstore manager" alt="request to the userstore manager"></p>
 </div></td>
 </tr>
 <tr class="odd">
-<td>User store manager</td>
+<td>userstore manager</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/user-store-manager.png" title="user store manager" alt="user store manager"></p>
-<p>WSO2 Identity Server implements flexible user store via built-in LDAP (powered by ApacheDS), external LDAP, Microsoft Active Directory or any JDBC database. It provides an API for integrating identity management to any application. WSO2 Identity Server allows tenants/organizations to configure their user stores through the admin console. WSO2 Identity Server supports multiple profiles per user using its flexible profile management feature.</p>
+<p><img src="../../../assets/img/get-started/user-store-manager.png" title="userstore manager" alt="userstore manager"></p>
+<p>WSO2 Identity Server implements flexible userstore via built-in LDAP (powered by ApacheDS), external LDAP, Microsoft Active Directory or any JDBC database. It provides an API for integrating identity management to any application. WSO2 Identity Server allows tenants/organizations to configure their userstores through the admin console. WSO2 Identity Server supports multiple profiles per user using its flexible profile management feature.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
 <ul>
-<li>For more information, see <a href="../../get-started/user-management-architecture">User Management Architecture</a></li>
-<li>For more information on how to configure user stores, see <a href="../../setup/configuring-the-realm">Configuring the Realm</a> .</li>
-<li>For more information on how to work with users and roles, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a> .</li>
+<li>For more information, see <a href="../../../get-started/user-management-architecture/">User Management Architecture</a></li>
+<li>For more information on how to configure userstores, see <a href="../../../deploy/configure-the-realm">Configuring the Realm</a> .</li>
+<li>For more information on how to work with users and roles, see <a href="../../../guides/identity-lifecycles/manage-roles-overview">Configuring Users, Roles and Permissions</a> .</li>
 </ul>
 </div>
 </div></td>
 <td><div class="content-wrapper">
-<p>The user store manager receives provisioning requests from the provisioning framework. These provisioning requests are handled and the relevant user store is updated. The request can affect multiple user stores if the configuration is such. Once this request has been handled, an update is sent back to the provisioning framework.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework-user-store-manager-interaction.png" title="request to user store manager and response" alt="request to user store manager and response"></p>
-<p>The inbound provisioning component sends SCIM and SOAP provisioning requests on to the user store manager.</p>
-<p><img src="../../assets/img/getting-started/inbound-provisioning-to-user-store-manager.png" title="scim and soap requests to user store manager" alt="scim and soap requests to user store manager"></p>
-<p>The user store manager receives the provisioning request, acts on it and sends it on to the provisioning framework where it has to be sent on for outbound provisioning.</p>
-<p><img src="../../assets/img/getting-started/user-store-manager-to-provisioning-framework.png" title="response to provisioning framework" alt="response to provisioning framework"></p>
+<p>The userstore manager receives provisioning requests from the provisioning framework. These provisioning requests are handled and the relevant userstore is updated. The request can affect multiple userstores if the configuration is such. Once this request has been handled, an update is sent back to the provisioning framework.</p>
+<p><img src="../../../assets/img/get-started/provisioning-framework-user-store-manager-interaction.png" title="request to userstore manager and response" alt="request to userstore manager and response"></p>
+<p>The inbound provisioning component sends SCIM and SOAP provisioning requests on to the userstore manager.</p>
+<p><img src="../../../assets/img/get-started/inbound-provisioning-to-user-store-manager.png" title="scim and soap requests to userstore manager" alt="scim and soap requests to userstore manager"></p>
+<p>The userstore manager receives the provisioning request, acts on it and sends it on to the provisioning framework where it has to be sent on for outbound provisioning.</p>
+<p><img src="../../../assets/img/get-started/user-store-manager-to-provisioning-framework.png" title="response to provisioning framework" alt="response to provisioning framework"></p>
 </div></td>
 </tr>
 <tr class="even">
@@ -473,11 +445,7 @@ above figure and video.
 <p>A claim is a piece of information about a particular subject. It can be anything that the subject is owned by or associated with, such as name, group, preferences, etc. A claim provides a single and general notion to define the identity information related to the subject. Claim-based identity is a common way for any application to acquire the identity information. It provides a consistent approach for all applications by hiding the lower level implementation. Claims are also used in identity propagation, by packaging the claims into one or more tokens (such as SAML). These tokens are then issued by an issuer; commonly known as a security token service (STS).</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
-<ul>
-<li>For more information on managing claims, see <a href="../../learn/claim-management">Claim Management</a></li>
-<li>For information on how to configure claims on the service provider side, see <a href="../../learn/configuring-claims-for-a-service-provider">Configuring Claims for a Service Provider</a></li>
-<li>For information on how to configure claims on the identity provider side, See <a href="../../learn/configuring-claims-for-an-identity-provider">Configuring Claims for an Identity Provider</a> .</li>
-</ul>
+For more information on managing claims, see <a href="../../../guides/dialects/configure-claims/">Claim Management</a>
 </div>
 </div></td>
 <td><p>Claim management does not play a direct role in the process flow but as a component, it integrates with various other components in the Identity Server. Primarily, it integrates with the following four components.</p>
@@ -485,7 +453,7 @@ above figure and video.
 <li>Authentication framework</li>
 <li>Authorization manager</li>
 <li>Provisioning framework</li>
-<li>User store manager</li>
+<li>userstore manager</li>
 </ul>
 <p><br />
 </p></td>
@@ -506,7 +474,7 @@ above figure and video.
 <ul>
 <li>Authentication framework</li>
 <li>Provisioning framework</li>
-<li>User store manager</li>
+<li>userstore manager</li>
 </ul>
 <p><br />
 </p></td>
@@ -516,12 +484,12 @@ above figure and video.
 <td><div class="content-wrapper">
 <p>Enterprise IT Systems are constantly changing; their perimeters are expanding and their policies keep changing. Therefore, in such a rapidly evolving world, security solutions need to be forward thinking and innovative. They need to be configurable in order to keep pace and adapt to rapid changes. This can be achieved by the identity manager component because it caters to security requirements at hand as well as looking toward the future. It has a very customizable user interface and can be easily implemented in order to ensure maximum security for your system.</p>
 </div></td>
-<td>Identity manager does not play a direct role in the process flow but as a component, it integrates with various other components in the Identity Server, primarily the user store manager.</td>
+<td>Identity manager does not play a direct role in the process flow but as a component, it integrates with various other components in the Identity Server, primarily the userstore manager.</td>
 </tr>
 <tr class="even">
 <td>Outbound provisioning</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/outbound-provisioning.png" title="outbound provisioning" alt="outbound provisioning" /></p>
+<p><img src="../../../assets/img/get-started/outbound-provisioning.png" title="outbound provisioning" alt="outbound provisioning" /></p>
 <p>The Outbound Provisioning component of the Identity Server can send provisioning requests to applications that support the following connectors.</p>
 <ul>
 <li>SCIM</li>
@@ -530,21 +498,17 @@ above figure and video.
 <li>Salesforce</li>
 </ul>
 <p>These connectors reach out to identity providers that perform the provisioning.</p>
-<div class="admonition info">
-<p class="admonition-title">Related Links</p>
-<p>For more information on how to configure outbound provisioning connectors, see <a href="../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider">Configuring Outbound Provisioning Connectors for an Identity Provider</a> .</p>
-</div>
-</div></td>
+</td>
 <td><div class="content-wrapper">
 <p>The provisioning request comes into the outbound provisioning component from the provisioning framework. This request will go to the relevant connector.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework-to-outbound-provisioning.png" title="request to outbound provisioning" alt="request to outbound provisioning"></p>
+<p><img src="../../../assets/img/get-started/provisioning-framework-to-outbound-provisioning.png" title="request to outbound provisioning" alt="request to outbound provisioning"></p>
 </div></td>
 </tr>
 </tbody>
 </table>
 
-!!! Tip "Related Links"
-    For further reading about the architecture in an Identity and Access
+!!! Tip "Related Topics"
+    To know more about the architecture of an Identity and Access
     Management solution, see the following article: [Identity Architect
     Ground Rules: Ten IAM Design Principles](https://wso2.com/whitepapers/identity-architect-ground-rules-ten-iam-design-principles/).
     

@@ -1,3 +1,4 @@
+### Register a service provider
 
 1.  Access the WSO2 IS management console (`https://<IS_HOST>:<PORT>/carbon`).
 

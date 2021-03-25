@@ -317,22 +317,23 @@ nav:
       - 'Tenants':
         - 'Set Up a Tenant Loading Policy': guides/tenants/configure-the-tenant-loading-policy.md
         - 'Add New Tenants': guides/tenants/add-new-tenants.md
+        - 'Tenant-wise Email Sender Configuration': guides/tenants/tenant-wise-config.md
       - 'My Account': 
         - 'Overview': guides/my-account/my-account.md
-      - 'Federation - To Remove':
-        - 'Facebook': guides/federation/facebook.md
-        - 'Google': guides/federation/google.md
-        - 'Twitter': guides/federation/twitter.md
-        - 'Microsoft Azure': guides/federation/microsoft-azure.md
-      - 'Authorization - To Remove': guides/user-mgt/associating-user-accounts.md
-      - 'Manage User Accounts': 
-        - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
-      - 'Server Configurations - To Remove':
-        - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
-      - 'Manage Tenants - To Remove':
-        - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
-      - 'Configure Provisioning - To Remove':
-        - 'Overview': guides/identity-provisioning/provisioning-overview.md
+      #- 'Federation - To Remove':
+        #- 'Facebook': guides/federation/facebook.md
+        #- 'Google': guides/federation/google.md
+        #- 'Twitter': guides/federation/twitter.md
+        #- 'Microsoft Azure': guides/federation/microsoft-azure.md
+      #- 'Authorization - To Remove': guides/user-mgt/associating-user-accounts.md
+      #- 'Manage User Accounts': 
+        #- 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
+      #- 'Server Configurations - To Remove':
+        #- 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
+      #- 'Manage Tenants - To Remove':
+        #- 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
+      #- 'Configure Provisioning - To Remove':
+        #- 'Overview': guides/identity-provisioning/provisioning-overview.md
   - 'Extend':
       - 'Work with the Source Code': extend/work-with-the-source-code.md
       - 'Using SDKs':
