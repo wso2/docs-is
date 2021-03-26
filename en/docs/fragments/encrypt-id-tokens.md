@@ -51,7 +51,7 @@ The following steps describe how to configure a service provider public certific
 
 5. Select **Upload SP Certificate** under  **Select SP Certificate Type**.
 
-6. Paste the certificate content copied in step 4.
+6. Paste the certificate content copied in step 4 as the **Application Certificate**.
 
     ![upload-sp-cert](../../assets/img/guides/upload-sp-cert.png)
     
