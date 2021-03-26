@@ -163,7 +163,7 @@ nav:
           - 'Query SAML Assertions': guides/login/query-saml-assertions.md
           #- 'Manage User Attributes with eIDAS': guides/login/user-attributes-eidas.md
           - 'Use SAML Metadata': guides/login/use-saml-metadata.md
-        - 'WS-Federation': guides/login/ws-federation.md
+        #- 'WS-Federation': guides/login/ws-federation.md
         - 'Integrate Using Custom Protocols': guides/login/integrate-custom-protocol.md
         - 'Configure Advanced Settings':
           - 'Skip User Consent': guides/login/skip-user-consent.md
