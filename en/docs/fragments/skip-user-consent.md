@@ -5,7 +5,7 @@
 
 3. Click **Edit** adjacent to the service provider for which you want to skip the consent step.  
 
-3. Expand **Local & Outbound Authentication Configuration** section. 
+3. Expand **Local & Outbound Authentication Configuration**. 
 
 4.  Enable **Skip Login consent**. 
     ![skip login consent](../../assets/img/guides/skip-login-consent.png)
