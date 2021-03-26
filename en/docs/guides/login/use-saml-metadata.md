@@ -30,7 +30,7 @@ instances of entity configuration.
         and referring to it using the Certificate Alias field.
     
         Therefore, when uploading a metadata file, the **Application
-        Certificate** field in the Service Providers screen will
+        Certificate** field in the **Service Providers** screen will
         automatically display the certificate that is embedded in the
         metatdata file. You can update or edit the certificate by editing
         the content within the **Application Certificate** field and uploading
