@@ -3,7 +3,7 @@
 
 2. Navigate to the **Service Providers** tab listed under the **Identity** section and click **List**.
 
-3. Click **Edit** icon adjacent to the service provider for which you want to skip the consent step.  
+3. Click **Edit** adjacent to the service provider for which you want to skip the consent step.  
 
 3. Expand **Local & Outbound Authentication Configuration** section. 
 
