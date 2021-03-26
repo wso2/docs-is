@@ -43,6 +43,8 @@ Optionally, you can use a custom assertion builder that enables persisting asser
 
 ## Query SAML assertions
 
+{!fragments/saml-query-assertion-client-app.md!}
+
 1. Access the Travelocity application via `http://wso2is.local:8080/travelocity.com/index.jsp`
 
 2.  Start the SAML Tracer.

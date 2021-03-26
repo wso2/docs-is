@@ -1,8 +1,8 @@
 # Query SAML2 Assertions
 
-This page guides you through querying dynamic or existing [SAML2 assertions](TODO:insert-link-to-concept) using standard request messages via WSO2 Identity Server. 
+This page guides you through querying dynamic or existing SAML2 assertions using standard request messages via WSO2 Identity Server. 
 
-Due to some reason if you can not pass a SAML Assertion to the backend, then you can pass an [identifier](TODO:insert-link) with the request to query and obtain the assertion from the backend instead. 
+Due to some reason if you can not pass a SAML Assertion to the backend, then you can pass an identifier with the request to query and obtain the assertion from the backend instead. 
 
 ----
 
@@ -12,17 +12,33 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-(TODO: dev-portal-fragment)
+## Create a service provider
+
 {!fragments/register-a-service-provider.md!}
 
 ----
 
-(TODO: dev-portal-fragment)
-{!fragments/saml-app-config-basic.md!}
+## SAML Configurations 
+
+1. Expand **Inbound Authentication Configuration > SAML2 Web SSO Configuration** and click **Configure**.
+
+2. Enter the **Issuer**. 
+
+    !!! info
+        The **Issuer** is the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider.
+     
+2. Enter the **Assertion Consumer URL** and click **Add**.
+    
+    !!! info
+        The **Assertion Consumer URL** is the Assertion Consumer Service (ACS) URL of the service provider. This URL should be the URL of the page to which the browser is redirected to after successful authentication.
 
 4. Select **Enable Assertion Query Request Profile** to enable saml assertions. 
 
-5. Click **Update**.
+5. Click **Register**.
+    
+!!! tip
+     To configure more advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced). 
+
 
 ## Persist assertions to the database
 
@@ -42,6 +58,8 @@ Optionally, you can use a custom assertion builder that enables persisting asser
 -----
 
 ## Query SAML assertions
+
+{!fragments/saml-query-assertion-client-app.md!}
 
 1. Access the application that you configured as a service provider via the assertion consumer URL that you configured above. 
 
@@ -70,6 +88,5 @@ You have successfully queried an assertion using your application.
 -----
 
 !!! info "Related Topics"
-    - [Concept: SAML2 Assertions](TODO:insert-link-to-concept)
     - [Demo: Query SAML2 Assertions](../../../quick-starts/query-saml-assertions-sample)
     
