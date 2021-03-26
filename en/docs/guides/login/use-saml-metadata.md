@@ -23,7 +23,7 @@ instances of entity configuration.
 
     !!! tip
         From WSO2 Identity Server 5.5.0 onwards, the certificate can be
-        added via the Service Providers screen in the management console UI
+        added via the **Service Providers** screen in the management console UI
         using the **Application Certificate** field. This means that
         certificates can now be directly added along with the service
         provider instead of having to import the certificate to the keystore
