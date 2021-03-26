@@ -33,7 +33,7 @@ instances of entity configuration.
         Certificate** field in the Service Providers screen will
         automatically display the certificate that is embedded in the
         metatdata file. You can update or edit the certificate by editing
-        the content within the Application Certificate field and uploading
+        the content within the **Application Certificate** field and uploading
         the metadata file again will override the existing certificate.
     
 
