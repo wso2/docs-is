@@ -2,7 +2,7 @@
 
 ## Manage role-based permissions using the user portal
 
-TODO: dev-portal-fragment 
+{! fragments/role-based-permission.md !}
 
 ---
 

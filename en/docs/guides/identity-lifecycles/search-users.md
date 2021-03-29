@@ -1,7 +1,34 @@
 # Search for Users
 
-## Search for users using the admin portal
-TODO: dev-portal-fragment
+## Search for users using the Management Console
+
+Once you have added a user in the Identity Server, you can search for
+the user by doing the following.
+
+1.  On the **Main** tab in the Management Console, click **List** under
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
+    role. The following screen appears.  
+    ![search-users-in-console](../../../assets/img/guides/search-users-in-console.png) 
+    
+    You can search for users by doing one of the following. 
+
+    -   **Search by Domain**  
+        1.	Select the user store that the user store in using the
+            **Select Domain** dropdown.
+        2.  Enter the user name of the user and click **Search Users**.
+            For users to be listed, you must use the exact name of the
+            user, or use a username pattern by including \*. For
+            example, if you have a user named Don, you can either search
+            for this user by searching for "Don", or you could search
+            for "D\*" to list out all the users with names beginning
+            with D.
+        3.  The user is displayed in the list.  
+
+    -   **Search by Claim**
+        1.  Select the relevant claim URI from the **Select Claim Uri**
+            dropdown and enter the claim value in the user name field.
+        2.  Click on **Search Users**.
 
 ---
 
@@ -31,14 +58,14 @@ curl -v -k --user admin:admin --data '{"schemas": ["urn:ietf:params:scim:api:mes
 
 The user also can search user IDs by calling the
 `         RemoteUserStoreManager        ` service. If you are new to
-admin services, see [Calling Admin Services](insert-calling admin services).
+admin services, see [Calling Admin Services](../../../apis/call-admin-services/).
 
 The following SOAP method, `         getUserId()        ` will give
 you the user ID of the relevant username. 
 
 **Request: Sample**
 
-``` java
+``` xml
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
    <soap:Header/>
    <soap:Body>
@@ -49,6 +76,7 @@ you the user ID of the relevant username.
    </soap:Body>
 </soap:Envelope>
 ```
+
 ---
 
 !!! info "Related Topics"

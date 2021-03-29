@@ -4,9 +4,17 @@ This section guides you through deleting an exisiting user in WSO2 Identity Serv
 
 ----
 
-## Delete a user using the admin portal 
+!!! info 
+      Deleting a user cannot be undone.
 
-{!fragments/insert-link!}
+## Delete a user using the Management Console 
+
+1.  On the **Main** tab in the Management Console, click **List** under
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
+    role.  
+3.  In the **Users** list, click **Delete** next to the user you want to
+    delete, and then click **Yes** to confirm the operation.
 
 ---
 
@@ -26,7 +34,7 @@ You receive a response with status `200 OK` and the user will be deleted from th
 
 ## Delete a user using SOAP 
 
-You can also delete a user by calling the `RemoteUserStoreManager` service . If you are new to admin services, see [Calling Admin Services](insert-link).
+You can also delete a user by calling the `RemoteUserStoreManager` service . If you are new to admin services, see [Calling Admin Services](../../../apis/call-admin-services/).
 
 The following SOAP method will give you the user ID of the relevant username. 
 
@@ -44,76 +52,10 @@ The following SOAP method will give you the user ID of the relevant username.
 </soap:Envelope>
 ```
 
----
-
-## Track user deletion on deleting a user (optional)
-TODO : This part should be moved to **monitoring logs** in the **deploy** section and link from here.
-
-WSO2 Identity Server (WSO2 IS) allows you to track details related to
-user deletion by writing the following information to a log file each
-time a user is deleted:
-
--   The user name of the deleted user.
--   The user store domain name of the deleted user.
-
--   The tenant domain name of the deleted user.
--   The tenant ID of the deleted user.
--   The timestamp that the user was deleted.
-
-You can use this log file as an input to the Identity Anonymization tool
-that is packaged with WSO2 Identity Server, to ensure that you [remove references to all deleted user identities](TODO:insert-link).
-
-Follow the steps below to configure WSO2 Identity Server to log details
-related to user deletion each time you delete a user.
-
-1.  Add the following property to the 
-    `           <IS_HOME>/repository/conf/deployment.toml          `
-    file, and set it to
-    `           true          `.
-
-    ``` toml
-    [event.default_listener.user_deletion]
-    priority= "98"
-    enable = true 
-    ```
-
-2.  Add the following property to the
-    `           <IS_HOME>/repository/conf/deployment.toml          `
-    file, and set `           enable          ` to
-    `           true          `.
-
-    ``` toml
-    [event.default_recorder.user_delete_event]
-    name= "org.wso2.carbon.user.mgt.recorder.DefaultUserDeletionEventRecorder"
-    enable = true
-    ```
-
-    This writes details related to user deletion in the `.csv` format to
-    the
-    `           <IS_HOME>/repository/logs/delete-event.log          `
-    file.
-
-    !!! note
-         If necessary, you can write user delete event details to a custom `.csv`
-         file that you specify. To do this, add the following property in
-          the `<IS_HOME>/repository/conf/deployment.toml         `
-         file, and make sure to specify the custom `.csv `file path.
-
-         ``` java
-         [event.default_recorder.user_delete_event]
-         write_to_separate_csv.path = "${carbon.home}/repository/logs/delete-records.csv"
-         ```
-
-!!! tip
-    By default, all logs related to user deletion are written in `.csv` format
-    to a specified log file. You can extend this functionality to log the
-    details in any other format that you want, and you can also extend the
-    functionality to write the details to a text file, database, or any
-    other file depending on your requirement. For more information, see [Writing user deletion logs in other formats](TODO:insert-link).
-
 -----
     
 !!! info "Related Topics"
     - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
     - [Guide: Search/List Users](../../identity-lifecycles/search-users)
+    - [Track user deletion on deleting a user](../../../deploy/monitor/monitor-logs#track-user-deletion-on-deleting-a-user)

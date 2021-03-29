@@ -1,25 +1,25 @@
-# Managing User Attributes
+# Manage User Attributes
 
 When using the WSO2 Identity Server (WSO2 IS) for user and role management, it is
 important to understand how to manage the attributes of users within it.
 The claim management functionality helps to map each user attribute to a relevant claim and thereafter manage it.
-For more information, see [managing user attributes](TODO:insert-link-concepts).
 
-The following topics provide instructions on how to manage user
-attributes in WSO2 IS.
+The following topics provide instructions on how to manage user attributes in WSO2 IS.
 
-## Managing the attributes of a user
+---
+
+## Manage the attributes of a user
 
 The following are the three main ways to view, add, edit, and delete
 attributes of a user.
 
 1.  By accessing the profile of the user and changing the attributes
-    using the [admin Portal](TODO:link-admin-portal)
-2.  You can use the REST Web service according to the SCIM provisioning specification. For more information on this, see [Using the SCIM 2.0 REST APIs](TODO:insert-link).
+    using the Management Console. 
+2.  You can use the REST Web service according to the SCIM provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs](../../../apis/scim2-rest-apis/).
 3.  You can use the `           RemoteUserStoreManagerService          `
     API. This is a SOAP-based API and is very easy to use. For more
-    information on using this, see [Managing Users and Roles with
-    APIs](insert-link). Call the following method to set a user attribute. 
+    information on using this, see [Manage Users and Roles with
+    APIs](../../../apis/manage-users-and-roles-with-apis/). Call the following method to set a user attribute. 
 
     ``` java
     setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "mark@soasecurity.org", null)
@@ -34,17 +34,23 @@ attributes of a user.
     getUserClaimValue("username", "http://wso2.org/claims/emailaddress", null)
     ```
 
-## Claim mapping when using multiple user stores 
+---
 
-(TODO:insert-fragment)
+## Claim mapping when using multiple userstores 
+
+{! fragments/attribute-mapping.md !}
+
 
 ### Attributes with multiple values
 
-(TODO:insert-fragment)
+{! fragments/attributes-with-multiple-values.md !}
 
-### Writing custom attributes
 
-See [Writing a Custom User Store Manager](TODO:insert-link) for more information on
+---
+
+## Write custom attributes
+
+See [Writing a Custom Userstore Manager](../../../deploy/write-a-custom-user-store-manager/) for more information on
 this.
 
 ### Authentication using multiple attributes
@@ -74,7 +80,7 @@ LDAP.
 
 1.  Configure the LDAP user store-related configurations using the `deployment.toml` file found in the 
     `<IS_HOME>/repository/conf` directory. For more information on configuring user stores, see 
-    [Configuring the Realm](TODO:insert-link).
+    [Configuring the Realm](../../../deploy/configure-the-realm/).
     
     1.  Configure the `user_name_search_filter`
         property as shown below to search for the user object in the
@@ -95,8 +101,7 @@ LDAP.
 
     3.  The `mail` attribute has unique requirements. If you are using the
         `mail` attribute, add the following. For more information on email
-        authentication, see [Using Email Address as the
-        Username](../../guides/user-mgt/email-as-username)
+        authentication, see [Using Email Address as the Username](../../../guides/identity-lifecycles/enable-email-as-username/)
         .
 
         ``` toml
@@ -120,7 +125,9 @@ LDAP.
     user portal by providing either the `          mail         `
     or `          uid         ` values with the same password.
 
-### Customizing the claim for the user attribute
+---
+
+## Customize the claim for the user attribute
 
 If you are using multiple attribute authentication and want to customize
 the claim to be used for user name attribute, add the following configuration to the `         <IS_HOME>/repository/conf/deployment.toml        `
@@ -137,8 +144,5 @@ This will return the email address of the authenticated user. It can be
 configured to return any attribute by changing the
 `         UserNameAttributeClaimUri        `  parameter.
 
-----
 
-!!! info "Related Topics"
-    -   [Concept: User Attributes](TODO:insert-link-to-concept)
 

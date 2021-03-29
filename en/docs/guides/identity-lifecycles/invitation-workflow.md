@@ -1,4 +1,4 @@
-# Creating Users Using the Ask Password and Email Verification Options
+# Create Users Using the Ask Password and Email Verification Options
 
 This section is about the user on-boarding flows initiated by
 administrators from an invitation to the user's email which allow respective end users to decide their own
@@ -6,7 +6,7 @@ passwords or verify the accounts created by administrators.
 
 ----
 
-## Configuring the feature
+## Configure the feature
 
 Follow the instructions given below to configure the ask password
 feature.
@@ -32,16 +32,15 @@ feature.
     ```
 ---
 
-## Enable the ask password feature using the admin portal
+## Enable the ask password feature using the managaement console
 
-TODO:admin-portal-fragment
+{! fragments/ask-password.md !}
 
 ---
 
 ## Enable the ask password feature using SCIM
 
-You can use both the **Ask Password** and **Verify Email** features when
-creating a user using SCIM 2.0.
+You can use both the **Ask Password** and **Verify Email** features when creating a user using SCIM 2.0.
 
 ### Ask Password
     
@@ -75,11 +74,12 @@ true in the SCIM2 user create request.
 ----
 
 !!! info "Related Topics"
-    - [Concept: Ask Password and Email Verification](TODO:insert-link-to-concept)
-    - [Guide: Email Templates](TODO:insertlink)
+    - [Guide: Email Templates](../../../guides/tenants/customize-automated-mails/)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
     - [Guide: User Self Registration Workflow](../self-registration-workflow)
     - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)
     - [Guide: Bulk Import Users](../import-users)
     - [Guide: Outbound Provisioning](../outbound-provisioning)
+    <!--- [Concept: Ask Password and Email Verification](TODO:insert-link-to-concept) --->
+
    

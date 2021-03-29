@@ -1,8 +1,8 @@
 # Recover Username
 
-## Recover username using the user portal 
+## Recover username using the Management Console
 
-{!insert-fragment!}
+{! fragments/recover-username.md !}
 
 ---
 
@@ -27,6 +27,6 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 ----
 
 !!! info "Related Topics"
-    -   [Concept: Users](TODO:insert-link-to-concept)
+    -   [Concept: Users](../../../references/concepts/user-management/users/)
 
 
