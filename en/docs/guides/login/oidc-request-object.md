@@ -36,7 +36,7 @@ This guide assumes you have your own application. If you wish to try out this fl
             `http://wso2.org/claims/challengeQuestion2` local claims. If
             necessary you can create two new local claims for this purpose.
 
-2.  When you add the claims, be sure to select **Support by default** if you want the the claims to prompt during user
+2.  While adding claims, if you want the the claims to prompt during user registration, make sure you select **Support by default** 
     registration. Follow the steps below to set **Challenge Question1** and **Challenge Question2** to prompt during user
     registration:
     1.  On the management console, click **List** under **Claims**. This displays the **Claims** screen with the 
