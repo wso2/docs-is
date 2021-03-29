@@ -14,7 +14,7 @@ This is the duration in weeks for which WSO2 Identity Server should remember an 
 
 ## Configuration
 
-To configure the **Session Timeout** and **Remember Me period** in tenant wise, follow the steps below:
+To configure the **Session Timeout** and **Remember Me period**  tenant wise, follow the steps below:
 
 1.  Start the Identity Server and log in to the management console (`https://<IS_HOST>:<PORT>/carbon`).
 
