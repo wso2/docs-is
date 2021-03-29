@@ -30,7 +30,7 @@ This guide assumes you have your own application. If you wish to try out this fl
    
     !!! note
             Here, `customClaim1` and`customClaim2` are selected as claim
-            URIs because those are not configured as requested claims in the
+            URIs because they are not configured as requested claims in the
             OIDC scope. For the purpose of testing, these claims are mapped
             to the existing `http://wso2.org/claims/challengeQuestion1` and
             `http://wso2.org/claims/challengeQuestion2` local claims. If
