@@ -34,7 +34,7 @@ This guide assumes you have your own application. If you wish to try out this fl
             OIDC scope. For the purpose of testing, these claims are mapped
             to existing `http://wso2.org/claims/challengeQuestion1` and
             `http://wso2.org/claims/challengeQuestion2` local claims. If
-            necessary you can create two new local claims for this purpose.
+            required, you can create two new local claims for this purpose.
 
 2.  While adding claims, if you want the the claims to prompt during user registration, make sure you select **Support by default** 
     registration. Follow the steps below to set **Challenge Question1** and **Challenge Question2** to prompt during user
