@@ -20,7 +20,7 @@ To configure the **Session Timeout** and **Remember Me period** in tenant wise, 
 
 2.  Click **Resident** under **Identity Providers** on the **Main** tab.
 
-3.  Fill in the fields as seen below to configure the **Idle Session Time Out**
+3.  Fill in the fields as seen below to configure **Idle Session Time Out**
     and **Remember Me Period**.  
     
     ![session-time-out](../../assets/img/guides/session-time-out-config.png) 
