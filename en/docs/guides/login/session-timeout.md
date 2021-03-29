@@ -27,7 +27,7 @@ To configure the **Session Timeout** and **Remember Me period** in tenant wise, 
     
     !!! Tip "Configure timeout values globally" 
         The global configuration can be added to the
-        `<IS_HOME>/repository/conf/deployment.toml` file as shown below. The `idle_session_timeout` property that defines the session time out period. The `remember_me_session_timeout` property defines the period of time for which the WSO2 Identity Server will remember the user's SSO session.
+        `<IS_HOME>/repository/conf/deployment.toml` file as shown below. The `idle_session_timeout` property defines the session time out period. The `remember_me_session_timeout` property defines the period of time for which the WSO2 Identity Server will remember the user's SSO session.
             
         ```
         [session.timeout]
@@ -50,4 +50,3 @@ To configure the **Session Timeout** and **Remember Me period** in tenant wise, 
 !!! info "Related Topics"
     - [Guide: Enable Single Sign-On for a SAML Application](../sso-for-saml)
     - [Guide: Enable Single Sign-On for an OpenID Connect Application](../sso-for-oidc)
-
