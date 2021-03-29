@@ -4,4 +4,6 @@
 
 2. Select **basic-auth** from the dropdown list and click **Add**.
 
+    ![basic-auth-request-path-config](../../assets/img/fragments/basic-auth-request-path-config.png)
+
 3. Click **Update** to save changes to the service provider.

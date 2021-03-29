@@ -4,25 +4,22 @@ WSO2 Identity Server provides a way to decouple authentication functionality fro
 
 With this approach, the logic for processing an inbound authentication request will be written as an OSGi component (pluggable Java artifacts) called an inbound authenticator. To integrate an application which is not written based on a standard protocol, you can write a custom inbound authenticator and plug it to WSO2 Identity Server.
 
+<!---
+
 ---
 
-This guide assumes you have your own web application and a custom inbound authenticator. If you wish to try out this flow with a sample application, click the button below. 
-
-<a class="samplebtn_a" href="../../../quick-starts/webapp-custom-sample" rel="nofollow noopener">Try it with the sample</a>
-
-----
-
-{!fragments/deploying-sample-apps.md!}
+This guide assumes you have your own web application and a custom inbound authenticator. If you wish to try out this flow with a sample application, click the button below.--->
+<!--- a class="samplebtn_a" href="../../../quick-starts/webapp-custom-sample" rel="nofollow noopener">Try it with the sample</a ---> 
 
 ----
 
 ## Deploy the inbound authenticator
 
-Copy the authenticator to the ```<IS_HOME>/repository/components/dropins``` directory.
+Copy the custom inbound authenticator to the ```<IS_HOME>/repository/components/dropins``` directory and restart the server.
 
 ----
 
-(TODO: dev-portal-fragment)
+## Create a service provider
 
 {!fragments/register-a-service-provider.md!}
 
@@ -30,6 +27,8 @@ Copy the authenticator to the ```<IS_HOME>/repository/components/dropins``` dire
 
 -----
 
+<!---
 !!! info "Related Topics"
     - [Demo: Enable Login for a Sample Custom Web Application](../../../quick-starts/webapp-custom-sample)
     - [Guide: Write a Custom Inbound Protocol](TODO:insert-link)
+-->
