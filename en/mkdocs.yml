@@ -175,21 +175,27 @@ nav:
           - 'OAuth Request Path Authentication': guides/oauth-request-path.md
       - 'Multi-Factor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
-        - 'Use a Knowledge Factor':
-          - 'Overview': guides/mfa/knowledge-factor.md
-          - 'Password': guides/mfa/password.md
-          - 'IWA': guides/mfa/iwa.md
-        - 'Use a Possession Factor':
-          - 'Overview': guides/mfa/possession-factor.md
-          - 'SMS OTP': guides/mfa/2fa-sms-otp.md
-          - 'Email OTP': guides/mfa/2fa-email-otp.md
-          - 'TOTP': guides/mfa/2fa-totp.md
-          - 'X509': guides/mfa/x509.md
-          - 'FIDO': guides/mfa/2fa-fido.md
-        - 'Use an Inherence Factor':
-          - 'Overview': guides/mfa/inherence-factor.md
-          - 'MePIN': guides/mfa/mepin.md
-          - 'Biometrics': mfa/3fa-basic-fido-biometrics.md
+        - 'Password': guides/mfa/password.md
+        - 'SMS OTP': guides/mfa/2fa-sms-otp.md
+        - 'Email OTP': guides/mfa/2fa-email-otp.md
+        - 'TOTP': guides/mfa/2fa-totp.md
+        - 'X509': guides/mfa/x509.md
+        - 'FIDO': guides/mfa/2fa-fido.md
+#        - 'Use a Knowledge Factor':
+#          - 'Overview': guides/mfa/knowledge-factor.md
+#          - 'Password': guides/mfa/password.md
+#          - 'IWA': guides/mfa/iwa.md
+#        - 'Use a Possession Factor':
+#          - 'Overview': guides/mfa/possession-factor.md
+#          - 'SMS OTP': guides/mfa/2fa-sms-otp.md
+#          - 'Email OTP': guides/mfa/2fa-email-otp.md
+#          - 'TOTP': guides/mfa/2fa-totp.md
+#          - 'X509': guides/mfa/x509.md
+#          - 'FIDO': guides/mfa/2fa-fido.md
+#        - 'Use an Inherence Factor':
+#          - 'Overview': guides/mfa/inherence-factor.md
+#          - 'MePIN': guides/mfa/mepin.md
+#          - 'Biometrics': mfa/3fa-basic-fido-biometrics.md
       - 'Adaptive Authentication':
         - 'Configure Adaptive Authentication': guides/adaptive-auth/configure-adaptive-auth.md
         - 'Use Function Library': guides/adaptive-auth/adaptive-auth-with-function-lib.md
