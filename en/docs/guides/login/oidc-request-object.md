@@ -72,7 +72,7 @@ This guide assumes you have your own application. If you wish to try out this fl
             
 4.  Click **Update**.
 
-5.  Create a new user with the name , and enter values for the **Email**, **Country**, **Challenge Question1** as
+5.  Create a new user with the name, and enter values for the **Email**, **Country**, **Challenge Question1** as
     , and **Challenge Question 2** in the user profile. 
     
     !!! note
