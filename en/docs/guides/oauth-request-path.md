@@ -12,6 +12,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+## Create a service provider
+
 {!fragments/register-a-service-provider.md!}
 
 ----
@@ -27,30 +29,30 @@ This guide assumes you have your own application. If you wish to try out this fl
 ## Configure the client application
 Send the following requests via your application to connect your application to WSO2 IS.
 
-1. Use the following cURL command to get a valid token using password grant type. Replace the `<CLIENT_ID>`:`<CLIENT_SECRET>` tags with the client key and client secret of your service provider.
+1. Use the following cURL command to get a valid token using password grant type. Replace the `<CLIENT_ID>`, `<CLIENT_SECRET>`, `<USERNAME>`, `<PASSWORD>`, `<IS_HOST>`, and `<IS_PORT>` tags with the relevant values.
 
     ```tab="Request Format"
-    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=password&username=USERNAME&password=PASSWORD" https://localhost:9443/oauth2/token
+    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" https://<IS_HOST>:<IS_PORT>/oauth2/token
     ```
 
     ```tab="Response Format"
     {"token_type":"Bearer","expires_in":2655,"refresh_token":"2f03de95b8e196f78c94d07c23c9ef0a","access_token":"7ee57bc28a3336ccb7818b499941e4e4"}
     ```
 
-2. Send a cURL request using the access token you received as a response for step1 in the authorization header, to the token endpoint. Replace the `<CLIENT_ID>` and `<REDIRECT_URI>` tags with the relevant values.
+2. Send a cURL request using the access token you received as a response for step 1 in the authorization header, to the token endpoint. Replace the `<CLIENT_ID>`, `<REDIRECT_URI>`, `<IS_HOST>` and `<IS_PORT>` tags with the relevant values.
 
     ```tab="Request Format"
-    curl -v -X POST -H "Authorization: Bearer 7ee57bc28a3336ccb7818b499941e4e4" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "response_type=code&client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>&scope=openid"  https://localhost:9443/oauth2/authorize
+    curl -v -X POST -H "Authorization: Bearer 7ee57bc28a3336ccb7818b499941e4e4" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "response_type=code&client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>&scope=openid"  https://<IS_HOST>:<IS_PORT>/oauth2/authorize
     ```
 
     ```tab="Response Format"
-    Location: https://curl-app/callback?code=37c79c505960e90d5b25f62ce760c98c&session_state=6d1a72e0f3f6392d6648ec5e6ed0
+    Location: <REDIRECT_URI>?code=37c79c505960e90d5b25f62ce760c98c&session_state=6d1a72e0f3f6392d6648ec5e6ed0
     ```
     
-3. Use the following cURL command to get an access token using the authorization code received in step2. Replace the `<CLIENT_ID>`:`<CLIENT_SECRET>`,`<CLIENT_ID>` and `<REDIRECT_URI>` tags with the relevant values.
+3. Use the following cURL command to get an access token using the authorization code received in step2. Replace the `<CLIENT_ID>`, `<CLIENT_SECRET>`, `<REDIRECT_URI>`, `<IS_HOST>` and `<IS_PORT>` tags with the relevant values.
 
     ```tab="Request Format"
-    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET>  -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>&code=37c79c505960e90d5b25f62ce760c98c&scope=openid" https://localhost:9443/oauth2/token
+    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET>  -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>&code=37c79c505960e90d5b25f62ce760c98c&scope=openid" https://<IS_HOST>:<IS_PORT>/oauth2/token
     ```
  
     ```tab="Response Format"
@@ -69,7 +71,7 @@ Send the following requests via your application to connect your application to 
             deny consent. The URL will then be redirected to the following page.
             
             ```
-            https://curl-app/callback?code=37c79c505960e90d5b25f62ce760c98c&session_state=6d1a72e0f3f6392d6648ec5e6ed0
+            <REDIRECT_URI>?code=37c79c505960e90d5b25f62ce760c98c&session_state=6d1a72e0f3f6392d6648ec5e6ed0
             ```
 ------
 

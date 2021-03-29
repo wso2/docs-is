@@ -14,6 +14,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+## Create a service provider
+
 {!fragments/register-a-service-provider.md!}
 
 ----
@@ -35,15 +37,15 @@ Send the following requests via your application using the `<SEC_TOKEN>` in the 
     to encode this. For instance, the username and password admin:admin, is "
     `YWRtaW46YWRtaW4=".
     
-Replace the **` <SEC_TOKEN>,CLIENT_ID>`** and **`<REDIRECT_URI>`** tags with the relevant values.
+Replace the ` <SEC_TOKEN>`, `<CLIENT_ID>`, `<IS_HOST>`, `<IS_PORT>` and `<CALLBACK_URL>` tags with the relevant values.
 
     
 ```tab="Request Format"
-curl -v -X POST -H "Authorization: Basic <Base64 encoded value of username:password>" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "response_type=<code>&client_id=<client_id>&redirect_uri=<redirect_uri>&scope=openid&prompt=none"  http://<host>:9443/oauth2/authorize
+curl -v -X POST -H "Authorization: Basic <SEC_TOKEN>" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "response_type=code&client_id=<CLIENT_ID>&redirect_uri=<CALLBACK_URL>&scope=openid&prompt=none"  http://<IS_HOST>:<IS_PORT>/oauth2/authorize
 ```
 
 ```tab="Response Format"
-Location: <callbackurl>?code=8a498de9-1f5d-3bd0-a3c9c06be6e08151&session_state=61cd6d0ac6f73bf2bab6f5d710d446c6592b6bedb01c240c1377312118f3e186.N92JLOL5gufcXSwxh2V4xg
+Location: <callback_url>?code=<code>&session_state=<session_state>
 ```
 
 !!! note
@@ -51,7 +53,7 @@ Location: <callbackurl>?code=8a498de9-1f5d-3bd0-a3c9c06be6e08151&session_state=6
     You can also skip prompting the user consent page using one of the following methods.
     
     * You can skip prompting consent for a particular request by sending the `prompt=none` attribute in the authorization request
-    * You can skip prompting consent for an application by enabling the **Skip Login Consent** option on the developer portal.
+    * You can skip prompting consent for an application by enabling the **Skip Login Consent** option on the management console.
     
 	![](../../../assets/img/guides/skip-consent.png)
 
@@ -75,7 +77,7 @@ Location: <callbackurl>?code=8a498de9-1f5d-3bd0-a3c9c06be6e08151&session_state=6
         deny consent. The URL will then be redirected to the following page.
         
         ```
-        https://curl-app/callback?code=37c79c505960e90d5b25f62ce760c98c&session_state=6d1a72e0f3f6392d6648ec5e6ed0
+        <callback_url>?code=37c79c505960e90d5b25f62ce760c98c&session_state=6d1a72e0f3f6392d6648ec5e6ed0
         ```
 
 -----
