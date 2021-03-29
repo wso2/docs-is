@@ -39,7 +39,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 2.  When you add the claims, be sure to select **Support by default** if you want the the claims to prompt during user
     registration. Follow the steps below to set **Challenge Question1** and **Challenge Question2** to prompt during user
     registration:
-    1.  On the management console, click **List** under **Claims**. This displays the Claims screen with the 
+    1.  On the management console, click **List** under **Claims**. This displays the **Claims** screen with the 
     **Available claim dialects**.
     2.  Click `http://wso2.org/claims` under **Available claim dialects**.
     3.  Edit `Challenge Question1`, select **Support by default**. and then click **Update**.
