@@ -1,8 +1,10 @@
 # Enable SaaS  
 
-To enable users from other tenants to access your application too, follow the instructions below. For more details on configuring attributes, see [request attributes for the application](../request-attributes/). 
+To enable users from other tenants to access your application too, follow the instructions below. 
 
 -----
+
+## Configure service provider to enable SaaS
 
 {! fragments/saas-application.md !}
 

@@ -1,11 +1,10 @@
-1.  Access the [developer portal](insert-link). 
+1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
 
-2.  Click the edit icon adjacent to the application for which you want to skip the consent step.  
+2. Navigate to the **Service Providers** tab listed under the **Identity** section and click **List**.
 
-3.  Access the **Advanced** tab.
+3. Click **Edit** adjacent to the service provider for which you want to enable SaaS. 
 
 4.  Enable **SaaS application**. 
+    ![saas-enable](../../assets/img/guides/saas-enable.png)
 
-5.  Click **Update**.
-
-     ![saas-enable](../../assets/img/guides/saas-enable.png))
+5.  Click **Update** to save the changes.
