@@ -59,7 +59,7 @@ This page guides you through configuring [two-factor authentication](../../../re
     !!! info
         For information on each of these configurations, see [Email OTP Configurations](../email-otp-config-advanced)
 
-2. Re-start the server once configurations are in place. 
+2. Restart the server once configurations are in place. 
 
 ----
 
