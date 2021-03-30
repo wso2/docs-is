@@ -1,12 +1,14 @@
-# Configure EMAIL OTP for 2-Factor Authentication
+# Configure Email OTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [EMAIL OTP](insertlink) as the second factor. 
+This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using email OTP as the second factor. 
 
 ----
 
-## Configure the Email OTP provider
+## Configure the email adapter to send emails
 
-1. [Configure email sending](../../../fragments/configure-email-sending) in WSO2 Identity Server. 
+{!fragments/configure-email-sending.md!}
+
+## Configure the email OTP provider
 
 2. Add the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder to avoid syntax errors.
 
@@ -54,8 +56,10 @@ This page guides you through configuring [two-factor authentication](../../../re
     CaptureAndUpdateEmailAddress = true
     showEmailAddressInUI = true
     ```
+    !!! info
+        For information on each of these configurations, see [Email OTP Configurations](../email-otp-config-advanced)
 
-    For information on each of these configurations, see [Email OTP Configurations](../email-otp-config-advanced)
+2. Restart the server once configurations are in place. 
 
 ----
 
@@ -69,6 +73,8 @@ This page guides you through configuring [two-factor authentication](../../../re
 6. Click **Register**.
 
 ----
+
+## Create a service provider
 
 {!fragments/register-a-service-provider.md!}
 
@@ -126,6 +132,22 @@ This page guides you through configuring [two-factor authentication](../../../re
     - **Supported by Default**: checked
 
     ![disable-emailotp-claim](../../assets/img/guides/disable-emailotp-claim.png)
+
+---
+
+## Try it out
+
+1. Log in to the configured service provider.
+
+2. You will be redirected to the login page of WSO2 Identity Server. Enter user's credentials.
+
+3. Next, you will receive a token to your email account. Enter the code to authenticate.  
+
+    ![sample-email-otp](../../assets/img/guides/sample-email-otp.png)
+
+4. If the authentication is successful, you will be redirected to the home page of the service provider.
+
+You have successfully configured and logged in using 2-factor authentication.
 
 ----
 

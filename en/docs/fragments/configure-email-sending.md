@@ -41,4 +41,4 @@
         3. Click **Connected apps and sites** on the left menu and enable **Allow less secure apps**.  
         ![allow-less-secure-apps](../../assets/img/fragments/allow-less-secure-apps.png)  
     
-2. Re-start the server once configurations are in place.
+2. Restart the server once configurations are in place. 
