@@ -1,13 +1,15 @@
 # Configure an Authentication Journey
 
-< Brief intro to the guides in this section > < Explain how to enable
-additional authentication factors for application >
-
-< image flow of the config(s) > 
+This section guides you on how to enable multi-factor authentication (MFA) in WSO2 Identity Server. By default, WSO2 
+Identity Server is shipped with username-and-password-based authentication. You can further strengthen the security of 
+this authentication by adding additional authentication steps to authenticate with basic authentication, FIDO, TOTP, 
+etc.
 
 ## Try MFA
-- [2FA with FIDO](../../guides/mfa/2fa-fido)
-- [2FA with TOTP](../../guides/mfa/2fa-totp)
-- [2FA with SMS OTP](../../guides/mfa/2fa-sms-otp)
-- [2FA with Email OTP](../../guides/mfa/2fa-sms-otp)
-- [3FA](../../guides/mfa/3fa-basic-fido-biometrics)
+
+- [Password as the First Factor](../../../guides/mfa/password)
+- [SMS OTP for 2-Factor Authentication](../../../guides/mfa/2fa-sms-otp)
+- [Email OTP for 2-Factor Authentication](../../../guides/mfa/2fa-email-otp)
+- [TOTP for 2-Factor Authentication](../../../guides/mfa/2fa-totp)
+- [X.509 Certificate for 2-Factor Authentication](../../../guides/mfa/x509)
+- [FIDO for 2-Factor Authentication](../../../guides/mfa/2fa-fido)

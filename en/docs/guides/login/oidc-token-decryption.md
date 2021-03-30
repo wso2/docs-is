@@ -102,10 +102,10 @@ Method and Encryption Algorithm by making changes to the
 `        <IS_HOME>/repository/conf/deployment.toml        ` 
 file.
 
-```xml
+``` xml
 [oauth.oidc.id_token]
-supported_encryption_algorithms= "RSA-OAEP"
-supported_encryption_methods= "A128GCM" 
+supported_encryption_algorithms=["RSA1_5","RSA-OAEP"]
+supported_encryption_methods=["A128GCM","A192GCM","A256GCM","A128CBC-HS256","A128CBC+HS256"]
 ```
 
 For Encryption Algorithm, currently WSO2 IS supports the following
@@ -121,16 +121,13 @@ For Encryption Method, currently WSO2 IS supports the following algorithms.
 -   A256GCM
 -   A128CBC-HS256
 -   A128CBC+HS256  
-      
-
-``` xml
-[oauth.oidc.id_token]
-supported_encryption_algorithms=["RSA1_5","RSA-OAEP"]
-supported_encryption_methods=["A128GCM","A192GCM","A256GCM","A128CBC-HS256","A128CBC+HS256"]
-```
 
 !!! note
-    By default WSO2 products are shipped with wso2carbon.jks. The password for the
-    keystore is "wso2carbon" and the certificate alias is also "wso2carbon".
+    The default keystore shipped with WSO2 products is `wso2carbon.jks`. The password for the
+    keystore is `wso2carbon` and the certificate alias is also `wso2carbon`.
     In a production environment, we recommend that you change these values.
+    
+!!! info "Related Topics"
+    - [Concept: ID Token](../../../references/concepts/authentication/id-token)
+    - [Guide: OpenID Connect Token Encryption](../../../guides/login/oidc-token-encryption/)
     

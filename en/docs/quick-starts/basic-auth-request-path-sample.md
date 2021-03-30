@@ -10,13 +10,16 @@ If you have your own application, click the button below.
 
 ----
 
-{!fragments/deploying-sample-apps.md!}
-
-----
+## Register a service provider 
 
 {!fragments/register-an-application-request-path.md!}
 
 ----
+## Set up the sample application
+
+{!fragments/deploying-sample-apps.md!}
+
+---
 
 {!fragments/deploy-playground.md!}
 
@@ -54,7 +57,7 @@ If you have your own application, click the button below.
 	```
 
 !!! info "Related Links"
-     -   [Enable Authentication with Basic Auth Request Path Authenticator](../../guides/basic-auth-request-path)
-     -   [Authenticate with OAuth Request Path Authenticator](../../guides/oauth-request-path)
-     -   [Enable Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
+     -   [Enable Authentication with Basic Auth Request Path Authenticator](../../../guides/basic-auth-request-path)
+     -   [Authenticate with OAuth Request Path Authenticator](../../../guides/oauth-request-path)
+     -   [Enable Authentication with OAuth Request Path Authenticator](../../../quick-starts/oauth-request-path-sample)
            

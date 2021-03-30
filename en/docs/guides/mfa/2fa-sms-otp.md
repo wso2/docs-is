@@ -1,6 +1,6 @@
 # Configure SMS OTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [SMS OTP](insertlink) as the second factor. 
+This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using SMS OTP as the second factor. 
 
 ----
 
@@ -16,11 +16,9 @@ This page guides you through configuring [two-factor authentication](../../../re
 
 1.  Expand **SMS OTP Configuration** under **Federated Authenticators**.
 
-2.  Select both check-boxes to **Enable SMSOTP Authenticator** and to
-    make it the **Default**.
+2.  Select **Enable** check-box.
 
-3. Enter the SMS URL, the HTTP Method used (e.g., GET or POST), and the
-    headers and payload if the API uses any.
+3.  Enter **SMS URL**, **HTTP Method** (e.g., GET or POST), **HTTP Headers** and **HTTP Payload** information.
 
     !!! info
         - If the text message and the phone number are passed as parameters in any field, include them as $ctx.num and $ctx.msg respectively.
@@ -192,7 +190,11 @@ This page guides you through configuring [two-factor authentication](../../../re
 			</tbody>
 			</table></html>
 
+4. Click **Register** to save the details.
+
 ----
+
+## Create a service provider
 
 {!fragments/register-a-service-provider.md!}
 
@@ -243,8 +245,8 @@ This page guides you through configuring [two-factor authentication](../../../re
             Example:
             94778888888
             ```
-
-An end-user can also update their own mobile number using the WSO2 Identity Server user portal. For more information, see [user portal help](insertlink).
+!!! tip
+    An end-user can also update their own mobile number using the My Account application of WSO2 Identity Server. For more information, see [Update Personal Details in My Account](../../../guides/my-account/my-account/#update-personal-details).
 
 ----
 
@@ -309,16 +311,33 @@ A backup code can have any number of digits, and you can define many backup code
 
 The SMS OTP authenticator is enabled by default.
 
-You can disable the SMS OTP authenticator by adding the following configuration to the `deployment.toml` file in the
-`<IS_HOME>/repository/conf` folder.
+To disable the SMS OTP authenticator, add the following configuration to the `deployment.toml` file in the
+`<IS_HOME>/repository/conf` folder and restart the server.
 
 ```toml
 [authentication.authenticator.sms_otp] 
 enable=false
 ```
+
+---
+
+## Try it out
+
+1. Log in to the configured service provider.
+
+2. You will be redirected to the login page of WSO2 Identity Server. Enter user's credentials. 
+
+3. Enter the SMS OTP code. 
+
+    ![authenticate-with-smsotp](../../assets/img/guides/authenticating-with-smsotp.png)
+
+4. If the authentication is successful, you will be redirected to the home page of the service provider.
+
+You have successfully configured and logged in using 2-factor authentication.
+
 ----
 
 !!! info "Related Topics"
     - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
     - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
-    - [Demo: Multi-Factor Authentication](../../../quickstarts/mfa-sample)
+    <!--- - [Demo: Multi-Factor Authentication](../../../quickstarts/mfa-sample) -->

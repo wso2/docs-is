@@ -1,5 +1,5 @@
 
-## Download the sample
+### Download the sample
 
 To be able to deploy a WSO2 Identity Server sample, you need to download
 it onto your machine first.
@@ -13,7 +13,7 @@ Follow the instructions below to download the sample from GitHub.
 
 ----
 
-## Deploy the sample web app
+### Deploy the sample web app
 
 Deploy this sample web app on a web container.
 

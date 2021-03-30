@@ -1,4 +1,4 @@
-# Log into a Sample Application using Google
+# Log in to a Sample Application using Google
 
 This page guides you through using Google as a federated authenticator and logging into a sample application. Here, we use a **sample application** called Pickup. 
 
@@ -6,7 +6,7 @@ This page guides you through using Google as a federated authenticator and loggi
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/federation/google"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/identity-federation/google"   rel="nofollow noopener">I have my own application</a>
 
 ----
 
@@ -28,21 +28,21 @@ If you have your own application, click the button below.
 		If you do not see the Apps button on the home page, click **More
 		Controls** at the bottom of the page.   
 
-	![more-controls-saml-apps](../../assets/img/samples/saml-app.png)
+	![more-controls-saml-apps](../../../assets/img/samples/saml-app.png)
 	
 
 5.  Click on the 
-    ![more-controls-icon](../../assets/img/samples/more-controls.png) icon found at
+    ![more-controls-icon](../../../assets/img/samples/more-controls.png) icon found at
     the bottom-right of the page.
 6.  Click **SETUP MY OWN CUSTOM APP**  
-    ![setup-my-own-custom-app](../../assets/img/samples/set-up-my-own-app.png)
+    ![setup-my-own-custom-app](../../../assets/img/samples/set-up-my-own-app.png)
     
 7.  Click **Download** next to the **IDP Metadata** field to download
     the Google identity provider metadata.  
     A `          GoogleIDPMetadata.xml         ` file is downloaded on
     to your machine.  
     
-    ![idp-metadata](../../assets/img/samples/download-idp-metadata.png)
+    ![idp-metadata](../../../assets/img/samples/download-idp-metadata.png)
     
 8.  Click **Next** and enter an **Application Name** and **Description**
     for your application. This is the name and description that your
@@ -61,7 +61,7 @@ If you have your own application, click the button below.
         `                         http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp                       `
     4.  **Name ID Format:** `            EMAIL           `
         `                       `
-        ![start-url](../../assets/img/samples/sp-details-google.png)
+        ![start-url](../../../assets/img/samples/sp-details-google.png)
 
 10. Click **Next** and then click **Finish**.
 11. Once the application is configured, click **Edit Service** and
@@ -72,8 +72,26 @@ If you have your own application, click the button below.
 
 ## Configure Google as a SAML IdP in WSO2 IS
 
-(insert-admin-portal-link)
+1.  Click on **Identity Providers** > **Add**.
 
+2.  Provide a suitable name for the IDP (Ex:- GoogleIDP).
+
+3.  Click on **Federated Authenticators** > **SAML2 Web SSO Configuration** > **Select Mode** > **Metadata File Configuration**.
+
+4.  Enable **SAML2 Web SSO**.
+
+5.  Enter **Service Provider Entity Id**. This should be the same as the entity id you configured in Google.
+
+6.  Upload the metadata file downloaded from Google and click **Register** to register the GoogleIDP.
+
+    ![google-fed](../../../assets/img/fragments/google-fed.png)
+
+7.  Click **Identity Providers** > **List** > **Federated Authenticators** > **SAML2 Web SSO Configuration**. 
+
+8.  Select **Enable Logout** and enter the Logout Url as `https://accounts.google.com/logout`.
+
+    ![google-fed-logout](../../../assets/img/fragments/google-fed-logout.png)
+    
 ---
 
 ## Deploy the Sample App
@@ -85,9 +103,9 @@ If you have your own application, click the button below.
 ## Try it out
 
 1.  Access the Pickup sample application URL:
-    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
+    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 2.  Click **Login**. You are redirected to the Google login page.  
-    ![google-login-page](../../assets/img/samples/sign-in-google.png)
+    ![google-login-page](../../../assets/img/samples/sign-in-google.png)
     
 3.  Sign in using your Google credentials. You are redirected to the
     Pickup sample homepage.

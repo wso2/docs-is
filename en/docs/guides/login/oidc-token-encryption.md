@@ -16,17 +16,18 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+## OAuth/OpenID Connect configuration
 
-{!fragments/oauth-app-config-basic.md!}
+Make the following changes to the created service provider.
 
------
+1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 
+2. Enter the **Callback Url**. 
 
-## Enable ID token encryption
+    !!! note
+        The **Callback Url** is the exact location in the service provider's application to which an access token will be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
 
-1. Click **Edit** to edit the OAuth/OpenID Connect Configuration. 
-
-2. Click **Enable ID Token Encryption** to enable id\_token encryption.
+3. Click **Enable ID Token Encryption** to enable id\_token encryption.
 
     Once you enable id\_token encryption, two select boxes will be
     visible to choose your preferred encryption algorithm and encryption
@@ -38,6 +39,11 @@ This guide assumes you have your own application. If you wish to try out this fl
     -   **Encryption Method:** Symmetric encryption algorithm that is used to encrypt the JWT claims set using the CEK.
 
     Leave these values as they are if you do not have any specific requirements.
+    
+4. Click **Add**
+
+!!! tip
+     To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced). 
 
 ----
 
@@ -131,7 +137,6 @@ This section guides you through obtaining an encrypted ID token and decrypting i
 !!! info "Related Topics"
     - [Concept: ID Token](../../../references/concepts/authentication/id-token)
     - [Demo: OpenID Connect Token Encryption](../../../quick-starts/oidc-token-encryption-sample)
-    - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)
     - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)
     - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)
 

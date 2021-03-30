@@ -2,10 +2,10 @@
 
 When handling notifications such as the ones given below, the email-sender configuration needs to be changed in `<IS-HOME>/repository/conf/deployment.toml`. 
 
-- [EmailOTP](insert-link-admin-portal)
-- [Password Recovery](insert-link-admin-portal)
-- [Username Recovery](insert-link-admin-portal)
-- [Creating Users using the Ask PasswordOption](../../guides/user-mgt/ask-password)
+- [EmailOTP](../../../guides/mfa/2fa-email-otp/)
+- [Password Recovery](../../../guides/password-mgt/recover-password/)
+- [Username Recovery](../../../guides/identity-lifecycles/recover-username/)
+- [Creating Users using the Ask PasswordOption](../../../guides/identity-lifecycles/invitation-workflow/)
 
 **Email configurations**
 
@@ -21,7 +21,7 @@ When handling notifications such as the ones given below, the email-sender confi
  ```
  However, this configuration will apply to all the tenants. If you wish to configure them tenant-wise, follow the instructions given below. 
  
-1. Configure the [Configuration Management REST API](insert-rest-api-link). 
+1. Configure the [Configuration Management REST API](../../../apis/use-the-configuration-management-rest-apis/). 
 2. Execute the following curl command to create a resource type named `Publisher`. 
 
     **Sample Request**
@@ -123,7 +123,7 @@ When handling notifications such as the ones given below, the email-sender confi
         You do not need to configure all the configurable parameters. If a parameter has not been configured in the `EmailPublisher.xml` file, configurations in the `output-event-adapters.xml` will be used instead. 
     
 5. Since these configurations will be applicable during the tenant loading process, [Configure tenant loading and 
-unloading for your tenant](insert-link). 
+unloading for your tenant](../../../guides/tenants/tenant-wise-config). 
 
     !!! tip
         Only one `EmailPublisher.xml` file with the name `EmailPublisher` should be added for a tenant.

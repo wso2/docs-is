@@ -1,19 +1,17 @@
 # Provisioning Architecture
 
-The provisioning framework is responsible for all provisioning work done
-by the WSO2 Identity Server. This framework integrates with the User
-Store Manager component and also receives provisioning requests from the
-authentication framework. 
+The provisioning framework is responsible for all provisioning work done by WSO2 Identity Server. This framework integrates with the Userstore Manager component and also receives provisioning requests from the authentication framework. 
 
+---
 
-### Inbound provisioning
+## Inbound provisioning
 
 Inbound provisioning focuses on how to provision users to the Identity
-Server. Out-of-the-box, the Identity Server supports inbound
-provisioning via a SOAP-based API as well as the SCIM 1.1 API. Both the
+Server. Out-of-the-box, WSO2 Identity Server supports inbound
+provisioning via a SOAP-based API as well as the SCIM 2.0 API. Both the
 APIs support HTTP Basic Authentication. If you invoke the provisioning
 API with Basic Authentication credentials, then where to provision the
-user (to which user store) will be decided based on the inbound
+user (to which userstore) will be decided based on the inbound
 provisioning configuration of the resident service provider.
 
 The SCIM API also supports OAuth 2.0. If the user authenticates to the
@@ -24,7 +22,9 @@ mobile application, we would highly recommend you to use OAuth instead
 of Basic Authentication. You simply need to register your application as
 a service provider in Identity Server and then generate OAuth keys.
 
-### JIT provisioning
+---
+
+## JIT provisioning
 
 Just-in-time provisioning talks about how to provision users to the
 Identity Server at the time of federated authentication. A service
@@ -33,7 +33,7 @@ to the Identity Server and then Identity Server redirects the user to an
 external identity provider for authentication. Just-in-time provisioning
 gets triggered in such a scenario when the Identity Server receives a
 positive authentication response from the external identity provider.
-The Identity Server will provision the user to its internal user store
+The Identity Server will provision the user to its internal userstore
 with the user claims from the authentication response.
 
 You configure JIT provisioning against an identity provider - not
@@ -41,10 +41,12 @@ against service providers. Whenever you associate an identity provider
 with a service provider for outbound authentication, if the JIT
 provisioning is enabled for that particular identity provider, then the
 users from the external identity provider will be provisioned into the
-Identity Server's internal user store. In the JIT provisioning
-configuration you can also pick the provisioning user store.
+Identity Server's internal userstore. In the JIT provisioning
+configuration you can also pick the provisioning userstore.
 
-### Outbound provisioning
+---
+
+## Outbound provisioning
 
 Outbound provisioning talks about provisioning users to external
 systems. This can be initiated by any of the following.
@@ -77,161 +79,94 @@ mode. In the blocking mode, the authentication flow will be blocked until
 the provisioning finishes - while in the non-blocking mode, provisioning
 happens in a different thread.
 
-### Conditional provisioning with roles
+---
+
+## Conditional provisioning with roles
 
 If you want to provision a user to an external identity provider, for
 example to Salesforce or Google Apps, based on the user's role, then you
 need to define one or more provisioning roles in the outbound
 provisioning configuration of the corresponding identity provider.
 
-### SCIM implementation using WSO2 Charon
+---
+
+## SCIM implementation using WSO2 Charon
 
 WSO2 Charon is an open source implementation of SCIM protocol, which is
 an open standard for Identity Provisioning. It can be used by anyone
 who wants to add SCIM-based provisioning support for their
 applications. WSO2 Charon is integrated with WSO2 Identity Server. This
-page demonstrates the utilization of SCIM endpoints which expose User
-and Group resources in a RESTful way.
+section demonstrates the utilization of SCIM endpoints which expose user
+and group resources in a RESTful way.
 
-The following is a high level overview of SCIM Service Provider
-architecture of IS.
+Charon library comprises of four main components. 
 
-![scim-service-provider-architecture](../assets/img/getting-started/scim-service-provider-architecture.png)
+![charon](../../../assets/img/get-started/charon.png)
 
-WSO2 Charon is one of the SCIM implementations that are made available
-under Apache 2.0 license. Charon includes libraries used by SCIM in the
-WSO2 Identity Server.
+### Charon — Core
 
-The following diagram provides an overview of the module breakdown of
-Charon along with purpose of each module and planned tasks of them.
+As the name implies, this is the core part of the library which implements SCIM2 specification and exposes a set of APIs for SCIM2 consumers. The main functionalities of Charon core are as below.
 
-![charon-module-breakdown](../assets/img/getting-started/charon-module-breakdown.png)
+-   Create SCIM 2.0 Objects - SCIM is built on an object model where a resource is a common denominator and all SCIM Objects are derived from it. Charon core contains SCIM Object Implementation where the object is a collection of attributes.
 
-The following includes a brief introduction on each of the modules.
+-   Decode JSON encoded resource Strings - This implementation allows to decode the JSON-encoded resource string and to create SCIM object model adhering to the specification. The class, `JSONDecoder.java` is responsible for this.
 
--   **Charon-Core** : This is the API that exposes an implementation of
-    the SCIM specification. It can be used by any SCIM service provider
-    or client implementation to support SCIM operations/functionalities.
-    In addition to that, it also allows room for extension points to be
-    plugged in according to the particular server side/client side
-    implementation, such as authentication handler, user storage,
-    encoders/decoders etc.
--   **Charon-Utils** : This contains a set of default implementations of
-    the extension points mentioned above. For example: Basic Auth, OAuth
-    handlers, LDAP based user storage etc. A particular implementation
-    that uses charon-core as SCIM API can use these default
-    implementations as building blocks.
--   **Charon-Deployment** (Note: this is renamed as Charon-Impl): A
-    reference implementation of SCIM service provider is shipped with
-    this module. Currently it is a Apache Wink based web app that can be
-    deployed in any application server - such as Tomcat, and enables the
-    SCIM endpoints to be exposed. This is based on the above two
-    modules: charon-core and charon-utils, and illustrates how any SCIM
-    implementation can utilize the API and supporting module provided by
-    Charon.
--   **Charon-Samples** : This contains samples illustrating the SCIM use
-    cases. Samples mainly contain the SCIM client side implementations
-    which can be run against a SCIM server, and hence can also be
-    referenced to get to know how the API provided by Charon can be used
-    to implement SCIM client side.
+-   Encode SCIM objects - This implementation allows to create the encoded JSON response from the SCIM object model and send the SCIM response object using the `JSONEncoder.java` class.
 
-#### Charon-Deployment
+-   Set Attributes - Attributes can be **simple** types such as name or id, **complex** types such as email address and address (attributes which have sub attributes), or **multivalued** types such as email or telephone number.
 
-Charon-Deployment is the reference implementation of SCIM service
-provider that is shipped with Charon. The following illustrates how any
-concrete implementation of a SCIM service provider can make use of
-Charon-Core (the SCIM API) with Charon-Utils (optional).
+-   Define Schema - Schema is a collection of attribute definitions that describe the contents of an entire or partial resource.
+AttributeSchema defines schema for SCIM attributes and sub attributes. The attribute definitions specify the name of the attribute, and metadata such as type (e.g., string, binary), cardinality (singular, multi, complex) and mutability
+ResourceTypeSchema defines resource schema definitions (Ex: `urn:ietf:params:scim:schemas:core:2.0:User`, `urn:ietf:params:scim:schemas:core:2.0:Group`)
 
-The SCIM service provider needs to be a RESTful web application. REST is
-an architectural style of building networked applications. There are
-several ways to implement REST style based applications - such as
-Servlets and JAX-RS based frameworks. In the reference implementation of
-Charon-SCIM service provider, the latter approach is selected since
-JAX-RS hides underlying HTTP handling and binds the servlets nicely to
-individual methods in the Java classes using annotations. Annotations
-can also dynamically extract information from HTTP requests and map
-application-generated exceptions to HTTP response codes.
+-   Exposes Endpoints
+    
+    -   `UserResourceManager` - `UserResourceManager` API is exposed to perform operations on user resource. A SCIM client can call this API and perform CRUD operations on a user.
 
-Out of the JAX-RS implementations, Apache-Wink was selected since it
-better catered to the requirements. The Charon-Impl module creates an
-Apache-Wink based web application which can be deployed in an
-application server like Tomcat and which acts as a SCIM service
-provider.
+    -   `GroupResourceManager` - `GroupResourceManager` API is exposed to perform operations on group resource. A SCIM client can call this API and perform CRUD operations on a group.
 
-The following is a deployment diagram of Charon-SCIM service provider
-(the web application provided by Charon-Impl module). It also gives a
-high level idea on how Charon-Core and Charon-Utils modules are
-utilized.
+    -   `MeResourceManager` - By using `MeResourceManager`, a SCIM client can use a URL like `<\base_url>/Me` to perform CRUD operations as the authenticated subject. This API is also accessible from the SCIM client.
 
-![charon-scim-deployment](../assets/img/getting-started/charon-scim-deployment.png)
+    -   `BulkResourceManager` - The API `BulkResourceManage` is exposed from charon-core to perform bulk operations. A SCIM Service provider can call this API to perform bulk operations based on the HTTP requests sent from a SCIM client.
 
-As this diagram of the reference implementation illustrates, a SCIM
-service provider can be developed using any REST implementation and
-SCIM-defined resources can be exposed utilizing the API provided by the
-Charon-Core. On the other hand, SCIM Consumers can also be implemented
-using the client API of Charon-Core.
+    -   `ResourceTypesResourceManager` - The API, `ResourceTypesResourceManager` specifies the metadata about resource types.
 
-### Extensible SCIM user schemas
+    -   `ServiceProviderConfigResourceManager` - By using `ServiceProviderConfigResourceManager`, a SCIM client can discover the SCIM specification features in a standardized form and other additional implementation details.
 
-The SCIM (System for Cross-Domain Identity Management) specification
-defines a [fixed set of default
-attributes](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-11.2)
-for the user object. This set is defined to ensure the interoperability
-and it can cater to most of the industry's identity management
-requirements. Given below is a sample user object with the default
-attributes set.
 
-![user-object-with-default-attribute-set](../assets/img/getting-started/user-object-with-default-attribute-set.png)
+-   Extension Points - There are some extension points through which users can plug their own custom implementations with wso2 charon-core.
+    
+    -   UserManager
+    -   CharonManager
+    -   AbstractSCIMObject
+    -   AbstractAttribute
+    -   JSONEncoder
+    -   JsonDecoder
 
-However the SCIM specification itself introduces the [Enterprise User
-Extension](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-11.3)
-to support extra attributes for the SCIM user object.
+    As Charon is a library, these extension points are not pluggable to the Identity Server. Instead, the clients which use Charon for the SCIM implementations can develop own custom implementations using Charon.
 
-![extra-attributes](../assets/img/getting-started/extra-attributes.png)
+### Charon — Implementations
 
-However the reality in the industry is that organizations have their own
-attributes defined for the users. These attributes are already there in
-their LDAP schemas. Therefore SCIM should be extensible enough to cope
-with these custom attributes of the users.
+This contains sample implementation of the SCIM service provider to illustrate how any SCIM implementation can utilize the API and the supporting module provided by Charon.
 
-WSO2 Identity Server allows users to define their own user schema in a
-configuration file (
-`         [IS-HOME]/repository/conf/scim-schema-extension.config        `
-). Then these configured schema are used while creating, validating user
-objects. With this the users can pass their custom attributes of users
-over SCIM for Identity Management requirements. The implementation is
-adhering to the [Schema Extension
-Model](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-4)
-. Given below is a sample extended user object with the default schema
-configuration.
+### Charon — Utils
 
-![default-schema-configuration](../assets/img/getting-started/default-schema-configuration.png)
+This contains the default implementations of the extension points. For example, `DefaultCharonManager` is used to initialize the extension points while `InMemoryUserManager` is the default implementation of `UserManager`. Inside the `DefaultCharonManager` the `InMemoryUserManager` instance is created and used in the charon implementations.
 
-### Claims Mapping
+### Charon — Samples
+This contains samples illustrating the SCIM use cases. Samples mainly contain the SCIM client side implementations which can be run against a SCIM server, and hence can also be referenced to get to know how the API provided by Charon can be used to implement SCIM client side.
 
-Log into the Identity Server and do the claim mapping for the following
-claim URIs (see
-[here](../../learn/configuring-active-directory-user-stores-for-inbound-provisioning)
-for more information on how to do claim mappings).
+---
 
--   `                     urn:scim:schemas:extension:wso2:1.0:wso2Extension.costCenter                             `
--   `                     urn:scim:schemas:extension:wso2:1.0:wso2Extension.department                   `
--   `                     urn:scim:schemas:extension:wso2:1.0:wso2Extension.division                   `
--   `                     urn:scim:schemas:extension:wso2:1.0:wso2Extension.employeeNumber                   `
--   `                     urn:scim:schemas:extension:wso2:1.0:wso2Extension.organization                   `
--   `                     urn:scim:schemas:extension:wso2:1.0:wso2Extension.manager.displayName                   `
--   `                     urn:scim:schemas:extension:wso2:1.0:wso2Extension.manager.managerId                   `
+## Extensible SCIM user schemas
 
-Now the server is up and running with the new extended user schema. The
-claim mappings can map the SCIM user attributes to the LDAP user
-attributes.
+WSO2 Identity Server allows users to define their own user schema in addition to the core user schema. These configured schema are then used while creating or validating user objects. This means that custom user attributes can be passed using SCIM for identity management requirements. Follow the steps given below to add a custom attribute.
 
-Create a new user with the new schema. The following screen depicts the
-user to be added with the **wso2Extension** attributes.
+For information on Extending SCIM 2.0 User Schemas, see [here](../../../extend/provisioning/extend-scim2-user-schemas/)
 
-![wso2-extension-attributes](../assets/img/getting-started/wso2-extension-attributes.png)
+---
 
-### cURL commands
+## cURL commands
 
 Given below are the cURL commands to add a user. The attribute name for
 the wso2Extension is **EnterpriseUser**.
@@ -239,17 +174,17 @@ the wso2Extension is **EnterpriseUser**.
 -   **Primary Userstore Command**
 
 ``` java
-curl -v -k --user admin:admin --data "{"schemas":[],"userName":"SureshAtt","password":"Wso2@123","EnterpriseUser":{"employeeNumber":"000111","costCenter":"111111","organization":"WSO2Org","division":"Engineering","department":"Intigration","manager":{"managerId":"111000","displayName":"Prabath"}}}" --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
+curl -v -k --user admin:admin --data "{"schemas":[],"userName":"SureshAtt","password":"Wso2@123","EnterpriseUser":{"employeeNumber":"000111","costCenter":"111111","organization":"WSO2Org","division":"Engineering","department":"Intigration","manager":{"managerId":"111000","displayName":"Prabath"}}}" --header "Content-Type:application/json" https://localhost:9443/scim2/Users
 ```
 
 -   **Secondary Userstore Command**
 
 ``` java
-curl -v -k --user admin:admin --data "{"schemas":[],"userName":'mysql/uresh67',"password":"Wso2@123"}" --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users 
+curl -v -k --user admin:admin --data "{"schemas":[],"userName":'mysql/kim',"password":"Wso2@123"}" --header "Content-Type:application/json" https://localhost:9443/scim2/Users
 ```
 
-Note that the user name is preceded by the domain and is within single
-quotes 'mysql/uresh67'. Also note that 'mysql' here is a reference to a
+Note that the username is preceded by the domain and is within single
+quotes 'mysql/kim'. Also note that 'mysql' here is a reference to a
 domain name.
 
 The above command provides the following results:
@@ -257,23 +192,17 @@ The above command provides the following results:
 -   **Primary Userstore Output**
 
 ``` java
-{"id":"db4f9c15-8426-4381-a669-270975d50421","EnterpriseUser":{"organization":"WSO2Org","manager":{"managerId":"111000","displayName":"Prabath"},"division":"Engineering","department":"Intigration","costCenter":"111111","employeeNumber":"73"},"schemas":["urn:scim:schemas:core:1.0","urn:scim:schemas:extension:wso2:1.0"],"userName":"SureshAtt","meta":{"lastModified":"2013-07-09T13:27:58","location":"https://localhost:9443/wso2/scim/Users/db4f9c15-8426-4381-a669-270975d50421","created":"2013-07-09T13:27:58"}}
+{"meta":{"created":"2021-03-24T08:52:13.309Z","location":"https://localhost:9443/scim2/Users/49656a04-99d9-4c45-a137-59d458abfd79","lastModified":"2021-03-24T08:52:13.309Z","resourceType":"User"},"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],"roles":[{"type":"default","value":"Internal/everyone"},{"display":"everyone"}],"name":{"familyName":"SureshAtt"},"id":"49656a04-99d9-4c45-a137-59d458abfd79","userName":"SureshAtt"}
 ```
 
 -   **Secondary Userstore Output**
 
 ``` java
-{"id":"2e89cac0-17f3-40e7-8a07-ff1047a70cf1","schemas":["urn:scim:schemas:core:1.0"],"userName":"mysql/uresh67","meta":{"lastModified":"2013-12-17T14:31:30","location":"https://localhost:9443/wso2/scim/Users/2e89cac0-17f3-40e7-8a07-ff1047a70cf1","created":"2013-12-17T14:31:30"}}* Closing connection #0
+{"id":"2e89cac0-17f3-40e7-8a07-ff1047a70cf1","schemas":["urn:scim:schemas:core:2.0"],"userName":"mysql/kim","meta":{"lastModified":"2021-03-24T14:31:30","location":"https://localhost:9443/wso2/scim2/Users/2e89cac0-17f3-40e7-8a07-ff1047a70cf1","created":"2021-03-24T14:31:30"}}
 ```
 
-The created SCIM user object can be viewed in the following screen:
-
-![scim-user-object](../assets/img/getting-started/scim-user-object.png)
-
-### Related links
-
--   See [SCIM 1.1 APIs](../../develop/scim-1.1-apis) for more cURL commands that can
-    be used to do various functions using the SCIM endpoints available.
+!!! info "Related Topics"
+    See [SCIM 2 APIs](../../../apis/scim2-rest-apis) for more cURL commands that can be used to do various functions using the SCIM endpoints available.
 
 
 

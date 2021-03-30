@@ -1,9 +1,8 @@
 # User Management Architecture
 
-User management functionality is provided by default in all WSO2
-Carbon-based products. The following documentation introduces the main
+User management functionality is provided by default in WSO2 Identity Server. The following documentation introduces the main
 concepts in User Management, such as users, roles, permissions, user
-stores etc. and how they are used in WSO2 products.
+stores etc. and how they are used in WSO2 Identity Server.
 
 User management involves defining and managing users, roles, and their
 access levels in a system. A user management dashboard or console
@@ -14,7 +13,7 @@ business-critical, real-time security decisions. A typical user
 management implementation involves a wide range of functionality such as
 adding/deleting users, controlling user activity through permissions,
 managing user roles, defining authentication policies, managing external
-user stores, manual/automatic log-out, and resetting user passwords.
+userstores, manual/automatic log-out, and resetting user passwords.
 
 Any user management system has the following basic components:  
 
@@ -43,25 +42,25 @@ Any user management system has the following basic components:
     their permissions updated automatically.  
 
 The following diagram illustrates how the user management functionality
-is structured to work in WSO2 products:
+is structured to work in WSO2 Identity Server:
 
-![user-management](../assets/img/getting-started/user-management.png)
+![user-management](../../../assets/img/get-started/user-management.png)
 
--   **User stores:** A user store is the database where information
+-   **Userstores:** A userstore is the database where information
     about the users and user roles is stored, including log-in name,
     password, first name, last name, and e-mail address.
 -   **RDBMS (for Authentication and Authorization):** This RDBMS stores
     information of the role-based permissions.  
 
 !!! Info
-    According to the default configuration in WSO2 products, the
+    According to the default configuration in WSO2 Identity Server, the
     embedded H2 RDBMS that is shipped with the product is used as the
-    user store as well as the RDBMS for storing information related to
+    userstore as well as the RDBMS for storing information related to
     permissions.
 
 -   **Realm configuration:** The user realm consists of the
     configurations required to initialise the user realm. This includes
-    setting up the **User Store Manager**, the **Authorization Manager**
+    setting up the **userstore Manager**, the **Authorization Manager**
     and the **System Administrator**. These configurations are explained
     below.
 
@@ -72,15 +71,15 @@ is structured to work in WSO2 products:
     </colgroup>
     <tbody>
     <tr class="odd">
-    <td>User Store Manager</td>
-    <td><p>The User Store Manager is responsible for managing the underlying user store. It is represented by the <code>                 UserStoreManager                </code> Java interface. There can be different User Store Manager implementations to connect with different user stores, but you can configure only one User Store Manager implementation in a single user realm (that is, a single WSO2 Carbon instance). The User Store Manager can be operated in both read/write mode and read-only mode. In read-only mode, you can only connect with an existing user store. WSO2 products provide the following default User Store Manager implementations:</p>
+    <td>Userstore Manager</td>
+    <td><p>The Userstore Manager is responsible for managing the underlying userstore. It is represented by the <code>                 UserStoreManager                </code> Java interface. There can be different userstore Manager implementations to connect with different userstores, but you can configure only one Userstore Manager implementation in a single user realm (that is, a single WSO2 Carbon instance). The userstore Manager can be operated in both read/write mode and read-only mode. In read-only mode, you can only connect with an existing userstore. WSO2 Identity Server provides the following default Userstore Manager implementations:</p>
     <ul>
     <li><code>                  JDBCUserStoreManager                 </code> (read and write)</li>
     <li><code>                  LDAPUserStoreManager                 </code> (read-only)</li>
     <li><code>                  ApacheDSUserStoreManager                 </code> (read and write)</li>
     </ul>
-    <p><img src="../../assets/img/getting-started/user-store-manager-types.png" title="types of user store managers" alt="types of user store managers" /></p>
-    <p>You can write a custom user store manager implementation by implementing <code>                 UserStoreManager                </code> or by extending <code>                 AbstractUserStoreManager                </code> or one of the default implementations.</p>
+    <p><img src="../../assets/img/get-started/user-store-manager-types.png" title="types of userstore managers" alt="types of userstore managers" /></p>
+    <p>You can write a custom userstore manager implementation by implementing <code>                 UserStoreManager                </code> or by extending <code>                 AbstractUserStoreManager                </code> or one of the default implementations.</p>
     <h5 id="UserManagementArchitecture-UsingJDBCUserStoreManager">Using JDBCUserStoreManager</h5>
     <p>The <code>                 JDBCUserStoreManager                </code> class uses a schema that is specific to WSO2 Carbon. It contains the following tables:</p>
     <ul>
@@ -89,11 +88,11 @@ is structured to work in WSO2 products:
     <li>UM_USER_ROLE: Contains user role mappings</li>
     <li>UM_USER_ATTRIBUTE: Contains user attributes. There can be any attribute ID and a value for that attribute ID that is associated with a user’s profile.</li>
     </ul>
-    <p>You can find the full schema of these tables from the database script files in the <code>                 &lt;PRODUCT_HOME&gt;/dbscripts                </code> directory. Note that these scripts also contain schemas for other tables that are used for user management and registry functions. If your organization contains an existing JDBC user store that you want to use with a WSO2 product, you must extend <code>                 JDBCUserStoreManager                </code> and write a new implementation for your user store according to your schema.</p></td>
+    <p>You can find the full schema of these tables from the database script files in the <code>                 &lt;IS_HOME&gt;/dbscripts                </code> directory. Note that these scripts also contain schemas for other tables that are used for user management and registry functions. If your organization contains an existing JDBC userstore that you want to use with a WSO2 Identity Server, you must extend <code>                 JDBCUserStoreManager                </code> and write a new implementation for your userstore according to your schema.</p></td>
     </tr>
     <tr class="even">
     <td>Authorization Manager</td>
-    <td>The Authorization Manager uses role-based access control (RBAC) to protect resources related to the WSO2 Carbon platform. The default implementation of the Authorization Manager is <code>                JDBCAuthorizationManager               </code>, which uses a permission model specific to WSO2 Carbon and uses the authorization data that is stored in tables in the JDBC database. You can replace this implementation with a custom implementation (for example, if you want to use a XACML authorization manager) and use it with WSO2 products.</td>
+    <td>The Authorization Manager uses role-based access control (RBAC) to protect resources related to the WSO2 Carbon platform. The default implementation of the Authorization Manager is <code>                JDBCAuthorizationManager               </code>, which uses a permission model specific to WSO2 Carbon and uses the authorization data that is stored in tables in the JDBC database. You can replace this implementation with a custom implementation (for example, if you want to use a XACML authorization manager) and use it with WSO2 Identity Server.</td>
     </tr>
     <tr class="odd">
     <td>System Administrator</td>
@@ -102,15 +101,8 @@ is structured to work in WSO2 products:
     </tbody>
     </table>
     
-#### Related Topics
 
--   [Configuring the Realm](../../setup/configuring-the-realm) : The
-    topics in this section explain how you can set up and configure the
-    user management realm.
--   [Configuring Users, Roles and
-    Permissions](../../learn/configuring-users-roles-and-permissions) : The topics
-    in this section explain how you can manage the Users, Roles and
-    Permissions using the management console.
--   [Engaging a Workflow in an
-    Operation](../../learn/engaging-a-workflow-in-an-operation) : This topic
-    explains how to engage workflows for user-related operations.
+!!! info "Related Topic"
+    -   [Configure the Realm](../../../deploy/configure-the-realm/)
+    -   [Configure Users](../../../guides/identity-lifecycles/manage-user-overview)
+    -   [Configure Roles and Permissions](../../../guides/identity-lifecycles/manage-roles-overview/)

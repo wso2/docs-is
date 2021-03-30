@@ -57,10 +57,10 @@ nav:
     - 'Feature Tour': get-started/quick-start-guide.md
   - 'Quick Starts':
       #- 'Overview': quick-starts/overview.md
-      - 'Choose a Sample Type':
-        - 'Android': quick-starts/android-sample.md
-        - 'React': quick-starts/react-sample.md
-        - 'Java': quick-starts/java-sample.md
+      #- 'Choose a Sample Type':
+        #- 'Android': quick-starts/android-sample.md
+        #- 'React': quick-starts/react-sample.md
+        #- 'Java': quick-starts/java-sample.md
       - 'Login':
         - 'Overview': quick-starts/enable-login.md
         - 'OpenID Connect': quick-starts/webapp-oidc-sample.md
@@ -113,31 +113,32 @@ nav:
         - 'Facebook': quick-starts/fb-as-federated-authenticator-sample.md
         - 'Google': quick-starts/google-as-federated-authenticator-sample.md
         - 'Twitter': quick-starts/twitter-as-federated-authenticator-sample.md
-        - 'Microsoft Azure': quick-starts/ms-azure-as-federated-authenticator-sample.md
+        #- 'Microsoft Azure': quick-starts/ms-azure-as-federated-authenticator-sample.md
   - 'Guides':
       #- 'Get Started': guides/before-you-start.md
       - 'Login':
         - 'Web Application':
           - 'OIDC': guides/login/webapp-oidc.md
           - 'SAML': guides/login/webapp-saml.md
-          - 'WS-Federation': guides/login/configure-ws-federation-single-sign-on.md
-          - 'IWA': guides/login/configure-iwa-on-linux.md
+          - 'WS-Federation': guides/login/webapp-ws-federation.md
+          #- 'IWA': guides/login/configure-iwa-on-linux.md
         - 'Client-Side Application': guides/login/client-side-app.md
         - 'SaaS Applications':
           - 'Salesforce': guides/login/log-into-salesforce-using-is.md
           - 'Google': guides/login/log-into-google-using-is.md
-          - 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
+          #- 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
         - 'Request Attributes for the Application': guides/login/request-attributes.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
           - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
           - 'SSO For SAML Applications': guides/login/sso-for-saml.md
           - 'SSO For WS-Federation Applications': guides/login/configure-ws-federation-single-sign-on.md
-          - 'Single Sign-On for Native iOS Applications': guides/login/configure-single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
-          - 'Recaptcha for SSO': guides/login/configure-recaptcha-for-single-sign-on.md
-          - 'Configure IWA Single Sign On': guides/login/configure-iwa-single-sign-on.md
+          #- 'Single Sign-On for Native iOS Applications': guides/login/configure-single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
+          - 'reCAPTCHA for SSO': guides/login/configure-recaptcha-for-single-sign-on.md
+          #- 'Configure IWA Single Sign On': guides/login/configure-iwa-single-sign-on.md
         - 'Single Logout':
           - 'OpenID Connect':
+            - 'Overview': guides/login/slo-for-oidc.md
             - 'Back-Channel Logout': guides/login/oidc-backchannel-logout.md
             - 'Session Management and Logout': guides/login/session-management-logout.md
             - 'Logout URL Redirection': guides/login/oidc-logout-url-redirection.md
@@ -146,6 +147,7 @@ nav:
             - 'Back-Channel Logout': guides/login/saml-back-channel-logout.md
           - 'Cross Protocol Logout': guides/login/cross-protocol-logout.md
         - 'Advanced OpenID Connect':
+          - 'Advanced Configurations': guides/login/oauth-app-config-advanced.md
           - 'Use Advanced Parameters in the Authentication Request': guides/login/oidc-parameters-in-auth-request.md
           - 'Pass Parameters as a Request Object': guides/login/oidc-request-object.md
           - 'Manage Scopes and Claims': guides/login/oidc-scopes-claims.md
@@ -155,12 +157,13 @@ nav:
           - 'Obtain Key Set Using JWKS': guides/login/using-jwks.md
           - 'Validate JWT based on JWKS': guides/login/validate-jwt-using-jwks.md
         - 'Advanced SAML':
+          - 'Advanced Configurations': guides/login/saml-app-config-advanced.md
           - 'Use Advanced Parameters in the Authentication Request': guides/login/saml-parameters-in-auth-request.md
           - 'Use SAML Artifact Binding': guides/login/use-artifact-binding.md
           - 'Query SAML Assertions': guides/login/query-saml-assertions.md
-          - 'Manage User Attributes with eIDAS': guides/login/user-attributes-eidas.md
+          #- 'Manage User Attributes with eIDAS': guides/login/user-attributes-eidas.md
           - 'Use SAML Metadata': guides/login/use-saml-metadata.md
-        - 'WS-Federation': guides/login/ws-federation.md
+        #- 'WS-Federation': guides/login/ws-federation.md
         - 'Integrate Using Custom Protocols': guides/login/integrate-custom-protocol.md
         - 'Configure Advanced Settings':
           - 'Skip User Consent': guides/login/skip-user-consent.md
@@ -172,21 +175,27 @@ nav:
           - 'OAuth Request Path Authentication': guides/oauth-request-path.md
       - 'Multi-Factor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
-        - 'Use a Knowledge Factor':
-          - 'Overview': guides/mfa/knowledge-factor.md
-          - 'Password': guides/mfa/password.md
-          - 'IWA': guides/mfa/iwa.md
-        - 'Use a Possession Factor':
-          - 'Overview': guides/mfa/possession-factor.md
-          - 'SMS OTP': guides/mfa/2fa-sms-otp.md
-          - 'Email OTP': guides/mfa/2fa-email-otp.md
-          - 'TOTP': guides/mfa/2fa-totp.md
-          - 'X509': guides/mfa/x509.md
-          - 'FIDO': guides/mfa/2fa-fido.md
-        - 'Use an Inherence Factor':
-          - 'Overview': guides/mfa/inherence-factor.md
-          - 'MePIN': guides/mfa/mepin.md
-          - 'Biometrics': mfa/3fa-basic-fido-biometrics.md
+        - 'Password': guides/mfa/password.md
+        - 'SMS OTP': guides/mfa/2fa-sms-otp.md
+        - 'Email OTP': guides/mfa/2fa-email-otp.md
+        - 'TOTP': guides/mfa/2fa-totp.md
+        - 'X509': guides/mfa/x509.md
+        - 'FIDO': guides/mfa/2fa-fido.md
+#        - 'Use a Knowledge Factor':
+#          - 'Overview': guides/mfa/knowledge-factor.md
+#          - 'Password': guides/mfa/password.md
+#          - 'IWA': guides/mfa/iwa.md
+#        - 'Use a Possession Factor':
+#          - 'Overview': guides/mfa/possession-factor.md
+#          - 'SMS OTP': guides/mfa/2fa-sms-otp.md
+#          - 'Email OTP': guides/mfa/2fa-email-otp.md
+#          - 'TOTP': guides/mfa/2fa-totp.md
+#          - 'X509': guides/mfa/x509.md
+#          - 'FIDO': guides/mfa/2fa-fido.md
+#        - 'Use an Inherence Factor':
+#          - 'Overview': guides/mfa/inherence-factor.md
+#          - 'MePIN': guides/mfa/mepin.md
+#          - 'Biometrics': mfa/3fa-basic-fido-biometrics.md
       - 'Adaptive Authentication':
         - 'Configure Adaptive Authentication': guides/adaptive-auth/configure-adaptive-auth.md
         - 'Use Function Library': guides/adaptive-auth/adaptive-auth-with-function-lib.md
@@ -198,7 +207,7 @@ nav:
           - 'Invitation Workflow': guides/identity-lifecycles/invitation-workflow.md
           - 'User Self-Registration Workflow': guides/identity-lifecycles/self-registration-workflow.md
           - 'Lite User Registration Workflow': guides/identity-lifecycles/lite-user-registration.md
-          - 'Recaptcha for Self-Registration': guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
+          - 'reCAPTCHA for Self-Registration': guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
           - 'Bulk Import Users': guides/identity-lifecycles/import-users.md
         - 'Manage Users':
           - 'Overview': guides/identity-lifecycles/manage-user-overview.md
@@ -248,8 +257,8 @@ nav:
         - 'Password Recovery Using Email Verification': guides/password-mgt/recover-password.md
         - 'Password Recovery Using Challenge Question': guides/password-mgt/challenge-question.md
         - 'Resend Account Recovery Confirmation Mail': guides/password-mgt/recovery-confirmation.md
-        - 'ReCaptcha on Invalid Password Attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
-        - 'ReCaptcha on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
+        - 'reCAPTCHA on Invalid Password Attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
+        - 'reCAPTCHA on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
         - 'Configure Email Masking Pattern for Notification Based Password Recovery': guides/identity-lifecycles/configure-email-masking-pattern.md
       - 'Federated Account Linking':
         - 'Automatic Account Linking During JIT': guides/account-linking/automatic-account-link.md
@@ -314,22 +323,23 @@ nav:
       - 'Tenants':
         - 'Set Up a Tenant Loading Policy': guides/tenants/configure-the-tenant-loading-policy.md
         - 'Add New Tenants': guides/tenants/add-new-tenants.md
+        - 'Tenant-wise Email Sender Configuration': guides/tenants/tenant-wise-config.md
       - 'My Account': 
         - 'Overview': guides/my-account/my-account.md
-      - 'Federation - To Remove':
-        - 'Facebook': guides/federation/facebook.md
-        - 'Google': guides/federation/google.md
-        - 'Twitter': guides/federation/twitter.md
-        - 'Microsoft Azure': guides/federation/microsoft-azure.md
-      - 'Authorization - To Remove': guides/user-mgt/associating-user-accounts.md
-      - 'Manage User Accounts': 
-        - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
-      - 'Server Configurations - To Remove':
-        - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
-      - 'Manage Tenants - To Remove':
-        - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
-      - 'Configure Provisioning - To Remove':
-        - 'Overview': guides/identity-provisioning/provisioning-overview.md
+      #- 'Federation - To Remove':
+        #- 'Facebook': guides/federation/facebook.md
+        #- 'Google': guides/federation/google.md
+        #- 'Twitter': guides/federation/twitter.md
+        #- 'Microsoft Azure': guides/federation/microsoft-azure.md
+      #- 'Authorization - To Remove': guides/user-mgt/associating-user-accounts.md
+      #- 'Manage User Accounts': 
+        #- 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
+      #- 'Server Configurations - To Remove':
+        #- 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
+      #- 'Manage Tenants - To Remove':
+        #- 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
+      #- 'Configure Provisioning - To Remove':
+        #- 'Overview': guides/identity-provisioning/provisioning-overview.md
   - 'Extend':
       - 'Work with the Source Code': extend/work-with-the-source-code.md
       - 'Using SDKs':
@@ -583,7 +593,7 @@ nav:
     - 'Register an Application': fragments/register-a-service-provider.md
     - 'OAuth/OIDC':
       - 'Basic': fragments/oauth-app-config-basic.md
-      - 'Advanced': guides/login/oauth-app-config-advanced.md
+      #- 'Advanced': guides/login/oauth-app-config-advanced.md
       - 'Client Configurations':
         - 'Regular OAuth/OIDC Application': fragments/configure-client-regular-oidc-app.md
         - 'OIDC Back-Channel Logout': fragments/oidc-backchannel-logout.md
@@ -591,7 +601,7 @@ nav:
         - 'OAuth/OIDC Grants': fragments/oauth-oidc-grants.md
     - 'SAML':
       - 'Basic': fragments/saml-app-config-basic.md
-      - 'Advanced': guides/login/saml-app-config-advanced.md
+      #- 'Advanced': guides/login/saml-app-config-advanced.md
       - 'Client Configurations':
         - 'SAML Application': fragments/configure-client-regular-saml-app.md
         - 'Retrieve User Information to the Client Application': fragments/get-user-information-to-the-saml-application.md

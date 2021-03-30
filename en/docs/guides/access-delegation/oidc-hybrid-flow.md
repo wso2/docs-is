@@ -16,17 +16,9 @@ To understand how the `response_type` value specified in an authorization reques
 
 {!fragments/register-a-service-provider.md!}
 
-3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
+{!fragments/oauth-app-config-basic.md!}
 
-4. Click **Configure.**   
-
-5. Enter the **Callback Url**.
-
-    !!! tip
-        The **Callback Url** is the exact location in the service provider's application to which an access token will 
-        be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
-        
-6.  Click **Add**. 
+---
 
 ## code token
 
@@ -35,7 +27,7 @@ This `response_type` requests a code and an access token from the authorization 
 1. Use the following authorization request with `code token` as the `response_type`. 
 
     ```tab="Request Format"
-    https://<host>:<port>/oauth2/authorize?response_type=code token&client_id=<client_id>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
+    https://<host>:<port>/oauth2/authorize?response_type=code token&client_id=<oauth_client_key>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
     ```
 
     ```tab="Sample Request"
@@ -51,7 +43,7 @@ This `response_type` requests a code and an access token from the authorization 
 2. Send the code to the token endpoint using the following curl command to request for an access token, refresh token, and id\_token.
 
     ``` tab="Request Format"
-    curl -k -v --basic -u <client_id>:<client_secret> -d "grant_type=<grant_type>&code=<code>&redirect_uri=<redirect_uri>" https://<host>:<port>/oauth2/token
+    curl -k -v --basic -u <oauth_client_key>:<oauth_client_secret> -d "grant_type=<grant_type>&code=<code>&redirect_uri=<redirect_uri>" https://<host>:<port>/oauth2/token
     ```
 
     ``` tab="Sample Request"
@@ -87,6 +79,8 @@ This `response_type` requests a code and an access token from the authorization 
 
 There can be instances where you get two access tokens. One from the authorization endpoint and the other from the token endpoint. These two access tokens may or may not be same.
 
+---
+
 ## code id_token 
 
 This `response_type` requests a code and an id\_token from the authorization endpoint.
@@ -94,7 +88,7 @@ This `response_type` requests a code and an id\_token from the authorization end
 1. Use the following authorization request with `code id_token` as the `response_type`. 
 
     ```tab="Request Format"
-    https://<host>:<port>/oauth2/authorize?response_type=code id_token&client_id=<client_id>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
+    https://<host>:<port>/oauth2/authorize?response_type=code id_token&client_id=<oauth_client_key>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
     ```
 
     ```tab="Sample Request"
@@ -178,7 +172,7 @@ This `response_type` requests a code, an access token, and an id\_token from the
 1. Use the following authorization request with `code id_token token` as the `response_type`. 
 
     ```tab="Request Format"
-    https://<host>:<port>/oauth2/authorize?response_type=code id_token token&client_id=<client_id>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
+    https://<host>:<port>/oauth2/authorize?response_type=code id_token token&client_id=<oauth_client_key>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
     ```
 
     ```tab="Sample Request"
