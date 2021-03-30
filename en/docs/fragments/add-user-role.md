@@ -1,4 +1,4 @@
-1. On the **Main** menu, click **Users and Roles > Add**. 
+1. Navigate **Main** > **Identity** and click **Users and Roles > Add**. 
 
     ![add-users-roles](../../../assets/img/fragments/add-users-roles.png)
 

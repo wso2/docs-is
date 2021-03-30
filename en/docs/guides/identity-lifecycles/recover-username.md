@@ -1,6 +1,6 @@
 # Recover Username
 
-## Recover username using the Management Console
+## Enable username recovery in the Management Console
 
 {! fragments/recover-username.md !}
 

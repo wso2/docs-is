@@ -32,13 +32,7 @@ Follow the steps given below to register users for the super tenant,
 which is `         carbon.super        `.
 
 
-1.  Enable the email sending configurations of the WSO2 Identity Server
-    as explained [here](../../../deploy/configure-email-sending/).
-
-    
-    !!! Note
-        You need to add this configuration only if you wish to configure WSO2 IS to send confirmation 
-        emails. Alternatively, you can use your own email managing mechanism.
+{! fragments/configure-email-sending.md !}
 
     !!! tip
         Typically, the **AccountConfirmation** template is used to send email notifications.
@@ -48,16 +42,14 @@ which is `         carbon.super        `.
         Emails](../../../guides/tenants/customize-automated-mails/).
     
 
-2.  [Start WSO2
-    IS](../../../deploy/get-started/run-the-product/)
-    and [log in to the management
-    console](../../../deploy/get-started/get-started-with-the-management-console/)
-    : `          https://<IS_HOST>:<IS_PORT>/carbon         `  
+2.  Log in to the Management Console (`https://<IS_HOST>:<IS_PORT>/carbon`)  
     **NOTE:** If your IS is already running, make sure to stop and start to apply configurations. 
     
-3.  Navigate to **Main** -> **Identity Providers** -> **Resident** -> **Account Management Policies** section.
+3.  Navigate to **Main** > **Identity**. 
+
+4.  Select the **Identity Providers** -> **Resident** -> **User Onboarding** section.
     
-4.  Expand the **User Self Registration** section and configure the
+4.  Expand the **Self Registration** section and configure the
     following properties.
     
     ![user-self-registration](../../../assets/img/guides/user-self-registration.png) 
@@ -71,15 +63,15 @@ which is `         carbon.super        `.
     </thead>
     <tbody>
     <tr class="odd">
-    <td>Enable Self User Registration</td>
+    <td>User self registration</td>
     <td>Enable self registration.</td>
     </tr>
     <tr class="even">
-    <td>Enable Account Lock On Creation Enabled</td>
+    <td>Lock user account on creation</td>
     <td>Enable account lock during self registration. The account will be unclocked upon confirmation.</td>
     </tr>
     <tr class="odd">
-    <td>Enable Notification Internally Management</td>
+    <td>Manage notifications sending internally</td>
     <td>
     <p>
     Select to configure Identity server to send confirmation emails to the user.
@@ -88,11 +80,11 @@ which is `         carbon.super        `.
     </td>
     </tr>
     <tr class="even">
-    <td>Enable reCaptcha</td>
+    <td>Prompt reCaptcha</td>
     <td>Select to enable reCaptcha for self-registration. See <a href="../../../guides/password-mgt/recaptcha-challenge-question-attempts/">Configuring Google reCaptcha for Security-Question Based Password Recovery</a> for more information.</td>
     </tr>
     <tr class="odd">
-    <td>User self registration code expiry time</td>
+    <td>User self registration verification link expiry time</td>
     <td><div class="content-wrapper">
     <p>Number of minutes that the confirmation link would be valid. The confirmation link will expire 
     after the specified time has elapsed.</p>
@@ -125,14 +117,12 @@ of WSO2 Identity Server.
 Follow the instructions below to configure self-registration consent
 purposes and appropriate user attributes:
 
-1.  Start WSO2 Identity Server and access the management console via
-    `                       https://localhost:9443/carbon/                     `.
+1.  Access the management console. (https://<IS_HOST>:<IS_PORT>/carbon).
 
-2.  Navigate to **Main** -> **Identity** -> **Identity
-    Providers** -> **Resident** ->**Account Management Policies** -> **User Self Registration** section. 
+2.  Navigate to **Main** -> **Identity** -> **Identity Providers** -> **Resident** ->**User Onboarding** -> **Self Registration** section. 
 
 3.  Select `Click here` to configure self-registration consent purposes. This displays 
-the **Consent Purposes** screen that allows you to add consent purposes.
+the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purposes.
 
     ![self-registration](../../../assets/img/guides/account-policies.png)   
     
@@ -201,7 +191,8 @@ Next, you can try out self-registration.
     ??? Abstract "Click to see steps on configuring requested attributes for self registration" 
         
         -   The attributes that show up on the self sign up page are WSO2 [local dialect](../../../guides/dialects/add-claim-mapping/) claims that have the Supported by Default configuration enabled.
-        -   From the Management console click **List** under **Claims** and select the **http://wso2.org/claims** dialect. Expand any claim to view the configuration. 
+        - Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) and navigate to **Main** > **Identity**.
+        -   Click **List** under **Claims** and select the **http://wso2.org/claims** dialect. Expand any claim to view the configuration. 
         -   Mandatory attributes of
         the self sign-up page are the claims have the **Required**
         configuration enabled. 
@@ -210,7 +201,7 @@ Next, you can try out self-registration.
         ![self-signup-required-claim-config](../../../assets/img/guides/self-signup-required-claim-config.png)
 
     
-4.  Once the user has registered, user will receive a confirmation mail.
+4.  Once the user has registered, they will receive a confirmation mail.
 
 5.  Click **Confirm Registration** in the email or copy the link in the
     email to your browser to confirm the account.  
@@ -226,7 +217,7 @@ Next, you can try out self-registration.
         The user account should not be activated for the user, which means
         you should not have confirmed the account.
 
-    2.  Click on the **Re-send** link to resend the email.  
+    2.  Click on the **Re-Send** link to resend the email.  
         ![resend-link](../../../assets/img/guides/resend-link.png) 
 
     !!! tip
@@ -241,9 +232,9 @@ Next, you can try out self-registration.
     If you wish to send a account unlocked email upon account confirmation, do the following 
     configurations.
     
-    1. Navigate to **Resident IDP**.
+    1. Navigate to **Main** > **Identity** > **Identity Providers** > **Resident**.
     
-    2. Expand the **Login Policies** -> **Account Locking** and select **Account Lock Enabled**.  
+    2. Expand the **Login Attempts Security** -> **Account Lock** and select **Lock user accounts**.  
         Once the user activates the account via the confirmation email, an **Account Unlocked** email 
         will be sent by the Identity server.
         

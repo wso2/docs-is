@@ -1,11 +1,10 @@
 1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
-2.  Click **Resident** under **Identity Providers** on the **Main** tab and expand the **Account Management Policies** tab.
+2.  Click **Resident** under **Identity Providers** on **Main** > **Identity** and expand the **User Onboarding** tab.
 
-3.  Expand the **User Onboarding** tab and configure the **Ask password code expiry time** field. Click **Update** to save changes.
+3.  Expand **Ask Password** and configure the **Ask password code expiry time** field. 
 
-4.  In the same **User Onboarding** tab and select **Enable User Email
-    Verification**. Click **Update** to save changes.
+4.  Also, select **Enable User Email Verification**. Click **Update** to save changes.
                 
     ![](../../../assets/img/fragments/resident-idp-ask-password-configs.png) 
     
@@ -52,8 +51,10 @@
     ```
 
 6.  Enable the email sending configurations of the WSO2 Identity Server
-    as explained [here](../../../deploy/configure-email-sending/).
-      
+    as explained here.
+    
+    {! fragments/configure-email-sending.md !}
+
     !!! tip 
         The email template used to send this email notification is
         the **AskPassword** template.
@@ -64,14 +65,7 @@
 
 Follow the steps below to test the account creation using the password option.
 
-1.  Access the Management Console.
-
-2.  On the Main tab in the **Management Console**, click **Add** under
-    Users and Roles.
-
-3.  Click **Add new User.**
-
-    ![add-a-new-user](../../../assets/img/fragments/add-a-new-user.png)
+{! fragments/add-new-user.md !}
 
 4.  Fill in the form:
 

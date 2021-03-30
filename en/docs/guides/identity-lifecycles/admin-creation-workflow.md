@@ -2,11 +2,7 @@
 
 ## Add a user using the management console
 
-1. Click **Add** under **Users and Roles** on the **Main** tab of the Management Console.
-
-2. Click **Add New User**. 
-
-    ![add-new-user](../../../assets/img/guides/add-new-user.png)
+{! fragments/add-new-user.md !}
 
 3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
 

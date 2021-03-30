@@ -5,7 +5,7 @@
 Once you have added a user in the Identity Server, you can search for
 the user by doing the following.
 
-1.  On the **Main** tab in the Management Console, click **List** under
+1.  On the **Main** > **Identity** tab in the Management Console, click **List** under
     **Users and Roles**.  
 2.  Click **Users**. This link is only visible to users with the Admin
     role. The following screen appears.  

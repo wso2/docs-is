@@ -348,4 +348,5 @@ related to user deletion each time you delete a user.
     to a specified log file. You can extend this functionality to log the
     details in any other format that you want, and you can also extend the
     functionality to write the details to a text file, database, or any
-    other file depending on your requirement. For more information, see [Writing user deletion logs in other formats](TODO:insert-link).
+    other file depending on your requirement.
+    <!--For more information, see [Writing user deletion logs in other formats](TODO:insert-link).-->

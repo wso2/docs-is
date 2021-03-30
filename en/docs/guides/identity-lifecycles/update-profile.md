@@ -4,7 +4,7 @@
 
 Follow the instructions given below to update a user using management console.
 
-1.  On the **Main** tab in the Management Console, click **List** under
+1.  On the **Main** > **Identity** tab in the Management Console, click **List** under
     **Users and Roles**.
 2.  Click **Users**. This link is only visible to users with the Admin
     role.

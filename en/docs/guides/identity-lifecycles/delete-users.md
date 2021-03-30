@@ -4,12 +4,12 @@ This section guides you through deleting an exisiting user in WSO2 Identity Serv
 
 ----
 
-!!! info 
-      Deleting a user cannot be undone.
+!!! warning 
+	Deleting a user cannot be undone.
 
 ## Delete a user using the Management Console 
 
-1.  On the **Main** tab in the Management Console, click **List** under
+1.  On the **Main** > **Identity** tab in the Management Console, click **List** under
     **Users and Roles**.  
 2.  Click **Users**. This link is only visible to users with the Admin
     role.  
