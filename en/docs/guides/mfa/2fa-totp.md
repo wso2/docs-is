@@ -1,11 +1,13 @@
 # Configure TOTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [TOTP - Time Based One Time Password](insertlink) as the second factor. 
+This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using TOTP (Time-based One-Time Password) as the second factor. 
 
 !!! tip
     For more information, see the [TOTP specification](https://tools.ietf.org/html/rfc6238).
 
 ----
+
+## Create a service provider
 
 {!fragments/register-a-service-provider.md!}
 
@@ -33,7 +35,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 7. Click **Update** to save the changes.
 
 
-You have successfully configured FIDO as the second factor of authentication. To test this out, see the [user portal help](insertlink).
+You have successfully configured TOTP as the second factor of authentication. 
 You can use an application such as the [Google Authenticator Mobile Application](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en) to generate one time passwords (tokens).
 
 ----
@@ -42,8 +44,8 @@ You can use an application such as the [Google Authenticator Mobile Application]
 
 The  TOTP authenticator is enabled by default.
 
-You can disable the  TOTP authenticator by adding the following configuration to the `deployment.toml` file in the
-`<IS_HOME>/repository/conf` folder.
+To disable the  TOTP authenticator by add the following configuration to the `deployment.toml` file in the
+`<IS_HOME>/repository/conf` folder and restart the server.
 
 ```toml
 [authentication.authenticator.totp]
@@ -54,38 +56,18 @@ enable=false
 
 ## Send emails with TOTP
 
-Optionally, you can set up TOTP so that users recieve an email consisting of the TOTP code during the authentication flow. 
+Optionally, you can set up the users to receive  the TOTP code via an email during the authentication flow. You need to 
+configure the email adapter for this purpose.
 
-1. [Configure email sending](../../../fragments/configure-email-sending) in WSO2 Identity Server. 
+### Configure the email adapter to send emails
 
-2. Click **Email Templates > Add** on the [management console](insertlink). 
+{!fragments/configure-email-sending.md!}
 
-3. Enter "TOTP" as the **Template Type Display Name** and click **Add**.
-
-4. Enter the following email template details. 
-
-    - **Template Type** : TOTP
-    - **Email Template Locale**: English (United States)
-    - **Content Type**: html
-    - **Email Template Subject**:  Time-Based One Time Password
-    - **Email Email Body**: 
-
-        ```html
-        Hi {{ user.claim.givenname}},
-        Please use the token {{token}} as the password for your login.
-        ```
-
-    - **Email Footer**: 
-
-        ```html
-        Best Regards,
-        Identity Server Team
-        http://www.wso2.com
-        ```
-
-        !!! tip
-            Note that you can change the template details accordingly however, you must include `{{token}}` in the email body as a placeholder for the TOTP token generated during the authentication flow.
-
+!!! tip 
+    The email template used to send this email notification is the **TOTP** template.
+    You can edit and customize the email template. For more information on how to do this, 
+    see [Customizing Automated Emails](../../../guides/tenants/customize-automated-mails).
+    
 ----
 
 !!! info "Related Topics"
