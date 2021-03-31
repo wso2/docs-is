@@ -2,7 +2,7 @@
 
 This section provides instructions on how to perform the following actions on a user in WSO2 Identity Server and manage the user profile. 
 
-- [List/Search Users](../search-user)
+- [List/Search Users](../search-users)
 
 - [Delete Users](../delete-users)
 
