@@ -56,7 +56,7 @@ enable=false
 
 ## Send emails with TOTP
 
-Optionally, you can set up the users to receive  the TOTP code via an email during the authentication flow. You need to 
+Optionally, you can set up the users to receive the TOTP code via an email during the authentication flow. You need to 
 configure the email adapter for this purpose.
 
 ### Configure the email adapter to send emails
