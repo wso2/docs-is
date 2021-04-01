@@ -1,6 +1,6 @@
 # Ensure Assurance with Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)
 
-This page guides you through enforcing additional assurance in the user authentication flow using Authentication Context Class Reference (ACR) and **Authentication Method Reference** (AMR).
+This page guides you through enforcing additional assurance in the user authentication flow using Authentication Context Class Reference (ACR) and Authentication Method Reference (AMR).
 
 ---
 
@@ -10,7 +10,15 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!fragments/register-playground-application-portal.md!}
+## Create a service provider
+
+{!fragments/register-a-service-provider.md!}
+
+----
+
+{!fragments/oauth-app-config-basic.md!}
+
+## Add the adaptive authentication script
 
 {!fragments/add-adaptive-acr-script-portal.md!}
 
@@ -49,14 +57,15 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 		
-## Configure the client application
+## Try it out
+
 Send the following requests via your application to connect your application to WSO2 IS.
 
 1. To initiate the authentication flow, update the placeholders and send the following request to the authorization endpoint.
 
     ```tab="Request Format"
-    https://localhost:9443/oauth2/authorize?response_type=code&scope=openid&client_id=<<CLIENT_ID>
-    &redirect_uri=http://localhost:8080/playground2/oauth2client&acr_values=<<ACR_VALUES>>
+    https://<IS_HOST>:<IS_PORT>/oauth2/authorize?response_type=code&scope=openid&client_id=<CLIENT_ID>
+    &redirect_uri=<CALLBACK_URL>&acr_values=<ACR_VALUES>
     ```
 
     ```tab="Sample Request"
@@ -68,11 +77,11 @@ Send the following requests via your application to connect your application to 
 3. Provide your consent to share the necessary data. Note that you get redirected to a URL similar to the following.
 
     ```tab="Request Format"
-    <callback url>?code=<<AUTHORIZATION_CODE>>
+    <CALLBACK_URL>?code=<<AUTHORIZATION_CODE>>
     ```
 
     ```tab="Sample Request"
-    <callback url>?code=e1934548d0a0883dd5734e24412310
+    <CALLBACK_URL>?code=e1934548d0a0883dd5734e24412310
     ```	
     
 4. Copy the `AUTHORIZATION_CODE` for later use.
@@ -84,7 +93,7 @@ Send the following requests via your application to connect your application to 
 		The `CLIENT_SECRET` and `CALLBACK_URL` are the client secret and callback URL of the service provider that you configured for the application in WSO2 Identity Server.
 
 	  ``` tab="Format"
-	  curl -v -X POST --basic -u <<CLIENT_ID>>:<<CLIENT_SECRET>> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "client_id=<<CLIENT_ID>>&grant_type=authorization_code&code=<<AUTHORIZATION_CODE>>&redirect_uri=<<CALLBACK_URL>>" https://localhost:9443/oauth2/token
+	  curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "client_id=<CLIENT_ID>&grant_type=authorization_code&code=<AUTHORIZATION_CODE>&redirect_uri=<CALLBACK_URL>" https://<IS_HOST>:<IS_PORT>/oauth2/token
 	  ```
 
 	  ``` tab="Example"
@@ -94,7 +103,7 @@ Send the following requests via your application to connect your application to 
 	An access token similar to the following appears. 
 	
 	  ``` tab="Format"
-      {"access_token":"1b87d316-a107-3174-a71d-ac438a54719b","refresh_token":"60a66d57-0e48-3896-98e7-00213acee104","scope":"openid","id_token":"<<ID_TOKEN>>","token_type":"Bearer","expires_in":2554}
+      {"access_token":"1b87d316-a107-3174-a71d-ac438a54719b","refresh_token":"60a66d57-0e48-3896-98e7-00213acee104","scope":"openid","id_token":"<ID_TOKEN>","token_type":"Bearer","expires_in":2554}
       ```
     
       ``` tab="Example"
@@ -106,17 +115,17 @@ Send the following requests via your application to connect your application to 
 
 	 ``` tab="Format"
 	 {
-	  "at_hash": "<<Access token hash value>>",
-	  "aud": "<<Audience that the ID token is intended for>>",
-	  "c_hash": "<<Code hash value>>",
-	  "sub": "<<Subject>>",
-	  "acr": "<<ACR>>", 
-	  "nbf": <<Epoch time before which the JWT must not be accepted for processing>>,
-	  "azp": "<<Authorized party>>",
-	  "amr": [<<Authentications Method Reference>>],
-	  "iss": "<<The token endpoint that issued the token>>",
-	  "exp": <<Epoch time of the token expiration date/time>>,
-	  "iat": <<Epoch time of the token issuance date/time>>
+	  "at_hash": "<Access token hash value>",
+	  "aud": "<Audience that the ID token is intended for>",
+	  "c_hash": "<Code hash value>",
+	  "sub": "<Subject>",
+	  "acr": "<ACR>", 
+	  "nbf": <Epoch time before which the JWT must not be accepted for processing>,
+	  "azp": "<Authorized party>",
+	  "amr": [<Authentications Method Reference>],
+	  "iss": "<The token endpoint that issued the token>",
+	  "exp": <Epoch time of the token expiration date/time>,
+	  "iat": <Epoch time of the token issuance date/time>
 	 }
 	 ```
 

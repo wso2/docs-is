@@ -118,7 +118,7 @@ module.exports = ageModule;
 ### View function libraries
 Follow the instructions below to view the list of function libraries added in the WSO2 Identity Server.
 
-1. Sign in to the [management console](insertlink).
+1. Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`). 
 
 2. Click **Manage > Function Libraries > List**. 
 
@@ -131,7 +131,7 @@ Follow the instructions below to view the list of function libraries added in th
 
 Follow the instructions below to edit a function library's details.
 
-1.  Sign in to the [management console](insertlink).
+1. Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 2.  Click **Manage > Function Libraries > List**.
 
@@ -154,7 +154,7 @@ Follow the instructions below to edit a function library's details.
 
 Follow the instructions below to delete a function library.
 
-1. Sign in to the [management console](insertlink).
+1. Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 2. Click **Manage > Function Libraries > List**.
 
@@ -167,12 +167,13 @@ Follow the instructions below to delete a function library.
 4. To confirm your request, click **Yes**.
 
 -----
+## Try it out
+
+### Create a service provider
 
 {!fragments/register-a-service-provider.md!}
 
------
-
-## Include function libraries in adaptive authentication scripts
+### Include function libraries in adaptive authentication scripts
 
 1. [Register a function library](#add-a-function-library).
 
@@ -200,7 +201,7 @@ Follow the instructions below to delete a function library.
     
 !!! info "Related Topics"
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
-    - [Guide: Configure Adaptive Authentication for an Application](../../guides/adaptive-auth/configure-adaptive-auth)
-    - [Guide: Ensure Assurance with ACR and AMR](../../guides/adaptive-auth/work-with-acr-amr)
+    - [Guide: Configure Adaptive Authentication for an Application](../../../guides/adaptive-auth/configure-adaptive-auth)
+    - [Guide: Ensure Assurance with ACR and AMR](../../../guides/adaptive-auth/work-with-acr-amr)
     - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)
 
