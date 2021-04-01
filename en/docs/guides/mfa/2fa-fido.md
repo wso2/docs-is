@@ -2,18 +2,18 @@
 
 This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO](../../../references/concepts/authentication/mfa-with-fido) as the second factor. 
 
+!!! info
+    Certain changes made to the chrome u2f extension are causing the FIDO device to not register properly as an authentication factor. Additionally, Firefox no longer supports the u2f extension. WSO2 Identity Server resolves this by using the WebAuthn API to enable FIDO-based authentication. The WebAuthn API is already supported by the following browser versions:
+
+    -   Chrome(CHROME 67) 
+    -   Firefox (FIREFOX 60)
+    -   Edge (EDGE 17723)
+    
+    The <https://demo.yubico.com/webauthn-technical/registration> site can be used to check the browser support for FIDO devices. 
+
 ----
 
 ## Prerequisites
-
-Certain changes made to the chrome u2f extension are causing the FIDO device to not register properly as an authentication factor. Additionally, Firefox no longer supports the u2f extension. WSO2 Identity Server resolves this by using the WebAuthn API to enable FIDO-based authentication. The WebAuthn API is already supported by the following browser versions:
-
--   Chrome(CHROME 67) 
--   Firefox (FIREFOX 60)
--   Edge (EDGE 17723)
-
-!!! info
-    See [browser support for FIDO](#browser-support-for-fido) for more information. 
 
 Follow the steps given below to define the set of origin URLs where the WSO2 Identity Server User Portal will be hosted (e.g., `https://localhost:9443`). 
 
@@ -35,7 +35,11 @@ Follow the steps given below if you are using a reverse proxy enabled setup to c
 
 ----
 
+## Create a service provider
+
 {!fragments/register-a-service-provider.md!}
+
+## Configure FIDO as the second factor of authentication
 
 4. Expand the **Local & Outbound Authentication Configuration** section.
 
@@ -63,7 +67,7 @@ Follow the steps given below if you are using a reverse proxy enabled setup to c
 
 7. Click **Update** to save the changes.
 
-You have successfully configured FIDO as the second factor of authentication. To test this out, see the [user portal help](insertlink).
+You have successfully configured FIDO as the second factor of authentication.
 
 ----
 
@@ -89,14 +93,6 @@ Optionally, you can customize the FIDO authentication page and configure WSO2 Id
 [authentication.authenticator.fido.parameters]
 authentication_page_url= "/authenticationendpoint/fido-auth.jsp"
 ```
-
-----
-
-## Browser support for FIDO
-
-The <https://demo.yubico.com/u2f> site can be used to check the browser support for FIDO devices.
-
-As for now, Google Chrome (version 38 or later) has support for FIDO devices. Firefox does not support FIDO natively. An add-on must be added to Firefox to support FIDO devices. You can download and install the add-on from [here](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/).
 
 ----
 
