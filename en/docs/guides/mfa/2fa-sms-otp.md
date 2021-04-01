@@ -217,9 +217,9 @@ This page guides you through configuring [two-factor authentication](../../../re
     - **Step 2**
         1. Click **Add Authentication Step**.
 
-        2. Select `smsotp` under **Federated Authenticators** and click **Add Authenticator** to add SMSOTP authentication as the second step.
+        2. Select `smsotp` under **Federated Authenticators** and click **Add Authenticator** to add SMS OTP authentication as the second step.
 
-            Adding SMSOTP as a second step adds another layer of authentication and security.
+            Adding SMS OTP as a second step adds another layer of authentication and security.
     
         <img name='sms-otp-authentication-steps' src='../../../assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
 
@@ -269,7 +269,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 	
 ----
 
-## Configuring backup codes for SMSOTP
+## Configuring backup codes for SMS OTP
 
 Optionally , you can configure backup codes to be used when SMS OTP is disabled. To configure 
 backup codes, follow the steps given below.
@@ -307,7 +307,7 @@ A backup code can have any number of digits, and you can define many backup code
 	
 ----
 
-## Disable SMSOTP authenticator
+## Disable SMS OTP authenticator
 
 The SMS OTP authenticator is enabled by default.
 
