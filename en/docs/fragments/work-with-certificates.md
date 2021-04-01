@@ -255,7 +255,7 @@ Follow the steps below to disable certificate validation if WSO2 Identity Server
         - `AuthenticationEndpoint` : This is the URL with the port that is secured with the certificate, 
             e.g., `https://localhost:8443/x509-certificate-servlet`. 
             Update this based on your host name.
-        - `username` : This attribute value will be  taken as the authenticated user subject identifier. Update this
+        - `username` : This attribute value will be taken as the authenticated user subject identifier. Update this
              with any of the certificate attributes, e.g., CN and Email.
 
     !!! note
