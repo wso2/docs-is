@@ -44,7 +44,7 @@ You can use an application such as the [Google Authenticator Mobile Application]
 
 The  TOTP authenticator is enabled by default.
 
-To disable the  TOTP authenticator by add the following configuration to the `deployment.toml` file in the
+To disable the TOTP authenticator by add the following configuration to the `deployment.toml` file in the
 `<IS_HOME>/repository/conf` folder and restart the server.
 
 ```toml
