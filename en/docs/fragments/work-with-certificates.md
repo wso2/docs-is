@@ -1,6 +1,6 @@
 ## Work with certificates
 
-X509 authentication requires the client to possess a Public Key Certificate (PKC). To know more about ublic Key Certificate (PKC) and Certificate Authority (CA), refer [Working with certificates](TO DO: Concepts)
+X509 authentication requires the client to possess a Public Key Certificate (PKC). <!--- To know more about Public Key Certificate (PKC) and Certificate Authority (CA), refer [Working with certificates](TO DO: Concepts) -->
 
 
 To create a sample certificate and create your own Certificate Authority to sign the certificates, follow the following steps:
@@ -134,7 +134,7 @@ Once you have done the above steps, you have the keystore (`localcrt.jks`), trus
 1.  Download the [WSO2 Identity Server](http://wso2.com/products/identity-server/).
 
 2.  Replace your keystore file path, keystore password, trust store file path and trust store password (you can use the keystore and
-    truststore, which you created in the [Working with Certificates](#working-with-certificates) section) in the following configuration and add it to the
+    truststore, which you created in the [Work with Certificates](#work-with-certificates) section) in the following configuration and add it to the
     `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ``` toml 
@@ -172,55 +172,65 @@ Once you have done the above steps, you have the keystore (`localcrt.jks`), trus
     
 The location that is used to disable certificate validation depends on whether WSO2 Identity Server was started at least once or not.
 
--   If you have never started WSO2 Identity Server before, the configurations should be made on the `certificate-validation.xml` file.
+-   If you have never started WSO2 Identity Server before, the configurations should be made on the `deployment.toml` file.
 
 -   If you have started WSO2 Identity Server at least once, the configurations should be made on the registry parameters.
 
 ---
 
-**Disable certificate validation in an unstarted WSO2 IS Pack**
+### Disable certificate validation in an unstarted WSO2 IS Pack
 
 Follow the steps below to disable certificate validation if your WSO2 Identity Server pack has never been started.
 
-1.  Open the `certificate-validation.xml` file in the `<IS_HOME>/repository/conf/security` repository.
+1.  Open the `deployment.toml` file in available in `<IS_HOME>/repository/conf` directory.
 
-2.  Disable certificate validation.
+2.  Add the following configuration to disable CRL-based certificate validation and OCSP-based certificate validation.
 
-    1.  To disable CRL-based certificate validation, set the
-        `            enable           ` sub-parameter of the
-        `            org.wso2.carbon.identity.x509Certificate.validation.validator.CRLValidator           `
-        validator, to `            false           `.
-    2.  To disable OCSP-based certificate validation, set the
-        `            enable           ` sub-parameter of the
-        `            org.wso2.carbon.identity.x509Certificate.validation.validator.OCSPValidato           `
-        validator, to `            false           `.
-
-    Example:
-
-    ``` java
-    <?xml version="1.0" encoding="ISO-8859-1"?> <CertificateValidation xmlns="http://wso2.org/projects/carbon/certificate-validation.xml">
-     <Validators>
-     <Validator name="org.wso2.carbon.identity.x509Certificate.validation.validator.CRLValidator" displayName="CRLValidator" enable="false">
-                     <Parameter name="priority">1</Parameter>
-                     <Parameter name="fullChainValidation">true</Parameter>
-                     <Parameter name="retryCount">2</Parameter>
-        </Validator>
-        <Validator name="org.wso2.carbon.identity.x509Certificate.validation.validator.OCSPValidator" displayName="OCSPValidator" enable="false">
-                     <Parameter name="priority">2</Parameter>
-                     <Parameter name="fullChainValidation">true</Parameter>
-                     <Parameter name="retryCount">1</Parameter>
-        </Validator>
-    </Validators>
-    </CertificateValidation>
     ```
+    [certificate_validation]
+    ocsp_validator_enabled = false
+    crl_validator_enabled = false
+    ```
+    
+    !!! info
+        - CRL is a list of digital certificates that have been revoked by the issuing CA.
+        - OCSP is an internet protocol that is used for obtaining the revocation status of an X509 digital certificate using the certificate serial number.
 
 ---
 
-**Disable certificate validation in an already-started WSO2 IS pack**
+### Disable certificate validation in an already-started WSO2 IS pack
 
 Follow the steps below to disable certificate validation if WSO2 Identity Server was started before.
 
-TODO: dev-portal-fragment
+1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
+
+2.  Click **Main > Registry > Browse**.  
+    ![registry](../../assets/img/guides/registry.png)
+    
+3.  Disable CRL certificate validation.
+
+    1.  Locate the CRL parameter by entering
+        `            _system/governance/repository/security/certificate/validator/crlvalidator           `
+        in the **Location** search box.  
+        ![location](../../assets/img/guides/browse-registry-location.png)
+        
+    2.  Expand **Properties**.  
+        ![crlvalidator-properties](../../assets/img/guides/crlvalidator-properties.png)
+        
+    3.  Click **Edit** pertaining to the **Enable** property.  
+        ![crlvalidator-enable-property](../../assets/img/guides/crlvalidator-enable-property.png)  
+        
+    4.  Change the value to `            false           ` and click
+        **Save**.  
+        ![save-crlvalidator-disable](../../assets/img/guides/save-crlvalidator-disable.png)
+        
+4.  Similarly, disable OCSP certificate validation in the
+    `          _system/governance/repository/security/certificate/validator/ocspvalidator         `
+    registry parameter.
+
+<!--- For more information on CRL and OCSP certificate validation, see
+[Configuring Certificate Revocation Validation](https://docs.wso2.com/display/ISCONNECTORS/Configuring+Certificate+Revocation+Validation). -->
+
 
 ---
 
@@ -231,16 +241,6 @@ TODO: dev-portal-fragment
     directory.
 2.  Add the following configuration to the file.
 
-    1.  `            authentication_endpoint           ` : This is the
-        URL with the port that is secured with the certificate, e.g.,
-        `                         https://localhost:8443/x509-certificate-servlet                       `
-       . Update this based on your host name.
-    2.  `            username           ` : This attribute value will be
-        taken as the authenticated user subject identifier. Update this
-        with any of the certificate attributes, e.g., CN and Email.
-    3. `name` : This attribute identifies the authenticator that is configured as the second authentication step. 
-    4. `enable`: This attribute, when set to true makes the authenticator capable of being involved in the authentication process. 
-
     ``` toml
     [authentication.authenticator.x509_certificate.parameters]
     name ="x509CertificateAuthenticator"
@@ -248,6 +248,15 @@ TODO: dev-portal-fragment
     AuthenticationEndpoint="https://localhost:8443/x509-certificate-servlet"
     username= "CN"
     ```
+    
+    !!! info
+        - `name` : This attribute identifies the authenticator that is configured as the second authentication step. 
+        - `enable`: This attribute, when set to true makes the authenticator capable of being involved in the authentication process. 
+        - `AuthenticationEndpoint` : This is the URL with the port that is secured with the certificate, 
+            e.g., `https://localhost:8443/x509-certificate-servlet`. 
+            Update this based on your host name.
+        - `username` : This attribute value will be  taken as the authenticated user subject identifier. Update this
+             with any of the certificate attributes, e.g., CN and Email.
 
     !!! note
         When X509 authentication is configured as the second authentication
@@ -279,6 +288,8 @@ TODO: dev-portal-fragment
     EnforceSelfRegistration = true
     ```
 
+5. Restart the server to apply the changes.
+
 ---
 
 ## Add a claim mapping for the certificate
@@ -287,7 +298,24 @@ If storing the certificate as a user claim is enabled, the X509
 certificate will be stored as a user claim and verified with the
 retrieved certificate from the request.
 
-TODO: dev-portal-fragment
+1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator 
+   credentials (`admin:admin`).
+
+2.  On the **Main** tab, click **Claims > Add**. 
+ 
+    ![add-claim](../../assets/img/fragments/add-claim.png)
+    
+3.  Click **Add Local Claim**.  
+
+    ![add-local-claim](../../assets/img/fragments/add-local-claim.png)
+    
+4.  Add a new claim for the **certificate** by giving the details as
+    below, e.g., select a mapped attribute for the claim that is
+    supported by the underlying database type.
+    
+    ![claim-mapped-attribute](../../assets/img/fragments/claim-mapped-attribute.png)
+    
+5.  Click **Add**.
 
 ---
 
@@ -297,6 +325,6 @@ Make note of the following points and configure your database to match
 your use case:  
   
 -   [Disabling Certificate Validation in an Unstarted WSO2 IS
-    Pack](#disable-certificate-validation-in-an-unstarted-WSO2-IS-Pack)
+    Pack](#disable-certificate-validation-in-an-unstarted-wso2-is-pack)
 -   [Disabling Certificate Validation in an Already-started WSO2 IS
-    Pack](#Disable-Certificate-Validation-in-an-already-started-WSO2-IS-Pack)
+    Pack](#disable-certificate-validation-in-an-already-started-wso2-is-pack)
