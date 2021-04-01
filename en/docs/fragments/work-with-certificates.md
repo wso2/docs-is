@@ -182,7 +182,7 @@ The location that is used to disable certificate validation depends on whether W
 
 Follow the steps below to disable certificate validation if your WSO2 Identity Server pack has never been started.
 
-1.  Open the `deployment.toml` file in available in `<IS_HOME>/repository/conf` directory.
+1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
 2.  Add the following configuration to disable CRL-based certificate validation and OCSP-based certificate validation.
 
