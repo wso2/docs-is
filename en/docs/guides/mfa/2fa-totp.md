@@ -66,7 +66,7 @@ configure the email adapter for this purpose.
 !!! tip 
     The email template used to send this email notification is the **TOTP** template.
     You can edit and customize the email template. For more information on how to do this, 
-    see [Customizing Automated Emails](../../../guides/tenants/customize-automated-mails).
+    see [Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
     
 ----
 
