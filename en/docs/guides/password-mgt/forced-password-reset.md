@@ -186,7 +186,7 @@ which, the user will be prompted to set a new password.
 
 ### Using SCIM 2.0 API
     
-Use following SCIM 2.0 request to trigger a password reset.
+Use the following SCIM 2.0 request to trigger a password reset.
     
 Set the **forcePasswordReset** attribute under the `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` schema as
 **true** in the SCIM2 user create request. 
