@@ -53,7 +53,7 @@ given below.
     ```
 
 5.  Add the `new_ error_404.html` file inside the
-    `           <PROJECT_HOME>/src/main/web          ` directory.
+    `           <PROJECT_HOME>/src/main/resources/web          ` directory.
 6.  Add the following property below the
     `            <version>           ` element in the
     `            <PROJECT_HOME>/pom.xml` file:
