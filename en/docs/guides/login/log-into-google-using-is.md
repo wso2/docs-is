@@ -132,7 +132,7 @@ Now, you have successfully configured Google and WSO2 Identity Server.
     In this example, `alex@wso2support.com`
     is in the Google domain. Therefore, we need to create the same user in WSO2 Identity Server. 
 
-    {!fragments/create-user.md!} 
+    {!fragments/create-user-email-username.md!} 
 
 2.  Navigate to
     `          https://google.com/a/<ENTER_YOUR_DOMAIN>/acs         `

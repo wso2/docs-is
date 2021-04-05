@@ -4,16 +4,15 @@ This section guides you through the ways of adding a user role to WSO2 Identity 
 
 ---
 
-## Add a user role using the admin portal
+## Add a user role using the Management Console
 
-(TODO: dev-portal-fragment)
+{! fragments/add-user-role.md !}
 
 ---
 
 ## Add a user role using SCIM
 
-In SCIM, creating a role is the same as creating a **group.** For more information, see
-    [SCIM](TODO:insert-link-to-concept).
+In SCIM, creating a role is the same as creating a **group.** 
 
 !!! note
     To create a group with users, the relevant users should already exist in the user store.
@@ -46,7 +45,7 @@ response status `           201 CREATED          `.
 
 A role can be created by calling the service
 `         RemoteUserStoreManager        ` . If you are new to admin
-services, see [Calling Admin Services.](insert-calling admin services)
+services, see [Calling Admin Services.](../../../apis/call-admin-services/)
 
 1.  Disable the hidden admin service property in the `           <IS_HOME>/repository/conf/deployment.toml          ` file.  
     By default, the admin services are disabled as it is not recommended
@@ -60,8 +59,7 @@ services, see [Calling Admin Services.](insert-calling admin services)
 
 2.  Open the following Admin Service from
     [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
-    [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
-                                            ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
+    `https://localhost:9443/services/RemoteUserStoreManagerService?wsdl`
 
     !!! info 
         If you have configured WSO2 IS to use an IP or hostname, replace
@@ -92,7 +90,7 @@ services, see [Calling Admin Services.](insert-calling admin services)
 !!! info "Related Topics"
     - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)
     - [Guide: Edit/Delete Roles](../../identity-lifecycles/edit-delete-roles)
-    - [Guide: Role Based Permissions](../../identity-lifecycles/edit-delete-roles)
+    - [Guide: Role Based Permissions](../../identity-lifecycles/role-based-permissions/)
 
 
 

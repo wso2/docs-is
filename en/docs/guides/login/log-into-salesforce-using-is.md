@@ -213,7 +213,7 @@ Salesforce and the Identity Server.
 
 1.  Create a user in WSO2 IS. 
  
-    {!fragments/create-user.md!}
+    {!fragments/create-user-email-username.md!}
         
 2.  Create a user in Salesforce. This user should have the same
     email address as the user in WSO2 IS  

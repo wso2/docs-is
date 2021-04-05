@@ -24,51 +24,56 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!fragments/register-application-portal!}
+## Create a service provider
 
-{!fragments/add-adaptive-script-portal.md!}
+{!fragments/register-a-service-provider.md!}
 
-## Customizing the authentication script
+---
 
-1. Modify the template accordingly if required on the script editor.
+## Add an adaptive authentication script to the service provider
 
-2. Click **Update** to save changes. 
+Make the following changes to the created service provider.
 
-If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement, and then engage the script to the service provider’s authentication step configuration. 
+{!fragments/add-adaptive-script.md!} 
 
-A sample authentication script is shown below 
+    If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement, and then engage the script to the service provider’s authentication step configuration. 
 
-```java
-var onLoginRequest = function(context) {
-    // Some possible initializations...
-    executeStep(1, {
-        onSuccess: function (context) {
-            // Logic to execute if step 1 succeeded
-            executeStep(2, {
-                onSuccess: function (context){
-                    // Logic to execute if step 2 succeeded
-                },
-                onFail: function (context){
-                    // Logic to execute if step 2 failed
-                }
-            });
-        }
-        onFail: function(context){
-            // Logic to execute if step 1 failed
-            executeStep(3);
-        }
-    });
-}
+    !!! note
+    
+        - To learn about the functions and fields related to authentication scripts, see [Adaptive Authentication JS API Reference](../../../references/adaptive-authentication-js-api-reference).
+        
+        - To learn about the guidelines on writing custom functions for adaptive authentication, see [Write Custom Functions for Adaptive Authentication](../../../extend/write-custom-functions-for-adaptive-authentication).
 
-function someCommonFunction(context) {
-    // Do some common things
-}
-```
+    A sample authentication script is shown below. 
 
-- To learn about the functions and fields related to authentication scripts, see [Adaptive Authentication JS API Reference](insertlink).
+    ```java
+    var onLoginRequest = function(context) {
+        // Some possible initializations...
+        executeStep(1, {
+            onSuccess: function (context) {
+                // Logic to execute if step 1 succeeded
+                executeStep(2, {
+                    onSuccess: function (context){
+                        // Logic to execute if step 2 succeeded
+                    },
+                    onFail: function (context){
+                        // Logic to execute if step 2 failed
+                    }
+                });
+            }
+            onFail: function(context){
+                // Logic to execute if step 1 failed
+                executeStep(3);
+            }
+        });
+    }
+    
+    function someCommonFunction(context) {
+        // Do some common things
+    }
+    ```
 
-- To learn about the guidelines on writing custom functions for adaptive authentication, see [Writing Custom Functions for Adaptive Authentication](insertlink).
-
+2. Click **Update** to save changes.
 
 !!! info "Related Topics"
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
