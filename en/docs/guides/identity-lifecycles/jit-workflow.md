@@ -38,7 +38,7 @@ This page guides you through configuring [Just-in-Time (JIT) provisioning](../..
                 PRIMARY userstore domain.  
                 For example,
                         
-                -   If you specify the username as user, the user is provisioned to the domain.
+                -   If you specify the username as `user`, the user is provisioned to the domain.
                 -   If you specify the username as `user1`, the user is provisioned to the PRIMARY userstore domain.
 
 
