@@ -278,7 +278,7 @@ allow_additional_params_from_error_url = true
 The device authorization grant was introduced with WSO2 IS 5.10.0. It has been disabled by default in the 5.11.0 version. However, you can enable it for backward compatibility if you had previously enabled this in your setup. To enable the grant and revert to the old behavior, add the following configuration to the `deployment.toml` file.
 
 !!! warning 
-    Note that this configuration is not production-ready and is ideally not recommended for use. 
+    Note that this feature is not production-ready and is ideally not recommended for use. 
 
 ```toml
 [oauth.response_type.device]
