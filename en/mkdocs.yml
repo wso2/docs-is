@@ -91,7 +91,7 @@ nav:
         - 'Role-Based': quick-starts/role-based-adaptive-auth.md
         - 'User Age-Based': quick-starts/age-based-adaptive-auth.md
         - 'Tenant-Based': quick-starts/tenant-based-adaptive-auth.md
-        - 'User Store-Based': quick-starts/user-store-based-adaptive-auth.md
+        - 'Userstore-Based': quick-starts/user-store-based-adaptive-auth.md
         - 'IP-Based': quick-starts/ip-based-adaptive-auth.md
         - 'Device-Based': quick-starts/device-based-adaptive-auth.md
         - 'Login Attempts-Based': quick-starts/login-attempts-based-adaptive-auth.md
@@ -232,16 +232,10 @@ nav:
           - 'Rule Based Provisioning': guides/identity-lifecycles/rule-based-provisioning.md
         - 'Inbound Provision Users':
           - 'Overview': guides/identity-lifecycles/inbound-provisioning.md
-          - 'Configure User Stores for SCIM 2.0': guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
+          - 'Configure Userstores for SCIM 2.0': guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
           - 'Configure Active Directory Userstores': guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
         - 'Just-in-Time Provision Users':
           - 'Configure Just-In-Time Provisioning for an Identity Provider': guides/identity-lifecycles/jit-workflow.md
-        - 'Manage User Stores':
-          - 'JDBC as the Primary User Store': guides/identity-lifecycles/jdbc-us.md
-          - 'Active Directory as a Secondary User Store': guides/identity-lifecycles/ad-us.md
-          - 'LDAP as a Secondary User Store': guides/identity-lifecycles/ldap-us.md
-          - 'Carbon Remote User Store Manager': guides/identity-lifecycles/carbon-remote-user-store-manager.md
-          - 'Plug a Custom User Store': guides/identity-lifecycles/custom-us.md
         - 'Manage Account States':
           - 'Overview': guides/identity-lifecycles/account-states-overview.md
           - 'Lock/Unlock Accounts': guides/identity-lifecycles/lock-account.md
@@ -353,7 +347,7 @@ nav:
         - 'Write a Custom Global Scope Validator': extend/user-mgt/write-a-custom-global-scope-validator.md
         - 'Write a Custom Claim Handler': extend/user-mgt/write-a-custom-claim-handler.md
         - 'Write a Custom Event Handler': extend/user-mgt/write-a-custom-event-handler.md
-        - 'User Store Listeners': extend/user-mgt/user-store-listeners.md
+        - 'Userstore Listeners': extend/user-mgt/user-store-listeners.md
         - 'Write a Post-Authentication Handler': extend/user-mgt/write-a-post-authentication-handler.md
         - 'User Management Errors Event Listener': extend/user-mgt/user-management-errors-event-listener.md
       - 'OAuth2':
