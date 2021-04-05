@@ -84,7 +84,7 @@ This is used to retrieve a particular question using the question ID.
       &lt;!--Optional:--&gt;
       &lt;ser:confirmation&gt;&lt;/ser:confirmation&gt;
       &lt;!--Optional:--&gt;
-      &lt;ser:questionI&gt;&lt;/ser:questionId&gt;
+      &lt;ser:questionId&gt;&lt;/ser:questionId&gt;
    &lt;/ser:getUserChallengeQuestion&gt;
 &lt;/soapenv:Body&gt;
 &lt;/soapenv:Envelope&gt;</code></pre>
