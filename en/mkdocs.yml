@@ -317,7 +317,10 @@ nav:
       - 'Tenants':
         - 'Set Up a Tenant Loading Policy': guides/tenants/configure-the-tenant-loading-policy.md
         - 'Add New Tenants': guides/tenants/add-new-tenants.md
-        - 'Tenant-wise Email Sender Configuration': guides/tenants/tenant-wise-config.md
+        - 'Email':
+          - 'Tenant-wise Email Sender Configuration': guides/tenants/tenant-wise-config.md
+          - 'Customize Automated Emails': guides/tenants/customize-automated-mails.md
+          - 'Configure Emails with Special Characters': guides/tenants/add-email-special-characters.md
       - 'My Account': 
         - 'Overview': guides/my-account/my-account.md
       #- 'Federation - To Remove':

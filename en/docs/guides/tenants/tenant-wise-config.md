@@ -123,7 +123,7 @@ When handling notifications such as the ones given below, the email-sender confi
         You do not need to configure all the configurable parameters. If a parameter has not been configured in the `EmailPublisher.xml` file, configurations in the `output-event-adapters.xml` will be used instead. 
     
 5. Since these configurations will be applicable during the tenant loading process, [Configure tenant loading and 
-unloading for your tenant](../../../guides/tenants/tenant-wise-config). 
+unloading for your tenant](../../../guides/tenants/configure-the-tenant-loading-policy). 
 
     !!! tip
         Only one `EmailPublisher.xml` file with the name `EmailPublisher` should be added for a tenant.

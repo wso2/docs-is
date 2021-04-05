@@ -1,8 +1,20 @@
 # Add a user
 
-## Add a user using the admin portal
+## Add a user using the management console
 
-TODO: dev-portal-fragment
+{! fragments/add-new-user.md !}
+
+3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
+
+4. Enter a unique username and password. These are the credentials that the user will use to log in. 
+
+    !!! note
+        Note that by default, the password must be atleast 5 characters.
+
+    ![enter-user-details](../../../assets/img/guides/enter-user-details.png)
+
+5. Click **Finish** or you can click **Next** to assign the user to a specific role. For more information about assigning a role, see the next section. 
+
 
 ---
 
@@ -31,7 +43,7 @@ curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"jackso
 
 The user can also be created by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](insert-calling admin services).
+admin services, see [Calling Admin Services](../../../apis/call-admin-services).
 
 1. Enable the hidden admin service property. 
     By default, admin services WSDLs are not exposed in a product. We need to add the following configuration in  `            <IS_HOME>/repository/conf/deployment.toml           ` to access the WSDLs.
@@ -42,8 +54,7 @@ admin services, see [Calling Admin Services](insert-calling admin services).
     ```
 
 2. Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
-    [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
-    ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
+    `https://localhost:9443/services/RemoteUserStoreManagerService?wsdl ` 
 
     !!! info 
          If you have configured WSO2 IS to use an IP or hostname, replace
@@ -83,10 +94,10 @@ admin services, see [Calling Admin Services](insert-calling admin services).
     There will be no SOAP response as this is a one-way SOAP operation. You can validate that the user creation is successful using the admin portal by clicking on <admin-portal-user-list-path> section.
     
 !!! info "Related Topics"
-    - [Guide: Email Templates](TODO:dev-portal-link)
-    - [Guide: Invitation Workflow](../../identity-lifecycles/invitation-workflow) 
-    - [Guide: User Self Registration Workflow](../../identity-lifecycles/self-register)
-    - [Guide: Just in Time User Provisioning Workflow](../../identity-lifecycles/user-account-overview)
-    - [Guide: Bulk Import Users](../../identity-lifecycles/import-users)
-    - [Guide: Outbound Provisioning](../../identity-lifecycles/outbound-provisioning)
+    - [Guide: Invitation Workflow](../../../guides/identity-lifecycles/invitation-workflow) 
+    - [Guide: User Self Registration Workflow](../../../guides/identity-lifecycles/self-registration-workflow)
+    - [Guide: Just in Time User Provisioning Workflow](../../../guides/identity-lifecycles/jit-workflow/)
+    - [Guide: Bulk Import Users](../../../guides/identity-lifecycles/import-users)
+    - [Guide: Outbound Provisioning](../../../guides/identity-lifecycles/outbound-provisioning)
     - [Concept: Users](../../../references/concepts/user-management/users)
+    <!--- [Guide: Email Templates](TODO:dev-portal-link)--->
