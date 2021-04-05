@@ -1,4 +1,4 @@
-# Outbound Provisioning with SCIM
+# Outbound Provision with SCIM
 
 This topic provides instructions on how to provision users to a trusted
 identity provider from the WSO2 Identity Server. A trusted identity
@@ -37,9 +37,7 @@ ability to accept the provisioning request from WSO2 Identity Server.
 The following steps provide instructions on how to create a new trusted
 identity provider in the Identity Server.
 
-1.  Log on to the [Management
-    Console](../../../deploy/get-started/getting-started-with-the-management-console)
-    using your username and password.
+1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using your username and password.
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.
 3.  Fill in the details in the **Basic Information** section.  
@@ -55,9 +53,9 @@ identity provider in the Identity Server.
     the **SCIM Provisioning Configuration** section.
 5.  Fill out the details in the form.  
     ![scim-config-form](../../../assets/img/guides/scim-config-form.png)   
-    Do the configurations as described in [Configuring SCIM
-    provisioning](TO-DO:../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider)
-    . The following are the configurations in brief.
+    <!-- Do the configurations as described in [Configuring SCIM
+    provisioning](TO-DO:../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider). -->
+    The following are the configurations in brief.
 
     -   Select **Enable Connector** to enable identity provisioning.
 
@@ -95,8 +93,7 @@ service provider. So, based on the outbound configuration, users added
 from the management console can also be provisioned to external systems
 like Salesforce and Google Apps.
 
-1.  Log on to the [Management
-    Console](../../../deploy/get-started/getting-started-with-the-management-console) using
+1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using
     username and password.
 2.  In the **Main** menu under the **Identity** section, click
     **Resident** under **Service Providers**.
@@ -127,10 +124,7 @@ like Salesforce and Google Apps.
 You can configure a service provider instead of a resident service
 provider if your application supports OAuth.
 
-1.  Sign in. Enter your username and password to log on to the
-    [Management
-    Console](../../../deploy/get-started/getting-started-with-the-management-console)
-    .
+1.  Enter your username and password to log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
