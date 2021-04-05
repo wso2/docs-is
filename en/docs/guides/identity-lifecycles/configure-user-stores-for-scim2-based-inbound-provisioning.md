@@ -26,14 +26,14 @@ Now suppose you need to add a secondary userstore, OpenLDAP. In this scenario, c
 
 ![claim-list-scim2](../../../assets/img/guides/claim-list-scim2.png)
 
-3.  Once you found the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
-4.  Click Edit and modify the Mapped Attribute field in the resulting page.
+3.  Once you find the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
+4.  Click **Edit** and modify the **Mapped Attribute** field in the resulting page.
     
     !!! note 
-        Here we have configured a claim attribute mapping for a primary userstore. If you have a secondary userstore, you need to add another mapping for those as well. To do that just click on Add Attribute Mappings and set the corresponding values for userstore domain name and mapped attribute.
+        Here we have configured a claim attribute mapping for a primary userstore. If you have a secondary userstore, you need to add another mapping for those as well. To do that just click on **Add Attribute Mappings** and set the corresponding values for **userstore domain name** and **mapped attribute**.
         ![update-local-claim-scim2.png](../../../assets/img/guides/update-local-claim-scim2.png)
 
-!!! info 
-    For information about Local Claim Dialect attributes, click [here](../../../guides/dialects/add-claim-mapping/).
 
-You can see the sample cURL commands for all SCIM 2.0 operations [here](../../../apis/scim2-rest-apis/). 
+!!! info "Related Topics"
+    -   For information about Local Claim Dialect attributes, click [here](../../../guides/dialects/add-claim-mapping/).
+    -	You can see the sample cURL commands for all SCIM 2.0 operations [here](../../../apis/scim2-rest-apis/). 

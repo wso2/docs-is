@@ -38,8 +38,8 @@ This page guides you through configuring [Just-in-Time (JIT) provisioning](../..
                 PRIMARY userstore domain.  
                 For example,
                         
-                -   If you specify the user name as user is provisioned to the domain.
-                -   If you specify the user name as `user1`, the user is provisioned to the PRIMARY userstore domain.
+                -   If you specify the username as user, the user is provisioned to the domain.
+                -   If you specify the username as `user1`, the user is provisioned to the PRIMARY userstore domain.
 
 
             -   If you want to select a userstore domain other than the default primary userstore domain, you need to [configure a userstore](../../../deploy/configure-user-stores/) of your preference for it to appear in the list for you to select.
