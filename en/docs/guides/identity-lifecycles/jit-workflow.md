@@ -8,37 +8,77 @@ This page guides you through configuring [Just-in-Time (JIT) provisioning](../..
 
 ----
 
-(TODO: dev-portal-fragment?)
-
 ## Enable JIT provisioning
 
-1. Navigate to the **Just-in-Time Provisioning** tab.
+1.  Expand the **Just-In-Time Provisioning** section and select the JIT
+    provisioning options based on your requirement.  
+    
+    ![just-in-time-provisioning](../../../assets/img/guides/just-in-time-provisioning.png)   
+    
+    -   If you want to disable JIT provisioning, select **No
+        Provisioning**. This is selected by default.
+    -   If you want to always provision users to a selected userstore
+        domain, select **Always provision to User Store Domain**, and
+        then select a required user store domain from the list of
+        available userstore domains.
 
-2. Select **Enable Just-in-Time Provisioning** and select which user store domain to provision users to from the dropdown list. 
+        !!! tip
+        
+            The userstore domain that you see by default is the **PRIMARY**
+            userstore that is provided with WSO2 Identity Server.
+    
+            -   If you want to provision users to multiple user stores
+                depending on the user name specified at the time of
+                provisioning, select **As in username**.
+    
+            !!! note
+                        
+                If you select this option and do not specify the user name
+                appropriately, the relevant user is provisioned to the
+                PRIMARY userstore domain.  
+                For example,
+                        
+                -   If you specify the user name as user is provisioned to the domain.
+                -   If you specify the user name as `user1`, the user is provisioned to the PRIMARY userstore domain.
 
-    ![enable-jit-provisioning](../../assets/img/guides/enable-jit-provisioning.png)
 
-3. Select one of the following provisioning options. **Provision silently** is selected by default. 
+            -   If you want to select a userstore domain other than the default primary userstore domain, you need to [configure a userstore](../../../deploy/configure-user-stores/) of your preference for it to appear in the list for you to select.
 
-    - **Prompt for username, password and consent**
 
-    Prompts the user to enter a username and password, and provide consent at the point of federated authentication. 
+    -   When you select **Always provision to User Store Domain**, you
+        should also select one of the following provisioning
+        options depending on how you want to prompt users for relevant
+        credentials at the time of JIT provisioning. The default
+        selection is **Provision silently**.
 
-    - **Prompt for password and consent**
+        -   **Prompt for username, password and consent**
+        -   **Prompt for password and consent**
+        -   **Prompt for consent**
+        -   **Provision silently**
 
-    Prompts the user to enter a password and provide consent at the point of federated authentication. 
+        !!! note
+        
+            Provisioning claims should be compatible with the policies
+            defined in the userstore manager configuration. For example
+            user name should match `UsernameJavaRegEx` and `RolenameJavaScriptRegEx` in the [userstore configuration](../../../deploy/configure-user-stores/).
 
-    - **Prompt for consent**
+2.  Click **Register** to add the identity provider.
 
-    Prompts the user to provide consent to be provisioned to WSO2 IS, at the point of federated authentication. 
-
-    - **Provision silently**
-
-    Silently provisions the user to WSO2 IS without prompting credentials or consent. 
-
-----
 
 !!! info "Related Topics"
+
+    - For information on the JIT provisioning architecture, see [Provisioning Architecture](../../../get-started/provisioning-architecture).
+
     - [Concept: Just-in-Time Provisioning](../../../references/concepts/jit-provisioning)
-    - [Guide: Outbound Just-in-Time Provisioning](TODO:link-to-guide)
+
+<!--For information on how to configure purposes and appropriate user
+    attributes to obtain user consent at the time of JIT provisioning, see
+    [Configuring Just-In-Time Provisioning Consent
+    Purposes](../../learn/configuring-just-in-time-provisioning-consent-purposes).
+
+    For information on how to customize the default user name and password
+    provisioning user interfaces, see [Customizing Just-In-Time Provisioning
+    User Interfaces](../../learn/customizing-just-in-time-provisioning-user-interfaces).
+    
+    [Guide: Outbound Just-in-Time Provisioning](TODO:link-to-guide)-->
     
