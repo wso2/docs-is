@@ -124,8 +124,7 @@ like Salesforce and Google Apps.
 You can configure a service provider instead of a resident service
 provider if your application supports OAuth.
 
-1.  Sign in. Enter your username and password to log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-    .
+1.  Enter your username and password to log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief

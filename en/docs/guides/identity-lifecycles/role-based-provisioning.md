@@ -8,7 +8,7 @@ Follow the steps given below to configure role-based provisioning in WSO2 Identi
 
 {! fragments/register-an-identity-provider.md !}
 
-1.	Expand the **Outbound Provisioning Connectors** section with
+1.	Expand the **Outbound Provisioning Connectors** section and select
     [Google](../../../guides/identity-lifecycles/outbound-provisioning-with-google),
     [SCIM](../../../guides/identity-lifecycles/outbound-provisioning-with-scim)
     or [Salesforce connecter](../../../guides/identity-lifecycles/outbound-provisioning-with-salesforce).
@@ -40,8 +40,7 @@ Follow the steps given below to configure role-based provisioning in WSO2 Identi
 
 ## Try it out
 
-1.  In the **Main** menu of the management console, click **Add** under
-    **Users and Roles** under the **Identity** menu.
+1.  Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
 2.  Click **Add New User**. See [Configuring
     Users](../../../guides/identity-lifecycles/add-user-roles/) for
     more information.

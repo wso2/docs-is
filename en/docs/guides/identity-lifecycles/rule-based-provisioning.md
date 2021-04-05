@@ -10,7 +10,7 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 
 {! fragments/register-an-identity-provider.md !}
 
-1.	Expand the **Outbound Provisioning Connectors** section with
+1.	Expand the **Outbound Provisioning Connectors** section and select
     [Google](../../../guides/identity-lifecycles/outbound-provisioning-with-google),
     [SCIM](../../../guides/identity-lifecycles/outbound-provisioning-with-scim)
     or [Salesforce connecter](../../../guides/identity-lifecycles/outbound-provisioning-with-salesforce).
@@ -77,7 +77,7 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
         replace it with the identity provider name "WSO2IDP".
     4.  Locate the placeholder `            ROLE_1           ` and
         replace it with the role name "finance".
-    5.  In this example, this policy authenticates users to the
+    5.  In this example, the policy authenticates users to the
         specified service provider based on
         `            ROLE_1           ` or
         `            ROLE_2           `. However, you can authenticate

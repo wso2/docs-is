@@ -1,6 +1,6 @@
 
-1.  In the **Main** menu, under the **Identity** section, click
-    **Resident** under **Service Providers**.
+1.  Navigate to **Main** > **Identity** > **Service Providers** >  **Resident**.
+
 2.  Expand the **Outbound Provisioning Configuration** section and enter
     the name of the identity provider you just created, and select the
     connector from the dropdown list.

@@ -112,7 +112,7 @@ too.
 
     ![consumer-secret](../../../assets/img/guides/connected-app-screen.png) 
 
-6.  Add your connected app to the profile you are going to use. This is
+6.  <a name="step6"></a>Add your connected app to the profile you are going to use. This is
     necessary as this profile is used when you add users in to
     Salesforce from the Identity Server.
 
@@ -170,29 +170,17 @@ accounts, e-mail authorizations in the form of rules and roles, and
 other tasks such as provisioning of resources associated with enabling
 new users.
 
-1.  Download the WSO2 Identity Server from [here](http://wso2.com/products/identity-server/) and [run
-    it](../../../deploy/get-started/run-the-product/).
-2.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) as an
-    administrator.
-3.  When you log into Salesforce, you normally use an email address. So,
-    to integrate this with the Identity Server, you need to configure
-    WSO2 IS to enable users to log in using their email addresses. In
-    order to do that, follow the steps found in the [Configure Email Address as the Username](../../../guides/identity-lifecycles/enable-email-as-username) topic.
-4.  Restart the Identity Server.
+When you log into Salesforce, you normally use an email address. So, to integrate this with the Identity Server, you need to configure WSO2 IS to enable users to log in using their email addresses. In order to do that, follow the steps given below.
 
-Now that you are done with configuring the email address for use in
-authentication, configure the identity provider and the service
-provider.
+{! fragments/enable-email-as-username.md !}
 
 ---
 
 ## Configure Salesforce as the Identity Provider
 
 1.  Start the WSO2 Identity Server if it is not started up already and
-    log in using the email you configured in the realm as instructed
-    above in step 3 of **Configuring the Identity Server**.
-2.  On the Management Console, click on **Add** under **Identity
-    Providers**.
+    log in using the email you configured in the realm as instructed in the above section.
+2.  On the Management Console, navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
 3.  In the form that appears, provide a name for your identity provider
     by filling in the **Identity Provider Name**. You can use
     "Salesforce.com" as an example, but this can be any name you choose.
@@ -300,7 +288,7 @@ provider.
     <p><code>                 00e90000001aV2o                                 </code> The users that are added using WSO2 Identity Server are added to this profile in Salesforce. For more information on the context of profiles in Salesforce, see the <a href="http://www.salesforcetutorial.com/working-profiles-salesforce/">Salesforce tutorial</a>.</p>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
-    <p>The <strong>ProfileId</strong> value refers to the ID of the profile you created in Salesforce (step 6 of Configuring Salesforce). If it is the Chatter Free User profile you created, navigate to the profile in Salesforce to find the profile ID. You can do this by clicking <strong>Profiles</strong> under <strong>Manage Users</strong> in Salesforce and clicking Chatter Free User.</p>
+    <p>The <strong>ProfileId</strong> value refers to the ID of the profile you created in Salesforce <a href="#step6">step 6 of Configuring Salesforce</a>. If it is the Chatter Free User profile you created, navigate to the profile in Salesforce to find the profile ID. You can do this by clicking <strong>Profiles</strong> under <strong>Manage Users</strong> in Salesforce and clicking Chatter Free User.</p>
         <p>Copy the URL and decode it using a URL decoder. You get an output similar to what is shown below:<br />
         <code>                 https://wso2-is-sso-dev-ed.lightning.force.com/one/one.app#/setup/page?nodeId=EnhancedProfiles&amp;address=/                                   00e90000001aV2o                                  ?isdtp=p1&amp;a:t=1509949702148                </code></p>
         <p>In this case 00e90000001aV2o is your profile ID. Similarly, enter your Profile ID.</p></div>

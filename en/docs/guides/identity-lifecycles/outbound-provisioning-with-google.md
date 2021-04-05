@@ -139,11 +139,10 @@ Provider.
     as instructed above in [step 2 of Configuring the Identity Server to
     use the email address as the
     username](#configure-email-address-as-the-username).
-2.  On the Management Console, click on **Add** under **Identity
-    Providers**.
+2.  On the Management Console, navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
 3.  In the form that appears, provide a name for your identity provider
     by filling in the **Identity Provider Name**, such as Google.com,
-    and a description.
+    and optionally, add a description.
 
 4.  Expand the **Outbound Provisioning Connectors** and click
     **Google Provisioning Configuration** section.
@@ -181,7 +180,7 @@ Provider.
         </tr>
         <tr class="odd">
         <td>Family Name</td>
-        <td>Claim URI which will be used to retrieve family name attribute for the user. This must be a claim that is available and local in the Identity Server.</td>
+        <td>Claim URI which will be used to retrieve the family name attribute for the user. This must be a local claim that is available and local in the Identity Server.</td>
         <td><code>                           http://wso2.org/claims/lastname                         </code></td>
         </tr>
         <tr class="even">
@@ -226,7 +225,7 @@ Provider.
 
     1.  Select **Enable Connector** to enable the Google connector.
     2.  Enter your Google domain name.  
-        For example, in this guide, mydomain.com is used as the domain
+        For example, in this guide, `mydomain.com` is used as the domain
         name.
     3.  Select the claim URI for the Primary Email.  
         For example, use `http://wso2.org/claims/emailaddress`.
@@ -238,7 +237,7 @@ Provider.
     6.  Enter your service account ID as the value for the Service
         Account Email.
 
-        ??? note "Can't remember your service account ID?"
+        ??? tip "Can't remember your service account ID?"
 
             Follow the steps given below:
 
@@ -280,8 +279,7 @@ The next step is to check if Google is configured properly with the
 Identity Server. If you add a user to the Identity Server via the
 management console, this user should also appear in Google too.
 
-1.  On the **Main** tab in the Management Console, click **Add** under
-    **Users and Roles**.
+1.  On the **Main** tab in the Management Console, Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
 2.  Click **Add New User**.
 3.  Enter the username in the form of an email and enter the password.
 
