@@ -50,7 +50,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
     ![account-recovery-option](../../../assets/img/fragments/account-recovery-option.png) 
 
-6.	Select **Notification based password recovery** check box.
+6.	Select **Notification based password recovery**.
 
     ![notification-based-password-recovery-option](../../../assets/img/guides/notification-based-password-recovery-option.png)
 
