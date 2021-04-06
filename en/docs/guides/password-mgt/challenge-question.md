@@ -97,7 +97,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
     ![password-reset-form](../../../assets/img/guides/password-reset-form.png) 
 
-8.	Enter the user name and new password and click **Sign In**. The My Account home screen appears. 
+8.	Enter the username and new password and click **Sign In**. The My Account home screen appears. 
 
 ---
 
