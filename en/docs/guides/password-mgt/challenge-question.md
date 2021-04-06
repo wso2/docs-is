@@ -73,7 +73,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 ## Recover password using the My Account application
 
-1. Access WSO2 Identity Server My Account (`https://<HOST>:<PORT>/myaccount`) application.
+1. Access the WSO2 Identity Server My Account (`https://<HOST>:<PORT>/myaccount`) application.
 
 2.	Click **Password**.
 
