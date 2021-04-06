@@ -1,8 +1,82 @@
-# Recover Password 
+# Recover Password via Email
 
-## Recover password using the user portal 
+WSO2 Identity Server enables resetting user passwords by emailing a password reset link to the user’s registered email Id.
 
-{!TODO:insert-fragment!} 
+---
+
+## Prerequisites
+
+**Create a user**
+
+{!fragments/create-user-for-recovery-flows.md!}
+
+**Configure the email adapter to send emails**
+
+Enable the email sending configurations of the WSO2 Identity Server as explained here.
+
+{!fragments/configure-email-sending.md!}
+
+---
+    
+## Enable password reset via email
+
+Follow the steps below to configure WSO2 Identity Server to enable password reset via email notifications.  
+
+1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and check whether the following listener 
+    configs are in place.
+    
+    ```
+    [event.default_listener.identity_mgt]
+	priority= "50"
+	enable = false
+	[event.default_listener.governance_identity_mgt]
+	priority= "95"
+	enable = true
+	[event.default_listener.governance_identity_store]
+	priority= "97"
+	enable = true
+	```
+
+	!!! info 
+        This is already configured this way by default. You can skip this step if you have not changed this configuration previously.
+
+3.	Sign in to the WSO2 Identity Server Management Console (`https://<HOST>:<PORT>/carbon`) as an administrator. 	 
+
+4.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
+
+	![resident-idp](../../../assets/img/fragments/resident-idp.png) 
+
+5.	Under the **Account Management** section, click **Account Recovery**.
+
+    ![account-recovery-option](../../../assets/img/fragments/account-recovery-option.png) 
+
+6.	Select **Notification based password recovery**.
+
+    ![notification-based-password-recovery-option](../../../assets/img/guides/notification-based-password-recovery-option.png)
+
+7.	Click **Update**. 
+
+---
+       
+## Recover password using the My Account application 
+
+1. Access the WSO2 Identity Server My Account (`https://<HOST>:<PORT>/myaccount`) application.
+
+2.	Click **Password**.
+
+    ![forgotten-password-option](../../../assets/img/guides/forgotten-password-option.png)
+
+3.	Enter the user name of the newly created user. If multiple recovery options are displayed, select the **Recover with Mail** option.
+
+    ![recover-password-email-option.png](../../../assets/img/guides/recover-password-email-option.png)
+    
+4.	Click **Submit**. 
+
+5.  Log in to the email account you provided in the user profile of the user you created above. You will see a new email with a password reset request.
+    
+6.  Follow the link provided in the email to reset the password. You can
+    now log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application
+    successfully as the user you created above using the new password.
 
 ---
 
@@ -28,60 +102,9 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 "HTTP/1.1 202 Accepted"
 ```
 
-### Get challenge question of user
-This API is used to initiate password recovery using user challenge questions, one at a time. Response will be a random challenge question with a confirmation key.
-
-**Request**
-
-```curl
-curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/security-question?username=[USERNAME]"
-```
-
-```curl tab="Sample Request"
-curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/security-question?username=kim"
-```
-
-```curl tab="Sample Response"
-{"key":"7ced9ef0-7f3f-4f65-a115-ddbcce3a6b49","question":{"question":"Place of birth ?","question-set-id":"http://wso2.org/claims/challengeQuestion1"}
-```
-
-### Validate user challenge answer/answers
-
-**Request**
-
-```curl
-curl -k -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"key": "[VALIDATION KEY]","answers": [{ "question-set-id": "http://wso2.org/claims/challengeQuestion1","answer": "[ANSWER]"},{"question-set-id": "http://wso2.org/claims/challengeQuestion2","[ANSWER2]": "car"}],"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/validate-answer"
-```
-
-```curl tab="Sample Request"
-curl -k -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"key": "0b20bd4d-cd82-4e8f-8ca4-4d265360b56b","answers": [{ "question-set-id": "http://wso2.org/claims/challengeQuestion1","answer": "Sri Lanka"},{"question-set-id": "http://wso2.org/claims/challengeQuestion2","answer": "BMW"}],"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/validate-answer"
-```
-
-```curl tab="Sample Response"
-{"key":"c45d7251-59f1-468d-9844-8a6d7c5fe9d9","question":null,"link":{"rel":"set-password","uri":"/api/identity/recovery/v0.9"}}              
-```
-
-### Get challenge questions of user
-
-This API is used to initiate password recovery by answering all the challenge questions at once. The response will have random challenge questions from the ones configured and a confirmation key.
-
-**Request**
-
-```curl 
-curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/security-questions?username=[USERNAME]"
-```
-
-```curl tab="Sample Request"
-curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/recovery/v0.9/security-questions?username=kim"
-```
-
-```curl tab="Sample Response" 
-{"key":"f9f04fd7-3666-4bc6-bc99-9190b04b0ccc","questions":[{"question":"Place of birth?","question-set-id":"http://wso2.org/claims/challengeQuestion1"},{"question":"Model of your first car?","question-set-id":"http://wso2.org/claims/challengeQuestion2"}],"link":{"rel":"validate-answer","uri":"/api/identity/recovery/v0.9"}}
-```
-
 ### Update password
 
-This API is used to reset user password using the confirmation key recieved through the recovery process. Input the key and the new password.
+This API is used to reset user password using the confirmation key received through the recovery process. Input the key and the new password.
 
 **Request**
 
@@ -99,170 +122,5 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 
 ---
 
-## Recover password using SOAP APIs
-
-### getUserChallengeQuestion
-
-<table>
-    <tbody>        
-        <tr class="even">
-            <th>Description</th>
-            <td>This operation retrieves the challenge question for the user.</td>
-        </tr>
-        <tr class="odd">
-            <th>Permission Level</th>
-            <td>/permission/admin/login</td>  
-        </tr>
-        <tr class="even">
-            <th>Input Parameters</th>
-            <td>
-               <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
-                  <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
-                  <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
-               </ul>
-            </td>           
-        </tr>
-        <tr class="odd">
-            <th>Request</th>
-            <td>
-               <div style="width: 100%; display: block; overflow: auto;">
-               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
-&lt;soapenv:Header/&gt;
-&lt;soapenv:Body&gt;
-   &lt;ser:getUserChallengeQuestion&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:userName&gt;&lt;/ser:userName&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:confirmation&gt;&lt;/ser:confirmation&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:questionI&gt;&lt;/ser:questionId&gt;
-   &lt;/ser:getUserChallengeQuestion&gt;
-&lt;/soapenv:Body&gt;
-&lt;/soapenv:Envelope&gt;</code></pre>
-             </div>
-            </td>
-        </tr>        
-    </tbody>    
-</table>
-
-### getAllChallengeQuestions
-
-<table>
-    <tbody>        
-        <tr class="even">
-            <th>Description</th>
-            <td>This operation retrieves all the challenge questions.</td>
-        </tr>
-        <tr class="odd">
-            <th>Permission Level</th>
-            <td>/permission/admin/login</td>  
-        </tr>
-        <tr class="even">
-            <th>Request</th>
-            <td>
-               <div style="width: 100%; display: block; overflow: auto;">
-               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
-&lt;soapenv:Header/&gt;
-&lt;soapenv:Body&gt;
-   &lt;ser:getAllChallengeQuestions/&gt;
-&lt;/soapenv:Body&gt;
-&lt;/soapenv:Envelope&gt;</code></pre>
-             </div>
-            </td>
-        </tr>        
-    </tbody>    
-</table>
-
-### verifyUserChallengeAnswer
-
-<table>
-    <tbody>        
-        <tr class="even">
-            <th>Description</th>
-            <td>This operation verifies the user against the challenge question.</td>
-        </tr>
-        <tr class="odd">
-            <th>Permission Level</th>
-            <td>/permission/admin/login</td>  
-        </tr>
-        <tr class="even">
-            <th>Input Parameters</th>
-            <td>
-               <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
-                  <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
-                  <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
-                  <li><code>answer</code> <code>[String]</code>: This is the answer to the question.</li>                  
-               </ul>             
-            </td>
-        </tr>
-        <tr>
-            <th>Request</th>
-            <td>
-               <div style="width: 100%; display: block; overflow: auto;">
-               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
-&lt;soapenv:Header/&gt;
-&lt;soapenv:Body&gt;
-   &lt;ser:verifyUserChallengeAnswer&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:userName&gt;&lt;/ser:userName&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:confirmation&gt;&lt;/ser:confirmation&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:questionId&gt;&lt;/ser:questionId&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:answer&gt;&lt;/ser:answer&gt;
-   &lt;/ser:verifyUserChallengeAnswer&gt;
-&lt;/soapenv:Body&gt;
-&lt;/soapenv:Envelope&gt;</code></pre>
-             </div>
-         </td>
-        </tr>        
-    </tbody>    
-</table>
-
-### updatePassword
-
-<table>
-    <tbody>        
-        <tr class="even">
-            <th>Description</th>
-            <td>This operation updates the password in the system for password recovery process. <br>Before calling this method, call the <code>verifyConfirmationCode()</code> method and get the newly generated confirmation code.</td>
-        </tr>
-        <tr class="odd">
-            <th>Permission Level</th>
-            <td>/permission/admin/login</td>  
-        </tr>
-        <tr class="even">
-            <th>Input Parameters</th>
-            <td>
-               <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
-                  <li><code>confirmationCode</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
-                  <li><code>newPassword</code> <code>[String]</code>: This is the user's new password.</li>
-               </ul>             
-            </td>
-        </tr>
-        <tr>
-            <th>Request</th>
-            <td>
-               <div style="width: 100%; display: block; overflow: auto;">
-               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
-&lt;soapenv:Header/&gt;
-&lt;soapenv:Body&gt;
-   &lt;ser:updatePassword&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:username&gt;&lt;/ser:username&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:confirmationCode&gt;&lt;/ser:confirmationCode&gt;
-      &lt;!--Optional:--&gt;
-      &lt;ser:newPassword&gt;&lt;/ser:newPassword&gt;
-   &lt;/ser:updatePassword&gt;
-&lt;/soapenv:Body&gt;
-&lt;/soapenv:Envelope&gt;</code></pre>
-             </div>
-         </td>
-        </tr>        
-    </tbody>    
-</table>
+!!! info "Related Topics"
+    - [Guide: Recover password via Challenge Questions](../../../guides/password-mgt/challenge-question)
