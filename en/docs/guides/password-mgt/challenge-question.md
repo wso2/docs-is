@@ -48,7 +48,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	![myaccount-login](../../../assets/img/fragments/myaccount-login.png)
  
-3. Select `Security` tab.
+3. Select the **Security** tab.
 
     ![myaccount-security-tab](../../../assets/img/fragments/myaccount-security-tab.png)
 
