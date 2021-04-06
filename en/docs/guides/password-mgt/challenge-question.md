@@ -16,7 +16,7 @@ WSO2 Identity Server enables resetting user passwords by correctly responding to
 
 ## Enable password reset via Challenge Questions
 
-Follow the steps below to configure WSO2 Identity Server to enable password reset by answering to a challenge question.  
+Follow the steps below to configure WSO2 Identity Server to enable password reset by answering a challenge question.  
 
 1.  Sign in to the WSO2 Identity Server Management Console (`https://<HOST>:<PORT>/carbon`) as an administrator. 	  
 
