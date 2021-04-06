@@ -10,7 +10,7 @@ WSO2 Identity Server enables resetting user passwords by correctly responding to
     
 2. Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
     
-3. Click **Add New User** and create a new user with the username "Alex".
+3. Click **Add New User** and create a new user by providing username and password.
     
 4. Click **Finish**.
 
@@ -79,7 +79,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
     ![forgotten-password-option](../../../assets/img/guides/forgotten-password-option.png)
 
-3.	Enter the user name as `Alex` and if multiple recovery options are displayed, select the **Recover with Security Questions** option.
+3.	Enter the user name of the newly created user and if multiple recovery options are displayed, select the **Recover with Security Questions** option.
 
     ![recover-password-security-question-option](../../../assets/img/guides/recover-password-security-question-option.png)
     

@@ -83,17 +83,17 @@ Follow the steps below to see how this works.
     **true** for the relevant users. To do this, follow the steps
     explained later in this page under [Invoke Admin Force Password Reset](#invoke-admin-force-password-reset).
     
-3.  Attempt to log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application as the user you created above, "Alex". 
+3.  Attempt to log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application as the user you created above. 
     The login attempt will fail and a password reset will be prompted in the form
     of an error message saying "Login failed! Please recheck the
     username and password and try again".
     
-5.  Log in to the email account you provided in Alex's user profile. You
+5.  Log in to the email account you provided in user profile of the created user. You
     will see a new email with a password reset request.
     
 6.  Follow the link provided in the email to reset the password. You can
     now log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application
-    successfully as Alex using the new password.
+    successfully using the new password.
 
 ---
 
@@ -114,20 +114,20 @@ which, the user will be prompted to set a new password.
     claim to **true** for the relevant users. To do this, follow the steps
     explained later in this page under [Invoke Admin Force Password Reset](#invoke-admin-force-password-reset).
     
-3.  Attempt to log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application as the user you created above, "alex". The
+3.  Attempt to log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application as the user you created above. The
     login attempt will fail and a password reset will be prompted in the
     form of an error message saying "Login failed! Please recheck the
     username and password and try again".
     
-4.  Log in to the email account you provided in Alex's user profile. You
+4.  Log in to the email account you provided in user profile of the created user. You
     will see a new email with an OTP (one time password) provided to log
     in to the account.
     
-5.  Use the OTP provided in the email to log in as Alex. You will be
+5.  Use the OTP provided in the email to log in as the user you created above. You will be
     redirected to the password reset UI where you are prompted to set a
     new password. Enter the relevant details to set a new password.
     
-6.  You can now log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application successfully as Alex using the 
+6.  You can now log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application successfully as the user you created using the 
     new password.
     
 ---
@@ -145,7 +145,7 @@ which, the user will be prompted to set a new password.
     changes.
     
 4.  Navigate to **Users and Roles** > **List** > **Users** and check the user
-    profile of the user you created above (Alex). You will see that the
+    profile of the user you created above. You will see that the
     value for the **One Time Password** field is empty.
     
 5.  Next, admin users can force a password reset flow by updating the
@@ -153,21 +153,21 @@ which, the user will be prompted to set a new password.
     claim to **true** for the relevant users. To do this, follow the steps
     explained later in this page under [Invoke Admin Force Password Reset](#invoke-admin-force-password-reset).
     
-6.  Attempt to log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application as the user you created above, "Alex". The
+6.  Attempt to log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application as the user you created above. The
     log in attempt will fail.
     
 7.  Log in again to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) as the admin user and check
-    Alex's user profile. You will see that there is now a code value in
+    user profile of the user you created above. You will see that there is now a code value in
     the **One Time Password** field.
     
-8.  Copy the code and use it as Alex's password to log in to the
+8.  Copy the code and use it as the password of the user you created above to log in to the
     the My Account (`https://<HOST>:<PORT>/myaccount`) application.
     
 9. You will be redirected to the password reset UI where you are
     prompted to set a new password. Enter the relevant details to set a
     new password.
     
-10. You can now log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application successfully as Alex using the 
+10. You can now log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application successfully as the user you created above using the 
     new password.
  
 ---

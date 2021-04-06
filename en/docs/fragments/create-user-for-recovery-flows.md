@@ -2,7 +2,7 @@
 
 2. Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
 
-3. Click **Add New User** and create a new user with the username "Alex".
+3. Click **Add New User** and create a new user by providing username and password.
 
 4. Click **Finish**.
     

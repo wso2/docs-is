@@ -66,17 +66,17 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
     ![forgotten-password-option](../../../assets/img/guides/forgotten-password-option.png)
 
-3.	Enter the user name as `Alex` and if multiple recovery options are displayed, select the **Recover with Mail** option.
+3.	Enter the user name of the newly created user. If multiple recovery options are displayed, select the **Recover with Mail** option.
 
     ![recover-password-email-option.png](../../../assets/img/guides/recover-password-email-option.png)
     
 4.	Click **Submit**. 
 
-5.  Log in to the email account you provided in Alex's user profile. You will see a new email with a password reset request.
+5.  Log in to the email account you provided in the user profile of the user you created above. You will see a new email with a password reset request.
     
 6.  Follow the link provided in the email to reset the password. You can
     now log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application
-    successfully as Alex using the new password.
+    successfully as the user you created above using the new password.
 
 ---
 
