@@ -2,6 +2,8 @@
 
 WSO2 Identity Server enables resetting user passwords by emailing a password reset link to the user’s registered email Id.
 
+---
+
 ## Prerequisites
 
 **Create a user**
@@ -13,6 +15,8 @@ WSO2 Identity Server enables resetting user passwords by emailing a password res
 Enable the email sending configurations of the WSO2 Identity Server as explained here.
 
 {!fragments/configure-email-sending.md!}
+
+---
     
 ## Enable password reset via email
 
@@ -36,7 +40,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 	!!! info 
         This is already configured this way by default. You can skip this step if you have not changed this configuration previously.
 
-3.	Sign in to the WSO2 Identity Server Management Console (`https://<SERVER_HOST>:9443/carbon`) as an administrator. 	 
+3.	Sign in to the WSO2 Identity Server Management Console (`https://<HOST>:<PORT>/carbon`) as an administrator. 	 
 
 4.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
@@ -51,6 +55,8 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
     ![notification-based-password-recovery-option](../../../assets/img/guides/notification-based-password-recovery-option.png)
 
 7.	Click **Update**. 
+
+---
        
 ## Recover password using the My Account application 
 
@@ -98,7 +104,7 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 
 ### Update password
 
-This API is used to reset user password using the confirmation key recieved through the recovery process. Input the key and the new password.
+This API is used to reset user password using the confirmation key received through the recovery process. Input the key and the new password.
 
 **Request**
 
@@ -115,3 +121,6 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 ```
 
 ---
+
+!!! info "Related Topics"
+    - [Guide: Recover password via Challenge Questions](../../../guides/password-mgt/challenge-question)
