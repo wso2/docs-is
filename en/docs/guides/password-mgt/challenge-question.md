@@ -42,7 +42,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 ## Configure the challenge questions
 
-1. Access WSO2 Identity Server My Account (`https://<HOST>:<PORT>/myaccount`) application.		
+1. Access the WSO2 Identity Server My Account (`https://<HOST>:<PORT>/myaccount`) application.		
 
 2.	Log in with the credentials of the user account that you created.
 
