@@ -24,7 +24,7 @@ brute force attacks.
 
 {! fragments/set-up-recaptcha.md !}
 
-You can either configure the recaptcha for a tenant, or configure it globally. 
+You can either configure the recaptcha for a tenant or configure it globally. 
 
 ### Configure self-registration with reCaptcha for a specific tenant
 
