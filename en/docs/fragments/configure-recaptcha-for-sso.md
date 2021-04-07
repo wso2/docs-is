@@ -1,7 +1,7 @@
 
 1. Log in to the management console  (`https://<IS_HOST>:<IS_PORT>/carbon`).
 
-2. Click **Resident** under **Identity Providers** found in the **Main** tab.
+2. Click **Main** > **Identity** > **Identity Providers** > **Resident**.
 
 3. Expand the **Login Attempts Security** tab. Then, expand the **reCaptcha for SSO Login** tab.
 
