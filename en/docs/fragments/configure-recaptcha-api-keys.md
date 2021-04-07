@@ -6,7 +6,7 @@ First, you will need to register and create an API key pair for the required dom
 
 1.  Go to <https://www.google.com/recaptcha/admin>.
 
-2.  You will see the following window. Fill in the fields to register
+2.  Fill in the fields to register
     your identity server domain and click **Register**. The following
     are sample values:
     -   **Label:** WSO2 Identity Server

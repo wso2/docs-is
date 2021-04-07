@@ -1,7 +1,7 @@
 ## Configure reCAPTCHA settings in WSO2 IS
 
 1. Open the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory and uncomment the following configuration 
-   block to Google reCAPTCHA settings. The values copied from step 5 should be added for the `site_key` and `secret_key` properties. 
+   block to Google reCAPTCHA settings. The values copied when configuring reCAPTCHA API keys should be added for the `site_key` and `secret_key` properties. 
 
     ```toml
     [recaptcha]

@@ -1,5 +1,5 @@
 
-1. Log in to the management console.
+1. Log in to the management console  (`https://<IS_HOST>:<IS_PORT>/carbon`).
 
 2. Click **Resident** under **Identity Providers** found in the **Main** tab.
 
