@@ -122,5 +122,25 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 
 ---
 
+## Resend email notification
+ 
+ Run the following curl command to resend email notification for password reset. 
+ 
+ **Request** 
+ 
+ ```curl
+ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": <USERNAME>,"realm": <REALM>"},"properties": [{"key":"RecoveryScenario","value":"NOTIFICATION_BASED_PW_RECOVERY"}]}' "https://<IS_HOST>:<IS_PORT>/api/identity/user/v1.0/resend-code" -k -v
+ ```
+ 
+ **Sample**
+ 
+ ```curl tab="Request"
+ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"NOTIFICATION_BASED_PW_RECOVERY"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
+ ```
+ 
+ ```curl tab="Response"
+ HTTP/1.1 201 Created
+ ```
+
 !!! info "Related Topics"
     - [Guide: Recover password via Challenge Questions](../../../guides/password-mgt/challenge-question)

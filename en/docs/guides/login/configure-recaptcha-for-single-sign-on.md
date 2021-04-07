@@ -10,7 +10,13 @@ attacks.
     -   For more information on brute force attacks, see [Mitigating Brute
     Force Attacks](../../../deploy/mitigate-attacks/mitigate-brute-force-attacks/).
 
+{! fragments/configure-recaptcha-api-keys.md !}
+
+---
+
 {! fragments/set-up-recaptcha.md !}
+
+{! fragments/configure-recaptcha-for-sso.md !}
 
 !!! info "Related Topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)

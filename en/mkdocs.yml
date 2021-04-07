@@ -250,9 +250,9 @@ nav:
         - 'Admin-Initiated Password Reset': guides/password-mgt/forced-password-reset.md
         - 'Password Recovery Using Email Verification': guides/password-mgt/recover-password.md
         - 'Password Recovery Using Challenge Question': guides/password-mgt/challenge-question.md
-        - 'Resend Account Recovery Confirmation Mail': guides/password-mgt/recovery-confirmation.md
-        - 'reCAPTCHA on Invalid Password Attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
-        - 'reCAPTCHA on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
+        #- 'Resend Account Recovery Confirmation Mail': guides/password-mgt/recovery-confirmation.md
+        - 'Configure reCAPTCHA for Password Recovery': guides/password-mgt/recaptcha-password-recovery.md
+        - 'Configure reCAPTCHA on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
         - 'Configure Email Masking Pattern for Notification Based Password Recovery': guides/identity-lifecycles/configure-email-masking-pattern.md
       - 'Federated Account Linking':
         - 'Automatic Account Linking During JIT': guides/account-linking/automatic-account-link.md
