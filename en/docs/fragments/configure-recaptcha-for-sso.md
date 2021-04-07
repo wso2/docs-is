@@ -13,7 +13,7 @@
 
     - **Prompt reCaptcha after max failed attempts:** 
     
-        Select this option to prompt reCAPTCHA only after the number of max failed attempts has been exceeded. 
+        Select this option to prompt reCAPTCHA only after the number of max failed attempts exceed. 
     
         If this option is selected, enter a value for the **Max failed attempts for reCaptcha** field as well. For example, if you enter 3, reCaptcha will be re-enabled after 3 failed attempts.  
         
