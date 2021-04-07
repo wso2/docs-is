@@ -4,18 +4,16 @@ This section guides you through editing or deleting a user role in WSO2 Identity
 
 ----
 
-## Edit or delete a role using the admin portal
+## Edit or delete a role using the Management Console
 
-(TODO:portal-fragment)
+{! fragments/edit-delete-role.md !}
 
 ---
 
 ### Edit or delete a role using SCIM
 
 In SCIM roles are considered as **groups.** You can edit or delete a
-group using SCIM. Please read more about
-[SCIM](TODO:insert-link) for further
-details.
+group using SCIM. For more information, see [SCIM 2.0 Rest APIs](../../../apis/scim2-rest-apis)
 
 ---
 
@@ -23,8 +21,7 @@ details.
 
 A role can be edited or deleted by calling the service
 `         RemoteUserStoreManager        ` . If you are new to admin
-services, see [Calling Admin
-Services.](TODO:insert-link)
+services, see [Calling Admin Services.](../../../apis/call-admin-services/)
 
 1.  Disable the hidden admin service property in the
     `           <IS_HOME>/repository/conf/deployment.toml          ` file.  
@@ -38,8 +35,7 @@ Services.](TODO:insert-link)
     ```
 
 2.  Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
-    [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
-    ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
+    `https://localhost:9443/services/RemoteUserStoreManagerService?wsdl`
 
     !!! info 
         If you have configured WSO2 IS to use an IP or hostname, replace
@@ -76,7 +72,7 @@ Services.](TODO:insert-link)
             </ser:deleteRole>
         </soap:Body>
     </soap:Envelope>
-    ```
+    ```  
 ----
 
 ## Update special role names
@@ -89,15 +85,15 @@ You can change the default role name before starting the WSO2 Identity
 Server. To do this, change the properties in the `         <IS_HOME>/repository/conf/deployment.toml       ` file as shown below.
 Change the value of `admin_role` to ` New role name`. 
 
-
-           [super_admin]
-           username = "admin"
-           password = "admin"
-           create_admin_account = true
-           admin_role = "admin"
-           [realm_manager]
-           data_source = "jdbc/WSO2CarbonDB"
-
+```toml
+[super_admin]
+username = "admin"
+password = "admin"
+create_admin_account = true
+admin_role = "admin"
+[realm_manager]
+data_source = "jdbc/WSO2CarbonDB"
+```
 
 ---
 
@@ -135,5 +131,5 @@ some time.
 !!! info "Related Topics"
     - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)
     - [Guide: Add Roles](../add-user-roles)
-    - [Guide: Role Based Permissions](../edit-delete-roles)
+    - [Guide: Role Based Permissions](../role-based-permissions/)
 

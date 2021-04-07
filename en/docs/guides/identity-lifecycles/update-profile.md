@@ -1,8 +1,22 @@
 # View and Update User Profiles
 
-## View and update a user using the admin portal
+## View and update a user using the Management Console
 
-{insert-fragment}
+Follow the instructions given below to update a user using management console.
+
+1.  On the **Main** > **Identity** tab in the Management Console, click **List** under
+    **Users and Roles**.
+2.  Click **Users**. This link is only visible to users with the Admin
+    role.
+3.  You will see the list of users that are available and you can click
+    **Update Profile** if you want to update the profile of a particular
+    user.  
+    ![update-profile-in-console](../../../assets/img/guides/update-profile-in-console.png) 
+4.  There you can update the details of the user and click **Update**.  
+    ![update-userdetails](../../../assets/img/guides/update-userdetails.png) 
+
+Other than updating user profile details, you can also change the
+password of the user and assign more roles to the user.
 
 ---
 
@@ -12,7 +26,7 @@ You can update a user profile using a SCIM request as shown below.
 **Request**
 
 ```curl
-curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":[{"op":[operation],"value":{[attributeName]:[attribute value]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[user ID]
+curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":[{"op":[operation],"value":{[attributeName]:[attribute value]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[userID]
 ```
 
 Below is a sample request and its corresponding response using SCIM 2.0. 
@@ -31,7 +45,7 @@ curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api
 
 The users can update their claims by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](insert-calling admin services).
+admin services, see [Calling Admin Services](../../../apis/call-admin-services/).
 
 1.  Enable the hidden admin service property in the
     `            <IS_HOME>/repository/conf/deployment.toml          `
@@ -45,9 +59,8 @@ admin services, see [Calling Admin Services](insert-calling admin services).
     enable = true
     ```
 
-2.  Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
-    [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
-    ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
+2.  Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):`https://localhost:9443/services/RemoteUserStoreManagerService?wsdl`  
+    
 
     !!! info 
          If you have configured WSO2 IS to use an IP or hostname, replace

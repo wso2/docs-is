@@ -282,3 +282,71 @@ and monitor the logs:
     **Carbon logs** in separate log files with time stamps . Note that
     older Carbon logs are archived in the
     `          wso2carbon.log         ` file.
+
+
+---
+
+## Track user deletion on deleting a user
+
+WSO2 Identity Server (WSO2 IS) allows you to track details related to
+user deletion by writing the following information to a log file each
+time a user is deleted:
+
+-   The user name of the deleted user.
+-   The user store domain name of the deleted user.
+
+-   The tenant domain name of the deleted user.
+-   The tenant ID of the deleted user.
+-   The timestamp that the user was deleted.
+
+You can use this log file as an input to the Identity Anonymization tool
+that is packaged with WSO2 Identity Server, to ensure that you [remove references to all deleted user identities](../../../deploy/remove-references-to-deleted-user-identities/).
+
+Follow the steps below to configure WSO2 Identity Server to log details
+related to user deletion each time you delete a user.
+
+1.  Add the following property to the 
+    `           <IS_HOME>/repository/conf/deployment.toml          `
+    file, and set it to
+    `           true          `.
+
+    ``` toml
+    [event.default_listener.user_deletion]
+    priority= "98"
+    enable = true 
+    ```
+
+2.  Add the following property to the
+    `           <IS_HOME>/repository/conf/deployment.toml          `
+    file, and set `           enable          ` to
+    `           true          `.
+
+    ``` toml
+    [event.default_recorder.user_delete_event]
+    name= "org.wso2.carbon.user.mgt.recorder.DefaultUserDeletionEventRecorder"
+    enable = true
+    ```
+
+    This writes details related to user deletion in the `.csv` format to
+    the
+    `           <IS_HOME>/repository/logs/delete-event.log          `
+    file.
+
+    !!! note
+         If necessary, you can write user delete event details to a custom `.csv`
+         file that you specify. To do this, add the following property in
+          the `<IS_HOME>/repository/conf/deployment.toml         `
+         file, and make sure to specify the custom `.csv `file path.
+
+         ``` java
+         [event.default_recorder.user_delete_event]
+         write_to_separate_csv.path = "${carbon.home}/repository/logs/delete-records.csv"
+         ```
+
+!!! tip
+    By default, all logs related to user deletion are written in `.csv` format
+    to a specified log file. You can extend this functionality to log the
+    details in any other format that you want, and you can also extend the
+    functionality to write the details to a text file, database, or any
+    other file depending on your requirement.
+    <!--For more information, see [Writing user deletion logs in other formats](TODO:insert-link).-->

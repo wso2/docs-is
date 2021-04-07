@@ -12,13 +12,13 @@ WSO2 Identity Server enables configuring password policies to enhance user passw
 
 WSO2 Identity Server (IS) allows you to define custom password policies and enforce them at the point of user creation. This topic guides you through configuring a simple custom password policy and enforcing it. You can also have a different password policy for each tenant in a multi-tenant environment.
 
-1.  Start the WSO2 IS server and login to the management console.
+1.  Start the WSO2 IS server and log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
-2.  Click **Resident** under **Identity Providers** found in the **Main** tab of the [management console](../../../deploy/get-started/get-started-with-the-management-console).
+2.  Click **Resident** under **Identity Providers** found in the **Main**.
 
 3.  Expand the **Password Policies** tab.
 
-4.  Expand the **Password Patterns** tab and select **Enable Password Policy Feature**. Update the default values and click **Update**.
+4.  Expand the **Password Patterns** tab and select **Validate passwords based on a policy pattern**. Update the default values and click **Update**.
     
     ![password-policies](../../assets/img/guides/password-policies.png) 
 
@@ -39,17 +39,17 @@ WSO2 Identity Server (IS) allows you to define custom password policies and enfo
     </thead>
     <tbody>
     <tr class="odd">
-    <td>Password Policy Min Length</td>
+    <td>Minimum number of characters</td>
     <td>This value specifies the minimum length allowed for a password.</td>
     <td>6</td>
     </tr>
     <tr class="even">
-    <td>Password Policy Max Length</td>
+    <td>Maximum number of characters</td>
     <td>This value specifies the maximum length allowed for a password.</td>
     <td>12</td>
     </tr>
     <tr class="odd">
-    <td>Password Policy Pattern</td>
+    <td>Password pattern regex</td>
     <td>This is a Java based regular expression (regex) that defines a character sequence for the password to follow.</td>
     <td><div class="content-wrapper">
     <p>^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&amp;*])).{0,100}$</p>
@@ -61,7 +61,7 @@ WSO2 Identity Server (IS) allows you to define custom password policies and enfo
     </div></td>
     </tr>
     <tr class="even">
-    <td>Password Policy Error Message</td>
+    <td>Error message on pattern violation</td>
     <td>This value specifies the error message that will appear if the password policy is violated at the point of user creation.</td>
     <td>'Password pattern policy violated. Password should contain a digit[0-9], a lower case letter[a-z], an upper case letter[A-Z], one of !@#$%&amp;* characters'</td>
     </tr>
@@ -70,7 +70,7 @@ WSO2 Identity Server (IS) allows you to define custom password policies and enfo
 
 !!! warning "Ask Password and JIT Provisioning"
 
-    When registering users with [Password Entry (ask password)](../../../guides/identity-lifecycles/invitation-workflow/) or [JIT Provisioning](../../get-started/provisioning-architecture/#jit-provisioning), temporary passwords are automatically generated and validated against a predefined PasswordJavaRegEx regular expression in the user store configurations. For complex regex patterns, the password validation could fail causing an unsuccessful user registration.
+    When registering users with [Password Entry (ask password)](../../../guides/identity-lifecycles/invitation-workflow/) or [JIT Provisioning](../../../get-started/provisioning-architecture/#jit-provisioning), temporary passwords are automatically generated and validated against a predefined PasswordJavaRegEx regular expression in the user store configurations. For complex regex patterns, the password validation could fail causing an unsuccessful user registration.
 
     Follow the steps below to resolve this issue:  
 
@@ -477,8 +477,10 @@ WSO2 Identity Server (IS) allows you to define custom password policies and enfo
             } 
 
         ```
-    b.  Implement this logic within the `generatePassword()` method.
-    c.  Build the OSGI bundle of the custom handler and place the .jar file in `<IS_HOME>/repository/components/dropins` directory.
+    b.  Implement this logic within the `generatePassword()` method. 
+    
+    c.  Build the OSGI bundle of the custom handler and place the .jar file in `<IS_HOME>/repository/components/dropins` directory. 
+    
     d.  Open the `deployment.toml` file in the '<IS_HOME>/repository/conf/' directory and add the following configuration.
 
     ```toml
@@ -494,7 +496,7 @@ WSO2 Identity Server (IS) allows you to define custom password policies and enfo
 
     a.  Create a custom operation listener by overriding the `doPreAddUser()` method in `UserOperationsEventListener`. 
         
-    ??? note "Click here to expand"
+    ??? note "Click to view a sample user operation event listener"
 
         ```java
             package org.wso2.carbon.sample.user.operation.event.listener;
@@ -723,7 +725,9 @@ WSO2 Identity Server (IS) allows you to define custom password policies and enfo
         
             }
         ```
-    b.  Implement this logic within the `generatePassword()` method.   
+    
+    b.  Implement this logic within the `generatePassword()` method. 
+      
     c.  Build the OSGI bundle of the custom handler and place the .jar file in the `<IS_HOME>/repository/components/dropins` directory.
 
     d.  Restart WSO2 Identity Server.
@@ -734,10 +738,10 @@ WSO2 Identity Server (IS) allows you to define custom password policies and enfo
 
 Recording user password history can provide better security for user accounts. Through the WSO2 Identity Server, you can keep a history of the user's past passwords according to a preconfigured count. This enables you to prevent users from using passwords they have used in the recent past. For example, if you configure a count of 5 passwords, users will be prevented from reusing their last 5 passwords as the current password. Follow the steps below to configure the count.
 
-1.  Log in to the management console.
-2.  Click **Resident** under **Identity Providers** in the **Main** tab of the [management console](../../setup/getting-started-with-the-management-console).
+1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+2.  Click **Resident** under **Identity Providers** in the **Main**.
 3.  Expand the **Password Policies** tab.
-4.  Expand the **Password History** tab and select **Enable Password History Feature**. Specify the **Password History Validation Count** and click **Update**.
+4.  Expand the **Password History** tab and select **Validate password history**. Specify the **Password History Validation Count** and click **Update**.
 
     !!! note
     
@@ -754,8 +758,8 @@ WSO2 Identity Server supports configuring a password expiry policy to prompt use
 ----
 
 !!! info "Related Links"
-    -   To test a global password policy that applies to all tenants, you can write a custom password policy using the configuration file instead of through the management console. For more information, see [Writing a Custom Password Validator](../../develop/writing-a-custom-password-validator).
-    -   By default, the claim values of the identity claims used in this feature are stored in the JDBC datasource based on a configuration. See [Configuring Claims](TODO:insertlink) for more information on how to store the claim values in the user store.
+    -   To test a global password policy that applies to all tenants, you can write a custom password policy using the configuration file instead of through the management console. For more information, see [Writing a Custom Password Validator](../../../extend/user-mgt/write-a-custom-password-validator).
+    -   By default, the claim values of the identity claims used in this feature are stored in the JDBC datasource based on a configuration. See [Configuring Claims](../../../guides/dialects/configure-claims) for more information on how to store the claim values in the user store.
 
 
 

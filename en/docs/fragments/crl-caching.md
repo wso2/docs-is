@@ -22,3 +22,6 @@ Follow the steps below to configure CRL caching.
     timeout="900"
     capacity="5000"
     ```
+    
+3. Restart the server to apply the changes.
+    
