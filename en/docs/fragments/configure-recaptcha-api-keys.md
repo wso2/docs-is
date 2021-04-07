@@ -1,6 +1,6 @@
 ## Configure reCaptcha API keys
 
-[reCAPTCHA](https://developers.google.com/recaptcha/) is a free widget service provided by Google that can be used for protection against spam or other forms of internet abuse by verifying whether a user is a human or a robot.The following section guides you through setting up reCAPTCHA with the WSO2 Identity Server.
+[reCAPTCHA](https://developers.google.com/recaptcha/) is a free widget service provided by Google that can be used for protection against spam or other forms of internet abuse by verifying whether a user is a human or a robot. The following section guides you through setting up reCAPTCHA with WSO2 Identity Server.
 
 First, you will need to register and create an API key pair for the required domain. The key pair consists of a site key and secret. The site key is what is used when a reCAPTCHA widget is displayed on a page. After verification, a new parameter called g-recaptcha-response appears on the form which the user submits. From the server side, you can verify the submitted captcha response by calling the Google API with the secret key.
 
