@@ -14,11 +14,11 @@ The [specification](https://tools.ietf.org/html/rfc6749) defines four main grant
 
 Apart from the above four grant types, WSO2 Identity Server supports a few extension grants such as:
 
-[- JWT grant type](insertlink)
+[- JWT grant type](jwt-bearer-grant_type.md)
 
-[- SAML bearer grant type](insertlink)
+[- SAML bearer grant type](saml2-bearer-assertion-profile.md)
 
-[- Kerberos grant type](insertlink)
+[- Kerberos grant type](kerberos-grant.md)
 
 
 To renew the existing access token, WSO2 Identity Server supports the [Refresh token grant type](refresh-token-grant.md)
