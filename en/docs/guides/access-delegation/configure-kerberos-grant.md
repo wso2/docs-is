@@ -1,6 +1,6 @@
 # Configure Kerberos Grant
 
-This page guides you through the flow involved in exchanging a Kerberos ticket for an OAuth2 token. To learn more, see [Kerberos grant](insertlink).
+This page guides you through the flow involved in exchanging a Kerberos ticket for an OAuth2 token. To learn more, see [Kerberos grant](../../../references/concepts/authorization/kerberos-grant/).
 
 ----
 
@@ -17,11 +17,9 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
     enable = true
     ```
 
------
-
-{!fragments/self-contained-access-tokens.md!}
-
 ----
+
+## Create a service provider
 
 {!fragments/register-a-service-provider.md!}
 
@@ -34,7 +32,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on the `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
+        For more information on the `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced).
         
 7.  Click **Add**. 
 
@@ -44,30 +42,41 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
 ----
 
-{!fragments/register-an-identity-provider.md!}
+## Register an identity provider
 
-4. Configure the **Alias**. 
+1. Log in to the Management Console(`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`). 
 
-    ```tab="Format"
-    https://<host>:<port>/oauth/token
-    ```
+2. On **Main** tab Click **Identity** > **Identity Providers** > **Add**.
 
-    ```tab="Sample"
-    https://localhost:9443/oauth/token
-    ```
+    ![add-identity-provider](../../../assets/img/fragments/add-identity-provider.png)
 
-5. Expand the **Federated Authenticators** tab, and then the **IWA Kerberos Configuration** tab. Enter the required details as follows.  
+3. Add a new Identity Provider (IDP). Enter the basic information as follows.
+   
+    !!! note
+        The IDP name should be the name of the realm as specified in [step 3](#step3) of Generate the kerberos token. Based
+        on this example, it should be `example.com`.
+       
+        -   **Identity Provider Name** :
+           [example.com](http://example.com)
+   
+        -   **Alias** : <https://192.168.53.12:9443/oauth/token>
+   
+        ![add-new-idp-kerberos](../../assets/img/guides/add-new-idp-kerberos.png)
+
+4. Expand the **Federated Authenticators** tab, and then the **IWA Kerberos Configuration** tab. Enter the required details as follows.  
        
     -   **Server Principal Name** : <HTTP/idp.example.com@EXAMPLE.COM>
     -   **Server Principal Password:** <password\>
 
         ![configure-kerberos](../../assets/img/guides/configure-kerberos.png)
 
+5. Click **Register**.
+
 ----
 
 ## Generate the kerberos token
 
-1.  Git clone the `KerbClientProject`.
+1.  Git clone the [KerbClientProject](https://github.com/erandacr/KerbClientProject).
 
     ``` java
     git clone https://github.com/erandacr/KerbClientProject
@@ -86,7 +95,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
         Note that you can also use any other IDE to run this project.
     
-3.  Configure the following parameters in the project according to your setup.
+3.  <a name ="step3"></a>Configure the following parameters in the project according to your setup.
 
     ``` java
     // Service Name goes here
@@ -144,3 +153,8 @@ The Kerberos Grant then validates the received token with the provided Identity 
 }
 ```
 
+----
+
+!!! info "Related Topics"
+    - [Concept: Kerberos grant](../../../references/concepts/authorization/kerberos-grant/)
+    

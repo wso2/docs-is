@@ -250,9 +250,9 @@ nav:
         - 'Admin-Initiated Password Reset': guides/password-mgt/forced-password-reset.md
         - 'Password Recovery Using Email Verification': guides/password-mgt/recover-password.md
         - 'Password Recovery Using Challenge Question': guides/password-mgt/challenge-question.md
-        - 'Resend Account Recovery Confirmation Mail': guides/password-mgt/recovery-confirmation.md
-        - 'reCAPTCHA on Invalid Password Attempts': guides/password-mgt/recaptcha-invalid-password-attempts.md
-        - 'reCAPTCHA on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
+        #- 'Resend Account Recovery Confirmation Mail': guides/password-mgt/recovery-confirmation.md
+        - 'Configure reCAPTCHA for Password Recovery': guides/password-mgt/recaptcha-password-recovery.md
+        - 'Configure reCAPTCHA on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
         - 'Configure Email Masking Pattern for Notification Based Password Recovery': guides/identity-lifecycles/configure-email-masking-pattern.md
       - 'Federated Account Linking':
         - 'Automatic Account Linking During JIT': guides/account-linking/automatic-account-link.md
@@ -264,12 +264,14 @@ nav:
             - 'Client Credentials': guides/access-delegation/client-credentials.md
             - 'Resource Owner Password Credentials': guides/access-delegation/password-grant.md
             - 'SAML2 Bearer Assertion': guides/access-delegation/saml2-bearer-assertion-profile.md
+            -  'Kerberos': guides/access-delegation/configure-kerberos-grant.md
           - 'Client Side Applications':
             - 'Implicit': guides/access-delegation/implicit.md
             - 'Authorization Code': guides/access-delegation/authorization-code-without-pkce.md
             - 'Authorization Code with PKCE': guides/access-delegation/authorization-code-with-pkce.md
-          - 'IoT Devices': guides/access-delegation/configure-refresh-token.md
-          - 'OAuth 2.0 Tokens': guides/access-delegation/configure-kerberos-grant.md
+          #- 'IoT Devices':
+          - 'OAuth 2.0 Tokens':
+              - 'Refresh Tokens': guides/access-delegation/configure-refresh-token.md
           - 'Invoke the OAuth 2.0 Introspection Endpoint': guides/access-delegation/configure-jwt-grant.md
           - 'OAuth 2.0 Dynamic Client Registration': guides/access-delegation/oauth-dynamic-client-registration.md
           - 'OAuth 2.0 Client Authentication': guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
@@ -750,8 +752,9 @@ nav:
                                           - 'Client Credentials Grant Type': references/concepts/authorization/client-credential-grant.md
                                           - 'Refresh Token Grant Type': references/concepts/authorization/refresh-token-grant.md
                                           - 'Device Flow Grant Type': references/concepts/authorization/device-flow-grant.md
-                                    - 'JWT Bearer Grant Type': references/concepts/authorization/jwt_bearer_grant.md
-                                    - 'SAML2 Bearer Assertion Profile': references/concepts/authorization/saml2-bearer-assertion-profile.md
+                                          - 'JWT Bearer Grant Type': references/concepts/authorization/jwt-bearer-grant_type.md
+                                          - 'SAML2 Bearer Assertion Profile': references/concepts/authorization/saml2-bearer-assertion-profile.md
+                                          - 'Kerberos Grant Type': references/concepts/authorization/kerberos-grant.md
                                     - 'Tokens':
                                           - 'Overview': references/concepts/authorization/overview.md
                                           - 'Access Tokens': references/concepts/authorization/access-token.md

@@ -36,7 +36,7 @@ strategies.
   A random unique string that does not contain user information which is issued from the authorization Server to access 
   a restricted resource in the Resource Server.
   
-### Self Contain Access Token
+### Self-Contained Access Token
   When short string identifiers are used as access tokens, a network request to the authorization server is required to 
   retrieve the authorization information associated with each access token. However, with self-contained access tokens, there
   is no need for a network call to retrieve the authorization information, as it’s self-contained. Thus, access token 
