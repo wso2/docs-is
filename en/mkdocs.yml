@@ -264,7 +264,8 @@ nav:
             - 'Client Credentials': guides/access-delegation/client-credentials.md
             - 'Resource Owner Password Credentials': guides/access-delegation/password-grant.md
             - 'SAML2 Bearer Assertion': guides/access-delegation/saml2-bearer-assertion-profile.md
-            -  'Kerberos': guides/access-delegation/configure-kerberos-grant.md
+            - 'JWT Bearer Assertion': guides/access-delegation/configure-jwt-grant.md
+            - 'Kerberos': guides/access-delegation/configure-kerberos-grant.md
           - 'Client Side Applications':
             - 'Implicit': guides/access-delegation/implicit.md
             - 'Authorization Code': guides/access-delegation/authorization-code-without-pkce.md
@@ -272,10 +273,10 @@ nav:
           #- 'IoT Devices':
           - 'OAuth 2.0 Tokens':
               - 'Refresh Tokens': guides/access-delegation/configure-refresh-token.md
-          - 'Invoke the OAuth 2.0 Introspection Endpoint': guides/access-delegation/configure-jwt-grant.md
+          - 'Invoke the OAuth 2.0 Introspection Endpoint': guides/access-delegation/invoke-oauth-introspection-endpoint.md
           - 'OAuth 2.0 Dynamic Client Registration': guides/access-delegation/oauth-dynamic-client-registration.md
           - 'OAuth 2.0 Client Authentication': guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
-          - 'Authorizing for the OAuth 2.0 Scopes': guides/access-delegation/invoke-oauth-introspection-endpoint.md
+          #- 'Authorizing for the OAuth 2.0 Scopes':
           - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
           - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
         - 'OpenID Connect':
@@ -751,7 +752,7 @@ nav:
                                           - 'Client Credentials Grant Type': references/concepts/authorization/client-credential-grant.md
                                           - 'Refresh Token Grant Type': references/concepts/authorization/refresh-token-grant.md
                                           - 'Device Flow Grant Type': references/concepts/authorization/device-flow-grant.md
-                                          - 'JWT Bearer Grant Type': references/concepts/authorization/jwt-bearer-grant_type.md
+                                          - 'JWT Bearer Grant Type': references/concepts/authorization/jwt-bearer-grant-type.md
                                           - 'SAML2 Bearer Assertion Profile': references/concepts/authorization/saml2-bearer-assertion-profile.md
                                           - 'Kerberos Grant Type': references/concepts/authorization/kerberos-grant.md
                                     - 'Tokens':
