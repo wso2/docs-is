@@ -14,7 +14,7 @@ The [specification](https://tools.ietf.org/html/rfc6749) defines four main grant
 
 Apart from the above four grant types, WSO2 Identity Server supports a few extension grants such as:
 
-[- JWT grant type](jwt-bearer-grant_type.md)
+[- JWT grant type](jwt-bearer-grant-type.md)
 
 [- SAML bearer grant type](saml2-bearer-assertion-profile.md)
 

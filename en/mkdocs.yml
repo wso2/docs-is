@@ -752,7 +752,7 @@ nav:
                                           - 'Client Credentials Grant Type': references/concepts/authorization/client-credential-grant.md
                                           - 'Refresh Token Grant Type': references/concepts/authorization/refresh-token-grant.md
                                           - 'Device Flow Grant Type': references/concepts/authorization/device-flow-grant.md
-                                          - 'JWT Bearer Grant Type': references/concepts/authorization/jwt-bearer-grant_type.md
+                                          - 'JWT Bearer Grant Type': references/concepts/authorization/jwt-bearer-grant-type.md
                                           - 'SAML2 Bearer Assertion Profile': references/concepts/authorization/saml2-bearer-assertion-profile.md
                                           - 'Kerberos Grant Type': references/concepts/authorization/kerberos-grant.md
                                     - 'Tokens':
