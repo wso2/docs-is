@@ -1,69 +1,108 @@
 # Lock and Unlock User Accounts
 
-[Account locking and account disabling](TODO:link-to-concept) are security features in WSO2 Identity Server (IS) that can be used to prevent users from logging in to their account and from authenticating themselves using their WSO2 IS account. The account locking feature is used to **temporarily** block a user from logging in, for example, in instances where there have been many consecutive, unsuccessful login attempts.
+Account locking and account disabling are security features in WSO2 Identity Server (IS) that can be used to prevent users from logging in to their account and from authenticating themselves using their WSO2 IS account. The account locking feature is used to **temporarily** block a user from logging in, for example, in instances where there have been many consecutive, unsuccessful login attempts.
 
-## Lock user accounts using the admin portal
+---
 
-{insert-fragment}
+## Configure the management console to enable account locking
+
+If you have not already configured WSO2 identity Server (WSO2 IS) for
+account locking, follow the instructions given below.
+
+{! fragments/enable-account-locking.md !}
+    
+---
+
+### Enable claims for account locking
+
+1.  Navigate to **Main** > **Identity** > **Claims** > **List** and select the `http://wso2.org/claims` claim dialect.  
+    For more information about claims, see [Configure Claims](../../../guides/dialects/configure-claims/).
+2.  Select the **Account Locked** claim and click **Edit**.  
+    ![account-locked-claim](../../../assets/img/guides/account-locked-claim.png) 
+3.  Select the **Supported by Default** check box and click **Update**
+.  
+    This is done to make the "Account Locked" status appear in the
+    user's profile.  
+    ![locked-status](../../../assets/img/guides/locked-status.png) 
+
+---
+
+## Lock user accounts using the management console
+
+1.  Navigate to **Main** > **Identity** > **Users and Roles** > **List** > **Users** and click on **User Profile** of the user you want to lock.
+2.  If it is the first time this particular account is being locked, a
+    text box will appear in front of the **Account Locked** field as
+    seen below.  
+    To lock the account, type true in the text box and click **Update**
+.  
+    ![admin-lock-account](../../../assets/img/guides/admin-lock-account.png)
+
+!!! note
+    If it is not the first time you are locking this user account, there
+    will be a check box instead of the text box (as shown above) in front of
+    the **Account Locked** field. Select the check box to lock the account
+    or deselect it to unlock the account and click **Update**.
 
 ---
 
 ## Lock user accounts using SCIM
 
-1. Open the `<IS-HOME>/repository/conf/scim2-schema-extension.config` file and add the following configuration. 
+1.	Open the `<IS-HOME>/repository/conf/scim2-schema-extension.config` file and add the following configuration. 
 
-   ```
-   {
-      "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:accountLock",
-      "attributeName":"accountLock",
-      "dataType":"boolean",
-      "multiValued":"false",
-      "description":"Lock user account.",
-      "required":"false",
-      "caseExact":"false",
-      "mutability":"readwrite",
-      "returned":"default",
-      "uniqueness":"none",
-      "subAttributes":"null",
-      "canonicalValues":[],
-      "referenceTypes":[]
-   }
-   ```
+	```
+	{
+		"attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:accountLock",
+		"attributeName":"accountLock",
+		"dataType":"boolean",
+		"multiValued":"false",
+		"description":"Lock user account.",
+		"required":"false",
+		"caseExact":"false",
+		"mutability":"readwrite",
+		"returned":"default",
+		"uniqueness":"none",
+		"subAttributes":"null",
+		"canonicalValues":[],
+		"referenceTypes":[]
+	}
+	```
 
-2. Then add the `accountLock` attribute as a sub-attribute of User.
+2.	Then add the `accountLock` attribute as a sub-attribute of User.
 
-   ```
-   "subAttributes":"verifyEmail askPassword accountLock employeeNumber costCenter organization division department manager"
-   ```
+	```
+	"subAttributes":"verifyEmail askPassword accountLock employeeNumber costCenter organization division department manager"
+	```
 
 3. Save the file and restart the server. 
 
 Before locking/unlocking users using SCIM, you need to do the following. 
 
-1. [Add claim mapping](insert-link)
+1. [Add claim mapping](../../../guides/dialects/add-claim-mapping/)
 
-2. [Enable account locking](insert-link)
+2. [Enable account locking](#configure-the-management-console-to-enable-account-locking)
 
-### Test it Out 
+---
+
+### Test it out 
 
 1. In order to update the lock status of a user account, we need to obtain the SCIM ID of that particular user. Therefore, we first call the GET users API to get the user details.
 
-   **Request**
+	**Request**
 
-   ``` curl 
-   curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users'
-   ```
-   **Sample**
+	``` curl 
+	curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users'
+	```
+	**Sample**
 
-   ```curl
-   curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?filter=userName+Eq+cameron'
-   ```
+	```curl
+	curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?filter=userName+Eq+cameron'
+	```
 
 2. After obtaining the SCIM ID of the user, invoke below curl command with the `accountLock` attribute set to `true` or `false` to lock or unlock the user account respectively.
 
-   ```curl 
-   curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","value":{"EnterpriseUser":{"accountLock":"true"}}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/<SCIM-ID>
-   ```
+	```curl 
+	curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","value":{"EnterpriseUser":{"accountLock":"true"}}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/<SCIM-ID>
+	```
 
 After setting the lock status to `true` for a particular user, the server should reject any authentication attempts done by that account.
 
@@ -122,5 +161,6 @@ Similarly, you can use the `setUserClaimValues` operation, `RemoteUserStoreManag
 ----
 
 !!! info "Related Topics"
-    - [Concept: Account Locking](TODO:link-to-concept)
-    - [Guide: Configure Email Notifications](TODO:link-to-guide)
+	[Guides: Configure Email Notifications for Account Locking](../../../guides/tenants/email-account-locking)
+    <!--- [Concept: Account Locking](TODO:link-to-concept)-->
+    <!-- [Guide: Configure Email Notifications](TODO:link-to-guide)-->

@@ -19,7 +19,7 @@ which, the accounts will be suspended.
 ## Set up account suspension notifications
 
 The notification module is a scheduled task that runs daily. It fetches
-users from the user store that are idle and eligible to receive a
+users from the userstore that are idle and eligible to receive a
 warning notification based on the last logged-in time. The scheduled
 task that checks for idle accounts is common to all tenants.
 
@@ -100,14 +100,14 @@ task that checks for idle accounts is common to all tenants.
         -   The template used to send an email when the account has been
             locked is the **AccountLock** template.
     
-        For more information on how to edit and customize the email templates, see [Customizing Automated Emails](TODO:../../learn/customizing-automated-emails).
+        For more information on how to edit and customize the email templates, see [Customizing Automated Emails](../../../guides/tenants/customize-automated-emails).
     
 
 ----
 
 ## Configure account suspension settings
 
-1.  Start the WSO2 IS and log into the management console using your
+1.  Start the WSO2 IS and log into the management console (`https://<IS_HOST>:<PORT>/carbon`) using your
     tenant credentials.
 2.  Click **Resident** under **Identity Providers** found in the
     **Main** tab. Expand the **Login Attempts Security** tab.
@@ -121,7 +121,7 @@ task that checks for idle accounts is common to all tenants.
     | Lock Timeout Increment Factor | This specifies the increment factor of the lock timeout. If the lock timeout increment factor is set to 2, then the timeout increments by 2 to the power of the number of failed login attempts. [Timeout increment = (Lock Timeout Increment Factor)<sup>(Number of Failed Attempts)</sup>] (If the number of failed login attempts is 3, timeout increment is 2<sup>3</sup>=8)                                                                                                                                                                                                                                           |  2          |
     | Enable Notification Internally Management | The field is set false if the client application handles notification sending.                                                                                                                                                                                                                                           |False            |
     
-    ![account-lock-enabled](../../assets/img/guides/account-lock-enabled.png)
+    ![account-lock-enabled](../../../assets/img/guides/account-lock-enabled.png)
     
 4.  Expand the **Account Management Policies** tab.
 
@@ -149,4 +149,4 @@ task that checks for idle accounts is common to all tenants.
 ----
 
 !!! info "Related Links"
-    See [Configuring Claims](TODO:../../learn/configuring-claims) for more information on how to store the claim values in the user store.
+    See [Configure Claims](../../../guides/dialects/configure-claims/) for more information on how to store the claim values in the userstore.

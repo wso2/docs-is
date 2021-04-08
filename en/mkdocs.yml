@@ -321,6 +321,7 @@ nav:
           - 'Tenant-wise Email Sender Configuration': guides/tenants/tenant-wise-config.md
           - 'Customize Automated Emails': guides/tenants/customize-automated-mails.md
           - 'Configure Emails with Special Characters': guides/tenants/add-email-special-characters.md
+          - 'Configure Email Notifications for Account Locking': guides/tenants/email-account-locking.md
       - 'My Account': 
         - 'Overview': guides/my-account/my-account.md
       #- 'Federation - To Remove':

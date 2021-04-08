@@ -7,4 +7,4 @@ There are certain operations that need to be performed on a specific user accoun
 
 - [Enable/Disable User Accounts](../enable-account)
 
-- [Suspend User Accounts](../suspend-account)
+- [Suspend User Accounts](../suspend-accounts)
