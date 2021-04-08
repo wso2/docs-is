@@ -58,7 +58,7 @@ This page guides you through the flow involved in exchanging a JWT assertion wit
 	
 3.	Click **Register**.
 
-You have successfully added the identity provider. Next, you will configure the application as a service provider.
+You have successfully added the identity provider. Next, configure the application as a service provider.
 
 ----
 
