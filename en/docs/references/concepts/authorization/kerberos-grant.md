@@ -9,7 +9,9 @@ organizations to exchange a Kerberos ticket for an OAuth 2.0 token. This
 allows organizations to re-use their existing Kerberos infrastructure
 and adopt OAuth 2.0.
 
-### Kerberos-OAuth2 grant flow
+---
+
+## Kerberos-OAuth2 grant flow
 
 The following section describes the flow involved in exchanging a
 Kerberos ticket for an OAuth2 token. 
