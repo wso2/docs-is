@@ -83,4 +83,4 @@ HTTP/1.1 201 Created
 ```
 
 !!! info "Related Topics"
-    See [Using the SCIM 2.0 Rest APIs](../../develop/using-the-scim-2.0-rest-apis) for instructions on using SCIM 2.0 REST APIs.
+    See [Using the SCIM 2.0 Rest APIs](../../develop/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
