@@ -19,7 +19,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
 
 1. Add an event publisher to `IS_HOME/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
 
-    ??? info "Sample Event Publisher"
+    <!--??? info "Sample Event Publisher"
         ```
         <?xml version="1.0" encoding="UTF-8"?>
         <eventPublisher name="HTTPOutputEventAdapter" processing="enable"
@@ -44,7 +44,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
             This publisher uses [NEXMO](https://www.nexmo.com/) as the SMS REST service provider. The 
             `api_key` and `api_secret` needs to be replaced with the appropriate values copied from the NEXMO API Dashboard. 
             For instructions on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
-            /display/DAS300/HTTP+Event+Publisher). 
+            /display/DAS300/HTTP+Event+Publisher). -->
 
 ----
 
@@ -74,7 +74,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
 
 ## Try it out 
 
-### Updating the mobile number
+### Update the mobile number
  
 Given below is a sample request and the relevant response for updating the mobile number via a PATCH operation to SCIM 2.0 Users endpoint.
 
@@ -136,7 +136,7 @@ curl -v -k --user bob:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api
 
 Upon receiving the response given above, the user will receive an SMS notification with a verification code to the new mobile number. 
  
-### Validating the verification code
+### Validate the verification code
 
 The user can submit the SMS OTP code using the validate-code API.
 Given below is a sample request and the relevant response to submit the received verification code.
@@ -161,7 +161,7 @@ curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: 
 "HTTP/1.1 202 Accepted"
 ```
 
-### Resending the verification code
+### Resend the verification code
 
 The user can request to resend a new SMS OTP code using the resend-code API.
 Given below is a sample request and the relevant response to request a new verification code.

@@ -5,72 +5,11 @@ number of consecutive failed login attempts are exceeded. First, you
 need to configure WSO2 Identity Server for user account locking and
 disabling. The following section explain how to configure this.
 
-### Configure WSO2 IS for account locking
+---
 
-1.  Ensure that the identity listener
-    with the `            priority=50           ` is set to **false**
-    and the identity listener with the `            priority=95           ` is set to **true**
-    in the
-    `            <IS_HOME>/repository/conf/deployment.toml           `
-    file by adding the following configuration.  
+## Configure WSO2 IS for account locking
 
-    !!! info 
-        This is already configured this way by default. You can skip this
-        step if you have not changed this configuration previously.
-
-    ??? note "Click to see the code block"
-
-        ``` xml
-        [event.default_listener.identity_mgt]
-        priority= "50"
-        enable = false
-        [event.default_listener.governance_identity_mgt]
-        priority= "95"
-        enable = true
-        ```
-    
-2.  <a name= "failedloginattempts"></a> Start the Identity Server and log in to the management console using
-    your tenant credentials.
-
-    !!! tip
-    
-        **Alternatively**, you can also use the
-        `                         IdentityGovernanceAdminService                       `
-        SOAP service to do this instead of using the management console UI.
-        See [Calling Admin Services](../../../apis/call-admin-services) for more
-        information on how to invoke this SOAP service. If you are using the
-        SOAP service to configure this, you do not need to follow the steps
-        given below this note.
-    
-
-3.  Click **Resident** under **Identity Providers** found in the
-    **Main** tab.
-4.  Expand the **Login Attempts Security** tab.
-5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
-    ![account-lock-enabled](../../assets/img/guides/account-lock-enabled.png)
-
-    !!! tip
-    
-        If a user is assigned the **Internal/system** role, the user can
-        bypass account locking even if the user exceeds the specified number
-        of **Maximum Failed Login Attempts**.
-    
-        !!! note
-                WSO2 Identity Server has the **Internal/system** role configured by
-                default. But generally a new user is not assigned the
-                **Internal/system** role by default. Required roles can be assigned
-                to a user depending on the set of permission a user needs to have.
-                For more information on roles and permission, see [Manage User Roles](../../../guides/identity-lifecycles/manage-roles-overview).
-                
-                Although the **Internal/system** role is configured by default in
-                WSO2 Identity Server, you can delete the role if necessary. To allow
-                users with the **Internal/system** role to bypass account locking,
-                you need to ensure that the role exists in WSO2 Identity Server.
-            
-
-6.  To enable account locking for other tenants, log out and repeat the
-    steps given above from [step
-    2](#failedloginattempts) onwards.
+{! fragments/enable-account-locking.md !}
 
 The following table describes the configuration properties and
 descriptions you need to configure:
@@ -176,16 +115,16 @@ tenants.
     If the lock time is set to 0, the account has to be unlocked by an admin
     user. For more information about this, see [Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account/).
     
+---
 
-### Send email notifications for account locking
+## Send email notifications for account locking
 
 Once you have configured WSO2 Identity Server for account locking by
 failed login attempts, you can also configure the WSO2 IS to send an
 email to the user's email address when the user account is locked due to
 failed login attempts. To configure this, follow the steps below.
 
--  Enable the email sending configurations of the WSO2 Identity Server
-    as explained [here](../../../deploy/configure-email-sending/).
+{! fragments/configure-email-sending.md !}
 
     !!! tip
     
@@ -193,8 +132,8 @@ failed login attempts. To configure this, follow the steps below.
         account locking is the **AccountLock** template and the template
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
-        how to do this, see [Customizing Automated
-        Emails](../../learn/customizing-automated-emails).
+        how to do this, see [Customize Automated
+        Emails](../../../guides/tenants/customize-automated-mails).
 
 
 WSO2 Identity Server uses separate email templates for notifying, 
@@ -203,7 +142,7 @@ WSO2 Identity Server uses separate email templates for notifying,
 - Account unlocking by exceeding `Account Unlock Time`
 
 Add the following email templates by referring to the instructions in 
-[Customizing AutomatedEmails](../../learn/customizing-automated-emails).
+[Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
 
 Following are the sample email templates.
 
@@ -324,53 +263,59 @@ Following are the sample email templates.
        </table>]]>
     ```
     - Footer : ---
-    
-### Configure WSO2 IS for Failed OTP attempts based account locking
+
+---
+
+## Configure WSO2 IS for Failed OTP attempts based account locking
 
 WSO2 Identity Server can be configured to lock a user account when the number of consecutive failed OTP attempts is exceeded. 
 First, you need to configure the WSO2 Identity Server for user account locking and disabling according to 
 [Configure WSO2 IS for account locking](#configure-wso2-is-for-account-locking).
 
-1. Add the following configurations into `<IS_HOME>/repository/conf/deployment.toml` file to enable account locking for 
-each type of OTP attempts.
-
-    - For Email OTP:
-    ```
-    [authentication.authenticator.email_otp.parameters]
-    EnableAccountLockingForFailedAttempts = true
-    ```
+1.  Add the following configurations into `<IS_HOME>/repository/conf/deployment.toml` file to enable account locking for each type of OTP attempts.
     
-    - For SMS OTP:
-    ```
-    [authentication.authenticator.sms_otp.parameters]
-    EnableAccountLockingForFailedAttempts = true
-    ```
+    -   For Email OTP:
+
+        ```
+        [authentication.authenticator.email_otp.parameters]
+        EnableAccountLockingForFailedAttempts = true
+        ```
+    
+    -   For SMS OTP:
+
+        ```
+        [authentication.authenticator.sms_otp.parameters]
+        EnableAccountLockingForFailedAttempts = true
+        ```
    
         !!! note
             Since `BackupCode = true` in the default configuration, configure the backup code claim according to 
-            [Configuring Backup Codes for SMSOTP](../../mfa/2fa-sms-otp/#configuring-backup-codes-for-smsotp)
+            [Configuring Backup Codes for SMSOTP](../../../guides/mfa/2fa-sms-otp/)
             Alternatively, you can disable the backup codes for SMS OTP by setting the property to **false**.
+            
             ```
             [authentication.authenticator.sms_otp.parameters]
             BackupCode = false
             ```
    
-    - For TOTP:
-    ```
-    [authentication.authenticator.totp.parameters]
-    EnableAccountLockingForFailedAttempts = true
-    ```
-   
-2. Navigate to **Main > Identity > Claims > Add > Add Local Claim**.
-3. Click **http://wso2.org/claims**.
+    -   For TOTP:
 
-4. Once the user account gets locked, the **Account Locked** attribute will be updated to **true**.
+        ```
+        [authentication.authenticator.totp.parameters]
+        EnableAccountLockingForFailedAttempts = true
+        ```
+
+3. Restart the server. 
+4. Navigate to **Main** > **Identity** > **Claims** > **Add** > **Add Local Claim**.
+5. Click **http://wso2.org/claims**.
+
+6. Once the user account gets locked, the **Account Locked** attribute will be updated to **true**.
 To check this via the user profile:
     1. Click **Edit** under the **Account Locked** claim.
     2. Select **Supported by Default** and click **Update**.
     3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
   
-5. **Failed Email OTP Attempts**, **Failed SMS Attempts**, and **Failed TOTP Attempts** attribute values will be incremented 
+7. **Failed Email OTP Attempts**, **Failed SMS Attempts**, and **Failed TOTP Attempts** attribute values will be incremented 
 for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. To check this via the user profile.
     - For Email OTP:
         1. Click **Edit** under the **Failed Email OTP Attempts** claim.
@@ -386,3 +331,8 @@ for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. To c
         1. Click **Edit** under the **Failed TOTP Attempts** claim.
         2. Select **Supported by Default** and click **Update**.
         3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
+
+!!! info "Related Topics" 
+    -   [Guides: Configure SMS OTP for 2-Factor Authentication](../../../guides/mfa/2fa-sms-otp/)
+    -   [Guides: Customize Automated Emails](../../../guides/tenants/customize-automated-mails)
+    -   [Guides: Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account)
