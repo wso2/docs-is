@@ -107,33 +107,13 @@ steps below.
 
 ## Disable user accounts using SCIM
 
-1.	Make sure the following configurations are present in the `<IS-HOME>/repository/conf/scim2-schema-extension.config` file.
-
-	```
-	{
-	"attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:accountDisabled",
-	"attributeName":"accountDisabled",
-	"dataType":"boolean",
-	"multiValued":"false",
-	"description":"Store whether the user account is disabled or not",
-	"required":"false",
-	"caseExact":"false",
-	"mutability":"readWrite",
-	"returned":"default",
-	"uniqueness":"none",
-	"subAttributes":"null",
-	"canonicalValues":[],
-	"referenceTypes":[]
-	}
-	```
-
-2.	Add the `accountDisable` attribute as a sub-attribute of User.
+1.	Add the `accountDisable` attribute as a sub-attribute of User.
 
 	```
 	"subAttributes":"verifyEmail askPassword accountDisable employeeNumber costCenter organization division department manager"
 	```
 
-3. Save the file and restart the server. 
+2. Save the file and restart the server. 
 
 
 ### Test it Out 

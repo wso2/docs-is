@@ -47,33 +47,13 @@ account locking, follow the instructions given below.
 
 ## Lock user accounts using SCIM
 
-1.	Make sure the following configurations are present inn the `<IS-HOME>/repository/conf/scim2-schema-extension.config` file.
-
-	```
-	{
-		"attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:accountLocked",
-		"attributeName":"accountLocked",
-		"dataType":"boolean",
-		"multiValued":"false",
-		"description":"Account Locked",
-		"required":"false",
-		"caseExact":"false",
-		"mutability":"readWrite",
-		"returned":"default",
-		"uniqueness":"none",
-		"subAttributes":"null",
-		"canonicalValues":[],
-		"referenceTypes":[]
-	}
-	```
-
-2.	Add the `accountLock` attribute as a sub-attribute of User.
+1.	Add the `accountLock` attribute as a sub-attribute of User.
 
 	```
 	"subAttributes":"verifyEmail askPassword accountLock employeeNumber costCenter organization division department manager"
 	```
 
-3. Save the file and restart the server. 
+2. Save the file and restart the server. 
 
 
 ---
