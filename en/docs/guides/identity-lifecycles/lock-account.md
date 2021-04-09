@@ -47,19 +47,6 @@ account locking, follow the instructions given below.
 
 ## Lock user accounts using SCIM
 
-1.	Add the `accountLock` attribute as a sub-attribute of User.
-
-	```
-	"subAttributes":"verifyEmail askPassword accountLock employeeNumber costCenter organization division department manager"
-	```
-
-2. Save the file and restart the server. 
-
-
----
-
-### Test it out 
-
 1. In order to update the lock status of a user account, we need to obtain the SCIM ID of that particular user. Therefore, we first call the GET users API to get the user details.
 
 	``` curl tab="Request"

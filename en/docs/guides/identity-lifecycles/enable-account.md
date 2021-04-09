@@ -107,17 +107,6 @@ steps below.
 
 ## Disable user accounts using SCIM
 
-1.	Add the `accountDisable` attribute as a sub-attribute of User.
-
-	```
-	"subAttributes":"verifyEmail askPassword accountDisable employeeNumber costCenter organization division department manager"
-	```
-
-2. Save the file and restart the server. 
-
-
-### Test it Out 
-
 1.	In order to update the status of a user account, we need to obtain the SCIM ID of that particular user. Therefore, we first call the GET users API to get the user details. The following curl command gives details of alk the users including the SCIM IDs. 
 
 	``` curl tab="Request"
