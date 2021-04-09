@@ -3,23 +3,25 @@
    the identity listener with the `              priority=95             ` is set to
    **true**  by adding the following configuration to the
    `              <IS_HOME>/repository/conf/deployment.toml             ` file.  
-	``` xml
-	[event.default_listener.identity_mgt]
-	priority= "50"
-	enable = false
-	[event.default_listener.governance_identity_mgt]
-	priority= "95"
-	enable = true
-   	```
-   
+
+	!!! note
+		If you haven't changed these configurations previously, you can skip this step since these are the default values. 
+
+		``` xml
+		[event.default_listener.identity_mgt]
+		priority= "50"
+		enable = false
+		[event.default_listener.governance_identity_mgt]
+		priority= "95"
+		enable = true
+		```
+
 
 2.  <a name = "lockingaspecificuseraccount"></a>Start the Identity Server and log into the management console (`https://<IS_HOST>:<PORT>/carbon`) using
    your tenant credentials.
       
 	!!! Tip
-		Alternatively, you can also use the `   IdentityGovernanceAdminService     ` SOAP service to do this instead of using the management console UI. See [Call Admin Services](../../../apis/call-admin-services/)
-		for more information on how to invoke this SOAP service. If you are using the SOAP service to configure this, you do not need to follow the steps given below this note.
-      
+		Alternatively, you can also use the `IdentityGovernanceAdminService` SOAP service to do this instead of using the management console UI. See [Call Admin Services](../../../apis/call-admin-services/) for more information on how to invoke this SOAP service. If you are using the SOAP service to configure this, you do not need to follow the steps given below this tip.
 
 3.  Click **Main** > **Identity** > **Identity Providers** > **Resident**.
 4.  Expand the **Login Attempts Security** tab.
@@ -30,10 +32,10 @@
 	!!! tip
 		If a user is assigned the **Internal/system** role, the user can
 		bypass account locking even if the user exceeds the specified number
-		of **Maximum Failed Login Attempts**.
+		of **Maximum failed login attempts**.
    
 		!!! note
-			WSO2 Identity Server has the **Internal/system** role configured by
+			WSO2 Identity Server has the **Internal/ki8system** role configured by
 			default. However, generally a new user is not assigned the
 			**Internal/system** role by default. Required roles can be assigned
 			to a user depending on the set of permission a user needs to have.
@@ -50,7 +52,3 @@
 6.  To enable account locking for other tenants, log out and repeat the
    steps given above from [step 2](#lockingaspecificuseraccount)
    onwards.
-
-
-!!! note 
-	The user accounts that are assigned with the **Internal/system** user role cannot be locked.

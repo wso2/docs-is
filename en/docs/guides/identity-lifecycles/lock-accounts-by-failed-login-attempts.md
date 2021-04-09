@@ -304,17 +304,18 @@ First, you need to configure the WSO2 Identity Server for user account locking a
         [authentication.authenticator.totp.parameters]
         EnableAccountLockingForFailedAttempts = true
         ```
-   
-2. Navigate to **Main** > **Identity** > **Claims** > **Add** > **Add Local Claim**.
-3. Click **http://wso2.org/claims**.
 
-4. Once the user account gets locked, the **Account Locked** attribute will be updated to **true**.
+3. Restart the server. 
+4. Navigate to **Main** > **Identity** > **Claims** > **Add** > **Add Local Claim**.
+5. Click **http://wso2.org/claims**.
+
+6. Once the user account gets locked, the **Account Locked** attribute will be updated to **true**.
 To check this via the user profile:
     1. Click **Edit** under the **Account Locked** claim.
     2. Select **Supported by Default** and click **Update**.
     3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
   
-5. **Failed Email OTP Attempts**, **Failed SMS Attempts**, and **Failed TOTP Attempts** attribute values will be incremented 
+7. **Failed Email OTP Attempts**, **Failed SMS Attempts**, and **Failed TOTP Attempts** attribute values will be incremented 
 for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. To check this via the user profile.
     - For Email OTP:
         1. Click **Edit** under the **Failed Email OTP Attempts** claim.

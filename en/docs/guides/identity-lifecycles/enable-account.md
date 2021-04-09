@@ -8,14 +8,14 @@ Account locking and account disabling are security features in WSO2 Identity Ser
 
 ### Configure WSO2 IS for account disabling
 
-But first, you need to configure WSO2 Identity Server for user account
+First, you need to configure WSO2 Identity Server for user account
 locking and disabling. Follow the below steps to do this configuration.
 
-1.  Start the Identity Server and log into the management console using
+1.  Start the Identity Server and log into the management console (`https://<IS_HOST>:<PORT>/carbon`) using
     your tenant credentials.
 2.  <a name = "accountdisabling"></a> Click **Main** > **Identity** > **Identity Providers** > **Resident**.
 3.  Expand the **Account Management** tab.
-4.  Expand the **Account Disable** tab and select the **Enable Account Disabling** checkbox. Click **Update** to save changes.  
+4.  Expand the **Account Disable** tab and select the **Enable account disabling** checkbox. Click **Update** to save changes.  
 	![account-disabling](../../../assets/img/guides/account-disabling.png) 
     
     !!! tip "Disable the account disabling feature"
@@ -39,7 +39,7 @@ locking and disabling. Follow the below steps to do this configuration.
     
         If a user is assigned the **Internal/system** role, the user can
         bypass account locking even if the user exceeds the specified number
-        of **Maximum Failed Login Attempts**.
+        of **Maximum failed login attempts**.
     
         ??? note "Click here to see more information"
     
@@ -83,7 +83,7 @@ management console.
     enable/disable the user account using the
     `         setUserClaimValues        ` method in the
     `                   RemoteUserStoreManagerService                 `
-    after you have configured WSO2 IS for account disabling.
+    after you have configured WSO2 IS for account disabling. For more information on using admin services, refer [Call Admin Services](../../../apis/call-admin-services)
     
 
 ### Send email notifications for account disabling
@@ -93,10 +93,7 @@ can also configure the WSO2 IS to send an email to the user's email
 address when the user account is disabled. To configure this, follow the
 steps below.  
 
-1.  Enable the email sending configurations of the WSO2 Identity Server
-    as explained [here](../../../deploy/configure-email-sending).
-           
-2.  Restart the Server.
+{! fragments/configure-email-sending.md !}
 
     !!! info
         The email template used to send the email notification for
@@ -110,23 +107,23 @@ steps below.
 
 ## Disable user accounts using SCIM
 
-1.	Open the `<IS-HOME>/repository/conf/scim2-schema-extension.config` file and add the following configuration. 
+1.	Make sure the following configurations are present in the `<IS-HOME>/repository/conf/scim2-schema-extension.config` file.
 
 	```
 	{
-		"attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:accountDisable",
-		"attributeName":"accountDisable",
-		"dataType":"boolean",
-		"multiValued":"false",
-		"description":"Disable user account.",
-		"required":"false",
-		"caseExact":"false",
-		"mutability":"readwrite",
-		"returned":"default",
-		"uniqueness":"none",
-		"subAttributes":"null",
-		"canonicalValues":[],
-		"referenceTypes":[]
+	"attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:accountDisabled",
+	"attributeName":"accountDisabled",
+	"dataType":"boolean",
+	"multiValued":"false",
+	"description":"Store whether the user account is disabled or not",
+	"required":"false",
+	"caseExact":"false",
+	"mutability":"readWrite",
+	"returned":"default",
+	"uniqueness":"none",
+	"subAttributes":"null",
+	"canonicalValues":[],
+	"referenceTypes":[]
 	}
 	```
 
@@ -138,26 +135,34 @@ steps below.
 
 3. Save the file and restart the server. 
 
-Before enabling/disabling users using SCIM, you need to do the following. 
-
-1. [Add claim mapping](../../../guides/dialects/add-claim-mapping/)
-
-2. [Enable account disabling](#disable-an-account)
 
 ### Test it Out 
 
-1.	In order to update the status of a user account, we need to obtain the SCIM ID of that particular user. Therefore, we first call the GET users API to get the user details.
+1.	In order to update the status of a user account, we need to obtain the SCIM ID of that particular user. Therefore, we first call the GET users API to get the user details. The following curl command gives details of alk the users including the SCIM IDs. 
 
-	**Request**
+	``` curl tab="Request"
+	curl -v -k --user <username>:<password> 'https://<HOST>:<PORT>/scim2/Users'
+	```
 
-	``` curl 
+	``` curl tab="Sample"
 	curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users'
 	```
-	**Sample**
 
-	```curl
-	curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?filter=userName+Eq+cameron'
-	```
+	Alternatively, you can also obtain it from the management console. 
+
+	1.	Navigate to **Main** > **Identity** > **Claims** > **List**. 
+
+	2.	Select `http://wso2.org/claims`. 
+
+	3.	Edit **User ID**. 
+
+	4.	Select **Supported by Default**. 
+
+	5.	Click **Update**. 
+
+	6.	Navigate to **Main** > **Identity** > **Users and Roles** > **List** and select **Users**. 
+
+	7.	Click **User Profile** adjecent to the user that needs to be enabled or disabled. The **User ID** value will be mentioned by default now. 
 
 2.	After obtaining the SCIM ID of the user, invoke the following curl command with the `accountDisable` attribute set to `true` or `false` to disable or enable the user account respectively.
 
@@ -169,7 +174,7 @@ After setting the disable status to `true` for a particular user, the server sho
 
 ---
 
-## Disable user accounts using SOAP
+<!--## Disable user accounts using SOAP
 
 !!! note 
     1.	To disable a user account using SOAP, the default event listener has to be enabled. Add the following property to the `<IS_HOME>/repository/conf/deployment.toml` file. 
@@ -195,13 +200,14 @@ An administrative user (with the permission level, `/permission/admin/configure/
    <soapenv:Body>
       <ser:disableUserAccount>
          <!--Optional:-->
-         <ser:userName>cameron</ser:userName>
+<!--         <ser:userName>cameron</ser:userName>
          <!--Optional:-->
-         <ser:notificationType>?</ser:notificationType>
+<!--        <ser:notificationType>?</ser:notificationType>
       </ser:disableUserAccount>
    </soapenv:Body>
 </soapenv:Envelope>
 ```
+
 
 ## Enable user accounts using SOAP
 
@@ -213,13 +219,14 @@ Similarly, you can use the `setUserClaimValues` operation, `RemoteUserStoreManag
    <soapenv:Body>
       <ser:enableUserAccount>
          <!--Optional:-->
-         <ser:userName>cameron</ser:userName>
+<!--         <ser:userName>cameron</ser:userName>
          <!--Optional:-->
-         <ser:notificationType>?</ser:notificationType>
+<!-->         <ser:notificationType>?</ser:notificationType>
       </ser:disableUserAccount>
    </soapenv:Body>
 </soapenv:Envelope>
 ```
+-->
 
 ----
 

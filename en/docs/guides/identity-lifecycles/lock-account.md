@@ -47,18 +47,18 @@ account locking, follow the instructions given below.
 
 ## Lock user accounts using SCIM
 
-1.	Open the `<IS-HOME>/repository/conf/scim2-schema-extension.config` file and add the following configuration. 
+1.	Make sure the following configurations are present inn the `<IS-HOME>/repository/conf/scim2-schema-extension.config` file.
 
 	```
 	{
-		"attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:accountLock",
-		"attributeName":"accountLock",
+		"attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:accountLocked",
+		"attributeName":"accountLocked",
 		"dataType":"boolean",
 		"multiValued":"false",
-		"description":"Lock user account.",
+		"description":"Account Locked",
 		"required":"false",
 		"caseExact":"false",
-		"mutability":"readwrite",
+		"mutability":"readWrite",
 		"returned":"default",
 		"uniqueness":"none",
 		"subAttributes":"null",
@@ -67,7 +67,7 @@ account locking, follow the instructions given below.
 	}
 	```
 
-2.	Then add the `accountLock` attribute as a sub-attribute of User.
+2.	Add the `accountLock` attribute as a sub-attribute of User.
 
 	```
 	"subAttributes":"verifyEmail askPassword accountLock employeeNumber costCenter organization division department manager"
@@ -75,11 +75,6 @@ account locking, follow the instructions given below.
 
 3. Save the file and restart the server. 
 
-Before locking/unlocking users using SCIM, you need to do the following. 
-
-1. [Add claim mapping](../../../guides/dialects/add-claim-mapping/)
-
-2. [Enable account locking](#configure-the-management-console-to-enable-account-locking)
 
 ---
 
@@ -87,16 +82,29 @@ Before locking/unlocking users using SCIM, you need to do the following.
 
 1. In order to update the lock status of a user account, we need to obtain the SCIM ID of that particular user. Therefore, we first call the GET users API to get the user details.
 
-	**Request**
+	``` curl tab="Request"
+	curl -v -k --user <username>:<password> 'https://<HOST>:<PORT>/scim2/Users'
+	```
 
-	``` curl 
+	``` curl tab="Sample"
 	curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users'
 	```
-	**Sample**
 
-	```curl
-	curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?filter=userName+Eq+cameron'
-	```
+	Alternatively, you can also obtain it from the management console. 
+
+	1.	Navigate to **Main** > **Identity** > **Claims** > **List**. 
+
+	2.	Select `http://wso2.org/claims`. 
+
+	3.	Edit **User ID**. 
+
+	4.	Select **Supported by Default**. 
+
+	5.	Click **Update**. 
+
+	6.	Navigate to **Main** > **Identity** > **Users and Roles** > **List** and select **Users**. 
+
+	7.	Click **User Profile** adjecent to the user that needs to be enabled or disabled. The **User ID** value will be mentioned by default now. 
 
 2. After obtaining the SCIM ID of the user, invoke below curl command with the `accountLock` attribute set to `true` or `false` to lock or unlock the user account respectively.
 

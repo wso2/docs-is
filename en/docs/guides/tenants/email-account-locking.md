@@ -22,7 +22,7 @@ WSO2 Identity Server uses separate email templates for notifying,
 - Account locking by administrator
 - Account unlocking by administrator 
 
-Add the following email templates by referring to the instructions in [Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
+There are default email templates available for the above-mentioned emails. However, you can choose to modify them if necessary as well. 
 
 Following are the sample email templates.
 
@@ -190,6 +190,16 @@ Following are the sample email templates.
        </table>]]>
     ```
     - Footer : ---
+
+## View email templates in the management console
+
+1.  Navigate to **Main** > **Manage** > **Email Templates** > **List**. 
+
+2.  From the **Select Email Template Type** dropdown, select either  `AccountLockAdmin` or `AccountUnlockAdmin` to notify the locked and unlocked user respectively.
+
+3.  You can customize the subject, body, and footer based on your requirement. 
+
+4.  Click **Save**. 
 
 !!! info "Related Topics"
     -   [Guides: Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account)
