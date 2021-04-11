@@ -789,7 +789,9 @@ nav:
           - 'Adding Multiple Keys to the Primary Keystore': administer/adding-multiple-keys-to-the-primary-keystore.md
         - 'Symmetric Encryption': 
           - 'Overview': administer/symmetric-overview.md
-          - 'Related Configurations': administer/using-symmetric-encryption.md
+          - 'Related Configurations': administer/using-symmetric-encryption.md      
+      - 'Key Rotation': 
+        -  'Symmetric Data Encryption Key Rotation': administer/blue-green-data-encryption-keyrotation.md
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
       - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
       - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
