@@ -15,7 +15,7 @@ curl -k -X POST -H "Authorization: Basic <Base64_encoded_username:password>" -H
  "grant_types": ["<grant_types>"], 
  "ext_param_client_id":"<client_id>", 
  "ext_param_client_secret":"<client_secret>" }' 
-"https://localhost:9443/api/identity/oauth2/dcr/v1.0/register"
+"https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/dcr/v1.0/register"
 ```
 
 ```tab="Sample Request"
@@ -28,7 +28,7 @@ curl -k -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H
 "https://localhost:9443/api/identity/oauth2/dcr/v1.0/register"
 ```
 
-**Response**
+**Sample Response**
 
 ```
 "HTTP/1.1 201 Created"
@@ -50,7 +50,7 @@ curl -X PUT -H "Authorization: Basic <Base64_encoded_username:password>" -H
   "redirect_uris":["<callback_url>"],
   "client_name": "<application_name>",
   "grant_types": ["<grant_types>"] }'
-"https://localhost:9443/api/identity/oauth2/dcr/v1.1/register"
+"https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/dcr/v1.1/register"
 ```
 
 ```tab="Sample Request"
@@ -62,7 +62,7 @@ curl -X PUT -H "Authorization: Basic YWRtaW46YWRtaW4=" -H
 "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register"
 ```
 
-**Response**
+**Sample Response**
 
 ```
 "HTTP/1.1 200 OK"
@@ -80,14 +80,14 @@ curl -X PUT -H "Authorization: Basic YWRtaW46YWRtaW4=" -H
 Use the following curl command to retrieve OAuth application information using the client ID. 
 
 ```tab="Request Format"
-curl -X GET -H "Authorization: Basic <Base64_encoded_username:password>" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/<client_id>"
+curl -X GET -H "Authorization: Basic <Base64_encoded_username:password>" -H "Content-Type: application/json" -d '{}' "https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/dcr/v1.1/register/<client_id>"
 ```
 
 ```tab="Sample Request"
 curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/s6BhdRkqt3"
 ```
 
-**Response**
+**Sample Response**
 
 ```
 "HTTP/1.1 200 OK"
@@ -105,14 +105,14 @@ curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applica
 Use the following curl command to retrieve OAuth application information using the client name. 
 
 ```tab="Request Format"
-curl -X GET -H "Authorization: Basic <Base64_encoded_username:password>" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register?client_name=<client_name>"
+curl -X GET -H "Authorization: Basic <Base64_encoded_username:password>" -H "Content-Type: application/json" -d '{}' "https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/dcr/v1.1/register?client_name=<client_name>"
 ```
 
 ```tab="Sample Request"
 curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register?client_name=application1"
 ```
 
-**Response**
+**Sample Response**
 
 ```
 "HTTP/1.1 200 OK"
@@ -130,14 +130,14 @@ curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applica
 Use the following curl command to delete an OAuth application using the client ID. 
 
 ```tab="Request Format"
-curl -X DELETE -H "Authorization: Basic <Base64_encoded_username:password>" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/<client_id>"
+curl -X DELETE -H "Authorization: Basic <Base64_encoded_username:password>" -H "Content-Type: application/json" -d '{}' "https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/dcr/v1.1/register/<client_id>"
 ```
 
 ```tab="Sample Request"
 curl -X DELETE -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{}' "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register/s6BhdRkqt3"
 ```
 
-**Response**
+**Sample Response**
 
 ```
 "HTTP/1.1 204 No Content"
@@ -145,4 +145,5 @@ curl -X DELETE -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: appl
 
 -----
 
-To see the swagger definition of this REST API, see [OAuth Dynamic Client Registration APIs](insertlink).
+!!! info "Related Topics"
+    - To see the swagger definition of this REST API, see [OAuth Dynamic Client Registration APIs](../../../apis/use-the-openid-connect-dynamic-client-registration-rest-apis/).

@@ -1,4 +1,3 @@
-## OAuth Transaction Logs
 
 This section guides you through enabling the logger for OAuth endpoints and is **optional**.
 

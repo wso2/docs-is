@@ -1,14 +1,16 @@
 # Invoke the OAuth Introspection Endpoint
 
-The OAuth Introspection endpoint is:
+The OAuth introspection endpoint is:
 
 ``` 
-https://localhost:9443/oauth2/introspect
+https://<IS_HOST>:<IS_PORT>/oauth2/introspect
 ```
 
 This page guides you through invoking the [OAuth Introspection Endpoint](../../../references/concepts/authorization/introspection). 
 
 -----
+
+## Create a service provider
 
 {!fragments/register-a-service-provider.md!}
 
@@ -28,7 +30,7 @@ Use the cURL commands given in the following sections to invoke the OAuth intros
 
     -   For requests that require `USERNAME:PASSWORD` by default, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions.
         
-        To allow users with other permissions to send validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file.
+        To allow users with other permissions to send validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below and restart the server.
     
         ``` toml
         [resource_access_control.introspect]
@@ -47,7 +49,7 @@ Use the cURL commands given in the following sections to invoke the OAuth intros
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&#39;</span> https://localhost:9443/oauth2/token</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/token</a></code></pre></div>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -81,7 +83,7 @@ Use the cURL commands given in the following sections to invoke the OAuth intros
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://localhost:9443/oauth2/introspect</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -116,7 +118,7 @@ Use the cURL commands given in the following sections to invoke the OAuth intros
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&amp;scope=test1 test2&#39;</span> https://localhost:9443/oauth2/token</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&amp;scope=test1 test2&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/token</a></code></pre></div>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -150,7 +152,7 @@ Use the cURL commands given in the following sections to invoke the OAuth intros
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://localhost:9443/oauth2/introspect</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -195,7 +197,7 @@ following response :
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&#39;</span> https://localhost:9443/oauth2/introspect</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -231,7 +233,7 @@ invoke the OAuth introspection endpoint for tenant users.
 
     -   For requests that require `USERNAME@TENANT_DOMAIN:PASSWORD` by default, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions.
         
-        To allow users with other permissions to send validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file.
+        To allow users with other permissions to send validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below and restart the server.
     
         ``` toml
         [resource_access_control.introspect]
@@ -250,7 +252,7 @@ invoke the OAuth introspection endpoint for tenant users.
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&#39;</span> https://localhost:9443/oauth2/token</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/token</a></code></pre></div>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -285,7 +287,7 @@ invoke the OAuth introspection endpoint for tenant users.
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>@<span class="op">&lt;</span>TENAND_DOMAIN<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://localhost:9443/t/<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>@<span class="op">&lt;</span>TENAND_DOMAIN<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/t/<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
 </div>
 </div>
 <p>Or</p>
@@ -330,7 +332,7 @@ invoke the OAuth introspection endpoint for tenant users.
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&amp;scope=test1 test2&#39;</span> https://localhost:9443/oauth2/token</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&amp;scope=test1 test2&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/token</a></code></pre></div>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -365,7 +367,7 @@ invoke the OAuth introspection endpoint for tenant users.
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>@<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://localhost:9443/t/<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>@<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/t/<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
 </div>
 </div>
 <p>Or</p>
@@ -423,7 +425,7 @@ following response:
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>@<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&#39;</span> https://localhost:9443/t/<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>@<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/t/<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -450,4 +452,3 @@ The samples given above only demonstrate how to validate a token obtained for th
 
 ----
 
-{!fragments/oauth-transaction-logs.md!}
