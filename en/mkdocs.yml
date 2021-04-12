@@ -276,6 +276,7 @@ nav:
           - 'Invoke the OAuth 2.0 Introspection Endpoint': guides/access-delegation/invoke-oauth-introspection-endpoint.md
           - 'OAuth 2.0 Dynamic Client Registration': guides/access-delegation/oauth-dynamic-client-registration.md
           - 'OAuth 2.0 Client Authentication': guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
+          - 'OAuth Transaction Logs': guides/access-delegation/oauth-transaction-logs.md
           #- 'Authorizing for the OAuth 2.0 Scopes':
           - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
           - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md

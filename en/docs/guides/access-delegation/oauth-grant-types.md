@@ -56,8 +56,5 @@ You will receive the following response with the access token.
 
 {!fragments/self-contained-access-tokens.md!}
 
-----
-
-{!fragments/oauth-transaction-logs.md!}
 
 
