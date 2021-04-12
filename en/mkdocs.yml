@@ -315,9 +315,9 @@ nav:
         - 'Add Claim Mapping': guides/dialects/add-claim-mapping.md
         - 'Edit Claim Mapping': guides/dialects/edit-claim-mapping.md
         - 'Delete Claim Mapping': guides/dialects/delete-claim-mapping.md
-        - 'Use a Custom Attribute Dialect': guides/attribute-dialects/custom-dialect.md
-        - 'Map Attributes': guides/attribute-dialects/map-attributes.md
-        - 'Configure Attribute Metadata': guides/attribute-dialects/metadata.md
+        #- 'Use a Custom Attribute Dialect': guides/attribute-dialects/custom-dialect.md
+        #- 'Map Attributes': guides/attribute-dialects/map-attributes.md
+        #- 'Configure Attribute Metadata': guides/attribute-dialects/metadata.md
       - 'Tenants':
         - 'Set Up a Tenant Loading Policy': guides/tenants/configure-the-tenant-loading-policy.md
         - 'Add New Tenants': guides/tenants/add-new-tenants.md

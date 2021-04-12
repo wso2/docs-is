@@ -12,6 +12,18 @@ by packaging the claims into one or more tokens (such as SAML). These
 tokens are then issued by an issuer (eg., [security token
 service](TO-DO:../../get-started/single-sign-on-and-identity-federation#ws-trust)
 
+A user claim is a claim that is related to a user. It can be used to
+specify information that is directly related to the user, such as claims
+related to the street address, username, email, first name, and more.
+
+An identity claim is a special claim related to identity management. It
+can be used to specify information about the user account or the state
+of a user account such as the lastLoginTime, accountDisabled and
+accountLocked claims. Identity claims are identified by the claim URI.
+All identity claims have the term "identity" appended to the claim URI
+as follows:
+`http://wso2.org/claims/identity/accountDisabled. `
+
 The Claim Management component of [WSO2
 Carbon](https://docs.wso2.com/display/Carbon4411/WSO2+Carbon+Documentation)
 allows you to map a set of attributes from the underlying user store to

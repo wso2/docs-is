@@ -5,26 +5,24 @@ You can add new claim mapping to an existing claim dialect (see the
 
 -   [Add Local Claim](#add-local-claim) - Follow the
     steps in this section to add a new claim to the
-    https://wso2.org/claims (local) claim dialect.
+    `https://wso2.org/claims` (local) claim dialect.
 -   [Add External Claim](#add-external-claim) - Follow
     the steps in this section to add a new claim to any claim dialect
-    other than the local (https://wso2.org/claims) dialect. To do this,
-    map the relevant local claim from the local claim dialect (
-    https://wso2.org/claims).
+    other than the local (`https://wso2.org/claims`) dialect. To do this,
+    map the relevant local claim from the local claim dialect (`https://wso2.org/claims`).
 
 ---
 
 ## Add local claim
 
-1.  Sign in to the [Management Console](../../../deploy/get-started/get-started-with-the-management-console) by entering
-    your username and password.
-2.  In the **Main** menu, click **Add** under **Claims**.
+1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+2.  In the **Main** > **Identity** > **Claims** > **Add**.
 3.  Click **Add Local Claim** to add a new claim to the
-    https://wso2.org/claims (local) claim dialect.
+    `https://wso2.org/claims` (local) claim dialect.
 
 4.  Enter the required information.  
 
-    ![local-claim-info](../../assets/img/guides/local-claim-info.png) 
+    ![local-claim-info](../../../assets/img/guides/local-claim-info.png) 
 
     See the following table for descriptions of these fields.
 
@@ -42,7 +40,7 @@ You can add new claim mapping to an existing claim dialect (see the
     <tbody>
     <tr class="odd">
     <td><strong>Claim URI</strong></td>
-    <td>This is the URI defined under the dialect, specific to the claim. There are different URIs available in the Identity Server and these equate to user attributes displayed in the profile of users. These URIs are mapped to the attributes in the underlying user store.</td>
+    <td>This is the URI defined under the dialect, specific to the claim. There are different URIs available in the Identity Server and these equate to user attributes displayed in the profile of users. These URIs are mapped to the attributes in the underlying userstore.</td>
     </tr>
     <tr class="even">
     <td><strong>Display Name</strong></td>
@@ -55,13 +53,13 @@ You can add new claim mapping to an existing claim dialect (see the
     <tr class="even">
     <td><strong>Mapped Attribute</strong></td>
     <td><div class="content-wrapper">
-    <p>This is the corresponding attribute name from the underlying user store that is mapped to the Claim URI value.<br />
+    <p>This is the corresponding attribute name from the underlying userstore that is mapped to the Claim URI value.<br />
     <br />
     </p>
-    <p>When you have multiple user stores connected to the Identity Server, this maps the equivalent attribute in all of them to the Claim URI you are configuring.<br />
-    For example, if you specify the <code>                 cn                </code> attribute, this is mapped to the <code>                 cn                </code> attribute in all the connected user stores. If you want to specify the attribute in a specific user store, you must add the domain name in addition to the mapped claim. For example, in a scenario where you have a primary user store configured called PRIMARY and secondary user stores called AD (representing Active Directory), you can map an attribute from each of these user stores to the Claim URI value by clicking <strong>Add Attribute Mapping</strong>, selecting the respective user store from the drop-down list, and mentioning the attribute of the userstore the attribute needs to be mapped to.<br />
+    <p>When you have multiple userstores connected to the Identity Server, this maps the equivalent attribute in all of them to the Claim URI you are configuring.<br />
+    For example, if you specify the <code>                 cn                </code> attribute, this is mapped to the <code>                 cn                </code> attribute in all the connected userstores. If you want to specify the attribute in a specific userstore, you must add the domain name in addition to the mapped claim. For example, in a scenario where you have a primary userstore configured called PRIMARY and secondary userstores called AD (representing Active Directory), you can map an attribute from each of these userstores to the Claim URI value by clicking <strong>Add Attribute Mapping</strong>, selecting the respective userstore from the drop-down list, and mentioning the attribute of the userstore the attribute needs to be mapped to.<br />
     Example:<br />
-    <img src="../../assets/img/guides/map-attribute.png"/></p>
+    <img src="../../../assets/img/guides/map-attribute.png"/></p>
     </div></td>
     </tr>
     <tr class="odd">
@@ -93,36 +91,34 @@ You can add new claim mapping to an existing claim dialect (see the
 
 5.  Click on the **Add** button.
 6.  A new claim mapping is displayed in the list.  
-    ![](../../assets/img/guides//mapped-claim.png)
+    ![](../../../assets/img/guides/edit-claim-link.png)
 
 ----
 
 ## Add external claim
 
-1.  Sign in to the [Management
-    Console](../../../deploy/get-started/get-started-with-the-management-console) by entering
-    your username and password.
-2.  In the **Main** menu, click **Add** under **Claims**.
+1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+2.  Navigate to **Main** > **Claims** > **Add**.
 3.  Click **Add External Claim** to add a new claim to any existing
-    dialect other than the local dialect, i.e, https://wso2.org/claims.
+    dialect other than the local dialect, i.e, `https://wso2.org/claims`.
 4.  Select the **Dialect URI** of the dialect you want to add the claim
     to and enter the required information.  
-    ![add-external-claim](../../assets/img/guides/add-external-claim.png) 
+    ![add-external-claim](../../../assets/img/guides/add-external-claim.png) 
     -   **External Claim URI:** This is the URI defined under the
         dialect, specific to the claim. There are different URIs
         available in the Identity Server and these equate to user
         attributes displayed in the profile of users. These URIs are
-        mapped to local claims in the https://wso2.org/claims dialect
+        mapped to local claims in the `https://wso2.org/claims` dialect
         which are in turn mapped to the the relevant attributes in the
-        underlying user store.
+        underlying userstore.
     -   **Mapped Local Claim:** This is the claim that is defined in the
-        local claim dialect ( https://wso2.org/claims ) that is mapped
-        to the relevant attribute in the underlying user store.
+        local claim dialect (`https://wso2.org/claims`) that is mapped
+        to the relevant attribute in the underlying userstore.
 5.  Click on the **Add** button.
 
 !!! note
     
-    **Alternatively,** you can also add a claim mapping using the
+    Alternatively, you can also add a claim mapping using the
     configuration file instead of via the management console. To do this,
     
     1.  Open the `claim-config.xml` file found in the
