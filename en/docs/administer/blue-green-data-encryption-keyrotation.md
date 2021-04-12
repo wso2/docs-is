@@ -16,10 +16,10 @@ Key rotation can be defined as retiring an encryption key and replacing it with 
 *   Security compliance requirements
 *   Security breach requirements
 !!! note
-    _Originator Usage Period(OUP) is the time period during which encryption is applied to data_
+    Originator Usage Period(OUP) is the time period during which encryption is applied to data
 
 !!! note
-    _The above mentioned cryptoperiods can vary based on other factors like the sensitivity of data and the amount of data we have etc._
+    The above mentioned cryptoperiods can vary based on other factors like the sensitivity of data and the amount of data we have etc.
 
 ## Background
 
@@ -30,13 +30,19 @@ WSO2 Identity Server has the following key usages for signing/encrypting data an
 3.  Encryption of sensitive runtime level configuration secrets/user data persisted in datastores and userstores
 4.  Encryption of sensitive deployment level configuration data in configuration files
 
-With WSO2 IS 5.11.0 onwards symmetric encryption mechanism is used to encrypt (3) above. The DEK used to encrypt these data are configured in the `deployment.toml` file and it is protected by a KEK. Secure vault is being utilized as of now to protect this DEK. Here we will consider only the rotation of the Data Encryption Key configured in the `deployment.toml` file. 
+With WSO2 IS 5.11.0 onwards symmetric encryption mechanism is used to encrypt internal sensitive runtime data above. The DEK used to encrypt these data are configured in the `deployment.toml` file and it is protected by a KEK. Secure vault is being utilized as of now to protect this DEK. Here we will consider only the rotation of the Data Encryption Key configured in the `deployment.toml` file. 
 
 ## DEK rotation frequency
 
 In the case of a security compliance requirement we can see that symmetric DEK rotation can be done in 2 years or less based on the volume of data we have.
 
 In a security breach scenario we must rotate the DEK immediately and re-encrypt all the data to the new DEK.
+
+## Key Rotation Approach
+
+WSO2 IS has introduced an external tool that re-encrypts internal data after rotation of the configured symmetric data encryption key. Here mainly we have considered the re-encryption of the Identity and registry databases and some configuration files. Apart from that the tool will sync end user data that gets generated in the live system to the new setup.
+
+The external java client that performs the above tasks can be created by following the steps [here](../../administer/blue-green-data-encryption-keyrotation/#how-to-create-the-key-rotation-tool).
 
 ## Tables that support re-encryption 
 
@@ -78,47 +84,62 @@ At the moment below tables are supported to be synced during key rotation from t
     | IDN_OAUTH2_ACCESS_TOKEN       | OAuth 2.0 tokens                                        | Need to sync if the tokens created during the key rotation period needs to be valid after key rotation.                                                                         |
     | IDN_OAUTH2_ACCESS_TOKEN_SCOPE | OAuth 2.0 scopes                                        | If the IDN_OAUTH2_ACCESS_TOKEN is synced, this table also needs to be synced.                                                                                            |
     | IDN_OAUTH2_AUTHORIZATION_CODE | OAuth 2.0 authorization codes                           | Need to sync if the authorization codes created during the key rotation period need to be valid after key rotation. |
-    
+
+
+!!! note
+    In this section, `<OLD_IS_HOME>` is the directory where the current Identity Server resides in, and `<NEW_IS_HOME>` is the directory where the copy of the current Identity Server resides in. `<KEY_ROTATION_REPO>` refers to the location [here](https://github.com/wso2/identity-tools/components/org.wso2.carbon.identity.keyrotation) and the `<KEY_ROTATION_TOOL>` refers to the location of the external tool
+
+## How To Create The Key Rotation Tool
+
+1.  Clone the repository [identity-tools](https://github.com/wso2/identity-tools)
+
+2.  Built it using maven by running the command `mvn clean install`
+
+3.  Go to the `<KEY_ROTATION_REPO>/target` folder and copy the `keyrotation-tool-<version>-SNAPSHOT.jar` jar file and the `<KEY_ROTATION_REPO>/target/lib` folder to `<KEY_ROTATION_TOOL>` location. Get the `properties.yaml` file, `keyrotation.sh` file and the `triggers` folder from `<KEY_ROTATION_REPO>/src/main/resources` and copy to the same `<KEY_ROTATION_TOOL>` location.
+  
 ## Performing blue-green key rotation
 
 1.  Block all privileged user flows and allow only end user flows.
 
     !!! note
-        For the privileged user flows, block all admin services from the load balancer and the management console as well. For end user flows the above [tables](../../administer/blue-green-data-encryption-keyrotation/#tables-that-support-syncing) will be synced to the new setup, so only these end user data flows should be allowed to generate in the old setup.
+        For the privileged user flows, block all admin services from the load balancer and the management console as well. For end user flows the above [tables](../../administer/blue-green-data-encryption-keyrotation/#tables-that-support-syncing) will be synced to the `<NEW_IS_HOME>`, so only these end user data flows should be allowed to generate in the `<OLD_IS_HOME>`.
 
-2.  Execute the `old<Identity-DB-Type>.sql` script in the existing identity database to create temp tables and triggers
-
-3.  Create a copy of the existing IS pack(new IS pack) and dump existing identity and registry databases and create the new databases
-
-4.  Drop the temp tables and triggers in the new identity database using the `new<Identity-DB-Type>.sql` script
+2.  Execute the `old<identity-db-type>.sql` script in the `<OLD_IS_HOME>` identity database to create temp tables and triggers
 
     !!! note
-        The scripts can be found inside the zipped folder [here](https://drive.google.com/drive/folders/1EnEZUhpMqZu1RG-Gc6qL4r8kUoPeaMgy?usp=sharing). Extract the zipped folder content to a location.
+        The triggers can be found inside `<KEY_ROTATION_TOOL>/triggers` folder.
 
-5.  Open the properties.yaml file inside the extracted zipped folder and edit the configurations accordingly   
+3.  Create a copy of the `<OLD_IS_HOME>`(`<NEW_IS_HOME>`) and dump `<OLD_IS_HOME>` identity and registry databases and create the new databases
 
-    *   oldSecretKey - The symmetric encryption key used in the current IS pack
+4.  Drop the temp tables and triggers in the `<NEW_IS_HOME>` identity database using the `new<identity-db-type>.sql` script
+
+    !!! note
+        The triggers can be found inside `<KEY_ROTATION_TOOL>/triggers` folder.
+
+5.  Open the properties.yaml file inside `<KEY_ROTATION_TOOL>` location and edit the configurations accordingly   
+
+    *   oldSecretKey - The symmetric encryption key used in the `<OLD_IS_HOME>`
     !!! note
         If the key is encrypted using cipher tool decrypt it back as shown [here](https://shagihan.medium.com/decrypt-encrypted-text-with-the-wso2-cipher-tool-15b67624620a)
     *   newSecretKey - The new symmetric encryption key
     !!! tip
         Generate using a tool like openssl using the command, `openssl rand -hex 16`
-    *   newISHome - The absolute path of the new IS pack(The created copy from the existing IS pack in step 3)
-    *   oldIdnDBUrl - Old IS pack identity database URL
-    *   oldIdnUsername - Old IS pack identity database username
-    *   oldIdnPassword - Old IS pack identity database password 
+    *   newISHome - The absolute path of the `<NEW_IS_HOME>`
+    *   oldIdnDBUrl - `<OLD_IS_HOME>` identity database URL
+    *   oldIdnUsername - `<OLD_IS_HOME>` identity database username
+    *   oldIdnPassword - `<OLD_IS_HOME>` identity database password 
     !!! note
-        Encode the old identity database plaintext password in [base64](https://www.base64encode.org/) and insert here
-    *   newIdnDBUrl - New IS pack identity database URL
-    *   newIdnUsername - New IS pack identity database username
-    *   newIdnPassword - New IS pack identity database password 
+        Encode the `<OLD_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/) and insert here
+    *   newIdnDBUrl - `<NEW_IS_HOME>` identity database URL
+    *   newIdnUsername - `<NEW_IS_HOME>` identity database username
+    *   newIdnPassword - `<NEW_IS_HOME>` identity database password 
     !!! note
-        Encode the new identity database plaintext password in [base64](https://www.base64encode.org/) and insert here
-    *   newRegDBUrl - New IS pack registry database URL
-    *   newRegUsername - New IS pack registry database username
-    *   newRegPassword - New IS pack registry database password 
+        Encode the `<NEW_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/) and insert here
+    *   newRegDBUrl - `<NEW_IS_HOME>` registry database URL
+    *   newRegUsername - `<NEW_IS_HOME>` registry database username
+    *   newRegPassword - `<NEW_IS_HOME>` registry database password 
     !!! note
-        Encode the new registry database plaintext password in [base64](https://www.base64encode.org/) and insert here
+        Encode the `<NEW_IS_HOME>` registry database plaintext password in [base64](https://www.base64encode.org/) and insert here
     *   enableDBMigrator - Enable/disable re-encryption for the identity and registry databases
     !!! note
         Keep this to always **true** to avoid unnecessary issues
@@ -127,7 +148,7 @@ At the moment below tables are supported to be synced during key rotation from t
         Keep this to always **true** to avoid unnecessary issues
     *   enableSyncMigrator - Enable/disable syncing mechanism
     !!! note
-        You only need to set this to true, if you have opted in for blue-green key rotation with zero downtime for the end user flows
+        You only need to set this to **true**, if you have opted in for blue-green key rotation with zero downtime for the end user flows
 
     ??? tip "Sample configuration written for the properties.yaml file"
             
@@ -179,20 +200,20 @@ At the moment below tables are supported to be synced during key rotation from t
         jdbc:oracle:thin:@localhost:1521/ORCLCDB.LOCALDOMAIN
         ```
 
-6.  Run the tool using `./keyrotation.sh keyrotation-tool-<version>-SNAPSHOT.jar properties.yaml` command inside the extracted zipped folder location
+6.  Run the tool using `./keyrotation.sh keyrotation-tool-<version>-SNAPSHOT.jar properties.yaml` command from  inside the `<KEY_ROTATION_TOOL>` location
 
-7.  Edit the copied IS pack(new IS) deployment.toml file having the new configured databases and the new key 
+7.  Edit the `<NEW_IS_HOME>` `deployment.toml` file having the new configured databases and the new key 
 
-8.  Start the new IS pack once existing DB and config file data re-encryption completes
+8.  Start the `<NEW_IS_HOME>` once existing DB and config file data re-encryption completes
 
-9.  When no new entries are being synced in the logs, route traffic to the new setup and enable all load balancer API endpoints(privileged and end user flows)
+9.  When no new entries are being synced in the logs, route traffic to the `<NEW_IS_HOME>` and enable all load balancer API endpoints(privileged and end user flows)
 
 !!! note
-    _Do not stop the tool at once, let it sync any remaining data in the temp tables after routing the traffic_
+    Do not stop the tool at once, let it sync any remaining data in the temp tables after routing the traffic
 
 ## Verifying the key rotation
 
-*   Check the output.logs file to verify if re-encryption happened successfully for the 7 identity and registry database tables. Check below logs for successful/failed re-encryption counts of OAuth2 access and refresh tokens
+*   Check the log files to verify if re-encryption happened successfully for the 7 identity and registry database tables. Check below logs for successful/failed re-encryption counts of OAuth2 access and refresh tokens
 
     ```tab="DB log sample"
     Successfully updated OAuth2 access and refresh tokens data records in IDN_OAUTH2_ACCESS_TOKEN: 897
@@ -200,9 +221,9 @@ At the moment below tables are supported to be synced during key rotation from t
     ```
 
 !!! note
-    _If the key rotation task is successful there should be 0 as the failed logs count for all the tables_
+    If the key rotation task is successful there should be 0 as the failed logs count for all the tables
 
-*   Check the output.logs file to verify if re-encryption happened successfully for the 3 configuration files. Check below logs for successful/failed re-encryption counts of event publisher configuration files
+*   Check the log files to verify if re-encryption happened successfully for the 3 configuration files. Check below logs for successful/failed re-encryption counts of event publisher configuration files
 
     ```tab="Config file log sample"
     Updated event publisher configuration files: 8
@@ -210,9 +231,9 @@ At the moment below tables are supported to be synced during key rotation from t
     ```
 
 !!! note
-    _If the key rotation task is successful there should be 0 as the failed logs count for all the configuration files_
+    If the key rotation task is successful there should be 0 as the failed logs count for all the configuration files
 
-*   Check the output.logs file to verify if transformation of the synced data happened successfully for the 4 tables. Check below logs for successful/failed transfromation of `IDN_IDENTITY_USER_DATA` table
+*   Check the log files to verify if transformation of the synced data happened successfully for the 4 tables. Check below logs for successful/failed transformation of `IDN_IDENTITY_USER_DATA` table
 
     ```tab="Synced log sample"
     Successfully transformed totp data records in IDN_IDENTITY_USER_DATA_TEMP: 2
@@ -220,12 +241,12 @@ At the moment below tables are supported to be synced during key rotation from t
     ```
 
 !!! note
-    _If the synced task is successful there should be 0 as the failed logs count for all the synced tables_
+    If the synced task is successful there should be 0 as the failed logs count for all the synced tables
 
-*   Check for any errors in the output.log file and carefully analyse through the logs, if the error can be ignored proceed with other steps otherwise check what has caused the error.
+*   Check for any errors in the log files and carefully analyse through the logs, if the error can be ignored proceed with other steps otherwise check what has caused the error.
 
 ## Recovering from any failure
 
 If the key rotation task stops midway, we have to follow the blue green key rotation user guide steps again.
 
-If there are errors logged in the output.logs file carefully go through the errors and find what has caused the error.
+If there are errors logged in the log files carefully go through the errors and find what has caused the error.
