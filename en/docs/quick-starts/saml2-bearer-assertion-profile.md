@@ -16,6 +16,8 @@ If you have your own application, click the button below.
 
 ----
 
+## Basic OAuth/OpenID Connect configuration
+
 {!fragments/oauth-app-config-basic.md!}
 
 !!! Note

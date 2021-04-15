@@ -278,7 +278,7 @@ nav:
           - 'OAuth 2.0 Client Authentication': guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
           - 'OAuth Transaction Logs': guides/access-delegation/oauth-transaction-logs.md
           #- 'Authorizing for the OAuth 2.0 Scopes':
-          - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
+          #- 'Custom Authorization Grant Flows':
           - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
         - 'OpenID Connect':
           - 'OpenID Connect Basic Client Profile': guides/access-delegation/oidc-basic-client-profile.md

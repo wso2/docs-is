@@ -30,6 +30,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
+## Basic OAuth/OpenID Connect configuration
+
 {!fragments/oauth-app-config-basic.md!}
 
 Now the generated ID token using this client is compatible with the MP-JWT specification.

@@ -16,6 +16,8 @@ This page guides you through invoking the [OAuth Introspection Endpoint](../../.
 
 ----
 
+## Basic OAuth/OpenID Connect configuration
+
 {!fragments/oauth-app-config-basic.md!}
 
 ----

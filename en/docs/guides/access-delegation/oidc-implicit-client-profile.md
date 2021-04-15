@@ -8,6 +8,10 @@ relevant responses that the WSO2 Identity Server would generate for the
 
 {!fragments/register-a-service-provider.md!}
 
+---
+
+## Basic OAuth/OpenID Connect configuration
+
 {!fragments/oauth-app-config-basic.md!}
 
 ---
