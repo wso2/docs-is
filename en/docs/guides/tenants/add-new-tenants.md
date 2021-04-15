@@ -6,7 +6,7 @@ You can add a new tenant in the management console and then view it by
 following the procedure below. In order to add a new tenant, you should
 be logged in as a super user.
 
-1.  Click **Add New Tenant** in the **Configure** tab of your product's
+1.  Click **Multitenancy** > **Add New Tenant** in the **Configure** tab of your product's
     management console.
 
     ![](../../../assets/img/guides/add-new-tenant.png)
@@ -61,7 +61,7 @@ follows:
     sh wso2server.sh
     ```
 
-    ``` java tab= "In Windows"
+    ``` java tab="In Windows"
     wso2server.bat
     ```
 
@@ -83,9 +83,9 @@ follows:
     2.  When the server is started, hit the enter/return key several
         times to get the OSGI shell in the console.In the OSGI shell, enter the following:
             
-            ``` java
-            listAdminServices
-            ```
+        ``` java
+        listAdminServices
+        ```
     
     This will give the list of admin services for your product.
 

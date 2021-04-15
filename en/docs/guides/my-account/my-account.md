@@ -26,7 +26,7 @@ This section briefly explains what each of the above-mentioned features are and 
 
 ## Access My Account and its components
 
-1. Go to the **My Account** URL: `https://(host name):(port name)/myaccount/`. For example, `<https://localhost:9443/myaccount>`.
+1. Go to the **My Account** URL: `https://<IS_HOST>:<PORT>/myaccount/`. For example, `<https://localhost:9443/myaccount>`.
 
 2. Enter the username and password and click **Sign In**.  
 
@@ -38,32 +38,34 @@ Various elements of the **My Account** application can be managed by the users t
 
 ### Add personal details
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Personal info** tab on the side panel.
-3. Under the **Profile** sub section, click on the plus icon, aligning with the field that needs to be added.
+3. Under the **Profile** sub section, click on the description aligning with the field that needs to be added.
 4. Enter the value to the profile and click **Save**.
 
 ### Update personal details
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Personal info** tab on the side panel.
 3. Click on the pencil icon aligning with the field that needs to be edited.
 4. Update the new value in the profile and click **Save**.
 
 !!! tip
-    To add custom attributes to the user profile, see [Extending SCIM2 User Schemas](../../../extend/provisioning/extend-scim2-user-schemas/)
+    To add custom attributes to the user profile, see [Extend SCIM2 User Schemas](../../../extend/provisioning/extend-scim2-user-schemas/)
 
 ### Add and update profile picture
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Personal info** tab on the side panel.
-3. Hover over the profile picture or the placeholder and click on the camera icon.
+3. Click on the camera icon.
 
     ![profile-picture-hover](../../../assets/img/guides/my-account/user-profile/profile-picture-hover.png)
-    66
-4. In the pop-up that appears, enter the URL of the image that needs to be set as the profile picture in the textbox.
 
-    ![profile-picture-url](../../../assets/img/guides/my-account/user-profile/profile-picture-url.png)
+4. In the pop-up that appears, you can choose a Gravatar image.
+
+    ![profile-picture-url](../../../assets/img/guides/my-account/user-profile/gravatar-img.png)
+
+5. Click **Save**.
 
 ---
 
@@ -75,19 +77,19 @@ Users can link and manage local and federated accounts seamlessly using **My Acc
 
 ### Link new accounts
 
-1. [Access **My Account**](#access-my-account-and-its-components).
-2. Click the **Personal info** tab on the side panel.
-3. Under the linked account sub section, click **Add account**.
+1.  Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+2.  Click the **Personal info** tab on the side panel.
+3.  Under the linked account sub section, click **Add account**.
 
     ![linked-account-add](../../../assets/img/guides/my-account/linked-account/linked-acount-add.png)
 
-4. Enter the username and the password of the account that needs to be linked and click **Save**.
+4.  Enter the username and the password of the account that needs to be linked and click **Save**.
 
     ![linked-account-save](../../../assets/img/guides/my-account/linked-account/linked-account-save.png)
 
 ### Delete linked accounts
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Personal info** tab on the side panel.
 3. Click on the **delete** button aligning with the linked account that needs to be deleted.
 4. Confirm the deletion of the linked account by clicking **OK** in the confirmation popup that appears.
@@ -116,7 +118,7 @@ Using the **export user profile** feature in **My Account**, a JSON file can be 
 
 You can export your profile by following the instructions given below.
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Personal info** tab on the side panel.
 3. Under the **Export profile** sub section, click on the **Download as JSON** button. All the profile details will be downloaded to your local machine as a JSON file.
 
@@ -128,7 +130,7 @@ You can export your profile by following the instructions given below.
 
 As a security measure, it is recommended for users to reset their passwords regularly. Using **My Account**, the users can change their password without a hassle. In order to change the password using **My Account**, follow the instructions given below.
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Security** tab on the side panel.
 3. Under the **Change password** sub section, click **Change your password**.
 4. Enter the current password, and the new password twice in order to confirm the new password.
@@ -146,38 +148,58 @@ The main part of account recovery is setting up security or challenge questions 
 
 ### Add security questions
 
-1. [Access **My Account**](#access-my-account-and-its-components).
-2. Click **Security tab** on the side panel.
-3. Under the **Account recovery** sub section, click on the **add** button aligning with the **security questions** section.
-4. Select two questions from the sets questions given in the dropdown list and enter a unique answer only known to you. Make sure to remember these answers as they will be used to recover the account when required.
-5. Click on **Save** to submit the configured questions and answers.
+1.  Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+2.  Click **Security tab** on the side panel.
+3.  Under the **Account recovery** sub section, click on the **add** button aligning with the **security questions** section.
+    
+    !!! note 
+        For a user to handle password recovery based on security questions via the **My Account** application, the admin should have previously enabled the **Security question based password recovery** option in the Managament Console. Follow the instructions given below if you cannot view the **Account recovery** option in **My Account**. 
+
+        1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
+        2.  Navigate to **Main** > **Identity** > **Identity Providers** > **Resident**. 
+        3.  Expand **Account Management** > **Account Recovery**. 
+        4.  Enable **Security question based password recovery**. 
+        5.  Click **Update**.
+
+4.  Select two questions from the sets questions given in the dropdown list and enter a unique answer only known to you. Make sure to remember these answers as they will be used to recover the account when required.
+5.  Click on **Save** to submit the configured questions and answers.
 
 ### Update security questions
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Security** tab on the side panel.
 3. Under the **Account recovery** sub section, click on the edit icon aligning with the security question that needs to be updated.
 4. Select a new question and add an answer, or just update the answer to the question that was previously chosen and click on **Save**.
 
 ### Add recovery email
 
-1. [Access **My Account**](#access-my-account-and-its-components).
-2. Click the **Security** tab on the side panel.
-3. Click on the add button aligning with the **Email recovery** section.
+1.  Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+2.  Click the **Security** tab on the side panel.
+3.  Click on the edit button aligning with the **Email recovery** section.
+    
+    !!! note 
+        For a user to handle email reecovery via the **My Account** application, the admin should have previously enabled the **Notification based password recovery** option in the Managament Console. Follow the instructions given below if you cannot view the **Email recovery** option in **My Account**. 
+
+        1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
+        2.  Navigate to **Main** > **Identity** > **Identity Providers** > **Resident**. 
+        3.  Expand **Account Management** > **Account Recovery**. 
+        4.  Enable **Notification based password recovery**. 
+        5.  Click **Update**.
+
 4. Enter a preferred email address as the recovery email and click **update**.
 
     !!! info
-        Please note that this will be added as the email address in user profile.
+        This will be added as the email address in user profile.
 
 ### Update recovery email
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Security** tab on the side panel.
-3. Click on the **edit** button with the pencil icon aligning with the Email recovery section.
-4. Edit the email address that has already been used as the recovery mail and click on the **update** button.
+3. Click on the **edit** button with the pencil icon aligning with the **Email recovery** section.
+4. Edit the email address that is already used as the recovery mail and click on the **update** button.
 
     !!! info
-        Please note that this will update the email address in the profile as well.
+        This will update the email address in the profile as well.
 
 ---
 
@@ -189,9 +211,9 @@ Using the latest **My Account** application, users can update their mobile numbe
 
 ### Via SMS
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Security** tab on the side panel.
-3. Under the **Multi-factor authentication** section, click on the edit icon aligning with the **via SMS** section.
+3. Under the **Multi-factor authentication** section, click on the edit icon aligning with the **SMS Number** section.
 4. Enter the mobile number that needs to be added as the MFA factor and click **update**.
 
     !!! info
@@ -204,7 +226,7 @@ Using the latest **My Account** application, users can update their mobile numbe
 
 #### Add security device
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Security** tab on the side panel.
 3. Under the **Multi-factor authentication** section, click on the add icon aligning with the **via security device** section.
 4. Select an option depending on whether to add a USB security key or a built-in sensor.
@@ -229,7 +251,7 @@ Using the latest **My Account** application, users can update their mobile numbe
     
 !!! info "Using an older FIDO device"
     If an older FIDO device is used when registering the device, an error message mentioning that the device cannot be used will be displayed. 
-    This means the device is not capable of performing [passwordless authentication](TO-DO:../learn/passwordless-authentication-using-fido2.md) and can only be used as a [second factor](../../../guides/mfa/2fa-fido/). The device will have to be added as an **"Older Device"**.
+    This means the device is not capable of performing passwordless authentication <!--(TO-DO:../learn/passwordless-authentication-using-fido2.md)--> and can only be used as a [second factor](../../../guides/mfa/2fa-fido/). The device will have to be added as an **"Older Device"**.
 
     Follow the steps given below to add the device as an older device.
     
@@ -270,13 +292,13 @@ WSO2 IS provides a comprehensive consent management solution that can be used to
 
 ### Revoke consent
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Security** tab on the side panel.
 3. Under the **Manage consent** section, click on the **Revoke** button aligning with the application for which consent needs to be revoked. 
 
 ### Edit consent
 
-1. [Access **My Account**](#access-my-account-and-its-components).
+1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
 2. Click the **Security** tab on the side panel.
 3. Under the **Manage consent** section, click on the edit icon aligning with the application for which the consent needs to be edited. 
 4. Click and disable the toggle button aligning with any claim to revoke your consent.
@@ -284,7 +306,7 @@ WSO2 IS provides a comprehensive consent management solution that can be used to
 
 ---
 
-## Review pending approvals
+<!--## Review pending approvals
 
 WSO2 IS enables more control over the tasks that are executed using workflows. This is particularly useful in a scenario where user accounts need to be approved in WSO2 IS. Workflows provide the flexibility to configure this approval process in a way that suits the user's scenario.
 
@@ -292,11 +314,11 @@ WSO2 IS enables more control over the tasks that are executed using workflows. T
 
 Whenever a user gets created in the system, that task will appear under the **ready** section waiting for approval. Whenever a task  is reviewed and claimed, that task will be listed under the **reserved** section of approvals. Once the task is approved or denied, it will appear under the **completed** section.
 
-![pending-approvals-all](../../../assets/img/guides/my-account/pending-approvals/pending-approvals-all.png)
+![pending-approvals-all](../../../assets/img/guides/my-account/pending-approvals/pending-approvals-all.png)-->
 
 ---
 
 !!! info "Related Topics"
-    - To change the look and feel of the My Account UI, see [Customizing the My Account UI](../../../extend/myaccount/customize-my-account-ui/).
-    - To set up My Account in a dev environment, see [Setting Up My Account in a Development Environment](../../../extend/myaccount/set-up-my-account-in-a-dev-environment/).
-    - To configure the My Account application and customize features, theme, etc., see [Configuring My Account Application](../../../extend/myaccount/configure-my-account/)
+    - To change the look and feel of the My Account UI, see [Customize the My Account UI](../../../extend/myaccount/customize-my-account-ui/).
+    - To set up My Account in a dev environment, see [Set Up My Account in a Development Environment](../../../extend/myaccount/set-up-my-account-in-a-dev-environment/).
+    - To configure the My Account application and customize features, theme, etc., see [Configure My Account Application](../../../extend/myaccount/configure-my-account/)

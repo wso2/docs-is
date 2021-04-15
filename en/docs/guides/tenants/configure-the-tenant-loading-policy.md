@@ -17,12 +17,10 @@ and Eager loading work:
     are not loaded at the time the server starts. Instead, the tenants
     are loaded on demand (upon a request sent to a particular tenant).
     When a tenant receives a request, the particular tenant and all
-    tenant-specific artifacts, except **web applications** and **axis2
-      
-    Tenants (including the tenant-specific artifacts) are **unloaded**
+    tenant-specific artifacts, except **web applications** and **axis2 tenants** (including the tenant-specific artifacts) are **unloaded**
     from memory if the tenant remains idle for a specified amount of
     time. You can configure the allowed tenant idle time. See
-    [Configuring Lazy Loading](#configure-lazy-loading) for
+    [Configure Lazy Loading](#configure-lazy-loading) for
     instructions.
       
 -   **Eager Loading:** Unlike lazy loading, eager loading ensures that
@@ -34,7 +32,7 @@ and Eager loading work:
       
     When eager loading is enabled, tenants (and the tenant-specific
     artifacts) are expected to remain in memory without unloading until
-    the server shuts down. See [Configuring Eager Loading](#configure-eager-loading) for instructions.
+    the server shuts down. See [Configure Eager Loading](#configure-eager-loading) for instructions.
 
 Now, see the instructions given below to configure the required tenant
 loading policy for your system. 
@@ -43,8 +41,7 @@ loading policy for your system.
 
 ## Configure Lazy Loading
 
-As explained above, Lazy Loading (for tenants) is enabled as the loading
-policy in WSO2 IS, by default.
+As explained above, Lazy Loading (for tenants) is enabled as the loading policy in WSO2 IS, by default.
 
 ### Configure the tenant unloading time (for Lazy Loading)
 
@@ -106,8 +103,5 @@ to eager loading.
     should apply, by using the above configuration. See the following
     examples:
     -   If the setting should apply to all tenants, add `*` .
-    -   If the setting should apply to all tenants, except
-        [foo.com](http://foo.com/) and [bar.com](http://bar.com/), add `
-        *,! foo.com ,! bar.com`
-    -   If the setting should apply only to [foo.com](http://foo.com/)
-        and [bar.com](http://bar.com/), add `foo.com,bar.com ` .
+    -   If the setting should apply to all tenants, except `foo.com` and `bar.com`, add `*,! foo.com, ! bar.com`
+    -   If the setting should apply only to `foo.com` and `bar.com`, add `foo.com,bar.com ` .
