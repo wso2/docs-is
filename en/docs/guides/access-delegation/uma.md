@@ -8,13 +8,22 @@ authorization server to try out UMA for a sample scenario.
 ## Introduction
 
 To demonstrate the UMA flow using WSO2 IS as the authorization server,
-let’s consider a sample scenario where Larry (resource owner) wants to
-share a photo album (resource) on Larry's cloud drive (resource server)
-with a friend, Sam (requesting party).  Let's assume that Sam uses a
-mobile app (client) to view Larry’s photo album. Note that Larry wants to
-allow Sam to only have view permission to the photo album.
+let’s consider a sample scenario where the resource owner wants to
+share a resource on his/her resource server
+with a requesting party. This requesting party uses a
+client to view resource owner's resource. Note that the resource owner wants to
+allow this requesting party to only have view permission to his/her resource.
 
-Once you try out the tutorial you will understand how to use UMA 2.0 to
+For this guide, the following entities will be used to demonstrate the UMA flow:
+
+- WSO2 Identity Server (authorization server)
+- Larry (resource owner)
+- Larry's cloud drive (resource server)
+- Larry's photo album (resource)
+- Sam (requesting party)
+- Sam's mobile app (client)
+
+Once you try out the guide you will understand how to use UMA 2.0 to
 do the following:
 
 -   Outsource authorization.
@@ -139,12 +148,12 @@ values to obtain the Protection API Access Token (PAT). -->
             `            <CLIENT_SECRET>           ` tags with the values
             you obtained when you [configured the service provider for the
             resource server](#configure-service-provider-to-act-as-the-resource-server).
-        -   In this tutorial, the grant type that is used to obtain the PAT
+        -   In this guide, the grant type that is used to obtain the PAT
             is the password grant type. Therefore, you need to pass the
             resource owners credentials in the curl command. Since [you have
             configured Larry as the resource
             owner](#create-the-resource-owner)
-           , you need to pass Larry's user name and password in the curl
+           , you need to pass Larry's username and password in the curl
             command.
 
     ``` tab="Request Format"
@@ -356,7 +365,7 @@ in this tutorial contains a single permission.
 
 The client should pass id token to prove its identity to the
 authorization server. For the sample scenario in this tutorial only the requesting
-party user name is required.
+party username is required.
 
 -   Execute the following curl command to obtain the OIDC id\_token:
 
@@ -503,7 +512,4 @@ This is how UMA works.
 
 !!! info "Related Topics"
     - [Concept: UMA 2.0](../../../references/concepts/authorization/user-managed-access)
-    - The resource registration endpoint allows you to list registered UMA
-    resources, read resource description of a UMA resource, update a UMA
-    resource and delete a UMA resource. For more information, see [Resource
-    registration endpoint](../../../references/concepts/authorization/uma-resource-registration/).
+    - [Concept: UMA 2.0 Resource registration endpoint](../../../references/concepts/authorization/uma-resource-registration/).
