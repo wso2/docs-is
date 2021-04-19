@@ -2,8 +2,8 @@
 
 WSO2 Identity Server (WSO2 IS) supports handling logout requests from OIDC federated identity providers. When an OIDC
 back-channel logout request is received from the OIDC federated identity provider to the back-channel logout endpoint of
-WSO2 IS (`https://<hostname>:<port>/identity/oidc/slo`), WSO2 IS processes the request, terminates the sessions, and
-then responds to the identity provider.
+WSO2 IS (`https://<hostname>:<port>/identity/oidc/slo`), WSO2 IS processes the request, terminates the sessions of 
+the particular user, and then responds to the identity provider.
 
 Refer [OIDC Back-channel logout](../../learn/openid-connect-single-logout/#oidc-back-channel-logout) for more
 information.
