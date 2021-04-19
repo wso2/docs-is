@@ -445,8 +445,8 @@ This is how UMA works.
     enabled.
     
     ``` java
-    [oauth.grant_type.uma_ticket]
-    retrieve_uma_permission_info_through_introspection="true"
+    [event.default_listener.uma_introspection_data_provider]
+    enable=true
     ```
     
     Following is a sample response when the above configuration is disabled.
