@@ -9,19 +9,10 @@ authorization server to try out UMA for a sample scenario.
 
 To demonstrate the UMA flow using WSO2 IS as the authorization server,
 let’s consider a sample scenario where the resource owner wants to
-share a resource on his/her resource server
+share a resource on their resource server
 with a requesting party. This requesting party uses a
-client to view resource owner's resource. Note that the resource owner wants to
-allow this requesting party to only have view permission to his/her resource.
-
-For this guide, the following entities will be used to demonstrate the UMA flow:
-
-- WSO2 Identity Server (authorization server)
-- Larry (resource owner)
-- Larry's cloud drive (resource server)
-- Larry's photo album (resource)
-- Sam (requesting party)
-- Sam's mobile app (client)
+client to view the resource owner's resource. Note that the resource owner wants to
+allow this requesting party to only have view permission to their resource.
 
 Once you try out the guide you will understand how to use UMA 2.0 to
 do the following:
@@ -34,47 +25,22 @@ do the following:
 
 ## Create the resource owner
 
-Follow the steps below to create a user named Larry who will act as the
-resource owner:
 
 1.  Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
 2.  On the **Main** > **Identity** section, click **Add** under **Users and Roles**.
-3.  Click **Add New User**.
-
-
-4.  Specify the following values to create a new user.
-
-    |   Attribute      |             Sample value                |
-    |------------------|-----------------------------------------|
-    | Domain           | `               PRIMARY              `  |
-    | Username         | `               larry              `    |
-    | Password         | `               larry123              ` |
-    | Confirm password | `               larry123              ` |
-
-5.  Click **Next**.
-
-6.  Select the role as **admin**.
-7.  Click **Finish**.
+<a name ="resourceowner_credentials"></a>
+3. Click **Add New User** and create a new user by providing username and password.
+4.  Click **Next**.
+5.  Select the role as **admin**.
+6.  Click **Finish**.
 
 ---
 
 ## Create the requesting party
 
-Follow the steps below to create a user named Sam who will act as the
-requesting party:
-
 1.  On the **Main** > **Identity** section, click **Add** under **Users and Roles**.
-2.  Click **Add New User**.
-3.  Specify the following values to create a new user:
-
-    |   Attribute      |             Sample value               |
-    |------------------|----------------------------------------|
-    | Domain           | `               PRIMARY              ` |
-    | Username         | `               sam              `     |
-    | Password         | `               sam123              `  |
-    | Confirm password | `               sam123              `  |
-
-4.  Click **Finish**.
+2.  Click **Add New User** and create a new user by providing username and password.
+3.  Click **Finish**.
 
 Now that you have the resource owner and requesting party to try out the
 scenario, next step is to configure one service provider for the
@@ -112,21 +78,6 @@ behalf of the requesting party.
 ---
     
 ## Configure service provider to act as the client
-
-<!---    
-2.  Follow the steps below to configuring a service provider for the
-    client acting on behalf of the requesting party:  
-    1.  On the **Main** tab, click **Add** under **Service Providers**.
-    2.  Enter `            samSP           ` as the **Service Provider
-        Name** and click **Register**.
-    3.  Expand **Inbound Authentication Configuration**, then expand
-        **OAuth/OpenID Connect Configuration**, and then click
-        **Configure**.
-    4.  Enter
-        `                         https://localhost/callback                       `
-        as the value for the **Callback Url**.  
-        ![register-uma-app]( ../assets/img/using-wso2-identity-server/register-uma-app.png) 
-    5.  Click **Add**. -->
     
 {!fragments/register-a-service-provider.md!}
 
@@ -150,11 +101,7 @@ values to obtain the Protection API Access Token (PAT). -->
             resource server](#configure-service-provider-to-act-as-the-resource-server).
         -   In this guide, the grant type that is used to obtain the PAT
             is the password grant type. Therefore, you need to pass the
-            resource owners credentials in the curl command. Since [you have
-            configured Larry as the resource
-            owner](#create-the-resource-owner)
-           , you need to pass Larry's username and password in the curl
-            command.
+            resource owners credentials in the curl command. 
 
     ``` tab="Request Format"
     curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=uma_protection internal_application_mgt_view" -H "Content-Type:application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
@@ -183,8 +130,7 @@ values to obtain the Protection API Access Token (PAT). -->
 
 Now, you need to register the resource.
 
--   Execute the following curl command to register a resource named
-    `           Photo Album          ` .
+-   Execute the following curl command to put the resouce owner's resource under authorization server (WSO2 IS) protection.
 
     !!! tip
         -   Make sure to replace the `            <PAT>           ` tag with
@@ -192,19 +138,19 @@ Now, you need to register the resource.
             section](#obtain-the-protection-api-access-token-pat).
     
     ``` tab="Request Format"
-        curl -X POST \
-          https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/uma/resourceregistration/v1.0/resource \
-          -H 'Authorization: Bearer <PAT>' \
-          -H 'Content-Type: application/json' \
-          -d '<RESOURCE_PAYLOAD>'
+    curl -X POST \
+    https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/uma/resourceregistration/v1.0/resource \
+    -H 'Authorization: Bearer <PAT>' \
+    -H 'Content-Type: application/json' \
+    -d '<RESOURCE_PAYLOAD>'
     ```
     
     ```tab="Sample Request"
-        curl -X POST \
-          https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource \
-          -H 'Authorization: Bearer 64658549-47c1-3b5a-8637-c629f16c4118' \
-          -H 'Content-Type: application/json' \
-          -d '{
+    curl -X POST \
+    https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource \
+    -H 'Authorization: Bearer 64658549-47c1-3b5a-8637-c629f16c4118' \
+    -H 'Content-Type: application/json' \
+    -d '{
           "resource_scopes": [
             "view",
             "download"
@@ -227,12 +173,8 @@ Now, you need to register the resource.
 Now you have completed registering the resource.
 
 Next, you need to create and publish an access policy to provide
-specific users appropriate permission to access the resource. In our
-sample scenario, the requesting party (i.e., Sam) is only provided view
-permission to the photo album. Therefore, let's create and publish a
-policy so that users who have view permission to the album can view the
-images, whereas those who have download permission can download the
-images.
+specific users appropriate resource scopes (permissions) to access the resource. <br>
+e.g. The requesting party is allowed to have view permission to the registered resource of the resource owner.
 
 ---
 
@@ -240,7 +182,7 @@ images.
 
 Follow the steps given below to create, register and publish a policy:
 
-1.  Sign in to the management console (`https://<IS_HOST>:<IS_PORT>/carbon`) using Larry's credentials.
+1.  Sign in to the management console (`https://<IS_HOST>:<IS_PORT>/carbon`) using resource owner [credentials](#resourceowner_credentials).
 2.  On the **Main** tab, go to the **Entitlement** section and click
     **Policy Administration** under **PAP**.
 3.  Click **Add New Entitlement Policy** and then click **Write Policy
@@ -248,11 +190,13 @@ Follow the steps given below to create, register and publish a policy:
 4.  Copy the following sample policy and paste it on the **Source View**
     pane:
 
-    Be sure to replace the
-    `            {ENTER_YOUR_RESOURCE_ID}           ` tag with the
-    resource ID that you obtained when you [registered the
-    resource](#register-the-resource)
-    .
+    !!! note
+        - Replace the `{ENTER_YOUR_RESOURCE_ID}` tag with the resource ID that you obtained when you 
+        [registered the resource](#register-the-resource).
+        - Replace the `{ENTER_REQUESTING_PARTY_USERNAME}` tag with the username provided for the 
+        [requesting party](##create-the-requesting-party).
+        - Replace the `{ENTER_PERMITTED_RESOURCE_SCOPE}` tag with the permitted resource scope for the defined requesting party.
+       
 
     ``` java
         <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"  PolicyId="UMApolicy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" Version="1.0">
@@ -271,7 +215,7 @@ Follow the steps given below to create, register and publish a policy:
                  <AnyOf>
                     <AllOf>
                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">sam</AttributeValue>
+                          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">{ENTER_REQUESTING_PARTY_USERNAME}</AttributeValue>
                           <AttributeDesignator AttributeId="http://wso2.org/identity/user/username" Category="http://wso2.org/identity/user" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"></AttributeDesignator>
                        </Match>
                     </AllOf>
@@ -280,8 +224,7 @@ Follow the steps given below to create, register and publish a policy:
               <Condition>
                  <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-at-least-one-member-of">
                     <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-bag">
-                       <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">view</AttributeValue>
-                       <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">download</AttributeValue>
+                       <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">{ENTER_PERMITTED_RESOURCE_SCOPE}</AttributeValue>
                     </Apply>
                     <AttributeDesignator AttributeId="http://wso2.org/identity/identity-action/action-name" Category="http://wso2.org/identity/identity-action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
                  </Apply>
@@ -306,12 +249,16 @@ Follow the steps given below to create, register and publish a policy:
      
     ![view-uma-policy](../../assets/img/guides/view-uma-policy.png) 
 
+
+Now that the resource owner has put their resource under the authorization server protection, 
+let's try out the flow for a requesting party to access this resource.
+
 ---
 
 ## Obtain a permission ticket
 
 The permission endpoint allows the resource server to request permission
-when a client makes a resource request without a token or if the request
+when a client acting on behalf of the requesting party makes a resource request without a token or if the request
 contains an invalid token.
 
 !!! tip
@@ -330,11 +277,6 @@ contains an invalid token.
     [oauth.token_validation]
     authorization_code_validity= "3600"
     ```
-    
-
-The request can contain one or more permission values by having multiple
-resources and the relevant scopes of a resource owner. The request used
-in this tutorial contains a single permission.
 
 -   Execute the following curl command to obtain the permission ticket.
 
@@ -344,6 +286,12 @@ in this tutorial contains a single permission.
     -   Replace the `             <RESOURCE_ID>            ` tag with
         the ID you got when [registering the
         resource](#register-the-resource).
+    -   Replace the `<PERMISSION_PAYLOAD>` tag with required permissions.  
+    
+        !!! note 
+            The request can contain one or more permission values by having multiple
+            resources and the relevant scopes. The sample request used
+            in this guide contains a single permission.
     
     ```tab="Request Format"
     curl -X POST https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/uma/permission/v1.0/permission -H 'authorization: Bearer <PAT>' -H "Content-Type: application/json" -d '["<PERMISSION_PAYLOAD>"]' -k
@@ -367,7 +315,7 @@ The client should pass id token to prove its identity to the
 authorization server. For the sample scenario in this tutorial only the requesting
 party username is required.
 
--   Execute the following curl command to obtain the OIDC id\_token:
+-   Execute the following curl command to obtain the OIDC id\_token.
 
     Be sure to replace the `             <CLIENT_ID>            ` and
     `             <CLIENT_SECRET>            ` tags with the values you
@@ -404,36 +352,33 @@ The client acting on behalf of the requesting party has to obtain the
 requesting party token (RPT) with the obtained permission ticket and the
 claim token.
 
--   Execute the following curl command to obtain the RPT.  
+Execute the following curl command to obtain the RPT.  
 
-    -   Make sure to replace the
+-   Make sure to replace the
         `              <CLIENT_ID>             ` and
         `              <CLIENT_SECRET>             ` tags with the
-        values you got after [Configuring service provider for the
+        values you got after [configuring service provider for the
         client](#configure-service-provider-to-act-as-the-client).
-    -   Replace `              <PERMISSION_TICKET>             ` with
-        the value you generated under the [Obtaining a permission
+-   Replace `              <PERMISSION_TICKET>             ` with
+        the value you generated under the [obtaining a permission
         ticket](#obtain-a-permission-ticket)
         section.
-    -   Make sure to replace the `              <ID_TOKEN>             `
-        tag with the [OIDC id\_token you
-        obtained](#obtain-the-oidc-id95token)
-        .
+-   Make sure to replace the `              <ID_TOKEN>             `
+        tag with the [OIDC id\_token](#obtain-the-oidc-id95token) you obtained.
 
-    ``` java
-        curl --user <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Auma-ticket&ticket=<PERMISSION_TICKET>&claim_token=<ID_TOKEN>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
-    ```
+```
+curl --user <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Auma-ticket&ticket=<PERMISSION_TICKET>&claim_token=<ID_TOKEN>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
+```
 
-      
-    You will get a response similar to the following:
+You will get a response similar to the following:
 
-    ``` java
-        {
-           "access_token":"p8dj48ff-heah-3632-b3dc-68aenm4c62e9",
-           "token_type":"Bearer",
-           "expires_in":3600
-        }
-    ```
+```
+{
+   "access_token":"p8dj48ff-heah-3632-b3dc-68aenm4c62e9",
+   "token_type":"Bearer",
+   "expires_in":3600
+}
+```
 
 ---
 
@@ -473,7 +418,7 @@ You get a response similar to the following:
    "exp":1553418559,
    "iat":1553414959,
    "client_id":"JfTSiJ24gh8sYHTQVuOl5RoftkAa",
-   "username":"Alex.uma.demo"
+   "username":"sam"
 }
 ```
 
@@ -485,7 +430,7 @@ This is how UMA works.
 !!! note
     
     In order to obtain UMA related information in the introspection end
-    point, add the following configuration to the `deployment.toml` file in the `<ISHOME>/repository/conf/` folder .  
+    point, add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder .  
     This is disabled by default. The response shown above with additional UMA
     related details is what we get when the following configuration is
     enabled.
@@ -512,4 +457,4 @@ This is how UMA works.
 
 !!! info "Related Topics"
     - [Concept: UMA 2.0](../../../references/concepts/authorization/user-managed-access)
-    - [Concept: UMA 2.0 Resource registration endpoint](../../../references/concepts/authorization/uma-resource-registration/).
+    - [Concept: UMA 2.0 Resource registration endpoint](../../../references/concepts/authorization/uma-resource-registration/)
