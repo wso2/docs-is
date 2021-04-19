@@ -133,5 +133,5 @@ follows:
     ```
 
 !!! info 
-    See [Managing Tenants with APIs](../../../apis/manage-tenants-with-apis)
+    See [Managing Tenants with APIs](../../../develop/apis/manage-tenants-with-apis)
     for more information on using APIs to manage tenants.

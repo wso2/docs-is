@@ -83,7 +83,7 @@ management console.
     enable/disable the user account using the
     `         setUserClaimValues        ` method in the
     `                   RemoteUserStoreManagerService                 `
-    after you have configured WSO2 IS for account disabling. For more information on using admin services, refer [Call Admin Services](../../../apis/call-admin-services)
+    after you have configured WSO2 IS for account disabling. For more information on using admin services, refer [Call Admin Services](../../../develop/apis/call-admin-services)
     
 
 ### Send email notifications for account disabling

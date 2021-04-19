@@ -75,7 +75,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
         - **Mapped Attribute**: customClaim
     - **Supported By Default**: True
 
-    ![add-scim-local-custom-claim](../../assets/img/extend/add-scim-local-custom-claim.png)
+    ![add-scim-local-custom-claim](../../../assets/img/extend/add-scim-local-custom-claim.png)
 
 4. Click **Add**. 
 
@@ -97,7 +97,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
     - **External Claim URI**: urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:customClaim
     - **Mapped Local Claim**: http://wso2.org/claims/customclaim
 
-    ![add-scim-external-claim](../../assets/img/extend/add-scim-external-claim.png)
+    ![add-scim-external-claim](../../../assets/img/extend/add-scim-external-claim.png)
 
 3. Click **Add**. 
 

@@ -42,7 +42,7 @@ Make the following changes to the created service provider.
     
         - To learn about the functions and fields related to authentication scripts, see [Adaptive Authentication JS API Reference](../../../references/adaptive-authentication-js-api-reference).
         
-        - To learn about the guidelines on writing custom functions for adaptive authentication, see [Write Custom Functions for Adaptive Authentication](../../../extend/write-custom-functions-for-adaptive-authentication).
+        - To learn about the guidelines on writing custom functions for adaptive authentication, see [Write Custom Functions for Adaptive Authentication](../../../develop/extend/write-custom-functions-for-adaptive-authentication).
 
     A sample authentication script is shown below. 
 

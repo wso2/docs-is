@@ -360,8 +360,8 @@ This is used to validate the responses given by the user against the existing va
 
 ## Manage challenge questions using REST APIs
 
-There are a number of operations related to challenge questions that you can perform using REST APIs. To manage the challenge questions and answers of a user using REST APIs, see [Manage Challenge Questions](../../../apis/challenge-rest-api).
+There are a number of operations related to challenge questions that you can perform using REST APIs. To manage the challenge questions and answers of a user using REST APIs, see [Manage Challenge Questions](../../../develop/apis/challenge-rest-api).
 
 !!! info "Related Topics"
     - [Guide: Recover Password via Email](../../../guides/password-mgt/recover-password)
-    - [API: Challenge Questions](../../../apis/challenge-rest-api)
+    - [API: Challenge Questions](../../../develop/apis/challenge-rest-api)

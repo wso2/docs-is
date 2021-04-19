@@ -109,7 +109,7 @@ of WSO2 Identity Server.
 
 !!! tip
     For information on the REST APIs for self-registration, see 
-    [Self-Registration Using REST APIs](../../../apis/use-the-self-sign-up-rest-apis/).
+    [Self-Registration Using REST APIs](../../../develop/apis/use-the-self-sign-up-rest-apis/).
     
 
 ## Configure self-registration consent purposes
@@ -268,7 +268,7 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 ----
 
 !!! info "Related Topics"
-    - [REST API: Self Register](../../../apis/use-the-self-sign-up-rest-apis/)
+    - [REST API: Self Register](../../../develop/apis/use-the-self-sign-up-rest-apis/)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
     - [Guide: Invitation Workflow](../invitation-workflow) 
     - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)

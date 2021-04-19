@@ -29,7 +29,7 @@ Follow the steps below to view and invoke it:
 For more information on WSO2 admin services and how to invoke an admin
 service using either SoapUI or any other client program, see [Calling
 Admin Services from
-Apps](../../../apis/call-admin-services)
+Apps](../../../develop/apis/call-admin-services)
 section in WSO2 Carbon documentation.
 
 ---

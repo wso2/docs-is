@@ -202,7 +202,7 @@ POST https://<host>:<port>/scim2/Users/<users-scim-id>
 
 ### Using SOAP Based admin services
 
-1.  Discover the `UserProfileMgtService` admin service. For information on how to do this, see [Call Admin Services](../../../apis/call-admin-services/).
+1.  Discover the `UserProfileMgtService` admin service. For information on how to do this, see [Call Admin Services](../../../develop/apis/call-admin-services/).
 2.  Create a new [SOAP-UI](https://www.soapui.org/) project by importing the WSDL:
     <https://localhost:9443/services/UserProfileMgtService?wsdl>.
 

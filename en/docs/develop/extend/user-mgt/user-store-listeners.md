@@ -4,7 +4,7 @@ WSO2 Carbon User Stores provide the ability to customize user store operations b
 
 The following diagram demonstrates a typical flow of execution of the user store operation, along with the listener's methods. The 'operation' method (here, representative of any user store operation) first calls the `listener.doPreOperation` which is implemented in the listener. Then, it calls the `doOperation`, which is implemented in the subclass extending the `org.wso2.carbon.user.core.common.AbstractUserStoreManager` (the abstract class which implements the `UserStoreManager` interface). After this, the `listener.doPostOperation` method is called. However, this flow will change depending on the implementation (for instance in the carbon authorization flow, there is only one listener method that is being called).
 
-![User store operations](../../assets/img/extend/user-store-operations.png)
+![User store operations](../../../assets/img/extend/user-store-operations.png)
 
 ---
 

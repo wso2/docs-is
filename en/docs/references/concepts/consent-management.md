@@ -71,7 +71,7 @@ features.
 
 -   RESTful consent APIs to manage consents remotely. For more
     infomation, see [Using the Consent Management REST
-    APIs](../../../apis/use-the-consent-management-rest-apis/).
+    APIs](../../../develop/apis/use-the-consent-management-rest-apis/).
 -   Consent portal for individuals to review, modify, and revoke already
     given consents. For more information, see [Consent management](../../../guides/my-account/my-account#consent-management)
     .
@@ -170,7 +170,7 @@ provide consent management UI facilities for their end users.
 
 !!! tip For more information and instructions for setting up this use
     case, see [Using the Consent Management REST
-    APIs](../../../apis/use-the-consent-management-rest-apis/).
+    APIs](../../../develop/apis/use-the-consent-management-rest-apis/).
 
 ---
 
@@ -188,5 +188,5 @@ Specification](https://kantarainitiative.org/confluence/display/infosharing/Cons
     
     For more information and instructions for setting up this use case, see
     [Using the Consent Management REST
-    APIs](../../../apis/use-the-consent-management-rest-apis/).
+    APIs](../../../develop/apis/use-the-consent-management-rest-apis/).
     

@@ -54,7 +54,7 @@ below is how to discover them using the
 
 5.  The list of admin services of your product are listed. For
     example:  
-    ![Admin services list](../assets/img/apis/admin-services-list.png) 
+    ![Admin services list](../../assets/img/apis/admin-services-list.png) 
 
 
 !!! info

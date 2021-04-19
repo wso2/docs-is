@@ -63,14 +63,14 @@ First, register two service providers in WSO2 Identity Server.
     URL:
     [http://wso2is.local:8080/travelocity.com/index.jsp](http://localhost:8080/travelocity.com/index.jsp)
 
-    ![Travelocity screen](../../assets/img/samples/travelocity-screen.png) 
+    ![Travelocity screen](../../../assets/img/samples/travelocity-screen.png) 
 
     **avis.com**
 
     URL:
     [http://wso2is.local:8080/avis.com/index.jsp](http://localhost:8080/avis.com/index.jsp)
 
-    ![Avis screen](../../assets/img/samples/avis-screen.png) 
+    ![Avis screen](../../../assets/img/samples/avis-screen.png) 
 
 ---
 
@@ -83,15 +83,15 @@ First, register two service providers in WSO2 Identity Server.
 3.  Enter `          travelocity.com         ` as the **Service Provider
     Name** in the form that appears and click **Register**. The Service
     Providers page appears.  
-    ![Add new service provider](../../assets/img/guides/add-new-service-provider.png) 
+    ![Add new service provider](../../../assets/img/guides/add-new-service-provider.png) 
 4.  Under the **Inbound Authentication Configuration** section, click
     **SAML2 Web SSO Configuration \> Configure**. The Register New
     Service Provider page appears.  
-    ![SAML2 Web SSO Configuration option](../../assets/img/guides/saml2-web-sso-configuration-option.png) 
+    ![SAML2 Web SSO Configuration option](../../../assets/img/guides/saml2-web-sso-configuration-option.png) 
 5.  Configure the following details for travelocity.com and repeat steps
     1 to 6 and configure details for avis.com.
 
-    ![New application screen](../../assets/img/guides/new-application-screen.png) 
+    ![New application screen](../../../assets/img/guides/new-application-screen.png) 
 
     **travelocity.com**
 
@@ -114,7 +114,7 @@ First, register two service providers in WSO2 Identity Server.
     page located at
     `          <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp         `
     .  
-    ![Identity Server sign in screen](../../assets/img/samples/identity-server-sign-in-screen.png) 
+    ![Identity Server sign in screen](../../../assets/img/samples/identity-server-sign-in-screen.png) 
 
 ---
 
@@ -155,7 +155,7 @@ external application, the full path should be given instead.
 
 The following is the structure of this web app.
 
-![Web app folder strcture](../../assets/img/extend/web-app-folder-strcture.png)
+![Web app folder strcture](../../../assets/img/extend/web-app-folder-strcture.png)
 
 The **authenticationendpoint** web application uses a carbon component
 called
@@ -253,6 +253,6 @@ When modifying the pages, ensure that the following is applied.
 
 4.  Log in to the travelocity.com web app
     again. You are presented with the re-branded page.  
-    ![Travelocity login screen](../../assets/img/samples/travelocity-login-screen.png)   
+    ![Travelocity login screen](../../../assets/img/samples/travelocity-login-screen.png)   
     If you access avis.com, it still displays the
     default login page.

@@ -45,7 +45,7 @@ response status `           201 CREATED          `.
 
 A role can be created by calling the service
 `         RemoteUserStoreManager        ` . If you are new to admin
-services, see [Calling Admin Services.](../../../apis/call-admin-services/)
+services, see [Calling Admin Services.](../../../develop/apis/call-admin-services/)
 
 1.  Disable the hidden admin service property in the `           <IS_HOME>/repository/conf/deployment.toml          ` file.  
     By default, the admin services are disabled as it is not recommended

@@ -13,7 +13,7 @@ This section guides you through editing or deleting a user role in WSO2 Identity
 ### Edit or delete a role using SCIM
 
 In SCIM roles are considered as **groups.** You can edit or delete a
-group using SCIM. For more information, see [SCIM 2.0 Rest APIs](../../../apis/scim2-rest-apis)
+group using SCIM. For more information, see [SCIM 2.0 Rest APIs](../../../develop/apis/scim2-rest-apis)
 
 ---
 
@@ -21,7 +21,7 @@ group using SCIM. For more information, see [SCIM 2.0 Rest APIs](../../../apis/s
 
 A role can be edited or deleted by calling the service
 `         RemoteUserStoreManager        ` . If you are new to admin
-services, see [Calling Admin Services.](../../../apis/call-admin-services/)
+services, see [Calling Admin Services.](../../../develop/apis/call-admin-services/)
 
 1.  Disable the hidden admin service property in the
     `           <IS_HOME>/repository/conf/deployment.toml          ` file.  

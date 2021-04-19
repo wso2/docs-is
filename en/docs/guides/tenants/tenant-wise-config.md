@@ -21,7 +21,7 @@ When handling notifications such as the ones given below, the email-sender confi
  ```
  However, this configuration will apply to all the tenants. If you wish to configure them tenant-wise, follow the instructions given below. 
  
-1.  Configure the [Configuration Management REST API](../../../apis/use-the-configuration-management-rest-apis/). 
+1.  Configure the [Configuration Management REST API](../../../develop/apis/use-the-configuration-management-rest-apis/). 
 2.  Execute the following curl command to create a resource type named `Publisher`. 
 
     **Sample Request**
