@@ -11,7 +11,7 @@ This page guides you through configuring password-based authentication for a web
 1. Go to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
 ![myaccount-login]( ../../assets/img/fragments/myaccount-login.png)
 
-2. Enter the **Username** and **Password** and to log in.
+2. Enter the **Username** and **Password** and log in.
 
 ----
 
