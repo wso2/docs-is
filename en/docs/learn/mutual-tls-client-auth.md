@@ -18,11 +18,7 @@ This page guides you through configuring mutual TLS client authentication and ce
     order=27
     enable=true
 
-    [[event_listener]]
-    id = "is_introspection_data_provider"
-    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
-    name= "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.introspection.ISIntrospectionDataProvider"
-    order=28
+    [event.default_listener.is_introspection_data_provider]
     enable=true
 
     [oauth.grant_type.authorization_code]
@@ -33,9 +29,6 @@ This page guides you through configuring mutual TLS client authentication and ce
 
     [oauth.grant_type.refresh_token]
     grant_handler = "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.handlers.MTLSTokenBindingRefreshGrantHandler"
-
-    [oauth.grant_type.uma_ticket]
-    retrieve_uma_permission_info_through_introspection = true
 
     [oauth.mutualtls]
     client_certificate_header = "x-wso2-mtls-cert"
