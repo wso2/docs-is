@@ -145,13 +145,21 @@ for the token signature and the `iss`, `aud`, `iat`, `sub`, `sid`, `events` and 
 
 ### Configure “iat” claim validation
 
-To disable or change the “iat” claim validation, add the following configuration to the **deployment.toml** file in
+By default, the "iat" claim validation is enabled and `iatValidityPeriod` is set as 300 seconds.
+
+To change the “iat” claim validation, add the following configuration to the **deployment.toml** file in
 `<PRIMARY_IS_HOME>/repository/conf/`
 
 ``` 
 [authentication.authenticator.oidc.parameters] 
-enableIatValidation = true 
 iatValidityPeriod = "150" 
+```
+
+To disable the “iat” claim validation, add the following configuration to the **deployment.toml** file.
+
+```
+[authentication.authenticator.oidc.parameters]
+enableIatValidation = false
 ```
 
 - `iatValidityPeriod` should be in seconds.
@@ -189,8 +197,3 @@ applications.
    as well.
 
 This means that you have successfully configured an OIDC federated identity provider initiated logout.
-
-
-
-
-
