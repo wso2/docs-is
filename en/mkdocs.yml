@@ -285,9 +285,9 @@ nav:
           - 'OpenID Connect Implicit Client Profile': guides/access-delegation/oidc-implicit-client-profile.md
           - 'OpenID Connect Hybrid Flow': guides/access-delegation/oidc-hybrid-flow.md
         - 'User Managed Access': guides/access-delegation/uma.md
-        - 'WS-Trust':
-          - 'Obtain Tokens with Holder-Of-Key Subject Confirmation': guides/access-delegation/obtain-tokens-holder-of-key.md
-          - 'Access Claim-Aware Services using STS Secured with Non-Repudiation': guides/access-delegation/claim-aware-services.md
+        #- 'WS-Trust':
+          #- 'Obtain Tokens with Holder-Of-Key Subject Confirmation': guides/access-delegation/obtain-tokens-holder-of-key.md
+          #- 'Access Claim-Aware Services using STS Secured with Non-Repudiation': guides/access-delegation/claim-aware-services.md
       - 'Identity Federation':
         - 'Enterprise Identity Federation':
           - 'Overview': guides/identity-federation/enterprise-identity-federation.md
