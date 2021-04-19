@@ -46,7 +46,7 @@ Let's get started.
 
               
     !!! info 
-        The Workflow Template that is seen in the above sample, defines the template for a specific workflow. A template will have a specific flow where the parameters can be customized (eg. Send an email notification for some users, get approval from a user to continue). WSO2 Identity Server supports custom templates that can be deployed as OSGi services. For more information on writing workflow templates, see [Writing a Custom Workflow Template](../../../extend/workflows/write-a-custom-workflow-template).
+        The Workflow Template that is seen in the above sample, defines the template for a specific workflow. A template will have a specific flow where the parameters can be customized (eg. Send an email notification for some users, get approval from a user to continue). WSO2 Identity Server supports custom templates that can be deployed as OSGi services. For more information on writing workflow templates, see [Writing a Custom Workflow Template](../../../develop/extend/workflows/write-a-custom-workflow-template).
 
 4.  Enter the deployment information of the template as described below.
 

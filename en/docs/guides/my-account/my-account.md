@@ -51,7 +51,7 @@ Various elements of the **My Account** application can be managed by the users t
 4. Update the new value in the profile and click **Save**.
 
 !!! tip
-    To add custom attributes to the user profile, see [Extend SCIM2 User Schemas](../../../extend/provisioning/extend-scim2-user-schemas/)
+    To add custom attributes to the user profile, see [Extend SCIM2 User Schemas](../../../develop/extend/provisioning/extend-scim2-user-schemas/)
 
 ### Add and update profile picture
 
@@ -113,7 +113,7 @@ Using the **export user profile** feature in **My Account**, a JSON file can be 
         in WSO2 IS, log out, then log back in. Now approve the consent again. A new consent 
         receipt will be generated for that application consent).
 
-    2.  Use the [Consent Management REST APIs](../../../apis/use-the-consent-management-rest-apis) to revoke the
+    2.  Use the [Consent Management REST APIs](../../../develop/apis/use-the-consent-management-rest-apis) to revoke the
         existing consent and add a new consent.
 
 You can export your profile by following the instructions given below.
@@ -319,6 +319,6 @@ Whenever a user gets created in the system, that task will appear under the **re
 ---
 
 !!! info "Related Topics"
-    - To change the look and feel of the My Account UI, see [Customize the My Account UI](../../../extend/myaccount/customize-my-account-ui/).
-    - To set up My Account in a dev environment, see [Set Up My Account in a Development Environment](../../../extend/myaccount/set-up-my-account-in-a-dev-environment/).
-    - To configure the My Account application and customize features, theme, etc., see [Configure My Account Application](../../../extend/myaccount/configure-my-account/)
+    - To change the look and feel of the My Account UI, see [Customize the My Account UI](../../../develop/extend/myaccount/customize-my-account-ui/).
+    - To set up My Account in a dev environment, see [Set Up My Account in a Development Environment](../../../develop/extend/myaccount/set-up-my-account-in-a-dev-environment/).
+    - To configure the My Account application and customize features, theme, etc., see [Configure My Account Application](../../../develop/extend/myaccount/configure-my-account/)

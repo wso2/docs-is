@@ -14,7 +14,7 @@ connectors](https://store.wso2.com/store/assets/isconnector/list) for
 Google and Salesforce available by default in WSO2 Identity Server. If
 you need to plug any other custom connector, you can do it by writing an
 extension for that as described
-[here](../../../extend/provisioning/write-an-outbound-provisioning-connector). Outbound
+[here](../../../develop/extend/provisioning/write-an-outbound-provisioning-connector). Outbound
 provisioning configurations can be found under identity provider
 configuration user interface of WSO2 Identity Server.
 

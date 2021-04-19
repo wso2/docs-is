@@ -17,7 +17,7 @@
         of the `oauth.custom_grant_type` in the `deployment.toml` file when
         creating the custom grant type is the value that will appear on the
         UI. For more information on writing a custom grant type, see
-        [Writing a Custom OAuth 2.0 Grant Type](../../../extend/oauth2/write-a-custom-oauth-2.0-grant-type).
+        [Writing a Custom OAuth 2.0 Grant Type](../../../develop/extend/oauth2/write-a-custom-oauth-2.0-grant-type).
         
 6.  Fill the `Callback Url` field. 
 

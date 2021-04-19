@@ -27,7 +27,7 @@ The following configurations changed in the application.
 | client_id | USER_PORTAL | MY_ACCOUNT |
 | callback_url | /user-portal/login | /myaccount/login |
 
-For more information, see [Configuring My Account Application](../../../extend/my-account/configure-my-account).
+For more information, see [Configuring My Account Application](../../../develop/extend/my-account/configure-my-account).
 
 ---
 
@@ -200,8 +200,8 @@ With WSO2 IS 5.10.0, two new properties shown below were introduced to the `<IS_
 - `SkipLoginConsent`:  Skip the OIDC login consent 
 - `SkipLogoutConsent`: Skip the OIDC logout consent
 
-With 5.11.0, these two properties are added to the [Application Management Rest API](../../../apis/application-rest-api), so that they can be viewed and modified. The `skipConsent` attribute 
-has been removed and the two properties `skipLoginConsent` , `skipLogoutConsent` have been added in the **AdvancedApplicationConfiguration** model of [Application Management Rest API](../../../apis/application-rest-api). 
+With 5.11.0, these two properties are added to the [Application Management Rest API](../../../develop/apis/application-rest-api), so that they can be viewed and modified. The `skipConsent` attribute 
+has been removed and the two properties `skipLoginConsent` , `skipLogoutConsent` have been added in the **AdvancedApplicationConfiguration** model of [Application Management Rest API](../../../develop/apis/application-rest-api). 
 
 ---
 

@@ -6,3 +6,4 @@
 3.  Click **Add new User.**
 
     ![add-a-new-user](../../../assets/img/fragments/add-a-new-user.png)
+    

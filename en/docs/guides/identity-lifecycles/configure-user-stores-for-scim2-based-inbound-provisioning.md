@@ -36,4 +36,4 @@ Now suppose you need to add a secondary userstore, OpenLDAP. In this scenario, c
 
 !!! info "Related Topics"
     -   For information about Local Claim Dialect attributes, click [here](../../../guides/dialects/add-claim-mapping/).
-    -	You can see the sample cURL commands for all SCIM 2.0 operations [here](../../../apis/scim2-rest-apis/). 
+    -	You can see the sample cURL commands for all SCIM 2.0 operations [here](../../../develop/apis/scim2-rest-apis/). 

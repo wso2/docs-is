@@ -34,7 +34,7 @@ This claim mapping can be done through the WSO2 Identity Server Claim Management
 
 5.  Edit the other four claims in the same way.
 
-Now the basic claim mapping is done. You can now add a user using the curl commands [here](../../../apis/scim2-rest-apis/).
+Now the basic claim mapping is done. You can now add a user using the curl commands [here](../../../develop/apis/scim2-rest-apis/).
 
 In RestClient, the following header parameters must be added and the double quotations must be removed from the message body.
 

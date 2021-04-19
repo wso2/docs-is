@@ -58,7 +58,7 @@ curl -v -k --user admin:admin --data '{"schemas": ["urn:ietf:params:scim:api:mes
 
 The user also can search user IDs by calling the
 `         RemoteUserStoreManager        ` service. If you are new to
-admin services, see [Calling Admin Services](../../../apis/call-admin-services/).
+admin services, see [Calling Admin Services](../../../develop/apis/call-admin-services/).
 
 The following SOAP method, `         getUserId()        ` will give
 you the user ID of the relevant username. 

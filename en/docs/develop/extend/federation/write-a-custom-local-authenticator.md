@@ -146,7 +146,7 @@ Let's begin.
 2.  Write a custom local authenticator.
 
     !!! note    
-        The `BasicCustomAuthenticatorConstants.java` file that is referred in the below example is available [here](../../assets/attachments/BasicCustomAuthenticatorConstants.java).
+        The `BasicCustomAuthenticatorConstants.java` file that is referred in the below example is available [here](../../../assets/attachments/BasicCustomAuthenticatorConstants.java).
     
     ??? example "Click to view the sample custom authenticator class"
         ```
