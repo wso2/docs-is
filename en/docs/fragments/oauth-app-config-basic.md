@@ -1,5 +1,3 @@
-## Basic OAuth/OpenID Connect configuration
-
 Make the following changes to the created service provider.
 
 1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
