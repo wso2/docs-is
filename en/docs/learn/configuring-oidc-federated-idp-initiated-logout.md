@@ -2,18 +2,18 @@
 
 WSO2 Identity Server (WSO2 IS) supports handling logout requests from OIDC federated identity providers. When an OIDC
 back-channel logout request is received from the OIDC federated identity provider to the back-channel logout endpoint of
-WSO2 IS (`https://<hostname>:<port>/identity/oidc/slo`), WSO2 IS processes the request, terminates the sessions and then
-responds to the identity provider.
+WSO2 IS (`https://<hostname>:<port>/identity/oidc/slo`), WSO2 IS processes the request, terminates the sessions, and
+then responds to the identity provider.
 
 Refer [OIDC Back-channel logout](../../learn/openid-connect-single-logout/#oidc-back-channel-logout) for more
-information on OIDC back-channel logout.
+information.
 
 ## Scenario
 
 The diagram below illustrates the OIDC federated identity provider initiated logout scenario. **WSO2 IS** and
 **Application2** are configured as service providers in the **OIDC provider**. **OIDC provider** is configured as an
-identity provider, and **Application1** is configured as a service provider in the **WSO2 IS**. When the user initiates
-the logout from **Application2**, first the federated **OIDC provider** handles the request and propagates the logout
+identity provider, and **Application1** is configured as a service provider in **WSO2 IS**. When the user initiates the
+logout from **Application2**, first the federated **OIDC provider** handles the request and propagates the logout
 request to **WSO2 IS**. After receiving the logout request from the federated identity provider, **WSO2 IS** processes
 the request and terminates the session and sends back a logout response to the OIDC provider. Once the session is
 terminated on WSO2 IS side, it will propagate the logout request to all the connected Relying Parties. User is logged
@@ -21,8 +21,8 @@ out from the **Application1**.
 
 !!! note
 
-    If logout is successful in WSO2 IS, it will respond with 200 OK. If there are any server-side errors or client 
-    errors(Eg: claim validation fails), it will respond with Bad Request or Internal Server Error.
+    If logout is successful in WSO2 IS, it will respond with `200 OK`. If there are any server-side errors or client 
+    errors(Eg: claim validation fails), it will respond with `Bad Request` or `Internal Server Error`.
 
 ![oidc-fed-idp-init-logout-scenario](../assets/img/tutorials/oidc-fed-idp-init-logout-scenario.png)
 
@@ -46,7 +46,7 @@ configuring the OIDC federated identity provider initiated logout and trying it 
     Follow [Change hostname of the WSO2 IS](../../setup/changing-the-hostname) guide to change the hostname of the 
     Secondary IS. In this guide, the hostname of the Secondary IS is configured as `localhost.com`.
 
-### Configure Primary IS as a Service Provider in the Secondary IS
+### Configuring Primary IS as a Service Provider in the Secondary IS
 
 1. Run WSO2 Identity Server on port 9444 (Secondary IS).
 2. Log in to the management console as an administrator using the admin, admin credentials.
@@ -119,7 +119,7 @@ configuring the OIDC federated identity provider initiated logout and trying it 
 
 Follow the steps
 in [Deploying the pickup-manager webapp](https://is.docs.wso2.com/en/latest/learn/deploying-the-sample-app/#deploying-the-pickup-manager-webapp)
-to download, deploy and register the Pickup-Manager sample.
+to download, deploy, and register the Pickup-Manager sample.
 
 ## OIDC Back-channel Logout Token Validation
 
@@ -141,14 +141,12 @@ The following is an example OIDC back-channel logout token.
 
 Logout token validation is done according to
 the [OIDC back-channel logout specification](https://openid.net/specs/openid-connect-backchannel-1_0.html#Validation)
-for the token signature and
-`iss`, `aud`, `iat`, `sub`, `sid`, `events` and `nonce` claims.
+for the token signature and the `iss`, `aud`, `iat`, `sub`, `sid`, `events` and `nonce` claims.
 
 ### Configure “iat” claim validation
 
-To disable or change the “iat” claim validation, the following configuration needs to be added to the **deployment.
-toml**
-file in `<PRIMARY_IS_HOME>/repository/conf/`
+To disable or change the “iat” claim validation, add the following configuration to the **deployment.toml** file in
+`<PRIMARY_IS_HOME>/repository/conf/`
 
 ``` 
 [authentication.authenticator.oidc.parameters] 
