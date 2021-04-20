@@ -272,7 +272,7 @@ You will receive a response similar to the following JSON response with the acce
         The `ResponseHeader` code chunk sets a custom response header in case an
         invalid mobile number is sent.
         
-    Build the project and copy the modified jar to `<IS_HOME>/repository/component/lib` directory.   
+    Build the project and copy the modified jar to the `<IS_HOME>/repository/component/lib` directory.   
 
     **Try it out**
 
