@@ -17,16 +17,14 @@ Writing a custom post-authentication handler is fairly simple. For a sample impl
 Extend the `org.wso2.carbon.identity.application.authentication.framework.handler.request.AbstractPostAuthnHandler` to write a custom handler. This allows you to enable/disable or change the priority of this handler via configurations in the `deployment.toml`  configuration file. The post-authentication handler interface consists of a single main method which you need to implement in order to implement a post-authentication handler.
 
 ``` java
-PostAuthnHandlerFlowStatus handle(HttpServletRequest httpServletRequest,
-
-    HttpServletResponse httpServletResponse,
-
-    AuthenticationContext authenticationContext)
-
+PostAuthnHandlerFlowStatus handle
+(HttpServletRequest httpServletRequest,
+HttpServletResponse httpServletResponse,
+AuthenticationContext authenticationContext)
 throws PostAuthenticationFailedException;
 ```
 
-The post-authentication operations can be done within the implementation of this handler. The response can be coveyed on the interface using one of the following two methods.  
+The post-authentication operations can be done within the implementation of this handler. The response can be conveyed on the interface using one of the following two methods.  
   
 ### By returning a PostAuthnHandlerFlowStatus
 
@@ -67,7 +65,7 @@ As seen in the sample implementation, the disclaimer page is redirected and it s
 
 A post-authentication exception along with an error code and message can be thrown if you wish to break the login flow or do not need to continue the login flow. The error code will be displayed in an error page. For example, this exception can be used for failing a login attempt due to an authorization failure.
 
-Follow the steps given in the [sample post-authentication handler readme](https://github.com/wso2/samples-is/blob/master/etc sample-post-authentication-handler/README.MD) to install this sample and get it working with WSO2 Identity Server. You can enable and disable this newly written handler using the configuration shown below in the `<IS_HOME>/repository/conf/deployment.toml`. You can also change the execution order using the ` order` parameter. The handler with the lesser value for the `order` parameter will be executed first.
+Follow the steps given in the [sample post-authentication handler readme](https://github.com/wso2/samples-is/blob/master/etc/sample-post-authentication-handler/README.MD) to install this sample and get it working with WSO2 Identity Server. You can enable and disable this newly written handler using the configuration shown below in the `<IS_HOME>/repository/conf/deployment.toml`. You can also change the execution order using the ` order` parameter. The handler with the lesser value for the `order` parameter will be executed first.
 
 ```toml
     [[event_listener]]
