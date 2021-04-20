@@ -198,7 +198,7 @@ particular but any other grant type can be customized as well.
 
 1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 
-2. Make sure **Password**  grant type is selected from the **Allowed Grant Types** list.
+2. Make sure the **Password**  grant type is selected from the **Allowed Grant Types** list.
 
 2. Enter the **Callback Url**.  
 
