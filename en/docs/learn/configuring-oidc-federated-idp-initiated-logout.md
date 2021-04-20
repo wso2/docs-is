@@ -162,9 +162,11 @@ To disable the “iat” claim validation, add the following configuration to th
 enableIatValidation = false
 ```
 
+After adding the configurations, restart the WSO2 IS.
+
 - `iatValidityPeriod` should be in seconds.
 
-- If the `iat` claim validation is enabled in the PrimaryIS, the token shouldn’t be issued before the specified time.
+- If the `iat` claim validation is enabled in the Primary IS, the token shouldn’t be issued before the specified time.
 
 ## Identifying Session Using sub or sid Claim
 
@@ -174,7 +176,7 @@ enableIatValidation = false
   session.
 - If the logout token only contains a `sub` claim, IS will terminate all the session for that `sub` claim.
 
-## Try it out!
+## Try it out
 
 Once you have completed configuring WSO2 IS as instructed in the above sections, try out the flow by running the sample
 applications.
