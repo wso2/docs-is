@@ -81,7 +81,7 @@ configuring the OIDC federated identity provider initiated logout and trying it 
 
     - Authorization Endpoint URL - `https://localhost.com:9444/oauth2/authorize`
     - Token Endpoint URL - `https://localhost.com:9444/oauth2/token`
-    - Callback Url - `https://localhost.com:9443/commonauth`
+    - Callback Url - `https://localhost:9443/commonauth`
     - Userinfo Endpoint URL - `https://localhost.com:9444/oauth2/userinfo`
     - Logout Endpoint URL - `https://localhost.com:9444/oidc/logout`
 
@@ -100,9 +100,12 @@ configuring the OIDC federated identity provider initiated logout and trying it 
     - Alternatively, select the **Upload IDP certificate** option from **Choose IDP certificate type** and upload the
      certificate of the SecondaryIS.
     ![oidc-primary-idp-certificate-config](../assets/img/tutorials/oidc-primary-idp-certificate-config.png)
-     
+      
+9. Add `https://localhost:9444/oauth2/token` as the **Identity Provider's Issuer Name**.
+   
+    ![oidc-backchannel-logout-issuer-name](../assets/img/tutorials/oidc-backchannel-logout-issuer-name.png)
 
-9. Click **Register**.
+10. Click **Register**.
 
 ### Configuring Pickup Dispatch application in the Primary IS
 
