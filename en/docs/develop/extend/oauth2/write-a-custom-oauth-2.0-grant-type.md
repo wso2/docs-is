@@ -238,7 +238,7 @@ You will receive a response similar to the following JSON response with the acce
     codes/messages to it. 
     
     !!! tip
-        See the [here](#use-the-grant-type-sample) for instructions on how to implement and use the mobile grant
+        See [here](#use-the-grant-type-sample) for instructions on how to implement and use the mobile grant
         sample before adding the custom error codes to it.
 
     In the downloaded Maven [buildable source](../../assets/attachments/custom-grant.zip), add  the following code segment in the sample class
