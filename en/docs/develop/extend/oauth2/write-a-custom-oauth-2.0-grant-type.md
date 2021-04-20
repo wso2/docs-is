@@ -274,7 +274,7 @@ You will receive a response similar to the following JSON response with the acce
         
     Build the project and copy the modified jar to `<IS_HOME>/repository/component/lib` directory.   
 
-    **Try out the scenario**
+    **Try it out**
 
     - Happy Path
 
