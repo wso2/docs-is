@@ -33,6 +33,7 @@ theme: material
 theme:
   name: material
   palette:
+    scheme: preference
     primary: deep-orange
     accent: deep-orange
   custom_dir: theme/material
