@@ -16,7 +16,7 @@ You can add new claim mapping to an existing claim dialect (see the
 ## Add local claim
 
 1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-2.  In the **Main** > **Identity** > **Claims** > **Add**.
+2.  Navigate to **Main** > **Identity** > **Claims** > **Add**.
 3.  Click **Add Local Claim** to add a new claim to the
     `https://wso2.org/claims` (local) claim dialect.
 
@@ -98,7 +98,7 @@ You can add new claim mapping to an existing claim dialect (see the
 ## Add external claim
 
 1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-2.  Navigate to **Main** > **Claims** > **Add**.
+2.  Navigate to **Main** > **Identity** > **Claims** > **Add**.
 3.  Click **Add External Claim** to add a new claim to any existing
     dialect other than the local dialect, i.e, `https://wso2.org/claims`.
 4.  Select the **Dialect URI** of the dialect you want to add the claim
