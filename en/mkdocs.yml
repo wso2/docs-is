@@ -429,7 +429,7 @@ nav:
           - 'Provisioning for Developers':
             - 'Extend SCIM 2.0 User Schemas': develop/extend/provisioning/extend-scim2-user-schemas.md
             - 'Write an Outbound Provisioning Connector': develop/extend/provisioning/write-an-outbound-provisioning-connector.md
-            - 'Extensible SCIM User Schemas With WSO2 Identity Server': develop/extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
+            #- 'Extensible SCIM User Schemas With WSO2 Identity Server': develop/extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
           - 'Identity Federation for Developers':
             - 'Write a Custom Federated Authenticator': develop/extend/federation/write-a-custom-federated-authenticator.md
             - 'Write a Custom Local Authenticator': develop/extend/federation/write-a-custom-local-authenticator.md
