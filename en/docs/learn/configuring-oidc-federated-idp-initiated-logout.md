@@ -22,22 +22,23 @@ out from the **Application1**.
 !!! note
 
     If logout is successful in WSO2 IS, it will respond with `200 OK`. If there are any server-side errors or client 
-    errors(Eg: claim validation fails), it will respond with `Bad Request` or `Internal Server Error`.
+    errors(e.g., claim validation fails), it will respond with `Bad Request` or `Internal Server Error`.
 
 ![oidc-fed-idp-init-logout-scenario](../assets/img/tutorials/oidc-fed-idp-init-logout-scenario.png)
 
 ## Trying out the flow with WSO2 Identity Server
 
 To demonstrate the OIDC federated identity provider initiated logout, this tutorial uses two WSO2 identity servers which
-that run on ports, 9443 (Primary IS) and 9444 (Secondary IS), and two sample web applications, **Pickup-Dispatch** and
-**Pickup-Manager**. In this scenario Secondary IS acts as a federated OIDC identity provider and **Pickup-Dispatch** and
-**Pickup-Manager** act as **Application1** and **Application2** respectively. The following section provides a guide for
-configuring the OIDC federated identity provider initiated logout and trying it out with the sample applications.
+run on ports, 9443 (Primary IS) and 9444 (Secondary IS), and two sample web applications, **Pickup-Dispatch** and
+**Pickup-Manager**. In this scenario, Secondary IS acts as a federated OIDC identity provider and
+**Pickup-Dispatch** and **Pickup-Manager** acts as **Application1** and **Application2** respectively. The following
+section provides a guide for configuring the OIDC federated identity provider initiated logout and trying it out with
+the sample applications.
 
-1. Configure Primary IS as a service provider in the Secondary IS
-2. Configure Secondary IS as an identity provider in the Primary IS
-3. Configure Pickup Dispatch in Primary IS
-4. Configure Pickup Manager in Secondary IS
+1. Configure Primary IS as a service provider in the Secondary IS.
+2. Configure Secondary IS as an identity provider in the Primary IS.
+3. Configure Pickup Dispatch in Primary IS.
+4. Configure Pickup Manager in Secondary IS.
 
 !!! note
 
@@ -46,14 +47,14 @@ configuring the OIDC federated identity provider initiated logout and trying it 
     Follow [Change hostname of the WSO2 IS](../../setup/changing-the-hostname) guide to change the hostname of the 
     Secondary IS. In this guide, the hostname of the Secondary IS is configured as `localhost.com`.
 
-### Configuring Primary IS as a Service Provider in the Secondary IS
+### Configure Primary IS as a Service Provider in the Secondary IS
 
 1. Run WSO2 Identity Server on port 9444 (Secondary IS).
 2. Log in to the management console as an administrator using the admin, admin credentials.
 3. Navigate to **Main** to access the **Identity** menu.
 4. Click **Add** under **Service Providers**.
 5. Fill in the details in the **Basic Information** section. Give a suitable name for the service provider like
-   “PrimaryIS” and click **Register**.
+   `PrimaryIS` and click **Register**.
 6. Expand the **OAuth2/OpenID Connect Configuration** section under the **Inbound Authentication Configuration** section
    and click **Configure**.
 7. Add `https://localhost:9443/commonauth` as **Callback Url**.
@@ -67,7 +68,7 @@ configuring the OIDC federated identity provider initiated logout and trying it 
 
 9. Click **Add**. Note the generated OAuth Client Key and Secret.
 
-### Configuring Secondary IS as an Identity Provider in the Primary IS
+### Configure Secondary IS as an Identity Provider in the Primary IS
 
 1. Run WSO2 Identity Server on port 9443 (Primary IS).
 2. Log in to the management console as an administrator using the admin, admin credentials.
@@ -107,18 +108,20 @@ configuring the OIDC federated identity provider initiated logout and trying it 
 
 10. Click **Register**.
 
-### Configuring Pickup Dispatch application in the Primary IS
+### Configure Pickup Dispatch application in the Primary IS
 
 1. Follow the steps
    in [Deploying the pickup-dispatch webapp](https://is.docs.wso2.com/en/latest/learn/deploying-the-sample-app/#deploying-the-pickup-dispatch-webapp)
    to download, deploy and register the **Pickup-Dispatch** sample.
 2. Once you have added the OIDC service provider, go to **Service Provider Configuration** and expand **Local & Outbound
    Authentication Configuration**.
-3. Select **Federated Authentication** and from the dropdown menu select **SecondaryIS**. Click **Update**.
+3. Select **Federated Authentication** and from the dropdown menu select **SecondaryIS**.
 
    ![oidc-service-provider-federated-authentication](../assets/img/tutorials/oidc-service-provider-federated-authentication.png)
 
-### Configuring Pickup Manager application in the Secondary IS
+4. Click **Update**.
+
+### Configure Pickup Manager application in the Secondary IS
 
 Follow the steps
 in [Deploying the pickup-manager webapp](https://is.docs.wso2.com/en/latest/learn/deploying-the-sample-app/#deploying-the-pickup-manager-webapp)
@@ -151,7 +154,7 @@ for the token signature and the `iss`, `aud`, `iat`, `sub`, `sid`, `events` and 
 By default, the "iat" claim validation is enabled and `iatValidityPeriod` is set as 300 seconds.
 
 To change the “iat” claim validation, add the following configuration to the **deployment.toml** file in
-`<PRIMARY_IS_HOME>/repository/conf/`
+`<PRIMARY_IS_HOME>/repository/conf/` directory.
 
 ``` 
 [authentication.authenticator.oidc.parameters] 
@@ -186,7 +189,7 @@ applications.
 
 1. Access the following URL on a browser
    window, [http://localhost.com:8080/pickup-dispatch/](http://localhost.com:8080/pickup-dispatch/)
-2. Click Login. You will be redirected to the WSO2 Identity Server login page (SecondaryIS - port 9444).
+2. Click **Login**. You will be redirected to the WSO2 Identity Server login page (SecondaryIS - port 9444).
 3. Log in using your WSO2 Identity Server credentials. You will be redirected to the **Pickup Dispatch** application
    home page.
 4. Now access the following URL on another browser window to access the **Pickup Manager** application, which is
