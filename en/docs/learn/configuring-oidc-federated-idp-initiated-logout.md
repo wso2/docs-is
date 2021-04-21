@@ -94,17 +94,23 @@ the sample applications.
    relevant identity provider. 
    
     - Under the **Basic Information** section, select the **Use IDP JWKS endpoint** option from **Choose IDP certificate
-     type** and add the JWKS uri
-     `https://localhost.com:9444/oauth2/jwks` to Identity Provider's JWKS Endpoint.
-    ![oidc-primary-idp-jwks-uri-config](../assets/img/tutorials/oidc-primary-idp-jwks-uri-config.png)
-      
+      type** and add the JWKS uri
+      `https://localhost.com:9444/oauth2/jwks` to Identity Provider's JWKS Endpoint.
+      ![oidc-primary-idp-jwks-uri-config](../assets/img/tutorials/oidc-primary-idp-jwks-uri-config.png)
+
     - Alternatively, select the **Upload IDP certificate** option from **Choose IDP certificate type** and upload the
-     certificate of the SecondaryIS.
-    ![oidc-primary-idp-certificate-config](../assets/img/tutorials/oidc-primary-idp-certificate-config.png)
-      
+      certificate of the SecondaryIS.
+      ![oidc-primary-idp-certificate-config](../assets/img/tutorials/oidc-primary-idp-certificate-config.png)
+
 9. Add `https://localhost:9444/oauth2/token` as the **Identity Provider's Issuer Name**.
+
+   ![oidc-backchannel-logout-issuer-name](../assets/img/tutorials/oidc-backchannel-logout-issuer-name.png)
    
-    ![oidc-backchannel-logout-issuer-name](../assets/img/tutorials/oidc-backchannel-logout-issuer-name.png)
+!!! note
+
+    **Identity Provider's Issuer Name** of the Identity Provider in **Primary IS** should be same as the **Identity 
+    Provider Entity ID** in the `Identity Providers > Resident > Inbound Authentication Configuration > OAuth2/OpenID 
+    Connect Configuration` in the **Secondary IS**.
 
 10. Click **Register**.
 
