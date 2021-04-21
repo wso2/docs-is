@@ -12,8 +12,12 @@ To run the project on local, it requires [python](https://www.python.org/downloa
 
 ## Run project locally (Dev Mode)
 
-1. Clone repo
-2. Run `mkdocs serve` command in `<Lang folder>`. E.g. `cd en && mkdocs serve`
+1. Clone this repo
+1. Ensure that Python and Pip are installed.
+1. Install the mkdocs cli tool using the command, `pip install mkdocs`.
+1. Install the material theme using the command, `pip install mkdocs-material`.
+1. Install the markdown extension using the command, `pip install markdown-include`.
+1. Run `mkdocs serve` in the `en/` or any lang folder, e.g., `cd en && mkdocs serve`
 
 ## License
 
