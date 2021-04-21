@@ -107,7 +107,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
 
 1. Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
 
-3. Click **Add New User** and create a new user by providing username and password.
+3. Click **Add New User** and create a new user by providing a username and password.
 
 4. Click **Finish**.
     
