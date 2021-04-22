@@ -418,7 +418,7 @@ nav:
             - 'Overview': develop/extend/sdks/sdk-overview.md
             - 'Enable Authentication for Spring Boot App': develop/extend/sdks/spring-boot.md
           - 'User Management for Developers':
-            - 'Write a Custom Password Validator': develop/extend/user-mgt/write-a-custom-password-validator.md
+            #- 'Write a Custom Password Validator': develop/extend/user-mgt/write-a-custom-password-validator.md
             - 'Write a Custom Global Scope Validator': develop/extend/user-mgt/write-a-custom-global-scope-validator.md
             - 'Write a Custom Claim Handler': develop/extend/user-mgt/write-a-custom-claim-handler.md
             - 'Write a Custom Event Handler': develop/extend/user-mgt/write-a-custom-event-handler.md
