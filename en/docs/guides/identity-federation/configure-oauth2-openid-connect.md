@@ -1,4 +1,4 @@
-# Configuring OAuth2-OpenID Connect
+# Configure OAuth2-OpenID Connect
 
 [OAuth 2.0](https://oauth.net/2/) is an authorization framework that is
 capable of providing a way for clients to access a resource with
@@ -15,9 +15,7 @@ With OAuth as its base, OpenID Connect allows many types of clients such
 as web-based clients, mobile clients and javascript clients to verify
 the users with an authorization server-based authentication.
 
-1.  Sign in. Enter your username and password to log on to the
-    [Management
-    Console](../../../deploy/get-started/get-started-with-the-management-console).
+1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using the `admin/admin` credentials.
     
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.  
@@ -36,7 +34,7 @@ the users with an authorization server-based authentication.
     Prior to this, you need to configure an oauth application in the
     federated authorization server and get the application information
     such as client ID and secret. For example, see
-    [configuring OAuth2-OpenID Connect single sign-on](../../../guides/login/webapp-oidc/).
+    [configure OAuth2-OpenID Connect single sign-on](../../../guides/login/webapp-oidc/).
 
     !!! tip
         By default, the **Client Id** and **Client Secret** are stored as
@@ -46,21 +44,21 @@ the users with an authorization server-based authentication.
         against HMAC.
     
         If you want to change the format in which the **Client Secret** is
-        stored, open the `	<IS_HOME>/repository/conf/deployment.toml	` file and add the following configuration.
+        stored, open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration.
 
         ```toml
         [oauth]
 		hash_tokens_and_secrets = true 
 		```
-        For information on
-        possible values that you can specify based on your
-        requirement, see [Supported token persistence
-        processors](TO-DO:../../learn/extension-points-for-oauth#token-persistence-processor).
-    
+
         Once you configure a required token persistence processor, be sure
         to restart the server for the changes to be applied to WSO2 Identity
         Server.
     
+     <!--For information on
+        possible values that you can specify based on your
+        requirement, see [Supported token persistence
+        processors](TO-DO:../../learn/extension-points-for-oauth#token-persistence-processor).-->
 
     <div class="tg-wrap"><table>
     <thead>
@@ -84,12 +82,12 @@ the users with an authorization server-based authentication.
     <tr>
         <td>Authorization Endpoint URL</td>
         <td>This is a standard OAuth Authorization Endpoint URL of the federated IDP.</td>
-        <td><code>https://localhost:9443/oauth2/authorize/</code></td>
+        <td><code>https://<IS_HOST>:<PORT>/oauth2/authorize/</code></td>
     </tr>
     <tr>
         <td>Token Endpoint URL</td>
         <td>This is a standard OAuth Token Endpoint URL of the federated IDP.</td>
-        <td><code>https://localhost:9443/oauth2/token/</code></td>
+        <td><code>https://<IS_HOST>:<PORT>/oauth2/token/</code></td>
     </tr>
     <tr>
         <td>Client Id</td>
@@ -104,7 +102,7 @@ the users with an authorization server-based authentication.
     <tr>
         <td>Callback URL</td>
         <td>This is the URL to which the browser should be redirected after the authentication is successful. It should be the <code>commonauth</code> endpoint of Identity server</td>
-        <td><code>https://localhost:9443/commonauth</code></td>
+        <td><code>https://<IS_HOST>:<PORT>/commonauth</code></td>
     </tr>
     <tr>
         <td>OpenID Connect User ID Location</td>
@@ -131,8 +129,11 @@ the users with an authorization server-based authentication.
     </table></div>
 
 !!! info "Related Topics"
+    - [Guides: Enable Single Sign-On for an OIDC Web Application](../../../guides/login/sso-for-oidc)
+    - [Concepts: Introduction to OpenID Connect](../../../references/concepts/authentication/intro-oidc)
+    
 
-	-   See [Log into Identity Server using another Identity Server -
+<!--	-   See [Log into Identity Server using another Identity Server -
 		OAuth2](TO-DO:../../learn/login-to-identity-server-using-another-identity-server-oauth2)
 		for a sample of using OAuth2/OpenIDConnect for federated
-		authentication.
+		authentication.-->

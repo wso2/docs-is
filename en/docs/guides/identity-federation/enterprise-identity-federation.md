@@ -16,6 +16,6 @@ WSO2 Identity Server supports various standard federation protocols with common 
 
 - [Configure WS-Federation](../configure-ws-federation)
 
-- [Application-Initiated Federated Logout](../app-initiated-logout)
+<!--- [Application-Initiated Federated Logout](../app-initiated-logout)
 
-- [IdP-Initiated Federated Logout](../idp-initiated-logout)
+- [IdP-Initiated Federated Logout](../idp-initiated-logout) -->

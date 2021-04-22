@@ -21,26 +21,24 @@ directly accessing the identity provider itself.
 
 Follow the steps below to navigate to the federated authenticators configuration section.
 
-!!! tip "Before you begin"
 
-	1.	[Run WSO2 Identity Server](../../../deploy/get-started/run-the-product/).
 
-	2.	Sign in to the WSO2 Identity Server [Management Console](../../../deploy/get-started/get-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator. 	  
+1.	Sign in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) as an administrator. 	  
 
    
-1.  On the **Main** menu of the Management Console, click **Identity > Identity Providers > Add**.
+2.  On the **Main** menu of the Management Console, click **Identity > Identity Providers > Add**.
 
 	<img src="../../../assets/img/guides/add-identity-provider-menu-item.png" alt="Add Identity Provider menu-item" width="200" style="border:1px solid grey">  
     
-2.  Enter a suitable name for the identity provider in the **Identity Provider Name** text box.
+3.  Enter a suitable name for the identity provider in the **Identity Provider Name** text box.
 
 	<img src="../../../assets/img/guides/add-identity-provider-screen.png" alt="Add Identity Provider screen" width="700" style="border:1px solid grey"> 
 
-3.	Under the **Federated Authenticators** section, click **SAML2 Web SSO Configuration**.
+4.	Under the **Federated Authenticators** section, click **SAML2 Web SSO Configuration**.
 
 	<img src="../../../assets/img/guides/saml2-web-sso-configuration-option.png" alt="SAML2 Web SSO Configuration option" width="700" style="border:1px solid grey"> 
 
-4.	Enter the following values as given below.
+5.	Enter the following values as given below.
 
 	<table>
 		<thead>
@@ -226,7 +224,7 @@ To configure manually,
 			</tr>
 			<tr class="odd">
 				<td>SAML2 Web SSO User Id Location</td>
-				<td>Select whether the User ID is found in 'Name Identifier' or if it is found among claims. If the user ID is found amongthe claims, it can override the <strong>User ID Claim URI</strong> configuration in the <a href="../../learn/configuring-claims-for-an-identity-provider">identity provider claim mapping section</a> .</td>
+				<td>Select whether the User ID is found in 'Name Identifier' or if it is found among claims. If the user ID is found among the claims, it can override the <strong>User ID Claim URI</strong> configuration in the <a href="../../../guides/dialects/configure-claims">identity provider claim mapping section</a> .</td>
 				<td>User ID found among claims</td>
 			</tr>
 			<tr class="even">
@@ -503,5 +501,5 @@ To configure through file upload:
     
 
 !!! info "Related Topics"
-	-   See [Configuring Shibboleth IdP as a Trusted Identity Provider](../../../guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider)
-		for a sample of using SAML2 Web SSO configuration.
+	-	[Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)
+	-   [Guides: Configure Shibboleth IdP as a Trusted Identity Provider](../../../guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider)
