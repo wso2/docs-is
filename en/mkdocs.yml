@@ -434,8 +434,8 @@ nav:
           - 'Identity Federation for Developers':
             - 'Write a Custom Federated Authenticator': develop/extend/federation/write-a-custom-federated-authenticator.md
             - 'Write a Custom Local Authenticator': develop/extend/federation/write-a-custom-local-authenticator.md
-          - 'Access Control for Developers':
-            - 'Write a Custom Policy Info Point': develop/extend/access-control/write-a-custom-policy-info-point.md
+          #- 'Access Control for Developers':
+            #- 'Write a Custom Policy Info Point': develop/extend/access-control/write-a-custom-policy-info-point.md
           - 'Adaptive Authentication for Developers':
             - 'Write Custom Functions for Adaptive Authentication': develop/extend/write-custom-functions-for-adaptive-authentication.md
           - 'Workflow Management for Developers':
