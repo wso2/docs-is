@@ -418,7 +418,7 @@ nav:
             - 'Overview': develop/extend/sdks/sdk-overview.md
             - 'Enable Authentication for Spring Boot App': develop/extend/sdks/spring-boot.md
           - 'User Management for Developers':
-            - 'Write a Custom Password Validator': develop/extend/user-mgt/write-a-custom-password-validator.md
+            #- 'Write a Custom Password Validator': develop/extend/user-mgt/write-a-custom-password-validator.md
             - 'Write a Custom Global Scope Validator': develop/extend/user-mgt/write-a-custom-global-scope-validator.md
             - 'Write a Custom Claim Handler': develop/extend/user-mgt/write-a-custom-claim-handler.md
             - 'Write a Custom Event Handler': develop/extend/user-mgt/write-a-custom-event-handler.md
@@ -434,8 +434,8 @@ nav:
           - 'Identity Federation for Developers':
             - 'Write a Custom Federated Authenticator': develop/extend/federation/write-a-custom-federated-authenticator.md
             - 'Write a Custom Local Authenticator': develop/extend/federation/write-a-custom-local-authenticator.md
-          - 'Access Control for Developers':
-            - 'Write a Custom Policy Info Point': develop/extend/access-control/write-a-custom-policy-info-point.md
+          #- 'Access Control for Developers':
+            #- 'Write a Custom Policy Info Point': develop/extend/access-control/write-a-custom-policy-info-point.md
           - 'Adaptive Authentication for Developers':
             - 'Write Custom Functions for Adaptive Authentication': develop/extend/write-custom-functions-for-adaptive-authentication.md
           - 'Workflow Management for Developers':
