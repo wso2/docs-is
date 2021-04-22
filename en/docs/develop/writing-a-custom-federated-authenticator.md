@@ -1,7 +1,7 @@
 # Writing a Custom Federated Authenticator
 
 A custom federated authenticator can be written to authenticate a user with an external system.
-The external system can be any Identity provider including Facebook, Twitter, Google, and Yahoo.
+The external system can be any Identity provider including Facebook, Twitter, Google, Yahoo, etc.
 You can use the extension points available in WSO2 Identity Server to create custom federated authenticators.
 
 ![Federated authentication diagram](../assets/img/using-wso2-identity-server/federated-authentication-diagram.png)
@@ -12,103 +12,102 @@ The following is the API used to implement a custom federated
 authenticator.
 
 ??? example "Click to view the API of the Application Authenticators"
-   ``` java
-   /*
-   *  Copyright (c) 2005-2013, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
-   *
-   *  WSO2 Inc. licenses this file to you under the Apache License,
-   *  Version 2.0 (the "License"); you may not use this file except
-   *  in compliance with the License.
-   *  You may obtain a copy of the License at
-   *
-   *    http://www.apache.org/licenses/LICENSE-2.0
-   *
-   * Unless required by applicable law or agreed to in writing,
-   * software distributed under the License is distributed on an
-   * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-   * KIND, either express or implied.  See the License for the
-   * specific language governing permissions and limitations
-   * under the License.
-   */
-   
-   package org.wso2.carbon.identity.application.authentication.framework;
-   
-   import java.io.Serializable;
-   import java.util.List;
-   
-   import javax.servlet.http.HttpServletRequest;
-   import javax.servlet.http.HttpServletResponse;
-   
-   import org.wso2.carbon.identity.application.authentication.framework.context.AuthenticationContext;
-   import org.wso2.carbon.identity.application.authentication.framework.exception.AuthenticationFailedException;
-   import org.wso2.carbon.identity.application.authentication.framework.exception.LogoutFailedException;
-   import org.wso2.carbon.identity.application.common.model.Property;
-   
-   /**
-    * API of the Application Authenticators.
-    *
-    */
-   public interface ApplicationAuthenticator extends Serializable {
-   
-       /**
-        * Check whether the authentication or logout request can be handled by the
-        * authenticator
-        * 
-        * @param request
-        * @return boolean
-        */
-       public boolean canHandle(HttpServletRequest request);
-       
-       /**
-        * Process the authentication or logout request.
-        * 
-        * @param request
-        * @param response
-        * @param context
-        * @return the status of the flow
-        * @throws AuthenticationFailedException
-        * @throws LogoutFailedException
-        */
-       public AuthenticatorFlowStatus process(HttpServletRequest request,
-               HttpServletResponse response, AuthenticationContext context)
-               throws AuthenticationFailedException, LogoutFailedException;
-       
-       /**
-        * Get the Context identifier sent with the request. This identifier is used
-        * to retrieve the state of the authentication/logout flow
-        * 
-        * @param request
-        * @return
-        */
-       public String getContextIdentifier(HttpServletRequest request);
-       
-       /**
-        * Get the name of the Authenticator
-        * @return name
-        */
-       public String getName();
-       
-       /**
-        * @return
-        */
-       public String getFriendlyName();
-       
-       /**
-        * Get the claim dialect URI if this authenticator receives claims in a standard dialect
-        * and needs to be mapped to the Carbon dialect http://wso2.org/claims
-        * @return boolean
-        */
-       public String getClaimDialectURI();
-       
-       /**
-        * @return
-        */
-       public List<Property> getConfigurationProperties();
-   }
-   ```
+    ``` java
+      /*
+      *  Copyright (c) 2005-2013, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+      *
+      *  WSO2 Inc. licenses this file to you under the Apache License,
+      *  Version 2.0 (the "License"); you may not use this file except
+      *  in compliance with the License.
+      *  You may obtain a copy of the License at
+      *
+      *    http://www.apache.org/licenses/LICENSE-2.0
+      *
+      * Unless required by applicable law or agreed to in writing,
+      * software distributed under the License is distributed on an
+      * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+      * KIND, either express or implied.  See the License for the
+      * specific language governing permissions and limitations
+      * under the License.
+      */
+      
+      package org.wso2.carbon.identity.application.authentication.framework;
+      
+      import java.io.Serializable;
+      import java.util.List;
+      
+      import javax.servlet.http.HttpServletRequest;
+      import javax.servlet.http.HttpServletResponse;
+      
+      import org.wso2.carbon.identity.application.authentication.framework.context.AuthenticationContext;
+      import org.wso2.carbon.identity.application.authentication.framework.exception.AuthenticationFailedException;
+      import org.wso2.carbon.identity.application.authentication.framework.exception.LogoutFailedException;
+      import org.wso2.carbon.identity.application.common.model.Property;
+      
+      /**
+       * API of the Application Authenticators.
+       *
+       */
+      public interface ApplicationAuthenticator extends Serializable {
+      
+          /**
+           * Check whether the authentication or logout request can be handled by the
+           * authenticator
+           * 
+           * @param request
+           * @return boolean
+           */
+          public boolean canHandle(HttpServletRequest request);
+          
+          /**
+           * Process the authentication or logout request.
+           * 
+           * @param request
+           * @param response
+           * @param context
+           * @return the status of the flow
+           * @throws AuthenticationFailedException
+           * @throws LogoutFailedException
+           */
+          public AuthenticatorFlowStatus process(HttpServletRequest request,
+                  HttpServletResponse response, AuthenticationContext context)
+                  throws AuthenticationFailedException, LogoutFailedException;
+          
+          /**
+           * Get the Context identifier sent with the request. This identifier is used
+           * to retrieve the state of the authentication/logout flow
+           * 
+           * @param request
+           * @return
+           */
+          public String getContextIdentifier(HttpServletRequest request);
+          
+          /**
+           * Get the name of the Authenticator
+           * @return name
+           */
+          public String getName();
+          
+          /**
+           * @return
+           */
+          public String getFriendlyName();
+          
+          /**
+           * Get the claim dialect URI if this authenticator receives claims in a standard dialect
+           * and needs to be mapped to the Carbon dialect http://wso2.org/claims
+           * @return boolean
+           */
+          public String getClaimDialectURI();
+          
+          /**
+           * @return
+           */
+          public List<Property> getConfigurationProperties();
+      }
+    ```
 
-This API can be used to configure a custom authenticator. As an example,
-a Twitter authenticator is configured using the above API.
+This API can be used to configure a custom authenticator. 
 
 ## Writing a custom federated authenticator
 
@@ -119,7 +118,7 @@ a Twitter authenticator is configured using the above API.
    it as a federated authenticator
 3. The [custom federated authenticator](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java) 
    should be written by extending the [AbstractApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/AbstractApplicationAuthenticator.java) class 
-   and implementing the [FederatedApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/LocalApplicationAuthenticator.java) class.
+   and implementing the [FederatedApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/FederatedApplicationAuthenticator.java) class.
 4. You can find a custom federated authenticator [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator) for your reference
 
 The important methods in the `AbstractApplicationAuthenticator` class, and the `FederatedApplicationAuthenticator` interface are listed as follows.
