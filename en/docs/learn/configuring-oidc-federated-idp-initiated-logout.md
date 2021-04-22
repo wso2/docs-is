@@ -149,6 +149,7 @@ The following is an example OIDC back-channel logout token.
    "events": {
      "http://schemas.openid.net/event/backchannel-logout": {}
      }
+   }  
 ```
 
 Logout token validation is done according to
