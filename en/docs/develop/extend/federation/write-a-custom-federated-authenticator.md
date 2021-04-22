@@ -230,7 +230,7 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 {!fragments/oauth-app-config-basic.md!}
 
-5. Expand **Local & Outbound Authentication Configuration** section. 
+5. Expand the **Local & Outbound Authentication Configuration** section. 
 
 6. Select **Federated Authentication** and select the configured federated authenticator.
    ![Partner identity provider](../../../assets/img/extend/partner-identity-provider.png)
