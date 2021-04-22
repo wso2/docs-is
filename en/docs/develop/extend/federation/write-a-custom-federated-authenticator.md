@@ -1,7 +1,7 @@
 # Write a Custom Federated Authenticator
 
 A custom federated authenticator can be written to authenticate a user with an external system.
-The external system can be any Identity provider including Facebook, Twitter, Google, Yahoo, etc.
+The external system can be any identity provider such as Facebook, Twitter, Google, Yahoo, etc.
 You can use the extension points available in WSO2 Identity Server to create custom federated authenticators.
 
 ![Federated authentication diagram](../../../assets/img/extend/federated-authentication-diagram.png)
