@@ -43,7 +43,7 @@ curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"jackso
 
 The user can also be created by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](../../../apis/call-admin-services).
+admin services, see [Calling Admin Services](../../../develop/apis/call-admin-services).
 
 1. Enable the hidden admin service property. 
     By default, admin services WSDLs are not exposed in a product. We need to add the following configuration in  `            <IS_HOME>/repository/conf/deployment.toml           ` to access the WSDLs.

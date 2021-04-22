@@ -28,6 +28,8 @@ renew_access_token_per_request = true
 
 ----
 
+## Basic OAuth/OpenID Connect configuration
+
 {!fragments/oauth-app-config-basic.md!}
 
 ## Try it out

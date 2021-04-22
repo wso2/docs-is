@@ -34,7 +34,7 @@ You receive a response with status `200 OK` and the user will be deleted from th
 
 ## Delete a user using SOAP 
 
-You can also delete a user by calling the `RemoteUserStoreManager` service . If you are new to admin services, see [Calling Admin Services](../../../apis/call-admin-services/).
+You can also delete a user by calling the `RemoteUserStoreManager` service . If you are new to admin services, see [Calling Admin Services](../../../develop/apis/call-admin-services/).
 
 The following SOAP method will give you the user ID of the relevant username. 
 

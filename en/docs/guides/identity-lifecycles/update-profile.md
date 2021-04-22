@@ -45,7 +45,7 @@ curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api
 
 The users can update their claims by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](../../../apis/call-admin-services/).
+admin services, see [Calling Admin Services](../../../develop/apis/call-admin-services/).
 
 1.  Enable the hidden admin service property in the
     `            <IS_HOME>/repository/conf/deployment.toml          `

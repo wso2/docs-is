@@ -33,6 +33,7 @@ theme: material
 theme:
   name: material
   palette:
+    scheme: preference
     primary: deep-orange
     accent: deep-orange
   custom_dir: theme/material
@@ -224,7 +225,7 @@ nav:
           - 'Role-Based Permissions': guides/identity-lifecycles/role-based-permissions.md
         - 'Outbound Provision Users':
           - 'Overview': guides/identity-lifecycles/outbound-provisioning.md
-          - 'SCIM2.0': guides/identity-lifecycles/outbound-provisioning-with-scim.md
+          - 'SCIM 2.0': guides/identity-lifecycles/outbound-provisioning-with-scim.md
           - 'Microsoft Azure AD': guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
           - 'Google Directory': guides/identity-lifecycles/outbound-provisioning-with-google.md
           - 'Salesforce': guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
@@ -278,16 +279,16 @@ nav:
           - 'OAuth 2.0 Client Authentication': guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
           - 'OAuth Transaction Logs': guides/access-delegation/oauth-transaction-logs.md
           #- 'Authorizing for the OAuth 2.0 Scopes':
-          - 'Custom Authorization Grant Flows': guides/access-delegation/oauth-token-validation.md
+          #- 'Custom Authorization Grant Flows':
           - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
         - 'OpenID Connect':
           - 'OpenID Connect Basic Client Profile': guides/access-delegation/oidc-basic-client-profile.md
           - 'OpenID Connect Implicit Client Profile': guides/access-delegation/oidc-implicit-client-profile.md
           - 'OpenID Connect Hybrid Flow': guides/access-delegation/oidc-hybrid-flow.md
         - 'User Managed Access': guides/access-delegation/uma.md
-        - 'WS-Trust':
-          - 'Obtain Tokens with Holder-Of-Key Subject Confirmation': guides/access-delegation/obtain-tokens-holder-of-key.md
-          - 'Access Claim-Aware Services using STS Secured with Non-Repudiation': guides/access-delegation/claim-aware-services.md
+        #- 'WS-Trust':
+          #- 'Obtain Tokens with Holder-Of-Key Subject Confirmation': guides/access-delegation/obtain-tokens-holder-of-key.md
+          #- 'Access Claim-Aware Services using STS Secured with Non-Repudiation': guides/access-delegation/claim-aware-services.md
       - 'Identity Federation':
         - 'Enterprise Identity Federation':
           - 'Overview': guides/identity-federation/enterprise-identity-federation.md
@@ -342,50 +343,119 @@ nav:
         #- 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
       #- 'Configure Provisioning - To Remove':
         #- 'Overview': guides/identity-provisioning/provisioning-overview.md
-  - 'Extend':
-      - 'Work with the Source Code': extend/work-with-the-source-code.md
-      - 'Using SDKs':
-        - 'Overview': extend/sdks/sdk-overview.md
-        - 'Enable Authentication for Spring Boot App': extend/sdks/spring-boot.md
-      - 'User Management for Developers':
-        - 'Write a Custom Password Validator': extend/user-mgt/write-a-custom-password-validator.md
-        - 'Write a Custom Global Scope Validator': extend/user-mgt/write-a-custom-global-scope-validator.md
-        - 'Write a Custom Claim Handler': extend/user-mgt/write-a-custom-claim-handler.md
-        - 'Write a Custom Event Handler': extend/user-mgt/write-a-custom-event-handler.md
-        - 'Userstore Listeners': extend/user-mgt/user-store-listeners.md
-        - 'Write a Post-Authentication Handler': extend/user-mgt/write-a-post-authentication-handler.md
-        - 'User Management Errors Event Listener': extend/user-mgt/user-management-errors-event-listener.md
-      - 'OAuth2':
-        - 'Write a Custom OAuth2 Grant Type': extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
-      - 'Provisioning for Developers':
-        - 'Extend SCIM 2.0 User Schemas': extend/provisioning/extend-scim2-user-schemas.md
-        - 'Write an Outbound Provisioning Connector': extend/provisioning/write-an-outbound-provisioning-connector.md
-        - 'Extensible SCIM User Schemas With WSO2 Identity Server': extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
-      - 'Identity Federation for Developers':
-        - 'Write a Custom Federated Authenticator': extend/federation/write-a-custom-federated-authenticator.md
-        - 'Write a Custom Local Authenticator': extend/federation/write-a-custom-local-authenticator.md
-      - 'Access Control for Developers':
-        - 'Write a Custom Policy Info Point': extend/access-control/write-a-custom-policy-info-point.md
-      - 'Adaptive Authentication for Developers':
-        - 'Write Custom Functions for Adaptive Authentication': extend/write-custom-functions-for-adaptive-authentication.md
-      - 'Workflow Management for Developers':
-        - 'Extend the Workflow Event Handler': extend/workflows/extend-the-workflow-event-handler.md
-        - 'Write a Custom Workflow Template': extend/workflows/write-a-custom-workflow-template.md
-      - 'My Account':
-        - 'Set up in a Development Environment': extend/myaccount/set-up-my-account-in-a-dev-environment.md
-        - 'Customize the UI': extend/myaccount/customize-my-account-ui.md
-        - 'Configure the Application': extend/myaccount/configure-my-account.md
-      - 'Re-brand User Interfaces':
-        - 'Re-brand WSO2 Identity Server UIs': extend/rebranding/rebrand-identity-server-uis.md
-        - 'Re-brand the Default Login Page for Your Application': extend/rebranding/rebrand-login-pages-for-service-providers.md
-        - 'Re-brand the SSO Redirection Page': extend/rebranding/rebrand-the-sso-redirection-page.md
-      - 'Change the Authentication Endpoint': extend/change-the-authentication-endpoint.md
-      - 'Localization Support in Identity Server': extend/localization-support-in-identity-server.md
-      - 'Host Authentication Endpoint on a Different Server': extend/host-authentication-endpoint-on-a-different-server.md
-      - 'Working with Errors':
-        - 'Customize Authentication Error Messages': extend/errors/customize-authentication-error-messages.md
-        - 'Customize Error Pages': extend/errors/customize-error-pages.md
-        - 'Error Codes and Descriptions': extend/errors/error-codes-and-descriptions.md
+  - 'Develop':
+      - 'APIs':
+          - 'Using APIs': develop/apis/use-apis.md
+          - 'Calling Admin Services':
+              - 'Calling Admin Services': develop/apis/call-admin-services.md
+              - 'Admin Services for One Way Operations': develop/apis/admin-services-for-one-way-operations.md
+          - 'REST APIs':
+              - 'Rest APIs': develop/apis/rest-apis.md
+              - 'Authenticating and Authorizing': develop/apis/authenticate-and-authorize-rest-apis.md
+              - 'Account Recovery': develop/apis/use-the-account-recovery-rest-apis.md
+              - 'Application Management': develop/apis/application-rest-api.md
+              - 'Approvals': develop/apis/approvals-rest-api.md
+              - 'Associations': develop/apis/association-rest-api.md
+              - 'Authentication Data': develop/apis/authentication-data-api.md
+              - 'Authentication': develop/apis/use-the-authentication-rest-apis.md
+              - 'Authorized Apps':
+                  - 'Authorized Apps V1': develop/apis/authorized-apps-rest-api.md
+                  - 'Authorized Apps V2': develop/apis/authorized-apps-v2-rest-api.md
+              - 'Challenge Question': develop/apis/challenge-rest-api.md
+              - 'Claim Management' : develop/apis/claim-management-rest-api.md
+              - 'Configuration Management':
+                  - 'Configuration Management': develop/apis/use-the-configuration-management-rest-apis.md
+                  - 'Retrieving Tenant Resources Based on Search Parameters': develop/apis/retrieve-tenant-resources-based-on-search-parameters.md
+              - 'CORS': develop/apis/cors-rest-api.md
+              - 'Consent Management': develop/apis/use-the-consent-management-rest-apis.md
+              - 'Email Templates': develop/apis/email-templates-rest-api.md
+              - 'Entitlement': develop/apis/entitlement-with-rest-apis.md
+              - 'Fido': develop/apis/fido-rest-api.md
+              - 'Identity Governance': develop/apis/identity-governance-rest-api.md
+              - 'Identity Providers': develop/apis/idp-rest-api.md
+              - 'IdP Session Extending': develop/apis/idp-session-extender-endpoint.md
+              - 'Keystore Management': develop/apis/keystore-rest-api.md
+              - 'Manage Tenants': develop/apis/manage-tenants-with-apis.md
+              - 'Server Configurations': develop/apis/configs-rest-api.md
+              - 'OAuth2 Scope Management': develop/apis/oauth2-scope-management-rest-apis.md
+              - 'OpenID Connect Scope Management': develop/apis/oidc-scope-management-rest-apis.md
+              - 'OIDC Dynamic Client Registration': develop/apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+              - 'Permission Management': develop/apis/permission-management-rest-api.md
+              - 'Personal Information Export': develop/apis/use-the-personal-information-export-rest-apis.md
+              - 'SCIM 2.0': develop/apis/scim2-rest-apis.md
+              - 'Script Libraries': develop/apis/script-library-rest-api.md
+              - 'Secondary User Store': develop/apis/userstore-rest-api.md
+              - 'Self Sign-Up': develop/apis/use-the-self-sign-up-rest-apis.md
+              - 'Session Management': develop/apis/session-mgt-rest-api.md
+              - 'Tenant Management': develop/apis/tenant-management-rest-api.md
+              - 'TOTP': develop/apis/totp-rest-api.md
+              - 'User Discoverable Application Management': develop/apis/user-discoverable-applications.md
+              - 'User Functionality Management REST APIs': develop/apis/user-functionality-mgt-rest-api.md
+              - 'Workflow Engine Management REST APIs': develop/apis/workflow-engine-rest-api.md
+          - 'SOAP APIs':
+              - 'SOAP APIs': develop/apis/soap-apis.md
+              - 'User Management':
+                  - 'User Management': develop/apis/user-management-with-apis.md
+                  - 'Managing Users and Roles': develop/apis/manage-users-and-roles-with-apis.md
+                  - 'Managing Claims': develop/apis/manage-claims-with-apis.md
+                  - 'Managing Permissions': develop/apis/manage-permissions-with-apis.md
+                  - 'Counting Users and User Roles': develop/apis/count-users-and-roles-using-management-console-and-admin-services.md
+                  - 'Managing User Stores': develop/apis/manage-user-stores-with-apis.md
+              - 'User Information Recovery': develop/apis/user-information-recovery-service.md
+              - 'Identity Application Management':
+                  - 'Identity Application Management': develop/apis/identity-application-management-api.md
+                  - 'Using the Service Provider': develop/apis/use-the-service-provider-api.md
+                  - 'Service Provider Configurations used with APIs': develop/apis/service-provider-configurations-used-with-apis.md
+              - 'Identity Provider Management':
+                  - 'Identity Provider Management': develop/apis/identity-provider-management-api.md
+                  - 'Using the Identity Provider': develop/apis/use-the-identity-provider-api.md
+                  - 'Identity Provider Configurations used with APIs': develop/apis/identity-provider-configurations-used-with-apis.md
+          - 'Entitlement with APIs':
+              - 'Entitlement with APIs': develop/apis/entitlement-with-apis.md
+      - 'Extend':
+          - 'Work with the Source Code': develop/extend/work-with-the-source-code.md
+          - 'Using SDKs':
+            - 'Overview': develop/extend/sdks/sdk-overview.md
+            - 'Enable Authentication for Spring Boot App': develop/extend/sdks/spring-boot.md
+          - 'User Management for Developers':
+            #- 'Write a Custom Password Validator': develop/extend/user-mgt/write-a-custom-password-validator.md
+            - 'Write a Custom Global Scope Validator': develop/extend/user-mgt/write-a-custom-global-scope-validator.md
+            - 'Write a Custom Claim Handler': develop/extend/user-mgt/write-a-custom-claim-handler.md
+            - 'Write a Custom Event Handler': develop/extend/user-mgt/write-a-custom-event-handler.md
+            - 'Userstore Listeners': develop/extend/user-mgt/user-store-listeners.md
+            - 'Write a Post-Authentication Handler': develop/extend/user-mgt/write-a-post-authentication-handler.md
+            - 'User Management Errors Event Listener': develop/extend/user-mgt/user-management-errors-event-listener.md
+          - 'OAuth2':
+            - 'Write a Custom OAuth2 Grant Type': develop/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
+          - 'Provisioning for Developers':
+            - 'Extend SCIM 2.0 User Schemas': develop/extend/provisioning/extend-scim2-user-schemas.md
+            - 'Write an Outbound Provisioning Connector': develop/extend/provisioning/write-an-outbound-provisioning-connector.md
+            #- 'Extensible SCIM User Schemas With WSO2 Identity Server': develop/extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
+          - 'Identity Federation for Developers':
+            - 'Write a Custom Federated Authenticator': develop/extend/federation/write-a-custom-federated-authenticator.md
+            - 'Write a Custom Local Authenticator': develop/extend/federation/write-a-custom-local-authenticator.md
+          #- 'Access Control for Developers':
+            #- 'Write a Custom Policy Info Point': develop/extend/access-control/write-a-custom-policy-info-point.md
+          - 'Adaptive Authentication for Developers':
+            - 'Write Custom Functions for Adaptive Authentication': develop/extend/write-custom-functions-for-adaptive-authentication.md
+          - 'Workflow Management for Developers':
+            - 'Extend the Workflow Event Handler': develop/extend/workflows/extend-the-workflow-event-handler.md
+            - 'Write a Custom Workflow Template': develop/extend/workflows/write-a-custom-workflow-template.md
+          - 'My Account':
+            - 'Set up in a Development Environment': develop/extend/myaccount/set-up-my-account-in-a-dev-environment.md
+            - 'Customize the UI': develop/extend/myaccount/customize-my-account-ui.md
+            - 'Configure the Application': develop/extend/myaccount/configure-my-account.md
+          - 'Re-brand User Interfaces':
+            - 'Re-brand WSO2 Identity Server UIs': develop/extend/rebranding/rebrand-identity-server-uis.md
+            - 'Re-brand the Default Login Page for Your Application': develop/extend/rebranding/rebrand-login-pages-for-service-providers.md
+            - 'Re-brand the SSO Redirection Page': develop/extend/rebranding/rebrand-the-sso-redirection-page.md
+          - 'Change the Authentication Endpoint': develop/extend/change-the-authentication-endpoint.md
+          - 'Localization Support in Identity Server': develop/extend/localization-support-in-identity-server.md
+          - 'Host Authentication Endpoint on a Different Server': develop/extend/host-authentication-endpoint-on-a-different-server.md
+          - 'Working with Errors':
+            - 'Customize Authentication Error Messages': develop/extend/errors/customize-authentication-error-messages.md
+            - 'Customize Error Pages': develop/extend/errors/customize-error-pages.md
+            - 'Error Codes and Descriptions': develop/extend/errors/error-codes-and-descriptions.md
   - 'Deploy':
     - 'Get Started':
       - 'Install': deploy/get-started/install.md
@@ -517,74 +587,6 @@ nav:
     - 'Set up Separate Databases for Clustering': deploy/settinng-up-separate-databases-for-clustering.md
     - 'Change the hostname': deploy/change-the-hostname.md
     - 'Introduction to User Management': deploy/introduction-to-user-management.md
-  - 'APIs':
-    - 'Using APIs': apis/use-apis.md
-    - 'Calling Admin Services':
-      - 'Calling Admin Services': apis/call-admin-services.md
-      - 'Admin Services for One Way Operations': apis/admin-services-for-one-way-operations.md
-    - 'REST APIs':
-      - 'Rest APIs': apis/rest-apis.md
-      - 'Authenticating and Authorizing': apis/authenticate-and-authorize-rest-apis.md
-      - 'Account Recovery': apis/use-the-account-recovery-rest-apis.md
-      - 'Application Management': apis/application-rest-api.md
-      - 'Approvals': apis/approvals-rest-api.md
-      - 'Associations': apis/association-rest-api.md
-      - 'Authentication Data': apis/authentication-data-api.md
-      - 'Authentication': apis/use-the-authentication-rest-apis.md
-      - 'Authorized Apps':
-        - 'Authorized Apps V1': apis/authorized-apps-rest-api.md
-        - 'Authorized Apps V2': apis/authorized-apps-v2-rest-api.md
-      - 'Challenge Question': apis/challenge-rest-api.md
-      - 'Claim Management' : apis/claim-management-rest-api.md
-      - 'Configuration Management':
-          - 'Configuration Management': apis/use-the-configuration-management-rest-apis.md
-          - 'Retrieving Tenant Resources Based on Search Parameters': apis/retrieve-tenant-resources-based-on-search-parameters.md
-      - 'CORS': apis/cors-rest-api.md
-      - 'Consent Management': apis/use-the-consent-management-rest-apis.md
-      - 'Email Templates': apis/email-templates-rest-api.md
-      - 'Entitlement': apis/entitlement-with-rest-apis.md
-      - 'Fido': apis/fido-rest-api.md
-      - 'Identity Governance': apis/identity-governance-rest-api.md
-      - 'Identity Providers': apis/idp-rest-api.md
-      - 'IdP Session Extending': apis/idp-session-extender-endpoint.md
-      - 'Keystore Management': apis/keystore-rest-api.md
-      - 'Manage Tenants': apis/manage-tenants-with-apis.md
-      - 'Server Configurations': apis/configs-rest-api.md
-      - 'OAuth2 Scope Management': apis/oauth2-scope-management-rest-apis.md
-      - 'OpenID Connect Scope Management': apis/oidc-scope-management-rest-apis.md
-      - 'OIDC Dynamic Client Registration': apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
-      - 'Permission Management': apis/permission-management-rest-api.md
-      - 'Personal Information Export': apis/use-the-personal-information-export-rest-apis.md
-      - 'SCIM 2.0': apis/scim2-rest-apis.md
-      - 'Script Libraries': apis/script-library-rest-api.md
-      - 'Secondary User Store': apis/userstore-rest-api.md
-      - 'Self Sign-Up': apis/use-the-self-sign-up-rest-apis.md
-      - 'Session Management': apis/session-mgt-rest-api.md
-      - 'Tenant Management': apis/tenant-management-rest-api.md
-      - 'TOTP': apis/totp-rest-api.md
-      - 'User Discoverable Application Management': apis/user-discoverable-applications.md
-      - 'User Functionality Management REST APIs': apis/user-functionality-mgt-rest-api.md
-      - 'Workflow Engine Management REST APIs': apis/workflow-engine-rest-api.md
-    - 'SOAP APIs':
-      - 'SOAP APIs': apis/soap-apis.md
-      - 'User Management':
-        - 'User Management': apis/user-management-with-apis.md
-        - 'Managing Users and Roles': apis/manage-users-and-roles-with-apis.md
-        - 'Managing Claims': apis/manage-claims-with-apis.md
-        - 'Managing Permissions': apis/manage-permissions-with-apis.md
-        - 'Counting Users and User Roles': apis/count-users-and-roles-using-management-console-and-admin-services.md
-        - 'Managing User Stores': apis/manage-user-stores-with-apis.md
-      - 'User Information Recovery': apis/user-information-recovery-service.md
-      - 'Identity Application Management':
-        - 'Identity Application Management': apis/identity-application-management-api.md
-        - 'Using the Service Provider': apis/use-the-service-provider-api.md
-        - 'Service Provider Configurations used with APIs': apis/service-provider-configurations-used-with-apis.md
-      - 'Identity Provider Management':
-        - 'Identity Provider Management': apis/identity-provider-management-api.md
-        - 'Using the Identity Provider': apis/use-the-identity-provider-api.md
-        - 'Identity Provider Configurations used with APIs': apis/identity-provider-configurations-used-with-apis.md
-    - 'Entitlement with APIs':
-      - 'Entitlement with APIs': apis/entitlement-with-apis.md
   
   - 'Pickup quick-starts':
       - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
@@ -851,7 +853,6 @@ extra:
     - Overview
     - Quick Starts
     - Guides
-    - Extend
+    - Develop
     - Deploy
-    - APIs
     - References

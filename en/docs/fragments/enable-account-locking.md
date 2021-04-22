@@ -21,7 +21,7 @@
    your tenant credentials.
       
 	!!! Tip
-		Alternatively, you can also use the `IdentityGovernanceAdminService` SOAP service to do this instead of using the management console UI. See [Call Admin Services](../../../apis/call-admin-services/) for more information on how to invoke this SOAP service. If you are using the SOAP service to configure this, you do not need to follow the steps given below this tip.
+		Alternatively, you can also use the `IdentityGovernanceAdminService` SOAP service to do this instead of using the management console UI. See [Call Admin Services](../../../develop/apis/call-admin-services/) for more information on how to invoke this SOAP service. If you are using the SOAP service to configure this, you do not need to follow the steps given below this tip.
 
 3.  Click **Main** > **Identity** > **Identity Providers** > **Resident**.
 4.  Expand the **Login Attempts Security** tab.

@@ -1,10 +1,8 @@
 # Write a Custom OAuth 2.0 Grant Type
 
-------------------------------------------------------------------------
-
 OAuth 2.0 authorization servers provide support for four main grant
 types according to the [OAuth 2.0
-specification](http://tools.ietf.org/html/draft-ietf-oauth-v2-22). It
+specification](https://tools.ietf.org/html/rfc6749). It
 also has the flexibility to support any custom grant types. This topic
 provides instructions on how to implement a custom grant type for OAuth
 2.0 authorization server and how to extend the behavior of default grant
@@ -23,19 +21,19 @@ Follow the steps given below to implement a new grant type.
     -   `            GrantTypeHandler           ` - This is the
         implementation of the grant type. Here you can implement the
         way, it must be validated and how token must be issued. You can
-        write the new implementation by implementing the “
-        `            AuthorizationGrantHandler           ` ” interface
-        or by extending “
-        `            AbstractAuthorizationGrantHandler           ` ”. In
-        most cases, it is enough to extend the “
-        `            AbstractAuthorizationGrantHandler           ` ” in
+        write the new implementation by implementing the 
+        `            AuthorizationGrantHandler           `  interface
+        or by extending 
+        `            AbstractAuthorizationGrantHandler           ` . In
+        most cases, it is enough to extend the 
+        `            AbstractAuthorizationGrantHandler           `  in
         the WSO2 OAuth component.
     -   `            GrantTypeValidator           ` - This is used to
         validate the grant request that is sent to the
         `            /token           ` endpoint. You can define what
         parameters must be in the request and define the validation of
-        them. You can write the new implementation by extending the “
-        `            AbstractValidator           ` ” in Apache Amber
+        them. You can write the new implementation by extending the 
+        `            AbstractValidator           `  in Apache Amber
         component.
 2.  When implementation is done, package your class as a .jar file and
     place it in the
@@ -61,8 +59,9 @@ Follow the steps given below to implement a new grant type.
         validator to validate the grant types that should support the openid
         scope.
 
-    To test this out, follow the instructions below to implement a
-    custom-grant type sample.
+4. Restart the server to apply changes.
+
+To test this out, follow the instructions below to implement a custom-grant type sample.
 
 ------------------------------------------------------------------------
 
@@ -83,27 +82,27 @@ You can access the new grant type project sample from
 `         org.wso2.sample.identity.oauth2.grant.mobile        ` package.
 This can be modified as required.
 
-### Resources
+### Configure the resource
 
 The following Maven buildable source is compatible with WSO2 Identity
 Server 5.1.0 onwards. The attached `          .jar         ` file can be
 directly used as well.
 
-| Buildable Source   | [custom-grant.zip](../../assets/attachments/custom-grant.zip)           |
+| Buildable source   | [custom-grant.zip](../../../assets/attachments/custom-grant.zip)           |
 |--------------------|-------------------------------------------------------------------|
-| **Built Jar File** | [custom-grant-1.0.0.jar](../../assets/attachments/custom-grant-1.0.0.jar) |
+| Built jar file | [custom-grant-1.0.0.jar](../../../assets/attachments/custom-grant-1.0.0.jar) |
 
-1.  To generate the .jar file, run the following Apache Maven
+!!! note
+    To generate the .jar file from the buildable source, run the following Apache Maven
     command in the sample's location using the command line.
 
     ``` java
     mvn clean install
     ```
-
+    
 2.  Copy the .jar file in target directory into the
     `          <IS_HOME>/repository/component/lib         `
-    directory. You can also modify the project and build it using Apache
-    Maven 3.
+    directory. 
 3.  Configure the following in the 
 `           <IS_HOME>/repository/conf/deployment.toml          `
     file. 
@@ -118,40 +117,48 @@ directly used as well.
 
 4.  Restart the server.
 
-5.  Configure the new OAuth grant type. 
-    {! fragments/register-a-service-provider.md !}
-    4.  Expand the **OAuth/OpenID Connect Configuration** and click
-        **Configure**.
-    5.  Enter a callback URL. For example,
-        http://localhost:8080/playground2/oauth2client .
-    6.  Click **Add**.   
-    7.  The **OAuth Client Key** and **OAuth Client Secret** will now be
-        visible.
+###  Configure a service provider with the custom grant type
 
-6.  Send the grant request to the `          /token         ` API using
-    a cURL command.
-    1.  The HTTP POST body must contain the following two parameters:
-        `             grant_type=mobile            ` and
-        `             mobileNumber            ` .
+{! fragments/register-a-service-provider.md !}
 
-        ``` java
-        grant_type=mobile&mobileNumber=0333444
-        ```
+1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 
-    2.  Replace `             clientid:clientsecret            ` with
-        the OAuth Client Key and OAuth Client Secret respectively and
-        run the following sample cURL command in a new terminal window.
+2. Make sure the custom  grant type (`mobile`) is selected from the **Allowed Grant Types** list.
 
-        ``` java
-        curl --user clientid:clientsecret -k -d "grant_type=mobile&mobileNumber=0333444" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-        ```
+2. Enter the **Callback Url**.  
 
-    3.  You will receive the following JSON response with the access
-        token.
+    !!! note
+        The **Callback Url** is the exact location in the service provider's application to which an access token will be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
 
-        ``` java
-        {"token_type":"bearer","expires_in":2823,"refresh_token":"26e1ebf16cfa4e67c3bf39d72d5c276","access_token":"d9ef87802a22cf7682c2e77df72c735"}
-        ```
+3. Click **Add**. Note the **OAuth Client Key** and **OAuth Client Secret** that appear. 
+
+    !!! tip
+        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).
+
+### Obtain an access token
+
+Send the grant request to the `          /token         ` API using a cURL command.
+
+!!! note
+    The HTTP POST body must contain the following two parameters: `grant_type=mobile` and `mobileNumber`. 
+
+    ``` 
+    grant_type=mobile&mobileNumber=<MOBILE_NUMBER>
+    ```
+    
+``` tab="Request Format"
+curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=<CUSTOM_GRANT_TYPE>&mobileNumber=<MOBILE_NUMBER>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
+```
+
+``` tab="Sample Request"
+curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k -d "grant_type=mobile&mobileNumber=0333444" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+```
+
+You will receive a response similar to the following JSON response with the access token.
+
+```
+{"token_type":"bearer","expires_in":2823,"refresh_token":"26e1ebf16cfa4e67c3bf39d72d5c276","access_token":"d9ef87802a22cf7682c2e77df72c735"}
+```
 
 ------------------------------------------------------------------------
 
@@ -168,7 +175,7 @@ particular but any other grant type can be customized as well.
 -   [ModifiedAccessTokenPasswordGrant](https://github.com/wso2/samples-is/blob/master/oauth2/custom-grant/src/main/java/org/wso2/sample/identity/oauth2/grant/password/ModifiedAccessTokenPasswordGrant.java) -
     This implementation customized the access token value.
 
-This section provides instructions on how to
+### Configure the resource
 
 1.  Copy the .jar file into the
     `          <IS_HOME>/repository/component/lib         `
@@ -185,57 +192,56 @@ This section provides instructions on how to
 
 3.  Restart the server.
 
-4.  Configure the OAuth grant type you customized.  
-    {! fragments/register-a-service-provider.md !} 
-    4.  Expand the **OAuth/OpenID Connect Configuration** and click
-        **Configure**.
-    5.  Enter a callback URL. For example,
-        http://localhost:8080/playground2/oauth2client.
-    6.  Click **Add**.
-    7.  The **OAuth Client Key** and **OAuth Client Secret** will now be
-        visible.
-5.  Send the password grant request to the `           /token          `
-    API using a cURL command.
+###  Configure a service provider with the customized password grant type
 
-    1.  Replace `             clientid:clientsecret            ` with
-        the OAuth Client Key and OAuth Client Secret respectively and
-        run the following sample cURL command in a new terminal window.
+{! fragments/register-a-service-provider.md !}
 
-        ``` java
-        curl --user clientid:clientsecret -k -d "grant_type=password&username=admin&password=admin" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-        ```
+1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 
-    2.  You will see the following json response and the modified access
-        token with an email address.
+2. Make sure the **Password**  grant type is selected from the **Allowed Grant Types** list.
 
-        ``` java
-        {"token_type":"bearer","expires_in":2955,"refresh_token":"6865c8d67b42c0c23e634a8fc5aa81f","access_token":"982f40d4-0bb6-41ce-ac5a-1da06a83e475asela@soasecurity.org"}
-        ```
+2. Enter the **Callback Url**.  
+
+    !!! note
+        The **Callback Url** is the exact location in the service provider's application to which an access token will be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
+
+3. Click **Add**. Note the **OAuth Client Key** and **OAuth Client Secret** that appear. 
+
+    !!! tip
+        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).
+
+### Obtain an access token 
+        
+Send the password grant request to the `           /token          ` API using a cURL command.
+
+``` tab="Request Format"
+curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
+```
+
+``` tab="Sample Request"
+curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k -d "grant_type=password&username=admin&password=admin" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+```
+
+You will receive a response similar to the following JSON response with the access token.
+
+```
+{"token_type":"bearer","expires_in":2955,"refresh_token":"6865c8d67b42c0c23e634a8fc5aa81f","access_token":"982f40d4-0bb6-41ce-ac5a-1da06a83e475asela@soasecurity.org"}
+```
 
 ??? note "Sending Custom Error Codes"
 
-    This page guides you through a mechanism you can use to send custom
+    You can send custom
     error codes to the client side in case of defined/identified errors,
     using a custom grant handler.
 
     This simply uses the mobile grant sample and adds the specific error
-    codes/messages to it. See the above
-    topic for instructions on how to implement and use the mobile grant
-    sample before adding the custom error codes to it.
+    codes/messages to it. 
+    
+    !!! tip
+        See [here](#use-the-grant-type-sample) for instructions on how to implement and use the mobile grant
+        sample before adding the custom error codes to it.
 
-    ### Resources
-
-    The following Maven buildable source is compatible with WSO2 Identity
-    Server 5.1.0 onwards. The attached `             .jar            ` file
-    can be directly used as well.
-
-    | Buildable Source   | [custom-grant.zip](../../assets/attachments/custom-grant.zip)           |
-    |--------------------|-------------------------------------------------------------------|
-    |Built Jar File|[custom-grant-1.0.0.jar](../../assets/attachments/custom-grant-1.0.0.jar) |
-
-    ### Sample Code
-
-    The following code segment in the sample class
+    In the downloaded Maven [buildable source](../../assets/attachments/custom-grant.zip), add  the following code segment in the sample class
     `             org             .wso2.sample.identity.oauth2.grant.mobile.MobileGrant            `
     inside `             validateGrant()            ` method is the relevant
     code used for this mechanism.
@@ -266,19 +272,20 @@ This section provides instructions on how to
         The `ResponseHeader` code chunk sets a custom response header in case an
         invalid mobile number is sent.
         
+    Build the project and copy the modified jar to the `<IS_HOME>/repository/component/lib` directory.   
 
-    ### Try out Scenario
+    **Try it out**
 
-    **Happy Path**
+    - Happy Path
 
     ``` powershell
-    curl --user <Client_id>:<Client_secret> -k -d "grant_type=mobile&mobileNumber=0333444" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=mobile&mobileNumber=0333444" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
     ```
 
-    **Erroneous Path**
+    - Erroneous Path
 
     ``` powershell
-    curl -v --user vSfeQ9jfNodY1tv9KLNNxLOw7kwa:CEUWu7fDNy_RYg5lO_mp8PLf7nQa -k -d "grant_type=mobile&mobileNumber=0363444" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    curl -v --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=mobile&mobileNumber=0363444" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
     ```
 
     !!! info 
@@ -311,7 +318,7 @@ This section provides instructions on how to
     ```
 
     !!! info 
-        Line 12 (`SampleHeader-999...) shows the custom header appearing in the headers.
+        `SampleHeader-999...` shows the custom header appearing in the headers.
 
     Similarly this can be used to transfer any custom information to the
     client, in a flexible manner.

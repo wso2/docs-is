@@ -16,6 +16,7 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 ----
 
+## Basic OAuth/OpenID Connect configuration
 {!fragments/oauth-app-config-basic.md!}
 
 ----

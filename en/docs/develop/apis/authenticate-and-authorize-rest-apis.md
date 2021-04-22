@@ -2,7 +2,7 @@
 
 This section guides you through securing REST services and understanding how requests to REST APIs are authenticated and authorized in WSO2 Identity Server.
 
-The requests that are sent via REST APIs are intercepted by tomcat valves and authenticated and authorized by an OSGI service. There are two OSGi services that provide the authentication and authorization service based on its own handlers. You can write your own handlers for both authentication and authorization and register them in OSGI if you wish to do so. For more information, see [Writing a Custom Local Authenticator](../../extend/writing-a-custom-local-authenticator)
+The requests that are sent via REST APIs are intercepted by tomcat valves and authenticated and authorized by an OSGI service. There are two OSGi services that provide the authentication and authorization service based on its own handlers. You can write your own handlers for both authentication and authorization and register them in OSGI if you wish to do so. For more information, see [Writing a Custom Local Authenticator](../../develop/extend/writing-a-custom-local-authenticator)
 
 ---
 

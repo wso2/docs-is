@@ -54,7 +54,7 @@ please make sure to search the already submitted pull requests by other develope
 Once the pull request is submitted, team members who are responsible for the corresponding Git repository will review 
 your proposed changes. 
 
-For more information, see [Work with the Source Code](../../extend/work-with-the-source-code/).
+For more information, see [Work with the Source Code](../../develop/extend/work-with-the-source-code/).
 
 ---
 

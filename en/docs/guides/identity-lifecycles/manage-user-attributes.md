@@ -15,11 +15,11 @@ attributes of a user.
 
 1.  By accessing the profile of the user and changing the attributes
     using the Management Console. 
-2.  You can use the REST Web service according to the SCIM provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs](../../../apis/scim2-rest-apis/).
+2.  You can use the REST Web service according to the SCIM provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs](../../../develop/apis/scim2-rest-apis/).
 3.  You can use the `           RemoteUserStoreManagerService          `
     API. This is a SOAP-based API and is very easy to use. For more
     information on using this, see [Manage Users and Roles with
-    APIs](../../../apis/manage-users-and-roles-with-apis/). Call the following method to set a user attribute. 
+    APIs](../../../develop/apis/manage-users-and-roles-with-apis/). Call the following method to set a user attribute. 
 
     ``` java
     setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "mark@soasecurity.org", null)

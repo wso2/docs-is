@@ -65,6 +65,8 @@ authorization codes.
 
 -----
 
+## Basic OAuth/OpenID Connect configuration
+
 {!fragments/oauth-app-config-basic.md!}
 
 !!! tip
