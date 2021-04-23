@@ -203,7 +203,7 @@ public class SPWorkflowServiceComponent {
     mvn clean install
     ```
 
-2.  Once the project has built successfully, the .jar file can be found in the generated `target` directory. 
+2.  Once the project is built successfully, the .jar file can be found in the generated `target` directory. 
 
 ---
 
