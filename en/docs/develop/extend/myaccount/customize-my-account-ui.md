@@ -211,7 +211,7 @@ the changes performed in the previous steps.
     ```
 
 2.  Copy the built artifacts available inside the `modules/theme/lib` folder. Navigate to 
-    `<IS_HOME>/repository/deployment/server/webapps/my-account/libs/styles/css` folder and paste the copied resources.
+    the `<IS_HOME>/repository/deployment/server/webapps/my-account/libs/styles/css` folder and paste the copied resources.
     
     !!! warning
         Make sure that you keep a backup of the original CSS folder.
