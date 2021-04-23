@@ -35,7 +35,7 @@ that will get called from operation listener. In this method, add operation para
 
 ### Define a map
 
-Next, define a map called `PARAM_DEFINITIONS` which contains the types of each parameters used for the operation.
+Next, define a map called `PARAM_DEFINITIONS` which contains the types of each parameter used for the operation.
 
 ??? example "Click to view a sample class written for an SP create workflow handler"
     ``` java
