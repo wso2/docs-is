@@ -368,7 +368,7 @@ The **Security** feature has the following sub-features that can be disabled:
 |"security.activeSessions"| The Active IDP Sessions section of the Security page.|
 |"security.manageConsents"| The Manage Consents section of the Security page.|
 
-To disable a sub-feature, pass the name of the sub-feature into the `disabledFeatures` array.
+To disable a sub-feature, pass the name of the sub-feature in the `disabledFeatures` array.
 
 For example, do the following to disable the Active Sessions section. 
 
