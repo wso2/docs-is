@@ -295,19 +295,19 @@ nav:
           - 'SAML': guides/identity-federation/configure-saml-2.0-web-sso.md
           - 'OpenID Connect': guides/identity-federation/configure-oauth2-openid-connect.md
           - 'ADFS': guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
-          - 'Microsoft Azure': guides/identity-federation/microsoft-azure.md
-          - 'Shibboleth': guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider.md
+          #- 'Microsoft Azure': guides/identity-federation/microsoft-azure.md
+          #- 'Shibboleth': guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider.md
           - 'WS-Federation': guides/identity-federation/configure-ws-federation.md
-          - 'Federated Logout':
-            - 'Application-Initiated Federated Logout': guides/identity-federation/app-initiated-logout.md
-            - 'IdP-Initiated Federated Logout': guides/identity-federation/idp-initiated-logout.md
+          #- 'Federated Logout':
+            #- 'Application-Initiated Federated Logout': guides/identity-federation/app-initiated-logout.md
+            #- 'IdP-Initiated Federated Logout': guides/identity-federation/idp-initiated-logout.md
         - 'Social Login':
           - 'Overview': guides/identity-federation/social-login.md
           - 'Log in with Facebook': guides/identity-federation/facebook.md
           - 'Log in with Google': guides/identity-federation/google.md
-          - 'Log in with Microsoft Live': guides/identity-federation/microsoft-live.md
+          #- 'Log in with Microsoft Live': guides/identity-federation/microsoft-live.md
           - 'Log in with Twitter': guides/identity-federation/twitter.md
-        - 'Receive Claims from the Identity Provider': guides/identity-federation/receive-claims-idp.md
+        #- 'Receive Claims from the Identity Provider': guides/identity-federation/receive-claims-idp.md
       - 'Claim Dialects':
         - 'Add Claim Dialects': guides/dialects/add-claim-dialects.md
         - 'Edit Claim Dialects': guides/dialects/edit-claim-dialects.md
@@ -781,21 +781,21 @@ nav:
       - 'Identity Anti-Patterns and the Identity Bus': references/concepts/identity-anti-patterns-and-the-identity-bus.md
       - 'Claim Management': references/concepts/claim-management.md
       - 'Integrated Windows Authentication': references/concepts/integrated-windows-authentication-overview.md
-      - 'Comparisions':
-                - 'OAuth2 vs OIDC vs SAML': references/concepts/oauth-oidc-saml.md
-                - 'NTLM vs Kerberos': references/concepts/ntlm-kerberos.md
-                - 'WS-Federation vs WS-Trust': references/concepts/federation-trust.md
-                - 'SSO vs Identity Federation': references/concepts/sso-vs-federation.md
+      #- 'Comparisions':
+        #- 'OAuth2 vs OIDC vs SAML': references/concepts/oauth-oidc-saml.md
+        #- 'NTLM vs Kerberos': references/concepts/ntlm-kerberos.md
+        #- 'WS-Federation vs WS-Trust': references/concepts/federation-trust.md
+        #- 'SSO vs Identity Federation': references/concepts/sso-vs-federation.md
       - 'Compliance':
           - 'Overview': references/concepts/compliance/compliance.md
           - 'GDPR': references/concepts/compliance/gdpr.md
           - 'eIDAS': references/concepts/compliance/eidas.md
           - 'CCPA': references/concepts/compliance/ccpa.md
-      - 'Security Considerations':
-          - 'Mitigating Cross Site Request Forgery Attacks': references/concepts/cross-site-request-forgery-attacks.md
-          - 'Mitigating Authorization Code Interception Attacks': references/concepts/authorization-code-intreception-attacks.md
-          - 'Mitigating Brute Force Attacks': references/concepts/brute-force-attacks.md
-          - 'Timestamp in WS-Security to Mitigate Replay Attacks': references/concepts/replay-attacks.md
+      #- 'Security Considerations':
+          #- 'Mitigating Cross Site Request Forgery Attacks': references/concepts/cross-site-request-forgery-attacks.md
+          #- 'Mitigating Authorization Code Interception Attacks': references/concepts/authorization-code-intreception-attacks.md
+          #- 'Mitigating Brute Force Attacks': references/concepts/brute-force-attacks.md
+          #- 'Timestamp in WS-Security to Mitigate Replay Attacks': references/concepts/replay-attacks.md
   - '': page-not-found.md
 
 # Extensions
@@ -827,7 +827,7 @@ markdown_extensions:
   - pymdownx.tilde
   - markdown_include.include:
       base_path: docs/
-
+           
 # Extra
 extra_css:
   - assets/lib/highlightjs/default.min.css

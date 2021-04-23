@@ -9,6 +9,8 @@ WSO2 Identity Server supports the following social logins.
 
 -   [Log in with Google](../google/)
 
--   [Log in with Microsoft Live](../microsoft-live.md)
-
 -   [Log in with Twitter](../twitter/)
+
+<!-- -   [Log in with Microsoft Live](../microsoft-live.md)-->
+
+
