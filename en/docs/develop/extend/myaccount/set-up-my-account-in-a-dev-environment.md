@@ -44,7 +44,7 @@ Follow the steps given below to set up My Account in a development environment.
     ]
     support_any_header = true
     supported_headers = []
-    exposed_headers = [Location]
+    exposed_headers = ["Location"]
     supports_credentials = true
     max_age = 3600
     tag_requests = false
@@ -74,7 +74,7 @@ Follow the steps given below to set up My Account in a development environment.
     4.  Expand **Inbound Authentication Configuration**, and then expand **OAuth/OpenID Connect Configuration**. Click **Edit**.
     5.  Change the **Callback URL** field to reflect the port as 9000 or you can add a regexp as follows.
         ```
-        regexp=(https://localhost:9443/user-portal/login|https://localhost:9000/user-portal/login)
+        regexp=(https://localhost:9443/myaccount/login|https://localhost:9000/myaccount/login)
         ```
 ---
 
@@ -83,19 +83,19 @@ Follow the steps given below to set up My Account in a development environment.
 Fork the original repository to start working on it. You can also directly clone the original repo but it is
 recommended to create your own fork.
 
-```java
+```
 git clone https://github.com/wso2/identity-apps
 cd identity-apps
 ```
 
 Build the project using either of the following commands.
 
-```java
+```
 mvn clean install
 ```
 or 
 
-```java
+```
 npm run build
 ```
 
@@ -103,10 +103,11 @@ npm run build
 
 ## Step 3: Run My Account in dev mode
 
-After the build is complete, navigate to the **My Account** directory and run the portal using the webpack dev server.
-```java
-cd apps/user-portal
+After the build is complete, navigate to the **myaccount** directory and run the application using the webpack dev server.
+
+```
+cd apps/myaccount
 npm start
 ```
 
-The portal will be served from `https://localhost:9000/myaccount`
+The application will be served from `https://localhost:9000/myaccount`

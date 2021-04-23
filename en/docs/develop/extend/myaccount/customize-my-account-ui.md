@@ -1,8 +1,5 @@
 # Customize the My Account UI
 
-From WSO2 Identity Server (WSO2 IS) 5.10.0 onwards, a new **My Account** has
-been introduced which is the successor to the dashboard. It also adheres to the UI extensions scheme introduced with WSO2 Identity Server 5.9.0 to use a centralized theming for all the front-end portals. 
-
 This section explains how we can customize the theming of **My Account**. 
 
 ---
@@ -19,9 +16,9 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 ## Before you begin
 
-1. Check out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps) 
+1. Check out the corresponding identity apps source code from the [identity-apps](https://github.com/wso2/identity-apps) repository. 
 
-2. Set it up in the [development environment](../../../develop/extend/myaccount/set-up-my-account-in-a-dev-environment). 
+2. Set it up in the [development environment](../../../extend/myaccount/set-up-my-account-in-a-dev-environment). 
 
 3. Check out the latest tag of the identity-apps. The v1.0.72 tag is used in the sample mentioned below. 
 
@@ -36,9 +33,9 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 Follow the steps given below to further customize **My Account**. 
 
-## Step 1: Change the primary color of the portal
+## Step 1: Change the primary color of the  My Account
 
-In order to change the primary color of the portal, the variables in `site.variables` need to be overridden.
+In order to change the primary color of the my account, the variables in `site.variables` need to be overridden.
 
 1.  Add a new color under the site colors and name it. In this example it is named, `facebookBlue`.
 
@@ -179,9 +176,7 @@ Now that the styling is complete, the following steps explain how the product br
 4. Copy the `main.js` and `main.js.map` files from the `apps/my-account/build/my-account` folder and paste it
     inside the **my-account** web app found in the `<IS_HOME>/repository/deployment/server/webapps/my-account` folder.
 
-5.  Change the product title & copyright.
-
-    Add the following entries to the `runConfig` window object in the
+5.  To change the product title & copyright, add the following entries to the `runConfig` window object in the
     `<IS_HOME>/repository/deployment/server/webapps/my-account/index.jsp` file.
     
     ```java
@@ -191,17 +186,14 @@ Now that the styling is complete, the following steps explain how the product br
         copyrightText: "Night Owl Express © 2020"
     };
     ```
-6.  Change the Favicon.
-
-    Replace `favicon.ico` in the `<IS_HOME>/repository/deployment/server/webapps/my-account` folder with the
+    
+6.  Replace `favicon.ico` in the `<IS_HOME>/repository/deployment/server/webapps/my-account` folder with the
     desired icon.
 
     !!! tip
         If you do not have a favicon already, you can use an online generator like [favicon.oi](https://favicon.io/) to generate a favicon for free.
 
-4.  Change the title.
-
-    Change the `<title>` tag in the `<IS_HOME>/repository/deployment/server/webapps/my-account/index.jsp` file.
+7.  Change the `<title>` tag in the `<IS_HOME>/repository/deployment/server/webapps/my-account/index.jsp` file.
     ```html
     <title>Night Owl Express</title>
     ```
@@ -218,13 +210,8 @@ the changes performed in the previous steps.
     $npm run build
     ```
 
-2.  Copy the artifacts to the web app.
-
-    The built artifacts will be available inside the `modules/theme/lib` folder. Copy everything to the clipboard and
-    navigate to **my-account** web app in the WSO2 IS pack.
-
-    Paste the copied resources to the 
-    `<IS_HOME>/repository/deployment/server/webapps/my-account/libs/styles/css` folder.
+2.  Copy the built artifacts available inside the `modules/theme/lib` folder. Navigate to 
+    `<IS_HOME>/repository/deployment/server/webapps/my-account/libs/styles/css` folder and paste the copied resources.
     
     !!! warning
         Make sure that you keep a backup of the original CSS folder.
