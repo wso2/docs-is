@@ -22,7 +22,7 @@ functions for adaptive authentication.
     step if you are adding a function to an existing component providing
     a related functionality.
 2.  Create a functional interface (i.e., Interface with a single public
-    method). The method name and parameters should be the same as you
+    method). The method name and parameters should be the same as the ones you
     provide from js. You may need to use wrapper classes
     for any object classes (except number, string and boolean) and you may
     skip this if you can use an existing object. For more information on
