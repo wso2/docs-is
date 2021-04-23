@@ -43,12 +43,7 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 ## Configure Twitter as an IdP in WSO2 IS 
 
-1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-1.  Navigate to the **Identity Provider** section under **Main \>
-    Identity** menu-item.
-2.  Click **Add**.
-3.  Provide values for the following fields under the **Basic
-    Information** section.
+{! fragments/register-an-identity-provider.md !}
 
 4.  Expand **Twitter Configuration** under **Federated Authenticators**
     .
@@ -91,7 +86,7 @@ This guide assumes you have your own applications. If you wish to try out this f
     <td>Callback URL</td>
     <td><p>This is the Callback URL you entered at the Twitter application registration. This is the URL to which the browser should be redirected after the authentication is successful.</p>
     <p>URL format: <code>                https://&lt;host-name&gt;:&lt;port&gt;/acs               </code></p>
-    <p>The acs indicates the Assertion Consumer URL of the WSO2 Identity Server endpoint that accepts the responses sent by Twitter.</p></td>
+    <p>The acs indicates the Assertion Consumer Service URL of the WSO2 Identity Server endpoint that accepts the responses sent by Twitter.</p></td>
     <td><code>                               https://wso2.com:9443/commonauth                             </code></td>
     </tr>
     </tbody>
@@ -103,14 +98,8 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 ## Configure the service provider
 
-1.  Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-2.  On the **Main** menu, click **Identity \> Service Providers \>**
-    **Add**.
-3.  Fill in the **Service Provider Name** and provide a brief
-    **Description** of the service provider. Only **Service Provider
-    Name** is a required field and you can use Twitter-SP as the name for
-    this example.
-4.  Click **Register**.
+{! fragments/register-a-service-provider.md !}
+
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
     Web SSO Configuration**, and click **Configure**.
 6.  In the form that appears, fill out the following configuration
@@ -144,12 +133,12 @@ This guide assumes you have your own applications. If you wish to try out this f
     <tr class="odd">
     <td>NameID Format</td>
     <td>The default value can be used here.</td>
-    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
+    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that it is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
     </tr>
     <tr class="even">
     <td>Certificate Alias</td>
     <td>wso2carbon</td>
-    <td>Select the <strong>Certificate Alias</strong> from the drop-down. This is used to validate the signature of SAML2 requests and is used to generate encryption.Basically, the service provider’s certificate must be selected here. Note that this can also be the Identity Server tenant's public certificate in a scenario where you are doing a tenant-specific configuration.</td>
+    <td>Select the <strong>Certificate Alias</strong> from the drop-down. This is used to validate the signature of SAML2 requests and is used to generate encryption. Basically, the service provider’s certificate must be selected here. Note that this can also be the Identity Server tenant's public certificate in a scenario where you are doing a tenant-specific configuration.</td>
     </tr>
     <tr class="odd">
     <td>Enable Response Signing</td>

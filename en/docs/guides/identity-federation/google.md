@@ -55,65 +55,48 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ## Configure Google as a SAML IdP in WSO2 IS
 
-1.  Start WSO2 Identity Server by navigating to
-    `           <IS_HOME>/bin/          ` folder and running the
-    following command.
-
-    -   **Windows**
-		``` java
-		.\wso2server.bat
-		```
-    -   **Linux/Unix**
-    	``` java
-    	sh wso2server.sh
-   	 	```
-
-2.  Log in to the management console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials.
-3.  Click **Add** under **Identity Providers** on the **Main** tab.
-4.  Enter "GoogleIdP" as the identity provider name and expand
+1.  Log in to the management console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials.
+2.  Click **Add** under **Identity Providers** on the **Main** tab.
+3.  Enter "GoogleIdP" as the identity provider name and expand
     **Federated Authenticators\>SAML2 Web SSO Configuration**.
-5.  Select **Enable SAML2 Web SSO** and enter "wso2is1" as the **Service
+4.  Select **Enable SAML2 Web SSO** and enter "wso2is1" as the **Service
     Provider Entity ID**.
 
     !!! info 
 		The **Service Provider Entity ID** value should be equal to the
 		value you entered as the Entity ID when configuring Google.
 
-6.  Select **Metadata File Configuration** as the **Mode** and upload
+5.  Select **Metadata File Configuration** as the **Mode** and upload
     the `          GoogleIDPMetadata         `.xml file you downloaded
     earlier.  
     ![metadata-file-config](../../../assets/img/guides/metadata-file-config.png)
     
-7.  Click **Register** to save the identity provider configurations.
-8.  Once the IdP is registered, it is listed under Identity
+6.  Click **Register** to save the identity provider configurations.
+7.  Once the IdP is registered, it is listed under Identity
     Providers. Click **Edit** and expand **Federated
     Authenticators\>SAML2 Web SSO Configuration**.  
     ![idp-list](../../../assets/img/guides/idp-list.png)
     
-9.  Select **Enable Logout** and enter "
+8.  Select **Enable Logout** and enter "
     https://accounts.google.com/logout" as the Logout URL.
     ![enter-the-logout-url](../../../assets/img/guides/enter-the-logout-url.png)
     
-10. Click **Update** to save the changes.
+9. Click **Update** to save the changes.
 
 ---
 
 ## Configure the service provider
 
-1.  Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-2.  On the **Main** menu, click **Identity \> Service Providers \>**
-    **Add**.
-3.  Fill in the **Service Provider Name** and provide a brief
-    **Description** of the service provider. Only **Service Provider
-    Name** is a required field and you can use Google-SP as the name for
-    this example.
-4.  Click **Register**.
+{! fragments/register-a-service-provider.md !}
+
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
     Web SSO Configuration**, and click **Configure**.
 6.  In the form that appears, fill out the following configuration
-    details required for single sign-on. For more details about
-    attributes in the following configuration refer [SAML2 Web SSO Configuration](../../../guides/login/webapp-saml/)
-   .  
+    details required for single sign-on. 
+    
+    !!! info
+        For more details about attributes in the following configuration, refer [SAML2 Web SSO Configuration](../../../guides/login/webapp-saml/).  
+    
     See the following table for details.
 
     <table>
@@ -141,22 +124,22 @@ This guide assumes you have your own application. If you wish to try out this fl
     <tr class="odd">
     <td>NameID Format</td>
     <td>The default value can be used here.</td>
-    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
+    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that it is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
     </tr>
     <tr class="even">
     <td>Certificate Alias</td>
     <td>wso2carbon</td>
-    <td>Select the <strong>Certificate Alias</strong> from the drop-down. This is used to validate the signature of SAML2 requests and is used to generate encryption.Basically, the service provider’s certificate must be selected here. Note that this can also be the Identity Server tenant's public certificate in a scenario where you are doing a tenant-specific configuration.</td>
+    <td>Select the <strong>Certificate Alias</strong> from the drop-down. This is used to validate the signature of SAML2 requests and is used to generate encryption. Basically, the service provider’s certificate must be selected here. Note that this can also be the Identity Server tenant's public certificate in a scenario where you are doing a tenant-specific configuration.</td>
     </tr>
     <tr class="odd">
     <td>Enable Response Signing</td>
     <td>Selected</td>
-    <td><p>Select <strong>Enable Response Signing</strong> to sign the SAML2 Responses returned after the authentication process.</p></td>
+    <td><p>Select <strong>Enable Response Signing</strong> to sign the SAML2 responses returned after the authentication process.</p></td>
     </tr>
     <tr class="even">
     <td>Enable Attribute Profile</td>
     <td>Selected</td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement.</td>
+    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes aof the attribute statement.</td>
     </tr>
     <tr class="odd">
     <td>Include Attributes in the Response Always</td>

@@ -23,16 +23,7 @@ Follow the steps below to navigate to the federated authenticators configuration
 
 
 
-1.	Sign in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) as an administrator. 	  
-
-   
-2.  On the **Main** menu of the Management Console, click **Identity > Identity Providers > Add**.
-
-	<img src="../../../assets/img/guides/add-identity-provider-menu-item.png" alt="Add Identity Provider menu-item" width="200" style="border:1px solid grey">  
-    
-3.  Enter a suitable name for the identity provider in the **Identity Provider Name** text box.
-
-	<img src="../../../assets/img/guides/add-identity-provider-screen.png" alt="Add Identity Provider screen" width="700" style="border:1px solid grey"> 
+{! fragments/register-an-identity-provider.md !}
 
 4.	Under the **Federated Authenticators** section, click **SAML2 Web SSO Configuration**.
 

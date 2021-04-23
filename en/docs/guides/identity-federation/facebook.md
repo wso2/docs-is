@@ -65,11 +65,7 @@ Now you have finished configuring Facebook as an Identity Provider.
 
 ## Configure the identity provider 
 
-1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-    
-2.  Navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
-    
-3.  Give a suitable name as the **Identity Provider Name**.  
+{! fragments/register-an-identity-provider.md !}
     
 4.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
@@ -152,12 +148,9 @@ You have now added the identity provider.
     
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section and
-    set the configuration as follows:
-    1.  Enter the following values:
-
-        1.	**Issuer** : travelocity.com
-
-        2.	**Assertion Consumer URL** : http://wso2is.local:8080/travelocity.com/home.jsp
+    set the configurations as required.
+    
+    1.  Enter the values for **Issuer** and **Assertion Consumer URL**.
 
     2.  Select the following check-boxes:
 
@@ -177,7 +170,7 @@ You have now added the identity provider.
 6.  Go to the **Local and Outbound Authentication Configuration**
     section.
 
-7.  Select the **Federated Authentication** radio button and select the
+7.  For **Authentication Type**, select the **Federated Authentication** radio button and select the
     Identity Provider you created from the dropdown list under
     **Federated Authentication**.  
     ![identity-provider-in-federated-authentication](../../../assets/img/guides/identity-provider-in-federated-authentication.png)
