@@ -827,8 +827,7 @@ markdown_extensions:
   - pymdownx.tilde
   - markdown_include.include:
       base_path: docs/
-  
-      
+           
 # Extra
 extra_css:
   - assets/lib/highlightjs/default.min.css
