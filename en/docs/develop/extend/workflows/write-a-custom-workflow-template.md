@@ -85,7 +85,7 @@ Next, add a concrete implementation of this template.
 ## Add a workflow template implementation
 
 The template implementation defines how the template should be deployed and executed. Optionally, you can write this as a separate bundle and
-copy it in to the `<IS_HOME>/repository/components/dropins` folder.
+copy it to the `<IS_HOME>/repository/components/dropins` folder.
 
 The implementations can be written by extending the [AbstractWorkflow](https://github.com/wso2/carbon-identity-framework/blob/master/components/workflow-mgt/org.wso2.carbon.identity.workflow.mgt/src/main/java/org/wso2/carbon/identity/workflow/mgt/workflow/AbstractWorkflow.java) class. The following method should be overridden:
 
