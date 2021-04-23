@@ -23,7 +23,7 @@ functions for adaptive authentication.
     a related functionality.
 2.  Create a functional interface (i.e., Interface with a single public
     method). The method name and parameters should be the same as you
-    would be providing from js. You may need to use wrapper classes
+    provide from js. You may need to use wrapper classes
     for any object classes (except number, string and boolean) and you may
     skip this if you can use an existing object. For more information on
     objects, see [object reference
