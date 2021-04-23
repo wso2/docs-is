@@ -9,20 +9,20 @@ Multi-step approval is a very simple example of flows that can be used with IS w
 
 ## Add a new workflow template
 
-A workflow template defines a configurable flow. It is an abstract representation of a workflow. You can add a new template by creating a custom bundle as below and copying it to `repository/components/dropins` folder.   
+A workflow template defines a configurable flow. It is an abstract representation of a workflow. You can add a new template by creating a custom bundle as below and copying it to `<IS_HOME>/repository/components/dropins` folder.   
 
-First, you need to create a `SampleTemplate` class which extends the `AbstractTemplate` class. The following methods should be overridden:
+First, you need to create a `SampleTemplate` class which extends the [AbstractTemplate](https://github.com/wso2/carbon-identity-framework/blob/master/components/workflow-mgt/org.wso2.carbon.identity.workflow.mgt/src/main/java/org/wso2/carbon/identity/workflow/mgt/template/AbstractTemplate.java) class. The following methods should be overridden:
 
--   `getInputData()`:  Provides the parameter definition required by the
+-   `getInputData()` -  Provides the parameter definition required by the
     template.
 
--   `getTemplateId()`: Should return the template Id which should be
-    unique
+-   `getTemplateId()` - Should return the template Id which should be
+    unique.
 
--   `getName()`: Returns a user friendly name for the template. This will
-    be the name shown at the admin UI
+-   `getName()` - Returns a user friendly name for the template. This will
+    be the name shown at the admin UI.
 
--   `getDescription()`: Returns a description about this template
+-   `getDescription()` - Returns a description about this template.
 
 ??? example "Click to view a sample class written for a multi-step approval template"
     ```
@@ -85,11 +85,11 @@ Next, add a concrete implementation of this template.
 ## Add a workflow template implementation
 
 The template implementation defines how the template should be deployed and executed. Optionally, you can write this as a separate bundle and
-copy it in to the `repository/components/dropins` folder.
+copy it in to the `<IS_HOME>/repository/components/dropins` folder.
 
-The implementations can be written by extending the `AbstractWorkflow` class. The following methods should be overridden:
+The implementations can be written by extending the [AbstractWorkflow](https://github.com/wso2/carbon-identity-framework/blob/master/components/workflow-mgt/org.wso2.carbon.identity.workflow.mgt/src/main/java/org/wso2/carbon/identity/workflow/mgt/workflow/AbstractWorkflow.java) class. The following method should be overridden:
 
--   `getInputData()`:  Returns a parameter definition required by the template implementation.
+-   `getInputData()` -  Returns a parameter definition required by the template implementation.
 
     ??? example "Click to view a sample class written for a sample template"
         ``` java
