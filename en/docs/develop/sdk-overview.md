@@ -8,7 +8,7 @@ This section lists all the SDKs related to identity written using various techno
 
 - [Android OIDC SDK to secure android-based applications](https://github.com/asgardio/asgardio-android-oidc-sdk)
 
-- [NET OIDC SDK to add OIDC-based login to .NET apps](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk)
+- [.NET OIDC SDK to add OIDC-based login to .NET apps](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk)
 
 - [Spring-boot application for secure OIDC authentication](https://github.com/wso2-extensions/identity-samples-spring-boot)
 
