@@ -1,6 +1,6 @@
 # Customize the My Account UI
 
-This section explains how we can customize the theming of **My Account**. 
+This section explains how we can customize the theming of **My Account** application. 
 
 ---
 
@@ -31,11 +31,11 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 ---
 
-Follow the steps given below to further customize **My Account**. 
+Follow the steps given below to further customize **My Account** application. 
 
 ## Step 1: Change the primary color of the  My Account
 
-In order to change the primary color of the my account, the variables in `site.variables` need to be overridden.
+In order to change the primary color of the **My account** application, the variables in `site.variables` need to be overridden.
 
 1.  Add a new color under the site colors and name it. In this example it is named, `facebookBlue`.
 
