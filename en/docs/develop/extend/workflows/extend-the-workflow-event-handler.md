@@ -31,7 +31,7 @@ In this example, to implement workflow support for SP create functionality, add 
 -   `onWorkflowCompletion()` - This is the callback method from executor. This will be called when IS receives the callback. This method should contain details on how to handle the operations related to callback, such as retrieving parameters of operation from the map received, call the operation again, etc.
 
 Other than these implemented methods, write a function such as `startSPCreateWorkflow` which will be the function
-that will get called from operation listener. In this method, add operation parameters to the `wfParams` and `nonWfParams` maps. Also check if the operation is valid using implemented `isOperatonValid()` method and should throw an exception if this is not valid.
+that will get called from operation listener. In this method, add operation parameters to the `wfParams` and `nonWfParams` maps. Also, check if the operation is valid using implemented `isOperatonValid()` method. It should throw an exception if this is not valid.
 
 ### Define a map
 
