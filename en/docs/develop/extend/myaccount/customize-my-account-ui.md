@@ -33,7 +33,7 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 Follow the steps given below to further customize **My Account** application. 
 
-## Step 1: Change the primary color of the  My Account
+## Step 1: Change the primary color of My Account
 
 In order to change the primary color of the **My account** application, the variables in `site.variables` need to be overridden.
 
