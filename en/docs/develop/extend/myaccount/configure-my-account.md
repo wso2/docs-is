@@ -433,6 +433,6 @@ The operations feature can be configured via the `operations` attribute of the `
 	}
 }
 ```
-Set the `enabled` attribute to `false` to disable Operations altogether.
+Set the `enabled` attribute to `false` to disable operations altogether.
 
 The operations feature has no sub-features.
