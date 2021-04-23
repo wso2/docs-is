@@ -144,7 +144,7 @@ Next, define a map called `PARAM_DEFINITIONS` which contains the types of each p
 
 ### Call the handler
 
-Now, call `startSPCreateWorkflow` before the operation gets executed. You can do this easily by implementing the `doPre` method of the operation through an interface. Following is a sample listener implementation created for this purpose.  Define `orderID` of this listener so that this will execute as the first listener before all other listeners.
+Now, call `startSPCreateWorkflow` before the operation is executed. You can do this easily by implementing the `doPre` method of the operation through an interface. Following is a sample listener implementation created for this purpose.  Define `orderID` of this listener so that it will execute as the first listener before all the other listeners.
 
 ??? example "Click to view the sample listener implementation"
     ``` java
