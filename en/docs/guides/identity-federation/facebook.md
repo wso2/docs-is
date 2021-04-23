@@ -138,18 +138,12 @@ You have now added the identity provider.
 
 ## Configure the service provider 
 
-1.  Access the Management Console.
-
-2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers**.
-    
-3.  Enter travelocity.com in the **Service Provider Name** text box and
-    click **Register**.
+{! fragments/register-a-service-provider.md !}
     
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section and
     set the configurations as required.
-    
+
     1.  Enter the values for **Issuer** and **Assertion Consumer URL**.
 
     2.  Select the following check-boxes:
