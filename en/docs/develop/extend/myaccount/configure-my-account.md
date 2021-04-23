@@ -409,7 +409,7 @@ The applications feature can be configured via the `applications` attribute of t
 }
 ```
 
-Set the `enabled` attribute to `false` to disable Applications altogether.
+Set the `enabled` attribute to `false` to disable applications altogether.
 
 The applications feature does not have a sub-feature.
 
