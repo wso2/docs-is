@@ -9,7 +9,7 @@ Multi-step approval is a very simple example of flows that can be used with IS w
 
 ## Add a new workflow template
 
-A workflow template defines a configurable flow. It is an abstract representation of a workflow. You can add a new template by creating a custom bundle as below and copying it to `<IS_HOME>/repository/components/dropins` folder.   
+A workflow template defines a configurable flow. It is an abstract representation of a workflow. You can add a new template by creating a custom bundle as below and copying it to the `<IS_HOME>/repository/components/dropins` folder.   
 
 First, you need to create a `SampleTemplate` class which extends the [AbstractTemplate](https://github.com/wso2/carbon-identity-framework/blob/master/components/workflow-mgt/org.wso2.carbon.identity.workflow.mgt/src/main/java/org/wso2/carbon/identity/workflow/mgt/template/AbstractTemplate.java) class. The following methods should be overridden:
 
