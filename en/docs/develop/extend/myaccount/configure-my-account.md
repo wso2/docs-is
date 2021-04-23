@@ -351,7 +351,7 @@ The *security* feature can be configured via the `security` attribute of the `fe
 	}
 }
 ```
-Set the `enabled` attribute to `false` to disable Security altogether.
+Set the `enabled` attribute to `false` to disable security altogether.
 
 The **Security** feature has the following sub-features that can be disabled:
 
