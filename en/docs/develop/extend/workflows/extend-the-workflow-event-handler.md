@@ -217,7 +217,7 @@ Deploy the new handler by adding the new .jar file to the `<IS_HOME>/repository/
 
 1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
 
-2. Navigate to **Main** > **Mange** > **Workflow Engagements** > **Add**.
+2. Navigate to **Main** > **Manage** > **Workflow Engagements** > **Add**.
 
     ![add-workflow-engagement](../../../assets/img/extend/add-workflow-engagement.png)
     
