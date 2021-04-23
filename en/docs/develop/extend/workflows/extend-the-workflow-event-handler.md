@@ -225,7 +225,7 @@ Deploy the new handler by adding the new .jar file to the `<IS_HOME>/repository/
 
     ![Operation category selection](../../../assets/img/extend/operation-category-selection.png)
 
-4. Under the **Operation Name** you will see the new operation name.
+4. Under the **Operation Name**, you will see the new operation name.
 
     ![Operation category name](../../../assets/img/extend/operation-category-name.png)
 
