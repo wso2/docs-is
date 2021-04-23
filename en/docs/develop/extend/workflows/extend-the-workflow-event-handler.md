@@ -221,7 +221,7 @@ Deploy the new handler by adding the new .jar file to the `<IS_HOME>/repository/
 
     ![add-workflow-engagement](../../../assets/img/extend/add-workflow-engagement.png)
     
-3. Under the **Operation Category** you will see the new operation category.
+3. Under the **Operation Category**, you will see the new operation category.
 
     ![Operation category selection](../../../assets/img/extend/operation-category-selection.png)
 
