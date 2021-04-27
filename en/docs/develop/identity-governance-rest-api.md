@@ -81,7 +81,7 @@ and properties of connectors as mentioned below. <br>
     | Enable Internal Notification Management   | Recovery.Notification.InternallyManage  | Set to false if the client application handles notification sending |
     | Notify when Recovery Success   | Recovery.NotifySuccess   |  |
     | Notify when Questions Based Recovery Starts   | Recovery.Question.Password.NotifyStart   |  |
-    | Recovery Link Expiry Time   | Recovery.ExpiryTime   |  |
+    | Recovery Link Expiry Time in Minutes   | Recovery.ExpiryTime   |  |
     | Enable forced challenge questions   | Recovery.Question.Password.Forced.Enable   | Force users to provide answers to challenge questions during sign in |
     | Recovery callback URL regex   | Recovery.CallbackRegex   |  |
     
