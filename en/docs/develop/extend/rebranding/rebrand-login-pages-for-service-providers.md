@@ -61,7 +61,7 @@ Start the application server and access the following URLs to make sure both app
 
     ![Avis screen](../../../assets/img/samples/avis-screen.png) 
 
-When attempting to "Login with SAML from WSO2 Identity Server" in Travelocity.com and Avis.com applications, you can see the following default
+When attempting to log in with SAML from WSO2 Identity Server in **Travelocity.com** and **Avis.com** applications, you can see the following default
 page located at `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp`.
   
 ![Identity Server sign in screen](../../../assets/img/samples/identity-server-sign-in-screen.png) 
