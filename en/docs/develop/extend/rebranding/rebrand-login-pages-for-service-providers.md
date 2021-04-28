@@ -43,7 +43,7 @@ First, register two service providers in WSO2 Identity Server.
     
 4. Restart the Tomcat server to apply the configuration changes.
 
-5. Register a new service provider with the name `avis.com` similarly by following the steps given in the [configure travelocity application](#register-a-service-provider) while replacing `travelocity.com` references to `avis.com`.
+5. Register a new service provider with the name `avis.com` similarly by following the steps given in [configure travelocity application](#register-a-service-provider) while replacing `travelocity.com` references to `avis.com`.
    
 Start the application server and access the following URLs to make sure both apps are running.
 
