@@ -2,7 +2,7 @@
 
 WSO2 Identity Server usually displays a default login page for all service provider applications that send authentication requests to it. WSO2 IS supports re-branding this login page according to your requirements for SAML2 SSO, OAuth, or OpenID Connect. 
 
-The login pages and other pages, such as error and notification screens,
+The login pages and other pages, such as error and notification screens
 of SAML SSO, OAuth, OpenID Connect, and Passive STS are located in the
 **authenticationendpoint** webapp file, which is found in the
 `<IS_HOME>/repository/deployment/server/webapps` directory.
@@ -28,93 +28,43 @@ First, register two service providers in WSO2 Identity Server.
 
 ## Configure avis application
 
-1.  [Download a copy of `travlocity.com.war`](TODO:../../learn/deploying-the-sample-app/#deploy-the-sample-web-application)
-    and place it in the `<TOMCAT_HOME>/webapps/` folder. 
+1.  Make a copy of the downloaded `travlocity.com.war` file and rename the file to `avis.com.war`.
 
-2.  Rename the file to `avis.com.war` and restart the Tomcat server.
+2.  Place it in the `<TOMCAT_HOME>/webapps/` folder and restart the Tomcat server.
 
-    !!! note 
-        -   Open the ` <TOMCAT_HOME>/webapps/travelocity.com/travelocity.properties ` file and check the following
-        configurations.
-            ``` 
-            #The URL of the SAML 2.0 Assertion Consumer
-            SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
-                
+3.  Open the `<TOMCAT_HOME>/webapps/avis.com/avis.properties` file  and change the following configurations.
+    ```
+    #The URL of the SAML 2.0 Assertion Consumer
+    SAML2.AssertionConsumerURL=http://wso2.is:8080/avis.com/home.jsp
         
-            #openid.return_to parameter
-            OpenId.ReturnToURL=http://wso2is.local:8080/travelocity.com/home.jsp
-            ```
+    #openid.return_to parameter
+    OpenId.ReturnToURL=http://wso2.is:8080/avis.com/home.jsp
+    ```
+    
+4. Restart the Tomcat server to apply the configuration changes.
 
-        - Open the `<TOMCAT_HOME>/webapps/avis.com/avis.properties` file  and check the following configurations.
-            ```
-            #The URL of the SAML 2.0 Assertion Consumer
-            SAML2.AssertionConsumerURL=http://wso2.is:8080/avis.com/home.jsp
-        
-            #openid.return_to parameter
-            OpenId.ReturnToURL=http://wso2.is:8080/avis.com/home.jsp
-            ```
-
-3. Register a new service provider with the name `avis.com` similarly by following the steps given in the [configure travelocity application](#configure-travelocity) while replacing `travelocity.com` references to `avis.com`.
+5. Register a new service provider with the name `avis.com` similarly by following the steps given in [configure travelocity application](#register-a-service-provider) while replacing `travelocity.com` references to `avis.com`.
    
-4.  Start the application server and access the following URLs to make sure both apps are running.
+Start the application server and access the following URLs to make sure both apps are running.
 
-    **travelocity.com**
+- **travelocity.com**
 
     URL:
     [http://wso2is.local:8080/travelocity.com/index.jsp](http://localhost:8080/travelocity.com/index.jsp)
 
     ![Travelocity screen](../../../assets/img/samples/travelocity-screen.png) 
 
-    **avis.com**
+- **avis.com**
 
     URL:
     [http://wso2is.local:8080/avis.com/index.jsp](http://localhost:8080/avis.com/index.jsp)
 
     ![Avis screen](../../../assets/img/samples/avis-screen.png) 
 
----
-
-## Register the two service providers in WSO2 Identity Server
-
-1.  Sign in to the WSO2 Identity Server [Management
-    Console](../../setup/getting-started-with-the-management-console).
-2.  On the **Main** menu, click **Identity \> Service Providers \>**
-    **Add**.
-3.  Enter `          travelocity.com         ` as the **Service Provider
-    Name** in the form that appears and click **Register**. The Service
-    Providers page appears.  
-    ![Add new service provider](../../../assets/img/guides/add-new-service-provider.png) 
-4.  Under the **Inbound Authentication Configuration** section, click
-    **SAML2 Web SSO Configuration \> Configure**. The Register New
-    Service Provider page appears.  
-    ![SAML2 Web SSO Configuration option](../../../assets/img/guides/saml2-web-sso-configuration-option.png) 
-5.  Configure the following details for travelocity.com and repeat steps
-    1 to 6 and configure details for avis.com.
-
-    ![New application screen](../../../assets/img/guides/new-application-screen.png) 
-
-    **travelocity.com**
-
-    -   ***Issuer*** : travelocity.com **
-    -   ***Assertion Consumer URL*** :
-        http://wso2is.local:8080/travelocity.com/home.jsp
-    -   Select ***Enable Response Signing***
-    -   Select ***Enable Single Logout***
-
-    **avis.com**
-
-    -   ***Issuer*** : avis.com **
-    -   ***Assertion Consumer URL*** :
-        http://wso2is.local:8080/avis.com/home.jsp
-    -   Select ***Enable Response Signing***
-    -   Select ***Enable Single Logout***
-
-6.  When attempting to "login with SAML from WSO2 Identity Server" in
-    Travelocity.com and Avis.com, you can see the following default
-    page located at
-    `          <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp         `
-    .  
-    ![Identity Server sign in screen](../../../assets/img/samples/identity-server-sign-in-screen.png) 
+When attempting to log in with SAML from WSO2 Identity Server in **Travelocity.com** and **Avis.com** applications, you can see the following default
+page located at `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp`.
+  
+![Identity Server sign in screen](../../../assets/img/samples/identity-server-sign-in-screen.png) 
 
 ---
 
@@ -155,7 +105,7 @@ external application, the full path should be given instead.
 
 The following is the structure of this web app.
 
-![Web app folder strcture](../../../assets/img/extend/web-app-folder-strcture.png)
+![authentication-web-app-folder-structure](../../../assets/img/extend/authentication-web-app-folder-structure.png)
 
 The **authenticationendpoint** web application uses a carbon component
 called
@@ -195,6 +145,7 @@ focus is on the following two parameters:
 -   **sessionDataKey** : This is an identifier used by the Identity
     Server to maintain state information related to this particular
     request by the service provider.
+    
     !!! note
         The 'sessionDataKey' query parameter is used to coordinate the request state across components participating in the request flow. It does not correlate with the user session. Furthermore, the request state maintained against the 'sessionDataKey' parameter value is cleared by each participating component at the end of request flow. This means that even if an external party grabs the 'sessionDataKey' they will not be able to get into the authentication sequence, as the user session is not associated with that key.
 

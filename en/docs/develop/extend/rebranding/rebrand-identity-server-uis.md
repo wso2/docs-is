@@ -197,10 +197,10 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
 
     2. Add the following includes.
 
-       ```
-       <%@include file=”../includes/localize.jsp” %>
-       <%@include file=”../includes/init-url.jsp” %>
-       ``` 
+        ```
+        <%@include file=”../includes/localize.jsp” %>
+        <%@include file=”../includes/init-url.jsp” %>
+        ```
 
     3. Replace the contents of the `<style>` tag, with the styles you created in [Step 3](#create-styling) inside
     the header tag.
@@ -238,24 +238,20 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
 
 4. Refresh the browser and check out the modified header and footer content. 
 
+    !!! tip
+        Restarting the server is NOT required to reflect the changes. A browser refresh will display the changes. 
 
-!!! tip
+    -  Customized login page
+    ![image](../../../assets/img/extend/rebranded-ui-1.png)
 
-    Restarting the server is NOT required to reflect the changes—browser refresh will display the changes. 
+    - Customized recover username page
+    ![image](../../../assets/img/extend/rebranded-ui-2.png)
+    
+    - Customized recover password page
+    ![image](../../../assets/img/extend/rebranded-ui-3.png)
 
-    ![image](../../assets/img/extend/rebranded-ui-1.png)
-    <span class="figcaption_hack">Customized Login Page</span>
-
-
-    ![image](../../assets/img/extend/rebranded-ui-2.png)
-    <span class="figcaption_hack">Customized Recover Username page</span>
-
-    ![image](../../assets/img/extend/rebranded-ui-3.png)
-    <span class="figcaption_hack">Customized Recover Password page</span>
-
-
-    ![image](../../assets/img/extend/rebranded-ui-4.png)
-    <span class="figcaption_hack">Customized Self signup page</span>
+    - Customized self sign up page
+    ![image](../../../assets/img/extend/rebranded-ui-4.png)
 
 !!! note  
     One advantage of this approach is that WUM updates will not affect your UI changes and you need not worry about manually adding your changes. 
