@@ -1,4 +1,4 @@
-# Change the Authentication Endpoint
+# Customize the Authentication Endpoint
 
 The authentication endpoint is the authentication URL used in
 authentication requests. The following sections discuss methods of
@@ -19,12 +19,6 @@ Follow the steps below to customize the authentication endpoint URL:
     [authentication.endpoints] 
     login_url="/sso/login"
     ```
-
-    !!! note 
-        If you do not change the default value of this configuration,
-        accessing the dashboard redirects you to the WSO2 Identity Server
-        management console.
-    
 
 2.  Run the web application on the new authentication endpoint URL.
 
@@ -73,9 +67,7 @@ Configure the following to enable this feature.
 
 1.  Add the following configuration to the
     `           <IS_HOME>/repository/conf/tomcat/deployment.toml          `
-    file and ensure that the `           clientAuth          ` attribute
-    in the `           Connector          ` tag is set to “
-               want           ” as shown below. This is done to
+    file. This is done to
     disable the certificate authentication on certain occasions (like
     when working on mobile apps). This makes two-way SSL authentication
     optional.
@@ -84,15 +76,6 @@ Configure the following to enable this feature.
     [transport.https.properties]
     clientAuth="want"
     ```
-
-    !!! info
-        The `            .jar           ` file enabling usage of Mutual SSL
-        is shipped with IS by default from IS versions 5.1.0 and upwards.
-        The
-        `            org.wso2.carbon.identity.authenticator.mutualssl_X.X.X.jar           `
-        file can be found in the
-        `            <IS_HOME>/repository/components/plugins           `
-        directory.
 
 2.  Open the
     `           <IS-HOME>/repository/conf/deployment.toml          `
@@ -108,14 +91,13 @@ Configure the following to enable this feature.
     file, set its priority to 0. Otherwise ignore this step.
 
     ```toml
-    "[admin_console.authenticator.saml_sso_authenticator]
+    [admin_console.authenticator.saml_sso_authenticator]
     enable = true
     priority = 0
     ```
 
 4.  Add the following configuration into the
-                        `
-    `<IS-HOME>/repository/conf/deployment.toml`.
+    `<IS-HOME>/repository/conf/deployment.toml` file.
 
     ```toml
     [tenant]
@@ -127,17 +109,17 @@ Configure the following to enable this feature.
     !!! note
     
         When configuring the
-        `           TenantDataListenerURL          ` tag, note the
+        `data_listener_urls` property in the above  configuration, note the
         following.
     
         -   In a clustered setup that has multiple authentication endpoint
             web applications hosted, list all of them under the
-            `             TenantDataListenerURL            ` tag.
+            `data_listener_urls` property.
     
         -   For authentication endpoint web applications hosted outside the
             WSO2 Identity Server or in other nodes of a cluster, add the
             absolute URL within the
-            `             TenantDataListenerURL            ` tag.
+            `data_listener_urls` property.
     
 
 5.  Restart the server using one of the following commands.
@@ -184,7 +166,7 @@ Configure the following to enable this feature.
     3.  Paths for client keystore and truststore can be relative paths
         or absolute paths. The default paths point to the keystore and
         truststore of the Identity Server itself. A new keystore can be
-        created and used for the client if necessary, however, you
+        created and used for the client if necessary. However, you
         must set the passwords for
         `             carbon_security_keystore_password          ` and
         `             carbon_security_truststore_password            `
@@ -199,26 +181,58 @@ Configure the following to enable this feature.
         `           <IS_HOME>/repository/conf/deployment.toml          `
         file because the webapp does not have access to this file. Instead,
         the same property file can be found at
-        `           <WebApp_HOME>/          `
-        `           authenticationendpoint/WEB-INF/classes/EndpointConfig.properties.          `
+        `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties`.
     
+        The following are the default values for the properties to be used in this file.
+        
+        ```    
+        tenantListEnabled=false
+        mutualSSLManagerEnabled=true
+        hostname.verification.enabled=true
+        mutual.ssl.username=admin
+        client.keyStore=./repository/resources/security/wso2carbon.jks
+        Carbon.Security.KeyStore.Password=wso2carbon
+        client.trustStore=./repository/resources/security/client-truststore.jks
+        Carbon.Security.TrustStore.Password=wso2carbon
+        identity.server.serviceURL=https://localhost:9443/services/
+        username.header=UserName
+        key.manager.type=SunX509
+        trust.manager.type=SunX509
+        tls.protocol=TLSv1.2
+        app.name=dashboard
+        app.password=dashboard
+        identity.server.origin=${carbon.protocol}://${carbon.host}:${carbon.management.port}
+        ```
+
         In this scenario, do the following:
-    
-        -   Open the `<WebApp_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties            ` file and provide the full URL to WSO2 Identity Server’s admin services endpoint in the
+        
+        -   Provide the full URL to WSO2 Identity Server’s admin services endpoint in the
             `             identity.server.serviceURL            ` property following the format below.
-            <code>identity.server.serviceURL=https://<ip>:<port>/services</code>
+            `identity.server.serviceURL=https://<ip>:<port>/services`
+            
+        -  Set `tenantListEnabled` to
+            `            true           ` in order to enable the tenants to
+            display as a list.
+        -  For the `mutual.ssl.username` property,
+            set the username that is to be used for mutual SSL
+            authentication. This user needs to have permission to list down
+            tenants. You can add a new username here provided that you
+            create a user with that username and grant the following
+            permissions to the role of the user.
     
-        -   Copy the `                           org.wso2.carbon.identity.application.authentication.endpoint.util-5.0.7.jar                         ` file and paste it in the
-            `             <WebApp_HOME>/authenticationendpoint/WEB-INF/lib            ` folder. 
-            -   If you have applied the <code> WSO2-CARBON-PATCH-4.4.0-0073</code>
-                security patch, copy the
-                <code>.jar</code> file found in the
-                <code><CARBON_PATCH_HOME>/patch0073</code>
-                folder.
-            -   If you have **not** applied the
-                <code>WSO2-CARBON-PATCH</code>, copy
-                the <code>.jar</code> file found in the
-                <code><IS_HOME>/repository/components/plugins</code> folder.
+            **Super Admin Permissions** \> **Manage** \> **Monitor** \>
+            **Tenants** \> **List**
+    
+        -  Paths for client keystore and truststore can be relative paths
+            or absolute paths. The default paths point to the keystore and
+            truststore of the Identity Server itself. A new keystore can be
+            created and used for the client if necessary. However, you
+            must set the passwords for
+            `Carbon.Security.KeyStore.Password` and
+            `Carbon.Security.TrustStore.Password`
+            appropriately.
+            
+        For more information about hosting the authentication endpoint on a different server, refer [here](/develop/extend/host-authentication-endpoint-on-a-different-server/).    
     
 
 7.  For mutual SSL authentication, the public certificate of the
@@ -247,14 +261,23 @@ Configure the following to enable this feature.
         If you are not using mutual SSL authentication, you can stop the
         **MutualSSLManager** from loading the keystore by
         setting the `           mutual_ssl_manager_enabled          `
-        property in the `           deployment.toml         `
+        property in the `<IS_HOME>/repository/conf/deployment.toml`
         file to false.
         This property is enabled by default.
     
         ``` toml
         mutual_ssl_manager_enabled="false"
         ```
+        
+        Alternatively, if the authentication endpoint is hosted externally, then set the `mutualSSLManagerEnabled` 
+        property to false in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
+        
+        ```
+        mutualSSLManagerEnabled=false
+        ```
     
+        Make sure to restart the server to apply the configuration changes.
+        
 ---
 ## Remove the tenant list from the login page
 
@@ -262,18 +285,33 @@ If it is required to remove the tenant domain dropdown list in SSO Login
 page, follow the steps below.
 
 1.  Shutdown the server if it is already started.
-2.  Set the
-    `            tenant_list_enabled           ` property to **false**.
 
-3.  Set following parameter to
+2.  Navigate to `<IS_HOME>/repository/conf/deployment.toml` file.
+
+3.  Set the
+    `            tenant_list_enabled           ` property to **false**.
+    ``` toml
+    [identity.auth_framework.endpoint] 
+    tenant_list_enabled = "false"
+    ```
+    
+    !!! note
+        Alternatively, if the authentication endpoint is hosted externally, then set the `tenantListEnabled` 
+        property to false in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
+    
+        ```
+        tenantListEnabled=false
+        ```
+
+4.  Set following parameter to
     `           false          `.
 
     ``` toml
     [tenant.domain_drop_down]
-    enable = true
+    enable = false
     ```
 
-4.  If the `           MutualSSLAuthenticator          ` is only used
+5.  If the `           MutualSSLAuthenticator          ` is only used
     for the purpose of listing tenant domains in the drop down, disable
     it in the
     `           <IS_HOME>/repository/conf/deployment.toml          `
@@ -281,10 +319,10 @@ page, follow the steps below.
 
     ``` toml
     [admin_console.authenticator.mutual_ssl_authenticator]
-    enable = true
+    enable = false
     ```
 
-5.  Restart the server.
+6.  Restart the server.
 
 ---
 
@@ -303,46 +341,50 @@ First, you need to add a registry resource that will contain the
 redirect URLs of different service providers. To do that, follow the
 below steps:
 
-1.  Start the Identity Server and l og in to the Admin Console.
+1.  Start the Identity Server and log in to the Management Console.
 
-2.  Click on **Main Menu**, under **Registry**, click **Browse** to
+2.  Navigate to **Main** > **Registry** > **Browse** to
     see the registry browser.  
-    ![Registry Browse menu item](../assets/img/using-wso2-identity-server/registry-browse-menu-item.png)
+    
+    ![Registry Browse menu item](../../assets/img/guides/registry.png)
 
 3.  Browse the registry and go to
-    `          /_system/config/identity/config.         `  
-    ![Registry browser](../assets/img/using-wso2-identity-server/registry-browser.png)  
-    Once you navigate to
-    `          /_system/config/identity/config         `, follow the
-    steps below to add a registry resource.
+    `          /_system/config/identity/config         `.
+     
+    ![Registry browser](../../assets/img/extend/registry-browser.png)
 
 4.  Click **Add Resource**.  
-    ![Add resource option](../assets/img/using-wso2-identity-server/add-resource-option.png)
+    
+    ![Add registy resource](../../assets/img/extend/add-registry-resource.png)
 
 5.  Fill the form with following information.
-    -   Method : Select **Create text content** from the dropdown.
+    -   Method : Select **Create Text content** from the dropdown.
 
     -   Name : Enter **relyingPartyRedirectUrls** as Name.
 
-    ![Add resource form](../assets/img/using-wso2-identity-server/add-resource-form.png) 
+    ![Add registry resource form](../../assets/img/extend/add-registry-resource-form.png) 
 
 6.  Click the **Add** button. The created registry resource can be seen
     once you click on **Add** button.  
-    ![Registry resource](../assets/img/using-wso2-identity-server/registry-resource.png) 
+    
+    ![Added registry resource](../../assets/img/extend/added-registry-resource.png) 
 
 7.  Click on the added resource (relyingPartyRedirectUrls). You can see
     the **Properties** section.  
-    ![Resource properties](../assets/img/using-wso2-identity-server/resource-properties.png) 
+    
+    ![Registry resource properties](../../assets/img/extend/registry-resource-properties.png) 
 
-8.  Click the “+” sign at the right hand corner of **Properties**
+8.  Click the `+` sign at the right hand corner of **Properties**
     section. This allows you to add a property to the resource.
 
 9.  Click **Add New Property**.  
-    ![Add New Property option](../assets/img/using-wso2-identity-server/add-new-property-option.png)
+    
+    ![Registry resource Add New Property option](../../assets/img/extend/registry-resource-add-new-property.png)
 
 10. Enter the relying party name for name and the redirect URL for
     value.  
-    ![Add New Property form](../assets/img/using-wso2-identity-server/add-new-property-form.png)
+    
+    ![Registy resource Add New Property form](../../assets/img/extend/registry-resource-add-new-property-form.png)
 
     !!! note
     
@@ -351,13 +393,8 @@ below steps:
     
 
     !!! info
-        - Relying party name with redirect URL needs to be configured like below:
-           <code>
-           \<Oauth2\_client\_id\>=\<login\_redirect\_url\>  
-           \<Issuer Name\>=\<login\_redirect\_url\>
-           </code>        
-
-        - Also note the following settings:
+        
+        -  Note the following settings:
             - Relying party for SAML = Issuer Name
             - Relying party for Oauth2 = OAuth Client Key  
 
@@ -369,7 +406,7 @@ below steps:
             - Name : travelocity.com
             - Value : http://localhost:8080/travelocity.com/home.jsp
 
-11. Once you fill name and the value, click the **Add** button.
+11. Once you fill the name and the value, click the **Add** button.
 
 12. Now try out the back button and book marking scenarios.
 
