@@ -447,7 +447,7 @@ nav:
             - 'Configure the Application': develop/extend/myaccount/configure-my-account.md
           - 'Re-brand User Interfaces':
             - 'Re-brand WSO2 Identity Server UIs': develop/extend/rebranding/rebrand-identity-server-uis.md
-            - 'Re-brand the Default Login Page for Your Application': develop/extend/rebranding/rebrand-login-pages-for-service-providers.md
+            #- 'Re-brand the Default Login Page for Your Application': develop/extend/rebranding/rebrand-login-pages-for-service-providers.md
             - 'Re-brand the SSO Redirection Page': develop/extend/rebranding/rebrand-the-sso-redirection-page.md
           - 'Change the Authentication Endpoint': develop/extend/change-the-authentication-endpoint.md
           - 'Localization Support in Identity Server': develop/extend/localization-support-in-identity-server.md
