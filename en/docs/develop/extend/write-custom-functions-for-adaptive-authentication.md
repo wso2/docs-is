@@ -5,7 +5,7 @@ sequences based on runtime parameters such as the user’s IP address,
 user role, etc. in the WSO2 Identity Server. This feature allows you to
 define a dynamic authentication sequence using authentication scripts
 written in JavaScript. For more information, see [Adaptive
-Authentication](../../../references/concepts/authentication/adaptive-authentication//adaptive-authentication).  
+Authentication](../../../references/concepts/authentication/adaptive-authentication).  
 
 Custom functions that expose any useful WSO2 Identity Server core
 functions and any utility functions can be added as OSGi services. A
@@ -17,14 +17,14 @@ core set of functions are available at the following GitHub location:
 The following steps provide some guidelines on how you can write custom
 functions for adaptive authentication.
 
-1.  Create an Apache Maven module that has packaging type as ‘bundle’
+1.  Create an Apache Maven module that has packaging type as 'bundle'
     and add the maven-bundle-plugin configuration. You may skip this
     step if you are adding a function to an existing component providing
     a related functionality.
 2.  Create a functional interface (i.e., Interface with a single public
-    method). The method name and parameters should be the same as you
-    would be providing from js. And you may need to use wrapper classes
-    for any object classes (except number, string and boolean). You may
+    method). The method name and parameters should be the same as the ones you
+    provide from js. You may need to use wrapper classes
+    for any object classes (except number, string and boolean) and you may
     skip this if you can use an existing object. For more information on
     objects, see [object reference
     documentation](../../../references/adaptive-authentication-js-api-reference#object-reference).  

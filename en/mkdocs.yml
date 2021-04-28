@@ -438,9 +438,9 @@ nav:
             #- 'Write a Custom Policy Info Point': develop/extend/access-control/write-a-custom-policy-info-point.md
           - 'Adaptive Authentication for Developers':
             - 'Write Custom Functions for Adaptive Authentication': develop/extend/write-custom-functions-for-adaptive-authentication.md
-          - 'Workflow Management for Developers':
-            - 'Extend the Workflow Event Handler': develop/extend/workflows/extend-the-workflow-event-handler.md
-            - 'Write a Custom Workflow Template': develop/extend/workflows/write-a-custom-workflow-template.md
+          #- 'Workflow Management for Developers':
+            #- 'Extend the Workflow Event Handler': develop/extend/workflows/extend-the-workflow-event-handler.md
+            #- 'Write a Custom Workflow Template': develop/extend/workflows/write-a-custom-workflow-template.md
           - 'My Account':
             - 'Set up in a Development Environment': develop/extend/myaccount/set-up-my-account-in-a-dev-environment.md
             - 'Customize the UI': develop/extend/myaccount/customize-my-account-ui.md
