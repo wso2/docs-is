@@ -2,7 +2,7 @@
 
 The authentication endpoint contains the authentication URLs used in authentication flow. You can use the default authenticationendpoint webapp that is hosted on WSO2 Identity Server itself, or choose to host it on a separate server. You may want to host it separately for the purpose of having custom theming and branding. 
 
-This section describes how you can host the authentication endpoint on a different server outside the WSO2 Identity Server  (e.g., in a different Tomcat
+This section describes how you can host the authentication endpoint on a different server outside WSO2 Identity Server  (e.g., in a different Tomcat
 Server).
 
 <!-- ## Move the accountrecoveryendpoint from WSO2IS and host it on a separate web server
