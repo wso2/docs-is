@@ -50,7 +50,7 @@ First, you need to generate a key from the message itself for the
 i18n, properties file. following steps below:
 
 1.  Get the message "oauthErrorMsg" from URL and decode the URL (URLDecode).
-2.  Base64 Encode the message "oauthErrorMsg".
+2.  Base64 encode the message, `oauthErrorMsg`.
 3.  Replace = with \_ in the base64 encoded message.
 
 Now look for a value in `         Resource.properties        ` file with
