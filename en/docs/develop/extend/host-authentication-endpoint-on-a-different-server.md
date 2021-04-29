@@ -171,7 +171,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     web application and the required jars from the IS pack to the web root directory of the external server.
     Once the script is complete, then the authentication endpoint is set up in the given `<TOMCAT_HOME>/webapps` location.
 
-5.  Uncomment following section in `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/web.xml` file and point to identity server URLs.
+5.  Uncomment the following section in the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/web.xml` file and point to the identity server URLs.
 
     ```
     <context-param>
