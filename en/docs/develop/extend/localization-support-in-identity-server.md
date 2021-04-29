@@ -64,7 +64,7 @@ displayed in the UI, as default.
 
 ## Configure localization for recovery endpoints 
 
-Similarly, you can enable localization for accountrecoveryendpoint by
+Similarly, you can enable localization for `accountrecoveryendpoint` by
 applying the same above steps 2 through 6 in the previous section
 starting with the following location.
 
