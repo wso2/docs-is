@@ -1,17 +1,18 @@
-# Authenticate and Authorize REST APIs
+# Authenticate and Authorize to REST APIs
 
 This section guides you through securing REST services and understanding how requests to REST APIs are authenticated and authorized in WSO2 Identity Server.
 
-The requests that are sent via REST APIs are intercepted by tomcat valves and authenticated and authorized by an OSGI service. There are two OSGi services that provide the authentication and authorization service based on its own handlers. You can write your own handlers for both authentication and authorization and register them in OSGI if you wish to do so. For more information, see [Writing a Custom Local Authenticator](../../develop/extend/writing-a-custom-local-authenticator)
+The requests that are sent via REST APIs are intercepted by tomcat valves and authenticated and authorized by an OSGI service. There are two OSGi services that provide the authentication and authorization service based on its own handlers. You can write your own handlers for both authentication and authorization and register them in OSGI if you wish to do so. For more information, see [Write a Custom Local Authenticator](/develop/extend/federation/write-a-custom-local-authenticator).
 
 ---
 
 ## REST API authentication
 
 WSO2 Identity Server supports three ways of API authentication: 
-    -   Basic authentication: Uses the user’s credentials in the API invocation
-    -   OAuth 2 common flows: Obtains a token using an oauth2 flow and uses it to invoke the API
-    -   Client certificate-based: Uses Mutual SSL to authenticate in order to consume the APIs
+
+-   Basic authentication: Uses the user’s credentials in the API invocation.
+-   OAuth 2.0 common flows: Obtains a token using an OAuth 2.0 flow and uses it to invoke the API.
+-   Client certificate-based: Uses Mutual SSL to authenticate in order to consume the APIs.
 
 !!! note 
     Unless one of the above authentication elements is sent in an API invocation request, the 401 Unauthorized HTTP response will be returned.
@@ -20,7 +21,7 @@ WSO2 Identity Server supports three ways of API authentication:
 
 ## Secure resources
 
-From 5.9.0 onwards, all endpoints are secured by default. To configure user role permissions, use the following configuration:
+From IS 5.9.0 onwards, all endpoints are secured by default. To configure user role permissions, use the following configuration:
 
 1.  Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory.
 
@@ -92,11 +93,11 @@ Authorization for the APIs in WSO2 Identity Server is enforced at the endpoint l
 
 When obtaining a token to consume the API, you can define the scope corresponding to the permission required to consume the API.
 
-For example, let's assume that a user whose username is Alex, wants to retrieve the challenges available by calling the **/{user-id}/challenges** GET API available in [Challenge Question](../../apis/challenge-rest-api) REST API. This requires the user-id as an input. 
-To retrieve the challenges, Alex requires `/permission/admin/manage/identity/identitymgt/view` permission and `internal_identity_mgt_view` scope. Hence,Alex can invoke the following cURL command with `scope=internal_identity_mgt_view` and obtain a token.
+For example, let's assume that a user whose username is Alex, wants to retrieve the challenges available by calling the **/{user-id}/challenges** GET API available in [Challenge Question](/develop/apis/challenge-rest-api) REST API. This requires the user-id as an input. 
+To retrieve the challenges, Alex requires `/permission/admin/manage/identity/identitymgt/view` permission and `internal_identity_mgt_view` scope. Hence, Alex can invoke the following cURL command with `scope=internal_identity_mgt_view` and obtain a token.
 
 ``` java tab="Request"
-curl -v -X POST -H "Authorization: Basic <base64encoded clientId:clientSecrect>" -k -d "grant_type=password&username=alex&password=alex123&scope=somescope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+curl -v -X POST -H "Authorization: Basic <base64encoded CLIENT_ID:CLIENT_SECRET>" -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=<SCOPE>" -H "Content-Type:application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
 ```
 
 ``` java tab="Sample Request"
@@ -108,21 +109,21 @@ When the above cURL command is called, a token of the following format will be g
 
 ``` java tab="Sample Response"
 {"access_token":"bf01d540-fa67-314f-9ff3-3ed5ef9fa5bd",
-"Refresh_token":"dc3906cc-34f9-376c-a6f4-1c2e6b9626c7",
-"Scope":"internal_identity_mgt_view",
+"refresh_token":"dc3906cc-34f9-376c-a6f4-1c2e6b9626c7",
+"scope":"internal_identity_mgt_view",
 "token_type":"Bearer",
 "expires_in":3600}
 ```
 
 If the response with the generated token contains the scope specified in the cURL request, the received access token can be used to consume the API that requires the particular scope.
 
-!!! note
+!!! tip
      To obtain a token with all the scopes corresponding to the permissions assigned to the user, you can use **scope=SYSTEM**. It will generate a token with all the scopes corresponding to the permissions of the user.   
    
 --- 
 
 !!! info "Related Links"
-    -   See [Scopes Corresponding to Permissions Required to Invoke API Calls](../../references/scopes-corresponding-to-api-permissions) 
+    -   See [Scopes Corresponding to Permissions Required to Invoke REST API Calls](/references/scopes-corresponding-to-rest-api-permissions) 
     for a list of scopes corresponding to the permissions required for different REST APIs.
 
     -   The permissions and scopes required for each REST API can be found under API description in the corresponding

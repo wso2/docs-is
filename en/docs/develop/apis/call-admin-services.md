@@ -7,8 +7,8 @@ administration capabilities through the UI.
 
 A service in WSO2 IS is defined by the following components:
 
--   Service component: provides the actual service
--   UI component: provides the Web user interface to the service
+-   Service component: provides the actual service.
+-   UI component: provides the Web user interface to the service.
 -   Service stub: provides the interface to invoke the service generated
     from the service Web Services Description Language ( WSDL).
 
@@ -26,7 +26,7 @@ applications.
 
 By default, the WSDLs of admin services are hidden from consumers. Given
 below is how to discover them using the
-[OSGi](https://www.osgi.org/developer/) console.
+OSGi console.
 
 1.  Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
    
@@ -56,26 +56,21 @@ below is how to discover them using the
     example:  
     ![Admin services list](../../assets/img/apis/admin-services-list.png) 
 
-
-!!! info
-    To see the service contract of an admin service, select the admin
-    service's URL and then paste it in your browser with **?wsdl** at the
-    end. For example:
-
-    `https://localhost:9443/services/RemoteUserStoreManagerService?wsdl`
-
-    You should be accessing the Admin Services via the management console
-    port, which is 9443 when there is no port offset.
-
-!!! note 
-    The admin service's URL appears as follows in the list you discovered in step 6:
-
-    ``` java
-    RemoteUserStoreManagerService, RemoteUserStoreManagerService, https://<host IP>:9443/services/RemoteUserStoreManagerService/  
-    ```
+    !!! info 
+        The admin service's URL appears as follows in the list you discovered:
     
-    After discovering admin service you can restart the server without
-    `           -DosgiConsole          `
+        ``` java
+        RemoteUserStoreManagerService, RemoteUserStoreManagerService, https://<IS_HOST>:<IS_PORT>/services/RemoteUserStoreManagerService/  
+        ```
+        
+        After discovering admin service you can restart the server without
+        `           -DosgiConsole          `
+
+        To see the service contract of an admin service, select the admin
+        service's URL and then paste it in your browser with **?wsdl** at the
+        end. For example:
+    
+        `https://localhost:9443/services/RemoteUserStoreManagerService?wsdl`
     
 ---
 
@@ -86,5 +81,5 @@ below is how to discover them using the
     
     
 !!! info "Related Links"
-    -   See [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services) for a list of the operations that can be performed with different permission levels.
+    -   [Reference: Permissions Required to Invoke Admin Services](/references/permissions-required-to-invoke-admin-services)
     -   The following article guides you through transforming existing SOAP-based services into REST services in WSO2 Identity Server: [Exposing WSO2 Identity Server Admin Services the REST Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).

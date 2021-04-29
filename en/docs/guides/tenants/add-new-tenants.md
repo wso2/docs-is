@@ -9,7 +9,7 @@ be logged in as a super user.
 1.  Click **Multitenancy** > **Add New Tenant** in the **Configure** tab of your product's
     management console.
 
-    ![](../../../assets/img/guides/add-new-tenant.png)
+    <img src="../../../assets/img/guides/add-new-tenant.png" width="250" alt="Add a new tenant">
 
 2.  Enter the tenant information in **Register A New Organization**
     screen as follows, and click **Save**.
@@ -30,7 +30,8 @@ be logged in as a super user.
     currently exist in the system. If you want to view only tenants of a
     specific domain, enter the domain name in the **Enter the Tenant
     Domain** parameter and click **Find**.  
-    ![](../../../assets/img/guides/view-tenant.png) 
+    
+    ![View a tenant](../../../assets/img/guides/view-tenant.png) 
 
 ---
 
@@ -103,7 +104,7 @@ follows:
     machine as the product instance. Note that there are several
     operations shown in the [SOAP UI](https://www.soapui.org/downloads/latest-release.html) after importing the wsdl file:
 
-    ![](../../../assets/img/guides/tenant-soap-ui.png) 
+    ![TenantMgtAdminService](../../../assets/img/guides/tenant-soap-ui.png) 
 
     !!! warning "Before invoking an operation"
     
@@ -133,5 +134,5 @@ follows:
     ```
 
 !!! info 
-    See [Managing Tenants with APIs](../../../develop/apis/manage-tenants-with-apis)
-    for more information on using APIs to manage tenants.
+    - [Manage Tenants with APIs](/develop/apis/manage-tenants-with-apis)
+    
