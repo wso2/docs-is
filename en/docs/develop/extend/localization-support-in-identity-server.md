@@ -37,9 +37,7 @@ directory). The following steps describe how you can configure this:
 6.  Restart the server.  
     To try out, do the following:
     1.  Open up a browser.
-    2.  Type the **My Account** application URL. (If you are running the server in your
-        localhost, the URL is:
-        `                     https://localhost:9443/myaccount/                   `
+    2.  Type the **My Account** application URL (`https://<IS_HOST>:<IS_PORT>/myaccount`
         ). You will see the login screen having the contents in the
         configured language.
 
