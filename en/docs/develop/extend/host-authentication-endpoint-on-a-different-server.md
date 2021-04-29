@@ -198,7 +198,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     </context-param>
     ```
     
-6. Configure the identity server origin URL as below in `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
+6. Configure the identity server origin URL as mentioned below in the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
     
     ```
     identity.server.origin=https://localhost:9443
