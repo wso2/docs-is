@@ -159,7 +159,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
         need to import tomcat keystore’s public cert in to: `<IS_HOME>/repository/resources/security/client-truststore.jks` and, public cert of `<IS_HOME>/repository/resources/security/wso2carbon.jks` into tomcat’s truststore.
     
 
-3.  Open `<TOMCAT_HOME>/bin/catalina.sh` and add following JAVA\_OPTS.
+3.  Open `<TOMCAT_HOME>/bin/catalina.sh` and add the following JAVA\_OPTS.
 
     ``` xml
     JAVA_OPTS="$JAVA_OPTS --Djavax.net.ssl.keyStore=$IS_HOME/repository/resources/security/wso2carbon.jks -Djavax.net.ssl.keyStorePassword=wso2carbon"
