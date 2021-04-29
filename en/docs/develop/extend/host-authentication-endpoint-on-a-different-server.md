@@ -166,7 +166,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.trustStore=$IS_HOME/repository/resources/security/client-truststore.jks -Djavax.net.ssl.trustStorePassword=wso2carbon"
     ```
 
-4.  Execute the script [setup-authentication-endpoint.sh](https://github.com/wso2/samples-is/blob/master/host-endpoints-externally/setup-authentication-endpoint.sh) 
+4.  Execute the script, [setup-authentication-endpoint.sh](https://github.com/wso2/samples-is/blob/master/host-endpoints-externally/setup-authentication-endpoint.sh) 
     by providing the path of the WSO2 IS and the web root of the external server to copy the authentication endpoint 
     web application and the required jars from the IS pack to the web root directory of the external server.
     Once the script is complete, then the authentication endpoint is set up in the given `<TOMCAT_HOME>/webapps` location.
