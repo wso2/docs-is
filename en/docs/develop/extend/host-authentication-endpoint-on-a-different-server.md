@@ -141,7 +141,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
 1.  Download and install WSO2 IS and apache-tomcat into your local machine. Let’s consider IS installation as `<IS_HOME>` and tomcat installation as
     `<TOMCAT_HOME>`.
 
-2.  Open `<TOMCAT_HOME>/conf/server.xml` file and enable the https connector on 8443 port.
+2.  Open the `<TOMCAT_HOME>/conf/server.xml` file and enable the https connector on 8443 port.
 
     ``` xml
     <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
