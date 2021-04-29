@@ -207,7 +207,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     !!! note
         If necessary, update the paths of the keystore and truststore as well in the same file.
         
-7.  Add the below configuration in the `<IS_HOME>/repository/conf/deployment.toml` file by replacing the 
+7.  Add the configuration given below in the `<IS_HOME>/repository/conf/deployment.toml` file by replacing the 
     `<WEB_SERVER_HOST>` and `<WEB_SERVER_PORT>` with appropriate values of the external server.
 
     ```
