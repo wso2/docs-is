@@ -37,36 +37,33 @@ directory). The following steps describe how you can configure this:
 6.  Restart the server.  
     To try out, do the following:
     1.  Open up a browser.
-    2.  Type the user portal URL. (If you are running the server in your
-        localhost, the URL is:
-        `                     https://localhost:9443/user-portal/                   `
+    2.  Type the **My Account** application URL (`https://<IS_HOST>:<IS_PORT>/myaccount`
         ). You will see the login screen having the contents in the
         configured language.
 
 If you want to have internationalization of error messages coming from
-`         authentication-framework/        ` oauth
-`         -framework        `, Follow the below steps:
+`         authentication-framework/oauth-framework        `, follow the below steps:
 
 First, you need to generate a key from the message itself for the
 i18n, properties file. following steps below:
 
-1.  Get the message "oauthErrorMsg" from URL and do URLDecode
-2.  Base64 Encode the message "oauthErrorMsg"
-3.  Replace = with \_ in the base64 encoded message
+1.  Get the message, `oauthErrorMsg` from the URL and decode the URL (URLDecode).
+2.  Base64 encode the message, `oauthErrorMsg`.
+3.  Replace = with \_ in the base64 encoded message.
 
 Now look for a value in `         Resource.properties        ` file with
 the relevant locale. If a match is found, define a value for the
 property. Otherwise use add new property entry to the relevant locale
 based on the Resource file, as explained above. If you don't specify a
-value for the key obtained after \#03, the error message itself will be
+value for the key obtained above, the error message itself will be
 displayed in the UI, as default.
 
 ---
 
 ## Configure localization for recovery endpoints 
 
-Similarly, you can enable localization for accountrecoveryendpoint by
-applying the same above steps 1 through 7 in the previous section
+Similarly, you can enable localization for `accountrecoveryendpoint` by
+applying the same above steps 2 through 6 in the previous section
 starting with the following location.
 
 `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes/org/wso2/carbon/identity/mgt/recovery/endpoint/i18n/`
