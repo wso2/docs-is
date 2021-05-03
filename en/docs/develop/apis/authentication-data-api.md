@@ -30,7 +30,7 @@ need to configure the Identity Server as follows.
     [authentication.endpoint.redirect_params] 
     filter_policy = "include"    
     remove_on_consume_from_api = "true"
-    parameters = [sessionDataKey]
+    parameters = ["sessionDataKey"]
     ```
 
     <table>
