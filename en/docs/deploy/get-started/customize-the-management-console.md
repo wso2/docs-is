@@ -5,19 +5,14 @@ The User Interface of the Management Console (
 
 1.  **UI inherited from WSO2 Carbon platform** 
 
-    Bundle `org.wso2.carbon.ui_<version-number>.jar` contains the templates,styles (css files) for 
-    Carbon Platform which is located in `<PRODUCT_HOME>/repository/components/ plugins/` where
-    `<version-number>` is the version of the Carbon Kernel that the product is built on. This 
+    The bundle, `org.wso2.carbon.ui_<version-number>.jar` located in `<IS_HOME>/repository/components/ plugins/`, contains the templates and styles (css files) for the Management Console. The `<version-number>` is the version of the Carbon Kernel that WSO2 Identity Server is built on. This 
     bundle is responsible for the overall look and feel of the entire Carbon platform.
-    
     
 2.  **Unique UI of each product** 
 
-    Each Carbon product (that is built on Carbon kernel) has another style bundle. 
-    `org.wso2. identity.styles_<version-number>.jar` contains all the styles and images that 
-    override the ones in core Carbon platform. 
-    This bundle is stored in `<PRODUCT_HOME>/repository/components/plugins/` folder and the 
-    `<version-number>` is the version of the product.
+    Each Carbon product (that is built on Carbon kernel) has another style bundle, 
+    `org.wso2. identity.styles_<version-number>.jar` located in `<IS_HOME>/repository/components/plugins/`. This contains all the styles and images that 
+    override the ones in core Carbon platform. The `<version-number>` is the version of the product.
     
 
 
@@ -27,12 +22,11 @@ The following sections will guide you through the customization process.
 
 ## Set up the development environment
 
-To download and set up the product environment for editing, take the
-following steps.
+To download and set up the product environment for editing, follow the steps given below. 
 
-1.  Download your product.
+1.  Download the latest version of [WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 2.  Extract the ZIP file into a separate folder in your hard drive.
-3.  Go to the `<PRODUCT_HOME>/repository/components/plugins/`
+3.  Go to the `<IS_HOME>/repository/components/plugins/`
     directory to find the required JAR files:
     -   `org.wso2.carbon.ui_<version-number>.jar`
     -   `org.wso2.<product-name>.styles_<version-number>.jar`
@@ -56,11 +50,10 @@ changes to the product interface can be done.
 ### Change the layout
 
 The layout of the Carbon framework is built using a tiles JSP tag
-library. The use of tiles allows us to break the presentation of the
+library. These tiles allow us to break the presentation of the
 layout into small JSP snippets that perform a specific function. 
 
-    For example, `header.jsp` and `footer.jsp` are the tiles corresponding to the
-    header and footer in the layout. 
+For example, `header.jsp` and `footer.jsp` are the tiles corresponding to the header and footer in the layout. 
 
 The `template.jsp ` file controls the main layout page of the Carbon framework, 
 which holds all the tiles together. The `template.jsp` file as well as 
@@ -109,7 +102,7 @@ framework instead of the default `global.css`stylesheet.
 ### Change the product specific styles and images
 
 The styles and images unique to your product are located in the
-`org.wso2.<product-name>. styles_<version_number>.jar`.
+`org.wso2.<product-name>. styles_<version_number>.jar` file.
 Follow the steps below to modify product specific styles and images.
 
 1.  Copy the necessary images to the
@@ -137,10 +130,10 @@ Follow the steps below to modify product specific styles and images.
 
 !!! note
     
-    Note that the size of the images you use will affect the overall UI of
+    The size of the images you use will affect the overall UI of
     your product. 
     
-    **Example**: If the height of the product logo image
+    For example, if the height of the product logo image
     exceeds 28 pixels, you must adjust the `          main.css         `
     file in the
     `          org.wso2.<product-name>.styles_<version-name>.jar/web/styles/css/         `
@@ -163,9 +156,9 @@ explained below.
     folders into separate ZIP files.
 2.  Change the name of the ZIP file to
     `           org.wso2.carbon.ui_<version-number>.jar          ` and
-    `           org.wso2.<product-name>.styles_<version-number>.jar          `
+    `           org.wso2.<product-name>.styles_<version-number>.jar `
     respectively.
-3.  Copy two new JAR files to
-    `<PRODUCT_HOME>/repository/components/plugins/` directory in
+3.  Copy two new JAR files to the 
+    `<IS_HOME>/repository/components/plugins/` directory in
     your product installation.
 4.  Start the server.

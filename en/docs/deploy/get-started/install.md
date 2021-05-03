@@ -37,17 +37,17 @@ development platforms before starting the installation.
 </colgroup>
 <tbody>
 <tr class="odd">
-<th><p>Operating Systems/ Databases/ User Stores</p></th>
+<th><p>Operating Systems/ Databases/ Userstores</p></th>
 <td><div class="content-wrapper">
 <ul>
 <li>WSO2 Identity Server requires an Oracle JDK 11 or JDK 8 compliant JDK. This will run on most common platforms that <strong>support Java 11 or Java 8.</strong> .</li>
-<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../../deploy/work-with-databases">Working with Databases</a> .</li>
-<li>WSO2 Identity Server supports using any of the following as a user store :
+<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../../deploy/work-with-databases">Work with Databases</a>.</li>
+<li>WSO2 Identity Server supports using any of the following as a userstore :
 <ul>
 <li>RDBMS</li>
 <li>An LDAP such as OpenLDAP</li>
 <li>Active Directory</li>
-<li><a href="../../../deploy/configure-user-stores">Custom user stores</a></li>
+<li><a href="../../../deploy/configure-user-stores">Custom Userstores</a></li>
 </ul></li>
 </ul>
 <div class="admonition note">
@@ -55,7 +55,7 @@ development platforms before starting the installation.
 <p>
 <ul>
 <li>WSO2 Identity Server is shipped with a default embedded Apache DS that is suitable for development purposes. WSO2 does not recommend using Apache DS in a production environment due to scalability issues that exist with Apache DS.</li>
-<li>WSO2 does not recommend using the H2 database as a user store in production environments. However, you can use the H2 database for development purposes if necessary.</li>
+<li>WSO2 does not recommend using the H2 database as a userstore in production environments. However, you can use the H2 database for development purposes if necessary.</li>
 </ul>
 </p>
 </div>
@@ -85,17 +85,15 @@ binary files for both MS Windows, and Linux-based operating systems.
 
 <table>
 <colgroup>
-<col style="width: 11%" />
-<col style="width: 36%" />
-<col style="width: 36%" />
-<col style="width: 15%" />
+<col style="width: 12%" />
+<col style="width: 43%" />
+<col style="width: 43%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th><p>Application</p></th>
 <th><p>Purpose</p></th>
 <th><p>Version</p></th>
-<th>Download Links</th>
 </tr>
 </thead>
 <tbody>
@@ -129,10 +127,9 @@ binary files for both MS Windows, and Linux-based operating systems.
 <td><p><strong>Web Browser*</strong></p></td>
 <td><div class="content-wrapper">
 <ul>
-<li>To access the product's <a href="../../setup/running-the-product">Management Console</a>. The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
+<li>To access the product's <a href="../../../deploy/get-started/run-the-product">Management Console</a>. The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-tile">Note</p>
 <p><strong>Note:</strong> On Windows Server 2003, you must not go below the medium security level in Internet Explorer 6.x.</p>
 </div>    
 </div></td>
@@ -197,7 +194,7 @@ or Mac OS X.
 
 1.  Log in to the command line (Terminal on Mac).
 
-2.  Ensure that your system meets the [Installation Prerequisites](#Prerequisites).  Java Development Kit
+2.  Ensure that your system meets the [Installation Prerequisites](#prerequisites).  Java Development Kit
     (JDK) is essential to run the product.
 
 #### Install WSO2 Identity Server
@@ -215,17 +212,20 @@ or Mac OS X.
         ```
     
         To avoid this issue,    
-        1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.   
-        2. Set the `compression` element under the HTTPS connector configuration to `off`.   
-           ```
-           [transport.https]
-           ...
-           compression="off"
-           ...           
-           ```
-           (NOTE: If the above configuration is not listed in `deployment.toml`, add the above configuration 
-           manually)   
-        3. Restart WSO2 Identity Server.   
+        1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.   
+		2. 	Set the `compression` element under the HTTPS connector configuration to `off`.   
+			
+			```
+			[transport.https]
+			...
+			compression="off"
+			...           
+			```
+           	
+			!!! note
+				If the above configuration is not listed in `deployment.toml`, add the above configuration manually.
+        
+		3.	Restart WSO2 Identity Server.   
     
 
 #### Set up JAVA_HOME
@@ -246,32 +246,35 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     `           /usr/java/jdk1.8.0_141          ` with the actual
     directory where the JDK is installed.
 
-    ``` java
-    On Linux:
+    ```java tab="Linux"
     export JAVA_HOME=/usr/java/jdk1.8.0_141
     export PATH=${JAVA_HOME}/bin:${PATH}
-     
-    On OS X:
+	```
+    
+	```java tab="OS X"
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_141/Contents/Home
     ```
 
 3.  Save the file.
 
     !!! info
-        If you do not know how to work with text editors in a Linux SSH session, run the following command: `            cat >> .bashrc.           ` Paste the string from the clipboard and press "Ctrl+D."
+        If you do not know how to work with text editors in a Linux SSH session, run the following command: `cat >> .bashrc.`. Paste the string from the clipboard and press Ctrl+D.
 
 4.  To verify that the `           JAVA_HOME          ` variable is set
     correctly, execute the following command:
 
-    ``` java
-    On Linux:
+    ```java	tab="Linux"
     echo $JAVA_HOME
-         
-    On OS X:
+	```
+    
+	```java	tab="OS X"    
     which java
+	```
 
     If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
-    ls -l `which java`
+    
+	```
+	ls -l `which java`
     ```
 
 5.  The system returns the JDK installation path.
@@ -467,7 +470,7 @@ want to restart it.
 
 #### Set system properties
 
-{! fragments/set-system-properties !}
+{! fragments/set-system-properties.md !}
 
 ---
 

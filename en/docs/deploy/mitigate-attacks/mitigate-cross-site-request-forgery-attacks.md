@@ -3,6 +3,8 @@
 The following sections describe the impact of the Cross Site Request
 Forgery (CSRF) attack and how to mitigate it.
 
+---
+
 ## How can CSRF attacks be harmful?
 
 Cross Site Request Forgery (CSRF) attacks trick you to send a malicious
@@ -136,17 +138,16 @@ Follow the steps below to secure web applications.
 3.  Create a CSRF configuration properties file (e.g.
     `          abc.properties         ` ) within your application, and
     copy the content in the
-    `          <CARBON_HOME>repository/conf/security/         `
-    `          Owasp.CsrfGuard.Carbon.properties         ` file to it.
+    `          <CARBON_HOME>repository/conf/security/Owasp.CsrfGuard.Carbon.properties         ` file to it.
 4.  Use the `           org.owasp.csrfguard.unprotected.          `
     prefix in the configuration property keys, for the relevant patterns
     that you need to exclude from CSRF protection. For example;
 
     ``` js
-        org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
-        org.owasp.csrfguard.unprotected.Default_1=%servletContext%/exampleAction
-        org.owasp.csrfguard.unprotected.Example=%servletContext%/exampleAction/*
-        org.owasp.csrfguard.unprotected.ExampleRegEx=^%servletContext%/.*Public\.do$
+    org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
+    org.owasp.csrfguard.unprotected.Default_1=%servletContext%/exampleAction
+    org.owasp.csrfguard.unprotected.Example=%servletContext%/exampleAction/*
+    org.owasp.csrfguard.unprotected.ExampleRegEx=^%servletContext%/.*Public\.do$
     ```
 
 5.  Change the following configuration properties, to further enhance
@@ -169,32 +170,32 @@ Follow the steps below to secure Jaggery applications.
     `           jaggery.conf          ` file of your application.
 
     ``` java
-         "listeners" : [
-            {
-                "class" : "org.owasp.csrfguard.CsrfGuardServletContextListener" 
-            },
-            {
-                "class" : "org.owasp.csrfguard.CsrfGuardHttpSessionListener"    
-            }
-            ],
-            "servlets" : [
-            {
-                "name" : "JavaScriptServlet",
-                "class" : "org.owasp.csrfguard.servlet.JavaScriptServlet"
-            }
-            ],
-            "servletMappings" : [
-            {
-                "name" : "JavaScriptServlet",
-                "url" : "/csrf.js"
-            }
-            ],
-            "contextParams" : [
-            {
-                "name" : "Owasp.CsrfGuard.Config",
-                "value" : "/repository/conf/security/Owasp.CsrfGuard.dashboard.properties"
-            }
-            ]
+    "listeners" : [
+    {
+        "class" : "org.owasp.csrfguard.CsrfGuardServletContextListener" 
+    },
+    {
+        "class" : "org.owasp.csrfguard.CsrfGuardHttpSessionListener"    
+    }
+    ],
+    "servlets" : [
+    {
+        "name" : "JavaScriptServlet",
+        "class" : "org.owasp.csrfguard.servlet.JavaScriptServlet"
+    }
+    ],
+    "servletMappings" : [
+    {
+        "name" : "JavaScriptServlet",
+        "url" : "/csrf.js"
+    }
+    ],
+    "contextParams" : [
+    {
+        "name" : "Owasp.CsrfGuard.Config",
+        "value" : "/repository/conf/security/Owasp.CsrfGuard.dashboard.properties"
+    }
+    ]
     ```
 
 2.  Include the following JavaScriptServlet as the first JavaScript
@@ -202,19 +203,19 @@ Follow the steps below to secure Jaggery applications.
     template of all pages of the application that you need to protect.
 
     ``` js
-        <html>
-            <head>
-                …
-                <script type=”text/javascript” src=”/csrf.js”></script>
-    
-                <!-- other JavaScript inclusions should follow “csrf.js” inclusion -->
-                <script type=”text/javascript” src=”/main.js”></script>
-                … 
-            </head>
-            <body>
-                ...
-            </body>
-        </html>
+    <html>
+        <head>
+            …
+            <script type=”text/ja   vascript” src=”/csrf.js”></script>
+
+            <!-- other JavaScript inclusions should follow “csrf.js” inclusion -->
+            <script type=”text/javascript” src=”/main.js”></script>
+            … 
+        </head>
+        <body>
+            ...
+        </body>
+    </html>
     ```
 
 3.  Create a CSRF configuration properties file (e.g.
@@ -227,15 +228,15 @@ Follow the steps below to secure Jaggery applications.
     that you need to exclude from CSRF protection. For example;
 
     ``` js
-        org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
-        org.owasp.csrfguard.unprotected.Default_1=%servletContext%/exampleAction
-        org.owasp.csrfguard.unprotected.Example=%servletContext%/exampleAction/*
-        org.owasp.csrfguard.unprotected.ExampleRegEx=^%servletContext%/.*Public\.do$
+    org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
+    org.owasp.csrfguard.unprotected.Default_1=%servletContext%/exampleAction
+    org.owasp.csrfguard.unprotected.Example=%servletContext%/exampleAction/*
+    org.owasp.csrfguard.unprotected.ExampleRegEx=^%servletContext%/.*Public\.do$
     ```
 
 5.  Change the following configuration properties, to further enhance
     security. You may need justifiable application level requirements to
-    change them since they will affect performance or user experience.
+    change them since they will affect performance and user experience.
 
     | Property                                                                                                                  | Description                                                                      |
     |---------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|

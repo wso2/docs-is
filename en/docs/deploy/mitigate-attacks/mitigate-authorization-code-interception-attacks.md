@@ -3,7 +3,7 @@
 The following sections describe the impact of the code interception
 attack and the approaches you can use to mitigate it. You may need to
 mitigate these kind of attacks when creating an OAuth application that
-uses the [Authorization Code Grant](../../../guides/access-delegation/oauth-grant-types/#authorization-code-grant-type) type for
+uses the [Authorization Code Grant](../../../guides/access-delegation/authorization-code/) type for
 authentication.
 
 ---
@@ -38,8 +38,8 @@ case, the identity provider is the WSO2 Identity Server (IS).
     2.  Approves any user consents regarding the application.
 
 4. When the user is successfully authenticated, WSO2 IS redirects the user
-to the redirection URL provided by the application (e.g., “
-`          org.wso2.app://auth?code=12345&state=abc         ` ”).
+to the redirection URL provided by the application (e.g., 
+`          org.wso2.app://auth?code=12345&state=abc         ` ).
 
 5. The browser queries the mobile Operating System (OS) to get a list of
 applications that handle the URI provided. The mobile OS determines the
@@ -67,7 +67,7 @@ following diagram.
     and select the legitimate application. However, some operating systems
     (such as iOS) do not have any such scheme.
 
-![Authorization code grant type flow](../../assets/img/deploy/authorization-code-grant-type-flow.png) 
+![Authorization code grant type flow](../../../assets/img/deploy/authorization-code-grant-type-flow.png) 
 
 ---
 
@@ -125,7 +125,7 @@ steps below to do this.
     **Configure**.
 3.  Select the **PKCE Mandatory** checkbox and the **Support PKCE
     'Plain' Transform Algorithm** checkbox to enable PKCE.  
-    ![](../../assets/img/deploy/register-a-new-application.png)
+    ![](../../../assets/img/deploy/register-a-new-application.png)
 
 
 !!! info "Related Topics" 
