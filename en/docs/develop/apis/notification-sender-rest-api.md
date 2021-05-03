@@ -27,7 +27,7 @@ The following section provides the instructions to contruct requests for each no
 ??? "Email Sender Configuration"
 
     * If you want to add properties related to email adaptor configurations (eg: SMTP configurations),
-    define property keys with the exact names given in [Email Event Publisher](https://docs.wso2.com/display/DAS300/Email+Event+Publisher) documentation. 
+    define property keys with the exact names given in the [Email Event Publisher](https://docs.wso2.com/display/DAS300/Email+Event+Publisher) documentation. 
 
 ??? "SMS Sender Configuration"
 
