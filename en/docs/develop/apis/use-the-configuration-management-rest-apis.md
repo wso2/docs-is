@@ -2,8 +2,8 @@
 
 The configuration management APIs in WSO2 Identity Server manages configurations that are required to be stored as tenant-wise key-pair values. These stored configuration values are not changed frequently and are consumed at runtime. Some examples of such values are:
 
-- SMTP configurations of an email server.
-- A server configuration where analytics data is published.
+- SMTP configurations of an email server
+- A server configuration where analytics data is published
 
 Configurations for the above scenarios can be stored using the configuration management APIs. A detailed example is included in the [try-it-out](#try-it-out) section below.
 
