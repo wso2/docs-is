@@ -4,8 +4,6 @@ This section lists all the SDKs related to identity written using various techno
 
 - [SAML-based login using Asgardio Tomcat SAML Agent](https://github.com/asgardio/asgardio-tomcat-saml-agent)
 
-- [Javascript OIDC SDK for OIDC or OAuth2 authentication in to single page applications](https://github.com/asgardio/asgardio-js-oidc-sdk)
-
 - [Android OIDC SDK to secure android-based applications](https://github.com/asgardio/asgardio-android-oidc-sdk)
 
 - [.NET OIDC SDK to add OIDC-based login to .NET apps](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk)
