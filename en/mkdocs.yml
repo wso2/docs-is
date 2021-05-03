@@ -345,16 +345,16 @@ nav:
         #- 'Overview': guides/identity-provisioning/provisioning-overview.md
   - 'Develop':
       - 'APIs':
-          - 'Using APIs': develop/apis/use-apis.md
-          - 'Calling Admin Services':
-              - 'Calling Admin Services': develop/apis/call-admin-services.md
+          - 'Use APIs': develop/apis/use-apis.md
+          - 'Admin Services':
+              - 'Call Admin Services': develop/apis/call-admin-services.md
               - 'Admin Services for One Way Operations': develop/apis/admin-services-for-one-way-operations.md
           - 'REST APIs':
               - 'Rest APIs': develop/apis/rest-apis.md
-              - 'Authenticating and Authorizing': develop/apis/authenticate-and-authorize-rest-apis.md
+              - 'Authenticate and Authorize': develop/apis/authenticate-and-authorize-rest-apis.md
               - 'Account Recovery': develop/apis/use-the-account-recovery-rest-apis.md
               - 'Application Management': develop/apis/application-rest-api.md
-              - 'Approvals': develop/apis/approvals-rest-api.md
+              #- 'Approvals': develop/apis/approvals-rest-api.md
               - 'Associations': develop/apis/association-rest-api.md
               - 'Authentication Data': develop/apis/authentication-data-api.md
               - 'Authentication': develop/apis/use-the-authentication-rest-apis.md
@@ -366,8 +366,8 @@ nav:
               - 'Configuration Management':
                   - 'Configuration Management': develop/apis/use-the-configuration-management-rest-apis.md
                   - 'Retrieving Tenant Resources Based on Search Parameters': develop/apis/retrieve-tenant-resources-based-on-search-parameters.md
-              - 'CORS': develop/apis/cors-rest-api.md
               - 'Consent Management': develop/apis/use-the-consent-management-rest-apis.md
+              - 'CORS': develop/apis/cors-rest-api.md
               - 'Email Templates': develop/apis/email-templates-rest-api.md
               - 'Entitlement': develop/apis/entitlement-with-rest-apis.md
               - 'Fido': develop/apis/fido-rest-api.md
@@ -375,14 +375,14 @@ nav:
               - 'Identity Providers': develop/apis/idp-rest-api.md
               - 'IdP Session Extending': develop/apis/idp-session-extender-endpoint.md
               - 'Keystore Management': develop/apis/keystore-rest-api.md
-              - 'Manage Tenants': develop/apis/manage-tenants-with-apis.md
-              - 'Server Configurations': develop/apis/configs-rest-api.md
+              - 'Notification Senders': develop/apis/notification-sender-rest-api.md
               - 'OAuth2 Scope Management': develop/apis/oauth2-scope-management-rest-apis.md
               - 'OpenID Connect Scope Management': develop/apis/oidc-scope-management-rest-apis.md
               - 'OIDC Dynamic Client Registration': develop/apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
               - 'Permission Management': develop/apis/permission-management-rest-api.md
               - 'Personal Information Export': develop/apis/use-the-personal-information-export-rest-apis.md
               - 'SCIM 2.0': develop/apis/scim2-rest-apis.md
+              - 'Server Configurations': develop/apis/configs-rest-api.md
               - 'Script Libraries': develop/apis/script-library-rest-api.md
               - 'Secondary User Store': develop/apis/userstore-rest-api.md
               - 'Self Sign-Up': develop/apis/use-the-self-sign-up-rest-apis.md
@@ -396,19 +396,20 @@ nav:
               - 'SOAP APIs': develop/apis/soap-apis.md
               - 'User Management':
                   - 'User Management': develop/apis/user-management-with-apis.md
-                  - 'Managing Users and Roles': develop/apis/manage-users-and-roles-with-apis.md
-                  - 'Managing Claims': develop/apis/manage-claims-with-apis.md
-                  - 'Managing Permissions': develop/apis/manage-permissions-with-apis.md
-                  - 'Counting Users and User Roles': develop/apis/count-users-and-roles-using-management-console-and-admin-services.md
-                  - 'Managing User Stores': develop/apis/manage-user-stores-with-apis.md
+                  - 'Manage Users and Roles': develop/apis/manage-users-and-roles-with-apis.md
+                  - 'Manage Claims': develop/apis/manage-claims-with-apis.md
+                  - 'Manage Permissions': develop/apis/manage-permissions-with-apis.md
+                  - 'Count Users and User Roles': develop/apis/count-users-and-roles-using-management-console-and-admin-services.md
+                  - 'Manage User Stores': develop/apis/manage-user-stores-with-apis.md
+                  - 'Manage Tenants': develop/apis/manage-tenants-with-apis.md
               - 'User Information Recovery': develop/apis/user-information-recovery-service.md
               - 'Identity Application Management':
                   - 'Identity Application Management': develop/apis/identity-application-management-api.md
-                  - 'Using the Service Provider': develop/apis/use-the-service-provider-api.md
+                  - 'Use the Service Provider': develop/apis/use-the-service-provider-api.md
                   - 'Service Provider Configurations used with APIs': develop/apis/service-provider-configurations-used-with-apis.md
               - 'Identity Provider Management':
                   - 'Identity Provider Management': develop/apis/identity-provider-management-api.md
-                  - 'Using the Identity Provider': develop/apis/use-the-identity-provider-api.md
+                  - 'Use the Identity Provider': develop/apis/use-the-identity-provider-api.md
                   - 'Identity Provider Configurations used with APIs': develop/apis/identity-provider-configurations-used-with-apis.md
           - 'Entitlement with APIs':
               - 'Entitlement with APIs': develop/apis/entitlement-with-apis.md
@@ -690,7 +691,7 @@ nav:
     - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
-    - 'Scopes Corresponding to Permissions Required to Invoke API Calls': references/scopes-corresponding-to-api-permissions.md
+    - 'Scopes Corresponding to Permissions Required to Invoke REST API Calls': references/scopes-corresponding-to-rest-api-permissions.md
     - 'Usernames in WSO2 Identity Server': references/usernames-in-identity-server.md
     - 'Concepts':
       - 'User Management': 
