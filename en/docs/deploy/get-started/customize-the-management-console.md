@@ -102,7 +102,7 @@ framework instead of the default `global.css`stylesheet.
 ### Change the product specific styles and images
 
 The styles and images unique to WSO2 Identity Server Management Console are located in the
-`org.wso2.identity. styles_<version_number>.jar` file.
+`org.wso2.identity.styles_<version_number>.jar` file.
 Follow the steps below to modify product specific styles and images.
 
 1.  Copy the necessary images to the
