@@ -1,4 +1,4 @@
-# Scopes Corresponding to Permissions Required to Invoke API Calls
+# Scopes Corresponding to Permissions Required to Invoke REST API Calls
 
 The list of permission levels and the corresponding scopes given below, can be used in various [REST API](../../apis/use-apis) calls. 
 
