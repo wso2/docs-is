@@ -13,3 +13,7 @@ This section lists all the SDKs related to identity written using various techno
 - [Spring-boot application for secure OIDC authentication](https://github.com/wso2-extensions/identity-samples-spring-boot)
 
 - [JavaScript OIDC SDK to implement OIDC authentication in JavaScript/TypeScript based apps](https://github.com/asgardeo/asgardeo-auth-js-sdk)
+
+- [Asgardeo Auth React SDK for JavaScript to use OIDC or OAuth2 authentication in React applications](https://github.com/asgardeo/asgardeo-auth-react-sdk)
+
+- [Asgardeo Auth Angular SDK to use OIDC or OAuth2 authentication in Angular Applications](https://github.com/asgardeo/asgardeo-auth-angular-sdk)
