@@ -34,7 +34,7 @@ The following section provides the instructions to contruct requests for each no
     1. Some SMS providers’ SMS sending API payloads are templated in the 
     `IS_HOME/repository/conf/sms/sms-providers-api-body-templates.xml` file.
     2. You can add new SMS providers’ payloads, or modify the existing SMS provider payloads by adding new attributes.
-    3. Attribute values that need to be replaced by **POST /notification-senders/sms** API’s input should be templated with 
+    3. Attribute values that need to be replaced by the **POST /notification-senders/sms** API’s input should be templated with 
     a prefix, **“$”**.
     
         ```
