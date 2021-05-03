@@ -206,7 +206,7 @@ Follow the steps below to secure Jaggery applications.
     <html>
         <head>
             …
-            <script type=”text/ja   vascript” src=”/csrf.js”></script>
+            <script type=”text/javascript” src=”/csrf.js”></script>
 
             <!-- other JavaScript inclusions should follow “csrf.js” inclusion -->
             <script type=”text/javascript” src=”/main.js”></script>

@@ -117,7 +117,7 @@ the command prompt. The required steps are as follows.
 
     1.  Open the `            <IS_HOME>/bin/wso2server.sh           `
         file in a text editor.
-    2.  Search for the, occurrences **nohup sh
+    2.  Search for the occurrences **nohup sh
         "$CARBON\_HOME"/bin/wso2server.sh $args \> /dev/null 2\>&1 &**
     3.  Replace those occurrences with **nohup <span
         class="underline">bash</span> "$CARBON\_HOME"/bin/wso2server.sh

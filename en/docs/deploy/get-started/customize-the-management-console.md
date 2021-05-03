@@ -11,7 +11,7 @@ The User Interface of the Management Console (
 2.  **Unique UI of each product** 
 
     Each Carbon product (that is built on Carbon kernel) has another style bundle, 
-    `org.wso2. identity.styles_<version-number>.jar` located in `<IS_HOME>/repository/components/plugins/`. This contains all the styles and images that 
+    `org.wso2.identity.styles_<version-number>.jar` located in `<IS_HOME>/repository/components/plugins/`. This contains all the styles and images that 
     override the ones in core Carbon platform. The `<version-number>` is the version of the product.
     
 
@@ -29,7 +29,7 @@ To download and set up the product environment for editing, follow the steps giv
 3.  Go to the `<IS_HOME>/repository/components/plugins/`
     directory to find the required JAR files:
     -   `org.wso2.carbon.ui_<version-number>.jar`
-    -   `org.wso2.<product-name>.styles_<version-number>.jar`
+    -   `org.wso2.identity.styles_<version-number>.jar`
 4.  Copy the JAR files to a separate location on your hard drive. Since
     the JAR files are zipped, you must unzip them to make them editable.
 
@@ -101,23 +101,23 @@ framework instead of the default `global.css`stylesheet.
 
 ### Change the product specific styles and images
 
-The styles and images unique to your product are located in the
-`org.wso2.<product-name>. styles_<version_number>.jar` file.
+The styles and images unique to WSO2 Identity Server Management Console are located in the
+`org.wso2.identity. styles_<version_number>.jar` file.
 Follow the steps below to modify product specific styles and images.
 
 1.  Copy the necessary images to the
-    `org.wso2.<product-name>.styles_<version-number>.jar/web/styles/images/`
+    `org.wso2.identity.styles_<version-number>.jar/web/styles/images/`
     directory. 
     
     For example, if you want to change the product banner,
     add the new image file to the above directory.
     
 2.  Open the `main.css` file located in the
-    `org.wso2.<product-name>.styles_<version-name>.jar/web/styles/css/`
+    `org.wso2.identity.styles_<version-name>.jar/web/styles/css/`
     directory.
 3.  To specify a new product banner, change the
     `background-image` attribute of
-    `org.wso2.<product-name>.styles_<version-name>.jar/web/styles/css/main.css`
+    `org.wso2.identity.styles_<version-name>.jar/web/styles/css/main.css`
     file as follows:
 
     ``` java
@@ -136,7 +136,7 @@ Follow the steps below to modify product specific styles and images.
     For example, if the height of the product logo image
     exceeds 28 pixels, you must adjust the `          main.css         `
     file in the
-    `          org.wso2.<product-name>.styles_<version-name>.jar/web/styles/css/         `
+    `          org.wso2.identity.styles_<version-name>.jar/web/styles/css/         `
     directory to ensure that the other UI elements of your product aligns
     with the product logo.
     
@@ -152,11 +152,11 @@ explained below.
 
 1.  Compress the contents of the
     `           org.wso2.carbon.ui_<version-number>.jar          ` and
-    `           org.wso2.<product-name>.styles_<product-version>.jar          `
+    `           org.wso2.identity.styles_<product-version>.jar          `
     folders into separate ZIP files.
 2.  Change the name of the ZIP file to
     `           org.wso2.carbon.ui_<version-number>.jar          ` and
-    `           org.wso2.<product-name>.styles_<version-number>.jar `
+    `           org.wso2.identity.styles_<version-number>.jar `
     respectively.
 3.  Copy two new JAR files to the 
     `<IS_HOME>/repository/components/plugins/` directory in

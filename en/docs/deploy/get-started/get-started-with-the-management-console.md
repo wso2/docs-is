@@ -10,8 +10,7 @@ management console.
 !!! Info 
     You can access the management console of the WSO2 Identity
     server at `https://<server-host>:<server-port>/carbon`. When the server
-    is [running](../../../deploy/get-started/run-the-product)
-    running in your local setup:
+    is [running](../../../deploy/get-started/run-the-product) in your local setup:
             
     ```
     https://localhost:9443/carbon
@@ -27,7 +26,7 @@ management console.
 
 The following screen depicts the home screen of the management console.
 
-![server-home-management-console](../../../assets/img/deploy/server_home_management_console.png)
+![Management Console Home Screen](../../../assets/img/deploy/server_home_management_console.png)
 
 The main menu items of the console appear in the left hand side of the 
 home screen. Each of these menus carry a list of sub menus. These menus and subsections will 
@@ -64,11 +63,11 @@ divided into different sections.
 !!! info "Related Links"
     Refer to the following topics for instructions to use sub menu items.
     
-    -   [Manage User Operations](../../../guides/identity-lifecycles/manage-user-overview/) 
+    -   [Guide: Manage User Operations](../../../guides/identity-lifecycles/manage-user-overview/) 
         for configuring users and roles. 
-    -   [Manage User Roles](../../../guides/identity-lifecycles/manage-roles-overview/)
-    -   [Configure the Realm](../../../deploy/configure-the-realm) for configuring user stores.
-    -   [Manage User Attributes](../../../guides/identity-lifecycles/manage-user-attributes/) for configuring claims.
+    -   [Guide: Manage User Roles](../../../guides/identity-lifecycles/manage-roles-overview/)
+    -   [Deploy: Configure the Realm](../../../deploy/configure-the-realm) for configuring user stores.
+    -   [Guide: Manage User Attributes](../../../guides/identity-lifecycles/manage-user-attributes/) for configuring claims.
 
 ---
 
@@ -95,13 +94,13 @@ divided into different sections.
 
     <!---   See [Workflow Management](../../../guides/workflows/adding-a-workflow-engine/) for information on
         working with workflows.-->
-    -   See [Managing Challenge Questions](../../../guides/password-mgt/challenge-question/)
+    -   [Guide: Manage Challenge Questions](../../../guides/password-mgt/challenge-question/)
         for information on configuring challenge questions. Also see [Account Recovery](../../../guides/my-account/my-account#account-recovery) for
         information on challenge questions.
-    -   See [Email Templates](../../../guides/tenants/customize-automated-mails/) for configuring email
+    -   [Guide: Email Templates](../../../guides/tenants/customize-automated-mails/) for configuring email
         templates. Also see [Customizing Automated Emails](../../../guides/tenants/customize-automated-mails/)
         for information on how to customize these templates.
-    -   See [Creating New Keystores in the WSO2 Administration
+    -   [Deploy: Create New Keystores in the WSO2 Administration
         Guide](../../../deploy/security/create-new-keystores)
         for configuring keystores.
 
@@ -130,11 +129,13 @@ specific requirements.
 !!! info "Related links"
     Refer to the following topics for instructions to use sub menu items.
 
-    -   See [Using Workflows with User
-        Management](../../../guides/workflows/using-workflows-with-user-management) for information
-        on Workflow Engine Profiles.
     -   See [Creating and Managing Tenants](../../../guides/tenants/add-new-tenants/)
         for information on multitenancy.
+
+    <!---   See [Using Workflows with User
+        Management](../../../guides/workflows/using-workflows-with-user-management) for information
+        on Workflow Engine Profiles.-->
+    
 
 !!! note
     `Server Roles` are used with Carbon Apps. From WSO2 Identity Server 5.9.0, this feature is not available.
