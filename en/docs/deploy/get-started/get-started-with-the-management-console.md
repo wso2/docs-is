@@ -1,23 +1,23 @@
 # Get Started with the Management Console
 
-The WSO2 Identity Server Management Console is a Web-based User
-Interface. It allows users to interact with a running Identity Server
+The WSO2 Identity Server Management Console is a web-based user
+interface. It allows users to interact with a running identity server
 instance, without having to intervene with any underlying
 configuration files. The controls in the Management Console are usually
-self-explanatory. This page provides an overview of the User Interface of the 
+self-explanatory. This page provides an overview of the user interface of the 
 management console. 
 
 !!! Info 
     You can access the management console of the WSO2 Identity
     server at `https://<server-host>:<server-port>/carbon`. When the server
-    is [running](../../../deply/get-started/run-the-product)
-    running in your local setup:
+    is [running](../../../deploy/get-started/run-the-product) in your local setup:
             
     ```
     https://localhost:9443/carbon
     ```
-    The default credentials for a administrative user is as follows. It is a
-    must that you change this administrator credentials in your deployment.
+
+    The default credentials for an administrative user is as follows. It is a
+    must that you change this administrator credentials in the `<IS_HOME>/repository/conf/deployment.toml` file.
     
     ```java
     username = admin
@@ -26,7 +26,7 @@ management console.
 
 The following screen depicts the home screen of the management console.
 
-![server-home-management-console](../../assets/img/deploy/server_home_management_console.png)
+![Management Console Home Screen](../../../assets/img/deploy/server_home_management_console.png)
 
 The main menu items of the console appear in the left hand side of the 
 home screen. Each of these menus carry a list of sub menus. These menus and subsections will 
@@ -58,49 +58,49 @@ divided into different sections.
 
 ### Identity section
 
-![identity-section-mgt-console](../../assets/img/deploy/identity-section-mgt-console.png)
+![identity-section-mgt-console](../../../assets/img/deploy/identity-section-mgt-console.png)
 
 !!! info "Related Links"
     Refer to the following topics for instructions to use sub menu items.
     
-    -   See [Manage User Operations](../../../guides/identity-lifecycles/manage-user-overview/) 
+    -   [Guide: Manage User Operations](../../../guides/identity-lifecycles/manage-user-overview/) 
         for configuring users and roles. 
-    -   See [Manage User Roles](../../../guides/identity-lifecycles/manage-roles-overview/)
-    -   See [Configuring the Realm](../../../deploy/configure-the-realm) for configuring user stores.
-    -   See [Manage User Attributes](../../../guides/identity-lifecycles/manage-user-attributes/) for configuring claims.
+    -   [Guide: Manage User Roles](../../../guides/identity-lifecycles/manage-roles-overview/)
+    -   [Deploy: Configure the Realm](../../../deploy/configure-the-realm) for configuring user stores.
+    -   [Guide: Manage User Attributes](../../../guides/identity-lifecycles/manage-user-attributes/) for configuring claims.
 
 ---
 
 ### Entitlement section
 
-![entitlement-section-mgt-console](../../assets/img/deploy/entitlement-section-mgt-console.png)
+![entitlement-section-mgt-console](../../../assets/img/deploy/entitlement-section-mgt-console.png)
 
-!!! info "Related links"
+<!--!!! info "Related links"
     Refer to the following topics for instructions to use sub menu items.
     
     -   See [Configuring the Policy Administration Point](TO-DO:../../learn/configuring-the-policy-administration-point) 
         for configuring the policy administration point.
     -   See [Configuring the Policy Decision Point](TO-DO:../../learn/configuring-the-policy-decision-point) 
-        for configuring the policy decision point.
+        for configuring the policy decision point.-->
 
 ---
 
 ### Manage section
 
-![manage-section-mgt-console](../../assets/img/deploy/manage-section-mgt-console.png)
+![manage-section-mgt-console](../../../assets/img/deploy/manage-section-mgt-console.png)
 
 !!! info "Related links"  
     Refer to the following topics for instructions to use sub menu items.
 
-    -   See [Workflow Management](../../../guides/workflows/adding-a-workflow-engine/) for information on
-        working with workflows.
-    -   See [Managing Challenge Questions](../../../guides/password-mgt/challenge-question/)
-        for information on configuring challenge questions. Also see [Account Recovery](../../../guides/my-account/my-account) for
+    <!---   See [Workflow Management](../../../guides/workflows/adding-a-workflow-engine/) for information on
+        working with workflows.-->
+    -   [Guide: Manage Challenge Questions](../../../guides/password-mgt/challenge-question/)
+        for information on configuring challenge questions. Also see [Account Recovery](../../../guides/my-account/my-account#account-recovery) for
         information on challenge questions.
-    -   See [Email Templates](TO-DO:../../learn/customizing-automated-emails) for configuring email
-        templates. Also see [Customizing Automated Emails](TO-DO:../../learn/customizing-automated-emails)
+    -   [Guide: Email Templates](../../../guides/tenants/customize-automated-mails/) for configuring email
+        templates. Also see [Customizing Automated Emails](../../../guides/tenants/customize-automated-mails/)
         for information on how to customize these templates.
-    -   See [Creating New Keystores in the WSO2 Administration
+    -   [Deploy: Create New Keystores in the WSO2 Administration
         Guide](../../../deploy/security/create-new-keystores)
         for configuring keystores.
 
@@ -114,7 +114,7 @@ information on these features and their usage, see the topics on
 [monitoring the Identity Server](../../../deploy/monitor/monitor-the-identity-server).
 
 
-![monitor-section-mgt-console](../../assets/img/deploy/monitor-section-mgt-console.png)
+![monitor-section-mgt-console](../../../assets/img/deploy/monitor-section-mgt-console.png)
 
 ---
 
@@ -124,16 +124,18 @@ The configure menu is mainly a list of administration features which can
 help you customize and configure the Identity Server to suit your
 specific requirements.
 
-![configure-section-mgt-console](../../assets/img/deploy/configure-section-mgt-console.png)
+![configure-section-mgt-console](../../../assets/img/deploy/configure-section-mgt-console.png)
 
 !!! info "Related links"
     Refer to the following topics for instructions to use sub menu items.
 
-    -   See [Using Workflows with User
-        Management](../../../guides/workflows/using-workflows-with-user-management) for information
-        on Workflow Engine Profiles.
-    -   See [Creating and Managing Tenants](TO-DO:../../learn/creating-and-managing-tenants)
+    -   See [Creating and Managing Tenants](../../../guides/tenants/add-new-tenants/)
         for information on multitenancy.
+
+    <!---   See [Using Workflows with User
+        Management](../../../guides/workflows/using-workflows-with-user-management) for information
+        on Workflow Engine Profiles.-->
+    
 
 !!! note
     `Server Roles` are used with Carbon Apps. From WSO2 Identity Server 5.9.0, this feature is not available.
@@ -142,8 +144,7 @@ specific requirements.
 
 ## Tools menu
 
-The tools menu includes SAML and XACML tools. For more details on each
-of these tools and their usage, see the topics on [working with tools](TO-DO:../../administer/using-tools).
+The tools menu includes SAML and XACML tools.
 
 
-![tools-section-mgt-console](../../assets/img/deploy/tools-section-mgt-console.png)
+![tools-section-mgt-console](../../../assets/img/deploy/tools-section-mgt-console.png)

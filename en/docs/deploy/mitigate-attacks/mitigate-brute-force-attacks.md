@@ -33,4 +33,4 @@ use the following approaches:
 2.  Present a reCaptcha after a certain number of failed attempts before
     trying again. A reCaptcha can determine if the system is dealing
     with a human or an automation. For instructions on setting this up,
-    see [Setting Up ReCaptcha](TO-DO:../../learn/setting-up-recaptcha).
+    see [Setting Up ReCaptcha](../../../guides/password-mgt/recaptcha-password-recovery/).
