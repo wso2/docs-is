@@ -8,7 +8,7 @@ This is the RESTful API for managing notification sender configurations in WSO2 
 It supports Email and SMS as the notification channels. 
 The following section provides the instructions to contruct requests for each notification sender type.<br>
 
-??? "NOTE"
+!!! warning "Important"
 
     * This API is not supported for notification sender configuration for carbon.super tenant.
 
