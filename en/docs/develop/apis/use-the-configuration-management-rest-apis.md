@@ -25,7 +25,7 @@ max="4194304
 The configuration manager exposed with the configuration management REST
 APIs manages configurations as **Resources**.
 
-![]( ../../assets/img/apis/resource.png)
+![Configuration management architecture diagram]( ../../assets/img/apis/resource.png)
 
 What is a resource?
 
@@ -50,7 +50,7 @@ The section below describes each concept in more detail.
     in a tenant domain, belongs to an already created resource type.
     Deleting a resource type will also delete its resources.
 
-    !!! tip
+    !!! note
     
         Since the resource type is shared among tenants, deleting
         a resource type can affect resources in different tenant domains.
@@ -62,8 +62,8 @@ The section below describes each concept in more detail.
     contains a key and a value.
 
 -   **File -**
-    A file is a file with configurations that required for identity server functionality.
-    examples are, Publisher Files, Email Templates.  
+    A file with configurations that are required for identity server functionality.
+    Eg: Publisher Files, Email Templates.  
 
 ---
     
@@ -87,7 +87,7 @@ This section guides you through a sample scenario using the WSO2 IS
 configuration manager.
 
 **Sample scenario** - Consider a scenario where you need to store the
-SMTP email configurations. With a EmailPublisher file.Assume that the simple SMTP configuration has
+SMTP email configurations. Assume that the simple SMTP configuration has
 only one property.
 
 | Property | Value            | Description                                                          |
@@ -96,8 +96,7 @@ only one property.
 
 To store the SMTP email configuration, follow the steps given below:
 
-1.  Start WSO2 Identity Server and access the [management
-    console](https://localhost:9443/carbon). You can sign in using
+1.  Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) You can sign in using
     `          admin         ` as the username and password.
 2.  Open a terminal window and run the following commands.
 
@@ -117,7 +116,7 @@ To store the SMTP email configuration, follow the steps given below:
         the "email" resource type using the [Create
         resource](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/index.html#!/operations#Resource#resourceResourceTypePost)
         API.  Note that the "from" attribute is defined within this
-        sample request therefore, when the new resource is created a new
+        sample request. Therefore when the new resource is created a new
         attribute named "from" will be created under the "smtp" resource
         as well.
 

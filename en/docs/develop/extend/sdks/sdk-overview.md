@@ -14,7 +14,7 @@ This section lists all the SDKs related to WSO2 Identity Server (WSO2 IS) writte
 
 - [Spring-boot application for secure OIDC authentication](https://github.com/wso2-extensions/identity-samples-spring-boot)
 
-- [Asgardeo Auth Angular to allows Angular Applications to use OIDC or OAuth2 authentication](https://github.com/asgardeo/asgardeo-auth-angular-sdk)
+- [Asgardeo Auth Angular SDK for Angular Applications to use OIDC or OAuth2 authentication](https://github.com/asgardeo/asgardeo-auth-angular-sdk)
 
 - [React Native OIDC SDK to add OIDC or OAuth2 authentication in mobile applications](https://github.com/asgardeo/asgardeo-react-native-oidc-sdk)
 

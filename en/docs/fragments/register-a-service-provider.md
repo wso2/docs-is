@@ -2,7 +2,7 @@
 
 2. Navigate to **Main** > **Identity** > **Service Providers** > **Add**.
 
-    ![add-service-provider](../../../assets/img/fragments/add-service-provider.png)
+    <img src="../../../assets/img/fragments/add-service-provider.png" width="300" alt="Service provider option in Main menu" />
 
 3. Enter a **Service Provider Name**. Optionally, enter a **Description**.
 

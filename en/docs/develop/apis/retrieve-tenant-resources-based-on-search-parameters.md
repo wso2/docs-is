@@ -1,4 +1,4 @@
-# Retrieving Tenant Resources Based on Search Parameters
+# Retrieve Tenant Resources Based on Search Parameters
 
 This section guides you through using the `         /search        `
 endpoint of the [Configuration Management REST
@@ -10,8 +10,7 @@ tenant resources.
 ## /search endpoint
 
 The `         /search        ` endpoint of the Configuration Management
-REST API allows you to perform cross-tenant search for resources
-.
+REST API allows you to perform cross-tenant search for resources.
 
 The search context URL should be as follows:
 
@@ -20,12 +19,12 @@ The search context URL should be as follows:
 Here, the value of `         {search-query}        ` should be in the
 form of a configuration management search query. For information on how
 to write a search condition that is in the form of a configuration
-management search query, see [Writing a configuration management search
-query](#writing-a-configuration-management-search-query).
+management search query, see [Write a configuration management search
+query](#write-a-configuration-management-search-query).
 
 ---
 
-## Writing a configuration management search query
+## Write a configuration management search query
 
 Configuration management search query is a [Open Data
 Protocol](https://www.odata.org/) based search query supported via
@@ -44,7 +43,7 @@ A primitive search condition is a string in the following form:
 
 Following are the parameters of a resource supported in a primitive
 search condition and the corresponding values to replace the
-`         {RESOURCE_SEARCH_PARAMETER}        ` place holder :
+`         {RESOURCE_SEARCH_PARAMETER}        ` placeholder :
 
 <table>
 <colgroup>
@@ -91,7 +90,7 @@ search condition and the corresponding values to replace the
 
 Following are the operators supported in a primitive condition and the
 corresponding values to replace the
-`         {PRIMITIVE_CONDITION_OPERATOR}        ` place holder :
+`         {PRIMITIVE_CONDITION_OPERATOR}        ` placeholder :
 
 <table>
 <colgroup>
@@ -145,15 +144,15 @@ joined as follows to form another complex search condition:
 
 `         {COMPLEX_SEARCH_CONDITION_1} {COMPLEX_CONDITION_OPERATOR} {COMPLEX_SEARCH_CONDITION_2}        `
 
-!!! note      
+!!! tip      
     For better readability, it is recommended to use parentheses to group
     complex search conditions when you join conditions using a
-    `         COMPLEX_CONDITION_OPERATOR        ` .
+    `         COMPLEX_CONDITION_OPERATOR        `.
     
 
 Following are the operators supported to build a complex search
 condition and the corresponding values to replace the
-`         {COMPLEX_CONDITION_OPERATOR}        ` place holder :
+`         {COMPLEX_CONDITION_OPERATOR}        ` placeholder :
 
 <table>
 <colgroup>
@@ -193,7 +192,7 @@ This section demonstrates the different ways of searching for resources
 GET request is sent to the following location with
 the {search-query} placeholder value replaced accordingly and encoded
 for a URL. When you are trying out these scenarios, fill the {host},
-{port} and the {tenant-domain} with the relevant values.
+{port} and the {tenant-domain} placeholders with the relevant values.
 
 <table>
 <tbody>
@@ -354,11 +353,11 @@ Use the following meta-data parameters to search for resources.
 
 | Search Parameter of the Resource | {RESOURCE\_SEARCH\_PARAMETER} |
 |----------------------------------|-------------------------------|
-| Tenant domain                    | tenantDomain                  |
-| ID value of the Resource Type    | resourceTypeId                |
-| Name of the Resource Type        | resourceTypeName              |
-| ID value of the Resource         | resourceId                    |
-| Name of the Resource             | resourceName                  |
+| Tenant domain                    | `tenantDomain`                |
+| ID value of the resource type    | `resourceTypeId`              |
+| Name of the resource type        | `resourceTypeName`            |
+| ID value of the resource         | `resourceId`                  |
+| Name of the resource             | `resourceName`                |
 
 **Search for resources in a specific tenant domain**
 
@@ -510,7 +509,7 @@ domain using the resource name.
 <td>
 	<div class="content-wrapper">
 		<details class="example">
-    	<summary>Click to see the sample response...</summary>
+    	<summary>Click to see the sample response.</summary>
 		<p>
 			```
 			{
@@ -581,7 +580,7 @@ combination of its attribute parameters.
     The configuration management search query does not support a
     resource search parameter that has multiple primitive search conditions
     joined by the complex operator ‘and’. For more information, see the
-    section below
+    section below.
     
 
 **Search for resources using an attribute key, value pair**
@@ -612,7 +611,7 @@ value is equal to "abc.com".
 	<div class="content-wrapper">
 		<p>
 			<details class="example">
-    		<summary>Click to see the sample response...</summary>
+    		<summary>Click to see the sample response.</summary>
     		<p>
 			```
 			{
@@ -673,55 +672,55 @@ value is equal to "abc.com".
     For example, to retrieve resource\_1 using the resource ID, use the
     following search query: 
 
-??? example "Click to see the search query"
-    <table>
-    <thead>
-    <tr class="header">
-    <th>{search-query}</th>
-    <th>Response JSON</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>resourceId eq 'c9b8913f-3ae4-43f5-9552-a8676fd19646'</td>
-    <td><div class="content-wrapper">
-    	<details class="example">
-    	<summary>Click to see the sample response...</summary>
-    	<p>
-    		```
-			    		{
-			    "resources": [
-			        {
-			            "resourceId": "c9b8913f-3ae4-43f5-9552-a8676fd19646",
-			            "tenantDomain": "carbon.super",
-			            "resourceName": "resource_1",
-			            "resourceType": "e-mail",
-			            "lastModified": "2019-01-14 03:16:48",
-			            "files": [],
-			            "attributes": [
-			                {
-			                    "key": "from",
-			                    "value": "abc.com",
-			                    "attributeId": "28092ab2-594f-421f-8c7e-9e8d4fbe1a5c"
-			                },
-			                {
-			                    "key": "to",
-			                    "value": "123.com",
-			                    "attributeId": "3633269a-cab9-4e14-a264-dddb1a6001ed"
-			                }
-			            ],
-			            "hasFile": false,
-			            "hasAttribute": false
-			        }
-			    ]
-			}
-    		```
-    	</p>
-    	</details>
-    	</div></td>
-    </tr>
-    </tbody>
-    </table>
+    ??? example "Click to see the search query"
+        <table>
+        <thead>
+        <tr class="header">
+        <th>{search-query}</th>
+        <th>Response JSON</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td>resourceId eq 'c9b8913f-3ae4-43f5-9552-a8676fd19646'</td>
+        <td><div class="content-wrapper">
+            <details class="example">
+            <summary>Click to see the sample response.</summary>
+            <p>
+                ```
+                            {
+                    "resources": [
+                        {
+                            "resourceId": "c9b8913f-3ae4-43f5-9552-a8676fd19646",
+                            "tenantDomain": "carbon.super",
+                            "resourceName": "resource_1",
+                            "resourceType": "e-mail",
+                            "lastModified": "2019-01-14 03:16:48",
+                            "files": [],
+                            "attributes": [
+                                {
+                                    "key": "from",
+                                    "value": "abc.com",
+                                    "attributeId": "28092ab2-594f-421f-8c7e-9e8d4fbe1a5c"
+                                },
+                                {
+                                    "key": "to",
+                                    "value": "123.com",
+                                    "attributeId": "3633269a-cab9-4e14-a264-dddb1a6001ed"
+                                }
+                            ],
+                            "hasFile": false,
+                            "hasAttribute": false
+                        }
+                    ]
+                }
+                ```
+            </p>
+            </details>
+            </div></td>
+        </tr>
+        </tbody>
+        </table>
     
    
 
@@ -856,7 +855,7 @@ satisfies the following conditions:
     <p>'from''</p></td>
     <td><div class="content-wrapper">
     	<details class="example">
-    		<summary>Click to see the sample response...</summary>
+    		<summary>Click to see the sample response.</summary>
     		<p>
     		```
     		{
@@ -946,7 +945,7 @@ satisfies the following conditions:
     </p></td>
     <td><div class="content-wrapper">
     	<details class="example">
-    		<summary>Click to see the sample response...</summary>
+    		<summary>Click to see the sample response.</summary>
     		<p>
     			```
 				    			{

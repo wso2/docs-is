@@ -356,8 +356,9 @@ nav:
               - 'Application Management': develop/apis/application-rest-api.md
               #- 'Approvals': develop/apis/approvals-rest-api.md
               - 'Associations': develop/apis/association-rest-api.md
-              - 'Authentication Data': develop/apis/authentication-data-api.md
-              - 'Authentication': develop/apis/use-the-authentication-rest-apis.md
+              - 'Authentication Data':
+                - 'Authentication Data': develop/apis/authentication-data-api.md
+                - 'Authentication REST API': develop/apis/use-the-authentication-rest-apis.md
               - 'Authorized Apps':
                   - 'Authorized Apps V1': develop/apis/authorized-apps-rest-api.md
                   - 'Authorized Apps V2': develop/apis/authorized-apps-v2-rest-api.md
@@ -365,7 +366,7 @@ nav:
               - 'Claim Management' : develop/apis/claim-management-rest-api.md
               - 'Configuration Management':
                   - 'Configuration Management': develop/apis/use-the-configuration-management-rest-apis.md
-                  - 'Retrieving Tenant Resources Based on Search Parameters': develop/apis/retrieve-tenant-resources-based-on-search-parameters.md
+                  - 'Retrieve Tenant Resources Based on Search Parameters': develop/apis/retrieve-tenant-resources-based-on-search-parameters.md
               - 'Consent Management': develop/apis/use-the-consent-management-rest-apis.md
               - 'CORS': develop/apis/cors-rest-api.md
               - 'Email Templates': develop/apis/email-templates-rest-api.md
