@@ -24,7 +24,7 @@ endpoint
     3.  Define an authorization header with the term 
         `Basic` , followed by the encoded
         string. For example, the basic auth authorization header using
-        "admin" as both username and password (`admin:admin`) is as
+        `admin` as both username and password (`admin:admin`) is as
         follows.
 
         ``` java
