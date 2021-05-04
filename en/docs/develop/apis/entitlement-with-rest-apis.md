@@ -25,7 +25,7 @@ endpoint
         `Basic` , followed by the encoded
         string. For example, the basic auth authorization header using
         "admin" as both username and password (`admin:admin`) is as
-        follows:
+        follows.
 
         ``` java
         Authorization: Basic YWRtaW46YWRtaW4=
