@@ -10,8 +10,6 @@ endpoint
     on the default port (without offset), the entitlement endpoint is as
     follows:
 
-    **Endpoint**
-
     ``` java
     https://localhost:9443/api/identity/entitlement/decision/
     ```
@@ -20,19 +18,19 @@ endpoint
     The REST APIs are secured with basic authentication. Follow
     the steps below to add a basic auth header when calling these methods.
     
-        1.  Build a string of the form username:password.
-        2.  [Encode the string](https://www.base64encode.org/) you created
-            above using Base64.
-        3.  Define an authorization header with the term "
-            `             Basic            ` ", followed by the encoded
-            string. For example, the basic auth authorization header using
-            "admin" as both username and password ( **admin:admin** ) is as
-            follows:
+    1.  Build a string of the form username:password.
+    2.  [Encode the string](https://www.base64encode.org/) you created
+        above using Base64.
+    3.  Define an authorization header with the term 
+        `Basic`, followed by the encoded
+        string. For example, the basic auth authorization header using
+        `admin` as both username and password (`admin:admin`) is as
+        follows.
 
-            ``` java
-            Authorization: Basic YWRtaW46YWRtaW4=
-            ```
-    
+        ``` java
+        Authorization: Basic YWRtaW46YWRtaW4=
+        ```    
+
 ---
 
 ####  Get API resource list
@@ -177,10 +175,10 @@ A sample request and response is as follows:
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>GET Request: Curl</strong>
+<strong>GET Request: cURL</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -X GET   https:<span class="co">//localhost:9443/api/identity/entitlement/decision/home   -H &#39;accept: application/json&#39;   -H &#39;authorization: Basic YWRtaW46YWRtaW4=&#39;   -H &#39;cache-control: no-cache&#39;   -H &#39;content-type: application/json&#39;   -H &#39;postman-token: e83be84b-61fa-f608-4e22-c22b0812cc8c&#39;  -k</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -X GET   https:<span class="co">//localhost:9443/api/identity/entitlement/decision/home   -H &#39;accept: application/json&#39;   -H &#39;authorization: Basic YWRtaW46YWRtaW4=&#39;   -H &#39;content-type: application/json&#39;  -k</span></a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -613,7 +611,7 @@ A sample request and response are as follows,
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request: Curl</strong>
+<strong>Request: cURL</strong>
 </div>
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl --request POST \</a>
@@ -819,7 +817,7 @@ A sample request and response are as follows,
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request: Curl</strong>
+<strong>Request: cURL</strong>
 </div>
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl --request POST \</a>
@@ -1034,7 +1032,7 @@ A sample request and response are as follows,
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request: Curl</strong>
+<strong>Request: cURL</strong>
 </div>
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl --request POST \</a>
