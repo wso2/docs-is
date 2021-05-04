@@ -50,15 +50,20 @@ Add the following configuration to the `<IS_HOME>/repository/conf/deployment.tom
     street_address = "1600"
     ```
             
-    | Property             | Type    | Required/Optional | Description                                                                                                                            |
-    |----------------------|---------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-    | <PIIController\>    | string  | Required          | Name of the first PII controller who collects the data.                                                                                |
-    | <Contact\>          | string  | Required          | Contact name of the PII controller.                                                                                                    |
-    | <Email\>            | string  | Required          | Contact email address of the PII Controller. The direct email to contact the PII Controller regarding the consent or privacy contract. |
-    | <Phone\>            | string  | Required          | Contact phone number of the PII Controller. The business phone number to contact the PII Controller regarding the consent.             |
-    | <OnBehalf\>         | boolean | Optional          | A PII Processor acting on behalf of a PII Controller or PII Processor.                                                                 |
-    | <PiiControllerUrl\> | string  | Optional          | A URL for contacting the PII Controller.                                                                                               |
-    | <Address\>          | object  | Required          | The physical address of the PII controller.                                                                                            |
+    | Property         | Type    | Required/Optional | Description                                                                                                                            |
+    |------------------|---------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+    | `name`           | string  | Required          | Name of the first PII controller who collects the data.                                                                                |
+    | `contact`        | string  | Required          | Contact name of the PII controller.                                                                                                    |
+    | `email`          | string  | Required          | Contact email address of the PII Controller. The direct email to contact the PII Controller regarding the consent or privacy contract. |
+    | `phone`          | string  | Required          | Contact phone number of the PII Controller. The business phone number to contact the PII Controller regarding the consent.             |
+    | `on_behalf`      | boolean | Optional          | A PII Processor acting on behalf of a PII Controller or PII Processor.                                                                 |
+    | `url`            | string  | Optional          | A URL for contacting the PII Controller.                                                                                               |
+    | `country`        | string  | Required          | Country of the PII controller.                                                                                                         |
+    | `locality`       | string  | Required          | Locality of the PII controller.                                                                                                        |
+    | `region`         | string  | Required          | Region of the PII controller.                                                                                                          |
+    | `po_box`         | string  | Required          | Post office box number of the PII controller.                                                                                          |
+    | `postal_code`    | string  | Required          | Postal code of the PII controller.                                                                                                     |    
+    | `street_address` | string  | Required          | Street address of the PII controller.                                                                                                  |
 
 -   **PII Processor**: A private stakeholder that processes personally identifiable
     information (PII) on behalf of and in accordance with the
