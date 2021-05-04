@@ -15,112 +15,86 @@ and properties of connectors as mentioned below. <br>
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
-    | Enable Password History Feature   | passwordHistory.enable   | Enable to disallow previously used passwords |
-    | Password History validation count   | passwordHistory.count   | Restrict reusing last x number of passwords 
-    when updating the password |
+    | Validate password history   | passwordHistory.enable   | User will not be allowed to use previously used passwords. |
+    | Password history validation count   | passwordHistory.count   | Restrict using this number of last used passwords during password update. |
     
     **Password Patterns**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
-    | Enable Password Policy Feature   | passwordPolicy.enable   | Enable password pattern policy |
-    | Password Policy Min Length   | passwordPolicy.min.length   | Minumum length of the password |
-    | Password Policy Max Length   | passwordPolicy.max.length   | Maximum length of the password |
-    | Password Policy Pattern   | passwordPolicy.pattern   | Allowed password regex pattern |
-    | Password Policy Error Message   | passwordPolicy.errorMsg   | Error message for invalid password patterns |
+    | Validate passwords based on a policy pattern   | passwordPolicy.enable   | Validate user passwords against a policy. |
+    | Minimum number of characters  | passwordPolicy.min.length   | Minimum number of characters in the password. |
+    | Maximum number of characters  | passwordPolicy.max.length   | Maximum number of characters in the password. |
+    | Password pattern regex   | passwordPolicy.pattern   | The regular expression pattern to validate the password. |
+    | Error message on pattern violation   | passwordPolicy.errorMsg   | This error message will be displayed when a pattern violation is detected. |
 
-??? "Login Policies"
+??? "User Onboarding"
 
-    **Account Locking**
+    **Self Registration**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
-    | Account Lock Enabled   | account.lock.handler.enable   | Enable account locking for failed logins |
-    | Maximum Failed Login Attempts   | account.lock.handler.On.Failure.Max.Attempts   | Number of failed attempts allowed before locking the account |
-    | Account Unlock Time   | account.lock.handler.Time   | Account locked time span in minutes |
-    | Lock Timeout Increment Factor   | account.lock.handler.login.fail.timeout.ratio   |  |
-    | Internal Notification Management   | account.lock.handler.notification.manageInternally   | Error message for invalid password patterns |
-    
-    **Account Disabling**
-    
-    | Property display name | Property name | Purpose |
-    | ------- | -------|---|
-    | Enable Account Disabling   | account.disable.handler.enable   | Enable account disable Feature |
-    | Internal Notification Management   | account.disable.handler.notification.manageInternally   | Set false if the client application handles notification sending |
-    
-    **Captcha for SSO Login**
-    
-    | Property display name | Property name | Purpose |
-    | ------- | -------|---|
-    | Enable captcha always   | sso.login.recaptcha.enable.always   | Always enable captcha verification during SSO login |
-    | Enable captcha after the Max failed attempts   | sso.login.recaptcha.enable   | Enable captcha verification during SSO login after allowing a certain number of failed attempts |
-    | Max failed attempts   | sso.login.recaptcha.on.max.failed.attempts   | Number of failed attempts allowed without showing the captcha |
-
-??? "Account Management Policies"
-
-    **Lock Idle Accounts**
-    
-    | Property display name | Property name | Purpose |
-    | ------- | -------|---|
-    | Enable   | suspension.notification.enable   |  |
-    | Lock Account After (days)   | suspension.notification.account.disable.delay   |  |
-    | Alert Users before account locking in days (comma-separated list)   | suspension.notification.delays   |  |
-    
-    **Account Recovery**
-    
-    | Property display name | Property name | Purpose |
-    | ------- | -------|---|
-    | Enable Notification Based Password Recovery   | Recovery.Notification.Password.Enable   |  |
-    | Enable reCaptcha for Password Recovery   | Recovery.ReCaptcha.Password.Enable   |  |
-    | Enable Security Question Based Password Recovery   | Recovery.Question.Password.Enable   |  |
-    | Number Of Questions Required For Password Recovery   | Recovery.Question.Password.MinAnswers   |  |
-    | Enable reCaptcha for Security Questions Based Password Recovery   | Recovery.Question.Password.ReCaptcha.Enable   | Show captcha for challenge question based password recovery |
-    | Max Failed Attempts for ReCaptcha   | Recovery.Question.Password.ReCaptcha.MaxFailedAttempts   |  |
-    | Enable Username Recovery   | Recovery.Notification.Username.Enable   |  |
-    | Enable reCaptcha for Username Recovery   |  Recovery.ReCaptcha.Username.Enable  |  |
-    | Enable Internal Notification Management   | Recovery.Notification.InternallyManage  | Set to false if the client application handles notification sending |
-    | Notify when Recovery Success   | Recovery.NotifySuccess   |  |
-    | Notify when Questions Based Recovery Starts   | Recovery.Question.Password.NotifyStart   |  |
-    | Recovery Link Expiry Time   | Recovery.ExpiryTime   |  |
-    | Enable forced challenge questions   | Recovery.Question.Password.Forced.Enable   | Force users to provide answers to challenge questions during sign in |
-    | Recovery callback URL regex   | Recovery.CallbackRegex   |  |
-    
-    **User Self Registration**
-    
-    | Property display name | Property name | Purpose |
-    | ------- | -------|---|
-    | Enable Self User Registration  | SelfRegistration.Enable  | Enable self user registration |
-    | Enable Account Lock On Creation | SelfRegistration.LockOnCreation  | Lock user account during user registration |
-    | Internal Notification Management  | SelfRegistration.Notification.InternallyManage  | Set to false if the client application handles notification sending |
-    | Enable reCaptcha  | SelfRegistration.ReCaptcha  | Enable captcha verification during self registration |
-    | User self registration verification link expiry time  | SelfRegistration.VerificationCode.ExpiryTime  | Set the number of minutes for which the user self registration verification mail is valid |
-    | User self registration SMS OTP expiry time  | SelfRegistration.VerificationCode.SMSOTP.ExpiryTime  | Set the number of minutes that the SMS OTP would be valid |
-    | User self registration callback URL regex  | SelfRegistration.CallbackRegex  | User self registration callback URL regex |
+    | User self registration  | SelfRegistration.Enable  | Allow user's to self register to the system. |
+    | Lock user account on creation | SelfRegistration.LockOnCreation  | Lock self registered user account until e-mail verification. |
+    | Manage notifications sending internally | SelfRegistration.Notification.InternallyManage  | Disable if the client application handles notification sending |
+    | Prompt reCaptcha  | SelfRegistration.ReCaptcha  | Enable reCaptcha verification during self registration. |
+    | User self registration verification link expiry time  | SelfRegistration.VerificationCode.ExpiryTime  | Specify the expiry time in minutes for the verification link. |
+    | User self registration SMS OTP expiry time  | SelfRegistration.VerificationCode.SMSOTP.ExpiryTime  | Specify the expiry time in minutes for the SMS OTP. |
+    | User self registration callback URL regex  | SelfRegistration.CallbackRegex  | This prefix will be used to validate the callback URL. |
     | Manage Self-Sign-Up purposes  | _url_listPurposeSelfSignUp  | Click here to manage Self-Sign-Up purposes |
-    
-    **User Onboarding**
+    | Send sign up confirmation email  | SelfRegistration.NotifyAccountConfirmation  | Enable sending notification for self sign up confirmation. |
+    | Prompt reCaptcha on re-send confirmation  | SelfRegistration.ResendConfirmationReCaptcha  | Prompt reCaptcha verification for resend confirmation |
+    | Enable Auto Login After Account Confirmation  | SelfRegistration.AutoLogin.Enable  | User will be logged in automatically after completing the Account Confirmation |
+    | Alias of the key used to sign to cookie  | SelfRegistration.AutoLogin.AliasName  | Alias of the key used to sign to cookie. The public key has to be imported to the keystore. |       
+ 
+    **Lite User Registration**
+     
+    | Property display name | Property name | Purpose |
+    | ------- | -------|---|
+    | Lite user registration  | LiteRegistration.Enable  | Allow user's to self register to the system without a password. |
+    | Lock user account on creation | LiteRegistration.LockOnCreation  | Lock self registered user account until e-mail verification. |
+    | Manage notifications sending internally | LiteRegistration.Notification.InternallyManage  | Disable if the client application handles notification sending |
+    | Prompt reCaptcha  | LiteRegistration.ReCaptcha  | Enable reCaptcha verification during self registration. |
+    | Lite user registration verification link expiry time  | LiteRegistration.VerificationCode.ExpiryTime  | Specify the expiry time in minutes for the verification link. |
+    | Lite user registration SMS OTP expiry time | LiteRegistration.VerificationCode.SMSOTP.ExpiryTime  | Specify the expiry time in minutes for the SMS OTP. |
+    | Lite user registration callback URL regex  | LiteRegistration.CallbackRegex  | This prefix will be used to validate the callback URL. |
+    | Manage Lite-Sign-Up purposes  | _url_listPurposeSelfSignUp  | Click here to manage Lite-Sign-Up purposes |
+  
+    **Ask Password**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
-    | Enable User Email Verification  | EmailVerification.Enable  | Enable to trigger a verification notification during user creation |
-    | Enable Account Lock On Creation  | EmailVerification.LockOnCreation  | Lock user account during user creation |
-    | Internal Notification Management  | EmailVerification.Notification.InternallyManage  | Set to false if the client application handles notification sending |
-    | Email verification code expiry time  | EmailVerification.ExpiryTime  | Set the number of minutes for which the email verification mail is valid. Setting it to a negative value results in infinite validity) |
-    | Ask password code expiry time  | EmailVerification.AskPassword.ExpiryTime  | Set the number of minutes the ask password mail would be valid. (Negative value for infinite validity) |
-    | Temporary password generation extension class  | EmailVerification.AskPassword.PasswordGenerator  | Temporary password generation extension point in ask password feature) |
-    | Manage Just In Time Provisioning purposes  | _url_listPurposeJITProvisioning  | Click here to manage JIT purposes |
-    
-    **Account Management Policies**
+    | Enable user email verification  | EmailVerification.Enable  | A verification notification will be triggered during user creation. |
+    | Enable account lock on creation  | EmailVerification.LockOnCreation  | The user account will be locked during user creation. |
+    | Manage notifications sending internally  | EmailVerification.Notification.InternallyManage  | Disable if the client application handles notification sending. |
+    | Email verification code expiry time  | EmailVerification.ExpiryTime  | Set the time span that the verification e-mail would be valid, in minutes. (For infinite validity period, set -1) |
+    | Ask password code expiry time  | EmailVerification.AskPassword.ExpiryTime  | Set the time span that the ask password e-mail would be valid, in minutes. (For infinite validity period, set -1) |
+    | Temporary password generation extension class  | EmailVerification.AskPassword.PasswordGenerator  | Temporary password generation extension point in ask password feature |
+    | Manage JIT provisioning purposes  | _url_listPurposeJITProvisioning  | Click here to manage just in time provisioning purposes. |
+
+??? "Login Attempts Security"
+
+    **Account Lock**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
-    | Enable Password Reset via Recovery Email |  Recovery.AdminPasswordReset.RecoveryLink | User gets notified with a link to reset password |
-    | Enable Password Reset via OTP  | Recovery.AdminPasswordReset.OTP  | User gets notified with a one time password to try out SSO login |
-    | Enable Password Reset Offline  | Recovery.AdminPasswordReset.Offline  | An OTP generated and stored in users claims |
+    | Lock user accounts   | account.lock.handler.enable   | Lock user accounts on failed login attempts |
+    | Maximum failed login attempts   | account.lock.handler.On.Failure.Max.Attempts   | Number of failed login attempts allowed until account lock. |
+    | Initial account lock duration   | account.lock.handler.Time   | Initial account lock time period in minutes. Account will be automatically unlocked after this time period. |
+    | Account lock duration increment factor   | account.lock.handler.login.fail.timeout.ratio   | Account lock duration will be increased by this factor. Ex: Initial duration: 5m; Increment factor: 2; Next lock duration: 5 x 2 = 10m |
+    | Manage notification sending internally   | account.lock.handler.notification.manageInternally   | Disable if the client application handles notification sending |
+    
+    **reCaptcha for SSO Login**
+    
+    | Property display name | Property name | Purpose |
+    | ------- | -------|---|
+    | Always prompt reCaptcha   | sso.login.recaptcha.enable.always   | Always prompt reCaptcha verification during SSO login flow. |
+    | Prompt reCaptcha after max failed attempts   | sso.login.recaptcha.enable   | Prompt reCaptcha verification during SSO login flow only after the max failed attempts exceeded. |
+    | Max failed attempts for reCaptcha   | sso.login.recaptcha.on.max.failed.attempts   | Number of failed attempts allowed without prompting reCaptcha verification. |
 
-??? "Consent Management"
+??? "Other Settings"
 
-    **Consent Management**
+    **Consent Information Controller**
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
@@ -135,9 +109,7 @@ and properties of connectors as mentioned below. <br>
     | Region | addressRegion | Region of the Controller |
     | Post Office Box Number | postOfficeBoxNumber | Post Office Box Number of the Controller |
     | Postal Code | postalCode | Postal Code of the Controller |
-    | Street Address | streetAddress | Street Address of the Controller |
-
-??? "Analytics Engine"
+    | Street Address | streetAddress | Street Address of the Controller | 
 
     **Analytics Engine Configuration**
     
@@ -151,6 +123,65 @@ and properties of connectors as mentioned below. <br>
     | HTTP Read Timeout | adaptive_authentication.analytics.HTTPReadTimeout | HTTP Read Timeout in milliseconds |
     | HTTP Connection Request Timeout | adaptive_authentication.analytics.HTTPConnectionRequestTimeout | HTTP Connection Request Timeout in milliseconds |
     | Hostname verification | adaptive_authentication.analytics.hostnameVerfier | Hostname verification. (STRICT, ALLOW_ALL) |
+
+    **User Claim Update**
+    
+    | Property display name | Property name | Purpose |
+    | ------- | -------|---|
+    | Enable user email verification on update | UserClaimUpdate.Email.EnableVerification | Trigger a verification notification when user's email address is updated. |
+    | Email verification on update link expiry time | UserClaimUpdate.Email.VerificationCode.ExpiryTime | Validity time of the email confirmation link in minutes. |
+    | Enable user mobile number verification on update | UserClaimUpdate.MobileNumber.EnableVerification | Trigger a verification SMS OTP when user's mobile number is updated. |
+    | Mobile number verification on update SMS OTP expiry time | UserClaimUpdate.MobileNumber.VerificationCode.ExpiryTime | Validity time of the mobile number confirmation OTP in minutes. |
+
+??? "Account Management"
+
+    **Idle Account Suspend**
+    
+    | Property display name | Property name | Purpose |
+    | ------- | -------|---|
+    | Suspend idle user accounts   | suspension.notification.enable   | Lock user account after a given idle period. |
+    | Allowed idle time span in days   | suspension.notification.account.disable.delay   | Time period in days before locking the user account. |
+    | Alert sending time periods in days   | suspension.notification.delays   | Send warning alerts to users before locking the account, after each period. Comma separated multiple values accepted. |
+
+    **Account Disable**
+    
+    | Property display name | Property name | Purpose |
+    | ------- | -------|---|
+    | Enable account disabling   | account.disable.handler.enable   | Allow an administrative user to disable user accounts |
+    | Manage notification sending internally   | account.disable.handler.notification.manageInternally   | Disable, if the client application handles notification sending |
+    
+    **Account Recovery**
+    
+    | Property display name | Property name | Purpose |
+    | ------- | -------|---|
+    | Notification based password recovery   | Recovery.Notification.Password.Enable   |  |
+    | Enable reCaptcha for password recovery   | Recovery.ReCaptcha.Password.Enable   |  |
+    | Security question based password recovery   | Recovery.Question.Password.Enable   |  |
+    | Number of questions required for password recovery   | Recovery.Question.Password.MinAnswers   |  |
+    | Security question answer regex   | Recovery.Question.Password.ReCaptcha.Enable   | Security question answer regex |
+    | Enforce security question answer uniqueness   | Recovery.Question.Answer.Uniqueness   | Enforce security question answer uniqueness |
+    | Enable reCaptcha for security questions based password recovery   | Recovery.Question.Password.ReCaptcha.Enable   | Prompt reCaptcha for security question based password recovery |
+    | Max failed attempts for reCaptcha   | Recovery.Question.Password.ReCaptcha.MaxFailedAttempts   |  |
+    | Username recovery   | Recovery.Notification.Username.Enable   |  |
+    | Enable reCaptcha for username recovery   |  Recovery.ReCaptcha.Username.Enable  |  |
+    | Manage notifications sending internally   | Recovery.Notification.InternallyManage  | Disable if the client application handles notification sending |
+    | Notify when recovery success   | Recovery.NotifySuccess   |  |
+    | Notify when security questions based recovery starts   | Recovery.Question.Password.NotifyStart   |  |
+    | Recovery link expiry time  | Recovery.ExpiryTime   |  |
+    | SMS OTP expiry time  | Recovery.Notification.Password.ExpiryTime.smsOtp   | Expiration time of the SMS OTP code for password recovery |
+    | SMS OTP regex  | Recovery.Notification.Password.smsOtp.Regex  | Regex for SMS OTP in format [allowed characters]{length}. Supported character ranges are a-z, A-Z, 0-9. |
+    | Enable forced security questions   | Recovery.Question.Password.Forced.Enable   | Force users to provide answers to security questions during sign in |
+    | Minimum number of forced security questions to be answered   | Recovery.Question.MinQuestionsToAnswer   | Force users to provide answers to security questions during sign in if user has answered lesser than this value |    
+    | Recovery callback URL regex   | Recovery.CallbackRegex   | Recovery callback URL regex |
+    | Enable Auto Login After Password Reset   | Recovery.AutoLogin.Enable   | User will be logged in automatically after completing the Password Reset wizard |    
+    
+    **Password Reset**
+    
+    | Property display name | Property name | Purpose |
+    | ------- | -------|---|
+    | Enable password reset via recovery e-mail |  Recovery.AdminPasswordReset.RecoveryLink | User gets notified with a link to reset password |
+    | Enable password reset via OTP  | Recovery.AdminPasswordReset.OTP  | User gets notified with a one time password to try with SSO login |
+    | Enable password reset offline  | Recovery.AdminPasswordReset.Offline  | An OTP generated and stored in users claims |
 
 The APIs can be used to retrieve the above mentioned categories, connectors of the categories, properties of the categories, and update the property values.
 
