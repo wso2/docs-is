@@ -22,7 +22,7 @@ endpoint
     2.  [Encode the string](https://www.base64encode.org/) you created
         above using Base64.
     3.  Define an authorization header with the term 
-        `Basic` , followed by the encoded
+        `Basic`, followed by the encoded
         string. For example, the basic auth authorization header using
         `admin` as both username and password (`admin:admin`) is as
         follows.
