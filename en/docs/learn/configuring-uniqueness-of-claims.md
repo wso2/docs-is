@@ -23,7 +23,7 @@ Follow the steps below to configure WSO2 Identity Server.
 4. Open the claim edit window by clicking the `Edit` button.
    ![claim-edite-window](../assets/img/learn/multi-attribute-login/claim-edite-window.png)
    
-5. By clicking `Add Claim Property ', add an additional claim property as follows.
+5. By clicking `Add Claim Property`, add an additional claim property as follows.
         <table>
         <thead>
             <tr class="header">
