@@ -41,7 +41,7 @@ and properties of connectors as mentioned below. <br>
     | User self registration verification link expiry time  | SelfRegistration.VerificationCode.ExpiryTime  | Specify the expiry time in minutes for the verification link. |
     | User self registration SMS OTP expiry time  | SelfRegistration.VerificationCode.SMSOTP.ExpiryTime  | Specify the expiry time in minutes for the SMS OTP. |
     | User self registration callback URL regex  | SelfRegistration.CallbackRegex  | This prefix will be used to validate the callback URL. |
-    | Manage Self-Sign-Up purposes  | _url_listPurposeSelfSignUp  | Click here to manage Self-Sign-Up purposes |
+    | Manage Self-Sign-Up purposes  | _url_listPurposeSelfSignUp  | Manage Self-Sign-Up purposes |
     | Send sign up confirmation email  | SelfRegistration.NotifyAccountConfirmation  | Enable sending notification for self sign up confirmation. |
     | Prompt reCaptcha on re-send confirmation  | SelfRegistration.ResendConfirmationReCaptcha  | Prompt reCaptcha verification for resend confirmation |
     | Enable Auto Login After Account Confirmation  | SelfRegistration.AutoLogin.Enable  | User will be logged in automatically after completing the Account Confirmation |
