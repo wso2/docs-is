@@ -374,7 +374,7 @@ nav:
               - 'Fido': develop/apis/fido-rest-api.md
               - 'Identity Governance': develop/apis/identity-governance-rest-api.md
               - 'Identity Providers': develop/apis/idp-rest-api.md
-              - 'IdP Session Extending': develop/apis/idp-session-extender-endpoint.md
+              - 'Identity Provider Session Extend': develop/apis/idp-session-extender-endpoint.md
               - 'Keystore Management': develop/apis/keystore-rest-api.md
               - 'Notification Senders': develop/apis/notification-sender-rest-api.md
               - 'OAuth2 Scope Management': develop/apis/oauth2-scope-management-rest-apis.md
@@ -385,14 +385,14 @@ nav:
               - 'SCIM 2.0': develop/apis/scim2-rest-apis.md
               - 'Server Configurations': develop/apis/configs-rest-api.md
               - 'Script Libraries': develop/apis/script-library-rest-api.md
-              - 'Secondary User Store': develop/apis/userstore-rest-api.md
               - 'Self Sign-Up': develop/apis/use-the-self-sign-up-rest-apis.md
               - 'Session Management': develop/apis/session-mgt-rest-api.md
               - 'Tenant Management': develop/apis/tenant-management-rest-api.md
               - 'TOTP': develop/apis/totp-rest-api.md
               - 'User Discoverable Application Management': develop/apis/user-discoverable-applications.md
-              - 'User Functionality Management REST APIs': develop/apis/user-functionality-mgt-rest-api.md
-              - 'Workflow Engine Management REST APIs': develop/apis/workflow-engine-rest-api.md
+              - 'User Functionality Management': develop/apis/user-functionality-mgt-rest-api.md
+              - 'Userstore Management': develop/apis/userstore-rest-api.md
+              - 'Workflow Engine Management': develop/apis/workflow-engine-rest-api.md
           - 'SOAP APIs':
               - 'SOAP APIs': develop/apis/soap-apis.md
               - 'User Management':

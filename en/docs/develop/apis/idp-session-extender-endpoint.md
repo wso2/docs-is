@@ -1,4 +1,4 @@
-# Identity Provider Session Extending API
+# Identity Provider Session Extend API
 
 !!! info
     To access this API, use the following endpoint URL.
@@ -19,8 +19,7 @@ This API can be used to extend the user's session at the identity provider. To i
 
 ## Extract the session identifier value
 
-If the above config has been enabled, the session identifier can be extracted from the ID token. 
-To do this, decode the ID token and read the value of the claim `isk`, which is the identifier of the session.
+To extract the session identifier from the ID token, decode the ID token and read the value of the claim `isk`.
 
 ---
 
