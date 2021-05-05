@@ -141,7 +141,7 @@ and properties of connectors as mentioned below. <br>
     | ------- | -------|---|
     | Suspend idle user accounts   | suspension.notification.enable   | Lock user account after a given idle period. |
     | Allowed idle time span in days   | suspension.notification.account.disable.delay   | Time period in days before locking the user account. |
-    | Alert sending time periods in days   | suspension.notification.delays   | Send warning alerts to users before locking the account, after each period. Comma separated multiple values accepted. |
+    | Alert sending time periods in days   | suspension.notification.delays   | Send warning alerts to users before locking the account after each period. Comma-separated multiple values accepted. |
 
     **Account Disable**
     
