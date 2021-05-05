@@ -170,7 +170,7 @@ and properties of connectors as mentioned below. <br>
     | Recovery link expiry time  | Recovery.ExpiryTime   |  |
     | SMS OTP expiry time  | Recovery.Notification.Password.ExpiryTime.smsOtp   | Expiration time of the SMS OTP code for password recovery |
     | SMS OTP regex  | Recovery.Notification.Password.smsOtp.Regex  | Regex for SMS OTP in format [allowed characters]{length}. Supported character ranges are a-z, A-Z, 0-9. |
-    | Enable forced security questions   | Recovery.Question.Password.Forced.Enable   | Force users to provide answers to security questions during sign in |
+    | Enable forced security questions   | Recovery.Question.Password.Forced.Enable   | Force users to provide answers to security questions during sign-in |
     | Minimum number of forced security questions to be answered   | Recovery.Question.MinQuestionsToAnswer   | Force users to provide answers to security questions during sign in if user has answered lesser than this value |    
     | Recovery callback URL regex   | Recovery.CallbackRegex   | Recovery callback URL regex |
     | Enable Auto Login After Password Reset   | Recovery.AutoLogin.Enable   | User will be logged in automatically after completing the Password Reset wizard |    
