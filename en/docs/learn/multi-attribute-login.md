@@ -1,7 +1,7 @@
 # Multi Attribute Login
 
 WSO2 Identity Server can be configured to use multiple attributes as the login identifier. 
-By default WSO2 Identity server uses the username as the login identifier.  First, you need to
+By default, WSO2 Identity server uses the username as the login identifier.  First, you need to
 configure WSO2 identity server for multi attribute authentication. The following section explains
 how to configure this.
 
