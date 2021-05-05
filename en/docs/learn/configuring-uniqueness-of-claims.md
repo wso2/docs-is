@@ -41,6 +41,6 @@ Follow the steps below to configure WSO2 Identity Server.
 
    ![additional-claim-properties](../assets/img/learn/multi-attribute-login/additional-claim-properties.png)
 
-6. Finally click the `Update` button to save additional claim property. 
+6. Finally, click the `Update` button to save the additional claim property. 
 
 Now you can check and verify the functionality by adding users with existing claim value or update the user claim value of an existing claim.
