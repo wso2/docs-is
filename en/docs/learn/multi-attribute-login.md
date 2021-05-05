@@ -14,7 +14,7 @@ how to configure this.
 
 2. Click **Main** > **Identity Providers** > **Resident**  and expand the **Account Management** section.
 
-3. Expand the **Multi Attribute Login** tab and select the **Enable Multi Attribute Login** checkbox.
+3. Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
 
 4. Then add claim URIs which allow for multi-attribute login in the given text box.
 
