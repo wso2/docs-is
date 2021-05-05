@@ -70,7 +70,7 @@ using any of following flow.
    What happens if two user use same value for a same claim?
 
    If two users use the same value for the same claim, the multi attribute login feature
-   does not support those claims for those users. If you have keep uniqueness of claims,
+   does not support those claims for those users. Retaining the uniqueness of claim values avoids this conflict.
    you can avoid this kind of issues.
 
 !!! info "Related Topics"
