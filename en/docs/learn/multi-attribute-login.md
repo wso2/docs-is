@@ -52,7 +52,7 @@ how to configure this.
         </tbody>
     </table>
 
-You have now successfully set up WSO2 Identity Server for enable multi attribute login.
+You have now successfully set up WSO2 Identity Server to enable multi-attribute login.
 
 ### Try it out
 
