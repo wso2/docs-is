@@ -52,7 +52,7 @@ and properties of connectors as mentioned below. <br>
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
     | Lite user registration  | LiteRegistration.Enable  | Allow user's to self register to the system without a password. |
-    | Lock user account on creation | LiteRegistration.LockOnCreation  | Lock self registered user account until e-mail verification. |
+    | Lock user account on creation | LiteRegistration.LockOnCreation  | Lock self-registered user account until e-mail verification. |
     | Manage notifications sending internally | LiteRegistration.Notification.InternallyManage  | Disable if the client application handles notification sending |
     | Prompt reCaptcha  | LiteRegistration.ReCaptcha  | Enable reCaptcha verification during self registration. |
     | Lite user registration verification link expiry time  | LiteRegistration.VerificationCode.ExpiryTime  | Specify the expiry time in minutes for the verification link. |
