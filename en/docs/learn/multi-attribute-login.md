@@ -67,7 +67,6 @@ using any of following flow.
 6. Password recovery flow
 
 !!! Note "What happens if two users use the same value for the same claim?"
-   What happens if two user use same value for a same claim?
 
    If two users use the same value for the same claim, the multi attribute login feature
    does not support those claims for those users. Retaining the uniqueness of claim values avoids this conflict.
