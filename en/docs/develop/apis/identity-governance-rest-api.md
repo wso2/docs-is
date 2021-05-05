@@ -58,7 +58,7 @@ and properties of connectors as mentioned below. <br>
     | Lite user registration verification link expiry time  | LiteRegistration.VerificationCode.ExpiryTime  | Specify the expiry time in minutes for the verification link. |
     | Lite user registration SMS OTP expiry time | LiteRegistration.VerificationCode.SMSOTP.ExpiryTime  | Specify the expiry time in minutes for the SMS OTP. |
     | Lite user registration callback URL regex  | LiteRegistration.CallbackRegex  | This prefix will be used to validate the callback URL. |
-    | Manage Lite-Sign-Up purposes  | _url_listPurposeSelfSignUp  | Click here to manage Lite-Sign-Up purposes |
+    | Manage Lite-Sign-Up purposes  | _url_listPurposeSelfSignUp  | Manage Lite-Sign-Up purposes |
   
     **Ask Password**
     
