@@ -66,7 +66,7 @@ using any of following flow.
 5. Oauth Password grant
 6. Password recovery flow
 
-!!! Note
+!!! Note "What happens if two users use the same value for the same claim?"
    What happens if two user use same value for a same claim?
 
    If two users use the same value for the same claim, the multi attribute login feature
