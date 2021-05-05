@@ -5,7 +5,7 @@ After enabling this feature you can keep a user claim value as a unique value wi
 
 ## Configuring WSO2 IS to keep the user claim values unique
 
-Follow the steps below to configure WSO2 Identity Server to keep uniqueness of user claims.
+Follow the steps below to configure WSO2 Identity Server.
 
 1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and add the following configuration.
         ```
@@ -44,5 +44,4 @@ Follow the steps below to configure WSO2 Identity Server to keep uniqueness of u
 6. Finally click the `Update` button to save additional claim property. 
 
 Now you can check and verify the functionality adding users with existing claim value or update user claim value to existing value.
-
 
