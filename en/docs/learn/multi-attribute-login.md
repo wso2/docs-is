@@ -10,7 +10,7 @@ how to configure this.
 1. Start the Identity Server and log in to the management console using your tenant credentials.
 
 !!! info
-    If you use multiple tenant domains, you need to configure multi attribute login in tenantwise.
+    If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
 
 2. Click Resident under Identity Providers found in the Main tab and expand the **Account Management** tab.
 
