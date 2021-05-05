@@ -71,7 +71,6 @@ using any of following flow.
 
    If two users use the same value for the same claim, the multi attribute login feature
    does not support those claims for those users. Retaining the uniqueness of claim values avoids this conflict.
-   you can avoid this kind of issues.
 
 !!! info "Related Topics"
     See the [Configuring Uniqueness of Claims](../../learn/configuring-uniqueness-of-claims) topic for information on configuring uniqueness of claims.
