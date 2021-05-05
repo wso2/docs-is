@@ -401,12 +401,12 @@ nav:
                   - 'Manage Claims': develop/apis/manage-claims-with-apis.md
                   - 'Manage Permissions': develop/apis/manage-permissions-with-apis.md
                   - 'Count Users and User Roles': develop/apis/count-users-and-roles-using-management-console-and-admin-services.md
-                  - 'Manage User Stores': develop/apis/manage-user-stores-with-apis.md
+                  - 'Manage Userstores': develop/apis/manage-user-stores-with-apis.md
                   - 'Manage Tenants': develop/apis/manage-tenants-with-apis.md
               - 'User Information Recovery': develop/apis/user-information-recovery-service.md
               - 'Identity Application Management':
                   - 'Identity Application Management': develop/apis/identity-application-management-api.md
-                  - 'Use the Service Provider': develop/apis/use-the-service-provider-api.md
+                  - 'Service Provider API': develop/apis/use-the-service-provider-api.md
                   - 'Service Provider Configurations used with APIs': develop/apis/service-provider-configurations-used-with-apis.md
               - 'Identity Provider Management':
                   - 'Identity Provider Management': develop/apis/identity-provider-management-api.md
@@ -499,6 +499,7 @@ nav:
           - 'Configure a Read-write LDAP Userstore': deploy/configure-a-read-write-ldap-user-store.md
         - 'Add High Availability for LDAP': deploy/add-high-availability-for-ldap.md
         - 'Configure Secondary Userstores': deploy/configure-secondary-user-stores.md
+        - 'Carbon Remote User Store Manager': deploy/carbon-remote-user-store-manager.md
         - 'Work with Properties of Userstores': deploy/work-with-properties-of-user-stores.md
         - 'Write a Custom Userstore Manager': deploy/write-a-custom-user-store-manager.md
     - 'Work with Tokens': 

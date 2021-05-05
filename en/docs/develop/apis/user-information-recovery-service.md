@@ -1,10 +1,35 @@
 # User Information Recovery
 
+The **User Information Recovery API** enables recovering user information during user authentication through various features such as captcha and challenge questions.
 This section lists out and describes the operations that are available in the **User Information Recovery API**. 
 
-## About User Information Recovery API
+---
 
-The **User Information Recovery API** enables recovering user information during user authentication through various features such as captcha and challenge questions.
+## Invoke the admin service
+
+`         UserInformationRecoveryService        ` is an admin service of the WSO2
+Carbon platform. As admin services are secured to prevent anonymous
+invocations, you cannot view the WSDL of the admin service by default.
+Follow the steps below to view and invoke it:
+
+1.  Set the  bellow configuration in
+        `           <IS_HOME>/repository/conf/deployment.toml          ` file.
+
+    ``` 
+    [admin_service.wsdl]
+    enable = true
+    ```
+
+2.  Restart the Identity Server.
+3.  If you have started the server in default configurations, use the
+    following URL in your browser to see the WSDL of the admin service:
+    <https://localhost:9443/services/UserInformationRecoveryService?wsdl>.
+
+For more information on WSO2 admin services and how to invoke an admin
+service using either SoapUI or any other client program, see [Call
+Admin Services](../../../develop/apis/call-admin-services).
+
+---
 
 ## API operations
 
@@ -23,7 +48,7 @@ The **User Information Recovery API** enables recovering user information during
         <tr class="even">
             <th>Input Parameters</th>
             <td>
-               <li><code>userName</code> <code>[String]</code>: This the user name of the user.</li>
+               <li><code>userName</code> <code>[String]</code>: This the username of the user.</li>
                <li><code>code</code> <code>[String]</code>: This is the confirmation code send to the user.</li>
                <li><code>captcha</code> <code>[Captcha]</code>: This the captcha code. It uncludes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
             </td>
@@ -136,7 +161,7 @@ The **User Information Recovery API** enables recovering user information during
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the username of the user.</li>
                   <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
                </ul>
@@ -183,7 +208,7 @@ The **User Information Recovery API** enables recovering user information during
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the username of the user.</li>
                   <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code send to the user.</li>
                </ul>                        
             </td>
@@ -268,7 +293,7 @@ The **User Information Recovery API** enables recovering user information during
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the username of the user.</li>
                   <li><code>password</code> <code>[String]</code>: This is the user password.</li>
                   <li><code>claims</code> <code>[UserIdentityClaim[]]</code>: These are user claims. Includes <code>claimUri</code> and <code>claimValue</code>.</li>
                   <li><code>profileName</code> <code>[String]</code>: This is the user profile name.</li>
@@ -325,7 +350,7 @@ The **User Information Recovery API** enables recovering user information during
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
                   <li><code>code</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>tenantDomain</code> <code>[String]</code>: This is user's tenant domain.</li>
                </ul>             
@@ -373,7 +398,7 @@ The **User Information Recovery API** enables recovering user information during
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
                   <li><code>key</code> <code>[String]</code>: This is the confirmation key that is sent to the user.</li>
                   <li><code>notificationType</code> <code>[String]</code>: This is the notification type.</li>
                </ul>             
@@ -419,7 +444,7 @@ The **User Information Recovery API** enables recovering user information during
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
                   <li><code>confirmationCode</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>newPassword</code> <code>[String]</code>: This is the user's new password.</li>
                </ul>             
@@ -524,7 +549,7 @@ The **User Information Recovery API** enables recovering user information during
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
                   <li><code>code</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>captcha</code> <code>[Captcha]</code>: This is the captcha code. Includes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
                </ul>             
@@ -582,7 +607,7 @@ The **User Information Recovery API** enables recovering user information during
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
                   <li><code>captcha</code> <code>[Captcha]</code>: This is the captcha code. Includes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
                </ul>             
             </td>
@@ -633,7 +658,7 @@ The **User Information Recovery API** enables recovering user information during
             <th>Input Parameters</th>
             <td>
                <ul>
-                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>userName</code> <code>[String]</code>: This is the username.</li>
                   <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
                   <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
                   <li><code>answer</code> <code>[String]</code>: This is the answer to the question.</li>                  

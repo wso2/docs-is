@@ -79,7 +79,7 @@ authenticate using either their **uid** and **mail** attributes in the
 LDAP.
 
 1.  Configure the LDAP user store-related configurations using the `deployment.toml` file found in the 
-    `<IS_HOME>/repository/conf` directory. For more information on configuring user stores, see 
+    `<IS_HOME>/repository/conf` directory. For more information on configuring userstores, see 
     [Configuring the Realm](../../../deploy/configure-the-realm/).
     
     1.  Configure the `user_name_search_filter`
@@ -111,7 +111,7 @@ LDAP.
 
 2.  If you want to work with multiple attributes (basically to retrieve
     internal roles with multiple attributes), do one of the following
-    depending on which user store you want to configure this for:
+    depending on which userstore you want to configure this for:
 
     -   **Configuration for primary user store:** Add the following
         property in the `<IS_HOME>/repository/conf/deployment.toml`

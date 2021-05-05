@@ -1,12 +1,12 @@
-# Managing Users and Roles with APIs
+# Manage Users and Roles with SOAP APIs
 
 !!! warning
     
     From 5.4.0 onwards, SCIM 2.0 REST APIs are supported out-of-the-box with
     WSO2 Identity Server and is recommended for user store management. For
     more information on using the SCIM 2.0 REST APIs instead of the SOAP
-    service given below, see [Using the SCIM 2.0 REST
-    APIs](../../apis/using-the-scim-2.0-rest-apis).
+    service given below, see [SCIM 2.0 REST
+    APIs](/develop/apis/scim2-rest-apis/).
     
 
 This section guides you through invoking and working with the
@@ -22,7 +22,7 @@ the WSO2 Carbon platform. As admin services are secured to prevent
 anonymous invocations, you cannot view the WSDL of the admin service by
 default. Follow the steps below to view and invoke it:
 
-1.  Set the  bellow configuration in
+1.  Set the  below configuration in
     `           <IS_HOME>/repository/conf/deployment.toml          ` file.
 
     ``` 
@@ -34,13 +34,9 @@ default. Follow the steps below to view and invoke it:
 3.  If you have started the server in default configurations, use the
     following URL in your browser to see the WSDL of the admin service:
     <https://localhost:9443/services/RemoteUserStoreManagerService?wsdl>
-    .
 
 For more information on WSO2 admin services and how to invoke an admin
-service using either SoapUI or any other client program, see [Calling
-Admin Services from
-Apps](../../apis/call-admin-services)
-section in WSO2 Carbon documentation.
+service using either SoapUI or any other client program, see [Call Admin Services](../../apis/call-admin-services).
 
 ---
 
@@ -52,12 +48,12 @@ The following operations are available in the
 !!! note
     
     For the methods that have **profile name** as an input parameter, you
-    can also pass null for the parameter in which case the default profile
+    can also pass null for the parameter so the default profile
     will then be considered instead.
     
 ---
 
-##### authenticate()
+### authenticate()
 
 <table>
 <tbody>
@@ -118,7 +114,7 @@ The following operations are available in the
 
 ---
 
-##### isReadOnly()
+### isReadOnly()
 
 |                   |                                                                      |
 |-------------------|----------------------------------------------------------------------|
@@ -136,7 +132,7 @@ The following operations are available in the
 </soapenv:Envelope>
 ```
 
-##### getUserClaimValue()
+### getUserClaimValue()
 
 <table>
 <tbody>
@@ -204,7 +200,7 @@ The following operations are available in the
 
 ---
 
-##### getUserList()
+### getUserList()
 
 <table>
 <tbody>
@@ -272,7 +268,7 @@ The following operations are available in the
 
 ---
 
-##### getUserListOfRole()
+### getUserListOfRole()
 
 <table>
 <tbody>
@@ -329,11 +325,11 @@ The following operations are available in the
     This operation retrieves a list of all the users. The users
     assigned to the specified role will be indicated in the list. Users
     belonging to the role are shown as **selected = true** and users not
-    belonging to the role are show as **selected = false**.
+    belonging to the role are shown as **selected = false**.
 
 ---    
 
-##### updateCredential()
+### updateCredential()
 
 <table>
 <tbody>
@@ -401,7 +397,7 @@ The following operations are available in the
 
 ---
 
-#####  getUserClaimValuesForClaims()
+###  getUserClaimValuesForClaims()
 
 <table>
 <tbody>
@@ -469,7 +465,7 @@ The following operations are available in the
 
 --- 
 
-##### setUserClaimValue()
+### setUserClaimValue()
 
 <table>
 <tbody>
@@ -544,7 +540,7 @@ The following operations are available in the
 
 ---
 
-##### deleteUserClaimValue()
+### deleteUserClaimValue()
 
 <table>
 <tbody>
@@ -612,7 +608,7 @@ The following operations are available in the
 
 ---
 
-##### isExistingUser()
+### isExistingUser()
 
 <table>
 <tbody>
@@ -666,7 +662,7 @@ The following operations are available in the
 
 ---
 
-##### deleteUserClaimValues()
+### deleteUserClaimValues()
 
 <table>
 <tbody>
@@ -735,7 +731,7 @@ The following operations are available in the
 
 ---
 
-##### updateCredentialByAdmin()
+### updateCredentialByAdmin()
 
 <table>
 <tbody>
@@ -796,7 +792,7 @@ The following operations are available in the
 
 ---
 
-#####  getRoleNames()
+###  getRoleNames()
 
 |                   |                                                   |
 |-------------------|---------------------------------------------------|
@@ -816,7 +812,7 @@ The following operations are available in the
 
 ---
 
-##### getAllProfileNames()
+### getAllProfileNames()
 
 |                   |                                                           |
 |-------------------|-----------------------------------------------------------|
@@ -836,7 +832,7 @@ The following operations are available in the
 
 --- 
 
-##### listUsers()
+### listUsers()
 
 <table>
 <tbody>
@@ -912,7 +908,7 @@ The following operations are available in the
 
 ---
 
-##### deleteRole()
+### deleteRole()
 
 <table>
 <tbody>
@@ -966,7 +962,7 @@ The following operations are available in the
 
 ---
 
-##### deleteUser()
+### deleteUser()
 
 <table>
 <tbody>
@@ -1020,7 +1016,7 @@ The following operations are available in the
 
 ---
 
-##### getRoleListOfUser()
+### getRoleListOfUser()
 
 <table>
 <tbody>
@@ -1074,7 +1070,7 @@ The following operations are available in the
 
 ---
 
-##### updateRoleName()
+### updateRoleName()
 
 <table>
 <tbody>
@@ -1135,7 +1131,7 @@ The following operations are available in the
 
 ---
 
-##### isExistingRole()
+### isExistingRole()
 
 <table>
 <tbody>
@@ -1189,7 +1185,7 @@ The following operations are available in the
 
 ---
 
-##### updateRoleListOfUser()
+### updateRoleListOfUser()
 
 <table>
 <tbody>
@@ -1259,7 +1255,7 @@ The following operations are available in the
 
 ---
 
-##### getHybridRoles()
+### getHybridRoles()
 
 |                   |                                                                                                                         |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -1279,7 +1275,7 @@ The following operations are available in the
 
 ---
 
-##### getUserClaimValues()
+### getUserClaimValues()
 
 <table>
 <tbody>
@@ -1340,7 +1336,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 
 ---
 
-##### addUser()
+### addUser()
 
 <table>
 <tbody>
@@ -1436,7 +1432,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 
 ---
 
-##### addRole()
+### addRole()
 
 <table>
 <tbody>
@@ -1511,7 +1507,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 
 --- 
 
-##### updateUserListOfRole()
+### updateUserListOfRole()
 
 <table>
 <tbody>
@@ -1581,7 +1577,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 
 ---
 
-##### setUserClaimValues()
+### setUserClaimValues()
 
 <table>
 <tbody>
@@ -1660,7 +1656,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 
 ---  
 
-##### getTenantIdOfUser()
+### getTenantIdOfUser()
 
 <table>
 <tbody>
@@ -1695,7 +1691,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </tr>
 <tr class="even">
 <td>Output Parameters</td>
-<td>The Tenant ID as an integer</td>
+<td>The tenant ID as an integer</td>
 </tr>
 </tbody>
 </table>
@@ -1714,7 +1710,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 
 ---
 
-##### getProfileNames()
+### getProfileNames()
 
 <table>
 <tbody>

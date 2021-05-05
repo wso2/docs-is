@@ -20,7 +20,7 @@ The Identity Application Management API enables creating a service provider, upd
         https://localhost:9443/services/IdentityApplicationManagementService?wsdl
         ```
 
-    -   To enable the admin service, follow the instructions given in [Calling Admin Services](../../apis/call-admin-services).  
+    -   To enable the admin service, follow the instructions given in [Call Admin Services](../../apis/call-admin-services).  
 
 
 !!! info "About creating applications"
@@ -36,7 +36,7 @@ The Identity Application Management API enables creating a service provider, upd
     
 ---
 
-## createApplication
+### createApplication
 
 <table>
     <tbody>                
@@ -132,7 +132,7 @@ The Identity Application Management API enables creating a service provider, upd
     ```
 ---
 
-## updateApplication
+### updateApplication
 
 <table>
     <tbody>        
@@ -410,7 +410,7 @@ The Identity Application Management API enables creating a service provider, upd
 
 ---
 
-## Claims 
+#### Claims 
 
 The `<claimConfig>` element  defines all claim configuration level inputs. This element can have zero or more `          <claimMappings>         ` elements that specify claims
 referred by this service provider. A `          <claimMappings>         ` element includes two elements; `          <localClaim>         ` and `          <remoteClaim>         `
@@ -614,7 +614,7 @@ claims are specifically used with identity federation scenarios to map claims re
 
 ---
 
-## Roles and permissions
+#### Roles and permissions
 
 The `          <permissionAndRoleConfig>         ` element defines all permission and role configuration level inputs. Under this element, specific permissions can be specified via zero or more
 `          <permissions>         ` blocks.
@@ -759,7 +759,7 @@ Once the permissions are specified, the roles specific to the service provider c
 
 ---
 
-## Inbound authentication
+#### Inbound authentication
 
 [Inbound Authentication](TBD) Configuration defines the protocol that the service provider and the
 Identity Server uses to communicate. You can add a common set of configurations for the service provider for any protocol such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation (passive) that is supported by WSO2 Identity Server.
@@ -913,7 +913,7 @@ The `          <inboundAuthenticationConfig>         ` element consists of zero 
     ```
 ---
 
-## Inbound provisioning
+#### Inbound provisioning
 
 The inbound provisioning of the service provider can be configured.   
 
@@ -992,7 +992,7 @@ The inbound provisioning of the service provider can be configured.
     ```  
 ---
 
-## Local and outbound authentication  
+#### Local and outbound authentication  
 
 <table>
 <thead>
@@ -1476,7 +1476,7 @@ The inbound provisioning of the service provider can be configured.
     ```
 ---
 
-## Request path authenticator
+#### Request path authenticator
 
 Specify configurations related to zero or more request path authenticators.   
 
@@ -1611,7 +1611,7 @@ Specify configurations related to zero or more request path authenticators.
     ```
 ---
 
-## Outbound provisioning 
+#### Outbound provisioning 
 
 To configure the outbound provisioning of the service provider, use the following parameters.    
 
@@ -1789,7 +1789,7 @@ To configure the outbound provisioning of the service provider, use the followin
 
 ---
 
-## deleteApplication
+### deleteApplication
 
 <table>
     <tbody>        
@@ -1844,7 +1844,7 @@ To configure the outbound provisioning of the service provider, use the followin
 
 ---
 
-## getAllApplicationBasicInfo
+### getAllApplicationBasicInfo
 
 <table>
     <tbody>        
@@ -1891,7 +1891,7 @@ To configure the outbound provisioning of the service provider, use the followin
 
 ---
 
-## getAllIdentityProviders
+### getAllIdentityProviders
 
 <table>
     <tbody>        
@@ -1962,7 +1962,7 @@ To configure the outbound provisioning of the service provider, use the followin
 
 ---
 
-## getAllLocalAuthenticators
+### getAllLocalAuthenticators
 
 <table>
     <tbody>        
@@ -2017,7 +2017,7 @@ To configure the outbound provisioning of the service provider, use the followin
 
 ---
 
-## getAllLocalClaimUris
+### getAllLocalClaimUris
 
 <table>
     <tbody>        
@@ -2088,7 +2088,7 @@ To configure the outbound provisioning of the service provider, use the followin
 
 ---
 
-## getAllRequestPathAuthenticators
+### getAllRequestPathAuthenticators
 
 <table>
     <tbody>        
@@ -2143,7 +2143,7 @@ To configure the outbound provisioning of the service provider, use the followin
  
 ---
 
-## getApplication
+### getApplication
 
 <table>
     <tbody>        
@@ -2224,7 +2224,7 @@ To configure the outbound provisioning of the service provider, use the followin
 
 ---
 
-## getIdentityProvider
+### getIdentityProvider
 
 <table>
     <tbody>        
