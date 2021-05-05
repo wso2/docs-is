@@ -7,7 +7,7 @@ how to configure this.
 
 ## Configuring WSO2 IS for Multi Attribute Login
 
-1. Start the Identity Server and log into the management console using your tenant credentials.
+1. Start the Identity Server and log in to the management console using your tenant credentials.
 
 !!! info
     If you use multiple tenant domains, you need to configure multi attribute login in tenantwise.
