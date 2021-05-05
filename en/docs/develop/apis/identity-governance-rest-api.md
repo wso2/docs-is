@@ -79,7 +79,7 @@ and properties of connectors as mentioned below. <br>
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
     | Lock user accounts   | account.lock.handler.enable   | Lock user accounts on failed login attempts |
-    | Maximum failed login attempts   | account.lock.handler.On.Failure.Max.Attempts   | Number of failed login attempts allowed until account lock. |
+    | Maximum failed login attempts   | account.lock.handler.On.Failure.Max.Attempts   | Number of failed login attempts allowed before the account is locked. |
     | Initial account lock duration   | account.lock.handler.Time   | Initial account lock time period in minutes. Account will be automatically unlocked after this time period. |
     | Account lock duration increment factor   | account.lock.handler.login.fail.timeout.ratio   | Account lock duration will be increased by this factor. Ex: Initial duration: 5m; Increment factor: 2; Next lock duration: 5 x 2 = 10m |
     | Manage notification sending internally   | account.lock.handler.notification.manageInternally   | Disable if the client application handles notification sending |
