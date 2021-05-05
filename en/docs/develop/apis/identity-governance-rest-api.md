@@ -180,7 +180,7 @@ and properties of connectors as mentioned below. <br>
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
     | Enable password reset via recovery e-mail |  Recovery.AdminPasswordReset.RecoveryLink | User gets notified with a link to reset password |
-    | Enable password reset via OTP  | Recovery.AdminPasswordReset.OTP  | User gets notified with a one time password to try with SSO login |
+    | Enable password reset via OTP  | Recovery.AdminPasswordReset.OTP  | User gets notified with a one-time password to try with SSO login |
     | Enable password reset offline  | Recovery.AdminPasswordReset.Offline  | An OTP generated and stored in users claims |
 
 The APIs can be used to retrieve the above mentioned categories, connectors of the categories, properties of the categories, and update the property values.
