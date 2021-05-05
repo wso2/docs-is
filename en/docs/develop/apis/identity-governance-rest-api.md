@@ -44,7 +44,7 @@ and properties of connectors as mentioned below. <br>
     | Manage Self-Sign-Up purposes  | _url_listPurposeSelfSignUp  | Manage Self-Sign-Up purposes |
     | Send sign up confirmation email  | SelfRegistration.NotifyAccountConfirmation  | Enable sending notification for self signup confirmation. |
     | Prompt reCaptcha on re-send confirmation  | SelfRegistration.ResendConfirmationReCaptcha  | Prompt reCaptcha verification for resend confirmation |
-    | Enable Auto Login After Account Confirmation  | SelfRegistration.AutoLogin.Enable  | User will be logged in automatically after completing the Account Confirmation |
+    | Enable Auto Login After Account Confirmation  | SelfRegistration.AutoLogin.Enable  | User will be logged in automatically after the account confirmation |
     | Alias of the key used to sign to cookie  | SelfRegistration.AutoLogin.AliasName  | Alias of the key used to sign to cookie. The public key has to be imported to the keystore. |       
  
     **Lite User Registration**
