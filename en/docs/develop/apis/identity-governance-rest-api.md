@@ -160,7 +160,7 @@ and properties of connectors as mentioned below. <br>
     | Number of questions required for password recovery   | Recovery.Question.Password.MinAnswers   |  |
     | Security question answer regex   | Recovery.Question.Password.ReCaptcha.Enable   | Security question answer regex |
     | Enforce security question answer uniqueness   | Recovery.Question.Answer.Uniqueness   | Enforce security question answer uniqueness |
-    | Enable reCaptcha for security questions based password recovery   | Recovery.Question.Password.ReCaptcha.Enable   | Prompt reCaptcha for security question based password recovery |
+    | Enable reCaptcha for security questions based password recovery   | Recovery.Question.Password.ReCaptcha.Enable   | Prompt reCaptcha for security question-based password recovery |
     | Max failed attempts for reCaptcha   | Recovery.Question.Password.ReCaptcha.MaxFailedAttempts   |  |
     | Username recovery   | Recovery.Notification.Username.Enable   |  |
     | Enable reCaptcha for username recovery   |  Recovery.ReCaptcha.Username.Enable  |  |
