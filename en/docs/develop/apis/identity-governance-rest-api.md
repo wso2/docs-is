@@ -16,7 +16,7 @@ and properties of connectors as mentioned below. <br>
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
     | Validate password history   | passwordHistory.enable   | User will not be allowed to use previously used passwords. |
-    | Password history validation count   | passwordHistory.count   | Restrict using this number of last used passwords during password update. |
+    | Password history validation count   | passwordHistory.count   | Restrict reusing this number of previously used passwords during a password update. |
     
     **Password Patterns**
     
