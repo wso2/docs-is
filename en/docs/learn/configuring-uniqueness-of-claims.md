@@ -15,7 +15,7 @@ Follow the steps below to configure WSO2 Identity Server.
        order = 2 
        enable = true
         ```
-2.	Restart WSO2 identity server and access the management console at `https://wso2.is/carbon/`. 
+2.	Restart WSO2 identity server and access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) . 
 
 3.  From the list of claims, select the claim you want to configure to keep it unique.
     ![select-claim-from-list](../assets/img/learn/multi-attribute-login/select-claim-from-list.png)
@@ -44,4 +44,3 @@ Follow the steps below to configure WSO2 Identity Server.
 6. Finally click the `Update` button to save additional claim property. 
 
 Now you can check and verify the functionality adding users with existing claim value or update user claim value to existing value.
-
