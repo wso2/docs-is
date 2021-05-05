@@ -35,7 +35,7 @@ and properties of connectors as mentioned below. <br>
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
     | User self registration  | SelfRegistration.Enable  | Allow users to self register to the system. |
-    | Lock user account on creation | SelfRegistration.LockOnCreation  | Lock self registered user account until e-mail verification. |
+    | Lock user account on creation | SelfRegistration.LockOnCreation  | Lock self-registered user account until e-mail verification. |
     | Manage notifications sending internally | SelfRegistration.Notification.InternallyManage  | Disable if the client application handles notification sending |
     | Prompt reCaptcha  | SelfRegistration.ReCaptcha  | Enable reCaptcha verification during self registration. |
     | User self registration verification link expiry time  | SelfRegistration.VerificationCode.ExpiryTime  | Specify the expiry time in minutes for the verification link. |
