@@ -1,29 +1,22 @@
 # Change to MariaDB
 
 By default, WSO2 Identity Server uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps
-you need to follow in order to use MariaDB for this purpose. 
+you need to follow in order to use MariaDB. 
 
 ---
 
 ## Datasource configurations
 
-A datasource is used to establish the connection to a database. By
-default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
-to the default  H2 database. 
-
-- `WSO2_SHARED_DB` - The datasource which stores registry and user management
-                     data.
-- `WSO2_IDENTITY_DB` - The datasource specific for the identity server which stores
-                       identity related data
+{! fragments/datasource-config.md !}
                        
-After setting up the MariaDB database, you can point the `WSO2_IDENTITY_DB` or 
-`WSO2_SHARED_DB` or both to that MariaDB database by following the instructions given below.
+After setting up the MariaDB database, you can point `WSO2_IDENTITY_DB` or 
+`WSO2_SHARED_DB` or both to the MariaDB database by following the instructions given below.
 
 ---
 
 ## Change the default datasource
 
-Add the configurations to change to MariaDB in the `<IS-HOME>/repository/conf/deployment.toml` file. A sample configuration is given below.
+Add the following configurations to change to MariaDB in the `<IS-HOME>/repository/conf/deployment.toml` file. A sample configuration is given below.
 
 ```toml 
 [user_store]
