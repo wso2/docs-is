@@ -11,7 +11,7 @@ WSO2 supports role-based authentication model where privileges of a user are bas
 If a user has several roles assigned, their permissions are added together.
 
 WSO2 products has two types of roles. **External Roles** and **Internal
-Roles**. Assume there are two user stores.
+Roles**. Assume there are two userstores.
 
 <table>
 <thead>
@@ -37,25 +37,25 @@ Roles**. Assume there are two user stores.
 </table>
 
 **External Roles :**  
-These roles are stored in the user stores itself. Only users that belong to a user store can be assigned to
-external roles in that user store.  
+These roles are stored in the userstores itself. Only users that belong to a userstore can be assigned to
+external roles in that userstore.  
 Example : user\_A can be assigned to role\_A while user\_B cannot be assigned to role\_A.
 
-In user stores, users are assigned to **groups**. Within WSO2 IS, one user group is directly mapped to a role and permissions are assigned to the role.
+In userstores, users are assigned to **groups**. Within WSO2 IS, one user group is directly mapped to a role and permissions are assigned to the role.
   
 **Internal Roles :**
 
-These roles are stored in the WSO2 Identity Server database. Users in all user stores can be assigned to
+These roles are stored in the WSO2 Identity Server database. Users in all userstores can be assigned to
 these roles.
 
 In the above example, both user\_A and user\_B can be assigned to the same internal role.
 
-For internal roles, there are no mapped groups in the user stores. So we
+For internal roles, there are no mapped groups in the userstores. So we
 directly assign users to these roles.
 
 !!! info 
     **Internal/everyone :** This is a conceptual role that is used to group
-    all the users (across the user stores) together. When a new user is created, the `internal everyone` role is automatically assigned to the user.
+    all the users (across the userstores) together. When a new user is created, the `internal everyone` role is automatically assigned to the user.
 
     **Application Role :** This role is used for special cases where an internal role is created for a single service provider (SP) application and only users that are assigned to this role can manage the relevant SP application.
 
@@ -73,7 +73,7 @@ In SCIM, creating a role is the same as creating a **group.** For more informati
     [SCIM](insert-scim2-concept).
 
 !!! note
-    To create a group with users, the said users should already exist in the user store.
+    To create a group with users, the said users should already exist in the userstore.
     
 
 Create a new group named **engineer** with the user 'Mark' as a member. The attributes you have to include in the cURL command are the `userID`, `username:password`.

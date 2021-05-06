@@ -35,17 +35,16 @@ The following section provides the instructions to contruct requests for each no
     `IS_HOME/repository/conf/sms/sms-providers-api-body-templates.xml` file.
     2. You can add new SMS providers’ payloads, or modify the existing SMS provider payloads by adding new attributes.
     3. Attribute values that need to be replaced by the **POST /notification-senders/sms** API’s input should be templated with 
-    a prefix, **“$”**.
-    
+    a prefix, **“$”**. For example,
+        
         ```
-            Example:
-            $sender will be replaced by the input value of the “sender” attribute.
-            $body.routingGroup will be replaced by the input value of the property defined with key - “body.routingGroup”.
+        $sender will be replaced by the input value of the “sender” attribute.
+        $body.routingGroup will be replaced by the input value of the property defined with key - “body.routingGroup”.
         ```
 
     **Properties in POST /notification-senders/sms request**
 
-    1. Properties that need to be included in SMS provider API’s body define with the prefix, **”body.”**.
+    1. Properties that need to be included in SMS provider API’s body should be defined with the prefix, **”body.”**.
     2. If the property named **“body”** is present, the corresponding value will be used as the SMS provider API’s body.
     3. If you want to add properties related to HTTPOutputEventAdaptor, define keys with the exact names defined in the 
     [HTTP Event Publisher](https://docs.wso2.com/display/DAS300/HTTP+Event+Publisher) documentation.

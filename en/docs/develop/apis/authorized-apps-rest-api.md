@@ -7,12 +7,12 @@ template: templates/swagger.html
 !!! warning
     This API version will be deprecated in future versions of WSO2 IS. 
     You can use [OAuth2 Authorized Apps 
-    API Definition - v2](../..apis/authorized-apps-v2-rest-api) instead.
+    API Definition - v2](/develop/apis/authorized-apps-v2-rest-api/) instead.
 
 ??? Note "Click For instructions"
     Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
-       1.  Click on **Authorize** button and provide desired values for authentication. 
+       1.  Click **Authorize** and provide the desired values for authentication. 
        2.  Expand the relevant API operation and click the **Try It Out** button.  
        3.  Fill in relevant sample values for the input parameters and click **Execute**. 
             You will receive a sample curl command with the sample values you filled in. 
