@@ -10,9 +10,7 @@ datasource to any database type that is supported by WSO2 Identity Server.
 
 !!! note
     For more information about databases, see 
-    [Work with Databases](../../../deploy/work-with-databases).
-    <!-- and 
-    [Set Up Separate Databases for Clustering](../../../deploy/set-up-separate-databases-for-clustering).-->
+    [Work with Databases](../../../deploy/work-with-databases) and [Set Up Separate Databases for Clustering](../../../deploy/set-up-separate-databases-for-clustering).-->
 
 Following are the sample configuration for each database type.
 

@@ -113,14 +113,13 @@ A sample configuration is given below.
         defaultAutoCommit=false
         ```
         
-    1. Executing database scripts.
+    1.  Execute the database scripts.
     
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/h2.sql` file against the database created.
     
 3.  Download the H2 JDBC driver for the version, you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
 
-    !!! note     
-        {! fragments/dsetup.md !} 
+
 
 ---            
 

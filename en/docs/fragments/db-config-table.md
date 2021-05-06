@@ -3,7 +3,7 @@ The elements in the above configuration are described below:
 <table>
 <tr class="even">
 <td><strong>maxActive</strong></td>
-<td>The maximum number of active connections that can be allocated at the same time from this pool. Enter any negative value to denote an unlimited number of active connections</td>
+<td>This is the maximum number of active connections that can be allocated at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.</td>
 </tr>
 <tr class="odd">
 <td><strong>maxWait</strong></td>

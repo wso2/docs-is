@@ -51,7 +51,7 @@ A sample configuration is given below.
         
 2. `WSO2_SHARED_DB`
     
-    1. Configure the `deployment.toml` file. 
+    1.  Configure the `deployment.toml` file. 
 
         ``` toml
         [database.shared_db]
@@ -63,9 +63,9 @@ A sample configuration is given below.
         port = "3306"
         ```
         
-    1. Execute database scripts.
+    1.  Execute database scripts.
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/mysql.sql` file against the database created.
+        Execute the scripts in the `<IS-HOME>/dbscripts/mysql.sql` file against the database created.
                          
 !!! note     
     Instead of defining `hostname`, `port`, and `name` separately, you can define the `url`
@@ -84,7 +84,7 @@ A sample configuration is given below.
     
 4.  Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
 
-    {! fragments/dsetup.md !}
+    
            
 ---
 

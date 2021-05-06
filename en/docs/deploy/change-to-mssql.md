@@ -51,7 +51,7 @@ A sample configuration is given below.
         
 2. `WSO2_SHARED_DB`
     
-    1. Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
 
         ``` toml
         [database.shared_db]
@@ -63,16 +63,14 @@ A sample configuration is given below.
         port = "1433"
         ```
         
-    2. Execute database scripts.
+    2.  Execute database scripts.
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file, against the database created.
+        Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file, against the database created.
         
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database](../../../deploy/change-datasource-bpsds)
     
 4.  Download the MS SQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
-
-    {! fragments/dsetup.md !}
 
 
 ---

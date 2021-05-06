@@ -5,4 +5,4 @@ to the default H2 database.
 - `WSO2_SHARED_DB` - The datasource which stores registry and user management
                      data.
 - `WSO2_IDENTITY_DB` - The datasource specific to the identity server which stores
-                       identity related data
+                       identity related data.

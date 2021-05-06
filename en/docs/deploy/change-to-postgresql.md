@@ -39,9 +39,9 @@ A sample configuration is given below.
         port = "5432"
         ```
     
-    2. Execute database scripts.
+    2.  Execute database scripts.
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+        Execute the scripts in the following files, against the database created.
         
         - `<IS-HOME>/dbscripts/identity/postgresql.sql`
         - `<IS-HOME>/dbscripts/identity/uma/postgresql.sql`
@@ -69,9 +69,6 @@ A sample configuration is given below.
     
 4.  Download the Postgres JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
 
-    !!! note     
-        {! fragments/dsetup.md !} 
-           
 ---           
 
 ### Advanced database configurations

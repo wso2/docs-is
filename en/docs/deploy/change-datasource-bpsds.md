@@ -23,7 +23,7 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/postgresql.sql` file against the created database.    
+        Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/postgresql.sql` file against the created database.    
 
 ??? example "MySQL"
 
@@ -39,7 +39,7 @@ Following are the sample configuration for each database type.
     
     2.  Execute the database scripts. 
 
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/mysql.sql` file against the created database.    
+        Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/mysql.sql` file against the created database.    
          
 
 ??? example "DB2"
@@ -56,7 +56,7 @@ Following are the sample configuration for each database type.
 
     2.  Execute the database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/db2.sql` file against the created database.    
+        Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/db2.sql` file against the created database.    
          
 
 ??? example "MSSQL"
@@ -73,7 +73,7 @@ Following are the sample configuration for each database type.
 
     2.  Execute the database scripts. 
     
-        Navigate to <IS-HOME>/dbscripts. Execute the scripts in the f`<IS-HOME>/dbscripts/bps/bpel/create/mssql.sql` file against the created database.    
+        Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/mssql.sql` file against the created database.    
          
 
 ??? example "Oracle"
@@ -90,5 +90,5 @@ Following are the sample configuration for each database type.
 
     2.  Execute the database scripts. 
     
-        Navigate to <IS-HOME>/dbscripts. Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/oracle.sql` file against the created database.    
+        Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/oracle.sql` file against the created database.    
         

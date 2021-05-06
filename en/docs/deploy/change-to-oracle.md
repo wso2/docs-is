@@ -63,9 +63,9 @@ A sample configuration is given below.
         port = "1521"
         ```
         
-    1. Execute database scripts.
+    1.  Execute database scripts.
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+        Execute the scripts in the following file, against the database created.
                     
         - `<IS-HOME>/dbscripts/oracle.sql`
         
@@ -73,9 +73,6 @@ A sample configuration is given below.
     [Change the default database of BPS database](../../../deploy/change-datasource-bpsds)
     
 4.  Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
-
-    !!! note     
-        {! fragments/dsetup.md !} 
 
 ---
             
