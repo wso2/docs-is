@@ -20,7 +20,7 @@ default. Follow the steps below to view and invoke it:
     ```
 
 2.  Restart the Identity Server.
-3.  If you have started the server in default configurations, use the
+3.  If you have started the server with the default configurations, use the
     following URL in your browser to see the WSDL of the admin service:
     <https://localhost:9443/services/RemoteAuthorizationManagerService?wsdl>
 
