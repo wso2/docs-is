@@ -1,6 +1,6 @@
 # Import Users
 
-This page guides you through importing users in bulk using either the WSO2 Identity Server admin portal, SCIM, SOAP, a .csv file, or directly plugging in an existing userstore. 
+This page guides you through importing users in bulk using the WSO2 Identity Server admin portal, SCIM, SOAP, a .csv file, or directly plugging in an existing userstore. 
 
 -----
 
