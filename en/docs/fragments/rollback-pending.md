@@ -12,7 +12,7 @@
 		rollbackOnReturn="true"
 		```
 		
-	- `WSO2_SHARED_DB` `deployment.toml` related configurations that should be added to the `<IS_HOME>/repository/conf/deployment.toml` file.
+	- `WSO2_SHARED_DB` related configurations that should be added to the `<IS_HOME>/repository/conf/deployment.toml` file.
 				
 		``` toml
 		[database.shared_db.pool_options]

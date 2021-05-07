@@ -19,7 +19,7 @@
 
 5. 	Add the `                commitOnReturn               ` property and set it to `true`.
                         
-    - `WSO2_IDENTITY_DB` `deployment.toml` configurations.
+    - `WSO2_IDENTITY_DB` related configurations that should be added to the `<IS_HOME>/repository/conf/deployment.toml` file.
         
         ``` toml
         [database.identity_db.pool_options]
@@ -27,7 +27,7 @@
         commitOnReturn="true"
         ```
         
-    - `WSO2_SHARED_DB` `deployment.toml` configurations.
+    - `WSO2_SHARED_DB` related configurations that should be added to the `<IS_HOME>/repository/conf/deployment.toml` file.
             
         ``` toml
         [database.shared_db.pool_options]
