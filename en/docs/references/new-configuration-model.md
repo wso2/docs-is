@@ -29,7 +29,7 @@ With the **new configuration model** from WSO2 Identity Server 5.9.0 onwards, co
 -	Configurations are well-grouped and consistently named
 
 !!! warning
-	If you are familiar with the previous configuration model, note that the `deployment.toml` gets precedence over the old `.xml` configuration files—it is expected to reset changes in `.xml` configuration files unless these configurations are now represented in `deployment.toml` file. If you require to use the old configuration model, remove the `deployment.toml` file from the `<IS_HOME>/repository/conf/` directory.
+	If you are familiar with the previous configuration model, note that the `deployment.toml` gets precedence over the old `.xml` configuration files. It is expected to reset changes in `.xml` configuration files unless these configurations are now represented in `deployment.toml` file. If you require to use the old configuration model, remove the `deployment.toml` file from the `<IS_HOME>/repository/conf/` directory.
 
 !!! tip
 	For TOML configurations pertaining to a particular feature, see the respective document section.

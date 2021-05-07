@@ -410,9 +410,8 @@ nav:
                   - 'Service Provider Configurations used with APIs': develop/apis/service-provider-configurations-used-with-apis.md
               - 'Identity Provider Management':
                   - 'Identity Provider Management': develop/apis/identity-provider-management-api.md
-                  - 'Use the Identity Provider': develop/apis/use-the-identity-provider-api.md
+                  - 'Identity Provider API': develop/apis/use-the-identity-provider-api.md
                   - 'Identity Provider Configurations used with APIs': develop/apis/identity-provider-configurations-used-with-apis.md
-          - 'Entitlement with APIs':
               - 'Entitlement with APIs': develop/apis/entitlement-with-apis.md
       - 'Extend':
           - 'Work with the Source Code': develop/extend/work-with-the-source-code.md
@@ -684,9 +683,9 @@ nav:
     - 'Overview': references/references-overview.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
-    - 'API Permissions': references/api-permissions.md
+    - 'SOAP API Permissions': references/api-permissions.md
     - 'New Configuration Model': references/new-configuration-model.md
-    - 'Error Catalog': references/error-catalog.md
+    - 'REST API Error Catalog': references/error-catalog.md
     - 'Product Startup Options': references/product-startup-options.md
     - 'Supported Cipher Suites': references/supported-cipher-suites.md
     - 'Directory Structure of WSO2 Products': references/directory-structure-of-wso2-products.md
