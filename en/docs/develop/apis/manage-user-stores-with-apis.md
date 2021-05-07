@@ -523,7 +523,7 @@ The following operations are available in **UserStoreConfigAdminService**.
     </tr>
     <tr class="odd">
         <th>Output Parameters</th>
-        <td>A boolean parameter indicating if the userstore is read only or not.</td>
+        <td>A boolean parameter indicating if the userstore is read only or not</td>
     </tr>
     <tr>
         <th>Request</th>
