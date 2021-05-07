@@ -27,16 +27,10 @@ browse through it.
     browser: [http://localhost:8082](http://localhost:8082/)
 
     !!! tip
-        If you are logged in to the management console, logout before
+        If you are logged in to the management console, log out before
         connecting to the database.
         
-3.  WSO2 Identity Server ships with two datasources. They are by default connected 
-    to the default  H2 database. 
-    
-    - `WSO2_SHARED_DB` - The database which stores registry and user management
-                         data.
-    - `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
-                           identity related data
+3.  {! fragments/datasource-config.md !}
                            
     After accessing the URL provided in step 2 you will be prompted to provide the following data. 
     
@@ -58,11 +52,11 @@ browse through it.
       </tr>
       <tr class="even">
       <td><strong>JDBC URL</strong></td>
-      <td>location of the H2 database. All the default databases are located at `<IS_HOME>/repository/database` location.</td>
+      <td>location of the H2 database. All the default databases are located in the `<IS_HOME>/repository/database` folder.</td>
       </tr>
       </table>  
     
-    Please refer the following for sample details that should be provided to connected to each database.
+    Refer the following for sample details that should be provided to connect to each database.
     
     ??? example "WSO2_IDENTITY_DB"
         
@@ -77,5 +71,4 @@ browse through it.
         3.  password  : `wso2carbon`
 
 
-The database tables are listed on the left. You can now browse through
-them as required.
+The database tables are listed on the left. You can now browse through them as required.
