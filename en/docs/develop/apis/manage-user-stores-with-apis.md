@@ -721,7 +721,7 @@ The following operations are available in **UserStoreConfigAdminService**.
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation edits a userstore and change its domain name.</td>
+            <td>This operation edits a userstore and changes its domain name.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
