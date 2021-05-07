@@ -30,7 +30,7 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/consent/postgresql.sql` file against 
+        Execute the scripts in the `<IS-HOME>/dbscripts/consent/postgresql.sql` file against 
         the created database.    
           
 ??? Example "MySQL"
@@ -49,7 +49,7 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/consent/mysql.sql` file against 
+        Execute the scripts in the `<IS-HOME>/dbscripts/consent/mysql.sql` file against 
         the created database.    
             
 ??? Example "DB2"
@@ -66,7 +66,7 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/consent/db2.sql` file against 
+        Execute the scripts in the `<IS-HOME>/dbscripts/consent/db2.sql` file against 
         the created database.    
 
 
@@ -84,7 +84,7 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/consent/mssql.sql` file against 
+        Execute the scripts in the `<IS-HOME>/dbscripts/consent/mssql.sql` file against 
         the created database.    
 
 ??? Example "Oracle"
@@ -101,7 +101,7 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the `<IS-HOME>/dbscripts/consent/oracle.sql` file against 
+        Execute the scripts in the `<IS-HOME>/dbscripts/consent/oracle.sql` file against 
         the created database.    
 
 ---
