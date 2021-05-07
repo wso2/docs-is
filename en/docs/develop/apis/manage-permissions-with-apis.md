@@ -11,7 +11,7 @@ the WSO2 Carbon platform. As admin services are secured to prevent
 anonymous invocations, you cannot view the WSDL of the admin service by
 default. Follow the steps below to view and invoke it:
 
-1.  Set the  below configuration in
+1.  Set the configuration given below in
     `           <IS_HOME>/repository/conf/deployment.toml          ` file.
 
     ``` 
