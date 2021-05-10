@@ -7,10 +7,13 @@ how to configure this.
 
 ## Configuring WSO2 IS for Multi Attribute Login
 
-1. Start the Identity Server and log in to the management console using your tenant credentials.
+1. Start the Identity Server and log in to the [Management Console](https://localhost:9443/carbon) using your tenant credentials.
 
-!!! info
-    If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
+   !!! info
+       'admin' is the default administrative user in WSO2 Identity Server.
+   
+   !!! info
+       If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
 
 2. Click **Main** > **Identity Providers** > **Resident**  and expand the **Account Management** section.
 
