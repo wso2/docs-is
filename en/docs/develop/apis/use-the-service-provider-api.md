@@ -1,4 +1,4 @@
-# Service Provider API
+# Service Provider SOAP API
 
 This section guides you through using the Identity Application Management API and its operations.
 
@@ -184,13 +184,13 @@ The Identity Application Management API enables creating a service provider, upd
                 <li><code>applicationName</code> <code>[String]</code>: This is the Service provider name.</li>
                 <li><code>claimConfig</code> <code>[ClaimConfig]</code>: These are Claims that are related configurations.</li>
                 <li><code>description</code> <code>[String]</code>: This is the description of the SP.</li>
-                <li><code>inboundAuthenticationConfig</code> <code>[InboundAuthenticationConfig]</code>: This is an <a href="TBD">Inbound authentication</a> related configurations.</li>
+                <li><code>inboundAuthenticationConfig</code> <code>[InboundAuthenticationConfig]</code>: This is an <!--a href="TBD"-->inbound authentication<!--/a--> related configurations.</li>
                 <li><code>inboundProvisioningConfig</code> <code>[InboundProvisioningConfig]</code>: This is an inbound provisioning related configurations.</li>
                 <li><code>localAndOutBoundAuthenticationConfig</code> <code>[LocalAndOutboundAuthenticationConfig]</code>: This is for local and outbound authentication.</li>
                 <li><code>outboundProvisioningConfig</code> <code>[OutboundProvisioningConfig]</code>: This is for outbound provisioning related configurations.</li>
-                <li><code>owner</code> <code>[User]</code>: This is the applicationn owner.</li>
+                <li><code>owner</code> <code>[User]</code>: This is the application owner.</li>
                 <li><code>permissionAndRoleConfig</code> <code>[PermissionsAndRoleConfig]</code>: These are permission and role related configurations.</li>
-                <li><code>requestPathAuthenticatorConfigs</code> <code>[RequestPathAuthenticatorConfig]</code>: These are request patch authenticator related configurationsr.</li>
+                <li><code>requestPathAuthenticatorConfigs</code> <code>[RequestPathAuthenticatorConfig]</code>: These are request path authenticator related configurations.</li>
                 <li><code>saasApp</code>: This is optional. This parameter allows you to determine whether the service provider is a SaaS application (<code>true</code>) or not (<code>false</code>).<br>If no value is passed for this parameter, the service provider is marked as SaaS disabled by default. Thus, the web application is not shared among tenants so only users in the current tenant (the one you are logged in when creating the service provider) are allowed to log into the web application. Alternatively, if you enabled SaaS application, that means this web application is shared among tenants so users from any tenant are allowed to log into the web application.</li>
               </ul>           
             </td>
@@ -761,7 +761,7 @@ Once the permissions are specified, the roles specific to the service provider c
 
 #### Inbound authentication
 
-[Inbound Authentication](TBD) Configuration defines the protocol that the service provider and the
+Inbound Authentication Configuration defines the protocol that the service provider and the
 Identity Server uses to communicate. You can add a common set of configurations for the service provider for any protocol such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation (passive) that is supported by WSO2 Identity Server.
 
 The `          <inboundAuthenticationConfig>         ` element consists of zero or more `<inboundAuthenticationRequestConfigs\>` elements. The `<inboundAuthenticationRequestConfigs\>` element has following elements (Note: Only the required element are mentioned).
@@ -769,7 +769,7 @@ The `          <inboundAuthenticationConfig>         ` element consists of zero 
 !!! note "Important"
 
     You need to create inbound authenticator configurations
-    accessing the appropriate services(Ex: OAuthAdminService,
+    accessing the appropriate services (Eg: OAuthAdminService,
     IdentitySAMLSSOConfigService, etc.), before updating service provider
     with inbound authenticator configurations.
 
@@ -1024,7 +1024,7 @@ The inbound provisioning of the service provider can be configured.
 <td><p>authenticationSteps.federatedIdentityProviders</p></td>
 <td><p>IdentityProvider</p></td>
 <td><div class="content-wrapper">
-<p>To configure federated IdPs, there should be one or more registered IdPs with at least one <a href="../../../guides/identity-federation/configuring-federated-authentication">federated authenticator</a> enabled.</p>
+<p>To configure federated IdPs, there should be one or more registered IdPs with at least one <a href="/get-started/architecture/#outboundfederated-authenticators">federated authenticator</a> enabled.</p>
 <p>With the request, it is necessary to include the IdP name and the federated authenticator name.</p>
 <p>The federated authenticator should be enabled in the IdP. If a federated authenticator is not mentioned, the default federated authenticator for the IdP will be used.</p>
 </div></td>
@@ -1035,7 +1035,7 @@ The inbound provisioning of the service provider can be configured.
 <td><p>Local authentication related configs for the authentication step. For example, you can specify whether to use a basic or an IWA authenticator.</p>
 <br />
 
-<p>To use basic, <a href="http://localauthenticatorconfigs.name/">localAuthenticatorConfigs.name</a> should be 'BasicAuthenticator' while 'IWAAuthenticator' for iwa.</p></td>
+<p>To use basic, localAuthenticatorConfigs.name should be 'BasicAuthenticator' while 'IWAAuthenticator' for iwa.</p></td>
 </tr>
 <tr class="even">
 <td><p>authenticationSteps.stepOrder</p></td>
@@ -1050,7 +1050,7 @@ The inbound provisioning of the service provider can be configured.
 <tr class="even">
 <td><p>authenticationType</p></td>
 <td><p>String</p></td>
-<td><p>Depending on the requirement, the authentication type can be specified. The available types are: <a href="#UsingtheServiceProviderAPI-authtype_D">default</a>, <a href="#UsingtheServiceProviderAPI-authtype_L">local</a>, <a href="#UsingtheServiceProviderAPI-authtype_F">federated</a>, <a href="#UsingtheServiceProviderAPI-authtype_A">flow</a> .</p>
+<td><p>Depending on the requirement, the authentication type can be specified. The available types are <code>default</code>, <code>local</code>, and <code>federated</code></p>
 <br />
 
 <p>Refer the sample requests below on each authentication type configuration.</p></td>
@@ -1498,7 +1498,7 @@ Specify configurations related to zero or more request path authenticators.
 <td><p>enabled</p></td>
 <td><p>Boolean</p></td>
 <td><p>true - enable</p>
-<p>false - deisable</p></td>
+<p>false - disable</p></td>
 </tr>
 <tr class="odd">
 <td><p>name</p></td>
@@ -1515,7 +1515,7 @@ Specify configurations related to zero or more request path authenticators.
 <tr class="odd">
 <td><p>properties</p></td>
 <td><p>Property</p></td>
-<td><p>List of properties in a array</p></td>
+<td><p>List of properties in an array</p></td>
 </tr>
 </tbody>
 </table>
@@ -1850,7 +1850,7 @@ To configure the outbound provisioning of the service provider, use the followin
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation can use to get all available service provider names and their descriptions.</td>
+            <td>This operation can be used to get all available service provider names and their descriptions.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -2094,7 +2094,7 @@ To configure the outbound provisioning of the service provider, use the followin
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation retrieves the available request patch authenticators.</td>
+            <td>This operation retrieves the available request path authenticators.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>

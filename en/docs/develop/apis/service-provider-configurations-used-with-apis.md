@@ -1,6 +1,6 @@
 # Service Provider Configurations used with APIs
 
-This section guides you through the configurations you can include in a service provider application. See [Calling Admin Services](../../apis/call-admin-services) to enable the admin service.
+This section guides you through the configurations you can include in a service provider application. See [Call Admin Services](../../apis/call-admin-services) to enable the admin service.
 
 ---
 
@@ -25,7 +25,7 @@ This section guides you through the configurations you can include in a service 
                     <p>You can configure a number of SAML SPs with the same Issuer and different Service Provider Qualifiers.</p>
                     <p>When a service provider qualifier is defined, the issuer that is defined in the configuration, e.g., "travelocity.com" is the issuer of the SAML SSO authentication request. The service provider qualifier should be sent as the query parameter <strong>spQualifier</strong> along with the HTTP request.</p>
                 </li>
-                <li><b>assertionConsumerUrls</b> <code>[String]</code> <br>This specifies the assertion Consumer URLs that the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. It should have this format: https://(host-name):(port)/acs . You can add multiple assertion consumer URLs by repeating assertionConsumerUrls element..</li>
+                <li><b>assertionConsumerUrls</b> <code>[String]</code> <br>This specifies the assertion Consumer URLs that the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. It should have this format: <code>https://&lt;host-name&gt;:&lt;port&gt;/acs</code>. You can add multiple assertion consumer URLs by repeating assertionConsumerUrls element.</li>
                 <li><b>defaultAssertionConsumerUrl  </b> <code>[String]</code> <br>
                     <div class="content-wrapper">
                         <p>As there can be multiple assertion consumer URLs, you must define a <strong>Default Assertion Consumer URL</strong> in case you are unable to retrieve it from the authentication request.</p>
@@ -135,17 +135,17 @@ This section guides you through the configurations you can include in a service 
                     </div>
                 </li>
                 <li><b>doSignResponse</b> <code>[Boolean]</code> <br>This is set to <code>true</code> to sign the SAML2 responses that is returned after the authentication process.</li>
-                <li><b>doValidateSignatureInRequests</b> <code>[Boolean]</code> <br>This is set <code>true</code> to specify whether the identity provider must validate the signature of the SAML2 authentication request and the SAML2 logout request that is sent by the service provider.</li>
+                <li><b>doValidateSignatureInRequests</b> <code>[Boolean]</code> <br>This is set to <code>true</code> to specify whether the identity provider must validate the signature of the SAML2 authentication request and the SAML2 logout request that is sent by the service provider.</li>
                 <li><b>doValidateSignatureInRequests</b> <code>[Boolean]</code> <br>This is set to <code>true</code> to specify whether the identity provider must validate the signature of the SAML2 authentication request and the SAML2 logout request that is sent by the service provider.</li>
                 <li><b>doEnableEncryptedAssertion</b> <code>[Boolean]</code> <br>This is set to <code>true</code> if you wish to encrypt the assertion.</li>
                 <li><b>doSignAssertions</b> <code>[Boolean]</code> <br>This is set to <code>true</code> or kept empty as a valid assertion should be signed.</li>
                 <li><b>doSingleLogout</b> <code>[Boolean]</code> <br>This is set to <code>true</code> if you want to terminate all sessions once the user signs out from one service provider. If single logout is enabled, the identity provider sends logout requests to all service providers. Basically, the identity provider acts according to the single logout profile. If the service provider supports a different URL for logout, you need to specify them using <code>sloResponseURL</code> and <code>sloRequestURL</code> parameters. These URLs indicate where the request and response should go to. If you do not specify this URL, the identity provider uses the Assertion Consumer Service (ACS) URL.</li>
-                <li><b>enableAttributeProfile</b> <code>[Boolean]</code> <br>The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Ste true to enable this profile. If you set true to <code>enableAttributesByDefault</code> parameter, the identity provider always includes the attribute values related to the requested claims in the SAML attribute statement.</li>
+                <li><b>enableAttributeProfile</b> <code>[Boolean]</code> <br>The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Set true to enable this profile. If you set true to <code>enableAttributesByDefault</code> parameter, the identity provider always includes the attribute values related to the requested claims in the SAML attribute statement.</li>
                 <li><b>requestedAudiences</b> <code>[String]</code> <br>This specifies the audiences.</li>
                 <li><b>requestedRecipients</b> <code>[String]</code> <br>This specifies the recipients.</li>
                 <li><b>idPInitSSOEnabled</b> <code>[Boolean]</code> <br>This is set <code>true</code> to enable IdP initiated SSO profile for the service provider.</li>
                 <li><b>idPInitSLOEnabled</b> <code>[Boolean]</code> <br>This is set <code>true</code> to enable IdP initiated SLO profile for the service provider.</li>
-                <li><b>assertionQueryRequestProfileEnabled</b> <code>[Boolean]</code> <br>This is set <code>true</code> to enable Assertion Query Request Profile to query assertions that are persisted to the database when you log in to the service provider application. For more information, see <a href="../../../guides/login/query-saml-assertions/">Querying SAML Assertions</a>.</li>           
+                <li><b>assertionQueryRequestProfileEnabled</b> <code>[Boolean]</code> <br>This is set <code>true</code> to enable Assertion Query Request Profile to query assertions that are persisted to the database when you log in to the service provider application. For more information, see <a href="../../../guides/login/query-saml-assertions/">Query SAML2 Assertions</a>.</li>           
                 <li><b>idpEntityIDAlias</strong></b><code>[String]</code><br/> This value can override identity provider entity Id that is specified under SAML SSO inbound authentication configuration of the resident identity provider. The Identity Provider Entity Id is used as the issuer of the SAML response that is generated by WSO2 Identity Server. By default, all the SAML responses that are issued by WSO2 Identity Server contain an issuer value that is similar to the identity provider entity Id of the resident identity provider's SAML SSO inbound authentication configuration. To make this value unique within a SAML service provider configuration, specify the value here causing the identity provider entity Id to be overridden by the identity provider Id alias.</li>
             </ul>                     
         </td>
@@ -330,7 +330,7 @@ This section guides you through the configurations you can include in a service 
 <table>
     <tr>
         <th>Description</th>
-        <td>To add a Service Provider with OAuth capability, add an OAuth application through the  OAuthAdminService  exposed at <code>https://<IS_HOST>:<IS_PORT>/services/OAuthAdminService?wsdl</IS_PORT>. Replace the tag <code><IS_HOST>:<IS_PORT></cide> with the relevant host and port number, e.g., <code>https://localhost:9443/services/OAuthAdminService?wsdl</code>. </td>
+        <td>To add a Service Provider with OAuth capability, add an OAuth application through the  OAuthAdminService  exposed at <code>https://&ltIS_HOST&gt:&ltIS_PORT&gt/services/OAuthAdminService?wsdl</code>. Replace the tag <code>&lt;IS_HOST&gt;:&ltIS_PORT&gt</code> with the relevant host and port number, e.g., <code>https://localhost:9443/services/OAuthAdminService?wsdl</code>. </td>
     </tr>
     <tr>
         <th>Permissions</th>
@@ -374,7 +374,7 @@ This section guides you through the configurations you can include in a service 
                 </li>
                 <li><b>oauthConsumerKey</b> <code>[String]</code> <br>This the consumer key of the OAuth application. If you keep this empty, Identity server will generate a consumer key.</li>
                 <li><b>oauthConsumerSecret</b> <code>[String]</code> <br>This the consumer secret of the OAuth application. If you keep this empty, Identity server will generate a consumer secret.</li>
-                <li><b>pkceMandatory</b> <code>[Boolean]</code> <br>This is set <code>true</code> if you are using the <code>Code</code> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. For more information, see <a href="../../deploy/mitigating-authorization-code-interception-attacks">Mitigating Authorization Code Interception Attacks</a>.</li>
+                <li><b>pkceMandatory</b> <code>[Boolean]</code> <br>This is set to <code>true</code> if you are using the <code>Code</code> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. For more information, see <a href="/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks">Mitigate Authorization Code Interception Attacks</a>.</li>
                 <li><b>pkceSupportPlain</b> <code>[Boolean]</code> <br>This is set <code>true</code> if you are using PKCE.</li>
                 <li><b>refreshTokenExpiryTime</b> <code>[String]</code> <br>This specifies the time the refresh token needs to expire. The value needs to be specified in milliseconds. </li>
                 <li><b>userAccessTokenExpiryTime</b> <code>[String]</code> <br>This specifies the time the user's access token needs to expire. The value needs to be specified in milliseconds.</li>
@@ -393,7 +393,7 @@ This section guides you through the configurations you can include in a service 
 
 ---
 
-## Sample request and response
+### Sample request and response
 
 ??? info "Click to view request and response formats"
 
@@ -661,6 +661,6 @@ This section guides you through the configurations you can include in a service 
 
 !!! info "Related Links"
     -   For key APIs relevant for developers, see [Using APIs](../../apis/use-apis). 
-    -   For a list of the operations that can be performed with different permission levelsSee [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services). 
+    -   For a list of the operations that can be performed with different permission levels, see [Permissions Required to Invoke Admin Services](/references/permissions-required-to-invoke-admin-services/). 
     -   The following article guides you through transforming existing SOAP-based services into REST services in WSO2 Identity Server:
         [Exposing WSO2 Identity Server Admin Services the REST Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).

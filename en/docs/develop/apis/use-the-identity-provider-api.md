@@ -1,4 +1,4 @@
-# Identity Provider API
+# Identity Provider SOAP API
 
 An Identity Provider (IdP) is responsible for issuing identification
 information for users looking to interact with a system. We can add and
@@ -9,13 +9,13 @@ This is exposed as a web service and the following operations are
 available.
 
 The service contract of this admin service can be found at
-https://<IS_HOST>:<IS_PORT>/services/IdentityProviderMgtService?wsdl.
-Replace the tag \<IS_HOST>:\<IS_PORT> with the relevant host and
+`https://<IS_HOST>:<IS_PORT>/services/IdentityProviderMgtService?wsdl`.
+Replace the tag `<IS_HOST`:`<IS_PORT>` with the relevant host and
 port number, for example:
-https://localhost:9443/services/IdentityProviderMgtService?wsdl.
+`https://localhost:9443/services/IdentityProviderMgtService?wsdl`
   
 !!! note
-    Prior to calling any of these admin services, you need to make them discoverable. See [Calling Admin Services](../../apis/call-admin-services) for information on how to do this.
+    Prior to calling any of these admin services, you need to make them discoverable. See [Call Admin Services](../../apis/call-admin-services) for information on how to do this.
     
 ---
 
@@ -156,7 +156,7 @@ these details, an IdP can be added and updated later on.
 
 ---
 
-## Claim configuration
+### Claim configuration
 
 ``` xml
 <xsd:claimConfig>
@@ -170,8 +170,7 @@ When configuring advance claims to the custom claim dialect, the
 following parameters can be added to the
 `         <claimMappings>        ` element. A sample
 `         <claimMappings>        ` element configured with advance claim
-configurations is similiar to the following:
-
+configurations is similar to the following:
 ``` xml
 <xsd:claimConfig>
 <localClaimDialect>true</localClaimDialect>
@@ -201,10 +200,10 @@ configurations is similiar to the following:
 ```
 ---
 
-## Just-in-time (JIT) provisioning
+### Just-in-time (JIT) provisioning
 
-With Just-in-Time provisioning, you can create users on the fly without
-having to create user accounts in advance. To configure JiT
+With just-in-time provisioning, you can create users on the fly without
+having to create user accounts in advance. To configure JIT
 provisioning, add the following snippet to the `         addIdp        `
 request body.
 
@@ -218,7 +217,7 @@ request body.
 
 ---
 
-## Role configuration
+### Role configuration
 
 ``` xml
 <permissionAndRoleConfig xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
