@@ -1050,7 +1050,7 @@ The inbound provisioning of the service provider can be configured.
 <tr class="even">
 <td><p>authenticationType</p></td>
 <td><p>String</p></td>
-<td><p>Depending on the requirement, the authentication type can be specified. The available types are: default, local, federated</p>
+<td><p>Depending on the requirement, the authentication type can be specified. The available types are <code>default</code>, <code>local</code>, and <code>federated</code></p>
 <br />
 
 <p>Refer the sample requests below on each authentication type configuration.</p></td>
