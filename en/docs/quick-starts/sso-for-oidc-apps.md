@@ -1,6 +1,6 @@
-# Configure Single Sign On for an Open ID Connect Application
+# Configure Single Sign-On for an Open ID Connect Application
 
-This page guides you through configuring [single sign on authentication](../../../references/concepts/single-sign-on) between two OIDC web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
+This page guides you through configuring [single sign-on authentication](../../../references/concepts/single-sign-on) between two OIDC web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
 
 ----
 If you have your own application, click the button below.
@@ -44,7 +44,7 @@ You will be redirected to the Pickup Dispatch application home page.
 
 3. Now, if you navigate to `http://wso2is.local:8080/pickup-manager` and click **Login**, you can see that user has been automatically logged in to this application without being prompted for user credentials.
 
-You have successfully configured OpenID Connect Single Sign-On for two web applications using WSO2 IS as the identity provider.
+You have successfully configured OpenID Connect single sign-on for two web applications using WSO2 IS as the identity provider.
 
 ----
 
