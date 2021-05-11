@@ -1,7 +1,7 @@
 # Configure SAML 2.0 Web SSO
 
-In a single sign on system there are two roles; Service Providers and
-Identity Providers. The important characteristic of a single sign on
+In a single sign-on system there are two roles; Service Providers and
+Identity Providers. The important characteristic of a single sign-on
 system is the pre-defined trust relationship between the service
 providers and the identity providers. Service providers trust the
 assertions issued by the identity providers and the identity providers

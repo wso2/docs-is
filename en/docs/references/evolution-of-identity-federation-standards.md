@@ -6,7 +6,7 @@ authorization mechanisms that only span a single boundary of trust.
 Hence, these organizations often provide and consume services across
 trust boundaries, which may include partners, subsidiaries, customers or
 suppliers and may span across multiple buildings, cities, states,
-countries and even continents. Identity federation and Single Sign On
+countries and even continents. Identity federation and single sign-on
 (SSO) come into the picture to provide and consume these services across
 trust boundaries.
 
@@ -29,17 +29,21 @@ This topic expands on Federated Identity and Single-Sign-On concepts.
 
 One of the key features in WSO2 Identity Server is SAML2-based
 Single-Sign-On (SSO) feature. This implementation complies with the
-[SAML2 Web Browser SSO profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf)
-and the [Single Logout Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf).
+SAML2 Web Browser SSO profile
+and the Single Logout Profile.
 
-Single Sign On (SSO) systems have become very popular since it is a very
+!!! info
+    Refer [here](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) for information on SAML 2.0 profiles.
+
+
+Single sign-on (SSO) systems have become very popular since it is a very
 secure and convenient authentication mechanism. Google Apps can be taken
-as the best example for a Single Sign On system where users can
+as the best example for a single sign-on system where users can
 automatically login to multiple web applications once they are
 authenticated at a one place using a single credential.
 
 Security Assertion Markup Language (SAML) version 2.0 Profiles
-Specification defines a web browser based single sign on system. This
+Specification defines a web browser based single sign-on system. This
 article briefly explains the SAML 2.0 web browser-based SSO profile and
 guides you to build your own SAML 2.0 Assertions Consumer using the
 OpenSAML 2.2.3 Java library. This section helps you to understand how
@@ -52,7 +56,7 @@ The following sections expand on SAML2 based SSO:
 
 ## About SSO
 
-In a single sign on system there are two roles; Service Providers and
+In a single sign-on (SSO) system there are two roles; Service Providers and
 Identity Providers (IP). The important characteristic of a single sign
 on system is the pre-defined trust relationship between the service
 providers and the identity providers. Service providers trust the
@@ -80,7 +84,7 @@ For more information on SSO, see [here](../../../references/concepts/single-sign
 
 With the release of WSO2 Identity Server 3.0, it supports the SAML 2.0
 web browser based SSO profile. WSO2 Identity Server can act as the
-identity provider of a single sign on system with minimal
+identity provider of a single sign-on system with minimal
 configurations. This section provides information on how to configure
 the identity server and how your applications can be deployed in a SAML
 2.0 web browser based SSO system.
@@ -89,7 +93,7 @@ the identity server and how your applications can be deployed in a SAML
 
 ## SSO in reality
 
-Single Sign On is widely used in web technologies. Google is one of the
+Single sign-on (SSO) is widely used in web technologies. Google is one of the
 best examples.
 
 Try this simple exercise,
@@ -121,7 +125,7 @@ Try this simple exercise,
 		[www.google.com/accounts/ServiceLogin](http://www.google.com/accounts/ServiceLogin)
 		and return immediately back to the website.
 
-Single Sign On (SSO) allows you to sign in only once but provides access
+Single sign-on (SSO) allows you to sign in only once but provides access
 to multiple resources without having to re-enter your username and
 password.
 
