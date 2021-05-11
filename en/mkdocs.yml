@@ -338,7 +338,7 @@ nav:
             - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md
             - 'Lite User Registration': learn/lite-user-registration.md
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
-          - 'Emails with Special Characters': learn/addi    ng-email-special-characters.md
+          - 'Emails with Special Characters': learn/adding-email-special-characters.md
           - 'Configuring Email Masking Pattern': learn/configure-email-masking-pattern.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
