@@ -401,18 +401,17 @@ nav:
                   - 'Manage Claims': develop/apis/manage-claims-with-apis.md
                   - 'Manage Permissions': develop/apis/manage-permissions-with-apis.md
                   - 'Count Users and User Roles': develop/apis/count-users-and-roles-using-management-console-and-admin-services.md
-                  - 'Manage User Stores': develop/apis/manage-user-stores-with-apis.md
+                  - 'Manage Userstores': develop/apis/manage-user-stores-with-apis.md
                   - 'Manage Tenants': develop/apis/manage-tenants-with-apis.md
               - 'User Information Recovery': develop/apis/user-information-recovery-service.md
               - 'Identity Application Management':
                   - 'Identity Application Management': develop/apis/identity-application-management-api.md
-                  - 'Use the Service Provider': develop/apis/use-the-service-provider-api.md
+                  - 'Service Provider API': develop/apis/use-the-service-provider-api.md
                   - 'Service Provider Configurations used with APIs': develop/apis/service-provider-configurations-used-with-apis.md
               - 'Identity Provider Management':
                   - 'Identity Provider Management': develop/apis/identity-provider-management-api.md
-                  - 'Use the Identity Provider': develop/apis/use-the-identity-provider-api.md
+                  - 'Identity Provider API': develop/apis/use-the-identity-provider-api.md
                   - 'Identity Provider Configurations used with APIs': develop/apis/identity-provider-configurations-used-with-apis.md
-          - 'Entitlement with APIs':
               - 'Entitlement with APIs': develop/apis/entitlement-with-apis.md
       - 'Extend':
           - 'Work with the Source Code': develop/extend/work-with-the-source-code.md
@@ -499,6 +498,7 @@ nav:
           - 'Configure a Read-write LDAP Userstore': deploy/configure-a-read-write-ldap-user-store.md
         - 'Add High Availability for LDAP': deploy/add-high-availability-for-ldap.md
         - 'Configure Secondary Userstores': deploy/configure-secondary-user-stores.md
+        - 'Carbon Remote User Store Manager': deploy/carbon-remote-user-store-manager.md
         - 'Work with Properties of Userstores': deploy/work-with-properties-of-user-stores.md
         - 'Write a Custom Userstore Manager': deploy/write-a-custom-user-store-manager.md
     - 'Work with Tokens': 
@@ -683,13 +683,13 @@ nav:
     - 'Overview': references/references-overview.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
-    - 'API Permissions': references/api-permissions.md
+    - 'SOAP API Permissions': references/api-permissions.md
     - 'New Configuration Model': references/new-configuration-model.md
-    - 'Error Catalog': references/error-catalog.md
+    - 'REST API Error Catalog': references/error-catalog.md
     - 'Product Startup Options': references/product-startup-options.md
-    - 'Supported Cipher Suites': references/supported-cipher-suites.md
+    #- 'Supported Cipher Suites': references/supported-cipher-suites.md
     - 'Directory Structure of WSO2 Products': references/directory-structure-of-wso2-products.md
-    - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
+    #- 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
     - 'Scopes Corresponding to Permissions Required to Invoke REST API Calls': references/scopes-corresponding-to-rest-api-permissions.md

@@ -106,7 +106,7 @@ some time.
 
 1.  Make the configuration changes indicated in the above
         section.
-2.  Do the following user store level changes for existing users:  
+2.  Do the following userstore level changes for existing users:  
        -   If you are connected to the
             `JDBCUserStoreManager`, update the
             `UM_USER_ROLE` table with the existing

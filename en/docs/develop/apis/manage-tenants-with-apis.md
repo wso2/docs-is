@@ -1,4 +1,4 @@
-# Manage Tenants with APIs
+# Manage Tenants with SOAP APIs
 
 This section guides you through invoking and working with the **Tenant**
 **ManagementService** and the operations you can work within this
@@ -27,10 +27,8 @@ Follow the steps below to view and invoke it:
     <https://localhost:9443/services/TenantMgtAdminService?wsdl>.
 
 For more information on WSO2 admin services and how to invoke an admin
-service using either SoapUI or any other client program, see [Calling
-Admin Services from
-Apps](../../../develop/apis/call-admin-services)
-section in WSO2 Carbon documentation.
+service using either SoapUI or any other client program, see [Call
+Admin Services](../../../develop/apis/call-admin-services).
 
 ---
 

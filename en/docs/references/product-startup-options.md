@@ -12,11 +12,13 @@ sh wso2server.sh -<startup option>
 
 For example:
 
-``` java
-./wso2server.sh -Dsetup (In Linux)
-wso2server.bat -Dsetup (In Windows)
+```tab="Linux"
+./wso2server.sh -Dsetup
 ```
 
+```tab="Windows"
+wso2server.bat -Dsetup
+```
   
 Listed below are some general options that can be used for starting the
 server.
@@ -25,9 +27,9 @@ server.
 |-----------------|-----------------------------------------------------------------------------------------------------|
 | -start          | Starts the Carbon server using "nohup" in the background. This option is not available for Windows. |
 | -stop           | Stops the Carbon server process. This option is not available for Windows.                          |
-| -restart        | Restarts the Carbon server process. This option is not available for windows.                       |
+| -restart        | Restarts the Carbon server process. This option is not available for Windows.                       |
 | -cleanRegistry  | Cleans the registry space. **Caution:** All registry data will be lost.                             |
-| -debug \<port\> | Starts the server in remote debugging mode. The remote debugging port should be specified.          |
+| -debug &lt;port&gt; | Starts the server in remote debugging mode. The remote debugging port should be specified.      |
 | -version        | Shows the version of WSO2 IS that you are running.                                                  | 
 | -help           | Lists all the available commands and system properties.                                             |
 
@@ -56,14 +58,18 @@ the server.
 </tr>
 <tr class="odd">
 <td>-Dsetup</td>
-<td>Cleans the registry and other configurations, recreates DB, re-populates the configuration and starts the server. <strong>Note:</strong> It is not recommended to use this option in a production environment. Instead, you can manually run the DB scripts directly in the database.</td>
+<td>Cleans the registry and other configurations, recreates DB, re-populates the configuration and starts the server. 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not recommended to use this option in a production environment. Instead, you can manually run the DB scripts directly in the database.</p>
+</td>
 </tr>
 <tr class="even">
 <td>-DworkerNode</td>
 <td><p>Starts WSO2 IS as a worker node, which means the front-end features of it will not be enabled.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-    <p>Note that from Carbon 4.4.1 onwards, you can also start the worker profile by setting the following system property to 'true' in the WSO2 IS startup script before the script is executed.</p>
+    <p>You can also start the worker profile by setting the following system property to 'true' in the WSO2 IS startup script before the script is executed.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">-DworkerNode=<span class="kw">false</span></a></code></pre></div>

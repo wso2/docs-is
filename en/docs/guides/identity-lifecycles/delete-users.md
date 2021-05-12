@@ -28,7 +28,7 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT
 curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Users/b228b59d-db19-4064-b637-d33c31209fae -H "Accept: application/json"
 ```
 
-You receive a response with status `200 OK` and the user will be deleted from the user store.
+You receive a response with status `200 OK` and the user will be deleted from the userstore.
 
 ---
 
