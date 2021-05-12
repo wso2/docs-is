@@ -31,7 +31,7 @@ To achieve this, Pickup's administrator can create user roles for each designati
 
 1. On the **Main** menu, click **Users and Roles > Add**. 
 
-    ![add-users-roles](../assets/img/learn/add-users-roles.png)
+    ![add-users-roles](/assets/img/learn/add-users-roles.png)
 
 2. Click **Add New Role**.
 
