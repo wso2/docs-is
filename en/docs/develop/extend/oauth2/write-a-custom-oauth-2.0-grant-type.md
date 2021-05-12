@@ -88,9 +88,9 @@ The following Maven buildable source is compatible with WSO2 Identity
 Server 5.1.0 onwards. The attached `          .jar         ` file can be
 directly used as well.
 
-| Buildable source   | [custom-grant.zip](../../../assets/attachments/custom-grant.zip)           |
+| Buildable source   | [custom-grant.zip](/assets/attachments/custom-grant.zip)           |
 |--------------------|-------------------------------------------------------------------|
-| Built jar file | [custom-grant-1.0.0.jar](../../../assets/attachments/custom-grant-1.0.0.jar) |
+| Built jar file | [custom-grant-1.0.0.jar](/assets/attachments/custom-grant-1.0.0.jar) |
 
 !!! note
     To generate the .jar file from the buildable source, run the following Apache Maven
@@ -241,7 +241,7 @@ You will receive a response similar to the following JSON response with the acce
         See [here](#use-the-grant-type-sample) for instructions on how to implement and use the mobile grant
         sample before adding the custom error codes to it.
 
-    In the downloaded Maven [buildable source](../../assets/attachments/custom-grant.zip), add  the following code segment in the sample class
+    In the downloaded Maven [buildable source](/assets/attachments/custom-grant.zip), add  the following code segment in the sample class
     `             org             .wso2.sample.identity.oauth2.grant.mobile.MobileGrant            `
     inside `             validateGrant()            ` method is the relevant
     code used for this mechanism.

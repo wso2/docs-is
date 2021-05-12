@@ -15,7 +15,7 @@ When setting up the WSO2 Identity Server cluster with Nginx, follow the instruct
    
 Following is the deployment diagram with the load balancer.
 
-![Deployment with the loadbalancer](../../assets/img/deploy/deployment-with-the-loadbalancer.png) 
+![Deployment with the loadbalancer](/assets/img/deploy/deployment-with-the-loadbalancer.png) 
 
 ---
 

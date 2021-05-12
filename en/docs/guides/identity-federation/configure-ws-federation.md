@@ -15,7 +15,7 @@ the following.
 3.  Fill in the details in the **Basic Information** section.
 
 4.  Expand the **WS-Federation(Passive) Configuration** form.  
-    ![ws-federation-passive-configuration](../../../assets/img/guides/ws-federation-passive-configuration.png)
+    ![ws-federation-passive-configuration](/assets/img/guides/ws-federation-passive-configuration.png)
     
 5.  Fill in the following fields where relevant.
 

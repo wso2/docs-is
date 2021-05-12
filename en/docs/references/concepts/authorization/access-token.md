@@ -7,7 +7,7 @@ consume a resource or not, by verifying the access token. The way the token endp
 invoked and the access token is generated differs based on the [grant type](insertlink). The ultimate audience of the access 
 token is the **Resource Server**,  so the client can not interpret the value of the access token.
 
-![access-token](../../assets/img/concepts/access-token.png)
+![access-token](/assets/img/concepts/access-token.png)
 
 1. The client sends a request for an access token to the authorization server by passing the required parameters of the 
    relevant grant type

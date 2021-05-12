@@ -20,7 +20,7 @@ have the `travelocity` application configured as a service provider and an
 identity provider configured and shared across its tenant space. This is
 illustrated via the following diagram.
 
-![Configuring a SP and IdP Using Configuration Files](../../../assets/img/deploy/configuration-files.md)
+![Configuring a SP and IdP Using Configuration Files](/assets/img/deploy/configuration-files.md)
 
 The following are the high level steps required for this scenario.
 
@@ -422,7 +422,7 @@ service provider in the ` service provider IS ` via a file.
         Please note that the management console will not show the SP-related
         configuration information if it is loaded through a file
 
-        ![no-service-providers](../../../assets/img/deploy/no-service-providers.png)
+        ![no-service-providers](/assets/img/deploy/no-service-providers.png)
 
 
 ---
@@ -445,7 +445,7 @@ Follow the instructions given below to run the travelocity application.
         **Service Providers** -> **List** -> Click **Edit** in the corresponding SP -> 
         **Inbound Authentication Configuration** -> **SAML2 Web SSO Configuration** -> **Edit**.
         
-        ![SAML2 Web SSO Configuration](../../../assets/img/deploy/sp_configs.png)
+        ![SAML2 Web SSO Configuration](/assets/img/deploy/sp_configs.png)
         
         If you have `not enabled` the configs, add the following configs to travelocity as well.
         
@@ -608,7 +608,7 @@ Now you can test if the configurations you have done work in a tenant scenario.
         Click on `            Public Key           ` link to download
         the certificate.  
         
-        ![](../assets/img/103329463/103329464.png)
+        ![](/assets/img/103329463/103329464.png)
         
     2.  Now you need to import this public certificate to
         `             <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/wso2carbon.jks            `

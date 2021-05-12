@@ -15,19 +15,19 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     for the first time.
     4. You will be navigated to the lightening theme of Salesforce.
     
-       ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png) 
+       ![welcome-to-lightening.png](/assets/img/guides/welcome-to-lightening.png) 
        
     !!! note    
         This document is explained using the Salesforce lightning theme. If
         you are using the classic theme, click **Switch to Lightning Experience** on the top panel. 
 
-        ![lighteninig-experience](../../assets/img/guides/switch-to-lightening.png)
+        ![lighteninig-experience](/assets/img/guides/switch-to-lightening.png)
 
 4.  Once you are logged in, create a new domain and access it. To do
     this, do the following steps.  
     1.  Search for **My Domain** in the search bar that is on the left
         navigation panel.  
-        ![my-domain](../../assets/img/guides/my-domain-salesforce.png)
+        ![my-domain](/assets/img/guides/my-domain-salesforce.png)
 
     2.  Click **My Domain**.
     3.  On the page that appears, come up with a name for your domain.
@@ -38,7 +38,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
 			For the page given below to load on your browser, make sure that
 			the Salesforce cookies are not blocked.
 
-        ![sales-force-cookies](../../assets/img/guides/domain-available-salesforce.png)
+        ![sales-force-cookies](/assets/img/guides/domain-available-salesforce.png)
 
     4.  If the domain is available, click **Register Domain** to register your new
         domain.
@@ -51,13 +51,13 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     
 6.  On the page that appears, click **Edit** and then select the **SAML
     Enabled** check box to enable federated single sign-on using SAML.  
-    ![saml-enabled](../../assets/img/guides/enable-saml-salesforce.png)
+    ![saml-enabled](/assets/img/guides/enable-saml-salesforce.png)
     
 7.  Click **Save**.
 
 8.  Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
-    ![saml-sso-setting](../../assets/img/guides/saml-sso-salesforce.png)
+    ![saml-sso-setting](/assets/img/guides/saml-sso-salesforce.png)
     
     Ensure that you configure the following properties.
 
@@ -158,7 +158,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     
 12. Under **Authentication Service**, select **SSO** instead of **Login
     Page**.  
-    ![authentication-service-sso](../../assets/img/guides/auth-config-salesforce.png)
+    ![authentication-service-sso](/assets/img/guides/auth-config-salesforce.png)
     
 13. Click **Save**.
 
@@ -255,11 +255,11 @@ Salesforce and the Identity Server.
 			click, **Single Sign-On Settings**.
 			
 		5.  Click on the name of the created **Single Sign-On Setting**. For this example, click **SSO**.  
-			![single-sign-on-setting](../../assets/img/guides/single-sign-on-setting.png)
+			![single-sign-on-setting](/assets/img/guides/single-sign-on-setting.png)
 			
 		6.  Copy the URL that is defined for **Login URL** to access
 			Salesforce.  
-			![login-url-for-salesforce](../../assets/img/guides/login-url-for-salesforce.png)
+			![login-url-for-salesforce](/assets/img/guides/login-url-for-salesforce.png)
 
 4.  Log in using the new credentials of the user you just created. You
     are then redirected back to Salesforce.

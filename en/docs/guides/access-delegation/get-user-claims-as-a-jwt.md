@@ -17,7 +17,7 @@ You can configure this for all tenants by configuring the `deployment.toml` file
 
 6. Select **JWT** as the **Token Issuer**.
  
-    ![jwt-token-issuer](../../assets/img/guides/jwt-token-issuer.png)
+    ![jwt-token-issuer](/assets/img/guides/jwt-token-issuer.png)
 
 7.  Click **Add**. 
 
@@ -110,7 +110,7 @@ Alternatively, you can also use the `OAuth2ValidationService` to send the reques
     Note that the response contains the recieved JWT token under the `<tokenString>` element. 
     If there are no requested claim URIs defined, all the claims that carry values for the user are returned.
     
-    ![jwt-request1]( ../../assets/img/guides/jwt-request1.png) 
+    ![jwt-request1](/assets/img/guides/jwt-request1.png) 
 
     The header contains the metadata for the token as seen below.
 

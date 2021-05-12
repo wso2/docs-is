@@ -15,5 +15,5 @@ relevant configuration files.
 
 The following diagram illustrates the required configurations and
 repositories:  
-![configuring-the-realm.png](../../../assets/img/deploy/configure-the-realm.png)
+![configuring-the-realm.png](/assets/img/deploy/configure-the-realm.png)
 

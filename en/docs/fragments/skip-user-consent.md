@@ -8,6 +8,6 @@
 3. Expand **Local & Outbound Authentication Configuration**. 
 
 4.  Enable **Skip Login consent**. 
-    ![skip login consent](../../assets/img/guides/skip-login-consent.png)
+    ![skip login consent](/assets/img/guides/skip-login-consent.png)
     
 5.  Click **Update** to save the changes.

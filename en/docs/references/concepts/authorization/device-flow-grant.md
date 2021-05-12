@@ -18,7 +18,7 @@ and then approves the access request.
 
 The diagram below illustrates the device flow.
 
-![device-flow](../../assets/img/concepts/deviceflow.png)
+![device-flow](/assets/img/concepts/deviceflow.png)
 
 
 (A) — The client sends an access request including it's client identifier to the authorization server.

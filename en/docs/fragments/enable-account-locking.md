@@ -27,7 +27,7 @@
 4.  Expand the **Login Attempts Security** tab.
 5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
 	
-	![login-policies](../../../assets/img/guides/login-policies.png) 
+	![login-policies](/assets/img/guides/login-policies.png) 
 
 	!!! tip
 		If a user is assigned the **Internal/system** role, the user can

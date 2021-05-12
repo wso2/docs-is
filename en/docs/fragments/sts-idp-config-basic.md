@@ -2,11 +2,11 @@
 
 1. Expand **Inbound Authentication Configuration > Security Token Service Configuration** and click **Apply Security Policy**.
 
-    ![apply-security-policy](../../../assets/img/fragments/apply-security-policy.png)
+    ![apply-security-policy](/assets/img/fragments/apply-security-policy.png)
 
 2. Select **Yes** in the **Enable Security?** drop down and select a pre-configured security scenario according to your requirements. 
 
-    ![enable-security-sts](../../../assets/img/fragments/enable-security-sts.png)
+    ![enable-security-sts](/assets/img/fragments/enable-security-sts.png)
 
 3. Click **Next**. 
 

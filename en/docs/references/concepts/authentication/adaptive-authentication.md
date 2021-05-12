@@ -6,7 +6,7 @@ Adaptive authentication, also known as step-up authentication, is an evolved and
 
 For instance, high-risk transactions such as a user attempting to transfer a high sum of money causes the adaptive authentication mechanism to prompt an extra authentication step like sending a one-time security code to the user's mobile phone, in order to increase security.
 
-![adaptive authentication](../../../assets/img/concepts/adaptive-authentication.png)
+![adaptive authentication](/assets/img/concepts/adaptive-authentication.png)
 
 ---
 

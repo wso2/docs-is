@@ -14,7 +14,7 @@ Features/APIs in the server can be deprecated for several reasons such as
 
 While deprecated features can still be available and support for existing users, they will not be further enhanced, nor recommended for use. Removal of deprecated capabilities will occur over a deprecation window, in which the feature will undergo several phases in the deprecation life-cycle. 
 
-![feature-deprecation-life-cycle](../../../assets/img/deploy/migrate/feature-deprecation-life-cycle.png)
+![feature-deprecation-life-cycle](/assets/img/deploy/migrate/feature-deprecation-life-cycle.png)
 
 The following terms refer to the different phases of the feature deprecation life cycle.
 

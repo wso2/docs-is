@@ -319,4 +319,4 @@ value which is created upon login.
 -   `UM_CREATED_TIME`
 -   `UM_TENANT_ID`
 
-![User management related tables](../../../assets/img/deploy/user-management-related-tables.png) 
+![User management related tables](/assets/img/deploy/user-management-related-tables.png) 

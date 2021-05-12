@@ -101,7 +101,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 
             Adding SMSOTP as a second step adds another layer of authentication and security.
     
-        <img name='sms-otp-authentication-steps' src='../../../assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
+        <img name='sms-otp-authentication-steps' src='/assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
 
 9. Click **Update** to save the changes.
 
@@ -131,7 +131,7 @@ This page guides you through configuring [two-factor authentication](../../../re
     - **Mapped Attribute (s)**: title
     - **Supported by Default**: checked
 
-    ![disable-emailotp-claim](../../assets/img/guides/disable-emailotp-claim.png)
+    ![disable-emailotp-claim](/assets/img/guides/disable-emailotp-claim.png)
 
 ---
 
@@ -143,7 +143,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 
 3. Next, you will receive a token to your email account. Enter the code to authenticate.  
 
-    ![sample-email-otp](../../assets/img/guides/sample-email-otp.png)
+    ![sample-email-otp](/assets/img/guides/sample-email-otp.png)
 
 4. If the authentication is successful, you will be redirected to the home page of the service provider.
 

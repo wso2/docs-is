@@ -54,7 +54,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
    
 2.  Select **Enable user mobile number verification on update**. Additionally, you can define the expiry time (in minutes) for the verification SMS OTP to match your requirement. 
     
-    ![](../../assets/img/guides/mobile-verification-on-update-config.png)
+    ![](/assets/img/guides/mobile-verification-on-update-config.png)
 
 3.  Click **Update** to save the changes. 
 

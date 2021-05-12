@@ -108,7 +108,7 @@ Request objects can either be signed or unsigned. Therefore, if you want to only
 
     If signature validation is successfully enforced, the request should get rejected and you should see an error page.
 
-    ![signature-validation-successful](../../../assets/img/samples/signature-validation-successful.png)
+    ![signature-validation-successful](/assets/img/samples/signature-validation-successful.png)
 
 ---- 
 

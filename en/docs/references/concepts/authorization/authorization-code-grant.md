@@ -21,7 +21,7 @@ authorization server.
 
 The diagram below illustrates the authorization code flow.
 
-![authorization-code](../../assets/img/concepts/authorization-code-grant-flow.png)
+![authorization-code](/assets/img/concepts/authorization-code-grant-flow.png)
 
 The commands below can be used to try this grant type.
 

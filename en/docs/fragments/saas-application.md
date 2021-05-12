@@ -5,6 +5,6 @@
 3. Click **Edit** adjacent to the service provider for which you want to enable SaaS. 
 
 4.  Enable **SaaS application**. 
-    ![saas-enable](../../assets/img/guides/saas-enable.png)
+    ![saas-enable](/assets/img/guides/saas-enable.png)
 
 5.  Click **Update** to save the changes.

@@ -8,4 +8,4 @@
 
 5.	Click **Add Claim URI** and add the following claims.
     
-    ![claim-mapping-saml](../../../assets/img/fragments/claim-mapping-saml.png)
+    ![claim-mapping-saml](/assets/img/fragments/claim-mapping-saml.png)

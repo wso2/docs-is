@@ -17,7 +17,7 @@ This allows smooth key rollover and integration.
 Following sequence diagram illustrates the scenario where a JWT obtained
 from a third party IDP is validated using the JWKS Based JWT Validator.
 
-![jwks-validation-flow]( ../../assets/img/concepts/jwks-validation-flow.png) 
+![jwks-validation-flow]( /assets/img/concepts/jwks-validation-flow.png) 
 
 The steps of the above diagram are explained below:
 

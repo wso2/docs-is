@@ -205,24 +205,24 @@ Follow the steps below to disable certificate validation if WSO2 Identity Server
 1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
 
 2.  Click **Main > Registry > Browse**.  
-    ![registry](../../assets/img/guides/registry.png)
+    ![registry](/assets/img/guides/registry.png)
     
 3.  Disable CRL certificate validation.
 
     1.  Locate the CRL parameter by entering
         `            _system/governance/repository/security/certificate/validator/crlvalidator           `
         in the **Location** search box.  
-        ![location](../../assets/img/guides/browse-registry-location.png)
+        ![location](/assets/img/guides/browse-registry-location.png)
         
     2.  Expand **Properties**.  
-        ![crlvalidator-properties](../../assets/img/guides/crlvalidator-properties.png)
+        ![crlvalidator-properties](/assets/img/guides/crlvalidator-properties.png)
         
     3.  Click **Edit** pertaining to the **Enable** property.  
-        ![crlvalidator-enable-property](../../assets/img/guides/crlvalidator-enable-property.png)  
+        ![crlvalidator-enable-property](/assets/img/guides/crlvalidator-enable-property.png)  
         
     4.  Change the value to `            false           ` and click
         **Save**.  
-        ![save-crlvalidator-disable](../../assets/img/guides/save-crlvalidator-disable.png)
+        ![save-crlvalidator-disable](/assets/img/guides/save-crlvalidator-disable.png)
         
 4.  Similarly, disable OCSP certificate validation in the
     `          _system/governance/repository/security/certificate/validator/ocspvalidator         `
@@ -303,17 +303,17 @@ retrieved certificate from the request.
 
 2.  On the **Main** tab, click **Claims > Add**. 
  
-    ![add-claim](../../assets/img/fragments/add-claim.png)
+    ![add-claim](/assets/img/fragments/add-claim.png)
     
 3.  Click **Add Local Claim**.  
 
-    ![add-local-claim](../../assets/img/fragments/add-local-claim.png)
+    ![add-local-claim](/assets/img/fragments/add-local-claim.png)
     
 4.  Add a new claim for the **certificate** by giving the details as
     below, e.g., select a mapped attribute for the claim that is
     supported by the underlying database type.
     
-    ![claim-mapped-attribute](../../assets/img/fragments/claim-mapped-attribute.png)
+    ![claim-mapped-attribute](/assets/img/fragments/claim-mapped-attribute.png)
     
 5.  Click **Add**.
 

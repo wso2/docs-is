@@ -18,12 +18,12 @@ account locking, follow the instructions given below.
 1.  Navigate to **Main** > **Identity** > **Claims** > **List** and select the `http://wso2.org/claims` claim dialect.  
     For more information about claims, see [Configure Claims](../../../guides/dialects/configure-claims/).
 2.  Select the **Account Locked** claim and click **Edit**.  
-    ![account-locked-claim](../../../assets/img/guides/account-locked-claim.png) 
+    ![account-locked-claim](/assets/img/guides/account-locked-claim.png) 
 3.  Select the **Supported by Default** check box and click **Update**
 .  
     This is done to make the "Account Locked" status appear in the
     user's profile.  
-    ![locked-status](../../../assets/img/guides/locked-status.png) 
+    ![locked-status](/assets/img/guides/locked-status.png) 
 
 ---
 
@@ -35,7 +35,7 @@ account locking, follow the instructions given below.
     seen below.  
     To lock the account, type true in the text box and click **Update**
 .  
-    ![admin-lock-account](../../../assets/img/guides/admin-lock-account.png)
+    ![admin-lock-account](/assets/img/guides/admin-lock-account.png)
 
 !!! note
     If it is not the first time you are locking this user account, there

@@ -54,7 +54,7 @@ OSGi console.
 
 5.  The list of admin services of your product are listed. For
     example:  
-    ![Admin services list](../../assets/img/apis/admin-services-list.png) 
+    ![Admin services list](/assets/img/apis/admin-services-list.png) 
 
     !!! info 
         The admin service's URL appears as follows in the list you discovered:

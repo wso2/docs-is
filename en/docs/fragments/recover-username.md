@@ -17,7 +17,7 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 
 3.	On the **Main** > **Identity** menu of the Management Console, click **Identity Providers** > **Resident**.
 
-	<img src="../../../assets/img/fragments/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
+	<img src="/assets/img/fragments/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
 4.	Under the **Account Management** section, click **Account Recovery**.	
 
@@ -25,6 +25,6 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 	-	**Username Recovery**
 	-	**Manage notifications sending internally**
 
-	<img src="../../../assets/img/fragments/user-name-recovery-options.png" alt="User Name Recover options" width="600" style="border:1px solid grey">  	
+	<img src="/assets/img/fragments/user-name-recovery-options.png" alt="User Name Recover options" width="600" style="border:1px solid grey">  	
 
 6.	Click **Update**. 

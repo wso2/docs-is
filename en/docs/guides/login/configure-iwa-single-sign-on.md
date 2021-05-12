@@ -67,7 +67,7 @@ client browser. You are logged into the WSO2 Identity Server without
 having to enter your password. The following is a part of the server log
 when the user is logged with IWA:
 
-![iwa-server-log](../../../assets/img/guides/iwa-server-log.png)
+![iwa-server-log](/assets/img/guides/iwa-server-log.png)
 
 Sometimes you may not be logged in automatically and you may be prompted
 to enter the username and password. The reason for that could be one of
@@ -78,16 +78,16 @@ the following.
     server should be added to the trusted websites of the browser.  
     -   For Internet explorer, go to “Tools → Internet Options” and in
         the “security” tab select local intranet.  
-        ![configure-iwa-for-browser-1](../../../assets/img/guides/configure-iwa-for-browser1.png)
+        ![configure-iwa-for-browser-1](/assets/img/guides/configure-iwa-for-browser1.png)
     -   Click the **Sites** button. Then add the URL of WSO2 Identity
         Server there.  
-        ![configure-iwa-browser-2](../../../assets/img/guides/configure-iwa-browser2.png)
+        ![configure-iwa-browser-2](/assets/img/guides/configure-iwa-browser2.png)
     -   For Firefox, type “ **about:config** ” in the address bar,
         ignore the warning and continue, this displays the advanced
         settings of Firefox. In the search bar, search for the key "
         **network.negotiate-auth.trusted-uris** " and add the WSO2
         Identity Server URL there.  
-        ![configure-iwa-browser-3](../../../assets/img/guides/configure-iwa-browser3.png)
+        ![configure-iwa-browser-3](/assets/img/guides/configure-iwa-browser3.png)
 -   The user may be attempting to access the WSO2 Identity Server from
     outside the domain of the user.
 -   The user may not have the sufficient permission within WSO2 Identity

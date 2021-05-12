@@ -54,7 +54,7 @@ Add a function library with the following properties.
 
 4. Select the **Supported By Default** checkbox to enable the birth date claim. 
 
-    ![enable-dob-claim](../../../assets/img/samples/enable-dob-claim.png)
+    ![enable-dob-claim](/assets/img/samples/enable-dob-claim.png)
 
 5. Create a user called "Alex" and edit the user profile.
 
@@ -141,10 +141,10 @@ Add a function library with the following properties.
 
 2. Click **Login** and enter Kim's credentials. 
 
-    ![pickup-sign-in-kim](../../../assets/img/samples/pickup-sign-in-kim.png)
+    ![pickup-sign-in-kim](/assets/img/samples/pickup-sign-in-kim.png)
 
 3. You are successfully logged in to the application.
 
 4. Log out and login as Alex. Note that you are now restricted from logging in because Alex is underage.  
 
-    ![age-validation](../../../assets/img/samples/age-validation.png)
+    ![age-validation](/assets/img/samples/age-validation.png)

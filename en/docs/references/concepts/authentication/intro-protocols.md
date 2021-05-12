@@ -12,7 +12,7 @@ deploy, it has some security considerations. If a malicious user is able
 to guess or obtain the password of a legitimate user, he/she will be able to 
 access the system.
 
-![password-authentication](../../assets/img/concepts/password-authentication-protocol.png)
+![password-authentication](/assets/img/concepts/password-authentication-protocol.png)
 
 As a solution for the security issues raised for the typical password authentication protocol, advanced authentication protocols came into play in order to securely transmit authentication data between entities.
 

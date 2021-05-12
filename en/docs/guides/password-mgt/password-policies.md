@@ -20,7 +20,7 @@ WSO2 Identity Server (IS) allows you to define custom password policies and enfo
 
 4.  Expand the **Password Patterns** tab and select **Validate passwords based on a policy pattern**. Update the default values and click **Update**.
     
-    ![password-policies](../../assets/img/guides/password-policies.png) 
+    ![password-policies](/assets/img/guides/password-policies.png) 
 
     !!! note "Configuring password policies for multiple tenants"
         To configure this separately for different tenants in a
@@ -747,7 +747,7 @@ Recording user password history can provide better security for user accounts. T
     
         To configure this separately for different tenants in a multi-tenant environment, first login with Tenant A credentials and configure the password policy. Next, logout and login again with Tenant B credentials to configure a different policy for Tenant B.
       
-    ![password-history-validation](../../assets/img/guides/password-history-validation.png) 
+    ![password-history-validation](/assets/img/guides/password-history-validation.png) 
 
 ----
 

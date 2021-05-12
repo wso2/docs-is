@@ -30,7 +30,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 
             Adding TOTP as a second step adds another layer of authentication and security.
     
-         <img name='totp-authentication-steps' src='../../../assets/img/guides/totp-authentication-steps.png' class='img-zoomable'/>
+         <img name='totp-authentication-steps' src='/assets/img/guides/totp-authentication-steps.png' class='img-zoomable'/>
 
 7. Click **Update** to save the changes.
 

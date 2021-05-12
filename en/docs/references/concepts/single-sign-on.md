@@ -16,7 +16,7 @@ Within a single sign-on system, there are two main entities; the applications an
 
 The identity provider is responsible for authenticating the user and issuing an assertion or access token, which contains authentication data, authorization data, and attributes related to the user. The connected application trusts the assertion or access token issued by the identity provider and uses it to authenticate the user to the application. 
 
-<img name='sso-diagram' src='../../../assets/img/concepts/sso-diagram.png' class='img-zoomable'/>
+<img name='sso-diagram' src='/assets/img/concepts/sso-diagram.png' class='img-zoomable'/>
 
 Authentication requests and information are passed using standard, secure protocols, such as [SAML](TODO:link-to-concept) or [OpenID Connect](../authentication/intro-oidc). 
 

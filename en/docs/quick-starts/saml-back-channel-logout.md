@@ -33,19 +33,19 @@ The user is required to log in to two different applications. For convenience an
 
 2.  Log in using admin/admin credentials. 
 
-    ![pickup-dispatch](../../../assets/img/samples/pickup-dispatch.png)
+    ![pickup-dispatch](/assets/img/samples/pickup-dispatch.png)
 
 3.  Access the Pickup Manager application, `http://localhost.com:8080/saml2-web-app-pickup-manager.com/index.jsp`.
 
 4.  Log in using admin/admin credentials. 
 
-    ![pickup-manager](../../../assets/img/samples/pickup-manager.png)
+    ![pickup-manager](/assets/img/samples/pickup-manager.png)
 
 5.  Now log out of the Pickup Dispatch application. 
 
 6.  You can see that you have been logged out of the Pickup Manager application as well. 
 
-    ![backchannel-logout](../../../assets/img/samples/backchannel-logout.png)
+    ![backchannel-logout](/assets/img/samples/backchannel-logout.png)
     
 ---
 

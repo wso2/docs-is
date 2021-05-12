@@ -12,7 +12,7 @@ Instead of redirecting the user to the authorization server, the client itself w
 owner's username and password. The client will then send these credentials to the authorization server along with the
 client’s own credentials.
 
-![password-grant](../../assets/img/concepts/password-grant-flow.png)
+![password-grant](/assets/img/concepts/password-grant-flow.png)
 
 One of the following cURL commands can be used to try this grant type.
 

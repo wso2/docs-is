@@ -52,7 +52,7 @@ which is `         carbon.super        `.
 4.  Expand the **Self Registration** section and configure the
     following properties.
     
-    ![user-self-registration](../../../assets/img/guides/user-self-registration.png) 
+    ![user-self-registration](/assets/img/guides/user-self-registration.png) 
     
     <table>
     <thead>
@@ -124,7 +124,7 @@ purposes and appropriate user attributes:
 3.  Select `Click here` to configure self-registration consent purposes. This displays 
 the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purposes.
 
-    ![self-registration](../../../assets/img/guides/account-policies.png)   
+    ![self-registration](/assets/img/guides/account-policies.png)   
     
 
 4.  Click **Add New Purpose**. 
@@ -137,7 +137,7 @@ the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purp
         You can add one or more user attributes to obtain consent for a
         particular purpose.
     
-    ![user-attributes-for-consent](../../../assets/img/guides/user-attributes-for-consent.png) 
+    ![user-attributes-for-consent](/assets/img/guides/user-attributes-for-consent.png) 
 
 6.  If you want consent on a specific user attribute to be mandatory,
     select the **Mandatory** check box for that attribute.
@@ -182,11 +182,11 @@ Next, you can try out self-registration.
         `           foo.com          `, the username needs to be
         `           kim@foo.com          `
 
-    ![register-users-for-tenant](../../../assets/img/guides/register-users-for-tenant.png) 
+    ![register-users-for-tenant](/assets/img/guides/register-users-for-tenant.png) 
 
 3.  Fill in the user details, provide consent to share the requested
     information and then click **Register**.
-    ![self-signup-form](../../../assets/img/guides/self-signup-form.png) 
+    ![self-signup-form](/assets/img/guides/self-signup-form.png) 
         
     ??? Abstract "Click to see steps on configuring requested attributes for self registration" 
         
@@ -198,7 +198,7 @@ Next, you can try out self-registration.
         configuration enabled. 
         -   For example see below configurations of the
         department claim.
-        ![self-signup-required-claim-config](../../../assets/img/guides/self-signup-required-claim-config.png)
+        ![self-signup-required-claim-config](/assets/img/guides/self-signup-required-claim-config.png)
 
     
 4.  Once the user has registered, they will receive a confirmation mail.
@@ -218,7 +218,7 @@ Next, you can try out self-registration.
         you should not have confirmed the account.
 
     2.  Click on the **Re-Send** link to resend the email.  
-        ![resend-link](../../../assets/img/guides/resend-link.png) 
+        ![resend-link](/assets/img/guides/resend-link.png) 
 
     !!! tip
         The email template used to resend the confirmation email
@@ -241,7 +241,7 @@ Next, you can try out self-registration.
         For more information about account locking, see [Account
         Locking](../../../guides/identity-lifecycles/lock-accounts-by-failed-login-attempts/).
     
-        ![account-locking](../../../assets/img/guides/account-locking.png)
+        ![account-locking](/assets/img/guides/account-locking.png)
 
 ---
 

@@ -26,7 +26,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **IP-Based**. 
 
-    ![ip-based-template](../../../assets/img/samples/ip-based-template.png)
+    ![ip-based-template](/assets/img/samples/ip-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps are configured. 
     
@@ -46,10 +46,10 @@ Consider a scenario where you wish to add security for users logging in from ext
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../../../assets/img/samples/delete-authenticator-1.png)
+        ![delete authenticator](/assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator](/assets/img/samples/add-new-authenticator.png)
 
 9.  Click **Update**.
 
@@ -99,7 +99,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
     Note that you are now prompted to provide hardware key authentication because you are logging in from an IP address that is external to the configured network.
 
-    ![hardware-key-authenticator](../../../assets/img/samples/hardware-key-authenticator.png)
+    ![hardware-key-authenticator](/assets/img/samples/hardware-key-authenticator.png)
 
     !!! tip
         You can also try this scenario with two different machines

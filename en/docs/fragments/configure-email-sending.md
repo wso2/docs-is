@@ -36,9 +36,9 @@
         1.  Navigate to <https://myaccount.google.com/security>.
     
         2.  Click **Signing in to Google** and make sure that the **2-step Verification** is disabled or off.
-            ![google-2-step-verification](../../assets/img/fragments/google-2-step-verification.png)
+            ![google-2-step-verification](/assets/img/fragments/google-2-step-verification.png)
     
         3.  Click **Less secure app access** and enable **Allow less secure apps: ON**.
-            ![allow-less-secure-apps](../../assets/img/fragments/allow-less-secure-apps.png)  
+            ![allow-less-secure-apps](/assets/img/fragments/allow-less-secure-apps.png)  
     
 2. Restart the server once configurations are in place. 

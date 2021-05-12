@@ -39,13 +39,13 @@ Ensure to replace all values that refer to "playground2" with "playground3" incl
 
 	- **Authorize Endpoint:** `https://localhost:9443/oauth2/authorize`
     
-    <img name='implicit-with-playground' src='../../assets/img/samples/implicit-with-playground.png' class='img-zoomable'/>
+    <img name='implicit-with-playground' src='/assets/img/samples/implicit-with-playground.png' class='img-zoomable'/>
 	
 3. Click **Authorize**. 
 
 4. Log in with user credentials (e.g., admin/admin). At this point, the application receives the ID token. 
 
-	<img name='implicit-id-token' src='../../assets/img/samples/implicit-id-token.png' class='img-zoomable'/>
+	<img name='implicit-id-token' src='/assets/img/samples/implicit-id-token.png' class='img-zoomable'/>
 
 5. Now, access the following URL on a browser window to access "playground3": `http://wso2is.local:8080/playground3/`
 

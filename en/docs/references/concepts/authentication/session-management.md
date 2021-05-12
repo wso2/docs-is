@@ -41,7 +41,7 @@ This endpoint responsibles to logging out an end-user once the client performs a
 
 Following diagram represents the flow.
 
-![session-management](../../../assets/img/concepts/session-management.png)
+![session-management](/assets/img/concepts/session-management.png)
 
 - Once the end-user needs to login to the RP, the RP sends an authentication request to the OP.
 - The OP responds back with the **session_state**.

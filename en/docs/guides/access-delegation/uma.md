@@ -61,7 +61,7 @@ behalf of the requesting party.
 
 7. Make sure **urn:ietf:params:oauth:grant-type:uma-ticket** is selected from the **Allowed Grant Types** list.
 
-    ![uma-grant-type](../../assets/img/guides/uma-grant-type.png)
+    ![uma-grant-type](/assets/img/guides/uma-grant-type.png)
         
 8. Enter the **Callback Url**.
 
@@ -237,7 +237,7 @@ Follow the steps given below to create, register and publish a policy:
 5.  **Save** the policy. You will see the new policy that you created
     listed in the **Policy Administration** page.  
     
-    ![add-uma-policy](../../assets/img/guides/add-uma-policy.png) 
+    ![add-uma-policy](/assets/img/guides/add-uma-policy.png) 
 
 6.  Select the policy and click **Publish To My PDP**. This displays
     the **Publish Policy** page.
@@ -247,7 +247,7 @@ Follow the steps given below to create, register and publish a policy:
 8.  Click **Yes**. This publishes the policy. If you want to view the
     published policy, click **Policy View** under **PDP**. 
      
-    ![view-uma-policy](../../assets/img/guides/view-uma-policy.png) 
+    ![view-uma-policy](/assets/img/guides/view-uma-policy.png) 
 
 
 Now that the resource owner has put their resource under the authorization server protection, 

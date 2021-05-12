@@ -22,7 +22,7 @@ template: templates/2-column.html
             <div class="card" onclick="location.href='../../deploy/minikube';">
 	              <div class="line"></div>
          	      <div class="icon">
-		                 <img src="../../assets/img/deploy/minikube.png">
+		                 <img src="/assets/img/deploy/minikube.png">
 	              </div>
                 <div class="card-content" >
               	    <p class="title">Minikube</p>
@@ -34,7 +34,7 @@ template: templates/2-column.html
             <div class="card" onclick="location.href='../../deploy/docker-desktop';">
                 <div class="line"></div>
                 <div class="icon">
-                    <img src="../../assets/img/deploy/free.png">
+                    <img src="/assets/img/deploy/free.png">
                 </div>
                 <div class="card-content">
                     <p class="title">Docker Desktop</p>
@@ -51,7 +51,7 @@ template: templates/2-column.html
             <div class="card" onclick="location.href='../../deploy/eks';">
 	              <div class="line"></div>
          	      <div class="icon">
-		                 <img src="../../assets/img/deploy/amazon-eks.png">
+		                 <img src="/assets/img/deploy/amazon-eks.png">
 	              </div>
                 <div class="card-content" >
               	    <p class="title">EKS</p>

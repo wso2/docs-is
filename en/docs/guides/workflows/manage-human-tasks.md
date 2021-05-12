@@ -11,21 +11,21 @@ Human tasks are the steps that require human interaction in order to allow the p
         All pending status workflows are denoted in this manner with
         disabled or greyed out functions.
     
-    ![workflow-pending-status](../../../assets/img/guides/workflows/console.png)  
+    ![workflow-pending-status](/assets/img/guides/workflows/console.png)  
 
 3.  [Sign in to the User Portal](../../../guides/my-account/my-account) as a manager. 
 
 4.  Choose **Operations** from the left panel. Select **Ready** tab in **Pending Approvals**.  
 
-    ![pending-approvals](../../../assets/img/guides/workflows/pending-list.png)       
+    ![pending-approvals](/assets/img/guides/workflows/pending-list.png)       
     
 5.  To view more information about the request, click the **show more** button corresponding to the request made for user, Alex.
 
-    ![workflow-task-status](../../../assets/img/guides/workflows/pending-info.png) 
+    ![workflow-task-status](/assets/img/guides/workflows/pending-info.png) 
 
 6.  Click on the button corresponding to a state to move the state of the selected task to a new state and to complete
     the workflow approval process. For example, clicking **Approve** will approve the pending task and complete the workflow process. Now you can find this request in the **Completed** tab.  
-    ![approving-pending-task](../../../assets/img/guides/workflows/approved.png)   
+    ![approving-pending-task](/assets/img/guides/workflows/approved.png)   
 
     | Operation  | Description                                                                                                                                                               |
     |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

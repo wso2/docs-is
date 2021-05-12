@@ -7,7 +7,7 @@
    binding. Once this is enabled, WSO2 Identity Server responds to each
    SAML SSO authentication request with an artifact.
 
-    ![enable-artifact-binding](../../../assets/img/fragments/enable-artifact-binding.png)
+    ![enable-artifact-binding](/assets/img/fragments/enable-artifact-binding.png)
 
 3.  You can also enable signature validation by selecting **Enable
     Signature Validation in Artifact Resolve Request**. Once this is

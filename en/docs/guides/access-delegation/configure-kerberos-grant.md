@@ -6,7 +6,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
 ## Enable kerberos grant
 
-1.  Download the [kerberos grant.jar](../../assets/attachments/kerberos-grant-1.0.0.jar) file.
+1.  Download the [kerberos grant.jar](/assets/attachments/kerberos-grant-1.0.0.jar) file.
 
 2.  Copy the JAR into the `<IS_HOME>/repository/components/lib` directory.
 
@@ -48,7 +48,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
 2. On **Main** tab Click **Identity** > **Identity Providers** > **Add**.
 
-    ![add-identity-provider](../../../assets/img/fragments/add-identity-provider.png)
+    ![add-identity-provider](/assets/img/fragments/add-identity-provider.png)
 
 3. Add a new Identity Provider (IDP). Enter the basic information as follows.
    
@@ -61,14 +61,14 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
    
         -   **Alias** : <https://192.168.53.12:9443/oauth/token>
    
-        ![add-new-idp-kerberos](../../assets/img/guides/add-new-idp-kerberos.png)
+        ![add-new-idp-kerberos](/assets/img/guides/add-new-idp-kerberos.png)
 
 4. Expand the **Federated Authenticators** tab, and then the **IWA Kerberos Configuration** tab. Enter the required details as follows.  
        
     -   **Server Principal Name** : <HTTP/idp.example.com@EXAMPLE.COM>
     -   **Server Principal Password:** <password\>
 
-        ![configure-kerberos](../../assets/img/guides/configure-kerberos.png)
+        ![configure-kerberos](/assets/img/guides/configure-kerberos.png)
 
 5. Click **Register**.
 

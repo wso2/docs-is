@@ -16,7 +16,7 @@ locking and disabling. Follow the below steps to do this configuration.
 2.  <a name = "accountdisabling"></a> Click **Main** > **Identity** > **Identity Providers** > **Resident**.
 3.  Expand the **Account Management** tab.
 4.  Expand the **Account Disable** tab and select the **Enable account disabling** checkbox. Click **Update** to save changes.  
-	![account-disabling](../../../assets/img/guides/account-disabling.png) 
+	![account-disabling](/assets/img/guides/account-disabling.png) 
     
     !!! tip "Disable the account disabling feature"
         To disable the account disabling option, unselect the **Enable
@@ -33,7 +33,7 @@ locking and disabling. Follow the below steps to do this configuration.
         ```
 5.  Next, enable account locking. Expand the **Login Attempts Security** tab.
 6.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
-    ![enable-locking](../../../assets/img/guides/enable-locking.png) 
+    ![enable-locking](/assets/img/guides/enable-locking.png) 
 
     !!! tip
     
@@ -72,7 +72,7 @@ management console.
     this.
 
 3.  Tick the checkbox **Supported by Default** and click **Update.**  
-    ![click-supported-by-default](../../../assets/img/guides/click-supported-by-default.png) 
+    ![click-supported-by-default](/assets/img/guides/click-supported-by-default.png) 
 4.  Navigate to **Main** > **Identity** > **Users and Roles** > **List** > **Users** and click on
     **User Profile** of the user account that you want to disable.
 5.  Tick the **Account Disabled** checkbox and click **Update**.

@@ -26,7 +26,7 @@ The instructions below guide you through specifying authentication steps based o
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **New-Device-Based**. 
 
-    ![device-based-template](../../../assets/img/samples/device-based-template.png)
+    ![device-based-template](/assets/img/samples/device-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -49,10 +49,10 @@ The instructions below guide you through specifying authentication steps based o
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../../../assets/img/samples/delete-authenticator-1.png)
+        ![delete authenticator](/assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator](/assets/img/samples/add-new-authenticator.png)
 
 9.  Click **Update**.
 
@@ -75,7 +75,7 @@ The instructions below guide you through specifying authentication steps based o
     
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    ![dispatch-login](../../../assets/img/samples/dispatch-login.png)
+    ![dispatch-login](/assets/img/samples/dispatch-login.png)
 
 2.  Click **Login** and enter Kim's credentials. 
 
@@ -85,7 +85,7 @@ The instructions below guide you through specifying authentication steps based o
 
     You are successfully logged in to the application.  
 
-    ![hardware-key-authenticator](../../../assets/img/samples/hardware-key-authenticator.png) 
+    ![hardware-key-authenticator](/assets/img/samples/hardware-key-authenticator.png) 
 
 4.  Log out and log in again using Kim's credentials on the same browser window. 
 

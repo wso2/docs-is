@@ -13,7 +13,7 @@ two approaches and how to configure them.
 
 ## Synchronous token persistence
 
-![synchronous-token-persistence](../../../assets/img/deploy/token-persistence.png) 
+![synchronous-token-persistence](/assets/img/deploy/token-persistence.png) 
 
 The flow of synchronous token persistence is as follows:
 

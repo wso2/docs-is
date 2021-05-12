@@ -20,7 +20,7 @@ When an entity initiates a request to gain access to an application:
 
 The diagram below illustrates the jwt bearer grant flow.
 
-![jwt-grant](../../assets/img/concepts/jwt_bearer_grant_type.png)
+![jwt-grant](/assets/img/concepts/jwt_bearer_grant_type.png)
 
 Following cURL commands can be used to try this grant type.
 

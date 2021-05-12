@@ -8,13 +8,13 @@ require the user’s permission. This grant should be allowed for use only by tr
 ### How does it work ?
 
 The client can request an access token using only its client credentials with this grant type. It is similar to the 
-[resource owner password credentials grant type](resource-owner.md) except in this case, only the client’s credentials 
+[resource owner password credentials grant type](/references/concepts/authorization/resource-owner-grant) except in this case, only the client’s credentials 
 are used to authenticate a request for an access token.
 
 The diagram below illustrates the implicit grant flow.
 
 
-![client-credential-grant](../../../assets/img/concepts/client-credential-flow.png)
+![client-credential-grant](/assets/img/concepts/client-credential-flow.png)
 
 One of the following cURL commands can be used to try this grant type.
 

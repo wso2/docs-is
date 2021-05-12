@@ -36,7 +36,7 @@ This guide assumes you have your own application. If you wish to try out this fl
     2. **Enable Recipient Validation**
          - **Recipient**: `https://localhost:9443/oauth2/token`
    
-    ![enable-audience-restriction](../../assets/img/samples/enable-audience-restriction.png) 
+    ![enable-audience-restriction](/assets/img/samples/enable-audience-restriction.png) 
 
 5. Click **Update** to save changes. 
 

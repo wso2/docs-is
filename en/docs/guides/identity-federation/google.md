@@ -25,21 +25,21 @@ This guide assumes you have your own application. If you wish to try out this fl
 		If you do not see the Apps button on the home page, click **More
 		Controls** at the bottom of the page.
 
-	![more-controls-saml-apps](../../../assets/img/samples/saml-app.png)
+	![more-controls-saml-apps](/assets/img/samples/saml-app.png)
 	
 
 5.  Click on the 
-    ![more-controls-icon](../../../assets/img/samples/more-controls.png) icon found at
+    ![more-controls-icon](/assets/img/samples/more-controls.png) icon found at
     the bottom-right of the page.
 6.  Click **SETUP MY OWN CUSTOM APP**  
-    ![setup-my-own-custom-app](../../../assets/img/samples/set-up-my-own-app.png)
+    ![setup-my-own-custom-app](/assets/img/samples/set-up-my-own-app.png)
     
 7.  Click **Download** next to the **IDP Metadata** field to download
     the Google identity provider metadata.  
     A `          GoogleIDPMetadata.xml         ` file is downloaded on
     to your machine.  
     
-    ![idp-metadata](../../../assets/img/samples/download-idp-metadata.png)
+    ![idp-metadata](/assets/img/samples/download-idp-metadata.png)
     
 8.  Click **Next** and enter an **Application Name** and **Description**
     for your application. This is the name and description that your
@@ -69,17 +69,17 @@ This guide assumes you have your own application. If you wish to try out this fl
 5.  Select **Metadata File Configuration** as the **Mode** and upload
     the `          GoogleIDPMetadata         `.xml file you downloaded
     earlier.  
-    ![metadata-file-config](../../../assets/img/guides/metadata-file-config.png)
+    ![metadata-file-config](/assets/img/guides/metadata-file-config.png)
     
 6.  Click **Register** to save the identity provider configurations.
 7.  Once the IdP is registered, it is listed under Identity
     Providers. Click **Edit** and expand **Federated
     Authenticators\>SAML2 Web SSO Configuration**.  
-    ![idp-list](../../../assets/img/guides/idp-list.png)
+    ![idp-list](/assets/img/guides/idp-list.png)
     
 8.  Select **Enable Logout** and enter "
     https://accounts.google.com/logout" as the Logout URL.
-    ![enter-the-logout-url](../../../assets/img/guides/enter-the-logout-url.png)
+    ![enter-the-logout-url](/assets/img/guides/enter-the-logout-url.png)
     
 9. Click **Update** to save the changes.
 

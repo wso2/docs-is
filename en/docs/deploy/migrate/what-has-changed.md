@@ -77,7 +77,7 @@ From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups an
 - A group can be assigned to multiple users
 - A user can have multiple groups
 
-![relationship-between-groups-and-roles](../../../assets/img/deploy/migrate/groups-roles-relationship.png)
+![relationship-between-groups-and-roles](/assets/img/deploy/migrate/groups-roles-relationship.png)
 
 ---
 
@@ -390,7 +390,7 @@ There are two types of access token binding supported with WSO2 IS; **Cookie Bas
 
 WSO2 IS 5.11.0 supports the functionality to revoke access tokens issued for the application once the IDP session terminates.  When the user logs out of the application, the access tokens of the token binding reference issued for the application gets revoked. This functionality can be enabled when configuring the service provider OAuth/OIDC inbound authentication. 
 
-![revoke-tokens](../../../assets/img/deploy/migrate/revoke-tokens-config.png)
+![revoke-tokens](/assets/img/deploy/migrate/revoke-tokens-config.png)
 
 WSO2 IS 5.11.0 also supports revoking the issued tokens for a session that has expired due to a session idle timeout when a user tries to use single sign-on, log in again, or log out after a session has expired.
 
@@ -418,7 +418,7 @@ read_only_apps = []
 
 When creating roles through the management console in WSO2 IS-5.11.0 onwards, the domain must be specified as **Internal**. Else, it will be created as a group. 
 
-![workflow-roles](../../../assets/img/deploy/migrate/workflow-roles.png)
+![workflow-roles](/assets/img/deploy/migrate/workflow-roles.png)
 
 When adding workflows, groups will not be listed as roles under the approval step. Hence, to select a 'role' for a particular approval step in a workflow, create that role with the **Internal** domain via the management console.  
 

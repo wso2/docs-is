@@ -34,7 +34,7 @@ To enable OIDC back-channel logout, the relying party/client application needs t
 
         Note the listed identity provider's **Logout Endpoint URL**. 
         
-        ![oidc-logout-url](../../../assets/img/guides/oidc-logout-url.png)
+        ![oidc-logout-url](/assets/img/guides/oidc-logout-url.png)
 
 - If you are using a different identity provider, use the [OpenID Connect discovery](../oidc-discovery) endpoint to obtain the OpenID Provider's logout endpoint URL. The logout endpoint URL can be discovered using the `end_session_endpoint` parameter in the OIDC Discovery response.
 

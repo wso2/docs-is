@@ -40,7 +40,7 @@ prompted to enter valid credentials to log in to the system.
 
 The following diagram indicates how the authentication procedure works.
 
-![iwa-sso-diagram](../../../assets/img/concepts/iwa-sso-diagram1.png)
+![iwa-sso-diagram](/assets/img/concepts/iwa-sso-diagram1.png)
 
 1.  The user (who is already authenticated to the Windows domain when
     they log in to Windows) sends a usual request to a protected page of

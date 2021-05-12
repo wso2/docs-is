@@ -8,7 +8,7 @@ tokens are not allowed and do not guarantee long-lived access tokens.
 
 The following diagram shows how authentication happens using this client profile.
 
-![implicit-client-profile](../../assets/img/concepts/implicit-client-profile.png)
+![implicit-client-profile](/assets/img/concepts/implicit-client-profile.png)
 
 
 1. The client prepares an authentication request containing the desired request parameters and the client sends the 

@@ -12,7 +12,7 @@
         are configuring WS-Federation for.  This endpoint URL will
         handle the token response.
         
-        ![ws-federation-passive.png](../../../assets/img/guides/ws-federation-passive.png)
+        ![ws-federation-passive.png](/assets/img/guides/ws-federation-passive.png)
 
         !!! tip
         

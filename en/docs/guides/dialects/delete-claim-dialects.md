@@ -11,9 +11,9 @@ admin console.
 2.  In **Main** tab click **List** under **Claims** menu.
 3.  Locate the claim dialect you want to delete and click on the
     **Delete** link next to the dialect.  
-    ![claim-dialect-delete-link](../../assets/img/guides/claim-dialect-delete-link.png)
+    ![claim-dialect-delete-link](/assets/img/guides/claim-dialect-delete-link.png)
 4.  Confirm your request in the dialog window by clicking **Yes**.  
-    ![confirm-claim-deletion](../../assets/img/guides/confirm-claim-deletion.png)
+    ![confirm-claim-deletion](/assets/img/guides/confirm-claim-deletion.png)
 
 ---
 

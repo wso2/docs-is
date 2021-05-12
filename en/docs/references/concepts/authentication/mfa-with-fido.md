@@ -9,7 +9,7 @@ FIDO protocols are based on public key cryptography and are strongly resistant t
 - Universal Authentication Framework (UAF)
 - Universal Second Factor (U2F)
 
-![fido](../../assets/img/concepts/fido.png)
+![fido](/assets/img/concepts/fido.png)
 
 ---
 
@@ -46,7 +46,7 @@ The following are the two main operations that take place when using FIDO U2F.
 
 Both the registration and authentication operations consist of three **phases** as shown in the diagram below.
 
-![u2f-protocol-operations](../../assets/img/concepts/u2f-protocol-operations.png)
+![u2f-protocol-operations](/assets/img/concepts/u2f-protocol-operations.png)
 
 1.  **Setup**: In this phase, the FIDO Client contacts the relying party and obtains a challenge. Using the challenge (and possibly other data obtained from the relying party and/or prepared by the FIDO Client itself), the FIDO Client prepares a request message for the U2F Token.
 2.  **Processing**: In this phase, the FIDO Client sends the request message to the token, and the token performs some cryptographic operations on the message, creating a response message. This response message is sent to the FIDO Client. 
@@ -56,7 +56,7 @@ Both the registration and authentication operations consist of three **phases** 
 
 The following diagram depicts the FIDO U2F-based authentication process.
 
-![u2f-process-flow](../../assets/img/concepts/u2f-process-flow.png) 
+![u2f-process-flow](/assets/img/concepts/u2f-process-flow.png) 
 
 ---
 

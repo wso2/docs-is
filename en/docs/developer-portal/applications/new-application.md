@@ -7,7 +7,7 @@
     <a class="card" href="../../applications/add/spa">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../../../assets/img/icons/application/spa.png">
+            <img src="/assets/img/icons/application/spa.png">
         </i>
       </div>
       <div class="card-content" >
@@ -20,7 +20,7 @@
     <a class="card" href="../../applications/add/oidc">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../../../assets/img/icons/application/web.png">
+            <img src="/assets/img/icons/application/web.png">
         </i>
       </div>
       <div class="card-content" >
@@ -33,7 +33,7 @@
     <a class="card" href="../../applications/add/saml">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../../../assets/img/icons/application/web.png">
+            <img src="/assets/img/icons/application/web.png">
         </i>
       </div>
       <div class="card-content" >

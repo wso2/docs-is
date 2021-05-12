@@ -27,7 +27,7 @@ Follow the steps below to navigate to the federated authenticators configuration
 
 4.	Under the **Federated Authenticators** section, click **SAML2 Web SSO Configuration**.
 
-	<img src="../../../assets/img/guides/saml2-web-sso-configuration-option.png" alt="SAML2 Web SSO Configuration option" width="700" style="border:1px solid grey"> 
+	<img src="/assets/img/guides/saml2-web-sso-configuration-option.png" alt="SAML2 Web SSO Configuration option" width="700" style="border:1px solid grey"> 
 
 5.	Enter the following values as given below.
 
@@ -75,7 +75,7 @@ To configure manually,
 
 2.	Enter the required values as given below. 
 
-	<img src="../../../assets/img/guides/saml2-web-sso-configuration-screen.png" alt="SAML2 Web SSO Configuration screen" width="700" style="border:1px solid grey"> 
+	<img src="/assets/img/guides/saml2-web-sso-configuration-screen.png" alt="SAML2 Web SSO Configuration screen" width="700" style="border:1px solid grey"> 
 
 	<table>
 			<thead>
@@ -331,7 +331,7 @@ To configure through file upload:
 
 2.	Enter the required values as given below. 
 
-	<img src="../../../assets/img/guides/saml2-web-sso-configuration-file-upload-screen.png" alt="SAML2 Web SSO File Upload Configuration screen" width="700" style="border:1px solid grey"> 
+	<img src="/assets/img/guides/saml2-web-sso-configuration-file-upload-screen.png" alt="SAML2 Web SSO File Upload Configuration screen" width="700" style="border:1px solid grey"> 
 
 
 	<table>

@@ -23,7 +23,7 @@ When users update their email addresses in the user profile, an email verificati
 
 2.  Mark **Enable user email verification on update**. Additionally, you can define the expiry time for the verification link to match your requirement.
     
-    ![](../../assets/img/guides/email-verification-on-update-config.png)
+    ![](/assets/img/guides/email-verification-on-update-config.png)
 
 3.  Click **Update** to save the changes. 
 
@@ -57,14 +57,14 @@ can also be used to try out this feature.
 3. Click the **Personal info** tab on the side panel to view **Profile** information of the user.
 
 4. Click on the pencil icon aligning with the **Email** field.
-   ![edit-email](../../../assets/img/guides/my-account/update-email/edit-email.png)
+   ![edit-email](/assets/img/guides/my-account/update-email/edit-email.png)
 
 5. Update the new email address in the profile and click **Save**.
-   ![save-new-email](../../../assets/img/guides/my-account/update-email/save-new-email.png)
+   ![save-new-email](/assets/img/guides/my-account/update-email/save-new-email.png)
    
 The user will receive an email notification to verify the account and the following notification will be displayed until the account confirmation happens.
 
-![email-confirmation-pending](../../../assets/img/guides/my-account/update-email/email-confirmation-pending.png)  
+![email-confirmation-pending](/assets/img/guides/my-account/update-email/email-confirmation-pending.png)  
 
 ---
    

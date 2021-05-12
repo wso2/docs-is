@@ -48,7 +48,7 @@ To confirm that the inbound provisioning is configured properly try the followin
 
 2. Use a service like [Base64](https://www.base64encode.org/) to encode your OAuth Client Key and OAuth Client Secret. For this example, click **Encode** and enter your client key and client secret separated by a colon ":". Click the **> ENCODE \<** button to encode this.
 
-    ![encode-base64](../../assets/img/guides/encode-base64.png)
+    ![encode-base64](/assets/img/guides/encode-base64.png)
 
 3. Use the encoded value to generate the access token by inserting it into the following curl command after `Basic`.
 

@@ -11,7 +11,7 @@
     !!! note
         Note that by default, the password must be atleast 5 characters.
 
-    ![enter-user-details](../../../assets/img/guides/enter-user-details.png)
+    ![enter-user-details](/assets/img/guides/enter-user-details.png)
 
 5. Click **Finish** or you can click **Next** to assign the user to a specific role. For more information about assigning a role, see the next section. 
 

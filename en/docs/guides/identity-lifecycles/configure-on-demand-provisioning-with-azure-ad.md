@@ -86,20 +86,20 @@ them to the Azure Active Directory at the point of authentication.
     **Next**. Replace the `          <Your_Federated_Domain>         `
     placeholder with the domain which is configured as federated in
     Azure AD.  
-    ![try-out-ondemand-provisioning](../../../assets/img/guides/try-out-ondemand-provisioning.jpg)
+    ![try-out-ondemand-provisioning](/assets/img/guides/try-out-ondemand-provisioning.jpg)
 3.  The browser is redirected to the WSO2 IS login page. Enter
     credentials for the user Alex and click **Sign in**.  
-    ![enter-credentials-wso2is](../../../assets/img/guides/enter-credentials-wso2is.jpg)
+    ![enter-credentials-wso2is](/assets/img/guides/enter-credentials-wso2is.jpg)
 4.  You are prompted to provide user consent. Click **Select All** and
     then **Approve.**
 
-    ![approve-user-consent](../../../assets/img/guides/approve-user-consent.jpg)
+    ![approve-user-consent](/assets/img/guides/approve-user-consent.jpg)
 
 5.  Click **Yes** to enable single sign-on on the next page. If this
     page does not appear, wait a few minutes until the user " Alex" is
     provisioned in Azure AD and repeat step 10 and 11.  
-    ![enable-sso](../../../assets/img/guides/enable-sso.png)
+    ![enable-sso](/assets/img/guides/enable-sso.png)
 6.  You are now successfully logged in to the Office 365. The user
     "Alex" has been provisioned to the Azure AD after successful
     authentication.  
-    ![azure-ad-successful-authentication](../../../assets/img/guides/azure-ad-successful-authentication.png)
+    ![azure-ad-successful-authentication](/assets/img/guides/azure-ad-successful-authentication.png)

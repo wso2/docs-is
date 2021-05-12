@@ -24,9 +24,9 @@ This guide assumes you have your own application. If you wish to try out this fl
 1. Add two new external claims as follows for the `http://wso2.org/oidc/claim` dialect. For detailed instructions on how 
    to add a new claim mapping to a claim dialect, see [Adding Claim Mapping](../../../guides/dialects/add-claim-mapping). 
              
-    ![external-claim-1](../../assets/img/guides/oidc-external-claim-1.png)
+    ![external-claim-1](/assets/img/guides/oidc-external-claim-1.png)
    
-    ![external-claim-2](../../assets/img/guides/oidc-external-claim-2.png)
+    ![external-claim-2](/assets/img/guides/oidc-external-claim-2.png)
    
     !!! note
             Here, `customClaim1` and`customClaim2` are selected as claim

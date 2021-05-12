@@ -78,7 +78,7 @@ that you want your server to support as follows: ciphers="<cipher-name>,<cipher-
 4.  Start the server.
 
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](../../../assets/attachments/TestSSLServer.jar).
+    and run the [TestSSLServer.jar](/assets/attachments/TestSSLServer.jar).
 
     ``` java
     $ java -jar TestSSLServer.jar localhost 9443

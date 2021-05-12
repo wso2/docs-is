@@ -6,7 +6,7 @@
 
 4.  Also, select **Enable User Email Verification**. Click **Update** to save changes.
                 
-    ![](../../../assets/img/fragments/resident-idp-ask-password-configs.png) 
+    ![](/assets/img/fragments/resident-idp-ask-password-configs.png) 
     
     You can also configure the above configurations via the configuration
     files. 

@@ -120,7 +120,7 @@ Create two service providers for the two sample applications we deployed. Follow
      -    Select **Enable Attribute Profile**.
      -    Select **Include Attributes in the Response Always**.
 
-     ![register-sp](../../../assets/img/samples/spring-security.png)
+     ![register-sp](/assets/img/samples/spring-security.png)
 
 Follow the same steps and change the values for sample2 and register another service provider.
 
@@ -132,25 +132,25 @@ Follow the same steps and change the values for sample2 and register another ser
 
 2.  Select **localhost** and click on **Start single sign-on**.
 
-    ![choose-localhost](../../assets/img/samples/choose-localhost.png)
+    ![choose-localhost](/assets/img/samples/choose-localhost.png)
 
 3.  Log in as the admin. You will be directed to the page with authenticated user information. 
 
-    <img src="../../assets/img/samples/sample1-1.png" alt="alt text" width="500" height="500" class="center">
+    <img src="/assets/img/samples/sample1-1.png" alt="alt text" width="500" height="500" class="center">
 
-    <img src="../../assets/img/samples/sample1-2.png" alt="alt text" width="500" height="500" class="center">
+    <img src="/assets/img/samples/sample1-2.png" alt="alt text" width="500" height="500" class="center">
 
 4.  Open a new tab on the browser and log into the second application, `http://localhost:8080/spring-security-saml2-sample2`.
 
 5.  Similar to the first application, select **localhost**, click on **Start single sign-on**, and sign in as the admin. 
 
-    ![sign-in-sample](../../assets/img/samples/sign-in-sample.png)
+    ![sign-in-sample](/assets/img/samples/sign-in-sample.png)
 
 6.  On any one of the applications click **Global Logout**.
 
 7.  You will be successfully logged out of both the applications.
 
-    ![spring-logout](../../assets/img/samples/spring-logout.png)
+    ![spring-logout](/assets/img/samples/spring-logout.png)
 
 ---
     

@@ -51,7 +51,7 @@ Make the following changes to the created service provider.
         - If the aforementioned configuration is set to `sp`, the JWT is signed with the application tenant key.
         - If it is set to `user`, the tenant is decided by the subject of the id token, though the subject would not contain the tenant domain by default. 
         If the configured option is `user`, expand **Local & Outbound Authentication Configuration** on the management console service provider configuration and select **Use tenant domain in local subject identifier**. 
-        ![use-tenant-domain-in-subject.png](../../../assets/img/guides/use-tenant-domain-in-subject.png)
+        ![use-tenant-domain-in-subject.png](/assets/img/guides/use-tenant-domain-in-subject.png)
 
 3. Restart the server.
 

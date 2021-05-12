@@ -36,17 +36,17 @@ If you have your own application, click the button below.
     !!! info 
         The user's consent is required to access the attribute information. Click on **Continue** to agree to let the application access this information. To skip this step, you can navigate to the **Advanced** tab of your application and enable **Skip login consent**.
 
-        <img src="../../assets/img/samples/login-travelocity-mandatory.png" alt="alt text" width="230" height="300" class="center">
+        <img src="/assets/img/samples/login-travelocity-mandatory.png" alt="alt text" width="230" height="300" class="center">
 
 2.  The application requests values for attributes which are not already mapped to any user profile information. Enter any suitable value to proceed. 
 
-    <img src="../../assets/img/samples/mandatory-claim.png" alt="alt text" width="230" height="300">
+    <img src="/assets/img/samples/mandatory-claim.png" alt="alt text" width="230" height="300">
 
 3. You are now successfully logged in to the sample application. 
 
 4.  In the landing page of the application, you can see that the values of application attributes that were mapped to the local attributes instead of the local attributes. The application attribute, `Name` contains the value of the application role instead of the username since it was configured as the `role attribute URI`. 
 
-    ![travelocity-app-landing](../../assets/img/samples/travelocity-app-landing.png)
+    ![travelocity-app-landing](/assets/img/samples/travelocity-app-landing.png)
 
 ---
 
@@ -74,7 +74,7 @@ If you have your own application, click the button below.
 
 5.  Give the consent to share your attribute information with the application by clicking on **Continue**. 
 
-    <img src="../../assets/img/samples/consent-playground.png" alt="alt text" width="400" height="500">
+    <img src="/assets/img/samples/consent-playground.png" alt="alt text" width="400" height="500">
 
 6.  Enter the **client secret** and the **callback url**. 
 
@@ -82,7 +82,7 @@ If you have your own application, click the button below.
 
 8.  You are now successfully logged in to the sample application. You can see the values of the local attributes that were configured. You can also see the field, **Subject Claim URI** as **sub**, which contains the value of the local attribute you configured as the subject attribute URL. 
 
-    <img src="../../assets/img/samples/playground-sub.png" alt="alt text" width="500" height="500">
+    <img src="/assets/img/samples/playground-sub.png" alt="alt text" width="500" height="500">
 
 !!! info "Related topics" 
     -   [Concept: Attribute Management](../../../references/concepts/claim-management/)

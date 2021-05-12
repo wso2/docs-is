@@ -13,7 +13,7 @@ This page guides you through configuring [Just-in-Time (JIT) provisioning](../..
 1.  Expand the **Just-In-Time Provisioning** section and select the JIT
     provisioning options based on your requirement.  
     
-    ![just-in-time-provisioning](../../../assets/img/guides/just-in-time-provisioning.png)   
+    ![just-in-time-provisioning](/assets/img/guides/just-in-time-provisioning.png)   
     
     -   If you want to disable JIT provisioning, select **No
         Provisioning**. This is selected by default.

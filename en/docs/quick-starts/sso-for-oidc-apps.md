@@ -13,7 +13,7 @@ If you have your own application, click the button below.
 
 Pickup is a cab company that has two OIDC web applications called pickup-dispatch and pickup-manager. Both applications use WSO2 Identity Server (IS) as the identity provider. When SSO is configured for both these applications, a user is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
-![oidc-sso-scenario](../../../assets/img/samples/oidc-sso-scenario-diagram.png)
+![oidc-sso-scenario](/assets/img/samples/oidc-sso-scenario-diagram.png)
 
 Follow the steps below to deploy the sample applications and see how this works. 
 
@@ -37,7 +37,7 @@ You are now ready to try out OpenID Connect SSO with the Pickup Dispatch and Pic
 
 1. Navigate to `http://wso2is.local:8080/pickup-dispatch` on your browser and click **Login**.
 
-    ![dispatch-login](../../../assets/img/samples/dispatch-login.png)
+    ![dispatch-login](/assets/img/samples/dispatch-login.png)
 
 2. You will be redirected to the login page of WSO2 IS. Log in using your WSO2 IS credentials (admin/admin). Provide the required consent.
 You will be redirected to the Pickup Dispatch application home page.

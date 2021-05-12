@@ -26,7 +26,7 @@ management console.
 
 The following screen depicts the home screen of the management console.
 
-![Management Console Home Screen](../../../assets/img/deploy/server_home_management_console.png)
+![Management Console Home Screen](/assets/img/deploy/server_home_management_console.png)
 
 The main menu items of the console appear in the left hand side of the 
 home screen. Each of these menus carry a list of sub menus. These menus and subsections will 
@@ -58,7 +58,7 @@ divided into different sections.
 
 ### Identity section
 
-![identity-section-mgt-console](../../../assets/img/deploy/identity-section-mgt-console.png)
+![identity-section-mgt-console](/assets/img/deploy/identity-section-mgt-console.png)
 
 !!! info "Related Links"
     Refer to the following topics for instructions to use sub menu items.
@@ -73,7 +73,7 @@ divided into different sections.
 
 ### Entitlement section
 
-![entitlement-section-mgt-console](../../../assets/img/deploy/entitlement-section-mgt-console.png)
+![entitlement-section-mgt-console](/assets/img/deploy/entitlement-section-mgt-console.png)
 
 <!--!!! info "Related links"
     Refer to the following topics for instructions to use sub menu items.
@@ -87,7 +87,7 @@ divided into different sections.
 
 ### Manage section
 
-![manage-section-mgt-console](../../../assets/img/deploy/manage-section-mgt-console.png)
+![manage-section-mgt-console](/assets/img/deploy/manage-section-mgt-console.png)
 
 !!! info "Related links"  
     Refer to the following topics for instructions to use sub menu items.
@@ -114,7 +114,7 @@ information on these features and their usage, see the topics on
 [monitoring the Identity Server](../../../deploy/monitor/monitor-the-identity-server).
 
 
-![monitor-section-mgt-console](../../../assets/img/deploy/monitor-section-mgt-console.png)
+![monitor-section-mgt-console](/assets/img/deploy/monitor-section-mgt-console.png)
 
 ---
 
@@ -124,7 +124,7 @@ The configure menu is mainly a list of administration features which can
 help you customize and configure the Identity Server to suit your
 specific requirements.
 
-![configure-section-mgt-console](../../../assets/img/deploy/configure-section-mgt-console.png)
+![configure-section-mgt-console](/assets/img/deploy/configure-section-mgt-console.png)
 
 !!! info "Related links"
     Refer to the following topics for instructions to use sub menu items.
@@ -147,4 +147,4 @@ specific requirements.
 The tools menu includes SAML and XACML tools.
 
 
-![tools-section-mgt-console](../../../assets/img/deploy/tools-section-mgt-console.png)
+![tools-section-mgt-console](/assets/img/deploy/tools-section-mgt-console.png)

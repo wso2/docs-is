@@ -10,7 +10,7 @@
    
 2. Click the **Edit** link corresponding to the **Username** claim and configure the `Mapped Attribute` property to `mail`.
 
-    ![email-as-username-attribute-mapping](../../assets/img/guides/email-as-username-attribute-mapping.png)
+    ![email-as-username-attribute-mapping](/assets/img/guides/email-as-username-attribute-mapping.png)
     
 3. Click **Update** to save the changes.
 
@@ -109,7 +109,7 @@
     <p class="admonition-title">Note</p>
     <p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
     <p>After this configuration, the user having the username <strong><code>                  admin@wso2.com                 </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-    <img src="../../../assets/img/guides/super-admin.png" width="600" /></p></div>
+    <img src="/assets/img/guides/super-admin.png" width="600" /></p></div>
     </div></td>
     </tr>
     </tbody>

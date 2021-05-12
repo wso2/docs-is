@@ -13,7 +13,7 @@ This page guides you through mapping [OpenID Connect (OIDC) scopes and claims](.
 
 4. Click **Add OIDC Claim** and select claims from the dropdown of available OIDC claims.
 
-    ![add-oidc-scope](../../assets/img/guides/add-oidc-scope.png)
+    ![add-oidc-scope](/assets/img/guides/add-oidc-scope.png)
 
 5. Click **Finish** to add the new scope claim mapping.
 
@@ -25,7 +25,7 @@ This page guides you through mapping [OpenID Connect (OIDC) scopes and claims](.
 
 2. Under **Manage**, click **OIDC Scopes > List**. 
 
-    ![oidc-scope-list](../../assets/img/guides/oidc-scope-list.png)
+    ![oidc-scope-list](/assets/img/guides/oidc-scope-list.png)
 
 3.  Select one of the following actions.
 

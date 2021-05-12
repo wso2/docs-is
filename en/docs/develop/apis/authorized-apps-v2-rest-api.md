@@ -15,8 +15,8 @@ template: templates/swagger.html
      IS. 
              
 <div id="swagger-ui"></div>
-<script src="../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
-<script src="../../assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
+<script src="/assets/lib/swagger/swagger-ui-bundle.js"> </script>
+<script src="/assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
 <script>
 window.onload = function() {
   // Begin Swagger UI call region

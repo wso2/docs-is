@@ -55,7 +55,7 @@ If you have your own application, click the button below.
            2. **Enable Recipient Validation**
             - **Recipient**: `https://localhost:9443/oauth2/token`
 
-           ![enable-audience-restriction](../assets/img/samples/enable-audience-restriction.png) 
+           ![enable-audience-restriction](/assets/img/samples/enable-audience-restriction.png) 
     
     !!! tip
         For more information on other advanced configurations refer, [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced/)
@@ -191,15 +191,15 @@ For example,
 
 3.  Enter the username and password and click **Continue**.  
 
-    ![login-page](../assets/img/samples/sign-in-sample.png) 
+    ![login-page](/assets/img/samples/sign-in-sample.png) 
 
 4.  Click **Request OAuth2 Access Token** to receive the access token.  
 
-    ![request-oauth2-access-token](../assets/img/samples/request-oauth2-access-token.png)  
+    ![request-oauth2-access-token](/assets/img/samples/request-oauth2-access-token.png)  
 
     You will receive an access token as shown below.
 
-    ![oauth2-token-details](../assets/img/samples/oauth2-token-details.png) 
+    ![oauth2-token-details](/assets/img/samples/oauth2-token-details.png) 
 
 6.  Use the introspection endpoint of WSO2 Identity Server to get the token information.
 

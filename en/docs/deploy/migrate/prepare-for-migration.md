@@ -72,7 +72,7 @@ or an upgrade to a newer version. To address this situation while avoiding downt
 admins and DevOps follow blue-green deployments to roll out updates.
 
 ??? Info "Blue-Green Migration"
-    ![blue-green-migration](../../../assets/img/deploy/migrate/blue-green-wso2-identity-server.png)
+    ![blue-green-migration](/assets/img/deploy/migrate/blue-green-wso2-identity-server.png)
     
     A blue-green deployment is a change management strategy for releasing software. 
     Blue-green deployments require two identical hardware environments that are 
@@ -109,7 +109,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
     “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
 3.  Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.134/org.wso2.is.data.sync.client-1.0.134.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
 4.  Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` 
-    with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). 
+    with the log4j2.properties file from [here](/assets/attachments/migration/log4j2.properties). 
     This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory 
     which will contain the sync tool related logs.
 5.  Add the data sources used in **source** and **target** WSO2 Identity Server deployments involved in the migration 
@@ -173,7 +173,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
     
     
     !!! tip
-            A sample `sync.properties` file can be found [here](../assets/attachments/migration/sync.properties).
+            A sample `sync.properties` file can be found [here](/assets/attachments/migration/sync.properties).
             
 
 7.  Disable the endpoints in the WSO2 Identity Server that are not mission-critical for the maintenance window.

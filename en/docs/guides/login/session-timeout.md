@@ -23,7 +23,7 @@ To configure the **Session Timeout** and **Remember Me period**  tenant wise, fo
 3.  Fill in the fields as seen below to configure **Idle Session Time Out**
     and **Remember Me Period**.  
     
-    ![session-time-out](../../assets/img/guides/session-time-out-config.png) 
+    ![session-time-out](/assets/img/guides/session-time-out-config.png) 
     
     !!! Tip "Configure timeout values globally" 
         The global configuration can be added to the

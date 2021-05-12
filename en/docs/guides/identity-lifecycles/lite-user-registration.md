@@ -27,7 +27,7 @@ enable = true
 
 5.	Select **Lite user registration** to allow users to register without a password. 
 
-	![resident-idp](../../assets/img/guides/resident-idp.png)
+	![resident-idp](/assets/img/guides/resident-idp.png)
 
 6. Click **Update**. 
 
@@ -43,7 +43,7 @@ enable = true
 
 4.	Change the value of **Mapped Attribute** to `title`. 
 
-	![mapped-attribute-change](../../assets/img/guides/mapped-attribute-change.png)
+	![mapped-attribute-change](/assets/img/guides/mapped-attribute-change.png)
 
 	!!! note 
 		This step needs to be performed since the `isLiteUser` attribute has not been introduced yet in the product. 

@@ -24,14 +24,14 @@ Now suppose you need to add a secondary userstore, OpenLDAP. In this scenario, c
 
 2.  Navigate to **Main** >  **Identity** > **Claims** > **List**. For more information on configuring claims, see [Configure Claims](../../../guides/dialects/configure-claims). Click on either **urn:ietf:params:scim:schemas:core:2.0:User** or **urn:ietf:params:scim:schemas:core:2.0** claim dialect (depending on which SCIM claim you need to update) and find the mapped local claim of the SCIM claim that you need to edit. 
 
-![claim-list-scim2](../../../assets/img/guides/claim-list-scim2.png)
+![claim-list-scim2](/assets/img/guides/claim-list-scim2.png)
 
 3.  Once you find the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
 4.  Click **Edit** and modify the **Mapped Attribute** field in the resulting page.
     
     !!! note 
         Here we have configured a claim attribute mapping for a primary userstore. If you have a secondary userstore, you need to add another mapping for those as well. To do that just click on **Add Attribute Mappings** and set the corresponding values for **userstore domain name** and **mapped attribute**.
-        ![update-local-claim-scim2.png](../../../assets/img/guides/update-local-claim-scim2.png)
+        ![update-local-claim-scim2.png](/assets/img/guides/update-local-claim-scim2.png)
 
 
 !!! info "Related Topics"

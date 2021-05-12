@@ -4,7 +4,7 @@
 
 2. Click **Identity Providers > Resident**. 
 
-    ![resident-idp](../../../assets/img/fragments/resident-idp.png)
+    ![resident-idp](/assets/img/fragments/resident-idp.png)
 
 3. Configure the following. 
 
@@ -14,4 +14,4 @@
 
     - **Remember Me Period**: This is the duration in weeks for which WSO2 Identity Server should remember an SSO session given that the **Remember Me** option is selected in the WSO2 Identity Server login screen.
 
-        <img name='configure-resident-idp' src='../../../assets/img/fragments/configure-resident-idp.png' class='img-zoomable'/>
+        <img name='configure-resident-idp' src='/assets/img/fragments/configure-resident-idp.png' class='img-zoomable'/>

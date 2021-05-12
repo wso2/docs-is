@@ -39,7 +39,7 @@ The diagram below illustrates how a silo of SAML federation and OpenID
 Connect federation interact within the respective silo and how it cannot
 interact with different silos.
 
-![spaghetti identity and federation silos](../../../assets/img/concepts/spaghetti-identity-and-federation-silos.png)
+![spaghetti identity and federation silos](/assets/img/concepts/spaghetti-identity-and-federation-silos.png)
 
 Also consider the scalability of a specific federation silo. Within the
 SAML federation silo, for example, there can be an increasing number of
@@ -47,7 +47,7 @@ service providers and identity providers. Each service provider has to
 trust each identity provider and this leads to the Spaghetti Identity
 anti-pattern. The following diagram depicts the complexity of this.
 
-![Complexity in scaling a specific federation silo](../../../assets/img/concepts/scalability-of-saml-federation-silo.png)
+![Complexity in scaling a specific federation silo](/assets/img/concepts/scalability-of-saml-federation-silo.png)
 
 ---
 

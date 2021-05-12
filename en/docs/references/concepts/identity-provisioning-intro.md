@@ -20,7 +20,7 @@ The process of removing user identities and revoking permissions is known as **d
 
 WSO2 IS can ensure that provisioning is made easy. A provisioning request can be sent to WSO2 IS to add or remove a user and this user is provisioned or deprovisioned accordingly across various applications that are configured with WSO2 Identity Server. The diagram below illustrates the process.
 
-<img name='identity-provisioning-diagram' src='../../../assets/img/concepts/identity-provisioning.png' class='img-zoomable'/>
+<img name='identity-provisioning-diagram' src='/assets/img/concepts/identity-provisioning.png' class='img-zoomable'/>
 
 After a user has been provisioned, WSO2 IS can also help maintain the user's updated information across all configured applications. For example, to update a user attribute such as a telephone number, you can update the information in one place and WSO2 IS will ensure that it is reflected in all connected applications.
 

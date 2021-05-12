@@ -4,7 +4,7 @@
     that appears.
 3.  Select the Google identity provider you configured from the drop
     down and click the
-    ![outbound-provisioning-icon](../../../assets/img/guides/outbound-provisioning-icon.png) button.
+    ![outbound-provisioning-icon](/assets/img/guides/outbound-provisioning-icon.png) button.
 
     !!! info
         If you enable **Blocking**, Identity Server will wait for the

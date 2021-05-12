@@ -4,8 +4,8 @@
 
 2. Click **Identity Providers >Add**.
 
-    ![add-identity-provider](../../../assets/img/fragments/add-identity-provider.png)
+    ![add-identity-provider](/assets/img/fragments/add-identity-provider.png)
 
 3. Enter an **Identity Provider Name**, **Display Name**, and **Description**.
 
-    ![register-identity-provider](../../../assets/img/fragments/register-identity-provider.png)
+    ![register-identity-provider](/assets/img/fragments/register-identity-provider.png)

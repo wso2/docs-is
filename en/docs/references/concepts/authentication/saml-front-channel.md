@@ -22,7 +22,7 @@ Front-channel logout has two different use cases:
 
 The following diagram illustrates the flow for **SP-initiated logout**. 
 
-![saml-front-channel](../../assets/img/concepts/saml-front-channel.png)
+![saml-front-channel](/assets/img/concepts/saml-front-channel.png)
 
 1. issue `<LogoutRequest>` 
 

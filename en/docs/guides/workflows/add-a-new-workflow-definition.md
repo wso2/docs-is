@@ -23,7 +23,7 @@ Let's get started.
     <head>        
     </head>
     <body>
-        <img src="../../../assets/img/guides/workflows/add-workflow-definitions.png" width="500">
+        <img src="/assets/img/guides/workflows/add-workflow-definitions.png" width="500">
     
     </body>
     </html> 
@@ -42,7 +42,7 @@ Let's get started.
         4.  Enter the `role name` or `user name` and click **Search Roles**.
         5.  Select the check-box associated with the user name or user role name that you require and click **Add Selected Roles** or **Add Selected Users**.
         6.  Click **Next** to move to the next step.   
-            ![workflow-fields](../../../assets/img/guides/workflows/workflow-fields.png)
+            ![workflow-fields](/assets/img/guides/workflows/workflow-fields.png)
 
               
     !!! info 
@@ -56,7 +56,7 @@ Let's get started.
     | Task Subject | This is the subject of the workflow request for approval.                                                                                                                                                                                                                                                                          |
     | Task Detail  | This is the body of the workflow request for approval.                                                                                                                                                                                                                                                                              |
 
-    ![deployment-information](../../../assets/img/guides/workflows/deployment-information.png) 
+    ![deployment-information](/assets/img/guides/workflows/deployment-information.png) 
 
     !!! note
     

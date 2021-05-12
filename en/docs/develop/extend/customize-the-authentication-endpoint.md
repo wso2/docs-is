@@ -346,45 +346,45 @@ below steps:
 2.  Navigate to **Main** > **Registry** > **Browse** to
     see the registry browser.  
     
-    ![Registry Browse menu item](../../assets/img/guides/registry.png)
+    ![Registry Browse menu item](/assets/img/guides/registry.png)
 
 3.  Browse the registry and go to
     `          /_system/config/identity/config         `.
      
-    ![Registry browser](../../assets/img/extend/registry-browser.png)
+    ![Registry browser](/assets/img/extend/registry-browser.png)
 
 4.  Click **Add Resource**.  
     
-    ![Add registy resource](../../assets/img/extend/add-registry-resource.png)
+    ![Add registy resource](/assets/img/extend/add-registry-resource.png)
 
 5.  Fill the form with following information.
     -   Method : Select **Create Text content** from the dropdown.
 
     -   Name : Enter **relyingPartyRedirectUrls** as Name.
 
-    ![Add registry resource form](../../assets/img/extend/add-registry-resource-form.png) 
+    ![Add registry resource form](/assets/img/extend/add-registry-resource-form.png) 
 
 6.  Click the **Add** button. The created registry resource can be seen
     once you click on **Add** button.  
     
-    ![Added registry resource](../../assets/img/extend/added-registry-resource.png) 
+    ![Added registry resource](/assets/img/extend/added-registry-resource.png) 
 
 7.  Click on the added resource (relyingPartyRedirectUrls). You can see
     the **Properties** section.  
     
-    ![Registry resource properties](../../assets/img/extend/registry-resource-properties.png) 
+    ![Registry resource properties](/assets/img/extend/registry-resource-properties.png) 
 
 8.  Click the `+` sign at the right hand corner of **Properties**
     section. This allows you to add a property to the resource.
 
 9.  Click **Add New Property**.  
     
-    ![Registry resource Add New Property option](../../assets/img/extend/registry-resource-add-new-property.png)
+    ![Registry resource Add New Property option](/assets/img/extend/registry-resource-add-new-property.png)
 
 10. Enter the relying party name for name and the redirect URL for
     value.  
     
-    ![Registy resource Add New Property form](../../assets/img/extend/registry-resource-add-new-property-form.png)
+    ![Registy resource Add New Property form](/assets/img/extend/registry-resource-add-new-property-form.png)
 
     !!! note
     

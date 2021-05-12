@@ -169,7 +169,7 @@ can be found in [SAML Core
 Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml-core-errata-2.0-wd-06-diff.pdf).
 
 The following diagram illustrates the scenario:
-![](../../assets/img/references/sso-profile.png)
+![](/assets/img/references/sso-profile.png)
 
 ---
 

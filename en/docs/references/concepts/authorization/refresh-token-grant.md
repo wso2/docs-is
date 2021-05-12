@@ -17,7 +17,7 @@ with a renewed refresh token without having to go through any other additional s
 
 The diagram below illustrates the refresh token grant flow.
 
-![password-grant](../../assets/img/concepts/refresh-token-grant-flow.png)
+![password-grant](/assets/img/concepts/refresh-token-grant-flow.png)
 
 Following cURL commands can be used to try this grant type.
 

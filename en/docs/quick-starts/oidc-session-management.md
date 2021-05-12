@@ -68,13 +68,13 @@ If you have your own application, click the button below.
     -   **Client Secret:** Enter the client secret of playground2
         application
         
-    <img name='authorization-code' src='../../../assets/img/samples/authorization-code.png' class='img-zoomable'/>
+    <img name='authorization-code' src='/assets/img/samples/authorization-code.png' class='img-zoomable'/>
     
 5.  You will receive the access token. You can also enter the **UserInfo
     Endpoint** as
     `                     https://localhost:9443/oauth2/userinfo                  `
     to use the received access token to obtain user claims if needed.  
-    <img name='access-token' src='../../../assets/img/samples/access-token.png' class='img-zoomable'/> 
+    <img name='access-token' src='/assets/img/samples/access-token.png' class='img-zoomable'/> 
     
 6.  Access the following URL on a separate window of the browser, and
     click on **Import Photos:**
@@ -104,7 +104,7 @@ If you have your own application, click the button below.
     received, the app will update it’s session state value and keep
     polling the OP iframe again.
 
-    <img name='sesion-state' src='../../../assets/img/samples/session-state.png' class='img-zoomable'/> 
+    <img name='sesion-state' src='/assets/img/samples/session-state.png' class='img-zoomable'/> 
 
 9. Go back to the browser window of the playground3 app, and click
     **Logout**. Click **Approve** when prompted for consent.
@@ -114,7 +114,7 @@ If you have your own application, click the button below.
     passive authentication request and has received an error since the
     end user session has ended. This means the app has successfully
     handled this as a single logout scenario.  
-   <img name='import-photos' src='../../../assets/img/samples/import-photos.png' class='img-zoomable'/> 
+   <img name='import-photos' src='/assets/img/samples/import-photos.png' class='img-zoomable'/> 
 
 
 !!! tip "Redirect to a logout URL after RP-initiated logout"

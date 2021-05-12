@@ -27,14 +27,14 @@ Follow the steps below to count users via the Management Console:
 
         !!! example  
             In this example, `%admin` is given as search pattern.
-            ![](../../assets/img/apis/count-users.png) 
+            ![](/assets/img/apis/count-users.png) 
 
 3.  Similarly, to count user roles:
     1.  Click **Roles**.
     2.  Click **Count Roles**. Note that you can count the number of user roles in different userstore domains.
 
         !!! example
-            ![](../../assets/img/apis/count-roles.png) 
+            ![](/assets/img/apis/count-roles.png) 
 
 ---
 

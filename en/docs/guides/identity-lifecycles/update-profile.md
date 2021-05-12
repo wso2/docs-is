@@ -11,9 +11,9 @@ Follow the instructions given below to update a user using management console.
 3.  You will see the list of users that are available and you can click
     **Update Profile** if you want to update the profile of a particular
     user.  
-    ![update-profile-in-console](../../../assets/img/guides/update-profile-in-console.png) 
+    ![update-profile-in-console](/assets/img/guides/update-profile-in-console.png) 
 4.  There you can update the details of the user and click **Update**.  
-    ![update-userdetails](../../../assets/img/guides/update-userdetails.png) 
+    ![update-userdetails](/assets/img/guides/update-userdetails.png) 
 
 Other than updating user profile details, you can also change the
 password of the user and assign more roles to the user.

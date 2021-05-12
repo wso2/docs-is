@@ -6,4 +6,4 @@
 
 4.	Enter the value of the **Service Provider Role** as `Application/travelocity.com`.
     
-	![role map saml](../../../assets/img/fragments/role-map-saml.png)
+	![role map saml](/assets/img/fragments/role-map-saml.png)

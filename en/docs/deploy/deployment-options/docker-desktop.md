@@ -13,11 +13,11 @@ Install the following applications if you do not have them installed already. Ma
 4.  Set up a [kubernetes cluster](https://www.docker.com/products/docker-desktop) on docker desktop, if you do not have one set up already. 
 
 	!!! important ""
-		1.	Click on the Docker desktop icon, ![docker](../../../assets/img/deploy/deploy-wso2-using/docker-desktop.png) on your notification panel. 
+		1.	Click on the Docker desktop icon, ![docker](/assets/img/deploy/deploy-wso2-using/docker-desktop.png) on your notification panel. 
 		Next, click **Preferences > Kubernetes > Enable Kubernetes**.  
 
 		2.	Set the resources in such a way that you do not face any space related issues while testing the deployment. 
-			a. For this, click on the Docker desktop icon, ![docker](../../../assets/img/deploy/deploy-wso2-using/docker-desktop.png) on your notification panel. 
+			a. For this, click on the Docker desktop icon, ![docker](/assets/img/deploy/deploy-wso2-using/docker-desktop.png) on your notification panel. 
 			b. Next, click **Preferences > Resources**. Set the CPUs to 4 and memory to 4.00 GB.  
 		
 

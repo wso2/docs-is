@@ -21,7 +21,7 @@ You can use either the management console to create secondary userstores or you 
 2.  From the userstore Manager Class drop-down list, select the user
     store manager class that suits your userstore.
     
-    ![add-a-secondary-user-store](../../../assets/img/deploy/add-secondary-user-store.png)
+    ![add-a-secondary-user-store](/assets/img/deploy/add-secondary-user-store.png)
 
     The following table lists the available userstore manager
     implementations and their usage:
@@ -98,7 +98,7 @@ You can use either the management console to create secondary userstores or you 
 5.  Make sure that all the mandatory fields are filled and a valid
     domain name is given, and click **Add**. A message appears saying
     that the userstores are being added.  
-    ![configure-userstores](../../../assets/img/deploy/configure-userstores.png)
+    ![configure-userstores](/assets/img/deploy/configure-userstores.png)
 
     !!! note
         The above message does not imply that the userstore is added

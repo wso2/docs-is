@@ -146,7 +146,7 @@ Let's begin.
 2.  Write a custom local authenticator.
 
     !!! note    
-        The `BasicCustomAuthenticatorConstants.java` file that is referred in the below example is available [here](../../../assets/attachments/BasicCustomAuthenticatorConstants.java).
+        The `BasicCustomAuthenticatorConstants.java` file that is referred in the below example is available [here](/assets/attachments/BasicCustomAuthenticatorConstants.java).
     
     ??? example "Click to view the sample custom authenticator class"
         ```
@@ -384,7 +384,7 @@ Let's begin.
             }
         ```
 
-4.  Build the project using maven. (Click to see the sample project [here](../../assets/attachments/org.wso2.custom.authenticator.local.zip)).
+4.  Build the project using maven. (Click to see the sample project [here](/assets/attachments/org.wso2.custom.authenticator.local.zip)).
 
 5.  Copy the .jar file `org.wso2.custom.authenticator.local-1.0.0.jar` inside `<IS_HOME>/repository/components/dropins` folder.
 
@@ -400,21 +400,21 @@ Let's begin.
 
 11. In the service provider configuration, under **Inbound Authentication Configuration** section, click **OAuth/OpenID Connect Configuration > Configure**. 
 
-    ![OAuth/OpenID Connect Configuration option](../../../assets/img/guides/oauth-openid-connect-configuration-option.png) 
+    ![OAuth/OpenID Connect Configuration option](/assets/img/guides/oauth-openid-connect-configuration-option.png) 
 
 12. Provide the `callback URL` and register it as an OAuth2 client app.
 
-    ![Callback url](../../../assets/img/guides/playground-callback-url.jpeg) 
+    ![Callback url](/assets/img/guides/playground-callback-url.jpeg) 
 
 13. Under **Local & Outbound Authentication Configuration**, select **Local authentication**.
-    ![Local authentication check box](../../../assets/img/guides/local-authentication-check-box.jpeg) 
+    ![Local authentication check box](/assets/img/guides/local-authentication-check-box.jpeg) 
 
     !!! note
         On the corresponding drop-down list, you can see, `BasicCustom` which is the display name of the custom authenticator that was written. From the above step, you can make sure your custom authenticator is there and ready for use.    
 
 14. Visit the playground app and provide **Client ID** of the registered playground app and give the **Scope** as `openid` to make sure it is in the OpenID Connect flow. Click **Authorize**.  
 
-    ![Playground app](../../../assets/img/guides/playground-app.jpeg)
+    ![Playground app](/assets/img/guides/playground-app.jpeg)
     
     Note that you will be directed to WSO2 Identity Server login page.
 

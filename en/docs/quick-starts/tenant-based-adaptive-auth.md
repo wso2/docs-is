@@ -33,12 +33,12 @@ Consider a scenario where you wish to add security for users logging in from ext
 
     - **Email:** alex_d@gmail.com 
 
-    ![register-new-tenant-1](../../../assets/img/guides/register-new-tenant.png)
+    ![register-new-tenant-1](/assets/img/guides/register-new-tenant.png)
 
 5. Similarly, register a new tenant for the domain "123.com" with a
     different tenant admin.  
 
-    ![register-new-tenant-2](../../../assets/img/samples/register-new-tenant-2.png)
+    ![register-new-tenant-2](/assets/img/samples/register-new-tenant-2.png)
 
 ----
 
@@ -50,7 +50,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 3.  Select **Saas application**. This enables users from other tenant domains such as **abc.com** or **123.com** to log in to the application. 
 
-    ![enable-saas-app](../../../assets/img/guides/enable-saas-app.png)
+    ![enable-saas-app](/assets/img/guides/enable-saas-app.png)
 
 4.  Expand the **Local and Outbound Configuration** section and click **Advanced Authentication**.
 
@@ -58,7 +58,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 6.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Tenant-Based**. 
 
-    ![tenant based template](../../../assets/img/samples/tenant-based-template.png)
+    ![tenant based template](/assets/img/samples/tenant-based-template.png)
 
 7.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -73,10 +73,10 @@ Consider a scenario where you wish to add security for users logging in from ext
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../../../assets/img/samples/delete-authenticator-1.png)
+        ![delete authenticator](/assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator](/assets/img/samples/add-new-authenticator.png)
 
 9. Click **Update**.
 
@@ -86,7 +86,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 1. Log out of the management console and log in with the **abc.com** tenant admin's credentials (alex@abc.com).  
     
-    ![mgt-console-login-alex](../../../assets/img/samples/mgt-console-login-alex.png)
+    ![mgt-console-login-alex](/assets/img/samples/mgt-console-login-alex.png)
 
 2.  Create a new user in the abc.com tenant named "chris" with login permission.
 
@@ -100,7 +100,7 @@ Consider a scenario where you wish to add security for users logging in from ext
     
     Enter the username with the appended tenant domain (i.e., chris@abc.com).  
     
-    ![pickup-sign-in-chris](../../../assets/img/samples/pickup-sign-in-chris.png)  
+    ![pickup-sign-in-chris](/assets/img/samples/pickup-sign-in-chris.png)  
 
     Note that you are prompted for hardware key authentication because
     **abc.com** is a whitelisted tenant domain.
@@ -108,13 +108,13 @@ Consider a scenario where you wish to add security for users logging in from ext
 5.  Enter the 4-digit key and click **Sign In**. You are successfully
     logged in to the application.  
 
-    ![hardware-key-authenticator](../../../assets/img/samples/hardware-key-authenticator.png)
+    ![hardware-key-authenticator](/assets/img/samples/hardware-key-authenticator.png)
 
 6.  Log out and log in with Kim's credentials. Kim is the admin of the
     **123.com** tenant domain, which is not one of the whitelisted
     domains.  
 
-    ![pickup-sign-in-kim](../../../assets/img/samples/pickup-sign-in-kim.png)
+    ![pickup-sign-in-kim](/assets/img/samples/pickup-sign-in-kim.png)
 
 7.  Provide consent.  
     Note that you are successfully logged in to the application after

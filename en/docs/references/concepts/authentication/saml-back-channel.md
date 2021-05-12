@@ -14,7 +14,7 @@ Back-channel logout has two different use cases:
 
 The following diagram illustrates the two flows.
 
-![saml-back-channel](../../assets/img/concepts/saml-back-channel.png)
+![saml-back-channel](/assets/img/concepts/saml-back-channel.png)
 
 **Case 1: User attempts to log out from SP 1 (SAML SSO authenticated session)**
 

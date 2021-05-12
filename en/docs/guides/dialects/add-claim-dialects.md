@@ -26,11 +26,11 @@ Follow the instructions below to add a new dialect using the management console.
     !!! info 
         The Dialect URI is a unique URI identifying the dialect (for example, `http://schema.openid.net/2007/05/claims`).
 
-    ![unique-uri](../../../assets/img/guides/unique-uri.png)
+    ![unique-uri](/assets/img/guides/unique-uri.png)
 
 4.  Click on the **Add** button. The claim dialect you added will appear on the list as follows.
 
-    ![claim-dialect](../../../assets/img/guides/claim-dialect.png)
+    ![claim-dialect](/assets/img/guides/claim-dialect.png)
 
 ### Use the configuration file
 

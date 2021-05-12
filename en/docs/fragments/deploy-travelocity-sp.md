@@ -58,7 +58,7 @@ The next step is to configure the service provider.
         5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
             
 
-    ![edit-service-provider](../../../assets/img/fragments/edit-service-provider-configs.png)
+    ![edit-service-provider](/assets/img/fragments/edit-service-provider-configs.png)
     
     !!! tip
         For more information on the advanced configurations

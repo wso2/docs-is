@@ -22,25 +22,25 @@ This topic guides you through configuring reCAPTCHA for secret questions in the 
 
 4.  Select **Enable reCaptcha for security questions based password recovery** and configure the **Max failed attempts for reCaptcha**.  
 
-    ![enable-security-question-recaptcha](../../assets/img/guides/enable-security-question-recaptcha.png)
+    ![enable-security-question-recaptcha](/assets/img/guides/enable-security-question-recaptcha.png)
     
     !!! note
         This **Max failed attempts for reCaptcha** value should be less than the number of failed attempts configured in the account locking connector.
         To view the number of failed attempts configured for the account lock feature, expand the **Login Attempts Security** tab and then expand the **Account Lock** tab.
     
-        ![max-failed-login-attempts](../../assets/img/guides/max-failed-login-attempts.png)
+        ![max-failed-login-attempts](/assets/img/guides/max-failed-login-attempts.png)
     
 6.  Expand the **Login Attempts Security** tab and then expand the **Account Lock** tab.     
 
 7.  Select **Lock user accounts**.
 
-    ![account-lock-enabled](../../assets/img/guides/account-lock-enabled.png)
+    ![account-lock-enabled](/assets/img/guides/account-lock-enabled.png)
     
 8.  Click **Update**.
 
 You have now successfully configured reCAPTCHA for the password recovery with secret questions flow. The reCAPTCHA will be prompted if the user reaches the limit of max failed attempts when providing an answer to a secret question. For instance, since the **Max failed attempts for reCaptcha** was configured as 2 above, if the user answers a question incorrectly twice, the reCAPTCHA will be prompted as seen in the window below.  
 
-![recaptcha-max-failed-attempts-security-questions](../../assets/img/guides/recaptcha-max-failed-attempts-security-questions.png)
+![recaptcha-max-failed-attempts-security-questions](/assets/img/guides/recaptcha-max-failed-attempts-security-questions.png)
 
 ---
 

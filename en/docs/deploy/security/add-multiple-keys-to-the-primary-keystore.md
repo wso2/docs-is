@@ -56,13 +56,13 @@ Follow the steps below to view the private keys via [Management Console](../../.
 <ol>
 	<li>
 		<p>On <b>Main</b> menu of the Management Console, click <b>Manage > Keystore > List</b>.</p>
-		<p><img src="../../../assets/img/deploy/security/list-keystores-menu-item.jpeg" width="200" /></p>
+		<p><img src="/assets/img/deploy/security/list-keystores-menu-item.jpeg" width="200" /></p>
 	</li>
 	<li>
 		<p>Click <b>View</b> of the relevant keystore.</p>
-		<p><img src="../../../assets/img/deploy/security/keystores.jpeg" width="600" /></p>
+		<p><img src="/assets/img/deploy/security/keystores.jpeg" width="600" /></p>
 		<p>The certificate of the private key appears.</p>
-		<p><img src="../../../assets/img/deploy/security/private-key-certificate.jpeg" width="800"></p>
+		<p><img src="/assets/img/deploy/security/private-key-certificate.jpeg" width="800"></p>
 	</li>
 </ol>
 

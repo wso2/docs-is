@@ -93,7 +93,7 @@ Now you have finished configuring Facebook as an Identity Provider.
     <li>Click on your app from the <strong>My Apps</strong> drop-down list.<br />
     You are navigated to the <strong>Dashboard</strong> of the application. Note down the App ID and the App secret.</li>
     </ol>
-    <p><img src="../../../assets/img/guides/fb-app-on-dashboard.png"/></p>.</p>
+    <p><img src="/assets/img/guides/fb-app-on-dashboard.png"/></p>.</p>
     </div>    
     </td>
     <td><div class="content-wrapper">
@@ -125,7 +125,7 @@ Now you have finished configuring Facebook as an Identity Provider.
     </tbody>
     </table>
 
-    ![facebook-configuration](../../../assets/img/guides/facebook-configuration.png)
+    ![facebook-configuration](/assets/img/guides/facebook-configuration.png)
 
 6.  Select both checkboxes to **Enable Facebook Authenticator** and make
     it the **Default**.
@@ -156,7 +156,7 @@ You have now added the identity provider.
 
         4.	Include Attributes in the Response Always
 
-    ![configuring-sp-fields](../../../assets/img/guides/configuring-sp-fields.png)
+    ![configuring-sp-fields](/assets/img/guides/configuring-sp-fields.png)
     
 5.  Click **Register**. Now you will be sent back to the **Service
     Providers** page.
@@ -167,7 +167,7 @@ You have now added the identity provider.
 7.  For **Authentication Type**, select the **Federated Authentication** radio button and select the
     Identity Provider you created from the dropdown list under
     **Federated Authentication**.  
-    ![identity-provider-in-federated-authentication](../../../assets/img/guides/identity-provider-in-federated-authentication.png)
+    ![identity-provider-in-federated-authentication](/assets/img/guides/identity-provider-in-federated-authentication.png)
 
 8.  Click **Update** to save the changes.
 
@@ -208,10 +208,10 @@ claims.
     
 5.  Click **Add Claim Mapping.** The following screen will be
     displayed.  
-    ![add-claim-mapping-for-facebook](../../../assets/img/guides/add-claim-mapping-for-facebook.png)
+    ![add-claim-mapping-for-facebook](/assets/img/guides/add-claim-mapping-for-facebook.png)
     
 6.  Now add custom claim mappings as follows.  
-    ![custom-claim-mapping](../../../assets/img/guides/custom-claim-mapping.png)
+    ![custom-claim-mapping](/assets/img/guides/custom-claim-mapping.png)
     
 7.  You can retrieve all the public information of the user and the
     email address. The following are some common attribute names.

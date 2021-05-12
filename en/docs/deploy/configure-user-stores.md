@@ -10,7 +10,7 @@ There are two types of userstores - Primary Userstore (Mandatory) and
 Secondary userstores (Optional). All the supported userstores can be
 configured under these two types.
 
-![user-store-types](../../../assets/img/deploy/user-store-types.png) 
+![user-store-types](/assets/img/deploy/user-store-types.png) 
 
 ---
 

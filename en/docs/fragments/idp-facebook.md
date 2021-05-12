@@ -24,7 +24,7 @@
     <li>Click on your app from the <strong>My Apps</strong> drop-down list.<br />
     You are navigated to the <strong>Dashboard</strong> of the application. Note down the App ID and the App secret.</li>
     </ol>
-    <p><img src="../../../assets/img/tutorials/fb-app-on-dashboard.png"/></p>.</p>
+    <p><img src="/assets/img/tutorials/fb-app-on-dashboard.png"/></p>.</p>
     </div>    
     </td>
     <td><div class="content-wrapper">
@@ -56,7 +56,7 @@
     </tbody>
     </table>
 
-    ![facebook-configuration](../../../assets/img/fragments/facebook-configuration.png)
+    ![facebook-configuration](/assets/img/fragments/facebook-configuration.png)
 
 3.  Select both checkboxes to **Enable Facebook Authenticator** and make
     it the **Default**.

@@ -44,15 +44,15 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 4.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
-	![resident-idp](../../../assets/img/fragments/resident-idp.png) 
+	![resident-idp](/assets/img/fragments/resident-idp.png) 
 
 5.	Under the **Account Management** section, click **Account Recovery**.
 
-    ![account-recovery-option](../../../assets/img/fragments/account-recovery-option.png) 
+    ![account-recovery-option](/assets/img/fragments/account-recovery-option.png) 
 
 6.	Select **Notification based password recovery**.
 
-    ![notification-based-password-recovery-option](../../../assets/img/guides/notification-based-password-recovery-option.png)
+    ![notification-based-password-recovery-option](/assets/img/guides/notification-based-password-recovery-option.png)
 
 7.	Click **Update**. 
 
@@ -64,11 +64,11 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 2.	Click **Password**.
 
-    ![forgotten-password-option](../../../assets/img/guides/forgotten-password-option.png)
+    ![forgotten-password-option](/assets/img/guides/forgotten-password-option.png)
 
 3.	Enter the user name of the newly created user. If multiple recovery options are displayed, select the **Recover with Mail** option.
 
-    ![recover-password-email-option.png](../../../assets/img/guides/recover-password-email-option.png)
+    ![recover-password-email-option.png](/assets/img/guides/recover-password-email-option.png)
     
 4.	Click **Submit**. 
 

@@ -101,7 +101,7 @@ and group resources in a RESTful way.
 
 Charon library comprises of four main components. 
 
-![charon](../../../assets/img/get-started/charon.png)
+![charon](/assets/img/get-started/charon.png)
 
 ### Charon — Core
 

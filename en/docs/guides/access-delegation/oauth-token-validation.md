@@ -1,7 +1,7 @@
 # OAuth Token Validation Using SOAP Service
 
 WSO2 Identity Server provides a SOAP service to validate the OAuth2 token it has issued, which can be used by the resource server. This
-page guides you through calling the SOAP service using [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html).
+page guides you through calling the SOAP service using [SOAP UI](https://www.soapui.org/downloads/latest-release.html).
 
 1.  Add the following configuration property to the `deployment.toml` file in the ` <IS_HOME>/repository/conf` folder to enable admin service WSDLs.
 
@@ -16,7 +16,7 @@ page guides you through calling the SOAP service using [SOAP UI](../../https://w
 
 2.  Restart the server to make the changes effective.
 
-3.  Open [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html) and give the WSDL location.
+3.  Open [SOAP UI](https://www.soapui.org/downloads/latest-release.html) and give the WSDL location.
 
     1.  **Service Name:** OAuth2TokenValidationService
 
@@ -25,7 +25,7 @@ page guides you through calling the SOAP service using [SOAP UI](../../https://w
 4.  Provide the following parameters to call the `validate` method as seen
     below. 
 
-    <img name='oauth-token-validation-request' src='../../../assets/img/guides/oauth-token-validation-request.png' class='img-zoomable'/>
+    <img name='oauth-token-validation-request' src='/assets/img/guides/oauth-token-validation-request.png' class='img-zoomable'/>
 
     !!! Tip 
         You can obtain an oauth token by following the tutorial,

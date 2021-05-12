@@ -77,7 +77,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
 
     4.  Copy only the key string as shown in the sample below.
 
-        ![sample-key-string](../../assets/img/guides/sample-key-string.png)
+        ![sample-key-string](/assets/img/guides/sample-key-string.png)
 
 4. The following sample JAVA program can be used to decrypt the ID token using the default `wso2carbon.jks` keystore. 
 

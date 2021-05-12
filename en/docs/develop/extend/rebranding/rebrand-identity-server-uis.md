@@ -242,16 +242,16 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
         Restarting the server is NOT required to reflect the changes. A browser refresh will display the changes. 
 
     -  Customized login page
-    ![image](../../../assets/img/extend/rebranded-ui-1.png)
+    ![image](/assets/img/extend/rebranded-ui-1.png)
 
     - Customized recover username page
-    ![image](../../../assets/img/extend/rebranded-ui-2.png)
+    ![image](/assets/img/extend/rebranded-ui-2.png)
     
     - Customized recover password page
-    ![image](../../../assets/img/extend/rebranded-ui-3.png)
+    ![image](/assets/img/extend/rebranded-ui-3.png)
 
     - Customized self sign up page
-    ![image](../../../assets/img/extend/rebranded-ui-4.png)
+    ![image](/assets/img/extend/rebranded-ui-4.png)
 
 !!! note  
     One advantage of this approach is that WUM updates will not affect your UI changes and you need not worry about manually adding your changes. 

@@ -12,7 +12,7 @@ This page guides you through implementing workflow support for SP operations.
 
 Create the project according to the following hierarchy.
 
-![Handler hierarchy](../../../assets/img/extend/handler-hierarchy.png)
+![Handler hierarchy](/assets/img/extend/handler-hierarchy.png)
 
 Add a separate handler for each operation for which you wish to add workflow support. 
 
@@ -219,14 +219,14 @@ Deploy the new handler by adding the new .jar file to the `<IS_HOME>/repository/
 
 2. Navigate to **Main** > **Manage** > **Workflow Engagements** > **Add**.
 
-    ![add-workflow-engagement](../../../assets/img/extend/add-workflow-engagement.png)
+    ![add-workflow-engagement](/assets/img/extend/add-workflow-engagement.png)
     
 3. Under the **Operation Category**, you will see the new operation category.
 
-    ![Operation category selection](../../../assets/img/extend/operation-category-selection.png)
+    ![Operation category selection](/assets/img/extend/operation-category-selection.png)
 
 4. Under the **Operation Name**, you will see the new operation name.
 
-    ![Operation category name](../../../assets/img/extend/operation-category-name.png)
+    ![Operation category name](/assets/img/extend/operation-category-name.png)
 
 A sample handler implementation is available [here](https://github.com/wso2/samples-is/tree/master/workflow).

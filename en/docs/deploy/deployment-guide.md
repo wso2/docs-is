@@ -128,7 +128,7 @@ database (**UM_DB**).
 The following diagram is a high-level component diagram showing how the system would look like when two databases 
 are used.
 
-![Component diagram](../../assets/img/deploy/component-diagram.png)
+![Component diagram](/assets/img/deploy/component-diagram.png)
 
 !!! note
     For instructions on how to configure the data sources for other databases and 
@@ -167,7 +167,7 @@ To make sure the configurations were applied correctly:
     <li>Log in to the management console.</li>
     <li>
         <p>Navigate to <b>Home > Registry > Browse</b>.</p>
-        <p><img src="../../assets/img/deploy/registry-browser-2.png" alt="Registry browser"></p>
+        <p><img src="/assets/img/deploy/registry-browser-2.png" alt="Registry browser"></p>
         <p>Note that the governance collection is shown with the symlink icon.</p>
     </li>    
 </ol>

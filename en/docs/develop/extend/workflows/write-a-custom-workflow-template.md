@@ -167,6 +167,6 @@ bundleContext.registerService(AbstractWorkflow.class, new SampleTemplateImplemen
 
 Now, when adding a new workflow, you will get a drop-down menu to select which template to follow in that workflow.
 
-![Workflow template selection](../../../assets/img/extend/workflow-template-selection.png)
+![Workflow template selection](/assets/img/extend/workflow-template-selection.png)
 
 The source of the sample which was used for this documentation can be found [here](https://github.com/wso2/samples-is/tree/master/workflow/template/sample-template).

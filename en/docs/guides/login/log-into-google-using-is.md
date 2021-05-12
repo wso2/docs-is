@@ -21,11 +21,11 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 		Can't see the Security section? Click the **MORE CONTROLS** bar at
 		the bottom and you can see the Security section.
 
-    ![more-controls](../../assets/img/guides/security-google.png)
+    ![more-controls](/assets/img/guides/security-google.png)
 
 3.  Click **Set up single sign-on (SSO) with a third party IdP**.
 
-    ![third-party-idp](../../assets/img/guides/setup-sso-google.png)
+    ![third-party-idp](/assets/img/guides/setup-sso-google.png)
 
 4.  Enter the following URLs to your third-party Identity Provider
     (IdP).
@@ -36,7 +36,7 @@ This page guides you through using WSO2 Identity Server to log in to Google.
     -   **Sign-out page URL:**
         `             https://<IS_HOSTNAME>:<IS_POST>/samlsso            `
 
-    ![sso-fill-google.png](../../assets/img/guides/sso-fill-google.png)
+    ![sso-fill-google.png](/assets/img/guides/sso-fill-google.png)
 
 5.  Upload the Identity Server certificate:  
     The certificate file must contain the public key for Google to

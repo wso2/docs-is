@@ -7,7 +7,7 @@ down any latencies caused by database calls in an instance. The request
 calls and response calls are correlated via a correlation ID that is
 sent in the request call.
 
-![Correleation ID](../../../assets/img/deploy/monitor/correlation-id.png) 
+![Correleation ID](/assets/img/deploy/monitor/correlation-id.png) 
 
 !!! note    
     By default, product observability is not enabled as it impacts on the
@@ -97,7 +97,7 @@ Follow the steps below to enable product observability.
     Notice that a separate log file called
     `           correlation.log          ` is created.
 
-    ![Correlation.log](../../../assets/img/deploy/monitor/correlation-log.png) 
+    ![Correlation.log](/assets/img/deploy/monitor/correlation-log.png) 
 
 Now you are ready to test the product observability of WSO2 IS.
 
@@ -262,4 +262,4 @@ Follow the steps below to configure denylists for threads.
     tail -f ../repository/logs/correlation.log
     ```
 
-    ![Correlation log screenshot](../../../assets/img/deploy/monitor/correlation-log-screenshot-2.png)
+    ![Correlation log screenshot](/assets/img/deploy/monitor/correlation-log-screenshot-2.png)

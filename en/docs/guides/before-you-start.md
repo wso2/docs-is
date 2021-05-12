@@ -17,7 +17,7 @@ template: templates/2-column.html
     <div class="card" onclick="location.href='../../guides/login/webapp-oidc';">
       <div class="icon ">
         <i class="material-icons md-24">
-            <img src="../../assets/img/icons/application/web.png">
+            <img src="/assets/img/icons/application/web.png">
         </i>
       </div>
       <div class="card-content" >
@@ -30,7 +30,7 @@ template: templates/2-column.html
     <div class="card" onclick="location.href='../../quick-starts/mobile-app';">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../assets/img/icons/application/mobile.png">
+            <img src="/assets/img/icons/application/mobile.png">
         </i>
       </div>
       <div class="card-content" >
@@ -42,7 +42,7 @@ template: templates/2-column.html
     <div class="card" onclick="location.href='../../quick-starts/spa-app';">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../assets/img/icons/application/spa.png">
+            <img src="/assets/img/icons/application/spa.png">
         </i>
       </div>
       <div class="card-content" >
@@ -55,11 +55,11 @@ template: templates/2-column.html
 
 ### Multi Factor Authentication
 
-![mfa](../assets/img/temp-img/guide-to-mfa.png)
+![mfa](/assets/img/temp-img/guide-to-mfa.png)
 
 ### Social Sign In
 
-![social](../assets/img/temp-img/guide-to-social.png)
+![social](/assets/img/temp-img/guide-to-social.png)
 
 ### Manage Users
 

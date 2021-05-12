@@ -53,8 +53,8 @@ This document explains the steps to configure WSO2 Identity Server to send email
     1.  Navigate to <https://myaccount.google.com/security>.
     2.  Click **Security** on the left menu and make sure
         that **2-step Verification** under **Signing in to Google** is disabled or off.  
-        ![google-2-step-verification](../../assets/img/fragments/google-2-step-verification.png)  
+        ![google-2-step-verification](/assets/img/fragments/google-2-step-verification.png)  
     3.  Enable **Less secure app access**.  
-        ![allow-less-secure-apps](../../assets/img/fragments/allow-less-secure-apps.png)
+        ![allow-less-secure-apps](/assets/img/fragments/allow-less-secure-apps.png)
                
     

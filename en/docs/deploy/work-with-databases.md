@@ -23,7 +23,7 @@ Explained below are the default databases that you will find in the
 Following image shows the default databases and the data that are stored in each database.
 <div>
     <center>
-        <img src="../../../assets/img/deploy/default-database-structure.png">
+        <img src="/assets/img/deploy/default-database-structure.png">
     </center>
 </div>
 

@@ -208,4 +208,4 @@ This table is not used in the latest version of Identity Server.
 -   `IS_REQUESTED`  
       
       
-    ![Identity provider related tables](../../../assets/img/deploy/identity-provider-related-tables.png) 
+    ![Identity provider related tables](/assets/img/deploy/identity-provider-related-tables.png) 

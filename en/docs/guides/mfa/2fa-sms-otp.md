@@ -34,7 +34,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 			are displayed. Copy and save them as you need them for the next
 			step.  
 			Example:  
-			![nexmo-config](../../../assets/img/guides/nexmo-config.png)
+			![nexmo-config](/assets/img/guides/nexmo-config.png)
 		3.  The Nexmo API requires the parameters to be encoded in the URL,
 			so the SMS URL would be as follows.
 			<html><table>
@@ -131,7 +131,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 		1.  Go to <https://www2.bulksms.com/login.mc> and create an account.
 		2.  While registering the account, verify your mobile number and
 			click **Claim** to get free credit.  
-			![mobile-number-claim](../../../assets/img/guides/mobile-number-claim.png)
+			![mobile-number-claim](/assets/img/guides/mobile-number-claim.png)
 
 			Bulksms API authentication is performed by providing the
 			username and password request parameters.
@@ -221,7 +221,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 
             Adding SMS OTP as a second step adds another layer of authentication and security.
     
-        <img name='sms-otp-authentication-steps' src='../../../assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
+        <img name='sms-otp-authentication-steps' src='/assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
 
 9. Click **Update** to save the changes.
 
@@ -260,12 +260,12 @@ This page guides you through configuring [two-factor authentication](../../../re
 
 4. Select the **Supported by Default** option and click **Update**.
 
-    ![supported-by-default](../../../assets/img/guides/supported-by-default.png)
+    ![supported-by-default](/assets/img/guides/supported-by-default.png)
 
 5. To verify whether the option is available for the users, navigate to a user 
     profile of a user and check whether the **Disable SMSOTP** option is available.
     
-    ![user-disable-smsotp](../../../assets/img/guides/user-disable-smsotp.png)
+    ![user-disable-smsotp](/assets/img/guides/user-disable-smsotp.png)
 	
 ----
 
@@ -289,7 +289,7 @@ backup codes, follow the steps given below.
 
 7.  Click **Add**.
 
-    <img name='allow-to-use-back-up-codes' src='../../../assets/img/guides/allow-to-use-back-up-codes.png' class='img-zoomable'/>
+    <img name='allow-to-use-back-up-codes' src='/assets/img/guides/allow-to-use-back-up-codes.png' class='img-zoomable'/>
 
 **Add backup codes for users**
 
@@ -303,7 +303,7 @@ A backup code can have any number of digits, and you can define many backup code
     the backup codes so that the user can disable SMS OTP by selecting
     **Disable SMS OTP** if required.		
 
-    ![define-backup-codes](../../../assets/img/guides/define-backup-codes.png)
+    ![define-backup-codes](/assets/img/guides/define-backup-codes.png)
 	
 ----
 
@@ -329,7 +329,7 @@ enable=false
 
 3. Enter the SMS OTP code. 
 
-    ![authenticate-with-smsotp](../../assets/img/guides/authenticating-with-smsotp.png)
+    ![authenticate-with-smsotp](/assets/img/guides/authenticating-with-smsotp.png)
 
 4. If the authentication is successful, you will be redirected to the home page of the service provider.
 

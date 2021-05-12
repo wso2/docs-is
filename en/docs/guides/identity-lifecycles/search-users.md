@@ -9,7 +9,7 @@ the user by doing the following.
     **Users and Roles**.  
 2.  Click **Users**. This link is only visible to users with the Admin
     role. The following screen appears.  
-    ![search-users-in-console](../../../assets/img/guides/search-users-in-console.png) 
+    ![search-users-in-console](/assets/img/guides/search-users-in-console.png) 
     
     You can search for users by doing one of the following. 
 

@@ -43,7 +43,7 @@ template.
             supported.
         
 
-    ![edit-email-template](../../../assets/img/guides/edit-email-template.png) 
+    ![edit-email-template](/assets/img/guides/edit-email-template.png) 
 
       
     !!! tip "Placeholders and Custom Claim Dialects"
@@ -83,7 +83,7 @@ template.
             supported.
         
 
-    ![edit-email-template](../../../assets/img/guides/edit-email-template.png) 
+    ![edit-email-template](/assets/img/guides/edit-email-template.png) 
 
     !!! tip "Placeholders and Custom Claim Dialects"
 
@@ -110,7 +110,7 @@ Once you have set the template language for the user, it is also necessary to sp
 3.  Logout as admin and login as a user with user profile management permissions.
 4.  Click on **List** under **Users and Roles** and then select **Users**.
 5.  Click on the **User Profile** button corresponding to the logged in user.  
-    ![updating-user-locale](../../../assets/img/guides/updating-user-locale.png) 
+    ![updating-user-locale](/assets/img/guides/updating-user-locale.png) 
 6.  Enter the locale code for the **Locality** field and click **Update**.
 
     !!! tip

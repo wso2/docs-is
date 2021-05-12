@@ -50,18 +50,18 @@ reCAPTCHA for a specific tenant.
 
 5.  Select **Enable reCaptcha for password recovery**.
 
-    ![enable-recaptcha](../../assets/img/guides/enable-recaptcha.png) 
+    ![enable-recaptcha](/assets/img/guides/enable-recaptcha.png) 
 
 6.  You have now successfully configured reCAPTCHA for the password
     recovery flow. Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
 
 7.  Click **Password**.
     
-    ![forgot-password](../../assets/img/guides/forgotten-password-option.png)
+    ![forgot-password](/assets/img/guides/forgotten-password-option.png)
 
 8.  You are redirected to the **Recover Password** page where the reCAPTCHA is displayed.
 
-    ![recover-password](../../assets/img/guides/recover-password-with-recaptcha.png)
+    ![recover-password](/assets/img/guides/recover-password-with-recaptcha.png)
 
 ---
 
@@ -88,11 +88,11 @@ password recovery with reCAPTCHA.
 
 3.  Click **Password**.
 
-    ![forgot-password](../../assets/img/guides/forgotten-password-option.png)
+    ![forgot-password](/assets/img/guides/forgotten-password-option.png)
 
 4.  You are redirected to the **Recover Password** page where the reCAPTCHA is displayed.
 
-    ![recover-password-with-recaptcha](../../assets/img/guides/recover-password-with-recaptcha.png)
+    ![recover-password-with-recaptcha](/assets/img/guides/recover-password-with-recaptcha.png)
 
 ---
 

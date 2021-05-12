@@ -53,7 +53,7 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
          a Policy
          Template](../../learn/writing-a-xacml-policy-using-a-policy-template).-->
 
-    ![xacml-policy-templates](../../../assets/img/guides/xacml-policy-templates.png) 
+    ![xacml-policy-templates](/assets/img/guides/xacml-policy-templates.png) 
 
 3.  Once you click **Edit**, the XML based policy will appear in the
     policy editor. There are placeholders in capitals for entering the
@@ -160,14 +160,14 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 6.  Click **Save Policy** to save the changes. You can see the policy
     you just created on the policy list (the original template policy
     will remain unchanged for later use).  
-    ![save-created-policy](../../../assets/img/guides/save-created-policy.png) 
+    ![save-created-policy](/assets/img/guides/save-created-policy.png) 
 
 7.  Click on the **Publish to My PDP** link corresponding to the new
     policy.  
-    ![publish-to-my-pdp](../../../assets/img/guides/publish-to-my-pdp.png)
+    ![publish-to-my-pdp](/assets/img/guides/publish-to-my-pdp.png)
 8.  On the UI that appears, leave the default selected values as they
     are and click **Publish**.  
-    ![publish-policy](../../../assets/img/guides/publish-policy.png)
+    ![publish-policy](/assets/img/guides/publish-policy.png)
 
 <!--!!! note
     For more information on Publishing a XACML policy, click
@@ -178,7 +178,7 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 10. To ensure that the policy has been published successfully, check if
     the policy is listed.  
       
-    ![policy-view](../../../assets/img/guides/policy-view.png)
+    ![policy-view](/assets/img/guides/policy-view.png)
 11. To test out whether the policy works, follow the **Try it
     out** section.
 

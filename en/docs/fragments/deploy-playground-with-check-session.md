@@ -1,7 +1,7 @@
 You are directed to the landing page of the sample application. Click on **Import Photos** and the following
 page appears.  
 
-<img name='playground-app' src='../../assets/img/samples/play-ground-with-check-session.png' class='img-zoomable'/>
+<img name='playground-app' src='/assets/img/samples/play-ground-with-check-session.png' class='img-zoomable'/>
 
 !!! tip "Troubleshooting tip"
 

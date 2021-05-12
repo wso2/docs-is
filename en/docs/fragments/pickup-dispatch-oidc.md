@@ -46,6 +46,6 @@ Next, deploy the sample web app on a web container.
 
 2. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
 
-    ![pickup-key-secret](../../../assets/img/fragments/pickup-key-secret.png)
+    ![pickup-key-secret](/assets/img/fragments/pickup-key-secret.png)
 
 3. Next, copy the extracted and modified `pickup-dispatch` folder to the `<TOMCAT_HOME>/webapps` folder.

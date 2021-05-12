@@ -19,11 +19,11 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 2. Select **App registrations** listed under **Azure services**. 
 
-    ![azure-services](../../assets/img/samples/azure-services.png)
+    ![azure-services](/assets/img/samples/azure-services.png)
 
 3. Click on **Register an application**.
     
-    ![create-azure-app](../../assets/img/samples/register-azure.png)
+    ![create-azure-app](/assets/img/samples/register-azure.png)
 
 4. Fill in the application details with the relevant values. 
 

@@ -24,7 +24,7 @@ If you have your own application, click the button below.
 
 3. Click on **Create an app**.
     
-    ![create-twittter-app](../../../assets/img/samples/create-app-twitter.png)
+    ![create-twittter-app](/assets/img/samples/create-app-twitter.png)
 
 4. Fill in the application details with the following values. 
 
@@ -37,17 +37,17 @@ If you have your own application, click the button below.
 
 5. Click  **Create**.
 
-    ![app-created-twitter.png](../../../assets/img/samples/app-created-twitter.png)
+    ![app-created-twitter.png](/assets/img/samples/app-created-twitter.png)
 
 6. Move to the next tab, **keys and tokens**. 
 
 7. Click on the **Generate** button adjacent to **Access token & access token secret**. 
 
-    ![create-access-token](../../../assets/img/samples/create-access-token.png)
+    ![create-access-token](/assets/img/samples/create-access-token.png)
 
 8. Make note of the Access token and Access token secret that appears next. 
 
-    ![note-tokens](../../../assets/img/samples/note-tokens.png)
+    ![note-tokens](/assets/img/samples/note-tokens.png)
 
 9. Move to the next tab, **Permissions**. 
 
@@ -64,7 +64,7 @@ If you have your own application, click the button below.
 
 4.  Expand **Twitter Configuration** under **Federated Authenticators**.
 
-    ![twitter-config-federated-auth.png](../../../assets/img/samples/twitter-config-federated-auth.png)
+    ![twitter-config-federated-auth.png](/assets/img/samples/twitter-config-federated-auth.png)
     
     Fill in the following fields details according to the application
     [registered in Twitter](http://docs.inboundnow.com/guide/create-twitter-application/):
@@ -125,7 +125,7 @@ If you have your own application, click the button below.
 1.  Access the Pickup sample application URL:
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 2.  Click **Login**. You are redirected to the Twitter login page.  
-    ![twitter-login-page](../../../assets/img/samples/consent-twitter.png)
+    ![twitter-login-page](/assets/img/samples/consent-twitter.png)
     
 3.  Click **Continue**. 
 4.  On a new tab on your browser, access the following URL:

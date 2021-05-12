@@ -41,7 +41,7 @@ identity provider in the Identity Server.
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.
 3.  Fill in the details in the **Basic Information** section.  
-    ![idp-basic-info](../../../assets/img/guides/idp-basic-info.png)   
+    ![idp-basic-info](/assets/img/guides/idp-basic-info.png)   
     Note the following when filling the above form.
     -   The **Identity Provider Name** should be unique.
     -   The **Home Realm Identifier** is a standard value which will
@@ -52,7 +52,7 @@ identity provider in the Identity Server.
 4.  Expand the **Outbound Provisioning Connectors** section followed by
     the **SCIM Provisioning Configuration** section.
 5.  Fill out the details in the form.  
-    ![scim-config-form](../../../assets/img/guides/scim-config-form.png)   
+    ![scim-config-form](/assets/img/guides/scim-config-form.png)   
     <!-- Do the configurations as described in [Configuring SCIM
     provisioning](TO-DO:../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider). -->
     The following are the configurations in brief.
@@ -104,9 +104,9 @@ like Salesforce and Google Apps.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
-        possible. ![outbound-provisioning-icon](../../../assets/img/guides/outbound-provisioning-icon.png)
+        possible. ![outbound-provisioning-icon](/assets/img/guides/outbound-provisioning-icon.png)
         
-        ![config-outbound-provisioning](../../../assets/img/guides/config-outbound-provisioning.png) 
+        ![config-outbound-provisioning](/assets/img/guides/config-outbound-provisioning.png) 
         
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** from the drop-down to ensure that the SCIM
@@ -137,9 +137,9 @@ provider if your application supports OAuth.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
-        possible. ![outbound-provisioning-icon](../../../assets/img/guides/outbound-provisioning-icon.png)
+        possible. ![outbound-provisioning-icon](/assets/img/guides/outbound-provisioning-icon.png)
         
-        ![expand-outbound-provisioning](../../../assets/img/guides/expand-outbound-provisioning.png)
+        ![expand-outbound-provisioning](/assets/img/guides/expand-outbound-provisioning.png)
         
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** from the drop-down to ensure that the SCIM

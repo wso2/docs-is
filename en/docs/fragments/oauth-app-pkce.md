@@ -14,7 +14,7 @@ Make the following changes to the created service provider.
 
 4. Select **PKCE Mandatory** in order to enable PKCE. 
 
-    ![enable-pkce](../../assets/img/guides/enable-pkce.png)
+    ![enable-pkce](/assets/img/guides/enable-pkce.png)
            
 5. Click **Add**. 
 

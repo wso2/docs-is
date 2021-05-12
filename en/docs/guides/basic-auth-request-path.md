@@ -57,7 +57,7 @@ Location: <callback_url>?code=<code>&session_state=<session_state>
     * You can skip prompting consent for a particular request by sending the `prompt=none` attribute in the authorization request
     * You can skip prompting consent for an application by enabling the **Skip Login Consent** option on the management console.
     
-	![](../../../assets/img/guides/skip-consent.png)
+	![](/assets/img/guides/skip-consent.png)
 
     * You can skip re-prompting consent by selecting the **Approve always** option for an application and user before sending the request.
     * You can add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to disable prompting

@@ -22,11 +22,11 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 2.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
-	![resident-idp](../../../assets/img/fragments/resident-idp.png)  
+	![resident-idp](/assets/img/fragments/resident-idp.png)  
 
 3.	Under the **Account Management** section, click **Account Recovery**.
 
-	![account-recovery-option](../../../assets/img/fragments/account-recovery-option.png)  	
+	![account-recovery-option](/assets/img/fragments/account-recovery-option.png)  	
 
 4.	Enter the required values as given below:
 
@@ -34,7 +34,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	-	**Number of questions required for password recovery**: `2` 
 	
-	![security-question-based-password-recovery-option](../../../assets/img/guides/security-question-based-password-recovery-option.png)
+	![security-question-based-password-recovery-option](/assets/img/guides/security-question-based-password-recovery-option.png)
 
 5.	Click **Update**. 
 
@@ -46,15 +46,15 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 2.	Log in with the credentials of the user account that you created.
 
-	![myaccount-login](../../../assets/img/fragments/myaccount-login.png)
+	![myaccount-login](/assets/img/fragments/myaccount-login.png)
  
 3. Select the **Security** tab.
 
-    ![myaccount-security-tab](../../../assets/img/fragments/myaccount-security-tab.png)
+    ![myaccount-security-tab](/assets/img/fragments/myaccount-security-tab.png)
 
 3.	Under **Account Recovery**, click **+** to add or update security questions.
 
-	![myaccount-recovery-section](../../../assets/img/fragments/myaccount-recovery-section.png)
+	![myaccount-recovery-section](/assets/img/fragments/myaccount-recovery-section.png)
 
 4.	Configure the challenge questions as given below:
 
@@ -63,7 +63,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 	-	**Challenge Question 2**: `Favourite food?`
 	-	**Your Answer**: `Pizza`
 
-    ![myaccount-security-questions-form](../../../assets/img/guides/my-account/account-recovery/security-questions-form.png)
+    ![myaccount-security-questions-form](/assets/img/guides/my-account/account-recovery/security-questions-form.png)
     
 5. Click **Save**.
 
@@ -77,25 +77,25 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 2.	Click **Password**.
 
-    ![forgotten-password-option](../../../assets/img/guides/forgotten-password-option.png)
+    ![forgotten-password-option](/assets/img/guides/forgotten-password-option.png)
 
 3.	Enter the user name of the newly created user and if multiple recovery options are displayed, select the **Recover with Security Questions** option.
 
-    ![recover-password-security-question-option](../../../assets/img/guides/recover-password-security-question-option.png)
+    ![recover-password-security-question-option](/assets/img/guides/recover-password-security-question-option.png)
     
 4.	Click **Submit**. 
 
 5.	Enter the first challenge question answer as `Tommy` and click **Submit**.
 
-    ![security-question-pet](../../../assets/img/guides/security-question-pet.png)
+    ![security-question-pet](/assets/img/guides/security-question-pet.png)
 
 6.	Enter the second challenge question answer as `Pizza` and click **Submit**.
 
-	![security-question-food](../../../assets/img/guides/security-question-food.png)  
+	![security-question-food](/assets/img/guides/security-question-food.png)  
 
 7.	Enter the new password and click **Proceed**.
 
-    ![password-reset-form](../../../assets/img/guides/password-reset-form.png) 
+    ![password-reset-form](/assets/img/guides/password-reset-form.png) 
 
 8.	Enter the username and new password and click **Sign In**. The My Account home screen appears. 
 

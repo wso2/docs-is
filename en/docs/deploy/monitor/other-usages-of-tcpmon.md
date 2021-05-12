@@ -12,7 +12,7 @@ TCPMon can also be used as a request sender for Web services. The
 request SOAP message can be pasted on the send screen and sent directly
 to the server.
 
-![](../../../assets/img/deploy/monitor/web-services.png)
+![](/assets/img/deploy/monitor/web-services.png)
 
 ---
 
@@ -22,7 +22,7 @@ TCPMon can act as a proxy. To start it in proxy mode, select the Proxy
 option. When acting as a proxy, TCPMon only needs the listener port to
 be configured.
 
-![](../../../assets/img/deploy/monitor/as-a-proxy.png)
+![](/assets/img/deploy/monitor/as-a-proxy.png)
 
 ---
 
@@ -32,7 +32,7 @@ TCPMon can simulate a slow connection, in which case the delay and the
 bytes to be dropped can be configured. This is useful when testing Web
 services.
 
-![](../../../assets/img/deploy/monitor/advanced-setting.png)
+![](/assets/img/deploy/monitor/advanced-setting.png)
 
 Also, if HTTP proxy support is required, that can also be set on the
 admin screen.

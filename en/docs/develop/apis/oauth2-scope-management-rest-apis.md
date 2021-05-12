@@ -20,8 +20,8 @@ see [OIDC Scope Management REST APIs](/develop/apis/oidc-scope-management-rest-a
     3. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS. 
     
 <div id="swagger-ui"></div>
-<script src="../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
-<script src="../../assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
+<script src="/assets/lib/swagger/swagger-ui-bundle.js"> </script>
+<script src="/assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
 <script>
 window.onload = function() {
   // Begin Swagger UI call region

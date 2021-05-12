@@ -22,7 +22,7 @@ on the presence of the resource owner and the registration of the redirection UR
 The diagram below illustrates the implicit grant flow.
 
 
-![implicit-grant](../../assets/img/concepts/implicit-grant-flow.png)
+![implicit-grant](/assets/img/concepts/implicit-grant-flow.png)
 
 
 The URL below can be used to try this grant type.

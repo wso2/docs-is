@@ -67,7 +67,7 @@ following diagram.
     and select the legitimate application. However, some operating systems
     (such as iOS) do not have any such scheme.
 
-![Authorization code grant type flow](../../../assets/img/deploy/authorization-code-grant-type-flow.png) 
+![Authorization code grant type flow](/assets/img/deploy/authorization-code-grant-type-flow.png) 
 
 ---
 
@@ -125,7 +125,7 @@ steps below to do this.
     **Configure**.
 3.  Select the **PKCE Mandatory** checkbox and the **Support PKCE
     'Plain' Transform Algorithm** checkbox to enable PKCE.  
-    ![](../../../assets/img/deploy/register-a-new-application.png)
+    ![](/assets/img/deploy/register-a-new-application.png)
 
 
 !!! info "Related Topics" 

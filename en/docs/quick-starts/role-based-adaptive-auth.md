@@ -38,7 +38,7 @@ Role-based adaptive authentication can be used to trigger additional authenticat
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Role-Based**.  
 
-    ![role based authentication template](../../../assets/img/samples/role-based-template.png)
+    ![role based authentication template](/assets/img/samples/role-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -57,10 +57,10 @@ Role-based adaptive authentication can be used to trigger additional authenticat
         `            fido           ` authenticators from Step 2 (the
         second authentication step).
         
-        ![delete authenticators](../../../assets/img/samples/delete-authenticators.png)
+        ![delete authenticators](/assets/img/samples/delete-authenticators.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator](/assets/img/samples/add-new-authenticator.png)
 
 8.  Click **Update**.
 
@@ -74,11 +74,11 @@ Role-based adaptive authentication can be used to trigger additional authenticat
 2.  Click **Login** and enter admin/admin credentials.  
     You are prompted to use the hardware key after basic authentication according to the authentication step defined in the JavaScript above.  
     
-    ![pickup sign in](../../../assets/img/samples/pickup-sign-in.png)
+    ![pickup sign in](/assets/img/samples/pickup-sign-in.png)
     
 3.  Enter the 4-digit key given on the screen and click **Sign In**. 
 
-    ![hardware key authenticator](../../../assets/img/samples/hardware-key-authenticator.png)
+    ![hardware key authenticator](/assets/img/samples/hardware-key-authenticator.png)
     
     
 4.  Next, log out of the application and log in again as 'Alex'. 
@@ -87,4 +87,4 @@ Role-based adaptive authentication can be used to trigger additional authenticat
     authentication is successful only after going through the basic
     authentication step.  
 
-    ![pickup homepage](../../../assets/img/samples/pickup-homepage.png)
+    ![pickup homepage](/assets/img/samples/pickup-homepage.png)

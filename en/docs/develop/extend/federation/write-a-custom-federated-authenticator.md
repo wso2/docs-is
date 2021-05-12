@@ -4,7 +4,7 @@ A custom federated authenticator can be written to authenticate a user with an e
 The external system can be any identity provider such as Facebook, Twitter, Google, Yahoo, etc.
 You can use the extension points available in WSO2 Identity Server to create custom federated authenticators.
 
-![Federated authentication diagram](../../../assets/img/extend/federated-authentication-diagram.png)
+![Federated authentication diagram](/assets/img/extend/federated-authentication-diagram.png)
 
 ---
 
@@ -167,11 +167,11 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 2. Navigate to **Main** > **Identity** > **Service Providers** > **Add**.
 
-    ![add-service-provider](../../../assets/img/fragments/add-service-provider.png)
+    ![add-service-provider](/assets/img/fragments/add-service-provider.png)
     
 3. Enter a **Service Provider Name**. Optionally, enter a **Description**.
 
-    ![register-service-provider](../../../assets/img/fragments/register-service-provider.png)
+    ![register-service-provider](/assets/img/fragments/register-service-provider.png)
     
 4. Click **Register**.    
    
@@ -202,11 +202,11 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 2. Navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
 
-    ![add-identity-provider](../../../assets/img/fragments/add-identity-provider.png)
+    ![add-identity-provider](/assets/img/fragments/add-identity-provider.png)
 
 3. Provide the **Identity Provider Name**  as `Partner-Identity-Server`.
 
-    ![Partner idp config](../../../assets/img/extend/partner-idp-config.png)
+    ![Partner idp config](/assets/img/extend/partner-idp-config.png)
 
 4. Click **Federated Authenticators** and expand **Custom-federated-authenticator configurations**. 
    Configure it as follows.
@@ -218,7 +218,7 @@ After starting that partner identity server, it will run on [localhost:9444](htt
     - **Authorization Endpoint URL** - `https://localhost:9444/oauth2/authorize/`
     - **Token Endpoint URL** - `https://localhost:9444/oauth2/token/`
 
-    ![Federated Authenticator](../../../assets/img/extend/federated-authenticator.png)
+    ![Federated Authenticator](/assets/img/extend/federated-authenticator.png)
 
 5. Click **Register**.
 
@@ -233,7 +233,7 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 5. Expand the **Local & Outbound Authentication Configuration** section. 
 
 6. Select **Federated Authentication** and select the configured federated authenticator.
-   ![Partner identity provider](../../../assets/img/extend/partner-identity-provider.png)
+   ![Partner identity provider](/assets/img/extend/partner-identity-provider.png)
 
 7. Click **Update** to save the configurations.
 

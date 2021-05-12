@@ -16,7 +16,7 @@ and adopt OAuth 2.0.
 The following section describes the flow involved in exchanging a
 Kerberos ticket for an OAuth2 token. 
  
-![oauth-kerberos-diagram](../../../assets/img/concepts/oauth-kerberos-diagram.png)
+![oauth-kerberos-diagram](/assets/img/concepts/oauth-kerberos-diagram.png)
 
 1.  The Kerberos client requests the Kerberos Service Ticket from the
     Kerberos Key Distribution Center (KDC) to invoke the service.  

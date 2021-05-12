@@ -4,4 +4,4 @@
     
 3.	Make the value of the **Identity Provider Entity ID** field as same as the SAML endpoint of WSO2 Identity Server: `https://{yourhost}:{port}/samlsso`		
 	
-	![simeplesamlphp-resident](../../assets/img/fragments/simplesamlphp-resident.png))
+	![simeplesamlphp-resident](/assets/img/fragments/simplesamlphp-resident.png))

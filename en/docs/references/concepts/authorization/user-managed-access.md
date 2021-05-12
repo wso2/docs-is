@@ -36,7 +36,7 @@ UMA works by defining a workflow that creates authorization policies on a centra
 
 4. The token is presented to the resource server in order to obtain access for the requesting party. 
 
-![user-managed-access-diagram](../../../assets/img/concepts/user-managed-access-diagram.png) 
+![user-managed-access-diagram](/assets/img/concepts/user-managed-access-diagram.png) 
 
 ---
 

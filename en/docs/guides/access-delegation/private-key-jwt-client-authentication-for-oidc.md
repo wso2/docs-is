@@ -122,7 +122,7 @@ artifacts.
 
 12. Click **List** under **Keystores** which is under **Manage** menu.
 
-    ![list-keystores](../../../assets/img/guides/list-keystores.png) 
+    ![list-keystores](/assets/img/guides/list-keystores.png) 
 
 13. To import the above cert  in
     to the default key store defined in
@@ -131,11 +131,11 @@ artifacts.
     !!! tip
         In a default pack, keystore name is `wso2carbon.jks`.
 
-    ![keystores-list](../../../assets/img/guides/keystores-list.png) 
+    ![keystores-list](/assets/img/guides/keystores-list.png) 
 
     When you view the keystore in the same UI (using **View** ), there
     should be a certificate with clientID as below:  
-    ![keystore-cert](../../../assets/img/guides/keystore-cert.png) 
+    ![keystore-cert](/assets/img/guides/keystore-cert.png) 
 
     !!! note
     
@@ -154,7 +154,7 @@ artifacts.
         Instead of importing the service provider certificate as shown above, you can choose to use the JWKS enpoint 
         as shown below and add the relevant JWKS URI.
     
-        ![configure-jwks-endpoint](../../../assets/img/guides/configure-jwks-endpoint.png) 
+        ![configure-jwks-endpoint](/assets/img/guides/configure-jwks-endpoint.png) 
     
 
 14. Use the below cURL to retrieve the access token and refresh token

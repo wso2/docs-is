@@ -34,7 +34,7 @@ These different grant types target different application types.
 ### How does it work?
 The exact flow differs based on the OAuth 2.0 the grant type. However, the abstract protocol flow is as below.
 
-![oauth2.0-flow](../../assets/img/concepts/oauth-basic-flow.png)
+![oauth2.0-flow](/assets/img/concepts/oauth-basic-flow.png)
 
 1. The application requests the authorization from the end-user (Resource Owner)
 2. The Resource Owner grants the authorization to the application

@@ -26,7 +26,7 @@ This guide assumes you have your own application. If you wish to try out this fl
     - http://wso2.org/claims/userprincipal
     - http://wso2.org/claims/role 
     
-    ![microprofile-jwt-sp-claims](../../../assets/img/guides/microprofile-jwt-sp-claims.png)
+    ![microprofile-jwt-sp-claims](/assets/img/guides/microprofile-jwt-sp-claims.png)
 
 ----
 

@@ -37,7 +37,7 @@ To ensure that only their own drivers can log into the application, Pickup decid
     2.  Once you have registered successfully, the API **key** and **secret**
         are displayed. Copy and save them as you need them for the next
         step.  
-        ![nexmo-config](../../../assets/img/guides/nexmo-config.png)
+        ![nexmo-config](/assets/img/guides/nexmo-config.png)
 
     3.  The Nexmo API requires the parameters to be encoded in the URL,
         so the SMS URL would be as follows.
@@ -91,7 +91,7 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
             Adding SMSOTP as a second step adds another layer of authentication and security.
     
-        <img name='sms-otp-authentication-steps' src='../../../assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
+        <img name='sms-otp-authentication-steps' src='/assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
 
 8. Click **Update** to save the changes.
 
@@ -120,12 +120,12 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 1. Navigate to `http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com` on your browser and click **Login**.
 
-    ![dispatch-login](../../../assets/img/samples/dispatch-login.png)
+    ![dispatch-login](/assets/img/samples/dispatch-login.png)
 
 2. You will be redirected to the login page of WSO2 Identity Server. Log in using Alex's credentials. 
 
 3. Note that you are now prompted to enter a code. The SMSOTP code will be sent to your mobile number. Enter the code and click **Authenticate**. 
 
-    ![authenticate-with-smsotp](../../../assets/img/samples/authenticating-with-smsotp.png)
+    ![authenticate-with-smsotp](/assets/img/samples/authenticating-with-smsotp.png)
 
 You are redirected to the Pickup Dispatch home page. You have succesfully configured and logged in using two factor authentication.

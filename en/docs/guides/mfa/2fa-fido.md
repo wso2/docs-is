@@ -60,7 +60,7 @@ Follow the steps given below if you are using a reverse proxy enabled setup to c
 
             Adding FIDO as a second step adds another layer of authentication and security.
     
-        <img name='fido-authentication-steps' src='../../../assets/img/guides/fido-authentication-steps.png' class='img-zoomable'/>
+        <img name='fido-authentication-steps' src='/assets/img/guides/fido-authentication-steps.png' class='img-zoomable'/>
     
     !!! warning
         The FIDO authenticator can be configured only after a local authenticator is configured in one of the previous steps. It cannot be configured as the first step and cannot be configured if a federated authenticator is set as the subject identifier.

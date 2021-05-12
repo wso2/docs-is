@@ -17,7 +17,7 @@ First, you need to register and create an API key pair for the required domain. 
 
 4.  Click **Submit**.
 
-    ![configuring-recaptcha-api-keys](../../../assets/img/fragments/recaptcha-new-sso.png) 
+    ![configuring-recaptcha-api-keys](/assets/img/fragments/recaptcha-new-sso.png) 
 
 5.  Take note of the site key and secret that you receive.
-    ![note-site-key-secret](../../../assets/img/fragments/copy-key.png) 
+    ![note-site-key-secret](/assets/img/fragments/copy-key.png) 

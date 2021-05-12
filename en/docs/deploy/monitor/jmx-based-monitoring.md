@@ -109,7 +109,7 @@ Once the identity server has started, you can start the `JConsole        ` tool 
 2.  Execute the `jconsole         ` command to open the
     log-in screen of the **Java Monitoring & Management Console** as
     shown below.  
-    ![](../../../assets/img/deploy/monitor/jm-mc.png) 
+    ![](/assets/img/deploy/monitor/jm-mc.png) 
 3.  Enter the connection details in the above screen as follows:
     1.  Enter the **JMX server URL** in the **Remote Process** field.
         This URL is published on the command prompt when you start the
@@ -152,32 +152,32 @@ Once the identity server has started, you can start the `JConsole        ` tool 
 4.  Click **Connect** to open the **Java Monitoring & Management Console**. The following tabs will be available.
 
     - **Overview**: See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html) for more information on these tabs. 
-        ![](../../../assets/img/deploy/monitor/oracle-overview.png) 
+        ![](/assets/img/deploy/monitor/oracle-overview.png) 
 
     -   **Memory**: See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-        ![](../../../assets/img/deploy/monitor/memory.png) 
+        ![](/assets/img/deploy/monitor/memory.png) 
 
     -   **Threads**: See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-        ![](../../../assets/img/deploy/monitor/threads.png) 
+        ![](/assets/img/deploy/monitor/threads.png) 
 
     -   **Classes**: See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-        ![](../../../assets/img/deploy/monitor/classes.png) 
+        ![](/assets/img/deploy/monitor/classes.png) 
 
     -   **VM**: See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-        ![](../../../assets/img/deploy/monitor/vm.png) 
+        ![](/assets/img/deploy/monitor/vm.png) 
 
     -   **MBeans**: See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-        ![](../../../assets/img/deploy/monitor/mbeans.png) 
+        ![](/assets/img/deploy/monitor/mbeans.png) 
 
 ---
 
@@ -187,7 +187,7 @@ When you go to the **MBeans** tab in the JConsole, the **ServerAdmin**
 MBean will be listed under the **&org.wso2.carbon** domain as shown
 below.  
 
-![](../../../assets/img/deploy/monitor/admin-mbean.png) 
+![](/assets/img/deploy/monitor/admin-mbean.png) 
 
 The **ServerAdmin** MBean is used for administering the WSO2 Identity Server
 instance. There are several server attributes such as **ServerStatus**,
@@ -203,7 +203,7 @@ any of the following values:
     <li><code>IN_MAINTENANCE</code></li>
 </ul>
 
-![](../../../assets/img/deploy/monitor/server-mbean.png) 
+![](/assets/img/deploy/monitor/server-mbean.png) 
 
 The **ServerAdmin** MBean has the following operations:
 
@@ -217,7 +217,7 @@ The **ServerAdmin** MBean has the following operations:
 | **endMaintenance**     | Switch the server to normal mode if it was switched to maintenance mode earlier.                            |
 
   
-![](../../../assets/img/deploy/monitor/server-admin.png) 
+![](/assets/img/deploy/monitor/server-admin.png) 
 
 ---
 
@@ -232,7 +232,7 @@ Its attributes are as follows:
 | **NumberOfInactiveServices** | The number of services which have been disabled by an administrator. |
 | **NumberOfFaultyServices**   | The number of services which are faulty.                             |
 
-![](../../../assets/img/deploy/monitor/use-serviceadmin.png) 
+![](/assets/img/deploy/monitor/use-serviceadmin.png) 
 
 The operations available in the ServiceAdmin MBean:
 
@@ -241,7 +241,7 @@ The operations available in the ServiceAdmin MBean:
 | **startService** [p1:string] | The p1 parameter is the service name. You can activate a service using this operation.           |
 | **stopService** [p1:string] | The p1 parameter is the service name. You can deactivate/disable a service using this operation. |
 
-![](../../../assets/img/deploy/monitor/serviceadmin-mbean.png) 
+![](/assets/img/deploy/monitor/serviceadmin-mbean.png) 
 
 ---
 
@@ -259,7 +259,7 @@ attributes are as follows:
 | **SystemRequestCount**    | The total number of requests that has been served by the system since the server was started.                                                    |
 | **SystemResponseCount**   | The total number of response that has been sent by the system since the server was started.                                                      |
 
-![](../../../assets/img/deploy/monitor/statisticsadmin.png) 
+![](/assets/img/deploy/monitor/statisticsadmin.png) 
 
 Operations available in the **Statistics** MBean:
 
@@ -278,7 +278,7 @@ Operations available in the **Statistics** MBean:
 | **getMinOperationResponseTime** (p1:string, p2:string) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
 | **getAvgOperationResponseTime** (p1:string, p2:string) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
 
-![](../../../assets/img/deploy/monitor/statistics-mbean.png) 
+![](/assets/img/deploy/monitor/statistics-mbean.png) 
 
 ---
 
@@ -288,7 +288,7 @@ If you have [JMX enabled for a datasource connected to the
 WSO2 IS instance](#enable-jmx-for-a-datasource), you can
 monitor the performance of the datasource using this MBean. The
 **DataSource** MBean will be listed as shown below.  
-![](../../../assets/img/deploy/monitor/datasource-mbean.png) 
+![](/assets/img/deploy/monitor/datasource-mbean.png) 
 
 **Example:** If you have JMX enabled for the default Carbon datasources
 in the ` deployement.toml ` file, the [JDBC connection pool
@@ -298,7 +298,7 @@ shown below. See the
 [performance tuning guide](../../../deploy/performance/performance-tuning-recommendations/#jdbc-pool-configuration)
 for instructions on how these parameters are configured for a
 datasource.  
-![](../../../assets/img/deploy/monitor/tuning.png)
+![](/assets/img/deploy/monitor/tuning.png)
 
 ---
 

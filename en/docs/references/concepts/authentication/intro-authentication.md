@@ -29,18 +29,18 @@ category of credentials. Any type of credential can be used for this even though
 this is a password (credential) to a username. As this approach requires a single credential, if that credential is 
 exposed to the public, anybody can access the system. Therefore, considering the other two authentication mechanisms, this method is less secure.
 
-![SFA](../../assets/img/concepts/single-factor.png)
+![SFA](/assets/img/concepts/single-factor.png)
 
 #### Two Factor Authentication
 This authentication requires a two-step verification process. Therefore, the party requesting the access should use two 
 credentials. These credentials can be something the user knows (answer to a challenge question), something the user owns (SMS OTP), 
 etc. This method is stronger than single-factor authentication but weaker than multi-factor authentication.
 
-![TFA](../../assets/img/concepts/two-factor.png)
+![TFA](/assets/img/concepts/two-factor.png)
 
 #### Multi-Factor Authentication
 This method utilizes factors that are independent of each other such as something you know, something you have, and 
 something you are, in order to eliminate any data exposure. For example, a system that is secured using [multi-factor authentication (MFA)](../multi-factor-authentication) can use three verification steps such as username-password credentials, SMS OTP, and fingerprint to authenticate
 a user to the system.
 
-![MFA](../../assets/img/concepts/multi-factor.png)
+![MFA](/assets/img/concepts/multi-factor.png)

@@ -73,7 +73,7 @@ First, create a Siddhi application as instructed below. The application has two 
 
 6.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Risk-Based**. 
 
-    ![tenant based template](../assets/img/samples/login-attempts-based-template.png)
+    ![tenant based template](/assets/img/samples/login-attempts-based-template.png)
 
 7.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -88,10 +88,10 @@ First, create a Siddhi application as instructed below. The application has two 
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../assets/img/samples/delete-authenticator-1.png)
+        ![delete authenticator](/assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator](/assets/img/samples/add-new-authenticator.png)
 
 9. Click **Update**.
 

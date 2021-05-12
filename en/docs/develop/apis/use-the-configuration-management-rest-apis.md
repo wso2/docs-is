@@ -25,7 +25,7 @@ max="4194304
 The configuration manager exposed with the configuration management REST
 APIs manages configurations as **Resources**.
 
-![Configuration management architecture diagram]( ../../assets/img/apis/resource.png)
+![Configuration management architecture diagram]( /assets/img/apis/resource.png)
 
 What is a resource?
 

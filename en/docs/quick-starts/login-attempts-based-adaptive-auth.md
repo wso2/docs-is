@@ -28,7 +28,7 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
 
 5. Enter a value for **Maximum Failed Login Attempts**. 
 
-    ![enable account locking](../../../assets/img/samples/enable-account-locking.png)
+    ![enable account locking](/assets/img/samples/enable-account-locking.png)
 
     !!! tip
         The **Maximum Failed Login Attempts** should be greater than the number of failed  login attempts you are going to consider for prompting two factor authentication.
@@ -51,7 +51,7 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
 
 6.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Login-Attempts-Based**. 
 
-    ![tenant based template](../../../assets/img/samples/login-attempts-based-template.png)
+    ![tenant based template](/assets/img/samples/login-attempts-based-template.png)
 
 7.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -66,10 +66,10 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../../../assets/img/samples/delete-authenticator-1.png)
+        ![delete authenticator](/assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator](/assets/img/samples/add-new-authenticator.png)
 
 9. Click **Update**.
 
@@ -94,7 +94,7 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
 5. You are prompted to use the hardware key after basic authentication according to the authentication step defined in the JavaScript above.
 
 6.  Enter the 4-digit key given on the screen and click **Sign In**.
-    ![hardware key authenticator](../../../assets/img/samples/hardware-key-authenticator.png)
+    ![hardware key authenticator](/assets/img/samples/hardware-key-authenticator.png)
 
 !!! note
     The failed login attempts need not be made during a given time frame. Login attempts-based adaptive authentication is valid even if the user makes two login attempts now and the other in a few days' time before trying to log in with the correct credentials.

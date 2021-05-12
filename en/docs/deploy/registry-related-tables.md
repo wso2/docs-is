@@ -266,4 +266,4 @@ columns of the table.
 -   `REG_RESOURCE_VIDS`
 -   `REG_TENANT_ID`
 
-![Registry related tables](../../../assets/img/deploy/registry-related-tables.png) 
+![Registry related tables](/assets/img/deploy/registry-related-tables.png) 

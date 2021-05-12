@@ -35,7 +35,7 @@ In WSO2 Identity Server, the resident IdP Entity ID for OpenID Connect can be co
 
 4.  Enter a valid OpenID Provider issuer location as the **Identity Provider Entity Id** value.  
 
-    ![idp-entity-id]( ../../assets/img/guides/idp-entity-id.png) 
+    ![idp-entity-id]( /assets/img/guides/idp-entity-id.png) 
 
     !!! Tip
         A valid OpenID Provider Issuer location in WSO2 Identity Server has the following format.

@@ -25,7 +25,7 @@ The instructions below guide you through specifying authentication steps based o
 4.  Select the **Supported By Default** checkbox to enable the birth
     date claim.  
 
-    ![enable dob claim](../../../assets/img/samples/enable-dob-claim.png)
+    ![enable dob claim](/assets/img/samples/enable-dob-claim.png)
 
 ----
 
@@ -60,7 +60,7 @@ The instructions below guide you through specifying authentication steps based o
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **User-Age-Based**. 
 
-    ![user age based template](../../../assets/img/samples/user-age-based-template.png)
+    ![user age based template](/assets/img/samples/user-age-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -77,7 +77,7 @@ The instructions below guide you through specifying authentication steps based o
 1.  Access the following sample PickUp application URL:
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    ![dispatch-login](../../../assets/img/samples/dispatch-login.png)
+    ![dispatch-login](/assets/img/samples/dispatch-login.png)
 
 2.  Click **Login** and enter Kim's credentials. You are successfully
     logged in to the application.  
@@ -85,4 +85,4 @@ The instructions below guide you through specifying authentication steps based o
 3.  Logout and login as Alex. Note that you are now restricted from
     logging in because Alex is underage.  
 
-    ![age validation](../../../assets/img/samples/age-validation.png)
+    ![age validation](/assets/img/samples/age-validation.png)

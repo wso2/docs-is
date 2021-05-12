@@ -121,7 +121,7 @@ task that checks for idle accounts is common to all tenants.
     | Lock Timeout Increment Factor | This specifies the increment factor of the lock timeout. If the lock timeout increment factor is set to 2, then the timeout increments by 2 to the power of the number of failed login attempts. [Timeout increment = (Lock Timeout Increment Factor)<sup>(Number of Failed Attempts)</sup>] (If the number of failed login attempts is 3, timeout increment is 2<sup>3</sup>=8)                                                                                                                                                                                                                                           |  2          |
     | Enable Notification Internally Management | The field is set false if the client application handles notification sending.                                                                                                                                                                                                                                           |False            |
     
-    ![account-lock-enabled](../../../assets/img/guides/account-lock-enabled.png)
+    ![account-lock-enabled](/assets/img/guides/account-lock-enabled.png)
     
 4.  Expand the **Account Management Policies** tab.
 
@@ -133,7 +133,7 @@ task that checks for idle accounts is common to all tenants.
     | Lock Account After | This specifies the total number of days after which the account will be locked. In this case, if the account is idle for 90 days, it will be locked.                                                                                                                                                                                                                                          | 90           |
     | Alert User in      | This specifies the number of days (in a comma separated list) after which the user is sent a warning notification informing him/her that the account is about to be locked. In this case, the user will receive multiple notifications, one notification after 30 days, the next after 45 days etc. Finally if it reaches 90 days with no activity from the user, the account will be locked. | 30,45,60,75  |
 
-    ![account-management-policies](../../assets/img/guides/account-management-policies.png)
+    ![account-management-policies](/assets/img/guides/account-management-policies.png)
 
 !!! tip "Troubleshooting Tips"
     

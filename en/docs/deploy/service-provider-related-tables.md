@@ -154,4 +154,4 @@ Provider. Following are the columns of the table.
 -   `BLOCKING`
 
 
-![Service provider related tables](../../../assets/img/deploy/service-provider-related-tables.png) 
+![Service provider related tables](/assets/img/deploy/service-provider-related-tables.png) 

@@ -52,7 +52,7 @@ corresponding dialogs or error messages based on account status.
 
 8. Expand the **Password Reset** tab. You will see the following options for forced password reset:
 
-   ![forced-password-reset](../../assets/img/guides/forced-password-reset-options.png) 
+   ![forced-password-reset](/assets/img/guides/forced-password-reset-options.png) 
     
 ---
 
@@ -240,7 +240,7 @@ POST https://<host>:<port>/scim2/Users/<users-scim-id>
     window and enter valid credentials to authenticate with the
     identity server.  
     
-    ![add-basic-authorization](../../assets/img/guides/add-basic-authorization.png)
+    ![add-basic-authorization](/assets/img/guides/add-basic-authorization.png)
     
     !!! Info 
         To try the scenario for a tenant user, provide the

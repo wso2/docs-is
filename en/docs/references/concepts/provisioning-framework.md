@@ -7,7 +7,7 @@ The identity provisioning framework is the main component that handles user / ro
 - **Outbound provisioning** : responsible for provisioning users from WSO2 Identity Server to external applications.
 - **Userstore management** : used to persist users within the system
 
-<img name='sso-diagram' src='../../../assets/img/concepts/provisioning-framework.png' class='img-zoomable'/>
+<img name='sso-diagram' src='/assets/img/concepts/provisioning-framework.png' class='img-zoomable'/>
 
 ---
 

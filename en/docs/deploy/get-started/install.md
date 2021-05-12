@@ -337,7 +337,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     echo $JAVA_HOME
     ```
 
-    ![Echo command](../../assets/img/deploy/echo-command.png)
+    ![Echo command](/assets/img/deploy/echo-command.png)
 
 5.  The system returns the JDK installation path.
 
@@ -398,18 +398,18 @@ prompt](#java-home).
 1.  Right-click the **My Computer** icon on the desktop and choose
     **Properties**.  
 
-    ![Properties option](../../assets/img/deploy/properties-option.png) 
+    ![Properties option](/assets/img/deploy/properties-option.png) 
 
 2.  In the System Properties window, click the **Advanced** tab, and
     then click the **Environment Variables** button.  
 
-    ![Advanced tab](../../assets/img/deploy/advanced-tab.png) 
+    ![Advanced tab](/assets/img/deploy/advanced-tab.png) 
 
 3.  Click the **New** button under **System variables** (for all users) or
     under **User variables** (just for the user who is currently logged
     in).  
 
-    ![New button](../../assets/img/deploy/new-button.png) 
+    ![New button](/assets/img/deploy/new-button.png) 
 
 4.  Enter the following information:  
     -   In the **Variable name** field, enter:
@@ -771,7 +771,7 @@ to the extracted product directory location. For example, if you want to
 run WSO2 IS 5.11.0 as a Windows service, you would set ` carbon_home ` to the
 extracted ` wso2is-5.11.0 ` directory.
 
-![Edit System Variable window](../../assets/img/deploy/add-carbon-home-system-variable-window.png)
+![Edit System Variable window](/assets/img/deploy/add-carbon-home-system-variable-window.png)
 
 #### Run the product in console mode
 
@@ -795,7 +795,7 @@ Carbon-based product as a Windows service.
     output similar to the following. Now you can access the WSO2 management
     console from your web browser via <https://localhost:9443/carbon>.
 
-    ![Console output](../../assets/img/deploy/console-output.png)
+    ![Console output](/assets/img/deploy/console-output.png)
 
 #### Work with the WSO2CARBON service
 
@@ -809,7 +809,7 @@ installService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been installed.
 
-![Service installation confirmation](../../assets/img/deploy/service-installation-confirmation.png)
+![Service installation confirmation](/assets/img/deploy/service-installation-confirmation.png)
 
 To start the service, execute the following command in the same console
 window:
@@ -821,7 +821,7 @@ startService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been started.
 
-![Service startup message](../../assets/img/deploy/service-startup-message.png)
+![Service startup message](/assets/img/deploy/service-startup-message.png)
 
 To stop the service, execute the following command in the same console
 window:
@@ -833,7 +833,7 @@ stopService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been stopped.
 
-![Service stop message](../../assets/img/deploy/service-stop-message.png)
+![Service stop message](/assets/img/deploy/service-stop-message.png)
 
 To uninstall the service, execute the following command in the same
 console window:
@@ -845,7 +845,7 @@ uninstallService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been removed.
 
-![Service removal message](../../assets/img/deploy/service-removal-message.png)
+![Service removal message](/assets/img/deploy/service-removal-message.png)
 
 ---
 

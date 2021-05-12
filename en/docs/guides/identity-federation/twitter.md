@@ -47,7 +47,7 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 4.  Expand **Twitter Configuration** under **Federated Authenticators**
     .
-    ![twitter-config-federated-auth.png](../../../assets/img/guides/twitter-config-federated-auth.png)
+    ![twitter-config-federated-auth.png](/assets/img/guides/twitter-config-federated-auth.png)
     Fill in the following fields details according to the application
     [registered in the Twitter](http://docs.inboundnow.com/guide/create-twitter-application/):
 

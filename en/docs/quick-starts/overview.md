@@ -12,7 +12,7 @@ template: templates/2-column.html
     <div class="card" onclick="location.href='../../quick-starts/android';">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../assets/img/icons/technology/android.png">
+            <img src="/assets/img/icons/technology/android.png">
         </i>
       </div>
       <div class="card-content" >
@@ -25,7 +25,7 @@ template: templates/2-column.html
     <div class="card" onclick="location.href='../../quick-starts/react';">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../assets/img/icons/technology/react.png">
+            <img src="/assets/img/icons/technology/react.png">
         </i>
       </div>
       <div class="card-content" >
@@ -37,7 +37,7 @@ template: templates/2-column.html
     <div class="card" onclick="location.href='../../quick-starts/java';">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../assets/img/icons/technology/java.png">
+            <img src="/assets/img/icons/technology/java.png">
         </i>
       </div>
       <div class="card-content" >
@@ -56,7 +56,7 @@ template: templates/2-column.html
     <div class="card" onclick="location.href='../../quick-starts/android';">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../assets/img/icons/technology/android.png">
+            <img src="/assets/img/icons/technology/android.png">
         </i>
       </div>
       <div class="card-content" >
@@ -69,7 +69,7 @@ template: templates/2-column.html
         <div class="card" onclick="location.href='../../quick-starts/react';">
           <div class="icon">
             <i class="material-icons md-24">
-                <img src="../../assets/img/icons/technology/react.png">
+                <img src="/assets/img/icons/technology/react.png">
             </i>
           </div>
           <div class="card-content" >
@@ -82,7 +82,7 @@ template: templates/2-column.html
         <div class="card" onclick="location.href='../../quick-starts/java';">
           <div class="icon">
             <i class="material-icons md-24">
-                <img src="../../assets/img/icons/technology/java.png">
+                <img src="/assets/img/icons/technology/java.png">
             </i>
           </div>
           <div class="card-content" >

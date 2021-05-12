@@ -34,7 +34,7 @@ WSO2 SP has 4 main runtimes. This tutorial demonstrates the use of the **Editor*
     @App:name("RiskBasedLogin")
     ```
 
-    ![sp-risk-based-login](../assets/img/samples/sp-risk-based-login.png)
+    ![sp-risk-based-login](/assets/img/samples/sp-risk-based-login.png)
 
 7.  Add the following HTTP source to the Siddhi application.
 
@@ -46,7 +46,7 @@ WSO2 SP has 4 main runtimes. This tutorial demonstrates the use of the **Editor*
 	define stream TransactionInputStream (transaction double, username string);
     ```
 
-    ![http-source-in-siddhi](../assets/img/samples/http-source-in-siddhi.png)
+    ![http-source-in-siddhi](/assets/img/samples/http-source-in-siddhi.png)
 
     For information about streams, sources, and sinks, see [Siddhi application](insertlink). 
 
@@ -56,10 +56,10 @@ WSO2 SP has 4 main runtimes. This tutorial demonstrates the use of the **Editor*
 8.  Click on **File > Save** to save the application.
 
 9.  Click **Run** or the play button
-    ![sp-play](../assets/img/samples/sp-play.png) to run the script using the
+    ![sp-play](/assets/img/samples/sp-play.png) to run the script using the
     editor. If the application starts successfully, you will see the following log in the Stream Processor Studio console.
 
-    ![sp-studio-console.png](../assets/img/samples/sp-studio-console.png)
+    ![sp-studio-console.png](/assets/img/samples/sp-studio-console.png)
 
 10. Run the following cURL command on a new terminal window to test the source.  
 
@@ -229,7 +229,7 @@ Server and WSO2 Stream Processor.
 
 3.  Configure the following properties accordingly. For this scenario, you can leave the default configurations as they are. 
 
-    ![analytics-engine-properties](../assets/img/samples/analytics-engine-properties.png)
+    ![analytics-engine-properties](/assets/img/samples/analytics-engine-properties.png)
 
     <table>
     <thead>

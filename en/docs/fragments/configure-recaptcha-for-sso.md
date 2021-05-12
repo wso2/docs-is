@@ -17,7 +17,7 @@
     
         If you select this option, enter a value for the **Max failed attempts for reCaptcha** field as well. For example, if you enter 3, reCaptcha will be re-enabled after 3 failed attempts.  
         
-        ![configure-captcha-for-sso](../../../assets/img/guides/recaptcha-sso.png)
+        ![configure-captcha-for-sso](/assets/img/guides/recaptcha-sso.png)
         
         Note the following when selecting this option:
         
@@ -25,12 +25,12 @@
 
         - The **Max failed attempts for reCaptcha** value must be lower than the **Maximum failed login attempts** value configured under the **Account Lock** tab.
     
-          ![configure-account-locking](../../../assets/img/guides/configure-account-locking.png)
+          ![configure-account-locking](/assets/img/guides/configure-account-locking.png)
     
 5.  You have now successfully configured reCAPTCHA for the single sign
     on flow. If the number of failed attempts reaches the maximum
     configured value, the following reCAPTCHA window appears.  
 
-    ![captcha-login-failed](../../../assets/img/guides/captcha-login-failed.png)
+    ![captcha-login-failed](/assets/img/guides/captcha-login-failed.png)
        
     
