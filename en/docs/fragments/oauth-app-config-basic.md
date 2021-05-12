@@ -10,4 +10,4 @@ Make the following changes to the created service provider.
 3. Click **Add**. Note the **OAuth Client Key** and **OAuth Client Secret** that appear. 
 
     !!! tip
-        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](/guides/login/oauth-app-config-advanced). 
+        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced). 
