@@ -1,185 +1,159 @@
 ---
-template: templates/single-column.html
+template: templates/landing-page.html
 ---
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
 <div>
-    <header>
-        <h1>WSO2 Identity Server Documentation</h1>
-    </header>
-     <div class="md-main md-content" style="float:left; width: 60%;  text-align:justify; max-height:100%; ">
-        <p>Within these pages you will find tutorials that help you understand and try out capabilities such as SSO, identity federation, authentication;  be it multi-factor authentication or adaptive authentication, and more. You can also browse through our API catalog and extend/customize using our extension points.</p>
-    </div>
-    <div class="md-main md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:-510px; margin-top:5px">
-    <a class="homepgbtn_a" href="https://wso2.com/identity-and-access-management/"   rel="nofollow noopener"> Download WSO2 Identity Server</a>
-    <a class="homepgbtn_a" href="../../deploy/get-started/run-the-product/"   rel="nofollow noopener"> Get Started</a>
-    <a class="homepgbtn_a" href="../../get-started/about-this-release"   rel="nofollow noopener"> What's New in this Release</a>
-    </div>
-    <gr>
-   <div class="md-main md-content" style="width:100%">
-       <header>
-        <h2>Scenarios</h2>
-    </header>
-    <!-- begin card -->
-   <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-      <div class="curatedCardContainer--UBpah">
-         <div class="curatedCardLogo--2mSNS">
-                <div class="icon">
-                    <i class="material-icons md-36">dynamic_feed</i>
-                </div></div>
-         <div class="curatedCardMain--3EYmT">
-            <div class="curatedCardHeader--2-q4h">
-               <h3>Single Sign On</h3>
-            </div>
-            <div class= "curatedCardArticles--16lzh">
-            <ul id="tilelist">
-               <li><a href="../../guides/login/sso-for-saml/"> SAML</a> </li>
-               <li><a href="../../guides/login/sso-for-oidc/"> OAuth/OpenID Connect</a> </li>
-               <li><a href="../../guides/login/configure-ws-federation-single-sign-on/"> WS-Fed</a> 
-               <a class="tutorialbtn_a" href="../../quick-starts/single-sign-on/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
-               </li>
-            </ul>
+   <div class="container-fluid pt-3 px-lg-5 pb-5">
+      <div class="row">
+         <div class="col-lg-1"></div>
+         <div class="col-lg-6 col-md-12">
+            <h1 class="iam-heading-text">New to Identity Server?</h1>
+            <p class="iam-sub-text">Identity Server is all about simplifying the Identity and Access Management (IAM) needs of your organization. It is based on open standards and is fully open source. <a class="read-more-link"><b>Read more</b> <i class="material-icons md-36 read-more-arrow">arrow_right_alt</i></a></p>
+            <div class="btn-row">
+            <button class="get-started-btn">Get Started</button>
+            <button class="download-btn">Download</button>
             </div>
          </div>
+         <div class="col-lg-1"></div>
+         <div class="col-lg-3 col-md-12 d-none d-lg-block">
+            <ul class="hot-links-list">
+               <li><a class="hot-links-text">Slack</a></li>
+               <li><a class="hot-links-text">Community</a></li>
+               <li><a class="hot-links-text">Blogs/Articles</a></li>
+               <li><a class="hot-links-text">Compatibility</a></li>
+               <li><a class="hot-links-text">Training</a></li>
+               <li><a class="hot-links-text">Connectors</a></li>
+               <li><a class="hot-links-text">Videos</a></li>
+            </ul>
+         </div>
+         <div class="col-lg-1"></div>
       </div>
    </div>
-   <!-- end card -->
-       <!-- begin card -->
-   <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-      <div class="curatedCardContainer--UBpah">
-         <div class="curatedCardLogo--2mSNS">
-                <div class="icon">
-                    <i class="material-icons md-36">how_to_reg</i>
-                </div></div>
-         <div class="curatedCardMain--3EYmT">
-            <div class="curatedCardHeader--2-q4h">
-               <h3>Identity Providers</h3>
-            </div>
-            <div class= "curatedCardArticles--16lzh">
-            <ul id="tilelist">
-               <li><a href="../../guides/identity-federation/social-login/"> Social Login</a> </li>
-               <li><a href="../../guides/identity-federation/enterprise-identity-federation/"> Protocol-Based Login</a> </li>
-                <a class="tutorialbtn_a" href="../../quick-starts/federated-authenticators"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
-            </ul>
+   <div class="container-fluid middle-container px-lg-5 pb-5">
+      <div class="row">
+         <div class="col-lg-1"></div>
+         <div class="col-lg-10">
+            <h2>Integrate with Identity Server</h2>
+            <p class="iam-integrate-text">Explore how you can integrate your applications with Identity Server to satisfy your IAM requirements. <br> You can also use our sample applicaitons to try out common scenarios.
+         </div>
+         <div class="col-lg-1"></div>
+      </div>
+      <div class="row">
+         <div class="col-lg-1"></div>
+         <div class="col-lg-10">
+            <div class="row gy-3">
+               <div class="col-lg-4 col-sm-6 col-xs-12">
+                  <div class="card scenario-card">
+                     <div class="card-body">
+                        <h5 class="scenario-card-title">
+                        <span class="material-icons scenario-card-icon pe-1">fingerprint</span>Enable Single Sign On</h5>
+                        <div class="ps-4">
+                           <p class="scenario-card-text">Allow users to securely log in to multiple applications by providing their credentials just once.</p>
+                           <div class="pb-2">
+                              <a class="scenario-link-text">SAML</a><br>
+                              <a class="scenario-link-text">OAuth/OpenID Connect</a><br>
+                              <a class="scenario-link-text">WS-Federation</a>
+                           </div>
+                           <a class="try-it-out-text">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 col-xs-12">
+                  <div class="card scenario-card">
+                     <div class="card-body">
+                        <h5 class="scenario-card-title">
+                        <span class="material-icons scenario-card-icon pe-1">how_to_reg</span>Add Federated Login</h5>
+                        <div class="ps-4">
+                           <p class="scenario-card-text">Allow users to securely log in to multiple applications by providing their credentials just once.</p>
+                           <div class="pb-2">
+                              <a class="scenario-link-text">SAML</a><br>
+                              <a class="scenario-link-text">OAuth/OpenID Connect</a><br>
+                              <a class="scenario-link-text">WS-Federation</a>
+                           </div>
+                           <a class="try-it-out-text">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 col-xs-12">
+                  <div class="card scenario-card">
+                     <div class="card-body">
+                        <h5 class="scenario-card-title">
+                        <span class="material-icons scenario-card-icon pe-1">verified_user</span>Add Strong Authentication</h5>
+                        <div class="ps-4">
+                           <p class="scenario-card-text">Allow users to securely log in to multiple applications by providing their credentials just once.</p>
+                           <div class="pb-2">
+                              <a class="scenario-link-text">SAML</a><br>
+                              <a class="scenario-link-text">OAuth/OpenID Connect</a><br>
+                              <a class="scenario-link-text">WS-Federation</a>
+                           </div>
+                           <a class="try-it-out-text">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 col-xs-12">
+                  <div class="card scenario-card">
+                     <div class="card-body">
+                        <h5 class="scenario-card-title">
+                        <span class="material-icons scenario-card-icon pe-1">api</span>Secure APIs</h5>
+                        <div class="ps-4">
+                           <p class="scenario-card-text">Allow users to securely log in to multiple applications by providing their credentials just once.</p>
+                           <div class="pb-2">
+                              <a class="scenario-link-text">SAML</a><br>
+                              <a class="scenario-link-text">OAuth/OpenID Connect</a><br>
+                              <a class="scenario-link-text">WS-Federation</a>
+                           </div>
+                           <a class="try-it-out-text">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 col-xs-12">
+                  <div class="card scenario-card">
+                     <div class="card-body">
+                        <h5 class="scenario-card-title">
+                        <span class="material-icons scenario-card-icon pe-1">groups</span>Manage Users</h5>
+                        <div class="ps-4">
+                           <p class="scenario-card-text">Allow users to securely log in to multiple applications by providing their credentials just once.</p>
+                           <div class="pb-2">
+                              <a class="scenario-link-text">SAML</a><br>
+                              <a class="scenario-link-text">OAuth/OpenID Connect</a><br>
+                              <a class="scenario-link-text">WS-Federation</a>
+                           </div>
+                           <a class="try-it-out-text">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-sm-6 col-xs-12">
+                  <div class="card scenario-card">
+                     <div class="card-body">
+                        <h5 class="scenario-card-title">
+                        <span class="material-icons scenario-card-icon pe-1">lock</span>Strenghten Privacy</h5>
+                        <div class="ps-4">
+                           <p class="scenario-card-text">Allow users to securely log in to multiple applications by providing their credentials just once.</p>
+                           <div class="pb-2">
+                              <a class="scenario-link-text">SAML</a><br>
+                              <a class="scenario-link-text">OAuth/OpenID Connect</a><br>
+                              <a class="scenario-link-text">WS-Federation</a>
+                           </div>
+                           <a class="try-it-out-text">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
+         <div class="col-lg-1"></div>
       </div>
    </div>
-   <!-- end card -->
-       <!-- begin card -->
-   <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-      <div class="curatedCardContainer--UBpah">
-         <div class="curatedCardLogo--2mSNS">
-                <div class="icon">
-                    <i class="material-icons md-36">call_split</i>
-                </div></div>
-         <div class="curatedCardMain--3EYmT">
-            <div class="curatedCardHeader--2-q4h">
-               <h3>Multi-Factor Authentication</h3>
-            </div>
-            <div class= "curatedCardArticles--16lzh">
-            <ul id="tilelist">
-               <li><a href="../../guides/mfa/knowledge-factor/"> Knowledge Factor</a> </li>
-               <li><a href="../../guides/mfa/possession-factor/"> Possession Factor</a> </li>
-               <li><a href="../../guides/mfa/inherence-factor/"> Inherence Factor</a> 
-               <a class="tutorialbtn_a" href="../../quick-starts/mfa-sample/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
-               </li>
-            </ul>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- end card -->
-       <!-- begin card -->
-   <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-      <div class="curatedCardContainer--UBpah">
-         <div class="curatedCardLogo--2mSNS">
-                <div class="icon">
-                    <i class="material-icons md-36">call_merge</i>
-                </div></div>
-         <div class="curatedCardMain--3EYmT">
-            <div class="curatedCardHeader--2-q4h">
-               <h3>Adaptive Authentication</h3>
-            </div>
-            <div class= "curatedCardArticles--16lzh">
-            <ul id="tilelist">
-               <li><a href="../../guides/adaptive-auth/configure-adaptive-auth/"> Script-based authentication</a> </li>
-               <li><a href="../../references/adaptive-authentication-js-api-reference"> JS API Reference</a> </li>
-                <a class="tutorialbtn_a" href="../../quick-starts/adaptive-auth-overview/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
-            </ul>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- end card -->
-       <!-- begin card -->
-   <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-      <div class="curatedCardContainer--UBpah">
-         <div class="curatedCardLogo--2mSNS">
-                <div class="icon">
-                    <i class="material-icons md-36">security</i>
-                </div></div>
-         <div class="curatedCardMain--3EYmT">
-            <div class="curatedCardHeader--2-q4h">
-               <h3>API Security</h3>
-            </div>
-            <div class= "curatedCardArticles--16lzh">
-            <ul id="tilelist">
-               <li><a href="../../guides/access-delegation/oauth-grant-types/"> OAuth Grant Types</a> </li>
-               <li><a href="../guides/access-delegation/uma"> User Managed Access</a> </li>
-               <a class="tutorialbtn_a" href="../../quick-starts/access-delegation/"   rel="nofollow noopener" style="font-size:17px">Try It Out</a>
-            </ul>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- end card -->
-       <!-- begin card -->
-   <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-      <div class="curatedCardContainer--UBpah">
-         <div class="curatedCardLogo--2mSNS">
-                <div class="icon">
-                    <i class="material-icons md-36">face</i>
-                </div></div>
-         <div class="curatedCardMain--3EYmT">
-            <div class="curatedCardHeader--2-q4h">
-               <h3>User Management</h3>
-            </div>
-            <div class= "curatedCardArticles--16lzh">
-            <ul>
-               <li><a href="../../guides/identity-lifecycles/onboard-overview/"> Onboard Users</a> </li>
-               <li><a href="../../guides/identity-lifecycles/manage-user-overview/"> Manage Users </a> </li>
-               <li><a href="../../guides/identity-lifecycles/outbound-provisioning/"> Outbound Provisioning Users</a> </li>
-               <li><a href="../../guides/identity-lifecycles/inbound-provisioning/"> Inbound Provisioning Users </a> </li>
-            </ul>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- end card -->
-   <gr>
-    <header>
-   <h2>Other Resources</h2>
-   </header>
-   <div class="homepgfooter" style="float:right; width: 100%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:100%; margin-top:5px;box-shadow: 0 2px 8px 0 rgba(92,102,111,.15);text-align: center; font-size:large; padding-top: 20px;">
-        <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="../../get-started/community/"   rel="nofollow noopener">Community</a>
-        </div>
-        <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="https://wso2.com/blog/identity-and-access-management/"   rel="nofollow noopener">Blogs/Articles</a>
-        </div>
-        <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="../../deploy/environment-compatibility/"   rel="nofollow noopener">Compatibility</a>
-        </div>
-        <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="https://wso2.com/training/identity-server-fundamentals"   rel="nofollow noopener">Training</a>
-        </div>
-        <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="https://store.wso2.com/store/assets/isconnector/list"   rel="nofollow noopener">Connectors</a>
-        </div>
-        <div class="curatedCard--2aCYX col-sm-6 col-md-4">
-        <a  href="../../../references/concepts/compliance/compliance"   rel="nofollow noopener">Compliance</a>
-        </div>
+   <div class="bottom-container">
+
    </div>
 </div>
 </div>

@@ -1203,4 +1203,175 @@ html .md-footer-meta.md-typeset a,
     font-size: large;
 }
 
+.top-container {
+    width: 100%;
+    height: auto;
+}
 
+.middle-container {
+    background-color: #EFEFEF;
+}
+
+.bottom-container {
+    width: 100%;
+    height: 40px;
+
+}
+
+.get-started-container {
+    flex: 5;
+    padding-top: 3rem;
+    padding-right: 5rem;
+}
+
+.iam-heading-text {
+    font-family: system-ui;
+    font-weight: 500 !important;
+    color: black !important;
+}
+
+.iam-sub-text {
+    font-family: system-ui;
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+.hot-links-container {
+    flex-direction: column;
+    flex: 3;
+    height: auto;
+    padding-top: 2rem;
+    padding-left: 4rem;
+}
+
+.hot-links-list {
+    list-style-type: none !important;
+}
+
+.hot-links-text {
+    font-family: system-ui;
+    padding-left: 1rem;
+    color: #737373 !important;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.hot-links-list li {
+    border-bottom: 1px solid rgb(199, 199, 199);
+    height: 30px;
+    line-height: 20px;
+}
+
+.read-more-arrow{
+    vertical-align: top;
+    font-size: 36px !important;
+}
+
+.read-more-link {
+    overflow-wrap: break-word;
+    text-decoration: none;
+}
+
+.btn-row {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.get-started-btn {
+    background-color: #E96D2C !important;
+    color: #ffffff !important; 
+    float: left !important;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    width: 150px;
+    height: auto;
+    outline: none;
+    font-size: 20px;
+    background: none;
+    transition: .5s;
+    font-size: large;
+    font-weight: 700;
+    border: 1px solid #E96D2C;
+    border-radius: 2px;
+    font-family: system-ui;
+    margin-right: 15px;
+}
+
+.get-started-btn:hover {
+    background-color:#ffffff !important;
+    border: 1px solid #E96D2C;
+    border-radius: 2px;
+    color: #E96D2C!important;
+}
+
+.download-btn {
+    background-color: #ffffff !important;
+    color: #E96D2C !important; 
+    float: left !important;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    width: 150px;
+    height: auto;
+    outline: none;
+    font-size: 20px;
+    background: none;
+    transition: .5s;
+    font-size: large;
+    font-weight: 700;
+    border: 1px solid #bbbbbb;
+    border-radius: 2px;
+    font-family: system-ui;
+    margin-right: 15px;
+}
+
+.download-btn:hover {
+    background-color:#ffffff !important;
+    border: 1px solid #E96D2C;
+    border-radius: 2px;
+    color: #E96D2C!important;
+}
+
+.iam-integrate-text {
+    font-size: 1.25em;
+}
+
+.scenario-card {
+    height: 100%;
+    width: 100%;
+    box-shadow: unset;
+    border-radius: unset;
+    margin: unset;
+}
+
+.scenario-card-title {
+    font-size: 1.5em !important;
+    text-transform: unset !important;
+}
+
+.scenario-card-text {
+    font-size: 16px !important;
+}
+
+.scenario-card-icon {
+    vertical-align: bottom;
+    font-size: 30px !important;
+}
+
+.scenario-link-text {
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #E96D2C !important;
+}
+
+.try-it-out-text {
+    color: black !important;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.try-it-out-arrow {
+    vertical-align: bottom;
+    font-size: 1.5em !important;
+}
