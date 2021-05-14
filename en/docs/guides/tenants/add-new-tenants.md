@@ -134,5 +134,5 @@ follows:
     ```
 
 !!! info 
-    - [Manage Tenants with APIs](/develop/apis/manage-tenants-with-apis)
+    - [Manage Tenants with APIs](../../../develop/apis/manage-tenants-with-apis)
     
