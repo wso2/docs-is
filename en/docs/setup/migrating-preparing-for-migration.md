@@ -21,6 +21,113 @@
 
 With WSO2 Identity Server 5.11.0, groups and roles are separated. For more information, see [What Has Changed in 5.11.0](../../setup/migrating-what-has-changed#group-and-role-separation).
 
+## Groups and Roles Improvements Migration
+
+With WSO2 Identity Server 5.12.0, groups and roles improvements are introduced. For more information, see [What Has Changed in 5.11.0](../../setup/migrating-what-has-changed#roup and role separation Improvements).
+
+Please note that the abbreviations mentioned in that section is also used in here.
+
+Please refer to the below sections related to this improvement.
+
+### Claim configuration changes
+
+#### Following changes are added to the product claims.
+
+* Wso2.role claim - Modified
+  * Remove `supported by default`
+  * Change display name to `Roles and groups`
+  * Change description to `Include both userstore groups and internal roles`
+* Wso2.roles claim - New
+  * Display name : Roles 
+  * AttributeID:  roles
+  * Description: Roles
+  * Add `Supported by default`
+  * Add `read-only`
+* Wso2.groups claim - Modified
+  * Add  `supported by default`
+  * Add  `read-only`
+* OIDC group claim - Modified
+  * Change mapped local claim to wso2.groups claim
+* OIDC roles claim - New
+  * Mapped to the local claim, wso2.roles
+* SCIM2 roles.default claim - Modified
+  * Change mapped local claim to wso2.roles claim
+    
+#### Migration preparation for claim changes
+* All claim configurations are already configured OOTB in the fresh pack, and will be done via the 
+  migration client for migrating deployments. No need to configure these manually.
+* Any custom external claim mapped to the wso2.role claim should be mapped to either wso2.roles 
+  or wso2.groups claim as per the requirement of the custom use case.
+* Our recommendation is to fix any consuming client to become compatible with these changes. 
+  But if somehow the above configs need to be reverted(possibly in a migrated deployment), it can 
+  be done via calling IS server REST APIs(https://is.docs.wso2.com/en/latest/develop/claim-management-rest-api/).
+  
+### Utilizing carbon kernel level support
+
+The following abstract userstore manager APIs: getUserClaimValues(), getUsersClaimValues(), 
+getUserClaimValuesWithID(), getUsersClaimValuesWithID() now support both wso2.roles 
+and wso2.groups claims properly. We recommend modifying custom extensions to request wso2.roles or wso2.groups
+via above APIs rather depending on wso2.role claim.
+
+### Service provider role mapping, and IdP role mapping  are restricted strictly to role mapping
+
+We recommend removing existing SP and IdP role mappings which use groups, and utilize roles to achieve the same functionality.
+
+### OIDC group claim return groups
+
+OIDC group claim does not return internal roles anymore. We recommend modifying applications and  
+custom extensions to utilize this behaviour. If roles are required, utilize the OIDC roles claim.
+
+### Obtaining roles via the SAML assertion
+
+We recommend applications and custom extensions to switch from wso2.role to the wso2.roles claim in 
+the SAML assertion.
+
+### SCIM2 roles.default claim returns roles and groups claim return groups
+
+Previously the roles.default claim in SCIM2 returned both groups and roles as it was mapped to 
+the wso2.roles claim. Going forward it is mapped to the wso2.roles claim, where only roles are 
+returned. In order to get groups, `urn:ietf:params:scim:schemas:core:2.0:User:groups` claim should 
+be used instead since with this improvement it is returning groups as intended.
+
+### Groups and roles in SCIM2 user response
+
+Previously users and roles in the SCIM2 user response returned as a comma separated single entity. 
+However, that has been changed, and now they return as separate complex entities. We recommend 
+modifying clients that consume this response.
+
+### Backward compatibility
+
+Groups and roles separation improvements brings enhanced clarity, and improved performance to the 
+product. However, it’s inevitable to bring all the goodness with zero compromises. Therefore, as 
+mentioned above, some applications, customizations, and integration flows might need some changes 
+to fully adapt to these improvements.
+
+Nevertheless, all of the above improvements and the behavioural changes are introduced in a way 
+that existing deployments can adapt to the new state as easy as possible. However, if it's 
+mandatory to preserve previous behaviour and avoid enabling the improvements mentioned above, the 
+following configuration option(enabled by default) can be used.
+
+```java
+[authorization_manager.properties]
+group_and_role_separation_improvements_enabled = false
+```
+
+But this configuration option only ensures that the code level logic is reverted to the previous behaviour.
+If the improvements are already applied(fresh IS server pack and a migrated pack with group-role migration step completed), these
+claim configuration changes needs to be reverted manually in both tenants and super-tenant prior setting the above config to false. To do this, 
+please refer to the claim changes introduced with this effort and revert them manually or via a script.
+
+In order to stop claim data migration related to the groups vs roles improvements during the 
+migration, open migration-configs.yaml file and remove the 5th step from 5.12.0 migration section prior to the migration.
+
+```java
+  - name: "ClaimDataMigrator"
+     order: 5
+     parameters:
+       overrideExistingClaims: "true"
+       useOwnDataFile: "true"
+```
 
 ## Migrating custom components
 
