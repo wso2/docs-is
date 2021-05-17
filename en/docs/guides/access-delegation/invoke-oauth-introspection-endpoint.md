@@ -22,12 +22,6 @@ This page guides you through invoking the [OAuth Introspection Endpoint](../../.
 
 ----
 
-## Test1
-
-To configure more advanced configurations(5), see [OAuth/OpenID Connect Configurations](../../../../../guides/login/oauth-app-config-advanced)
-
----
-
 ## Invoking the endpoint for the super tenant
 
 Use the cURL commands given in the following sections to invoke the OAuth introspection endpoint for the super tenant users.
