@@ -32,9 +32,9 @@ the user by doing the following.
 
 ---
 
-## Search for users using SCIM
+## Search for users using SCIM 2.0 REST API
 
-You can search for users using a SCIM request as shown below. 
+You can search for users using a SCIM 2.0 REST API request as shown below. 
 
 **Request**
 
@@ -50,31 +50,6 @@ curl -v -k --user admin:admin --data '{"schemas": ["urn:ietf:params:scim:api:mes
 
 ```tab="Sample Response"
 {"totalResults":1,"startIndex":1,"itemsPerPage":1,"schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],"Resources":[{"name":{"familyName":"jackson"},"id":"c8c821ba-1200-495e-a775-79b260e717bd","userName":"kim"}]}
-```
-
----
-
-## Search for users using SOAP
-
-The user also can search user IDs by calling the
-`         RemoteUserStoreManager        ` service. If you are new to
-admin services, see [Calling Admin Services](../../../develop/apis/call-admin-services/).
-
-The following SOAP method, `         getUserId()        ` will give
-you the user ID of the relevant username. 
-
-**Request: Sample**
-
-``` xml
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
-   <soap:Header/>
-   <soap:Body>
-      <ser:getUserId>
-         <!--Optional:-->
-         <ser:username>user123</ser:username>
-      </ser:getUserId>
-   </soap:Body>
-</soap:Envelope>
 ```
 
 ---

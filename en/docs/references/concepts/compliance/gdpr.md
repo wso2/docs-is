@@ -132,7 +132,7 @@ profile as a structured JSON document.
 
 Additionally, GDPR encourages to facilitate user profile provisioning
 from the data processing organization to another organization automatically based on
-individuals' requests. SCIM2 API supported in WSO2 IS can
+individuals' requests. SCIM 2.0 API supported in WSO2 IS can
 be used to fulfill this requirement.
 
 -   **The right to object -** The **My Account** application can be extended

@@ -51,7 +51,7 @@ Various elements of the **My Account** application can be managed by the users t
 4. Update the new value in the profile and click **Save**.
 
 !!! tip
-    To add custom attributes to the user profile, see [Extend SCIM2 User Schemas](../../../develop/extend/provisioning/extend-scim2-user-schemas/)
+    To add custom attributes to the user profile, see [Extend SCIM 2.0 User Schemas](../../../develop/extend/provisioning/extend-scim2-user-schemas/)
 
 ### Add and update profile picture
 

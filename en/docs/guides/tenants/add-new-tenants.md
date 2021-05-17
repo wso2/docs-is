@@ -132,7 +132,4 @@ follows:
        </soapenv:Body>
     </soapenv:Envelope>
     ```
-
-!!! info 
-    - [Manage Tenants with APIs](/develop/apis/manage-tenants-with-apis)
     
