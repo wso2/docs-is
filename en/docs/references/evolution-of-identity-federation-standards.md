@@ -375,7 +375,7 @@ This request will authenticate and redirect the user to the URL in the
 RelayState parameter itself.
 
 !!! info 
-	Either you could have service provider initiated SSO only, or service provider initiated SSO and identity provider
+	You could could have service provider initiated SSO alone, or service provider initiated SSO and identity provider initiated SSO together.
 	initiated SSO. You can't have identity provider initiated SSO only. By design, service provider
 	initiated SSO is more restrictive and secure. If a service provider is
 	allowed to do identity provider initiated SSO, it would automatically imply that this
