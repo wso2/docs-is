@@ -40,7 +40,7 @@ Single sign-on (SSO) systems have become very popular since it is a very
 secure and convenient authentication mechanism. Google Apps can be taken
 as the best example for a single sign-on system where users can
 automatically log in to multiple web applications once they are
-authenticated at a one place using a single credential.
+authenticated once using a single set of credentials.
 
 Security Assertion Markup Language (SAML) version 2.0 Profiles
 specification defines a web browser based single sign-on system. This
