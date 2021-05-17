@@ -7,12 +7,12 @@ template: templates/swagger.html
 The OAuth2 scope API in WSO2 Identity Server (IS) can be used to manage oauth2 scopes and scope bindings such as 
 roles and permissions. Since OIDC scope is a sub category of OAuth2 scopes, these endpoints cannot have the same 
 scope names in WSO2 IS. For information about the OIDC scope endpoint,  
-see [OIDC Scope Management REST APIs](/develop/apis/oidc-scope-management-rest-apis)
+see [OIDC Scope Management REST APIs](../oidc-scope-management-rest-apis).
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 IS.
     To try some APIs, a tenant needs to be created with the domain name as 'wso2.com'. 
-    See [here](/guides/tenants/add-new-tenants) for more details on this.
+    See [here](../../../guides/tenants/add-new-tenants) for more details on this.
     
     1.  Expand the relevant API operation and click **Try It Out** button.  
     2.  Fill in relevant sample values for the input parameters and click **Execute**. 

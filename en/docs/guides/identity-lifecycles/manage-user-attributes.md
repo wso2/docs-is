@@ -10,29 +10,12 @@ The following topics provide instructions on how to manage user attributes in WS
 
 ## Manage the attributes of a user
 
-The following are the three main ways to view, add, edit, and delete
+The following are the two main ways to view, add, edit, and delete
 attributes of a user.
 
 1.  By accessing the profile of the user and changing the attributes
     using the Management Console. 
-2.  You can use the REST Web service according to the SCIM provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs](../../../develop/apis/scim2-rest-apis/).
-3.  You can use the `           RemoteUserStoreManagerService          `
-    API. This is a SOAP-based API and is very easy to use. For more
-    information on using this, see [Manage Users and Roles with
-    APIs](../../../develop/apis/manage-users-and-roles-with-apis/). Call the following method to set a user attribute. 
-
-    ``` java
-    setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "mark@soasecurity.org", null)
-    ```
-
-    Here, `http://wso2.org/claims/emailaddress` is the claim URI that
-    has been mapped with the user store’s email attribute. The last
-    parameter is profile, we can just pass “null”, as there is only one
-    profile. You can retrieve the user attribute value as follows.
-
-    ``` java
-    getUserClaimValue("username", "http://wso2.org/claims/emailaddress", null)
-    ```
+2.  You can use the REST API according to the SCIM 2.0 provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs](../../../develop/apis/scim2-rest-apis/).
 
 ---
 
