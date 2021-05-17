@@ -1203,20 +1203,10 @@ html .md-footer-meta.md-typeset a,
     font-size: large;
 }
 
-.top-container {
-    width: 100%;
-    height: auto;
-}
-
 .middle-container {
     background-color: #EFEFEF;
 }
 
-.bottom-container {
-    width: 100%;
-    height: 40px;
-
-}
 
 .get-started-container {
     flex: 5;
@@ -1342,6 +1332,7 @@ html .md-footer-meta.md-typeset a,
     box-shadow: unset;
     border-radius: unset;
     margin: unset;
+    max-width: unset !important;
 }
 
 .scenario-card-title {
@@ -1374,4 +1365,36 @@ html .md-footer-meta.md-typeset a,
 .try-it-out-arrow {
     vertical-align: bottom;
     font-size: 1.5em !important;
+}
+
+.icon-card {
+    width: 4em !important;
+    height: 4em; /* 1:1 Aspect Ratio */
+    box-shadow: unset;
+    border-radius: unset;
+    /* margin: unset; */
+}
+
+.icon-font {
+    font-size: 2.5em !important;
+}
+
+.more-info-heading-text {
+    font-size: 1.1em !important;
+    font-weight: 600 !important;
+    margin: 0.5em 0 0.2em 0 !important;
+}
+
+.learn-more-text {
+    text-decoration: none;
+    vertical-align: bottom;
+}
+
+.learn-more-arrow {
+    vertical-align: bottom;
+    font-size: 1.5em !important;
+}
+
+.bottom-row {
+    height: auto;
 }
