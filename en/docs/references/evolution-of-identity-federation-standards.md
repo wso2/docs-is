@@ -36,7 +36,7 @@ and the Single Logout Profile.
     Refer [here](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) for information on SAML 2.0 profiles.
 
 
-Single sign-on (SSO) systems have become very popular since it is a very
+Single sign-on (SSO) has become very popular since it is a very
 secure and convenient authentication mechanism. Google Apps can be taken
 as the best example for a single sign-on system where users can
 automatically log in to multiple web applications once they are
