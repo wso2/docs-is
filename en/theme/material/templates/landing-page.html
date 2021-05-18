@@ -35,7 +35,70 @@
 			padding: unset !important; 
 			margin: unset !important;
 		}
-
+    /* Customizing footer for the landing page */
+    .md-footer-nav{
+      display: none !important;
+      width:0 ;
+    }
+    .md-footer-copyright__highlight,
+    html .md-footer-meta.md-typeset a,
+    .md-footer-copyright {
+      color: #BDBDBD !important;
+    }
+    .md-footer-meta {
+      background-color: #3B3B3B !important;
+      color: #BDBDBD !important;
+    }
+    .md-footer-meta__inner {
+      justify-content: center !important;
+      max-width: unset;
+    }
+    /* customizing header for the landing page */
+    .md-header {
+      border: none !important;
+      padding-top: 10px !important;
+    }
+    .md-header-nav {
+      margin-right: 11vw;
+      margin-left: 11vw;
+      max-width: unset;
+    }
+    .md-flex {
+      display:flex;
+    }
+    .md-flex__cell {  
+      display: inline-flex;
+    }
+    .header-nav-title-container {
+      display: flex;
+      flex: 1;
+    }
+    .header-nav-title {
+      flex: 1;
+      padding-left: 10px;
+    }
+    .header-version-select-container {
+      width: auto !important;
+      padding-right: 10px;
+    }
+    .version-select-text {
+      text-decoration: none !important;
+      font-size: 0.8em !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      color: black !important;
+    }
+    .version-select-dropdown {
+      margin-top: 20px;
+      margin-left: 60px;
+    }
+    /* Hiding the common sidebar/navbar and edit icon in the landing page */
+    .md-sidebar {
+      display: none !important;
+    }
+    .nav_link {
+      display: none !important;
+    }
     @media (min-width: 1220px) {
       .md-main .md-sidebar.md-sidebar--primary {
         width: 0px;
@@ -45,7 +108,8 @@
       width: 0px;
     }
     .md-footer-nav{
-      width:0;
+      display: none !important;
+      width:0 ;
     }
   </style>
 {% endblock %}

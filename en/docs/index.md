@@ -53,12 +53,12 @@ template: templates/landing-page.html
                         <div class="ps-4">
                            <p class="scenario-card-text">Allow users to securely log in to multiple applications by providing their credentials just once.</p>
                            <div class="pb-5">
-                              <a class="scenario-link-text">SAML</a><br>
-                              <a class="scenario-link-text">OAuth/OpenID Connect</a><br>
-                              <a class="scenario-link-text">WS-Federation</a>
+                              <a class="scenario-link-text" href="../../guides/login/sso-for-saml/">SAML</a><br>
+                              <a class="scenario-link-text" href="../../guides/login/sso-for-oidc/">OAuth/OpenID Connect</a><br>
+                              <a class="scenario-link-text" href="../../guides/login/configure-ws-federation-single-sign-on/">WS-Federation</a>
                            </div>
                            <div class="row position-absolute bottom-0 pb-3">
-                              <a class="try-it-out-text pt-2">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
+                              <a class="try-it-out-text pt-2" href="../../quick-starts/single-sign-on/" rel="nofollow noopener">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
                            </div>
                         </div>
                      </div>
@@ -72,11 +72,11 @@ template: templates/landing-page.html
                         <div class="ps-4">
                            <p class="scenario-card-text">Enable users to log in using their social logins and integrate applications with enterprise identity providers.</p>
                            <div class="pb-5">
-                              <a class="scenario-link-text">Social logins</a><br>
-                              <a class="scenario-link-text">Protocol based login</a><br>
+                              <a class="scenario-link-text" href="../../guides/identity-federation/social-login/">Social logins</a><br>
+                              <a class="scenario-link-text" href="../../guides/identity-federation/enterprise-identity-federation/">Protocol based login</a><br>
                            </div>
                            <div class="row position-absolute bottom-0 pb-3">
-                              <a class="try-it-out-text pt-2">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
+                              <a class="try-it-out-text pt-2" href="../../quick-starts/federated-authenticators" rel="nofollow noopener">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
                            </div>
                         </div>
                      </div>
@@ -108,11 +108,11 @@ template: templates/landing-page.html
                         <div class="ps-4">
                            <p class="scenario-card-text">Enhance API security and ensure authorized access to your services and resources.</p>
                            <div class="pb-5">
-                              <a class="scenario-link-text">OAuth grant types</a><br>
-                              <a class="scenario-link-text">User managed access</a><br>
+                              <a class="scenario-link-text" href="../../guides/access-delegation/oauth-grant-types/">OAuth grant types</a><br>
+                              <a class="scenario-link-text" href="../guides/access-delegation/uma">User managed access</a><br>
                            </div>
                            <div class="row position-absolute bottom-0 pb-3">
-                              <a class="try-it-out-text pt-2">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
+                              <a class="try-it-out-text pt-2" href="../../quick-starts/access-delegation/"   rel="nofollow noopener">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
                            </div>
                         </div>
                      </div>
@@ -126,10 +126,10 @@ template: templates/landing-page.html
                         <div class="ps-4">
                            <p class="scenario-card-text">Deal with application users seamlessly throughout the identity lifecycle.</p>
                            <div class="pb-5">
-                              <a class="scenario-link-text">Onboard users</a><br>
-                              <a class="scenario-link-text">Manage users</a><br>
-                              <a class="scenario-link-text">Outbound provision users</a>
-                              <a class="scenario-link-text">Inbound provision users</a>
+                              <a class="scenario-link-text" href="../../guides/identity-lifecycles/onboard-overview/">Onboard users</a><br>
+                              <a class="scenario-link-text" href="../../guides/identity-lifecycles/manage-user-overview/">Manage users</a><br>
+                              <a class="scenario-link-text" href="../../guides/identity-lifecycles/outbound-provisioning/">Outbound provision users</a><br>
+                              <a class="scenario-link-text" href="../../guides/identity-lifecycles/inbound-provisioning/">Inbound provision users</a>
                            </div>
                            <div class="row position-absolute bottom-0 pb-3">
                               <a class="try-it-out-text pt-2">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
@@ -144,11 +144,10 @@ template: templates/landing-page.html
                         <h5 class="scenario-card-title">
                         <span class="material-icons scenario-card-icon pe-1">lock</span>Strenghten Privacy</h5>
                         <div class="ps-4">
-                           <p class="scenario-card-text">Meet requirements of compliance frameworks and manage user consent.</p>
+                           <p class="scenario-card-text">Meet requirements of compliance frameworks and manage user consents.</p>
                            <div class="pb-5">
-                              <a class="scenario-link-text">SAML</a><br>
-                              <a class="scenario-link-text">OAuth/OpenID Connect</a><br>
-                              <a class="scenario-link-text">WS-Federation</a>
+                              <a class="scenario-link-text">Regulatory compliance</a><br>
+                              <a class="scenario-link-text">Consent management</a><br>
                            </div>
                            <div class="row position-absolute bottom-0 pb-3">
                               <a class="try-it-out-text pt-2">Try it out<i class="material-icons try-it-out-arrow">arrow_right_alt</i></a><br>
@@ -233,7 +232,6 @@ template: templates/landing-page.html
       </div>
    </div>
 </div>
-
 
 
 	
