@@ -72,7 +72,7 @@ From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups an
 
 ![relationship-between-groups-and-roles](../../assets/img/setup/groups-roles-relationship.png)
 
-## Group and role separation Improvements
+## Group and role separation improvements
 
 Identity server 5.11.0 introduced group and role separation. 
 
@@ -91,13 +91,13 @@ Following are the improvements introduced with this effort.
 
 #### Carbon kernel level support
 
-getUserClaimValues(), getUsersClaimValues(), getUserClaimValuesWithID(), getUsersClaimValuesWithID() 
+`getUserClaimValues()`, `getUsersClaimValues()`, `getUserClaimValuesWithID()`, `getUsersClaimValuesWithID()` 
 are the APIs from carbon kernel which provide claim values of users at the OSGi level. Previously 
 these APIs specifically treated the wso2.role claim so that it would return both roles and groups. 
-Now in addition to that, both wso2.groups and wso2.roles(A new claim introduced with this effort) 
+Now in addition to that, both wso2.groups and wso2.roles (a new claim introduced with this effort) 
 claims return groups and roles respectively.
 
-#### Going forward, discouraging the usages of wso2.role claim
+#### The usage of wso2.role claim going forward.
 
 Wso2.role claim is no longer encouraged to be used in configurations(such as role mapping, 
 requested claims, etc), and with extensions. Therefore, following changes are made regarding the 
@@ -119,7 +119,7 @@ The following claims are the alternatives that must be utilized instead.
   * Treated similar to the wso2.role claim(read-only, supported by default, etc).
   * Contain groups of a user
   
-#### Service provider role mapping and IdP role mapping  are restricted to roles
+#### Service provider role mapping and identity provider role mapping restrictions
 
 Previously IdP and SP role mappings supported mappings having both groups and roles. Further 
 explaining, earlier it was possible to add mappings with roles with or without the `Internal/` 
@@ -462,4 +462,3 @@ If this happens, do the following to manually change the following configuration
 2. Click **Resident** under **Identity Providers**.
 3. Expand **Inbound Authentication Configuration** and then expand **OAuth2/OpenID Connect Configuration**.
 4. Remove the port number `:443` from the **Identity Provider Entity ID** URL. 
-

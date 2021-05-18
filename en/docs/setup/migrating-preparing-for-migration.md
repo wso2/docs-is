@@ -23,15 +23,19 @@ With WSO2 Identity Server 5.11.0, groups and roles are separated. For more infor
 
 ## Groups and Roles Improvements Migration
 
-With WSO2 Identity Server 5.12.0, groups and roles improvements are introduced. For more information, see [What Has Changed in 5.11.0](../../setup/migrating-what-has-changed#roup and role separation Improvements).
+With WSO2 Identity Server 5.12.0, groups and roles improvements are introduced. For more information, see [What Has Changed in 5.11.0](../../setup/migrating-what-has-changed#Group and role separation Improvements).
 
-Please note that the abbreviations mentioned in that section is also used in here.
+Please note that following abbreviations are used in the sections below.
+
+* Wso2.role claim = http://wso2.org/claims/role
+* Wso2.roles claim = http://wso2.org/claims/roles
+* Wso2.groups claim = http://wso2.org/claims/groups
 
 Please refer to the below sections related to this improvement.
 
 ### Claim configuration changes
 
-#### Following changes are added to the product claims.
+Following changes are added to the product claims.
 
 * Wso2.role claim - Modified
   * Remove `supported by default`
@@ -60,16 +64,16 @@ Please refer to the below sections related to this improvement.
   or wso2.groups claim as per the requirement of the custom use case.
 * Our recommendation is to fix any consuming client to become compatible with these changes. 
   But if somehow the above configs need to be reverted(possibly in a migrated deployment), it can 
-  be done via calling IS server REST APIs(https://is.docs.wso2.com/en/latest/develop/claim-management-rest-api/).
+  be done via calling IS server [Claim Management REST APIs](../develop/claim-management-rest-api.md).
   
 ### Utilizing carbon kernel level support
 
-The following abstract userstore manager APIs: getUserClaimValues(), getUsersClaimValues(), 
-getUserClaimValuesWithID(), getUsersClaimValuesWithID() now support both wso2.roles 
+The following abstract userstore manager APIs: `getUserClaimValues()`, `getUsersClaimValues()`, 
+`getUserClaimValuesWithID()`, `getUsersClaimValuesWithID()` now support both wso2.roles 
 and wso2.groups claims properly. We recommend modifying custom extensions to request wso2.roles or wso2.groups
 via above APIs rather depending on wso2.role claim.
 
-### Service provider role mapping, and IdP role mapping  are restricted strictly to role mapping
+### Service provider role mapping and identity provider role mapping restrictions
 
 We recommend removing existing SP and IdP role mappings which use groups, and utilize roles to achieve the same functionality.
 
@@ -104,9 +108,9 @@ mentioned above, some applications, customizations, and integration flows might 
 to fully adapt to these improvements.
 
 Nevertheless, all of the above improvements and the behavioural changes are introduced in a way 
-that existing deployments can adapt to the new state as easy as possible. However, if it's 
+that existing deployments can adapt to the new state as easily as possible. However, if it's 
 mandatory to preserve previous behaviour and avoid enabling the improvements mentioned above, the 
-following configuration option(enabled by default) can be used.
+following configuration option(enabled by default) can be used in the `<IS-Home>/repository/conf/deployment.toml` file.
 
 ```java
 [authorization_manager.properties]
