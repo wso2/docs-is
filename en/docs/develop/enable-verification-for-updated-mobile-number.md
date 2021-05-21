@@ -25,7 +25,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
                 <inline>{"api_key"="4c9374",
                     "api_secret"="FtqyPggE93",
                     "from"="NEXMO",
-                    "to"={{mobile}},
+                    "to"={{send-to}},
                     "text"={{body}}
                     }</inline>
             </mapping>
