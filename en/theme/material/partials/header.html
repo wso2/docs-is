@@ -39,13 +39,9 @@
             <span class="md-header-nav__topic">
               {{ config.site_name | replace('WSO2', '') }}
             </span>
-            <!-- Do not show the page.title if the value is 'Home' -->
-            {% if page.title  == 'Home' %}
-            {% else %}
-              <span class="md-header-nav__topic">
-                {{ page.title }}
-              </span>
-            {% endif %}
+            <span class="md-header-nav__topic">
+              {{ page.title }}
+            </span>
           {% endif %}
         </div>
         <div class="md-flex__ellipsis md-header__version-select header-version-select-container">
@@ -59,6 +55,14 @@
                 </ul>
             </div>
         </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <!-- Repository information -->
+        {% if config.repo_url %}
+          <div class="md-header__source">
+            {% include "partials/source.html" %}
+          </div>
+        {% endif %}
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         {% if "search" in config["plugins"] %}
