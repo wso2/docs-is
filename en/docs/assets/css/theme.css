@@ -1207,7 +1207,6 @@ html .md-footer-meta.md-typeset a,
     background-color: #EFEFEF;
 }
 
-
 .get-started-container {
     flex: 5;
     padding-top: 3rem;
@@ -1334,7 +1333,6 @@ html .md-footer-meta.md-typeset a,
     font-size: 26px;
     margin: 0px !important;
     font-weight: normal !important;
-
 }
 
 .iam-secondary-text {
@@ -1375,7 +1373,6 @@ html .md-footer-meta.md-typeset a,
     font-weight: 600;
     color: #fa6400 !important;
     transition: 0.5s;
-
 }
 
 .scenario-link-text:hover {
@@ -1390,7 +1387,6 @@ html .md-footer-meta.md-typeset a,
 
 .try-it-out-text:hover {
     color: #e95d00 !important;
-
 }
 
 .try-it-out-text:hover .dropdown-menu { 
@@ -1408,8 +1404,6 @@ html .md-footer-meta.md-typeset a,
     height: 4em; /* 1:1 Aspect Ratio */
     border: none !important;
     box-shadow: 1px 6px 18px 4px rgba(77,77,77,0.15);
-    -webkit-box-shadow: 1px 6px 18px 4px rgba(77,77,77,0.15);
-    -moz-box-shadow: 1px 6px 18px 4px rgba(77,77,77,0.15);
 }
 
 .icon-font {
