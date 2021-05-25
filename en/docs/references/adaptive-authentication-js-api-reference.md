@@ -323,7 +323,7 @@ This functions sets a new cookie. It includes the following parameters.
 <td>A map that may contain optional attributes of the cookie with two other custom attributes <code>encrypt</code> and <code>sign</code>.
 <ul>
 <li>The default value of <code>sign</code> is <code>false</code>. If it is set to <code>true</code>, the value will be signed.</li>
-<li>The default value of <code>encrypt</code> is <code>false</code>. If it is set to <code>true</code>, value will be encrypted.</li>
+<li>The default value of <code>encrypt</code> is <code>false</code>. If it is set to <code>true</code>, the value will be encrypted.</li>
 </ul></td>
 </tr>
 </tbody>
