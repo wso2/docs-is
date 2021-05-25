@@ -1,0 +1,120 @@
+<!--
+ * Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% extends "main.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    .md-main .md-content {
+      margin-right: 0;
+      margin-left: 0;
+    }
+		/* Overriding default CSS set by mkdocs without affecting other components using the md-main__inner class */
+    html, body {
+      line-height: 1 !important;
+    }
+    a {
+      text-decoration: none !important;
+    }
+    .nav-link-text {
+      color: white !important;
+    }
+    .md-tabs__link--active {
+      color: #fa6400 !important;
+    }
+    .md-main__inner {
+      max-width: unset !important;
+      margin: unset !important;
+      padding: unset !important;
+    }
+    .md-content__inner {
+      padding: unset !important;
+      margin: unset !important;
+    }
+    /* Customizing footer for the landing page */
+    .md-footer-copyright__highlight,
+    html .md-footer-meta.md-typeset a,
+    .md-footer-copyright {
+      color: #BDBDBD !important;
+      border: none !important;
+    }
+    .md-footer-meta {
+      background-color: #3B3B3B !important;
+      color: #BDBDBD !important;
+    }
+    .copyright-container {
+      display: inline;
+      float: right;
+      padding-right: 15px;
+    }
+    .md-footer-meta__inner {
+      margin-right: 11vw;
+      margin-left: 11vw;
+      max-width: unset;
+    }
+    .md-footer-copyright {
+      max-width: unset;
+      float: unset;
+    }
+    /* customizing header for the landing page */
+    .md-header {
+      border: none !important;
+      height: 2.4rem !important;
+    }
+    .md-header-nav {
+      margin-right: 11vw;
+      margin-left: 11vw;
+      max-width: unset;
+    }
+    .md-main .md-sidebar.md-sidebar--secondary {
+      width: 0px;
+    }
+    .md-footer-nav{
+      display: none !important;
+      width:0 ;
+    }
+    .md-tabs__inner {
+      margin-right: 11vw;
+      margin-left: 11vw;
+      max-width: unset;
+    }
+    .version-select-text {
+      color: black !important;
+
+    }    
+    .md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
+      top: 2rem !important;
+    }    
+    .navbar .nav-item .dropdown-menu{ display: none; }
+    .navbar .nav-item:hover .dropdown-menu{ display: block !important; }
+    .navbar .nav-item .dropdown-menu{ margin-top:0; }
+    @media (max-width: 1220px) {
+      .md-header-nav {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 61rem;
+      }
+    }
+    @media (min-width: 1220px) {
+      .md-main .md-sidebar.md-sidebar--primary {
+        width: 0px;
+      }
+    }    
+  </style>
+{% endblock %}
