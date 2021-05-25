@@ -1351,10 +1351,14 @@ html .md-footer-meta.md-typeset a,
     max-width: unset !important;
 }
 
-.scenario-card-title {
+.scenario-card-title-container {
     font-size: 19px!important;
     text-transform: unset !important;
     color: unset !important;
+}
+
+.scenario-card-title {
+    display: block !important;
 }
 
 .scenario-card-text {
@@ -1408,6 +1412,9 @@ html .md-footer-meta.md-typeset a,
 
 .icon-font {
     font-size: 2.5em !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .more-info-heading-text {
