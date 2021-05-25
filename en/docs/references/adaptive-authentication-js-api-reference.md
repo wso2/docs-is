@@ -235,7 +235,7 @@ following parameters.
 <tbody>
 <tr class="odd">
 <td>url</td>
-<td>The URL of the error page that the user is redirected to. If the value is null, the user is redirected by default to the <strong>retry.do</strong> error page.<br />
+<td>This is the URL of the error page that the user is redirected to. If the value is null, the user is redirected by default to the <strong>retry.do</strong> error page.<br />
 Note that any relative URL is assumed as the relative to host’s root.</td>
 </tr>
 <tr class="even">
