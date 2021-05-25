@@ -220,7 +220,7 @@ template: templates/landing-page.html
                               <img src="../../assets/img/icons/landing-page/padlock.svg">
                            </i>
                            <div class="row">
-                              Strenghten Privacy
+                              Strengthen Privacy
                            </div>
                         </h5>
                         <div class="ps-4">
