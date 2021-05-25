@@ -10,6 +10,8 @@ Manging users was an admin's task a few years ago. With dynamic cloud applicatio
 
 WSO2 Identity Server provides the user management functionality which is **role-based**. This will be discussed further in the next section. In a typical organization, there are several employees who are responsible for accomplishing a versatile set of tasks on a daily basis with the help of different applications. Most of the time, even the same application is used in different ways by employees who have different job roles. Managing who accesses which application for what purposes can be an overhead for the administration. This is why user management is important. 
 
+---
+
 ## Functions of user management
 A user management implementation involves a wide range of functionality such as adding/deleting users, controlling user activity through permissions, and managing user roles. 
 

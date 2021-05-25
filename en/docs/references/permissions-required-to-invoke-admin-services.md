@@ -759,4 +759,4 @@ performed with different permission levels.
 </table>
 
 !!! info "Related Topics"
-    - [API: SOAP APIs](/develop/apis/soap-apis/)
+    - [API: SOAP APIs](../../develop/apis/soap-apis/)

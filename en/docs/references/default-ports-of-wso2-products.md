@@ -58,7 +58,7 @@ Provided by default in the WSO2 Carbon platform.
 
 WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance
 using a JMX client such as JConsole. By default, JMX is enabled in all
-products. To disable it, see [Disable JMX for the server](/deploy/monitor/jmx-based-monitoring/#disable-jmx-for-the-server).
+products. To disable it, see [Disable JMX for the server](../../deploy/monitor/jmx-based-monitoring/#disable-jmx-for-the-server).
 
 -   11111 - RMIRegistry port. Used to monitor Carbon remotely
 -   9999 - RMIServer port. Used along with the RMIRegistry port when

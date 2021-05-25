@@ -232,11 +232,8 @@ Configure the following to enable this feature.
             `Carbon.Security.TrustStore.Password`
             appropriately.
             
-        1. For more information about hosting the authentication endpoint on a different server, refer [here](/develop/extend/host-authentication-endpoint-on-a-different-server/).
-        2. For more information about hosting the authentication endpoint on a different server, refer [here](../../develop/extend/host-authentication-endpoint-on-a-different-server/). 
-        3. For more information about hosting the authentication endpoint on a different server, refer [here](/../../develop/extend/host-authentication-endpoint-on-a-different-server/).    
-        4. For more information about hosting the authentication endpoint on a different server, refer [here](develop/extend/host-authentication-endpoint-on-a-different-server/).
-        5. For more information about hosting the authentication endpoint on a different server, refer [here](../../../develop/extend/host-authentication-endpoint-on-a-different-server/).
+        For more information about hosting the authentication endpoint on a different server, refer [here](../host-authentication-endpoint-on-a-different-server/).    
+    
 
 7.  For mutual SSL authentication, the public certificate of the
     Identity Server has to be imported to the truststore of the client

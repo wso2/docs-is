@@ -209,7 +209,6 @@ particular but any other grant type can be customized as well.
 
     !!! tip
         To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).
- 
 
 ### Obtain an access token 
         
