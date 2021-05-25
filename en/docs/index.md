@@ -70,11 +70,11 @@ template: templates/landing-page.html
                <div class="col-lg-4 col-sm-6 col-xs-12 position-relative">
                   <div class="card scenario-card">
                      <div class="card-body">
-                        <h5 class="scenario-card-title">
+                        <h5 class="scenario-card-title-container">
                            <i class="material-icons-outlined scenario-card-icon pe-1">
                               <img src="assets/img/icons/landing-page/tick.svg">
                            </i>
-                           <div class="row">
+                           <div class="row scenario-card-title">
                               Enable Single Sign On
                            </div>
                         </h5>
@@ -102,11 +102,11 @@ template: templates/landing-page.html
                <div class="col-lg-4 col-sm-6 col-xs-12 position-relative">
                   <div class="card scenario-card">
                      <div class="card-body">
-                        <h5 class="scenario-card-title">
+                        <h5 class="scenario-card-title-container">
                            <i class="material-icons-outlined scenario-card-icon pe-1">
                               <img src="assets/img/icons/landing-page/user.svg">
                            </i>
-                           <div class="row">
+                           <div class="row scenario-card-title">
                               Add Federated Login
                            </div>
                         </h5>
@@ -130,11 +130,11 @@ template: templates/landing-page.html
                <div class="col-lg-4 col-sm-6 col-xs-12 position-relative">
                   <div class="card scenario-card">
                      <div class="card-body">
-                        <h5 class="scenario-card-title">
+                        <h5 class="scenario-card-title-container">
                            <i class="material-icons-outlined scenario-card-icon pe-1">
                               <img src="assets/img/icons/landing-page/admin.svg">
                            </i>
-                           <div class="row">
+                           <div class="row scenario-card-title">
                               Add Strong Authentication
                            </div>
                         </h5>
@@ -162,11 +162,11 @@ template: templates/landing-page.html
                <div class="col-lg-4 col-sm-6 col-xs-12 position-relative">
                   <div class="card scenario-card">
                      <div class="card-body">
-                        <h5 class="scenario-card-title">
+                        <h5 class="scenario-card-title-container">
                            <i class="material-icons-outlined scenario-card-icon pe-1">
                               <img src="assets/img/icons/landing-page/padlock.svg">
                            </i>
-                           <div class="row">
+                           <div class="row scenario-card-title">
                               Secure APIs
                            </div>
                         </h5>
@@ -190,11 +190,11 @@ template: templates/landing-page.html
                <div class="col-lg-4 col-sm-6 col-xs-12 position-relative">
                   <div class="card scenario-card">
                      <div class="card-body">
-                        <h5 class="scenario-card-title">
+                        <h5 class="scenario-card-title-container">
                            <i class="material-icons-outlined scenario-card-icon pe-1">
                               <img src="assets/img/icons/landing-page/customer.svg">
                            </i>
-                           <div class="row">
+                           <div class="row scenario-card-title">
                               Manage Users
                            </div>
                         </h5>
@@ -215,11 +215,11 @@ template: templates/landing-page.html
                <div class="col-lg-4 col-sm-6 col-xs-12 position-relative">
                   <div class="card scenario-card">
                      <div class="card-body">
-                        <h5 class="scenario-card-title">
+                        <h5 class="scenario-card-title-container">
                            <i class="material-icons-outlined scenario-card-icon pe-1">
                               <img src="assets/img/icons/landing-page/padlock.svg">
                            </i>
-                           <div class="row">
+                           <div class="row scenario-card-title">
                               Strengthen Privacy
                            </div>
                         </h5>
@@ -255,7 +255,7 @@ template: templates/landing-page.html
                   <div class="row">
                      <div class="card icon-card">
                         <i class="material-icons-outlined icon-font">
-                           <img src="assets/img/icons/landing-page/announce.svg">
+                           <img class="bottom-icon" src="assets/img/icons/landing-page/announce.svg">
                         </i>
                      </div>
                   </div>
@@ -275,7 +275,7 @@ template: templates/landing-page.html
                   <div class="row">
                      <div class="card icon-card">
                         <i class="material-icons-outlined icon-font">
-                           <img src="assets/img/icons/landing-page/setting.svg">
+                           <img class="bottom-icon" src="assets/img/icons/landing-page/setting.svg">
                         </i>
                      </div>
                   </div>
@@ -295,7 +295,7 @@ template: templates/landing-page.html
                   <div class="row">
                      <div class="card icon-card">
                         <i class="material-icons-outlined icon-font">
-                           <img src="assets/img/icons/landing-page/outline.svg">
+                           <img class="bottom-icon" src="assets/img/icons/landing-page/outline.svg">
                         </i>
                      </div>
                   </div>
@@ -315,7 +315,7 @@ template: templates/landing-page.html
                   <div class="row">
                      <div class="card icon-card">
                         <i class="material-icons-outlined icon-font">
-                           <img src="assets/img/icons/landing-page/swap.svg">
+                           <img class="bottom-icon" src="assets/img/icons/landing-page/swap.svg">
                         </i>
                      </div>
                   </div>
