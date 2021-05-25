@@ -138,9 +138,9 @@ The implementation of utility functions can be found in the [WSO2 extensions cod
 
 #### hasRole(user, role)
 
-This function returns true if the specified 
+This function returns `true` if the specified 
 `          user         ` belongs to the specified 
-`          role         `, and returns false if the user does
+`          role         `, and returns `false` if the user does
 not. It includes the following parameters.
 
 | Parameter | Description                                  |
@@ -162,8 +162,8 @@ if (isAdmin) {
 This function assigns each of the roles specified in the 
 `                   assigningRoles                 ` parameter to the
 specified `                   user                 ` object. It
-returns true if all the roles are successfully assigned and returns
-false if not.  It includes the following parameters.
+returns `true` if all the roles are successfully assigned and returns
+`false` if not.  It includes the following parameters.
 
 | Parameter      | Description                                                                                  |
 |----------------|----------------------------------------------------------------------------------------------|
@@ -185,7 +185,7 @@ executeStep(1, {
 This function removes each of the roles specified in the 
 `                   removingRoles                 ` parameter to the
 given `                   user                 ` object. It returns
-true if all the roles are successfully removed and returns false if
+`true` if all the roles are successfully removed and returns `false` if
 not. It includes the following parameters.
 
 | Parameter     | Description                                                                                      |
@@ -322,8 +322,8 @@ This functions sets a new cookie. It includes the following parameters.
 <td>properties</td>
 <td>A map that may contain optional attributes of the cookie with two other custom attributes <code>encrypt</code> and <code>sign</code>.
 <ul>
-<li>The default value of <code>sign</code> is false. If it is set to true, the value will be signed.</li>
-<li>The default value of <code>encrypt</code> is false. If it is set to true, value will be encrypted.</li>
+<li>The default value of <code>sign</code> is <code>false</code>. If it is set to <code>true</code>, the value will be signed.</li>
+<li>The default value of <code>encrypt</code> is <code>false</code>. If it is set to <code>true</code>, value will be encrypted.</li>
 </ul></td>
 </tr>
 </tbody>
@@ -332,7 +332,7 @@ This functions sets a new cookie. It includes the following parameters.
 !!! tip
     The size of the value has to be less than the RSA key pair length if 
     `                   encrypt                 ` is enabled (set to
-    true).
+    `true`).
     
 
 ``` java
@@ -371,10 +371,10 @@ the following parameters.
 </tr>
 <tr class="odd">
 <td>properties</td>
-<td>A map that may contain optional attributes of the cookie <code>decrypt</code> and <code>validateSignature</code>
+<td>A map that may contain optional attributes of the cookie <code>decrypt</code> and <code>validateSignature</code>.
 <ul>
-<li>The default value of <code>decrypt</code> is false.  If it is set to true, the value will be decrypted.</li>
-<li>The default value of <code>validateSignature</code> is false.  If it is set to true, the signature will be validated before returning a response.</li>
+<li>The default value of <code>decrypt</code> is <code>false</code>.  If it is set to <code>true</code>, the value will be decrypted.</li>
+<li>The default value of <code>validateSignature</code> is <code>false</code>.  If it is set to <code>true</code>, the signature will be validated before returning a response.</li>
 </ul></td>
 </tr>
 </tbody>
@@ -518,7 +518,7 @@ It includes the following parameters:
 |----------------------|------------------------------------------------------------------------------|
 | jwt                  | The jwt to be decoded.                                                       |
 | parameterName        | The name of the parameter in the jwt for which the value should be retrieved.|
-| isParameterInPayload | Indicates whether the parameter to be retrieved is in the jwt header or body.<br> Value should be true if the parameter to be retrieved is in the body .      |                                                   
+| isParameterInPayload | Indicates whether the parameter to be retrieved is in the jwt header or body.<br> Value should be `true` if the parameter to be retrieved is in the body .      |                                                   
  
  The following example shows how to obtain a parameter from the request object, which is a signed jwt. 
 ``` java
