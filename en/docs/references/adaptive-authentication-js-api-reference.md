@@ -614,7 +614,7 @@ step number.
 
 #### session object
 
--   `          session.userAgent         ` :  This is userAgent object of the user session.. See [userAgent
+-   `          session.userAgent         ` :  This is `userAgent` object of the user session.. See [userAgent
     object](#useragent-object) for more
     information.
 -   `          session.ip         ` :  This is the session’s IP address.
@@ -633,8 +633,7 @@ step number.
     
 #### userAgent object
 
--   `          userAgent.raw         ` :  This is the raw userAgent string.
--   `          userAgent.browser         ` :  This is the web browser property that is extracted from the raw userAgent string.
--   `          userAgent.platform         ` :  This is the operating system property that is extracted from the raw userAgent string.
--   `          userAgent.device         ` :  This is the device property that is extracted from the raw userAgent string.
-    
+-   `          userAgent.raw         ` :  This is the raw user agent string.
+-   `          userAgent.browser         ` :  This is the web browser property that is extracted from the raw user agent string.
+-   `          userAgent.platform         ` :  This is the operating system property that is extracted from the raw user agent string.
+-   `          userAgent.device         ` :  This is the device property that is extracted from the raw user agent string.    
