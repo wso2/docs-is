@@ -518,7 +518,7 @@ It includes the following parameters:
 |----------------------|------------------------------------------------------------------------------|
 | jwt                  | The jwt to be decoded.                                                       |
 | parameterName        | The name of the parameter in the jwt for which the value should be retrieved.|
-| isParameterInPayload | Indicates whether the parameter to be retrieved is in the jwt header or body.<br> Value should be `true` if the parameter to be retrieved is in the body .      |                                                   
+| isParameterInPayload | Indicates whether the parameter to be retrieved is in the jwt header or body.<br> Value should be `true` if the parameter to be retrieved is in the body.      |                                                   
  
  The following example shows how to obtain a parameter from the request object, which is a signed jwt. 
 ``` java
