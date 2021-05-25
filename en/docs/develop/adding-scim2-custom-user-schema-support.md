@@ -3,30 +3,32 @@
 WSO2 Identity Server allows adding custom attributes into user objects through [Enterprise User Extension](../../develop/extending-scim2-user-schemas). From 5.12.0 onwards, 
 you can use this custom schema to add custom attributes of the user.
 
-**Reasons why we introduced custom schema to add custom attributes:**
-1. According to the current model,  Enterprise User Extension attributes are in a file and those configurations are applicable in the server level.
-2. Enterprise User Extension is a defined schema and it should not be allowed to modify it.
+!!! Note
+    **Reasons why we introduced custom schema to add custom attributes:**
+    1. According to the current model, Enterprise User Extension attributes are in a file and those configurations are applicable in the server level.
+    2. Enterprise User Extension is a defined schema and it should not be allowed to be modified.
 
 !!! Note 
     SCIM2 Custom User Schema Support is added by default in WSO2 Identity Server
     version 5.12.0 onwards.
     
-### Add custom schema dialect
+## Add custom schema dialect
 
-1. Login to Management console as admin/admin credentials
+1. Log in to Management console as admin/admin credentials
 2. Add the custom schema dialect if it is not found
-    - Click **Add** under **Claims**
-    - Click on **Add Claim Dialect** .
-    - Add **urn:scim:custom:schema** claim dialect
+    - Click **Add** under **Main** > **Identity** > **Claims**.
+    - Click **Add Claim Dialect** .
+    - Add the **urn:scim:custom:schema** claim dialect.
     
     ![add-scim-custom-schema-dialect](../assets/img/develop/add-custom-schema-dialect.png)
     
-    - Click **Add**
+    - Click **Add**.
     
+## How to add claims to support simple attributes.
 
 ### Add custom local claim
 
-1. Click **Add** under **Claims**.
+1. Click **Add** under **Main** > **Identity** > **Claims**.
 2. Click **Add Local Claim** and enter the following values. 
     - **Claim URI**: http://wso2.org/claims/customclaim
     - **Display Name**: Custom Claim
@@ -38,10 +40,10 @@ you can use this custom schema to add custom attributes of the user.
 
     ![add-scim-local-custom-claim](../assets/img/develop/add-custom-local-claim.png)
     
-    If you want add any additional properties for the scim attribute, you can add it using **Additional Properties** 
+    If you want to add any additional properties for the scim attribute, you can add it using **Additional Properties** 
     in the claim configuration.
     
-    Following additional properties can be added to the custom schema via **Additional Properties** element.
+    The following additional properties can be added to the custom schema via **Additional Properties** element.
        
         - dataType
         - multiValued
@@ -57,15 +59,14 @@ you can use this custom schema to add custom attributes of the user.
     
  
 !!! note
-    Note the following:
 
-    - You can use the word "customClaim" (or any other preferred word) as the **Mapped Attribute** only when using a JDBC user store because JDBC user stores will automatically create a new attribute if it does not already exist in the user store. However, If you are using LDAP or Active Directory, you will have to use an attribute that exists in the user store already.
+    - You can use the word `customClaim` or any other preferred word as the **Mapped Attribute** when using a JDBC userstore because JDBC userstores will automatically create a new attribute if it does not already exist in the userstore. However, If you are using LDAP or Active Directory, you will have to use an attribute that exists in the userstore already.
 
-    - The configuration above is valid when using the PRIMARY user store. If you have a secondary user store configured, make sure to add another attribute mapping by clicking Add Attribute Mapping and selecting the secondary user store as well.
+    - The configuration above is valid when using the PRIMARY userstore. If you have a secondary userstore configured, make sure to add another attribute mapping by clicking **Add Attribute Mapping** and select the secondary userstore as well.
 
-## Map the custom claim
+### Map the custom claim
 
-1. Click **Add** under **Claims**.
+1. Click **Add** under **Main** > **Identity** > **Claims**.
 
 2. Click **Add External Claim** and enter the following values.
     - **Dialect URI**: urn:scim:custom:schema
@@ -76,9 +77,9 @@ you can use this custom schema to add custom attributes of the user.
 
 3. Click **Add**.
 
-## Try it out
+### Try it out
 
-1. Click **Add** under **Users and Roles**.  
+1. Click **Add** under **Main** > **Identity** > **Users and Roles**.
 
 2. Click **Add New User** and give the user a username and password. 
 
@@ -192,12 +193,12 @@ updated by accessing the user profile on the management console. 
     }'
 ```
 
-### How to add claims to support complex attributes.
+## How to add claims to support complex attributes.
 
-Let's see if we have a **manager** complex attribute and it has **displayName**  and **emailAddress** as the subattributes.
+Let's see if we have a **manager** complex attribute and it has **displayName** and **emailAddress** as the subattributes.
 
 
-#### Create claim mappings for Manager-Display claim
+### Create claim mappings for Manager-Display claim
 
 **Add local claim for displayname attribute**
 1. Click **Add** under **Claims**.
@@ -212,12 +213,12 @@ Let's see if we have a **manager** complex attribute and it has **displayName** 
 
     ![add-scim-local-custom-claim](../assets/img/develop/add-manager-displayname-local-claim.png)
     
-    If you want add any additional properties for the scim attribute, you can add it using **Additional Properties** 
+    If you want to add any additional properties for the scim attribute, you can add it using **Additional Properties** 
     in the claim configuration.
  
 **Map to remote claim**
 
-1. Click **Add** under **Claims**.
+1. Click **Add** under **Main** > **Identity** > **Claims**.
 
 2. Click **Add External Claim** and enter the following values.
     - **Dialect URI**: urn:scim:custom:schema
@@ -228,10 +229,10 @@ Let's see if we have a **manager** complex attribute and it has **displayName** 
 
 3. Click **Add**.
        
-#### Create claim mappings for Manager-Email address claim
+### Create claim mappings for Manager-Email address claim
 
 **Add local claim for emailaddress attribute**
-1. Click **Add** under **Claims**.
+1. Click **Add** under **Main** > **Identity** > **Claims**.
 2. Click **Add Local Claim** and enter the following values. 
     - **Claim URI**: http://wso2.org/claims/manager.emailaddress
     - **Display Name**: Manager Emailaddress
@@ -243,12 +244,12 @@ Let's see if we have a **manager** complex attribute and it has **displayName** 
 
     ![add-scim-local-custom-claim](../assets/img/develop/add-manager-emailaddress-localclaim.png)
     
-    If you want add any additional properties for the scim attribute, you can add it using **Additional Properties** 
+    If you want to add any additional properties for the scim attribute, you can add it using **Additional Properties** 
     in the claim configuration.
  
 **Map to remote claim**
 
-1. Click **Add** under **Claims**.
+1. Click **Add** under **Main** > **Identity** > **Claims**.
 
 2. Click **Add External Claim** and enter the following values.
     - **Dialect URI**: urn:scim:custom:schema
@@ -280,7 +281,7 @@ Let's see if we have a **manager** complex attribute and it has **displayName** 
  
 **Map to remote claim**
 
-1. Click **Add** under **Claims**.
+1. Click **Add** under **Main** > **Identity** > **Claims**.
 
 2. Click **Add External Claim** and enter the following values.
     - **Dialect URI**: urn:scim:custom:schema
@@ -292,9 +293,9 @@ Let's see if we have a **manager** complex attribute and it has **displayName** 
 3. Click **Add**.
 
 
-#### Try it out
+### Try it out
 
-1. Click **Add** under **Users and Roles**.  
+1. Click **Add** under **Main** > **Identity** > **Users and Roles**.
 
 2. Click **List** under **Users and Roles** and then go to the **User Profile** of the user you created earlier. 
 
@@ -356,7 +357,7 @@ The response will be as follows:
     }
 }
 ```
-You can also try out updating the manager.displayName and manager.emailaddress claim values using the following SCIM 
+You can also try out updating the `manager.displayName` and `manager.emailaddress` claim values using the following SCIM 
 command and checking if the value is updated by accessing the user profile on the management console. 
 
 ```curl
@@ -383,7 +384,11 @@ command and checking if the value is updated by accessing the user profile on th
     }'
 ```
 
-### How to add claims to support multivalued simple attributes.
+## How to add claims to support multivalued simple attributes.
+
+Let's see when we have a **deviceNames** simple multivalued attribute.
+
+### Create claim mappings.
 
 Let's see if we have a **deviceNames** simple multivalued attribute.
 
@@ -404,7 +409,7 @@ Let's see if we have a **deviceNames** simple multivalued attribute.
  
 **Map to remote claim**
 
-1. Click **Add** under **Claims**.
+1. Click **Add** under **Main** > **Identity** > **Claims**.
 
 2. Click **Add External Claim** and enter the following values.
     - **Dialect URI**: urn:scim:custom:schema
@@ -416,15 +421,13 @@ Let's see if we have a **deviceNames** simple multivalued attribute.
 
 3. Click **Add**.
 
-#### Try it out
+### Try it out
 
-1. Click **Add** under **Users and Roles**.  
+1. Click **List** under **Main** > **Identity** > **Users and Roles** and then go to the **User Profile** of the user you created earlier. 
 
-2. Click **List** under **Users and Roles** and then go to the **User Profile** of the user you created earlier. 
+2. Add a value (Eg: device1,device2,device3) for the **Device Names** field and click **Save**. 
 
-3. Add a values (Eg: device1,device2,device3) for the **Device Names** field and click **Save**. 
-
-4. Retrieve the user using SCIM and ensure that the deviceNames claim is present. 
+3. Retrieve the user using SCIM and ensure that the `deviceNames` claim is present. 
 
 
  ```bash tab="SCIM Request"
@@ -509,20 +512,18 @@ command and checking if the value is updated by accessing the user profile on th
 ```
 
 !!! note
-    Note the following configurations:
 
-    - If you want to disable this schema, you can add below configuration in 
-    <IS_HOME>/repository/conf/identity/charon-config.xml file.
+    - If you want to disable this schema, you can add the configuration give below in the
+    `<IS_HOME>/repository/conf/identity/charon-config.xml` file.
         
         ```
             <Property name="custom-user-schema-enabled">false</Property>
         ```
     
-    - If you want to chage the name of the schema, you can add below config to 
-    <IS_HOME>/repository/conf/identity/charon-config.xml file.
+    - If you want to chage the name of the schema, you can add the configuration give below to the
+    `<IS_HOME>/repository/conf/identity/charon-config.xml` file.
          
          ```
             <Property name="custom-user-schema-uri">urn:scim:custom:schema:new</Property>
          ```
-
-
+         
