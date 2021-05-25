@@ -72,6 +72,84 @@ From WSO2 Identity Server 5.11.0 onwards, this has been redesigned and groups an
 
 ![relationship-between-groups-and-roles](../../assets/img/setup/groups-roles-relationship.png)
 
+## Group and role separation improvements
+
+Identity server 5.11.0 introduced group and role separation. 
+
+However, only certain flows were making use of this separation, and it was not adopted throughout 
+the product flows. This release introduces changes to the product flows to adapt this separation.
+
+### Abbreviations
+
+* Wso2.role claim = http://wso2.org/claims/role
+* Wso2.roles claim = http://wso2.org/claims/roles
+* Wso2.groups claim = http://wso2.org/claims/groups
+
+### List of improvements
+
+Following are the improvements introduced with this effort.
+
+#### Carbon kernel level support
+
+`getUserClaimValues()`, `getUsersClaimValues()`, `getUserClaimValuesWithID()`, `getUsersClaimValuesWithID()` 
+are the APIs from carbon kernel which provide claim values of users at the OSGi level. Previously 
+these APIs specifically treated the wso2.role claim so that it would return both roles and groups. 
+Now in addition to that, both wso2.groups and wso2.roles (a new claim introduced with this effort) 
+claims return groups and roles respectively.
+
+#### The usage of wso2.role claim going forward.
+
+Wso2.role claim is no longer encouraged to be used in configurations(such as role mapping, 
+requested claims, etc), and with extensions. Therefore, following changes are made regarding the 
+wso2.role claim.
+
+* No longer a  ‘supported by default’ claim
+* Hidden from listing local claims(local claims section, requested claims section in service 
+  providers, adding/editing external claims section, etc)
+* Hidden from the user profile
+
+The following claims are the alternatives that must be utilized instead.
+
+* Wso2.roles claim
+  * A newly introduced claim URI.
+  * Treated similar to the wso2.role claim(read-only, supported by default, etc)
+  * Contain Internal roles of a user
+* Wso2.groups claim
+  * Proper utilization of an existing claim URI.
+  * Treated similar to the wso2.role claim(read-only, supported by default, etc).
+  * Contain groups of a user
+  
+#### Service provider role mapping and identity provider role mapping restrictions
+
+Previously IdP and SP role mappings supported mappings having both groups and roles. Further 
+explaining, earlier it was possible to add mappings with roles with or without the `Internal/` 
+domain prefixed. However, going forward only roles are supported for role mapping where entities 
+without `Internal/` domain prepended cannot be used.
+
+#### OIDC group claim return groups
+
+Previously OIDC groups claims returned both groups and roles as it was mapped to the wso2.role 
+claim. Now it is mapped to the wso2.groups claim, thus only returns user’s groups.
+
+#### A new OIDC claim for roles
+
+Now, since the OIDC groups claim will return groups only, applications cannot obtain roles from it.
+Therefore, a new OIDC claim, `roles` is introduced. This claim is mapped to the local claim 
+`roles` and will contain roles of the user.
+
+#### Obtaining roles via the SAML assertion
+
+Previously the wso2.role was used as a requested claim and configured in the SAML attribute profile
+to obtain roles or groups since this claim included both. Now instead of that, wso2.groups claim should be 
+used by applications to consume groups and wso2.roles claim should be used to consume roles.
+
+#### SCIM2 roles.default claim returns roles only
+
+Previously the roles.default claim in SCIM2 dialect returned both groups and roles as it was mapped to the 
+wso2.role claim. Going forward, it is mapped to the wso2.roles claim, where only roles are 
+returned. In order to get groups, `urn:ietf:params:scim:schemas:core:2.0:User:groups` claim should
+be used instead, since with this improvement it is returning groups as intended.
+
 ## Upgrade from OpenSAML2 to OpenSAML3
 
 With 5.11.0, WSO2 IS has upgraded to OpenSAML 3. Follow the instructions given below to make sure this upgrade does not cause any issue.
@@ -384,4 +462,3 @@ If this happens, do the following to manually change the following configuration
 2. Click **Resident** under **Identity Providers**.
 3. Expand **Inbound Authentication Configuration** and then expand **OAuth2/OpenID Connect Configuration**.
 4. Remove the port number `:443` from the **Identity Provider Entity ID** URL. 
-
