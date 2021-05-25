@@ -72,7 +72,7 @@ template: templates/landing-page.html
                      <div class="card-body">
                         <h5 class="scenario-card-title">
                            <i class="material-icons-outlined scenario-card-icon pe-1">
-                              <img src="../../assets/img/icons/landing-page/tick.svg">
+                              <img src="assets/img/icons/landing-page/tick.svg">
                            </i>
                            <div class="row">
                               Enable Single Sign On
@@ -83,7 +83,7 @@ template: templates/landing-page.html
                               Allow users to securely log in to multiple applications by providing their credentials just once.
                            </p>
                            <div class="pb-4">
-                              <a class="scenario-link-text" href="../../guides/login/sso-for-saml/">SAML</a><br>
+                              <a class="scenario-link-text" href="guides/login/sso-for-saml/">SAML</a><br>
                               <a class="scenario-link-text" href="../../guides/login/sso-for-oidc/">OAuth/OpenID Connect</a><br>
                               <a class="scenario-link-text" href="../../guides/login/configure-ws-federation-single-sign-on/">WS-Federation</a>
                            </div>
