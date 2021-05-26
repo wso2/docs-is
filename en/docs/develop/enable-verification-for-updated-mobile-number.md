@@ -147,7 +147,7 @@ curl -k -v -X POST -H "Authorization: <Base64Encoded_username:password>" -H "Con
 **Sample Request**
 
 ```curl
-curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "123ABC","properties": []}'
+curl -k -v -X POST -H "Authorization: Basic Ym9iMTIzOnBhc3MxMjM=" -H "Content-Type: application/json" -d '{ "code": "123ABC","properties": []}'
  "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
 ```
 
@@ -178,7 +178,7 @@ The verification scenario should be specified in the properties parameter of the
 **Sample Request**
 
 ```curl
-curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]}' 
+curl -X POST -H "Authorization: Basic Ym9iMTIzOnBhc3MxMjM=" -H "Content-Type: application/json" -d '{"properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]}' 
 "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
 ```
 
