@@ -3,7 +3,12 @@
 Userstores are used to store [users](../users) and [roles](../roles-and-permissions). WSO2 Identity Server (WSO2 IS) supports JDBC, LDAP, and Active Directory userstores by default with the capability of configuring custom userstores. There are different userstore adapters called *userstore managers*, which are used to connect
 with these userstore types.
 
-There are two types of userstores - Primary userstore (Mandatory) and Secondary userstores (Optional). All the supported user stores can be categorized under these two types.
+There are two types of userstores.
+ 
+- Primary userstore (Mandatory)
+- Secondary userstores (Optional) 
+
+All the supported userstores can be categorized under these two types.
 
 ## Primary Userstore (Mandatory)
 
