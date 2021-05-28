@@ -700,7 +700,7 @@ nav:
         - 'Users': references/concepts/user-management/users.md
         - 'Roles and Permissions': references/concepts/user-management/roles-and-permissions.md
         - 'Userstores': references/concepts/user-management/userstores.md
-        - 'Realms': references/concepts/realm.md
+        - 'Realms': references/concepts/user-management/realm.md
       - 'Authentication':
           - 'Introduction': references/concepts/authentication/intro-authentication.md
           - 'Authentication Protocols':
