@@ -1,4 +1,4 @@
-# Add a user
+# Add a User
 
 ## Add a user using the management console
 
