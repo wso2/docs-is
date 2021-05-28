@@ -783,6 +783,7 @@ nav:
       - 'Identity Anti-Patterns and the Identity Bus': references/concepts/identity-anti-patterns-and-the-identity-bus.md
       - 'Claim Management': references/concepts/claim-management.md
       - 'Integrated Windows Authentication': references/concepts/integrated-windows-authentication-overview.md
+      - 'Multitenancy': references/concepts/introduction-to-multitenancy.md
       #- 'Comparisions':
         #- 'OAuth2 vs OIDC vs SAML': references/concepts/oauth-oidc-saml.md
         #- 'NTLM vs Kerberos': references/concepts/ntlm-kerberos.md
