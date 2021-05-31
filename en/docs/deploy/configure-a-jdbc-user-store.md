@@ -226,7 +226,7 @@ The default value for JDBC userstores is SHA-256.
 <td>UsernameJavaReg<br>ExViolationErrorMsg</td>
 <td>username_java_reg<br>_ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
-<td>Error message when the Username does not match with username_java_regex 
+<td>Error message when the username does not match with username_java_regex 
 <br/><p> Default: Username pattern policy violated  </p></td>
 </tr>
 <tr class="even">
