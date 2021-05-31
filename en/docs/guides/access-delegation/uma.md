@@ -450,7 +450,7 @@ This is how UMA works.
       "exp": 1553414723,
       "iat": 1553411123,
       "client_id": "JfTSiJ24gh8sYHTQVuOl5RoftkAa",
-      "username": "Alex.uma.demo"
+      "username": "sam"
     }
     ```
     

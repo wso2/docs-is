@@ -6,7 +6,7 @@
 
 ---
 
-## Manage role-based permissions using SOAP API
+<!-- ## Manage role-based permissions using SOAP API
 
 The following operations on permissions on roles are available through SOAP APIs.
 
@@ -498,6 +498,8 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
 </td>
 </tr>
 </table>
+
+-->
 
 !!! info "Related Topics"
     - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)

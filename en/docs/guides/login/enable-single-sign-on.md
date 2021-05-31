@@ -1,13 +1,13 @@
-# Enable Single Sign On for your applications
+# Enable Single Sign-On for Your Applications
 
-[Single sign-on](../../../references/concepts/single-sign-on) is a key feature of the WSO2 Identity Server that enables users to access multiple applications using the
+[Single sign-on](../../../references/concepts/single-sign-on) (SSO) is a key feature of the WSO2 Identity Server that enables users to access multiple applications using the
 same set of credentials. Additionally, the user can access all these applications without having to log into each 
 application individually. For instance, if users log into application A, they would automatically have access to 
 application B as well for the duration of that session without having to re-enter their credentials.
 
 This section guides you through enabling SSO for your application using WSO2 Identity Server.
 
-## Try Single Sign On
+## Try Single Sign-On
 
 !!! info "Related Links"
     -   [Concept: Single Sign-On](../../../references/concepts/single-sign-on)

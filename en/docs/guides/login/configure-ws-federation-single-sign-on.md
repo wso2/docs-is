@@ -1,6 +1,6 @@
 # Configure WS-Federation Single Sign-On
 
-This page guides you through enabling [Single Sign-On](../../../references/concepts/single-sign-on) for a WS-Federation based application using WSO2 Identity Server.
+This page guides you through enabling [single sign-on](../../../references/concepts/single-sign-on) (SSO) for a WS-Federation based application using WSO2 Identity Server.
 
 !!! info 
     WSO2 Identity Server's passive security token service (Passive STS) is used as the WS-Federation implementation. 

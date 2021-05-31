@@ -10,69 +10,11 @@ This section guides you through editing or deleting a user role in WSO2 Identity
 
 ---
 
-### Edit or delete a role using SCIM
+## Edit or delete a role using SCIM 2.0 REST API
 
-In SCIM roles are considered as **groups.** You can edit or delete a
-group using SCIM. For more information, see [SCIM 2.0 Rest APIs](../../../develop/apis/scim2-rest-apis)
+In SCIM 2.0, roles are considered as **groups.** You can edit or delete a
+group using SCIM 2.0. For more information, see [SCIM 2.0 Rest APIs](../../../develop/apis/scim2-rest-apis).
 
----
-
-## Edit or delete a role using SOAP
-
-A role can be edited or deleted by calling the service
-`         RemoteUserStoreManager        ` . If you are new to admin
-services, see [Calling Admin Services.](../../../develop/apis/call-admin-services/)
-
-1.  Disable the hidden admin service property in the
-    `           <IS_HOME>/repository/conf/deployment.toml          ` file.  
-    By default, the admin services are disabled as it is not recommended
-    to expose these URLs to users. However, this can be enabled by the
-    administrators if it needs to be accessed.
-
-    ``` toml
-    [admin_service.wsdl]
-    enable = false
-    ```
-
-2.  Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
-    `https://localhost:9443/services/RemoteUserStoreManagerService?wsdl`
-
-    !!! info 
-        If you have configured WSO2 IS to use an IP or hostname, replace
-        `            localhost           ` with your IP or hostname.
-
-3.  Call the method **updateRoleName `            ()           `** to
-    rename a role and **deleteRole()** to delete a role.
-
-    **SOAP Request : Update Role name**
-
-    ``` xml
-    <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
-        <soap:Header/>
-        <soap:Body>
-            <ser:updateRoleName>
-                <!--Optional:-->
-                <ser:roleName>roleOld</ser:roleName>
-                <!--Optional:-->
-                <ser:newRoleName>roleNew</ser:newRoleName>
-            </ser:updateRoleName>
-        </soap:Body>
-    </soap:Envelope>
-    ```
-
-    **SOAP Request: Delete role**
-
-    ``` xml
-    <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
-        <soap:Header/>
-        <soap:Body>
-            <ser:deleteRole>
-                <!--Optional:-->
-                <ser:roleName>roleOld</ser:roleName>
-            </ser:deleteRole>
-        </soap:Body>
-    </soap:Envelope>
-    ```  
 ----
 
 ## Update special role names
@@ -106,7 +48,7 @@ some time.
 
 1.  Make the configuration changes indicated in the above
         section.
-2.  Do the following user store level changes for existing users:  
+2.  Do the following userstore level changes for existing users:  
        -   If you are connected to the
             `JDBCUserStoreManager`, update the
             `UM_USER_ROLE` table with the existing

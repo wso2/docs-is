@@ -10,7 +10,7 @@ WSO2 Identity Server enables easily counting the users and user roles using the 
         count_retriever_class = "org.wso2.carbon.identity.user.store.count.jdbc.JDBCUserStoreCountRetriever"
         ```
 
-    3.  [Start WSO2 Identity Server](../../guides/before-you-start/).  
+    2.  Restart the server.
       
 Let's get started! 
 
@@ -27,31 +27,16 @@ Follow the steps below to count users via the Management Console:
 
         !!! example  
             In this example, `%admin` is given as search pattern.
-            ![](../../assets/img/apis/count-users.png) 
+            ![Count users view in Management Console](../../assets/img/apis/count-users.png) 
 
 3.  Similarly, to count user roles:
     1.  Click **Roles**.
-    2.  Click **Count Roles**. Note that you can count the number of user roles in different user store domains.
+    2.  Click **Count Roles**. Note that you can count the number of user roles in different userstore domains.
 
         !!! example
-            ![](../../assets/img/apis/count-roles.png) 
+            ![Count roles view in Management Console](../../assets/img/apis/count-roles.png) 
 
----
-
-## Count via Admin Services
-
-Follow the steps below to count users via the Admin Services:
-
-1.  To gain access to the WSDL's of the admin services, open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and set the following configuration to `true`.
-    
-    ``` toml  
-    [admin_service.wsdl]
-    enable = true
-    ```
-
-2.  Access the WSDL of `UserStoreCountService` service by browsing <https://localhost:9443/services/UserStoreCountService?wsdl>. 
-    If the WSDL is loading, access the methods of the service through SoapUI. Here, you will have access to additional methods (`CountByClaimsInDomain`, `countClaims`) other than the methods from the Management Console.
 
 !!! note     
-    By default, only JDBC user store implementations supports this service but the functionality can be extended to LDAP user stores or any other type of user store as well.
+    By default, only JDBC userstore implementations supports this service but the functionality can be extended to LDAP userstores or any other type of userstore as well.
     

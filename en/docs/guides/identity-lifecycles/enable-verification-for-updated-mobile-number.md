@@ -19,7 +19,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
 
 1. Add an event publisher to `IS_HOME/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
 
-    <!--??? info "Sample Event Publisher"
+    ??? info "Sample Event Publisher"
         ```
         <?xml version="1.0" encoding="UTF-8"?>
         <eventPublisher name="HTTPOutputEventAdapter" processing="enable"
@@ -29,7 +29,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
                 <inline>{"api_key"="4c9374",
                     "api_secret"="FtqyPggE93",
                     "from"="NEXMO",
-                    "to"={{mobile}},
+                    "to"={{send-to}},
                     "text"={{body}}
                     }</inline>
             </mapping>
@@ -44,7 +44,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
             This publisher uses [NEXMO](https://www.nexmo.com/) as the SMS REST service provider. The 
             `api_key` and `api_secret` needs to be replaced with the appropriate values copied from the NEXMO API Dashboard. 
             For instructions on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
-            /display/DAS300/HTTP+Event+Publisher). -->
+            /display/DAS300/HTTP+Event+Publisher).
 
 ----
 
@@ -54,7 +54,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
    
 2.  Select **Enable user mobile number verification on update**. Additionally, you can define the expiry time (in minutes) for the verification SMS OTP to match your requirement. 
     
-    ![](../../assets/img/guides/mobile-verification-on-update-config.png)
+    ![Mobile verification on update configuration](../../assets/img/guides/mobile-verification-on-update-config.png)
 
 3.  Click **Update** to save the changes. 
 
