@@ -22,7 +22,7 @@ below, are supported. With Holder-Of-Key, both Symmetric and Asymmetric
 key types are supported. You can obtain tokens containing claims that
 hold certain information about the subject. These claims can be
 extracted from the profiles or through custom claim callbacks which can
-be registered to the Carbon runtime.
+be registered at the Carbon runtime.
 
 ---
 
