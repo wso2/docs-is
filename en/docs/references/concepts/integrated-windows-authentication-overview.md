@@ -108,7 +108,7 @@ some of those libraries:
 -   **WAFFLE** – WAFFLE is also an open source library. It can be
     configured easily to use with the Java web applications.  
 
-!!! info "Related Topics"
+!!! info "Related topics"
 
     -   See [Configuring IWA
         Single-Sign-On](../../../guides/login/configure-iwa-single-sign-on) to configure

@@ -78,7 +78,7 @@ Now you have successfully configured additional claims for your service provider
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
     - [Guide: Single Sign-On for a SAML Application](../../../guides/login/sso-for-saml)
 

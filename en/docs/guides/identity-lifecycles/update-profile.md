@@ -42,7 +42,7 @@ curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
     - [Guide: Search/List Users](../../identity-lifecycles/search-users)

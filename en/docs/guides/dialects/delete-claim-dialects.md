@@ -43,6 +43,6 @@ sample claim dialect is given below.
     
     {! fragments/claim-config-note.md !}    
     
-!!! info "Related Topics"
+!!! info "Related topics"
 
     -   [Concepts: Claim Management](../../../references/concepts/claim-management/)

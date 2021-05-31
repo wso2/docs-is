@@ -171,7 +171,7 @@ You have successfully queried an assertion with an `AssertionIDRequest` using th
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Query SAML2 Assertions](../../../guides/login/query-saml-assertions)
 
     

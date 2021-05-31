@@ -128,7 +128,7 @@ the users with an authorization server-based authentication.
     </tbody>
     </table></div>
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guides: Enable Single Sign-On for an OIDC Web Application](../../../guides/login/sso-for-oidc)
     - [Concepts: Introduction to OpenID Connect](../../../references/concepts/authentication/intro-oidc)
     

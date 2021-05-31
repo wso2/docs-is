@@ -52,7 +52,7 @@ The diagram below shows the process of SAML Artifact Binding.
 6.  The IDP sends the actual SAML Response to the service.
 
 
-!!! info "Related Topics"
+!!! info "Related topics"
 
     [Quick Start: Use SAML Artifact Binding](../../../quick-starts/use-artifact-binding-sample)
 

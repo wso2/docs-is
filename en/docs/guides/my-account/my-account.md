@@ -318,7 +318,7 @@ Whenever a user gets created in the system, that task will appear under the **re
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - To change the look and feel of the My Account UI, see [Customize the My Account UI](../../../develop/extend/myaccount/customize-my-account-ui/).
     - To set up My Account in a dev environment, see [Set Up My Account in a Development Environment](../../../develop/extend/myaccount/set-up-my-account-in-a-dev-environment/).
     - To configure the My Account application and customize features, theme, etc., see [Configure My Account Application](../../../develop/extend/myaccount/configure-my-account/)

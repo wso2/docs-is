@@ -134,7 +134,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
     
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: ID Token](../../../references/concepts/authentication/id-token)
     - [Demo: OpenID Connect Token Encryption](../../../quick-starts/oidc-token-encryption-sample)
     - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)

@@ -18,5 +18,5 @@ attacks.
 
 {! fragments/configure-recaptcha-for-sso.md !}
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)

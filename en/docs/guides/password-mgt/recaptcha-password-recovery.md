@@ -96,6 +96,6 @@ password recovery with reCAPTCHA.
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Recover password via Email](../../../guides/password-mgt/recover-password)
     - [Guide: Recover password via Challenge Questions](../../../guides/password-mgt/challenge-question)

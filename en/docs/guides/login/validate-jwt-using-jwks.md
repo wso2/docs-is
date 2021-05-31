@@ -63,6 +63,6 @@ tokens from JWT assertion.
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: JSON Web Key Set](../../../references/concepts/authentication/jwks/)
     - [Guide: Obtain Key Set Using JSON Web Key Set](../using-jwks)

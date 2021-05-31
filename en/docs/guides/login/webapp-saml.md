@@ -20,7 +20,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)
     - [Demo: SAML Authentication](../../../quick-starts/webapp-saml-sample)
     - [Guide: Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced)

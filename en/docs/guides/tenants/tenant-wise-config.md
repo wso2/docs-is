@@ -130,5 +130,5 @@ unloading for your tenant](../../../guides/tenants/configure-the-tenant-loading-
     !!! tip
         Only one `EmailPublisher.xml` file with the name `EmailPublisher` should be added for a tenant.
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
 	-	[Guides: Configure the tenant loading policy](../../../guides/tenants/configure-the-tenant-loading-policy).

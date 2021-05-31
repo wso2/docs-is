@@ -73,7 +73,7 @@ true in the SCIM2 user create request.
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Email Templates](../../../guides/tenants/customize-automated-mails/)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
     - [Guide: User Self Registration Workflow](../self-registration-workflow)

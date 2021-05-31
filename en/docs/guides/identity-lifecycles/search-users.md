@@ -54,7 +54,7 @@ curl -v -k --user admin:admin --data '{"schemas": ["urn:ietf:params:scim:api:mes
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Ways of User Onboarding](../onboard-overview)
     - [Guide: Delete Users](../delete-users)

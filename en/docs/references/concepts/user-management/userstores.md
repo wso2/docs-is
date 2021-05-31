@@ -69,7 +69,7 @@ Adapters used to connect with different userstores are called *userstore manager
 LDAP, and Active Directory userstores. If you need to add a new userstore implementation, see [Write a Custom Userstore Manager](../../../../deploy/write-a-custom-user-store-manager).
 
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Deploy: Configure Userstores](../../../../deploy/configure-user-stores/)
     - [Deploy: Configure Primary Userstore](../../../../deploy/configure-the-primary-user-store/)
     - [Deploy: Configure Secondary Userstores](../../../../deploy/configure-secondary-user-stores/)

@@ -136,6 +136,6 @@ After setting the disable status to `true` for a particular user, the server sho
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
 	- [Guide: Configure Email Notifications for Account Locking](../../../guides/tenants/email-account-locking/)
 

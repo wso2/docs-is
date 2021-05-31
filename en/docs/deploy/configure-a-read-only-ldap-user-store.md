@@ -458,7 +458,7 @@ create_admin_account = false
 For information about the system administrator user, see [Configure the System Administrator](../../../deploy/configure-the-system-administrator), and for
 information on how keystores are used in WSO2 Identity Server, see [Use Asymmetric Encryption](../../../deploy/security/use-asymmetric-encryption).  
 
-!!! info "Related Topics"
+!!! info "Related topics"
     -   [Deploy: Configure the Primary Userstore](../../../deploy/configure-the-primary-user-store)
     -   [Deploy: Configure Secondary Userstores](../../../deploy/configure-secondary-user-stores)
 

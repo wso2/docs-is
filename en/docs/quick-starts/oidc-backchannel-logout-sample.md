@@ -61,7 +61,7 @@ You have successfully configured and tried out OIDC back-channel logout. You can
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../../guides/login/oidc-backchannel-logout)
     - [Guide: OpenID Connect Session Management](../../guides/login/session-management-logout)

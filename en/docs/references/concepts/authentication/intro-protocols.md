@@ -24,7 +24,7 @@ As a solution for the security issues raised for the typical password authentica
 
 ## Advanced authentication protocols
 
-- [Open ID Connect](intro-oidc.md)
+- [OpenID Connect](intro-oidc.md)
 - [SAML 2.0](intro-saml.md)
 <!-- - [NTLM](ntlm.md)-->
 <!-- - [Kerberos](kerberos.md)-->
