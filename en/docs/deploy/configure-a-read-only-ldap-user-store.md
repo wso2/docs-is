@@ -68,7 +68,7 @@ If LDAP connection pooling is used, see<br />
 <td>ConnectionName</td>
 <td>connection_name</td>
 <td>Connection Name</td>
-<td><p>This is the username used to connect to the userstore and perform various operations. This user does not need to be an administrator in the userstore or have an administrator role in WSO2 Identity Server, but this user MUST have permissions to read the user list and users' attributes and to perform search operations on the userstore. The value you specify is used as the DN (Distinguish Name) attribute of the user who has sufficient permissions to perform operations on users and roles in LDAP.</p>
+<td><p>This is the username used to connect to the userstore and perform various operations. This user does not need to be an administrator in the userstore or have an administrator role in WSO2 Identity Server, but this user must have permissions to read the user list and users' attributes and to perform search operations on the userstore. The value you specify is used as the DN (Distinguish Name) attribute of the user who has sufficient permissions to perform operations on users and roles in LDAP.</p>
 <p>This property is mandatory.<br />
 Sample values: uid=admin,ou=system</p></td>
 </tr>
