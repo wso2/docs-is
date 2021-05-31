@@ -151,7 +151,7 @@ tenants.
 This section describes how the multitenancy architecture described
 above works in a request dispatching scenario.
 
-When a Identity Server receives a request, the message is first received
+When an identity server receives a request, the message is first received
 by the handlers and dispatchers defined for the server configuration
 (i.e. super tenant). The server configuration may include handlers that
 implement cross tenant policies and Service Level Agreement (SLA)
