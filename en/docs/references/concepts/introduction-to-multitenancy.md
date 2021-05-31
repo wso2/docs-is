@@ -53,7 +53,7 @@ by actions carried out in other domains.
 These domains are allocated a server space from the complete server space
 of a WSO2 Identity Server instance which is referred to as the *super tenant*.
 
-The super tenant as well as each individual tenant has its own
+The super tenant as well as each individual tenant have their own configurations and context modules. 
 configuration and context module.
 
 Each tenant has its own security domain. A domain has a set of users,
