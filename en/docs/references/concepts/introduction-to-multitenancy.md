@@ -32,7 +32,7 @@ JAVA_OPTS \
 
 ## Architecture
 
-The multi-tenant architecture of WSO2 products allows you to deploy web
+The multi-tenant architecture of WSO2 Identity Server allows you to deploy web
 applications, web services, mashups etc. in an
 environment that supports the following:
 
