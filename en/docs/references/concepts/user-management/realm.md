@@ -7,7 +7,7 @@ classes, configurations, and userstores that store information. Configuring the 
 
 ## Configure the authorization manager
 
-According to the default configuration in the WSO2 Identity Server (WSO2 IS), the users, roles and permissions are stored in the same userstore (i.e., the default, embedded H2 database). However, H2 database is not recommended in production and can be changed later on.
+According to the default configuration in WSO2 Identity Server (WSO2 IS), the users, roles and permissions are stored in the same userstore (i.e., the default, embedded H2 database). However, H2 database is not recommended in production and can be changed later on.
 The configuration can also be changed in such a way that the users and roles are stored in one userstore and the permissions that are common to all these userstores are stored in a separate userstore. A userstore can be a typical RDBMS, an LDAP, or an external Active Directory. See [userstores](../userstores) for more information about the different types of userstores. 
 
 An authorization manager is configured in WSO2 IS to manage role-based permissions of users. First, a database is set up to store permissions. Once this is done, user realm configurations are updated in the `deployment.toml` file. User realm configurations include two areas. 
