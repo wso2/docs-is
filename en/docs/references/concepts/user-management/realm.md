@@ -1,7 +1,7 @@
 # Introduction to Realms
 
 The complete functionality and contents of the User Management module are called a **user realm**. The realm includes the user management
-classes, configurations, and userstores that store information. Configuring the user management functionality in the WSO2 Identity Server involves setting up the relevant userstores and updating the relevant configuration files.
+classes, configurations, and userstores that store information. Configuring the user management functionality in WSO2 Identity Server involves setting up the relevant userstores and updating the relevant configuration files.
 
 ---
 
