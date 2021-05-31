@@ -397,7 +397,7 @@ Restart the server after doing these changes.
 
 
 
-!!! info "Related Topics"
+!!! info "Related topics"
 
     -   [Deploy: Configure the Primary Userstore](../../../deploy/configure-the-primary-user-store)
     -   [Deploy: Configure Secondary Userstores](../../../deploy/configure-secondary-user-stores)
