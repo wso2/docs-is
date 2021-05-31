@@ -3,7 +3,7 @@
 ## User identity
 
 The way in which a user can be uniquely identified is called **user
-Identity**. A user’s identity can differ based on the platform and the use
+identity**. A user’s identity can differ based on the platform and the use
 case. Considering the digital world a single user can have different identifying attributes
 such as user name, user ID, biometric information, etc.
 
