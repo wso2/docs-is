@@ -50,7 +50,7 @@ A tenant is an isolated domain. The users within this domain can manage
 their own data and perform their own transactions without being affected
 by actions carried out in other domains.
 
-These domains are allocated server space from the complete server space
+These domains are allocated a server space from the complete server space
 of a WSO2 product instance which is referred to as the *super tenant*.
 
 The super tenant as well as each individual tenant has its own
