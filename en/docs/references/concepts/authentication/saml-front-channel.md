@@ -51,7 +51,7 @@ In an **IdP-initiated logout** scenario, the identity provider (acting as sessio
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: SAML 2.0](TODO:link-to-concept)
     - [Concept: SAML Back-Channel Logout](../saml-back-channel)
     - [Guide: SAML Front-Channel Logout](../../../guides/login/saml-front-channel-logout)

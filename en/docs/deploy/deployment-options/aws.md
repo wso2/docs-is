@@ -146,7 +146,7 @@ You can access the WSO2 Identity Server management console by clicking on the `M
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
 
     -  [Working with different databases](../../../deploy/work-with-databases)
     -  [Working with different userstores](../../../deploy/configure-user-stores)

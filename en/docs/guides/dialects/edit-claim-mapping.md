@@ -30,7 +30,7 @@ Follow the instructions below to edit a claim.
     !!! tip 
         {! fragments/claim-config-note.md !}
     
-!!! info "Related Topics"
+!!! info "Related topics"
 
     -   [Guides: Configure Claims](../../../guides/dialects/configure-claims)
     -   [Concepts: Claim Management](../../../references/concepts/claim-management/)

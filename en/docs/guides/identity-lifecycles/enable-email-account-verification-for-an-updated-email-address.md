@@ -151,5 +151,5 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 HTTP/1.1 201 Created
 ```
 
-!!! info "Related Topics"
+!!! info "Related topics"
     See [Using the SCIM 2.0 Rest APIs](../../../develop/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.

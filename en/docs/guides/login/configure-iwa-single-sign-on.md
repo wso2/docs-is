@@ -95,7 +95,7 @@ the following.
 
 ---  
 
-!!! info "Related Topics"
+!!! info "Related topics"
     See [Logging in to Salesforce with Integrated Windows
     Authentication](TO-DO:../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     for a sample of configuring the IWA authenticator with WSO2 Identity

@@ -11,7 +11,7 @@ Follow the steps given below to configure your application to use a public certi
 
 ---
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     -  [Concept: JWKS](../../../references/concepts/authentication/jwks)
     -  [Guide: Generate and Encrypt ID Tokens](../oidc-token-encryption)
     -  [Demo: OpenID Connect Token Encryptuon](../../../quick-starts/oidc-token-encryption-sample)

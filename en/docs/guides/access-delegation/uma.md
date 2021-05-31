@@ -455,6 +455,6 @@ This is how UMA works.
     ```
     
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: UMA 2.0](../../../references/concepts/authorization/user-managed-access)
     - [Concept: UMA 2.0 Resource registration endpoint](../../../references/concepts/authorization/uma-resource-registration/)

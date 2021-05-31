@@ -159,7 +159,7 @@ authorization code flow with a signed request object.
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Request Object](../../../references/concepts/authentication/request-object)
     - [Demo: OpenID Connect Request Object](../../../quick-starts/request-object)
     - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)

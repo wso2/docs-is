@@ -48,6 +48,6 @@ Make the following changes to the created service provider.
 
 Once you have configured all your applications, access them in separate tabs in your browser. When you logout from one application, it should log you out from all the configured applications. 
 
-!!! info "Related Topics"
+!!! info "Related topics"
     -   [Concept: SAML 2.0 front channel logout](../../../references/concepts/authentication/saml-front-channel/)
     -   [Demo: Configure SAML 2.0 Front Channel Logout](../../../quick-starts/saml-front-channel-logout)

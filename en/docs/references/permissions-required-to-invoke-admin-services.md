@@ -758,5 +758,5 @@ performed with different permission levels.
 </tbody>
 </table>
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [API: SOAP APIs](../../develop/apis/soap-apis/)

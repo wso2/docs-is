@@ -332,7 +332,7 @@ for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. To c
         2. Select **Supported by Default** and click **Update**.
         3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     -   [Guides: Configure SMS OTP for 2-Factor Authentication](../../../guides/mfa/2fa-sms-otp/)
     -   [Guides: Customize Automated Emails](../../../guides/tenants/customize-automated-mails)
     -   [Guides: Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account)

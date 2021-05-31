@@ -204,7 +204,7 @@ It also supports the following features.
 
 ---
 
-!!! Info "Related Topics"
+!!! info "Related topics"
     To understand GDPR more elaborately, take a look at this tutorial series on *Creating a Winning GDPR Strategy*.
 
     -   Part 1 - [Introduction to

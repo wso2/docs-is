@@ -164,5 +164,5 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 You have successfully configured Twitter as your federated authenticator. Now, when you try to login to your application, it should redirect to the Twitter login page. On successful authentication with your Twitter credentials, you will be able to access your application. 
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     - [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)

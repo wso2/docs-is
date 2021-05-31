@@ -105,6 +105,6 @@ relevant responses that the WSO2 Identity Server would generate for the
         }
         ``` 
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: OpenID Connect Implicit Client](../../../references/concepts/authentication/basic-client-profile/)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)

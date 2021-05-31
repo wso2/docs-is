@@ -15,5 +15,5 @@ This page guides you through enabling [single sign-on](../../../references/conce
 
 {!fragments/ws-fed-app-config.md!}
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
