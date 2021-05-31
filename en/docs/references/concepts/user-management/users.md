@@ -26,7 +26,7 @@ Users can be created and added to a user management console in more than one way
 
 ## Update users
 
-User details might need to be updated from time to time to maintain the precision of data in the user management system. For example, when the user communicates a change in any of the user profile details like the user's email address or phone number, it can be updated by the admin using the user management console, or a SCIM request with the new values. It can also be updated by users themselves if there is a user portal application provided by the user management system. 
+User details might need to be updated from time to time to maintain the precision of data in the user management system. For example, when the user communicates a change in any of the user profile details such as the user's email address or phone number, it can be updated by the admin using the user management console, or a SCIM request with the new values. It can also be updated by users themselves if there is a user portal application provided by the user management system. 
 
 ---
 
