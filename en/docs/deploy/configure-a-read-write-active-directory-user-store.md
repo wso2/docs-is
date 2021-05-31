@@ -147,7 +147,7 @@ Default: identityPerson (a custom object class defined in WSO2 Identity Server)<
 <td><p>This is a uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../../guides/identity-lifecycles/enable-email-as-username">Enable using email address as the username.</a></p>
+Note: email address is considered as a special case in WSO2 Identity Server, if you want to set the email address as username, see <a href="../../../guides/identity-lifecycles/enable-email-as-username">Enable using email address as the username.</a></p>
 <br/>
 sample values: sAMAccountName</td>
 </tr>
