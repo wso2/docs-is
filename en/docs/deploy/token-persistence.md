@@ -68,11 +68,6 @@ Server for exceptional cases that may occur in a production environment
 caused by the client application mishandling the
 `         CON_APP_KEY        ` constraint that is explained below.
 
--   [CONN\_APP\_KEY constraint](#conn_app_key-constraint)
--   [Synchronous token persistence](#synchronous-token-persistence_1)
-        -   [The flow](#the-flow_1)
-        -   [The recovery flow](#the-recovery-flow_1)
-
 ### CONN\_APP\_KEY constraint
 
 For a given set of consumer key, user, and scope values, there can be
@@ -115,7 +110,7 @@ and is executed as follows:
 
 -   Since the same thread is being used, the OAuth2 component in the
     second node checks the database again for an ACTIVE access token.
--   Since there is now an ACTIVE token, which was persisted by the first
+-   Since there is now an ACTIVE token which was persisted by the first
     node, the second node now returns the access token persisted by the
     first node to the client.
 -   Both access token requests receive the same access token.
