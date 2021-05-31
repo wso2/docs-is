@@ -128,7 +128,7 @@ tenants.
 
 -   Only the super tenant can modify its own configuration. In addition,
     it can add, view, and delete tenants.
--   When a tenant logs into the system, it can only access artifacts
+-   When a tenant logs in to the system, it can only access artifacts
     deployed under its own configuration. One tenant cannot manipulate
     the code of another tenant.
 -   The super admin or tenant admin can add userstores to their own
