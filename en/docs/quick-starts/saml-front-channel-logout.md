@@ -154,6 +154,6 @@ Follow the same steps and change the values for sample2 and register another ser
 
 ---
     
-!!! info "Related Topics"
+!!! info "Related topics"
     -   [Concept: Configuring SAML Front Channel Logout](../../../references/concepts/authentication/saml-front-channel)
     -   [Guide: Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)

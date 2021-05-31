@@ -48,6 +48,6 @@ Message body
 !!! info 
     You need to do the claim mapping for every SCIM claim you are using with user operations.
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     -   [Concepts: Provisioning Framework](../../../references/concepts/provisioning-framework/#inbound-provisioning)
     

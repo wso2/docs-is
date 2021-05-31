@@ -183,5 +183,5 @@ curl -k -X PATCH \
 }'
 ```
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     -  API: [SCIM 2.0](../../apis/scim2-rest-apis.md)

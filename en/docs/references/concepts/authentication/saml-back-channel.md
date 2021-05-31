@@ -36,7 +36,7 @@ The following diagram illustrates the two flows.
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: SAML 2.0](TODO:link-to-concept)
     - [Concept: SAML Front-Channel Logout](../saml-front-channel)
     - [Guide: SAML Back-Channel Logout](../../../guides/login/saml-back-channel-logout)

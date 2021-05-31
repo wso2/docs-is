@@ -199,7 +199,7 @@ session_state==...
 
 ----
      
-!!! info "Related Topics"
+!!! info "Related topics"
      - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
      - [Concept: OpenID Connect Authentication Parameters](../../../references/concepts/authentication/traditional-authentication-request)
      - [Guide: Enable Login for a OpenID Connect Web Application](../webapp-oidc)

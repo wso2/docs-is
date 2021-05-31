@@ -244,7 +244,7 @@ You have successfully configured facebook as your federated authenticator. Now, 
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
 	-   See the following topics for samples of configuring Facebook for
 		federated authentication:
 		-   [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)

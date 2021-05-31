@@ -41,7 +41,7 @@ Adaptive and context-aware access management is an evolved and flexible form of 
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Adaptive Authentication](../adaptive-authentication)
     - [Guide: Multi-Factor Authentication](../../../guides/mfa/configure-authentication-journey)
 

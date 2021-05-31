@@ -112,6 +112,6 @@ Request objects can either be signed or unsigned. Therefore, if you want to only
 
 ---- 
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Pass OIDC Authentication Request Parameters in a Request Object](../../../guides/login/oidc-request-object/)
     - [Use Advanced Parameters in Authentication Requests ](../../../guides/login/oidc-parameters-in-auth-request/)

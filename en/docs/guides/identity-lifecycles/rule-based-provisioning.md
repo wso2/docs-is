@@ -197,7 +197,7 @@ Once the policies are published to PDP, they are ready to execute during outboun
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
 	- [Guide: Role-Based Provisioning](../role-based-provisioning)
 <!--- [Concept: Role-Based Provisioning](TODO:link-to-concept)-->
    

@@ -300,6 +300,6 @@ from WSO2 IS to Google.
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Identity Provisioning Framework](../../../references/concepts/provisioning-framework/)
     - [Guide: Configure Just-In-Time Provisioning for an Identity Provider](../jit-workflow/)

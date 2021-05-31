@@ -34,6 +34,6 @@ Now suppose you need to add a secondary userstore, OpenLDAP. In this scenario, c
         ![update-local-claim-scim2.png](../../../assets/img/guides/update-local-claim-scim2.png)
 
 
-!!! info "Related Topics"
+!!! info "Related topics"
     -   For information about Local Claim Dialect attributes, click [here](../../../guides/dialects/add-claim-mapping/).
     -	You can see the sample cURL commands for all SCIM 2.0 operations [here](../../../develop/apis/scim2-rest-apis/). 

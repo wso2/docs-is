@@ -185,5 +185,5 @@ For more information on SimpleSAMLphp, click <https://simplesamlphp.org/docs/sta
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Identity Federation](../../../references/concepts/identity-federation/)

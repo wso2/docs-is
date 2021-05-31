@@ -199,7 +199,7 @@ Follow the instructions below to delete a function library.
     ageModule.getAge(birthday)
     ```
     
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
     - [Guide: Configure Adaptive Authentication for an Application](../../../guides/adaptive-auth/configure-adaptive-auth)
     - [Guide: Ensure Assurance with ACR and AMR](../../../guides/adaptive-auth/work-with-acr-amr)

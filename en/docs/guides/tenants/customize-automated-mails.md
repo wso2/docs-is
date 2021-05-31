@@ -122,5 +122,5 @@ Once you have set the template language for the user, it is also necessary to sp
 Now that this is done, any email notifications you receive will be in the language you specified.
 
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     -   [Guides: Configure Emails with Special Characters](../../../guides/tenants/add-email-special-characters/)

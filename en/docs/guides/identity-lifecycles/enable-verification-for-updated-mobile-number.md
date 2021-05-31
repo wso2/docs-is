@@ -194,7 +194,7 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     See [SCIM 2.0 Rest APIs](../../../develop/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
     
     For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](https://docs.wso2.com/display/IS511/apidocs/self-registration/).

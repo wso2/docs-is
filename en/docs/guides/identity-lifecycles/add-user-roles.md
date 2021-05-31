@@ -41,7 +41,7 @@ response status `           201 CREATED          `.
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)
     - [Guide: Edit/Delete Roles](../../identity-lifecycles/edit-delete-roles)
     - [Guide: Role Based Permissions](../../identity-lifecycles/role-based-permissions/)

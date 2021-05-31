@@ -47,6 +47,6 @@ To configure the **Session Timeout** and **Remember Me period**  tenant wise, fo
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Enable Single Sign-On for a SAML Application](../sso-for-saml)
     - [Guide: Enable Single Sign-On for an OpenID Connect Application](../sso-for-oidc)

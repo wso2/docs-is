@@ -491,6 +491,6 @@ To configure through file upload:
 	the WSO2 Product Administration Guide.
     
 
-!!! info "Related Topics"
+!!! info "Related topics"
 	-	[Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)
 	-   [Guides: Configure Shibboleth IdP as a Trusted Identity Provider](../../../guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider)

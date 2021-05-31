@@ -41,7 +41,7 @@ Once users have been added to the system, they can be searched via the console, 
 Employees leave an organization from time to time. When an employee leaves an organization, the admin no longer needs to maintain the user account of that employee. Deleting a user account must be done with care since this can be an irreversible action in most systems. To mitigate risks, most user management systems provide a tracking log for user deletion activities. 
 
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     - [Guide: Add a User](../../../../guides/identity-lifecycles/admin-creation-workflow)
     - [Guide: View and Update User Profiles](../../../../guides/identity-lifecycles/update-profile)
     - [Guide: Import Users](../../../../guides/identity-lifecycles/import-users)

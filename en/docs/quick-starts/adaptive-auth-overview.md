@@ -12,7 +12,7 @@ This section guides you through using pre-defined templates for common adaptive 
    - [With Function Library](adaptive-auth-with-function-lib-sample.md)
    - [Limiting Active User Sessions](limiting-active-sessions-adaptive-auth.md)
    
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
     - [Guide: Configure Adaptive Authentication for an Application](../../guides/adaptive-auth/configure-adaptive-auth)
     - [Guide: Adaptive Authentication Using Function Library](../../guides/adaptive-auth/adaptive-auth-with-function-lib)

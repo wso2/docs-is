@@ -2659,5 +2659,5 @@ operations and specifies the permissions of each operation.
 </tbody>
 </table>
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [API: SOAP APIs](../../develop/apis/soap-apis)
