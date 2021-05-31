@@ -325,7 +325,7 @@ MD5 - Uses MD 5 digest method.<br />
 PLAIN_TEXT - Plain text passwords.(Default)</p>
 <p>If you configure this as SHA, it is considered as SHA-1. It is always better to configure algorithm with a higher bit value as the digest bit size would be increased.<br />
 <br />
-Most of the LDAP servers (such as OpenLdap, OpenDJ, AD, ApacheDS and etc..) are supported to store password as salted hashed values (SSHA).<br />
+Most of the LDAP servers (such as OpenLdap, OpenDJ, AD, ApacheDS and etc.) are supported to store passwords as salted hashed values (SSHA).<br />
 Therefore, WSO2 IS server just wants to feed password into the connected userstore as a plain text value. Then LDAP userstore can store them as salted hashed value. To feed the plain text in to the LDAP server, you need to set PasswordHashMethod to “PLAIN_TEXT”<br />
 However, if your LDAP does not support to store user password as hashed values, you can configure WSO2 server to hash the password and then feed the hashed password in to the LDAP server. For this, you need to configure the PasswordHashMethod property with SHA (SHA-1), SHA-256, or SHA-512. The WSO2 server cannot create a salted hashed password (SSHA) to feed in to the LDAP.</p></td>
 </tr>
