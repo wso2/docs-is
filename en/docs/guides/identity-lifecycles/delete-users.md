@@ -1,4 +1,4 @@
-# Delete an existing user 
+# Delete an Existing User 
 
 This section guides you through deleting an exisiting user in WSO2 Identity Server.
 
