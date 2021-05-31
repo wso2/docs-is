@@ -138,7 +138,7 @@ read_groups = true
 <td>user_entry_object_class</td>
 <td>User Entry Object Class</td>
 <td>Object class used to construct user entries.<br />
-Default: identityPerson(a custom object class defined in WSO2 Identity Server)</td>
+Default: identityPerson (a custom object class defined in WSO2 Identity Server)</td>
 </tr>
 <tr class="odd">
 <td>UserNameAttribute</td>
