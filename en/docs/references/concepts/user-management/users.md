@@ -32,7 +32,7 @@ User details might need to be updated from time to time to maintain the precisio
 
 ## Search users 
 
-Once users have been added to the system, they can be searched via the console, or using SCIM requests. A number of filters can be used to find a user or multiple users faster. For example, entering a username pattern will provide all the usernames that match that pattern as search results. 
+Once users have been added to the system, they can be searched via the console, or using SCIM requests. A number of filters can be used to find a user or multiple users faster. For example, entering a username pattern will provide all the usernames that match that pattern in the search result. 
 
 ---
 
