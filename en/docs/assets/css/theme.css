@@ -99,10 +99,6 @@
         background-color: #f5f5f5;
         box-shadow: 0 0 0.2rem rgba(0,0,0,.1), 0 0.2rem 0.4rem rgba(0,0,0,.2);
     }
-
-    .md-main__inner {
-        padding-top: 3.5rem;
-    }
 }
 
 html .md-typeset .superfences-tabs > label:hover {
@@ -158,8 +154,7 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .md-nav__item--nested .md-nav__toggle:checked ~ .md-nav-link-wrapper > .md-nav__link:after {
-    -webkit-transform: rotateX(180deg);
-    transform: rotateX(180deg)
+    float: right !important;
 }
 
 [data-md-color-primary=deep-orange] .md-nav-link-wrapper a:focus,
@@ -1486,6 +1481,8 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs__inner {
     height: 100%;
+    padding-left: 3em;
+    padding-right: 3em;
 }
 
 .md-tabs__item {
@@ -1552,3 +1549,106 @@ html .md-footer-meta.md-typeset a,
 html, body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
+
+/* Overriding the global class to allow the new layout of sidebars */
+.md-grid {
+    margin-right: 0;
+    margin-left: 0;
+    max-width: unset;
+}
+
+.md-sidebar--secondary {
+    margin: 0;
+    position: fixed;
+    right: 0;
+    transform: unset;
+    -webkit-transform: unset;
+}
+
+/* Hiding additional arrow in mobile view */
+@media (max-width: 1219px) {
+    .nav__link-icon {
+        display: none;
+    }
+}
+
+@media (min-width: 1220px) {
+    .md-content {
+        margin-left: 25%;
+        margin-right: 25%;
+        padding-top: 5em;
+    }
+
+    .md-header-nav {
+        padding-right: 3em;
+        padding-left: 3em;
+    }    
+
+    .md-sidebar--primary {
+        background-color: #EEEEEE;
+        height: 100% !important;
+        width: 20%;
+        margin: 0;
+        padding: 0;
+        box-shadow: 5px 0px 10px -6px rgb(181 181 181);
+    }
+
+    .md-sidebar__scrollwrap {
+        margin: 0;
+        padding-left: 3em;
+        padding-right: 1em;
+        padding-top: 5em;
+        padding-bottom: 10em;
+        width: auto;
+    }
+
+    .md-nav__title {
+        display: none !important;
+    }
+
+    .md-sidebar[data-md-state=lock] {
+        top: unset;
+    }
+
+    .md-footer {
+        margin-left: 20% !important;
+    }
+
+    .md-nav__link:after {
+        display: none !important;
+    }
+
+    .md-nav__item--nested .md-nav__toggle:checked~.md-nav__link:after {
+        display: none !important;
+    }
+
+    .md-nav {
+        font-size: 18px;
+    }
+
+    .md-nav__item {
+        padding-bottom: 10px;
+    }
+
+    .nav__link-icon {
+        float: right;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        transform: rotate(-90deg);
+        transition: 0.5s;
+    }
+
+    .md-nav__item a {
+        padding-right: 30px;
+    }
+
+    .nav__link-text {
+        display: inline-block;
+        width: 80%;
+    }
+
+    .md-nav__item--nested .md-nav__toggle:checked~.md-nav__link .nav__link-icon {
+        transform: rotate(0deg);
+    }
+}  
+
