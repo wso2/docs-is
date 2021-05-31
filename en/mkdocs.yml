@@ -734,13 +734,13 @@ nav:
                           - 'SAML Front-Channel Logout': references/concepts/authentication/saml-front-channel.md
                           - 'SAML Back-Channel Logout': references/concepts/authentication/saml-back-channel.md
                   - 'WS-Federation':
-                          - 'Introduction': references/concepts/authentication/ws-federation.md
+                          - 'Introduction': references/concepts/authentication/intro-ws-federation.md
                   - 'WS-Trust':
-                          - 'Introduction': references/concepts/authentication/ws-trust.md
-                  - 'NTLM':
-                          - 'Introduction': references/concepts/authentication/ntlm.md
-                  - 'Kerberos':
-                          - 'Introduction to Kerberos': references/concepts/authentication/kerberos.md
+                          - 'Introduction': references/concepts/authentication/intro-ws-trust.md
+                  #- 'NTLM':
+                         # - 'Introduction': references/concepts/authentication/ntlm.md
+                  #- 'Kerberos':
+                          #- 'Introduction to Kerberos': references/concepts/authentication/kerberos.md
           - 'Adaptive Authentication': references/concepts/authentication/adaptive-authentication.md
           - 'Multi Factor Authentication': references/concepts/authentication/multi-factor-authentication.md
           - 'FIDO': references/concepts/authentication/mfa-with-fido.md
