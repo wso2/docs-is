@@ -151,6 +151,6 @@ You have successfully configured and logged in using 2-factor authentication.
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
     - [Guide: Configure an Authentication Journey](../configure-authentication-journey)

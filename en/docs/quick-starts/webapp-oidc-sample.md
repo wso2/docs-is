@@ -27,7 +27,7 @@ You have successfully configured authentication for an OpenID Connect applicatio
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
     - [Guide: Enable Login for a Sample OpenID Connect Web Application](../../../guides/login/webapp-oidc)
     - [Guide: OAuth Grant Types](../../../guides/access-delegation/oauth-grant-types)

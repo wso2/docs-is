@@ -70,7 +70,7 @@ some time.
 
 -----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)
     - [Guide: Add Roles](../add-user-roles)
     - [Guide: Role Based Permissions](../role-based-permissions/)

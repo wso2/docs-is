@@ -64,7 +64,7 @@ For more information about FIDO and how it works, see the [official FIDO documen
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Multi-Factor Authentication](../multi-factor-authentication)
     - [Guide: Configure Two-Factor Authentication with FIDO](../../../guides/mfa/2fa-fido)
 

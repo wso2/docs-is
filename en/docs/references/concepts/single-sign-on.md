@@ -52,7 +52,7 @@ For instance, you can set up Google as a federated authenticator and then set up
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Authentication](../authentication/intro-authentication)
     - [Concept: SAML](TODO:link-to-concept)
     - [Concept: OpenID Connect](../authentication/intro-oidc)

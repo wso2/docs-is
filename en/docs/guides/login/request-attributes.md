@@ -23,6 +23,6 @@ Add the dev portal fragment to do attribute mappings
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Attribute Mapping Configurations](../sp-attributes-config)
     - [Demo: Request Attributes for the Application](TODO:insert-link-to-sample)

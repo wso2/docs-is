@@ -150,7 +150,7 @@ proxyPort = 443
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
 
     -  [Working with different databases](../../../deploy/work-with-databases)
     -  [Working with different userstores](../../../deploy/configure-user-stores)

@@ -30,7 +30,7 @@ Similar to [users](../users), there are several operations that can be performed
 
 
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     - [Guide: Add a user role](../../../../guides/identity-lifecycles/add-user-roles)
     - [Guide: Edit or Delete a Role](../../../../guides/identity-lifecycles/edit-delete-roles)
     - [Guide: Role-based permissions](../../../../guides/identity-lifecycles/role-based-permissions)

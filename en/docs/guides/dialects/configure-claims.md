@@ -39,7 +39,7 @@ well.
         It is based on this that the account is locked.
 
         
-!!! info "Related Topics"
+!!! info "Related topics"
 
     - [Guides: Add Claim Mapping](../../../guides/dialects/add-claim-mapping)
     - [Guides: Edit Claim Mapping](../../../guides/dialects/edit-claim-mapping)

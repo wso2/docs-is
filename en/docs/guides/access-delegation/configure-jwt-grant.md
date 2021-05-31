@@ -145,6 +145,6 @@ You have successfully added the identity provider. Next, configure the applicati
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: JWT Grant](../../../references/concepts/authorization/jwt-bearer-grant-type)
     

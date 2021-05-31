@@ -73,7 +73,7 @@ Make the following requests via your application to connect your application to 
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant)
     - [Demo: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
     - [Guide: OAuth Grant Types](../../access-delegation/oauth-grant-types)

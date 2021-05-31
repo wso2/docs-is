@@ -38,7 +38,7 @@ You have successfully tried out cross-protocol logout between a SAML application
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Cross-Protocol Logout](../../../guides/login/cross-protocol-logout)
     - [Guide: Single Sign-On](../../../guides/login/enable-single-sign-on)
     - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)

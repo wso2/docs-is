@@ -44,7 +44,7 @@ You have now successfully configured reCAPTCHA for the password recovery with se
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Enable password reset via Challenge Questions](../../../guides/password-mgt/challenge-question)
     - [Guide: Configure reCAPTCHA for Password Recovery](../../../guides/password-mgt/recaptcha-password-recovery)
     

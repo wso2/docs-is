@@ -127,7 +127,7 @@ For Encryption Method, currently WSO2 IS supports the following algorithms.
     keystore is `wso2carbon` and the certificate alias is also `wso2carbon`.
     In a production environment, we recommend that you change these values.
     
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: ID Token](../../../references/concepts/authentication/id-token)
     - [Guide: OpenID Connect Token Encryption](../../../guides/login/oidc-token-encryption/)
     

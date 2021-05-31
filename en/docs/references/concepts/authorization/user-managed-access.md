@@ -78,7 +78,7 @@ Using the UMA grant, a client application acting on behalf of the requesting par
 
 ---
      
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Resource Registration Endpoint](../uma-resource-registration)
     - [Concept: Permissions Endpoint](../uma-permissions-endpoint)
     - [Guide: User Managed Access](TODO:link-to-guide)

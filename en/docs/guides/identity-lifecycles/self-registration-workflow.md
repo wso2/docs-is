@@ -267,7 +267,7 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [REST API: Self Register](../../../develop/apis/use-the-self-sign-up-rest-apis/)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
     - [Guide: Invitation Workflow](../invitation-workflow) 

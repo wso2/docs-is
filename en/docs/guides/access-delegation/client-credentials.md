@@ -50,7 +50,7 @@ You will receive the following response with the access token.
 {"access_token":"16ab408c-0f31-3321-8bed-313e836df373","token_type":"Bearer","expires_in":2986}
 ```
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Client Credentials Grant](../../../references/concepts/authorization/client-credential-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
     - [Demo: Client Credentials Grant with OAuth 2.0 Playground](../../../quick-starts/client-credentials-playground)

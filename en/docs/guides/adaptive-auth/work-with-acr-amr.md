@@ -176,7 +176,7 @@ Send the following requests via your application to connect your application to 
 	-	The identity provider should decide the manner in which the ACR should be enforced. A client sending an exact, `minimum`, `maximum`, or `better` comparison may not be an effective mechanism. The identity provider should use other internal rules to decide the effective ACR.
   	
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
     - [Guide: Configure Adaptive Authentication for an Application](../configure-adaptive-auth)
     - [Guide: Adaptive Authentication Using Function Library](../adaptive-auth-with-function-lib)

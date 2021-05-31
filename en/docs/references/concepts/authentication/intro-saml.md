@@ -37,7 +37,7 @@ The message MUST contain an element which uniquely identifies the service provid
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Article: Introduction to SAML 2.0 ](https://wso2.com/library/articles/2014/02/introduction-to-security-assertion-markup-language-2.0/)
     - [Guide: Enable Login for a SAML Application](../../../guides/login/webapp-saml)
     - [Demo: SAML Authentication](../../../quick-starts/webapp-saml-sample)

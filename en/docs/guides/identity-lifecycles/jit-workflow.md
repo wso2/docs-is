@@ -65,7 +65,7 @@ This page guides you through configuring [Just-in-Time (JIT) provisioning](../..
 2.  Click **Register** to add the identity provider.
 
 
-!!! info "Related Topics"
+!!! info "Related topics"
 
     - For information on the JIT provisioning architecture, see [Provisioning Architecture](../../../get-started/provisioning-architecture).
 
