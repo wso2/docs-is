@@ -6,7 +6,7 @@ User management, in simple terms, is a process of efficiently managing users wit
 
 With regulations like GDPR and CCPA that focus on privacy aspects to a huge extent, users' information should be stored in a secure manner and users who do not have the requirement to handle other users' data should be restricted access to any user data apart from theirs.
 
-Manging users was an admin's task a few years ago. With dynamic cloud applications and on-premise applications that target scalability rising exponentially, this is no longer possible. Most of the applications have thousands of users logging in each day with different requirements and access levels. This is where user management comes into the picture. 
+Managing users was an admin's task a few years ago. With dynamic cloud applications and on-premise applications that target scalability rising exponentially, this is no longer possible. Most of the applications have thousands of users logging in each day with different requirements and access levels. This is where user management comes into picture. 
 
 WSO2 Identity Server provides the user management functionality which is **role-based**. This will be discussed further in the next section. In a typical organization, there are several employees who are responsible for accomplishing a versatile set of tasks on a daily basis with the help of different applications. Most of the time, even the same application is used in different ways by employees who have different job roles. Managing who accesses which application for what purposes can be an overhead for the administration. This is why user management is important. 
 
