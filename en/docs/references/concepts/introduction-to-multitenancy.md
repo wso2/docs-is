@@ -33,7 +33,7 @@ JAVA_OPTS \
 ## Architecture
 
 The multi-tenant architecture of WSO2 products allows you to deploy web
-applications, web services, ESB mediators, mashups etc. in an
+applications, web services, mashups etc. in an
 environment that supports the following:
 
 -   **Tenant isolation:** Each tenant has its own domain, which the
@@ -68,10 +68,10 @@ boundaries of its own configuration and context module:
 
 -   Deploying artifacts
 -   Applying security
--   User management
--   Data management
--   Request throttling
--   Response caching
+-   Managing users
+-   Managing data
+-   Throttling requests
+-   Caching responses
 
 <!-- WSO2 Carbon provides a number of Admin services which have special
 privileges to manage the server. These admin services are deployed
