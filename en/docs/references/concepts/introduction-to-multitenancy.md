@@ -188,7 +188,7 @@ it will be processed.
 ## Scaling
 
 The multitenancy architecture described above mainly refers to a
-scenario where a single instance of a Identity Server acts as a single
+scenario where a single instance of an identity server acts as a single
 multi-tenant node. In a situation where a very high load of requests are
 handled, you may need multiple multi-tenant nodes. In order to operate
 with multiple multi-tenant nodes, you need load balancing. The load
