@@ -35,8 +35,6 @@ this is not done, a third party can take the token from the wire and
 send any request it wants including that token. As a result, the relying
 party may trust that illegitimate third party.
 
-The following are the three methods of confirmation.
-
 -   **Bearer**: This is actually not a confirmation method as subject
     confirmation is not really needed. The relying party simply trusts
     whoever brings the token.
