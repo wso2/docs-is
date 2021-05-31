@@ -327,7 +327,7 @@ PLAIN_TEXT - Plain text passwords.(Default)</p>
 <br />
 Most of the LDAP servers (such as OpenLdap, OpenDJ, AD, ApacheDS and etc.) are supported to store passwords as salted hashed values (SSHA).<br />
 Therefore, WSO2 IS server just wants to feed password into the connected userstore as a plain text value. Then LDAP userstore can store them as salted hashed value. To feed the plain text in to the LDAP server, you need to set PasswordHashMethod to “PLAIN_TEXT”<br />
-However, if your LDAP does not support to store user password as hashed values, you can configure WSO2 server to hash the password and then feed the hashed password in to the LDAP server. For this, you need to configure the PasswordHashMethod property with SHA (SHA-1), SHA-256, or SHA-512. The WSO2 server cannot create a salted hashed password (SSHA) to feed in to the LDAP.</p></td>
+However, if your LDAP does not support storing user passwords as hashed values, you can configure the WSO2 Identity Server to hash the password and then feed the hashed password into the LDAP server. For this, you need to configure the PasswordHashMethod property with SHA (SHA-1), SHA-256, or SHA-512. The WSO2 Identity Server cannot create a salted hashed password (SSHA) to feed into the LDAP.</p></td>
 </tr>
 <tr class="even">
 <td>MultiAttribute<br>Separator</td>
