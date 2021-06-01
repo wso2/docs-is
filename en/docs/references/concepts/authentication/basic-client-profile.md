@@ -11,7 +11,7 @@ client authentication using 'client id' and 'client secret'.
 
 This approach is recommended for confidential clients<!--[confidential clients](insertlink)--> 
 who can maintain the confidentiality of their credentials (e.g., web apps). As the tokens are not visible via the user 
-agents, this flow is more secure and allows for refresh tokens<!--[refresh tokens](insertlink)-->, which guarantees long-lived access.
+agents, this flow is more secure and allows to refresh tokens<!--[refresh tokens](insertlink)--> guaranteeing long-lived access.
 
 The following diagram shows how authentication happens using this client profile.
 
