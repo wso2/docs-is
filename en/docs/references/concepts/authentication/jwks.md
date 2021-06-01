@@ -21,7 +21,7 @@ This allows smooth key rollover and integration.
 ## How does it work?
 
 The following sequence diagram illustrates the scenario where a JWT obtained
-from a third party IdP is validated using the JWKS based JWT Validator.
+from a third party IdP is validated using the JWKS-based JWT Validator.
 
 ![JWKS validation flow](../../../assets/img/concepts/jwks-validation-flow.png) 
 
@@ -109,4 +109,3 @@ The default JWKS of WSO2 Identity Server is as follows.
 | kid         | The thumbprint of the certificate. This value is used to identify the key that needs to be used to verify the signature.  | 
 | alg         | The algorithm used to secure the JSON Web Signature.  | 
 | n           | The modulus value of the public key.  | 
-
