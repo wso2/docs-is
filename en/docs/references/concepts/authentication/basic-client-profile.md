@@ -6,7 +6,7 @@ These calls are to:
 
 1. Obtain the one-time password by calling the authorization endpoint and sharing the user credentials. This flow uses the front channel<!--[front channel](insertlink)-->. 
 
-2. Exchange the one-time password with an access token<!--[access token](insertlink)--> by calling the token endpoint. This flow requires (back channel)
+2. Exchange the one-time password with an access token<!--[access token](insertlink)--> by calling the token endpoint. This flow requires back channel
 client authentication using 'client id' and 'client secret'. 
 
 This approach is recommended for confidential clients<!--[confidential clients](insertlink)--> 
