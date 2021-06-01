@@ -23,7 +23,7 @@ The following sample authorization request uses
 ` code token ` as the ` response_type ` :
 
 ``` java
-https://<authorize_endpoint>?response_type=code token&client_id=<client_id>&nonce=asd&redirect_uri=<callback_url>&scope=openid
+https://<AUTHORIZATION_ENDPOINT>?response_type=code token&client_id=<CLIENT_ID>&nonce=asd&redirect_uri=<CALLBACK_URL>&scope=openid
 ```
 
 You will receive the following sample response upon successful
@@ -39,7 +39,7 @@ token, refresh token and ID token.
 The following curl command is used to request tokens from the token endpoint:
 
 ``` java
-curl -k -v — user <client_id>:<client_secret> -d "grant_type=authorization_code&code=99b34587–5483–374d-8b25–50485498e761&redirect_uri=<callback_url>" <token_endpoint>
+curl -k -v — user <CLIENT_ID>:<CLIENT_SECRET> -d "grant_type=authorization_code&code=99b34587–5483–374d-8b25–50485498e761&redirect_uri=<CALLBACK_URL>" <TOKEN_ENDPOINT>
 ```
 
 You will receive the following response from the token endpoint.
@@ -78,7 +78,7 @@ from the authorization endpoint.
 The following authorization request uses the code token as the `response_type`.
 
 ``` java
-<authorize_endpoint>?response_type=code id_token&client_id=<client_id>&nonce=asd&redirect_uri=<callback_url>&scope=openid
+<AUTHORIZATION_ENDPOINT>?response_type=code id_token&client_id=<CLIENT_ID>&nonce=asd&redirect_uri=<CALLBACK_URL>&scope=openid
 ```
 
 You will receive the following sample response upon successful authorization.
@@ -174,7 +174,7 @@ and an ID token from the authorization endpoint.
 A sample authorization request that uses `code id_token token` as the `response_type` is shown below.
 
 ``` java
-<authorize_endpoint>?response_type=code id_token token&client_id=<Client ID>&nonce=asd&redirect_uri=<callback_url>&scope=openid
+<AUTHORIZATION_ENDPOINT>?response_type=code id_token token&client_id=<CLIENT_ID>&nonce=asd&redirect_uri=<CALLBACK_URL>&scope=openid
 ```
 
 
