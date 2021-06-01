@@ -91,12 +91,13 @@ framework instead of the default `global.css`stylesheet.
     by pointing the `String globalCSS` attribute
     to the new stylesheet.
 
-    ``` java
-    // Customization of UI theming per tenant
-        String tenantDomain = null;
-        String globalCSS = "../admin/css/global.css";
-        String mainCSS = "";
+    ```java
+    //Customization of UI theming per tenant
+    String tenantDomain = null;
+    String globalCSS = "../admin/css/global.css";
+    String mainCSS = "";
     ```
+
 ---
 
 ### Change the product specific styles and images
