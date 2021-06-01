@@ -24,6 +24,7 @@
     .md-main .md-content {
       margin-right: 0;
       margin-left: 0;
+      padding-top: unset;
     }
 		/* Overriding default CSS set by mkdocs without affecting other components using the md-main__inner class */
     html, body {
@@ -54,6 +55,9 @@
       color: #BDBDBD !important;
       border: none !important;
     }
+    .md-footer {
+      margin-left: 0px !important;
+    }
     .md-footer-meta {
       background-color: #3B3B3B !important;
       color: #BDBDBD !important;
@@ -62,11 +66,6 @@
       display: inline;
       float: right;
       padding-right: 15px;
-    }
-    .md-footer-meta__inner {
-      margin-right: 11vw;
-      margin-left: 11vw;
-      max-width: unset;
     }
     .md-footer-copyright {
       max-width: unset;
@@ -115,6 +114,11 @@
         margin-left: 11vw !important;
         max-width: unset !important;
         padding: 0px !important;
+      }
+      .md-footer-meta__inner {
+        margin-right: 11vw !important;
+        margin-left: 11vw !important; 
+        max-width: unset !important;
       }
     }    
   </style>
