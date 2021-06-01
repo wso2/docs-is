@@ -12,7 +12,7 @@ You can use either the management console to create secondary userstores or you 
 
 ## Configure using the Management Console
 
-1.  Log in to the management console and click **Main** > **Userstores** > **Add**. 
+1.  Log in to the management console (`https://<IS_HOST>:<PORT>/carbon`) and click **Main** > **Userstores** > **Add**. 
 
     !!! info 
         You cannot update the primary userstore at runtime, so it is not
