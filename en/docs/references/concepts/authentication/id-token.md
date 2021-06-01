@@ -54,7 +54,7 @@ There are two main uses of the ID token.
 
 !!! tip "Things to consider when issuing an ID token"
 
-    1. **Not** to add any sensitive data to the token payload.
+    1. Do not add any sensitive data to the token payload.
     2. To have a finite and short expiry time.
     3. Sign/encrypt the JWT properly and validate it from the client side.
     4. To include any additional optional parameters based on the use case.
