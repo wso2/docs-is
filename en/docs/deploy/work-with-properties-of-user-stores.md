@@ -25,7 +25,7 @@ to configure primary userstores.
 <tr class="odd">
 <td><code>             Connection<br>Name            </code></td>
 <td><code>             connection<br>_name           </code></td>
-<td><p>This is the username used to connect to the database and perform various operations. This user does not have to be an administrator in the userstore or have an administrator role in WSO2 Identity Server, but this user needs to have permissions to read the user list and users' attributes, and to perform search operations on the userstore. The value you specify is used as the DN ( <code>              Distinguish Name             </code> ) attribute of the user. This property is mandatory.</p></td>
+<td><p>This is the username used to connect to the database and perform various operations. This user does not have to be an administrator in the userstore or have an administrator role in WSO2 Identity Server, but this user needs to have permissions to read the user list and users' attributes, and to perform search operations on the userstore. The value you specify is used as the DN (Distinguish Name) attribute of the user. This property is mandatory.</p></td>
 </tr>
 <tr class="even">
 <td><code>             Connection<br>Password            </code></td>
