@@ -540,6 +540,6 @@ login. This ensures that all your configurations work as intended.
     4.  Expand the **Advanced** tab and deselect the **Claim Operations Supported** property.
     5.  Click **Add**.
     
-!!! info "Related Links"
+!!! info "Related topics"
     -   [Guide: Configure Userstores](../../../deploy/configure-user-stores)
     -   [Guide: Manage User Attributes](../../../guides/identity-lifecycles/manage-user-attributes#writing-custom-attributes)
