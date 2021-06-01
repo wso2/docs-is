@@ -62,7 +62,7 @@ The status can be either;
                to obtain the current session state at the OP.
 - error: This indicates the message sent was determined by the OP to be malformed.
            Upon receipt of error, the RP must not perform re-authentication with `prompt=none`,
-           so as to not cause potential infinite loops that generate network traffic to the OP, so it directly logged the user out.
+           so as to not cause potential infinite loops that generate network traffic to the OP, it directly logs the user out.
 ---
   
 ##RP-Initiated Logout
