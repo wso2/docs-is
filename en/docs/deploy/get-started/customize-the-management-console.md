@@ -75,7 +75,7 @@ of the JSP tiles.
 
 The `global.css` file located in the
 `org.wso2.carbon.ui_<version-name>.jar/web/admin/css/         `
-directory, determines the styles of the Carbon framework. 
+directory determines the styles of the Carbon framework. 
 You can edit this file as per your own requirement.
 Alternatively, you can apply a completely new stylesheet to your
 framework instead of the default `global.css`stylesheet.
