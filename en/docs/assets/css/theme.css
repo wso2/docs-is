@@ -738,7 +738,7 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs__link {
     margin-top: .4rem;
-    font-size: 16px !important;
+    font-size: 18px;
 }
 
 .md-tabs[data-md-state=hidden] {
@@ -1447,13 +1447,9 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs {
     background: linear-gradient(90deg, rgba(45,45,45,1) 0%, rgba(70,70,70,1) 100%) !important;
-    height: 45px !important;
+    height: 55px !important;
     color: white !important;
     box-shadow: none !important;
-}
-
-.nav-link-text {
-    font-weight: 600;
 }
 
 .copyright-container {
