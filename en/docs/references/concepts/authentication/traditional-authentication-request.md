@@ -9,7 +9,7 @@
 | --------------------- | -------- |
 | client_id | The OAuth 2.0 client identifier valid at the authorization server.  |                         
 | scope | [Description for scopes](scopes-claims.md)  |                         
-| response_type           | Determines which authorization processing flow is to be used, including what parameters are returned from the endpoints used. Any combination of `code`,`token` or `id_token`   |                          
+| response_type           | This determines which authorization processing flow is to be used, including what parameters are returned from the endpoints used. Any combination of `code`,`token` or `id_token`   |                          
 | redirect_uri             |  The URI which the authorization server should send the response to. |
 
 ----
