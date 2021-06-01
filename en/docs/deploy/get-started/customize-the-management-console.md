@@ -1,6 +1,6 @@
 # Customize the Management Console
 
-The User Interface of the Management Console (
+The user interface of the Management Console (
 `https://localhost:9443/carbon`) of a Carbon product consists of two layers:
 
 1.  **UI inherited from WSO2 Carbon platform** 
