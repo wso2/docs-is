@@ -1,7 +1,7 @@
 # OpenID Connect Session Management
 
 The OpenID Connect Session Management [specification](https://openid.net/specs/openid-connect-session-1_0.html)
-defines methodologies to manage user sessions and logout end-users at the authorization server using front-channel communication.
+defines methodologies to manage user sessions and log out end-users at the authorization server using front-channel communication.
 In this approach, the login/logout requests from the RP (Relying Party or the client application) to OP (OpenID Provider)
 and OP to RP are done via the user agent (browser based).
 
@@ -91,4 +91,3 @@ The value should have been previously registered with the OP.
 An opaque value used by the RP to maintain the state between the logout request and the callback to the endpoint
 specified by the post_logout_redirect_uri query parameter. If included in the logout request, the OP passes this value
 back to the RP using the state query parameter when redirecting the user agent back to the RP.
-
