@@ -160,7 +160,7 @@ The Identity Server will respond to the above sample request as follows:
  claims and ignore the requested scopes. If the server cannot provide
  those essential claims, there will not be any failure or error
  message returning from the server.
-3. The claims like `nickname` it will act as a default claim and will
+3. The claims like `nickname` will act as default claims and will
  be controlled by both requested scopes and the requested claims.
 4. If the server cannot provide the requested essential claims, the
  server will return null for the specific claim and the flow will not
