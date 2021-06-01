@@ -47,7 +47,7 @@ of the OpenID Provider. Following information is required when making a request 
 ### Expose metadata
  
  The OpenID provider exposes a JSON document listing all the metadata of the server. 
- This document contains of standard endpoints and other server supported metadata values. 
+ This document contains standard endpoints and other server supported metadata values. 
  The target audience of this file is the client application developers who send requests to the
  server.
  
