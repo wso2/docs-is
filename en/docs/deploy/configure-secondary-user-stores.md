@@ -83,7 +83,7 @@ You can use either the management console to create secondary userstores or you 
 
     -   [Properties for a Read-only LDAP Userstore](../../../deploy/configure-a-read-only-ldap-user-store#properties-used-in-read-only-ldap-user-store-manager)
 
-    -   [Properties for a Read-write Active Directory Userstore](../../../deploy/configure-a-read-write-active-directory-user-store#properties-used-in-read-write-active-directory-userstore-manager)
+    -   [Properties for a read-write Active Directory userstore](../../../deploy/configure-a-read-write-active-directory-user-store#properties-used-in-read-write-active-directory-userstore-manager)
         
     -   [Properties for a read-write LDAP userstore](../../../deploy/configure-a-read-write-ldap-user-store#properties-used-in-read-write-ldap-user-store-manager)
 
