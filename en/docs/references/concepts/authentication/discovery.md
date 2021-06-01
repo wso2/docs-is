@@ -55,7 +55,7 @@ of the OpenID Provider. Following information is required when making a request 
  
  ```https://<SERVER_URL>/.well-known/openid-configuration```
  
- A sample JSON file that will contain server metadata is shown below.
+ A sample JSON file that containing the server metadata is shown below.
 ``` java
 {
         "scopes_supported": [
