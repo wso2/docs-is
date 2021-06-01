@@ -188,7 +188,7 @@ You have now added and configured the service provider.
 ## Configure claim mappings and requested claims
 
 All the basic information of a user/application is stored in the form of
-claims. But for the same information, different Identity Providers(IDP)
+claims. But for the same information, different Identity Providers(IdP)
 have different claims. Therefore, there should be a proper mechanism to
 map those claims within Identity Providers.
 

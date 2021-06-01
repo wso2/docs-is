@@ -10,7 +10,7 @@ Out of the two scenarios, the former is the one that is more
 commonly needed in enterprises. The WSO2 Identity Server supports this
 process.
 
-An OAuth 2.0 Authorization Server can accept
+An OAuth 2.0 authorization server can accept
 SAML2 Assertions from OAuth 2.0 clients as a means of resource owner
 authentication and authorization. Additionally, it can exchange it with
 OAuth 2.0 access tokens in order to access protected resources on behalf
@@ -24,7 +24,7 @@ need to consume OAuth protected resources through APIs. OAuth and OAuth
 enterprise that has already got a working SAML2.0-based SSO
 infrastructure between itself and the Service Provider (SP), would prefer
 to use the existing trust relationship between the Identity Provider
-(IDP) and the Service Provider, even if the OAuth Authorization Server
+(IdP) and the Service Provider, even if the OAuth authorization server
 is entirely different from the IDP. Enterprises are going to love it especially if there could be a cut in the number 
 of steps performed in the OAuth 2.0 dance to obtain an access token. This could be due to the fact that the clients have
 already authenticated themselves to the IDP and the resource owner has authenticated himself and authorized the client.

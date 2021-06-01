@@ -1,72 +1,80 @@
 # JSON Web Key Set 
 
-### What is JSON Web Key Set (JWKS) ?
+## What is JSON Web Key Set (JWKS)?
+
 The JSON Web Key Set (JWKS) endpoint is a read-only endpoint that returns
-the Authorization server's public key set in the JWKS format. 
+the authorization server's public key set in the JWKS format. 
 This contains the signing key(s) that the Relying Party (RP) uses to validate signatures from the server.
 For more information on this endpoint, see the [OpenID Connect Discovery specification](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
+---
 
-### Usage of JWKS .
+## Usage of JWKS
+
 The main benefit of allowing JWKS endpoint configuration is its ability to handle key rotation by external identity providers.
 Configuring this endpoint would enable you to programmatically discover JSON web keys and allow the third party 
 identity providers to publish new keys without having the overhead of notifying each and every client application.
 This allows smooth key rollover and integration.
 
-### How it works ?
-Following sequence diagram illustrates the scenario where a JWT obtained
-from a third party IDP is validated using the JWKS Based JWT Validator.
+---
 
-![jwks-validation-flow]( ../../assets/img/concepts/jwks-validation-flow.png) 
+## How does it work?
+
+The following sequence diagram illustrates the scenario where a JWT obtained
+from a third party IdP is validated using the JWKS based JWT Validator.
+
+![JWKS validation flow](../../../assets/img/concepts/jwks-validation-flow.png) 
 
 The steps of the above diagram are explained below:
 
 **Step 1:**
 
--   User requests a JWT assertion from the Identity Provider.
+-   User requests a JWT assertion from the identity provider.
 
--   A valid JWT is returned with the response
+-   A valid JWT is returned with the response.
 
 **Step 2:**
 
--   The user initiates a token request to WSO2 Server’s token endpoint
+-   The user initiates a token request to WSO2 Identity Server’s token endpoint
     using JWT grant type with the obtained JWT assertion.
 
--   Access Token Issuer handles all the requests sent to the token
+-   Access token issuer handles all the requests sent to the token
     endpoint.
 
 **Step 3:**
 
--   Access token issuer invokes the JWT Grant Handler to validate the
+-   Access token issuer invokes the JWT grant handler to validate the
     provided JWT assertion.
 
-    Deploys and configures the JWT client-handler artifacts
+-   Deploys and configures the JWT client-handler artifacts.
 
 **Step 4:**
 
--   JWT Grant Handler invokes the JWKS Based JWT validator to validate
-    the JWT signature using IDP’s jwks endpoint.
+-   JWT grant handler invokes the JWKS based JWT validator to validate
+    the JWT signature using IdP’s jwks endpoint.
 
 **Step 5:**
 
--   JWKS Based JWT validator validates the JWT using IDP’s JWKS
+-   JWKS based JWT validator validates the JWT using IdP’s JWKS.
 
 **Step 6:**
 
--   Upon JWT Grant Validation, Access Token issuer issues a new access
+-   Upon JWT grant validation, access token issuer issues a new access
     token to the user.
 
 Here, the retrieved JWKS is cached against the jwks\_uri. When
 validating a JWT, we use the 'kid' header parameter which is an
-indicator for the key used to sign the JWT at the IDP, and compare it
+indicator for the key used to sign the JWT at the IdP, and compare it
 against the JWKS 'kid' properties. If a matched 'kid' is found among the
 key set, the JWT will be validated using the corresponding key. In case
-of key roll-over at the IDP, the JWT is signed using the new keys and
+of key rollover at the IdP, the JWT is signed using the new keys and
 hence the matching key is not found in the cached JWKS. When a matching
-key is not found, the validator retrieves the latest JWKS from the IDP
+key is not found, the validator retrieves the latest JWKS from the IdP
 JWKS endpoint and obtain the matching key for signature validation.
 
-### Sample JSON Web Key Set.
+---
+
+## Sample JSON Web Key Set
 
 The default JWKS of WSO2 Identity Server is as follows.
 

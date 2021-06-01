@@ -1,6 +1,6 @@
 # ID Token
 ID Token is a security token, introduced by the OpenID Connect specification that contains claims about the authentication
-of an end-user by an Authorization Server. This token is presented as a JWT (Json Web Kit) and contains user claims to 
+of an end-user by an authorization server. This token is presented as a JWT (Json Web Kit) and contains user claims to 
 identify who the user is. The ID Token is issued from the authorization server and the audience
 of the ID Token is the client application. The client application will validate the ID Token based on the signature value
 and can interpret the value of the ID Token. To secure the ID Tokens, the token should be signed and it can be also encrypted.
