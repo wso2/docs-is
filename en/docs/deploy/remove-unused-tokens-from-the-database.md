@@ -1,9 +1,9 @@
 # Remove Unused Tokens from the Database
 
-As you use the WSO2 Identity Server (WSO2 IS), the number of revoked,
-inactive and expired tokens accumulates in the
+As you use WSO2 Identity Server (WSO2 IS), the number of revoked,
+inactive, and expired tokens accumulate in the
 IDN\_OAUTH2\_ACCESS\_TOKEN table. These tokens are kept in the database
-for logging and audit purposes, but they can have a negative impact on
+for logging and audit purposes but they can have a negative impact on
 the server's performance over time. Therefore, it is recommended to
 clean them periodically in order to enhance the token lookup and to
 avoid a growing access token table.
@@ -79,10 +79,10 @@ method.
     script from
     [here](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures)
     and run it on the database dump. This takes a backup of the
-    necessary tables, turns off SQL updates and cleans the database of
+    necessary tables, turns off SQL updates, and cleans the database of
     unused tokens.
 
-4.  Once the cleanup is over, start the WSO2 Identity Server pointing to
+4.  Once the cleanup is over, start WSO2 Identity Server pointing to
     the cleaned-up database dump and test throughly for any issues.  
     You can also schedule a cleanup task that will be automatically run
     after a given period of time. Here's an example:
