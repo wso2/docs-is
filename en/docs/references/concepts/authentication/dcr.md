@@ -32,7 +32,7 @@ happened manually. With this implementation, client registration can be done in 
 
 ### What is DCRM (Dynamic Client Registration Management)?
 
-DCRM is an extension to the DCR, introduced from this [specification](https://tools.ietf.org/html/rfc7592). 
+DCRM is an extension to the DCR, introduced from [this specification](https://tools.ietf.org/html/rfc7592). 
 The main functionalities specified are:
 
 - Current registration state of a client (Client Read Request)
