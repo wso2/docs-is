@@ -215,7 +215,7 @@ The sample response that will receive on token endpoint is shown below.
 
 In case there are two ID tokens issued, where one ID token is from
 authorization endpoint and other is from token endpoint, be sure to
-perform the validations mentioned
+perform the validations based on the OpenID Connect, mentioned [above](#validations).
 [above](#validations), which are based on the
 OpenID Connect specification.
 
