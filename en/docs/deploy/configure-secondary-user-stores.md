@@ -85,7 +85,7 @@ You can use either the management console to create secondary userstores or you 
 
     -   [Properties for a Read-write Active Directory Userstore](../../../deploy/configure-a-read-write-active-directory-user-store#properties-used-in-read-write-active-directory-userstore-manager)
         
-    -   [Properties for a Read-write LDAP Userstore](../../../deploy/configure-a-read-write-ldap-user-store#properties-used-in-read-write-ldap-user-store-manager)
+    -   [Properties for a read-write LDAP userstore](../../../deploy/configure-a-read-write-ldap-user-store#properties-used-in-read-write-ldap-user-store-manager)
 
 5.  Make sure that all the mandatory fields are filled and a valid
     domain name is given, and click **Add**. A message appears saying
