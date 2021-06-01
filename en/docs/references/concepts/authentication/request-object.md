@@ -152,7 +152,7 @@ The Identity Server will respond to the above sample request as follows:
  ignore the scope value which is associated with the authorization
  request and considers the requested scope as `openid email`
 2. It considers the claims `given_name` and `email` which are marked
- as `essential:true` for 'userinfo' member. Even if they are not
+ as `essential:true` for the 'userinfo' member. Even if they are not
  mapped with the openid or address scope in the registry, if these
  claims are requested claims, then `given_name` and `email` will be
  returned from the Userinfo endpoint. In a nutshell, the claims which
