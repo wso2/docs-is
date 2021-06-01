@@ -23,9 +23,9 @@ AuthorizationCode=true
 
 In addition to this, you need to ensure that the logs in the
 `         <IS_HOME>/repository/conf/log4j2.properties        ` file are
-enabled as well. To do this, please follow the following instructions.
+enabled as well. To do this, follow the instructions given below.
 
-Change log level from `INFO` to `DEBUG` in `org.wso2.carbon.identity` logger as follows.
+Change log level from `INFO` to `DEBUG` in the `org.wso2.carbon.identity` logger as follows.
 
 ``` c#
 logger.org-wso2-carbon-identity.name=org.wso2.carbon.identity
