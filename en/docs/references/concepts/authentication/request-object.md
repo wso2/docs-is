@@ -1,36 +1,37 @@
 # Request Object
 
-#### Purpose of Request Object in OpenID Connect
+## Purpose of Request Object in OpenID Connect
 
 This enables sending authentication request parameters in a
 self-contained JWT instead of plain request parameters. Request Object
 can be specified to the authorization server either by *value* or by
-*reference* .
+*reference*.
 
 - [**Request Object by Value**](#request-object-by-value) (as ***request*** parameter)
 
- The request authorization request parameter enables OpenID Connect
- requests to be passed in a single, self-contained parameter and has
- to be optionally signed and/or encrypted. It represents the request
- as a JWT whose claims are the request parameters. This JWT is called
- a **Request Object.**
+     The request authorization request parameter enables OpenID Connect
+     requests to be passed in a single, self-contained parameter and has
+     to be optionally signed and/or encrypted. It represents the request
+     as a JWT whose claims are the request parameters. This JWT is called
+     a **Request Object.**
 
 - **Request Object by Reference** (as ***request\_uri*** parameter )
 
- The request\_uri authorization request parameter enables OpenID
- Connect requests to be passed by reference, rather than by value.
- This parameter is used identically to the request parameter, other
- than that the Request Object value is retrieved from the resource at
- the specified URL.
+     The request\_uri authorization request parameter enables OpenID
+     Connect requests to be passed by reference, rather than by value.
+     This parameter is used identically to the request parameter, other
+     than that the Request Object value is retrieved from the resource at
+     the specified URL.
 
-!!! note
-    WSO2 Identity Server does not support passing Request Object
-    by Reference. However, an extension point is provided which can be
-    extended to provide support for understanding Request Object from
-    reference URI specified by request\_uri.
- 
+    !!! note
+        WSO2 Identity Server does not support passing Request Object
+        by Reference. However, an extension point is provided which can be
+        extended to provide support for understanding Request Object from
+        reference URI specified by request\_uri.
 
-#### Request Object by Value
+---
+
+## Request Object by Value
 
 As mentioned above, the main purpose of this parameter is for supporting
 to request some claims other than the default Userinfo and IdToken claim
@@ -111,10 +112,9 @@ The payload of the above sample Request Object is as follows:
 ```
 
 If the above request is sent, it requests some claims from both the
-members **userinfo** endpoint and **id\_token**. For example, '
-*given\_name'* and *'email'* are marked as essential claims from *user
-info* endpoint and *'brithdate'* is requested as an essential claim from
-*id token* .
+members **userinfo** endpoint and **id\_token**. For example, 
+`given_name` and `email` are marked as essential claims from userinfo endpoint and `birthdate` is requested as an essential claim from
+id token.
 
 Usually, in OpenID Connect, the returning claims will be filtered from
 the requested scopes that are passed to the server as a query parameter
@@ -127,7 +127,7 @@ essential request object claims in the response of **userinfo** endpoint
 and **id\_token** accordingly.
 
  
-The following validations is done on the server side.
+The following validations are done on the server side.
 
 1. The *client\_id* and *response\_type* of the request object (if
  present) should be equal to the *client\_id* and the
@@ -140,28 +140,27 @@ The following validations is done on the server side.
 4. Even if a scope parameter is present in the Request Object value, a
  scope parameter MUST always be passed using the OAuth 2.0 request
  syntax containing the openid scope value to indicate the underlying
- OAuth 2.0 logic that this is an OpenID Connect request. (For further
+ OAuth 2.0 logic that this is an OpenID Connect request. For further
  validation information, refer [OIDC
- specification](http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)
- ) 
+ specification](http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests). 
  
 
 The Identity Server will respond to the above sample request as follows:
 
-1. Here the requested scope is considered as 'openid email' as the
+1. Here the requested scope is considered as `openid email` as the
  scope value of the request object is declared. So the server will
  ignore the scope value which is associated with the authorization
- request and considers the requested scope as 'openid email'
-2. It considers the claims "given\_name" and "email" which are marked
- as 'essential:true' for 'userinfo' member. Even if they are not
+ request and considers the requested scope as `openid email`
+2. It considers the claims `given_name` and `email` which are marked
+ as `essential:true` for the 'userinfo' member. Even if they are not
  mapped with the openid or address scope in the registry, if these
- claims are requested claims, then 'given\_name' and 'email' will be
+ claims are requested claims, then `given_name` and `email` will be
  returned from the Userinfo endpoint. In a nutshell, the claims which
- are marked as 'essential: true' only get controlled by the requested
+ are marked as `essential: true` only get controlled by the requested
  claims and ignore the requested scopes. If the server cannot provide
  those essential claims, there will not be any failure or error
  message returning from the server.
-3. The claims like "nickname" it will act as a default claim and will
+3. The claims like `nickname` will act as default claims and will
  be controlled by both requested scopes and the requested claims.
 4. If the server cannot provide the requested essential claims, the
  server will return null for the specific claim and the flow will not
@@ -170,12 +169,14 @@ The Identity Server will respond to the above sample request as follows:
 !!! note
     This behavior is common to the id token as well.
 
-#### Signature Validation
+---
+
+## Signature Validation
 
 Request Object may be signed or unsigned (plaintext). When it is
 plaintext, this is indicated by use of the non-algorithm \[JWA\]. If the
 Request Object is signed, the server will extract the certificate by the
-*client\_id* . When registering the Auth application in the Identity
+*client\_id*. When registering the Auth application in the Identity
 Server, we need to provide the corresponding public certificate of the
 Request Object signing party. As of now, the Identity Server only
 supports *RSA* signature algorithms only. If the header does not contain
@@ -184,7 +185,9 @@ validation. Based on the certificate value, it will generate the public
 key and validate the signature using the
 [nimbus](https://connect2id.com/products/nimbus-jose-jwt) library.
 
-#### Decryption
+---
+
+## Decryption
 
 The request parameter value can be even a JWE. If it is a JWE, it will
 consist of five parts which are separated by four '.'  characters which
