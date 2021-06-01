@@ -13,30 +13,6 @@ attacks.
 1.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha](../../learn/setting-up-recaptcha).
-
-    !!! tip
-    
-        To modify the filter mapping for reCaptcha, open the
-        `           web.xml          ` file located in the
-        `           <IS_HOME>/repository/conf/tomcat/carbon/WEB-INF          `
-        directory and find the following filter. You can modify the relevant
-        URL patterns if required.
-    
-        ``` xml
-        <filter>
-                <filter-name>CaptchaFilter</filter-name>
-                <filter-class>org.wso2.carbon.identity.captcha.filter.CaptchaFilter</filter-class>
-            </filter>
-            <filter-mapping>
-                <filter-name>CaptchaFilter</filter-name>
-                <url-pattern>/samlsso</url-pattern>
-                <url-pattern>/oauth2</url-pattern>
-                <url-pattern>/commonauth</url-pattern>
-                <dispatcher>FORWARD</dispatcher>
-                <dispatcher>REQUEST</dispatcher>
-            </filter-mapping>
-        ```
-
 2.  Start the WSO2 IS Server and login to the management console.
 3.  Click **List** under **Identity Providers** found in the **Main**
     tab.
