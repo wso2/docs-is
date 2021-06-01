@@ -50,7 +50,7 @@ The following diagram represents the flow.
 - Once the end-user needs to log in to the RP, the RP sends an authentication request to the OP.
 - The OP responds back with the **session_state**.
 - The RP iframe continuously polls the OP iframe to detect any state changes.
-- The OP iframe responds back with one of the following statuses.
+- The OP iframe responds with one of the following statuses.
 
 The status can be either;
 
