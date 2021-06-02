@@ -11,14 +11,14 @@ traditional prevention techniques.
 ## SameSite attribute values
 The SameSite attribute can be assigned one of the following values:
 
--   Strict
+### Strict
 
  The cookies that are assigned this value are sent with the request if, and only if, the request originates 
  from the first party (i.e., same site/domain) regardless of the HTTP request type.
  
  ```Set-Cookie: CookieName=CookieValue; SameSite=Strict;```
  
--   Lax
+### Lax
 
  The cookies that are assigned this value are added to the GET request initiated by third-party domains as well. 
  However, this is done only if the GET request being made causes a top-level navigation change (i.e., the request should cause
@@ -28,7 +28,7 @@ The SameSite attribute can be assigned one of the following values:
  
  ```Set-Cookie: CookieName=CookieValue; SameSite=Lax;```
 
--   None
+### None
 
  This value can be used in scenarios where a user intends to send cookies along with the requests initiated 
  by third-party domains.
@@ -39,7 +39,7 @@ The SameSite attribute can be assigned one of the following values:
 
 ## Cross-Site request attack mitigations in WSO2 Identity Server
 
-WSO2 Identity Server uses “Double Submit Cookie" and "Synchronize Token Pattern” to prevent CSRF attacks. For more information,
+WSO2 Identity Server uses Double Submit Cookie and Synchronize Token Pattern to prevent CSRF attacks. For more information,
 refer to [Mitigating Cross Site Request Forgery Attacks](../../../deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks/).
 Providing support for the SameSite attribute, on top of the current mitigation techniques in WSO2 Identity Server, 
 gives an additional layer of defense for attacks caused by cross-site requests.
@@ -47,8 +47,7 @@ gives an additional layer of defense for attacks caused by cross-site requests.
 - The SameSite attribute value as `None;Secure` for the `samlssoTokenId`, `commonAuthId` and `opbs` cookies.
 - For other cookies that do not contain SameSite, the attribute value will be set as `Strict` by default.
  
- This enforcement, on top of the current mitigation techniques in WSO2 Identity Server, gives an additional layer of defense 
- for attacks caused by cross-site requests.
+This enforcement, on top of the current mitigation techniques in WSO2 Identity Server, gives an additional layer of defense for attacks caused by cross-site requests.
  
 !!! info  
     When it uses reverse proxies such as Nginx, the SameSite attribute needs to be configured as `None` in LB Level to make products

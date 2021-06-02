@@ -498,7 +498,7 @@ nav:
           - 'Configure a Read-write LDAP Userstore': deploy/configure-a-read-write-ldap-user-store.md
         - 'Add High Availability for LDAP': deploy/add-high-availability-for-ldap.md
         - 'Configure Secondary Userstores': deploy/configure-secondary-user-stores.md
-        - 'Carbon Remote User Store Manager': deploy/carbon-remote-user-store-manager.md
+        #- 'Carbon Remote User Store Manager': deploy/carbon-remote-user-store-manager.md
         - 'Work with Properties of Userstores': deploy/work-with-properties-of-user-stores.md
         - 'Write a Custom Userstore Manager': deploy/write-a-custom-user-store-manager.md
     - 'Work with Tokens': 
@@ -508,7 +508,7 @@ nav:
       - 'Enable Assertions In Access Tokens': deploy/enable-assertions-in-access-tokens.md
     - 'Data Purging': deploy/data-purging.md
     - 'Remove References to Deleted User Identities': deploy/remove-references-to-deleted-user-identities.md
-    - 'Configure rsync for Deployment Synchronization': deploy/configuring-rsync-for-deployment-synchronization.md
+    #- 'Configure rsync for Deployment Synchronization': deploy/configuring-rsync-for-deployment-synchronization.md
     - 'Configure an SP and IdP Using Configuration Files': deploy/configure-an-sp-and-idp-using-configuration-files.md
     - 'Configure the Email Sending Module': deploy/configure-email-sending.md
     - 'Configure Hazelcast': deploy/configure-hazelcast.md

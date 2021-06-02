@@ -1,6 +1,6 @@
 # Configure the Email Sending Module
 
-This document explains the steps to configure WSO2 Identity Server to send emails during multiple email related identity and access management tasks such as [email OTP](../../../guides/mfa/2fa-email-otp/), [email notifications](TBD:../../learn/enabling-notifications-for-user-operations),[account recovery](../../../guides/password-mgt/recovery-confirmation/).
+This document explains the steps to configure WSO2 Identity Server to send emails during multiple email related identity and access management tasks such as [email OTP](../../../guides/mfa/2fa-email-otp/), email notifications, and account recovery.
 
 ----
 
@@ -23,14 +23,14 @@ This document explains the steps to configure WSO2 Identity Server to send email
     
     |                    Property                       |                Description                     |
     |---------------------------------------------------|------------------------------------------------|
-    | `               from_address                `     | The mail address from where you want to send the notification. It can be any working mail address. |
-    | `               username                    `     | Provide the username of the SMTP account. <br/> User name of the the mail you have provide in **from_address**    |
+    | `               from_address                `     | This is the mail address from where you want to send the notification. It can be any working mail address. |
+    | `               username                    `     | Provide the username of the SMTP account. <br/> Username of the the mail you have provided in **from_address**    |
     | `               password                        ` | Provide the password of the SMTP account. <br/> Password of the mail you have provided in **from_address**     |
-    | `               host                        ` | The SMTP server to connect to. |
-    | `               port                         `|The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25. |
-   | `               enable_start_tls`            | If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust theserver's certificate. Defaults to false.
-   | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to false.|
-   | `signature`                                   | Signature of the sender account. |
+    | `               host                        ` | The SMTP server to connect to |
+    | `               port                         `|This is the SMTP server port to connect to if the connect() method does not explicitly specify one. Defaults to 25. |
+   | `               enable_start_tls`            | If true, this enables the use of the STARTTLS command (if enabled before issuing any login commands. Note that an appropriate trust store must be configured so that the client will trust the server's certificate. Defaults to `false`
+   | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to `false`|
+   | `signature`                                   | Signature of the sender account |
     
     !!! Tip 
         For information about the SMTP, see
@@ -38,23 +38,6 @@ This document explains the steps to configure WSO2 Identity Server to send email
         
 3. Re-start the server once configurations are in place.
 
-!!! note
 
-    If you are using a Google mail account, note that Google has
-    restricted third-party apps and less secure apps from sending emails
-    by default. Therefore, you need to configure your account to disable
-    this restriction, as WSO2 Identity Server acts as a third-party application when
-    sending emails to confirm user registrations or notification for
-    password reset WSO2 Identity Server.     
-       
-    Follow the steps given below to enable your Google mail account to
-    provide access to third-party applications.
-
-    1.  Navigate to <https://myaccount.google.com/security>.
-    2.  Click **Security** on the left menu and make sure
-        that **2-step Verification** under **Signing in to Google** is disabled or off.  
-        ![google-2-step-verification](../../assets/img/fragments/google-2-step-verification.png)  
-    3.  Enable **Less secure app access**.  
-        ![allow-less-secure-apps](../../assets/img/fragments/allow-less-secure-apps.png)
-               
+{! fragments/google-two-factor.md !}
     
