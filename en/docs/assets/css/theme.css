@@ -1683,7 +1683,7 @@ html, body {
     }
 }  
 
-/* Make the font */
+/* Make the font weight consistent across all headings and sub-headings*/
 h1 {
     font-weight: 500 !important;
     color: black !important;
@@ -1695,5 +1695,11 @@ h2 {
 
 h3 {
     font-weight: 500 !important;
+}
+
+/* Customizing superfence tabs */
+.superfences-tabs>input:checked+label {
+    color: black;
+    background-color: #f5f5f5;
 }
 
