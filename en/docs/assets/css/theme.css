@@ -1683,3 +1683,17 @@ html, body {
     }
 }  
 
+/* Make the font */
+h1 {
+    font-weight: 500 !important;
+    color: black !important;
+}
+
+h2 {
+    font-weight: 500 !important;
+}
+
+h3 {
+    font-weight: 500 !important;
+}
+
