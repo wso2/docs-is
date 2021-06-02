@@ -720,13 +720,13 @@ nav:
                                     - 'Request Object': references/concepts/authentication/request-object.md
                                     - 'Traditional Authentication Request': references/concepts/authentication/traditional-authentication-request.md
                           - 'User Information': references/concepts/authentication/user-information.md
-                          - 'Scopes And Claims': references/concepts/authentication/scopes-claims.md
+                          - 'Scopes and Claims': references/concepts/authentication/scopes-claims.md
                           - 'Discovery': references/concepts/authentication/discovery.md
                           - 'JWKS': references/concepts/authentication/jwks.md
-                          - 'Dynamic Client Registration': references/concepts/authorization/dcr.md
+                          - 'Dynamic Client Registration': references/concepts/authentication/dcr.md
                           - 'Session Management and Logout': references/concepts/authentication/session-management.md
-                          - 'Back-channel-logout': references/concepts/authentication/back-channel-logout.md
-                          - 'OIDC Device Flow': references/concepts/authentication/device-flow.md
+                          - 'Back-Channel Logout': references/concepts/authentication/back-channel-logout.md
+                          #- 'OIDC Device Flow': references/concepts/authentication/device-flow.md
                           - 'Microprofile JWT 1.0': references/concepts/authentication/microprofile-jwt.md
                   - 'SAML':
                           - 'Introduction': references/concepts/authentication/intro-saml.md
