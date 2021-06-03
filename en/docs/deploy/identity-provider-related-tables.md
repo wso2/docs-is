@@ -38,7 +38,7 @@ table. Following are the columns of the table.
 An identity provider may have different roles for authorization which
 are different from the local roles of WSO2 Identity Server. In such a
 situation, roles at the identity provider can be mapped to the local
-roles in WSO2 Identity Server. Such roles are stored in this table. `ROLE` column contains the name of the role. `IDP\_ID`
+roles in WSO2 Identity Server. Such roles are stored in this table. `ROLE` column contains the name of the role. `IDP_ID`
 is the ID of the identity provider. Following are the columns of the
 table.
 
