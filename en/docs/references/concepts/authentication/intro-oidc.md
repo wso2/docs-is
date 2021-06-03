@@ -47,7 +47,7 @@ The different flows target different types of application clients.
 
 | Flow                 | Usage         | 
 | --------------------- | ------------- | 
-| Authorization code flow | Mostly used by web and mobile applications when the clients can use typical ways to authenticate. (e.g., providing user credentials)  |                            
+| Authorization code flow | Mostly used by web and mobile applications when the clients can use typical ways to authenticate (e.g., providing user credentials)  |                            
 | Implicit flow           | This is specially consumed by mobile applications or the client side JavaScript applications that run in the browser where embedded credentials could be compromised. In this case, the client should not be authenticated and tokens should be retrieved via the front-channel.  |                              
 | Hybrid flow             | Front-end and back-end applications use this flow to receive tokens independently (when a client application wants an immediate use of user details which can be obtained through an ID token), while the exchange of the authorization code and the access token happens.  | 
 
