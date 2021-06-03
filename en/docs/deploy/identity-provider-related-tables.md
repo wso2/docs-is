@@ -1,4 +1,4 @@
-# identity provider Related Tables
+# Identity Provider Related Tables
 
 This section lists out all the identity provider related tables and
 their attributes in the WSO2 Identity Server database.
