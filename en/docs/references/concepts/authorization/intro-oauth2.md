@@ -38,8 +38,8 @@ The exact flow differs based on the OAuth 2.0 the grant type. However, the abstr
 
 1. The application requests the authorization from the end-user (Resource Owner)
 2. The Resource Owner grants the authorization to the application
-3. The application grants the authorization to the Authorization Server
-   (OAuth 2.0 Provider)
+3. The application grants the authorization to the authorization server
+   (OAuth 2.0 Provider).
 4. The server generates the access tokens and passes it back to the client (Relying Party)
 5. The client passes the access token to the Resource Server.
 6. The resource server provides access to the protected resource.

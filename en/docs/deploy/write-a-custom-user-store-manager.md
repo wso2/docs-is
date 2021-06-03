@@ -40,7 +40,7 @@ options.
 <thead>
 <tr class="header">
 <th>Available methods</th>
-<th>Default behaviour</th>
+<th>Default behavior</th>
 <th>Reasons for overriding</th>
 </tr>
 </thead>
@@ -94,7 +94,7 @@ options.
 <thead>
 <tr class="header">
 <th>Available methods</th>
-<th>Default behaviour</th>
+<th>Default behavior</th>
 </tr>
 </thead>
 <tbody>
@@ -159,7 +159,7 @@ options.
 
 ### Read methods
 
-| Available methods                                                                                                                       | Default behaviour                                                                                                                                                                          |
+| Available methods                                                                                                                       | Default behavior                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `                boolean doCheckExistingUser(String userName)               `                                                           | Returns whether the provided `               userName              ` already exists in the userstore                                                                                     |
 | `                boolean doCheckExistingRole(String roleName)               `                                                           | Returns whether the provided `roleName` already exists in the userstore                                                                                                                    |
@@ -534,12 +534,12 @@ you have placed inside overridden methods when you create a new user or
 login. This ensures that all your configurations work as intended.
 
 !!! note "Do you want to create a custom userstore that only has few enabled methods?"
-    1.  Sign in to the WSO2 Identity Server management console.
+    1.  Sign in to the WSO2 Identity Server management console (`https://<IS_HOST>:<PORT>/carbon`).
     2.  Click **Main** > **Userstores** > **Add**.
-    3.  Select the custom userstore you just created as the value from the **userstore Manager Class** dropdown.
+    3.  Select the custom userstore you just created as the value from the **Userstore Manager Class** dropdown.
     4.  Expand the **Advanced** tab and deselect the **Claim Operations Supported** property.
     5.  Click **Add**.
     
-!!! info "Related Links"
+!!! info "Related topics"
     -   [Guide: Configure Userstores](../../../deploy/configure-user-stores)
     -   [Guide: Manage User Attributes](../../../guides/identity-lifecycles/manage-user-attributes#writing-custom-attributes)

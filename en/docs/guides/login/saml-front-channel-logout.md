@@ -1,6 +1,6 @@
-# Configure SAML 2.0 Front Channel Logout
+# Configure SAML 2.0 Front-Channel Logout
 
-This page guides you through configuring [SAML 2.0 front channel logout](../../../references/concepts/authentication/saml-front-channel/) for applications with WSO2 Identity Server. This will ensure that the user is logged out from all configured applications with a single logout request via one of the applications. 
+This page guides you through configuring [SAML 2.0 front-channel logout](../../../references/concepts/authentication/saml-front-channel/) for applications with WSO2 Identity Server. This will ensure that the user is logged out from all configured applications with a single logout request via one of the applications. 
 
 ---
 
@@ -49,5 +49,5 @@ Make the following changes to the created service provider.
 Once you have configured all your applications, access them in separate tabs in your browser. When you logout from one application, it should log you out from all the configured applications. 
 
 !!! info "Related topics"
-    -   [Concept: SAML 2.0 front channel logout](../../../references/concepts/authentication/saml-front-channel/)
-    -   [Demo: Configure SAML 2.0 Front Channel Logout](../../../quick-starts/saml-front-channel-logout)
+    -   [Concept: SAML 2.0 Front-Channel Logout](../../../references/concepts/authentication/saml-front-channel/)
+    -   [Demo: Configure SAML 2.0 Front-Channel Logout](../../../quick-starts/saml-front-channel-logout)

@@ -50,7 +50,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
     ![add-identity-provider](../../../assets/img/fragments/add-identity-provider.png)
 
-3. Add a new Identity Provider (IDP). Enter the basic information as follows.
+3. Add a new Identity Provider (IdP). Enter the basic information as follows.
    
     !!! note
         The IDP name should be the name of the realm as specified in [step 3](#step3) of Generate the kerberos token. Based
@@ -141,7 +141,7 @@ grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1…
 
 The Kerberos client receives the OAuth2 token. 
 
-The Kerberos Grant then validates the received token with the provided Identity Provider (IDP) credentials and if it is a valid token, it issues an OAuth2 token to the client.
+The Kerberos Grant then validates the received token with the provided Identity Provider (IdP) credentials and if it is a valid token, it issues an OAuth2 token to the client.
 
 ``` java tab="Example"
 {  

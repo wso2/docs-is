@@ -2,7 +2,7 @@
 
 A key requirement outlined in the General Data Protection Regulation
 (GDPR) is the right of the data subject to be forgotten, which gives
-individuals the right to request an organisation to remove their
+individuals the right to request an organization to remove their
 personal information from a system.  
 To comply with this requirement, WSO2 Identity Server (WSO2 IS) supports
 removing references to personally identifiable information (PII) of a
@@ -12,7 +12,7 @@ remove references to a user’s PII that can generally be stored in
 metadata database tables, access logs, audit logs as well as any other
 log files in WSO2 IS.
 
-!!! note "Before you begin, keep the following in mind"
+!!! note 
     
     -   The purpose of this tool is to remove references to personally
         identifiable information of a user that can persist in RDBMS tables
@@ -56,9 +56,10 @@ for references of the deleted user from the following file paths:
 -   **Default data source name** : `          WSO2_CARBON_DB         `
 -   **Log file name regex** : `          wso2carbon.log         `
 
-For information on changing these configurations, see [Configuring the
+
+<!--For information on changing these configurations, see [Configuring the
 config.json file](TBD:../../setup/removing-references-to-deleted-user-identities-in-wso2-products#configuring-the-master-configuration-file)
-in the Product Administration Guide.
+in the Product Administration Guide.-->
 
 ---
 
@@ -135,8 +136,7 @@ steps below to run the tool:
         command line options to run the identity anonymization tool to
         remove references to a specific deleted user.  
         For information on how to enable tracking deleted users, see
-        [Tracking user deletion on deleting a
-        user](../../../guides/identity-lifecycles/delete-users/#track-user-deletion-on-deleting-a-user-optional).
+        [Delete an Existing User](../../../guides/identity-lifecycles/delete-users/#track-user-deletion-on-deleting-a-user-optional).
           
 
     !!! Note
@@ -182,7 +182,7 @@ steps below to run the tool:
     <tr class="odd">
     <td>T</td>
     <td><div class="content-wrapper">
-    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code> . For information on working with tenants in WSO2 products, see <a href="TBD:../../administer/introduction-to-multitenancy">Working with Multiple Tenants</a> .</p>
+    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code>. For information on working with tenants in WSO2 Identity Server, see <a href="../../../../references/concepts/introduction-to-multitenancy"> Introduction to Multitenancy</a>.</p>
     <p>
     <div class="admonition note">
     <p class="admonition-title">Note</p>
@@ -299,7 +299,7 @@ analytics installation directory) instead of the
     at least once to generate the required analytics streams.
     
 
-### Running the standalone version of the tool
+### Run the standalone version of the tool
 
 If you are using multiple WSO2 products and you want to remove
 references to a particular deleted user from all the products at once,
@@ -313,6 +313,5 @@ to run the tool on.
 
 For information on how to build, configure and run the standalone
 version of the Identity Anonymization tool to run on multiple WSO2
-products, see [Removing References to Deleted User Identities in WSO2
-Products](TBD:../../setup/removing-references-to-deleted-user-identities-in-wso2-products)
+products, see [Remove References to Deleted User Identities](../../../deploy/remove-references-to-deleted-user-identities)
 in the WSO2 Administration Guide.
