@@ -8,7 +8,7 @@ attributes in the WSO2 Identity Server database.
 ## SP_APP
 
 When a service provider is added, the details are stored in this table.
-The APP_NAME column represents the service provider name. Following are
+The `APP_NAME` column represents the service provider name. Following are
 the columns of the table.
 
 -   `ID`
