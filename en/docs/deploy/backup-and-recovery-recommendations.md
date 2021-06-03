@@ -38,12 +38,9 @@ We recommend that you use a proper artifact management system such as [Puppet](h
 before deploying them in the WSO2 Carbon runtime. Also, use the [WSO2 Update Manager(WUM)](../../../deploy/get-started/get-wso2-updates)
 tool, which is a command-line utility that allows you to get the latest
 updates (bug fixes and security fixes) of a particular product
-release.
+release.The following diagram depicts how you can manage your artifacts using a configuration management system.
 
-![](../../../assets/img/deploy/puppet.png)
-
-**Diagram** : managing your artifacts using a configuration management
-system
+![Managing artifacts](../../../assets/img/deploy/puppet.png)
 
 ---
 
@@ -52,14 +49,14 @@ system
 Be sure to determine the following depending on your business-continuity
 requirements:
 
--   **Recovery Point Objective (RPO)** : Up to what points are you to
-    recover. This is determined by the latest, known, good point.
--   **Recovery Time Objective (RTO)** : How long does it take to recover
-    to the RPO.
--   **Backup Frequency** : How frequently you should take backups. If
+-   **Recovery Point Objective (RPO)** : This determines upto what points are you to
+    recover using the latest, known, and good points.
+-   **Recovery Time Objective (RTO)** : How long it takes to recover
+    to the RPO
+-   **Backup Frequency** : This decides how frequently you should take backups. If
     your RPO is one day, your backup frequency should be daily.
--   **Disaster Recovery Site** : The place where the latest copy of your
-    backup is. This can be from a different shelf in your data center to
+-   **Disaster Recovery Site** : This denotes the place where the latest copy of your
+    backup is. This can vary from a different shelf in your data center to
     a completely different geographical location.
 
 We also recommend the following:
@@ -79,8 +76,8 @@ The following steps include how to recover your setup using the backups:
 1.  Recover the hot-deployment artifacts by replacing the
     `          <IS_HOME>/repository         ` directory with the
     backed up copy.
-2.  Recover the entire WSO2 product by directly replacing the existing
-    WSO2 server directory in the production setup with the backup server
+2.  Recover WSO2 Identity Server entirely by directly replacing the existing
+    WSO2 server directory in its production setup with the backup server
     directory. This will ensure that all the files, logs, and
     configurations made to the product do not need to be redone.
 3.  To recover the databases, follow the recovery strategy recommended
