@@ -273,7 +273,7 @@ columns of the table.
 ## UM_SYSTEM_ROLE
 
 System roles of WSO2 Identity Server are stored in this table. The `wso2.anonymous.role` is created by default which is a special role that
-represents a user that has not logged in to WSO2 Identity Server Management Console. Granting Read access to resources for this role
+represents a user that has not logged in to WSO2 Identity Server Management Console. Granting read access to resources for this role
 would mean that you do not require authentication to access resources
 using the respective permalinks. Following are the columns of the table.
 
