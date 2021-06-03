@@ -69,6 +69,6 @@ You will receive an access token with the response.
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Refresh token grant](../../../references/concepts/authorization/refresh-token-grant)
     

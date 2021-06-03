@@ -232,6 +232,6 @@ This `response_type` requests a code, an access token, and an id\_token from the
 4.  The `at_hash` and `c_hash` claims may be omitted from the ID token returned from the token endpoint even when the claims are present in
     the ID token returned from the authorization endpoint.
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: OpenID Connect Hybrid Flow](../../../references/concepts/authentication/hybrid-client-profile)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)

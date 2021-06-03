@@ -77,7 +77,7 @@ Make the following requests via your application to connect your application to 
     {"access_token":"35c52563-f46b-3364-8d3d-007e526e0ab3","refresh_token":"52569186-163f-3c9c-b2f4-539a0e8529ce","token_type":"Bearer","expires_in":3600}
     ```
     
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Deploy: Mitigate Authorization Code Interception Attacks](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
     

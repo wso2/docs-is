@@ -95,7 +95,7 @@ As you can see in the decoded response, the `upn` and `groups` claims which map 
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Microprofile JWT 1.0](../../../references/concepts/authentication/microprofile-jwt/)
     - [Demo: Configure Microprofile JWT](../../../quick-starts/microprofile-jwt-sample)
 

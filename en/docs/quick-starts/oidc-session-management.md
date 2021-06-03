@@ -127,7 +127,7 @@ If you have your own application, click the button below.
 
 -----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
     - [Guide: Manage User Sessions and Logout](../../../guides/login/session-management-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout)

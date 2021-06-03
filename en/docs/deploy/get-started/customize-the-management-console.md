@@ -1,6 +1,6 @@
 # Customize the Management Console
 
-The User Interface of the Management Console (
+The user interface of the Management Console (
 `https://localhost:9443/carbon`) of a Carbon product consists of two layers:
 
 1.  **UI inherited from WSO2 Carbon platform** 
@@ -75,7 +75,7 @@ of the JSP tiles.
 
 The `global.css` file located in the
 `org.wso2.carbon.ui_<version-name>.jar/web/admin/css/         `
-directory, determines the styles of the Carbon framework. 
+directory determines the styles of the Carbon framework. 
 You can edit this file as per your own requirement.
 Alternatively, you can apply a completely new stylesheet to your
 framework instead of the default `global.css`stylesheet.
@@ -91,12 +91,13 @@ framework instead of the default `global.css`stylesheet.
     by pointing the `String globalCSS` attribute
     to the new stylesheet.
 
-    ``` java
-    // Customization of UI theming per tenant
-        String tenantDomain = null;
-        String globalCSS = "../admin/css/global.css";
-        String mainCSS = "";
+    ```java
+    //Customization of UI theming per tenant
+    String tenantDomain = null;
+    String globalCSS = "../admin/css/global.css";
+    String mainCSS = "";
     ```
+
 ---
 
 ### Change the product specific styles and images

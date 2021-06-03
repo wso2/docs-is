@@ -44,7 +44,7 @@ You have successfully set up SAML artifact binding. See the sections below for m
 
 -----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: SAML2 Artifact Binding](../../../references/concepts/authentication/saml2-artifact-binding)
     - [Guide: Use SAML2 Artifact Binding](../../../guides/login/use-artifact-binding)
     - [Guide: Enable Login for a SAML Application](../../../guides/login/webapp-saml)

@@ -1,5 +1,5 @@
 
-OAuth `nonce` and `timestamp` together play an important role when it comes to OAuth Security depending on how they are being implemented in an application. These two help OAuth to be protected from what is called a replay-attack - an attack where the same request is resent, maybe over and over again.
+OAuth `nonce` and `timestamp` together play an important role when it comes to OAuth security depending on how they are implemented in an application. These two help OAuth to be protected from what is called a replay-attack - an attack where the same request is resent, maybe over and over again.
 
 The term `nonce` means ‘number used once’. It should be a unique and random string that is meant to uniquely identify each signed request. This string value is used to associate a client session with an ID Token, and to mitigate replay attacks. In OAuth, the `nonce` value should be sent by the client during implicit flow. Then the value is then passed unmodified from the Authentication Request to the ID token.
 

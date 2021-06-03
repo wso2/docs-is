@@ -1,6 +1,6 @@
 # Configure Hazelcast
 
-WSO2 products use [Hazelcast](TBD:../../administer/clustering-overview) as
+WSO2 Identity Server uses Hazelcast <!--(../../../deploy/set-up-separate-databases-for-clustering/)--> as
 its default clustering engine. The following configuration must be
 placed in the ` <IS_HOME>/repository/conf/deployment.toml ` file to
 enable advanced cases.
@@ -11,24 +11,21 @@ enable advanced cases.
 "hazelcast.logging.type"= "log4j"
 ```
 
-The above configurations are explained below.
-
 -   **Hazelcast shutdown hook:** This configuration disables the
     shutdown hook in hazelcast, which ensures that the hazelcast
     instance shuts down gracefully whenever the product node shuts down.
     If the hazelcast shutdown hook is enabled (which is the default
     behavior of a product), you will see errors such as "
     *Hazelcast instance is not active!* " at the time of shutting down
-    the product node: This is because the hazelcast instance shuts down
-    too early when the shutdown hook is enabled.
+    the product node: This is because the hazelcast instance shuts down early when the shutdown hook is enabled.
 -   **Hazelcast logging type:** This configuration sets the hazelcast
     logging type to log4j, which allows hazelcast logs to be written to
     the `          wso2carbon.log         ` file.
 
-Once you enable advanced logs for hazelcast as explained above, change
+Once you enable advanced logs for hazelcast as explained above, change the
 `logger.com-hazelcast.level` configuration in the `
 <IS_HOME>/repository/conf/log4j2.properties ` file. For more information
-on logging, see [Monitoring Logs](../../../deploy/monitor/monitor-logs).
+on logging, see [Monitor Logs](../../../deploy/monitor/monitor-logs).
 
 ```toml
 logger.com-hazelcast.name = com.hazelcast
@@ -57,7 +54,7 @@ members = ["<member-x-host>:<member-x-port>", ...]
     and adding the relevant Hazelcast properties as described in the
     [Hazelcast Advanced Configuration Properties documentation](https://docs.hazelcast.org/docs/3.0/manual/html/ch12s06.html).
         
-    To add the Hazelcast Enterprise subscription license key, add the following property to the hazelcast.properties file.
+    To add the Hazelcast Enterprise subscription license key, add the following property to the `hazelcast.properties` file.
         
     ```java
     hazelcast.enterprise.license.key=<key>

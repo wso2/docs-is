@@ -795,7 +795,7 @@ You have set up WSO2 Identity Server and gone through the basic use cases of the
 product. 
 
 
-!!! info "Related Topics"
+!!! info "Related topics"
 
     -   See the [Quick Starts](../../../quick-starts/enable-login/) to try all the use cases with our sample applications. 
     -   See the [Guides](../../../guides/login/webapp-oidc/) to integrate your custom applications with WSO2 Identity Server for different scenarios.

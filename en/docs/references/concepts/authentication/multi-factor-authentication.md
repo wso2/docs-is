@@ -2,15 +2,15 @@
 
 ## What is multi-factor authentication?
 
-Multi-factor authentication (MFA) is an effective method of providing enhanced security during user authentication by verifying user identity using more than one piece of identifying information. This means that in addition to providing basic authentication (username and password credentials), the user is also prompted to provide further verfication in the form of a one-time password, biometrics, hardware key devices etc. 
+Multi-factor authentication (MFA) is an effective method of providing enhanced security during user authentication by verifying user identity using more than one piece of identifying information. This means that in addition to providing basic authentication (username and password credentials), the user is also prompted to provide further verification in the form of a one-time password, biometrics, hardware key devices, etc. 
 
-Due to increasing digital crimes and internet fraud in the world, people are highly concerned about security. The traditional username and password method is not enough to secure the authentication. Processing speeds of CPUs have increased, so brute force attacks are a reality and dictionary attacks have become a common threat. GPGPU password cracking and rainbow tables have provided similar advantages to attackers.
+Due to increasing digital crimes and internet fraud in the world, people are highly concerned about security. The traditional username and password method is not enough to secure the authentication. Processing speeds of CPUs have increased, so brute force attacks are a reality, and dictionary attacks have become a common threat. GPGPU password cracking and rainbow tables have provided similar advantages to attackers.
 
-To mitigate this, MFA creates a layered defense and makes it more difficult for an unauthorized person to gain access. Even if the username and password is compromised, the attacker would still have atleast one more barrier to break through in order to successfully breach security. 
+To mitigate this, MFA creates a layered defense and makes it more difficult for an unauthorized person to gain access. Even if the username and password is compromised, the attacker would still have at least one more barrier to break through in order to successfully breach security. 
 
 ---
 
-## Authetication factors
+## Authentication factors
 
 Multi-factor authentication uses a combination of different types of authentication factors. The three main categories are: 
 
@@ -41,7 +41,7 @@ Adaptive and context-aware access management is an evolved and flexible form of 
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Adaptive Authentication](../adaptive-authentication)
-    - [Guide: Multi-Factor Authentication](../../../guides/mfa/configure-authentication-journey)
+    - [Guide: Multi-Factor Authentication](../../../../guides/mfa/configure-authentication-journey)
 

@@ -56,7 +56,7 @@ Kerberos ticket for an OAuth2 token.
 4.  The Kerberos client receives the OAuth2 token. 
 
 5.  The Kerberos Grant validates the received token with the provided
-    Identity Provider (IDP) credentials and if it is a valid token, it
+    Identity Provider (IdP) credentials and if it is a valid token, it
     issues an OAuth2 token to the client.
 
     **Example**

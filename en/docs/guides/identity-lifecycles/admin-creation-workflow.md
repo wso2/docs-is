@@ -1,4 +1,4 @@
-# Add a user
+# Add a User
 
 ## Add a user using the management console
 
@@ -40,7 +40,7 @@ curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"jackso
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Invitation Workflow](../../../guides/identity-lifecycles/invitation-workflow) 
     - [Guide: User Self Registration Workflow](../../../guides/identity-lifecycles/self-registration-workflow)
     - [Guide: Just in Time User Provisioning Workflow](../../../guides/identity-lifecycles/jit-workflow/)

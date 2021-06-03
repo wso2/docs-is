@@ -152,6 +152,6 @@ Now, you have successfully configured Google and WSO2 Identity Server.
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Identity Federation](../../../references/concepts/identity-federation/)    
     

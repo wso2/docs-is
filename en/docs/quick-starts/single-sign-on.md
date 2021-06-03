@@ -5,6 +5,6 @@ standards like OpenID connect, Security Assertion Markup language (SAML), and WS
 
 Try out the following quick starts for SSO with various standard protocols: 
 
--   [Single sign-on for a Open ID Connect Application](../sso-for-oidc-apps) 
+-   [Single sign-on for a OpenID Connect Application](../sso-for-oidc-apps) 
 
 -   [Single sign-on for a SAML Application](../sso-for-saml-apps)

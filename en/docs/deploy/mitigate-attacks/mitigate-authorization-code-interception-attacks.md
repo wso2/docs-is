@@ -128,7 +128,7 @@ steps below to do this.
     ![](../../../assets/img/deploy/register-a-new-application.png)
 
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     -   See [Try Authorization Code Grant](../../../quick-starts/auth-code-playground/)
         to try out PKCE with the authorization code grant type using the
         WSO2 Playground web application.

@@ -3,7 +3,7 @@
 
 ## Tested operating systems and JDKs
 
-As WSO2 Identity Server is a Java application, you can generally run them on most operating systems. Given below are the JDKs that we have tested our products with.
+As WSO2 Identity Server is a Java application, you can generally run them on most operating systems. Given below are the JDKs that we have tested our product with.
 
 <table>
 	<tr>
@@ -76,7 +76,7 @@ WSO2 Identity Server supports the following DBMSs.
 				<li>MySQL 8.0</li>
 				<div class="admonition warning">
 					<p class="admonition-title"></p>
-					<p>To use MySQL 8.0, you need to create the database with charset latin1 as shown below</p>
+					<p>To use MySQL 8.0, you need to create the database with charset latin1 as shown below.</p>
 					<p><code>create database regdb <br> character set latin1; </code></p>
 				</div>
 				<li>MySQL 5.7</li>
@@ -126,7 +126,7 @@ WSO2 Identity Server supports the following DBMSs.
 
 ## Tested LDAPs
 
-Following is a list of LDAPs that WSO2 Identity Server 5.11.0 was tested with.
+Following is a list of LDAPs that WSO2 Identity Server was tested with.
 
 <ul>
 	<li>Open LDAP 2.4.28</li>

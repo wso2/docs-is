@@ -167,7 +167,7 @@ For a description of the parameters included in the HTML form, see [logout reque
 </tbody>
 </table>
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
     - [Concept: OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)

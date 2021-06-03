@@ -125,6 +125,6 @@ For more information, see the [JWKS specification](https://tools.ietf.org/html/r
 
 -----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: JSON Web Key Set](../../../references/concepts/authentication/jwks)
     - [Guide: Validate a JWT Based on JWKS](../validate-jwt-using-jwks)

@@ -83,7 +83,7 @@ Apart from this, users can also be added by directly plugging userstores into WS
 
 ----
     
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
     - [Guide: User Self Registration Workflow](../self-registration-workflow)

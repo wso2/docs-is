@@ -42,7 +42,7 @@ The provisioning request comes into the outbound provisioning component from the
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Provisioning](../identity-provisioning-intro)
     - [Guide: Inbound Provisioning](../../../guides/identity-lifecycles/inbound-provisioning)
     - [Guide: Outbound Provisioning](../../guides/identity-lifecycles/outbound-provisioning)

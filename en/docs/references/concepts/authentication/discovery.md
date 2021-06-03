@@ -5,10 +5,11 @@
 The main purposes of [**OpenID Connect Discovery**](https://openid.net/specs/openid-connect-discovery-1_0.html) are to,
 
 - [Discover OpenID Provider's issuer location.](#issuer-discovery)
-- [Expose OpenID Provider's meta data configurations.](#expose-metadata) 
+- [Expose OpenID Provider's metadata configurations.](#expose-metadata) 
 
-###Issuer Discovery
-OpenID Provider Issuer discovery refers to the process of determining the location
+### Issuer discovery
+
+OpenID Provider issuer discovery refers to the process of determining the location
 of the OpenID Provider. Following information is required when making a request to discover the issuer's location.
   
  <table>
@@ -38,23 +39,23 @@ of the OpenID Provider. Following information is required when making a request 
  </tbody>
  </table>
  
- Following endpoint responsibles for revealing the OpenID Provider's
+ The following endpoint is responsible for revealing the OpenID Provider's
  issuer after validating the required parameters (Resource, Host and rel). 
  
- ``` https://[server-url]/.well-known/webfinger```
+ ``` https://<SERVER_URL>/.well-known/webfinger```
  
-##  Expose Metadata
+### Expose metadata
  
  The OpenID provider exposes a JSON document listing all the metadata of the server. 
- This document contains of standard endpoints and other server supported meta data values. 
- The target audience of this file is the client applications developers who send requests to the
+ This document contains standard endpoints and other server supported metadata values. 
+ The target audience of this file are the client application developers who send requests to the
  server.
  
- Following endpoint responsibles for exposing the server's metadata.
+ The following endpoint is responsible for exposing the server's metadata.
  
- ```https://[server-url]/.well-known/openid-configuration```
+ ```https://<SERVER_URL>/.well-known/openid-configuration```
  
- A sample JSON file that will contain server meta data is shown below.
+ A sample JSON file that containing the server metadata is shown below.
 ``` java
 {
         "scopes_supported": [
@@ -116,3 +117,6 @@ of the OpenID Provider. Following information is required when making a request 
         "registration_endpoint": "https://localhost:9443/identity/connect/register"
     }
 ```
+
+!!! info "Related topics"
+        - [Guide: Discover OpenID Connect Provider](../../../../guides/login/oidc-discovery)

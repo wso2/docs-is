@@ -1,4 +1,4 @@
-# Configure Single Sign-On for an Open ID Connect Application
+# Configure Single Sign-On for an OpenID Connect Application
 
 This page guides you through configuring [single sign-on authentication](../../../references/concepts/single-sign-on) between two OIDC web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
 
@@ -48,6 +48,6 @@ You have successfully configured OpenID Connect single sign-on for two web appli
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
     - [Guide: Single Sign-On for an OpenID Connect Application](../../../guides/login/sso-for-oidc)

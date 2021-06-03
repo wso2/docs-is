@@ -498,7 +498,7 @@ nav:
           - 'Configure a Read-write LDAP Userstore': deploy/configure-a-read-write-ldap-user-store.md
         - 'Add High Availability for LDAP': deploy/add-high-availability-for-ldap.md
         - 'Configure Secondary Userstores': deploy/configure-secondary-user-stores.md
-        - 'Carbon Remote User Store Manager': deploy/carbon-remote-user-store-manager.md
+        #- 'Carbon Remote User Store Manager': deploy/carbon-remote-user-store-manager.md
         - 'Work with Properties of Userstores': deploy/work-with-properties-of-user-stores.md
         - 'Write a Custom Userstore Manager': deploy/write-a-custom-user-store-manager.md
     - 'Work with Tokens': 
@@ -508,7 +508,7 @@ nav:
       - 'Enable Assertions In Access Tokens': deploy/enable-assertions-in-access-tokens.md
     - 'Data Purging': deploy/data-purging.md
     - 'Remove References to Deleted User Identities': deploy/remove-references-to-deleted-user-identities.md
-    - 'Configure rsync for Deployment Synchronization': deploy/configuring-rsync-for-deployment-synchronization.md
+    #- 'Configure rsync for Deployment Synchronization': deploy/configuring-rsync-for-deployment-synchronization.md
     - 'Configure an SP and IdP Using Configuration Files': deploy/configure-an-sp-and-idp-using-configuration-files.md
     - 'Configure the Email Sending Module': deploy/configure-email-sending.md
     - 'Configure Hazelcast': deploy/configure-hazelcast.md
@@ -700,7 +700,7 @@ nav:
         - 'Users': references/concepts/user-management/users.md
         - 'Roles and Permissions': references/concepts/user-management/roles-and-permissions.md
         - 'Userstores': references/concepts/user-management/userstores.md
-        - 'Realms': references/concepts/realm.md
+        - 'Realms': references/concepts/user-management/realm.md
       - 'Authentication':
           - 'Introduction': references/concepts/authentication/intro-authentication.md
           - 'Authentication Protocols':
@@ -720,13 +720,13 @@ nav:
                                     - 'Request Object': references/concepts/authentication/request-object.md
                                     - 'Traditional Authentication Request': references/concepts/authentication/traditional-authentication-request.md
                           - 'User Information': references/concepts/authentication/user-information.md
-                          - 'Scopes And Claims': references/concepts/authentication/scopes-claims.md
+                          - 'Scopes and Claims': references/concepts/authentication/scopes-claims.md
                           - 'Discovery': references/concepts/authentication/discovery.md
                           - 'JWKS': references/concepts/authentication/jwks.md
-                          - 'Dynamic Client Registration': references/concepts/authorization/dcr.md
+                          - 'Dynamic Client Registration': references/concepts/authentication/dcr.md
                           - 'Session Management and Logout': references/concepts/authentication/session-management.md
-                          - 'Back-channel-logout': references/concepts/authentication/back-channel-logout.md
-                          - 'OIDC Device Flow': references/concepts/authentication/device-flow.md
+                          - 'Back-Channel Logout': references/concepts/authentication/back-channel-logout.md
+                          #- 'OIDC Device Flow': references/concepts/authentication/device-flow.md
                           - 'Microprofile JWT 1.0': references/concepts/authentication/microprofile-jwt.md
                   - 'SAML':
                           - 'Introduction': references/concepts/authentication/intro-saml.md
@@ -734,13 +734,13 @@ nav:
                           - 'SAML Front-Channel Logout': references/concepts/authentication/saml-front-channel.md
                           - 'SAML Back-Channel Logout': references/concepts/authentication/saml-back-channel.md
                   - 'WS-Federation':
-                          - 'Introduction': references/concepts/authentication/ws-federation.md
+                          - 'Introduction': references/concepts/authentication/intro-ws-federation.md
                   - 'WS-Trust':
-                          - 'Introduction': references/concepts/authentication/ws-trust.md
-                  - 'NTLM':
-                          - 'Introduction': references/concepts/authentication/ntlm.md
-                  - 'Kerberos':
-                          - 'Introduction to Kerberos': references/concepts/authentication/kerberos.md
+                          - 'Introduction': references/concepts/authentication/intro-ws-trust.md
+                  #- 'NTLM':
+                         # - 'Introduction': references/concepts/authentication/ntlm.md
+                  #- 'Kerberos':
+                          #- 'Introduction to Kerberos': references/concepts/authentication/kerberos.md
           - 'Adaptive Authentication': references/concepts/authentication/adaptive-authentication.md
           - 'Multi Factor Authentication': references/concepts/authentication/multi-factor-authentication.md
           - 'FIDO': references/concepts/authentication/mfa-with-fido.md
@@ -783,6 +783,7 @@ nav:
       - 'Identity Anti-Patterns and the Identity Bus': references/concepts/identity-anti-patterns-and-the-identity-bus.md
       - 'Claim Management': references/concepts/claim-management.md
       - 'Integrated Windows Authentication': references/concepts/integrated-windows-authentication-overview.md
+      - 'Multitenancy': references/concepts/introduction-to-multitenancy.md
       #- 'Comparisions':
         #- 'OAuth2 vs OIDC vs SAML': references/concepts/oauth-oidc-saml.md
         #- 'NTLM vs Kerberos': references/concepts/ntlm-kerberos.md
