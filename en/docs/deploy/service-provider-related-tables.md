@@ -84,7 +84,7 @@ the `SP_AUTH_STEP` table. Following are the columns of the table.
 ## SP_CLAIM_MAPPING
 
 When the claims of the identity provider are different from the Service
-Provider, corresponding claims can be mapped from this table for each
+provider, corresponding claims can be mapped from this table for each
 service provider. The service provider ID is given in `APP_ID` and the
 `IDP_CLAIM` and `SP_CLAIM` are the identity provider and service provider
 claims respectively. Following are the columns of the table.
