@@ -2,9 +2,9 @@
 
 ## What is adaptive authentication?
 
-Adaptive authentication, also known as step-up authentication, is an evolved and flexible form of [multi-factor authentication](../multi-factor-authentication) that tightens security when the possibility of a security breach is higher. Additional authentication steps such as SMS OTP, FIDO, fingerprint authentication etc., can be configured and deployed in such a way that the system is able to decide which steps to prompt during the authentication process depending on the user’s risk profile and their behaviour.  
+Adaptive authentication, also known as step-up authentication, is an evolved and flexible form of [multi-factor authentication](../multi-factor-authentication) that tightens security when the possibility of a security breach is higher. Additional authentication steps such as SMS OTP, FIDO, fingerprint authentication, etc., can be configured and deployed in such a way that the system is able to decide which steps to prompt during the authentication process depending on the user’s risk profile and their behavior.  
 
-For instance, high-risk transactions such as a user attempting to transfer a high sum of money causes the adaptive authentication mechanism to prompt an extra authentication step like sending a one-time security code to the user's mobile phone, in order to increase security.
+For instance, high-risk transactions such as a user attempting to transfer a high sum of money cause the adaptive authentication mechanism to prompt an extra authentication step like sending a one-time security code to the user's mobile phone, in order to increase security.
 
 ![adaptive authentication](../../../assets/img/concepts/adaptive-authentication.png)
 
@@ -14,11 +14,11 @@ For instance, high-risk transactions such as a user attempting to transfer a hig
 
 With adaptive authentication, the authentication strength is adjusted in real-time based on the context at hand, before granting access to a resource. 
 
-This means that organisations can apply precisely the right level of gateway security to each and every login request, instead of issuing static procedures for everyone to follow under all circumstances. It improves convenience for the user while still tightening the security around authentication because it results in fewer interruptions for users who are recognized and behaving in expected ways but prompts extra security for users or circumstances that might be posing a potential risk. 
+This means that organizations can apply precisely the right level of gateway security to each and every login request, instead of issuing static procedures for everyone to follow under all circumstances. It improves convenience for the user while still tightening the security around authentication because it results in fewer interruptions for users who are recognized and behaving in expected ways but prompts extra security for users or circumstances that might be posing a potential risk. 
 
 Some of the most common needs addressed by adaptive authentication are:
 
-- Users want simple and convenient access to resources that they access on a daily basis, yet organizations need to be careful when authenticating them if the user behaviour seems out of the ordinary. 
+- Users want simple and convenient access to resources that they access on a daily basis, yet organizations need to be careful when authenticating them if the user behavior seems out of the ordinary. 
 
 - Users need seamless access to certain resources, but organizations need to further verify their identities before they access anything more sensitive. 
 
