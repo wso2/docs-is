@@ -2,7 +2,7 @@
 
 A key requirement outlined in the General Data Protection Regulation
 (GDPR) is the right of the data subject to be forgotten, which gives
-individuals the right to request an organisation to remove their
+individuals the right to request an organization to remove their
 personal information from a system.  
 To comply with this requirement, WSO2 Identity Server (WSO2 IS) supports
 removing references to personally identifiable information (PII) of a

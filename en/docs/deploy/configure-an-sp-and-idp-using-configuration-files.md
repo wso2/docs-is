@@ -20,7 +20,7 @@ have the `travelocity` application configured as a service provider and an
 identity provider configured and shared across its tenant space. This is
 illustrated via the following diagram.
 
-![Configuring an SP and IdP using configuration files](../../../assets/img/deploy/configuration-files.png)
+![configuring an sp and idp using configuration files](../../../assets/img/deploy/configuration-files.png)
 
 The following are the high level steps required for this scenario.
 
@@ -36,7 +36,7 @@ The following are the high level steps required for this scenario.
     step 1) as a federated authenticator.
 
 !!! note
-    The above processes can be easily done using the [Management Console](../../../deploy/get-started/get-started-with-the-management-console/), but the
+    The above processes can be easily done using [WSO2 Identity Server Management Console](../../../deploy/get-started/get-started-with-the-management-console/), but the
     `service provider` and `identity provider` created in `          service provider IS         `, will **only be visible to the
     tenant who creates them**. 
     
@@ -86,8 +86,8 @@ This section involves adding the ` service provider IS ` as a
 service provider in the ` identity provider IS ` from the management
 console.
 
-1.  Start the `identity provider IS` and access the Management Console (`https://<IS_HOST>:<PORT>/carbon`). Refer [Run the Product(../../../deploy/get-started/run-the-product/).
-2.  Navigate to the **Main** -> **Identity** -> **Service Providers** -> Click **Add**.
+1.  Start the `identity provider IS` and access WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). Refer [Run the Product(../../../deploy/get-started/run-the-product/).
+2.  Navigate to the **Main** > **Identity** > **Service Providers** > Click **Add**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. 
     
@@ -419,7 +419,7 @@ service provider in the ` service provider IS ` via a file.
 
     !!! note
     
-        Please note that the management console will not show the SP-related
+        WSO2 Identity Server Management Console will not show the SP-related
         configuration information if it is loaded through a file
 
         ![no-service-providers](../../../assets/img/deploy/no-service-providers.png)
@@ -433,13 +433,13 @@ service provider in the ` service provider IS ` via a file.
 
 !!! note
     Check whether you have enabled following configurations while adding the service provider 
-    in the `identity provider IS`. You can check this by navigating to **Main** -> **Identity** -> 
-    **Service Providers** -> **List** -> Click **Edit** in the corresponding SP -> 
-    **Inbound Authentication Configuration** -> **SAML2 Web SSO Configuration** -> **Edit**.
+    in the `identity provider IS`. You can check this by navigating to **Main** > **Identity** > 
+    **Service Providers** > **List** > Click **Edit** in the corresponding SP > 
+    **Inbound Authentication Configuration** > **SAML2 Web SSO Configuration** > **Edit**.
     
-    ![SAML2 Web SSO Configuration](../../../assets/img/deploy/sp_configs.png)
+    ![SAML2 web SSO configuration](../../../assets/img/deploy/sp_configs.png)
     
-    If you have `not enabled` the configs, add the following configs to travelocity as well.
+    If you have not enabled the configs, add the following configs to travelocity as well.
     
     1.  Stop tomcat if it is already running.
     2.  Navigate to `<TOMCAT_HOME>/webapps/travelocity.com/WEB­INF/classes/travelocity.properties` file 
@@ -592,14 +592,14 @@ Now you can test if the configurations you have done work in a tenant scenario.
     of the tenant.
     
     !!! note
-        If you have **not enabled** signature validation, proceed to the next step.
+        If you have not enabled signature validation, proceed to the next step.
     
-    1.  Log in using tenant credentials to the management console and
+    1.  Log in using tenant credentials to WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) and
         navigate to **Main > Manage > Keystores > List.**
         Click on `            Public Key           ` link to download
         the certificate.  
         
-        ![](../../../assets/img/deploy/public-key-certificate.png)
+        ![download public key certificate](../../../assets/img/deploy/public-key-certificate.png)
         
     2.  Now you need to import this public certificate to
         `             <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/wso2carbon.jks            `

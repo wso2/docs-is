@@ -18,7 +18,7 @@ validity= 4
 
 ## Resolve artifacts with WSO2 IS
 
-According to the SAML Specification, issued SAML artifacts should be resolved, or exchanged to an actual SAML response, via a backchannel call to the issuer. 
+According to the SAML Specification, issued SAML artifacts should be resolved, or exchanged to an actual SAML response, via a back-channel call to the issuer. 
 
 WSO2 Identity Server supports SOAP Binding to resolve SAML artifacts according to Section 3.6 of the [SAML 2.0 Binding
 Specification](http://www.oasis-open.org/committees/download.php/35387/sstc-saml-bindings-errata-2.0-wd-05-diff.pdf).

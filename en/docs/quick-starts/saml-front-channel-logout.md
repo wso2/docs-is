@@ -1,4 +1,4 @@
-# Configure SAML 2.0 Front Channel Logout 
+# Configure SAML 2.0 Front-Channel Logout 
 
 This page guides you through configuring [SAML 2.0 front channel logout](../../../references/concepts/authentication/saml-front-channel/). This is demonstrated using two versions of a sample application called Spring SAML application. 
 
@@ -155,5 +155,5 @@ Follow the same steps and change the values for sample2 and register another ser
 ---
     
 !!! info "Related topics"
-    -   [Concept: Configuring SAML Front Channel Logout](../../../references/concepts/authentication/saml-front-channel)
-    -   [Guide: Configure SAML 2.0 Front Channel Logout](../../../guides/login/saml-front-channel-logout)
+    -   [Concept: Configuring SAML Front-Channel Logout](../../../references/concepts/authentication/saml-front-channel)
+    -   [Guide: Configure SAML 2.0 Front-Channel Logout](../../../guides/login/saml-front-channel-logout)

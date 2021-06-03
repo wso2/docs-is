@@ -40,7 +40,7 @@ options.
 <thead>
 <tr class="header">
 <th>Available methods</th>
-<th>Default behaviour</th>
+<th>Default behavior</th>
 <th>Reasons for overriding</th>
 </tr>
 </thead>
@@ -94,7 +94,7 @@ options.
 <thead>
 <tr class="header">
 <th>Available methods</th>
-<th>Default behaviour</th>
+<th>Default behavior</th>
 </tr>
 </thead>
 <tbody>
@@ -159,7 +159,7 @@ options.
 
 ### Read methods
 
-| Available methods                                                                                                                       | Default behaviour                                                                                                                                                                          |
+| Available methods                                                                                                                       | Default behavior                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `                boolean doCheckExistingUser(String userName)               `                                                           | Returns whether the provided `               userName              ` already exists in the userstore                                                                                     |
 | `                boolean doCheckExistingRole(String roleName)               `                                                           | Returns whether the provided `roleName` already exists in the userstore                                                                                                                    |
