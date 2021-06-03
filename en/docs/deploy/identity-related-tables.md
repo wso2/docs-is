@@ -7,7 +7,7 @@ This section lists out all the identity related tables and their attributes in t
 #### IDN_BASE_TABLE
 
 This table is used to provide information related to the server setup.
-It has only one column `(PRODUCT_NAME)`, which contains a row with the
+It has only one column, `PRODUCT_NAME`, which contains a row with the
 value `WSO2 Identity Server`.  
 
 ---
@@ -432,7 +432,7 @@ description of the values it contains.
 
 ---
 
-#### IDN_ASSOCIATED_ID
+<!--#### IDN_ASSOCIATED_ID
 
 In WSO2 Identity Server Dashboard, users can associate their social
 identity (i.e. Facebook, Yahoo, Google, Microsoft ) with the user
@@ -445,7 +445,7 @@ the columns and a description of the values it contains.
 | IDP_USER_ID | The user's username in the social account (i.e., Facebook username)                      |
 | TENANT_ID    | The ID of the tenant in which the user is created                                        |
 | IDP_ID       | The ID of the identity provider which contains the federated authenticator               |
-| USER_NAME    | The username of the user in WSO2 Identity Server that this social identity is associated with |
+| USER_NAME    | The username of the user in WSO2 Identity Server that this social identity is associated with |-->
 
 ---
 
