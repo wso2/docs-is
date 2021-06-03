@@ -20,10 +20,9 @@ of the table.
 
 ## UM_DOMAIN
 
-The user store domains of all tenants are stored in this table. By
-default for a tenant, there are three domains as `PRIMARY`, `SYSTEM` and
-`INTERNAL`. If a secondary user store is added for a tenant, the user
-store domain details for that also will get stored in this table.
+The userstore domains of all tenants are stored in this table. By
+default for a tenant, there are three domains as `PRIMARY`, `SYSTEM`, and
+`INTERNAL`. If a secondary userstore is added for a tenant, the userstore domain details for that also will get stored in this table.
 
 -   `UM_DOMAIN_ID`
 -   `UM_DOMAIN_NAME`
@@ -33,7 +32,7 @@ store domain details for that also will get stored in this table.
 
 ## UM_USER
 
-When a JDBC user store is used as a primary or secondary user store, the
+When a JDBC userstore is used as a primary or secondary userstore, the
 user details will be stored in this table upon user creation. Following
 are the columns of the table.
 
@@ -49,7 +48,7 @@ are the columns of the table.
 
 ## UM_ROLE
 
-When a JDBC user store is used as a primary or secondary user store, the
+When a JDBC userstore is used as a primary or secondary userstore, the
 user role details will be stored in this table upon creation of a role.
 Following are the columns of the table.
 
@@ -62,7 +61,7 @@ Following are the columns of the table.
 
 ## UM_MODULE
 
-This table is not being used in Identity Server latest version.
+This table is not being used in the latest version of WSO2 Identity Server.
 
 -   `UM_ID`
 -   `UM_MODULE_NAME`
@@ -71,7 +70,7 @@ This table is not being used in Identity Server latest version.
 
 ## UM_MODULE_ACTIONS
 
-This table is not being used in Identity Server latest version.
+This table is not being used in the latest version of WSO2 Identity Server.
 
 -   `UM_ACTION`
 -   `UM_MODULE_ID`
@@ -96,7 +95,7 @@ to be assigned for user roles. Following are the columns of the table.
 All the permissions assigned to a role are stored in this table. A role
 can have multiple records in this table and each record is associated
 with a particular permission defined by `UM_PERMISSION_ID`. This
-permission ID is linked to `UM_PERMISSION` table. Following are the
+permission ID is linked to the `UM_PERMISSION` table. Following are the
 columns of the table.
 
 -   `UM_ID`
@@ -110,7 +109,7 @@ columns of the table.
 
 ## UM_USER_PERMISSION
 
-This table is not used in the latest Identity Server version. Following
+This table is not used in the latest version of WSO2 Identity Server. Following
 are the columns of the table.
 
 -   `UM_ID`
@@ -138,8 +137,7 @@ table.
 
 ## UM_SHARED_USER_ROLE
 
-This table is not being used in the latest version of the Identity
-Server.
+This table is not being used in the latest version of WSO2 Identity Server.
 
 -   `UM_ROLE_ID`
 -   `UM_USER_ID`
@@ -150,8 +148,7 @@ Server.
 
 ## UM_ACCOUNT_MAPPING
 
-This table is not being used in the latest version of the Identity
-Server.
+This table is not being used in the latest version of WSO2 Identity Server.
 
 -   `UM_ID`
 -   `UM_USER_NAME`
@@ -163,14 +160,14 @@ Server.
 
 ## UM_USER_ATTRIBUTE
 
-When a JDBC user store is used and a user is created in that user store,
+When a JDBC userstore is used and a user is created in that userstore,
 attributes can be added for the user profile. Each attribute will have a
-record in the table as key value pairs where `UM_ATTR_NAME` and
+record in the table as key value pairs where the `UM_ATTR_NAME` and
 `UM_ATTR_VALUE` columns contain the attribute name and value
-respectively. `UM_USER_ID` column contains the ID of the user which
-points to the UM_ID column of the `UM_USER` table. If a JDBC user store
+respectively. The `UM_USER_ID` column contains the ID of the user which
+points to the `UM_ID` column of the `UM_USER` table. If a JDBC userstore
 is used, multiple profiles can be created for a user. The profile that
-the user attribute belongs is given in `UM_PROFILE_ID` column. Following
+the user attribute belongs to is given in the `UM_PROFILE_ID` column. Following
 are the columns of the table.
 
 -   `UM_ID`
@@ -186,7 +183,7 @@ are the columns of the table.
 
 In claim management, all the claims are grouped into dialects. A claim
 dialect is a group of claims. One claim dialect can have multiple
-claims. Those claims are stored in UM_CLAIM table. The claim dialects
+claims. Those claims are stored in the `UM_CLAIM` table. The claim dialects
 are stored in this table. Following are the columns of the table.
 
 -   `UM_ID`
@@ -219,7 +216,7 @@ are the columns of the table.
 
 ## UM_PROFILE_CONFIG
 
-This table is not being used in the Identity Server latest version.
+This table is not being used in the latest version of WSO2 Identity Server.
 Following are the columns in the table.
 
 -   `UM_ID`
@@ -245,7 +242,7 @@ as the Service Provider name. Following are the columns of the table.
 ## UM_HYBRID_USER_ROLE
 
 When a user is assigned an `internal` role, that is recorded in this
-table. The `internal` roles are stored in `UM_HYBRID_ROLE` table and
+table. The `internal` roles are stored in the `UM_HYBRID_ROLE` table and
 from this table, the users are mapped to those roles. Following are the
 columns of the table.
 
@@ -275,10 +272,8 @@ columns of the table.
 
 ## UM_SYSTEM_ROLE
 
-System roles of the Identity Server are stored in this table. The
-`wso2.anonymous.role` is created by default which is a special role that
-represents a user that has not logged into the Identity Server
-Management Console. Granting "Read" access to resources for this role
+System roles of WSO2 Identity Server are stored in this table. The `wso2.anonymous.role` is created by default which is a special role that
+represents a user that has not logged in to WSO2 Identity Server Management Console. Granting Read access to resources for this role
 would mean that you do not require authentication to access resources
 using the respective permalinks. Following are the columns of the table.
 
@@ -292,8 +287,7 @@ using the respective permalinks. Following are the columns of the table.
 
 Storing the system roles assigned to the the system users is done with
 this table. `UM_USER_NAME` contains the username of the system user.
-`UM_ROLE_ID` column contains the ID of the system role which points to
-the `UM_ID` column of the `UM_SYSTEM_ROLE` table. `wso2.anonymous.role`
+`UM_ROLE_ID` contains the ID of the system role which points to the `UM_ID` column of the `UM_SYSTEM_ROLE` table. The `wso2.anonymous.role`
 system role is by default assigned to the `wso2.anonymous.user` system
 user in this table. Following are the columns of the table.
 
@@ -306,12 +300,11 @@ user in this table. Following are the columns of the table.
 
 ## UM_HYBRID_REMEMBER_ME
 
-When login to the management console of the Identity Server, user can
+When logging in to WSO2 Identity Server Management Console, user can
 select the `Remember Me` option. Upon successful login, a record will be
-added to this table. `UM_USER_NAME` column contains the username of the
+added to this table. The `UM_USER_NAME` column contains the username of the
 user. `UM_CREATED_TIME` is the date and time of the login.
-`UM_COOKIE_VALUE` column contains the wso2.carbon.rememberme cookie
-value which is created upon login.
+`UM_COOKIE_VALUE` contains the `wso2.carbon.rememberme` cookie value which is created upon login.
 
 -   `UM_ID`
 -   `UM_USER_NAME`
