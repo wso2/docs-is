@@ -1,4 +1,4 @@
-# service provider Related Tables
+# Service Provider Related Tables
 
 This section lists out all the service provider related tables and their
 attributes in the WSO2 Identity Server database.
