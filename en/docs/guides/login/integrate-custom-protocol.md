@@ -25,7 +25,7 @@ Copy the custom inbound authenticator to the ```<IS_HOME>/repository/components/
 
 4. Expand **Inbound Authentication Configuration** and select the relevant configurations according to the custom inbound authenticator you deployed.
 
------
+
 
 <!---
 !!! info "Related topics"

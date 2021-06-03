@@ -33,7 +33,6 @@ There are two main types of identity provisioning.
 - [Inbound Provisioning](../provisioning-framework/#inbound-provisioning)
 - [Outbound Provisioning](../provisioning-framework/#outbound-provisioning)
 
-----
  
 !!! info "Related topics"
     - [Concept: Provisioning Framework](../provisioning-framework)

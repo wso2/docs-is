@@ -67,8 +67,6 @@ You will receive an access token with the response.
 {"access_token":"b9ed0658-f187-3d39-a4f1-6d42522e1eee","refresh_token":"3426ff78-62a5-32fa-be6e-74ab69d4cbf4","token_type":"Bearer","expires_in":3600}
 ```
 
-----
-
 !!! info "Related topics"
     - [Concept: Refresh token grant](../../../references/concepts/authorization/refresh-token-grant)
     

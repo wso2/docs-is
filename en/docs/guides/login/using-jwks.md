@@ -123,7 +123,6 @@ For information about the elements in the response, see [Response parameters](#r
 
 For more information, see the [JWKS specification](https://tools.ietf.org/html/rfc7515#section-4).
 
------
 
 !!! info "Related topics"
     - [Concept: JSON Web Key Set](../../../references/concepts/authentication/jwks)

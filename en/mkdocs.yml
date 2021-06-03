@@ -745,7 +745,7 @@ nav:
           - 'Multi Factor Authentication': references/concepts/authentication/multi-factor-authentication.md
           - 'FIDO': references/concepts/authentication/mfa-with-fido.md
       - 'Authorization':
-          - 'Introduction': references/concepts/authorization/intro-authorization.md
+          #- 'Introduction': references/concepts/authorization/intro-authorization.md
           - 'Authorization Protocols':
                         - 'OAuth2':
                                     - 'Introduction': references/concepts/authorization/intro-oauth2.md

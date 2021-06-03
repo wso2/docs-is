@@ -29,8 +29,6 @@ curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Users/b
 ```
 
 You receive a response with status `200 OK` and the user will be deleted from the userstore.
-
------
     
 !!! info "Related topics"
     - [Concept: Users](../../../references/concepts/user-management/users)

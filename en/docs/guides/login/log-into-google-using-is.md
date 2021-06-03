@@ -150,8 +150,6 @@ Now, you have successfully configured Google and WSO2 Identity Server.
     user, enter the username and password of the user on the WSO2 Identity
     Server sign in screen, and you are navigated to the user's mail account.
 
-----
-
 !!! info "Related topics"
     - [Concept: Identity Federation](../../../references/concepts/identity-federation/)    
     

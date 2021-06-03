@@ -49,7 +49,6 @@ The following diagram illustrates the flow for **SP-initiated logout**.
 
 In an **IdP-initiated logout** scenario, the identity provider (acting as session authority) initiates this profile at step 2 and issues a `<LogoutRequest>` message to all session participants. Step 5 is skipped in this scenario. 
 
----
 
 !!! info "Related topics"
     - [Concept: SAML 2.0](../intro-saml)

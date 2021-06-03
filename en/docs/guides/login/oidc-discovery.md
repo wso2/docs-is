@@ -264,7 +264,6 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
         }
     ```
 
------
 
 !!! info "Related topics"
     - [Concept: OpenID Connect Discovery](../../../references/concepts/authentication/discovery)

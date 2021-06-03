@@ -197,7 +197,6 @@ session_state==...
 | consent_required | Occurs when the user cannot provide the consent again  | 
     
 
-----
      
 !!! info "Related topics"
      - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)

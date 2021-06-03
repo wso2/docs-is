@@ -5,7 +5,7 @@
 Tokens are associated with the authorization which is used to gain access to a restricted resource. Usually, the tokens
 which have a defined lifespan will carry information or act like credentials in the authorization flow.
 
-In OAuth2.0 flow there two types of tokens that are engaged in the authorization process.
+In OAuth 2.0 flow there two types of tokens that are engaged in the authorization process.
 
 [Access Token](../authorization/access-token.md)
  

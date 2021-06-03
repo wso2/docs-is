@@ -75,8 +75,6 @@ The UMA grant is an extension of the OAuth 2.0 grant and enhances OAuth capabili
 - **pre-defined authorization grant rules**: the resource owner can configure authorization grant rules (policy conditions) at will rather than having to authorize access token issuance each time synchronously. The authorization server and resource server interact with the client and requesting party asynchronously with respect to the resource owner's interactions. 
 
 Using the UMA grant, a client application acting on behalf of the requesting party can obtain a Requesting Party Token (RPT) from the authorization server after successful evaluation of policy conditions, scopes, claims, and any other relevant information.
-
----
      
 !!! info "Related topics"
     - [Concept: Resource Registration Endpoint](../uma-resource-registration)

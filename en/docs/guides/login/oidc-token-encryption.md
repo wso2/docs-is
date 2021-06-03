@@ -132,7 +132,6 @@ This section guides you through obtaining an encrypted ID token and decrypting i
     }
     ```
     
-----
 
 !!! info "Related topics"
     - [Concept: ID Token](../../../references/concepts/authentication/id-token)

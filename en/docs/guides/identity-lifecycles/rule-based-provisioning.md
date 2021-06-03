@@ -195,7 +195,6 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 
 Once the policies are published to PDP, they are ready to execute during outbound provisioning. You can test rule-based provisioning by creating a user in WSO2 Identity Server that matches the rules you enforced. For example, when you create a user with the role "finance" in WSO2 Identity Server, it should be provisioned to the external IDP you have configured for outbound provisioning as well. A user who is not assigned the "finance" role should not be provisioned.
 
-----
 
 !!! info "Related topics"
 	- [Guide: Role-Based Provisioning](../role-based-provisioning)
