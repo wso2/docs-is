@@ -53,7 +53,7 @@ column, `PROP_NAME` and the value is a random integer stored in the
 
 The service providers can define how to authenticate users at WSO2 Identity Server, for authentication requests initiated by it. While
 doing that, each service provider can define multiple steps and for each
-step, it can pick more than one authenticator. This is called Multi-level (multi-factor) Authentication. This table stores each
+step, it can pick more than one authenticator. This is called multi-level (multi-factor) authentication. This table stores each
 authentication step added to the service provider. Service provider is
 represented by the `APP_ID`. If multiple authentication steps are added
 for one service provider, the order is maintained in the `STEP_ORDER`
