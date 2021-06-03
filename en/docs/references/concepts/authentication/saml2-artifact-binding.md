@@ -1,6 +1,6 @@
 # SAML2 Artifact Binding
 
-There are several bindings or methods introduced with the SAML Specification such as HTTP Redirect Binding, HTTP POST Binding, and HTTP Artifact Binding. The SAML Artifact Binding uses a special token to transport sensitive information between two parties. 
+There are several bindings or methods introduced with the SAML specification such as HTTP Redirect Binding, HTTP POST Binding, and HTTP Artifact Binding. The SAML Artifact Binding uses a special token to transport sensitive information between two parties. 
 
 WSO2 Identity Server (WSO2 IS) supports acquiring SAML protocol messages
 via HTTP Artifact Binding according to section 3.5 of the [SAML 2.0 core
@@ -20,10 +20,10 @@ practical).
 
 In the HTTP artifact binding, the SAML request, the SAML response, or
 both are transmitted by reference using a small stand-in called an
-*artifact.* A separate, synchronous binding, such as the SAML SOAP
+**artifact**. A separate, synchronous binding, such as the SAML SOAP
 binding, is used to exchange the artifact for the actual protocol
 message using the artifact resolution protocol. When using the HTTP
-artifact binding for the SAML \<Response\> message, SAML permits the
+artifact binding for the SAML <Response\> message, SAML permits the
 artifact to be delivered via the browser using either an HTTP POST or
 HTTP Redirect response.
 
@@ -41,19 +41,19 @@ The diagram below shows the process of SAML Artifact Binding.
 
 1.  The user wants to access a resource in the service and goes to the service using the browser. 
 
-2.  The service needs the user’s authentication to grant access. So it creates a SAML authentication request and sends it to the IDP, through the user agent. In most cases, this call is a browser redirection (302).
+2.  The service needs the user’s authentication to grant access. So it creates a SAML authentication request and sends it to the IdP, through the user agent. In most cases, this call is a browser redirection (302).
 
-3.  The IDP asks the user to log in.
+3.  The IdP asks the user to log in.
 
-4.  Once the authentication is successful, the IDP sends a special key known as the SAML Artifact to the service, through the user agent. 
+4.  Once the authentication is successful, the IdP sends a special key known as the SAML artifact to the service, through the user agent. 
 
-5.  The service makes a back channel call to the IDP’s Artifact Resolution Endpoint with the SAML artifact.
+5.  The service makes a back-channel call to the IdP’s Artifact Resolution Endpoint with the SAML artifact.
 
-6.  The IDP sends the actual SAML Response to the service.
+6.  The IdP sends the actual SAML response to the service.
 
 
 !!! info "Related topics"
 
-    [Quick Start: Use SAML Artifact Binding](../../../quick-starts/use-artifact-binding-sample)
+    [Quick Start: Use SAML Artifact Binding](../../../../quick-starts/use-artifact-binding-sample)
 
-    [Guides: Use SAML2 Artifact Binding](../../../guides/login/use-artifact-binding/)
+    [Guides: Use SAML2 Artifact Binding](../../../../guides/login/use-artifact-binding/)
