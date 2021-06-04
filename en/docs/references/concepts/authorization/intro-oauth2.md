@@ -15,7 +15,7 @@ required permissions to a third-party application to access a resource located i
 It decouples authentication from authorization and supports multiple use cases addressing different client types such as
 server-to-server apps, browser-based apps, mobile/native apps, and consoles/TVs.
 
-This protocol which replaces the password-sharing anti-pattern and encourages ‘Federated Identity’, is more secure and 
+This protocol which replaces the password-sharing anti-pattern and encourages Federated Identity, is more secure and 
 usable. When working with the tokens it guarantees API security by relying on Secure Sockets Layer (SSL) that ensures 
 data between the web server and browsers remain private. If a user can log in to a single OAuth 2.0 provider then they can
 log in to other web services without logging in to those web services differently.
