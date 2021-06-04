@@ -171,10 +171,10 @@ customize one of the existing grant types. The following two classes are
 sample implementations of customizing the password grant type in
 particular but any other grant type can be customized as well.
 
--   [RoleBasedPasswordGrant](https://github.com/wso2/product-is/blob/release-5.3.0/modules/samples/oauth2/custom-grant/src/main/java/org/wso2/sample/identity/oauth2/grant/password/RoleBasedPasswordGrant.java) -
+-   [RoleBasedPasswordGrant](https://github.com/wso2/samples-is/blob/master/oauth2/custom-grant/src/main/java/org/wso2/sample/identity/oauth2/grant/password/RoleBasedPasswordGrant.java) -
     This does some RBAC validation apart from the authentication before
     granting access.
--   [ModifiedAccessTokenPasswordGrant](https://github.com/wso2/product-is/blob/release-5.3.0/modules/samples/oauth2/custom-grant/src/main/java/org/wso2/sample/identity/oauth2/grant/password/ModifiedAccessTokenPasswordGrant.java) -
+-   [ModifiedAccessTokenPasswordGrant](https://github.com/wso2/samples-is/blob/master/oauth2/custom-grant/src/main/java/org/wso2/sample/identity/oauth2/grant/password/ModifiedAccessTokenPasswordGrant.java) -
     This implementation customized the access token value.
 
 This section provides instructions on how to
