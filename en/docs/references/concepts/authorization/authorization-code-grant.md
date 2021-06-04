@@ -1,7 +1,7 @@
 # Authorization Code Grant Type
 
 The authorization code grant type is optimized for [confidential clients](../client-types/#confidential-clients).
-It provides a few important security benefits such as;
+It provides a few important security benefits.
 
 - It can authenticate the client.
 
@@ -45,5 +45,4 @@ Response:
 
 !!! info "Support for refresh token grant"
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../refresh-token-grant).
-
 
