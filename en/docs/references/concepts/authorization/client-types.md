@@ -17,7 +17,7 @@ or the credentials to the web application, those credentials will not be exposed
 
 Confidential clients should associate with the grant types which require `authentication`. For the web based confidential clients,
 it is recommended to use the **Authorization Code** grant type and for the machine-to-machine communication, it is recommended to use 
-**Client Credentials** grant type.
+the **Client Credentials** grant type.
 
 ---
 
