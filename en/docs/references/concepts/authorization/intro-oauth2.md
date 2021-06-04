@@ -36,7 +36,7 @@ These different grant types target different application types.
 | --------------------- | ------------- | 
 | Authorization code grant | This is mostly recommended for web applications and single-page applications (SPA). This method is very safe in web applications, as tokens are passed directly to the web server and stored there without exposing the tokens to the resource owners. For single-page applications (JavaScript clients), it is recommended to use this grant type with PKCE.  |                            
 | Client credential grant  | Recommended for machine to machine communications (CLIs), if a machine needs to access a resource without human interaction.  |                              
-| Implicit grant            | Used for single-page applications (SPA) to retrieve the access tokens directly without spending several round trips. However, there is a security consideration, as the access token is exposed to the client-side.  | 
+| Implicit grant            | This is used for single-page applications (SPA) to retrieve the access tokens directly without spending several round trips. However, there is a security consideration, as the access token is exposed to the client-side.  | 
 
 ---
 
