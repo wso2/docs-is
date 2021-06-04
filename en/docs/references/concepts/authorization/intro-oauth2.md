@@ -42,7 +42,7 @@ These different grant types target different application types.
 
 ## How does it work?
 
-The exact flow differs based on the OAuth 2.0 grant type. However, the abstract protocol flow is as below.
+The exact flow differs based on the OAuth 2.0 grant type. However, the abstract protocol flow is as follows.
 
 ![OAuth 2.0 flow](../../../assets/img/concepts/oauth-basic-flow.png)
 
