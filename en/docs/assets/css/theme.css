@@ -1684,7 +1684,7 @@ html, body {
     }
 }  
 
-/* Make the font weight consistent across all headings and sub-headings*/
+/* Make the font weight and font color consistent across all headings and sub-headings*/
 h1 {
     font-weight: 500 !important;
     color: black !important;
@@ -1692,10 +1692,21 @@ h1 {
 
 h2 {
     font-weight: 500 !important;
+    color: black !important;
 }
 
 h3 {
     font-weight: 500 !important;
+    color: black !important;
+}
+
+h4 {
+    color: black !important;
+}
+
+h5 {
+    color: black !important;
+    text-transform: unset !important;
 }
 
 /* Customizing superfence tabs */
