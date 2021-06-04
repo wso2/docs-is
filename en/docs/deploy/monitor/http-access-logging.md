@@ -6,7 +6,7 @@ it receives, what the errors are, etc. This information is useful for
 troubleshooting errors. WSO2 Identity Server can enable access logs for the
 HTTP servlet transport. This servlet transport works on `9443`/`9763` ports,
 and it receives admin/operation requests. Therefore, access logs for the
-servert transpot is useful for analysing operational/admin-level access
+servlet transport is useful for analyzing operational/admin-level access
 details.
 
 ---
