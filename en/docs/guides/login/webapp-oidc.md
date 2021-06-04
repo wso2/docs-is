@@ -73,7 +73,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
     - [Demo: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)

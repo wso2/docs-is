@@ -57,7 +57,7 @@ using WSO2 Identity Server.
         127.0.0.1        localhost.com    
 
     !!! note "Notes"
-        * If you are planning to use Single Sign-On (SSO), do not use `localhost` as it will cause the Tomcat naked host issue. Use `localhost.com` instead. If you are using Windows, `localhost.com` is considered as `127.0.0.1`.<br/>
+        * If you are planning to use single sign-on (SSO), do not use `localhost` as it will cause the Tomcat naked host issue. Use `localhost.com` instead. If you are using Windows, `localhost.com` is considered as `127.0.0.1`.<br/>
         * Make sure that this is the only such entry available for this IP address in the `/etc/hosts` file to avoid any conflicts.
 
 5. [Start](../../../deploy/get-started/run-the-product/) WSO2 Identity Server. You
@@ -135,7 +135,7 @@ Pickup Dispatch and Pickup Manager.
 
 When the number of applications that are used in Pickup increases, the
 employees have to maintain more credentials. This is not scalable.
-Cameron decides to use Single Sign-On (SSO) to overcome this situation.
+Cameron decides to use single sign-on (SSO) to overcome this situation.
 With SSO, when a user signs in to one application (authentication), that
 user is automatically authenticated to other applications, eliminating
 the need to maintain multiple credentials.
@@ -795,7 +795,7 @@ You have set up WSO2 Identity Server and gone through the basic use cases of the
 product. 
 
 
-!!! info "Related Topics"
+!!! info "Related topics"
 
     -   See the [Quick Starts](../../../quick-starts/enable-login/) to try all the use cases with our sample applications. 
     -   See the [Guides](../../../guides/login/webapp-oidc/) to integrate your custom applications with WSO2 Identity Server for different scenarios.

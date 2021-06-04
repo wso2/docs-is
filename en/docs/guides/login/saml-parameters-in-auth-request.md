@@ -44,6 +44,6 @@ https://localhost:9443/samlsso?spEntityID=foo.com&tenantDomain=abc.com&forceAuth
 
 -----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)
     - [Guide: Enable SSO for a SAML Application](../../../guides/login/sso-for-saml/)

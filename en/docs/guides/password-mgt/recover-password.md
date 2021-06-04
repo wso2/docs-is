@@ -142,5 +142,5 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
  HTTP/1.1 201 Created
  ```
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Recover password via Challenge Questions](../../../guides/password-mgt/challenge-question)

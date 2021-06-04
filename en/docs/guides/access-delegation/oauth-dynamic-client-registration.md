@@ -145,5 +145,5 @@ curl -X DELETE -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: appl
 
 -----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - To see the swagger definition of this REST API, see [OAuth Dynamic Client Registration APIs](../../../develop/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/).

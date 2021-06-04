@@ -276,5 +276,5 @@ Further information regarding the steps are available
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Identity Federation](../../../references/concepts/identity-federation/)

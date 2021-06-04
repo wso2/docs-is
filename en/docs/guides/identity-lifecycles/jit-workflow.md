@@ -19,7 +19,7 @@ This page guides you through configuring [Just-in-Time (JIT) provisioning](../..
         Provisioning**. This is selected by default.
     -   If you want to always provision users to a selected userstore
         domain, select **Always provision to User Store Domain**, and
-        then select a required user store domain from the list of
+        then select a required userstore domain from the list of
         available userstore domains.
 
         !!! tip
@@ -65,7 +65,7 @@ This page guides you through configuring [Just-in-Time (JIT) provisioning](../..
 2.  Click **Register** to add the identity provider.
 
 
-!!! info "Related Topics"
+!!! info "Related topics"
 
     - For information on the JIT provisioning architecture, see [Provisioning Architecture](../../../get-started/provisioning-architecture).
 

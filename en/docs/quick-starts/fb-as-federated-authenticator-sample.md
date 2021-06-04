@@ -100,6 +100,6 @@ Now you have finished configuring Facebook as an Identity Provider.
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
 	-   [Logging in to your application via Identity Server using Facebook Credentials](../../../guides/identity-federation/facebook)
 

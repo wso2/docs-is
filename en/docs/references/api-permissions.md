@@ -1,4 +1,4 @@
-# API Permissions
+# SOAP API Permissions
 
 The following table lists out all the available APIs and their
 operations and specifies the permissions of each operation.
@@ -2658,3 +2658,6 @@ operations and specifies the permissions of each operation.
 </tr>
 </tbody>
 </table>
+
+!!! info "Related topics"
+    - [API: SOAP APIs](../../develop/apis/soap-apis)

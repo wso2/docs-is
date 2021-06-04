@@ -1,5 +1,5 @@
 All the basic information of a user/application is stored in the form of
-claims. However, for the same information, different Identity Providers(IDP)
+claims. However, for the same information, different Identity Providers(IdP)
 have different claims. Therefore, there should be a proper mechanism to
 map those claims within Identity Providers.
 

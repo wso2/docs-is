@@ -1,4 +1,4 @@
-# Add a user
+# Add a User
 
 ## Add a user using the management console
 
@@ -18,8 +18,9 @@
 
 ---
 
-## Add a user using SCIM
-You can create a new user using a SCIM request as shown below. 
+## Add a user using SCIM 2.0 REST API
+
+You can create a new user using a SCIM 2.0 request as shown below. 
 
 **Request**
 
@@ -39,61 +40,7 @@ curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"jackso
 
 ---
 
-## Add a user using SOAP
-
-The user can also be created by calling the
-`          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](../../../develop/apis/call-admin-services).
-
-1. Enable the hidden admin service property. 
-    By default, admin services WSDLs are not exposed in a product. We need to add the following configuration in  `            <IS_HOME>/repository/conf/deployment.toml           ` to access the WSDLs.
-     
-    ```toml
-    [admin_service.wsdl]
-    enable = true
-    ```
-
-2. Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
-    `https://localhost:9443/services/RemoteUserStoreManagerService?wsdl ` 
-
-    !!! info 
-         If you have configured WSO2 IS to use an IP or hostname, replace
-         `             localhost            ` with your IP or hostname.
-
-3. Call the `            addUser()           ` method to create the
-    user and make sure to give the email address of the user. Following is a sample SOAP request.
-
-      **SOAP Request**
-
-      ```xml
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org" xmlns:xsd="http://common.mgt.user.carbon.wso2.org/xsd">
-         <soapenv:Header/>
-         <soapenv:Body>
-            <ser:addUser>
-
-               <ser:userName>username</ser:userName>
-
-               <!--Zero or more repetitions:-->
-               <ser:roleList>admin</ser:roleList>
-
-               <!--Zero or more repetitions:-->
-               <ser:claims>
-                  <xsd:claimURI>http://wso2.org/claims/emailaddress</xsd:claimURI>
-                  <xsd:value>wso2demomail@gmail.com</xsd:value>
-               </ser:claims>
-
-               <ser:profileName>default</ser:profileName>
-
-               <ser:requirePasswordChange>true</ser:requirePasswordChange>
-            </ser:addUser>
-         </soapenv:Body>
-      </soapenv:Envelope>
-      ```
-
-!!! Note
-    There will be no SOAP response as this is a one-way SOAP operation. You can validate that the user creation is successful using the admin portal by clicking on <admin-portal-user-list-path> section.
-    
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Invitation Workflow](../../../guides/identity-lifecycles/invitation-workflow) 
     - [Guide: User Self Registration Workflow](../../../guides/identity-lifecycles/self-registration-workflow)
     - [Guide: Just in Time User Provisioning Workflow](../../../guides/identity-lifecycles/jit-workflow/)

@@ -1,6 +1,6 @@
-# Configure Single Sign On for a SAML Application
+# Configure Single Sign-On for a SAML Application
 
-This page guides you through configuring [single sign on authentication](../../../references/concepts/single-sign-on) between two SAML web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
+This page guides you through configuring [single sign-on authentication](../../../references/concepts/single-sign-on) between two SAML web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
 
 ----
 If you have your own application, click the button below.
@@ -44,7 +44,7 @@ You will be redirected to the Pickup Dispatch application home page.
 
 3. Now, if you navigate to `http://wso2is.local:8080/saml2-web-app-pickup-manager.com` and click **Login**, you can see that the user has been automatically logged in to this application without being prompted for user credentials.
 
-You have successfully configured SAML Single Sign-On for two web applications using WSO2 IS as the identity provider. 
+You have successfully configured SAML single sign-on for two web applications using WSO2 IS as the identity provider. 
 
 ----
 
@@ -78,7 +78,7 @@ Now you have successfully configured additional claims for your service provider
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
     - [Guide: Single Sign-On for a SAML Application](../../../guides/login/sso-for-saml)
 

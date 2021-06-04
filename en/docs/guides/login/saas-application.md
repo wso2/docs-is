@@ -10,5 +10,5 @@ To enable users from other tenants to access your application too, follow the in
 
 -----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Request Attributes for the Application](../request-attributes/)

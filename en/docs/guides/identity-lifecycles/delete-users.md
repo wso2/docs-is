@@ -1,4 +1,4 @@
-# Delete an existing user 
+# Delete an Existing User 
 
 This section guides you through deleting an exisiting user in WSO2 Identity Server.
 
@@ -18,7 +18,7 @@ This section guides you through deleting an exisiting user in WSO2 Identity Serv
 
 ---
 
-## Delete a user using SCIM 
+## Delete a user using SCIM 2.0 REST API
 
 ```curl tab="Request"
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT}/wso2/scim/Users/{SCIM_USER_ID} -H "Accept: application/json"
@@ -28,33 +28,11 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT
 curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Users/b228b59d-db19-4064-b637-d33c31209fae -H "Accept: application/json"
 ```
 
-You receive a response with status `200 OK` and the user will be deleted from the user store.
-
----
-
-## Delete a user using SOAP 
-
-You can also delete a user by calling the `RemoteUserStoreManager` service . If you are new to admin services, see [Calling Admin Services](../../../develop/apis/call-admin-services/).
-
-The following SOAP method will give you the user ID of the relevant username. 
-
-**Request Sample**
-
-```
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
-   <soap:Header/>
-   <soap:Body>
-      <ser:deleteUser>
-         <!--Optional:-->
-         <ser:userName>user123</ser:userName>
-      </ser:deleteUser>
-   </soap:Body>
-</soap:Envelope>
-```
+You receive a response with status `200 OK` and the user will be deleted from the userstore.
 
 -----
     
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
     - [Guide: Search/List Users](../../identity-lifecycles/search-users)

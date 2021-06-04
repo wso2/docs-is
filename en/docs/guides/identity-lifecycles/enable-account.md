@@ -75,16 +75,7 @@ management console.
     ![click-supported-by-default](../../../assets/img/guides/click-supported-by-default.png) 
 4.  Navigate to **Main** > **Identity** > **Users and Roles** > **List** > **Users** and click on
     **User Profile** of the user account that you want to disable.
-5.  Tick the **Account Disabled** checkbox and click **Update**.
-
-!!! tip
-    
-    **Alternatively,** instead of using the management console, you can also
-    enable/disable the user account using the
-    `         setUserClaimValues        ` method in the
-    `                   RemoteUserStoreManagerService                 `
-    after you have configured WSO2 IS for account disabling. For more information on using admin services, refer [Call Admin Services](../../../develop/apis/call-admin-services)
-    
+5.  Tick the **Account Disabled** checkbox and click **Update**.  
 
 ### Send email notifications for account disabling
 
@@ -143,62 +134,8 @@ After setting the disable status to `true` for a particular user, the server sho
 
 ---
 
-<!--## Disable user accounts using SOAP
-
-!!! note 
-    1.	To disable a user account using SOAP, the default event listener has to be enabled. Add the following property to the `<IS_HOME>/repository/conf/deployment.toml` file. 
-
-		```toml
-		[event.default_listener.identity_mgt]
-		priority= 50
-		enable= true
-		```
-
-    2.	Add the following property to he `<IS_HOME>/repository/conf/deployment.toml` file to enable this feature. 
-
-		```toml
-		[identity_mgt.account_disabling]
-		enable_account_disabling=true
-		```
-
-An administrative user (with the permission level, `/permission/admin/configure/security/usermgt/users` ) can disabled a user account using the `RemoteUserStoreManagerService`. You can use the `setUserClaimValues` operation to achieve this. The following request is a sample SOAP request that can be sent to the `RemoteUserStoreManagerService` to disable a user account.
-
-```curl 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:disableUserAccount>
-         <!--Optional:-->
-<!--         <ser:userName>cameron</ser:userName>
-         <!--Optional:-->
-<!--        <ser:notificationType>?</ser:notificationType>
-      </ser:disableUserAccount>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-
-## Enable user accounts using SOAP
-
-Similarly, you can use the `setUserClaimValues` operation, `RemoteUserStoreManagerService` AdminService to enable a diabled user account. The following request is a sample SOAP request that can be sent to the `RemoteUserStoreManagerService` to enable a user account.
-
-```curl
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:enableUserAccount>
-         <!--Optional:-->
-<!--         <ser:userName>cameron</ser:userName>
-         <!--Optional:-->
-<!-->         <ser:notificationType>?</ser:notificationType>
-      </ser:disableUserAccount>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
--->
-
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
 	- [Guide: Configure Email Notifications for Account Locking](../../../guides/tenants/email-account-locking/)
 

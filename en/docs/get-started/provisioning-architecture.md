@@ -105,7 +105,7 @@ Charon library comprises of four main components.
 
 ### Charon — Core
 
-As the name implies, this is the core part of the library which implements SCIM2 specification and exposes a set of APIs for SCIM2 consumers. The main functionalities of Charon core are as below.
+As the name implies, this is the core part of the library which implements SCIM .02 specification and exposes a set of APIs for SCIM 2.0 consumers. The main functionalities of Charon core are as below.
 
 -   Create SCIM 2.0 Objects - SCIM is built on an object model where a resource is a common denominator and all SCIM Objects are derived from it. Charon core contains SCIM Object Implementation where the object is a collection of attributes.
 
@@ -201,7 +201,7 @@ The above command provides the following results:
 {"id":"2e89cac0-17f3-40e7-8a07-ff1047a70cf1","schemas":["urn:scim:schemas:core:2.0"],"userName":"mysql/kim","meta":{"lastModified":"2021-03-24T14:31:30","location":"https://localhost:9443/wso2/scim2/Users/2e89cac0-17f3-40e7-8a07-ff1047a70cf1","created":"2021-03-24T14:31:30"}}
 ```
 
-!!! info "Related Topics"
+!!! info "Related topics"
     See [SCIM 2 APIs](../../../develop/apis/scim2-rest-apis) for more cURL commands that can be used to do various functions using the SCIM endpoints available.
 
 

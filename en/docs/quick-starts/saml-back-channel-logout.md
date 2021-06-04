@@ -49,6 +49,6 @@ The user is required to log in to two different applications. For convenience an
     
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     -   [Concept: Configuring SAML Back-Channel Logout](../.../../../references/concepts/authentication/saml-back-channel)
     -   [Guide: Configure SAML 2.0 Back-Channel Logout](../../../guides/login/saml-back-channel-logout)

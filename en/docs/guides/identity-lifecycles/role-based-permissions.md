@@ -6,7 +6,7 @@
 
 ---
 
-## Manage role-based permissions using SOAP API
+<!-- ## Manage role-based permissions using SOAP API
 
 The following operations on permissions on roles are available through SOAP APIs.
 
@@ -499,7 +499,9 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
 </tr>
 </table>
 
-!!! info "Related Topics"
+-->
+
+!!! info "Related topics"
     - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)
     - [Guide: Edit/Delete Roles](../../identity-lifecycles/edit-delete-roles)
     - [Guide: Role Based Permissions](../../identity-lifecycles/edit-delete-roles)

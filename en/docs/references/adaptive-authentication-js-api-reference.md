@@ -6,7 +6,7 @@ user role, etc. WSO2 Identity Server allows you to define a dynamic
 authentication sequence using authentication scripts written in
 JavaScript.
 
-For more information on adaptive authentication, see [Adaptive Authentication](../../../guides/adaptive-auth/configure-adaptive-auth/)
+For more information on adaptive authentication, see [Adaptive Authentication](../concepts/authentication/adaptive-authentication/).
 
 The following sections present the core API reference for the
 JavaScript-based conditional authentication functions and fields.
@@ -20,7 +20,7 @@ JavaScript-based conditional authentication functions and fields.
 
 ## Core functions
 
-##### onLoginRequest(context)
+#### onLoginRequest(context)
 
 This function is called when the initial authentication request is
 received by the framework. It includes the following parameters.
@@ -29,7 +29,7 @@ received by the framework. It includes the following parameters.
 |-----------|---------------------------------------------------------------------------------------|
 | context   | The authentication context, which contains the context information about the request. |
 
-##### executeStep(stepId, options, eventCallbacks)
+#### executeStep(stepId, options, eventCallbacks)
 
 This function is called to execute an authentication step.
 Authentication steps need to be configured prior to using this function.
@@ -51,26 +51,26 @@ following.
 <tr class="even">
 <td>options</td>
 <td>An optional map that can configure step execution. Authentication option filtering is supported.<br />
-For more information, see <a href="#step-filtering">authentication step filtering</a> .</td>
+For more information, see <a href="#step-filtering">authentication step filtering</a>.</td>
 </tr>
 <tr class="odd">
 <td>eventCallbacks</td>
 <td>The object that contains the callback functions that are to be called based on the result of the step execution.<br />
-Supported results are “ <code>             onSuccess            </code> ” and “ <code>             onFail            </code> ”, which can have their own optional callbacks as anonymous functions (optional).</td>
+Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions (optional).</td>
 </tr>
 </tbody>
 </table>
 
 The API can be called in either of the following ways:
 
--   With only the `           stepId          ` . Example:
+-   With only the `           stepId          ` .
 
     ``` java
     executeStep(1)
     ```
 
 -   With only the `           stepId          ` and
-    `           eventCallbacks          ` . Example:
+    `           eventCallbacks          ` .
 
     ``` java
     executeStep(1, {
@@ -97,7 +97,7 @@ The API can be called in either of the following ways:
             local: {
                 SessionExecutor: {
                     MaxSessionCount: '1'
-                                    }
+                }
             }
         }
     });
@@ -113,11 +113,11 @@ The API can be called in either of the following ways:
 **Authentication step filtering**
 
 Filters out some of the authentication options of a step based on a
-condition. This can be achieved by specifying an array named ‘
-`         authenticationOptions        ` ’ to the
-`         options        ` map. Each array item will require an '
-**`          idp'         `** for federated IdPs or an '
-**`          authenticator'         `** for local authenticators.
+condition. This can be achieved by specifying an array named 
+`         authenticationOptions        ` to the
+`         options        ` map. Each array item will require an 
+`          idp         ` for federated identity providers or an 
+`          authenticator         ` for local authenticators.
 
 **Example code**
 
@@ -130,23 +130,23 @@ executeStep(1,{
 };
 ```
 
-### Utility functions
+---
+
+## Utility functions
 
 The implementation of utility functions can be found in the [WSO2 extensions code repository](https://github.com/wso2-extensions/identity-conditional-auth-functions).
 
-##### hasRole(user, role)
+#### hasRole(user, role)
 
-This function returns true if the specified ‘
-**`          user         `** ’ belongs to the specified ‘
-**`          role         `** ', and returns false if the user does
+This function returns `true` if the specified 
+`          user         ` belongs to the specified 
+`          role         `, and returns `false` if the user does
 not. It includes the following parameters.
 
 | Parameter | Description                                  |
 |-----------|----------------------------------------------|
 | user      | A user object representing the user details. |
 | role      | A string representing the role name.         |
-
-**Example code**
 
 ``` java
 var user = context.steps[1].subject;
@@ -157,13 +157,13 @@ if (isAdmin) {
 }
 ```
 
-##### assignUserRoles(user, assigningRoles)
+#### assignUserRoles(user, assigningRoles)
 
-This function assigns each of the roles specified in the ‘
-`                   assigningRoles                 ` ’ parameter to the
-specified ‘ `                   user                 ` ’ object. It
-returns true if all the roles are successfully assigned and returns
-false if not.  It includes the following parameters.
+This function assigns each of the roles specified in the 
+`                   assigningRoles                 ` parameter to the
+specified `                   user                 ` object. It
+returns `true` if all the roles are successfully assigned and returns
+`false` if not.  It includes the following parameters.
 
 | Parameter      | Description                                                                                  |
 |----------------|----------------------------------------------------------------------------------------------|
@@ -180,12 +180,12 @@ executeStep(1, {
 });
 ```
 
-##### removeUserRoles(user, removingRoles)
+#### removeUserRoles(user, removingRoles)
 
-This function removes each of the roles specified in the ‘
-`                   removingRoles                 ` ’ parameter to the
-given ‘ `                   user                 ` ’ object. It returns
-true if all the roles are successfully removed and returns false if
+This function removes each of the roles specified in the 
+`                   removingRoles                 ` parameter to the
+given `                   user                 ` object. It returns
+`true` if all the roles are successfully removed and returns `false` if
 not. It includes the following parameters.
 
 | Parameter     | Description                                                                                      |
@@ -203,9 +203,7 @@ executeStep(1, {
 });
 ```
 
-  
-
-##### sendEmail(user, templateId, placeholderParameters)
+#### sendEmail(user, templateId, placeholderParameters)
 
 This function sends an email to the specified user. It includes the
 following parameters.
@@ -216,15 +214,13 @@ following parameters.
 | templateId            | Identifier of the email template. The email template specifies the body of the email that is sent out. |
 | placeholderParameters | Used to replace any placeholders in the template.                                                      |
 
-**Example code**
-
 ``` java
 var user = context.steps[1].subject;
 var firstName = user.localClaims['http://wso2.org/claims/givenname'];
 sendEmail(user, 'myTemplate', {'firstName':firstName});
 ```
 
-##### sendError(url,parameters)
+#### sendError(url,parameters)
 
 This function redirects the user to an error page. It includes the
 following parameters.
@@ -239,7 +235,7 @@ following parameters.
 <tbody>
 <tr class="odd">
 <td>url</td>
-<td>The URL of the error page that the user is redirected to. If the value is null, the user is redirected by default to the ' <strong>retry.do'</strong> error page.<br />
+<td>This is the URL of the error page that the user is redirected to. If the value is null, the user is redirected by default to the <strong>retry.do</strong> error page.<br />
 Note that any relative URL is assumed as the relative to host’s root.</td>
 </tr>
 <tr class="even">
@@ -248,8 +244,6 @@ Note that any relative URL is assumed as the relative to host’s root.</td>
 </tr>
 </tbody>
 </table>
-
-**Example code**
 
 ``` java
 var user = context.steps[1].subject;
@@ -264,7 +258,7 @@ if (!isAdmin) {
     recommended to use the i18n key so that it can be internationalized
     easily at the page.
 
-##### fail()
+#### fail()
 
 This function redirects the user to the redirect URI provided in the authorization request failing the authorization flow. 
 
@@ -293,8 +287,6 @@ This function takes a map as an optional parameter. When a map is provided as th
 </tbody>
 </table>
 
-**Example code**
-
 ``` java
 var parameterMap = {'errorCode': 'access_denied', 'errorMessage': 'login could not be completed', "errorURI":'http://www.example.com/error'};
 if (!isAuthenticated) {
@@ -302,7 +294,7 @@ if (!isAuthenticated) {
 }
 ```
 
-##### setCookie(response, name, value, properties)
+#### setCookie(response, name, value, properties)
 
 This functions sets a new cookie. It includes the following parameters.
 
@@ -315,28 +307,32 @@ This functions sets a new cookie. It includes the following parameters.
 </thead>
 <tbody>
 <tr class="odd">
+<td>response</td>
+<td>HTTP response.</td>
+</tr>
+<tr class="even">
 <td>name</td>
 <td>Name of the cookie.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>value</td>
 <td>Value of the cookie.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>properties</td>
-<td><p>A map that may contain optional attributes of the cookie with two other custom attributes ‘ <code>                             encrypt                           </code> ’ and ‘ <code>                             sign                           </code> ’.</p>
+<td>A map that may contain optional attributes of the cookie with two other custom attributes <code>encrypt</code> and <code>sign</code>.
 <ul>
-<li>The default value of ' <code>                               sign                             </code> ' is false. If it is set to true, the value will be signed.</li>
-<li>The default value of ' <code>                               encrypt                             </code> ' is false. If it is set to true, value will be encrypted.</li>
+<li>The default value of <code>sign</code> is <code>false</code>. If it is set to <code>true</code>, the value will be signed.</li>
+<li>The default value of <code>encrypt</code> is <code>false</code>. If it is set to <code>true</code>, the value will be encrypted.</li>
 </ul></td>
 </tr>
 </tbody>
 </table>
 
 !!! tip
-    The size of the value has to be less than the RSA key pair length if '
-    `                   encrypt                 ` ' is enabled (set to
-    true).
+    The size of the value has to be less than the RSA key pair length if 
+    `                   encrypt                 ` is enabled (set to
+    `true`).
     
 
 ``` java
@@ -351,10 +347,10 @@ setCookie(context.response, "name", "test", {"max-age" : 4000,
                                             "sign" : true})
 ```
 
-##### getCookieValue(request, name, properties)
+#### getCookieValue(request, name, properties)
 
-This function gets the plain-text cookie value for the cookie ‘
-`                   name                 ` ’ if present.  It includes
+This function gets the plain-text cookie value for the cookie 
+`                   name                 ` if present.  It includes
 the following parameters.
 
 <table>
@@ -366,19 +362,19 @@ the following parameters.
 </thead>
 <tbody>
 <tr class="odd">
+<td>Request</td>
+<td>HTTP authentication request.</td>
+</tr>
+<tr class="even">
 <td>name</td>
 <td>Name of the cookie.</td>
 </tr>
-<tr class="even">
-<td>value</td>
-<td>Value of the cookie.</td>
-</tr>
 <tr class="odd">
 <td>properties</td>
-<td><p>A map that may contain optional attributes of the cookie ‘ <code>                             de                           </code> <code>                             crypt                           </code> <strong>validateSignature</strong></p>
+<td>A map that may contain optional attributes of the cookie <code>decrypt</code> and <code>validateSignature</code>.
 <ul>
-<li>The default value of ' <code>                               decrypt                             </code> ' is false.  If it is set to true, the value will be decrypted.</li>
-<li>The default value of ' <code>                               validateSignature                             </code> ' is false.  If it is set to true, the signature will be validated before returning a response.</li>
+<li>The default value of <code>decrypt</code> is <code>false</code>.  If it is set to <code>true</code>, the value will be decrypted.</li>
+<li>The default value of <code>validateSignature</code> is <code>false</code>.  If it is set to <code>true</code>, the signature will be validated before returning a response.</li>
 </ul></td>
 </tr>
 </tbody>
@@ -388,7 +384,7 @@ the following parameters.
 getCookieValue(context.request,"name", {"decrypt" : true,"validateSignature" : true })
 ```
 
-##### callAnalytics( metadata, payloadData, eventHandlers )
+#### callAnalytics(metadata, payloadData, eventHandlers)
 
 This function calls the analytics engine (i.e., WSO2 Stream Processor)
 to get a decision. It includes the following parameters.
@@ -403,10 +399,10 @@ to get a decision. It includes the following parameters.
 <tbody>
 <tr class="odd">
 <td>metadata</td>
-<td><p>A JSON object that contain the following attributes:</p>
+<td>A JSON object that contain the following attributes:
 <ul>
-<li><p><code>                 Application:                </code> Siddhi application name (mandatory)</p></li>
-<li><p><code>                 InputStream:                </code> Input stream name (mandatory)</p></li>
+<li><p><code>Application:</code> Siddhi application name (mandatory)</p></li>
+<li><p><code>InputStream:</code> Input stream name (mandatory)</p></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -420,7 +416,7 @@ to get a decision. It includes the following parameters.
 </tbody>
 </table>
 
-##### publishToAnalytics( metadata, payloadData )
+#### publishToAnalytics(metadata, payloadData)
 
 This function publishes data to the analytics engine (WSO2 Stream
 Processor). It includes the following parameters.
@@ -435,10 +431,10 @@ Processor). It includes the following parameters.
 <tbody>
 <tr class="odd">
 <td>metadata</td>
-<td><p>A JSON object that contain the following attributes:</p>
+<td>A JSON object that contain the following attributes:
 <ul>
-<li><p><code>                 Application:                </code> Siddhi application name (mandatory)</p></li>
-<li><p><code>                 InputStream:                </code> Input stream name (mandatory)</p></li>
+<li><p><code>Application:</code> Siddhi application name (mandatory)</p></li>
+<li><p><code>InputStream:</code> Input stream name (mandatory)</p></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -448,7 +444,7 @@ Processor). It includes the following parameters.
 </tbody>
 </table>
 
-##### prompt(templateId, data, eventHandlers)
+#### prompt(templateId, data, eventHandlers)
 
 This function prompts for user input. It includes the following
 parameters.
@@ -477,7 +473,7 @@ var onLoginRequest = function(context) {
 }
 ```
 
-##### getUserSessions(user)
+#### getUserSessions(user)
 
 This function returns a session object  (i.e. all the active user sessions of the specified user and returns an empty array if there are no sessions). It includes the following parameters.
 
@@ -493,7 +489,7 @@ for (var key in sessions) {
 }
 ```
 
-##### terminateUserSession(user, sessionId)
+#### terminateUserSession(user, sessionId)
 
 This function returns a session object  (i.e. all the active user sessions of the specified user and returns an empty array if there are no sessions). It includes the following parameters.
 
@@ -511,7 +507,8 @@ if (sessions.length > 0) {
 }
 
 ```
-##### getValueFromDecodedAssertion(String jwt, String parameterName,boolean isParameterInPayload)
+
+#### getValueFromDecodedAssertion(jwt, parameterName, isParameterInPayload)
 
 This function returns a string which contains the value of the parameter in a decoded JWT. 
 It includes the following parameters:
@@ -521,16 +518,18 @@ It includes the following parameters:
 |----------------------|------------------------------------------------------------------------------|
 | jwt                  | The jwt to be decoded.                                                       |
 | parameterName        | The name of the parameter in the jwt for which the value should be retrieved.|
-| isParameterInPayload | Indicates whether the parameter to be retrieved is in the jwt header or body.<br> Value should be true if the parameter to be retrieved is in the body .      |                                                   
+| isParameterInPayload | Indicates whether the parameter to be retrieved is in the jwt header or body.<br> Value should be `true` if the parameter to be retrieved is in the body.      |                                                   
  
  The following example shows how to obtain a parameter from the request object, which is a signed jwt. 
 ``` java
 var state = getValueFromDecodedAssertion(context.request.params.request[0],"state",true);
 ```
 
-### Object Reference
+---
 
-##### context Object
+## Object Reference
+
+#### context object
 
 Contains the authentication context information. The information can be
 accessed as follows.
@@ -538,7 +537,7 @@ accessed as follows.
 -   `           context.steps[<n>]          ` :  Access the
     authentication step information, where &lt;n&gt; is the step number
     (1-based). See [step
-    Object](#step-object) for more
+    object](#step-object) for more
     information.
 
     !!! note
@@ -548,16 +547,16 @@ accessed as follows.
 
 -   `          context.request         ` :  Access the HTTP
     authentication request information. See [request
-    Object](#request-object) for
+    object](#request-object) for
     more information.
 -   `          context.response         ` :  Access the HTTP response
     which will be sent back to the client. See [response
-    Object](#response-object) for
+    object](#response-object) for
     more information.
 -   `          context.serviceProviderName         ` :  Get the
     application name.
 
-##### step Object
+#### step object
 
 Contains the authentication step information. May be null or invalid
 step number.
@@ -565,12 +564,12 @@ step number.
 -   `          step.subject         ` :  Contains the authenticated
     user’s information from this step. May be null if the step is not
     yet executed. See [user
-    Object](#user-object) for more
+    object](#user-object) for more
     information.
--   `          step.idp         ` :  Gives the Idp name which was used
+-   `          step.idp         ` :  Gives the identity provider name which was used
     to authenticate this user.
 
-##### user Object
+#### user object
 
 -   `          user.username         ` : The user’s username.
 -   `          user.tenantDomain         ` : The user’s tenant domain
@@ -582,7 +581,7 @@ step number.
 -   `          user.localClaims[“<local_claim_url>”]         ` :
     (Read/Write) User’s attribute (claim) value for the given
     “local\_claim\_url”. If the user is a federated user, this will be
-    the value of the mapped remote claim from the IdP.
+    the value of the mapped remote claim from the identity provider.
         
 -   `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
 
@@ -590,10 +589,10 @@ step number.
         `          user.localClaims[“<local_claim_url>”]         ` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis.
 
 -   `          user.remoteClaims[“<remote_claim_url”]         ` :
-    (Read/Write) User’s attribute (claim) as returned by IdP for the
+    (Read/Write) User’s attribute (claim) as returned by identity provider for the
     given “remote\_claim\_url”. Applicable only for federated users.
 
-##### request Object
+#### request object
 
 -   `          request.headers[“<header_name>”]         ` : Request’s
     header value for the given header name by &lt;header\_name&gt;
@@ -607,35 +606,34 @@ step number.
     Nginx) with connection termination, the ip is retrieved from the
     headers set by the load balancer.
 
-##### response Object
+#### response object
 
 -   `          response.headers[“<header_name>”]         ` : (Write)
     Response header value for the given header name by
     &lt;header\_name&gt;
 
-##### session Object
+#### session object
 
--   `          session.userAgent         ` :  This is userAgent object of the user session.. See [userAgent
-    Object](#userAgent-Object) for more
+-   `          session.userAgent         ` :  This is `userAgent` object of the user session.. See [userAgent
+    object](#useragent-object) for more
     information.
 -   `          session.ip         ` :  This is the session’s IP address.
 -   `          session.loginTime         ` :  This is the session’s last login time.
 -   `          session.lastAccessTime         ` :  This is the session’s last accessed time.
 -   `          session.id         ` :  This is the session’s id.
 -   `          session.applications         ` :  This is the list of application objects in the session. See [application
-    Object](#application-object) for more
+    object](#application-object) for more
     information.
 
-##### application Object
+#### application object
 
 -   `          application.subject         ` :  This is the subject of the application.
 -   `          application.appName         ` :  This is the name of the application.
 -   `          application.appId         ` :  This is the id of the application.
     
-##### userAgent Object
+#### userAgent object
 
--   `          userAgent.raw         ` :  This is the raw userAgent string.
--   `          userAgent.browser         ` :  This is the Web Browser property that is extracted from the raw userAgent string.
--   `          userAgent.platform         ` :  This is the Operating System property that is extracted from the raw userAgent string.
--   `          userAgent.device         ` :  This is the Device property that is extracted from the raw userAgent string.
-    
+-   `          userAgent.raw         ` :  This is the raw user agent string.
+-   `          userAgent.browser         ` :  This is the web browser property that is extracted from the raw user agent string.
+-   `          userAgent.platform         ` :  This is the operating system property that is extracted from the raw user agent string.
+-   `          userAgent.device         ` :  This is the device property that is extracted from the raw user agent string.    

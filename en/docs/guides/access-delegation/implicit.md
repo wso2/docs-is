@@ -55,7 +55,7 @@ You will receive the ID token.
 http://wso2is.local:8080/playground2/oauth2client#access_token=317c19b3-73e3-3906-8627-d1c952856b5d&token_type=Bearer&expires_in=3600
 ```
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Implicit Grant](../../../references/concepts/authorization/implicit-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
     - [Demo: Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground)

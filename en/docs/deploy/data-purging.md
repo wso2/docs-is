@@ -2,23 +2,21 @@
 
 You can perform data purging by clearing the session data using the script given below. WSO2 Identity Server stores session data for authentication purposes. As the volume of the data stored grows over time, the authentication operations may also eventually consume more time. It is highly recommended to perform data purging on production servers to mitigate this.
 
-!!! info 
-    For more information about session persistence, see [Authentication Session Persistence](TBD:../../learn/authentication-session-persistence).
+<!--!!! info 
+    For more information about session persistence, see [Authentication Session Persistence](TBD:../../learn/authentication-session-persistence).-->
 
 !!! tip
-    It is recommended to run these steps at the time where server traffic is low. Especially if you are running this in the production environment for the first time, since the data volume to be purged may be higher. However, consider this as a housekeeping task that needs to be run at regular intervals. 
-    If you are doing this for the very first time on the production system begin with step 1. This is done as a best practice for introducing changes. Otherwise, you can skip the backup and verification steps, and schedule the aforementioned queries to be run at regular intervals.
+    It is recommended to run these steps at the time where server traffic is low. Especially, if you are running this in the production environment for the first time, since the data volume to be purged may be higher. However, consider this as a housekeeping task that needs to be run at regular intervals. 
+    If you are doing this for the very first time on the production system, begin with step 1. This is done as a best practice for introducing changes. Otherwise, you can skip the backup and verification steps, and schedule the aforementioned queries to be run at regular intervals.
     
 
 1.  Take a backup of the running database.
 2.  Set up the database dump in a test environment and test it for any
-    issues. For more information on setting up a database dump, go to
-    the
+    issues. For more information on setting up a database dump, refer
     [MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax)
    , [SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server)
    , and
     [Oracle](https://docs.oracle.com/cd/E11882_01/backup.112/e10642/rcmbckba.htm#BRADV8138)
-    offical documentation.
 
     !!! tip
         We recommend that you test the database dump before the cleanup task as the cleanup can take some time.
@@ -239,7 +237,7 @@ You can perform data purging by clearing the session data using the script given
 
         For DB2, MySQL, Oracle, and Postgre database scripts, see [Stored Procedures](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures).
 
-4.  Once the cleanup is over, start the WSO2 Identity Server pointing to the cleaned-up database dump and test throughly for any issues.  
+4.  Once the cleanup is over, start WSO2 Identity Server pointing to the cleaned-up database dump and test throughly for any issues.  
     You can also schedule a cleanup task that will be automatically run after a given period of time. 
 
     ??? example "Click to view an example"     

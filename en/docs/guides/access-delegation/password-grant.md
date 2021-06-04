@@ -50,7 +50,7 @@ You will receive the following response with the access token and refresh token.
 {"access_token":"16ab408c-0f31-3321-8bed-313e836df373","refresh_token":"3c285b4f-ec29-3751-9ced-74c92061b327","token_type":"Bearer","expires_in":3600}
 ```
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Resource Owner Password Credentials Grant](../../../references/concepts/authorization/resource-owner-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
     - [Demo: Password Grant with OAuth 2.0 Playground](../../../quick-starts/password-playground)

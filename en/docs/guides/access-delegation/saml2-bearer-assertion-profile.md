@@ -64,6 +64,6 @@ This guide assumes you have your own application. If you wish to try out this fl
     curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=f3116b04-924f-3f1a-b323-4f0988b94f9f' https://localhost:9443/oauth2/introspect
     ```
 
-!!! info "Related Topics"
+!!! info "Related topics"
     -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../../references/concepts/authorization/saml2-bearer-assertion-profile)
     -   [Demo: Set Up SAML2 Bearer Assertion Profile](../../../quick-starts/saml2-bearer-assertion-profile/)

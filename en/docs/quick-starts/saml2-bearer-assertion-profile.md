@@ -239,6 +239,6 @@ For example,
     {"totalResults":1,"schemas":["urn:scim:schemas:core:1.0"],"Resources":[{"meta":{"created":"2017-11-15T11:23:25","location":"https://localhost:9443/wso2/scim/Users/admin","lastModified":"2017-11-15T11:23:25"},"id":"0fb2af3f-03f2-4d6b-8340-957012df23f4","userName":"admin"}]}
     ```
 
-!!! info "Related Topics"
+!!! info "Related topics"
     -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../../references/concepts/authorization/saml2-bearer-assertion-profile)
     -   [Guide: Set Up SAML2 Bearer Assertion Profile](../../../guides/access-delegation/saml2-bearer-assertion-profile/)

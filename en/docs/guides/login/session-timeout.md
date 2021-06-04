@@ -2,7 +2,7 @@
 
 ## Session time out
 
-This is the duration in minutes for which an Single Sign-On (SSO) session can be idle for. If WSO2 Identity Server does not receive any SSO authentication requests for the given duration, a session time out occurs. The default value is **15 minutes**.
+This is the duration in minutes for which an single sign-on (SSO) session can be idle for. If WSO2 Identity Server does not receive any SSO authentication requests for the given duration, a session time out occurs. The default value is **15 minutes**.
 
 -----
 
@@ -47,6 +47,6 @@ To configure the **Session Timeout** and **Remember Me period**  tenant wise, fo
 
 ---
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Enable Single Sign-On for a SAML Application](../sso-for-saml)
     - [Guide: Enable Single Sign-On for an OpenID Connect Application](../sso-for-oidc)

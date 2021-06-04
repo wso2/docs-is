@@ -155,5 +155,5 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 You have successfully configured Google as your federated authenticator. Now, when you try to login to your application, it should redirect to the Google login page. On successful authentication with your Google credentials, you will be able to access your application. 
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     - [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)

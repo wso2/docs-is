@@ -1,7 +1,7 @@
 # Configure SAML 2.0 Web SSO
 
-In a single sign on system there are two roles; Service Providers and
-Identity Providers. The important characteristic of a single sign on
+In a single sign-on system there are two roles; Service Providers and
+Identity Providers. The important characteristic of a single sign-on
 system is the pre-defined trust relationship between the service
 providers and the identity providers. Service providers trust the
 assertions issued by the identity providers and the identity providers
@@ -491,6 +491,6 @@ To configure through file upload:
 	the WSO2 Product Administration Guide.
     
 
-!!! info "Related Topics"
+!!! info "Related topics"
 	-	[Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)
 	-   [Guides: Configure Shibboleth IdP as a Trusted Identity Provider](../../../guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider)

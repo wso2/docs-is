@@ -39,11 +39,11 @@ have registered a public key with the authorization server and signed a JWT usin
 
 The main steps of the flow are as follows.
 
-1. OAuth2 client shares its public key with the Authorization Server.
+1. OAuth2 client shares its public key with the authorization server.
 
 2. OAuth2 client sends the JWT data signed with its private key to the token API.
 
-3. Authorization Server extracts the signature and authenticates the client.
+3. Authorization server extracts the signature and authenticates the client.
 
 
 The JWT **must** contain some REQUIRED claim values and **may** contain some OPTIONAL claim values. For more information on the

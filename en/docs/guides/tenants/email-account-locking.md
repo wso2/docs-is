@@ -34,7 +34,7 @@ There are default email templates available for the above-mentioned emails. Howe
 
 4.  Click **Save**. 
 
-!!! info "Related Topics"
+!!! info "Related topics"
     -   [Guides: Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account)
     -   [Guides: Customize Automated Emails](../../../guides/tenants/customize-automated-mails)
     -   [Deploy: Configure Email Sending Configuration](../../../deploy/configure-email-sending)

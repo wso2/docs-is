@@ -57,6 +57,6 @@ When the existing claim mappings are not enough for your requirement and if you 
 
 ----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: OpenID Connect Scopes and Claims](../../../references/concepts/authentication/scopes-claims)
     - [Guide: OpenID Connect Authentication](../webapp-oidc)

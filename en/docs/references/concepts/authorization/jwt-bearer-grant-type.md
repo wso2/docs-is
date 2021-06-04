@@ -2,7 +2,7 @@
 
 ## Recommended Use
 
-OAuth 2.0 Authorization Server can accept JWT assertions from OAuth 2.0 clients as a means of
+OAuth 2.0 authorization server can accept JWT assertions from OAuth 2.0 clients as a means of
 resource owner authentication and authorization. Additionally, it can exchange it with OAuth 2.0 access tokens in order 
 to access protected resources on behalf of the resource owner.
 
