@@ -1,6 +1,6 @@
 # Client Credentials Grant
 
-This page guides you through using [Client Credentials Grant](../../../eferences/concepts/authorization/client-credential-grant/) 
+This page guides you through using [Client Credentials Grant](../../../references/concepts/authorization/client-credential-grant/) 
 to configure authentication for an OAuth/OpenID Connect application. 
 
 ----
