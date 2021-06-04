@@ -47,7 +47,7 @@ This panel provides the following information.
 -   **Host** - Shows the hostname of the server
 -   **Server Start Time** - Shows the time when the server started
 -   **System Up Time** - Shows the amount of time that the server has
-    been working.\
+    been working.
 -   **Memory Allocated** - Shows the memory capacity of the server
 -   **Memory Usage** - Shows the memory capacity used by the server
 
