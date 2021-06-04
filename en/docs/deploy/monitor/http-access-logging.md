@@ -34,7 +34,7 @@ details.
     <tbody>
     <tr class="odd">
     <td>directory</td>
-    <td>This is the path to the directory that will store the access log file. By default, this location is set to <code>               ${carbon.home}/repository/logs              </code> for WSO2 Identity Server.</td>
+    <td>This is the path to the directory that will store the access log file. By default, this location is set to <code>               <IS_HOME>/repository/logs              </code> for WSO2 Identity Server.</td>
     </tr>
     <tr class="even">
     <td>prefix</td>
