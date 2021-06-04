@@ -23,7 +23,7 @@ it is recommended to use **Authorization Code** grant type and for the machine-t
 
 ## Public clients
 
-Public clients **can not** maintain the confidentiality of their credentials without exposing them. Examples for public clients would be
+Public clients can not maintain the confidentiality of their credentials without exposing them. Examples for public clients would be
 mobile applications, desktop applications, and JavaScript applications. When using user-agent clients,
 protocol data and credentials are easily accessible (and often visible) to the resource owner. Since such applications 
 reside within the user-agent, they can make seamless use of the user-agent capabilities when requesting authorization.
