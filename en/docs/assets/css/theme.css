@@ -1002,7 +1002,6 @@ html .md-footer-meta.md-typeset a,
 .md-typeset ol, .md-typeset ul {
     margin-left: .625em;
     padding: 0;
-    line-height: 2;
 }
 
 /* button styles */
