@@ -191,7 +191,7 @@ LDAP.
 
         ``` toml
         [user_store]
-        user_name_search_filter = "(&amp;(objectClass=person)(uid=?))"
+        user_name_search_filter = "(&amp;(objectClass=person)(|(uid=?)(email=?)))"
         ```
 
     2.  Disable the `user_dn_pattern` property if
@@ -242,6 +242,8 @@ file.
 [authentication.authenticator.basic] 
 name ="BasicAuthenticator"
 enable=true
+
+[authentication.authenticator.basic.parameters]
 UserNameAttributeClaimUri = "http://wso2.org/claims/emailaddress"
 ```
 
