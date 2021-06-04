@@ -432,9 +432,9 @@ description of the values it contains.
 
 ---
 
-<!--#### IDN_ASSOCIATED_ID
+#### IDN_ASSOCIATED_ID
 
-In WSO2 Identity Server Dashboard, users can associate their social
+Users can associate their social
 identity (i.e. Facebook, Yahoo, Google, Microsoft ) with the user
 account created in WSO2 Identity Server. The following table lists out
 the columns and a description of the values it contains.
