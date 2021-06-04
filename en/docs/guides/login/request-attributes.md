@@ -21,7 +21,7 @@ For more information about application-based attribute mappings, see [Attribute 
 (TODO: dev-portal-fragment)
 Add the dev portal fragment to do attribute mappings
 
----
+
 
 !!! info "Related topics"
     - [Concept: Attribute Mapping Configurations](../sp-attributes-config)

@@ -50,7 +50,6 @@ For instance, you can set up Google as a federated authenticator and then set up
     - For a more detailed comparison of SSO and Federation, see [SSO vs. Federation](TODO:link-to-concept).
     - For more information on Identity Federation on its own (without SSO), see [Identity Federation](../identity-federation).
 
----
 
 !!! info "Related topics"
     - [Concept: Authentication](../authentication/intro-authentication)

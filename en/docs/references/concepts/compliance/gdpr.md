@@ -202,7 +202,6 @@ It also supports the following features.
     WSO2 IS also supports Consent Receipt Specification draft from Kantara Initiative. For more information on this draft, see [Proposing a global consent receipt standard
 ](https://kantarainitiative.org/proposing-a-global-consent-receipt-standard/).
 
----
 
 !!! info "Related topics"
     To understand GDPR more elaborately, take a look at this tutorial series on *Creating a Winning GDPR Strategy*.

@@ -34,8 +34,6 @@ The following diagram illustrates the two flows.
 
 - All service providers will invalidate their local session and SP2 will be redirected to the return URL specified in the logout request.
 
----
-
 !!! info "Related topics"
     - [Concept: SAML 2.0](../intro-saml)
     - [Concept: SAML Front-Channel Logout](../saml-front-channel)

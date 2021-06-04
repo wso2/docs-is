@@ -93,7 +93,7 @@ the following.
 -   The user may not have the sufficient permission within WSO2 Identity
     Server to log in to the system.  
 
----  
+
 
 !!! info "Related topics"
     See [Logging in to Salesforce with Integrated Windows

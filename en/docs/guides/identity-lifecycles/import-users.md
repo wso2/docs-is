@@ -81,8 +81,7 @@ To import users in bulk:
 
 Apart from this, users can also be added by directly plugging userstores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](../../../deploy/configure-secondary-user-stores/).
 
-----
-    
+
 !!! info "Related topics"
     - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 

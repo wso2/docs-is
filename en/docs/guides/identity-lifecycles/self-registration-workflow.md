@@ -265,7 +265,6 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 "HTTP/1.1 201 Created"
 ``` 
 
-----
 
 !!! info "Related topics"
     - [REST API: Self Register](../../../develop/apis/use-the-self-sign-up-rest-apis/)

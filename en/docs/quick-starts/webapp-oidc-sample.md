@@ -25,7 +25,6 @@ If you have your own application, click the button below.
 
 You have successfully configured authentication for an OpenID Connect application.
 
-----
 
 !!! info "Related topics"
     - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)

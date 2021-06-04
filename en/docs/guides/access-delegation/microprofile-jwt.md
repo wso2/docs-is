@@ -93,7 +93,6 @@ The decoded ID token is shown below.
 
 As you can see in the decoded response, the `upn` and `groups` claims which map to the username and the role list respectively are added to the issued JWT token.
 
----
 
 !!! info "Related topics"
     - [Concept: Microprofile JWT 1.0](../../../references/concepts/authentication/microprofile-jwt/)
