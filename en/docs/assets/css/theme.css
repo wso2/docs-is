@@ -38,7 +38,7 @@
 }
 
 .md-sidebar[data-md-state=lock] {
-    top: 5.9rem;
+    top: 4rem !important;
 }
 
 .md-main.hide-toc .md-content {
@@ -46,11 +46,12 @@
 }
 
 .md-main.hide-toc .md-sidebar.md-sidebar--secondary {
-    width: 31px;
+    display: none;
 }
 
 .md-sidebar {
     padding: 1.45rem 0;
+    top: 4rem !important;
 }
 
 .md-header {
@@ -562,16 +563,17 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .toc_icon {
-    font-size: 21px;
+    position: fixed;
+    font-size: 1rem;
     background: #000;
-    width: 26px;
-    height: 26px;
-    line-height: 26px;
-    border-radius: 50%;
-    padding-left: 3px;
-    float: left;
-    left: -9px;
-    top: -14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 35px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 13px;
+    right: calc(20% - 31px);
+    top: calc(15% + 7px);
 }
 
 .hide-toc .toc_icon {
@@ -1030,7 +1032,6 @@ html .md-footer-meta.md-typeset a,
 .samplebtn_a {
     color: #fff !important;
     margin: 10px;
-    text-transform: uppercase;
     text-decoration: none;
     background: #3d4242;
     padding: 20px;
@@ -1577,10 +1578,14 @@ html, body {
     }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 959px) {
     .md-nav-secondary-item {
         color: black;
         padding-bottom: 0px;
+    }
+
+    .toc_icon {
+        display: none !important;
     }
 }
 
@@ -1604,7 +1609,7 @@ html, body {
 
     .md-sidebar--secondary {
         width: 20%;
-        padding-top: 0px;
+        padding-top: 50px;
     }
 
     .md-header-nav {
@@ -1632,11 +1637,6 @@ html, body {
     .md-nav--primary {
         padding-left: 2em;
     }
-
-    .md-sidebar[data-md-state=lock] {
-        top: unset;
-    }
-
     .md-nav__title {
         display: none !important;
     }
@@ -1681,7 +1681,13 @@ html, body {
     .md-nav__item--nested .md-nav__toggle:checked~.md-nav__link .nav__link-icon {
         transform: rotate(0deg);
     }
-}  
+}
+
+@media (min-width: 2000px) {
+    .md-sidebar--secondary {
+        padding-top: 80px;
+    }
+}
 
 /* Make the font weight and font color consistent across all headings and sub-headings*/
 h1 {
