@@ -10,7 +10,7 @@ The instructions on this page explain how plain text passwords in configuration 
 
 ## Encrypt passwords
 
-1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the `[secrets]` configuration section **at the bottom of the file** as shown below. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
+1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the `[secrets]` configuration section at the bottom of the file as shown below. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
 
     ```toml
     [secrets]
@@ -21,7 +21,7 @@ The instructions on this page explain how plain text passwords in configuration 
     "log4j.appender.LOGEVENT.password" = "[password_5]"
     ```
 
-2. Navigate to the <IS_HOME>/bin/ directory in a command prompt, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
+2. Navigate to the `<IS_HOME>/bin/` directory in a command prompt and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
     * On Linux: `./ciphertool.sh -Dconfigure`
     * On Windows: `ciphertool.bat -Dconfigure`
 
@@ -39,7 +39,7 @@ The instructions on this page explain how plain text passwords in configuration 
 ---
 
 ## Use encrypted passwords
-When you have [encrypted passwords](#encrypt-passwords), you can refer them from the relevant configuration files: The `deployment.toml` file or LOG4j properties.
+When you have [encrypted passwords](#encrypt-passwords), you can refer them from the relevant configuration files - the `deployment.toml` file or LOG4j properties.
 
 ### Passwords in deployment.toml
 
@@ -63,7 +63,7 @@ password = "$secret{keystore_password}"
 ```
 
 ### Passwords in LOG4j properties
-For example, consider the 'log4j.appender.LOGEVENT.password' in the log4j.properties file. You can refer the [encrypted password](#encrypt-passwords) from the log4j.properties file as shown below.
+For example, consider the 'log4j.appender.LOGEVENT.password' in the `log4j.properties` file. You can refer the [encrypted password](#encrypt-passwords) from the `log4j.properties` file as shown below.
 
 ```
 log4j.appender.LOGEVENT.password=secretAlias:log4j.appender.LOGEVENT.password
@@ -73,10 +73,10 @@ log4j.appender.LOGEVENT.password=secretAlias:log4j.appender.LOGEVENT.password
 
 ## Change encrypted passwords
 
-To change any password that we have encrypted already, follow the below steps:
+To change any password that we has been encrypted already, follow the steps given below.
     
-1. Be sure to shut down the server.
-2. Navigate to the <IS_HOME>/bin/ directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
+1. Make sure you shut down the server.
+2. Navigate to the `<IS_HOME>/bin/` directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
 3. Execute the following command for your OS:
     * On Linux: `./ciphertool.sh -Dchange`
     * On Windows: `ciphertool.bat -Dchange`
@@ -85,8 +85,8 @@ To change any password that we have encrypted already, follow the below steps:
 6. The system will then prompt you to select the alias of the password which you want to change. Enter the list number of the password alias.
 7. The system will then prompt you (twice) to enter the new password. Enter your new password.
 
-!!! info
+!!! info "Related topics"
     
-    For information on resolving the encrypted passwords, see [Resolving Encrypted Passwords](../../../deploy/security/resolve-encrypted-passwords).
+    [Deploy: Resolve Encrypted Passwords](../../../deploy/security/resolve-encrypted-passwords)
 
-    For information on customizing secure vault implementaion, see [Customizing Secure Vault](../../../deploy/security/customize-secure-vault).
+    [Deploy: Customize Secure Vault](../../../deploy/security/customize-secure-vault)
