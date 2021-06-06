@@ -1,8 +1,8 @@
 # Using Asymmetric Encryption
 
-Asymmetric encryption uses public and private keys to encrypt and decrypt data. While the **public key** of the key pair is shared with external parties, the **private key** is kept secret. When one of the key pair is used to encrypt a message, the other key can be used to decrypt it. In a **keystore**, you can store both private and public keys and in a **truststore** you can store only public keys. 
+Asymmetric encryption uses public and private keys to encrypt and decrypt data. While the **public key** of the key pair is shared with external parties, the **private key** is kept secret. When one of the key pairs is used to encrypt a message, the other key can be used to decrypt it. In a **keystore**, you can store both private and public keys and in a **truststore** you can store only public keys. 
 
-WSO2 Identity Server uses asymmetric encryption by default for the authentication and protection of data. The following topics explain more details on keystores and truststores and how they are used in WSO2 Identity Server.
+WSO2 Identity Server uses asymmetric encryption by default for the authentication and protection of data. The following topics explain more about keystores and truststores and how they are used in WSO2 Identity Server.
 
 ---
 
@@ -14,15 +14,15 @@ A keystore is a repository (protected by a password) that holds the keys and cer
 
 -   **Keys:** According to public-key cryptography, the concept of a key pair (public key and the corresponding private key) is used for protecting sensitive information and for authenticating the identity of external parties that communicate with your server. For example, the information that is encrypted in your server using the public key can only be decrypted using the corresponding private key. Therefore, if any party wants to decrypt this encrypted data, they should have the corresponding private key, which is usually kept as a secret (not publicly shared).
 
--   **Digital certificate:** When there is a key pair, it is also necessary to have a digital certificate to verify the identity of the keys. Typically, the public key of a key pair is embedded in this digital certificate, which also contains additional information such as the owner, validity, etc. of the keys. For example, if an external party wants to verify the integrity of data or validate the identity of the signer (by validating the digital signature), it is necessary for them to have this digital certificate of the signer.
+-   **Digital certificate:** When there is a key pair, it is also necessary to have a digital certificate to verify the identity of the keys. Typically, the public key of a key pair is embedded in this digital certificate, which also contains additional information such as the owner, validity, etc. of the keys. For example, if an external party wants to verify the integrity of data or validate the identity of the signer (by validating the digital signature), it is necessary for them to have the digital certificate of the signer.
 
 -   **Trusted certificates and certificate signing authorities:** To establish trust, the digital certificate containing the public key should be signed by a trusted certificate signing authority (CA). You
-can generate self-signed certificates for the public key (thereby creating your own certifying authority), or you can get the certificates signed by the digital certificate of an external CA. When the certificate is signed by a reputed CA, all the parties that trust this CA will also trust the certificates signed by them. To establish maximum trust, it is important to have a root CA directly sign your public key certificate, or else, you can have an intermediate CA certificate (which is already signed by a root CA) sign your certificate. Therefore, in the later case, there can be a chain of CAs involved in signing your public key certificate. However, note that both types of public key certificates (self-signed or CA-signed) can be effectively used depending on the sensitivity of the information that is protected by the keys.
+can generate self-signed certificates for the public key (thereby creating your own certifying authority), or you can get the certificates signed by the digital certificate of an external CA. When the certificate is signed by a reputed CA, all the parties that trust this CA will also trust the certificates signed by them. To establish maximum trust, it is important to have a root CA directly sign your public key certificate, or else, you can have an intermediate CA certificate (which is already signed by a root CA) sign your certificate. In the latter case, there can be a chain of CAs involved in signing your public key certificate. However, note that both types of public key certificates (self-signed or CA-signed) can be effectively used depending on the sensitivity of the information that is protected by the keys.
 
 In summary, each trust chain entry in a keystore contains the following:
 
--   A private key protected by a password.
--   A digital certificate in which the public key (corresponding to the private key) is embedded.
+-   A private key protected by a password
+-   A digital certificate in which the public key (corresponding to the private key) is embedded
 -   Additionally, if this public key certificate is not self-signed but signed by a Certificate Signing Authority (CA), an additional set of certificates (of the CAs involved in the signing process) will also be included. This may be just one additional certificate if the immediate CA certificate that was used to sign the public key certificate is of a Root CA. If the immediate certificate is not of a root CA, all the certificates of the intermediate CAs should also be included in the keystore.  
 
 ### Truststores
@@ -41,7 +41,7 @@ The usage of a truststore in WSO2 Identity Server aligns with this concept of t
 
 ### Default keystore and truststore 
 
-WSO2 Identity Server is by default shipped with a keystore file and truststore file (stored in the `<IS_HOME>/repository/resources/security/` directory):
+WSO2 Identity Server is by default shipped with a keystore file and truststore file (stored in the `<IS_HOME>/repository/resources/security/` directory).
 
 -   `wso2carbon.jks`: This is the default keystore that contains a private key and the self-signed public key certificate.
 -   `client-truststore.jks`: This is the default truststore, which contains certificates of reputed CAs that can validate the identity of third party systems. This truststore also contains the self-signed certificate of the default `wso2carbon.jks` keystore.
@@ -70,21 +70,19 @@ Follow the recommendations given below when you set up your keystores.
         The primary keystore will also be used for signing messages when the product communicates with external parties (such SAML, OIDC id_token signing).
 
     !!! tip
-        You can have separate keystores for encrypting sensitive information for internal data encryption as a recommended practice. See [Configuring Keystores in WSO2 Products](../../../deploy/security/configure-keystores-in-wso2-products) for details.
+        You can have separate keystores for encrypting sensitive information for internal data encryption as a recommended practice. See [Configuring Keystores in WSO2 Identity Server](../../../deploy/security/configure-keystores-in-wso2-products) for details.
 
 -   Maintain another secondary keystore, containing the server’s public key certificate for authenticating communication over SSL/TLS (for both Tomcat and Axis2 level HTTP connections).
 
--   If your deployment contains multiple products, instances of the same product must use the same keystore for SSL. Different products can use different keystores for SSL, but it is not mandatory.
+-   All instances of WSO2 Identity Server must use the same keystore for SSL. 
 
--   It is recommended to use a CA-signed keystore for SSL communication; however, this is not mandatory. Even a self-signed certificate may suffice if it can be trusted by the clients.
+-   It is recommended to use a CA-signed keystore for SSL communication. However, this is not mandatory. Even a self-signed certificate may suffice if it can be trusted by the clients.
 
--   The keystore used for SSL must contain the same password for the Keystore and private key due to a Tomcat limitation.
+-   The keystore used for SSL must contain the same password for the keystore and private key due to a Tomcat limitation.
 
--   The primary keystore used for admin passwords and other data encryption requirements can be a self-signed one. There is no value added by using a CA-signed keystore for this purpose as it is not
-    used for any external communication.
+-   The primary keystore used for admin passwords and other data encryption requirements can be a self-signed one. There is no value added by using a CA-signed keystore for this purpose as it is not used for any external communication.
 
--   The primary keystore's public key certificate must have the **Data Encipherment** key usage to allow direct encipherment of raw data using its public key. This key usage is already included in the
-    self-signed certificate that is included in the default `wso2carbon.jks` keystore. If the **Data Encipherment** key usage is not included in your public key certificate, the following error can occur when you attempt data encryption.
+-   The primary keystore's public key certificate must have the **Data Encipherment** key usage to allow direct encipherment of raw data using its public key. This key usage is already included in the self-signed certificate that is included in the default `wso2carbon.jks` keystore. If the **Data Encipherment** key usage is not included in your public key certificate, the following error can occur when you attempt data encryption.
 
     !!! error
         ``` java
@@ -93,13 +91,13 @@ Follow the recommendations given below when you set up your keystores.
 
 -   Optionally, you can set up separate keystores for message-level data encryption in WS-Security.
 
--   If you already have the required keystores for your product, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of
-    replacing the certificates in the keystore. See [Adding CA-signed certificates](../../../deploy/security/create-new-keystores#add-ca-signed-certificates-to-keystores) to keystores for instructions.
+-   If you already have the required keystores, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of
+    replacing the certificates in the keystore. See [Add CA-signed certificates](../../../deploy/security/create-new-keystores#add-ca-signed-certificates-to-keystores) to keystores for instructions.
 
-!!! info
+!!! info "Related topics"
     
-    -   For information on creating new keystores with the required certificates, see [Creating New Keystores](../../../deploy/security/create-new-keystores).
+    -   [Deploy: Create New Keystores](../../../deploy/security/create-new-keystores)
     
-    -   For information on how to update configuration files in WSO2 Identity Server with keystore information, see [Configuring Keystores](../../../deploy/security/configure-keystores-in-wso2-products).
+    -   [Deploy: Configure Keystores](../../../deploy/security/configure-keystores-in-wso2-products)
 
     
