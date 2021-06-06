@@ -155,9 +155,7 @@ together with `         customClaim2        ` retrieved in the userinfo
 response, an additional claim `         customClaim1        ` is
 retrieved via the `         id_token        ` when you configure the
 authorization code flow with a signed request object.  
-  
 
-----
 
 !!! info "Related topics"
     - [Concept: Request Object](../../../references/concepts/authentication/request-object)

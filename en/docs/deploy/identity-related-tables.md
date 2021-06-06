@@ -1,22 +1,21 @@
 # Identity Related Tables
 
-This section lists out all the identity related tables and their
-attributes in the WSO2 Identity Server database.
+This section lists out all the identity related tables and their attributes in the WSO2 Identity Server database.
 
 ---
 
 #### IDN_BASE_TABLE
 
 This table is used to provide information related to the server setup.
-It has only one column `(PRODUCT_NAME)`, which contains a row with the
-value “WSO2 Identity Server”.  
+It has only one column, `PRODUCT_NAME`, which contains a row with the
+value `WSO2 Identity Server`.  
 
 ---
 
 #### IDN_OAUTH_CONSUMER_APPS
 
-This table is used when adding OAuth/OpenID Connect Configuration as
-Inbound Authentication Configuration for a Service Provider. The
+This table is used when adding OAuth/OpenID Connect configuration as
+the inbound authentication configuration for a service provider. The
 following table lists out the columns and the values they contain.
 
 | Column           | Description                                                |
@@ -35,8 +34,8 @@ following table lists out the columns and the values they contain.
 #### IDN_OAUTH1A_REQUEST_TOKEN
 
 When using OAuth 1.0a, OAuth clients need to send the consumer key,
-consumer secret and scope to the OAuth service and obtain a request
-token. When the Identity Server returns a request token to such a
+consumer secret, and scope to the OAuth service and obtain a request
+token. When WSO2 Identity Server returns a request token to such a
 client, it adds a record to this table. The client will then receive the
 request token and the OAuth verifier. The client can send these values
 back to the service and obtain the OAuth access token. Then the record
@@ -78,15 +77,15 @@ columns and a description of the values it contains.
 </tr>
 <tr class="even">
 <td>AUTHORIZED</td>
-<td>True/False (indicates whether the resource owner authorized the request). Initially this column will be marked as false.</td>
+<td>True/False (indicates whether the resource owner authorized the request). Initially, this column will be marked as false.</td>
 </tr>
 <tr class="odd">
 <td>OAUTH_VERIFIER</td>
-<td>Initially this column will be NULL. The client application then receives the request token and the request token secret after which it can authorize the request token where the user enters the credentials and authorizes the request.</td>
+<td>Initially, this column will be NULL. The client application then receives the request token and the request token secret after which it can authorize the request token where the user enters the credentials and authorizes the request.</td>
 </tr>
 <tr class="even">
 <td>AUTHZ_USER</td>
-<td>The username of the user that authorized the request token. Once the value of this column is added, the AUTHORIZED column will be marked as true and a random number will be inserted into the OAUTH_VERIFIER column for verification purposes.</td>
+<td>This is the username of the user that authorized the request token. Once the value of this column is added, the AUTHORIZED column will be marked as true and a random number will be inserted into the OAUTH_VERIFIER column for verification purposes.</td>
 </tr>
 </tbody>
 </table>
@@ -95,7 +94,7 @@ columns and a description of the values it contains.
 
 #### IDN_OAUTH1A_ACCESS_TOKEN
 
-When using OAuth 1.0a and receiving a OAuth 1.0a request token, the
+When using OAuth 1.0a and receiving an OAuth 1.0a request token, the
 client application can obtain the access token by authorizing the
 request token. The following table lists out the columns and a
 description of the values it contains.
@@ -140,7 +139,7 @@ description of the values it contains.
 #### IDN_OAUTH2_AUTHORIZATION_CODE
 
 When a client application is used with OAuth 2 authorization code grant
-type, after the authentication, the Identity Server returns the
+type, after the authentication, WSO2 Identity Server returns the
 authorization code to the client. When this occurs, a record is added to
 this table. The client application can then request the OAuth access
 token using the authorized code. When the access token is returned, the
@@ -216,7 +215,7 @@ description of the values it contains.
 
 #### IDN_OAUTH2_SCOPE
 
-When the Identity Server is used with a product such as the WSO2 API
+When WSO2 Identity Server is used with a product such as the WSO2 API
 Manager, custom OAuth scopes can be defined. The following table lists
 out the columns and a description of the values it contains.
 
@@ -237,7 +236,7 @@ out the columns and a description of the values it contains.
 
 #### IDN_OAUTH2_RESOURCE_SCOPE
 
-When the Identity Server is used with a product such as WSO2 API
+When WSO2 Identity Server is used with a product such as WSO2 API
 Manager, the custom scopes defined for the APIs will be stored in the
 `IDN_OAUTH2_SCOPE` table. These scopes can be mapped with the resources
 in the API and these resources and scopes mapping are stored in this
@@ -257,7 +256,7 @@ the values it contains.
 
 ####  IDN_SCIM_GROUP
 
-When creating a new role in the user store, the SCIM attributes for the created role are stored in
+When creating a new role in the userstore, the SCIM attributes for the created role are stored in
 this table.  For each role that is created, there are multiple rows
 stored since multiple SCIM attributes are associated with a role
 (GROUP). The following table lists out the columns and a description of
@@ -289,7 +288,7 @@ This table is not used in the latest version of WSO2 Identity Server.
 
 #### IDN_OPENID_REMEMBER_ME
 
-This table is not being used in the latest version of Identity Server
+This table is not used in the latest version of WSO2 Identity Server
 because the 'Remember Me' feature is handled from the authentication
 framework.
 
@@ -302,8 +301,8 @@ framework.
 
 #### IDN_OPENID_USER_RPS
 
-When users login to OpenID relying party applications where the OpenID
-authentication is provided by the Identity Server, the login details are
+When users log in to OpenID relying party applications where the OpenID
+authentication is provided by WSO2 Identity Server, the login details are
 stored in this table. The following table lists out the columns and a
 description of the values it contains.
 
@@ -336,7 +335,7 @@ lists out the columns and a description of the values it contains.
 
 #### IDN_STS_STORE
 
-When the Identity Server is used as a Security Token Service which
+When WSO2 Identity Server is used as a Security Token Service which
 issues access tokens, such records are stored in following table.
 Following are the columns of the table.
 
@@ -351,15 +350,15 @@ Following are the columns of the table.
 
 #### IDN_IDENTITY_USER_DATA
 
-When using a JDBC user store, the user attributes of a user are stored
+When using a JDBC userstore, the user attributes of a user are stored
 in the `UM_USER_ATTRIBUTE` table for the supported claims. There are
 some claims used for Identity Management features that should be handled
 specifically. Claims used for Identity Management feature will be stored
 in the userstore which is specified in the
 `         <IS_HOME>/repository/conf/security/identity-mgt.properties        `
-file. In that property file, the property
+file. The property,
 `         Identity.Mgt.User.Data.Store        ` is used to define what
-kind of store it uses to store those reserved claims. Upon updating the
+kind of store it uses to store these reserved claims. Upon updating the
 user profile, these claims and their mapped attribute values will be
 inserted to this table.  
 
@@ -367,14 +366,14 @@ inserted to this table.
     -   If you specify
         `           org.wso2.carbon.identity.mgt.store.UserStoreBasedIdentityDataStore          `
         for the `           Identity.Mgt.User.Data.Store          ` property
-        which is the default store, it will use the same user store where
+        which is the default store, it will use the same userstore where
         the user resides for storing these special attributes.
     
     -   If you specify
         `           org.wso2.carbon.identity.mgt.store.JDBCIdentityDataStore          `
         for the `           Identity.Mgt.User.Data.Store          `
-        property, it will not use the user's user store and will instead use
-        Identity Server's internal JDBC database to store those claims.
+        property, it will not use the user's userstore and will instead use
+        WSO2 Identity Server's internal JDBC database to store those claims.
     
 
   
@@ -416,10 +415,10 @@ values it contains.
 
 #### IDN_THRIFT_SESSION
 
-This table is used to store the authenticated Thrift session. Once the
+This table is used to store the authenticated thrift session. Once the
 user is authenticated to the thrift authenticator, it creates a thrift
 session. This is mainly used in the XACML feature in WSO2 Identity
-Server. The **Entitlement Service** of the Identity Server is exposed
+Server. The **Entitlement Service** of WSO2 Identity Server is exposed
 via **Thrift** transport and in order to access this admin service, it
 must be authenticated. The following table lists out the columns and a
 description of the values it contains.
@@ -435,9 +434,9 @@ description of the values it contains.
 
 #### IDN_ASSOCIATED_ID
 
-In the Identity Server Dashboard, users can associate their social
+Users can associate their social
 identity (i.e. Facebook, Yahoo, Google, Microsoft ) with the user
-account created in the Identity Server. The following table lists out
+account created in WSO2 Identity Server. The following table lists out
 the columns and a description of the values it contains.
 
 | Column        | Description                                                                              |
@@ -446,14 +445,14 @@ the columns and a description of the values it contains.
 | IDP_USER_ID | The user's username in the social account (i.e., Facebook username)                      |
 | TENANT_ID    | The ID of the tenant in which the user is created                                        |
 | IDP_ID       | The ID of the identity provider which contains the federated authenticator               |
-| USER_NAME    | The username of the user in Identity Server that this social identity is associated with |
+| USER_NAME    | The username of the user in WSO2 Identity Server that this social identity is associated with |-->
 
 ---
 
 #### IDN_AUTH_SESSION_STORE
 
-When the remember me option is selected when logging into the either a
-service provider or the Identity Server, session data is persisted
+When the **remember me** option is selected when logging in to either a
+service provider or WSO2 Identity Server, session data is persisted
 provided that the session data persistence is enabled from
 configuration. The following table lists out the columns and a
 description of the values it contains.

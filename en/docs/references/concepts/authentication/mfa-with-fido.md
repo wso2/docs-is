@@ -62,8 +62,6 @@ The following diagram depicts the FIDO U2F-based authentication process.
 
 For more information about FIDO and how it works, see the official FIDO documentation: [What is FIDO?](https://fidoalliance.org/what-is-fido/). 
 
----
-
 !!! info "Related topics"
     - [Concept: Multi-Factor Authentication](../multi-factor-authentication)
     - [Guide: Configure Two-Factor Authentication with FIDO](../../../../guides/mfa/2fa-fido)

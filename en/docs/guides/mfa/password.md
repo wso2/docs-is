@@ -13,8 +13,6 @@ This page guides you through configuring password-based authentication for a web
 
 2. Enter the **Username** and **Password** and log in.
 
-----
-
 !!! info "Related topics"
     - [Concept: Single Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
     - [Guide: Configure an Authentication Journey](../configure-authentication-journey)

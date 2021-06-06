@@ -71,7 +71,6 @@ This guide assumes you have your own application. If you wish to try out this fl
 
     The ID token contains basic user information. To check what is encoded within the ID token, you can use a tool such as <https://devtoolzone.com/decoder/jwt>.
 
-----
 
 !!! info "Related topics"
     - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)

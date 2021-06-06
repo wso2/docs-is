@@ -132,9 +132,6 @@ steps below.
 
 After setting the disable status to `true` for a particular user, the server should reject any authentication attempts done by that account.
 
----
-
-----
 
 !!! info "Related topics"
 	- [Guide: Configure Email Notifications for Account Locking](../../../guides/tenants/email-account-locking/)

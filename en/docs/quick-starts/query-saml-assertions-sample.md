@@ -169,7 +169,6 @@ Optionally, you can use a custom assertion builder that enables persisting asser
 
 You have successfully queried an assertion with an `AssertionIDRequest` using the sample application. 
 
----
 
 !!! info "Related topics"
     - [Guide: Query SAML2 Assertions](../../../guides/login/query-saml-assertions)

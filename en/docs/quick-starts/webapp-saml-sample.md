@@ -41,7 +41,7 @@ You have successfully configured authentication for a SAML application.
 
 4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations](../../../guides/login/saml-parameters-in-auth-request).
 
------
+
 
 !!! info "Related topics"
     - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)

@@ -153,8 +153,6 @@ The Kerberos Grant then validates the received token with the provided Identity 
 }
 ```
 
-----
-
 !!! info "Related topics"
     - [Concept: Kerberos grant](../../../references/concepts/authorization/kerberos-grant/)
     

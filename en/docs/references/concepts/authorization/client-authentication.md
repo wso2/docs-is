@@ -1,4 +1,4 @@
-# OAuth2.0 Client Authentication
+# OAuth 2.0 Client Authentication
 
 If the client type specified in the request is [confidential](client-types.md), the client and authorization server should establish a client authentication method 
 suitable for the security requirements of the authorization server. This needs to be done ;

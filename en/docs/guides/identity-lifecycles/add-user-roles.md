@@ -39,7 +39,6 @@ curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"v
 You receive a response with the payload as indicated above and a
 response status `           201 CREATED          `.
 
-----
 
 !!! info "Related topics"
     - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)

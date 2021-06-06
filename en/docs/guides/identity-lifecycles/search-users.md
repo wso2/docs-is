@@ -52,7 +52,6 @@ curl -v -k --user admin:admin --data '{"schemas": ["urn:ietf:params:scim:api:mes
 {"totalResults":1,"startIndex":1,"itemsPerPage":1,"schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],"Resources":[{"name":{"familyName":"jackson"},"id":"c8c821ba-1200-495e-a775-79b260e717bd","userName":"kim"}]}
 ```
 
----
 
 !!! info "Related topics"
     - [Concept: Users](../../../references/concepts/user-management/users)

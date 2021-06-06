@@ -7,8 +7,8 @@ attributes in the WSO2 Identity Server database.
 
 ## SP_APP
 
-When a Service Provider is added, the details are stored in this table.
-The APP_NAME column represents the Service Provider name. Following are
+When a service provider is added, the details are stored in this table.
+The `APP_NAME` column represents the service provider name. Following are
 the columns of the table.
 
 -   `ID`
@@ -30,13 +30,13 @@ the columns of the table.
 
 ## SP_INBOUND_AUTH
 
-Inbound authentication configuration details of a Service Provider are
+Inbound authentication configuration details of a service provider are
 stored in this table. For each type of associated inbound authentication
-configuration for a Service Provider, there will be a separate record
+configuration for a service provider, there will be a separate record
 (i.e. OpenID, PassiveSTS, SAMLSSO). If the inbound authentication
 configuration is SAMLSSO (value in `INBOUND_AUTH_TYPE` is `samlsso`), it
-will have a property named “Attribute Consuming Service Index” in the
-column `PROP_NAME` and the value is a random integer stored in
+will have a property named `Attribute Consuming Service Index` in the
+column, `PROP_NAME` and the value is a random integer stored in the
 `PROP_VALUE` column. Following are the columns of the table.
 
 -   `ID`
@@ -51,14 +51,12 @@ column `PROP_NAME` and the value is a random integer stored in
 
 ## SP_AUTH_STEP
 
-The Service Providers can define how to authenticate users at the
-Identity Server, for authentication requests initiated by it. While
-doing that, each Service Provider can define multiple steps and for each
-step it can pick more than one authenticator. This is called as
-Multi-level (multi-factor) Authentication. This table stores each
-authentication step added to the Service Provider. Service Provider is
+The service providers can define how to authenticate users at WSO2 Identity Server, for authentication requests initiated by it. While
+doing that, each service provider can define multiple steps and for each
+step, it can pick more than one authenticator. This is called multi-level (multi-factor) authentication. This table stores each
+authentication step added to the service provider. Service provider is
 represented by the `APP_ID`. If multiple authentication steps are added
-for one Service Provider, the order is maintained in the STEP_ORDER
+for one service provider, the order is maintained in the `STEP_ORDER`
 column. Following are the columns of the table.
 
 -   `ID`
@@ -72,9 +70,9 @@ column. Following are the columns of the table.
 
 ## SP_FEDERATED_IDP
 
-For a Service Provider, Federated Identity Providers can be added for
-authentication. The Federated Identity Providers for a Service Provider
-are stored in this table. Here the ID column points to the ID column of
+For a service provider, federated identity providers can be added for
+authentication. The federated identity providers for a service provider
+are stored in this table. Here, the ID column points to the ID column of
 the `SP_AUTH_STEP` table. Following are the columns of the table.
 
 -   `ID`
@@ -85,10 +83,10 @@ the `SP_AUTH_STEP` table. Following are the columns of the table.
 
 ## SP_CLAIM_MAPPING
 
-When the claims of the Identity Provider are different from the Service
-Provider, corresponding claims can be mapped from this table for each
-Service Provider. The Service Provider ID is given in `APP_ID` and the
-`IDP_CLAIM` and `SP_CLAIM` are the Identity Provider and Service Provider
+When the claims of the identity provider are different from the service
+provider, corresponding claims can be mapped from this table for each
+service provider. The service provider ID is given in `APP_ID` and the
+`IDP_CLAIM` and `SP_CLAIM` are the identity provider and service provider
 claims respectively. Following are the columns of the table.
 
 -   `ID`
@@ -103,14 +101,14 @@ claims respectively. Following are the columns of the table.
 
 ## SP_ROLE_MAPPING
 
-When there are user roles defined in the Identity Provider side (here
-WSO2 Identity Server) and also in the client application side, the roles
-in both sides can be mapped together accordingly through the Service
-Provider. The Service Provider ID is given in `APP_ID` and the client
-application side role is given in `SP_ROLE` where the Identity Provider’s
+When there are user roles defined in both the identity provider (here
+WSO2 Identity Server) and the client application sides, the roles
+in both sides can be mapped together accordingly through the service
+provider. The service provider ID is given in `APP_ID`, the client
+application side role is given in `SP_ROLE`, and the identity provider’s
 side role is given in `IDP_ROLE`. This way, the client application
-developers do not need to know the available roles in the Identity
-Provider as the roles can be mapped and linked together. Following are
+developers do not need to know the available roles in the identity
+provider as the roles can be mapped and linked together. Following are
 the columns of the table.
 
 -   `ID`
@@ -123,9 +121,9 @@ the columns of the table.
 
 ## SP_REQ_PATH_AUTHENTICATOR
 
-If a RequestPathAuthenticator is added to a Service Provider, that is
-recorded in this table. Service Provider ID is given in `APP_ID`.
-`AUTHENTICATOR_NAME` column will contain the name of the request path
+If a `RequestPathAuthenticator` is added to a service provider, that is
+recorded in this table. Service provider ID is given in `APP_ID`.
+The `AUTHENTICATOR_NAME` column will contain the name of the request path
 authenticator.  Following are the columns of the table.
 
 -   `ID`
@@ -137,13 +135,13 @@ authenticator.  Following are the columns of the table.
 
 ## SP_PROVISIONING_CONNECTOR
 
-Outbound Provisioning Connectors can be added to the Identity Providers
-for user provisioning. Those Provisioning Connectors can be linked to a
-Service Provider. For a Service Provider, the associated Provisioning
-Connectors are stored in this table. `IDP_NAME` column has the Identity
-Provider name and the `CONNECTOR_NAME` column has the name of the
-provisioning connector. `APP_ID` column has the ID of the Service
-Provider. Following are the columns of the table.
+Outbound provisioning connectors can be added to the identity providers
+for user provisioning. Those provisioning connectors can be linked to a
+service provider. For a service provider, the associated provisioning
+connectors are stored in this table. The `IDP_NAME` column has the identity
+provider name and the `CONNECTOR_NAME` column has the name of the
+provisioning connector. The `APP_ID` column has the ID of the service
+provider. Following are the columns of the table.
 
 -   `ID`
 -   `TENANT_ID`

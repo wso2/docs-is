@@ -115,7 +115,7 @@ Following are the columns of the table.
 
 #### REG\_COMMENT
 
-The details of a comment  added for a registry resource are stored in
+The details of a comment added for a registry resource are stored in
 this table. Comments in this table are mapped with the records in
 `REG\_RESOURCE\_COMMENT` table. Following are the columns of the table.
 
@@ -232,7 +232,7 @@ should be a resource existing on the registry, the destination resource
 can be anything for which a URL can be given. Association has a type
 associated.
 
-eg: Document A that confirms to a standard B, You can create an
+For example, suppose Document A confirms to a standard B. You can create an
 association between those two by stating A "confirms to" B, where
 association name is "confirms to". The registry associations are stored
 in this table.
