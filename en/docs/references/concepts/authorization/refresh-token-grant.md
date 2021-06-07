@@ -19,7 +19,7 @@ The diagram below illustrates the refresh token grant flow.
 
 ![Refresh token grant flow](../../../assets/img/concepts/refresh-token-grant-flow.png)
 
-Following cURL commands can be used to try this grant type.
+The following cURL commands can be used to try this grant type.
 
 ``` java
 curl -k -d "grant_type=refresh_token&refresh_token=<REFRESH_TOKEN>" -H "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" -H "Content-Type: application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
