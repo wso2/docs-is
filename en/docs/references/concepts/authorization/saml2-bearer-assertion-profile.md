@@ -7,7 +7,7 @@ SAML 2.0 Bearer Assertion Profile for OAuth 2.0. This page describes the followi
 -   Using SAML 2.0 assertions for client authentication
 
 Out of the two scenarios, the former is the one that is more
-commonly needed in enterprises. The WSO2 Identity Server supports this
+commonly needed in enterprises. WSO2 Identity Server supports this
 process.
 
 An OAuth 2.0 authorization server can accept
