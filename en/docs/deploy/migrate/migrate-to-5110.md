@@ -1,16 +1,16 @@
-# Migrate to 5.11.0
+# Migrate to 5.12.0
 
 ## Prerequisites
 
-Make sure you have met the following prerequisites before proceeding with the instructions to migrate to 5.11.0. 
+Make sure you have met the following prerequisites before proceeding with the instructions to migrate to 5.12.0. 
 
 1.  Make sure you satisfy the prerequisites in [Before you begin](../../../deploy/migrate/migration-guide).
-2.  Carry out the pre-processing steps in [Preparing for migration](../../../deploy/migrate/prepare-for-migration).
+2.  Carry out the pre-processing steps in [Prepare for migration](../../../deploy/migrate/prepare-for-migration).
 
 !!! note
     In this section, `<OLD_IS_HOME> ` is the directory that the current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
-    directory that WSO2 Identity Server 5.11.0 resides in. 
+    directory that WSO2 Identity Server 5.12.0 resides in. 
 
 ??? info "If you are using DB2"
     Move indexes to the TS32K Tablespace. The index tablespace in the 
@@ -91,9 +91,9 @@ Make sure you have met the following prerequisites before proceeding with the in
 
 ---
 
-## Steps to migrate to 5.11.0
+## Steps to migrate to 5.12.0
 
-Once all the above prerequisites have been met, follow the instructions given below to migrate to the latest version. 
+Once all the above prerequisites are met, follow the instructions given below to migrate to the latest version. 
 
 1.  If you have manually added any custom OSGI bundles to the
     `          <OLD_IS_HOME>/repository/components/dropins         `
@@ -102,8 +102,8 @@ Once all the above prerequisites have been met, follow the instructions given be
     directory.
     
     !!! warning "Important" 
-        You may need to update the custom components to work with WSO2 Identity Server 5.11.0. 
-        Refer [Migrating custom components](../../../deploy/migrate/prepare-for-migration/#migrate-custom-components).
+        You may need to update the custom components to work with WSO2 Identity Server 5.12.0. 
+        Refer [Migrate custom components](../../../deploy/migrate/prepare-for-migration/#migrate-custom-components).
 
 2.  If you have manually added any JAR files to the
     `           <OLD_IS_HOME>/repository/components/lib          `
@@ -118,7 +118,7 @@ Once all the above prerequisites have been met, follow the instructions given be
     directory.
 
     !!! note
-        In WSO2 Identity Server 5.11.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` to configure internal and primary keystores. 
+        In WSO2 Identity Server 5.12.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous WSO2 IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` to configure internal and primary keystores. 
 
         ```toml
         [keystore.primary]
@@ -141,10 +141,10 @@ Once all the above prerequisites have been met, follow the instructions given be
 4.  To migrate the super tenant, copy the content from `<OLD_IS_HOME>/repository/deployment/server` directory to the `<NEW_IS_HOME>/repository/deployment/server` directory. 
 
     If you have created tenants in the previous WSO2 Identity Server
-    version that contain resources, copy the content from `<OLD_IS_HOME>/repository/tenants` directory,
+    version that contain resources, copy the content from the `<OLD_IS_HOME>/repository/tenants` directory,
     to the `<NEW_IS_HOME>/repository/tenants` directory.
     
-5.  If you have created secondary user stores in the previous WSO2 IS
+5.  If you have created secondary userstores in the previous WSO2 IS
     version, copy the content in the
     `           <OLD_IS_HOME>/repository/deployment/server/userstores          `
     directory to the
@@ -152,47 +152,47 @@ Once all the above prerequisites have been met, follow the instructions given be
     directory.
     
 6. Ensure that you have migrated the configurations into the new version as
-   advised in [preparing for migration section.](../../../deploy/migrate/prepare-for-migration/#migrate-the-configurations)
+   advised in [prepare for migration](../../../deploy/migrate/prepare-for-migration/#migrate-the-configurations) section.
 
 7.  Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
 
 8. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with
    `<OLD_IS_HOME>/repository/conf/email/email-admin-config.xml`.   
     
-9. Follow the steps given below to perform database updates:
+9. Follow the steps given below to perform database updates.
     1.     To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**. Unzip it to a local directory.
         
         !!! Note 
             - **x.x.x** of `wso2is-migration-x.x.x.zip` denotes the
             version number of the most recently-released migration resources. 
             - The
-            directory where the `wso2is-migration-x.x.x.zip` is unziped
+            directory where the `wso2is-migration-x.x.x.zip` file is unziped
             will be referred to as ` <IS_MIGRATION_TOOL_HOME> `.
 
     2.   Copy the ` org.wso2.carbon.is.migration-x.x.x.jar ` file in the
         ` <IS_MIGRATION_TOOL_HOME>/dropins ` directory into the ` <NEW_IS_HOME>/repository/components/dropins `
         directory.
 
-    3.  Copy migration-resources directory to the
+    3.  Copy the `migration-resources` directory to the
         `             <NEW_IS_HOME>            ` root directory.
 
     4.  Ensure that the property values are as follows in the
         `  <NEW_IS_HOME>/migration-resources/migration-config.yaml ` file.
+
+        !!! note
+            Here, the `currentVersion` is the current WSO2 Identity Server version that you are using.
 
         ``` java
         migrationEnable: "true"
 
         currentVersion: "5.7.0"
 
-        migrateVersion: "5.11.0"
+        migrateVersion: "5.12.0"
         ```
         
-        !!! note
-            Here, the `currentVersion` is the current WSO2 Identity Server version that you are using.
-
     ??? note "If you are using PostgreSQL"
         During the migration, "uuid-ossp" extension is created in the database. In order to create this extension, 
-        the database user should have the '**Superuser**' permission. 
+        the database user should have the **Superuser** permission. 
         If the user is not already a superuser, assign the permission before starting the migration.
             
             ALTER USER <user> WITH SUPERUSER;
@@ -212,7 +212,7 @@ Once all the above prerequisites have been met, follow the instructions given be
         key = "<provide-your-key-here>"
         ```
     
-    3. Open the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file. The following two migrators are configured under **migratorConfigs** for 5.11.0. 
+    3. Open the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file. The following two migrators are configured under **migratorConfigs** for 5.12.0. 
         - EncryptionAdminFlowMigrator
         - EncryptionUserFlowMigrator 
     
@@ -230,18 +230,14 @@ Once all the above prerequisites have been met, follow the instructions given be
     
     Under each migrator's parameters, find the property value of **currentEncryptionAlgrithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
             
-11.  Start the WSO2 Identity Server 5.11.0 with the following command to
+11.  Start the WSO2 Identity Server 5.12.0 with the following command to
     execute the migration client.
 
-    1.  Linux/Unix:
-
-        ```bash 
+        ```bash tab="Linux/Unix"
         sh wso2server.sh -Dmigrate -Dcomponent=identity
         ```
 
-    2.  Windows:
-
-        ```bash
+        ```bash tab="Windows"
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
@@ -262,7 +258,7 @@ to the new WSO2 Identity Server database.
     sh wso2server.sh -DsyncData -DconfigFile=<path to sync.properties file>/sync.properties
     ```
 
-2.  Monitor the logs in the sync tool to see how many entries are synced at a given time and to keep track of the progress in the data sync process. The following line will be printed in the logs in each table you have specified, that has no data to be synced.
+2.  Monitor the logs in the sync tool to see how many entries are synced at a given time and to keep track of the progress in the data sync process. The following line will be printed in the logs in each table you have specified that has no data to be synced.
 
     ```tab="Sample"
     [2019-02-27 17:26:32,388]  INFO {org.wso2.is.data.sync.system.pipeline.process.BatchProcessor} -  No data to sync for: <TABLE_NAME>
@@ -286,14 +282,14 @@ After the migration is complete, proceed to the following verification steps.
 
 +   Monitor the system health (CPU, memory usage etc).
 +   Monitor the WSO2 logs to see if there are errors logged in the log files.
-+   Run functional tests against the migrated deployment to verify that all the functionalies are working as expected.
++   Run functional tests against the migrated deployment to verify that all the functionalities are working as expected.
 
 
 !!! note 
     If you see any problems in the migrated system, revert the traffic back to the previous setup and investigate the problem.
 
-!!! tip
-    If the id token validation for the **Console** and **My Account** applications are failing, see [Validation of issuer in .well-known endpoint URL](../../../deply/migrate/what-has-changed/#validation-of-issuer-in-well-known-endpoint-url).
+<!--!!! tip
+    If the id token validation for the **Console** and **My Account** applications are failing, see [Validation of issuer in .well-known endpoint URL](../../../deply/migrate/what-has-changed/#validation-of-issuer-in-well-known-endpoint-url).-->
     
     
     

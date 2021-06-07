@@ -7,11 +7,10 @@ When setting up the WSO2 Identity Server cluster with Nginx, follow the instruct
 
 !!! tip 
     When clustering WSO2 Identity Server with a load balancer, you may need to
-    enable sticky sessions. This is required for the management console and
-    the user portal to work and if we disable temporary session data
+    enable sticky sessions. This is required for the WSO2 Identity Server Management Console My Account to work and if we disable temporary session data
     persistence in the
     `<IS_HOME>/repository/conf/deployment.toml`
-    file. For more information on sticky sessions, see [Sticky Sessions with Manager Nodes](../../../deploy/sticky-sessions-with-manager-nodes).
+    file. <!--For more information on sticky sessions, see [Sticky Sessions with Manager Nodes](../../../deploy/sticky-sessions-with-manager-nodes).-->
    
 Following is the deployment diagram with the load balancer.
 
@@ -138,8 +137,7 @@ collectively as "Nginx".)
 
 3.  Now that you've configured HTTP requests, you must also configure
     HTTPS requests. Configure Nginx to direct the HTTPS requests to the
-    two worker nodes via the HTTPS 443 port using ` https://is.wso2.com/
-     ` . To do this, create a VHost file ( ` is.https.conf ` ) in the `
+    two worker nodes via the HTTPS 443 port using ` https://is.wso2.com/` . To do this, create a VHost file ( ` is.https.conf ` ) in the `
     /etc/nginx/conf.d ` directory and add the following configurations
     into it.
 
@@ -210,7 +208,7 @@ collectively as "Nginx".)
         }
     ```
 
-4.  Configure Nginx to access the Management Console as
+4.  Configure Nginx to access the WSO2 Identity Server Management Console as
     `            https://mgt.is.wso2.com/carbon           ` via HTTPS
     443 port. This is to direct requests to the manager node. To do
     this, create a VHost file (
@@ -250,7 +248,7 @@ collectively as "Nginx".)
     !!! tip    
         If you have made modifications to anything other than the VHost
         files, you may need to restart the Nginx server instead of
-        reloading:
+        reloading it.
         ```
         $sudo service nginx restart
         ```    
