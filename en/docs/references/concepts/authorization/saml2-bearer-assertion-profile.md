@@ -27,7 +27,7 @@ to use the existing trust relationship between the identity provider
 (IdP) and the service provider, even if the OAuth authorization server
 is entirely different from the IdP. Enterprises are going to love it, especially if there could be a cut in the number 
 of steps performed in the OAuth 2.0 dance to obtain an access token. This could be due to the fact that the clients have
-already authenticated themselves to the IdP and the resource owner has authenticated himself and authorized the client.
+already authenticated themselves to the IdP and the resource owner has authenticated itself and authorized the client.
 The SAML 2.0 Bearer Assertion Profile for OAuth 2.0 is the
 answer to the question of how we leverage on the existing trust
 relationship between the SP and the IdP, by presenting the SAML 2.0
