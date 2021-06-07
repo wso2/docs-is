@@ -106,7 +106,7 @@ It is recommended to change this by configuring the server name in the `deployme
 
 For products based on Carbon 4.4.11 or later versions, HTTP Strict Transport Security (HSTS) is disabled for the applications with which WSO2 Identity Server is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.
 
-Make sure to enable (HSTS) for all the applications that are deployed in WSO2 Identity Server. This includes the WSO2 Identity Server Management Console and any other web applications. For instructions, see <a href="../../../deploy/security/enable-hsts">Enable HTTP Strict Transport Security (HSTS) Headers</a>.
+Make sure to enable HSTS for all the applications that are deployed in WSO2 Identity Server. This includes the WSO2 Identity Server Management Console and any other web applications. For instructions, see <a href="../../../deploy/security/enable-hsts">Enable HTTP Strict Transport Security (HSTS) Headers</a>.
 
 ---
 
