@@ -48,4 +48,4 @@ You will receive a response similar to the format below.
 
 !!! info "Related topics"
         - [Guide: Authorization Code Grant](../../../../guides/access-delegation/authorization-code)
-        - [Demo: Authorization Code Grant](../../../../quick-starts/auth-code-playground)
+        - [Quick Start: Authorization Code Grant](../../../../quick-starts/auth-code-playground)

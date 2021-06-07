@@ -44,4 +44,4 @@ http://localhost:8080/playground2/oauth2client#access_token=131d4094-b94c-3714-9
 
 !!! info "Related topics"
         - [Guide: Implicit Grant](../../../../guides/access-delegation/implicit)
-        - [Demo: Implicit Grant](../../../../quick-starts/implicit-playground)
+        - [Quick Start: Implicit Grant](../../../../quick-starts/implicit-playground)

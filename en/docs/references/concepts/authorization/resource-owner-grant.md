@@ -37,4 +37,4 @@ You will receive a response similar to the format below.
 
 !!! info "Related topics"
         - [Guide: Password Grant](../../../../guides/access-delegation/password-grant)
-        - [Demo: Password Grant](../../../../quick-starts/password-playground)
+        - [Quick Start: Password Grant](../../../../quick-starts/password-playground)

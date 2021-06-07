@@ -37,5 +37,5 @@ You will receive a response similiar to the format below.
     
 !!! info "Related topics"
         - [Guide: Client Credentials Grant](../../../../guides/access-delegation/client-credentials)
-        - [Demo: Client Credentials Grant](../../../../quick-starts/client-credentials-playground)
+        - [Quick Start: Client Credentials Grant](../../../../quick-starts/client-credentials-playground)
 
