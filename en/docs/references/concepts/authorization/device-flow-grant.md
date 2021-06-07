@@ -5,7 +5,7 @@ This is an OAuth 2.0 extension that enables OAuth clients to request user author
 - Input-constrained devices
 - Devices without a browser
 
-Such devices include smart TVs, printers and play-stations. This authorization flow is defined as the **device flow**.
+Such devices include smart TVs, printers, and play-stations. This authorization flow is defined as the **device flow**.
 This specification instructs the user to review the authorization request on a secondary device, such as a smartphone.
 
 ---
@@ -36,4 +36,3 @@ The diagram below illustrates the device flow.
 
 !!! info "Support for refresh token grant"
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../refresh-token-grant).
-
