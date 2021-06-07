@@ -1,7 +1,7 @@
 # SAML 2.0 Bearer Assertion Profile for OAuth 2.0
 
 One of the very first complements to the OAuth 2.0 specification is the
-SAML 2.0 Bearer Assertion Profile for OAuth 2.0. This page describes the following two SAML 2.0 Assertion scenarios.
+SAML 2.0 Bearer Assertion Profile for OAuth 2.0. This page describes the following SAML 2.0 Assertion scenarios.
 
 -   Using SAML 2.0 assertions as authorization grants
 -   Using SAML 2.0 assertions for client authentication
