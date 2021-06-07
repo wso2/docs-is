@@ -12,7 +12,7 @@ This specification instructs the user to review the authorization request on a s
 
 ## The flow
 
-The device flow does not require two-way communication between the OAuth client, and the device. Instead of directly
+The device flow does not require two-way communication between the OAuth client and the device. Instead of directly
 contacting the end user's user-agent, it guides the end user to connect to the authorization server through another device,
 and then approves the access request.
 
