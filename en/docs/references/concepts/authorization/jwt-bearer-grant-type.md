@@ -8,7 +8,7 @@ to access protected resources on behalf of the resource owner.
 
 ##How does it work?
 
-When an entity initiates a request to gain access to an application:
+Given below is the flow when an entity initiates a request to gain access to an application.
 
 1. The client application sends an access request to the identity provider or a JWT issuer.
 
