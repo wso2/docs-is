@@ -11,7 +11,7 @@ client credentials grant types**, as recommended by the OAuth 2.0 specification.
 
 ## How does it work?
 
-In the initial steps a refresh token has to be obtained before using it. This can be done using a grant type such as the
+In the initial steps, a refresh token has to be obtained before using it. This can be done using a grant type such as the
 authorization code or password grant type. Using the obtained refresh token, a new access token can be obtained along 
 with a renewed refresh token without having to go through any other additional steps.
 
