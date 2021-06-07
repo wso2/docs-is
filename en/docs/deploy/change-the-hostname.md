@@ -118,7 +118,7 @@ This section guides you through changing the hostname of WSO2 Identity Server.
     keytool -import -alias newcert -file pkn.pem -keystore client-truststore.jks -storepass wso2carbon
     ```
 
-    !!! abstract ""
+    !!! info ""
         If you create a new client-trust-store, in-place of the
         default `client-truststore.jks`, place the new trust-store in
         `<IS_HOME>/repository/resources/security/` folder and add following

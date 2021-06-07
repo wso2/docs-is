@@ -15,7 +15,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     for the first time.
     4. You will be navigated to the lightening theme of Salesforce.
     
-       ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png) 
+       ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png){:class="no-border-padding-img"}
        
     !!! note    
         This document is explained using the Salesforce lightning theme. If
