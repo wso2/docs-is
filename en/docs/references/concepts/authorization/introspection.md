@@ -1,9 +1,10 @@
-# OAuth 2.0 token introspection
+# OAuth 2.0 Token Introspection
 
-## Usage of OAuth 2.0 Token Introspection
-OAuth 2.0 Token Introspection defines a method that allows authorized protected resources to query the authorization server
-to determine the set of metadata for a given token (access token, authorization code or a refresh token) that was presented to them by 
-an OAuth Client. Based on the metadata of the particular token, it will allow the resource server to consume the 
+## Usage of OAuth 2.0 token introspection
+
+OAuth 2.0 token introspection defines a method that allows authorized protected resources to query the authorization server
+to determine the set of metadata for a given token (access token, authorization code, or a refresh token) that was presented to them by 
+an OAuth client. Based on the metadata of the particular token, it will allow the resource server to consume the 
 protected resource.
  
 
@@ -15,31 +16,30 @@ This metadata includes:
 
 Token introspection allows a protected resource to query this information regardless of whether it is carried in the token itself.
 
+---
+
 ## The states and descriptions of tokens
 
-**- Authorization codes:**
+**Authorization codes:**
+
+- `ACTIVE`- Valid and yet to be exchanged for an access token.
+
+- `INACTIVE`- Invalid and already being exchanged for an access token.
+
+- `EXPIRED`-  Invalid as it got expired before being exchanged to an access token.
 
 
-a. `ACTIVE - ` Valid and yet to be exchanged for an access token.
+**Access tokens:**
 
-
-b. `INACTIVE -` Invalid and already being exchanged for an access token.
-
-
-c. `EXPIRED -`  Invalid as it got expired before being exchanged to an access token.
-
-
-**- Access tokens:**
-
-a. `ACTIVE - ` Valid access token. Although the state is ACTIVE, the timestamp calculation may reveal it to be EXPIRED, 
+- `ACTIVE`- Valid access token. Although the state is ACTIVE, the timestamp calculation may reveal it to be EXPIRED, 
                but this happens only during the first access token request or token validation request after expiration.
                
-b. `INACTIVE -` Refreshed using refresh_token grant type before expiration. Also, this state is used in cases when users 
+- `INACTIVE`- Refreshed using refresh_token grant type before expiration. Also, this state is used in cases when users 
                and user stores are deleted, user passwords are updated, etc.
                
-c. `EXPIRED - ` Invalid and expired access token. Refresh token can still be valid though.
+- `EXPIRED`- Invalid and expired access token. Refresh token can still be valid though.
 
-d. `REVOKED - ` Revoked access token. Refresh token also gets revoked along with access token.
+- `REVOKED`- Revoked access token. Refresh token also gets revoked along with access token.
                Access token could have been in ACTIVE or EXPIRED state while revoking.
 
 

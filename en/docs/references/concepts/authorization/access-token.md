@@ -1,16 +1,17 @@
 # Introduction to Access Token
 
-### Access Token
-Access tokens are credentials used to access protected resources on behalf of a resource owner. These tokens can be 
-either an opaque string or a JSON Web Token (JWT). The [**Resource Server**](insertlink) can decide whether a client is authorized to 
-consume a resource or not, by verifying the access token. The way the token endpoint of the [**Authorization Server**](insertlink) is 
-invoked and the access token is generated differs based on the [grant type](insertlink). The ultimate audience of the access 
-token is the **Resource Server**,  so the client can not interpret the value of the access token.
+## Access token
 
-![access-token](../../assets/img/concepts/access-token.png)
+Access tokens are credentials used to access protected resources on behalf of a resource owner. These tokens can be 
+either an opaque string or a JSON Web Token (JWT). The **resource server**<!--[**Resource Server**](insertlink)--> can decide whether a client is authorized to 
+consume a resource or not, by verifying the access token. The way the token endpoint of the **authorization server**<!--[**Authorization Server**](insertlink)--> is 
+invoked and the access token is generated differs based on the **grant type**<!--[grant type](insertlink)-->. The ultimate audience of the access 
+token is the resource server, so the client can not interpret the value of the access token.
+
+![The flow to obtain an access token](../../../assets/img/concepts/access-token.png)
 
 1. The client sends a request for an access token to the authorization server by passing the required parameters of the 
-   relevant grant type
+   relevant grant type.
 2. The authorization server validates the parameters and grants an access token to the client.
 3. The client passes the access token to the authorization server.
 4. Based on the validity of the access token the resource server allows the client to consume the protected resource.
@@ -29,14 +30,20 @@ strategies.
   
   There are two types of access tokens :
   
-- [Opaque Access Tokens](#opaque-access-tokens)
-- [Self Contain Access Token](#self-contain-access-token)
+- [Opaque Access Tokens](#opaque-access-token)
+- [Self Contain Access Token](#self-contained-access-token)
+
+---
     
-### Opaque Access Tokens
-  A random unique string that does not contain user information which is issued from the authorization Server to access 
-  a restricted resource in the Resource Server.
+## Opaque access token
+
+  A random unique string that does not contain user information which is issued from the authorization server to access 
+  a restricted resource in the resource server.
+
+---
   
-### Self-Contained Access Token
+## Self-contained access token
+
   When short string identifiers are used as access tokens, a network request to the authorization server is required to 
   retrieve the authorization information associated with each access token. However, with self-contained access tokens, there
   is no need for a network call to retrieve the authorization information, as it’s self-contained. Thus, access token 
