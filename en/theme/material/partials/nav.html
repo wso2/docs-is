@@ -1,25 +1,45 @@
+<!--
+ * Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+
+ NOTE: Borrowed generously from MkDocs and MkDocs-material
+-->
+
 <nav class="md-nav md-nav--primary" data-md-level="0">
-    <label class="md-nav__title md-nav__title--site" for="__drawer">
-      <a href="{{ config.site_url | default(nav.homepage.url, true) | url }}" title="{{ config.site_name }}"
-         class="md-nav__button md-logo">
-        {% if config.theme.logo.icon %}
-          <i class="md-icon">{{ config.theme.logo.icon }}</i>
-        {% else %}
-          <img src="{{ config.theme.logo | url }}" width="48" height="48">
-        {% endif %}
-      </a>
-      {{ config.site_name }}
-    </label>
-    {% if config.repo_url %}
-      <div class="md-nav__source">
-        {% include "partials/source.html" %}
-      </div>
-    {% endif %}
-    <ul class="md-nav__list" data-md-scrollfix>
-      {% for nav_item in nav %}
-        {% set path = "nav-" + loop.index | string %}
-        {% set level = 1 %}
-        {% include "partials/nav-item.html" %}
-      {% endfor %}
-    </ul>
-  </nav>
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="{{ config.site_url | default(nav.homepage.url, true) | url }}" title="{{ config.site_name }}"
+        class="md-nav__button md-logo">
+      {% if config.theme.logo.icon %}
+        <i class="md-icon">{{ config.theme.logo.icon }}</i>
+      {% else %}
+        <img src="{{ config.theme.logo | url }}" width="48" height="48">
+      {% endif %}
+    </a>
+    {{ config.site_name }}
+  </label>
+  {% if config.repo_url %}
+    <div class="md-nav__source">
+      {% include "partials/source.html" %}
+    </div>
+  {% endif %}
+  <ul class="md-nav__list" data-md-scrollfix>
+    {% for nav_item in nav %}
+      {% set path = "nav-" + loop.index | string %}
+      {% set level = 1 %}
+      {% include "partials/nav-item.html" %}
+    {% endfor %}
+  </ul>
+</nav>
