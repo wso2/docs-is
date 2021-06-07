@@ -31,7 +31,7 @@ The diagram below illustrates the device flow.
 
 - (E) - While the end user reviews user credentials and consents, the device starts polling along with client ID and verification code to check the status of user authorization.
 
-- (F) - Once the user provides authorization, the authorization server validates the verification code and responds back to the device with an access token.
+- (F) - Once the user provides authorization, the authorization server validates the verification code and responds to the device with an access token.
 
 
 !!! info "Support for refresh token grant"
