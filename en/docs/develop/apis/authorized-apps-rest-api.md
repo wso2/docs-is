@@ -7,7 +7,7 @@ template: templates/swagger.html
 !!! warning
     This API version will be deprecated in future versions of WSO2 IS. 
     You can use [OAuth2 Authorized Apps 
-    API Definition - v2](/develop/apis/authorized-apps-v2-rest-api/) instead.
+    API Definition - v2](../authorized-apps-v2-rest-api/) instead.
 
 ??? Note "Click For instructions"
     Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server. 

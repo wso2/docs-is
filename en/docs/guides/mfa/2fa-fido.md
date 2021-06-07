@@ -94,9 +94,8 @@ Optionally, you can customize the FIDO authentication page and configure WSO2 Id
 authentication_page_url= "/authenticationendpoint/fido-auth.jsp"
 ```
 
-----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
     - [Concept: FIDO](../../../references/concepts/authentication/mfa-with-fido)
     - [Guide: Configure an Authentication Journey](../configure-authentication-journey)

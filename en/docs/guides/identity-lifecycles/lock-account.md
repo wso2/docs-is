@@ -133,9 +133,8 @@ Similarly, you can use the `setUserClaimValues` operation, `RemoteUserStoreManag
 </soapenv:Envelope>
 ```
 
-----
 
-!!! info "Related Topics"
+!!! info "Related topics"
 	[Guides: Configure Email Notifications for Account Locking](../../../guides/tenants/email-account-locking)
     <!--- [Concept: Account Locking](TODO:link-to-concept)-->
     <!-- [Guide: Configure Email Notifications](TODO:link-to-guide)-->

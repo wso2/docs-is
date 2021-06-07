@@ -98,8 +98,6 @@ Now you have finished configuring Facebook as an Identity Provider.
 
 3. You are redirected to the Facebook Login page. Enter your Facebook credentials and you will be taken to the home page of the travelocity app.
 
----
-
-!!! info "Related Topics"
+!!! info "Related topics"
 	-   [Logging in to your application via Identity Server using Facebook Credentials](../../../guides/identity-federation/facebook)
 

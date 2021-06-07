@@ -9,14 +9,14 @@ different value for each product so that there are no port conflicts.
 
 ``` toml
 [server]
-offset = ""
+offset = <PORT_OFFSET_VALUE>
 ```
 
 For example, if you are running two WSO2 products on the same server,
 and you set the port offset to 1 in one product and 2 in the second
 product, the management console port will be changed from the default of
 9443 to 9444 in the first product and to 9445 in the second product. See
-[here](#changing-the-offset-for-default-ports) for more information on
+[here](#change-the-offset-for-default-ports) for more information on
 changing the offset.
 
 ---
@@ -35,7 +35,7 @@ WSO2 products that provide a management console use the following
 servlet transport ports:
 
 -   9443 - HTTPS servlet transport (the default URL of the management
-    console is https://localhost:9443/carbon )
+    console is `https://localhost:9443/carbon`)
 -   9763 - HTTP servlet transport
 
 ---
@@ -58,7 +58,7 @@ Provided by default in the WSO2 Carbon platform.
 
 WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance
 using a JMX client such as JConsole. By default, JMX is enabled in all
-products. To disable it, see [Disabling JMX for the server](../../../deploy/monitor/jmx-based-monitoring#disabling-jmx-for-the-server).
+products. To disable it, see [Disable JMX for the server](../../deploy/monitor/jmx-based-monitoring/#disable-jmx-for-the-server).
 
 -   11111 - RMIRegistry port. Used to monitor Carbon remotely
 -   9999 - RMIServer port. Used along with the RMIRegistry port when
@@ -104,6 +104,7 @@ every time the server is started.
     #appender.syslog.filter.threshold.type = ThresholdFilter
     #appender.syslog.filter.threshold.level = DEBUG
     ```
+    
 ---
 
 ## WSO2 Identity Server ports
@@ -132,15 +133,19 @@ to a unique value. The default port offset is 0.
 There are two ways to set an offset to a port:
 
 -   Pass the port offset to the server during startup. The following
-    command starts the server with the default port incremented by 3
-    `          :./wso2server.sh -DportOffset=3         `
+    command starts the server with the default port incremented by 3.
+    
+    ```
+    ./wso2server.sh -DportOffset=3
+    ```
+    
 -   Set the `offset` value in the
     `          <IS_HOME>/repository/conf/deployment.toml         ` file as
     follows: 
 
     ``` toml
     [server]
-    offset = ""
+    offset = <PORT_OFFSET_VALUE>
     ```
 
 Usually, when you offset the port of the server, all ports it uses are
@@ -156,10 +161,10 @@ is modified.
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr style="height: 23px;">
-<tr style="height: 23px;">WSO2 Server instance</th>
-<tr style="height: 23px;">PortOffset</th>
-<tr style="height: 23px;">Sample Default Port Value</th>
+<tr class="odd">
+<td><p>WSO2 Server instance</p></td>
+<td><p>PortOffset</p></td>
+<td><p>Sample Default Port Value</p></td>
 </tr>
 <tr class="even">
 <td><p>WSO2 Product 1</p></td>

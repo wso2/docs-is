@@ -1,11 +1,11 @@
 # Entitlement with APIs
 
-For entitlement management, WSO2 Identity server provides two APIs for
+For entitlement management, WSO2 Identity Server provides two APIs for
 Policy Administration and Policy Evaluation.
 
 The following section guides you on invoking the two admin service and
-describes the operations available in the WSO2 Identity Server
-Entitlement Mangement APIs.
+describes the operations available in the 
+Entitlement Management APIs.
 
 !!! note "Before you begin"
     As admin services are secured to prevent anonymous invocations, you
@@ -28,12 +28,12 @@ Entitlement Mangement APIs.
         `                     https://localhost:9443/services/EntitlementService?wsdl                   `
     
     For more information on WSO2 admin services and how to invoke an admin
-    service using either SoapUI or any other client program, see [Calling
+    service using either SoapUI or any other client program, see [Call
     Admin Services](../../apis/call-admin-services).
     
 
 The following section guides you on entitlement management in two
-different areas,
+different areas.
 
 ---
 
@@ -63,10 +63,10 @@ manage policy administration stuff.
         1.  Build a string of the form username:password.
         2.  [Encode the string](https://www.base64encode.org/) you created
             above using Base64.
-        3.  Define an authorization header with the term "
-            `             Basic_            ` ", followed by the encoded
+        3.  Define an authorization header with the term 
+            `Basic ` , followed by the encoded
             string. For example, the basic auth authorization header using
-            "admin" as both username and password is as follows:
+            `admin` as both username and password is as follows:
 
             ``` java
             Authorization: Basic YWRtaW46YWRtaW4=
@@ -74,12 +74,12 @@ manage policy administration stuff.
       
 ---
 
-#### Operations included in the EntitlementPolicyAdminService SOAP API
+### Operations included in the EntitlementPolicyAdminService SOAP API
 
 The following commonly used operations are available in the
 EntitlementPolicyAdminService.
 
-###### addPolicy()
+#### addPolicy()
 
 <table>
 <tbody>
@@ -199,7 +199,7 @@ EntitlementPolicyAdminService.
 
 ---
 
-###### getAllPolicyIds()
+#### getAllPolicyIds()
 
 <table>
 <tbody>
@@ -277,7 +277,7 @@ EntitlementPolicyAdminService.
 
 ---
 
-###### getPolicy()
+#### getPolicy()
 
 <table>
 <tbody>
@@ -409,7 +409,7 @@ EntitlementPolicyAdminService.
 
 ---
 
-###### getPolicyVersions()
+#### getPolicyVersions()
 
 <table>
 <tbody>
@@ -489,7 +489,7 @@ EntitlementPolicyAdminService.
 
 ---
 
-###### getPublisherModuleData()
+#### getPublisherModuleData()
 
   
 
@@ -591,7 +591,7 @@ EntitlementPolicyAdminService.
 
 ---
 
-###### publishToPDP()
+#### publishToPDP()
 
   
 
@@ -683,7 +683,7 @@ EntitlementPolicyAdminService.
 
 ---
 
-###### removePolicy()
+#### removePolicy()
 
 <table style="width:100%;">
 <colgroup>
@@ -769,7 +769,7 @@ EntitlementPolicyAdminService.
 
 ---
 
-###### updatePolicy()
+#### updatePolicy()
 
 <table style="width:100%;">
 <colgroup>
@@ -889,6 +889,8 @@ EntitlementPolicyAdminService.
 
 There is no REST API available for the policy management.
 
+---
+
 ##  Policy Evaluation API
 
 Policy evaluation includes all the actions that should be done during
@@ -919,17 +921,17 @@ an admin service called **EntitlementService** to evaluate a policy.
         1.  Build a string of the form username:password.
         2.  [Encode the string](https://www.base64encode.org/) you created
             above using Base64.
-        3.  Define an authorization header with the term "
-            `             Basic_            ` ", followed by the encoded
+        3.  Define an authorization header with the term 
+            `Basic ` , followed by the encoded
             string. For example, the basic auth authorization header using
-            "admin" as both username and password is as follows:
+            `admin` as both username and password is as follows:
     
             ``` java
             Authorization: Basic YWRtaW46YWRtaW4=
             ```
 ---
 
-#### Operations included in **EntitlementService SOAP** API
+### Operations included in EntitlementService SOAP API
 
 !!! note
     
@@ -964,7 +966,7 @@ be available with each of the operation.
 
 ---
 
-###### getDecision()
+#### getDecision()
 
   
 
@@ -1070,7 +1072,7 @@ be available with each of the operation.
 
 ---  
 
-###### getBooleanDecision()
+#### getBooleanDecision()
 
   
 
@@ -1167,7 +1169,7 @@ be available with each of the operation.
 
 ---
 
-###### getDecisionByAttributes()
+#### getDecisionByAttributes()
 
 <table>
 <colgroup>
@@ -1263,7 +1265,7 @@ be available with each of the operation.
 
 ---
 
-###### getEntitledAttributes()
+#### getEntitledAttributes()
 
 <table>
 <colgroup>

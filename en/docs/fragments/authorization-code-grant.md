@@ -80,7 +80,7 @@ to configure authentication for an OAuth/OpenID Connect application.
     {"access_token":"317c19b3-73e3-3906-8627-d1c952856b5d","refresh_token":"52569186-163f-3c9c-b2f4-539a0e8529ce","token_type":"Bearer","expires_in":3600}
     ```
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
     - [Demo: Authorization Code Grant with OAuth 2.0 Playground](../../../quick-starts/auth-code-playground)

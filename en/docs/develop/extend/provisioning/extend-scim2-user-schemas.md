@@ -82,9 +82,9 @@ WSO2 Identity Server allows users to define their own user schema in addition to
 !!! note
     Note the following:
 
-    - You can use the word "customClaim" (or any other preferred word) as the **Mapped Attribute** only when using a JDBC user store because JDBC user stores will automatically create a new attribute if it does not already exist in the user store. However, If you are using LDAP or Active Directory, you will have to use an attribute that exists in the user store already.
+    - You can use the word "customClaim" (or any other preferred word) as the **Mapped Attribute** only when using a JDBC userstore because JDBC userstores will automatically create a new attribute if it does not already exist in the user store. However, If you are using LDAP or Active Directory, you will have to use an attribute that exists in the user store already.
 
-    - The configuration above is valid when using the PRIMARY user store. If you have a secondary user store configured, make sure to add another attribute mapping by clicking **Add Attribute Mapping** and selecting the secondary user store as well.
+    - The configuration above is valid when using the PRIMARY userstore. If you have a secondary userstore configured, make sure to add another attribute mapping by clicking **Add Attribute Mapping** and selecting the secondary user store as well.
 
 ---
 
@@ -183,5 +183,5 @@ curl -k -X PATCH \
 }'
 ```
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
     -  API: [SCIM 2.0](../../apis/scim2-rest-apis.md)

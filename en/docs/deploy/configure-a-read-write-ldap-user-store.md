@@ -9,7 +9,7 @@ WSO2 identity server uses an embedded Read/Write LDAP as the primary userstore. 
 
 ## Configure Read-write LDAP userstore manager
 
-The following are the minimum configurations that are needed to be provided to configure the Read-only LDAP userstore manager.
+The following are the minimum configurations that are needed to be provided to configure the read-write LDAP userstore manager.
 
 <table>
 <thead>
@@ -21,14 +21,14 @@ The following are the minimum configurations that are needed to be provided to c
 <tr class="even">
 <td>type</td>
 <td>userstore Type</td>
-<td>Type of the userstore manager that we are using. For Read-only LDAP userstore manager this value
-should be read_only_ldap_unique_id.
+<td>This is the type of the userstore manager that we are using. For read-write LDAP userstore manager. this value
+should be read_write_ldap_unique_id.
 </td>
 </tr>
 <tr class="odd">
 <td>base_dn</td>
 <td>User Search Base</td>
-<td>DN of the context or object under which the user entries are stored in the userstore. When the userstore searches for users, it will start from this location of the directory<br />
+<td>This denotes the DN of the context or object under which the user entries are stored in the userstore. When the userstore searches for users, it will start from this location of the directory.<br />
 Sample values: ou=Users,dc=wso2,dc=org</td>
 </tr>
 </table>

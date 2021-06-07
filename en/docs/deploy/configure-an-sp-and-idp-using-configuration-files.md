@@ -20,7 +20,7 @@ have the `travelocity` application configured as a service provider and an
 identity provider configured and shared across its tenant space. This is
 illustrated via the following diagram.
 
-![Configuring a SP and IdP Using Configuration Files](../../../assets/img/deploy/configuration-files.md)
+![configuring an sp and idp using configuration files](../../../assets/img/deploy/configuration-files.png)
 
 The following are the high level steps required for this scenario.
 
@@ -36,7 +36,7 @@ The following are the high level steps required for this scenario.
     step 1) as a federated authenticator.
 
 !!! note
-    The above processes can be easily done using the [Management Console](../../../deploy/get-started/get-started-with-the-management-console/), but the
+    The above processes can be easily done using [WSO2 Identity Server Management Console](../../../deploy/get-started/get-started-with-the-management-console/), but the
     `service provider` and `identity provider` created in `          service provider IS         `, will **only be visible to the
     tenant who creates them**. 
     
@@ -52,7 +52,7 @@ above steps.
 
 ## Before you begin
 
-Do the following steps to setup two WSO2 Identity Server instances
+Follow the instructions given below to setup two WSO2 Identity Server instances
 for this scenario.
 
 1.  [Download](http://wso2.com/products/identity-server/) and
@@ -86,8 +86,8 @@ This section involves adding the ` service provider IS ` as a
 service provider in the ` identity provider IS ` from the management
 console.
 
-1.  [Start the `identity provider IS` and access the Management Console](../../../deploy/get-started/run-the-product/).
-2.  Navigate to the **Main** -> **Identity** -> **Service Providers** -> Click **Add**.
+1.  Start the `identity provider IS` and access WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). Refer [Run the Product(../../../deploy/get-started/run-the-product/).
+2.  Navigate to the **Main** > **Identity** > **Service Providers** > Click **Add**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. 
     
@@ -235,7 +235,7 @@ Add the certificate value to the `identityProviderIDP_IS.xml`
 file within the `<Certificate>` tag.
 
 !!! note
-    The following is a sample command export the public certificate in PEM format 
+    The following is a sample command to export the public certificate in PEM format 
     in WSO2 Identity Server. Navigate to the `<IDENTITY_PROVIDER_IS_HOME>/repository/resources/security` folder and
     use the following command.
     
@@ -305,8 +305,8 @@ service provider in the ` service provider IS ` via a file.
 
     !!! Tip 
         If the incoming SAML requests from the client (e.g., `
-        travelocity.com ` ) are signed, and the service provider Identity
-        Server instance needs to validate the signature included in the
+        travelocity.com ` ) are signed, and the service provider identity
+        server instance needs to validate the signature included in the
         authentication and logout requests, do the following:
         
         1.  Import the public certificate of the client to the primary
@@ -419,7 +419,7 @@ service provider in the ` service provider IS ` via a file.
 
     !!! note
     
-        Please note that the management console will not show the SP-related
+        WSO2 Identity Server Management Console will not show the SP-related
         configuration information if it is loaded through a file
 
         ![no-service-providers](../../../assets/img/deploy/no-service-providers.png)
@@ -429,40 +429,32 @@ service provider in the ` service provider IS ` via a file.
 
 ## Run the travelocity application
 
-Follow the instructions given below to run the travelocity application.
+{! fragments/travelocity-deploy.md !}
 
-1.  [Deploy the travelocity](TBD:../../learn/deploying-the-sample-app/#download-the-sample)
-    application. No need to register the service provider for
-    travelocity as we created the service provider via a file.
-
-2.  When you access the following link to the travelocity application,
-    you are directed to the identity provider for authentication: `
-    http://wso2is.local:8080/travelocity.com/index.jsp `
-
-    !!! note
-        Check whether you have enabled following configurations while adding the service provider 
-        in the `identity provider IS`. You can check this by navigating to **Main** -> **Identity** -> 
-        **Service Providers** -> **List** -> Click **Edit** in the corresponding SP -> 
-        **Inbound Authentication Configuration** -> **SAML2 Web SSO Configuration** -> **Edit**.
-        
-        ![SAML2 Web SSO Configuration](../../../assets/img/deploy/sp_configs.png)
-        
-        If you have `not enabled` the configs, add the following configs to travelocity as well.
-        
-        1.  Stop tomcat if it is already running.
-        2.  Navigate to `<TOMCAT_HOME>/webapps/travelocity.com/WEB­INF/classes/travelocity.properties` file 
-        and change the following configs to `false` if they are configured to `true`.
-        
-        ```
-        #Specify if SAMLResponse element is signed
-        SAML2.EnableResponseSigning=false
-        
-        #Specify if SAMLAssertion element is signed
-        SAML2.EnableAssertionSigning=false
-        
-        #Specify if AuthnRequests and LogoutRequests should be signed
-        SAML2.EnableRequestSigning=false
-        ```
+!!! note
+    Check whether you have enabled following configurations while adding the service provider 
+    in the `identity provider IS`. You can check this by navigating to **Main** > **Identity** > 
+    **Service Providers** > **List** > Click **Edit** in the corresponding SP > 
+    **Inbound Authentication Configuration** > **SAML2 Web SSO Configuration** > **Edit**.
+    
+    ![SAML2 web SSO configuration](../../../assets/img/deploy/sp_configs.png)
+    
+    If you have not enabled the configs, add the following configs to travelocity as well.
+    
+    1.  Stop tomcat if it is already running.
+    2.  Navigate to `<TOMCAT_HOME>/webapps/travelocity.com/WEB­INF/classes/travelocity.properties` file 
+    and change the following configs to `false` if they are configured to `true`.
+    
+    ```
+    #Specify if SAMLResponse element is signed
+    SAML2.EnableResponseSigning=false
+    
+    #Specify if SAMLAssertion element is signed
+    SAML2.EnableAssertionSigning=false
+    
+    #Specify if AuthnRequests and LogoutRequests should be signed
+    SAML2.EnableRequestSigning=false
+    ```
 
 ---
 
@@ -470,7 +462,7 @@ Follow the instructions given below to run the travelocity application.
 
 Now you can test if the configurations you have done work in a tenant scenario.
 
-1.  [Create new tenants](TBD:../../learn/creating-and-managing-tenants) in the `            service provider IS           `.
+1.  [Create new tenants](../../../guides/tenants/add-new-tenants/) in the `            service provider IS           `.
 
     !!! note
         You cannot provide access to the service provider and
@@ -600,15 +592,14 @@ Now you can test if the configurations you have done work in a tenant scenario.
     of the tenant.
     
     !!! note
-        If you have **not enabled** signature validation, proceed to the next step.
+        If you have not enabled signature validation, proceed to the next step.
     
-    1.  Login using tenant credentials to the management console and
-        navigate to
-        `            Main > Manage > Keystores > List.           `
+    1.  Log in using tenant credentials to WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) and
+        navigate to **Main > Manage > Keystores > List.**
         Click on `            Public Key           ` link to download
         the certificate.  
         
-        ![](../assets/img/103329463/103329464.png)
+        ![download public key certificate](../../../assets/img/deploy/public-key-certificate.png)
         
     2.  Now you need to import this public certificate to
         `             <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/wso2carbon.jks            `
@@ -618,22 +609,22 @@ Now you can test if the configurations you have done work in a tenant scenario.
         keytool -import -alias <key_alias> -file <download_file> -keystore wso2carbon.jks
         ```
 
-        **NOTE:** Default password of the `wso2carbon.jks` is `wso2carbon`.
+        !!! note 
+            Default password of the `wso2carbon.jks` is `wso2carbon`.
 
-    3.  Update `             IdPPublicCertAlias            `
-        property in the
-        `             <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/travelocity.properties            `
+    3.  Update the `             IdPPublicCertAlias            `
+        property in `             <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/travelocity.properties            `
         with provided alias in the previous step.
 
         !!! note
             It is possible to disable response signature validation
             from the Travelocity application using the `SAML2.EnableResponseSigning`
-            property available in `<APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/travelocity.properties`
+            property available in the `<APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/travelocity.properties`
             file.
 
 5.  If you have made any changes to the port offset, you must ensure that
     this change is reflected in the port value of the following
-    property in the `ravelocity.properties` file.
+    property in the `travelocity.properties` file.
 
     ``` java
     SAML2.IdPURL=https://localhost:9443/samlsso
@@ -642,21 +633,16 @@ Now you can test if the configurations you have done work in a tenant scenario.
 6.  Restart Apache Tomcat and access the travelocity application. You
     will be able to log in using the identity provider credentials
     regardless of the tenant domain you are using. Access the
-    travelocity application using the following:
-    [http://wso2is.local/travelocity.com/index.jsp](http://localhost:8080/travelocity.com/index.jsp)
+    travelocity application using `http://wso2is.local/travelocity.com/index.jsp`.
 
 ---
 
-**Related links**
+!!! info "Related topics"
+    -   [Quick Start: Configure SAML SSO](../../../quick-starts/sso-for-saml-apps/)
+    -   [Guide: Enable Single Sign-On for a SAML Web Application](../../../guides/login/sso-for-saml/)
 
-The following links provide additional information that may be relevant
-when attempting the instructions in this topic.
-
--   See [Configuring SAML SSO](../../../quick-starts/sso-for-saml-apps/) for
-    information on using a sample application for single
-    sign-on. This provides insight on some parameters used.
--   See [Configuring a SP and IdP Using Service
+<!---   See [Configuring a SP and IdP Using Service
     Calls](TBD:../../learn/configuring-a-sp-and-idp-using-service-calls) for
     information on creating a service provider or identity provider
-    using admin services.
+    using admin services.-->
 

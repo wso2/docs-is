@@ -40,9 +40,7 @@ To set up outbound provisioning, one or more outbound provisioning connectors ne
 
 The provisioning request comes into the outbound provisioning component from the provisioning framework. This request will then go to the relevant connector.
 
----
-
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Provisioning](../identity-provisioning-intro)
     - [Guide: Inbound Provisioning](../../../guides/identity-lifecycles/inbound-provisioning)
     - [Guide: Outbound Provisioning](../../guides/identity-lifecycles/outbound-provisioning)

@@ -95,9 +95,9 @@ This is to define whether to ID token encryption should be enabled or not. For a
 
 ----
 
-## Enable OIDC Back Channel Logout
+## Enable OIDC Back-Channel Logout
 
-This is to define whether OIDC back channel logout should be enabled or not. For more information, see [Configure OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout/).
+This is to define whether OIDC back-channel logout should be enabled or not. For more information, see [Configure OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout/).
 
 ----
 

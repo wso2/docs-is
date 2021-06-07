@@ -1,15 +1,17 @@
 {% if nav_item.is_homepage %}
-  <li class="md-tabs__item home_icon">
-    {% if not page.ancestors | length and nav | selectattr("url", page.url) %}
-      <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" class="md-tabs__link md-tabs__link--active">
-          <i class="fa fa-home"></i>
+  {% if not page.ancestors | length and nav | selectattr("url", page.url) %}
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" class="md-tabs__link md-tabs__link--active nav-link-text">
+        {{ nav_item.title }}
       </a>
-    {% else %}
-      <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" class="md-tabs__link">
-          <i class="fa fa-home"></i>
+    </li>
+  {% else %}
+    <li class="md-tabs__item md-tabs__item">
+      <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" class="md-tabs__link nav-link-text">
+        {{ nav_item.title }}
       </a>
-    {% endif %}
-  </li>
+    </li>
+  {% endif %}
 {% elif nav_item.children and nav_item.children | length > 0 %}
   {% set title = title | default(nav_item.title) %}
   {% if (nav_item.children | first).children %}
@@ -17,17 +19,19 @@
     {% include "partials/tabs-item.html" %}
   {% else %}
   {% if title in config.extra.nav_list %}
-  <li class="md-tabs__item">
     {% if nav_item.active %}
-        <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link md-tabs__link--active">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link md-tabs__link--active nav-link-text">
           {{ title }}
         </a>
+      </li>
     {% else %}
-        <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item">
+        <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link nav-link-text">
           {{ title }}
         </a>
+      </li>
     {% endif %}
-  </li>
 {% endif %}
 {% endif %}
 {% endif %}

@@ -1,9 +1,9 @@
 # Configure Userstores
 
-WSO2 Identity Server products allow configuring multiple userstores to your system that
+WSO2 Identity Server allows configuring multiple userstores to your system that
 are used to store users and their roles (Groups). Out of the box, WSO2
-Identity Server supports JDBC, LDAP and Active Directory userstores with the
-capability of configuring custom user stores. There are different userstore adapters called *Userstore managers*, which are used to connect
+Identity Server supports JDBC, LDAP, and Active Directory userstores with the
+capability of configuring custom userstores. There are different userstore adapters called *Userstore managers*, which are used to connect
 with these userstore types.
 
 There are two types of userstores - Primary Userstore (Mandatory) and
@@ -25,27 +25,27 @@ WSO2 identity server uses an embedded Read/Write LDAP as the primary userstore.
 It is recommended to change this default configuration in the production
 system.
 
-see, [Configuring the Primary Userstore](../../../deploy/configure-the-primary-user-store)
+see, [Configure the Primary Userstore](../../../deploy/configure-the-primary-user-store)
 
 ---
 
 ## Secondary userstore(s) (Optional)
 
-Any number of secondary userstores can be easily set up for your system
-and these userstores are specific to the created tenant, and they are
+Any number of secondary userstores can be easily set up for your system.
+These userstores are specific to the created tenant, and they are
 not shared among multiple tenants.  
 You can use the management console to create secondary userstores or
 you can create them manually. These will be stored in an xml file with the
 configurations corresponding to the secondary userstore.
 
-see, [Configuring a Secondary Userstore](../../../deploy/configure-secondary-user-stores)
+see, [Configure a Secondary Userstore](../../../deploy/configure-secondary-user-stores)
 
 ---
 
 ## Userstore manager
 
 Adapters used to connect with different userstores are called *Userstore Managers*. By default, there are userstore managers for JDBC,
-LDAP and Active Directory userstores. If you need to add a new userstore implementation, see [Writing a Custom Userstore
+LDAP and Active Directory userstores. If you need to add a new userstore implementation, see [Write a Custom Userstore
 Manager](../../../deploy/write-a-custom-user-store-manager). When you configure the
 userstore, you have to set the userstore manager class name.
 
@@ -53,5 +53,5 @@ userstore, you have to set the userstore manager class name.
     The permissions attached to roles are always stored in an RDBMS. With
     the default configurations, permissions are stored in the embedded H2
     database. For information on how to set up a RDBMS repository for
-    storing permission, see [Configuring the Authorization
+    storing permission, see [Configure the Authorization
     Manager](../../../deploy/configure-the-authorization-manager)

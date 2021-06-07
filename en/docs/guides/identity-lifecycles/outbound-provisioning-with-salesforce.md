@@ -445,9 +445,8 @@ You can see that the user has been created in the "Users" section in salesforce.
 
 ![salesforce-user](../../../assets/img/guides/salesforce-user.png)
 
-----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Identity Provisioning Framework](../../../references/concepts/provisioning-framework/)
     - [Guide: Configure Just-In-Time Provisioning for an Identity Provider](../jit-workflow/)
 

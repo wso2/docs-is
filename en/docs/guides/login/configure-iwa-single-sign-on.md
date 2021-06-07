@@ -93,9 +93,9 @@ the following.
 -   The user may not have the sufficient permission within WSO2 Identity
     Server to log in to the system.  
 
----  
 
-!!! info "Related Topics"
+
+!!! info "Related topics"
     See [Logging in to Salesforce with Integrated Windows
     Authentication](TO-DO:../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     for a sample of configuring the IWA authenticator with WSO2 Identity

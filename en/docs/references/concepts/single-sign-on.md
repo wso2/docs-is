@@ -1,8 +1,8 @@
-# Single Sign On
+# Single Sign-On
 
 ## What is SSO?
 
-Single Sign-On (SSO) occurs when a user enters their credentials to log in to an application and is then simultaneously logged in to other connected applications without having to enter their credentials again. This also eliminates the need to have and remember different credentials for different applications. 
+Single sign-on (SSO) occurs when a user enters their credentials to log in to an application and is then simultaneously logged in to other connected applications without having to enter their credentials again. This also eliminates the need to have and remember different credentials for different applications. 
 
 For instance, logging in to your Gmail account logs you in to other Google services such as Youtube as well. Notice that it only requires you to enter your credentials once. 
 
@@ -50,13 +50,12 @@ For instance, you can set up Google as a federated authenticator and then set up
     - For a more detailed comparison of SSO and Federation, see [SSO vs. Federation](TODO:link-to-concept).
     - For more information on Identity Federation on its own (without SSO), see [Identity Federation](../identity-federation).
 
----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Authentication](../authentication/intro-authentication)
     - [Concept: SAML](TODO:link-to-concept)
     - [Concept: OpenID Connect](../authentication/intro-oidc)
-    - [Guide: Single Sign On](../../guides/login/enable-single-sign-on)
+    - [Guide: Single Sign-On](../../guides/login/enable-single-sign-on)
     - [Demo: SSO for OpenID Connect apps](../../quick-starts/sso-for-oidc-apps/)
     - [Demo: SSO for SAML apps](../../quick-starts/sso-for-saml-apps/)
     - [Guide: Single Logout](TODO:link-to-guide)

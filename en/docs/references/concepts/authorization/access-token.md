@@ -16,7 +16,7 @@ token is the **Resource Server**,  so the client can not interpret the value of 
 4. Based on the validity of the access token the resource server allows the client to consume the protected resource.
 
 
-The OAuth2.0 specification does not mandate any particular implementation for access tokens but it mentions two possible
+The OAuth 2.0 specification does not mandate any particular implementation for access tokens but it mentions two possible
 strategies.
 
 - The access token is an identifier that is hard to guess. For example, a randomly generated string of sufficient length,

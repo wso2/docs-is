@@ -1,6 +1,6 @@
 # Import Users
 
-This page guides you through importing users in bulk using either the WSO2 Identity Server admin portal, SCIM, SOAP, a .csv file, or directly plugging in an existing user store. 
+This page guides you through importing users in bulk using the WSO2 Identity Server admin portal, SCIM, SOAP, a .csv file, or directly plugging in an existing userstore. 
 
 -----
 
@@ -61,8 +61,8 @@ To import users in bulk:
 2.  Click **Add** under **Users and Roles** in the **Main** menu.
 3.  In the **Add Users** and **Roles** screen, click **Bulk Import
     Users**.
-4.  The user stores configured for your product will be listed in the
-    **Domain** field. Select the user store to which you want to import
+4.  The userstores configured for your product will be listed in the
+    **Domain** field. Select the userstore to which you want to import
     the users from the list.
 5.  Click **Choose File** to give the path to the CSV/Excel file that
     contains the users that you want to import.
@@ -77,13 +77,12 @@ To import users in bulk:
 
 ----
 
-### Import users by plugging in a user store
+### Import users by plugging in a userstore
 
-Apart from this, users can also be added by directly plugging user stores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](../../../deploy/configure-secondary-user-stores/).
+Apart from this, users can also be added by directly plugging userstores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](../../../deploy/configure-secondary-user-stores/).
 
-----
-    
-!!! info "Related Topics"
+
+!!! info "Related topics"
     - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
     - [Guide: User Self Registration Workflow](../self-registration-workflow)

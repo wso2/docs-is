@@ -24,9 +24,7 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 "HTTP/1.1 202 Accepted" 
 ```
 
-----
-
-!!! info "Related Topics"
+!!! info "Related topics"
     -   [Concept: Users](../../../references/concepts/user-management/users/)
 
 

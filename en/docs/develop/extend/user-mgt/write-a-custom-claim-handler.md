@@ -10,11 +10,11 @@ service provider claim configuration. For information on how to configure WSO2 
 response, see [Request Attributes for the Application](../../../guides/login/request-attributes/).
 
 The claims that you can send using the service provider claim configuration are default user claims, which can be read 
-from the underlying user store. However, there can be scenarios where you want to send claims that need to be read from 
+from the underlying userstore. However, there can be scenarios where you want to send claims that need to be read from 
 an external data source (i.e., custom claims) based on certain user attributes requested by a relying party application. 
 If you want to add such custom claims to a SAML response, you need to write a custom claim handler.
 
-Let’s look at how to add custom claims to a SAML response using a sample scenario where you need to provide several local attributes of a user, which are stored in user store, together with a few additional attributes that should be read from an external data source.
+Let’s look at how to add custom claims to a SAML response using a sample scenario where you need to provide several local attributes of a user, which are stored in userstore, together with a few additional attributes that should be read from an external data source.
 
 ---
 

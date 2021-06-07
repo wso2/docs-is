@@ -143,8 +143,7 @@ You have successfully added the identity provider. Next, configure the applicati
 !!! tip
     If you have configured the service provider and identity provider in a tenant, add the tenant domain as a query parameter to the access token endpoint. For example, if the tenant domain is wso2.com, the access token endpoint should be `https://localhost:9443/oauth2/token tenantDomain=wso2.com.`
 
----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: JWT Grant](../../../references/concepts/authorization/jwt-bearer-grant-type)
     

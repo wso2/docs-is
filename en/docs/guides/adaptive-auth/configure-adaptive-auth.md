@@ -75,7 +75,7 @@ Make the following changes to the created service provider.
 
 2. Click **Update** to save changes.
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
     - [Guide: Ensure Assurance with ACR and AMR](../../adaptive-auth/work-with-acr-amr)
     - [Guide: Adaptive Authentication Using Function Library](../../adaptive-auth/adaptive-auth-with-function-lib)

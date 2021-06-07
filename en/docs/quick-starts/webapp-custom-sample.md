@@ -49,8 +49,7 @@ Please refer ['Write a Custom Inbound Protocol'](insertlink) section for the imp
 3. (TODO: Explain the behaviour based on the sample)
 
 
-----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Enable Login for a Web Application](../../../guides/login/integrate-custom-protocol)
     - [Guide: Write a Custom Inbound Protocol](TODO:insert-link-to-guide)

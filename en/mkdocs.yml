@@ -345,75 +345,74 @@ nav:
         #- 'Overview': guides/identity-provisioning/provisioning-overview.md
   - 'Develop':
       - 'APIs':
-          - 'Use APIs': develop/apis/use-apis.md
-          - 'Admin Services':
-              - 'Call Admin Services': develop/apis/call-admin-services.md
-              - 'Admin Services for One Way Operations': develop/apis/admin-services-for-one-way-operations.md
-          - 'REST APIs':
-              - 'Rest APIs': develop/apis/rest-apis.md
-              - 'Authenticate and Authorize': develop/apis/authenticate-and-authorize-rest-apis.md
-              - 'Account Recovery': develop/apis/use-the-account-recovery-rest-apis.md
-              - 'Application Management': develop/apis/application-rest-api.md
-              #- 'Approvals': develop/apis/approvals-rest-api.md
-              - 'Associations': develop/apis/association-rest-api.md
-              - 'Authentication Data':
-                - 'Authentication Data': develop/apis/authentication-data-api.md
-                - 'Authentication REST API': develop/apis/use-the-authentication-rest-apis.md
-              - 'Authorized Apps':
-                  - 'Authorized Apps V1': develop/apis/authorized-apps-rest-api.md
-                  - 'Authorized Apps V2': develop/apis/authorized-apps-v2-rest-api.md
-              - 'Challenge Question': develop/apis/challenge-rest-api.md
-              - 'Claim Management' : develop/apis/claim-management-rest-api.md
-              - 'Configuration Management':
-                  - 'Configuration Management': develop/apis/use-the-configuration-management-rest-apis.md
-                  - 'Retrieve Tenant Resources Based on Search Parameters': develop/apis/retrieve-tenant-resources-based-on-search-parameters.md
-              - 'Consent Management': develop/apis/use-the-consent-management-rest-apis.md
-              - 'CORS': develop/apis/cors-rest-api.md
-              - 'Email Templates': develop/apis/email-templates-rest-api.md
-              - 'Entitlement': develop/apis/entitlement-with-rest-apis.md
-              - 'Fido': develop/apis/fido-rest-api.md
-              - 'Identity Governance': develop/apis/identity-governance-rest-api.md
-              - 'Identity Providers': develop/apis/idp-rest-api.md
-              - 'Identity Provider Session Extend': develop/apis/idp-session-extender-endpoint.md
-              - 'Keystore Management': develop/apis/keystore-rest-api.md
-              - 'Notification Senders': develop/apis/notification-sender-rest-api.md
-              - 'OAuth2 Scope Management': develop/apis/oauth2-scope-management-rest-apis.md
-              - 'OpenID Connect Scope Management': develop/apis/oidc-scope-management-rest-apis.md
-              - 'OIDC Dynamic Client Registration': develop/apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
-              - 'Permission Management': develop/apis/permission-management-rest-api.md
-              - 'Personal Information Export': develop/apis/use-the-personal-information-export-rest-apis.md
-              - 'SCIM 2.0': develop/apis/scim2-rest-apis.md
-              - 'Server Configurations': develop/apis/configs-rest-api.md
-              - 'Script Libraries': develop/apis/script-library-rest-api.md
-              - 'Self Sign-Up': develop/apis/use-the-self-sign-up-rest-apis.md
-              - 'Session Management': develop/apis/session-mgt-rest-api.md
-              - 'Tenant Management': develop/apis/tenant-management-rest-api.md
-              - 'TOTP': develop/apis/totp-rest-api.md
-              - 'User Discoverable Application Management': develop/apis/user-discoverable-applications.md
-              - 'User Functionality Management': develop/apis/user-functionality-mgt-rest-api.md
-              - 'Userstore Management': develop/apis/userstore-rest-api.md
-              - 'Workflow Engine Management': develop/apis/workflow-engine-rest-api.md
-          - 'SOAP APIs':
-              - 'SOAP APIs': develop/apis/soap-apis.md
-              - 'User Management':
-                  - 'User Management': develop/apis/user-management-with-apis.md
-                  - 'Manage Users and Roles': develop/apis/manage-users-and-roles-with-apis.md
-                  - 'Manage Claims': develop/apis/manage-claims-with-apis.md
-                  - 'Manage Permissions': develop/apis/manage-permissions-with-apis.md
-                  - 'Count Users and User Roles': develop/apis/count-users-and-roles-using-management-console-and-admin-services.md
-                  - 'Manage User Stores': develop/apis/manage-user-stores-with-apis.md
-                  - 'Manage Tenants': develop/apis/manage-tenants-with-apis.md
-              - 'User Information Recovery': develop/apis/user-information-recovery-service.md
-              - 'Identity Application Management':
-                  - 'Identity Application Management': develop/apis/identity-application-management-api.md
-                  - 'Use the Service Provider': develop/apis/use-the-service-provider-api.md
-                  - 'Service Provider Configurations used with APIs': develop/apis/service-provider-configurations-used-with-apis.md
-              - 'Identity Provider Management':
-                  - 'Identity Provider Management': develop/apis/identity-provider-management-api.md
-                  - 'Use the Identity Provider': develop/apis/use-the-identity-provider-api.md
-                  - 'Identity Provider Configurations used with APIs': develop/apis/identity-provider-configurations-used-with-apis.md
-          - 'Entitlement with APIs':
-              - 'Entitlement with APIs': develop/apis/entitlement-with-apis.md
+#          - 'Use APIs': develop/apis/use-apis.md
+#          - 'Admin Services':
+#              - 'Call Admin Services': develop/apis/call-admin-services.md
+#              - 'Admin Services for One Way Operations': develop/apis/admin-services-for-one-way-operations.md
+#      - 'REST APIs':
+          - 'Rest APIs': develop/apis/rest-apis.md
+          - 'Authenticate and Authorize': develop/apis/authenticate-and-authorize-rest-apis.md
+          - 'Account Recovery': develop/apis/use-the-account-recovery-rest-apis.md
+          - 'Application Management': develop/apis/application-rest-api.md
+          #- 'Approvals': develop/apis/approvals-rest-api.md
+          - 'Associations': develop/apis/association-rest-api.md
+          - 'Authentication Data':
+              - 'Authentication Data': develop/apis/authentication-data-api.md
+              - 'Authentication REST API': develop/apis/use-the-authentication-rest-apis.md
+          - 'Authorized Apps':
+              - 'Authorized Apps V1': develop/apis/authorized-apps-rest-api.md
+              - 'Authorized Apps V2': develop/apis/authorized-apps-v2-rest-api.md
+          - 'Challenge Question': develop/apis/challenge-rest-api.md
+          - 'Claim Management' : develop/apis/claim-management-rest-api.md
+          - 'Configuration Management':
+              - 'Configuration Management': develop/apis/use-the-configuration-management-rest-apis.md
+              - 'Retrieve Tenant Resources Based on Search Parameters': develop/apis/retrieve-tenant-resources-based-on-search-parameters.md
+          - 'Consent Management': develop/apis/use-the-consent-management-rest-apis.md
+          - 'CORS': develop/apis/cors-rest-api.md
+          - 'Email Templates': develop/apis/email-templates-rest-api.md
+          - 'Entitlement': develop/apis/entitlement-with-rest-apis.md
+          - 'Fido': develop/apis/fido-rest-api.md
+          - 'Identity Governance': develop/apis/identity-governance-rest-api.md
+          - 'Identity Providers': develop/apis/idp-rest-api.md
+          - 'Identity Provider Session Extend': develop/apis/idp-session-extender-endpoint.md
+          - 'Keystore Management': develop/apis/keystore-rest-api.md
+          - 'Notification Senders': develop/apis/notification-sender-rest-api.md
+          - 'OAuth2 Scope Management': develop/apis/oauth2-scope-management-rest-apis.md
+          - 'OpenID Connect Scope Management': develop/apis/oidc-scope-management-rest-apis.md
+          - 'OIDC Dynamic Client Registration': develop/apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+          - 'Permission Management': develop/apis/permission-management-rest-api.md
+          - 'Personal Information Export': develop/apis/use-the-personal-information-export-rest-apis.md
+          - 'SCIM 2.0': develop/apis/scim2-rest-apis.md
+          - 'Server Configurations': develop/apis/configs-rest-api.md
+          - 'Script Libraries': develop/apis/script-library-rest-api.md
+          - 'Self Sign-Up': develop/apis/use-the-self-sign-up-rest-apis.md
+          - 'Session Management': develop/apis/session-mgt-rest-api.md
+          - 'Tenant Management': develop/apis/tenant-management-rest-api.md
+          - 'TOTP': develop/apis/totp-rest-api.md
+          - 'User Discoverable Application Management': develop/apis/user-discoverable-applications.md
+          - 'User Functionality Management': develop/apis/user-functionality-mgt-rest-api.md
+          - 'Userstore Management': develop/apis/userstore-rest-api.md
+          - 'Workflow Engine Management': develop/apis/workflow-engine-rest-api.md
+#          - 'SOAP APIs':
+#              - 'SOAP APIs': develop/apis/soap-apis.md
+#              - 'User Management':
+#                  - 'User Management': develop/apis/user-management-with-apis.md
+#                  - 'Manage Users and Roles': develop/apis/manage-users-and-roles-with-apis.md
+#                  - 'Manage Claims': develop/apis/manage-claims-with-apis.md
+#                  - 'Manage Permissions': develop/apis/manage-permissions-with-apis.md
+#                  - 'Count Users and User Roles': develop/apis/count-users-and-roles-using-management-console-and-admin-services.md
+#                  - 'Manage Userstores': develop/apis/manage-user-stores-with-apis.md
+#                  - 'Manage Tenants': develop/apis/manage-tenants-with-apis.md
+#              - 'User Information Recovery': develop/apis/user-information-recovery-service.md
+#              - 'Identity Application Management':
+#                  - 'Identity Application Management': develop/apis/identity-application-management-api.md
+#                  - 'Service Provider API': develop/apis/use-the-service-provider-api.md
+#                  - 'Service Provider Configurations used with APIs': develop/apis/service-provider-configurations-used-with-apis.md
+#              - 'Identity Provider Management':
+#                  - 'Identity Provider Management': develop/apis/identity-provider-management-api.md
+#                  - 'Identity Provider API': develop/apis/use-the-identity-provider-api.md
+#                  - 'Identity Provider Configurations used with APIs': develop/apis/identity-provider-configurations-used-with-apis.md
+#              - 'Entitlement with APIs': develop/apis/entitlement-with-apis.md
       - 'Extend':
           - 'Work with the Source Code': develop/extend/work-with-the-source-code.md
           - 'Using SDKs':
@@ -499,6 +498,7 @@ nav:
           - 'Configure a Read-write LDAP Userstore': deploy/configure-a-read-write-ldap-user-store.md
         - 'Add High Availability for LDAP': deploy/add-high-availability-for-ldap.md
         - 'Configure Secondary Userstores': deploy/configure-secondary-user-stores.md
+        #- 'Carbon Remote User Store Manager': deploy/carbon-remote-user-store-manager.md
         - 'Work with Properties of Userstores': deploy/work-with-properties-of-user-stores.md
         - 'Write a Custom Userstore Manager': deploy/write-a-custom-user-store-manager.md
     - 'Work with Tokens': 
@@ -508,7 +508,7 @@ nav:
       - 'Enable Assertions In Access Tokens': deploy/enable-assertions-in-access-tokens.md
     - 'Data Purging': deploy/data-purging.md
     - 'Remove References to Deleted User Identities': deploy/remove-references-to-deleted-user-identities.md
-    - 'Configure rsync for Deployment Synchronization': deploy/configuring-rsync-for-deployment-synchronization.md
+    #- 'Configure rsync for Deployment Synchronization': deploy/configuring-rsync-for-deployment-synchronization.md
     - 'Configure an SP and IdP Using Configuration Files': deploy/configure-an-sp-and-idp-using-configuration-files.md
     - 'Configure the Email Sending Module': deploy/configure-email-sending.md
     - 'Configure Hazelcast': deploy/configure-hazelcast.md
@@ -682,14 +682,14 @@ nav:
   - 'References':
     - 'Overview': references/references-overview.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
-    - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
-    - 'API Permissions': references/api-permissions.md
+    #- 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
+    #- 'SOAP API Permissions': references/api-permissions.md
     - 'New Configuration Model': references/new-configuration-model.md
-    - 'Error Catalog': references/error-catalog.md
+    - 'REST API Error Catalog': references/error-catalog.md
     - 'Product Startup Options': references/product-startup-options.md
-    - 'Supported Cipher Suites': references/supported-cipher-suites.md
+    #- 'Supported Cipher Suites': references/supported-cipher-suites.md
     - 'Directory Structure of WSO2 Products': references/directory-structure-of-wso2-products.md
-    - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
+    #- 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
     - 'Scopes Corresponding to Permissions Required to Invoke REST API Calls': references/scopes-corresponding-to-rest-api-permissions.md
@@ -700,7 +700,7 @@ nav:
         - 'Users': references/concepts/user-management/users.md
         - 'Roles and Permissions': references/concepts/user-management/roles-and-permissions.md
         - 'Userstores': references/concepts/user-management/userstores.md
-        - 'Realms': references/concepts/realm.md
+        - 'Realms': references/concepts/user-management/realm.md
       - 'Authentication':
           - 'Introduction': references/concepts/authentication/intro-authentication.md
           - 'Authentication Protocols':
@@ -720,13 +720,13 @@ nav:
                                     - 'Request Object': references/concepts/authentication/request-object.md
                                     - 'Traditional Authentication Request': references/concepts/authentication/traditional-authentication-request.md
                           - 'User Information': references/concepts/authentication/user-information.md
-                          - 'Scopes And Claims': references/concepts/authentication/scopes-claims.md
+                          - 'Scopes and Claims': references/concepts/authentication/scopes-claims.md
                           - 'Discovery': references/concepts/authentication/discovery.md
                           - 'JWKS': references/concepts/authentication/jwks.md
-                          - 'Dynamic Client Registration': references/concepts/authorization/dcr.md
+                          - 'Dynamic Client Registration': references/concepts/authentication/dcr.md
                           - 'Session Management and Logout': references/concepts/authentication/session-management.md
-                          - 'Back-channel-logout': references/concepts/authentication/back-channel-logout.md
-                          - 'OIDC Device Flow': references/concepts/authentication/device-flow.md
+                          - 'Back-Channel Logout': references/concepts/authentication/back-channel-logout.md
+                          #- 'OIDC Device Flow': references/concepts/authentication/device-flow.md
                           - 'Microprofile JWT 1.0': references/concepts/authentication/microprofile-jwt.md
                   - 'SAML':
                           - 'Introduction': references/concepts/authentication/intro-saml.md
@@ -734,18 +734,18 @@ nav:
                           - 'SAML Front-Channel Logout': references/concepts/authentication/saml-front-channel.md
                           - 'SAML Back-Channel Logout': references/concepts/authentication/saml-back-channel.md
                   - 'WS-Federation':
-                          - 'Introduction': references/concepts/authentication/ws-federation.md
+                          - 'Introduction': references/concepts/authentication/intro-ws-federation.md
                   - 'WS-Trust':
-                          - 'Introduction': references/concepts/authentication/ws-trust.md
-                  - 'NTLM':
-                          - 'Introduction': references/concepts/authentication/ntlm.md
-                  - 'Kerberos':
-                          - 'Introduction to Kerberos': references/concepts/authentication/kerberos.md
+                          - 'Introduction': references/concepts/authentication/intro-ws-trust.md
+                  #- 'NTLM':
+                         # - 'Introduction': references/concepts/authentication/ntlm.md
+                  #- 'Kerberos':
+                          #- 'Introduction to Kerberos': references/concepts/authentication/kerberos.md
           - 'Adaptive Authentication': references/concepts/authentication/adaptive-authentication.md
           - 'Multi Factor Authentication': references/concepts/authentication/multi-factor-authentication.md
           - 'FIDO': references/concepts/authentication/mfa-with-fido.md
       - 'Authorization':
-          - 'Introduction': references/concepts/authorization/intro-authorization.md
+          #- 'Introduction': references/concepts/authorization/intro-authorization.md
           - 'Authorization Protocols':
                         - 'OAuth2':
                                     - 'Introduction': references/concepts/authorization/intro-oauth2.md
@@ -783,6 +783,7 @@ nav:
       - 'Identity Anti-Patterns and the Identity Bus': references/concepts/identity-anti-patterns-and-the-identity-bus.md
       - 'Claim Management': references/concepts/claim-management.md
       - 'Integrated Windows Authentication': references/concepts/integrated-windows-authentication-overview.md
+      - 'Multitenancy': references/concepts/introduction-to-multitenancy.md
       #- 'Comparisions':
         #- 'OAuth2 vs OIDC vs SAML': references/concepts/oauth-oidc-saml.md
         #- 'NTLM vs Kerberos': references/concepts/ntlm-kerberos.md

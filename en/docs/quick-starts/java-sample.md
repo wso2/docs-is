@@ -55,6 +55,6 @@ You need to add configurations related to WSO2 Identity Server and application i
 	
 	```
 
-!!! info "Related Topics" 
+!!! info "Related topics" 
 
 	[Enable Authentication for Spring Boot App](../../../develop/extend/sdks/spring-boot/)

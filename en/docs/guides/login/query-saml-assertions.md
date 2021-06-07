@@ -87,7 +87,7 @@ You have successfully queried an assertion using your application.
 
 -----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)
     - [Demo: Query SAML2 Assertions](../../../quick-starts/query-saml-assertions-sample)
     

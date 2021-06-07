@@ -1,7 +1,7 @@
 # Performance Tuning Recommendations
 
 This section describes some recommended performance tuning
-configurations to optimize the WSO2 Identity Server.
+configurations to optimize WSO2 Identity Server.
 
 !!! note "Important"    
     -   Performance tuning requires you to modify important system files,
@@ -22,7 +22,7 @@ important role.
 
 !!! info
     If you are running on MacOS Sierra or High Sierra, and experiencing long
-    start-up times for WSO2 products, try mapping your Mac hostname to
+    start-up times for WSO2 Identity Server, try mapping your Mac hostname to
     `          127.0.0.1         ` and `          ::1         ` in the
     `          /etc/hosts         ` file.
 
@@ -192,7 +192,7 @@ validationQuery = ""
 MaxPermSize = ""
 ```
 !!! info
-    For more information on configuring pooling configurations for other databases, see [Working with Databases](../../../deploy/work-with-databases).
+    For more information on configuring pooling configurations for other databases, see [Work with Databases](../../../deploy/work-with-databases).
 
 The following parameters should be considered when tuning the
 connection pool:
@@ -217,7 +217,7 @@ Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html).
 <tbody>
 <tr class="odd">
 <td>maxActive</td>
-<td><p>The maximum number of active connections that can be allocated from the connection pool at the same time. The default value is <code>              100.             </code></p></td>
+<td><p>This denotes the maximum number of active connections that can be allocated from the connection pool at the same time. The default value is <code>              100.             </code></p></td>
 <td><p>The maximum latency (approximately) = (P / M) * T,</p>
 <p><em>where,</em></p>
 <ul>
@@ -270,7 +270,7 @@ Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html).
 </tr>
 <tr class="even">
 <td>MaxPermSize</td>
-<td>The memory size allocated for the WSO2 product.</td>
+<td>The memory size allocated for WSO2 Identity Server.</td>
 <td><p>The default memory allocated for the product via this parameter is as follows: <code>              -Xms256m -Xmx512m -XX:MaxPermSize=256m             </code></p>
 <p>You can increase the performance by increasing this value in the <code>              &lt;IS_HOME&gt;/bin/wso2server.sh             </code> file as follows: <code>              -Xms2048m -Xmx2048m -XX:MaxPermSize=1024m             </code></p></td>
 </tr>

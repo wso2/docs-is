@@ -8,7 +8,6 @@ To enable users from other tenants to access your application too, follow the in
 
 {! fragments/saas-application.md !}
 
------
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Request Attributes for the Application](../request-attributes/)

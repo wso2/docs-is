@@ -8,8 +8,7 @@ The user's [consent](../../../references/concepts/consent-management/) is requir
 
 {! fragments/skip-user-consent.md !}
 
------
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Consent Management](../../../references/concepts/consent-management/)
     - [Guide: Request Attributes for the Application](../request-attributes/)

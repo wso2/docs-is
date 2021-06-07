@@ -66,8 +66,7 @@ instances of entity configuration.
         </md:EntityDescriptor>
         ```
 
------
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)
     - [Guide: Enable Login to a SAML Web Application](../webapp-saml)

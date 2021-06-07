@@ -71,9 +71,7 @@ true in the SCIM2 user create request.
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Peter"},"userName":"Peter","password":"password","emails":[{"primary":true,"value":"peter@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
 
-----
-
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Guide: Email Templates](../../../guides/tenants/customize-automated-mails/)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
     - [Guide: User Self Registration Workflow](../self-registration-workflow)

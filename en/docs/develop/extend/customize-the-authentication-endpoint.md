@@ -232,7 +232,7 @@ Configure the following to enable this feature.
             `Carbon.Security.TrustStore.Password`
             appropriately.
             
-        For more information about hosting the authentication endpoint on a different server, refer [here](/develop/extend/host-authentication-endpoint-on-a-different-server/).    
+        For more information about hosting the authentication endpoint on a different server, refer [here](../host-authentication-endpoint-on-a-different-server/).    
     
 
 7.  For mutual SSL authentication, the public certificate of the

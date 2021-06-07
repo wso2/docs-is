@@ -1,4 +1,3 @@
-
 # OpenID Connect Hybrid Flow
 
 Specifying any of the following ` response_type ` values
@@ -8,11 +7,6 @@ in an authorization request selects the hybrid flow for authentication:
 - [code id_token](#code-id_token)
 - [code id_token token](#code-id_token-token)
 
-To configure WSO2 Identity Server to support the OpenID Connect hybrid
-flow for authentication, you need to add the following to the
-` <IS_HOME>/repository/conf/deployment.toml ` file.
-
-
 To understand how the ` response_type ` value specified
 in an authorization request selects the hybrid flow to be the
 authentication flow, let's take a look at the following
@@ -20,7 +14,7 @@ authentication flow, let's take a look at the following
 
 ----
 
-### code token
+## code token
 
 This ` response_type ` requests a code and an access
 token from the authorization endpoint. 
@@ -29,7 +23,7 @@ The following sample authorization request uses
 ` code token ` as the ` response_type ` :
 
 ``` java
-https://<authorize_endpoint>?response_type=code token&client_id=<Client ID>&nonce=asd&redirect_uri=<callback_url>&scope=openid
+https://<AUTHORIZATION_ENDPOINT>?response_type=code token&client_id=<CLIENT_ID>&nonce=asd&redirect_uri=<CALLBACK_URL>&scope=openid
 ```
 
 You will receive the following sample response upon successful
@@ -45,29 +39,29 @@ token, refresh token and ID token.
 The following curl command is used to request tokens from the token endpoint:
 
 ``` java
-curl -k -v — user <Client ID>:<Client secret> -d “grant_type=authorization_code&code=99b34587–5483–374d-8b25–50485498e761&redirect_uri=<callback_url>" <token_endpoint>
+curl -k -v — user <CLIENT_ID>:<CLIENT_SECRET> -d "grant_type=authorization_code&code=99b34587–5483–374d-8b25–50485498e761&redirect_uri=<CALLBACK_URL>" <TOKEN_ENDPOINT>
 ```
 
-You will recieve the following response from the token endpoint.
+You will receive the following response from the token endpoint.
 
 ``` java
-{“access_token”:”1940a308-d492–3660-a9f8–46723cc582e9",”refresh_token”:”6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4",”scope”:”openid”,”id_token”:”eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMTAxMCwibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzEwMDd9.XKV0ioEvflR4MHGthO3cwXwC88msNgqR4l1O83mfhxOMtO1PG3ABWB5E4aFXFpR9t-8zJs09slhLsDTDhmC33KE8Die61UK9_Vb5aNA4XCkawyJt8dCX6clc6UUbTEO5N1ubXA18QFgwAEWpvoTz1hKx8XLnvOSehbdEKsoPunoHDmXpYJe_9hBg5V3kN-VHxdKdGOtl9u-Aml42s5p45cZY0mlFVcKjatBAf7hqWNPlUebyujDWG1Iyk_-AXNQ2wYi0F77uG7_HstP_tp0sOctu0TYCK8bwBTXEJYMPt1CqOqcae05m8N8hb0zs6Yxvyx_udCJPG-8n2zRB-T-kcg”,”token_type”:”Bearer”,”expires_in”:299494}
+{"access_token":"1940a308-d492–3660-a9f8–46723cc582e9","refresh_token":"6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4","scope":"openid","id_token":"eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMTAxMCwibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzEwMDd9.XKV0ioEvflR4MHGthO3cwXwC88msNgqR4l1O83mfhxOMtO1PG3ABWB5E4aFXFpR9t-8zJs09slhLsDTDhmC33KE8Die61UK9_Vb5aNA4XCkawyJt8dCX6clc6UUbTEO5N1ubXA18QFgwAEWpvoTz1hKx8XLnvOSehbdEKsoPunoHDmXpYJe_9hBg5V3kN-VHxdKdGOtl9u-Aml42s5p45cZY0mlFVcKjatBAf7hqWNPlUebyujDWG1Iyk_-AXNQ2wYi0F77uG7_HstP_tp0sOctu0TYCK8bwBTXEJYMPt1CqOqcae05m8N8hb0zs6Yxvyx_udCJPG-8n2zRB-T-kcg","token_type":"Bearer","expires_in":299494}
 ```
 
 The decrypted `id_token` is shown below.
 
 ``` java
 {
- “at_hash”: “JrZY9MtYVEIIJUx-DDBmww”,
- “sub”: “admin”,
- “aud”: [
- “nczbg5m5xxt6tP4UMZwB6PtQoQoa”
+ "at_hash": "JrZY9MtYVEIIJUx-DDBmww",
+ "sub": "admin",
+ "aud": [
+ "nczbg5m5xxt6tP4UMZwB6PtQoQoa"
  ],
- “azp”: “nczbg5m5xxt6tP4UMZwB6PtQoQoa”,
- “iss”: “https://localhost:9443/oauth2/token",
- “exp”: 1510831010,
- “nonce”: “asd”,
- “iat”: 1510831007
+ "azp": "nczbg5m5xxt6tP4UMZwB6PtQoQoa",
+ "iss": "https://localhost:9443/oauth2/token",
+ "exp": 1510831010,
+ "nonce": "asd",
+ "iat": 1510831007
 }
 ```
 
@@ -76,7 +70,7 @@ token endpoint. These two access tokens may or may not be the same.
 
 ----
 
-### code id_token 
+## code id_token 
 
 This ` response_type ` requests a code and an ID token
 from the authorization endpoint.
@@ -84,7 +78,7 @@ from the authorization endpoint.
 The following authorization request uses the code token as the `response_type`.
 
 ``` java
-<authorize_endpoint>?response_type=code id_token&client_id=<Client ID>&nonce=asd&redirect_uri=<callback_url>&scope=openid
+<AUTHORIZATION_ENDPOINT>?response_type=code id_token&client_id=<CLIENT_ID>&nonce=asd&redirect_uri=<CALLBACK_URL>&scope=openid
 ```
 
 You will receive the following sample response upon successful authorization.
@@ -97,29 +91,29 @@ The decrypted ` id token ` is shown below.
 
 ``` java
 {
- “at_hash”: “JrZY9MtYVEIIJUx-DDBmww”,
- “c_hash”: “S5UOXRNNyYsI6Z0G3xxdpw”,
- “sub”: “admin”,
- “aud”: [
- “nczbg5m5xxt6tP4UMZwB6PtQoQoa”
+ "at_hash": "JrZY9MtYVEIIJUx-DDBmww",
+ "c_hash": "S5UOXRNNyYsI6Z0G3xxdpw",
+ "sub": "admin",
+ "aud": [
+ "nczbg5m5xxt6tP4UMZwB6PtQoQoa"
  ],
- “azp”: “nczbg5m5xxt6tP4UMZwB6PtQoQoa”,
- “iss”: “https://localhost:9443/oauth2/token",
- “exp”: 1510831512,
- “nonce”: “asd”,
- “iat”: 1510831508
+ "azp": "nczbg5m5xxt6tP4UMZwB6PtQoQoa",
+ "iss": "https://localhost:9443/oauth2/token",
+ "exp": 1510831512,
+ "nonce": "asd",
+ "iat": 1510831508
 }
 ```
 
 !!! tip 
-    <p>Here, the ID token is required to have a c_hash value.</p>
+    <p>Here, the ID token is required to have a `c_hash` value.</p>
  
-    <p>c_hash is the base64url encoding of the left-most half of a hash of the
+    <p>`c_hash` is the base64url encoding of the left-most half of a hash of the
     octets in the ASCII representation of a code value, where the hash
     algorithm used is the hash algorithm of the ` alg `
     header parameter of the ID token’s JOSE header.</p>
  
-    <p>The c_hash value is mandatory when an ` id_token ` is
+    <p>The `c_hash` value is mandatory when an ` id_token ` is
     issued with code, and the ` response_type ` is equal to
     ` code id_token ` or
     ` code id_token token ` .</p>
@@ -127,29 +121,29 @@ The decrypted ` id token ` is shown below.
     <p>You can send the code to the token endpoint to request for an access
     token, refresh token, and ID token. For this you can use the same curl
     To request for an access token, refresh token, and id token, send the code to the token endpoint.
-    You can use the same [curl command](#curl) that was provided for the code id_token."</p>
+    You can use the same [curl command](#curl) that was provided for the code id_token.</p>
  
 
-The sample response that will receive on token endpoint is shown below.
+The sample response from token endpoint is shown below.
 
 ``` java
-{“access_token”:”1940a308-d492–3660-a9f8–46723cc582e9",”refresh_token”:”6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4",”scope”:”openid”,”id_token”:”eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMjI3MSwibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzIyNjd9.jAGLp8FFdIyFi4ZmvRPX9hVu8NbLVL2iM1895UNrS7wqgl2PCi7zHnvBoOYkbsxxMYGoVepFNzz7hHbk-kuzq_kBoBsZK2Ucbv0hUkwiEkigLy6hpGm-mqXjai3cjlJevWOVcZbMhkEyRlsZtdUG0RCzteT7emAuZLFm5zfMpq1h5JsVRGjK_6fQbHhB2Svkl_kV_ctAD8_kymASGEjRGnwGW5np4uBI0NPYMDTvrl8N9i6yfUVD9-y7rL9Gtrq9hK28Swj5Szvv_c1IX8wYBP-p8gu2cBpGIulIq-OkbfCUh-rrbh96relOaKwKwk0g7nST6o6wZTAwaicNQBYHYw”,”token_type”:”Bearer”,”expires_in”:298234}
+{"access_token":"1940a308-d492–3660-a9f8–46723cc582e9","refresh_token":"6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4","scope":"openid","id_token":"eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMjI3MSwibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzIyNjd9.jAGLp8FFdIyFi4ZmvRPX9hVu8NbLVL2iM1895UNrS7wqgl2PCi7zHnvBoOYkbsxxMYGoVepFNzz7hHbk-kuzq_kBoBsZK2Ucbv0hUkwiEkigLy6hpGm-mqXjai3cjlJevWOVcZbMhkEyRlsZtdUG0RCzteT7emAuZLFm5zfMpq1h5JsVRGjK_6fQbHhB2Svkl_kV_ctAD8_kymASGEjRGnwGW5np4uBI0NPYMDTvrl8N9i6yfUVD9-y7rL9Gtrq9hK28Swj5Szvv_c1IX8wYBP-p8gu2cBpGIulIq-OkbfCUh-rrbh96relOaKwKwk0g7nST6o6wZTAwaicNQBYHYw","token_type":"Bearer","expires_in":298234}
 ```
 
 The decrypted `id_token` is shown below. 
 
 ``` java
 {
- “at_hash”: “JrZY9MtYVEIIJUx-DDBmww”,
- “sub”: “admin”,
- “aud”: [
- “nczbg5m5xxt6tP4UMZwB6PtQoQoa”
+ "at_hash": "JrZY9MtYVEIIJUx-DDBmww",
+ "sub": "admin",
+ "aud": [
+ "nczbg5m5xxt6tP4UMZwB6PtQoQoa"
  ],
- “azp”: “nczbg5m5xxt6tP4UMZwB6PtQoQoa”,
- “iss”: “https://localhost:9443/oauth2/token",
- “exp”: 1510832271,
- “nonce”: “asd”,
- “iat”: 1510832267
+ "azp": "nczbg5m5xxt6tP4UMZwB6PtQoQoa",
+ "iss": "https://localhost:9443/oauth2/token",
+ "exp": 1510832271,
+ "nonce": "asd",
+ "iat": 1510832267
 }
 ```
 <a name="validations"></a>
@@ -166,22 +160,21 @@ specification.
  both.
 3. All claims about the authentication event that is present in either token
  should be present in both.
-4. The at\_hash and c\_hash claims may be omitted from the ID token
+4. The `at_hash` and `c_hash` claims may be omitted from the ID token
  returned from the token endpoint even when the claims are present in
  the ID token returned from the authorization endpoint.
 
 ----
 
-### code id_token token
+## code id_token token
 
 This ` response_type ` requests a code, an access token
 and an ID token from the authorization endpoint.
 
-A sample authorization request that uses ` code ` ` id_token `
-` token ` as the ` response_type ` as the response_type is shown below.
+A sample authorization request that uses `code id_token token` as the `response_type` is shown below.
 
 ``` java
-<authorize_endpoint>?response_type=code id_token token&client_id=<Client ID>&nonce=asd&redirect_uri=<callback_url>&scope=openid
+<AUTHORIZATION_ENDPOINT>?response_type=code id_token token&client_id=<CLIENT_ID>&nonce=asd&redirect_uri=<CALLBACK_URL>&scope=openid
 ```
 
 
@@ -195,17 +188,17 @@ The decrypted ` id token ` is shown below.
 
 ``` java
 {
- “at_hash”: “JrZY9MtYVEIIJUx-DDBmww”,
- “c_hash”: “XCRuS2hEOB_3HdxoE3JqOg”,
- “sub”: “admin”,
- “aud”: [
- “nczbg5m5xxt6tP4UMZwB6PtQoQoa”
+ "at_hash": "JrZY9MtYVEIIJUx-DDBmww",
+ "c_hash": "XCRuS2hEOB_3HdxoE3JqOg",
+ "sub": "admin",
+ "aud": [
+ "nczbg5m5xxt6tP4UMZwB6PtQoQoa"
  ],
- “azp”: “nczbg5m5xxt6tP4UMZwB6PtQoQoa”,
- “iss”: “https://localhost:9443/oauth2/token",
- “exp”: 1510833164,
- “nonce”: “asd”,
- “iat”: 1510833160
+ "azp": "nczbg5m5xxt6tP4UMZwB6PtQoQoa",
+ "iss": "https://localhost:9443/oauth2/token",
+ "exp": 1510833164,
+ "nonce": "asd",
+ "iat": 1510833160
 }
 ```
 
@@ -217,11 +210,12 @@ provided for the code token specified
 The sample response that will receive on token endpoint is shown below.
 
 ``` java
-{“access_token”:”1940a308-d492–3660-a9f8–46723cc582e9",”refresh_token”:”6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4",”scope”:”openid”,”id_token”:”eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMzMwNywibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzMzMDN9.k69ufNIJHJHb6foeRSMVoJsgAWz0q65_8R6Lhz-tIW-tdLDI7eNg3kSL5-S2T3uFn7XFvn113wEWvCS8X3JBCIPMAFCmGBCR_L5pCh_OO6_xQeZyfa0fx_R27kZ9EIW5u0WSSjlpzzvr_50YldCfXMhZASjZlA5sCZ9BReyhkEUW_kSCWUDJEPaFQqgKVNfnRmr1q4N2lJwXPHjjE-4BcTMxKY87mqFzq_HVdXc1SRVIG0iuWkiYaD34pK8ZI12GFGSmOpDzhYb06uxrR8GC4jpq_WHMvMKrPrLaoVkEFaqomgxLIOJaNZJzqpe3wlaWM952eTndpSW0HSR5kgZgmw”,”token_type”:”Bearer”,”expires_in”:297198}
+{"access_token":"1940a308-d492–3660-a9f8–46723cc582e9","refresh_token":"6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4","scope":"openid","id_token":"eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSnJaWTlNdFlWRUlJSlV4LUREQm13dyIsInN1YiI6ImFkbWluIiwiYXVkIjpbIm5jemJnNW01eHh0NnRQNFVNWndCNlB0UW9Rb2EiXSwiYXpwIjoibmN6Ymc1bTV4eHQ2dFA0VU1ad0I2UHRRb1FvYSIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUxMDgzMzMwNywibm9uY2UiOiJhc2QiLCJpYXQiOjE1MTA4MzMzMDN9.k69ufNIJHJHb6foeRSMVoJsgAWz0q65_8R6Lhz-tIW-tdLDI7eNg3kSL5-S2T3uFn7XFvn113wEWvCS8X3JBCIPMAFCmGBCR_L5pCh_OO6_xQeZyfa0fx_R27kZ9EIW5u0WSSjlpzzvr_50YldCfXMhZASjZlA5sCZ9BReyhkEUW_kSCWUDJEPaFQqgKVNfnRmr1q4N2lJwXPHjjE-4BcTMxKY87mqFzq_HVdXc1SRVIG0iuWkiYaD34pK8ZI12GFGSmOpDzhYb06uxrR8GC4jpq_WHMvMKrPrLaoVkEFaqomgxLIOJaNZJzqpe3wlaWM952eTndpSW0HSR5kgZgmw","token_type":"Bearer","expires_in":297198}
 ```
 
 In case there are two ID tokens issued, where one ID token is from
 authorization endpoint and other is from token endpoint, be sure to
-perform the validations mentioned
-[above](#validations), which are based on the
-OpenID Connect specification.
+perform the validations based on the OpenID Connect, mentioned [above](#validations).
+
+!!! info "Related topics"
+    - [Guide: OpenID Connect Hybrid Flow](../../../../guides/access-delegation/oidc-hybrid-flow/)

@@ -274,7 +274,5 @@ failures can be retrieved by using Salesforce SAML Assertion Validator.
 Further information regarding the steps are available
 [here](https://developer.salesforce.com/docs/atlas.en-us.sso.meta/sso/sso_saml_validation_errors.htm#!).
 
-----
-
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Identity Federation](../../../references/concepts/identity-federation/)

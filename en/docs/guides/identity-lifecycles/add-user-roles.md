@@ -10,9 +10,9 @@ This section guides you through the ways of adding a user role to WSO2 Identity 
 
 ---
 
-## Add a user role using SCIM
+## Add a user role using SCIM 2.0 REST API
 
-In SCIM, creating a role is the same as creating a **group.** 
+In SCIM 2.0, creating a role is the same as creating a **group.** 
 
 !!! note
     To create a group with users, the relevant users should already exist in the user store.
@@ -39,55 +39,8 @@ curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"v
 You receive a response with the payload as indicated above and a
 response status `           201 CREATED          `.
 
----
 
-## Add a user role using SOAP
-
-A role can be created by calling the service
-`         RemoteUserStoreManager        ` . If you are new to admin
-services, see [Calling Admin Services.](../../../develop/apis/call-admin-services/)
-
-1.  Disable the hidden admin service property in the `           <IS_HOME>/repository/conf/deployment.toml          ` file.  
-    By default, the admin services are disabled as it is not recommended
-    to expose these URLs to users. However, this can be enabled by the
-    administrators if it needs to be accessed.
-
-    ``` toml
-    [admin_service.wsdl]
-    enable = true
-    ```
-
-2.  Open the following Admin Service from
-    [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
-    `https://localhost:9443/services/RemoteUserStoreManagerService?wsdl`
-
-    !!! info 
-        If you have configured WSO2 IS to use an IP or hostname, replace
-        `            localhost           ` with your IP or hostname.
-
-3.  Call the method **`            addRole()           `** to create a
-    role.
-
-    **SOAP Request**
-
-    ``` xml
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org" xmlns:xsd="http://dao.service.ws.um.carbon.wso2.org/xsd">
-        <soapenv:Header/>
-        <soapenv:Body>
-            <ser:addRole>
-                <!--Optional:-->
-                <ser:roleName>engineer</ser:roleName>
-                <!--Zero or more repetitions:-->
-                <ser:userList>Mark</ser:userList>
-                <!--Zero or more repetitions:-->
-            </ser:addRole>
-        </soapenv:Body>
-    </soapenv:Envelope>
-    ```
-
-----
-
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)
     - [Guide: Edit/Delete Roles](../../identity-lifecycles/edit-delete-roles)
     - [Guide: Role Based Permissions](../../identity-lifecycles/role-based-permissions/)

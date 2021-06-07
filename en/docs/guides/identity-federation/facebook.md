@@ -188,7 +188,7 @@ You have now added and configured the service provider.
 ## Configure claim mappings and requested claims
 
 All the basic information of a user/application is stored in the form of
-claims. But for the same information, different Identity Providers(IDP)
+claims. But for the same information, different Identity Providers(IdP)
 have different claims. Therefore, there should be a proper mechanism to
 map those claims within Identity Providers.
 
@@ -242,9 +242,9 @@ claims.
 
 You have successfully configured facebook as your federated authenticator. Now, when you try to log in to your application, it should redirect to the Facebook login page. On successful authentication with your Facebook credentials, you will be able to access your application. 
 
----
 
-!!! info "Related Topics"
+
+!!! info "Related topics"
 	-   See the following topics for samples of configuring Facebook for
 		federated authentication:
 		-   [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)

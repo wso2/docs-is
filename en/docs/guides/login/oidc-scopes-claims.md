@@ -55,8 +55,7 @@ When the existing claim mappings are not enough for your requirement and if you 
     In the very first server start-up, the scopes and claims values defined in this file will be stored in the database. 
     Thereafter the changes made to this file will not be applicable.
 
-----
 
-!!! info "Related Topics"
+!!! info "Related topics"
     - [Concept: OpenID Connect Scopes and Claims](../../../references/concepts/authentication/scopes-claims)
     - [Guide: OpenID Connect Authentication](../webapp-oidc)

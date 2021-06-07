@@ -545,6 +545,7 @@ html .md-typeset .superfences-tabs > label:hover {
 .md-tabs__list {
     display: inline-block;
     width: calc(100% - 55px);
+    height: 100%;
     overflow: hidden;
 }
 
@@ -585,9 +586,8 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .edit_link {
-    color: #000;
+    color: #fff;
     font-size: 24px;
-    margin-top: 18px;
     opacity: 0;
     transition: color .25s,opacity .1s;
     display: none;
@@ -698,7 +698,7 @@ html .md-footer-meta.md-typeset a,
     width: 40px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
     background: url(../lib/backtotop/img/cd-top-arrow.svg) no-repeat center 50%;
-    background-color: hsla(5, 76%, 62%, 0.8);
+    background-color: #ff7043;
 }
 
 .js .cd-top {
@@ -722,7 +722,7 @@ html .md-footer-meta.md-typeset a,
 }
 
 .md-tabs .md-tabs__link{
-    opacity: 0.7 !important;
+    opacity: 1 !important;
     -webkit-transform: translateY(50%);
     transform: translateY(50%);
     transition: color .25s,opacity .1s,-webkit-transform 0s .4s;
@@ -730,10 +730,9 @@ html .md-footer-meta.md-typeset a,
     transition: color .25s,transform 0s .4s,opacity .1s,-webkit-transform 0s .4s;
 }
 
-.md-tabs .md-tabs__link.md-tabs__link--active,
-.md-tabs .md-tabs__link.md-tabs__link:hover {
+.md-tabs .md-tabs__link.md-tabs__link--active {
     opacity: 1 !important;
-    color: #ff7043;
+    color: #fa6400;
 }
 
 .md-tabs {
@@ -743,7 +742,8 @@ html .md-footer-meta.md-typeset a,
 }
 
 .md-tabs__link {
-    margin-top: .4rem
+    margin-top: .4rem;
+    font-size: 16px !important;
 }
 
 .md-tabs[data-md-state=hidden] {
@@ -1203,4 +1203,352 @@ html .md-footer-meta.md-typeset a,
     font-size: large;
 }
 
+.middle-container {
+    background-color: #EFEFEF;
+}
 
+.get-started-container {
+    flex: 5;
+    padding-top: 3rem;
+    padding-right: 5rem;
+}
+
+.iam-heading-text {
+    font-size: 32px !important;
+    font-weight: normal !important;
+    color: black !important;
+}
+
+.iam-sub-text {
+    font-size: 22px;
+    font-weight: lighter !important;
+}
+
+.hot-links-container {
+    flex-direction: column;
+    flex: 3;
+    height: auto;
+    padding-top: 2rem;
+    padding-left: 4rem;
+}
+
+.hot-links-list {
+    list-style-type: none !important;
+    margin-left: 0px !important;
+}
+
+.hot-links-text {
+    padding-left: 1rem;
+    color: #737373 !important;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hot-links-list li {
+    border-bottom: 1px solid rgb(199, 199, 199);
+    height: 30px;
+    line-height: 20px;
+    margin-left: 0px !important;
+    transition: .5s;
+}
+
+.hot-links-text:hover {
+    color: #464646 !important;
+}
+
+.read-more-arrow{
+    vertical-align: bottom;
+    font-size: 32px !important;
+}
+
+.read-more-link {
+    white-space: nowrap;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.read-more-link:hover {
+    color: #e95d00 !important;
+}
+
+.btn-row {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.get-started-btn {
+    background-color: #fa6400 !important;
+    color: #ffffff !important; 
+    float: left !important;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    width: 150px;
+    height: auto;
+    outline: none;
+    font-size: 20px;
+    background: none;
+    transition: .5s;
+    font-size: large;
+    font-weight: 700;
+    border: 1px solid #E96D2C;
+    border-radius: 2px;
+    margin-right: 15px;
+}
+
+.get-started-btn:hover {
+    background-color:#ffffff !important;
+    border: 1px solid #fa6400;
+    border-radius: 2px;
+    color: #fa6400!important;
+}
+
+.download-btn {
+    background-color: #ffffff !important;
+    color: #fa6400 !important; 
+    float: left !important;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    width: 150px;
+    height: auto;
+    outline: none;
+    font-size: 20px;
+    background: none;
+    transition: .5s;
+    font-size: large;
+    font-weight: 700;
+    border: 1px solid #bbbbbb;
+    border-radius: 2px;
+    margin-right: 15px;
+}
+
+.download-btn:hover {
+    background-color:#ffffff !important;
+    border: 1px solid #fa6400;
+    border-radius: 2px;
+    color: #fa6400!important;
+}
+
+.iam-secondary-heading {
+    font-size: 26px;
+    margin: 0px !important;
+    font-weight: normal !important;
+}
+
+.iam-secondary-text {
+    font-size: 17px;
+    margin-top: 0.25em !important;
+    padding-bottom: 1.5em;
+}
+
+.scenario-card {
+    cursor: unset !important;
+    height: 100%;
+    width: 100%;
+    box-shadow: unset;
+    border-radius: unset;
+    margin: unset;
+    max-width: unset !important;
+}
+
+.scenario-card-title-container {
+    font-size: 19px!important;
+    text-transform: unset !important;
+    color: unset !important;
+}
+
+.scenario-card-title {
+    display: block !important;
+}
+
+.scenario-card-text {
+    font-size: 15px !important;
+}
+
+.scenario-card-icon {
+    vertical-align: bottom;
+    font-size: 1px !important;
+    float: left;
+}
+
+.scenario-link-text {
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fa6400 !important;
+    transition: 0.5s;
+}
+
+.scenario-link-text:hover {
+    color: #e95d00 !important;
+}
+
+.try-it-out-text {
+    color: black !important;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.try-it-out-text:hover {
+    color: #e95d00 !important;
+}
+
+.try-it-out-text:hover .dropdown-menu { 
+    display: block !important; 
+}
+
+.try-it-out-arrow {
+    vertical-align: text-top;
+    font-size: 20px !important;
+}
+
+.icon-card {
+    cursor: unset !important;
+    width: 4em !important;
+    height: 4em; /* 1:1 Aspect Ratio */
+    border: none !important;
+    box-shadow: 1px 6px 18px 4px rgba(77,77,77,0.15);
+}
+
+.icon-font {
+    font-size: 2.5em !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.more-info-heading-text {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    margin: 0.5em 0 0.2em 0 !important;
+}
+
+.more-info-text {
+    font-size: 13px !important;
+    margin-top: 0px !important; 
+    margin-bottom: 2em !important;
+}
+
+.learn-more-text {
+    font-size: 13px !important;
+    text-decoration: none;
+    vertical-align: bottom;
+    transition: 0.5s;
+    color: #fa6400 !important;
+}
+
+.learn-more-text:hover {
+    color: #e95d00 !important;
+}
+
+.learn-more-arrow {
+    vertical-align: bottom;
+    font-size: 1.5em !important;
+}
+
+.bottom-row {
+    height: auto;
+}
+
+.md-tabs {
+    background: linear-gradient(90deg, rgba(45,45,45,1) 0%, rgba(70,70,70,1) 100%) !important;
+    height: 45px !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+.nav-link-text {
+    font-weight: 600;
+}
+
+.copyright-container {
+    display: inline;
+}
+
+.md-source {
+    padding-right: 0px !important;
+}
+
+.md-source__repository {
+    display: none !important;
+}
+
+.md-source__icon {
+    color: #464646 !important;
+    width: unset !important;
+    padding-top: 9px !important;
+}
+
+.git-icon {
+    font-size: 2.5em;
+    padding-left: 15px;
+}
+
+.md-tabs__inner {
+    height: 100%;
+}
+
+.md-tabs__item {
+    height: 100%;
+}
+
+.md-tabs .md-tabs__item.md-tabs__item--active,
+.md-tabs .md-tabs__item.md-tabs__item:hover {
+    border-bottom: #fa6400 solid 3px;
+}
+
+.scenario-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.scenario-dropdown-content {
+    display: none;
+    margin-top: 10px !important;
+    margin-left: 105px !important;
+    padding: 0px !important;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    width: auto !important;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.scenario-dropdown-content a {
+    color: #465B67 !important;
+    padding: 10px 15px 10px 15px;
+    font-size: 12px;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.scenario-dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.scenario-dropdown:hover .scenario-dropdown-content {display: block;}
+
+@media only screen and (min-width: 769px) {
+    [data-md-toggle=search]:checked~.md-header .md-search__inner {
+        width: 14rem;
+    }
+
+    .md-search {
+        margin-right: 45px;
+    }
+
+    .md-search__inner {
+        width: 0px;
+    }
+
+    .md-search__input {
+        background-color: white !important;
+    }
+}
+
+/* Overriding default font in internal pages on docs */
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}

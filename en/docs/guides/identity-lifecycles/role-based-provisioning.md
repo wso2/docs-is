@@ -71,9 +71,8 @@ Follow the steps given below to configure role-based provisioning in WSO2 Identi
 
 {! fragments/remove-users.md !}
 
-----
 
-!!! info "Related Topics"
+!!! info "Related topics"
 	- [Concepts: Provisioning Framework](../../../references/concepts/provisioning-framework/#outbound-provisioning)
 	- [Guide: Rule-Based Provisioning](../rule-based-provisioning)
    <!--- [Concept: Role-Based Provisioning](TODO:link-to-concept)-->
