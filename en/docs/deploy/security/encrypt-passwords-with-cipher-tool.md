@@ -73,7 +73,7 @@ log4j.appender.LOGEVENT.password=secretAlias:log4j.appender.LOGEVENT.password
 
 ## Change encrypted passwords
 
-To change any password that we has been encrypted already, follow the steps given below.
+To change any password that has been encrypted already, follow the steps given below.
     
 1. Make sure you shut down the server.
 2. Navigate to the `<IS_HOME>/bin/` directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
