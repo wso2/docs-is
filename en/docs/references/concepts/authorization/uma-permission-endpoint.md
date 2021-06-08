@@ -57,7 +57,7 @@ Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
 ]
 ```
 
-If the permission request is successful, then the authorization server sends a permission ticket in the success response as shown below.
+If the permission request is successful, the authorization server sends a permission ticket in the success response as shown below.
 
 ```
 HTTP/1.1          201     Created
@@ -90,4 +90,3 @@ The error code can either be `invalid_resource_id` or `invalid_resource_scope`.
 |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | `             Invalid_resource_id            `    | This indicates that the resource ID does not exist in the authorization server.                                        |
 | `             Invalid_resource_scope            ` | This indicates that at least one of the scopes corresponding to the resource is not found at the authorization server. |
-
