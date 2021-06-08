@@ -34,11 +34,10 @@ Token introspection allows a protected resource to query this information regard
 - `ACTIVE`- Valid access token. Although the state is ACTIVE, the timestamp calculation may reveal it to be EXPIRED, 
                but this happens only during the first access token request or token validation request after expiration.
                
-- `INACTIVE`- Refreshed using refresh_token grant type before expiration. Also, this state is used in cases when users 
+- `INACTIVE`- Refreshed using `refresh_token` grant type before expiration. Also, this state is used in cases when users 
                and user stores are deleted, user passwords are updated, etc.
                
 - `EXPIRED`- Invalid and expired access token. Refresh token can still be valid though.
 
 - `REVOKED`- Revoked access token. Refresh token also gets revoked along with access token.
                Access token could have been in ACTIVE or EXPIRED state while revoking.
-
