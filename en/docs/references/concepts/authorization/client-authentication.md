@@ -1,7 +1,7 @@
 # OAuth 2.0 Client Authentication
 
 If the client type specified in the request is [confidential](../client-types#confidential-clients), the client and authorization server should establish a client authentication method 
-suitable for the security requirements of the authorization server. This needs to be done;
+suitable for the security requirements of the authorization server. This needs to be done for the following reasons. 
 
 - To ensure the tokens are issued only to legitimate clients.
 
@@ -58,4 +58,3 @@ The authentication token **must** be sent as the value of the client_assertion p
 must be;
 
 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
-
