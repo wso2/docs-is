@@ -44,13 +44,28 @@ curl -v -k --user [username]:[password] --data '{"schemas": ["urn:ietf:params:sc
 
 Below is a sample request and its corresponding response to search for users using SCIM 2.0. 
 
-```tab="Sample Request"
-curl -v -k --user admin:admin --data '{"schemas": ["urn:ietf:params:scim:api:messages:2.0:SearchRequest"],"attributes": ["name.familyName", "userName"],"filter":"userName sw ki and name.familyName co ack","domain":"PRIMARY","startIndex": 1,"count": 10}' --header "Content-Type:application/scim+json"  'https://localhost:9443/scim2/Users/.search'
-```
-
-```tab="Sample Response"
-{"totalResults":1,"startIndex":1,"itemsPerPage":1,"schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],"Resources":[{"name":{"familyName":"jackson"},"id":"c8c821ba-1200-495e-a775-79b260e717bd","userName":"kim"}]}
-```
+!!! abstract ""
+    **Sample Request**
+    ```
+    curl -v -k --user admin:admin --data '{"schemas": ["urn:ietf:params:scim:api:messages:2.0:SearchRequest"],"attributes": ["name.familyName", "userName"],"filter":"userName sw ki and name.familyName co ack","domain":"PRIMARY","startIndex": 1,"count": 10}' --header "Content-Type:application/scim+json"  'https://localhost:9443/scim2/Users/.search'
+    ```
+    ---
+    **Sample Response**
+    ```
+    {
+        "totalResults":1,
+        "startIndex":1,
+        "itemsPerPage":1,
+        "schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+        "Resources":[
+            {
+                "name":{"familyName":"jackson"},
+                "id":"c8c821ba-1200-495e-a775-79b260e717bd",
+                "userName":"kim"
+            }
+        ]
+    }
+    ```
 
 
 !!! info "Related topics"

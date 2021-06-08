@@ -8,39 +8,45 @@ This page guides you through some special request parameters used with [OpenID C
 
 Use the [state parameter](../../../references/concepts/authentication/traditional-authentication-request#state-parameter) to maintain a correlation between the request and the response.
 
-```tab="Request Format"
-https://<IS_HOST>:<IS_PORT>/oauth2/authorize?
-response_type=<response_type>
-&client_id=<client_id>
-&state=<state_value>
-&redirect_uri=<callback_url>
-```
-
-```tab="Sample Request"
-https://localhost:9443/oauth2/authorize?
-response_type=token
-&client_id=s6BhdRkqt3
-&state=xyz
-&redirect_uri=https://localhost.com:8080/callback
-```
+!!! abstract ""
+    **Request Format**
+    ```
+    https://<IS_HOST>:<IS_PORT>/oauth2/authorize?
+    response_type=<response_type>
+    &client_id=<client_id>
+    &state=<state_value>
+    &redirect_uri=<callback_url>
+    ```
+    ---
+    **Sample Request**
+    ```
+    https://localhost:9443/oauth2/authorize?
+    response_type=token
+    &client_id=s6BhdRkqt3
+    &state=xyz
+    &redirect_uri=https://localhost.com:8080/callback
+    ```
 
 You will receive a response similar to the one shown below.
 
-```tab="Response Format"
-HTTP/1.1 302 Found
-Location: <callback_url>#access_token=<access_token>
-&state=<state_value>
-&token_type=<token_type>
-&expires_in=<token_expiry_time>
-```
-
-```tab="Sample Response"
-HTTP/1.1 302 Found
-Location: https://localhost.com:8080/callback#access_token=2YotnFZFEjr1zCsicMWpAA
-&state=xyz
-&token_type=bearer
-&expires_in=3600
-```
+!!! abstract ""
+    **Response Format**
+    ```
+    HTTP/1.1 302 Found
+    Location: <callback_url>#access_token=<access_token>
+    &state=<state_value>
+    &token_type=<token_type>
+    &expires_in=<token_expiry_time>
+    ```
+    ---
+    **Sample Response**
+    ```
+    HTTP/1.1 302 Found
+    Location: https://localhost.com:8080/callback#access_token=2YotnFZFEjr1zCsicMWpAA
+    &state=xyz
+    &token_type=bearer
+    &expires_in=3600
+    ```
 
  ----
  
@@ -51,36 +57,52 @@ Use the [nonce parameter](../../../references/concepts/authentication/traditiona
 The `nonce` claim embedded in the ID token must contain the exact value that was sent in the request. 
 If not, authentication should be rejected by the application.
 
-```tab="Request Format"
-https://<IS_HOST>:<IS_PORT>/oauth2/authorize?response_type=<response_type>&client_id=<client_id>&redirect_uri=<callback_url>&nonce=<nonce_value>&scope=openid
-```
-
-```tab="Sample Request"
-https://localhost:9443/oauth2/authorize?response_type=id_token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=https://localhost.com:8080/callback&nonce=abc&scope=openid
-```
+!!! abstract ""
+    **Request Format**
+    ```
+    https://<IS_HOST>:<IS_PORT>/oauth2/authorize?response_type=<response_type>&client_id=<client_id>&redirect_uri=<callback_url>&nonce=<nonce_value>&scope=openid
+    ```
+    ---
+    **Sample Request**
+    ```
+    https://localhost:9443/oauth2/authorize?response_type=id_token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=https://localhost.com:8080/callback&nonce=abc&scope=openid
+    ```
 
 You will receive a response similar to shown below.
 
-```tab="Response Format"
-HTTP/1.1 302 Found
-Location: <callback_url>#access_token=<access_token>
-&state=<state_value>
-&token_type=<token_type>
-&expires_in=<token_expiry_time>
-```
-
-```tab="Sample Response"
-HTTP/1.1 302 Found
-Location: https://localhost.com:8080/callback#access_token=2YotnFZFEjr1zCsicMWpAA
-&state=xyz
-&token_type=bearer
-&expires_in=3600
-```
+!!! abstract ""
+    **Response Format**
+    ```
+    HTTP/1.1 302 Found
+    Location: <callback_url>#access_token=<access_token>
+    &state=<state_value>
+    &token_type=<token_type>
+    &expires_in=<token_expiry_time>
+    ```
+    ---
+    **Sample Response**
+    ```
+    HTTP/1.1 302 Found
+    Location: https://localhost.com:8080/callback#access_token=2YotnFZFEjr1zCsicMWpAA
+    &state=xyz
+    &token_type=bearer
+    &expires_in=3600
+    ```
 
 The decoded ID token is as follows.
 
 ```
-{"auth_time":1453184484,"exp":1453188084,"sub":"admin@carbon.super","azp":"W2OoSxQDCVrBk1lnffo1NGCKZbQa","at_hash":"DoxjyXzmrL6Z_kWRzmBdCA","nonce":"abc","aud":["W2OoSxQDCVrBk1lnffo1NGCKZbQa"],"iss":"https://playground.local:9443/oauth2/token","iat":1453184484}
+{
+    "auth_time":1453184484,
+    "exp":1453188084,
+    "sub":"admin@carbon.super",
+    "azp":"W2OoSxQDCVrBk1lnffo1NGCKZbQa",
+    "at_hash":"DoxjyXzmrL6Z_kWRzmBdCA",
+    "nonce":"abc",
+    "aud":["W2OoSxQDCVrBk1lnffo1NGCKZbQa"],
+    "iss":"https://playground.local:9443/oauth2/token",
+    "iat":1453184484
+}
 ```
 
  ----
@@ -97,23 +119,29 @@ The [prompt parameter](../../../references/concepts/authentication/traditional-a
 
 The silent authentication can be initiated by using the `prompt=none` parameter with the authentication request.
 
-```tab="Request Format"
-https://<IS_HOST>:<IS_PORT>/oauth2/authorize?response_type=token&client_id=<client_id>&redirect_uri=<callback_url>&prompt=none&scope=openid
-```
-
-```tab="Sample Request"
-https://localhost:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=https://localhost.com:8080/callback&prompt=none&scope=openid
-```
+!!! abstract ""
+    **Request Format**
+    ```
+    https://<IS_HOST>:<IS_PORT>/oauth2/authorize?response_type=token&client_id=<client_id>&redirect_uri=<callback_url>&prompt=none&scope=openid
+    ```
+    ---
+    **Sample Request**
+    ```
+    https://localhost:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=https://localhost.com:8080/callback&prompt=none&scope=openid
+    ```
 
 If the user has an already authenticated session and a pre-configured consent with the WSO2 Identity Server, you will receive a successful response as follows.
 
-```tab="Response Format"
-<callback_url>#token_type=<token_type>&expires_in=<expiry_time>&access_token=<access_token>
-```
-
-```tab="Sample Response"
-https://localhost.com:8080/callback#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
-```
+!!! abstract ""
+    **Response Format**
+    ```
+    <callback_url>#token_type=<token_type>&expires_in=<expiry_time>&access_token=<access_token>
+    ```
+    ---
+    **Sample Response**
+    ```
+    https://localhost.com:8080/callback#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
+    ```
 
 **Error Response**
 
@@ -136,15 +164,19 @@ session_state==...
 
 Use the `prompt=login` parameter with the authentication request to force authenticating the user even if the user has been authenticated already.
 
-```tab="Sample Request"
-https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=none&scope=openid
-```
+!!! abstract ""
+    **Sample Request**
+    ```
+    https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=none&scope=openid
+    ```
 
 If the user is successfully re-authenticated with WSO2 Identity Server, you will receive a successful response as follows.
 
-```tab="Successful Response"
-https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
-```
+!!! abstract ""
+    **Successful Response**
+    ```
+    https://<callback_url>#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
+    ```
 
 **Error Response**
 
@@ -164,24 +196,30 @@ session_state==...
 ### prompt=consent
 
 Use the `prompt=consent` parameter with the authentication request to force prompting user consent.
- 
- ```tab="Request Format"
- https://<IS_HOST>:<IS_PORT>/oauth2/authorize?response_type=<response_type>&client_id=<client_id>&redirect_uri=<callback_url>&prompt=consent&scope=openid&access_token=<access_token>
- ```
 
- ```tab="Sample Request"
- https://localhost:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=consent&scope=openid&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
- ```
+!!! abstract ""
+    **Request Format**
+    ```
+    https://<IS_HOST>:<IS_PORT>/oauth2/authorize?response_type=<response_type>&client_id=<client_id>&redirect_uri=<callback_url>&prompt=consent&scope=openid&access_token=<access_token>
+    ```
+    ---
+    **Sample Request**
+    ```
+    https://localhost:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=consent&scope=openid&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
+    ```
  
  If the user has successfully provided the consent again, even if the consent is already given, WSO2 Identity Server will return a successful response as follows.
 
- ```tab="Response Format"
- <callback_url>#token_type=<token_type>&expires_in=<expiry_time>&access_token=<access_token>
- ```
-
- ```tab="Sample Response"
- http://localhost:8080/playground2/oauth2client#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
- ```
+!!! abstract ""
+    **Response Format**
+    ```
+    <callback_url>#token_type=<token_type>&expires_in=<expiry_time>&access_token=<access_token>
+    ```
+    ---
+    **Sample Response**
+    ```
+    http://localhost:8080/playground2/oauth2client#token_type=Bearer&expires_in=60&access_token=10a361a99aa4bd6e0aa79c6ea7bcdb66
+    ```
  
 **Error Response**
 

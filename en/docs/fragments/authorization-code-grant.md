@@ -36,48 +36,62 @@ to configure authentication for an OAuth/OpenID Connect application.
     !!! tip
         You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Authorization Code Grant with OAuth 2.0 Playground](../../../quick-starts/auth-code-playground).
 
-    ``` tab="Request Format"
-    https://<host>:<port>/oauth2/authorize?
-    response_type=code&
-    client_id=<oauth_client_key>&
-    redirect_uri=<callback_url>&
-    scope=<scope>
-    ```
-
-    ```tab="Sample Request"
-    https://localhost:9443/oauth2/authorize?
-    response_type=code&
-    client_id=0rhQErXIX49svVYoXJGt0DWBuFca&
-    redirect_uri=http://wso2is.local:8080/playground2/oauth2client
-    ```
+    !!! abstract ""
+        **Request Format**    
+        ```
+        https://<host>:<port>/oauth2/authorize?
+        response_type=code&
+        client_id=<oauth_client_key>&
+        redirect_uri=<callback_url>&
+        scope=<scope>
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        https://localhost:9443/oauth2/authorize?
+        response_type=code&
+        client_id=0rhQErXIX49svVYoXJGt0DWBuFca&
+        redirect_uri=http://wso2is.local:8080/playground2/oauth2client
+        ```
 
     !!! note
         `scope` is an optional parameter that can used to define any scope you wish to obtain the token for. To use the application with OpenID Connect, enter the value `openid` as the scope.
     
     You will receive an authorization code. 
 
-    ``` tab="Response Format"
-    <callback_url>?code=<code>
-    ```
-    
-    ``` tab="Sample Response"
-    http://wso2is.local:8080/playground2/oauth2client?code=9142d4cad58c66d0a5edfad8952192
-    ```
+    !!! abstract ""
+        **Response Format**
+        ```
+        <callback_url>?code=<code>
+        ```
+        ---
+        **Sample Response**
+        ```
+        http://wso2is.local:8080/playground2/oauth2client?code=9142d4cad58c66d0a5edfad8952192
+        ```
 
 2. Run the following curl command using the authorization code received, to obtain the access token. 
 
-    ``` tab="Request Format"
-    curl -v -X POST --basic -u <oauth_client_key>:<oauth_client_secret> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=<callback_url> <token_endpoint>
-    ```
-
-    ``` tab="Sample Request"
-    curl -v -X POST --basic -u 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=a0996a17-4a34-3d99-bfcd-6bd1faa604d0&redirect_uri=http://wso2is.local:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```
+        curl -v -X POST --basic -u <oauth_client_key>:<oauth_client_secret> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=<callback_url> <token_endpoint>
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        curl -v -X POST --basic -u 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=a0996a17-4a34-3d99-bfcd-6bd1faa604d0&redirect_uri=http://wso2is.local:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
+        ```
 
 3. You will receive the following response with the access token and refresh token. 
 
     ```
-    {"access_token":"317c19b3-73e3-3906-8627-d1c952856b5d","refresh_token":"52569186-163f-3c9c-b2f4-539a0e8529ce","token_type":"Bearer","expires_in":3600}
+    {
+        "access_token":"317c19b3-73e3-3906-8627-d1c952856b5d",
+        "refresh_token":"52569186-163f-3c9c-b2f4-539a0e8529ce",
+        "token_type":"Bearer",
+        "expires_in":3600
+    }
     ```
 
 !!! info "Related topics"
