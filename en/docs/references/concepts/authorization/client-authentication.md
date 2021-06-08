@@ -52,9 +52,9 @@ The main steps of the flow are as follows.
 3. Authorization server extracts the signature and authenticates the client.
 
 
-The JWT **must** contain some REQUIRED claim values and **may** contain some OPTIONAL claim values. For more information on the
+The JWT must contain some REQUIRED claim values and may contain some OPTIONAL claim values. For more information on the
 required and optional claim values needed for the JWT for private_key_jwt authentication, click [here](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication).
-The authentication token **must** be sent as the value of the client_assertion parameter. The value of the client_assertion_type parameter
+The authentication token must be sent as the value of the client_assertion parameter. The value of the client_assertion_type parameter
 must be;
 
 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`

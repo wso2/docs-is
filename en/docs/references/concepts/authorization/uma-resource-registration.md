@@ -68,7 +68,7 @@ The authorization server must support performing the following five operations. 
 
 ### Create a resource description
 
-The create resource operation adds a new resource to the authorization server using the POST method. If the request is successful, the resource is registered in the authorization server and the `201 (Created)` status message, which includes a location header and an `_id` parameter, is returned. A sample request and response are shown below.
+This operation adds a new resource to the authorization server using the POST method. If the request is successful, the resource is registered in the authorization server and the `201 (Created)` status message, which includes a location header and an `_id` parameter, is returned. A sample request and response are shown below.
 
 **Sample Request**
 ```

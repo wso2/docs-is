@@ -14,15 +14,15 @@ This is done using authorization policies. The specialty of this protocol is tha
 
 UMA works by defining a workflow that creates authorization policies on a centralized authorization server. There are five main roles associated with a UMA workflow. 
 
-- **Resource owner**: The user or entity that grants access to a protected resource. 
+- **Resource owner**: The user or entity that grants access to a protected resource 
 
 - **Resource server**: Hosts the protected resources. The resource server is capable of accepting and responding to requests to access protected resources.
 
 - **Authorization server**: Protects the resources in the resource server on behalf of the resource owner. WSO2 Identity Server usually acts as the authorization server.
 
-- **Client**: An application that acts on behalf of the requesting party.
+- **Client**: An application that acts on behalf of the requesting party
 
-- **Requesting party**: An entity that seeks to access a protected resource using a client.
+- **Requesting party**: An entity that seeks to access a protected resource using a client
 
 ### The flow
 

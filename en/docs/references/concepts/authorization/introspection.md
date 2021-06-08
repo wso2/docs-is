@@ -22,11 +22,11 @@ Token introspection allows a protected resource to query this information regard
 
 **Authorization codes:**
 
-- `ACTIVE`- Valid and yet to be exchanged for an access token.
+- `ACTIVE`- Valid and yet to be exchanged for an access token
 
-- `INACTIVE`- Invalid and already being exchanged for an access token.
+- `INACTIVE`- Invalid and already being exchanged for an access token
 
-- `EXPIRED`-  Invalid as it got expired before being exchanged to an access token.
+- `EXPIRED`-  Invalid as it got expired before being exchanged to an access token
 
 
 **Access tokens:**
