@@ -5,8 +5,8 @@
     !!! note 
         The SCIM2 Users endpoint used by the scim-bulk-user-export-tool mentioned above, does not support pagination and can only be used with smaller user bases.
         
-3. Extract the downloaded .zip file.
-4. Run the `start.sh` script inside the extracted directory.
+2. Extract the downloaded .zip file.
+3. Run the `start.sh` script inside the extracted directory.
 
     `sh start.sh`
 
