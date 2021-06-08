@@ -4,7 +4,7 @@
 
 OAuth 2.0 token introspection defines a method that allows authorized protected resources to query the authorization server
 to determine the set of metadata for a given token (access token, authorization code, or a refresh token) that was presented to them by 
-an OAuth client. Based on the metadata of the particular token, it will allow the resource server to consume the 
+an OAuth client. Based on the metadata of the particular token, it allows the resource server to consume the 
 protected resource.
  
 
@@ -41,5 +41,4 @@ Token introspection allows a protected resource to query this information regard
 
 - `REVOKED`- Revoked access token. Refresh token also gets revoked along with access token.
                Access token could have been in ACTIVE or EXPIRED state while revoking.
-
 
