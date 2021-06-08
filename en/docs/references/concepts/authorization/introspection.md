@@ -35,7 +35,7 @@ Token introspection allows a protected resource to query this information regard
                but this happens only during the first access token request or token validation request after expiration.
                
 - `INACTIVE`- Refreshed using `refresh_token` grant type before expiration. Also, this state is used in cases when users 
-               and user stores are deleted, user passwords are updated, etc.
+               and userstores are deleted, user passwords are updated, etc.
                
 - `EXPIRED`- Invalid and expired access token. Refresh token can still be valid though.
 
