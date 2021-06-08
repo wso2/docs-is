@@ -76,7 +76,7 @@ The UMA grant is an extension of the OAuth 2.0 grant and enhances OAuth capabili
 
 - **party-to-party authorization**: the resource owner can authorize access to their protected resource for clients used by entities that are in a requesting party role.
 
-- **pre-defined authorization grant rules**: the resource owner can configure authorization grant rules (policy conditions) at will rather than having to authorize access token issuance each time synchronously. The authorization server and resource server interact with the client and requesting party asynchronously with respect to the resource owner's interactions. 
+- **predefined authorization grant rules**: the resource owner can configure authorization grant rules (policy conditions) at will rather than having to authorize access token issuance each time synchronously. The authorization server and resource server, interact with the client and requesting party asynchronously, with respect to the resource owner's interactions. 
 
 !!! info
     For more information, refer [User-Managed Access (UMA) 2.0 Grant for OAuth 2.0 Authorization](https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-grant-2.0.html).
