@@ -50,4 +50,4 @@ Once you have configured all your applications, access them in separate tabs in 
 
 !!! info "Related topics"
     -   [Concept: SAML 2.0 Front-Channel Logout](../../../references/concepts/authentication/saml-front-channel/)
-    -   [Demo: Configure SAML 2.0 Front-Channel Logout](../../../quick-starts/saml-front-channel-logout)
+    -   [Quick Start: Configure SAML 2.0 Front-Channel Logout](../../../quick-starts/saml-front-channel-logout)

@@ -78,8 +78,8 @@ Send the following requests via your application to connect your application to 
 ------
 
 !!! info "Related Links"
-     -   [Demo: Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
+     -   [Quick Start: Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
      -   [Guide: Authenticate with Basic Auth Request Path Authenticator](../../../guides/basic-auth-request-path)
-     -   [Demo: Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
+     -   [Quick Start: Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
 
            
