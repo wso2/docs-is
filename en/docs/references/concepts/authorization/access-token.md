@@ -14,7 +14,7 @@ token is the resource server, so the client cannot interpret the value of the ac
    relevant grant type.
 2. The authorization server validates the parameters and grants an access token to the client.
 3. The client passes the access token to the authorization server.
-4. Based on the validity of the access token the resource server allows the client to consume the protected resource.
+4. Based on the validity of the access token, the resource server allows the client to consume the protected resource.
 
 
 The OAuth 2.0 specification does not mandate any particular implementation for access tokens but it mentions two possible
