@@ -54,9 +54,9 @@ In an **IdP-initiated logout** scenario, the identity provider (acting as sessio
     - [Concept: SAML 2.0](../intro-saml)
     - [Concept: SAML Back-Channel Logout](../saml-back-channel)
     - [Guide: SAML Front-Channel Logout](../../../../guides/login/saml-front-channel-logout)
-    - [Demo: SAML Front-Channel Logout](../../../../quick-starts/saml-front-channel-logout)
+    - [Quick Start: SAML Front-Channel Logout](../../../../quick-starts/saml-front-channel-logout)
     - [Guide: Use SAML Artifact Binding](../../../../guides/login/use-artifact-binding)
-    - [Demo: Use SAML Artifact Binding](../../../../quick-starts/use-artifact-binding-sample)
+    - [Quick Start: Use SAML Artifact Binding](../../../../quick-starts/use-artifact-binding-sample)
 
 
 

@@ -45,7 +45,7 @@ WSO2 Identity Server (WSO2 IS) supports script-based adaptive authentication, wh
 !!! info "Related topics"
     - [Concept: Multi-Factor Authentication](../multi-factor-authentication)
     - [Guide: Adaptive Authentication](../../../guides/adaptive-auth/configure-adaptive-auth)
-    - [Demo: Adaptive Authentication](../../../quick-starts/adaptive-auth-overview)
+    - [Quick Start: Adaptive Authentication](../../../quick-starts/adaptive-auth-overview)
 
 
 

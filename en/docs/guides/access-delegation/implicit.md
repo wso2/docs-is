@@ -58,4 +58,4 @@ http://wso2is.local:8080/playground2/oauth2client#access_token=317c19b3-73e3-390
 !!! info "Related topics"
     - [Concept: Implicit Grant](../../../references/concepts/authorization/implicit-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
-    - [Demo: Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground)
+    - [Quick Start: Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground)
