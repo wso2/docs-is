@@ -68,7 +68,7 @@ When the resource server makes an access request to the authorization server, it
 PAT is simply an OAuth access token with the scope  `uma_protection`, which represents the resource owner’s authorization to use the protection API. It uniquely represents the resource owner, the resource server used for resource management, and the authorization server used for the protection of these resources.
 
 !!! info
-    For more information refer [Federated Authorization for User-Managed Access (UMA) 2.0](https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-federated-authz-2.0.html).
+    For more information, refer [Federated Authorization for User-Managed Access (UMA) 2.0](https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-federated-authz-2.0.html).
     
 ### UMA grant
 
@@ -88,5 +88,4 @@ Using the UMA grant, a client application acting on behalf of the requesting par
     - [Concept: Permissions Endpoint](../uma-permission-endpoint)
     - [Guide: User Managed Access](../../../../guides/access-delegation/uma)
     <!--- - [Demo: User Managed Access](TODO:link-to-demo)-->
-
 
