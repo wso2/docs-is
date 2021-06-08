@@ -6,7 +6,7 @@ Access tokens are credentials used to access protected resources on behalf of a 
 either an opaque string or a JSON Web Token (JWT). The **resource server**<!--[**Resource Server**](insertlink)--> can decide whether a client is authorized to 
 consume a resource or not, by verifying the access token. The way the token endpoint of the **authorization server**<!--[**Authorization Server**](insertlink)--> is 
 invoked and the access token is generated differs based on the **grant type**<!--[grant type](insertlink)-->. The ultimate audience of the access 
-token is the resource server, so the client can not interpret the value of the access token.
+token is the resource server, so the client cannot interpret the value of the access token.
 
 ![The flow to obtain an access token](../../../assets/img/concepts/access-token.png)
 
@@ -51,4 +51,3 @@ strategies.
   access tokens lag, whereas access tokens with string identifiers can be revoked with almost immediate effect. The 
   common practice is to have a short expiration time with self-contained access tokens, but that may result in more 
   refresh token requests at the authorization server.
-
