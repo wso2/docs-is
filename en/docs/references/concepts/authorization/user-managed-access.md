@@ -6,7 +6,7 @@ UMA 2.0 (User Managed Access) is a federated authorization standard protocol app
 
 UMA enables users to share and control access to their protected resources with other parties that request access to them. Additionally, it also strengthens data privacy and helps to comply with modern-day privacy regulations such as [GDPR](../../compliance/gdpr) and [CCPA](../../compliance/ccpa). For instance, consider a patient who wishes to share their health data (such as medical prescriptions and lab reports) with their doctor, family members, and health insurance company. They may wish to selectively share some health-related data with certain parties, but may not want to share everything with everyone, and may wish to give them permission to `view` the data, but not `edit` it. UMA 2.0 helps to effectively share this data as well as maintain control over the resource sharing in a secure and reliable manner. 
 
-This is done using authorization policies. The specialty of this protocol is that resource owners need not be present online at the time of access, because the cross-party sharing is driven by pre-defined policies.
+This is done using authorization policies. The specialty of this protocol is that resource owners need not be present online at the time of access, because the cross-party sharing is driven by predefined policies.
 
 -----
 
