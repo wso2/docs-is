@@ -2,7 +2,7 @@
 
 ## Change the super admin password
 
-To change the default admin password, log in to the WSO2 management console (`https://<IS_HOST>:<PORT>/carbon`)
+To change the default admin password, log in to the WSO2 Identity Server management console (`https://<IS_HOST>:<PORT>/carbon`)
 with admin/admin credentials and use the **Change my password** option.
 
 ---
