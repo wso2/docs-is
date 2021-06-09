@@ -44,60 +44,34 @@ or
 exports.<function_name_for_outside> = <function_name_in _the_script>
 ```
 
-!!! example "Example"
-    ```javascript
-    function getAge(birthDate) {
-        var today = new Date();
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() <    birthDate.getDate())) {
-            age--;
-        }
-        return age;
-    };
+```javascript
+function getAge(birthDate) {
+    var today = new Date();
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() <    birthDate.getDate())) {
+        age--;
+    }
+    return age;
+};
 
-    var validateDOB = function (dob) {
-        return dob.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    };
-        
-    module.exports.getAge = getAge;
-    //or 
-    //exports.getAge = getAge;
-    module.exports.validateDOB = validateDOB;
-    //or
-    //exports.validateDOB = validateDOB;
-    ```
+var validateDOB = function (dob) {
+    return dob.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+};
+    
+module.exports.getAge = getAge;
+//or 
+//exports.getAge = getAge;
+module.exports.validateDOB = validateDOB;
+//or
+//exports.validateDOB = validateDOB;
+```
 
 **Option 2**
 
-!!! example "Example"
-    ```javascript
-    var ageModule = {
-        getAge : function (birthDate) {
-            var today = new Date();
-            var age = today.getFullYear() - birthDate.getFullYear();
-            var m = today.getMonth() - birthDate.getMonth();
-            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
-            return age;
-        },
-        
-        validateDOB : function (dob) {
-            return dob.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-        }
-    };
-        
-    module.exports = ageModule;
-    ```
-
-
-**Option 3**
-
-!!! example "Example"
-    ```javascript
-    var ageModule = { };
-    ageModule.getAge = function (birthDate) {
+```javascript
+var ageModule = {
+    getAge : function (birthDate) {
         var today = new Date();
         var age = today.getFullYear() - birthDate.getFullYear();
         var m = today.getMonth() - birthDate.getMonth();
@@ -105,14 +79,37 @@ exports.<function_name_for_outside> = <function_name_in _the_script>
             age--;
         }
         return age;
-    };
-
-    ageModule.validateDOB = function (dob) {
+    },
+    
+    validateDOB : function (dob) {
         return dob.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    };
-        
-    module.exports = ageModule;
-    ```
+    }
+};
+    
+module.exports = ageModule;
+```
+
+
+**Option 3**
+
+```javascript
+var ageModule = { };
+ageModule.getAge = function (birthDate) {
+    var today = new Date();
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+};
+
+ageModule.validateDOB = function (dob) {
+    return dob.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+};
+    
+module.exports = ageModule;
+```
 
 ----
 
