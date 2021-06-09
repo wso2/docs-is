@@ -1,7 +1,7 @@
 # Kerberos Grant
 
-Kerberos is a security protocol that has support built into various
-operating systems and open-source distributions (e.g.,  Ubuntu, Windows,
+Kerberos is a security protocol that has built-in support to various
+operating systems and open source distributions (e.g., Ubuntu, Windows,
 RedHat, Open Solaris, etc). Additionally, a majority of browsers support
 some Kerberos functions as well. As WSO2 Identity Server (WSO2 IS) uses
 the OAuth 2.0 protocol, the Kerberos-OAuth2 grant type allows
@@ -37,14 +37,15 @@ Kerberos ticket for an OAuth2 token.
     the OAuth2 token.
 
     ``` java tab="Request 1"
-    curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    curl -v -X POST -H "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" -k -d "grant_type=kerberos&kerberos_realm=<KERBEROS_REALM>&kerberos_token=<KERBEROS_TOKEN>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
     ```
 
     ``` java tab="Request 2"
-    curl -u <client id>:<client secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=kerberos&kerberos_realm=<KERBEROS_REALM>&kerberos_token=<KERBEROS_TOKEN>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
     ```
 
-    **Response**
+    Response:
+    
     ``` java
     POST /oauth2/token HTTP/1.1
     Host: idp.example.com:9443
@@ -56,10 +57,10 @@ Kerberos ticket for an OAuth2 token.
 4.  The Kerberos client receives the OAuth2 token. 
 
 5.  The Kerberos Grant validates the received token with the provided
-    Identity Provider (IdP) credentials and if it is a valid token, it
+    identity provider (IdP) credentials and if it is a valid token, it
     issues an OAuth2 token to the client.
 
-    **Example**
+    Example:
 
     ``` java
         {  

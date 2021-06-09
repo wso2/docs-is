@@ -1,6 +1,6 @@
 # Client Credentials Grant
 
-This page guides you through using [Client Credentials Grant](../../../eferences/concepts/authorization/client-credential-grant/) 
+This page guides you through using [Client Credentials Grant](../../../references/concepts/authorization/client-credential-grant/) 
 to configure authentication for an OAuth/OpenID Connect application. 
 
 ----
@@ -53,4 +53,4 @@ You will receive the following response with the access token.
 !!! info "Related topics"
     - [Concept: Client Credentials Grant](../../../references/concepts/authorization/client-credential-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
-    - [Demo: Client Credentials Grant with OAuth 2.0 Playground](../../../quick-starts/client-credentials-playground)
+    - [Quick Start: Client Credentials Grant with OAuth 2.0 Playground](../../../quick-starts/client-credentials-playground)

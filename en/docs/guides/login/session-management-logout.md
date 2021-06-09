@@ -50,5 +50,5 @@ To do this, add an iframe to the service provider application which sends a `pro
         
 !!! info "Related topics"
     - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
-    - [Demo: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)
+    - [Quick Start: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)
 

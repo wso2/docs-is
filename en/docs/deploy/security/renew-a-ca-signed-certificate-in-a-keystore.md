@@ -98,7 +98,9 @@ keytool -import -v -trustcacerts -alias <current_alias> -file <ca_signed_cert.ce
 ```
 
 !!! tip
+
     To view infomation related to the renewed certificate, execute the following keytool command.
+
 
     ``` java
     keytool -list -keystore <keystore_name.jks> -alias <cert_alias> -v

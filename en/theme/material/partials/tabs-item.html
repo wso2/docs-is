@@ -19,7 +19,7 @@
     {% include "partials/tabs-item.html" %}
   {% else %}
   {% if title in config.extra.nav_list %}
-    {% if nav_item.active %}
+    {% if main_nav_item.active %}
       <li class="md-tabs__item md-tabs__item--active">
         <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link md-tabs__link--active nav-link-text">
           {{ title }}

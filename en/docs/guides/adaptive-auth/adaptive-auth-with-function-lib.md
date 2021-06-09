@@ -203,5 +203,5 @@ Follow the instructions below to delete a function library.
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
     - [Guide: Configure Adaptive Authentication for an Application](../../../guides/adaptive-auth/configure-adaptive-auth)
     - [Guide: Ensure Assurance with ACR and AMR](../../../guides/adaptive-auth/work-with-acr-amr)
-    - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)
+    - [Quick Start: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)
 

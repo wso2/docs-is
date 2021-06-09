@@ -7,17 +7,16 @@ are analyzed, the information is exposed to those who check this.
 To avoid this potential security pitfall, users can mask sensitive
 information from the log file at the time of logging. In this feature,
 you can define patterns that need to be masked from the logs. This is
-particularly useful in the case of credit card numbers, access tokens,
+particularly useful in the cases of credit card numbers, access tokens,
 etc.
 
-To configure this feature, follow the instructions below.
+To configure this feature, follow the instructions given below.
 
 ---
 
 ## Enable log masking
 
-1.  Log masking is enabled by default from WSO2 Identity Server 5.9.0 onwards. However, you need 
-    to configure required masking patterns.
+1.  Log masking is enabled by default. However, you need to configure required masking patterns.
 
 2.  These patterns are configured in the `<IS-HOME>/repository/conf/wso2-log-masking.properties`. You can change 
     its default configurations in `<IS-HOME>/repository/conf/deployment.toml`.
@@ -27,7 +26,7 @@ To configure this feature, follow the instructions below.
 ## The masking pattern file
 
 The masking pattern file is a property file that can contain one or more
-masking patterns.The following is a sample configuration that showcases
+masking patterns. The following is a sample configuration that showcases
 how to mask the credit card numbers from the logs.
 
 Navigate to `<IS-HOME>/repository/conf/deployment.toml`. Add the following configuration.
@@ -42,10 +41,8 @@ Navigate to `<IS-HOME>/repository/conf/deployment.toml`. Add the following confi
 With this configuration, each log line is checked for all the configured
 patterns. If any match is found, it is masked with `*****`.
 
-!!! note 
-    
+!!! note    
     There can be a performance impact when using this
     feature with many masking patterns since each log line is matched with
-    each of the patterns. So it is highly advisable to only use the most
-    necessary patterns.
+    each of the patterns. Hence, it is recommended to only use the most necessary patterns.
     

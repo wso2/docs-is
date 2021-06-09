@@ -37,7 +37,7 @@ The cURL command to get the access token:
 curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<AUTHORIZATION_CODE>&redirect_uri=<REDIRECT_URI>" <TOKEN_ENDPOINT>
 ```
 
-Response:
+You will receive a response similar to the format below.
 
 ``` java
 {"access_token":"131d4094-b94c-3714-9e73-672aa433248d","refresh_token":"96a6d697-0120-3bec-86be-21b58f600a07","token_type":"Bearer","expires_in":3600}
@@ -46,3 +46,6 @@ Response:
 !!! info "Support for refresh token grant"
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../refresh-token-grant).
 
+!!! info "Related topics"
+        - [Guide: Authorization Code Grant](../../../../guides/access-delegation/authorization-code)
+        - [Quick Start: Authorization Code Grant](../../../../quick-starts/auth-code-playground)

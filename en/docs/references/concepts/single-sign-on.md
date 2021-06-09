@@ -6,7 +6,7 @@ Single sign-on (SSO) occurs when a user enters their credentials to log in to an
 
 For instance, logging in to your Gmail account logs you in to other Google services such as Youtube as well. Notice that it only requires you to enter your credentials once. 
 
-**Single Logout** occurs when a user logs out of an application and is then simulatenously logged out of other connected applications without having to explicity log out of them one by one. For instance, if you log out of Gmail, you are automatically logged out of Youtube and other Google apps as well. 
+**Single Logout** occurs when a user logs out of an application and is then simultaneously logged out of other connected applications without having to explicitly log out of them one by one. For instance, if you log out of Gmail, you are automatically logged out of Youtube and other Google apps as well. 
 
 ----
 
@@ -16,18 +16,19 @@ Within a single sign-on system, there are two main entities; the applications an
 
 The identity provider is responsible for authenticating the user and issuing an assertion or access token, which contains authentication data, authorization data, and attributes related to the user. The connected application trusts the assertion or access token issued by the identity provider and uses it to authenticate the user to the application. 
 
-<img name='sso-diagram' src='../../../assets/img/concepts/sso-diagram.png' class='img-zoomable'/>
+<img name='sso-diagram' src='../../../assets/img/concepts/sso-diagram.png' class='img-zoomable' alt="SSO flow"/>
 
-Authentication requests and information are passed using standard, secure protocols, such as [SAML](TODO:link-to-concept) or [OpenID Connect](../authentication/intro-oidc). 
+Authentication requests and information are passed using standard, secure protocols, such as [SAML](../authentication/intro-saml) or [OpenID Connect](../authentication/intro-oidc/). 
 
+<!---
 !!! tip
     If you are wondering which protocol or standard would be the best fit for your application, see [OAuth2 vs. OIDC vs. SAML](TODO:link-to-concept) for a comparison between protocols. 
-
+-->
 ----
 
 ## Benefits of SSO
 
-SSO authentication is a neccessity in most systems today. Some of the benefits of using SSO are:
+SSO authentication is a necessity in most systems today. Some of the benefits of using SSO are:
 
 - Users need only a single set of credentials (username/password) to access multiple services. Therefore, they do not have to face the issue of remembering multiple sets of credentials (username/password pairs).
 
@@ -47,17 +48,17 @@ You can use SSO on its own or use SSO and Federation coupled together. Identity 
 For instance, you can set up Google as a federated authenticator and then set up SSO between App1 and App2.  This will allow users to log in to App1 using their Google credentials. Once the user is logged in, when the user attempts to access App2, they will not be prompted for credentials again and will be logged in automatically. 
 
 !!! info
-    - For a more detailed comparison of SSO and Federation, see [SSO vs. Federation](TODO:link-to-concept).
-    - For more information on Identity Federation on its own (without SSO), see [Identity Federation](../identity-federation).
+    <!--- - For a more detailed comparison of SSO and Federation, see [SSO vs. Federation](TODO:link-to-concept).
+    - --> For more information on Identity Federation on its own (without SSO), see [Identity Federation](../identity-federation).
 
 
 !!! info "Related topics"
     - [Concept: Authentication](../authentication/intro-authentication)
-    - [Concept: SAML](TODO:link-to-concept)
+    - [Concept: SAML](../authentication/intro-saml)
     - [Concept: OpenID Connect](../authentication/intro-oidc)
-    - [Guide: Single Sign-On](../../guides/login/enable-single-sign-on)
-    - [Demo: SSO for OpenID Connect apps](../../quick-starts/sso-for-oidc-apps/)
-    - [Demo: SSO for SAML apps](../../quick-starts/sso-for-saml-apps/)
-    - [Guide: Single Logout](TODO:link-to-guide)
+    - [Guide: Single Sign-On](../../../guides/login/enable-single-sign-on)
+    - [Quick Start: SSO for OpenID Connect apps](../../../quick-starts/sso-for-oidc-apps/)
+    - [Quick Start: SSO for SAML apps](../../../quick-starts/sso-for-saml-apps/)
+    <!--- - [Guide: Single Logout](TODO:link-to-guide) -->
 
 
