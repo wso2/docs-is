@@ -69,7 +69,7 @@ is structured to work in WSO2 Identity Server:
     <tbody>
     <tr class="odd">
     <td>Userstore Manager</td>
-    <td><p>The userstore Manager is responsible for managing the underlying userstore. It is represented by the <code>                UserStoreManager               </code> Java interface. There can be different userstore Manager implementations to connect with different userstores, but you can configure only one userstore Manager implementation in a single user realm (that is, a single WSO2 Carbon instance). The userstore Manager can be operated in both read/write mode and read-only mode. In read-only mode, you can only connect with an existing userstore. WSO2 Identity Server provides the following default userstore Manager implementations:</p>
+    <td><p>The Userstore Manager is responsible for managing the underlying userstore. It is represented by the <code>                UserStoreManager               </code> Java interface. There can be different Userstore Manager implementations to connect with different userstores, but you can configure only one Userstore Manager implementation in a single user realm (that is, a single WSO2 Carbon instance). The Userstore Manager can be operated in both read/write mode and read-only mode. In read-only mode, you can only connect with an existing userstore. WSO2 Identity Server provides the following default Userstore Manager implementations:</p>
     <ul>
     <li><code>                 JDBCUserStoreManager                </code> (read and write)</li>
     <li><code>                 LDAPUserStoreManager                </code> (read-only)</li>
