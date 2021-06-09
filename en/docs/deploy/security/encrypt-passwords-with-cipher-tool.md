@@ -87,6 +87,6 @@ To change any password that has been encrypted already, follow the steps given b
 
 !!! info "Related topics"
     
-    [Deploy: Resolve Encrypted Passwords](../../../deploy/security/resolve-encrypted-passwords)
+    -   [Deploy: Resolve Encrypted Passwords](../../../deploy/security/resolve-encrypted-passwords)
 
-    [Deploy: Customize Secure Vault](../../../deploy/security/customize-secure-vault)
+    -   [Deploy: Customize Secure Vault](../../../deploy/security/customize-secure-vault)
