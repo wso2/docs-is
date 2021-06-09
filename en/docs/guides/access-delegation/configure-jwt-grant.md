@@ -111,25 +111,24 @@ You have successfully added the identity provider. Next, configure the applicati
     - **iat:** This is the epoch of the token issuance time (e.g., 1575024942).
     - **jit:** This is the epoch of the token expiry time (e.g., 1575107914).
 
-	!!! example "Example"
-		```
-		{
-		"alg": "RS256",
-		"type": "JWT"
-		}
+	```
+	{
+	"alg": "RS256",
+	"type": "JWT"
+	}
 
-		{
-		"iss": "NCkZofT51NVKK2UuQSvxPJhQOWwa",
-		"sub": "NCkZofT51NVKK2UuQSvxPJhQOWwa",
-		"aud": "https://localhost:9443/oauth2/token"
-		"iat": "1575024942",
-		"jit": "1575107914"
-		}
+	{
+	"iss": "NCkZofT51NVKK2UuQSvxPJhQOWwa",
+	"sub": "NCkZofT51NVKK2UuQSvxPJhQOWwa",
+	"aud": "https://localhost:9443/oauth2/token"
+	"iat": "1575024942",
+	"jit": "1575107914"
+	}
 
-		{
-		<Signature>
-		}
-		```
+	{
+	<Signature>
+	}
+	```
 
 2. Run the following curl command on a terminal window to obtain the access token and refresh token.
 
