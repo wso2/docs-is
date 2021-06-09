@@ -171,11 +171,10 @@ Follow the steps given below to import the same CA-signed public key certificate
         `wso2carbon` is the keystore password of the default `client-truststore.jks` file.
     
 
-    Now, you have an SSL certificate stored in a Java keystore and a public key added to the `client-truststore.jks` file. Note that both these files should be in the `<IS_HOME>/repository/resources/security/` directory. You can now replace the default `wso2carbon.jks` keystore in your WSO@ Identity Server instance with the newly created keystore by updating the relevant configuration files.
+    Now, you have an SSL certificate stored in a Java keystore and a public key added to the `client-truststore.jks` file. Note that both these files should be in the `<IS_HOME>/repository/resources/security/` directory. You can now replace the default `wso2carbon.jks` keystore in your WSO2 Identity Server instance with the newly created keystore by updating the relevant configuration files.
 
 
 !!! info 
 
     For information on the keystore concepts and how keystores are used in WSO2 Identity Server, see [Using Asymmetric Encryption](../../../deploy/security/use-asymmetric-encryption).
-
 
