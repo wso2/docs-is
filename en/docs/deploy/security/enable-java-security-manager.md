@@ -30,7 +30,7 @@ When granting specific Java-level permissions to a certain signed code, it is re
 			The new keystore is created in the directory in which you execute the keytool command. 
 
 	    ```
-	    keytool -genkey -alias signFiles -keyalg RSA -keystore signkeystore.jks -validity 3650 -dname "CN=mark,OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK"5
+	    keytool -genkey -alias signFiles -keyalg RSA -keystore signkeystore.jks -validity 3650 -dname "CN=mark,OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK"
 	    ```
 
     2.	Enter the keystore password at the prompt.  
