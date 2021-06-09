@@ -170,7 +170,7 @@ governance and configuration registries should be mounted to share across all no
 To make sure the configurations were applied correctly,
 
 <ol>
-    <li>Log in to the management console (<code>https://&lt;IS_HOST&gt;:&lt;PORT&gt;/carbon</code>).</li>
+    <li>Log in to the WSO2 Identity Server Management Console (<code>https://&lt;IS_HOST&gt;:&lt;PORT&gt;/carbon</code>).</li>
     <li>
         <p>Navigate to <b>Home > Registry > Browse</b>.</p>
         <p><img src="../../assets/img/deploy/registry-browser-2.png" alt="Registry browser"></p>
@@ -488,7 +488,7 @@ You can use any load balancer that is available to your system.
 ## Run the cluster
 
 1. Start the load balancer and WSO2 Identity Server nodes.
-2. Access the management console (`https://<IS_HOST>:<PORT>/carbon`). 
+2. Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). 
     Traffic will be served by one of the nodes in the cluster, depending on your load balancer.
 3. Shut down the cluster node 1 and observe that the traffic is served by node 2. 
 3. Start node 1 and shut down node 2. Note that traffic will be served by node 1.
