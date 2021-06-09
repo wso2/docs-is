@@ -213,19 +213,19 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
 
     2. To add the company name, replace the content of `<footer> tag` with the following.
     ```html
-        <footer class="footer">
-            <div class="container-fluid">
-                <p>XYZ Company | &copy;
-                    <script>document.write(new Date().getFullYear());</script>
-                    <a href="<%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "business.homepage")%>"
-                       target="_blank">
-                       <i class="icon fw fw-wso2"></i>
-                       <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "Inc")%>
-                    </a>
-                    . <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
-                </p>
-            </div>
-        </footer>
+     <footer class="footer">
+         <div class="container-fluid">
+             <p>XYZ Company | &copy;
+                 <script>document.write(new Date().getFullYear());</script>
+                 <a href="<%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "business.homepage")%>"
+                    target="_blank">
+                    <i class="icon fw fw-wso2"></i>
+                    <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "Inc")%>
+                 </a>
+                 . <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
+             </p>
+         </div>
+     </footer>
     ```
       
 3. Similarly, you can re-brand the **accountrecovery** web application header and footer.
