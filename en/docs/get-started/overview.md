@@ -28,6 +28,13 @@ Basically, WSO2 Identity Server takes care of secure yet convenient sign-ins of 
 
 ![iam functionality](../../../assets/img/guides/iam-functionality.png)
 
+![iam functionality1](/assets/img/guides/iam-functionality.png)
+
+![iam functionality2](assets/img/guides/iam-functionality.png)
+
+![iam functionality3](../../../assets/img/guides/iam-functionality.png)
+
+
 - **To unify sign-ins** - Typically in an organization, you need to work with several heterogenous applications. You also need to integrate with a number of external applications for your day to day activities. As unrelated as these applications might be to each other, a user needs to sign in to many of them at the same time. WSO2 facilitates single sign-on (SSO) that eliminates the need to sign in separately to each application and instead, allows users to stay signed in to multiple applications by signing in once. This is more user-friendly and less time-consuming. 
 
 - **To give the right access to the right people** - Having said that accessing an application should be convenient, you might not need all your users accessing all the applications. For example, you wouldn't want everyone accessing the payroll information and would want to give the access only to a dedicated finance team. This is just one example where users need to be authenticated based on their role. 
