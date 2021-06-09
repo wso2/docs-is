@@ -61,7 +61,7 @@ Similar to the WSO2 Identity Server Management Console, check whether `HttpHeade
 
 ## Enable for Jaggery applications
 
-For Jaggery applications, the `HttpHeaderSecurityFilter` element should be configured in the `<IS_HOME>/repository/deployment/server/jaggeryapps/jaggery.conf` file. This filter configuration is applicable to the /dashboard jaggery applications in this location. To enable HSTS for a Jaggery application, change the default filter configuration as shown below.
+For Jaggery applications, the `HttpHeaderSecurityFilter` element should be configured in the `<IS_HOME>/repository/deployment/server/jaggeryapps/jaggery.conf` file. <!--This filter configuration is applicable to the /dashboard jaggery applications in this location-->. To enable HSTS for a Jaggery application, change the default filter configuration as shown below.
 
 Given below is the default filter configuration.
 
