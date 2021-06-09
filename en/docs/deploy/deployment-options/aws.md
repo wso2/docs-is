@@ -142,7 +142,7 @@ aws ec2 create-key-pair --key-name <key-pair-name>
 
 ## Step 4 - Access the management console 
 
-You can access the WSO2 Identity Server management console by clicking on the **MgtConsoleUrl** mentioned in the **Outputs** tab of the stack that you created in step 3. 
+You can access the WSO2 Identity Server Management Console by clicking on the **MgtConsoleUrl** mentioned in the **Outputs** tab of the stack that you created in step 3. 
 
 ---
 
@@ -151,7 +151,6 @@ You can access the WSO2 Identity Server management console by clicking on the **
     -  [Deploy: Working with different databases](../../../deploy/work-with-databases)
     -  [Deploy: Configure Userstores](../../../deploy/configure-user-stores)
     -  [Deploy: Configure the Realm](../../../deploy/configure-the-realm)
-
 
 
 
