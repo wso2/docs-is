@@ -316,7 +316,7 @@ them.
         force_local_cache = true
         ```
         Cache invalidation uses Hazelcast messaging to distribute the invalidation message over the cluster 
-        and invalidate the caches properly.  This is used to minimize the coherence problem in a multi-node setup.
+        and invalidate the caches properly. This is used to minimize the coherence problem in a multi-node setup.
         
         **Typical clustered deployment cache scenarios**
 
