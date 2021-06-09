@@ -14,14 +14,14 @@ using the token endpoint. In this authentication mechanism, only the
 clients that have registered a public key, signed a JWT using that key,
 can authenticate.
 
-The JWT **must** contain some REQUIRED claim values and **may** contain
+The JWT must contain some REQUIRED claim values and may contain
 some OPTIONAL claim values. For more information on the required and
 optional claim values needed for the JWT for private\_key\_jwt
 authentication, click
 [here](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)
 .
 
-The authentication token **must** be sent as the value of the client\_assertion parameter. The value of the `client_assertion_type` parameter MUST be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
+The authentication token must be sent as the value of the client\_assertion parameter. The value of the `client_assertion_type` parameter must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
 
 Deploying and configuring JWT client-handler artifacts
 

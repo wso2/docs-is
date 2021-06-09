@@ -266,7 +266,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     ```java	tab="Linux"
     echo $JAVA_HOME
 	```
-
+    
     ```java tab="OS X"
     which java
     ```
