@@ -62,6 +62,7 @@ Follow the instructions below to upload a keystore file via the WSO2 Identity Se
     </li>
 </ol>
 
+---
 
 ## View keystores 
 
