@@ -15,7 +15,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     for the first time.
     4. You will be navigated to the lightening theme of Salesforce.
     
-       ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png){:class="no-border-padding-img"}
+       ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png)
        
     !!! note    
         This document is explained using the Salesforce lightning theme. If
@@ -23,7 +23,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
 
         ![lighteninig-experience](../../assets/img/guides/switch-to-lightening.png)
 
-4.  Once you are logged in, create a new domain and access it. To do
+2.  Once you are logged in, create a new domain and access it. To do
     this, do the following steps.  
     1.  Search for **My Domain** in the search bar that is on the left
         navigation panel.  

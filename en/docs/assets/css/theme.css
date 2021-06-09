@@ -1733,16 +1733,11 @@ h5 {
     border-left-color: #465867;
 }
 
-.md-typeset img {
-    border: #dadada solid 1px;
-    padding: 15px;
+.padding-img {
+    padding: 15px !important;
 }
 
-.no-padding-img {
-    padding: 0px !important;
-}
-
-.no-border-img {
-    border: none !important;
+.border-img {
+    border: #dadada solid 1px !important;
 }
 

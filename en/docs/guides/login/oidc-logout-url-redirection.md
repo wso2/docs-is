@@ -31,12 +31,11 @@ Make the following changes to the created service provider.
 
     You can specify multiple callback URLs using a regex pattern as shown below.
 
-    !!! abstract ""
-        **Sample**
-        ```
-        regexp=(http://localhost:8080/playground2/oauth2client|http://localhost:8080/playground2/logout)
-        ```
-    
+    **Sample**
+    ```
+    regexp=(http://localhost:8080/playground2/oauth2client|http://localhost:8080/playground2/logout)
+    ```
+
 4. Click **Add** to save the changes.
 
 ## Configure to sign the ID token
