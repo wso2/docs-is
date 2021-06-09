@@ -245,15 +245,15 @@ Make sure that the permission for signing in to the WSO2 Identity Server Managem
 
 ## Log rotation and monitoring
 
-Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for WSO2 Identity Server can be configured in the `log4j.properties` file in the `<IS_HOME>/repository/conf` folder. 
+Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for WSO2 Identity Server can be configured in the `log4j2.properties` file in the `<IS_HOME>/repository/conf` folder. 
 
 To roll the `wso2carbon.log` based on the size, use the following configurations.
 
 ```java 
-log4j.appender.CARBON_LOGFILE=org.apache.log4j.RollingFileAppender
-log4j.appender.CARBON_LOGFILE=${carbon.home}/repository/logs/${instance.log}/wso2carbon${instance.log}.log
-log4j.appender.CARBON_LOGFILE.MaxFileSize=1000KB
-log4j.appender.CARBON_LOGFILE.MaxBackupIndex=10
+appender.CARBON_LOGFILE.type = RollingFile
+appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
+appender.CARBON_LOGFILE.policies.size.size=10MB
+appender.CARBON_LOGFILE.strategy.max = 20
 ```
 
 !!! info 
@@ -268,7 +268,7 @@ Log forging can be prevented by appending a UUID to the log message.
 
 !!! info
 
-    For more information on configuring the `log4j.properties` file, see <a href="../../../deploy/monitor/monitor-logs/">Monitor Logs</a>.
+    For more information on configuring the `log4j2.properties` file, see <a href="../../../deploy/monitor/monitor-logs/">Monitor Logs</a>.
 
 ---
 
