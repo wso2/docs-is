@@ -35,9 +35,8 @@ If your web application stored in the `<IS_HOME>/repository/deployment/server/we
 
 Note that the applications that are included in the `/webapps` directory by default in WSO2 Identity Server do not serve sensitive content that requires cache prevention. However, if you are adding a new application, you need to be mindful of this requirement.
 
----
 
-## Prevent for Jaggery applications
+<!--## Prevent for Jaggery applications
 
 For Jaggery-based applications stored in the `<IS_HOME>/repository/deployment/server/jaggeryapps/` directory), either `URLBasedCachePreventionFilter` or `ContentTypeBasedCachePreventionFilter` should be available in the `jaggery.conf` file as shown below.
 
@@ -47,3 +46,4 @@ For Jaggery-based applications stored in the `<IS_HOME>/repository/deployment/se
  [{"name":"patterns","value":"text/html\",application/json\",plain/text"},{"name" : "filterAction","value":"enforce"},  {"name":"httpHeaders","value": "Cache-Control: no-store, no-cache, must-revalidate, private"}]        
 }],
 ```
+-->
