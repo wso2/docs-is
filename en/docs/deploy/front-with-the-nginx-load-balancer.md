@@ -7,7 +7,7 @@ When setting up the WSO2 Identity Server cluster with Nginx, follow the instruct
 
 !!! tip 
     When clustering WSO2 Identity Server with a load balancer, you may need to
-    enable sticky sessions. This is required for the WSO2 Identity Server Management Console My Account to work and if we disable temporary session data
+    enable sticky sessions. This is required for the WSO2 Identity Server Management Console and My Account to work and if we disable temporary session data
     persistence in the
     `<IS_HOME>/repository/conf/deployment.toml`
     file. <!--For more information on sticky sessions, see [Sticky Sessions with Manager Nodes](../../../deploy/sticky-sessions-with-manager-nodes).-->
@@ -252,4 +252,3 @@ collectively as "Nginx".)
         ```
         $sudo service nginx restart
         ```    
-
