@@ -1,6 +1,6 @@
 # Configure Keystores
 
-After you have [created a new keystore](../../../deploy/security/create-new-keystores) and updated the `client-truststore.jks` file, you need to update a few configuration files in order to make the keystores work. Note that keystores are used for multiple functions in WSO2 Identity Server, which includes authenticating communication over SSL/TLS, encrypting pass words, and other confidential information in configuration files etc. Therefore, you must update the specific configuration files with the updated keystore information. For example, you may have separate keystores for the purpose of encrypting
+After you have [created a new keystore](../../../deploy/security/create-new-keystores) and updated the `client-truststore.jks` file, you need to update a few configuration files in order to make the keystores work. Note that keystores are used for multiple functions in WSO2 Identity Server, which includes authenticating communication over SSL/TLS, encrypting passwords, and other confidential information in configuration files, etc. Therefore, you must update the specific configuration files with the updated keystore information. For example, you may have separate keystores for the purpose of encrypting
 passwords in configuration files, and for authenticating communication over SSL/TLS.
 
 The `wso2carbon.jks` keystore file, which is shipped with WSO2 Identity Server, is used as the default keystore for all functions. However, in a production environment, it is recommended to create new keystores with new keys and certificates.
