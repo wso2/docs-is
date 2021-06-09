@@ -183,5 +183,5 @@ For a description of the parameters included in the HTML form, see [logout reque
     - [Concept: OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
     - [Guide: OpenID Connect Session Management](../session-management-logout)
-    - [Demo: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
-    - [Demo: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)
+    - [Quick Start: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
+    - [Quick Start: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)

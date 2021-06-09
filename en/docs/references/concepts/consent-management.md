@@ -3,7 +3,7 @@
 Consent management refers to the practice of prompting, collecting, and
 managing user approval for collecting or sharing the user's personal
 information. "Consent" itself is granting permission or agreement for a
-specified action to take place.  This page guides you through consent
+specified action to take place. This page guides you through consent
 management concepts and how they are supported in WSO2 Identity Server.
 
 ---

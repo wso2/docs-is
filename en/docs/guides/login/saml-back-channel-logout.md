@@ -50,4 +50,4 @@ Once you have configured all your applications, access them on separate tabs in 
 
 !!! info "Related topics"
     -   [Concept: SAML 2.0 back-channel logout](../../../references/concepts/authentication/saml-back-channel/)
-    -   [Demo: Configure SAML 2.0 Back-Channel Logout](../../../quick-starts/saml-back-channel-logout)
+    -   [Quick Start: Configure SAML 2.0 Back-Channel Logout](../../../quick-starts/saml-back-channel-logout)

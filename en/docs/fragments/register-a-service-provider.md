@@ -6,6 +6,6 @@
 
 3. Enter a **Service Provider Name**. Optionally, enter a **Description**.
 
-    ![register-service-provider](../../../assets/img/fragments/register-service-provider.png)
+    <img src="../../../assets/img/fragments/register-service-provider.png" width="600" alt="Add new service provider basic information" />
     
 4. Click **Register**.    

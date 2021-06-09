@@ -62,4 +62,4 @@ You will receive the following response with the access token and refresh token.
 !!! info "Related topics"
     - [Concept: Resource Owner Password Credentials Grant](../../../references/concepts/authorization/resource-owner-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
-    - [Demo: Password Grant with OAuth 2.0 Playground](../../../quick-starts/password-playground)
+    - [Quick Start: Password Grant with OAuth 2.0 Playground](../../../quick-starts/password-playground)

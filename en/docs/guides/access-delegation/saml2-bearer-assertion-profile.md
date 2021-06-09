@@ -72,4 +72,4 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 !!! info "Related topics"
     -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../../references/concepts/authorization/saml2-bearer-assertion-profile)
-    -   [Demo: Set Up SAML2 Bearer Assertion Profile](../../../quick-starts/saml2-bearer-assertion-profile/)
+    -   [Quick Start: Set Up SAML2 Bearer Assertion Profile](../../../quick-starts/saml2-bearer-assertion-profile/)

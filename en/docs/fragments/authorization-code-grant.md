@@ -97,5 +97,5 @@ to configure authentication for an OAuth/OpenID Connect application.
 !!! info "Related topics"
     - [Concept: Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
-    - [Demo: Authorization Code Grant with OAuth 2.0 Playground](../../../quick-starts/auth-code-playground)
+    - [Quick Start: Authorization Code Grant with OAuth 2.0 Playground](../../../quick-starts/auth-code-playground)
     

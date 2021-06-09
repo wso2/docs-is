@@ -87,7 +87,7 @@ Replace the ` <SEC_TOKEN>`, `<CLIENT_ID>`, `<IS_HOST>`, `<IS_PORT>` and `<CALLBA
 -----
 
 !!! info "Related Links"
-     -   [Demo: Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
+     -   [Quick Start: Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
      -   [Guide: Authenticate with OAuth Request Path Authenticator](../../guides/oauth-request-path)
-     -   [Demo: Enable Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
+     -   [Quick Start: Enable Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
            
