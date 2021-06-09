@@ -32,7 +32,7 @@ If you have your own application, click the button below.
 
 3. Create a JWT with the following payload and sign(RSA256) it with the private key of the keystore you created above.
 
-    ```java
+    ```
     {
       "client_id": "<client-id>",
       "sub": "<client-id>",

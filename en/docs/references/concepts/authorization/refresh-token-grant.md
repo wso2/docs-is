@@ -28,7 +28,12 @@ curl -k -d "grant_type=refresh_token&refresh_token=<REFRESH_TOKEN>" -H "Authoriz
 You will receive a response similar to the format below.
 
 ``` 
-{"access_token":"b9ed0658-f187-3d39-a4f1-6d42522e1eee","refresh_token":"3426ff78-62a5-32fa-be6e-74ab69d4cbf4","token_type":"Bearer","expires_in":3600}
+{
+    "access_token":"b9ed0658-f187-3d39-a4f1-6d42522e1eee",
+    "refresh_token":"3426ff78-62a5-32fa-be6e-74ab69d4cbf4",
+    "token_type":"Bearer",
+    "expires_in":3600
+}
 ```
 
 !!! info "Related topics"

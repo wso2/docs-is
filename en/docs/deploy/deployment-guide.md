@@ -412,7 +412,8 @@ WSO2 supports the following membership schemes for clustering
 3. Go to the `<IS_HOME>/repository/conf/deployment.toml` file and add the proxy port as `443`. 
 The port 443 is the Load Balancer frontend port.
 
-    !!! example
+    !!! abstract ""
+        **Example**
         ```
         [transport.http.properties]
         proxyPort = 80

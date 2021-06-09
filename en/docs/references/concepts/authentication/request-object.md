@@ -71,7 +71,7 @@ parameter value.
 
 The payload of the above sample Request Object is as follows:
 
-``` java
+```
 { 
    "iss":"s6BhdRkqt3",
    "aud":"https://server.example.com",

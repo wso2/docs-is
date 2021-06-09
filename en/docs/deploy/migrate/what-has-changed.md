@@ -105,9 +105,11 @@ With 5.11.0, WSO2 IS has upgraded to OpenSAML 3. Follow the instructions given b
 
 With WSO2 IS 5.10.0, `accountrecoveryendpoint.war` can be configured to be hosted on WSO2 Identity Server or on a separate server. When migrating to 5.11.0, if you host the `accountrecoveryendpoint.war` on a different server, the `identity.server.service.contextURL` configuration in the `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file must refer to only the server URL excluding the `/services` part as shown below. 
 
-```tab="Example"
-identity.server.service.contextURL=https://localhost:9443/
-```
+!!! abstract ""
+    **Example**
+    ```
+    identity.server.service.contextURL=https://localhost:9443/
+    ```
 
 ---
 
@@ -262,15 +264,19 @@ New user store managers with inbuilt unique ID support was introduced in WSO2 5.
 
 Note that both existing user stores as well as new user stores must be configured as shown below. 
 
-```toml tab="Format"
-[user_store_mgt]
-allowed_user_stores=[<existing userstores..>,"<new userstore>"]
-```
+!!! abstract ""
+    **Format**
+    ```toml
+    [user_store_mgt]
+    allowed_user_stores=[<existing userstores..>,"<new userstore>"]
+    ```
+    ---
+    **Sample**
+    ```toml
+    [user_store_mgt]
+    allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager", "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager","org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"]
+    ```
 
-```toml tab="Sample"
-[user_store_mgt]
-allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager", "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager","org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"]
-```
 ---
 
 ## JWT validation at introspection
@@ -343,15 +349,19 @@ Apart from these new email templates, the Email Content Type was changed to `tex
 
 In versions up to WSO2 Identity Server 5.10.0, archived log file names only include the date.
 
-``` java tab="Example"
-wso2carbon-10-12-2020.log
-```
+!!! abstract ""
+    **Example**
+    ``` java
+    wso2carbon-10-12-2020.log
+    ```
 
 However, from WSO2 Identity Server 5.11.0 onwards, a integer `i` has been added to the file name to represent the number of rollovers. This avoids target file overwriting on every rollover.
 
-``` java tab="Example"
-wso2carbon-10-12-2020.1.log
-```
+!!! abstract ""
+    **Example**
+    ``` java
+    wso2carbon-10-12-2020.1.log
+    ```
 
 ---
 
@@ -359,17 +369,21 @@ wso2carbon-10-12-2020.1.log
 
 In versions up to WSO2 Identity Server 5.10.0, access logs are printed as seen below. 
 
-``` java tab="Example"
-127.0.0.1 - - [26/Apr/2020:22:35:52 +0530] GET /carbon/admin/images/favicon.ico HTTP/1.1 200 17542 https://is.wso2.com:9443/carbon/admin/login.jsp Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36 0.001
-```
+!!! abstract ""
+    **Example**
+    ``` java
+    127.0.0.1 - - [26/Apr/2020:22:35:52 +0530] GET /carbon/admin/images/favicon.ico HTTP/1.1 200 17542 https://is.wso2.com:9443/carbon/admin/login.jsp Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36 0.001
+    ```
 
 In the example given above, the user agent is `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36` and the referer is `https://is.wso2.com:9443/carbon/admin/login.jsp`. As you can see, the user agent has white spaces in between, which prevents access log analyzer tools from processing the log lines properly.
 
 As a solution to this, the user agent and referer will be printed within double quotes from WSO2 Identity Server 5.11.0 onwards. 
 
-``` java tab="Example"
-127.0.0.1 - - [21/Oct/2020:11:46:54 +0530] GET /favicon.ico HTTP/1.1 401 - "https://localhost:9443/oauth2/authorize?sessionDataKey=d7ccf253-4abd-4a33-a79b-d7a71aa631d0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36" 0.001
-```
+!!! abstract ""
+    **Example**
+    ``` java
+    127.0.0.1 - - [21/Oct/2020:11:46:54 +0530] GET /favicon.ico HTTP/1.1 401 - "https://localhost:9443/oauth2/authorize?sessionDataKey=d7ccf253-4abd-4a33-a79b-d7a71aa631d0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36" 0.001
+    ```
 
 ---
 

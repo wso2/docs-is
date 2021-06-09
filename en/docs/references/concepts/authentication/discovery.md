@@ -4,8 +4,10 @@
 
 The main purposes of [**OpenID Connect Discovery**](https://openid.net/specs/openid-connect-discovery-1_0.html) are to,
 
-- [Discover OpenID Provider's issuer location.](#issuer-discovery)
-- [Expose OpenID Provider's metadata configurations.](#expose-metadata) 
+- [OpenID Connect Discovery](#openid-connect-discovery)
+  - [What is OpenID Connect Discovery ?](#what-is-openid-connect-discovery-)
+    - [Issuer discovery](#issuer-discovery)
+    - [Expose metadata](#expose-metadata)
 
 ### Issuer discovery
 
@@ -56,7 +58,7 @@ of the OpenID Provider. Following information is required when making a request 
  ```https://<SERVER_URL>/.well-known/openid-configuration```
  
  A sample JSON file that containing the server metadata is shown below.
-``` java
+```
 {
         "scopes_supported": [
             "address",

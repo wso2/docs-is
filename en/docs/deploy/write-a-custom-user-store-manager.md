@@ -507,15 +507,18 @@ Follow the instructions given below to deploy and configure the custom userstore
 2.  Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to use our custom implementation for userstore management.
     Although the existing `UniqueID` userstores are allowed by default, when adding a new userstore, note that both existing userstores as well as new userstores must be configured as shown below. 
 
-    ```toml tab="Format"
-    [user_store_mgt]
-    allowed_user_stores=[<existing userstores..>,"<new userstore>"]
-    ```
-
-    ```toml tab="Sample"
-    [user_store_mgt]
-    allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager", "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager","org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"]
-    ```
+    !!! abstract ""
+        **Format**
+        ```toml
+        [user_store_mgt]
+        allowed_user_stores=[<existing userstores..>,"<new userstore>"]
+        ```
+        ---
+        **Sample**
+        ```toml
+        [user_store_mgt]
+        allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager", "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager","org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"]
+        ```
 
     !!! tip
         This step provides instructions on configuring your custom userstore manager as a primary userstore. Alternatively, you can

@@ -16,21 +16,29 @@ client’s own credentials.
 
 One of the following cURL commands can be used to try this grant type.
 
-``` java tab="Request 1"
-curl -v -X POST -H "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
-```
+!!! abstract ""
+    **Request 1**
+    ``` java
+    curl -v -X POST -H "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
+    ```
+    ---
+    **Request 2**
+    ``` java
+    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
+    ```
+    ---
+    You will receive a response similar to the format below.
 
-``` java tab="Request 2"
-curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
-```
+    **Response**
 
-You will receive a response similar to the format below.
-
-**Response**
-
-``` java
-{"token_type":"Bearer","expires_in":2510,"refresh_token":"5ba3dedc77581df5f84f9b228eef0b91","access_token":"ca19a540f544777860e44e75f605d927"}
-```
+    ```
+    {
+        "token_type":"Bearer",
+        "expires_in":2510,
+        "refresh_token":"5ba3dedc77581df5f84f9b228eef0b91",
+        "access_token":"ca19a540f544777860e44e75f605d927"
+    }
+    ```
 
 !!! info "Support for refresh token grant"
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../refresh-token-grant).
