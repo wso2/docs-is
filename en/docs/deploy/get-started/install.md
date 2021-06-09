@@ -266,10 +266,10 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     ```java	tab="Linux"
     echo $JAVA_HOME
 	```
-    
-	```java	tab="OS X"    
+	
+    ```java tab="OS X"
     which java
-	```
+    ```
 
     If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
     
