@@ -198,6 +198,17 @@ true in the SCIM2 user create request.
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Paul"},"userName":"Paul","password":"password","emails":[{"primary":true,"value":"paul@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{askPassword:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
     
+       
+!!! Note  
+    By default, WSO2 Identity Server would set a random value for the password if the **askPassword** claim is present in the request. 
+    If you want to disable setting a random value and keep the "password" that is sent in the request, the following property 
+    needs to be added to the `<IS_HOME>/repository/conf/deployment-toml` file.
+
+``` toml
+[identity_mgt.user_onboarding]
+disable_random_value_for_credentials= true
+```
+
 #### Verify Email
     
 You need to set the **verifyEmail** attribute under the`
