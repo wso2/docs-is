@@ -30,7 +30,7 @@ This page guides you through using a **sample Playground application** to try ou
 	following format.
 	
 	!!! abstract ""
-        **Request Format**
+		**Request Format**
 		```java
 		https://<host>:<port>/oauth2/authorize?response_type=token
 		&client_id=<client-ID>
