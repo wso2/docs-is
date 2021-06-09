@@ -138,7 +138,7 @@ This section guides you through changing the hostname of WSO2 Identity Server.
     ```
 
 When you recreate the keystore in full, a new key-pair value
-is created. This means that any existing encrypted data (Example
+is created. This means that any existing encrypted data (for example
 users created before recreating the keystore) are still encrypted
 using the original keystore (wso2carbon.jks). Therefore, older
 users will not be able to log in to the dashboard and need to be migrated.
