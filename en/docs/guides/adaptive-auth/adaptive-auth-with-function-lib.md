@@ -44,7 +44,7 @@ or
 exports.<function_name_for_outside> = <function_name_in _the_script>
 ```
 
-```javascript tab="Example"
+```javascript
 function getAge(birthDate) {
     var today = new Date();
     var age = today.getFullYear() - birthDate.getFullYear();
@@ -185,19 +185,23 @@ Follow the instructions below to delete a function library.
 
 5. Add the following on top of the script/ before the usage of functions in the function library.
 
-    ```tab="Format"
-    var <module_name> = require('<function library name>');
-    ```
-
-    ```tab="Example"
-    var ageModule = require('age_based.js');)
-    ```
+    !!! abstract ""
+        **Format**
+        ```
+        var <module_name> = require('<function library name>');
+        ```
+        ---
+        **Example**
+        ```
+        var ageModule = require('age_based.js');)
+        ```
 
 6. Use the functions exported in the loaded function library.
     
-    ```tab="Example"
-    ageModule.getAge(birthday)
-    ```
+    !!! example "Example"
+        ```
+        ageModule.getAge(birthday)
+        ```
     
 !!! info "Related topics"
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)

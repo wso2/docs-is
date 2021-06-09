@@ -111,34 +111,37 @@ You have successfully added the identity provider. Next, configure the applicati
     - **iat:** This is the epoch of the token issuance time (e.g., 1575024942).
     - **jit:** This is the epoch of the token expiry time (e.g., 1575107914).
 
-    ```tab="Example"
-    {
-    "alg": "RS256",
-    "type": "JWT"
-    }
+	```
+	{
+	"alg": "RS256",
+	"type": "JWT"
+	}
 
-    {
-    "iss": "NCkZofT51NVKK2UuQSvxPJhQOWwa",
-    "sub": "NCkZofT51NVKK2UuQSvxPJhQOWwa", 
-    "aud": "https://localhost:9443/oauth2/token"
-    "iat": "1575024942",
-    "jit": "1575107914"
-    }
+	{
+	"iss": "NCkZofT51NVKK2UuQSvxPJhQOWwa",
+	"sub": "NCkZofT51NVKK2UuQSvxPJhQOWwa",
+	"aud": "https://localhost:9443/oauth2/token"
+	"iat": "1575024942",
+	"jit": "1575107914"
+	}
 
-    {
-    <Signature>
-    }
-    ```
+	{
+	<Signature>
+	}
+	```
 
 2. Run the following curl command on a terminal window to obtain the access token and refresh token.
 
-	``` powershell tab="Request Format"
-	curl -i -X POST -u (Base64encoded<client_id>:<client_secret>) -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<jwt_token>' -H 'Content-Type: application/x-www-form-urlencoded' <token_endpoint>
-	``` 
-
-	``` powershell tab="Sample Request"
-	curl -i -X POST -H 'Content-Type: application/x-www-form-urlencoded' -u bBhEoE2wIpU1zB8HA3GfvZz8xxAa:RKgXUC3pTRQg9xPpNwyuTPGtnSQa -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0NTgxNjY5ODUsInN1YiI6ImFkbWluIiwibmJmIjoxNDU4MTA2OTg1LCJhdWQiOlsiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwid3NvMi1JUyJdLCJpc3MiOiJqd3RJRFAiLCJqdGkiOiJUb2tlbjU2NzU2IiwiaWF0IjoxNDU4MTA2OTg1fQ.ZcxdoTVEsWoil80ne42QzmsfelMWyjRZJEjUK1c2vMZJjjtrZnsWExyCA5tN6iXYFAXC_7rkFuuNSgOlBi51MNLPZw3WcgGI52j6apGEW92V2tib9zRRWOeLQLAdo8ae8KzLp7kuKZ2XunfQ2WYU9TvvLDm_vp5ruuYz3ZZrJOc' https://localhost:9443/oauth2/token 
-	```
+	!!! abstract ""
+    	**Request Format**
+		```powershell
+		curl -i -X POST -u (Base64encoded<client_id>:<client_secret>) -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<jwt_token>' -H 'Content-Type: application/x-www-form-urlencoded' <token_endpoint>
+		``` 
+		---
+		**Sample Request**
+		``` powershell
+		curl -i -X POST -H 'Content-Type: application/x-www-form-urlencoded' -u bBhEoE2wIpU1zB8HA3GfvZz8xxAa:RKgXUC3pTRQg9xPpNwyuTPGtnSQa -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0NTgxNjY5ODUsInN1YiI6ImFkbWluIiwibmJmIjoxNDU4MTA2OTg1LCJhdWQiOlsiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwid3NvMi1JUyJdLCJpc3MiOiJqd3RJRFAiLCJqdGkiOiJUb2tlbjU2NzU2IiwiaWF0IjoxNDU4MTA2OTg1fQ.ZcxdoTVEsWoil80ne42QzmsfelMWyjRZJEjUK1c2vMZJjjtrZnsWExyCA5tN6iXYFAXC_7rkFuuNSgOlBi51MNLPZw3WcgGI52j6apGEW92V2tib9zRRWOeLQLAdo8ae8KzLp7kuKZ2XunfQ2WYU9TvvLDm_vp5ruuYz3ZZrJOc' https://localhost:9443/oauth2/token 
+		```
 
 !!! tip
     If you have configured the service provider and identity provider in a tenant, add the tenant domain as a query parameter to the access token endpoint. For example, if the tenant domain is wso2.com, the access token endpoint should be `https://localhost:9443/oauth2/token tenantDomain=wso2.com.`

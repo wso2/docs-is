@@ -41,14 +41,16 @@ Send the following requests via your application using the `<SEC_TOKEN>` in the 
     
 Replace the ` <SEC_TOKEN>`, `<CLIENT_ID>`, `<IS_HOST>`, `<IS_PORT>` and `<CALLBACK_URL>` tags with the relevant values.
 
-    
-```tab="Request Format"
-curl -v -X POST -H "Authorization: Basic <SEC_TOKEN>" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "response_type=code&client_id=<CLIENT_ID>&redirect_uri=<CALLBACK_URL>&scope=openid&prompt=none"  http://<IS_HOST>:<IS_PORT>/oauth2/authorize
-```
-
-```tab="Response Format"
-Location: <callback_url>?code=<code>&session_state=<session_state>
-```
+!!! abstract ""
+    **Request Format**   
+    ```
+    curl -v -X POST -H "Authorization: Basic <SEC_TOKEN>" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "response_type=code&client_id=<CLIENT_ID>&redirect_uri=<CALLBACK_URL>&scope=openid&prompt=none"  http://<IS_HOST>:<IS_PORT>/oauth2/authorize
+    ```
+    ---
+    **Response Format**
+    ```
+    Location: <callback_url>?code=<code>&session_state=<session_state>
+    ```
 
 !!! note
     RequestPath authentication will only skip prompting the login page and not the consent page.

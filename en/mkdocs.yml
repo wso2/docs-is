@@ -830,6 +830,7 @@ markdown_extensions:
   - pymdownx.tilde
   - markdown_include.include:
       base_path: docs/
+  - attr_list
            
 # Extra
 extra_css:
