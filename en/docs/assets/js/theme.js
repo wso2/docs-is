@@ -305,3 +305,28 @@ window.addEventListener('scroll', function() {
 window.addEventListener("hashchange", function () {
     window.scrollTo(window.scrollX, window.scrollY - 40, 'smooth');
 });
+
+// Preserving scroll position of the left nav on reload or switching pages
+let timer = null;
+var leftSidebarScrollPos = 0;
+var leftSidebar = document.querySelector(".md-sidebar--primary > .md-sidebar__scrollwrap");
+leftSidebar.addEventListener('scroll', (function (e) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        leftSidebarScrollPos = leftSidebar.scrollTop;
+        console.log(leftSidebarScrollPos);
+    },100)
+}));
+
+// saving the scroll position in session storage
+window.onbeforeunload = function () {
+    sessionStorage.clear("navScrollPos");
+    sessionStorage.setItem("navScrollPos", leftSidebarScrollPos);
+}
+// retriving the scroll position on reload
+window.onload = function () {
+    var prevScrollPos = parseInt(sessionStorage.getItem("navScrollPos"));
+    if(prevScrollPos) {
+        leftSidebar.scrollTop = prevScrollPos;
+    }
+}

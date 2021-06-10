@@ -38,7 +38,7 @@
 }
 
 .md-sidebar[data-md-state=lock] {
-    top: 4rem !important;
+    top: unset !important;
 }
 
 .md-main.hide-toc .md-content {
@@ -51,7 +51,6 @@
 
 .md-sidebar {
     padding: 1.45rem 0;
-    top: 4rem !important;
 }
 
 .md-header {
@@ -1740,5 +1739,10 @@ h5 {
 
 .border-img {
     border: #dadada solid 1px !important;
+}
+
+.md-main__inner {
+    margin-top: 2.5rem;
+    padding-top: 0 !important;
 }
 
