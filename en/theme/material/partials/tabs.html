@@ -40,9 +40,10 @@
     {% if toc_ | first is defined and "\x3ch1 id=" in page.content %}
     {% set toc_ = (toc_ | first).children %}
     {% endif %}
-    {% if toc_ | first is defined %}
+    <!-- This button enables collapsible ToC. Enable if required. -->
+    <!-- {% if toc_ | first is defined %}
       <a href="#" title="Show/Hide Table of Contents" class="nav_link md-icon md-content__icon toc_icon" id="tocToggleBtn">keyboard_arrow_right</a>
-    {% endif %}
+    {% endif %} -->
     <a href="#" title="Report Issues" class="feedbackBtn" 
       onclick=window.open("https://github.com/wso2/product-is"+"/issues/new?title=Doc%20Feedback:&labels=docs&body=Location%20:%20"+window.location.href); >
       Report Issues</a>

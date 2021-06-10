@@ -775,6 +775,7 @@ html .md-footer-meta.md-typeset a,
 
 .md-sidebar--secondary .md-nav--secondary > ul ul > li {
     padding-left: 30px;
+    font-size: 14px;
 }
 
 .md-sidebar--secondary .md-nav--secondary > ul ul ul {
