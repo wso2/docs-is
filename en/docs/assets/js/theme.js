@@ -322,7 +322,7 @@ window.onbeforeunload = function () {
     sessionStorage.clear("navScrollPos");
     sessionStorage.setItem("navScrollPos", leftSidebarScrollPos);
 }
-// Retriving the scroll position on reload.
+// Retrieving the scroll position on reload.
 window.onload = function () {
     var prevScrollPos = parseInt(sessionStorage.getItem("navScrollPos"));
     if(prevScrollPos) {
