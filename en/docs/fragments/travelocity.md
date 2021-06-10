@@ -5,11 +5,11 @@
 
 ### Register a service provider
 
-1.  Access the WSO2 IS Management Console (`https://<IS_HOST>:<PORT>/carbon`). 
+1.  Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). 
 
 2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
 
-3.  Enter **travelocity.com** in the **Service Provider Name** text box,
+3.  Enter `travelocity.com` in the **Service Provider Name** text box,
     and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
@@ -34,10 +34,11 @@
         5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
     
     !!! tip
-        For more information on other advanced configurations refer, [Advanced SAML Configurations](/guides/login/saml-app-config-advanced/).
+        For more information on other advanced configurations, refer [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
 
 5.  Click **Register** to save the changes.  
-    Now you are sent back to the Service Providers page.
+
+Now you are sent back to the Service Providers page.
 
 ---
 
