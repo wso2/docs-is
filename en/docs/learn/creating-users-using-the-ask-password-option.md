@@ -200,7 +200,7 @@ true in the SCIM2 user create request.
     
        
 !!! Note  
-    By default, WSO2 Identity Server would set a random value for the password if the **askPassword** claim is present in the request. 
+    By default, WSO2 Identity Server sets a random value for the password if the `askPassword` claim is present in the request. 
     If you want to disable setting a random value and keep the "password" that is sent in the request, the following property 
     needs to be added to the `<IS_HOME>/repository/conf/deployment-toml` file.
 
