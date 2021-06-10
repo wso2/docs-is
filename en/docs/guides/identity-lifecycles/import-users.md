@@ -15,13 +15,32 @@ curl -v -k --user [username]:[password] --data '{"failOnErrors": [value],"schema
 
 Below is a sample request and its corresponding response using SCIM 2.0. 
 
-```tab="Sample Request"
-curl -v -k --user admin:admin --data '{"failOnErrors":1,"schemas":["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],"Operations":[{"method": "POST","path": "/Users","bulkId": "qwerty","data":{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],"userName": "Kris","password":"krispass"}},{"method": "POST","path": "/Users","bulkId":"ytrewq","data":{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],"userName":"Jesse","password":"jessepass","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber": "11250","manager": {"value": "bulkId:qwerty"}}}}]}' --header "Content-Type:application/scim+json" https://localhost:9443/scim2/Bulk
-```
-
-```tab="Sample Response"
-{"schemas":["urn:ietf:params:scim:api:messages:2.0:BulkResponse"],"Operations":[{"bulkId":"qwerty","method":"POST","location":"https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1","status":{"code":201}},{"bulkId":"ytrewq","method":"POST","location":"https://localhost:9443/scim2/Users/b489dacc-fc89-449c-89f6-7acc37422031","status":{"code":201}}]}
-```
+!!! abstract ""
+    **Sample Request**
+    ```
+    curl -v -k --user admin:admin --data '{"failOnErrors":1,"schemas":["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],"Operations":[{"method": "POST","path": "/Users","bulkId": "qwerty","data":{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],"userName": "Kris","password":"krispass"}},{"method": "POST","path": "/Users","bulkId":"ytrewq","data":{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],"userName":"Jesse","password":"jessepass","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber": "11250","manager": {"value": "bulkId:qwerty"}}}}]}' --header "Content-Type:application/scim+json" https://localhost:9443/scim2/Bulk
+    ```
+    ---
+    **Sample Response**
+    ```
+    {
+        "schemas":["urn:ietf:params:scim:api:messages:2.0:BulkResponse"],
+        "Operations":[
+            {
+                "bulkId":"qwerty",
+                "method":"POST",
+                "location":"https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1",
+                "status":{"code":201}
+            },
+            {
+                "bulkId":"ytrewq",
+                "method":"POST",
+                "location":"https://localhost:9443/scim2/Users/b489dacc-fc89-449c-89f6-7acc37422031",
+                "status":{"code":201}
+            }
+        ]
+    }
+    ```
 
 ---
 
@@ -81,8 +100,7 @@ To import users in bulk:
 
 Apart from this, users can also be added by directly plugging userstores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](../../../deploy/configure-secondary-user-stores/).
 
-----
-    
+
 !!! info "Related topics"
     - [Concept: Users](../../../references/concepts/user-management/users)
     - [Guide: Admin Creation Workflow](../admin-creation-workflow) 

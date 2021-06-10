@@ -125,7 +125,7 @@ If you have your own application, click the button below.
     [OpenID Connect Logout URL
     Redirection](../../../guides/login/oidc-logout-url-redirection/).
 
------
+
 
 !!! info "Related topics"
     - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)

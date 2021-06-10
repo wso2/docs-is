@@ -144,11 +144,21 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
 2.  Open the `<TOMCAT_HOME>/conf/server.xml` file and enable the https connector on 8443 port.
 
     ``` xml
-    <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
-              maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
-              clientAuth="want" sslProtocol="TLS"
-              sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"      keystoreFile="$IS_HOME/repository/resources/security/wso2carbon.jks"
-    keystorePass="wso2carbon" truststoreFile="$IS_HOME/repository/resources/security/client-truststore.jks" truststorePass="wso2carbon"/>
+    <Connector 
+        port="8443"
+        protocol="org.apache.coyote.http11.Http11NioProtocol"
+        maxThreads="150"
+        SSLEnabled="true"
+        scheme="https"
+        secure="true"
+        clientAuth="want"
+        sslProtocol="TLS"
+        sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"
+        keystoreFile="$IS_HOME/repository/resources/security/wso2carbon.jks"
+        keystorePass="wso2carbon"
+        truststoreFile="$IS_HOME/repository/resources/security/client-truststore.jks" 
+        truststorePass="wso2carbon"
+    />
     ```
 
     !!! note

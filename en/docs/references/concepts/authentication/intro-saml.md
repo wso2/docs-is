@@ -35,11 +35,10 @@ In a web browser-based SSO system, the flow can be triggered by the user, either
 
 The message must contain an element that uniquely identifies the service provider who created the message. Optionally, the message may contain elements such as Issuer, NameIDPolicy, etc. For more information regarding the message, see the [SAML Core Specification](https://www.oasis-open.org/committees/download.php/35711/sstc-saml-core-errata-2.0-wd-06-diff.pdf).
 
----
 
 !!! info "Related topics"
     - [Article: Introduction to SAML 2.0 ](https://wso2.com/library/articles/2014/02/introduction-to-security-assertion-markup-language-2.0/)
     - [Guide: Enable Login for a SAML Application](../../../../guides/login/webapp-saml)
-    - [Demo: SAML Authentication](../../../../quick-starts/webapp-saml-sample)
+    - [Quick Start: SAML Authentication](../../../../quick-starts/webapp-saml-sample)
     - [Guide: Enable Single Sign-On for a SAML Application](../../../../guides/login/sso-for-saml)
-    - [Demo: Single Sign-On for a SAML Application](../../../../quick-starts/sso-for-saml-apps)
+    - [Quick Start: Single Sign-On for a SAML Application](../../../../quick-starts/sso-for-saml-apps)

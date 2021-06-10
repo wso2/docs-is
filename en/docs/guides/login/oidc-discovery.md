@@ -89,41 +89,46 @@ Sample requests and responses are given below.
 
 **Super tenant**
 
-```tab="Request"
-curl -v -k https://localhost:9443/.well-known/webfinger?resource='acct:admin@localhost&rel=http://openid.net/specs/connect/1.0/issuer'
-```
-
-```tab="Response"
-{
-   "subject": "acct:admin@localhost",
-   "links": [
-      {
-         "rel": "http://openid.net/specs/connect/1.0/issuer",
-         "href": "https://localhost:9443/oauth2/token"
-      }
-   ]
-}
-```
+!!! abstract ""
+    **Request**
+    ```
+    curl -v -k https://localhost:9443/.well-known/webfinger?resource='acct:admin@localhost&rel=http://openid.net/specs/connect/1.0/issuer'
+    ```
+    ---
+    **Response**
+    ```
+    {
+      "subject": "acct:admin@localhost",
+      "links": [
+         {
+            "rel": "http://openid.net/specs/connect/1.0/issuer",
+            "href": "https://localhost:9443/oauth2/token"
+         }
+      ]
+    }
+    ```
 
 **Tenant-specific**
 
 The following sample request is for a tenant called as `wso2.com`.
 
-```tab="Request"
-curl -v -k https://localhost:9443/.well-known/webfinger?resource='acct:admin%40wso2.com@localhost&rel=http://openid.net/specs/connect/1.0/issuer'
-```
-
-```tab="Response"
-{
-   "subject": "acct:admin@wso2.com@localhost",
-   "links": [
-      {
-         "rel": "http://openid.net/specs/connect/1.0/issuer",
-         "href": "https://localhost:9443/t/wso2.com/oauth2/token"
-      }
-   ]
-}
-```
+!!! abstract ""
+    **Request**
+    ```
+    curl -v -k https://localhost:9443/.well-known/webfinger?resource='acct:admin%40wso2.com@localhost&rel=http://openid.net/specs/connect/1.0/issuer'
+    ```
+    **Response**
+    ```
+    {
+    "subject": "acct:admin@wso2.com@localhost",
+    "links": [
+        {
+            "rel": "http://openid.net/specs/connect/1.0/issuer",
+            "href": "https://localhost:9443/t/wso2.com/oauth2/token"
+        }
+    ]
+    }
+    ```
 
 ----
 
@@ -139,132 +144,134 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
 
 2.  Send a request to the endpoint as shown below.
 
-    ```tab="Request"
-    curl -v -k https://localhost:9443/oauth2/token/.well-known/openid-configuration
-    ```
-    
-    ```tab="Response"
+    !!! abstract ""
+        **Request**
+        ```
+        curl -v -k https://localhost:9443/oauth2/token/.well-known/openid-configuration
+        ```
+        ---
+        **Response**
+        ```
         {
-           "request_parameter_supported":true,
-           "claims_parameter_supported":true,
-           "introspection_endpoint":"https://localhost:9443/oauth2/introspect",
-           "Response_modes_supported":[
-              "query",
-              "fragment",
-              "form_post"
-           ],
-           "scopes_supported":[
-              "address",
-              "phone",
-              "openid",
-              "profile",
-              "email"
-           ],
-           "check_session_iframe":"https://localhost:9443/oidc/checksession",
-           "backchannel_logout_supported":true,
-           "issuer":"https://localhost:9443/oauth2/token",
-           "authorization_endpoint":"https://localhost:9443/oauth2/authorize",
-           "introspection_endpoint_auth_methods_supported":[
-              "client_secret_basic",
-              "client_secret_post"
-           ],
-           "claims_supported":[
-              "zoneinfo",
-              "profile",
-              "phone_number_verified",
-              "picture",
-              "postal_code",
-              "name",
-              "groups",
-              "locale",
-              "address",
-              "preferred_username",
-              "middle_name",
-              "street_address",
-              "country",
-              "website",
-              "phone_number",
-              "formatted",
-              "gender",
-              "sub",
-              "nickname",
-              "email",
-              "upn",
-              "birthdate",
-              "given_name",
-              "updated_at",
-              "locality",
-              "region",
-              "email_verified",
-              "family_name",
-              "iss",
-              "acr"
-           ],
-           "userinfo_signing_alg_values_supported":[
-              "RS256"
-           ],
-           "token_endpoint_auth_methods_supported":[
-              "client_secret_basic",
-              "client_secret_post"
-           ],
-           "response_modes_supported":[
-              "query",
-              "fragment",
-              "form_post"
-           ],
-           "backchannel_logout_session_supported":true,
-           "token_endpoint":"https://localhost:9443/oauth2/token",
-           "response_types_supported":[
-              "id_token token",
-              "code",
-              "code id_token token",
-              "code id_token",
-              "id_token",
-              "code token",
-              "none",
-              "token"
-           ],
-           "revocation_endpoint_auth_methods_supported":[
-              "client_secret_basic",
-              "client_secret_post"
-           ],
-           "grant_types_supported":[
-              "refresh_token",
-              "urn:ietf:params:oauth:grant-type:saml2-bearer",
-              "password",
-              "client_credentials",
-              "iwa:ntlm",
-              "authorization_code",
-              "urn:ietf:params:oauth:grant-type:uma-ticket",
-              "account_switch",
-              "urn:ietf:params:oauth:grant-type:jwt-bearer"
-           ],
-           "end_session_endpoint":"https://localhost:9443/oidc/logout",
-           "revocation_endpoint":"https://localhost:9443/oauth2/revoke",
-           "userinfo_endpoint":"https://localhost:9443/oauth2/userinfo",
-           "code_challenge_methods_supported":[
-              "S256",
-              "plain"
-           ],
-           "jwks_uri":"https://localhost:9443/oauth2/jwks",
-           "subject_types_supported":[
-              "public"
-           ],
-           "id_token_signing_alg_values_supported":[
-              "RS256"
-           ],
-           "registration_endpoint":"https://localhost:9443/api/identity/oauth2/dcr/v1.1/register",
-           "request_object_signing_alg_values_supported":[
-              "RS256",
-              "RS384",
-              "RS512",
-              "PS256",
-              "none"
-           ]
+            "request_parameter_supported":true,
+            "claims_parameter_supported":true,
+            "introspection_endpoint":"https://localhost:9443/oauth2/introspect",
+            "Response_modes_supported":[
+                "query",
+                "fragment",
+                "form_post"
+            ],
+            "scopes_supported":[
+                "address",
+                "phone",
+                "openid",
+                "profile",
+                "email"
+            ],
+            "check_session_iframe":"https://localhost:9443/oidc/checksession",
+            "backchannel_logout_supported":true,
+            "issuer":"https://localhost:9443/oauth2/token",
+            "authorization_endpoint":"https://localhost:9443/oauth2/authorize",
+            "introspection_endpoint_auth_methods_supported":[
+                "client_secret_basic",
+                "client_secret_post"
+            ],
+            "claims_supported":[
+                "zoneinfo",
+                "profile",
+                "phone_number_verified",
+                "picture",
+                "postal_code",
+                "name",
+                "groups",
+                "locale",
+                "address",
+                "preferred_username",
+                "middle_name",
+                "street_address",
+                "country",
+                "website",
+                "phone_number",
+                "formatted",
+                "gender",
+                "sub",
+                "nickname",
+                "email",
+                "upn",
+                "birthdate",
+                "given_name",
+                "updated_at",
+                "locality",
+                "region",
+                "email_verified",
+                "family_name",
+                "iss",
+                "acr"
+            ],
+            "userinfo_signing_alg_values_supported":[
+                "RS256"
+            ],
+            "token_endpoint_auth_methods_supported":[
+                "client_secret_basic",
+                "client_secret_post"
+            ],
+            "response_modes_supported":[
+                "query",
+                "fragment",
+                "form_post"
+            ],
+            "backchannel_logout_session_supported":true,
+            "token_endpoint":"https://localhost:9443/oauth2/token",
+            "response_types_supported":[
+                "id_token token",
+                "code",
+                "code id_token token",
+                "code id_token",
+                "id_token",
+                "code token",
+                "none",
+                "token"
+            ],
+            "revocation_endpoint_auth_methods_supported":[
+                "client_secret_basic",
+                "client_secret_post"
+            ],
+            "grant_types_supported":[
+                "refresh_token",
+                "urn:ietf:params:oauth:grant-type:saml2-bearer",
+                "password",
+                "client_credentials",
+                "iwa:ntlm",
+                "authorization_code",
+                "urn:ietf:params:oauth:grant-type:uma-ticket",
+                "account_switch",
+                "urn:ietf:params:oauth:grant-type:jwt-bearer"
+            ],
+            "end_session_endpoint":"https://localhost:9443/oidc/logout",
+            "revocation_endpoint":"https://localhost:9443/oauth2/revoke",
+            "userinfo_endpoint":"https://localhost:9443/oauth2/userinfo",
+            "code_challenge_methods_supported":[
+                "S256",
+                "plain"
+            ],
+            "jwks_uri":"https://localhost:9443/oauth2/jwks",
+            "subject_types_supported":[
+                "public"
+            ],
+            "id_token_signing_alg_values_supported":[
+                "RS256"
+            ],
+            "registration_endpoint":"https://localhost:9443/api/identity/oauth2/dcr/v1.1/register",
+            "request_object_signing_alg_values_supported":[
+                "RS256",
+                "RS384",
+                "RS512",
+                "PS256",
+                "none"
+            ]
         }
-    ```
+        ```
 
------
 
 !!! info "Related topics"
     - [Concept: OpenID Connect Discovery](../../../references/concepts/authentication/discovery)

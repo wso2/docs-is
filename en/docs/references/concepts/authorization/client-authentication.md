@@ -1,7 +1,7 @@
-# OAuth2.0 Client Authentication
+# OAuth 2.0 Client Authentication
 
-If the client type specified in the request is [confidential](client-types.md), the client and authorization server should establish a client authentication method 
-suitable for the security requirements of the authorization server. This needs to be done ;
+If the client type specified in the request is [confidential](../client-types#confidential-clients), the client and authorization server should establish a client authentication method 
+suitable for the security requirements of the authorization server. This needs to be done for the following reasons. 
 
 - To ensure the tokens are issued only to legitimate clients.
 
@@ -17,6 +17,8 @@ There are a few client authentication methods.
 
 - Mutual TLS Authentication (tls_client_auth)
 
+---
+
 ## client_secret_basic
 
 In this client authentication method, the OAuth client uses [HTTP Basic Authentication Scheme](https://tools.ietf.org/html/rfc2617).
@@ -25,17 +27,21 @@ When deriving the authorization header value, it should be according to the foll
 
 `Authorization: Basic Base64encoded({client_id}:{client_secret})`
 
+---
+
 ## client_secret_post
 
 In this method, the credentials are passed in the request body as form parameters as follows.
 
 `client_id=s6BhdRkqt3&client_secret=7Fjfp0ZBr1KtDRbnfVdmIw`
 
+---
+
 ## private_key_jwt
 
-Private Key JWT Client Authentication is an authentication method that can be used by clients to authenticate to the 
-authorization server when using the token endpoint. In this authentication mechanism, it can authenticate clients that
-have registered a public key with the authorization server and signed a JWT using that key.
+Private Key JWT Client Authentication is an authentication method that clients can use to authenticate to the 
+authorization server when using the token endpoint. This authentication mechanism can authenticate clients who have 
+registered a public key with the authorization server and signed a JWT using that key.
 
 The main steps of the flow are as follows.
 
@@ -46,10 +52,9 @@ The main steps of the flow are as follows.
 3. Authorization server extracts the signature and authenticates the client.
 
 
-The JWT **must** contain some REQUIRED claim values and **may** contain some OPTIONAL claim values. For more information on the
+The JWT must contain some REQUIRED claim values and may contain some OPTIONAL claim values. For more information on the
 required and optional claim values needed for the JWT for private_key_jwt authentication, click [here](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication).
-The authentication token **must** be sent as the value of the client_assertion parameter. The value of the client_assertion_type parameter
-**MUST** be ;
+The authentication token must be sent as the value of the client_assertion parameter. The value of the client_assertion_type parameter
+must be;
 
-`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
-
+`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`

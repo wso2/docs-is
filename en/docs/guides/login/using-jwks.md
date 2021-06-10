@@ -10,13 +10,16 @@ You can follow this guide when your relying party (RP) application needs to vali
 
 Copy and paste the following endpoint URL on your browser window.
 
-```tab="URL Format"
-https://<IS_HOST>:<IS_HTTPS_PORT>/oauth2/jwks
-```
-
-```tab="Sample URL"
-https://localhost:9443/oauth2/jwks
-```
+!!! abstract ""
+    **URL Format**
+    ```
+    https://<IS_HOST>:<IS_HTTPS_PORT>/oauth2/jwks
+    ```
+    ---
+    **Sample URL**
+    ```
+    https://localhost:9443/oauth2/jwks
+    ```
 
 - By default, `<IS_HOST>` is localhost. However, if you are using a public IP, the respective IP address or domain needs to be specified.
 
@@ -24,20 +27,22 @@ https://localhost:9443/oauth2/jwks
 
 You will see the following response. 
 
-```tab="Response"
-{
-  "keys": [
+!!! abstract ""
+    **Response**
+    ```
     {
-      "kty": "RSA",
-      "e": "AQAB",
-      "use": "sig",
-      "kid": "NTAxZmMxNDMyZDg3MTU1ZGM0MzEzODJhZWI4NDNlZDU1OGFkNjFiMQ",
-      "alg": "RS256",
-      "n": "luZFdW1ynitztkWLC6xKegbRWxky-5P0p4ShYEOkHs30QI2VCuR6Qo4Bz5rTgLBrky03W1GAVrZxuvKRGj9V9-PmjdGtau4CTXu9pLLcqnruaczoSdvBYA3lS9a7zgFU0-s6kMl2EhB-rk7gXluEep7lIOenzfl2f6IoTKa2fVgVd3YKiSGsyL4tztS70vmmX121qm0sTJdKWP4HxXyqK9neolXI9fYyHOYILVNZ69z_73OOVhkh_mvTmWZLM7GM6sApmyLX6OXUp8z0pkY-vT_9-zRxxQs7GurC4_C1nK3rI_0ySUgGEafO1atNjYmlFN-M3tZX6nEcA6g94IavyQ"
+        "keys": [
+            {
+            "kty": "RSA",
+            "e": "AQAB",
+            "use": "sig",
+            "kid": "NTAxZmMxNDMyZDg3MTU1ZGM0MzEzODJhZWI4NDNlZDU1OGFkNjFiMQ",
+            "alg": "RS256",
+            "n": "luZFdW1ynitztkWLC6xKegbRWxky-5P0p4ShYEOkHs30QI2VCuR6Qo4Bz5rTgLBrky03W1GAVrZxuvKRGj9V9-PmjdGtau4CTXu9pLLcqnruaczoSdvBYA3lS9a7zgFU0-s6kMl2EhB-rk7gXluEep7lIOenzfl2f6IoTKa2fVgVd3YKiSGsyL4tztS70vmmX121qm0sTJdKWP4HxXyqK9neolXI9fYyHOYILVNZ69z_73OOVhkh_mvTmWZLM7GM6sApmyLX6OXUp8z0pkY-vT_9-zRxxQs7GurC4_C1nK3rI_0ySUgGEafO1atNjYmlFN-M3tZX6nEcA6g94IavyQ"
+            }
+        ]
     }
-  ]
-}
-```
+    ```
 
 For information about the elements in the response, see [Response parameters](#response-parameters).
 
@@ -47,13 +52,16 @@ For information about the elements in the response, see [Response parameters](#r
 
 Copy and paste the following endpoint URL on your browser window.
 
-```tab="URL Format"
-https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/jwks
-```
-
-```tab="Sample URL"
-https://localhost:9443/t/foo.com/oauth2/jwks
-```
+!!! abstract ""
+    **URL Format**
+    ```
+    https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/jwks
+    ```
+    ---
+    **Sample URL**
+    ```
+    https://localhost:9443/t/foo.com/oauth2/jwks
+    ```
 
 - By default, `<IS_HOST>` is localhost. However, if you are using a public IP, the respective IP address or domain needs to be specified.
 
@@ -61,20 +69,22 @@ https://localhost:9443/t/foo.com/oauth2/jwks
 
 You will see the following response. 
 
-```tab="Response"
-{
-  "keys": [
+!!! abstract ""
+    **Response**
+    ```
     {
-      "kty": "RSA",
-      "e": "AQAB",
-      "use": "sig",
-      "kid": "MTk5NjA3YjRkNGRmZmI4NTYyMzEzZWFhZGM1YzAyZWMyZTg0ZGQ4Yw",
-      "alg": "RS256",
-      "n": "0OA-yiyn_pCKnldZBq2KPnGplLuTEtGU7IZP66Wf7ElhFJ-kQ87BMKvZqVNDV84MSY3XQg0t0yL6gITg-W8op61PWO2UrEcxhhMHN_rra22Ae2OCaUfOr43cW1YFc54cYj5p7v-HSVvjTuNLGMMrNfTGAOCPzuLxbSHfq62uydU"
+        "keys": [
+            {
+            "kty": "RSA",
+            "e": "AQAB",
+            "use": "sig",
+            "kid": "MTk5NjA3YjRkNGRmZmI4NTYyMzEzZWFhZGM1YzAyZWMyZTg0ZGQ4Yw",
+            "alg": "RS256",
+            "n": "0OA-yiyn_pCKnldZBq2KPnGplLuTEtGU7IZP66Wf7ElhFJ-kQ87BMKvZqVNDV84MSY3XQg0t0yL6gITg-W8op61PWO2UrEcxhhMHN_rra22Ae2OCaUfOr43cW1YFc54cYj5p7v-HSVvjTuNLGMMrNfTGAOCPzuLxbSHfq62uydU"
+            }
+        ]
     }
-  ]
-}
-```
+    ```
 
 For information about the elements in the response, see [Response parameters](#response-parameters).
 
@@ -123,7 +133,6 @@ For information about the elements in the response, see [Response parameters](#r
 
 For more information, see the [JWKS specification](https://tools.ietf.org/html/rfc7515#section-4).
 
------
 
 !!! info "Related topics"
     - [Concept: JSON Web Key Set](../../../references/concepts/authentication/jwks)

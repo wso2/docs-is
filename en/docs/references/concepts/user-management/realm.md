@@ -45,8 +45,6 @@ Note the following key facts about the system administrator in your system:
 
 Userstores are used to store all the users, roles, and permissions within our realm. The different types of userstores and how they can be configured to store the users and roles are explained in the [userstores](../userstores) section. 
 
---- 
-
 !!! info "Related topics" 
     
     - [Guide: Manage Users](../../../../guides/identity-lifecycles/manage-user-overview)

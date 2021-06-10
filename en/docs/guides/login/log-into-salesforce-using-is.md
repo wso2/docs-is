@@ -15,7 +15,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     for the first time.
     4. You will be navigated to the lightening theme of Salesforce.
     
-       ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png) 
+       ![welcome-to-lightening.png](../../assets/img/guides/welcome-to-lightening.png)
        
     !!! note    
         This document is explained using the Salesforce lightning theme. If
@@ -23,7 +23,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
 
         ![lighteninig-experience](../../assets/img/guides/switch-to-lightening.png)
 
-4.  Once you are logged in, create a new domain and access it. To do
+2.  Once you are logged in, create a new domain and access it. To do
     this, do the following steps.  
     1.  Search for **My Domain** in the search bar that is on the left
         navigation panel.  
@@ -273,8 +273,6 @@ Additional troubleshooting information regarding any Salesforce side SSO
 failures can be retrieved by using Salesforce SAML Assertion Validator.
 Further information regarding the steps are available
 [here](https://developer.salesforce.com/docs/atlas.en-us.sso.meta/sso/sso_saml_validation_errors.htm#!).
-
-----
 
 !!! info "Related topics"
     - [Concept: Identity Federation](../../../references/concepts/identity-federation/)

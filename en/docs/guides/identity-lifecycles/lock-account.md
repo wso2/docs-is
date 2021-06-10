@@ -49,13 +49,16 @@ account locking, follow the instructions given below.
 
 1. In order to update the lock status of a user account, we need to obtain the SCIM ID of that particular user. Therefore, we first call the GET users API to get the user details.
 
-	``` curl tab="Request"
-	curl -v -k --user <username>:<password> 'https://<HOST>:<PORT>/scim2/Users'
-	```
-
-	``` curl tab="Sample"
-	curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users'
-	```
+    !!! abstract ""
+        **Request**
+        ```
+        curl -v -k --user <username>:<password> 'https://<HOST>:<PORT>/scim2/Users'
+        ```
+        ---
+        **Sample**
+        ```
+        curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users'
+        ```
 
 	Alternatively, you can also obtain it from the management console. 
 
@@ -133,7 +136,6 @@ Similarly, you can use the `setUserClaimValues` operation, `RemoteUserStoreManag
 </soapenv:Envelope>
 ```
 
-----
 
 !!! info "Related topics"
 	[Guides: Configure Email Notifications for Account Locking](../../../guides/tenants/email-account-locking)

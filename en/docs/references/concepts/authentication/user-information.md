@@ -47,7 +47,7 @@ curl -k -v -H "Authorization: Bearer <ACCESS_TOKEN>" https://<IS_HOST>:<IS_PORT>
  
  Response
  
-``` java
+```
 HTTP/1.1 200 OK
   Content-Type: application/json
 

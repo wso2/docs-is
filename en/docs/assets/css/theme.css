@@ -732,7 +732,7 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs .md-tabs__link.md-tabs__link--active {
     opacity: 1 !important;
-    color: #fa6400;
+    color: #ff7300;
 }
 
 .md-tabs {
@@ -766,7 +766,7 @@ html .md-footer-meta.md-typeset a,
 }
 
 .md-nav--secondary > ul li.md-nav__item.active {
-    border-color: #fa6400 !important;
+    border-color: #ff7300 !important;
 }
 
 .md-sidebar--secondary .md-nav--secondary > ul ul {
@@ -1269,7 +1269,7 @@ html .md-footer-meta.md-typeset a,
 }
 
 .get-started-btn {
-    background-color: #fa6400 !important;
+    background-color: #ff7300 !important;
     color: #ffffff !important; 
     float: left !important;
     text-align: center;
@@ -1289,14 +1289,14 @@ html .md-footer-meta.md-typeset a,
 
 .get-started-btn:hover {
     background-color:#ffffff !important;
-    border: 1px solid #fa6400;
+    border: 1px solid #ff7300;
     border-radius: 2px;
-    color: #fa6400!important;
+    color: #ff7300!important;
 }
 
 .download-btn {
     background-color: #ffffff !important;
-    color: #fa6400 !important; 
+    color: #ff7300 !important; 
     float: left !important;
     text-align: center;
     padding: 10px 20px 10px 20px;
@@ -1315,9 +1315,9 @@ html .md-footer-meta.md-typeset a,
 
 .download-btn:hover {
     background-color:#ffffff !important;
-    border: 1px solid #fa6400;
+    border: 1px solid #ff7300;
     border-radius: 2px;
-    color: #fa6400!important;
+    color: #ff7300!important;
 }
 
 .iam-secondary-heading {
@@ -1367,7 +1367,7 @@ html .md-footer-meta.md-typeset a,
     font-size: 15px;
     text-decoration: none;
     font-weight: 600;
-    color: #fa6400 !important;
+    color: #ff7300 !important;
     transition: 0.5s;
 }
 
@@ -1426,7 +1426,7 @@ html .md-footer-meta.md-typeset a,
     text-decoration: none;
     vertical-align: bottom;
     transition: 0.5s;
-    color: #fa6400 !important;
+    color: #ff7300 !important;
 }
 
 .learn-more-text:hover {
@@ -1484,7 +1484,7 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs .md-tabs__item.md-tabs__item--active,
 .md-tabs .md-tabs__item.md-tabs__item:hover {
-    border-bottom: #fa6400 solid 3px;
+    border-bottom: #ff7300 solid 3px;
 }
 
 .scenario-dropdown {
@@ -1569,7 +1569,7 @@ html, body {
 }
 
 .md-nav--secondary > ul li.md-nav__item.active {
-    color: #fa6400;
+    color: #ff7300;
 }
 
 /* Hiding additional arrow in mobile view */
@@ -1717,7 +1717,28 @@ h5 {
 
 /* Customizing superfence tabs */
 .superfences-tabs>input:checked+label {
-    color: #fa6400;
-    border-bottom: 3px solid #fa6400;
+    color: #ff7300;
+    border-bottom: 3px solid #ff7300;
+}
+
+/* custom CSS for code snippets inside admonitions */
+/* .admonition > .codehilite {
+    background-color: #fff !important;
+} */
+
+.admonition > .codehilite > .md-clipboard:before {
+    color: #adadad;
+}
+
+.md-typeset .admonition.abstract {
+    border-left-color: #465867;
+}
+
+.padding-img {
+    padding: 15px !important;
+}
+
+.border-img {
+    border: #dadada solid 1px !important;
 }
 

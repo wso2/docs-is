@@ -45,4 +45,4 @@ The user will not be able to proceed with authentication without providing conse
 
 !!! info "Related topics"
     - [Guide: Request Attributes for the Application](../request-attributes)
-    - [Demo: Request Attributes for the Application](TODO:insert-link-to-sample)
+    - [Quick Start: Request Attributes for the Application](TODO:insert-link-to-sample)

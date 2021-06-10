@@ -12,7 +12,7 @@ Most enterprise solutions adopt products and services from multiple cloud or on 
 
 For instance, if an employee leaves an organization, their user account may need to be removed and permissions may need to be revoked from multiple applications within the organization. However, it takes extra effort to ensure that it is properly removed from all applications, and doing this manually opens up the possibility of human error thereby possibly causing security issues. A much cleaner and more efficient approach would be to use identity provisioning to automate this and ensure that the account deletion or permission revoking reflects on the linked user accounts across all applications.
 
-The process of removing user identities and revoking permissions is known as **de-provisioning** and is a major requirement when complying with privacy regulations such as [GDPR](TODO:link-to-concept).
+The process of removing user identities and revoking permissions is known as **deprovisioning** and is a major requirement when complying with privacy regulations such as [GDPR](../compliance/gdpr).
 
 ---
 
@@ -33,11 +33,10 @@ There are two main types of identity provisioning.
 - [Inbound Provisioning](../provisioning-framework/#inbound-provisioning)
 - [Outbound Provisioning](../provisioning-framework/#outbound-provisioning)
 
-----
  
 !!! info "Related topics"
     - [Concept: Provisioning Framework](../provisioning-framework)
     - [Guide: Inbound Provisioning](../../../guides/identity-lifecycles/inbound-provisioning)
-    - [Guide: Outbound Provisioning](../../guides/identity-lifecycles/outbound-provisioning)
+    - [Guide: Outbound Provisioning](../../../guides/identity-lifecycles/outbound-provisioning)
 
 

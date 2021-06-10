@@ -103,18 +103,21 @@ values to obtain the Protection API Access Token (PAT). -->
             is the password grant type. Therefore, you need to pass the
             resource owners credentials in the curl command. 
 
-    ``` tab="Request Format"
-    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=uma_protection internal_application_mgt_view" -H "Content-Type:application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
-      
-    ```
-    
-    ``` tab="Sample Request"
-    curl -u hwbR3jd2fikSApLKfv_wiwRWNSwa:q7Kb74s5dcK3FBh1MUWAJqvdrs8a -k -d "grant_type=password&username=larry&password=larry123&scope=uma_protection internal_application_mgt_view" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```
+        curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=uma_protection internal_application_mgt_view" -H "Content-Type:application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
+        
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        curl -u hwbR3jd2fikSApLKfv_wiwRWNSwa:q7Kb74s5dcK3FBh1MUWAJqvdrs8a -k -d "grant_type=password&username=larry&password=larry123&scope=uma_protection internal_application_mgt_view" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        ```
 
     You will get a response similar to the following:
 
-    ``` java
+    ```
     {
         "access_token":"b8df48ff-feab-3632-b3dc-68ae6b4c62e2",
         "refresh_token":"1037ccad-f45a-38e7-96ad-40c00fbc7ca4",
@@ -137,34 +140,38 @@ Now, you need to register the resource.
             the [access token you got in the previous
             section](#obtain-the-protection-api-access-token-pat).
     
-    ``` tab="Request Format"
-    curl -X POST \
-    https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/uma/resourceregistration/v1.0/resource \
-    -H 'Authorization: Bearer <PAT>' \
-    -H 'Content-Type: application/json' \
-    -d '<RESOURCE_PAYLOAD>'
-    ```
-    
-    ```tab="Sample Request"
-    curl -X POST \
-    https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource \
-    -H 'Authorization: Bearer 64658549-47c1-3b5a-8637-c629f16c4118' \
-    -H 'Content-Type: application/json' \
-    -d '{
-          "resource_scopes": [
-            "view",
-            "download"
-          ],
-          "description": "Collection of digital photographs",
-          "icon_uri": "http://www.example.com/icons/flower.png",
-          "name": "Photo Album",
-          "type": "http://www.example.com/rsrcs/photoalbum"
-        }'
-    ```
+
+    !!! abstract ""
+        **Request Format**
+        ```
+        curl -X POST \
+        https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/uma/resourceregistration/v1.0/resource \
+        -H 'Authorization: Bearer <PAT>' \
+        -H 'Content-Type: application/json' \
+        -d '<RESOURCE_PAYLOAD>'
+        ```
+        ---
+        **Sample Request**
+        ```curl      
+        curl -X POST \
+        https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource \
+        -H 'Authorization: Bearer 64658549-47c1-3b5a-8637-c629f16c4118' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "resource_scopes": [
+                "view",
+                "download"
+            ],
+            "description": "Collection of digital photographs",
+            "icon_uri": "http://www.example.com/icons/flower.png",
+            "name": "Photo Album",
+            "type": "http://www.example.com/rsrcs/photoalbum"
+            }'
+        ```
 
     You will get a response similar to the following:
 
-    ``` java
+    ```
     {
         "_id": "ceaa6506-1da9-456b-88d8-027797d2e081"
     }
@@ -293,17 +300,20 @@ contains an invalid token.
             resources and the relevant scopes. The sample request used
             in this guide contains a single permission.
     
-    ```tab="Request Format"
-    curl -X POST https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/uma/permission/v1.0/permission -H 'authorization: Bearer <PAT>' -H "Content-Type: application/json" -d '["<PERMISSION_PAYLOAD>"]' -k
-    ```
-        
-    ```tab="Sample Request"
-    curl -X POST https://localhost:9443/api/identity/oauth2/uma/permission/v1.0/permission -H 'authorization: Bearer b8df48ff-feab-3632-b3dc-68ae6b4c62e2' -H "Content-Type: application/json" -d '[{"resource_id":"ceaa6506-1da9-456b-88d8-027797d2e081","resource_scopes":["view"]}]' -k
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```
+        curl -X POST https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/uma/permission/v1.0/permission -H 'authorization: Bearer <PAT>' -H "Content-Type: application/json" -d '["<PERMISSION_PAYLOAD>"]' -k
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        curl -X POST https://localhost:9443/api/identity/oauth2/uma/permission/v1.0/permission -H 'authorization: Bearer b8df48ff-feab-3632-b3dc-68ae6b4c62e2' -H "Content-Type: application/json" -d '[{"resource_id":"ceaa6506-1da9-456b-88d8-027797d2e081","resource_scopes":["view"]}]' -k
+        ```
       
     You will get a response similar to the following:
 
-    ``` java
+    ```
     {"ticket":"97f476f2-72d0-4540-aa08-a4784bd2053e"}
     ```
 
@@ -323,17 +333,20 @@ party username is required.
     client](#configure-service-provider-to-act-as-the-client).  Since the grant type used here is the password grant type, you need 
     to specify the requesting party credentials in the curl command.
     
-    ```tab="Request Format"
-    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=openid" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ```
-            
-    ```tab="Sample Request"
-    curl -u IRBYPhUyAtYjjUIgjZySI800fUMa:6m_9dkM8e7RSxs77JW0dbf9ECr0a -k -d "grant_type=password&username=sam&password=sam123&scope=openid" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```
+        curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=openid" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        curl -u IRBYPhUyAtYjjUIgjZySI800fUMa:6m_9dkM8e7RSxs77JW0dbf9ECr0a -k -d "grant_type=password&username=sam&password=sam123&scope=openid" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        ```
       
     You will get a response similar to the following:
 
-    ``` java
+    ```
         {
            "access_token":"f2999d40-af06-3779-b157-731d6540c5de",
            "refresh_token":"f95adb62-34ae-311e-83c1-6b136eb49017",
@@ -442,7 +455,7 @@ This is how UMA works.
     
     Following is a sample response when the above configuration is disabled.
     
-    ``` java
+    ```
     {
       "nbf": 1553411123,
       "active": true,

@@ -119,20 +119,20 @@ Follow the steps below to secure web applications.
     template of all pages of the application that you need to protect.
 
     ``` js
-        … 
-        <html>
-            <head>
-                …
-                <script type=”text/javascript” src=”/csrf.js”></script>
-    
-                <!-- other JavaScript inclusions should follow “csrf.js” inclusion -->
-                <script type=”text/javascript” src=”/main.js”></script>
-                … 
-            </head>
-            <body>
-                ...
-            </body>
-        </html>
+    … 
+    <html>
+        <head>
+            …
+            <script type=”text/javascript” src=”/csrf.js”></script>
+
+            <!-- other JavaScript inclusions should follow “csrf.js” inclusion -->
+            <script type=”text/javascript” src=”/main.js”></script>
+            … 
+        </head>
+        <body>
+            ...
+        </body>
+    </html>
     ```
 
 3.  Create a CSRF configuration properties file (e.g.

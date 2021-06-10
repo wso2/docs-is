@@ -68,7 +68,6 @@ some time.
     defined in the `deployment.toml` file. The data source definition
     can also be found in the same file. 
 
------
 
 !!! info "Related topics"
     - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)

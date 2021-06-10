@@ -73,9 +73,11 @@ Depending on the type of keystore you have, follow one of the steps below to gen
     
         Following is a sample keytool command that includes a SAN:
     
-        ``` java tab="Example"
-        keytool -certreq -alias test -file test.csr -keystore test.jks -ext SAN=dns:test.example.com
-        ```
+        !!! abstract ""
+            **Example**
+            ``` java
+            keytool -certreq -alias test -file test.csr -keystore test.jks -ext SAN=dns:test.example.com
+            ```
     
 
 -   **If you have the private key and public key**, execute the following command:
@@ -99,7 +101,7 @@ keytool -import -v -trustcacerts -alias <current_alias> -file <ca_signed_cert.ce
 ```
 
 !!! tip
-    To view infomation related to the renewed certificate, execute the following keytool command:
+    To view information related to the renewed certificate, execute the following keytool command:
 
     ``` java
     keytool -list -keystore <keystore_name.jks> -alias <cert_alias> -v

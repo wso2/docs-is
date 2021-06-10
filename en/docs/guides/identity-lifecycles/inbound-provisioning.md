@@ -4,6 +4,6 @@ Inbound provisioning involves provisioning users or groups to the WSO2 Identity 
 
 The following documents give step by step instructions on how to configure WSO2 Identity Server for inbound provisioning. 
 
-- [set up service provider for inbound provisioning](../set-up-sp-for-inbound-provisioning)
+- [Set up service provider for inbound provisioning](../set-up-sp-for-inbound-provisioning)
 
-- [configure userstores for scim2-based inbound provisioning](../configure-user-stores-for-scim2-based-inbound-provisioning)
+- [Configure userstores for SCIM2-based inbound provisioning](../configure-user-stores-for-scim2-based-inbound-provisioning)

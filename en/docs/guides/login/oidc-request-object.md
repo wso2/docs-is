@@ -155,11 +155,9 @@ together with `         customClaim2        ` retrieved in the userinfo
 response, an additional claim `         customClaim1        ` is
 retrieved via the `         id_token        ` when you configure the
 authorization code flow with a signed request object.  
-  
 
-----
 
 !!! info "Related topics"
     - [Concept: Request Object](../../../references/concepts/authentication/request-object)
-    - [Demo: OpenID Connect Request Object](../../../quick-starts/request-object)
+    - [Quick Start: OpenID Connect Request Object](../../../quick-starts/request-object)
     - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)

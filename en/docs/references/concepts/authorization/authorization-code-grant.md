@@ -1,9 +1,7 @@
 # Authorization Code Grant Type
 
-### Recommended Use
-
-The **authorization code** grant type is optimized for [confidential clients](client-types.md).
-It provides a few important security benefits such as;
+The authorization code grant type is optimized for [confidential clients](../client-types/#confidential-clients).
+It provides a few important security benefits.
 
 - It can authenticate the client.
 
@@ -11,7 +9,9 @@ It provides a few important security benefits such as;
 
 This grant type is suitable when the resource owner is a user and the client is a website.
 
-### How does it work ?
+---
+
+## How does it work?
 
 The client directs the resource owner to an authorization server, instead of requesting authorization directly from the 
 resource owner. The resource owner is then redirected back to the client with the authorization code which the client 
@@ -21,26 +21,36 @@ authorization server.
 
 The diagram below illustrates the authorization code flow.
 
-![authorization-code](../../assets/img/concepts/authorization-code-grant-flow.png)
+![Authorization Code grant flow](../../../assets/img/concepts/authorization-code-grant-flow.png)
 
 The commands below can be used to try this grant type.
 
-The URL to get the authorization code :
+The URL to get the authorization code:
+
 ``` powershell
-<authorization_endpoint>?response_type=code&client_id=<client id>&redirect_uri=<redirect uri>
+<AUTHORIZATION_ENDPOINT>?response_type=code&client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>
 ```
 
-cURL command to get the access token :
+The cURL command to get the access token:
+
 ``` powershell
-curl -v -X POST --basic -u <client id>:<client secret>a -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<authorization code>&redirect_uri=<redirect uri>" <token_endpoint>
+curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<AUTHORIZATION_CODE>&redirect_uri=<REDIRECT_URI>" <TOKEN_ENDPOINT>
 ```
 
-**Response**
-``` java
-{"access_token":"131d4094-b94c-3714-9e73-672aa433248d","refresh_token":"96a6d697-0120-3bec-86be-21b58f600a07","token_type":"Bearer","expires_in":3600}
+You will receive a response similar to the format below.
+
+```
+{
+        "access_token":"131d4094-b94c-3714-9e73-672aa433248d",
+        "refresh_token":"96a6d697-0120-3bec-86be-21b58f600a07",
+        "token_type":"Bearer",
+        "expires_in":3600
+}
 ```
 
-!!! info "Support for refresh token grant - Yes"
-	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](refresh-token-grant.md).
+!!! info "Support for refresh token grant"
+	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../refresh-token-grant).
 
-
+!!! info "Related topics"
+        - [Guide: Authorization Code Grant](../../../../guides/access-delegation/authorization-code)
+        - [Quick Start: Authorization Code Grant](../../../../quick-starts/auth-code-playground)

@@ -49,15 +49,14 @@ The following diagram illustrates the flow for **SP-initiated logout**.
 
 In an **IdP-initiated logout** scenario, the identity provider (acting as session authority) initiates this profile at step 2 and issues a `<LogoutRequest>` message to all session participants. Step 5 is skipped in this scenario. 
 
----
 
 !!! info "Related topics"
     - [Concept: SAML 2.0](../intro-saml)
     - [Concept: SAML Back-Channel Logout](../saml-back-channel)
     - [Guide: SAML Front-Channel Logout](../../../../guides/login/saml-front-channel-logout)
-    - [Demo: SAML Front-Channel Logout](../../../../quick-starts/saml-front-channel-logout)
+    - [Quick Start: SAML Front-Channel Logout](../../../../quick-starts/saml-front-channel-logout)
     - [Guide: Use SAML Artifact Binding](../../../../guides/login/use-artifact-binding)
-    - [Demo: Use SAML Artifact Binding](../../../../quick-starts/use-artifact-binding-sample)
+    - [Quick Start: Use SAML Artifact Binding](../../../../quick-starts/use-artifact-binding-sample)
 
 
 

@@ -17,12 +17,11 @@ on the process ID (pid).
 2.  `           ps -C java -L -o pcpu,cpu,nice,state,cputime,pid,tid > thread-usage.txt                     `
 
     !!! tip
-        OS X users can alternatively use the command `           ps M <PID>          ` instead.
+        OS X users can alternatively use the command, `           ps M <PID>          ` instead.
     
 
 These commands provide you with the `thread-dump.txt` file and the
-`thread-usage.txt` file. After obtaining these two files, do the
-following.
+`thread-usage.txt` file. After obtaining these two files, follow the instructions given below.
 
 1.  Find the thread ID (the one that belongs to the corresponding PID)
     that takes up the highest CPU usage by examining the `thread-usage.txt` file.
@@ -76,11 +75,11 @@ following.
 ## Capture the state of the system
 
 Carbondump is a tool used to collect all the necessary data from a
-running WSO2 product instance at the time of an error.
+running WSO2 Identity Server instance at the time of an error.
 The carbondump generates a ZIP archive with the collected data that
 helps to analyze the system and determine the problem that caused the
 error. Therefore, it is recommended that you run this tool as soon as an
-error occurs in the WSO2 product instance.
+error occurs in the WSO2 Identity Server instance.
 
 When using the tool, you have to provide the process ID (pid) of the
 product instance and the `         <IS_HOME>        ` location,
@@ -112,7 +111,7 @@ The tool captures the following information about the system:
 -   **Information about the running Carbon instance** Product name and
     version
     -   Carbon framework version (This includes the patched version)
-    -   <PRODUCT_HOME>, <JAVA_HOME>
+    -   <&ZeroWidthSpace;PRODUCT_HOME>, <&ZeroWidthSpace;JAVA_HOME>
     -   configuration files
     -   log files
     -   H2 database files
@@ -193,11 +192,10 @@ depending on your scenario.
     rejoining the cluster.
     
 
-Do the following steps to configure the maximum time between heartbeats.
+Follow the steps given below to configure the maximum time between heartbeats.
 
-1.  Create a property file called hazelcast.properties, and add the
-    following property to it.  
-    `          hazelcast.max.no.heartbeat.seconds=300         `
+1.  Create a property file called `hazelcast.properties`, and add the `hazelcast.max.no.heartbeat.seconds=300` property to it.  
+    
 2.  Place this file in the
     `          <IS_HOME>/repository/conf/         ` directory in
     all the nodes in your cluster.

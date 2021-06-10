@@ -70,19 +70,21 @@ Let's get started!
 
         You will be prompted enter the keystore password and verify the certificate.
 
-        ```java tab="Example"
-        Enter keystore password:  
-        Owner: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
-        Issuer: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
-        Serial number: 5486f3b0
-        Valid from: Tue Dec 09 18:35:52 IST 2014 until: Fri Dec 06 18:35:52 IST 2024
-        Certificate fingerprints:
-        MD5:  54:13:FD:06:6F:C9:A6:BC:EE:DF:73:A9:88:CC:02:EC
-        SHA1: AE:37:2A:9E:66:86:12:68:28:88:12:A0:85:50:B1:D1:21:BD:49:52
-        Signature algorithm name: SHA1withRSA
-        Version: 3
-        Trust this certificate? [no]:  yes
-        ```
+		!!! abstract ""
+			**Example**
+			```java
+			Enter keystore password:  
+			Owner: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
+			Issuer: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
+			Serial number: 5486f3b0
+			Valid from: Tue Dec 09 18:35:52 IST 2014 until: Fri Dec 06 18:35:52 IST 2024
+			Certificate fingerprints:
+			MD5:  54:13:FD:06:6F:C9:A6:BC:EE:DF:73:A9:88:CC:02:EC
+			SHA1: AE:37:2A:9E:66:86:12:68:28:88:12:A0:85:50:B1:D1:21:BD:49:52
+			Signature algorithm name: SHA1withRSA
+			Version: 3
+			Trust this certificate? [no]:  yes
+			```
 
         !!! warning
     
