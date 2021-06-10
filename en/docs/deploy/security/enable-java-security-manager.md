@@ -159,7 +159,7 @@ Let's get started!
     -Ddenied.system.properties=javax.net.ssl.trustStore,javax.net.ssl.trustStorePassword,denied.system.properties \
     ```
 
-1. Create a sec.policy file with the required security policies in the `<IS_HOME>/repository/conf` directory and start WSO2 Identity Server. Starting the server makes the Java permissions defined in the `sec.policy` file take effect as given in the following sample file. 
+7. Create a sec.policy file with the required security policies in the `<IS_HOME>/repository/conf` directory and start WSO2 Identity Server. Starting the server makes the Java permissions defined in the `sec.policy` file take effect as given in the following sample file. 
 
 	!!! note
 

@@ -4,10 +4,8 @@
 
 The main purposes of [**OpenID Connect Discovery**](https://openid.net/specs/openid-connect-discovery-1_0.html) are to,
 
-- [OpenID Connect Discovery](#openid-connect-discovery)
-  - [What is OpenID Connect Discovery ?](#what-is-openid-connect-discovery-)
-    - [Issuer discovery](#issuer-discovery)
-    - [Expose metadata](#expose-metadata)
+- [Discover OpenID Provider's issuer location.](#issuer-discovery)
+- [Expose OpenID Provider's metadata configurations.](#expose-metadata) 
 
 ### Issuer discovery
 

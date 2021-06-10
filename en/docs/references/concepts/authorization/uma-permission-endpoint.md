@@ -66,7 +66,7 @@ If the permission request is authenticated successfully, but fails due to some o
     Content-Type:  application/json
     ...
     {                           
-    "ticket":"016f84e8-f9b9-11e0-bd6f-0021cc6004de"
+        "ticket":"016f84e8-f9b9-11e0-bd6f-0021cc6004de"
     }
     ```
     ---

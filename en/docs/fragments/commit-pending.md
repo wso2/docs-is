@@ -14,7 +14,7 @@
     -Dndatasource.disable.rollbackOnReturn=true \
     ```
 
-1. 	Navigate to the
+3. 	Navigate to the
     `               <IS_HOME>/repository/conf/deployment.toml              `
     file.
 

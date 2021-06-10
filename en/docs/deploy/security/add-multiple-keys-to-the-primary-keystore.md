@@ -50,7 +50,7 @@ Follow the steps below to add new keys to the **super tenant**:
 			alias= "newKey"
 			```
 
-1. Restart WSO2 Identity Server.
+4. Restart WSO2 Identity Server.
 
 ---
 

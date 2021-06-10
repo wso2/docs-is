@@ -3,10 +3,9 @@
 Specifying any of the following ` response_type ` values
 in an authorization request selects the hybrid flow for authentication:
 
-- [OpenID Connect Hybrid Flow](#openid-connect-hybrid-flow)
-  - [code token](#code-token)
-  - [code id_token](#code-id_token)
-  - [code id_token token](#code-id_token-token)
+- [code token](#code-token)
+- [code id_token](#code-id_token)
+- [code id_token token](#code-id_token-token)
 
 To understand how the ` response_type ` value specified
 in an authorization request selects the hybrid flow to be the

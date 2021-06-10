@@ -64,12 +64,12 @@ encrypted values.
     ``` java
     public class HardCodedSecretCallbackHandler extends AbstractSecretCallbackHandler {
         protected void handleSingleSecretCallback(SingleSecretCallback singleSecretCallback) {
-             if("foo".equals(singleSecretCallback.getId())){
+            if("foo".equals(singleSecretCallback.getId())){
                 singleSecretCallback.setSecret("foo_password");
-             } else if("bar".equals(singleSecretCallback.getId())){
+            } else if("bar".equals(singleSecretCallback.getId())){
                 singleSecretCallback.setSecret("bar_password");
-               }
-       }
+            }
+        }
     }
     ```
 
