@@ -306,7 +306,7 @@ window.addEventListener("hashchange", function () {
     window.scrollTo(window.scrollX, window.scrollY - 40, 'smooth');
 });
 
-// Preserving scroll position of the left nav on reload or switching pages
+// Preserving scroll position of the left nav on reload or switching pages.
 let timer = null;
 var leftSidebarScrollPos = 0;
 var leftSidebar = document.querySelector(".md-sidebar--primary > .md-sidebar__scrollwrap");
@@ -317,12 +317,12 @@ leftSidebar.addEventListener('scroll', (function (e) {
     },100)
 }));
 
-// Saving the scroll position in session storage
+// Saving the scroll position in session storage.
 window.onbeforeunload = function () {
     sessionStorage.clear("navScrollPos");
     sessionStorage.setItem("navScrollPos", leftSidebarScrollPos);
 }
-// Retriving the scroll position on reload
+// Retriving the scroll position on reload.
 window.onload = function () {
     var prevScrollPos = parseInt(sessionStorage.getItem("navScrollPos"));
     if(prevScrollPos) {
