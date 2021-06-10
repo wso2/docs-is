@@ -20,7 +20,7 @@ and ends with successful deregistration.
 
 Given below is an example of the resource description.
 
-``` java
+```
 {  
    "resource_scopes":[  
       "view",
@@ -70,136 +70,141 @@ The authorization server must support performing the following five operations. 
 
 This operation adds a new resource to the authorization server using the POST method. If the request is successful, the resource is registered in the authorization server and the `201 (Created)` status message, which includes a location header and an `_id` parameter, is returned. A sample request and response are shown below.
 
-**Sample Request**
-```
-POST : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource HTTP/1.1 Content-Type: application/json
-Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
-...
-{  
-   "resource_scopes":[  
-      "read-public",
-      "post-updates",
-      "read-private",
-      "http://www.example.com/scopes/all"
-   ],
-   "icon_uri":"http://www.example.com/icons/photoAlbem.png",
-   "name":"PhotoAlbem",
-   "type":"http://www.example.com/rsrcs/socialstream/140-compatible"
-}
-```
-
-**Response**
-```
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: /resource/2292d2f5-df72-4c2e-a918-5ae18b900855
-...
-{  
-   "_id":"2292d2f5-df72-4c2e-a918-5ae18b900855",
-   "user_access_policy_uri":"http://as.example.com/rs/222/resource/KX3A-39WE/policy"
-}
-```
+!!! abstract ""
+    **Request**
+    ``` xml
+    POST : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource HTTP/1.1 Content-Type: application/json
+    Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
+    ...
+    {  
+        "resource_scopes":[  
+        "read-public",
+        "post-updates",
+        "read-private",
+        "http://www.example.com/scopes/all"
+        ],
+        "icon_uri":"http://www.example.com/icons/photoAlbem.png",
+        "name":"PhotoAlbem",
+        "type":"http://www.example.com/rsrcs/socialstream/140-compatible"
+    }
+    ```
+    ---
+    **Response**
+    ``` xml
+    HTTP/1.1 201 Created
+    Content-Type: application/json
+    Location: /resource/2292d2f5-df72-4c2e-a918-5ae18b900855
+    ...
+    {  
+        "_id":"2292d2f5-df72-4c2e-a918-5ae18b900855",
+        "user_access_policy_uri":"http://as.example.com/rs/222/resource/KX3A-39WE/policy"
+    }
+    ```
 
 ### Read a resource description
 
 This operation reads the previously registered resource description using the GET method. If the request is successful, the response returns the `200 (OK)` status message with a body that contains the referenced resource description along with an `_id` parameter. A sample request and response are shown below.
 
-**Sample Request**
-```
-GET: https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource/2292d2f5-df72-4c2e-a918-5ae18b900855 
-HTTP/1.1 Content-Type: application/json Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
-```
-
-**Response**
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-...
-{  
-   "_id":"2292d2f5-df72-4c2e-a918-5ae18b900855",
-   "resource_scopes":[  
-      "read-public",
-      "post-updates",
-      "read-private",
-      "http://www.example.com/scopes/all"
-   ],
-   "icon_uri":"http://www.example.com/icons/PhotoAlbem.png",
-   "name":"PhotoAlbem",
-   "type":"http://www.example.com/rsrcs/socialstream/140-compatible"
-}
-```
+!!! abstract ""
+    **Request**
+    ``` xml
+    GET: https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource/2292d2f5-df72-4c2e-a918-5ae18b900855 
+    HTTP/1.1 Content-Type: application/json Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
+    ```
+    ---
+    **Response**
+    ``` xml
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+    ...
+    {  
+    "_id":"2292d2f5-df72-4c2e-a918-5ae18b900855",
+    "resource_scopes":[  
+        "read-public",
+        "post-updates",
+        "read-private",
+        "http://www.example.com/scopes/all"
+    ],
+    "icon_uri":"http://www.example.com/icons/PhotoAlbem.png",
+    "name":"PhotoAlbum",
+    "type":"http://www.example.com/rsrcs/socialstream/140-compatible"
+    }
+    ```
 
 ### Update a resource description
 
 This operation updates the resource description. It replaces the previous description with the new description using the PUT method. If the request is successful, it returns `200 (OK)` as the response from the authorization server and it includes the `_id` parameter. A sample response is shown below.
 
-**Sample Request**
-```
-PUT : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource/
-2292d2f5-df72-4c2e-a918-5ae18b900855
-HTTP/1.1 Content-Type: application/json
-Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
-...
-{  
-   "resource_scopes":[  
-      "http://photoz.example.com/dev/scopes/view",
-      "public-read"
-   ],
-   "description":"Collection of digital photographs",
-   "icon_uri":"http://www.example.com/icons/nature.png",
-   "name":"Photo Album 90",
-   "type":"http://www.example.com/rsrcs/photoalbum90"
-}
-```
-
-**Response**
-```
-HTTP/1.1 200 OK
-...
-{  
-   "_id":"2292d2f5-df72-4c2e-a918-5ae18b900855"
-}
-```
+!!! abstract ""
+    **Request**
+    ``` xml
+    PUT : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource/
+    2292d2f5-df72-4c2e-a918-5ae18b900855
+    HTTP/1.1 Content-Type: application/json
+    Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
+    ...
+    {  
+        "resource_scopes":[  
+            "http://photoz.example.com/dev/scopes/view",
+            "public-read"
+        ],
+        "description":"Collection of digital photographs",
+        "icon_uri":"http://www.example.com/icons/nature.png",
+        "name":"Photo Album 90",
+        "type":"http://www.example.com/rsrcs/photoalbum90"
+    }
+    ```
+    ---
+    **Response**
+    ``` xml
+    HTTP/1.1 200 OK
+    ...
+    {  
+        "_id":"2292d2f5-df72-4c2e-a918-5ae18b900855"
+    }
+    ```
 
 ### Delete a resource description
 
 This operation removes a previously registered resource and its information. If the request is successful, the authorization server responds with an `HTTP 200` or `204` status message.
 
-**Sample Request**
-```
-DELETE : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource/
-2292d2f5-df72-4c2e-a918-5ae18b900855
-HTTP/1.1 Content-Type: application/json Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
-```
-
-**Response**
-```
-HTTP/1.1 204 No content
-...
+!!! abstract ""
+    **Request**
+    ``` xml
+    DELETE : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource/
+    2292d2f5-df72-4c2e-a918-5ae18b900855
+    HTTP/1.1 Content-Type: application/json Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
+    ```
+    ---
+    **Response**
+    ``` xml
+    HTTP/1.1 204 No content
+    ...
 ```
 
 ### List resource descriptions
 
 This operation lists down all the resources of a specific resource owner using the GET method. If the request is successful, a response in string array format is returned. A sample request and response are shown below.
 
-**Sample Request**
-```
-GET : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource
-HTTP/1.1 Content-Type: application/json
-Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
-```
-
-**Response**
-```
-HTTP/1.1 200 OK
-...
-[  
-   "2292d2f5-df72-4c2e-a918-5ae18b900855",
-   "d163001d-e8ec-4b11-b89e-7c5d891e878e",
-   "3a62e677-4bd9-4dfb-87b6-c305ec17b339",
-   "763bc9cf-3753-44e8-ba86-389b9913f971"
-]
-```
+!!! abstract ""
+    **Request**
+    ``` xml
+    GET : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource
+    HTTP/1.1 Content-Type: application/json
+    Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
+    ```
+    ---
+    **Response**
+    ``` xml
+    HTTP/1.1 200 OK
+    ...
+    [  
+        "2292d2f5-df72-4c2e-a918-5ae18b900855",
+        "d163001d-e8ec-4b11-b89e-7c5d891e878e",
+        "3a62e677-4bd9-4dfb-87b6-c305ec17b339",
+        "763bc9cf-3753-44e8-ba86-389b9913f971"
+    ]
+    ```
 
 ----
 

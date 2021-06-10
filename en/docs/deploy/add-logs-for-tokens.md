@@ -47,13 +47,15 @@ To start the server and pass the parameter, navigate to the
 `         <IS_HOME>/bin        ` folder in the command line and run the
 following command.
 
-``` bash tab="Startup command"
+**Startup command**
+``` bash
 sh wso2server.sh -DRead_Log_Token_Properties=true
 ```
 
 To add the parameter to the environment variable, use the following
 command and then [start the server](../../../deploy/get-started/run-the-product/).
 
-``` bash tab="Exporting to the Java environment variable"
+**Exporting to the Java environment variable**
+``` bash
 export JAVA_OPTS=-DRead_Log_Token_Properties=true
 ```

@@ -18,19 +18,25 @@ The diagram below illustrates the implicit grant flow.
 
 One of the following cURL commands can be used to try this grant type.
 
-``` java tab="Request 1"
-curl -v -X POST -H "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
-```
-
-``` java tab="Request 2"
-curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
-```
-
-You will receive a response similiar to the format below.
-
-``` java
-{"token_type":"Bearer","expires_in":2061,"access_token":"ca19a540f544777860e44e75f605d927"}
-```
+!!! abstract ""
+    **Request 1**
+    ``` java
+    curl -v -X POST -H "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
+    ```
+    ---
+    **Request 2**
+    ``` java
+    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
+    ```
+    ---
+    You will receive a response similiar to the format below.
+    ```
+    {
+        "token_type":"Bearer",
+        "expires_in":2061,
+        "access_token":"ca19a540f544777860e44e75f605d927"
+    }
+    ```
 
 !!! info "Support for refresh token grant"
     This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the [refresh token grant](refresh-token-grant.md).

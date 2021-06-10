@@ -25,7 +25,7 @@ own sets of users.
 The following diagram depicts the architecture of the Identity Server
 and the various processes that take place within it.
 
-![architecture-diagram](../../../assets/img/get-started/architecture-diagram.png)
+![architecture-diagram](../../assets/img/get-started/architecture-diagram.png)
 
 Watch the following video for a quick overview of the process flow of
 the Identity Server architecture and how the various components interact

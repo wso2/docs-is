@@ -1,10 +1,13 @@
 1.	Navigate to either one of the following locations based on your OS.
 
-        -   On Linux/Mac OS:
-            `                 <IS_HOME>/bin/wso2server.sh/                `
-        -   On Windows:
-            `                 <IS_HOME>\bin\wso2server.bat                `
-            
+    ```tab="Linux/Mac OS"
+    <IS_HOME>/bin/wso2server.sh/ 
+    ```
+
+    ```tab="Windows"
+    <IS_HOME>\bin\wso2server.bat 
+    ```
+
 2.	Add the following JVM option:
 
     ``` java

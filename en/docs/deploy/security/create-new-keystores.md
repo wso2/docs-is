@@ -17,9 +17,11 @@ There are two ways to create keystores for WSO2 Identity Server. You can either 
 !!! note "Important"
     If you are creating a new keystore for [data encryption](../../../deploy/security/encrypt-passwords-with-cipher-tool), make sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in [recommendations for setting up keystores](../../../deploy/security/use-asymmetric-encryption#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
     
-    ``` java tab="Error"
-    Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200)... 1 more
-    ```
+    !!! danger ""
+        **Error**
+        ``` java
+        Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200)... 1 more
+        ```
     
 
 ### Create a keystore using an existing certificate
@@ -126,11 +128,13 @@ Follow the steps given below to import the CA-signed certificate to your keystor
 
 1.  To add the root CA certificate and the two (related) intermediate certificates, execute the following commands. 
 
-    ``` java tab="Example"
-    keytool -import -v -trustcacerts -alias ExternalCARoot -file AddTrustExternalCARoot.crt -keystore newkeystore.jks -storepass mypassword
-    keytool -import -v -trustcacerts -alias TrustCA -file COMODORSAAddTrustCA.crt -keystore newkeystore.jks -storepass mypassword
-    keytool -import -v -trustcacerts -alias SecureServerCA -file COMODORSADomainValidationSecureServerCA.crt -keystore newkeystore.jks -storepass mypassword 
-    ```
+    !!! abstract ""
+        **Example**
+        ``` java
+        keytool -import -v -trustcacerts -alias ExternalCARoot -file AddTrustExternalCARoot.crt -keystore newkeystore.jks -storepass mypassword
+        keytool -import -v -trustcacerts -alias TrustCA -file COMODORSAAddTrustCA.crt -keystore newkeystore.jks -storepass mypassword
+        keytool -import -v -trustcacerts -alias SecureServerCA -file COMODORSADomainValidationSecureServerCA.crt -keystore newkeystore.jks -storepass mypassword 
+        ```
 
     !!! tip
         You may append the `-storepass <keystore password>` option to avoid entering the password when prompted later in the interactive mode.

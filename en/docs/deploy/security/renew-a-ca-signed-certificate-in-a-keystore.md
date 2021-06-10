@@ -73,9 +73,11 @@ Depending on the type of keystore you have, follow one of the steps below to gen
     
         Following is a sample keytool command that includes a SAN:
     
-        ``` java tab="Example"
-        keytool -certreq -alias test -file test.csr -keystore test.jks -ext SAN=dns:test.example.com
-        ```
+        !!! abstract ""
+            **Example**
+            ``` java
+            keytool -certreq -alias test -file test.csr -keystore test.jks -ext SAN=dns:test.example.com
+            ```
     
 
 -   **If you have the private key and public key**, execute the following command:

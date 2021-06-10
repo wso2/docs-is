@@ -25,60 +25,61 @@ This API creates a permission ticket using the POST HTTP method. 
 
 The Protection API Access Token (PAT) provided in the request header is used by the authorization server to identify the relevant resource owner and resource server.
 
-A sample request is provided below.
-```
-POST https://localhost:9443/api/identity/oauth2/uma/permission/v1.0/permission 
-Content-Type:  application/json
-Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
-...
-[
-   {
-      "resource_id":"238157ba-06f4-4730-8492-86e35f5b2b7d",
-      "resource_scopes":[
-         "view",
-         "crop",
-         "lightbox"
-      ]
-   },
-   {
-      "resource_id":"238157ba-06f4-4730-8492-86e35f8b2b32",
-      "resource_scopes":[
-         "view",
-         "layout",
-         "print"
-      ]
-   },
-   {
-      "resource_id":"238157ba-06f4-8676-8492-86e35f5b2b7d",
-      "resource_scopes":[
-         "http://www.example.com/scopes/all"
-      ]
-   }
-]
-```
-
-If the permission request is successful, the authorization server sends a permission ticket in the success response as shown below.
-
-```
-HTTP/1.1          201     Created
-Content-Type:  application/json
-...
-{                           
-  "ticket":"016f84e8-f9b9-11e0-bd6f-0021cc6004de"
-}
-```
-
 If the permission request is authenticated successfully, but fails due to some other reason, you would receive a failed response similar to the one shown below.
 
-```
-HTTP/1.1          400     Bad    Request
-Content-Type:  application/json
-...
-{
-   "error":"invalid_resource_id",
-   "error_description":"Permission request failed with bad resource ID."
-}
-```
+!!! abstract ""
+    **Request**
+    ``` xml
+    POST https://localhost:9443/api/identity/oauth2/uma/permission/v1.0/permission 
+    Content-Type:  application/json
+    Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
+    ...
+    [
+        {
+        "resource_id":"238157ba-06f4-4730-8492-86e35f5b2b7d",
+        "resource_scopes":[
+            "view",
+            "crop",
+            "lightbox"
+        ]
+        },
+        {
+        "resource_id":"238157ba-06f4-4730-8492-86e35f8b2b32",
+        "resource_scopes":[
+            "view",
+            "layout",
+            "print"
+        ]
+        },
+        {
+        "resource_id":"238157ba-06f4-8676-8492-86e35f5b2b7d",
+        "resource_scopes":[
+            "http://www.example.com/scopes/all"
+        ]
+        }
+    ]
+    ```
+    ---
+    **Successful Response**
+    ``` xml
+    HTTP/1.1          201     Created
+    Content-Type:  application/json
+    ...
+    {                           
+        "ticket":"016f84e8-f9b9-11e0-bd6f-0021cc6004de"
+    }
+    ```
+    ---
+    **Failed Response**
+    ``` xml
+    HTTP/1.1          400     Bad    Request
+    Content-Type:  application/json
+    ...
+    {
+        "error":"invalid_resource_id",
+        "error_description":"Permission request failed with bad resource ID."
+    }
+    ```
 
 ----
 
