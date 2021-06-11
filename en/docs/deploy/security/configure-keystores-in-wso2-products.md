@@ -1,11 +1,11 @@
 # Configure Keystores
 
-After you have [created a new keystore and updated the `client-truststore.jks` file](../../../develop/security/create-new-keystores), you must update a few configuration files in order to make the keystores work. Note that keystores are used for multiple functions in WSO2 Identity Server, which includes authenticating communication over SSL/TLS, encrypting pass words and other confidential information in configuration files etc. Therefore, you must update the specific configuration files with the updated keystore information. For example, you may have separate keystores for the purpose of encrypting
+After you have [created a new keystore](../../../deploy/security/create-new-keystores) and updated the `client-truststore.jks` file, you need to update a few configuration files in order to make the keystores work. Note that keystores are used for multiple functions in WSO2 Identity Server, which includes authenticating communication over SSL/TLS, encrypting passwords, and other confidential information in configuration files, etc. Therefore, you must update the specific configuration files with the updated keystore information. For example, you may have separate keystores for the purpose of encrypting
 passwords in configuration files, and for authenticating communication over SSL/TLS.
 
 The `wso2carbon.jks` keystore file, which is shipped with WSO2 Identity Server, is used as the default keystore for all functions. However, in a production environment, it is recommended to create new keystores with new keys and certificates.
     
-!!! tip "Before you begin" 
+!!! info "Before you begin" 
 
     1.  Make sure to go through the [recommendations for setting up keystores](../../../deploy/security/use-asymmetric-encryption#recommendations-for-setting-up-keystores) to understand the various keystores you will need.
 
@@ -19,20 +19,20 @@ The `wso2carbon.jks` keystore file, which is shipped with WSO2 Identity Server, 
 
     The WSO2 Identity Server keystore is located at `<IS_HOME>/repository/resources/security/wso2carbon.jks` while the default trust-store is at `<IS_HOME>/repository/resources/security/client-truststore.jks`. This can be configured by specifying it in the `deployment.toml` file that is stored in the `<IS_HOME>/repository/conf/` directory. This keystore is used for the following functions in WSO2 Identity Server by default.
 
--   **Encrypting/decrypting** passwords and other confidential information, which are maintained in various configuration files as well as internal data stores. Note that you also have the option of
-    [separating the keystore for encrypting information in internal data stores](#configure-a-separate-keystore-for-encrypting-data-in-internal-data-stores).
+-   **Encrypting/decrypting** passwords and other confidential information, which are maintained in various configuration files as well as internal datastores. Note that you also have the option of
+    [separating the keystore for encrypting information in internal datastores](#configure-a-separate-keystore-for-encrypting-data-in-internal-data-stores).
 -   **Signing messages** when WSO2 Identity Server communicates with external parties (such SAML, OIDC id_token signing). 
 
 ---
 
-## Configure a separate keystore for encrypting data in internal data stores
+## Configure a separate keystore for encrypting data in internal datastores
 
 !!! info 
-    This is available as part of the newly introduced Crypto Service. It is an extensible framework that facilitates the cryptography needs of WSO2 Identity Server.
+    This is available as part of the Crypto Service. It is an extensible framework that facilitates the cryptography needs of WSO2 Identity Server.
 
-Currently, the primary keystore configured in `deployment.toml` is used for internal data encryption (encrypting data in internal data stores and configuration files) as well as for signing messages that are communicated with external parties. However, it is sometimes a common requirement to have separate keystores for communicating messages with external parties (such SAML, OIDC id_token signing) and for encrypting information in internal data stores. This is because, for the first scenario of signing messages, the keystore certificates need to be frequently renewed. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes.
+Currently, the primary keystore configured in `deployment.toml` is used for internal data encryption (encrypting data in internal datastores and configuration files) as well as for signing messages that are communicated with external parties. However, it is sometimes a common requirement to have separate keystores for communicating messages with external parties (such SAML, OIDC id_token signing) and for encrypting information in internal datastores. This is because, for the first scenario of signing messages, the keystore certificates need to be frequently renewed. However, for encrypting information in internal datastores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes.
 
-This feature allows you to create a separate keystore for encrypting data in internal data stores. Follow the instructions given below.
+This feature allows you to create a separate keystore for encrypting data in internal datastores. Follow the instructions given below.
 
 !!! warning
     Using a totally new keystore for internal data encryption in an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
@@ -69,7 +69,7 @@ certificateKeyAlias = "$ref{keystore.tls.alias}"
 certificateKeyPassword = "$ref{keystore.tls.key_password}"
 ```
   
-The internally used following trust-store configurations can be changed to define a custom trus-store for SSL validations.
+The internally used trust-store configurations given below can be changed to define a custom truststore for SSL validations.
 
 ```toml
 [transport.https.sslHostConfig.properties]

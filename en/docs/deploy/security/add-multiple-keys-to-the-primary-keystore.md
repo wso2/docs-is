@@ -4,14 +4,14 @@ WSO2 Identity Server enables adding multiple keys to the primary keystore. Let's
 
 ## Add new keys
 
-Follow the steps below to add new keys to the **super tenant**: 
+Follow the steps below to add new keys to the **super tenant** 
 
 1. 	Locate the `wso2carbon.jks` file in the `<IS_HOME>/repository/resources/security` directory in a command prompt. 
 
 	!!! info 
-		wso2carbon is the default keystore. To learn how to change the default keystore see, [Creating New Keystores](../../../deploy/security/create-new-keystores) and [Configuring Keystores](../../../deploy/security/configure-keystores-in-wso2-products).
+		wso2carbon is the default keystore. To learn how to change the default keystore, see [Create New Keystores](../../../deploy/security/create-new-keystores) and [Configure Keystores](../../../deploy/security/configure-keystores-in-wso2-products).
 
-2.	To generate the new keys and add them to the keystore. 
+2.	Follow the steps given below to generate the new keys and add them to the keystore. 
 
 	1.	Navigate to the `<IS_HOME>/repository/resources/security` directory on a command prompt. 
 
@@ -35,9 +35,9 @@ Follow the steps below to add new keys to the **super tenant**:
 		If you are planning to delete the newly-added keys in the future, it is recommended to maintain separate keystores for internal and external encryption purposes.
 
 	!!! note
-		Make sure to use the same password for all the keys and add it to the `Password` parameter under the `[keystore.tls]` element in the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
+		Make sure to use the same password for all the keys and add it to the `Password` parameter under the `[keystore.tls]` element in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-3.	To set the newly-added key as the primary encrypting and signing key:
+3.	Follow the instructions given below to set the newly-added key as the primary encrypting and signing key:
 
 	1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
@@ -56,7 +56,7 @@ Follow the steps below to add new keys to the **super tenant**:
 
 ## View private keys via management console
 
-Follow the steps below to view the private keys via [Management Console](../../../deploy/get-started/get-started-with-the-management-console/):
+Follow the steps below to view the private keys via the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 <ol>
 	<li>
