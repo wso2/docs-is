@@ -44,7 +44,7 @@ Any user management system has the following basic components:
 The following diagram illustrates how the user management functionality
 is structured to work in WSO2 Identity Server:
 
-![user-management](../../../assets/img/get-started/user-management.png)
+![User management](../../../assets/img/get-started/user-management.png)
 
 -   **Userstores:** A userstore is the database where information
     about the users and user roles is stored, including log-in name,
@@ -103,6 +103,6 @@ is structured to work in WSO2 Identity Server:
     
 
 !!! info "Related Topic"
-    -   [Configure the Realm](../../../deploy/configure-the-realm/)
-    -   [Configure Users](../../../guides/identity-lifecycles/manage-user-overview)
-    -   [Configure Roles and Permissions](../../../guides/identity-lifecycles/manage-roles-overview/)
+    -   [Configure the Realm](../../deploy/configure-the-realm/)
+    -   [Configure Users](../../guides/identity-lifecycles/manage-user-overview)
+    -   [Configure Roles and Permissions](../../guides/identity-lifecycles/manage-roles-overview/)
