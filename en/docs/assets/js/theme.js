@@ -329,3 +329,15 @@ window.onload = function () {
         leftSidebar.scrollTop = prevScrollPos;
     }
 }
+
+// Offsetting the scroll in anchors to compensate for the secondary header (tabs).
+window.onload = function () {
+    var targetHash = window.location.hash;
+    var offset = 50;
+    // If coming from an external link, the hash value will be there in the URL.
+    if (targetHash) {
+        var targetElement = document.querySelector(targetHash);
+        // Scroll to the target element with the offset value set above.
+        window.scroll({top: (targetElement.offsetTop - offset), left: 0, behavior: "smooth"});
+    }
+}
