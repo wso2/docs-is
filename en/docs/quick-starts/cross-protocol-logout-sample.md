@@ -10,6 +10,8 @@ If you have your own applications, click the button below.
 
 ----
 
+## Set up the samples
+
 {!fragments/pickup-dispatch-saml.md!}
 
 ----
@@ -39,8 +41,8 @@ You have successfully tried out cross-protocol logout between a SAML application
 ----
 
 !!! info "Related topics"
-    - [Guide: Cross-Protocol Logout](../../../guides/login/cross-protocol-logout)
-    - [Guide: Single Sign-On](../../../guides/login/enable-single-sign-on)
+    - [Guide: Cross-Protocol Logout](../../guides/login/cross-protocol-logout)
+    - [Guide: Single Sign-On](../../guides/login/enable-single-sign-on)
     - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)
     - [Guide: SAML Back-Channel Logout](../saml-back-channel-logout)
-    - [Guide: OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout/)
+    - [Guide: OpenID Connect Back-Channel Logout](../../guides/login/oidc-backchannel-logout/)

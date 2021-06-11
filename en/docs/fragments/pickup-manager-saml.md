@@ -7,11 +7,11 @@
 ### Register a service provider
 
 
-1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+1.  Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
 
-3.  Enter **saml2-web-app-pickup-manager** in the **Service Provider Name** text box,
+3.  Enter `saml2-web-app-pickup-manager` in the **Service Provider Name** text box,
     and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
@@ -24,7 +24,7 @@
         2.  **Assertion Consumer URL** :
             `                               http://localhost.com:8080/saml2-web-app-pickup-manager.com/home.jsp`                        
                  
-            Click Yes, in the message that appears.
+            Click **Yes**, in the message that appears.
 
     2.  Select the following check-boxes:
         1.  **Enable Response Signing**
@@ -40,7 +40,7 @@
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced)
+        refer, [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced).
 
 5.  Click **Register** to save the changes.  
 
