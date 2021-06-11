@@ -342,3 +342,4 @@ window.onload = function () {
         window.scroll({top: (targetElement.offsetTop - offset), left: 0, behavior: "smooth"});
     }
 }
+
