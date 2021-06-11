@@ -1720,11 +1720,6 @@ h5 {
     border-bottom: 3px solid #ff7300;
 }
 
-/* custom CSS for code snippets inside admonitions */
-/* .admonition > .codehilite {
-    background-color: #fff !important;
-} */
-
 .admonition > .codehilite > .md-clipboard:before {
     color: #adadad;
 }
