@@ -50,7 +50,7 @@ Following is the hashing feature supported for personal data.
 -   User credentials
 
 GDPR also mandates processing organizations to make sure only authorized
-people on a “need-to-know” basis can access the user profile data of other individuals. Access control features supported in WSO2
+people on a need-to-know basis can access the user profile data of other individuals. Access control features supported in WSO2
 IS such as role-based access control (RBAC) and attribute-based access control can be used to cater to this requirement.
 
 ---
