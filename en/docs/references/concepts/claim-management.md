@@ -45,7 +45,7 @@ application as it is hidden by the claim management.
     console](../../../deploy/get-started/get-started-with-the-management-console) are not seen by
     a newly created tenant as the [User
     Realm](../../../deploy/configure-the-system-administrator) is always built using the
-    configuration found in the claim-config.xml file. So the recommended
+    configuration found in the `claim-config.xml` file. So the recommended
     approach is to do the claim mapping in the
     `<IS_HOME>/repository/conf/claim-config.xml` file.
     However, you must note that the `claim-config.xml` file is only read
