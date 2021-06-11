@@ -18,7 +18,7 @@ related to the street address, username, email, first name, and more.
 An identity claim is a special claim related to identity management. It
 can be used to specify information about the user account or the state
 of a user account such as the `lastLoginTime`, `accountDisabled`, and
-accountLocked claims. Identity claims are identified by the claim URI.
+`accountLocked` claims. Identity claims are identified by the claim URI.
 All identity claims have the term "identity" appended to the claim URI
 as follows:
 `http://wso2.org/claims/identity/accountDisabled`
