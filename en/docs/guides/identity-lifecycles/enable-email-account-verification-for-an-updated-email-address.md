@@ -74,13 +74,16 @@ This feature can also be invoked via a PUT/PATCH request to SCIM 2.0 /Users endp
 
 Given below is a sample request and the relevant response for updating the email address via a PATCH operation to SCIM 2.0 Users endpoint.
 
-```curl tab="Request"
-curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], "Operations":[{"op":[operation], "value":{ "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {"verifyEmail": [true/false]}, "emails":[{"primary":true, "value":[new email]}]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[user ID]
-```
-
-```curl tab="Example" 
-curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], "Operations":[{"op":"replace","value":{ "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {"verifyEmail": "true"}, "emails":[{"primary":true,"value":"kim.jackson.new@gmail.com"}]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
-```
+!!! abstract ""
+    **Request**
+    ```
+    curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], "Operations":[{"op":[operation], "value":{ "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {"verifyEmail": [true/false]}, "emails":[{"primary":true, "value":[new email]}]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[user ID]
+    ```
+    ---
+    **Example**
+    ```curl
+    curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], "Operations":[{"op":"replace","value":{ "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {"verifyEmail": "true"}, "emails":[{"primary":true,"value":"kim.jackson.new@gmail.com"}]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
+    ```
 
 **Sample Response**
 
@@ -143,13 +146,16 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 
 **Sample**
 
-```curl tab="Request"
-curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"EMAIL_VERIFICATION_ON_UPDATE"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
-```
-
-```curl tab="Response"
-HTTP/1.1 201 Created
-```
+!!! abstract ""
+    **Request**
+    ```
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"EMAIL_VERIFICATION_ON_UPDATE"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
+    ```
+    ---
+    **Response**
+    ```curl
+    HTTP/1.1 201 Created
+    ```
 
 !!! info "Related topics"
     See [Using the SCIM 2.0 Rest APIs](../../../develop/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.

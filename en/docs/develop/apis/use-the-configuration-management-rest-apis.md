@@ -104,13 +104,20 @@ To store the SMTP email configuration, follow the steps given below:
         type](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/index.html#!/operations#ResourceType#resourceTypePost)
         API.
 
-        ``` groovy tab="Sample Request"
-        curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource-type -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"name": "e-mail", "description": "This is the resource type for email resources."}'
-        ```
-
-        ``` groovy tab="Sample Response"
-        {"name":"e-mail","id":"0adbdfad-5f4f-4c11-af75-9ed3e93647b9","description":"This is the resource type for email resources."}
-        ```
+        !!! abstract ""
+            **Sample request**
+            ``` groovy
+            curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource-type -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"name": "e-mail", "description": "This is the resource type for email resources."}'
+            ```
+            ---
+            **Sample response**
+            ```
+            {
+                "name":"e-mail",
+                "id":"0adbdfad-5f4f-4c11-af75-9ed3e93647b9",
+                "description":"This is the resource type for email resources."
+            }
+            ```
 
     2.  Create a resource named "smtp" in the super tenant domain under
         the "email" resource type using the [Create
@@ -120,29 +127,41 @@ To store the SMTP email configuration, follow the steps given below:
         attribute named "from" will be created under the "smtp" resource
         as well.
 
-        ``` groovy tab="Sample Request"
-        curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"name": "smtp","attributes": [{"key": "from","value": "admin@wso2.com"}]}'
-        ```
-
-        ``` groovy tab="Sample Response"
-        {"resourceId":"6e45c661-7671-4ee9-805c-8d3d1df46cbc","tenantDomain":"carbon.super","resourceName":"smtp","resourceType":"e-mail","lastModified":"2019-02-07T09:30:12.963Z","created":"2019-02-07T09:30:12.963Z","attributes":[{"key":"from","value":"admin@wso2.com"}],"files":[]}
-        ```
+        !!! abstract ""
+            **Sample request**
+            ```
+            curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"name": "smtp","attributes": [{"key": "from","value": "admin@wso2.com"}]}'
+            ```
+            ---
+            **Sample response**
+            ```
+            {
+                "resourceId":"6e45c661-7671-4ee9-805c-8d3d1df46cbc",
+                "tenantDomain":"carbon.super","
+                resourceName":"smtp",
+                "resourceType":"e-mail",
+                "lastModified":"2019-02-07T09:30:12.963Z",
+                "created":"2019-02-07T09:30:12.963Z",
+                "attributes":[{"key":"from","value":"admin@wso2.com"}],
+                "files":[]
+            }
+            ```
         
     3.  Create a file named `EmailPublisher` under resource `smtp` and resource type `email` by using following curl 
         command.
 
-        **Sample Request**
-        
-        ``` groovy 
-        curl -X POST "https://localhost:9443/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource/Publisher/EmailPublisher/file" -H 'Authorization: Basic YWRtaW46YWRtaW4='  -H "accept: application/json" -H 
-        "Content-Type: multipart/form-data" -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "file-name=EmailPublisher"
-        ```
-
-        **Sample Response**
-         
-         | Header   |Value                                                          |
-         |----------|----------------------------------------------------------------------|
-         | location |`https://localhost:9443/api/identity/config-mgt/v1.0/resource/email/smtp/file/dbcf0a4f-9b27-4b5b-8d16-330752d0d905` |
+        !!! abstract ""
+            **Sample request**
+            ``` groovy 
+            curl -X POST "https://localhost:9443/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource/Publisher/EmailPublisher/file" -H 'Authorization: Basic YWRtaW46YWRtaW4='  -H "accept: application/json" -H 
+            "Content-Type: multipart/form-data" -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "file-name=EmailPublisher"
+            ```
+            ---
+            **Sample response**
+            
+            | Header   |Value                                                          |
+            |----------|----------------------------------------------------------------------|
+            | location |`https://localhost:9443/api/identity/config-mgt/v1.0/resource/email/smtp/file/dbcf0a4f-9b27-4b5b-8d16-330752d0d905` |
 
 3.  Next, assume that you now need to add an additional attribute named
     "to" to the "smtp" email configuration. To do this, create a new
@@ -150,13 +169,16 @@ To store the SMTP email configuration, follow the steps given below:
     attribute](https://docs.wso2.com/display/IS511/apidocs/Configuration-management-apis/index.html#!/operations#Attribute#resourceResourceTypeResourceNamePost)
     API by running the following command on the terminal.
 
-    ``` groovy tab="Sample Request"
-    curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail/smtp -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"key": "to", "value": "abc.com"}'
-    ```
-
-    ``` groovy tab="Sample Response"
-    {"key":"to","value":"abc.com"}
-    ```
+    !!! abstract ""
+        **Sample request**
+        ``` groovy
+        curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail/smtp -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"key": "to", "value": "abc.com"}'
+        ```
+        ---
+        **Sample response**
+        ``` groovy
+        {"key":"to","value":"abc.com"}
+        ```
 
 4.  Once these steps are completed, the WSO2 IS instance calls the
     configuration manager to retrieve the SMTP email address using the
@@ -169,10 +191,25 @@ To store the SMTP email configuration, follow the steps given below:
     Run the following curl command to retrieve the 'smtp' resource that
     you created above.
 
-    ``` groovy tab="Sample Request"
-    curl -k -X GET https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail/smtp -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4='
-    ```
-
-    ``` groovy tab="Sample Response"
-    {"resourceId":"6e45c661-7671-4ee9-805c-8d3d1df46cbc","tenantDomain":"carbon.super","resourceName":"smtp","resourceType":"e-mail","lastModified":"2019-02-07T09:31:21.564Z","created":"2019-02-07T09:30:12.963Z","attributes":[{"key":"from","value":"admin@wso2.com"},{"key":"to","value":"abc.com"}],"files":[]}
-    ```
+    !!! abstract ""
+        **Sample request**
+        ``` groovy
+        curl -k -X GET https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail/smtp -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4='
+        ```
+        ---
+        **Sample response**
+        ```
+        {
+            "resourceId":"6e45c661-7671-4ee9-805c-8d3d1df46cbc",
+            "tenantDomain":"carbon.super",
+            "resourceName":"smtp",
+            "resourceType":"e-mail",
+            "lastModified":"2019-02-07T09:31:21.564Z",
+            "created":"2019-02-07T09:30:12.963Z",
+            "attributes":[
+                {"key":"from","value":"admin@wso2.com"},
+                {"key":"to","value":"abc.com"}
+            ],
+            "files":[]
+        }
+        ```

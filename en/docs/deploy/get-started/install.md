@@ -267,14 +267,14 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     echo $JAVA_HOME
 	```
     
-	```java	tab="OS X"    
+    ```java tab="OS X"
     which java
-	```
+    ```
 
     If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
     
-	```
-	ls -l `which java`
+    ```
+    ls -l `which java`
     ```
 
 5.  The system returns the JDK installation path.
@@ -449,13 +449,16 @@ want to restart it.
     `           <JDK_INSTALLATION_PATH>          ` is the JDK
     installation directory and press **Enter.**
     
-    ```java tab="Format" 
-    set JAVA_HOME=<JDK_INSTALLATION_PATH>
-    ```
-
-    ```java tab="Example"
-    set JAVA_HOME=c:/Program Files/java/jdk1.8.0_141
-    ```
+    !!! abstract ""
+        **Format**
+        ```java
+        set JAVA_HOME=<JDK_INSTALLATION_PATH>
+        ```
+        ---
+        **Example**
+        ```java
+        set JAVA_HOME=c:/Program Files/java/jdk1.8.0_141
+        ```
 
     The `JAVA_HOME variable is now set for the current CMD session only.
 

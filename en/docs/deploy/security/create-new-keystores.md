@@ -126,11 +126,13 @@ Follow the steps given below to import the CA-signed certificate to your keystor
 
 1.  To add the root CA certificate and the two (related) intermediate certificates, execute the following commands. 
 
-    ``` java tab="Example"
-    keytool -import -v -trustcacerts -alias ExternalCARoot -file AddTrustExternalCARoot.crt -keystore newkeystore.jks -storepass mypassword
-    keytool -import -v -trustcacerts -alias TrustCA -file COMODORSAAddTrustCA.crt -keystore newkeystore.jks -storepass mypassword
-    keytool -import -v -trustcacerts -alias SecureServerCA -file COMODORSADomainValidationSecureServerCA.crt -keystore newkeystore.jks -storepass mypassword 
-    ```
+    !!! abstract ""
+        **Example**
+        ``` java
+        keytool -import -v -trustcacerts -alias ExternalCARoot -file AddTrustExternalCARoot.crt -keystore newkeystore.jks -storepass mypassword
+        keytool -import -v -trustcacerts -alias TrustCA -file COMODORSAAddTrustCA.crt -keystore newkeystore.jks -storepass mypassword
+        keytool -import -v -trustcacerts -alias SecureServerCA -file COMODORSADomainValidationSecureServerCA.crt -keystore newkeystore.jks -storepass mypassword 
+        ```
 
     !!! tip
         You may append the `-storepass <keystore password>` option to avoid entering the password when prompted later in the interactive mode.

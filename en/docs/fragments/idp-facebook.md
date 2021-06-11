@@ -17,15 +17,15 @@
     <td>Client Id</td>
     <td><div class="content-wrapper">
     <p>This refers to the App ID you received from the Facebook app you created.</p>
-	<div class="admonition note">
-	<p class="admonition-title">Don't know the client ID? See more information</p>
+	<details class="note">
+	<summary>Don't know the client ID? Click here for more information.</summary>
 	<p><ol>
     <li>Go to <a href="https://developers.facebook.com/">https://developers.facebook.com/</a> and log in using your Facebook credentials.</li>
     <li>Click on your app from the <strong>My Apps</strong> drop-down list.<br />
     You are navigated to the <strong>Dashboard</strong> of the application. Note down the App ID and the App secret.</li>
     </ol>
-    <p><img src="../../../assets/img/tutorials/fb-app-on-dashboard.png"/></p>.</p>
-    </div>    
+    <p><img src="../../assets/img/guides/fb-app-on-dashboard.png" alt="Dashboard of the application in facebook"/></p></p>
+    </details>
     </td>
     <td><div class="content-wrapper">
     <p>&lt;Application ID of the Facebook App&gt;</p>

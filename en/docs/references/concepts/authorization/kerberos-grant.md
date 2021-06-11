@@ -36,23 +36,26 @@ Kerberos ticket for an OAuth2 token.
     You can use one of the following two cURL commands to request for
     the OAuth2 token.
 
-    ``` java tab="Request 1"
-    curl -v -X POST -H "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" -k -d "grant_type=kerberos&kerberos_realm=<KERBEROS_REALM>&kerberos_token=<KERBEROS_TOKEN>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
-    ```
-
-    ``` java tab="Request 2"
-    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=kerberos&kerberos_realm=<KERBEROS_REALM>&kerberos_token=<KERBEROS_TOKEN>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
-    ```
-
-    Response:
-    
-    ``` java
-    POST /oauth2/token HTTP/1.1
-    Host: idp.example.com:9443
-    Content-Type: application/x-www-form-urlencoded
-    Authorization: Basic MW91TDJmTzZTeGxmRDJMRHcxMjVjVG8wdlFrYTp1VUV0bTg5dFk2UVp1WlVtcVpmTDkyQkRGZUFh
-    grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1…
-    ```
+    !!! abstract ""
+        **Request 1**
+        ``` java
+        curl -v -X POST -H "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" -k -d "grant_type=kerberos&kerberos_realm=<KERBEROS_REALM>&kerberos_token=<KERBEROS_TOKEN>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
+        ```
+        ---
+        **Request 2**
+        ``` java
+        curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=kerberos&kerberos_realm=<KERBEROS_REALM>&kerberos_token=<KERBEROS_TOKEN>" -H "Content-Type:application/x-www-form-urlencoded" <TOKEN_ENDPOINT>
+        ```
+        ---
+        **Response**
+        
+        ``` java
+        POST /oauth2/token HTTP/1.1
+        Host: idp.example.com:9443
+        Content-Type: application/x-www-form-urlencoded
+        Authorization: Basic MW91TDJmTzZTeGxmRDJMRHcxMjVjVG8wdlFrYTp1VUV0bTg5dFk2UVp1WlVtcVpmTDkyQkRGZUFh
+        grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1…
+        ```
 
 4.  The Kerberos client receives the OAuth2 token. 
 
@@ -62,7 +65,7 @@ Kerberos ticket for an OAuth2 token.
 
     Example:
 
-    ``` java
+    ```
         {  
            "access_token":"636ce45f-c7f6-3a95-907f-d1f8aca28403",
            "refresh_token":"831271d9-16ba-3bad-af18-b9f6592a8677",

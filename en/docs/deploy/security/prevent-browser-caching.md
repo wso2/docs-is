@@ -41,8 +41,17 @@ Note that the applications that are included in the `/webapps` directory by defa
 
 For Jaggery-based applications (stored in the `<IS_HOME>/repository/deployment/server/jaggeryapps/` directory), either `URLBasedCachePreventionFilter` or `ContentTypeBasedCachePreventionFilter` should be available in the `jaggery.conf` file as shown below.
 
-
+```
 "filters":
-[{"name": "ContentTypeBasedCachePreventionFilter","class": "org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter","params":
- [{"name":"patterns","value":"text/html\",application/json\",plain/text"},{"name" : "filterAction","value":"enforce"},  {"name":"httpHeaders","value": "Cache-Control: no-store, no-cache, must-revalidate, private"}]        
-}],
+    [
+        {
+            "name": "ContentTypeBasedCachePreventionFilter",
+            "class": "org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter",
+            "params": [
+                {"name":"patterns","value":"text/html\",application/json\",plain/text"},
+                {"name" : "filterAction","value":"enforce"},
+                {"name":"httpHeaders","value": "Cache-Control: no-store, no-cache, must-revalidate, private"}
+            ]        
+        }
+    ],
+```

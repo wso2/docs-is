@@ -4,8 +4,8 @@
     
 2. Navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
 
-   <img src="../../../assets/img/fragments/add-identity-provider.png" width="300" alt="Add an identity provider option in Main menu" />
+    <img src="../../../assets/img/fragments/add-identity-provider.png" width="300" alt="Add an identity provider option in Main menu" />
 
 3. Enter an **Identity Provider Name**, **Display Name**, and **Description**.
 
-    ![register-identity-provider](../../../assets/img/fragments/register-identity-provider.png)
+    ![Identity provider basic information](../../../assets/img/fragments/register-identity-provider.png)

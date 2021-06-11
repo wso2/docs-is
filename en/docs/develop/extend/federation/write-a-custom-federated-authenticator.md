@@ -167,11 +167,11 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 2. Navigate to **Main** > **Identity** > **Service Providers** > **Add**.
 
-    ![add-service-provider](../../../assets/img/fragments/add-service-provider.png)
+    <img src="../../../../assets/img/fragments/add-service-provider.png" width="300" alt="Service provider option in Main menu" />
     
 3. Enter a **Service Provider Name**. Optionally, enter a **Description**.
 
-    ![register-service-provider](../../../assets/img/fragments/register-service-provider.png)
+    <img src="../../../../assets/img/fragments/register-service-provider.png" width="600" alt="Add new service provider basic information" />
     
 4. Click **Register**.    
    
@@ -202,7 +202,7 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 2. Navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
 
-    ![add-identity-provider](../../../assets/img/fragments/add-identity-provider.png)
+    <img src="../../../../assets/img/fragments/add-identity-provider.png" width="300" alt="Add an identity provider option in Main menu" />
 
 3. Provide the **Identity Provider Name**  as `Partner-Identity-Server`.
 
@@ -228,11 +228,25 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 {!fragments/register-a-service-provider.md!}
 
-{!fragments/oauth-app-config-basic.md!}
+Make the following changes to the created service provider.
+
+1. Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration** and click **Configure**.
+
+2. Enter the **Callback Url**. 
+
+    !!! note
+        The **Callback Url** is the exact location in the service provider's application to which an access token will be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
+
+3. Click **Add**. Note the **OAuth Client Key** and **OAuth Client Secret** that appear. 
+
+    !!! tip
+        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced). 
+
 
 5. Expand the **Local & Outbound Authentication Configuration** section. 
 
 6. Select **Federated Authentication** and select the configured federated authenticator.
+
    ![Partner identity provider](../../../assets/img/extend/partner-identity-provider.png)
 
 7. Click **Update** to save the configurations.

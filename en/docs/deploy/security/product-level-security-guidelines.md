@@ -287,9 +287,11 @@ Log forging can be prevented by appending a UUID to the log message.
 
 - The recommended JDK versions are JDK 1.8 and 11. For more information, see <a href="../../../deploy/get-started/install/#prerequisites">installation pre-requisites</a>. 
 
-    ```java  tab="Example" 
-    -Xms512m -Xmx2048m 
-    ```
+    !!! abstract ""
+        **Example**
+        ```java
+        -Xms512m -Xmx2048m 
+        ```
 
 - To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine. 
 

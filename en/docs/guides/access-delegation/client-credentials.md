@@ -36,18 +36,25 @@ Send the following request using a browser-based application to obtain the acces
 !!! tip
     You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Client Credentials Grant with OAuth 2.0 Playground](../../../quick-starts/client-credentials-playground).
 
-``` tab="Request Format"
-curl -v -X POST --basic -u <oauth_client_key>:<oauth_client_secret> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=client_credentials" <token_endpoint>
-```
-
-```tab="Sample Request"
-curl -v -X POST --basic -u 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=client_credentials" https://localhost:9443/oauth2/token
-```
+!!! abstract ""
+    **Request Format**
+    ```curl
+    curl -v -X POST --basic -u <oauth_client_key>:<oauth_client_secret> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=client_credentials" <token_endpoint>
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -v -X POST --basic -u 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=client_credentials" https://localhost:9443/oauth2/token
+    ```
 
 You will receive the following response with the access token.
 
 ```
-{"access_token":"16ab408c-0f31-3321-8bed-313e836df373","token_type":"Bearer","expires_in":2986}
+{
+    "access_token":"16ab408c-0f31-3321-8bed-313e836df373",
+    "token_type":"Bearer",
+    "expires_in":2986
+}
 ```
 
 !!! info "Related topics"

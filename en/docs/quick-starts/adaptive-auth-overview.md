@@ -1,6 +1,6 @@
 # Adaptive Authentication Scenarios
 
-This section guides you through using pre-defined templates for common adaptive authentication usecases.
+This section guides you through using pre-defined templates for common adaptive authentication use cases.
 
    - [Role-Based](role-based-adaptive-auth.md)
    - [User-Age-Based](age-based-adaptive-auth.md)

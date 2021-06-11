@@ -88,37 +88,41 @@ You can use the following CURL command to recover a password using REST API.
 
 This API is used to send password recovery confirmation over defined channels such as email or SMS.
 
-**Request**
-
-```curl
-curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user": {"username": "[USERNAME]","realm": "[USER STORE NAME]","tenant-domain":"[TENANT DOMAIN NAME]"},"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/recover-password?type=email&notify=true"
-```
-
-```curl tab="Sample Request"
-curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user": {"username": "kim","realm": "PRIMARY","tenant-domain":"carbon.super"},"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/recover-password?type=email&notify=true"
-```
-
-```curl tab="Sample Response" 
-"HTTP/1.1 202 Accepted"
-```
+!!! abstract ""
+    **Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user": {"username": "[USERNAME]","realm": "[USER STORE NAME]","tenant-domain":"[TENANT DOMAIN NAME]"},"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/recover-password?type=email&notify=true"
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user": {"username": "kim","realm": "PRIMARY","tenant-domain":"carbon.super"},"properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/recover-password?type=email&notify=true"
+    ```
+    ---
+    **Sample Response**
+    ```curl
+    "HTTP/1.1 202 Accepted"
+    ```
 
 ### Update password
 
 This API is used to reset user password using the confirmation key received through the recovery process. Input the key and the new password.
 
-**Request**
-
-```curl 
-curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"key": "[CONFIRMATION KEY]", "password": "[NEW PASSWORD]","properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/set-password"
-```
-
-```curl tab="Sample Request" 
-curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"key": "5c765a47-6764-4048-b5cf-55864cb654c0", "password": "Password1!","properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/set-password"
-```
-
-```curl tab="Sample Response"
-"HTTP/1.1 200 OK"        
-```
+!!! abstract ""
+    **Request**
+    ```curl 
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"key": "[CONFIRMATION KEY]", "password": "[NEW PASSWORD]","properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/set-password"
+    ```
+    ---
+    **Sample Request**
+    ```curl 
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"key": "5c765a47-6764-4048-b5cf-55864cb654c0", "password": "Password1!","properties": []}' "https://localhost:9443/api/identity/recovery/v0.9/set-password"
+    ```
+    ---
+    **Sample Response**
+    ```curl
+    "HTTP/1.1 200 OK"        
+    ```
 
 ---
 
@@ -126,21 +130,21 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
  
  Run the following curl command to resend email notification for password reset. 
  
- **Request** 
- 
- ```curl
- curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": <USERNAME>,"realm": <REALM>"},"properties": [{"key":"RecoveryScenario","value":"NOTIFICATION_BASED_PW_RECOVERY"}]}' "https://<IS_HOST>:<IS_PORT>/api/identity/user/v1.0/resend-code" -k -v
- ```
- 
- **Sample**
- 
- ```curl tab="Request"
- curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"NOTIFICATION_BASED_PW_RECOVERY"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
- ```
- 
- ```curl tab="Response"
- HTTP/1.1 201 Created
- ```
+!!! abstract ""
+    **Request**  
+    ```curl
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": <USERNAME>,"realm": <REALM>"},"properties": [{"key":"RecoveryScenario","value":"NOTIFICATION_BASED_PW_RECOVERY"}]}' "https://<IS_HOST>:<IS_PORT>/api/identity/user/v1.0/resend-code" -k -v
+    ```
+    ---
+    **Sample**
+    ```curl
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"NOTIFICATION_BASED_PW_RECOVERY"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
+    ```
+    ---
+    **Response**
+    ```curl
+    HTTP/1.1 201 Created
+    ```
 
 !!! info "Related topics"
     - [Guide: Recover password via Challenge Questions](../../../guides/password-mgt/challenge-question)

@@ -43,23 +43,26 @@ This page guides you through using a **sample Playground application** to try ou
 	to the **authorize** endpoint of the WSO2 Identity Server using the
 	following format.
 
-	```java tab="Request Format"
-	https://<host>:<port>/oauth2/authorize?response_type=code
-	&client_id=<client-ID>
-	&redirect_uri=<callback-url>
-	&scope=<scope>
-	```
+	!!! abstract ""
+		**Request Format**
+		```java
+		https://<host>:<port>/oauth2/authorize?response_type=code
+		&client_id=<client-ID>
+		&redirect_uri=<callback-url>
+		&scope=<scope>
+		```
+		---
+		**Sample Request**
+		```java
+		https://localhost:9443/oauth2/authorize?response_type=code
+		&client_id=Cx4LKFNObeuXocx7xgOpz5vfzFoa
+		&redirect_uri=http://wso2is.local:8080/playground2/oauth2client
+		&scope=openid
+		``` 
 
-	```java tab="Sample Request"
-	https://localhost:9443/oauth2/authorize?response_type=code
-	&client_id=Cx4LKFNObeuXocx7xgOpz5vfzFoa
-	&redirect_uri=http://wso2is.local:8080/playground2/oauth2client
-	&scope=openid
-	``` 
+4. Log in with user credentials (e.g., admin/admin).  
 
-3. Log in with user credentials (e.g., admin/admin).  
-
-4. Provide the requested consent and enter the following details on the screen that appears. 
+5. Provide the requested consent and enter the following details on the screen that appears. 
 
     - **Callback URL:** `http://<IS_HOST>:<IS_PORT>/playground2/oauth2client`
 

@@ -75,9 +75,12 @@ Follow the steps below to enable product observability.
 2.  To set the `           -DenableCorrelationLogs          ` property
     to `           true          `, execute the following command.
 
-    ``` java
-    For Mac/Linux   --> sh wso2server.sh -DenableCorrelationLogs=true start
-    For Windows     --> wso2server.bat -DenableCorrelationLogs=true start
+    ```tab="Mac OS/Linux"
+    sh wso2server.sh -DenableCorrelationLogs=true start
+    ```
+    
+    ```tab="Windows"
+    wso2server.bat -DenableCorrelationLogs=true start
     ```
 
     !!! note    
@@ -111,43 +114,55 @@ Following are the log patterns that support product observability.
 
 ### JDBC database call logging
 
-``` java tab="Format"
-timestamp | correlationID | threadID | duration | callType | startTime | methodName | query | connectionUrl 
-```
-
-``` java tab="Example"
-2018-10-22 17:54:46,869|cf57a4a6-3ba7-46aa-8a2b-f02089d0172c|http-nio-9443-exec-2|4|jdbc|1540211086865|executeQuery|SELECT ID, TENANT_ID, IDP_ID, PROVISIONING_CONNECTOR_TYPE, IS_ENABLED, IS_BLOCKING  FROM IDP_PROVISIONING_CONFIG WHERE IDP_ID=?|jdbc:mysql://localhost:13306/apimgtdb?autoReconnect=true&useSSL=false
-```
+!!! abstract ""
+    **Format**
+    ``` java
+    timestamp | correlationID | threadID | duration | callType | startTime | methodName | query | connectionUrl 
+    ```
+    ---
+    **Example**
+    ``` java
+    2018-10-22 17:54:46,869|cf57a4a6-3ba7-46aa-8a2b-f02089d0172c|http-nio-9443-exec-2|4|jdbc|1540211086865|executeQuery|SELECT ID, TENANT_ID, IDP_ID, PROVISIONING_CONNECTOR_TYPE, IS_ENABLED, IS_BLOCKING  FROM IDP_PROVISIONING_CONFIG WHERE IDP_ID=?|jdbc:mysql://localhost:13306/apimgtdb?autoReconnect=true&useSSL=false
+    ```
 
 ### LDAP database call logging
 
-``` java tab="Format"
-timestamp | correlationID | threadID | duration | callType | startTime | methodName | providerUrl | principal | argsLengeth | args
-```
-
-``` java tab="Example"
-2018-10-2310:55:02,279|c4eaede8-914d-4712-b630-73f6534b8def|http-nio-9443-exec-18|19|ldap|1540272302260|search|ldap://localhost:10392|uid=admin,ou=system| ou=Users,dc=wso2,dc=org,(&(objectClass=person)(uid=admin)),javax.naming.directory.SearchControls@6359ae3a
-```
+!!! abstract ""
+    **Format**
+    ``` java
+    timestamp | correlationID | threadID | duration | callType | startTime | methodName | providerUrl | principal | argsLengeth | args
+    ```
+    ---
+    **Example**
+    ``` java
+    2018-10-2310:55:02,279|c4eaede8-914d-4712-b630-73f6534b8def|http-nio-9443-exec-18|19|ldap|1540272302260|search|ldap://localhost:10392|uid=admin,ou=system| ou=Users,dc=wso2,dc=org,(&(objectClass=person)(uid=admin)),javax.naming.directory.SearchControls@6359ae3a
+    ```
 
 ### Beginning of the request call
 
-``` java tab="Format"
-timestamp | correlationID | threadID | duration | HTTP-In-Request | startTime | methodName | requestQuery | requestPath
-```
-
-``` java tab="Example"
-2018-11-0514:57:06,757|f884a93d-e3a3-431f-a1ea-f6973e125cb6|http-nio-9443-exec-28|0|HTTP-In-Request|1541410026757|GET|null|/carbon/admin/images/favicon.ico
-```
+!!! abstract ""
+    **Format**
+    ``` java
+    timestamp | correlationID | threadID | duration | HTTP-In-Request | startTime | methodName | requestQuery | requestPath
+    ```
+    ---
+    **Example**
+    ``` java
+    2018-11-0514:57:06,757|f884a93d-e3a3-431f-a1ea-f6973e125cb6|http-nio-9443-exec-28|0|HTTP-In-Request|1541410026757|GET|null|/carbon/admin/images/favicon.ico
+    ```
 
 ### Ending of the request call
 
-``` java tab="Format"
-timestamp | correlationID | threadID | totalDurationForRequest | HTTP-In-Response | startTime | methodName | requestQuery | requestPath
-```
-
-``` java tab="Example"
-2018-11-05 14:57:06,764|f884a93d-e3a3-431f-a1ea-f6973e125cb6|http-nio-9443-exec-28|7|HTTP-In-Response|1541410026764|GET|null|/carbon/admin/images/favicon.ico
-```
+!!! abstract ""
+    **Format**
+    ``` java
+    timestamp | correlationID | threadID | totalDurationForRequest | HTTP-In-Response | startTime | methodName | requestQuery | requestPath
+    ```
+    ---
+    **Example**
+    ``` java
+    2018-11-05 14:57:06,764|f884a93d-e3a3-431f-a1ea-f6973e125cb6|http-nio-9443-exec-28|7|HTTP-In-Response|1541410026764|GET|null|/carbon/admin/images/favicon.ico
+    ```
 
 ---
 

@@ -39,8 +39,13 @@ curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H "Content-Type:applicat
 
 You will receive a response similar to the format below.
 
-``` java
-{"access_token":"131d4094-b94c-3714-9e73-672aa433248d","refresh_token":"96a6d697-0120-3bec-86be-21b58f600a07","token_type":"Bearer","expires_in":3600}
+```
+{
+        "access_token":"131d4094-b94c-3714-9e73-672aa433248d",
+        "refresh_token":"96a6d697-0120-3bec-86be-21b58f600a07",
+        "token_type":"Bearer",
+        "expires_in":3600
+}
 ```
 
 !!! info "Support for refresh token grant"

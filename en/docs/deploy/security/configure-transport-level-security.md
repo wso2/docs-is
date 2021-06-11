@@ -139,13 +139,14 @@ name in the `deployment.toml` file.
 2.  Add a new server name by adding the following
     property (under the relevant Tomcat connector configuration):
 
-    ``` toml
+    ```
     [transport.https.properties]
     server="WSO2 WSO2 IS server"
-    
     [transport.http.properties]
     server="WSO2 WSO2 IS server"
     ```
+
+    
 ---
 
 ## Enable/disable http/https transport

@@ -35,15 +35,16 @@ From IS 5.9.0 onwards, all endpoints are secured by default. To configure user r
 | **permissions**      | This defines the user role permission that is required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
 | **scope**      | This defines scopes that an access token requires to access the resource. You can enter multiple scopes in a comma-separated list.     | `                 internal_idp_create                ` |
 
-
-```toml tab="Example"
-[resource.access_control]
-context = "/api/identity/*"
-secured = true
-http_method = "all"
-permissions = ["p1","p2"]
-scope = ["scope1", "scope2"]
-```
+!!! abstract ""
+    **Example**
+    ```toml
+    [resource.access_control]
+    context = "/api/identity/*"
+    secured = true
+    http_method = "all"
+    permissions = ["p1","p2"]
+    scope = ["scope1", "scope2"]
+    ```
 
 ---
 
@@ -53,19 +54,22 @@ Configuring intermediate certificate validation enables you to restrict certific
 
 Add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder. 
 
-```toml tab="Config"
-[intermediate_cert_validation]
-enable=true
-cert_cns=["cert_CN_list"]
-exempt_contexts=["endpoint_list"]
-```
-
-```toml tab="Sample"
-[intermediate_cert_validation]
-enable=true
-cert_cns=["wso2is.org"]
-exempt_contexts=["dcr","scim2"]
-```
+!!! abstract ""
+    **Config**
+    ```toml
+    [intermediate_cert_validation]
+    enable=true
+    cert_cns=["cert_CN_list"]
+    exempt_contexts=["endpoint_list"]
+    ```
+    ---
+    **Sample**
+    ```toml
+    [intermediate_cert_validation]
+    enable=true
+    cert_cns=["wso2is.org"]
+    exempt_contexts=["dcr","scim2"]
+    ```
 
 | Parameter           | Purpose                                                                                                                                                                                     |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -96,24 +100,30 @@ When obtaining a token to consume the API, you can define the scope correspondin
 For example, let's assume that a user whose username is Alex, wants to retrieve the challenges available by calling the **/{user-id}/challenges** GET API available in [Challenge Question](../challenge-rest-api) REST API. This requires the user-id as an input. 
 To retrieve the challenges, Alex requires `/permission/admin/manage/identity/identitymgt/view` permission and `internal_identity_mgt_view` scope. Hence, Alex can invoke the following cURL command with `scope=internal_identity_mgt_view` and obtain a token.
 
-``` java tab="Request"
-curl -v -X POST -H "Authorization: Basic <base64encoded CLIENT_ID:CLIENT_SECRET>" -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=<SCOPE>" -H "Content-Type:application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
-```
-
-``` java tab="Sample Request"
-curl -k -X POST -H "Authorization: Basic MUxGVzl5NERkYzZxaHVGQnBLX1JyOHA0WU1FYTpDUGl5V0hTeVp6VmJmRTFzanFNc2Vrc053Szhh" -k -d "grant_type=password&username=alex&password=alex123&scope=internal_identity_mgt_view" -H "Content-Type: application/x-www-form-urlencoded" 'https://localhost:9443/oauth2/token'
-```
+!!! abstract ""
+    **Request**
+    ``` java
+    curl -v -X POST -H "Authorization: Basic <base64encoded CLIENT_ID:CLIENT_SECRET>" -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=<SCOPE>" -H "Content-Type:application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
+    ```
+    ---
+    **Sample request**
+    ```curl
+    curl -k -X POST -H "Authorization: Basic MUxGVzl5NERkYzZxaHVGQnBLX1JyOHA0WU1FYTpDUGl5V0hTeVp6VmJmRTFzanFNc2Vrc053Szhh" -k -d "grant_type=password&username=alex&password=alex123&scope=internal_identity_mgt_view" -H "Content-Type: application/x-www-form-urlencoded" 'https://localhost:9443/oauth2/token'
+    ```
 
 When the above cURL command is called, a token of the following format will be generated. If the user that requests the token has sufficient permissions to the scope defined in the request, the response will contain the scope specified in the above command. 
 
-
-``` java tab="Sample Response"
-{"access_token":"bf01d540-fa67-314f-9ff3-3ed5ef9fa5bd",
-"refresh_token":"dc3906cc-34f9-376c-a6f4-1c2e6b9626c7",
-"scope":"internal_identity_mgt_view",
-"token_type":"Bearer",
-"expires_in":3600}
-```
+!!! abstract ""
+    **Sample response**
+    ```
+    {
+        "access_token":"bf01d540-fa67-314f-9ff3-3ed5ef9fa5bd",
+        "refresh_token":"dc3906cc-34f9-376c-a6f4-1c2e6b9626c7",
+        "scope":"internal_identity_mgt_view",
+        "token_type":"Bearer",
+        "expires_in":3600
+    }
+    ```
 
 If the response with the generated token contains the scope specified in the cURL request, the received access token can be used to consume the API that requires the particular scope.
 

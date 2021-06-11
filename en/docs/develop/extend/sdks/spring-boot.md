@@ -71,50 +71,53 @@ Add the following configurations related to WSO2 Identity Server and the applica
 
 2. Copy the following configurations.
 
-   ```yaml tab="Configuration"
-   provider:
-     host: <is-host-name> #Change the host
+    !!! abstract ""
+        **Configuration**
+        ```yaml
+        provider:
+            host: <is-host-name> #Change the host
 
-    spring:
-      security:
-        oauth2:
-          client:
-            registration:
-              wso2:
-                client-name : WSO2 Identity Server
-                client-id: <application-client-id> #Change client-id
-                client-secret: <application-client-secret> # Change client-secret
-                authorization-grant-type: authorization_code
-                scope: openid
-            provider:
-              wso2:
-                issuer-uri: ${provider.host}/oauth2/oidcdiscovery
-      thymeleaf:
-        cache: false
-   ```
+            spring:
+            security:
+                oauth2:
+                client:
+                    registration:
+                    wso2:
+                        client-name : WSO2 Identity Server
+                        client-id: <application-client-id> #Change client-id
+                        client-secret: <application-client-secret> # Change client-secret
+                        authorization-grant-type: authorization_code
+                        scope: openid
+                    provider:
+                    wso2:
+                        issuer-uri: ${provider.host}/oauth2/oidcdiscovery
+            thymeleaf:
+                cache: false
+        ```
+        ---
+        **Example**
+        ```yaml
+         provider:
+            host: https://localhost:9443 #Change the host
+             
+            spring:
+                security:
+                oauth2:
+                    client:
+                    registration:
+                        wso2:
+                        client-name : WSO2 Identity Server
+                        client-id: LQTLEgDFil5Tyf0wS5KWUShkMDEa #Change client-id
+                        client-secret: uFwLrbBKhp74NWT1zBIjXuXuYUa # Change client-secret
+                        authorization-grant-type: authorization_code
+                        scope: openid
+                    provider:
+                        wso2:
+                        issuer-uri: ${provider.host}/oauth2/oidcdiscovery
 
-   ```yaml tab="Example"
-    provider:
-        host: https://localhost:9443 #Change the host
-        
-    spring:
-        security:
-        oauth2:
-            client:
-            registration:
-                wso2:
-                client-name : WSO2 Identity Server
-                client-id: LQTLEgDFil5Tyf0wS5KWUShkMDEa #Change client-id
-                client-secret: uFwLrbBKhp74NWT1zBIjXuXuYUa # Change client-secret
-                authorization-grant-type: authorization_code
-                scope: openid
-            provider:
-                wso2:
-                issuer-uri: ${provider.host}/oauth2/oidcdiscovery
-
-        thymeleaf:
-        cache: false
-   ```
+                thymeleaf:
+                cache: false
+        ```
 
 ---
 
