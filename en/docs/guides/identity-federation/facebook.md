@@ -179,7 +179,7 @@ You have now added and configured the service provider.
     contains the Facebook certificate by default.
     
 
-!!! infor "Related topics"
+!!! info "Related topics"
 
 	For more information on SSO, see [Single Sign-On](../../../guides/login/enable-single-sign-on/).
 
