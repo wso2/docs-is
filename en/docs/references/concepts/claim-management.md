@@ -40,7 +40,7 @@ application as it is hidden by the claim management.
 !!! info 
     In the case of every tenant startup, including the super tenant, the claim
     configurations are read directly from the
-    `<IS_HOME>/repository/conf/claim-config.xml` file. So
+    the `<IS_HOME>/repository/conf/claim-config.xml` file. So
     claims mapped for SCIM in the super tenant's [management
     console](../../../deploy/get-started/get-started-with-the-management-console) are not seen by
     a newly created tenant as the [User
