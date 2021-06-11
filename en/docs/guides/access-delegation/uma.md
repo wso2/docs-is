@@ -85,6 +85,8 @@ behalf of the requesting party.
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 <!--- Note down the **Client ID** and **Client Secret** values. You need those
 values to obtain the Protection API Access Token (PAT). -->
 

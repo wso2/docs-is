@@ -1,6 +1,6 @@
 # Configure Microprofile JWT
 
-This page guides you through configuring [microprofile JWT (MP-JWT)](../../../references/concepts/authentication/microprofile-jwt/) for an OAuth/OpenID Connect web application. This is demonstrated using a **sample application** and describes how to generate JWT tokens by invoking the endpoints.
+This page guides you through configuring [microprofile JWT (MP-JWT)](../../../references/concepts/authentication/microprofile-jwt/) for an OAuth/OpenID Connect web application. This is demonstrated using a sample application and describes how to generate JWT tokens by invoking the endpoints.
 
 ----
 If you have your own application, click the button below.

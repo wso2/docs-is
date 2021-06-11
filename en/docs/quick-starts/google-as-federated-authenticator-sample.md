@@ -1,6 +1,6 @@
 # Log in to a Sample Application using Google
 
-This page guides you through using Google as a federated authenticator and logging into a sample application. Here, we use a **sample application** called Pickup. 
+This page guides you through using Google as a federated authenticator and logging into a sample application. Here, we use a sample application called Pickup Dispatch. 
 
 ----
 

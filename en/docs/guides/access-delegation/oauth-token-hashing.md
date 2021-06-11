@@ -69,6 +69,8 @@ authorization codes.
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 !!! tip
     The **Consumer Secret** value is displayed in plain text only once. Therefore, be sure to copy and save it for later use.
     

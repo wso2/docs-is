@@ -14,6 +14,8 @@ relevant responses that the WSO2 Identity Server would generate for the
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ---
 
 ## Response\_type=id\_token

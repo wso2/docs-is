@@ -27,6 +27,8 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ----
 
 Once you have configured all your applications, access them in separate tabs in your browser. When you logout from one application, it should log you out from all the configured applications. 

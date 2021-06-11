@@ -1,6 +1,6 @@
 # Configure Single Sign-On for a SAML Application
 
-This page guides you through configuring [single sign-on authentication](../../../references/concepts/single-sign-on) between two SAML web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
+This page guides you through configuring [single sign-on authentication](../../../references/concepts/single-sign-on) between two SAML web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager. 
 
 ----
 If you have your own application, click the button below.

@@ -87,6 +87,8 @@ artifacts.
 
 {! fragments/oauth-app-config-basic.md !}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ---
 
 ## Configure keystore
