@@ -126,7 +126,7 @@ This section guides you through changing the hostname of WSO2 Identity Server.
         password = "password" 
         ```
 
-5.  Verfiy the hostname change by attempting to log in to the dashboard,
+5.  Verfiy the hostname change by attempting to log in to My Account,
     getting a token from any grant type, etc.
 
 6.  If you are trying this out on your local machine, open the `etc/hosts/`
