@@ -9,7 +9,7 @@ The California Consumer Privacy Act (CCPA) is a bill passed by the California St
 1.  **The right to access Personal Information (PI)**
     This clause insists that California residents have the right to know the categories of personal information a business collects and sells to third parties. 
     The business should also be ready to disclose details regarding the **categories of third parties** with whom this personal information has been shared. 
-    Moreover, the consumer can request specific information about them that has been collected and shared, and the business should ensure that the detail 
+    Moreover, the consumer can request for specific information about them that has been collected and shared, and the business should ensure that the detail 
     requested is hence shared with the customer. 
 
     Users who have given their PIs to the system should be able to, 

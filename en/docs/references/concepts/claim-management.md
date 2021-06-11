@@ -23,19 +23,18 @@ All identity claims have the term "identity" appended to the claim URI
 as follows:
 `http://wso2.org/claims/identity/accountDisabled`
 
-The Claim Management component of [WSO2
-Carbon](https://docs.wso2.com/display/Carbon4411/WSO2+Carbon+Documentation)
-allows you to map a set of attributes from the underlying user store to
-a set of defined claims. The underlying user store can either be an
-internal or external JDBC user store, Active Directory, or LDAP user
-store. You can [configure the primary user store](../../../deploy/configure-the-primary-user-store#set-up-the-primary-userstore) 
+The Claim Management component of WSO2 Carbon
+allows you to map a set of attributes from the underlying userstore to
+a set of defined claims. The underlying userstore can either be an
+internal or external JDBC userstore, Active Directory, or LDAP user
+store. You can [configure the primary userstore](../../../deploy/configure-the-primary-user-store#set-up-the-primary-userstore) 
 using the deployment.toml file. 
 Each claim can be uniquely identified within the claim dialect by the
-Claim URI. Claim URIs are independent of the user store and each claim
-URI can be mapped into any desired attribute in the user store.
+Claim URI. Claim URIs are independent of the userstore and each claim
+URI can be mapped into any desired attribute in the userstore.
 Therefore, at the application level we would know about the claims, but
-not the attribute of the user store. An advantage of this is that we do
-not need to be concerned about the user store level when we develop an
+not the attribute of the userstore. An advantage of this is that we do
+not need to be concerned about the userstore level when we develop an
 application as it is hidden by the claim management.
 
 !!! info 
