@@ -327,6 +327,7 @@ window.onload = function () {
     var prevScrollPos = parseInt(sessionStorage.getItem("navScrollPos"));
     if(prevScrollPos) {
         leftSidebar.scrollTop = prevScrollPos;
+        sessionStorage.clear("navScrollPos");
     }
 }
 
