@@ -32,6 +32,10 @@ renew_access_token_per_request = true
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
+---
+
 ## Try it out
 
 Once you have created an OAuth application in WSO2 Identity Server and obtained its Client ID and Client Secret, you can generate

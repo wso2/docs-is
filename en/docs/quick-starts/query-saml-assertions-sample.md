@@ -1,6 +1,6 @@
-# Query SAML2 Assertions
+# Query SAML 2.0 Assertions
 
-This page guides you through querying dynamic or existing SAML2 assertions for a sample application using standard request messages via WSO2 Identity Server. 
+This page guides you through querying dynamic or existing SAML 2.0 assertions for a sample application using standard request messages via WSO2 Identity Server. 
 
 ----
 
@@ -15,11 +15,11 @@ If you have your own application, click the button below.
 {!fragments/travelocity.md!}
 
 ----
-## Enable querying saml assertions
+## Enable querying SAML 2.0 assertions
 
-1. Click **Service Providers > List** and click **Edit** on the Travelocity service provider you created. Edit the SAML2 configuration. 
+1. Click **Service Providers** > **List** and click **Edit** on the Travelocity service provider you created. Edit the SAML 2.0 configuration. 
 
-2. Select **Enable Assertion Query Request Profile** to enable saml assertions. 
+2. Select **Enable Assertion Query Request Profile** to enable SAML 2.0 assertions. 
 
 3. Click **Update**.
 
@@ -174,6 +174,6 @@ You have successfully queried an assertion with an `AssertionIDRequest` using th
 
 
 !!! info "Related topics"
-    - [Guide: Query SAML2 Assertions](../../../guides/login/query-saml-assertions)
+    - [Guide: Query SAML 2.0 Assertions](../../guides/login/query-saml-assertions)
 
     

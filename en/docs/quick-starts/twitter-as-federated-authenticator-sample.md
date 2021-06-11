@@ -1,6 +1,6 @@
 # Log in to a Sample Application using Twitter
 
-This page guides you through using Twitter as a federated authenticator and logging into a sample application. Here, we use a **sample application** called Pickup. 
+This page guides you through using Twitter as a federated authenticator and logging in to a sample application. Here, we use a sample application called Pickup Dispatch. 
 
 ----
 
@@ -20,7 +20,7 @@ If you have your own application, click the button below.
 
 1. Login to <https://developer.twitter.com/> using your Twitter credentials. 
 
-2. Click on the downwards arrow adjecent to your profile icon and select **Apps**. '
+2. Click on the downwards arrow adjecent to your profile icon and select **Apps**.
 
 3. Click on **Create an app**.
     

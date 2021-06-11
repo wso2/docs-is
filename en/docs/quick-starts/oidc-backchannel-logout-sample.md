@@ -1,6 +1,6 @@
-# Configure OpenID Connect Back-Channel Logout 
+# Configure OpenID Connect Back-Channel Logout
 
-This page guides you through configuring [OpenID Connect (OIDC) Back-Channel logout](../../../references/concepts/authentication/back-channel-logout) between two sample Playground applications. 
+This page guides you through configuring [OpenID Connect (OIDC) Back-Channel logout](../../references/concepts/authentication/back-channel-logout) between two sample Playground applications. 
 
 ----
 If you have your own application, click the button below.
@@ -13,9 +13,16 @@ If you have your own application, click the button below.
 
 ----
 
-{!fragments/oidc-backchannel-logout.md!}
+## Configure back-channel single logout
 
-    Enter `http://localhost:8080/playground2/bclogout` as the **Logout URL**.
+{!fragments/edit-oauth-oidc-configs.md!}
+
+5. Select **Enable OIDC Backchannel Logout** and enter the Logout URL as `http://localhost:8080/playground2/bclogout`.
+
+    !!! info
+        The **Logout URL** is the service provider's back-channel logout endpoint URL to which the logout token is sent to.
+
+6. Click **Update** to save the changes.
 
 ----
 
@@ -39,13 +46,13 @@ Ensure to replace all values that refer to "playground2" with "playground3" incl
 
 	- **Authorize Endpoint:** `https://localhost:9443/oauth2/authorize`
     
-    <img name='implicit-with-playground' src='../../assets/img/samples/implicit-with-playground.png' class='img-zoomable'/>
+    <img name='implicit-with-playground' src='../../assets/img/samples/implicit-with-playground.png' class='img-zoomable' alt='Implicit flow with Playground'/>
 	
 3. Click **Authorize**. 
 
 4. Log in with user credentials (e.g., admin/admin). At this point, the application receives the ID token. 
 
-	<img name='implicit-id-token' src='../../assets/img/samples/implicit-id-token.png' class='img-zoomable'/>
+	<img name='implicit-id-token' src='../../assets/img/samples/implicit-id-token.png' class='img-zoomable' alt='ID token'/>
 
 5. Now, access the following URL on a browser window to access "playground3": `http://wso2is.local:8080/playground3/`
 
@@ -62,6 +69,6 @@ You have successfully configured and tried out OIDC back-channel logout. You can
 ----
 
 !!! info "Related topics"
-    - [Concept: OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout)
+    - [Concept: OpenID Connect Back-Channel Logout](../../references/concepts/authentication/back-channel-logout)
     - [Guide: OpenID Connect Back-Channel Logout](../../guides/login/oidc-backchannel-logout)
     - [Guide: OpenID Connect Session Management](../../guides/login/session-management-logout)

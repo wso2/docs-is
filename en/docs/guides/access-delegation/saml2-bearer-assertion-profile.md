@@ -25,6 +25,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
     -   You can provide any valid URL as the **Callback Url**. This URL value is not used for any other operations during this sample.
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ----
 
 {!fragments/saml-app-config-basic.md!}

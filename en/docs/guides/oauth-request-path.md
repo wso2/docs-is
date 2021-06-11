@@ -22,6 +22,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ----
 
 {!fragments/local-outbound-for-request-path-oauth.md!}

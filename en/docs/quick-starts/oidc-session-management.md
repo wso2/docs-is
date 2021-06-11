@@ -1,6 +1,6 @@
 # Manage User Sessions and Logout
 
-This page guides you through [managing user sessions and logout](../../../references/concepts/authentication/session-management) of a web application using a **sample application** called Playground.
+This page guides you through [managing user sessions and logout](../../references/concepts/authentication/session-management) of a web application using a sample application called Playground.
 
 ----
 If you have your own application, click the button below.
@@ -8,20 +8,20 @@ If you have your own application, click the button below.
 <a class="samplebtn_a" href="../../guides/login/session-management-logout"   rel="nofollow noopener">I have my own application</a>
 
 ----
-## Register a Service Provider
+
+## Register a service provider
 
 {!fragments/register-a-service-provider.md!}
+
 {!fragments/oauth-app-config-basic.md!}
 
-{!fragments/local-outbound.md!}
+{!fragments/local-outbound-tenant-domain-in-sub-lvl2.md!}
 
 ---
 
 ## Set up the sample
 
 {!fragments/deploying-sample-apps.md!}
-
----
 
 {!fragments/deploy-playground.md!}
 
@@ -68,13 +68,13 @@ If you have your own application, click the button below.
     -   **Client Secret:** Enter the client secret of playground2
         application
         
-    <img name='authorization-code' src='../../../assets/img/samples/authorization-code.png' class='img-zoomable'/>
+    <img name='authorization-code' src='../../assets/img/samples/authorization-code.png' class='img-zoomable' alt='Authorization code'/>
     
 5.  You will receive the access token. You can also enter the **UserInfo
     Endpoint** as
     `                     https://localhost:9443/oauth2/userinfo                  `
     to use the received access token to obtain user claims if needed.  
-    <img name='access-token' src='../../../assets/img/samples/access-token.png' class='img-zoomable'/> 
+    <img name='access-token' src='../../assets/img/samples/access-token.png' class='img-zoomable' alt='Access token'/> 
     
 6.  Access the following URL on a separate window of the browser, and
     click on **Import Photos:**
@@ -104,17 +104,18 @@ If you have your own application, click the button below.
     received, the app will update it’s session state value and keep
     polling the OP iframe again.
 
-    <img name='sesion-state' src='../../../assets/img/samples/session-state.png' class='img-zoomable'/> 
+    <img name='sesion-state' src='../../assets/img/samples/session-state.png' class='img-zoomable' alt='Browser console'/> 
 
 9. Go back to the browser window of the playground3 app, and click
     **Logout**. Click **Approve** when prompted for consent.
+    
 10. Go back to the browser window of the playground2 app. You will see
     that the home page has loaded. If you check the console logs, you
     will note that the the playground2 app’s RP iframe has initiated a
     passive authentication request and has received an error since the
     end user session has ended. This means the app has successfully
     handled this as a single logout scenario.  
-   <img name='import-photos' src='../../../assets/img/samples/import-photos.png' class='img-zoomable'/> 
+   <img name='import-photos' src='../../assets/img/samples/import-photos.png' class='img-zoomable' alt='Import photos'/> 
 
 
 !!! tip "Redirect to a logout URL after RP-initiated logout"
@@ -123,11 +124,11 @@ If you have your own application, click the button below.
     particular page after the RP sends the OpenID Connect logout request.
     For more information on how to configure the redirect logout, see
     [OpenID Connect Logout URL
-    Redirection](../../../guides/login/oidc-logout-url-redirection/).
+    Redirection](../../guides/login/oidc-logout-url-redirection/).
 
 
 
 !!! info "Related topics"
-    - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
-    - [Guide: Manage User Sessions and Logout](../../../guides/login/session-management-logout)
-    - [Guide: OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout)
+    - [Concept: Manage User Sessions and Logout](../../references/concepts/authentication/session-management)
+    - [Guide: Manage User Sessions and Logout](../../guides/login/session-management-logout)
+    - [Guide: OpenID Connect Back-Channel Logout](../../guides/login/oidc-backchannel-logout)

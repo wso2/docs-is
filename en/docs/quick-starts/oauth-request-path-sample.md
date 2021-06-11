@@ -1,7 +1,7 @@
 # Enable Authentication with OAuth Request Path Authenticator
 
 This page guides you through enabling request path authentication using a bearer token
-for an OpenID Connect web application using a **sample application** called Playground2. 
+for an OpenID Connect web application using a sample application called Playground2. 
 
 ----
 If you have your own application, click the button below.

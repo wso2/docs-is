@@ -22,6 +22,8 @@ To understand how the `response_type` value specified in an authorization reques
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ---
 
 ## code token

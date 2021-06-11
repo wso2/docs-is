@@ -1,6 +1,6 @@
 # Enable Login for SAML Web Application
 
-This page guides you through enabling login for a [SAML](../../../references/concepts/authentication/intro-saml/) web application using a **sample application** called Pickup. 
+This page guides you through enabling login for a [SAML](../../references/concepts/authentication/intro-saml/) web application using a sample application called Pickup Dispatch. 
 
 ----
 
@@ -39,13 +39,13 @@ You have successfully configured authentication for a SAML application.
 
 3. Expand **Inbound Authentication Configuration** and then expand **SAML2 Web SSO Configuration**. Edit the configuration.
 
-4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations](../../../guides/login/saml-parameters-in-auth-request).
+4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations](../../guides/login/saml-parameters-in-auth-request).
 
 
 
 !!! info "Related topics"
-    - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)
-    - [Guide: Enable Login for a SAML Web Application](../../../guides/login/webapp-saml/)
-    - [Guide: SAML Front-Channel Logout](../../../guides/login/saml-front-channel-logout)
-    - [Guide: SAML Back-Channel Logout](../../../guides/login/saml-back-channel-logout)
+    - [Concept: SAML](../../references/concepts/authentication/intro-saml/)
+    - [Guide: Enable Login for a SAML Web Application](../../guides/login/webapp-saml/)
+    - [Guide: SAML Front-Channel Logout](../../guides/login/saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout](../../guides/login/saml-back-channel-logout)
 

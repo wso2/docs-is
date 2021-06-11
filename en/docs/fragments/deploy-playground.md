@@ -11,8 +11,6 @@ Follow the instructions below to download the sample from GitHub.
 2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/playground2.war)
    the `playground2.war` file from the latest release assets.
 
-----
-
 ### Deploy the sample web app
 
 Deploy this sample web app on a web container.

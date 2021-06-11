@@ -62,7 +62,7 @@ Deploy this sample web app on a web container.
         5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
     
     !!! tip
-        For more information on the advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced/)
+        For more information on the advanced configurations, see [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
 
 5.  Click **Register** to save the changes.  
 
