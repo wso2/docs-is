@@ -1,6 +1,6 @@
 # Log in to a Sample Application using Twitter
 
-This page guides you through using Twitter as a federated authenticator and logging into a sample application. Here, we use a sample application called Pickup Dispatch. 
+This page guides you through using Twitter as a federated authenticator and logging in to a sample application. Here, we use a sample application called Pickup Dispatch. 
 
 ----
 
