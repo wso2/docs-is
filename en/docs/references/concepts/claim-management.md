@@ -28,7 +28,7 @@ allows you to map a set of attributes from the underlying userstore to
 a set of defined claims. The underlying userstore can either be an
 internal or external JDBC userstore, Active Directory, or LDAP user
 store. You can [configure the primary userstore](../../../deploy/configure-the-primary-user-store#set-up-the-primary-userstore) 
-using the deployment.toml file. 
+using the `deployment.toml` file. 
 Each claim can be uniquely identified within the claim dialect by the
 Claim URI. Claim URIs are independent of the userstore and each claim
 URI can be mapped into any desired attribute in the userstore.
