@@ -11,22 +11,22 @@ adding/deleting users, controlling user activity through permissions,
 managing user roles, defining authentication policies, managing external
 userstores and manual/automatic logout, and resetting passwords.
 
-Any user management system has the following basic components:  
+Any user management system has the following basic components.  
 
 -   **Users:** Users are consumers who interact with your organizational
     applications, databases, and other systems. A user can be a person,
     a device, or another application/program within or outside of the
     organization's network. Because users interact with internal systems
     and access data, organizations need to define which data and
-    functionality each user can access by assigning permissions.
--   **Permissions:** A **permission** is a delegation of authority or a
+    functionality each user can access, by assigning permissions.
+-   **Permissions:** A permission is a delegation of authority or a
     right that is assigned to a user or a group of users to perform an
     action on a system. Permissions can be granted to or revoked from a
-    user, user group, or user role automatically or by a system
-    administrator. For example, if a user has the permission to log in
+    user, user group, or user role. This is either done by a system administrator or automatically. 
+    For example, if a user has the permission to log in
     to a system, the permission to log out is automatically granted as
     well.
--   **User roles:** A **user role** is a grouping of permissions. In
+-   **User roles:** A user role is a grouping of permissions. In
     addition to assigning individual permissions to users, admins can
     create user roles and assign those roles to users. For example, you
     might create user roles called VP, Manager, and Employee, each of
@@ -37,17 +37,17 @@ Any user management system has the following basic components:
     have their permissions updated automatically.  
 
 The following diagram illustrates how the user management functionality
-is structured to work in WSO2 products:
+is structured to work in WSO2 Identity Server:
 
-![](../../../assets/img/deploy/user-realm.png)
+![User realm](../../../assets/img/deploy/user-realm.png)
 
--   **Userstores:** A **userstore** is the database where information
+-   **Userstores:** A userstore is the database where information
     about the users and user roles is stored, including login name,
     password, first name, last name, and email address.
 -   **RDBMS (for Authentication and Authorization):** This RDBMS stores
     information about the role-based permissions.  
 
-    According to the default configuration in WSO2 products, the
+    According to the default configuration in WSO2 Identity Server, the
     embedded H2 RDBMS that is shipped with the product is used as the
     userstore as well as the RDBMS for storing information related to
     permissions.
@@ -57,7 +57,7 @@ is structured to work in WSO2 products:
     `           deployment.toml          ` file stored in the
     `           <IS_HOME>/repository/conf/          ` directory is
     used as the realm configuration TOML. This includes setting up the
-    **Userstore Manager**, the **Authorization Manager** and the
+    **Userstore Manager**, the **Authorization Manager**, and the
     **System Administrator**. These configurations are explained
     below.  
 
@@ -68,8 +68,8 @@ is structured to work in WSO2 products:
     </colgroup>
     <tbody>
     <tr class="odd">
-    <td>userstore Manager</td>
-    <td><p>The userstore Manager is responsible for managing the underlying userstore. It is represented by the <code>                UserStoreManager               </code> Java interface. There can be different userstore Manager implementations to connect with different userstores, but you can configure only one userstore Manager implementation in a single user realm (that is, a single WSO2 Carbon instance). The userstore Manager can be operated in both read/write mode and read-only mode. In read-only mode, you can only connect with an existing userstore. WSO2 products provide the following default userstore Manager implementations:</p>
+    <td>Userstore Manager</td>
+    <td><p>The Userstore Manager is responsible for managing the underlying userstore. It is represented by the <code>                UserStoreManager               </code> Java interface. There can be different Userstore Manager implementations to connect with different userstores, but you can configure only one Userstore Manager implementation in a single user realm (that is, a single WSO2 Carbon instance). The Userstore Manager can be operated in both read/write mode and read-only mode. In read-only mode, you can only connect with an existing userstore. WSO2 Identity Server provides the following default Userstore Manager implementations:</p>
     <ul>
     <li><code>                 JDBCUserStoreManager                </code> (read and write)</li>
     <li><code>                 LDAPUserStoreManager                </code> (read-only)</li>
@@ -85,21 +85,22 @@ is structured to work in WSO2 products:
     <li>UM_USER_ROLE: Contains user role mappings</li>
     <li>UM_USER_ATTRIBUTE: Contains user attributes. There can be any attribute ID and a value for that attribute ID that is associated with a user’s profile.</li>
     </ul>
-    <p>You can find the full schema of these tables from the database script files in the <code>                &lt;PRODUCT_HOME&gt;/dbscripts               </code> directory. Note that these scripts also contain schemas for other tables that are used for user management and registry functions. If your organization contains an existing JDBC userstore that you want to use with a WSO2 product, you must extend <code>                JDBCUserStoreManager               </code> and write a new implementation for your userstore according to your schema.</p></td>
+    <p>You can find the full schema of these tables from the database script files in the <code>                &lt;IS_HOME&gt;/dbscripts               </code> directory. Note that these scripts also contain schemas for other tables that are used for user management and registry functions. If your organization contains an existing JDBC userstore that you want to use with WSO2 Identity Server, you must extend <code>                JDBCUserStoreManager               </code> and write a new implementation for your userstore according to your schema.</p></td>
     </tr>
     <tr class="even">
     <td>Authorization Manager</td>
-    <td>The Authorization Manager uses role-based access control (RBAC) to protect resources related to the WSO2 Carbon platform. The default implementation of the Authorization Manager is <code>               JDBCAuthorizationManager              </code>, which uses a permission model specific to WSO2 Carbon and uses the authorization data that is stored in tables in the JDBC database. You can replace this implementation with a custom implementation (for example, if you want to use a XACML authorization manager) and use it with WSO2 products.</td>
+    <td>The Authorization Manager uses role-based access control (RBAC) to protect resources related to the WSO2 Carbon platform. The default implementation of the Authorization Manager is <code>               JDBCAuthorizationManager              </code>, which uses a permission model specific to WSO2 Carbon and uses the authorization data that is stored in tables in the JDBC database. You can replace this implementation with a custom implementation (for example, use a XACML authorization manager) and use it with WSO2 Identity Server.</td>
     </tr>
     <tr class="odd">
     <td>System Administrator</td>
-    <td>The system admin user is typically the super tenant user, who by default has permission to perform all administration tasks in the server. The admin user will thereby create other tenant users and define roles with permissions. Once this is done, the other tenant users will be able to log in to their respective tenant domains and use the server according to the permissions that have been granted. Note that the permissions granted to the Super Tenant user cannot be modified.</td>
+    <td>The system admin user is typically the super tenant user who by default, has permission to perform all administration tasks in the server. The admin user will thereby create other tenant users and define roles with permissions. Once this is done, the other tenant users will be able to log in to their respective tenant domains and use the server according to the permissions that have been granted. Note that the permissions granted to the Super Tenant user cannot be modified.</td>
     </tr>
     </tbody>
     </table>
 
-For information on how you can set up and configure the user management
-realm, see [Configuring the User Realm](../../../deploy/configuring-the-user-realm),
-and for information on how you can manage the users, roles and
-permissions using the Management Console, see [Managing Users, Roles and
-Permissions](../../../guides/identity-lifecycles/manage-roles-overview/).
+
+!!! info "Related topics"
+
+    -   [Configure the Realm](../../../deploy/configure-the-realm/).
+    -   [Manage User Operations](../../../guides/identity-lifecycles/manage-user-overview)
+    -   [Manage User Roles](../../../guides/identity-lifecycles/manage-roles-overview/)

@@ -18,9 +18,7 @@ if there are any warnings in the generated migration report, it is recommended t
 Configure the migration report path using the value of `reportPath`, `<IS_HOME>/migration-resources/migration-config.yaml` in the `migration-config.yaml`. 
 This path should be an absolute path. 
 
-Run the migration utility with system property “dryRun”. 
-
-Ex:
+Run the migration utility with system property, `dryRun`. Following is a sample command. 
 
 ``` bash tab="Unix/Linux"
 sh wso2server.sh -Dmigrate -Dcomponent=identity -DdryRun
@@ -30,14 +28,14 @@ sh wso2server.sh -Dmigrate -Dcomponent=identity -DdryRun
 wso2server.bat -Dmigrate -Dcomponent=identity -DdryRun
 ```
  
-After that analyze the generated report that resides in the provided location.
+Once this is executed, you can analyze the generated report that resides in the provided location.
 
 ---
 
 ## Migrate userstores
 
 If you have multiple tenants and multiple userstores and you only need to migrate a few of them, refer to the 
-configuration section below. If you need to migrate all of them, use the `migrateAll` property (This is set to true by default).  
+configuration section below. If you need to migrate all of them, use the `migrateAll` property (This is set to `true` by default).  
 
 ---
 
@@ -46,7 +44,7 @@ configuration section below. If you need to migrate all of them, use the `migrat
 If the userstore is an LDAP userstore and SCIM is enabled for that userstore, migrating that userstore is not
  required. 
 As SCIM will create a user ID for the users in that userstore, the SCIM ID can be used as the unique user ID. To do that, 
-change the `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/repository/conf/deployment.toml` file.
+change `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ---
 
@@ -70,12 +68,12 @@ The following configurations are only needed to migrate a few tenants. The forma
 
 | Property Name | Description |
 | ------------- | ----------- |
-| tenantDomain | Domain name of the tenant. (Mandatory) |
-| increment | Number of users to be updated in each iteration. (Optional) |
-| startingPoint | Where should the migration start from (Offset). This is useful if the migration stopped in the middle and needs to restart. (Optional) |
+| tenantDomain | Domain name of the tenant (Mandatory) |
+| increment | Number of users to be updated in each iteration (Optional) |
+| startingPoint | This denotes where the migration should start from (Offset). This is useful if the migration stopped in the middle and needs to restart. (Optional) |
 | scimEnabled | Whether SCIM is enabled for userstores in this tenant. (Optional) |
-| migratingDomains | List of comma-separated domain names that should be migrated to this domain. (Optional) |
-| forceUpdateUserId | Mark whether user IDs should be updated even though there is already an existing ID. (Optional) |
+| migratingDomains | List of comma-separated domain names that should be migrated to this domain (Optional) |
+| forceUpdateUserId | Marks whether user IDs should be updated in case there is an existing ID. (Optional) |
 
 ---
 
@@ -209,10 +207,10 @@ These steps should be carried out for the old database before the migration. A b
     );
     ```
 
-3.  If the result of the above query is `scimId` then follow this step. Otherwise, skip this and move on to step-4.  
+3.  If the result of the above query is `scimId`, then follow this step. Otherwise, skip this and move on to step-4.  
 
     If the result of the above query is `scimId`, it means the default mapped attribute(scimId) of `http://wso2.org/claims/userid` or the default local claim (`http://wso2.org/claims/userid`) mapped to the `urn:ietf:params:scim:schemas:core:2.0:id` claim is not updated in the WSO2 IS server. 
-    Hence, the following queries are used to update the `UM_USER_ID` of `UM_USER` with SCIM Id based on the mapped attribute `scimId`.
+    Hence, the following queries are used to update `UM_USER_ID` of `UM_USER` with a SCIM Id based on the mapped attribute `scimId`.
 
     ```sql tab="PostgreSQL"
     CREATE OR REPLACE FUNCTION update_um_user_id()	returns int 
@@ -376,7 +374,7 @@ These steps should be carried out for the old database before the migration. A b
     update UM_USER set UM_USER_ID =LOWER(NEWID())  where UM_USER_ID='N' ;
     ```
 
-4.  If the result of the above query is something different from `scimId`, it means the local claim mapped to the `urn:ietf:params:scim:schemas:core:2.0:id`  claim is different than   `http://wso2.org/claims/userid` or the mapped attribute for the local claim `http://wso2.org/claims/userid` is different than `scimId`. Hence the following queries are used to update the `UM_USER_ID` of `UM_USER` with SCIM Id based on the updated mapped attribute.
+4.  If the result of the above query is something different from `scimId`, it means the local claim mapped to the `urn:ietf:params:scim:schemas:core:2.0:id`  claim is different from `http://wso2.org/claims/userid` or the mapped attribute for the local claim `http://wso2.org/claims/userid` is different from `scimId`. Hence the following queries are used to update `UM_USER_ID` of `UM_USER` with a SCIM Id based on the updated mapped attribute.
 
     ```sql tab="PostgreSQL"
     CREATE OR REPLACE FUNCTION update_um_user_id()	returns int 

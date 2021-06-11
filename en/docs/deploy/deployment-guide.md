@@ -13,9 +13,9 @@ seamlessly handle the requests.
 2. Balancing traffic handling: Multiple nodes can handle the traffic together so that cluster throughput is higher 
 than the throughput of a single node.
 
-For complete information on clustering concepts, see [Clustering Overview](../../../deploy/clustering-overview). 
+<!--For complete information on clustering concepts, see [Clustering Overview](../../../deploy/clustering-overview). -->
 The following sections guide you through setting up the deployment pattern, which is an HA Clustered Deployment 
-of 2 WSO2 Identity Server nodes. 
+of two WSO2 Identity Server nodes. 
 
 ---
 
@@ -39,12 +39,15 @@ necessary system requirements and a compatible environment.
 <li>4 GB RAM</li>
 <li>10 GB Disk Space</li>
 </ul>
-<p>The above recommendations can change based on the expected concurrency & performance.</p></td>
+</td>
 </tr>
 </tbody>
 </table>
+
+The above recommendations can change based on the expected concurrency and performance.
+
 !!! note
-    For more information on prerequisites, see [Installation Prerequisites](../../../deploy/get-started/install)
+    For more information on prerequisites, see [Installation Prerequisites](../../../deploy/get-started/install).
 
 ---
 
@@ -78,10 +81,10 @@ necessary system requirements and a compatible environment.
 <th>Web browsers</th>
 <td><p>For more information on tested web browsers, see <a href="../../../deploy/environment-compatibility/#tested-web-browsers">Tested Web Browsers</a> .</p></td>
 </tr>
-<tr class="even">
+<!--<tr class="even">
 <th>Load balancers</th>
 <td><p>For more information about load balancers, see <a href="../../../deploy/load-balancing/#types-of-load-balancers">Configuring the load balancer</a> .</p></td>
-</tr>
+</tr>-->
 </tbody>
 </table>
 
@@ -91,21 +94,21 @@ necessary system requirements and a compatible environment.
 
 In a clustered deployment, all WSO2 Identity Server nodes are pointed to the same databases to ensure the integrity 
 of the data. Also, you can configure multiple logical databases if you require to keep your data logically separated 
-in the environment. Following tutorial demonstrates deployment with an identity database (**IDENTITY_DB**) and a user 
+in the environment. The following tutorial demonstrates deployment with an identity database (**IDENTITY_DB**) and a user 
 database (**UM_DB**).
 
 !!! note
     Alternatively, you can create more databases for each type of data to separate the data logically.  
-    This will **NOT** make a difference in performance and is not mandatory. Separating databases logically may 
+    This will not make a difference in performance and is not mandatory. Separating databases logically may 
     sometimes help to have a different backup and scaling strategy when the deployment is large and complex.
     If you do wish to separate the data logically into separate databases, 
-    see [Setting Up Separate Databases for Clustering](../../../deploy/set-up-separate-databases-for-clustering).
+    see [Set Up Separate Databases for Clustering](../../../deploy/set-up-separate-databases-for-clustering).
 
 !!! tip
-    If you have configured the shared database correctly, the `deployment.toml` in 
-    `<IS_HOME>/repository/conf` directory, should have the following configurations. 
+    If you have configured the shared database correctly, the `deployment.toml` file in 
+    `<IS_HOME>/repository/conf` directory should have the following configurations. 
     
-    **NOTE** : Following is a sample configuration. Therefore parameter values might be different.
+    Following is a sample configuration. Therefore parameter values might be different.
     
     ```toml
     [database.identity_db]
@@ -133,38 +136,41 @@ are used.
 !!! note
     For instructions on how to configure the data sources for other databases and 
     more information related to databases, 
-    see [Working with Databases](../../../deploy/work-with-databases)
+    see [Work with Databases](../../../deploy/work-with-databases)
 
 ---
 
 ## Mount the shared registry
 
-WSO2 Identity Server comprises of three different registry repositories.
+WSO2 Identity Server comprises three different registry repositories.
 
-1. **Local Repository**: Store configuration and runtime data that is local to the server.
+1. **Local Repository**: Stores configuration and runtime data that is local to the server
 
-2. **Configuration Repository**: Store product-specific configurations. 
+2. **Configuration Repository**: Stores product-specific configurations 
 
-3. **Governance Repository**: Store configuration and data that are shared across the whole platform. This typically 
-includes services, service descriptions, endpoints or data sources.
+3. **Governance Repository**: This stores configuration and data that are shared across the whole platform. This typically 
+includes services, service descriptions, endpoints, or data sources.
 
 
-!!! info
+<!--!!! info
     For more information about the registry, 
-    see [Working with the Registry](TO-DO:../../guides/working-with-the-registry).
+    see [Work with the Registry](TO-DO:../../guides/working-with-the-registry).-->
 
-In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
+In this cluster setup, we use the default h2 database as the local registry in each node individually, and the 
 governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server, config and governance registries are mounted by default.
 
 !!! note
     The production recommendation is to set the `<versionResourcesOnChange>` property in the `registry.xml` 
     file to false. This is because the automatic versioning of resources can be an extremely expensive operation. 
-    `<versionResourcesOnChange>false</versionResourcesOnChange>`
 
-To make sure the configurations were applied correctly:
+    ```
+    <versionResourcesOnChange>false</versionResourcesOnChange>
+    ```
+
+To make sure the configurations were applied correctly,
 
 <ol>
-    <li>Log in to the management console.</li>
+    <li>Log in to the WSO2 Identity Server Management Console (<code>https://&lt;IS_HOST&gt;:&lt;PORT&gt;/carbon</code>).</li>
     <li>
         <p>Navigate to <b>Home > Registry > Browse</b>.</p>
         <p><img src="../../assets/img/deploy/registry-browser-2.png" alt="Registry browser"></p>
@@ -176,23 +182,24 @@ To make sure the configurations were applied correctly:
 
 ## Clustering-related configurations
 
-Following configurations need to be done to both WSO2 Identity Server nodes in order to enable clustering between 
+WSO2 supports the following membership schemes for clustering
+
+-   Well Known Address (WKA)
+-   Multicast membership 
+-   AWS membership 
+-   AWS ECS membership 
+-   Kubernetes membership
+
+The following configurations need to be done in both the WSO2 Identity Server nodes in order to enable clustering between 
 them.
 
-WSO2 supports the following membership schemes for clustering
-- well-known address (WKA)
-- Multicast membership 
-- AWS membership 
-- AWS ECS membership 
-- Kubernetes membership
-        
 1. Enable clustering on node 1 and node 2 by setting the membership
    scheme that fits your deployment by editing the
    `<IS_HOME>/repository/conf/deployment.toml` file.
 
     !!! info
         The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are 
-        deployed on machines having static IP addresses. For more information, see [About Membership Schemes](../../../deploy/clustering-overview/#about-membership-schemes).
+        deployed on machines having static IP addresses. <!--For more information, see [About Membership Schemes](../../../deploy/clustering-overview/#about-membership-schemes).-->
         Configurations for each membership scheme are listed below.
         
         ??? tip "Click to see the instructions for WKA scheme"            
@@ -208,10 +215,10 @@ WSO2 supports the following membership schemes for clustering
             Under the `members` section, add the `hostName` and `port` for each WKA member. As we have only two nodes 
             in our sample cluster configuration, we will configure both nodes as WKA nodes.         
             
-            You can also use IP address ranges for the hostName. For example, `192.168.1.2-10`. This should ensure 
+            You can also use IP address ranges for the `hostName`. For example, `192.168.1.2-10`. This should ensure 
             that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define 
             a range only for the last portion of the IP address. You should also keep in mind that the smaller 
-            the range, the faster the time it takes to discover members since each node has to scan a lesser 
+            the range, the faster it discovers members since each node has to scan a lesser 
             number of potential members. 
             
         ??? tip "Click to see the instructions for AWS ECS membership scheme"  
@@ -264,7 +271,7 @@ WSO2 supports the following membership schemes for clustering
 2. Configure caching.
 
     !!! note
-        From WSO2 Identity Server 5.2.0 onwards, distributed caching is disabled and it is not recommended 
+        Distributed caching is disabled and it is not recommended 
         to use this due to many practical issues that are related to configuring and running distributed 
         caching properly. WSO2 Identity Server employs **Hazelcast** as the primary method of implementing 
         cluster messages while using distributed caching in a simple setup.
@@ -281,7 +288,7 @@ WSO2 supports the following membership schemes for clustering
                     <li>The load on the underlying database or LDAP is reduced as data is served from already 
                     fetched data in memory.</li>
                     <li>Improved performance due to the reduced number of database calls for repetitive 
-                    data fetching.</li>
+                    data fetching</li>
                 </ul>
             </li>
             <li><b>Disadvantages</b>
@@ -300,114 +307,116 @@ WSO2 supports the following membership schemes for clustering
         is not tightly controlled, distributed caching fails in unexpected ways. Hence, we **no longer recommend 
         using distributed caching**. Instead, it is **recommended to have local caches** (if required) and 
         **cache invalidation messages** (if required) by considering the information given below.
-        <ul>
-            <li><b>The ForceLocalCache property</b></br>
-            When Hazelcast clustering is enabled certain caches act as distributed caches. The `force_local_cache` property in the `<IS_HOME>/repository/conf/deployment.toml` directory is there to mark that all the caches should act like local caches even in a clustered setup. (This is by default set to `true`).
-            ```
-            [server]
-            force_local_cache = true
-            ```
-            Cache invalidation uses Hazelcast messaging to distribute the invalidation message over the cluster 
-            and invalidate the caches properly.  This is used to minimize the coherence problem in a multi-node setup.
-            </li>
-            <li><b>Typical clustered deployment cache scenarios</b></br>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Scenario</th>
-                        <th>Local Caching</th>
-                        <th>Distributed Caching</th>
-                        <th>Hazelcast Clustering</th>
-                        <th>Distributed Invalidation</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1. All caches are local with distributed cache invalidation</td>
-                        <td>Enabled</td>
-                        <td>Not Applicable</td>
-                        <td>Enabled</td>
-                        <td>Enabled</td>
-                        <td>
-                            <ul>
-                                <li>This is the <b>recommended approach</b>.</li>
-                                <li>Hazelcast messaging invalidates the caches.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2. All caches are local without distributed cache invalidation</td>
-                        <td>Enabled</td>
-                        <td>Not Applicable</td>
-                        <td>Disabled</td>
-                        <td>Disabled</td>
-                        <td>
-                            <ul>
-                                <li>Invalidation clears only the caches in specific nodes. Other caches are 
-                                cleared at cache expiration.</li>
-                                <li>Hazelcast communication is not used.</li>
-                                <li>As the decisions take time to propagate over nodes (default cache 
-                                timeout is 15 minutes), there is a security risk in this method. To reduce 
-                                the risk, reduce the default cache timeout period. To learn how to reduce the 
-                                default cache timeout period, 
-                                see [Configuring Cache Layers - timeout](../../../deploy/performance/configure-cache-layers#timeout).</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3. No caching</td>
-                        <td>Disabled</td>
-                        <td>Disabled</td>
-                        <td>Disabled</td>
-                        <td>Disabled</td>
-                        <td>
-                            <ul>
-                                <li>The data are directly acquired from the database.</li>
-                                <li>Eliminates the security risks caused due to not having cache invalidation.</li>
-                                <li>This method will create a performance degradation due to the lack of 
-                                caching.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4. Certain caches are disabled while the remaining are local</td>
-                        <td>Enabled for the available local caches</td>
-                        <td>Not Applicable</td>
-                        <td>Enabled</td>
-                        <td>Enabled</td>
-                        <td>
-                            <ul>
-                                <li>To reduce the security risk created in the second scenario and to 
-                                improve performance in comparison with the third scenario, disable the 
-                                security-related caches and sustain the performance-related caches as 
-                                local caches.</li>
-                                <li>This requires identification of these caches depending on the use case.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5. Distributed caching enabled</td>
-                        <td>Disabled—the `force_local_cache` is set to `false`.</td>
-                        <td>Enabled</td>
-                        <td>Enabled</td>
-                        <td>Not Applicable</td>
-                        <td>
-                            <ul>
-                                <li>This scenario is only recommended if the network has tight tolerance 
-                                where the network infrastructure is capable of handling high bandwidth with 
-                                very low latency.</li>
-                                <li>Typically this applies only when you deploy <b>all the nodes in a single 
-                                server rack having fiber-optic cables</b>. In any other environments, this 
-                                implementation will cause cache losses. Thus, this implementation is <b>not 
-                                recommended for general use</b>.
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            </li>
-        </ul>
+        
+        **The ForceLocalCache property**
+
+        When Hazelcast clustering is enabled, certain caches act as distributed caches. The `force_local_cache` property in the `<IS_HOME>/repository/conf/deployment.toml` directory is there to mark that all the caches should act like local caches even in a clustered setup. (This is by default set to `true`).
+        ```
+        [server]
+        force_local_cache = true
+        ```
+        Cache invalidation uses Hazelcast messaging to distribute the invalidation message over the cluster 
+        and invalidate the caches properly. This is used to minimize the coherence problem in a multi-node setup.
+        
+        **Typical clustered deployment cache scenarios**
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Local<br>Caching</th>
+                    <th>Distributed<br>Caching</th>
+                    <th>Hazelcast<br>Clustering</th>
+                    <th>Distributed<br>Invalidation</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. All caches are local with distributed cache invalidation</td>
+                    <td>Enabled</td>
+                    <td>Not<br> Applicable</td>
+                    <td>Enabled</td>
+                    <td>Enabled</td>
+                    <td>
+                        <ul>
+                            <li>This is the <b>recommended approach</b>.</li>
+                            <li>Hazelcast messaging invalidates the caches.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2. All caches are local without distributed cache invalidation</td>
+                    <td>Enabled</td>
+                    <td>Not<br> Applicable</td>
+                    <td>Disabled</td>
+                    <td>Disabled</td>
+                    <td>
+                        <ul>
+                            <li>Invalidation clears only the caches in specific nodes. Other caches are 
+                            cleared at cache expiration.</li>
+                            <li>Hazelcast communication is not used.</li>
+                            <li>As the decisions take time to propagate over nodes (default cache 
+                            timeout is 15 minutes), there is a security risk in this method. To reduce 
+                            the risk, reduce the default cache timeout period. To learn how to reduce the 
+                            default cache timeout period, 
+                            see [Configuring Cache Layers - timeout](../../../deploy/performance/configure-cache-layers#timeout).</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3. No caching</td>
+                    <td>Disabled</td>
+                    <td>Disabled</td>
+                    <td>Disabled</td>
+                    <td>Disabled</td>
+                    <td>
+                        <ul>
+                            <li>The data are directly acquired from the database.</li>
+                            <li>Eliminates the security risks caused due to not having cache invalidation.</li>
+                            <li>This method will create a performance degradation due to the lack of 
+                            caching.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4. Certain caches are disabled while the remaining are local</td>
+                    <td>Enabled<br>for the <br> available local caches</td>
+                    <td>Not<br> Applicable</td>
+                    <td>Enabled</td>
+                    <td>Enabled</td>
+                    <td>
+                        <ul>
+                            <li>To reduce the security risk created in the second scenario and to 
+                            improve performance in comparison with the third scenario, disable the 
+                            security-related caches and sustain the performance-related caches as 
+                            local caches.</li>
+                            <li>This requires identification of these caches depending on the use case.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5. Distributed caching enabled</td>
+                    <td>Disabled <br> - the <br> `force_local_cache` is<br> set to `false`.</td>
+                    <td>Enabled</td>
+                    <td>Enabled</td>
+                    <td>Not<br> Applicable</td>
+                    <td>
+                        <ul>
+                            <li>This scenario is only recommended if the network has tight tolerance 
+                            where the network infrastructure is capable of handling high bandwidth with 
+                            very low latency.</li>
+                            <li>Typically this applies only when you deploy <b>all the nodes in a single 
+                            server rack having fiber-optic cables</b>. In any other environments, this 
+                            implementation will cause cache losses. Thus, this implementation is <b>not 
+                            recommended for general use</b>.
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </li>
+    </ul>
 
 3. Go to the `<IS_HOME>/repository/conf/deployment.toml` file and add the proxy port as `443`. 
 The port 443 is the Load Balancer frontend port.
@@ -422,7 +431,7 @@ The port 443 is the Load Balancer frontend port.
         ```
 
 4. You may change the `<IS_HOME>/repository/conf/deployment.toml` file to access the servers using a 
-hostname instead of the raw IP. This hostname is the one the external applications try to look up WSO2 
+hostname instead of the raw IP. This hostname is how the external applications try to look up WSO2 
 Identity Server endpoints. The `hostName` should be resolved to the Load Balancer front-end IP address.
 
     ```
@@ -441,11 +450,11 @@ Identity Server endpoints. The `hostName` should be resolved to the Load Balance
 
 ## Enable artifact synchronization
 
-To enable synchronization for runtime artifacts you must have a shared file system. You can use one of the following
+To enable synchronization for runtime artifacts, you must have a shared file system. You can use one of the following
  depending on your environment.
  
    -   **Network File System (NFS)**: This is one of the most commonly known shared file systems and can be used 
-   in a linux environment.
+   in a Linux environment.
    -   **Server Message Block (SMB) file system**: This can be used in a Windows environment.
    -   **Amazon EFS**: This can be used in an AWS environment.
 
@@ -454,14 +463,13 @@ Once you have chosen a file system,
 1. Mount it in the nodes that are participating in the cluster.
 2. Create two directories called `Deployment` and `Tenants` in the shared file system.
 3. Create a symlink from the `<IS_HOME>/repository/deployment` path to the `Deployment` directory of the shared 
-file system that you created in step 2 of this section.
+file system that you created in the previous step.
 4. Create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory of the shared file 
-system that you created in step 2 of this section.
+system that you created.
 
 !!! note
     Instead of mounting the file system directly to the `<IS_HOME>/repository/deployment` and
-     `<IS_HOME>/repository/tenants` paths, a symlink is created to avoid issues that may occur 
-     if you delete the product to redeploy it, the file system would get mounted to a non-existing path.
+     `<IS_HOME>/repository/tenants` paths, a symlink is created. Otherwise, if you delete the product to redeploy it, the file system would get mounted to a non-existing path.
  
 ---
 
@@ -481,7 +489,7 @@ You can use any load balancer that is available to your system.
 ## Run the cluster
 
 1. Start the load balancer and WSO2 Identity Server nodes.
-2. Access the management console at `https://wso2.is/carbon/`. 
+2. Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). 
     Traffic will be served by one of the nodes in the cluster, depending on your load balancer.
 3. Shut down the cluster node 1 and observe that the traffic is served by node 2. 
 3. Start node 1 and shut down node 2. Note that traffic will be served by node 1.

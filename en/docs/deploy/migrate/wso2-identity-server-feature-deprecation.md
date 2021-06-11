@@ -20,7 +20,7 @@ The following terms refer to the different phases of the feature deprecation lif
 
 1. **Planned**
 
-    Any feature in the Planned phase, will be deprecated and removed in future releases. However, the feature is available for use in the current release.
+    Any feature in the planned phase, will be deprecated and removed in future releases. However, the feature is available for use in the current release.
 
 2. **Deprecated**
 
@@ -34,7 +34,7 @@ The following terms refer to the different phases of the feature deprecation lif
 
 ## Feature deprecation matrix
 
-Feature deprecation matrix keeps track of the WSO2 Identity Server Feature Deprecation timelines with their respective EOL versions in accordance with the IAM feature maintenance policy. Users are advised to review if they make use of the feature in their current deployment, and make plans to change their implementation. Please refer the matrix to identify the target timelines of feature removal from the product and EOL for maintenance, in order to plan your environment and projects accordingly.
+Feature deprecation matrix keeps track of the WSO2 Identity Server Feature Deprecation timelines with their respective EOL versions in accordance with the IAM feature maintenance policy. Users are advised to review if they make use of the feature in their current deployment, and make plans to change their implementation. Refer the matrix to identify the target timelines of feature removal from the product and EOL for maintenance, in order to plan your environment and projects accordingly.
 
 The matrix includes the product release versions that each feature will be deprecated or retired from. **FUTURE** tag is used to indicate deprecation/retired timelines which are not yet finalized and **FUTURE** on Deprecated In column indicate that the feature is in **Planned** phase, and the deprecated timeline is not yet finalized.
 
@@ -112,7 +112,7 @@ Our recommendation is to migrate to OAuth 2.0
   </tr>
 </table>
 
-Please refer EOL dates of a product from here: [WSO2 Product Support Lifecycle](https://wso2.com/products/support-matrix/).
+Refer EOL dates of a product at [WSO2 Product Support Lifecycle](https://wso2.com/products/support-matrix/).
 
 ---
 

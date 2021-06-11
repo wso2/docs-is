@@ -1,6 +1,6 @@
 # Before you begin
 
-This section walks you through the steps you need to follow to upgrade WSO2 Identity Server to version 5.11.0. 
+This section walks you through the steps you need to follow to upgrade WSO2 Identity Server to version 5.12.0. 
 
 ---
 
@@ -11,7 +11,7 @@ users receive the latest updates for the product.
 
 -   For a high level overview of what has been added, changed, or
     deprecated in this release, see [About this
-    release](TBD:../../get-started/about-this-release).
+    release](../../../get-started/about-this-release).
 -   For a detailed overview of behavioral changes in this release, see
     [What Has Changed](../../../deploy/migrate/what-has-changed).
 
@@ -20,7 +20,7 @@ users receive the latest updates for the product.
 ## Prerequisites
 
 1.  Review what has been changed in this release. For a detailed list of
-    changes from 5.10.0 to 5.11.0, see
+    changes from 5.11.0 to 5.12.0, see
     [What Has Changed](../../../deploy/migrate/what-has-changed).
 
 2.  Before you migrate, refer to [Migration Process](../../../deploy/migrate/migration-process/) 
@@ -32,6 +32,6 @@ users receive the latest updates for the product.
 4.  Take a backup of the existing database used by the current WSO2 Identity Server. 
     This backup is necessary in case the migration causes any issues in the existing database.
 
-5.  Download WSO2 Identity Server 5.11.0 and unzip it in the `<NEW_IS_HOME>` directory.
+5.  Download WSO2 Identity Server 5.12.0 and unzip it in the `<NEW_IS_HOME>` directory.
 
-6.  Next, refer to the [Preparing for migration](../../../deploy/migrate/prepare-for-migration) section.
+6.  Refer to the [Prepare for migration](../../../deploy/migrate/prepare-for-migration) section.
