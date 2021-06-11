@@ -36,7 +36,7 @@ The user is required to log in to two different applications, `application1` and
 2.  Copy the downloaded SAML metadata file to `<SAMPLE_HOME>/sample/src/main/resources/metadata`.
 3.  Open the `<SAMPLE_HOME>/sample/src/main/webapp/WEB-INF/securityContext.xml` file. 
 4.  Search for **bean id** with the tag as metadata (`bean id=”metadata”`). 
-5.  Under the `list` tag of the `metadata bean id` add the following xml configuration and save the file. Note that this has the link to the metadata file,`wso2.xml`, that we downloaded. 
+5.  Under the `list` tag of the `metadata bean id`, add the following xml configuration and save the file. Note that this has the link to the metadata file,`wso2.xml`, that we downloaded. 
 
     ```xml 
     <bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
