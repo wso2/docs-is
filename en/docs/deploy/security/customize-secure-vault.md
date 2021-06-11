@@ -50,11 +50,11 @@ encrypted values.
     AbstractSecretCallbackHandler abstract class. For example,  
 
     ``` java
-        public class HardCodedSecretCallbackHandler extends AbstractSecretCallbackHandler {
-             protected void handleSingleSecretCallback(SingleSecretCallback singleSecretCallback) {
-                    singleSecretCallback.setSecret("password");
-             }
-        }
+    public class HardCodedSecretCallbackHandler extends AbstractSecretCallbackHandler {
+         protected void handleSingleSecretCallback(SingleSecretCallback singleSecretCallback) {
+                singleSecretCallback.setSecret("password");
+         }
+    }
     ```
 
 2.  We can set multiple password-based as follows: <span
@@ -62,15 +62,15 @@ encrypted values.
     </span></span>
 
     ``` java
-            public class HardCodedSecretCallbackHandler extends AbstractSecretCallbackHandler {
-                protected void handleSingleSecretCallback(SingleSecretCallback singleSecretCallback) {
-                     if("foo".equals(singleSecretCallback.getId())){
-                        singleSecretCallback.setSecret("foo_password");
-                     } else if("bar".equals(singleSecretCallback.getId())){
-                        singleSecretCallback.setSecret("bar_password");
-                       }
-               }
+    public class HardCodedSecretCallbackHandler extends AbstractSecretCallbackHandler {
+        protected void handleSingleSecretCallback(SingleSecretCallback singleSecretCallback) {
+            if("foo".equals(singleSecretCallback.getId())){
+                singleSecretCallback.setSecret("foo_password");
+            } else if("bar".equals(singleSecretCallback.getId())){
+                singleSecretCallback.setSecret("bar_password");
             }
+        }
+    }
     ```
 
 3.  Create a JAR or an OSGI bundle and copy the JAR file to the
@@ -100,19 +100,19 @@ To create a custom secret repository, you need to implement the
 
     ``` java
     public class CustomSecretRepositoryImpl extends SecretRepository {
-    public void init(Properties properties, String s) {
-    }
-    public String getSecret(String s) {
-        return null;
-    }
-    public String getEncryptedData(String s) {
-        return null;
-    }
-    public void setParent(SecretRepository secretRepository) {
-    }
-    public SecretRepository getParent() {
-        return null;
-    }
+        public void init(Properties properties, String s) {
+        }
+        public String getSecret(String s) {
+            return null;
+        }
+        public String getEncryptedData(String s) {
+            return null;
+        }
+        public void setParent(SecretRepository secretRepository) {
+        }
+        public SecretRepository getParent() {
+            return null;
+        }
     } 
     ```
 
@@ -120,9 +120,8 @@ To create a custom secret repository, you need to implement the
 
     ``` java
     public class CustomSecretRepositoryProvider implements SecretRepositoryProvider {
-        public SecretRepository getSecretRepository(IdentityKeyStoreWrapper identityKeyStoreWrapper,
-        TrustKeyStoreWrapper trustKeyStoreWrapper) {
-        return new CustomSecretRepositoryImpl(identityKeyStoreWrapper, trustKeyStoreWrapper);
+        public SecretRepository getSecretRepository(IdentityKeyStoreWrapper identityKeyStoreWrapper, TrustKeyStoreWrapper trustKeyStoreWrapper) {
+            return new CustomSecretRepositoryImpl(identityKeyStoreWrapper, trustKeyStoreWrapper);
         }
     } 
     ```

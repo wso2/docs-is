@@ -35,23 +35,26 @@ This page guides you through using a **sample Playground application** to try ou
 	to the **authorize** endpoint of the WSO2 Identity Server using the
 	following format.
 	
-	```java tab="Request Format"
-	POST
-	https://<host>:<port>/oauth2/token
-	Authorization: Basic [Base64encode(Client-ID>:<ClientSecret>)]
-	Content-Type: application/x-www-form-urlencoded
+	!!! abstract ""
+        **Request Format**
+		```java
+		POST
+		https://<host>:<port>/oauth2/token
+		Authorization: Basic [Base64encode(Client-ID>:<ClientSecret>)]
+		Content-Type: application/x-www-form-urlencoded
 
-	grant_type=password&username=<Resource Owner User Name>&password=<Resource Owner Password>
-	```
-	
-	```java tab="Sample Request"
-	POST
-	https://localhost:9443/oauth2/token
-	Authorization: Basic Q3g0TEtGTk9iZXVYb2N4N3hnT3B6NXZmekZvYTogVWRUNm5XbnFXWkdnNDFHWnI5TXBTWGs5eU04YQ==
-	Content-Type: application/x-www-form-urlencoded
+		grant_type=password&username=<Resource Owner User Name>&password=<Resource Owner Password>
+		```
+		---
+        **Sample Request**
+		```java
+		POST
+		https://localhost:9443/oauth2/token
+		Authorization: Basic Q3g0TEtGTk9iZXVYb2N4N3hnT3B6NXZmekZvYTogVWRUNm5XbnFXWkdnNDFHWnI5TXBTWGs5eU04YQ==
+		Content-Type: application/x-www-form-urlencoded
 
-	grant_type=password&username=admin&password=admin
-	``` 
+		grant_type=password&username=admin&password=admin
+		``` 
 
 3. Log in with user credentials (e.g., admin/admin). At this point, the application receives the access token. 
 

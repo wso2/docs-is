@@ -41,149 +41,151 @@ To re-brand the header and footer content of the web applications, first copy th
 
 Create the basic CSS styles that are required to override the existing UI styling.
 
-```css tab="Example"  
-<style>
-    html, body {
-        height: 100%;
-    }
+!!! abstract ""
+    **Example**
+    ```css
+    <style>
+        html, body {
+            height: 100%;
+        }
 
-    body {
-        flex-direction: column;
-        display: flex;
-        background: #1e1e2f;
-        color: #ffffff;
-    }
+        body {
+            flex-direction: column;
+            display: flex;
+            background: #1e1e2f;
+            color: #ffffff;
+        }
 
-    main {
-        flex-shrink: 0;
-    }
+        main {
+            flex-shrink: 0;
+        }
 
-    main.center-segment {
-        margin: auto;
-        display: flex;
-        align-items: center;
-    }
+        main.center-segment {
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
 
-    main.center-segment > .ui.container.medium {
-        max-width: 450px !important;
-    }
+        main.center-segment > .ui.container.medium {
+            max-width: 450px !important;
+        }
 
-    main.center-segment > .ui.container.large {
-        max-width: 700px !important;
-    }
+        main.center-segment > .ui.container.large {
+            max-width: 700px !important;
+        }
 
-    main.center-segment > .ui.container > .ui.segment {
-        padding: 3rem;
-        background: #424061;
-        box-shadow: 3px 2px 7px #1c1818;
-        border-radius: 10px;
-    }
+        main.center-segment > .ui.container > .ui.segment {
+            padding: 3rem;
+            background: #424061;
+            box-shadow: 3px 2px 7px #1c1818;
+            border-radius: 10px;
+        }
 
-    main.center-segment > .ui.container > .ui.segment .segment-form .buttons {
-        margin-top: 1em;
-    }
+        main.center-segment > .ui.container > .ui.segment .segment-form .buttons {
+            margin-top: 1em;
+        }
 
-    main.center-segment > .ui.container > .ui.segment .segment-form .buttons.align-right button,
-    main.center-segment > .ui.container > .ui.segment .segment-form .buttons.align-right input {
-        margin: 0 0 0 0.25em;
-    }
+        main.center-segment > .ui.container > .ui.segment .segment-form .buttons.align-right button,
+        main.center-segment > .ui.container > .ui.segment .segment-form .buttons.align-right input {
+            margin: 0 0 0 0.25em;
+        }
 
-    main.center-segment > .ui.container > .ui.segment .segment-form .column .buttons.align-left button.link-button,
-    main.center-segment > .ui.container > .ui.segment .segment-form .column .buttons.align-left input.link-button {
-        padding: .78571429em 1.5em .78571429em 0;
-    }
+        main.center-segment > .ui.container > .ui.segment .segment-form .column .buttons.align-left button.link-button,
+        main.center-segment > .ui.container > .ui.segment .segment-form .column .buttons.align-left input.link-button {
+            padding: .78571429em 1.5em .78571429em 0;
+        }
 
-    main.center-segment > .ui.container > .ui.segment .segment-form {
-        text-align: left;
-    }
+        main.center-segment > .ui.container > .ui.segment .segment-form {
+            text-align: left;
+        }
 
-    main.center-segment > .ui.container > .ui.segment .segment-form .align-center {
-        text-align: center;
-    }
+        main.center-segment > .ui.container > .ui.segment .segment-form .align-center {
+            text-align: center;
+        }
 
-    main.center-segment > .ui.container > .ui.segment .segment-form .align-right {
-        text-align: right;
-    }
+        main.center-segment > .ui.container > .ui.segment .segment-form .align-right {
+            text-align: right;
+        }
 
-    .cookie-policy-message {
-        font-size: 14px;
-    }
+        .cookie-policy-message {
+            font-size: 14px;
+        }
 
-    footer {
-        padding: 2rem 0;
-    }
+        footer {
+            padding: 2rem 0;
+        }
 
-    body .product-title .product-title-text {
-        margin: 0;
-    }
+        body .product-title .product-title-text {
+            margin: 0;
+        }
 
-    body .center-segment .product-title .product-title-text {
-        margin-top: 2em;
-        margin-bottom: 1em;
-    }
+        body .center-segment .product-title .product-title-text {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
 
-    .ui.header {
-        color: #ffffff;
-        font-weight: 600;
-    }
+        .ui.header {
+            color: #ffffff;
+            font-weight: 600;
+        }
 
-    .ui.menu.fixed.app-header .product-logo {
-        padding-left: 0;
-    }
+        .ui.menu.fixed.app-header .product-logo {
+            padding-left: 0;
+        }
 
-    .ui.form .field .ui.input input {
-        background: #6b688d;
-    }
+        .ui.form .field .ui.input input {
+            background: #6b688d;
+        }
 
-    .ui.checkbox label {
-        color: #ffffff;
-    }
+        .ui.checkbox label {
+            color: #ffffff;
+        }
 
-    /* Table of content styling */
+        /* Table of content styling */
 
-    main #toc {
-        position: sticky;
-        top: 93px;
-    }
+        main #toc {
+            position: sticky;
+            top: 93px;
+        }
 
-    main .ui.segment.toc {
-        padding: 20px;
-    }
+        main .ui.segment.toc {
+            padding: 20px;
+        }
 
-    main .ui.segment.toc ul.ui.list.nav > li.sub {
-        margin-left: 20px;
-    }
+        main .ui.segment.toc ul.ui.list.nav > li.sub {
+            margin-left: 20px;
+        }
 
-    main .ui.segment.toc ul.ui.list.nav > li > a {
-        color: rgba(0,0,0,.87);
-        text-decoration: none;
-    }
+        main .ui.segment.toc ul.ui.list.nav > li > a {
+            color: rgba(0,0,0,.87);
+            text-decoration: none;
+        }
 
-    main .ui.segment.toc ul.ui.list.nav > li:before {
-        content: "\2219";
-        font-weight: bold;
-        font-size: 1.6em;
-        line-height: 0.5em;
-        display: inline-block;
-        width: 1em;
-        margin-left: -0.7em;
-    }
+        main .ui.segment.toc ul.ui.list.nav > li:before {
+            content: "\2219";
+            font-weight: bold;
+            font-size: 1.6em;
+            line-height: 0.5em;
+            display: inline-block;
+            width: 1em;
+            margin-left: -0.7em;
+        }
 
-    main .ui.segment.toc ul.ui.list.nav > li.sub:before {
-        content: "\2192";
-        margin-left: -1em;
-    }
+        main .ui.segment.toc ul.ui.list.nav > li.sub:before {
+            content: "\2192";
+            margin-left: -1em;
+        }
 
-    main .ui.segment.toc ul.ui.list.nav > li:hover a {
-        color: #ff5000;
-        text-decoration: none;
-    }
+        main .ui.segment.toc ul.ui.list.nav > li:hover a {
+            color: #ff5000;
+            text-decoration: none;
+        }
 
-    main .ui.segment.toc ul.ui.list.nav > li:hover:before {
-        color: #ff5000;
-    }
-</style>
-```
+        main .ui.segment.toc ul.ui.list.nav > li:hover:before {
+            color: #ff5000;
+        }
+    </style>
+    ```
 
 ---
 
@@ -211,19 +213,19 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
 
     2. To add the company name, replace the content of `<footer> tag` with the following.
     ```html
-        <footer class="footer">
-            <div class="container-fluid">
-                <p>XYZ Company | &copy;
-                    <script>document.write(new Date().getFullYear());</script>
-                    <a href="<%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "business.homepage")%>"
-                       target="_blank">
-                       <i class="icon fw fw-wso2"></i>
-                       <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "Inc")%>
-                    </a>
-                    . <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
-                </p>
-            </div>
-        </footer>
+     <footer class="footer">
+         <div class="container-fluid">
+             <p>XYZ Company | &copy;
+                 <script>document.write(new Date().getFullYear());</script>
+                 <a href="<%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "business.homepage")%>"
+                    target="_blank">
+                    <i class="icon fw fw-wso2"></i>
+                    <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "Inc")%>
+                 </a>
+                 . <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
+             </p>
+         </div>
+     </footer>
     ```
       
 3. Similarly, you can re-brand the **accountrecovery** web application header and footer.

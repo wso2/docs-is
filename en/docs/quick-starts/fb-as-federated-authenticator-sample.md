@@ -68,15 +68,13 @@ Now you have finished configuring Facebook as an Identity Provider.
 
 ---
 
-## Configure the identity provider 
-	
-{! fragments/register-an-identity-povider.md !}
+{! fragments/register-an-identity-provider.md !}
 
 {! fragments/idp-facebook.md !}
 
 ---
 
-## Deploy the Sample App
+## Deploy the sample application
 
 {! fragments/travelocity.md !}
 

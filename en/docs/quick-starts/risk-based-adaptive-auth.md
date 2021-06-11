@@ -12,7 +12,7 @@ If you have your own application, click the button below.
 
 ## Scenario
 
-Consider a business use case where a bank wants to prompt an additional authentication step when a user attempts to log in to the system after after performing a transaction of above $10,000. This usecase can be achieved by creating a Siddhi application in WSO2 SP and configuring a conditional authentication script in the service provider configuration of WSO2 Identity Server (WSO2 IS).
+Consider a business use case where a bank wants to prompt an additional authentication step when a user attempts to log in to the system after after performing a transaction of above $10,000. This use case can be achieved by creating a Siddhi application in WSO2 SP and configuring a conditional authentication script in the service provider configuration of WSO2 Identity Server (WSO2 IS).
 
 ----
 

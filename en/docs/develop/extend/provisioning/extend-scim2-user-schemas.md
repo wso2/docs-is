@@ -117,71 +117,96 @@ WSO2 Identity Server allows users to define their own user schema in addition to
 
 5. Retrieve the user using SCIM and ensure that the custom claim value is present. 
 
-    ```bash tab="SCIM Request"
-    curl -v -k --user admin:admin https://localhost:9443/scim2/Users
-    ```
-
-    ``` bash tab="SCIM Response"
-    {"totalResults":2,"startIndex":1,"itemsPerPage":2,
-    "schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
-    "Resources":[{"emails":["admin@wso2.com"],
-    "meta":{"created":"2020-01-21T16:52:11Z",
-    "lastModified":"2020-01-21T16:52:11Z"},"roles":[{"type":"default",
-    "value":"Internal/everyone,admin"}],"name":{"givenName":"admin",
-    "familyName":"admin"},"id":"54779523-8677-48bc-bce6-1764b7439f64",
-    "userName":"admin"},{"emails":[{"type":"home","value":"testvalue"},
-    "alex@gmail.com"],"meta":{"created":"2020-01-21T16:56:56Z",
-    "lastModified":"2020-01-21T17:02:43Z","resourceType":"User"},
-    "EnterpriseUser":{"customClaim":"testvalue"},"roles":[{"type":"default",
-    "value":"Internal/everyone"}],"name":{"givenName":"Alex",
-    "familyName":"alex"},"id":"c91b5f1c-08c7-44d3-89c4-34ea9440dea5","userName":"alex"}]}
-    ```
+    !!! abstract ""
+        **SCIM request**
+        ```bash
+        curl -v -k --user admin:admin https://localhost:9443/scim2/Users
+        ```
+        ---
+        **SCIM response**
+        ```
+        {
+            "totalResults":2,
+            "startIndex":1,
+            "itemsPerPage":2,
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+            "Resources":[
+                {
+                    "emails":["admin@wso2.com"],
+                    "meta":{
+                        "created":"2020-01-21T16:52:11Z",
+                        "lastModified":"2020-01-21T16:52:11Z"
+                    },
+                    "roles":[{"type":"default", "value":"Internal/everyone,admin"}],
+                    "name":{"givenName":"admin", "familyName":"admin"},
+                    "id":"54779523-8677-48bc-bce6-1764b7439f64",
+                    "userName":"admin"
+                },
+                {
+                    "emails":[{"type":"home", "value":"testvalue"},"alex@gmail.com"],
+                    "meta":{
+                        "created":"2020-01-21T16:56:56Z",
+                        "lastModified":"2020-01-21T17:02:43Z",
+                        "resourceType":"User"
+                    },
+                    "EnterpriseUser":{"customClaim":"testvalue"},
+                    "roles":[{"type":"default", "value":"Internal/everyone"}],
+                    "name":{"givenName":"Alex", "familyName":"alex"},
+                    "id":"c91b5f1c-08c7-44d3-89c4-34ea9440dea5",
+                    "userName":"alex"
+                }
+            ]
+        }
+        ```
 
 You can also try out updating the custom claim value using the following SCIM command and checking if the value is updated by accessing the user profile on the management console. 
 
- ```curl tab="Request Format"
- curl -k -X PATCH \
-   https://<IS_HOST>:<IS_PORT>/scim2/Users/<USER_ID> \
-   -H 'Authorization: Basic <Base64Encoded_username:password>' \
-   -H 'Content-Type: application/json' \
-   -d '{
-    "schemas":[
-       "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations":[
-       {
-          "op":"replace",
-          "value":{
-             "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-                  "customClaim": "<NEW_VALUE>"
+!!! abstract  ""
+    **Request format**
+    ```
+    curl -k -X PATCH \
+      https://<IS_HOST>:<IS_PORT>/scim2/Users/<USER_ID> \
+      -H 'Authorization: Basic <Base64Encoded_username:password>' \
+      -H 'Content-Type: application/json' \
+      -d '{
+       "schemas":[
+          "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+       ],
+       "Operations":[
+          {
+             "op":"replace",
+             "value":{
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                     "customClaim": "<NEW_VALUE>"
+                }
              }
           }
-       }
-    ]
- }'
- ```
- 
-```curl tab="Sample Request"
-curl -k -X PATCH \
-  https://localhost:9443/scim2/Users/be8f8562-7661-44a9-b6f4-d6d94dac914f \
-  -H 'Authorization: Basic dmloYW5nYTphZG1pbg==' \
-  -H 'Content-Type: application/json' \
-  -d '{
-   "schemas":[
-      "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-   ],
-   "Operations":[
-      {
-         "op":"replace",
-         "value":{
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-                 "customClaim": "new value"
+       ]
+    }'
+    ```
+    ---
+    **Sample request**
+    ```curl
+    curl -k -X PATCH \
+        https://localhost:9443/scim2/Users/be8f8562-7661-44a9-b6f4-d6d94dac914f \
+        -H 'Authorization: Basic dmloYW5nYTphZG1pbg==' \
+        -H 'Content-Type: application/json' \
+        -d '{
+        "schemas":[
+            "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+        ],
+        "Operations":[
+            {
+                "op":"replace",
+                "value":{
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+                        "customClaim": "new value"
+                }
+                }
             }
-         }
-      }
-   ]
-}'
-```
+        ]
+    }'
+    ```
 
 !!! info "Related topics" 
     -  API: [SCIM 2.0](../../apis/scim2-rest-apis.md)

@@ -55,6 +55,6 @@ TODO: dev-portal-fragment
 
 ---
 
-!!! note "Related Topics"
+!!! info "Related topics"
     - [Working with certificates](TO DO: concepts)
     - [Configure X509 Certificate Authenticator](../../guides/mfa/x509)

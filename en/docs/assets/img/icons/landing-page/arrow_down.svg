@@ -14,22 +14,11 @@
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
  * under the License.
-
- NOTE: Borrowed generously from MkDocs and MkDocs-material
 -->
 
-{% import "partials/language.html" as lang with context %}
-<!-- Repository information -->
-<a
-  href="{{ config.repo_url }}"
-  title="{{ lang.t('source.link.title') }}"
-  class="md-source"
-  data-md-component="source"
->
-  <div class="md-source__icon md-icon">
-    <i class="fa fa-github git-icon"></i>
-  </div>
-  <div class="md-source__repository">
-    {{ config.repo_name }}
-  </div>
-</a>
+<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="#000000">
+    <g id="arrow-down">
+        <path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/>
+        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/>
+    </g>
+</svg>

@@ -190,7 +190,7 @@ hljs.initHighlightingOnLoad();
 /*
  * Handle TOC toggle
  */
-var tocBtn = document.querySelector('.md-sidebar.md-sidebar--secondary #tocToggleBtn');
+var tocBtn = document.querySelector('#tocToggleBtn');
 var tocClass = document.getElementsByTagName('main')[0];
 
 if (tocBtn) {
@@ -199,8 +199,10 @@ if (tocBtn) {
         tocClass.classList.toggle('hide-toc');
         if (tocBtn.innerHTML === "keyboard_arrow_right") {
             tocBtn.innerHTML = "keyboard_arrow_left";
+            tocBtn.style.right = "20px";
         } else {
             tocBtn.innerHTML = "keyboard_arrow_right";
+            tocBtn.style.right = "calc(20% - 31px)";
         }
     };
 }

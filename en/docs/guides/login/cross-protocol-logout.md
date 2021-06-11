@@ -32,7 +32,7 @@ This guide assumes you have your own applications. If you wish to try out this f
 Once you have configured all your applications, access them in separate tabs in your browser. When you logout from one application, it should log you out from all the configured applications. 
 
 !!! info "Related topics"
-    - [Demo: Cross-Protocol Logout](../../../quick-starts/cross-protocol-logout-sample)
+    - [Quick Start: Cross-Protocol Logout](../../../quick-starts/cross-protocol-logout-sample)
     - [Guide: Single Sign-On](../enable-single-sign-on)
     - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)
     - [Guide: SAML Back-Channel Logout](../saml-back-channel-logout)

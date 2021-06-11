@@ -33,7 +33,7 @@ JAVA_OPTS \
 ## Architecture
 
 The multi-tenant architecture of WSO2 Identity Server allows you to deploy web
-applications, web services, mashups etc. in an
+applications, web services, mashups, etc. in an
 environment that supports the following:
 
 -   **Tenant isolation:** Each tenant has its own domain, which the
@@ -51,10 +51,9 @@ their own data and perform their own transactions without being affected
 by actions carried out in other domains.
 
 These domains are allocated a server space from the complete server space
-of a WSO2 Identity Server instance which is referred to as the *super tenant*.
+of a WSO2 Identity Server instance which is referred to as the **super tenant**.
 
-The super tenant as well as each individual tenant have their own configurations and context modules. 
-configuration and context module.
+The super tenant, as well as each individual tenant, have their own configurations and context modules. 
 
 Each tenant has its own security domain. A domain has a set of users,
 and permissions for those users to access resources. Thus, a tenant is
@@ -87,20 +86,20 @@ using an admin service are taken into account. -->
 WSO2 Carbon supports the following methods for sharing resources among
 tenants:
 
--   **Private Jet mode** : This method allows the load of a tenant ID to
+-   **Private Jet mode**: This method allows the load of a tenant ID to
     be deployed in a single tenant mode. A single tenant is allocated an
     entire service cluster. The purpose of this approach is to allow
     special privileges (such as priority processing and improved
     performance) to a tenant.
--   **Separation at hardware level** : This method allows different
+-   **Separation at hardware level**: This method allows different
     tenants to share a common set of resources, but each tenant has to
     run its own operating system. This approach helps to achieve a high
     level of isolation, but it also incurs a high overhead cost.
--   **Separation at JVM level** : This method allows tenants to share
+-   **Separation at JVM level**: This method allows tenants to share
     the same operating system. This is done by enabling each tenant to
     run a separate JVM instance in the operating system.
--   **Native** **multitenancy** : This method involves allowing all the
-    tenants to share a single JVM instance. This method minimises the
+-   **Native** **multitenancy**: This method involves allowing all the
+    tenants to share a single JVM instance. This method minimizes the
     overhead cost.
 
 ---
@@ -164,7 +163,7 @@ dispatchers and handlers specific to that tenant will be applied.
 The following example further illustrates how message dispatching is
 carried out in a multi-tenant server.
 
-For example, two tenants named foo.com and bar.com may deploy a service
+For example, two tenants named `foo.com` and `bar.com` may deploy a service
 named MyService. When this service is hosted on the two tenants, they
 would have the following URLs.
 
@@ -189,7 +188,7 @@ it will be processed.
 
 The multitenancy architecture described above mainly refers to a
 scenario where a single instance of an identity server acts as a single
-multi-tenant node. In a situation where a very high load of requests are
+multi-tenant node. In a situation where a very high load of requests is
 handled, you may need multiple multi-tenant nodes. In order to operate
 with multiple multi-tenant nodes, you need load balancing. The load
 balancer you use also needs to be tenant-aware.

@@ -201,9 +201,11 @@ Once all the above prerequisites are met, follow the instructions given below to
 
     1. Generate your own secret key using a tool like OpenSSL.
 
-        ```tab="Example"
-        openssl enc -nosalt -aes-128-cbc -k hello-world -P
-        ```
+        !!! abstract ""
+            **Example**
+            ```
+            openssl enc -nosalt -aes-128-cbc -k hello-world -P
+            ```
     
     2. Add the configuration to the `<NEW_IS_HOME>/repository/conf/deployment.toml` file. 
 
@@ -260,9 +262,11 @@ to the new WSO2 Identity Server database.
 
 2.  Monitor the logs in the sync tool to see how many entries are synced at a given time and to keep track of the progress in the data sync process. The following line will be printed in the logs in each table you have specified that has no data to be synced.
 
-    ```tab="Sample"
-    [2019-02-27 17:26:32,388]  INFO {org.wso2.is.data.sync.system.pipeline.process.BatchProcessor} -  No data to sync for: <TABLE_NAME>
-    ```
+    !!! abstract ""
+        **Sample**
+        ```
+        [2019-02-27 17:26:32,388]  INFO {org.wso2.is.data.sync.system.pipeline.process.BatchProcessor} -  No data to sync for: <TABLE_NAME>
+        ```
     
     !!! info
         If you have some traffic to the old version of the WSO2 Identity Server, the number of entries to 
