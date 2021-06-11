@@ -47,7 +47,7 @@ The following diagram indicates how the authentication procedure works.
 2.  The server rejects the request and sends a response saying the user
     needs to be authenticated using NTLM (NT (New Technology) LAN Manager).
 3.  The client browser gets the user's credentials which were used to log
-    into Windows, takes the hash of it, and sends it to the server.
+    in to Windows, takes the hash of it, and sends it to the server.
 4.  With the hash received, the server looks up the userstore and
     identifies the user, and creates a unique and encrypted challenge to
     send back to the client browser. That challenge can be only
