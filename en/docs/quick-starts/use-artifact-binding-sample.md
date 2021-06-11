@@ -36,7 +36,7 @@ You will be redirected to the Pickup Dispatch application home page.
     Content-Type: text/html; charset=iso-8859-1
     ```
 
-You have successfully set up SAML artifact binding. See the sections below for more information on resolving SAML 2.0 artifacts and configuring  an artifact expiration time.
+You have successfully set up SAML artifact binding. See the sections below for more information on resolving SAML 2.0 artifacts and configuring an artifact expiration time.
 
 ----
 
