@@ -22,7 +22,7 @@
 
     !!! Tip
         For more information on the advanced configurations
-        refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../../guides/login/sso-for-oidc/)
+        refer, [Advanced OAuth/OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
 
 5.  Click **Register** to save the changes.  
 

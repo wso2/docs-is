@@ -2,7 +2,7 @@
 
 {!fragments/deploying-sample-apps.md!}
 
-----
+
 
 
 {!fragments/deploy-playground.md!}

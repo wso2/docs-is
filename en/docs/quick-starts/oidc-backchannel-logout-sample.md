@@ -9,6 +9,10 @@ If you have your own application, click the button below.
 
 ----
 
+## Set up the sample application
+
+Follow the steps given below to set up the Playground application.
+
 {!fragments/oauth-playground.md!}
 
 ----
