@@ -16,7 +16,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 ## Configure IP-based authentication
 
-1.  Click **Service Providers > List**.
+1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.
 
 2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
@@ -26,7 +26,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **IP-Based**. 
 
-    ![ip-based-template](../../../assets/img/samples/ip-based-template.png)
+    ![IP-based template](../../assets/img/samples/ip-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps are configured. 
     
@@ -46,10 +46,11 @@ Consider a scenario where you wish to add security for users logging in from ext
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../../../assets/img/samples/delete-authenticator-1.png)
+        ![Delete authenticator](../../assets/img/samples/delete-authenticator-1.png)
         
-    2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
+    2.  Select **Demo Hardware Key Authenticator** and click **Add**.
+      
+        ![Add new authenticator](../../assets/img/samples/add-new-authenticator.png)
 
 9.  Click **Update**.
 
@@ -58,17 +59,17 @@ Consider a scenario where you wish to add security for users logging in from ext
 ## Add a user
 
 
-1.  Start the server and log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+1.  Start the server and log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 2.  Create a new user named 'Alex' with login permission. Do not assign any roles.
 
-    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/).
+    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/).
 
 ----
 
 ## Try it out
 
-1.  Access the following sample PickUp application URL:
+1.  Access the following sample Pickup Dispatch application URL:
 
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
@@ -78,7 +79,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 3.  Log out of the Pickup application.
 
-4. On the management console, click **Service Providers>List**.
+4. On the management console, navigate to **Main** > **Identity** > **Service Providers** > **List**.
 
 5.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
@@ -99,7 +100,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
     Note that you are now prompted to provide hardware key authentication because you are logging in from an IP address that is external to the configured network.
 
-    ![hardware-key-authenticator](../../../assets/img/samples/hardware-key-authenticator.png)
+    ![Hardware key authenticator](../../assets/img/samples/hardware-key-authenticator.png)
 
     !!! tip
         You can also try this scenario with two different machines
