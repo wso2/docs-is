@@ -19,16 +19,16 @@ Role-based adaptive authentication can be used to trigger additional authenticat
 ## Add a user
 
 
-1.  Start the server and log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+1.  Start the server and log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 2.  Create a new user named 'Alex' with login permission. Do not assign any roles.
-    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/).
+    For instructions, see [Adding Users](../../guides/identity-lifecycles/admin-creation-workflow/).
 
 ----
 
 ## Configure role-based authentication
 
-1.  Click **Service Providers > List**.
+1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.
 
 2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
@@ -38,7 +38,7 @@ Role-based adaptive authentication can be used to trigger additional authenticat
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Role-Based**.  
 
-    ![role based authentication template](../../../assets/img/samples/role-based-template.png)
+    ![Role based adaptive authentication template](../../assets/img/samples/role-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -57,10 +57,10 @@ Role-based adaptive authentication can be used to trigger additional authenticat
         `            fido           ` authenticators from Step 2 (the
         second authentication step).
         
-        ![delete authenticators](../../../assets/img/samples/delete-authenticators.png)
+        ![Delete authenticators](../../assets/img/samples/delete-authenticators.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
+        ![Add new authenticator](../../assets/img/samples/add-new-authenticator.png)
 
 8.  Click **Update**.
 
@@ -68,17 +68,17 @@ Role-based adaptive authentication can be used to trigger additional authenticat
 
 ## Try it out
 
-1.  Access the following sample PickUp application URL:
+1.  Access the following sample Pickup Dispatch application URL:
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
     
 2.  Click **Login** and enter admin/admin credentials.  
     You are prompted to use the hardware key after basic authentication according to the authentication step defined in the JavaScript above.  
     
-    ![pickup sign in](../../../assets/img/samples/pickup-sign-in.png)
+    ![pickup sign in](../../assets/img/samples/pickup-sign-in.png)
     
 3.  Enter the 4-digit key given on the screen and click **Sign In**. 
 
-    ![hardware key authenticator](../../../assets/img/samples/hardware-key-authenticator.png)
+    ![hardware key authenticator](../../assets/img/samples/hardware-key-authenticator.png)
     
     
 4.  Next, log out of the application and log in again as 'Alex'. 
@@ -87,4 +87,4 @@ Role-based adaptive authentication can be used to trigger additional authenticat
     authentication is successful only after going through the basic
     authentication step.  
 
-    ![pickup homepage](../../../assets/img/samples/pickup-homepage.png)
+    ![pickup homepage](../../assets/img/samples/pickup-homepage.png)

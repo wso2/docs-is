@@ -36,7 +36,7 @@ Deploy this sample web app on a web container.
 
 2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
 
-3.  Enter **saml2-web-app-pickup-dispatch** in the **Service Provider Name** text box,
+3.  Enter `saml2-web-app-pickup-dispatch` in the **Service Provider Name** text box,
     and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
@@ -48,7 +48,7 @@ Deploy this sample web app on a web container.
 
         2.  **Assertion Consumer URL** :  ` http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp `                       
         
-        Click Yes, in the message that appears.
+        Click **Yes**, in the message that appears.
 
     2.  Select the following check-boxes:
         1.  **Enable Response Signing**

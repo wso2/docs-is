@@ -4,14 +4,14 @@
 
 2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
 
-3.  Enter **playground2** in the **Service Provider Name** text box, and click **Register**.
+3.  Enter `playground2` in the **Service Provider Name** text box, and click **Register**.
 
      ![Add new service provider](../../assets/img/fragments/register-sp-playground.png) 
     
 4.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** and click **Configure.**   
     
-5.  Fill in the form that appears. For the Allowed Grant Types, you can disable the ones you do not require or block.
+5.  Fill in the form that appears. For the **Allowed Grant Types**, you can disable the ones you do not require or block.
         
     !!! note
         The **custom** grant type will only appear on the UI if you have configured the JWT grant

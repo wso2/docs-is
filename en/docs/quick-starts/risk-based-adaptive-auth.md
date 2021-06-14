@@ -61,7 +61,7 @@ First, create a Siddhi application as instructed below. The application has two 
 
 ## Configure risk-based authentication
 
-1.  Click **Service Providers > List**.
+1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.
 
 2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 

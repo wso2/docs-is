@@ -73,7 +73,7 @@ columns and a description of the values it contains.
 </tr>
 <tr class="odd">
 <td>SCOPE</td>
-<td>The provided scope in the recieved request</td>
+<td>The provided scope in the received request</td>
 </tr>
 <tr class="even">
 <td>AUTHORIZED</td>
