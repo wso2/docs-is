@@ -4,7 +4,7 @@
 
     - **Authorization Grant Type:** Authorization Code 
     
-    - **Client ID:** The OAuth Client Key recieved when registering the service provider.
+    - **Client ID:** The OAuth Client Key received when registering the service provider.
     
     - **Callback URL:** http://wso2is.local:8080/playground2/oauth2client
     
@@ -14,11 +14,11 @@
 
 	<img name='auth-code-without-pkce' src='../../assets/img/samples/auth-code-without-pkce.png' class='img-zoomable'/>
 
-2. Fill the following two fields only if you wish to use [PKCE](insertlink). If you are not using PKCE, proceed to step 3.
+2. Fill the following two fields only if you wish to use PKCE. If you are not using PKCE, proceed to step 3.
 
 	- **Use PKCE:** Select **Yes**. 
 
-	- **PKCE Challenge Method:** Select the relevant method. For more information about the PKCE Challenge Methods, see [the specification](https://tools.ietf.org/html/rfc7636#section-4.2)
+	- **PKCE Challenge Method:** Select the relevant method. For more information about the PKCE Challenge Methods, see the [specification](https://tools.ietf.org/html/rfc7636#section-4.2)
 
 	<img name='auth-code-with-pkce' src='../../assets/img/samples/auth-code-with-pkce.png' class='img-zoomable'/>
     
@@ -59,7 +59,7 @@
 
 6. Enter the **Introspection Endpoint** (i.e, https://localhost:9443/oauth2/introspect) and click **Get TokenInfo** to get the token   information. 
 
-	For more information, see [OAuth Token Introspection](insertlink).
+	For more information, see [OAuth Token Introspection](../../../references/concepts/authorization/introspection.md).
 
 7.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  

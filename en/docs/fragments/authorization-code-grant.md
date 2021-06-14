@@ -1,6 +1,6 @@
 # Authorization Code Grant
 
-This page guides you through using [Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant/) 
+This page guides you through using [Authorization Code Grant](../../references/concepts/authorization/authorization-code-grant/) 
 to configure authentication for an OAuth/OpenID Connect application. 
 
 ----
@@ -34,7 +34,7 @@ to configure authentication for an OAuth/OpenID Connect application.
 1. Send the following request using a browser-based application to obtain the authorization code. 
 
     !!! tip
-        You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Authorization Code Grant with OAuth 2.0 Playground](../../../quick-starts/auth-code-playground).
+        You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Authorization Code Grant with OAuth 2.0 Playground](../../quick-starts/auth-code-playground).
 
     !!! abstract ""
         **Request Format**    
@@ -95,7 +95,7 @@ to configure authentication for an OAuth/OpenID Connect application.
     ```
 
 !!! info "Related topics"
-    - [Concept: Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant/)
+    - [Concept: Authorization Code Grant](../../references/concepts/authorization/authorization-code-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
-    - [Quick Start: Authorization Code Grant with OAuth 2.0 Playground](../../../quick-starts/auth-code-playground)
+    - [Quick Start: Authorization Code Grant with OAuth 2.0 Playground](../../quick-starts/auth-code-playground)
     

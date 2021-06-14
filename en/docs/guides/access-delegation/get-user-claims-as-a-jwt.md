@@ -107,7 +107,7 @@ Alternatively, you can also use the `OAuth2ValidationService` to send the reques
 
 1. Call the `validate` method of `OAuth2ValidationService` to send a request with the user claims and recieve a JWT token as shown below. For more information, see [OAuth Token Validation Using SOAP Service](../oauth-token-validation)
 
-    Note that the response contains the recieved JWT token under the `<tokenString>` element. 
+    Note that the response contains the received JWT token under the `<tokenString>` element. 
     If there are no requested claim URIs defined, all the claims that carry values for the user are returned.
     
     ![jwt-request1]( ../../assets/img/guides/jwt-request1.png) 
