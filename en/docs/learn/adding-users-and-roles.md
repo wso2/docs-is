@@ -94,8 +94,7 @@ To achieve this, Pickup's administrator can create user roles for each designati
 
 2. Create a new role named "Manager" with `Login` permission and assign the user Alex to this role. 
 
-3. Navigate to the following URL on a new browser window to access the WSO2 Identity Server user portal: https
-://localhost:9443/user-portal
+3. Navigate to the following URL on a new browser window to access the WSO2 Identity Server user portal: https://localhost:9443/myaccount
 
 4. Log in using the credentials for Alex's user account. Note that you are successfully logged in.
 
