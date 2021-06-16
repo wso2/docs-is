@@ -84,7 +84,7 @@ account locking, follow the instructions given below.
 
 After setting the lock status to `true` for a particular user, the server should reject any authentication attempts done by that account.
 
----
+<!--
 
 ## Lock user accounts using SOAP
 
@@ -95,16 +95,16 @@ An administrative user (with the permission level /permission/admin/configure/se
    <soapenv:Header/>
    <soapenv:Body>
       <ser:setUserClaimValues>
-         <!--Optional:-->
+         <!--Optional:--\>
          <ser:userName>test</ser:userName>
-         <!--Zero or more repetitions:-->
+         <!--Zero or more repetitions:--\>
          <ser:claims>
-            <!--Optional:-->
+            <!--Optional:--\>
             <xsd:claimURI>http://wso2.org/claims/identity/accountLocked</xsd:claimURI>
-            <!--Optional:-->
+            <!--Optional:--\>
             <xsd:value>true</xsd:value>
          </ser:claims>
-         <!--Optional:-->
+         <!--Optional:--\>
          <ser:profileName>default</ser:profileName>
       </ser:setUserClaimValues>
    </soapenv:Body>
@@ -120,22 +120,22 @@ Similarly, you can use the `setUserClaimValues` operation, `RemoteUserStoreManag
    <soapenv:Header/>
    <soapenv:Body>
       <ser:setUserClaimValues>
-         <!--Optional:-->
+         <!--Optional:--\>
          <ser:userName>test</ser:userName>
-         <!--Zero or more repetitions:-->
+         <!--Zero or more repetitions:--\>
          <ser:claims>
-            <!--Optional:-->
+            <!--Optional:--\>
             <xsd:claimURI>http://wso2.org/claims/identity/accountLocked</xsd:claimURI>
-            <!--Optional:-->
+            <!--Optional:--\>
             <xsd:value>false</xsd:value>
          </ser:claims>
-         <!--Optional:-->
+         <!--Optional:--\>
          <ser:profileName>default</ser:profileName>
       </ser:setUserClaimValues>
    </soapenv:Body>
 </soapenv:Envelope>
 ```
-
+-->
 
 !!! info "Related topics"
 	[Guides: Configure Email Notifications for Account Locking](../../../guides/tenants/email-account-locking)

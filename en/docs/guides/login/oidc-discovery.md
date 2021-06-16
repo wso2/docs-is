@@ -48,7 +48,7 @@ In WSO2 Identity Server, the resident IdP Entity ID for OpenID Connect can be co
 
 	    -   **{issuer}:** The issuer path component. This value can be either `token` or `oidcdiscovery`.
 
-	    -   **Sample OpenID Provider Issuer location:** <https://localhost:9443/oauth2/token>
+	    -   **Sample OpenID Provider Issuer location:** `https://localhost:9443/oauth2/token`
 
 ----
 
@@ -275,5 +275,5 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
 
 !!! info "Related topics"
     - [Concept: OpenID Connect Discovery](../../../references/concepts/authentication/discovery)
-    - [Guide: OpenID Connect Grant Types](../../access-delegation/oidc-grant-types)
+    - [Guide: Authorization Code Grant](../../access-delegation/authorization-code/))
     - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)

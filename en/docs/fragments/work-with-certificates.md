@@ -159,12 +159,11 @@ Once you have done the above steps, you have the keystore (`localcrt.jks`), trus
         1.   To function properly, this connector should come first in the order. Otherwise, when mutual SSL takes place, the already existing connector (9443) will be picked up and the certificate will not be retrieved correctly.
 
         2.  The `clientAuth` attribute causes the Tomcat to require the client with providing a certificate that can be configured as follows.
-
             -   `true` : valid client certificate required for a connection to succeed
             -   `want` : use a certificate if available, but still connect if no certificate is available
             -   `false` : no client certificate is required or validated
     
-        -   The `truststoreFile` attributes specifies the location of the truststore that contains the trusted certificate issuers.
+        3.   The `truststoreFile` attributes specifies the location of the truststore that contains the trusted certificate issuers.
 
 ---
 

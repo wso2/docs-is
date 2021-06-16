@@ -132,7 +132,7 @@ If the response with the generated token contains the scope specified in the cUR
    
 --- 
 
-!!! info "Related Links"
+!!! info "Related topics"
     -   See [Scopes Corresponding to Permissions Required to Invoke REST API Calls](../../../references/scopes-corresponding-to-rest-api-permissions) 
     for a list of scopes corresponding to the permissions required for different REST APIs.
 

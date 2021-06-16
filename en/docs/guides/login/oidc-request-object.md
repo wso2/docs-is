@@ -24,17 +24,17 @@ This guide assumes you have your own application. If you wish to try out this fl
 1. Add two new external claims as follows for the `http://wso2.org/oidc/claim` dialect. For detailed instructions on how 
    to add a new claim mapping to a claim dialect, see [Adding Claim Mapping](../../../guides/dialects/add-claim-mapping). 
              
-    ![external-claim-1](../../assets/img/guides/oidc-external-claim-1.png)
+    ![external claim 1](../../assets/img/guides/oidc-external-claim-1.png)
    
-    ![external-claim-2](../../assets/img/guides/oidc-external-claim-2.png)
+    ![external claim 2](../../assets/img/guides/oidc-external-claim-2.png)
    
     !!! note
-            Here, `customClaim1` and`customClaim2` are selected as claim
-            URIs because they are not configured as requested claims in the
-            OIDC scope. For the purpose of testing, these claims are mapped
-            to the existing `http://wso2.org/claims/challengeQuestion1` and
-            `http://wso2.org/claims/challengeQuestion2` local claims. If
-            required, you can create two new local claims for this purpose.
+        Here, `customClaim1` and`customClaim2` are selected as claim
+        URIs because they are not configured as requested claims in the
+        OIDC scope. For the purpose of testing, these claims are mapped
+        to the existing `http://wso2.org/claims/challengeQuestion1` and
+        `http://wso2.org/claims/challengeQuestion2` local claims. If
+        required, you can create two new local claims for this purpose.
 
 2.  While adding claims, if you want the the claims to prompt during user registration, make sure you select **Support by default** 
     registration. Follow the steps below to set **Challenge Question1** and **Challenge Question2** to prompt during user

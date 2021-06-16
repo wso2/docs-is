@@ -148,5 +148,5 @@ task that checks for idle accounts is common to all tenants.
 
 ----
 
-!!! info "Related Links"
+!!! info "Related topics"
     See [Configure Claims](../../../guides/dialects/configure-claims/) for more information on how to store the claim values in the userstore.

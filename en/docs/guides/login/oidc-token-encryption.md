@@ -55,7 +55,7 @@ Make the following changes to the created service provider.
 
 This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token](../../../guides/login/oidc-token-decryption).
 
-1. See [OAuth Grant Types](../../access-delegation/oauth-grant-types) and try out one of the grant types with the `openid` scope to obtain an access token.
+1. See [OAuth Grant Types](../../access-delegation/authorization-code) and try out one of the grant types with the `openid` scope to obtain an access token.
 
 2. You will recieve an access token and an encrypted ID token. 
 

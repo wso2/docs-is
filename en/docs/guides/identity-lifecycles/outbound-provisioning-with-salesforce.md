@@ -288,7 +288,7 @@ When you log into Salesforce, you normally use an email address. So, to integrat
     <p><code>                 00e90000001aV2o                                 </code> The users that are added using WSO2 Identity Server are added to this profile in Salesforce. For more information on the context of profiles in Salesforce, see the <a href="http://www.salesforcetutorial.com/working-profiles-salesforce/">Salesforce tutorial</a>.</p>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
-    <p>The <strong>ProfileId</strong> value refers to the ID of the profile you created in Salesforce <a href="#step6">step 6 of Configuring Salesforce</a>. If it is the Chatter Free User profile you created, navigate to the profile in Salesforce to find the profile ID. You can do this by clicking <strong>Profiles</strong> under <strong>Manage Users</strong> in Salesforce and clicking Chatter Free User.</p>
+    <p>The <strong>ProfileId</strong> value refers to the ID of the profile you created in Salesforce <a href="#step6">step 4 of Configuring Salesforce</a>. If it is the Chatter Free User profile you created, navigate to the profile in Salesforce to find the profile ID. You can do this by clicking <strong>Profiles</strong> under <strong>Manage Users</strong> in Salesforce and clicking Chatter Free User.</p>
         <p>Copy the URL and decode it using a URL decoder. You get an output similar to what is shown below:<br />
         <code>                 https://wso2-is-sso-dev-ed.lightning.force.com/one/one.app#/setup/page?nodeId=EnhancedProfiles&amp;address=/                                   00e90000001aV2o                                  ?isdtp=p1&amp;a:t=1509949702148                </code></p>
         <p>In this case 00e90000001aV2o is your profile ID. Similarly, enter your Profile ID.</p></div>
@@ -375,7 +375,7 @@ When you log into Salesforce, you normally use an email address. So, to integrat
 .
 
     4.  Enter the **Client ID**. This is the Consumer Key obtained in
-        [step 5 when configuring
+        [step 3 when configuring
         Salesforce](#step5)
 .
 
@@ -391,7 +391,7 @@ When you log into Salesforce, you normally use an email address. So, to integrat
                 Settings)**.
 
     5.  Enter the **Client Secret**. This is the Consumer Secret
-        obtained in [step 5 when configuring
+        obtained in [step 3 when configuring
         Salesforce](#step5)
 .
     6.  Enter the **Username**. This is the Salesforce username.

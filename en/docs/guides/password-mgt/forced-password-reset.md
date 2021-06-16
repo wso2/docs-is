@@ -32,13 +32,13 @@ corresponding dialogs or error messages based on account status.
 {!fragments/configure-email-sending.md!}
 
 !!! tip
-        The email template used to send this email notification is
-        the **AdminForcedPasswordReset** template for password recovery via
-        recovery email, and the **AdminForcedPasswordResetWithOTP** template
-        for password recovery via OTP (one-time password).
-    
-        You can edit and customize the email template. For more information
-        on how to do this, see see [Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
+    The email template used to send this email notification is
+    the **AdminForcedPasswordReset** template for password recovery via
+    recovery email, and the **AdminForcedPasswordResetWithOTP** template
+    for password recovery via OTP (one-time password).
+
+    You can edit and customize the email template. For more information
+    on how to do this, see see [Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
 
 ---
 
@@ -203,6 +203,6 @@ POST https://<host>:<port>/scim2/Users/<users-scim-id>
     period, refer [Configuring Password Policy Authenticator](TODO:insert-link). -->
 
 
-!!! info "Related Links"
+!!! info "Related topics"
     See [Configuring Claims](../../../guides/dialects/configure-claims) for more
     information on how to store the claim values in the user store.

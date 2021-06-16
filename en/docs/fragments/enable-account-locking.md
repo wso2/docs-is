@@ -17,7 +17,7 @@
 		```
 
 
-2.  <a name = "lockingaspecificuseraccount"></a>Start the Identity Server and log into the management console (`https://<IS_HOST>:<PORT>/carbon`) using
+2.  <a name="lockingaspecificuseraccount"></a>Start the Identity Server and log into the management console (`https://<IS_HOST>:<PORT>/carbon`) using
    your tenant credentials.
       
 3.  Click **Main** > **Identity** > **Identity Providers** > **Resident**.

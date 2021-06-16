@@ -28,8 +28,7 @@ This page guides you through setting up self-registration for users to onboard t
     enable = true
     ```
 
-Follow the steps given below to register users for the super tenant,
-which is `         carbon.super        `.
+Follow the steps given below to register users for the super tenant, which is `         carbon.super        `.
 
 
 {! fragments/configure-email-sending.md !}
@@ -52,7 +51,7 @@ which is `         carbon.super        `.
 4.  Expand the **Self Registration** section and configure the
     following properties.
     
-    ![user-self-registration](../../../assets/img/guides/user-self-registration.png) 
+    <!--![user-self-registration](../../../assets/img/guides/user-self-registration.png)--> 
     
     <table>
     <thead>
@@ -127,7 +126,7 @@ the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purp
     ![self-registration](../../../assets/img/guides/account-policies.png)   
     
 
-4.  Click **Add New Purpose**. 
+4.  Click **Add New Purpose**.  
 
 5.  Specify appropriate values for the **Purpose** and **Description**
     fields, and then click **Add PII Category** to add user attributes
@@ -186,6 +185,7 @@ Next, you can try out self-registration.
 
 3.  Fill in the user details, provide consent to share the requested
     information and then click **Register**.
+    
     ![self-signup-form](../../../assets/img/guides/self-signup-form.png) 
         
     ??? Abstract "Click to see steps on configuring requested attributes for self registration" 

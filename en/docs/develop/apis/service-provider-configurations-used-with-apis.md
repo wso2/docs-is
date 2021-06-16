@@ -659,7 +659,7 @@ This section guides you through the configurations you can include in a service 
 </xsd1:inboundAuthenticationConfig>
 ```
 
-!!! info "Related Links"
+!!! info "Related topics"
     -   For key APIs relevant for developers, see [Using APIs](../../apis/use-apis). 
     -   For a list of the operations that can be performed with different permission levels, see [Permissions Required to Invoke Admin Services](../../../references/permissions-required-to-invoke-admin-services/). 
     -   The following article guides you through transforming existing SOAP-based services into REST services in WSO2 Identity Server:

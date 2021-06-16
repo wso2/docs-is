@@ -56,7 +56,7 @@ If you have your own application, click the button below.
 	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: 			sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 	```
 
-!!! info "Related Links"
+!!! info "Related topics"
      -   [Enable Authentication with Basic Auth Request Path Authenticator](../../../guides/basic-auth-request-path)
      -   [Authenticate with OAuth Request Path Authenticator](../../../guides/oauth-request-path)
      -   [Enable Authentication with OAuth Request Path Authenticator](../../../quick-starts/oauth-request-path-sample)

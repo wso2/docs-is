@@ -1,6 +1,4 @@
-1. Navigate to the `<IS_HOME>/repository/conf/deployment.toml` file and uncomment the following configuration block to 
-   configure the email server. Change the sample values to reflect the configurations of the email server to be used 
-   for email sending purposes.
+1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml` file and uncomment the following configuration block to configure the email server. Change the sample values to reflect the configurations of the email server to be used for email sending purposes.
 
     ```toml
     [output_adapter.email]
@@ -24,7 +22,7 @@
         !!! Tip 
             For information about the SMTP, see [here](https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html).
             
-    
+    !!! note
         {! fragments/google-two-factor.md !}
     
 2. Restart the server once configurations are in place. 

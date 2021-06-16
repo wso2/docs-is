@@ -4,6 +4,7 @@ This topic provides instructions on how to provision users from WSO2 Identity Se
 
 See the following document for more details on configuring outbound provisioning. 
 
+- [Outbound Provision with SCIM](../outbound-provisioning-with-scim)
 - [Configure Outbound Provisioning with Salesforce](../outbound-provisioning-with-salesforce) 
 - [Configure Outbound Provisioning with Google](../outbound-provisioning-with-google)
 - [Configure Role-Based Provisioning](../role-based-provisioning)

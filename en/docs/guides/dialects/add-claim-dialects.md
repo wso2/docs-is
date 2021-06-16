@@ -69,7 +69,7 @@ start up** of the WSO2 Identity Server instance.
     
 ----
 
-!!! info "Related Links"
+!!! info "Related topics"
 
     -   [Guides: Add Claim Mapping](../../../guides/dialects/add-claim-mapping)
     -   [Concepts: Claim Management](../../../references/concepts/claim-management/)

@@ -128,7 +128,7 @@ nav:
           - 'Salesforce': guides/login/log-into-salesforce-using-is.md
           - 'Google': guides/login/log-into-google-using-is.md
           #- 'SimpleSAMLphp': guides/login/log-into-simplesamlphp-using-is.md
-        - 'Request Attributes for the Application': guides/login/request-attributes.md
+        #- 'Request Attributes for the Application': guides/login/request-attributes.md
         - 'Single Sign On': 
           - 'Enable Single Sign On': guides/login/enable-single-sign-on.md
           - 'SSO For OIDC Applications': guides/login/sso-for-oidc.md
@@ -177,7 +177,7 @@ nav:
       - 'Multi-Factor Authentication':
         - 'Configure an Authentication Journey': guides/mfa/configure-authentication-journey.md
         - 'Password': guides/mfa/password.md
-        - 'SMS OTP': guides/mfa/2fa-sms-otp.md
+        #- 'SMS OTP': guides/mfa/2fa-sms-otp.md
         - 'Email OTP': guides/mfa/2fa-email-otp.md
         - 'TOTP': guides/mfa/2fa-totp.md
         - 'X509': guides/mfa/x509.md
@@ -226,7 +226,7 @@ nav:
         - 'Outbound Provision Users':
           - 'Overview': guides/identity-lifecycles/outbound-provisioning.md
           - 'SCIM 2.0': guides/identity-lifecycles/outbound-provisioning-with-scim.md
-          - 'Microsoft Azure AD': guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
+          #- 'Microsoft Azure AD': guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
           - 'Google Directory': guides/identity-lifecycles/outbound-provisioning-with-google.md
           - 'Salesforce': guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
           - 'Role Based Provisioning': guides/identity-lifecycles/role-based-provisioning.md
@@ -255,9 +255,9 @@ nav:
         - 'Configure reCAPTCHA for Password Recovery': guides/password-mgt/recaptcha-password-recovery.md
         - 'Configure reCAPTCHA on Invalid Challenge Question Attempt': guides/password-mgt/recaptcha-challenge-question-attempts.md
         - 'Configure Email Masking Pattern for Notification Based Password Recovery': guides/identity-lifecycles/configure-email-masking-pattern.md
-      - 'Federated Account Linking':
-        - 'Automatic Account Linking During JIT': guides/account-linking/automatic-account-link.md
-        - 'Interactive Account Linking': guides/account-linking/interactive-account-link.md
+      #- 'Federated Account Linking':
+      #  - 'Automatic Account Linking During JIT': guides/account-linking/automatic-account-link.md
+      #  - 'Interactive Account Linking': guides/account-linking/interactive-account-link.md
       - 'Access Delegation':
         - 'OAuth 2.0':
           - 'Web Applications':

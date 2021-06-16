@@ -80,6 +80,6 @@ OSGi console.
     To generate the stubs, you can write your own client program using the Axis2 client API or use an existing tool like [SoapUI](http://www.soapui.org/) (4.5.1 or later).
     
     
-!!! info "Related Links"
+!!! info "Related topics"
     -   [Reference: Permissions Required to Invoke Admin Services](../../../references/permissions-required-to-invoke-admin-services)
     -   The following article guides you through transforming existing SOAP-based services into REST services in WSO2 Identity Server: [Exposing WSO2 Identity Server Admin Services the REST Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).

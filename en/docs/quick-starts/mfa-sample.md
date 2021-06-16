@@ -2,10 +2,10 @@
 
 This page guides you through configuring [multi-factor authentication](../../../references/concepts/authentication/multi-factor-authentication) for an OAuth/OpenID Connect web application. This is demonstrated using a **sample application** called Pickup Dispatch and uses Nexmo as the sample SMS authenticator. 
 
-----
+<!------
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/mfa/2fa-sms-otp"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/mfa/2fa-sms-otp"   rel="nofollow noopener">I have my own application</a>-->
 
 ----
 
