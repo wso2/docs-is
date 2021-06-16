@@ -1,14 +1,12 @@
 # Authorization Code Grant with OAuth 2.0 Playground
 
-This page guides you through using a **sample Playground application** to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Authorization Code](../../../references/concepts/authorization/authorization-code-grant/) grant type.
+This page guides you through using a sample Playground application to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Authorization Code](../../references/concepts/authorization/authorization-code-grant/) grant type.
 
 ----
+
+## Set up the sample application
 
 {! fragments/oauth-playground.md !}
-
-----
-
-{! fragments/authorization-grant.md !}
 
 ----
 
@@ -16,15 +14,15 @@ This page guides you through using a **sample Playground application** to try ou
 
 1.  Enter the following details.
 
-    - **Authorization Grant Type:** Authorization Code 
+    - **Authorization Grant Type**: Authorization Code 
 
-    - **Client ID:** The OAuth Client Key recieved when registering the service provider.
+    - **Client ID**: The OAuth Client Key received when registering the service provider.
 
-    - **Callback URL:** `http://<IS_HOST>:<IS_PORT>/playground2/oauth2client`
+    - **Callback URL**: `http://<IS_HOST>:<IS_PORT>/playground2/oauth2client`
 
-    - **Authorize Endpoint:** `https://<IS_HOST>:<IS_PORT>/oauth2/authorize`
+    - **Authorize Endpoint**: `https://<IS_HOST>:<IS_PORT>/oauth2/authorize`
 
-    - **Scope:** Any scope you wish to obtain the token for. To use the sample application with OpenID Connect, enter the value `openid` as the scope. This field is optional. 
+    - **Scope**: Any scope you wish to obtain the token for. To use the sample application with OpenID Connect, enter the value `openid` as the scope. This field is optional. 
 
 	<img name='auth-code-without-pkce' src='../../assets/img/samples/auth-code-without-pkce.png' class='img-zoomable'/>
 
@@ -34,7 +32,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 	- **PKCE Challenge Method:** Select the relevant method. For more information about the PKCE Challenge Methods, see [the specification](https://tools.ietf.org/html/rfc7636#section-4.2)
 
-	<img name='auth-code-with-pkce' src='../../../assets/img/samples/auth-code-with-pkce.png' class='img-zoomable'/>
+	<img name='auth-code-with-pkce' src='../../assets/img/samples/auth-code-with-pkce.png' class='img-zoomable'/>
 
 3. Click **Authorize**. 
 
@@ -79,4 +77,4 @@ This page guides you through using a **sample Playground application** to try ou
 7.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
 
-	<img name='access-token-info' src='../../../assets/img/samples/access-token-info.png' class='img-zoomable'/>
+	<img name='access-token-info' src='../../assets/img/samples/access-token-info.png' class='img-zoomable'/>

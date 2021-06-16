@@ -55,7 +55,7 @@ Make the following requests via your application to connect your application to 
         &code_challenge_method=S256
         ```
     
-2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` recieved in step 1, and the `<OAuth Client Key>` and `<OAuth Client Secret>` obtained when configuring the service provider.
+2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` received in step 1, and the `<OAuth Client Key>` and `<OAuth Client Secret>` obtained when configuring the service provider.
 
     !!! abstract ""
         **Request Format**

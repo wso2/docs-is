@@ -36,7 +36,7 @@ WSO2 Identity Server enables configuring the following identity application mana
 
 -	**OAuthScopeCache**: The `OAuthScopeCache` object holds scope information such as the name and display name for each scope.
 
--	**OAuthSessionDataCache**: Once the request is recieved by the inbound protocol validator, it keeps the requested data by wrapping it in the `OAuthSessionDataCache` object. This is stored against the sessionDataKey, which is used to manage the browser state.
+-	**OAuthSessionDataCache**: Once the request is received by the inbound protocol validator, it keeps the requested data by wrapping it in the `OAuthSessionDataCache` object. This is stored against the sessionDataKey, which is used to manage the browser state.
 
 ??? example "Click to see a sample identity application management cache layer"
 

@@ -18,29 +18,30 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 2. Click on **Create App**.
 
-	![create-app](../../../assets/img/samples/create-app.png)
+	![Create app](../../assets/img/samples/create-app.png)
 
 3. Enter a **Display Name** and your **Contact Email**.
 
 4.  Click on **Create App ID**.
 
-	![register-app-fb](../../../assets/img/samples/register-app-fb.png)
+	![Create app ID](../../assets/img/samples/register-app-fb.png)
 
 5. Complete the security check and click **Submit**. 
 
 6. Click **Set up** under Facebook Login.
 
-	![setup-fb](../../../assets/img/samples/facebook-login.png)
+	![Setup fb](../../assets/img/samples/facebook-login.png)
 
 7. Select **Website** as the platform for the app used in this sample.
 
 8. Enter `https://<IS_HOST>:<IS_PORT>/` as the **Site URL** and click **Save**.
 
-	![enter-url](../../../assets/img/samples/enter-url.png)
+	![Enter site URL](../../assets/img/samples/enter-url.png)
 
 9.  You can configure the **Client OAuth Settings** on the window that
-    appears.  
-    ![client-oauth-setting](../../../assets/img/samples/client-oauth-settings.png)
+    appears.
+      
+    ![Client OAuth settings](../../assets/img/samples/client-oauth-settings.png)
 
     1.  Set **Client OAuth Login** to **Yes**.  
         
@@ -50,7 +51,7 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 10. Click **Save Changes**.
 
-11. Click on **Settings > Basic.** You can see the **App ID** and **App
+11. Click on **Settings** > **Basic.** You can see the **App ID** and **App
     Secret** as shown in the image below. Click **Show** to view the
     **App Secret**.
 
@@ -58,13 +59,27 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 13. Add the **App Domains** as shown below. 
 
-	![details-basic](../../../assets/img/samples/details-basic.png)
+	![App basic details](../../assets/img/samples/details-basic.png)
 
 13. Click **Save Changes**.
 
 Now you have finished configuring Facebook as an Identity Provider.
 
-{! fragments/fb-review.md !}
+!!!	info "About accessing the app"
+	The app is not available to the general public yet. To make the app available
+	to every Facebook user, you have to submit the app for review. After a
+	review, Facebook makes the app available to every Facebook user. You can
+	find more information on the review process by clicking on **App
+	Review** in the left navigation menu of your app's dashboard.
+
+	The review process may take some time, so for the purposes of this
+	sample, you can specify some Facebook users as Developers or Testers.
+	Only the users specified here can use this app to log in with Facebook
+	until the app goes public. To do this, click on **Roles** in the left
+	navigation menu of the dashboard and specify the required Facebook users
+	as Developers or Testers.
+	
+	![submit-fb-app-for-review](../../assets/img/samples/add-app-roles.png)
 
 ---
 
@@ -90,12 +105,12 @@ Now you have finished configuring Facebook as an Identity Provider.
 
 1. To test the sample, go to the following URL: `http://<IS_HOST>:<IS_PORT>/travelocity.com`.
 
-	![travelocity-app](../../../assets/img/samples/travelocity-fb.png)
+	![Travelocity application](../../assets/img/samples/travelocity-fb.png)
 
 2. Click the link to log in with SAML from WSO2 Identity Server.
 
-3. You are redirected to the Facebook Login page. Enter your Facebook credentials and you will be taken to the home page of the travelocity app.
+3. You are redirected to the Facebook Login page. Enter your Facebook credentials and you will be taken to the home page of the Travelocity app.
 
 !!! info "Related topics"
-	-   [Logging in to your application via Identity Server using Facebook Credentials](../../../guides/identity-federation/facebook)
+	-   [Logging in to your application via Identity Server using Facebook Credentials](../../guides/identity-federation/facebook)
 

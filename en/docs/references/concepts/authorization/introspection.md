@@ -41,3 +41,6 @@ Token introspection allows a protected resource to query this information regard
 
 - `REVOKED`- Revoked access token. Refresh token also gets revoked along with access token.
                Access token could have been in ACTIVE or EXPIRED state while revoking.
+
+!!! info "Related topics"
+    - [Guide: Invoke the OAuth Introspection Endpoint](../../../../guides/access-delegation/invoke-oauth-introspection-endpoint)

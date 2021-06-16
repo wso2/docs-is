@@ -16,7 +16,7 @@ The instructions below guide you through specifying authentication steps based o
 
 ## Configure device-based authentication
 
-1.  Click **Service Providers > List**.
+1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.
 
 2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
@@ -26,7 +26,7 @@ The instructions below guide you through specifying authentication steps based o
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **New-Device-Based**. 
 
-    ![device-based-template](../../../assets/img/samples/device-based-template.png)
+    ![device-based-template](../../assets/img/samples/device-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -49,10 +49,11 @@ The instructions below guide you through specifying authentication steps based o
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../../../assets/img/samples/delete-authenticator-1.png)
+        ![Delete authenticator](../../assets/img/samples/delete-authenticator-1.png)
         
-    2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../../../assets/img/samples/add-new-authenticator.png)
+    2.  Select **Demo Hardware Key Authenticator** and click **Add**.
+      
+        ![Add new authenticator](../../assets/img/samples/add-new-authenticator.png)
 
 9.  Click **Update**.
 
@@ -65,17 +66,17 @@ The instructions below guide you through specifying authentication steps based o
 
 2.  Create a new user named 'Kim' with login permission. Do not assign any roles.
 
-    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/).
+    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/).
 
 ----
 
 ## Try it out
 
-1.  Access the following sample PickUp application URL:
+1.  Access the following sample Pickup Dispatch application URL:
     
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    ![dispatch-login](../../../assets/img/samples/dispatch-login.png)
+    ![Pickup Dispatch login](../../assets/img/samples/dispatch-login.png)
 
 2.  Click **Login** and enter Kim's credentials. 
 
@@ -85,7 +86,7 @@ The instructions below guide you through specifying authentication steps based o
 
     You are successfully logged in to the application.  
 
-    ![hardware-key-authenticator](../../../assets/img/samples/hardware-key-authenticator.png) 
+    ![Hardware key authenticator](../../assets/img/samples/hardware-key-authenticator.png) 
 
 4.  Log out and log in again using Kim's credentials on the same browser window. 
 

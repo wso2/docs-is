@@ -53,14 +53,15 @@ The following steps describe how to configure a service provider public certific
 
 6. Paste the certificate content copied in step 4 as the **Application Certificate**.
 
-    ![upload-sp-cert](../../assets/img/guides/upload-sp-cert.png)
+    ![Upload SP certificate](../../assets/img/guides/upload-sp-cert.png)
     
     !!! note
+
 		Instead of uploading the service provider certificate as shown
 		above, you can choose to use the JWKS enpoint as shown below and
 		add the relevant JWKS URI.
 
-		![jwks-uri](../../assets/img/guides/jwks-uri.png)
+		![JWKS URI](../../assets/img/guides/jwks-uri.png)
 
 7. Click **Update**. 
 

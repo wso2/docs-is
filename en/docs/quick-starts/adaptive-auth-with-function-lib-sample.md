@@ -21,7 +21,7 @@ The instructions below guide you through adding an adaptive authentication funct
 
 ----
 
-{!fragments/add-function-library.md!}
+{!fragments/add-function-library-lvl2.md!}
 
 Add a function library with the following properties.
     
@@ -46,7 +46,7 @@ Add a function library with the following properties.
 
 ## Configure claims 
 
-1. On the management console, click **Claims > List**.
+2. Navigate to **Main** > **Identity** > **Claims** > **List**.
 
 2. Click `http://wso2.org/claims`. 
 
@@ -54,11 +54,11 @@ Add a function library with the following properties.
 
 4. Select the **Supported By Default** checkbox to enable the birth date claim. 
 
-    ![enable-dob-claim](../../../assets/img/samples/enable-dob-claim.png)
+    ![Enable supported by default for dob claim](../../assets/img/samples/enable-dob-claim.png)
 
 5. Create a user called "Alex" and edit the user profile.
 
-    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/) and [Adding Roles](../../../guides/identity-lifecycles/add-user-roles/).
+    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/) and [Add a Role](../../guides/identity-lifecycles/add-user-roles/).
 
 6. Enter a birth date that specifies Alex as under 18 years of age. 
 
@@ -135,16 +135,16 @@ Add a function library with the following properties.
 
 ## Test the sample scenario
 
-1. Access the following sample PickUp application URL: 
+1. Access the following sample Pickup Dispatch application URL: 
 
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
 2. Click **Login** and enter Kim's credentials. 
 
-    ![pickup-sign-in-kim](../../../assets/img/samples/pickup-sign-in-kim.png)
+    ![Sign-in as Kim](../../assets/img/samples/pickup-sign-in-kim.png)
 
 3. You are successfully logged in to the application.
 
 4. Log out and login as Alex. Note that you are now restricted from logging in because Alex is underage.  
 
-    ![age-validation](../../../assets/img/samples/age-validation.png)
+    ![Error message based on age validation](../../assets/img/samples/age-validation.png)

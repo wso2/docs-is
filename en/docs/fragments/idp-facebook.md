@@ -56,7 +56,7 @@
     </tbody>
     </table>
 
-    ![facebook-configuration](../../../assets/img/fragments/facebook-configuration.png)
+    ![Facebook configuration](../../assets/img/fragments/facebook-configuration.png)
 
 3.  Select both checkboxes to **Enable Facebook Authenticator** and make
     it the **Default**.

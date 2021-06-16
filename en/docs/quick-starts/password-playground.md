@@ -1,6 +1,6 @@
 # Password Grant with OAuth 2.0 Playground
 
-This page guides you through using a **sample Playground application** to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Password](../../../references/concepts/authorization/resource-owner-grant/) grant type.
+This page guides you through using a sample Playground application to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Password](../../references/concepts/authorization/resource-owner-grant/) grant type.
 
 ----
 
@@ -14,9 +14,9 @@ This page guides you through using a **sample Playground application** to try ou
 
     - **Authorization Grant Type:** Resource Owner
     
-    - **Client ID:** The OAuth Client Key recieved when registering the service provider.
+    - **Client ID:** The OAuth Client Key received when registering the service provider.
 
-	- **Client Secret:** The Client Secret recieved when registering the service provider.
+	- **Client Secret:** The Client Secret received when registering the service provider.
     
     - **Resource Owner User Name:** Username (e.g., `admin`)
 
@@ -26,7 +26,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 	- **Token Endpoint:** `https://localhost:9443/oauth2/token`
 
-	<img name='password-with-playground' src='../../../assets/img/samples/password-with-playground.png' class='img-zoomable'/>
+	<img name='password-with-playground' src='../../assets/img/samples/password-with-playground.png' class='img-zoomable' alt='Password grant with Playground'/>
     
 2. Click **Authorize**. 
 
@@ -63,5 +63,5 @@ This page guides you through using a **sample Playground application** to try ou
 5.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
 
-	<img name='access-token-info' src='../../../assets/img/samples/access-token-info.png' class='img-zoomable'/>
+	<img name='access-token-info' src='../../assets/img/samples/access-token-info.png' class='img-zoomable' alt='Access token information'/>
 

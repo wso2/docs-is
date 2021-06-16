@@ -45,7 +45,7 @@ This method of returning the response can have multiple flow statuses:
 <tr class="even">
 <td>INCOMPLETE</td>
 <td><p>This status indicates that the post-authentication process is incomplete (e.g., a redirection to an external page). The response can be simply redirected and you can expect it to come back to your post-authentication handler once the response is submitted to WSO2 IS again.</p>
-<p>If a response from an external page is submitted to the post-authentication handler which is in progress, the following needs to be included in the request along with the input data that is recieved from the external page:</p>
+<p>If a response from an external page is submitted to the post-authentication handler which is in progress, the following needs to be included in the request along with the input data that is received from the external page:</p>
 <ol>
 <li><p>SessionDataKey</p></li>
 <div class="admonition note">

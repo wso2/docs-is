@@ -10,7 +10,7 @@ Follow the instructions below to make the email masking regex pattern configurab
 
 1. Log in to the management console using admin/admin credentials.
 
-2. Navigate to **Main > Identity > Claims > List**.
+2. Navigate to **Main** > **Identity** > **Claims** > List**.
 
 3. Click "http://wso2.org/claims".
 

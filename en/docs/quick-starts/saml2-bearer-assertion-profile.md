@@ -32,9 +32,9 @@ If you have your own application, click the button below.
 
     1.  Now set the configurations as follows:
 
-        1.  **Issuer** : `travelocity.com`
+        1.  **Issuer**: `travelocity.com`
 
-        2.  **Assertion Consumer URL** : `http://wso2is.local:8080/travelocity.com/home.jsp`  
+        2.  **Assertion Consumer URL**: `http://wso2is.local:8080/travelocity.com/home.jsp`  
             Click Yes, in the message that appears.
 
     2.  Select the following check-boxes:
@@ -58,7 +58,7 @@ If you have your own application, click the button below.
            ![enable-audience-restriction](../assets/img/samples/enable-audience-restriction.png) 
     
     !!! tip
-        For more information on other advanced configurations refer, [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced/)
+        For more information on other advanced configurations refer, [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/)
 
 5.  Click **Register** to save the changes.  
 
@@ -168,7 +168,7 @@ For example,
 
 2. Edit the following configurations.
 
-    Enter the client ID and client secret you recieved when registering the OAuth/OpenID Connect application.
+    Enter the client ID and client secret you received when registering the OAuth/OpenID Connect application.
 
     ``` java
     EnableOAuth2SAML2Grant=true
@@ -231,7 +231,7 @@ For example,
 
 7.  Since the Travelocity application has now exchanged the SAML assertion for a valid OAuth access token, you can use the received access token to access a protected resource in WSO2 Identity Server. 
 
-    Use the [SCIM User Endpoint](insertlink) which is secured with OAuth to retrieve users. 
+    Use the [SCIM User Endpoint](../../develop/apis/scim2-rest-apis/#/Users%20Endpoint) which is secured with OAuth to retrieve users. 
 
     **Request**
 
@@ -265,5 +265,5 @@ For example,
     ```
 
 !!! info "Related topics"
-    -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../../references/concepts/authorization/saml2-bearer-assertion-profile)
-    -   [Guide: Set Up SAML2 Bearer Assertion Profile](../../../guides/access-delegation/saml2-bearer-assertion-profile/)
+    -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../references/concepts/authorization/saml2-bearer-assertion-profile)
+    -   [Guide: Set Up SAML2 Bearer Assertion Profile](../../guides/access-delegation/saml2-bearer-assertion-profile/)

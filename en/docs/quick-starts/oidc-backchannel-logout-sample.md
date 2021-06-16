@@ -44,7 +44,7 @@ Ensure to replace all values that refer to "playground2" with "playground3" incl
 
     - **Authorization Grant Type:** Implicit
     
-    - **Client ID:** The OAuth Client Key recieved when registering the "playground2" service provider.
+    - **Client ID:** The OAuth Client Key received when registering the "playground2" service provider.
     
     - **Callback URL:** `http://wso2is.local:8080/playground2/oauth2client`
 
