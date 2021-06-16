@@ -199,14 +199,14 @@ true in the SCIM2 user create request.
     ```
     
        
-!!! Note  
-    By default, WSO2 Identity Server sets a random value for the password if the `askPassword` claim is present in the request. 
-    If you want to disable setting a random value and instead keep the `password` that is sent in the request, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+  !!! Note  
+      By default, WSO2 Identity Server sets a random value for the password if the `askPassword` claim is present in the request. 
+      If you want to disable setting a random value and instead keep the `password` that is sent in the request, add the following configuration to the `       <IS_HOME>/repository/conf/deployment.toml` file.
 
-``` toml
-[identity_mgt.user_onboarding]
-disable_random_value_for_credentials= true
-```
+  ``` toml
+  [identity_mgt.user_onboarding]
+  disable_random_value_for_credentials= true
+  ```
 
 #### Verify Email
     
