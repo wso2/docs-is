@@ -309,8 +309,7 @@ which is also used to sign and encrypt tokens.
 From WSO2 Identity Server 5.9.0, we have moved the secondary userstore password encryption functionality 
 from the primary keystore to the internal keystore.
 
-If you are migrating from a version earlier than WSO2 IS 5.9.0, click [here](https://is.docs.wso2.com/en/5.9.0/setup/migrating-the-secondary-userstore-password-to-the-internal-keystore/) 
-to see the instructions on migrating the secondary userstore password to encrypt using internal keystore. 
+If you are migrating from a version earlier than WSO2 IS 5.9.0, click [here](https://is.docs.wso2.com/en/5.9.0/setup/migrating-the-secondary-userstore-password-to-the-internal-keystore/) to see the instructions on migrating the secondary userstore password to the internal keystore. 
 
 
 ## Migrating custom components
