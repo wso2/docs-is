@@ -65,7 +65,7 @@ Let's get started!
 
 Follow the steps below to re-encrypt the secondary userstore passwords:
 
-1. Download the password encryption tool from [here](http://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/tools/org.wso2.is.password.reencrypt/1.0.1/org.wso2.is.password.reencrypt-1.0.1.jar) and copy the `.jar` into the `<IS_HOME>/repository/components/dropins` directory.
+1. Download the password encryption tool from [here](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/tools/org.wso2.is.password.reencrypt/1.0.1/org.wso2.is.password.reencrypt-1.0.1.jar) and copy the `.jar` into the `<IS_HOME>/repository/components/dropins` directory.
 
 2. To start the modified WSO2 Identity Server pack: 
 
