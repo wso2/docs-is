@@ -73,29 +73,29 @@ Follow the steps below to re-encrypt the secondary userstore passwords:
 
     2. Execute the following command. 
 
-    ```
-    sh wso2server.sh -DreEncryptSecondaryUserStorePassword
-    ```
+	```
+	sh wso2server.sh -DreEncryptSecondaryUserStorePassword
+	```
 
-3. Observer the logs in the `wso2carbon.log` file in the `<IS_HOME>/repository/logs` directory to monitor the re-encryption of the secondary userstore passwords.
+3. Observe the logs in the `wso2carbon.log` file located in the `<IS_HOME>/repository/logs` directory to monitor the re-encryption of the secondary userstore passwords.
 
     1. The following appears when the `.jar` file is being read by the server. 
 
-    ```
-    "secondary userstore password re-encryption component activated"
-    ```
+	```
+	"secondary userstore password re-encryption component activated"
+	```
 
     2. The following appears when the migration starts. 
 
-    ```
-    "secondary userstore password re-encryption started"
-    ```
+	```
+	"secondary userstore password re-encryption started"
+	```
 
     3. The following appears when the migration ends. 
 
-    ```
-     "secondary userstore password re-encryption ended"
-    ```
+	```
+	"secondary userstore password re-encryption ended"
+	```
 
 4. Once the process ends, stop the WSO2 Identity Server.
 
