@@ -1,13 +1,6 @@
-
 ## Configure back-channel single logout
 
-1. Navigate to **Identity > Service Providers > List**
-
-2. Click **Edit** to edit the OIDC service provider you created.
-
-3. Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration**. 
-
-4. Click **Edit**.
+{!fragments/edit-oauth-oidc-configs.md!}
 
 5. Select **Enable OIDC Backchannel Logout** and enter the Logout URL.
 

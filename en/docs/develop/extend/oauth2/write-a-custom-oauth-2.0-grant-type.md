@@ -145,19 +145,27 @@ Send the grant request to the `          /token         ` API using a cURL comma
     ``` 
     grant_type=mobile&mobileNumber=<MOBILE_NUMBER>
     ```
-    
-``` tab="Request Format"
-curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=<CUSTOM_GRANT_TYPE>&mobileNumber=<MOBILE_NUMBER>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
-```
 
-``` tab="Sample Request"
-curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k -d "grant_type=mobile&mobileNumber=0333444" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-```
+!!! abstract ""
+    **Request format**
+    ```
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=<CUSTOM_GRANT_TYPE>&mobileNumber=<MOBILE_NUMBER>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
+    ```
+    ---
+    **Sample request**
+    ```curl
+    curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k -d "grant_type=mobile&mobileNumber=0333444" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    ```
 
 You will receive a response similar to the following JSON response with the access token.
 
 ```
-{"token_type":"bearer","expires_in":2823,"refresh_token":"26e1ebf16cfa4e67c3bf39d72d5c276","access_token":"d9ef87802a22cf7682c2e77df72c735"}
+{
+    "token_type":"bearer",
+    "expires_in":2823,
+    "refresh_token":"26e1ebf16cfa4e67c3bf39d72d5c276",
+    "access_token":"d9ef87802a22cf7682c2e77df72c735"
+}
 ```
 
 ------------------------------------------------------------------------
@@ -214,18 +222,26 @@ particular but any other grant type can be customized as well.
         
 Send the password grant request to the `           /token          ` API using a cURL command.
 
-``` tab="Request Format"
-curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
-```
-
-``` tab="Sample Request"
-curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k -d "grant_type=password&username=admin&password=admin" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-```
+!!! abstract
+    **Request format**
+    ```
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
+    ```
+    ---
+    **Sample request**
+    ```curl
+    curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k -d "grant_type=password&username=admin&password=admin" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    ```
 
 You will receive a response similar to the following JSON response with the access token.
 
 ```
-{"token_type":"bearer","expires_in":2955,"refresh_token":"6865c8d67b42c0c23e634a8fc5aa81f","access_token":"982f40d4-0bb6-41ce-ac5a-1da06a83e475asela@soasecurity.org"}
+{
+    "token_type":"bearer",
+    "expires_in":2955,
+    "refresh_token":"6865c8d67b42c0c23e634a8fc5aa81f",
+    "access_token":"982f40d4-0bb6-41ce-ac5a-1da06a83e475asela@soasecurity.org"
+}
 ```
 
 ??? note "Sending Custom Error Codes"

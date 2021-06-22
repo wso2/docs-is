@@ -579,14 +579,14 @@ nav:
         - 'Migrate to 5.11.0': deploy/migrate/migrate-to-5110.md
         - 'Migrate Userstore Managers': deploy/migrate/migrate-userstore-managers.md
       - 'Feature Deprecation': deploy/migrate/wso2-identity-server-feature-deprecation.md
-    - 'Deployment Options':
-      - 'AWS': deploy/deployment-options/aws.md
-      - 'Docker Desktop': deploy/deployment-options/docker-desktop.md
-      - 'EKS': deploy/deployment-options/eks.md
-      - 'Minikube': deploy/deployment-options/minikube.md
+    #- 'Deployment Options':
+    #  - 'AWS': deploy/deployment-options/aws.md
+    #  - 'Docker Desktop': deploy/deployment-options/docker-desktop.md
+    #  - 'EKS': deploy/deployment-options/eks.md
+    #  - 'Minikube': deploy/deployment-options/minikube.md
     - 'Deployment Patterns': deploy/deployment-guide.md
     - 'Set up WSO2 clusters with Nginx': deploy/front-with-the-nginx-load-balancer.md
-    - 'Set up Separate Databases for Clustering': deploy/settinng-up-separate-databases-for-clustering.md
+    - 'Set up Separate Databases for Clustering': deploy/set-up-separate-databases-for-clustering.md
     - 'Change the hostname': deploy/change-the-hostname.md
     - 'Introduction to User Management': deploy/introduction-to-user-management.md
   
@@ -611,63 +611,63 @@ nav:
       - 'Client Configurations':
         - 'SAML Application': fragments/configure-client-regular-saml-app.md
         - 'Retrieve User Information to the Client Application': fragments/get-user-information-to-the-saml-application.md
-  - 'Configure Authenticators':
-    - 'FIDO Configurations': guides/mfa/fido-config-advanced.md
-    - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
-    - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
-    - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
-  - 'Developer Portal':
-      - 'Applications':
-          - developer-portal/applications/overview.md
-          - 'Create New Application':
-            - developer-portal/applications/new-application.md
-            - 'Single Page Application': developer-portal/applications/add/spa.md
-            - 'OIDC Web Application': developer-portal/applications/add/oidc.md
-            - 'SAML Web Application': developer-portal/applications/add/saml.md
-            - 'OIDC Mobile Application': developer-portal/applications/add/mobile.md
-          - 'Edit Application':
-            - 'Single Page Application': 
-              - developer-portal/applications/edit-spa.md
-              - 'Configurations':
-                - developer-portal/applications/overview.md
-                - 'OIDC': developer-portal/applications/oidc-configurations.md 
-              - 'SDKs': 
-                - developer-portal/applications/sdks/overview.md
-                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
-                - 'React': developer-portal/applications/sdks/react-auth.md
-              - 'Samples': 
-                - developer-portal/applications/samples/overview.md
-                - 'React': developer-portal/applications/samples/react-spa.md
-            - 'OIDC Web Application': 
-              - developer-portal/applications/edit-oidc.md
-              - 'SDKs': 
-                - developer-portal/applications/sdks/overview.md
-                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
-                - 'React': developer-portal/applications/sdks/react-auth.md
-              - 'Samples': developer-portal/applications/samples/overview.md
-            - 'SAML Web Application': 
-              - developer-portal/applications/edit-saml.md
-              - 'SDKs': 
-                - developer-portal/applications/sdks/overview.md
-                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
-                - 'React': developer-portal/applications/sdks/react-auth.md
-              - 'Samples': developer-portal/applications/samples/overview.md
-            - 'OIDC Mobile Application': 
-              - developer-portal/applications/edit-mobile.md
-              - 'SDKs': 
-                - developer-portal/applications/sdks/overview.md
-                - 'Android': developer-portal/applications/sdks/java-android.md
-              - 'Samples': 
-                - developer-portal/applications/samples/overview.md
-                - 'Android': developer-portal/applications/samples/android.md
-            - 'Windows Desktop Application':
-              - developer-portal/applications/edit-windows.md
-              - 'SDKs': 
-                - developer-portal/applications/sdks/overview.md
-                - 'Windows': developer-portal/applications/sdks/windows.md
-              - 'Samples': 
-                - developer-portal/applications/samples/overview.md
-                - 'Windows': quick-starts/windows-sample.md   
+#  - 'Configure Authenticators':
+#    - 'FIDO Configurations': guides/mfa/fido-config-advanced.md
+#    - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
+#    - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
+#    - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
+#  - 'Developer Portal':
+#      - 'Applications':
+#          - developer-portal/applications/overview.md
+#          - 'Create New Application':
+#            - developer-portal/applications/new-application.md
+#            - 'Single Page Application': developer-portal/applications/add/spa.md
+#            - 'OIDC Web Application': developer-portal/applications/add/oidc.md
+#            - 'SAML Web Application': developer-portal/applications/add/saml.md
+#            - 'OIDC Mobile Application': developer-portal/applications/add/mobile.md
+#          - 'Edit Application':
+#            - 'Single Page Application':
+#              - developer-portal/applications/edit-spa.md
+#              - 'Configurations':
+#                - developer-portal/applications/overview.md
+#                - 'OIDC': developer-portal/applications/oidc-configurations.md
+#              - 'SDKs':
+#                - developer-portal/applications/sdks/overview.md
+#                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
+#                - 'React': developer-portal/applications/sdks/react-auth.md
+#              - 'Samples':
+#                - developer-portal/applications/samples/overview.md
+#                - 'React': developer-portal/applications/samples/react-spa.md
+#            - 'OIDC Web Application':
+#              - developer-portal/applications/edit-oidc.md
+#              - 'SDKs':
+#                - developer-portal/applications/sdks/overview.md
+#                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
+#                - 'React': developer-portal/applications/sdks/react-auth.md
+#              - 'Samples': developer-portal/applications/samples/overview.md
+#            - 'SAML Web Application':
+#              - developer-portal/applications/edit-saml.md
+#              - 'SDKs':
+#                - developer-portal/applications/sdks/overview.md
+#                - 'Javascript': developer-portal/applications/sdks/javascript-oidc.md
+#                - 'React': developer-portal/applications/sdks/react-auth.md
+#              - 'Samples': developer-portal/applications/samples/overview.md
+#            - 'OIDC Mobile Application':
+#              - developer-portal/applications/edit-mobile.md
+#              - 'SDKs':
+#                - developer-portal/applications/sdks/overview.md
+#                - 'Android': developer-portal/applications/sdks/java-android.md
+#              - 'Samples':
+#                - developer-portal/applications/samples/overview.md
+#                - 'Android': developer-portal/applications/samples/android.md
+#            - 'Windows Desktop Application':
+#              - developer-portal/applications/edit-windows.md
+#              - 'SDKs':
+#                - developer-portal/applications/sdks/overview.md
+#                - 'Windows': developer-portal/applications/sdks/windows.md
+#              - 'Samples':
+#                - developer-portal/applications/samples/overview.md
+#                - 'Windows': quick-starts/windows-sample.md
 
       - 'Identity Providers':
           - developer-portal/identity-providers/overview.md
@@ -762,17 +762,17 @@ nav:
                                           - 'SAML2 Bearer Assertion Profile': references/concepts/authorization/saml2-bearer-assertion-profile.md
                                           - 'Kerberos Grant Type': references/concepts/authorization/kerberos-grant.md
                                     - 'Tokens':
-                                          - 'Overview': references/concepts/authorization/overview.md
+                                          #- 'Overview': references/concepts/authorization/overview.md
                                           - 'Access Tokens': references/concepts/authorization/access-token.md
                                           - 'Refresh Tokens': references/concepts/authorization/refresh-token.md
                                     - 'Client Authentication': references/concepts/authorization/client-authentication.md
                                     - 'Token Introspection': references/concepts/authorization/introspection.md
-                        - 'XACML':
-                                    - 'Introduction to XACML': references/concepts/authorization/xacml.md
+#                        - 'XACML':
+#                                    - 'Introduction to XACML': references/concepts/authorization/xacml.md
                         - 'User Managed Access (UMA)':
                                     - 'Introduction to UMA': references/concepts/authorization/user-managed-access.md
                                     - 'Resource Registration Endpoint': references/concepts/authorization/uma-resource-registration.md
-                                    - 'Permissions Endpoint': references/concepts/authorization/uma-permissions-endpoint.md
+                                    - 'Permission Endpoint': references/concepts/authorization/uma-permission-endpoint.md
       - 'Single Sign On': references/concepts/single-sign-on.md
       - 'Identity Federation': references/concepts/identity-federation.md
       - 'Identity Provisioning':
@@ -812,6 +812,7 @@ markdown_extensions:
   - markdown.extensions.meta
   - markdown.extensions.toc:
       permalink: true
+      toc_depth: 3
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
@@ -830,6 +831,7 @@ markdown_extensions:
   - pymdownx.tilde
   - markdown_include.include:
       base_path: docs/
+  - attr_list
            
 # Extra
 extra_css:

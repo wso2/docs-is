@@ -35,19 +35,22 @@ Send the following request using a browser-based application to obtain the ID to
 !!! tip
     You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground).
 
-``` tab="Request Format"
-https://<host>:<port>/oauth2/authorize?
-response_type=token&
-&client_id=<client-ID>
-&redirect_uri=<callback-url>
-```
-
-```tab="Sample Request"
-https://localhost:9443/oauth2/authorize?
-response_type=token&
-client_id=0rhQErXIX49svVYoXJGt0DWBuFca&
-redirect_uri=http://wso2is.local:8080/playground2/oauth2client
-```
+!!! abstract ""
+    **Request Format**
+    ```
+    https://<host>:<port>/oauth2/authorize?
+    response_type=token&
+    &client_id=<client-ID>
+    &redirect_uri=<callback-url>
+    ```
+    ---
+     **Sample Request**
+    ```curl
+    https://localhost:9443/oauth2/authorize?
+    response_type=token&
+    client_id=0rhQErXIX49svVYoXJGt0DWBuFca&
+    redirect_uri=http://wso2is.local:8080/playground2/oauth2client
+    ```
 
 You will receive the ID token. 
 
@@ -58,4 +61,4 @@ http://wso2is.local:8080/playground2/oauth2client#access_token=317c19b3-73e3-390
 !!! info "Related topics"
     - [Concept: Implicit Grant](../../../references/concepts/authorization/implicit-grant/)
     - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
-    - [Demo: Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground)
+    - [Quick Start: Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground)

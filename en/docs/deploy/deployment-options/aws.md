@@ -9,8 +9,8 @@
 ## Step 1 - Create and upload an SSL certificate into AWS
 In AWS, web servers are fronted with a Load balancer. While deploying WSO2 Identity Sever in AWS, it is not required to create the load balancer separately as it is taken care of in the template that you use. To establish a secure connection between the web server and the browser via the load balancer, you will need an SSL certificate. 
 
-??? note "Creating a self-signed certificate"
-	If you are using this for testing purposes and do not want to create a certificate using the AWS certificate manager, you can create a self signed certificate instead by following the instructions given below. 
+??? note "Create a self-signed certificate"
+	If you are using this for testing purposes and do not want to create a certificate using the AWS certificate manager, you can create a self-signed certificate instead by following the instructions given below. 
 
 	1. Generate private key as private.pem 
 
@@ -110,7 +110,7 @@ In AWS, web servers are fronted with a Load balancer. While deploying WSO2 Ident
 aws ec2 create-key-pair --key-name <key-pair-name>
 ```
 
-!!! note ""
+!!! note
 	Alternatively, you can also create this using the [AWS EC2 console](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#KeyPairs:sort=keyName). 
 	
 	1. Click on **Create Key Pair**.
@@ -123,35 +123,34 @@ aws ec2 create-key-pair --key-name <key-pair-name>
 
 1. [Create an EC2 stack](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/template) by choosing **Create Stack > With new resources(standard)**. Specify `https://s3.amazonaws.com/wso2-cloudformation-templates/scalable-is.yaml` as the Amazon S3 URL. Then click **Next**. 
 
-	!!! note ""
+	!!! note
 		To get a clear idea of the resources the template creates, and the overall flow of this deployment, click **View in Designer** before proceeding. 
 
 2. Specify all the stack details as required. Enter the **Key ID** and **Secret Key** as obtained in step 1, and the key pair name as obtained in step 2. 
 
-	!!! note ""
+	!!! note
 		1. Make sure that the instance type is m3.large or larger. 
 
 		2. The DB password that you choose for your DB instance can contain printable ASCII characters besides '/', '@', '"', ' '.
 
 3. Click on **Next**. Verify the stack details in the page that appears next. If everything is fine, click **Next** again and then click **Create Stack** on the page that appears. 
 
-!!! note "" 
-	The stack resources might take upto 15 minutes to get created. You can view the porgress of the creation in the **Events** tab of the AWS console. 
+!!! note
+	The stack resources might take upto 15 minutes to get created. You can view the progress of the creation in the **Events** tab of the AWS console. 
 
 ---
 
 ## Step 4 - Access the management console 
 
-You can access the WSO2 Identity Server management console by clicking on the `MgtConsoleUrl` mentioned in the **Outputs** tab of the stack that you created in step 3. 
+You can access the WSO2 Identity Server Management Console by clicking on the **MgtConsoleUrl** mentioned in the **Outputs** tab of the stack that you created in step 3. 
 
 ---
 
 !!! info "Related topics"
 
-    -  [Working with different databases](../../../deploy/work-with-databases)
-    -  [Working with different userstores](../../../deploy/configure-user-stores)
-    -  [Configuring the User Realm](../../../deploy/configure-the-realm)
-
+    -  [Deploy: Working with different databases](../../../deploy/work-with-databases)
+    -  [Deploy: Configure Userstores](../../../deploy/configure-user-stores)
+    -  [Deploy: Configure the Realm](../../../deploy/configure-the-realm)
 
 
 

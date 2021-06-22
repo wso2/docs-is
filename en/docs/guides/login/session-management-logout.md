@@ -14,15 +14,13 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 {!fragments/register-a-service-provider.md!}
 
-----
-
-## Basic OAuth/OpenID Connect configuration
+### Basic OAuth/OpenID Connect configuration
 
 {!fragments/oauth-app-config-basic.md!}
 
-----
+{!fragments/oauth-app-config-advanced-tip.md!}
 
-{!fragments/local-outbound.md!}
+{!fragments/local-outbound-tenant-domain-in-sub-lvl3.md!}
 
 !!! note
         **Alternatively,** to sign the ID token with the service provider's
@@ -50,5 +48,5 @@ To do this, add an iframe to the service provider application which sends a `pro
         
 !!! info "Related topics"
     - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
-    - [Demo: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)
+    - [Quick Start: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)
 

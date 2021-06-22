@@ -30,7 +30,7 @@
     -moz-transition: width 0.2s linear;
     -ms-transition: width 0.2s linear;
     transition: width 0.2s linear;
-    padding-bottom: 80px;
+    padding-bottom: 150px;
 }
 
 .md-main .md-sidebar.md-sidebar--primary {
@@ -38,7 +38,7 @@
 }
 
 .md-sidebar[data-md-state=lock] {
-    top: 5.9rem;
+    top: 4rem !important;
 }
 
 .md-main.hide-toc .md-content {
@@ -46,11 +46,12 @@
 }
 
 .md-main.hide-toc .md-sidebar.md-sidebar--secondary {
-    width: 31px;
+    display: none;
 }
 
 .md-sidebar {
     padding: 1.45rem 0;
+    top: 4rem !important;
 }
 
 .md-header {
@@ -60,6 +61,7 @@
 .md-header-nav__topic {
     top: 0;
     text-align: left;
+    padding-top: 2px;
 }
 
 [data-md-color-primary=deep-orange] .md-header {
@@ -74,7 +76,7 @@
 }
 
 .md-header__version-select {
-    width: 7rem;
+    width: 8rem;
 }
 
 .md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
@@ -98,10 +100,6 @@
     [data-md-color-primary=deep-orange] .md-tabs {
         background-color: #f5f5f5;
         box-shadow: 0 0 0.2rem rgba(0,0,0,.1), 0 0.2rem 0.4rem rgba(0,0,0,.2);
-    }
-
-    .md-main__inner {
-        padding-top: 3.5rem;
     }
 }
 
@@ -158,8 +156,7 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .md-nav__item--nested .md-nav__toggle:checked ~ .md-nav-link-wrapper > .md-nav__link:after {
-    -webkit-transform: rotateX(180deg);
-    transform: rotateX(180deg)
+    float: right !important;
 }
 
 [data-md-color-primary=deep-orange] .md-nav-link-wrapper a:focus,
@@ -540,6 +537,8 @@ html .md-typeset .superfences-tabs > label:hover {
 .quick_links {
     float: right;
     height: 53px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .md-tabs__list {
@@ -564,16 +563,17 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .toc_icon {
-    font-size: 21px;
+    position: fixed;
+    font-size: 1rem;
     background: #000;
-    width: 26px;
-    height: 26px;
-    line-height: 26px;
-    border-radius: 50%;
-    padding-left: 3px;
-    float: left;
-    left: -9px;
-    top: -14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 35px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 13px;
+    right: calc(20% - 31px);
+    top: calc(15% + 7px);
 }
 
 .hide-toc .toc_icon {
@@ -732,7 +732,7 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs .md-tabs__link.md-tabs__link--active {
     opacity: 1 !important;
-    color: #fa6400;
+    color: #ff7300;
 }
 
 .md-tabs {
@@ -743,7 +743,7 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs__link {
     margin-top: .4rem;
-    font-size: 16px !important;
+    font-size: 18px;
 }
 
 .md-tabs[data-md-state=hidden] {
@@ -766,15 +766,16 @@ html .md-footer-meta.md-typeset a,
 }
 
 .md-nav--secondary > ul li.md-nav__item.active {
-    border-color: #242424 !important;
+    border-color: #ff7300 !important;
 }
 
 .md-sidebar--secondary .md-nav--secondary > ul ul {
-    margin-left: -26px;
+    margin-left: -14px;
 }
 
 .md-sidebar--secondary .md-nav--secondary > ul ul > li {
     padding-left: 30px;
+    font-size: 14px;
 }
 
 .md-sidebar--secondary .md-nav--secondary > ul ul ul {
@@ -807,14 +808,6 @@ html .md-footer-meta.md-typeset a,
 
 .md-sidebar {
     position: fixed;
-}
-
-.md-sidebar--secondary .md-nav--secondary .md-nav__item {
-    padding: 0 0 0 1.1rem;
-}
-
-.md-sidebar--secondary .md-nav--secondary .md-nav__item .md-nav__item {
-    padding: 0 0 0 1.8rem;
 }
 
 .md-sidebar--secondary .md-nav--secondary .md-nav__title {
@@ -1012,7 +1005,6 @@ html .md-footer-meta.md-typeset a,
 .md-typeset ol, .md-typeset ul {
     margin-left: .625em;
     padding: 0;
-    line-height: 2;
 }
 
 /* button styles */
@@ -1041,7 +1033,6 @@ html .md-footer-meta.md-typeset a,
 .samplebtn_a {
     color: #fff !important;
     margin: 10px;
-    text-transform: uppercase;
     text-decoration: none;
     background: #3d4242;
     padding: 20px;
@@ -1221,7 +1212,7 @@ html .md-footer-meta.md-typeset a,
 
 .iam-sub-text {
     font-size: 22px;
-    font-weight: lighter !important;
+    font-weight: 300 !important;
 }
 
 .hot-links-container {
@@ -1278,7 +1269,7 @@ html .md-footer-meta.md-typeset a,
 }
 
 .get-started-btn {
-    background-color: #fa6400 !important;
+    background-color: #ff7300 !important;
     color: #ffffff !important; 
     float: left !important;
     text-align: center;
@@ -1298,14 +1289,14 @@ html .md-footer-meta.md-typeset a,
 
 .get-started-btn:hover {
     background-color:#ffffff !important;
-    border: 1px solid #fa6400;
+    border: 1px solid #ff7300;
     border-radius: 2px;
-    color: #fa6400!important;
+    color: #ff7300!important;
 }
 
 .download-btn {
     background-color: #ffffff !important;
-    color: #fa6400 !important; 
+    color: #ff7300 !important; 
     float: left !important;
     text-align: center;
     padding: 10px 20px 10px 20px;
@@ -1324,9 +1315,9 @@ html .md-footer-meta.md-typeset a,
 
 .download-btn:hover {
     background-color:#ffffff !important;
-    border: 1px solid #fa6400;
+    border: 1px solid #ff7300;
     border-radius: 2px;
-    color: #fa6400!important;
+    color: #ff7300!important;
 }
 
 .iam-secondary-heading {
@@ -1359,6 +1350,7 @@ html .md-footer-meta.md-typeset a,
 
 .scenario-card-title {
     display: block !important;
+    padding-left: 2.5em;
 }
 
 .scenario-card-text {
@@ -1375,7 +1367,7 @@ html .md-footer-meta.md-typeset a,
     font-size: 15px;
     text-decoration: none;
     font-weight: 600;
-    color: #fa6400 !important;
+    color: #ff7300 !important;
     transition: 0.5s;
 }
 
@@ -1434,7 +1426,7 @@ html .md-footer-meta.md-typeset a,
     text-decoration: none;
     vertical-align: bottom;
     transition: 0.5s;
-    color: #fa6400 !important;
+    color: #ff7300 !important;
 }
 
 .learn-more-text:hover {
@@ -1452,13 +1444,9 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs {
     background: linear-gradient(90deg, rgba(45,45,45,1) 0%, rgba(70,70,70,1) 100%) !important;
-    height: 45px !important;
+    height: 55px !important;
     color: white !important;
     box-shadow: none !important;
-}
-
-.nav-link-text {
-    font-weight: 600;
 }
 
 .copyright-container {
@@ -1486,6 +1474,8 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs__inner {
     height: 100%;
+    padding-left: 3em;
+    padding-right: 3em;
 }
 
 .md-tabs__item {
@@ -1494,7 +1484,7 @@ html .md-footer-meta.md-typeset a,
 
 .md-tabs .md-tabs__item.md-tabs__item--active,
 .md-tabs .md-tabs__item.md-tabs__item:hover {
-    border-bottom: #fa6400 solid 3px;
+    border-bottom: #ff7300 solid 3px;
 }
 
 .scenario-dropdown {
@@ -1552,3 +1542,203 @@ html .md-footer-meta.md-typeset a,
 html, body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
+
+/* Overriding the global class to allow the new layout of sidebars */
+.md-grid {
+    margin-right: 0;
+    margin-left: 0;
+    max-width: unset;
+}
+
+.md-sidebar--secondary {
+    margin: 0;
+    width: 25%;
+    height: 90% !important;
+    position: fixed;
+    right: 0;
+    transform: unset;
+    -webkit-transform: unset;
+}
+
+.md-nav-secondary-item {
+    font-size: 16px;
+    color: #888888;
+    transition: 0.3s;
+    padding-bottom: 10px !important;
+    padding-top: 1px;
+}
+
+.md-nav--secondary > ul li.md-nav__item.active {
+    color: #ff7300;
+}
+
+/* Hiding additional arrow in mobile view */
+@media (max-width: 1219px) {
+    .nav__link-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 959px) {
+    .md-nav-secondary-item {
+        color: black;
+        padding-bottom: 0px;
+    }
+
+    .toc_icon {
+        display: none !important;
+    }
+}
+
+@media (min-width: 960px) {
+    .md-content {
+        margin-right: 30%;
+    }
+
+    .toc-title-text {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1220px) {
+    .md-content {
+        margin-left: 25%;
+        margin-right: 25%;
+        padding-top: 5em;
+        padding-bottom: 5rem;
+    }
+
+    .md-sidebar--secondary {
+        width: 20%;
+        padding-top: 50px;
+    }
+
+    .md-header-nav {
+        padding-right: 3em;
+        padding-left: 3em;
+    }    
+
+    .md-sidebar--primary {
+        background-color: #EEEEEE;
+        height: 100% !important;
+        width: 20%;
+        margin: 0;
+        padding: 0;
+        box-shadow: 5px 0px 10px -6px rgb(181 181 181);
+    }
+
+    .md-sidebar__scrollwrap {
+        margin: 0;
+        padding-right: 1em;
+        padding-top: 6em;
+        padding-bottom: 10em;
+        width: auto;
+    }
+
+    .md-nav--primary {
+        padding-left: 2em;
+    }
+    .md-nav__title {
+        display: none !important;
+    }
+
+    .md-footer {
+        margin-left: 20%;
+    }
+
+    .md-nav__link:after {
+        display: none !important;
+    }
+
+    .md-nav__item--nested .md-nav__toggle:checked~.md-nav__link:after {
+        display: none !important;
+    }
+
+    .md-nav {
+        font-size: 18px;
+    }
+
+    .md-nav__item {
+        padding-bottom: 10px;
+    }
+
+    .nav__link-icon {
+        float: right;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        transform: rotate(-90deg);
+        transition: 0.5s;
+    }
+
+    .md-nav__item a {
+        padding-right: 30px;
+    }
+
+    .nav__link-text {
+        display: inline-block;
+        width: 80%;
+    }
+
+    .md-nav__item--nested .md-nav__toggle:checked~.md-nav__link .nav__link-icon {
+        transform: rotate(0deg);
+    }
+}
+
+@media (min-width: 2000px) {
+    .md-sidebar--secondary {
+        padding-top: 80px;
+    }
+}
+
+/* Make the font weight and font color consistent across all headings and sub-headings*/
+h1 {
+    font-weight: 500 !important;
+    color: black !important;
+}
+
+h2 {
+    font-weight: 500 !important;
+    color: black !important;
+}
+
+h3 {
+    font-weight: 500 !important;
+    color: black !important;
+}
+
+h4 {
+    color: black !important;
+}
+
+h5 {
+    color: black !important;
+    text-transform: unset !important;
+}
+
+/* Customizing superfence tabs */
+.superfences-tabs>input:checked+label {
+    color: #ff7300;
+    border-bottom: 3px solid #ff7300;
+}
+
+/* custom CSS for code snippets inside admonitions */
+/* .admonition > .codehilite {
+    background-color: #fff !important;
+} */
+
+.admonition > .codehilite > .md-clipboard:before {
+    color: #adadad;
+}
+
+.md-typeset .admonition.abstract {
+    border-left-color: #465867;
+}
+
+.padding-img {
+    padding: 15px !important;
+}
+
+.border-img {
+    border: #dadada solid 1px !important;
+}
+

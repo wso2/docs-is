@@ -20,6 +20,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ## Add the adaptive authentication script
 
 {!fragments/add-adaptive-acr-script-portal.md!}
@@ -65,26 +67,32 @@ Send the following requests via your application to connect your application to 
 
 1. To initiate the authentication flow, update the placeholders and send the following request to the authorization endpoint.
 
-    ```tab="Request Format"
-    https://<IS_HOST>:<IS_PORT>/oauth2/authorize?response_type=code&scope=openid&client_id=<CLIENT_ID>
-    &redirect_uri=<CALLBACK_URL>&acr_values=<ACR_VALUES>
-    ```
-
-    ```tab="Sample Request"
-    https://localhost:9443/oauth2/authorize?response_type=code&scope=openid&client_id=Q7zSTBiNb3vwe8dWhUMEBh5sE4ka&redirect_uri=http://localhost:8080/playground2/oauth2client&acr_values=LOA1+LOA2+LOA3
-    ```		
+    !!! abstract ""
+        **Request Format**
+        ```
+        https://<IS_HOST>:<IS_PORT>/oauth2/authorize?response_type=code&scope=openid&client_id=<CLIENT_ID>
+        &redirect_uri=<CALLBACK_URL>&acr_values=<ACR_VALUES>
+        ```
+        ---
+        **Sample Request**
+        ```
+        https://localhost:9443/oauth2/authorize?response_type=code&scope=openid&client_id=Q7zSTBiNb3vwe8dWhUMEBh5sE4ka&redirect_uri=http://localhost:8080/playground2/oauth2client&acr_values=LOA1+LOA2+LOA3
+        ```		
 		    
 2. Log in using `admin` as the username and password. 
 
 3. Provide your consent to share the necessary data. Note that you get redirected to a URL similar to the following.
 
-    ```tab="Request Format"
-    <CALLBACK_URL>?code=<<AUTHORIZATION_CODE>>
-    ```
-
-    ```tab="Sample Request"
-    <CALLBACK_URL>?code=e1934548d0a0883dd5734e24412310
-    ```	
+    !!! abstract ""
+        **Request Format**
+        ```
+        <CALLBACK_URL>?code=<<AUTHORIZATION_CODE>>
+        ```
+        ---
+        **Sample Request**
+        ```
+        <CALLBACK_URL>?code=e1934548d0a0883dd5734e24412310
+        ```	
     
 4. Copy the `AUTHORIZATION_CODE` for later use.
 
@@ -94,62 +102,84 @@ Send the following requests via your application to connect your application to 
 
 		The `CLIENT_SECRET` and `CALLBACK_URL` are the client secret and callback URL of the service provider that you configured for the application in WSO2 Identity Server.
 
-	  ``` tab="Format"
-	  curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "client_id=<CLIENT_ID>&grant_type=authorization_code&code=<AUTHORIZATION_CODE>&redirect_uri=<CALLBACK_URL>" https://<IS_HOST>:<IS_PORT>/oauth2/token
-	  ```
-
-	  ``` tab="Example"
-	  curl -v -X POST --basic -u 5vOQZVfoOHLmtXbNHJpYXc7ZLuca:O9LF9cMgKAoowYu4YQrHpmnjRBwa -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "client_id=Q7zSTBiNb3vwe8dWhUMEBh5sE4ka&grant_type=authorization_code&code=86650268-5637-311c-9a08-4066727d656f&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
-	  ```
+    !!! abstract ""
+        **Format**
+        ```
+        curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "client_id=<CLIENT_ID>&grant_type=authorization_code&code=<AUTHORIZATION_CODE>&redirect_uri=<CALLBACK_URL>" https://<IS_HOST>:<IS_PORT>/oauth2/token
+        ```
+        ---
+        **Example**
+        ```
+        curl -v -X POST --basic -u 5vOQZVfoOHLmtXbNHJpYXc7ZLuca:O9LF9cMgKAoowYu4YQrHpmnjRBwa -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "client_id=Q7zSTBiNb3vwe8dWhUMEBh5sE4ka&grant_type=authorization_code&code=86650268-5637-311c-9a08-4066727d656f&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
+        ```
 
 	An access token similar to the following appears. 
 	
-	  ``` tab="Format"
-      {"access_token":"1b87d316-a107-3174-a71d-ac438a54719b","refresh_token":"60a66d57-0e48-3896-98e7-00213acee104","scope":"openid","id_token":"<ID_TOKEN>","token_type":"Bearer","expires_in":2554}
-      ```
-    
-      ``` tab="Example"
-      {"access_token":"1b87d316-a107-3174-a71d-ac438a54719b","refresh_token":"60a66d57-0e48-3896-98e7-00213acee104",
-      "scope":"openid","id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9oYXNoIjoiVFdlYWp5dE1TQU0zX1k3Q09mQm4yUSIsImF1ZCI6IjV2T1FaVmZvT0hMbXRYYk5ISnBZWGM3Wkx1Y2EiLCJhY3IiOiJhY3IyIiwiY19oYXNoIjoiVFN1b0Z2eHlybEdCZkxQZW1ZbEt3USIsInN1YiI6ImFkbWluIiwibmJmIjoxNTkxOTQ0ODk1LCJhenAiOiI1dk9RWlZmb09ITG10WGJOSEpwWVhjN1pMdWNhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE1OTE5NDg0OTUsImlhdCI6MTU5MTk0NDg5NSwic2lkIjoiMjBmODlmYzctNDRkZC00MjNkLTlkNDktZGRjMTVlNWVmNGRlIn0.d7WpY220UTZ10zCg-DBmKr-0f0k2tbYk00xqJoTmN2oNmP5u6x8_kUIASSeeP2p1LDeHuT6IQb045YCJDStsiSpwD0XUtTrFPJoRFUiIDgzXBQCBz8pzCjv2w-AMj8hJu965nSbwqCt-20OjKDPb187jiMyAxYMpU0o9Zk470whrkZQkC2SA16KhKdrIwpHHiiOI0pX-LdSsrZFzsw2ZWQmlzdRh4xoN6wTsLI9jhxz52mqs0Ghea9MlVFeVuIf6BeFN8ZpwzsnpVbSO9g4ZCZVYz3dtuiIaBQgoYy3E0SMG1QdxGgg7nYg0NQd-wfInYuhik0BSSrLKmJhff5YHaQ","token_type":"Bearer","expires_in":2554}
-      ```
+    !!! abstract ""
+        **Format**
+        ```
+        {
+            "access_token":"1b87d316-a107-3174-a71d-ac438a54719b",
+            "refresh_token":"60a66d57-0e48-3896-98e7-00213acee104",
+            "scope":"openid",
+            "id_token":"<ID_TOKEN>",
+            "token_type":"Bearer",
+            "expires_in":2554
+        }
+        ```
+        ---
+        **Example**
+        ```
+        {
+            "access_token":"1b87d316-a107-3174-a71d-ac438a54719b",
+            "refresh_token":"60a66d57-0e48-3896-98e7-00213acee104",
+            "scope":"openid",
+            "id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9oYXNoIjoiVFdlYWp5dE1TQU0zX1k3Q09mQm4yUSIsImF1ZCI6IjV2T1FaVmZvT0hMbXRYYk5ISnBZWGM3Wkx1Y2EiLCJhY3IiOiJhY3IyIiwiY19oYXNoIjoiVFN1b0Z2eHlybEdCZkxQZW1ZbEt3USIsInN1YiI6ImFkbWluIiwibmJmIjoxNTkxOTQ0ODk1LCJhenAiOiI1dk9RWlZmb09ITG10WGJOSEpwWVhjN1pMdWNhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE1OTE5NDg0OTUsImlhdCI6MTU5MTk0NDg5NSwic2lkIjoiMjBmODlmYzctNDRkZC00MjNkLTlkNDktZGRjMTVlNWVmNGRlIn0.d7WpY220UTZ10zCg-DBmKr-0f0k2tbYk00xqJoTmN2oNmP5u6x8_kUIASSeeP2p1LDeHuT6IQb045YCJDStsiSpwD0XUtTrFPJoRFUiIDgzXBQCBz8pzCjv2w-AMj8hJu965nSbwqCt-20OjKDPb187jiMyAxYMpU0o9Zk470whrkZQkC2SA16KhKdrIwpHHiiOI0pX-LdSsrZFzsw2ZWQmlzdRh4xoN6wTsLI9jhxz52mqs0Ghea9MlVFeVuIf6BeFN8ZpwzsnpVbSO9g4ZCZVYz3dtuiIaBQgoYy3E0SMG1QdxGgg7nYg0NQd-wfInYuhik0BSSrLKmJhff5YHaQ",
+            "token_type":"Bearer",
+            "expires_in":2554
+        }
+        ```
     	        
 6. Copy the `ID_TOKEN` and decode with Base64. The decoded `ID_TOKEN` will look similar to the following. 
 
-	 ``` tab="Format"
-	 {
-	  "at_hash": "<Access token hash value>",
-	  "aud": "<Audience that the ID token is intended for>",
-	  "c_hash": "<Code hash value>",
-	  "sub": "<Subject>",
-	  "acr": "<ACR>", 
-	  "nbf": <Epoch time before which the JWT must not be accepted for processing>,
-	  "azp": "<Authorized party>",
-	  "amr": [<Authentications Method Reference>],
-	  "iss": "<The token endpoint that issued the token>",
-	  "exp": <Epoch time of the token expiration date/time>,
-	  "iat": <Epoch time of the token issuance date/time>
-	 }
-	 ```
-
-	 ``` tab="Example"
-	 {
-      "at_hash": "6OXwfxJaTWYC56RccEhSJg",
-      "aud": "EUVvhKM28RkwTQL9A52kqXnfCj8a",
-      "acr": "LOA2",
-      "c_hash": "lDj9nihZGSUmgNmz_lxxXA",
-      "sub": "admin",
-      "nbf": 1548396413,
-      "azp": "EUVvhKM28RkwTQL9A52kqXnfCj8a",
-      "amr": [
-              "DemoFaceIdAuthenticator",
-              "BasicAuthenticator",
-              "DemoFingerprintAuthenticator"
-      ],
-      "iss": "https://localhost:9443/oauth2/token",
-      "exp": 1548400013,
-      "iat": 1548396413
-     }
-	 ```
+    !!! abstract ""
+        **Format**
+        ```
+        {
+            "at_hash": "<Access token hash value>",
+            "aud": "<Audience that the ID token is intended for>",
+            "c_hash": "<Code hash value>",
+            "sub": "<Subject>",
+            "acr": "<ACR>", 
+            "nbf": <Epoch time before which the JWT must not be accepted for processing>,
+            "azp": "<Authorized party>",
+            "amr": [<Authentications Method Reference>],
+            "iss": "<The token endpoint that issued the token>",
+            "exp": <Epoch time of the token expiration date/time>,
+            "iat": <Epoch time of the token issuance date/time>
+        }
+        ```
+        ---
+        **Example**
+        ```
+        {
+            "at_hash": "6OXwfxJaTWYC56RccEhSJg",
+            "aud": "EUVvhKM28RkwTQL9A52kqXnfCj8a",
+            "acr": "LOA2",
+            "c_hash": "lDj9nihZGSUmgNmz_lxxXA",
+            "sub": "admin",
+            "nbf": 1548396413,
+            "azp": "EUVvhKM28RkwTQL9A52kqXnfCj8a",
+            "amr": [
+                    "DemoFaceIdAuthenticator",
+                    "BasicAuthenticator",
+                    "DemoFingerprintAuthenticator"
+            ],
+            "iss": "https://localhost:9443/oauth2/token",
+            "exp": 1548400013,
+            "iat": 1548396413
+        }
+        ```
 	
 	Note that the AMR values in this example are `DemoFaceIdAuthenticator`, `BasicAuthenticator`, and `DemoFingerprintAuthenticator`.
 	These are the authenticators that are used in the authentication process.
@@ -180,4 +210,4 @@ Send the following requests via your application to connect your application to 
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
     - [Guide: Configure Adaptive Authentication for an Application](../configure-adaptive-auth)
     - [Guide: Adaptive Authentication Using Function Library](../adaptive-auth-with-function-lib)
-    - [Demo: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)
+    - [Quick Start: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)

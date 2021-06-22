@@ -121,13 +121,16 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
 Use one of the following curl commands to request for the OAuth token using the kerberos token.
 
-``` java tab="Request 1"
-curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-```
-
-``` java tab="Request 2"
-curl -u <client id>:<client secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-```
+!!! abstract ""
+    **Request 1**
+    ```curl
+    curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    ```
+    ---
+    **Request 2**
+    ```curl
+    curl -u <client id>:<client secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    ```
 
 You will receive the following response.
 
@@ -143,15 +146,16 @@ The Kerberos client receives the OAuth2 token.
 
 The Kerberos Grant then validates the received token with the provided Identity Provider (IdP) credentials and if it is a valid token, it issues an OAuth2 token to the client.
 
-``` java tab="Example"
-{  
-    "access_token":"636ce45f-c7f6-3a95-907f-d1f8aca28403",
-    "refresh_token":"831271d9-16ba-3bad-af18-b9f6592a8677",
-    "scope":"my_scope",
-    "token_type":"Bearer",
-    "expires_in":521
-}
-```
+!!! example "Example"
+    ``` java
+    {
+        "access_token":"636ce45f-c7f6-3a95-907f-d1f8aca28403",
+        "refresh_token":"831271d9-16ba-3bad-af18-b9f6592a8677",
+        "scope":"my_scope",
+        "token_type":"Bearer",
+        "expires_in":521
+    }
+    ```
 
 !!! info "Related topics"
     - [Concept: Kerberos grant](../../../references/concepts/authorization/kerberos-grant/)

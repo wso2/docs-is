@@ -17,7 +17,10 @@ This guide assumes you have your own applications. If you wish to try out this f
 ----
 
 ## Basic OAuth/OpenID Connect configuration
+
 {!fragments/oauth-app-config-basic.md!}
+
+{!fragments/oauth-app-config-advanced-tip.md!}
 
 ----
 
@@ -46,5 +49,5 @@ To enable OIDC back-channel logout, the relying party/client application needs t
 
 !!! info "Related topics"
     - [Concept: OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout)
-    - [Demo: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
+    - [Quick Start: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
 

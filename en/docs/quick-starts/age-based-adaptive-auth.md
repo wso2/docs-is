@@ -16,7 +16,7 @@ The instructions below guide you through specifying authentication steps based o
 
 ## Configure claims
 
-1.  Start the server and log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+1.  Start the server and log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 2.  Click **List** under **Claims** and click `http://wso2.org/claims`.
 
@@ -25,7 +25,7 @@ The instructions below guide you through specifying authentication steps based o
 4.  Select the **Supported By Default** checkbox to enable the birth
     date claim.  
 
-    ![enable dob claim](../../../assets/img/samples/enable-dob-claim.png)
+    ![Enable supported by default for dob claim](../../assets/img/samples/enable-dob-claim.png)
 
 ----
 
@@ -33,10 +33,10 @@ The instructions below guide you through specifying authentication steps based o
 
 1.  Create a user called "Alex" with login permission.
 
-    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/) and [Adding Roles](../../../guides/identity-lifecycles/add-user-roles/).
+    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/) and [Add a Role](../../guides/identity-lifecycles/add-user-roles/).
 
 2. Edit Alex's user profile and enter a birth date that specifies Alex as under 18 years of age.  
-    For instructions, see [Editing User Profile](../../../guides/identity-lifecycles/update-profile/).
+    For instructions, see [Edit User Profile](../../guides/identity-lifecycles/update-profile/).
 
     Enter the birth date in the following format: `yyyy-mm-dd`.
 
@@ -60,7 +60,7 @@ The instructions below guide you through specifying authentication steps based o
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **User-Age-Based**. 
 
-    ![user age based template](../../../assets/img/samples/user-age-based-template.png)
+    ![User age based template](../../assets/img/samples/user-age-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -74,10 +74,10 @@ The instructions below guide you through specifying authentication steps based o
 
 ## Try it out
 
-1.  Access the following sample PickUp application URL:
+1.  Access the following sample Pickup Dispatch application URL:
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    ![dispatch-login](../../../assets/img/samples/dispatch-login.png)
+    ![Pickup Dispatch login](../../assets/img/samples/dispatch-login.png)
 
 2.  Click **Login** and enter Kim's credentials. You are successfully
     logged in to the application.  
@@ -85,4 +85,4 @@ The instructions below guide you through specifying authentication steps based o
 3.  Logout and login as Alex. Note that you are now restricted from
     logging in because Alex is underage.  
 
-    ![age validation](../../../assets/img/samples/age-validation.png)
+    ![Error message based on age validation](../../assets/img/samples/age-validation.png)

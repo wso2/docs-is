@@ -81,6 +81,7 @@ Execute the following command to deploy the product. Here, `NAMESPACE` is the Ku
 ```java
 helm install --dep-up --name <RELEASE_NAME> <HELM_HOME>/is-pattern-1 --namespace <NAMESPACE>
 ```
+
 ---
 
 ## Step 4 - Expose the external IP address

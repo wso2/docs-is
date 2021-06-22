@@ -12,4 +12,4 @@
 	navigation menu of the dashboard and specify the required Facebook users
 	as Developers or Testers.
 	
-	![submit-fb-app-for-review](../../../assets/img/samples/add-app-roles.png))
+	![submit-fb-app-for-review](../../../assets/img/samples/add-app-roles.png)

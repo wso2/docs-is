@@ -78,61 +78,59 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
  
 Given below is a sample request and the relevant response for updating the mobile number via a PATCH operation to SCIM 2.0 Users endpoint.
 
-**Request**
-
-```curl
-curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":[{"op":[operation],
-"value":{[attributeName]:[attribute value]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[user ID]
-```
-
-**Sample Request**
-
-```curl
-curl -v -k --user bob:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-"Operations":[{"op":"replace","value":{"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {"verifyMobile": "true"},
-"phoneNumbers":[{"type":"mobile","value":"0123456789"}]}}]}' 
---header "Content-Type:application/json" https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
-```
-
-**Sample Response**
-
-```
-{
-    "emails": [
-        "bobsmith@abc.com"
-    ],
-    "meta": {
-        "location": "https://localhost:9443/scim2/Users/6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
-        "lastModified": "2020-10-12T13:35:24.579Z",
-        "resourceType": "User"
-    },
-    "schemas": [
-        "urn:ietf:params:scim:schemas:core:2.0:User",
-        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-    ],
-    "roles": [
-        {
-            "type": "default",
-            "value": "Internal/everyone"
+!!! abstract ""
+    **Request**
+    ```curl
+    curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":[{"op":[operation],
+    "value":{[attributeName]:[attribute value]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/[user ID]
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -v -k --user bob:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations":[{"op":"replace","value":{"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {"verifyMobile": "true"},
+    "phoneNumbers":[{"type":"mobile","value":"0123456789"}]}}]}' 
+    --header "Content-Type:application/json" https://localhost:9443/scim2/Users/1e624046-520c-4628-a245-091e04b03f21
+    ```
+    ---
+    **Sample Response**
+    ```
+    {
+        "emails": [
+            "bobsmith@abc.com"
+        ],
+        "meta": {
+            "location": "https://localhost:9443/scim2/Users/6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
+            "lastModified": "2020-10-12T13:35:24.579Z",
+            "resourceType": "User"
+        },
+        "schemas": [
+            "urn:ietf:params:scim:schemas:core:2.0:User",
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+        ],
+        "roles": [
+            {
+                "type": "default",
+                "value": "Internal/everyone"
+            }
+        ],
+        "name": {
+            "givenName": "Bob",
+            "familyName": "Smith"
+        },
+        "id": "6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
+        "userName": "bob123",
+        "phoneNumbers": [
+            {
+                "type": "mobile",
+                "value": "0111111111"
+            }
+        ],
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+            "pendingMobileNumber": "0123456789"
         }
-    ],
-    "name": {
-        "givenName": "Bob",
-        "familyName": "Smith"
-    },
-    "id": "6d433ee7-7cd4-47a3-810b-bc09023bc2ce",
-    "userName": "bob123",
-    "phoneNumbers": [
-        {
-            "type": "mobile",
-            "value": "0111111111"
-        }
-    ],
-    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-        "pendingMobileNumber": "0123456789"
     }
-}
-```
+    ```
 
 Upon receiving the response given above, the user will receive an SMS notification with a verification code to the new mobile number. 
  
@@ -141,56 +139,51 @@ Upon receiving the response given above, the user will receive an SMS notificati
 The user can submit the SMS OTP code using the validate-code API.
 Given below is a sample request and the relevant response to submit the received verification code.
 
-**Request**
-
-```curl
-curl -k -v -X POST -H "Authorization: <Base64Encoded_username:password>" -H "Content-Type: application/json" -d 
-'{ "code": "<validation_code>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
-```
-
-**Sample Request**
-
-```curl
-curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "123ABC","properties": []}'
- "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
-```
-
-**Response**
-
-```
-"HTTP/1.1 202 Accepted"
-```
+!!! abstract ""
+    **Request**
+    ```curl
+    curl -k -v -X POST -H "Authorization: <Base64Encoded_username:password>" -H "Content-Type: application/json" -d 
+    '{ "code": "<validation_code>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "123ABC","properties": []}'
+    "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
+    ```
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 202 Accepted"
+    ```
 
 ### Resend the verification code
 
 The user can request to resend a new SMS OTP code using the resend-code API.
 Given below is a sample request and the relevant response to request a new verification code.
 
-**Request**
+!!! abstract ""
+    **Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"properties": []}' 
+    "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
+    ```
 
-```curl
-curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"properties": []}' 
-"https://localhost:9443/api/identity/user/v1.0/me/resend-code"
-```
-
-The verification scenario should be specified in the properties parameter of the request body as follows :
-
-```
-"properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]
-```
-
-**Sample Request**
-
-```curl
-curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]}' 
-"https://localhost:9443/api/identity/user/v1.0/me/resend-code"
-```
-
-**Response**
-
-```
-"HTTP/1.1 201 Created"
-```
+    The verification scenario should be specified in the properties parameter of the request body as follows :
+    ```
+    "properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]}' 
+    "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
+    ```
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
 
 ---
 

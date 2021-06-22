@@ -25,6 +25,8 @@ This guide assumes you have your own application. If you wish to try out this fl
 
     -   You can provide any valid URL as the **Callback Url**. This URL value is not used for any other operations during this sample.
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ----
 
 {!fragments/saml-app-config-basic.md!}
@@ -46,24 +48,30 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 1. Use the following curl command to exchange the SAML assertion for an OAuth access token.
 
-    ``` java tab="Request Format"
-    curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=<base64-URL_encoded_assertion>&scope=<scope>" -H "Authorization: Basic <base64_encoded_clientid:clientsecret>" -H "Content-Type: application/x-www-form-urlencoded" https://<host>:<port>/oauth2/token
-    ```
-    
-    ``` java tab="Sample Request"
-    curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZczpUcmFuc2Zvcm1zPgo8ZHM6VHJhbnNmb3JtIEFsZ29yaXRobT0iaHR0cDovL3d3zOlRyYW5zZm9ybXMaW&scope=PRODUCTION" -H "Authorization: Basic TGZkcWt3eVNGVVNZVjNtUkNNaE5vNmw1cWZJYTpOb0JQZjZkZGhxS2pXdEpNWHVibU04bndqNW9h" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```curl
+        curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=<base64-URL_encoded_assertion>&scope=<scope>" -H "Authorization: Basic <base64_encoded_clientid:clientsecret>" -H "Content-Type: application/x-www-form-urlencoded" https://<host>:<port>/oauth2/token
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZczpUcmFuc2Zvcm1zPgo8ZHM6VHJhbnNmb3JtIEFsZ29yaXRobT0iaHR0cDovL3d3zOlRyYW5zZm9ybXMaW&scope=PRODUCTION" -H "Authorization: Basic TGZkcWt3eVNGVVNZVjNtUkNNaE5vNmw1cWZJYTpOb0JQZjZkZGhxS2pXdEpNWHVibU04bndqNW9h" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        ```
     
 2. Use the introspection endpoint of WSO2 Identity Server to get the token information.
 
-    ``` java tab="Request Format"
-    curl -k -u <username>:<password> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<access token>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
-    ```
-
-    ``` java tab="Sample Request"
-    curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=f3116b04-924f-3f1a-b323-4f0988b94f9f' https://localhost:9443/oauth2/introspect
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```curl
+        curl -k -u <username>:<password> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<access token>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=f3116b04-924f-3f1a-b323-4f0988b94f9f' https://localhost:9443/oauth2/introspect
+        ```
 
 !!! info "Related topics"
     -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../../references/concepts/authorization/saml2-bearer-assertion-profile)
-    -   [Demo: Set Up SAML2 Bearer Assertion Profile](../../../quick-starts/saml2-bearer-assertion-profile/)
+    -   [Quick Start: Set Up SAML2 Bearer Assertion Profile](../../../quick-starts/saml2-bearer-assertion-profile/)

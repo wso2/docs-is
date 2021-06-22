@@ -29,6 +29,6 @@ Copy the custom inbound authenticator to the ```<IS_HOME>/repository/components/
 
 <!---
 !!! info "Related topics"
-    - [Demo: Enable Login for a Sample Custom Web Application](../../../quick-starts/webapp-custom-sample)
+    - [Quick Start: Enable Login for a Sample Custom Web Application](../../../quick-starts/webapp-custom-sample)
     - [Guide: Write a Custom Inbound Protocol](TODO:insert-link)
 -->

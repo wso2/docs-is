@@ -4,14 +4,14 @@ WSO2 Identity Server enables adding multiple keys to the primary keystore. Let's
 
 ## Add new keys
 
-Follow the steps below to add new keys to the **super tenant**: 
+Follow the steps below to add new keys to the **super tenant** 
 
 1. 	Locate the `wso2carbon.jks` file in the `<IS_HOME>/repository/resources/security` directory in a command prompt. 
 
 	!!! info 
-		wso2carbon is the default keystore. To learn how to change the default keystore see, [Creating New Keystores](../../../deploy/security/create-new-keystores) and [Configuring Keystores](../../../deploy/security/configure-keystores-in-wso2-products).
+		wso2carbon is the default keystore. To learn how to change the default keystore, see [Create New Keystores](../../../deploy/security/create-new-keystores) and [Configure Keystores](../../../deploy/security/configure-keystores-in-wso2-products).
 
-2.	To generate the new keys and add them to the keystore. 
+2.	Follow the steps given below to generate the new keys and add them to the keystore. 
 
 	1.	Navigate to the `<IS_HOME>/repository/resources/security` directory on a command prompt. 
 
@@ -20,30 +20,35 @@ Follow the steps below to add new keys to the **super tenant**:
 
 	2.	Execute the following command.  
 
-		```curl tab="Format"
-		keytool -genkey -alias <PUBLIC_CERTIFICATE_ALIAS> -keyalg RSA -keysize 2048 -keystore <KEYSTORE_NAME> -dname "CN=<<Common Name>>,OU=<<Organization Unit>>,O=<<Organization>>,L=<<Locality>>,S=<<StateofProvice Name>>,C=<<Country Name>>"-storepass <KEYSTORE_PASSWORD> -keypass <PRIVATE_KEY_PASSWORD>
-		```
-
-		``` curl tab="Example"
-		keytool -genkey -alias newkey -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=localhost, OU=IT,O=ABC,L=SL,S=WS,C=LK" -storepass wso2carbon -keypass wso2carbon
-		```
+		!!! abstract ""
+			**Format**
+			```curl
+			keytool -genkey -alias <PUBLIC_CERTIFICATE_ALIAS> -keyalg RSA -keysize 2048 -keystore <KEYSTORE_NAME> -dname "CN=<<Common Name>>,OU=<<Organization Unit>>,O=<<Organization>>,L=<<Locality>>,S=<<StateofProvice Name>>,C=<<Country Name>>"-storepass <KEYSTORE_PASSWORD> -keypass <PRIVATE_KEY_PASSWORD>
+			```
+			---
+			**Example**
+			``` curl
+			keytool -genkey -alias newkey -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=localhost, OU=IT,O=ABC,L=SL,S=WS,C=LK" -storepass wso2carbon -keypass wso2carbon
+			```
 
 	!!! tip 	
 		If you are planning to delete the newly-added keys in the future, it is recommended to maintain separate keystores for internal and external encryption purposes.
 
 	!!! note
-		Make sure to use the same password for all the keys and add it to the `Password` parameter under the `[keystore.tls]` element in the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
+		Make sure to use the same password for all the keys and add it to the `Password` parameter under the `[keystore.tls]` element in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-3.	To set the newly-added key as the primary encrypting and signing key:
+3.	Follow the instructions given below to set the newly-added key as the primary encrypting and signing key:
 
 	1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
 	2.	Update the `alias` parameter under the `[keystore.tls]` element with the new keystore `alias`.
 
-		```toml tab="Example"
-		[keystore.tls]
-		alias= "newKey"
-		```
+		!!! abstract ""
+			**Example**
+			```toml
+			[keystore.tls]
+			alias= "newKey"
+			```
 
 4. Restart WSO2 Identity Server.
 
@@ -51,7 +56,7 @@ Follow the steps below to add new keys to the **super tenant**:
 
 ## View private keys via management console
 
-Follow the steps below to view the private keys via [Management Console](../../../deploy/get-started/get-started-with-the-management-console/):
+Follow the steps below to view the private keys via the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
 <ol>
 	<li>
@@ -72,8 +77,8 @@ Follow the steps below to view the private keys via [Management Console](../../.
 
 To view super tenant public key sets via JWKS endpoint, visit `https://<IS_HOST>:<PORT>/oauth2/jwks`. 
 
-!!! Example 
-
+!!! abstract "" 
+	**Example**
 	```jwt
 	// 20190612140905
 	// https://localhost:9443/oauth2/jwks

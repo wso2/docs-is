@@ -96,19 +96,24 @@ This API can be authenticated by following the steps given
 
 Following are the sample requests and responses using cURL.
 
+!!! abstract ""
+    **Request**
+    ``` curl
+    curl -k -X GET "https://localhost:9443/api/identity/auth/v1.1/data/AuthRequestKey/7a6886ab -b02f-424f-9cd4-adf5e92f0798" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+    ```
+    ---
+    **Response**
+    ``` curl
+    {"paramKey1": "paramValue1","paramKey2": "paramValue2"}
+    ```
 
-``` curl tab="Request-1"
-curl -k -X GET "https://localhost:9443/api/identity/auth/v1.1/data/AuthRequestKey/7a6886ab -b02f-424f-9cd4-adf5e92f0798" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
-```
-
-``` curl tab="Response-1"
-{"paramKey1": "paramValue1","paramKey2": "paramValue2"}
-```
-
-```curl tab="Request-2" 
-curl -k -X GET "https://localhost:9443/api/identity/auth/v1.1/data/OauthConsentKey/7a6886a b-b02f-424f-9cd4-adf5e92f0798" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
-```
-
-``` curl tab="Response-2"
-{"paramKey1":"paramValue1","paramKey2":"paramValue2"}  
-```
+!!! abstract ""
+    **Request**
+    ```curl
+    curl -k -X GET "https://localhost:9443/api/identity/auth/v1.1/data/OauthConsentKey/7a6886a b-b02f-424f-9cd4-adf5e92f0798" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+    ```
+    ---
+    **Request**
+    ``` curl
+    {"paramKey1":"paramValue1","paramKey2":"paramValue2"}  
+    ```

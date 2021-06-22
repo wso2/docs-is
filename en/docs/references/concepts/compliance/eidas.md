@@ -2,13 +2,11 @@
 
 eIDAS (electronic IDentification, Authentication and Trust Services) is
 an EU regulation on electronic identification and trust services for
-electronic transactions in the internal market. For a set of eIDAS-compliant technical specifications that the member states of EU needs to
-refer, see [eIDAS compliant technical
-specifications](https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/2016/12/16/eIDAS+Technical+Specifications+v.+1.1)
-.
+electronic transactions in the internal market. For a set of eIDAS-compliant technical specifications that the member states of the EU need to
+refer to, see [here](https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/2016/12/16/eIDAS+Technical+Specifications+v.+1.1).
 
 If there are cross-border connections within the member states of
-EU, an eIDAS network that consists of a series of
+the EU, an eIDAS network that consists of a series of
 eIDAS-nodes implemented at the member state level can be used. An eIDAS-node
 consists of an eIDAS connector and an eIDAS proxy service or eIDAS
 middleware service.
@@ -19,9 +17,9 @@ eIDAS service (an eIDAS service can operate either in an eIDAS proxy
 service or eIDAS middleware service).
 
 Following is an example eIDAS network with proxy to proxy connection
-between two "**member states**"(MS).
+between two "member states" (MS).
 
-![eidas-diagram](../../assets/img/concepts/eidas-diagram.png)
+![eIDAS diagram](../../../assets/img/concepts/eidas-diagram.png)
 
 Following is what happens in the illustration given above.   
 

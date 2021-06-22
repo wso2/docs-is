@@ -50,9 +50,9 @@ encrypted values.
 
     ``` java
     public class HardCodedSecretCallbackHandler extends AbstractSecretCallbackHandler {
-            protected void handleSingleSecretCallback(SingleSecretCallback singleSecretCallback) {
+         protected void handleSingleSecretCallback(SingleSecretCallback singleSecretCallback) {
                 singleSecretCallback.setSecret("password");
-            }
+         }
     }
     ```
 
@@ -94,19 +94,19 @@ To create a custom secret repository, you need to implement the `SecretRepositor
 
     ``` java
     public class CustomSecretRepositoryImpl extends SecretRepository {
-    public void init(Properties properties, String s) {
-    }
-    public String getSecret(String s) {
-        return null;
-    }
-    public String getEncryptedData(String s) {
-        return null;
-    }
-    public void setParent(SecretRepository secretRepository) {
-    }
-    public SecretRepository getParent() {
-        return null;
-    }
+        public void init(Properties properties, String s) {
+        }
+        public String getSecret(String s) {
+            return null;
+        }
+        public String getEncryptedData(String s) {
+            return null;
+        }
+        public void setParent(SecretRepository secretRepository) {
+        }
+        public SecretRepository getParent() {
+            return null;
+        }
     } 
     ```
 
@@ -114,9 +114,8 @@ To create a custom secret repository, you need to implement the `SecretRepositor
 
     ``` java
     public class CustomSecretRepositoryProvider implements SecretRepositoryProvider {
-        public SecretRepository getSecretRepository(IdentityKeyStoreWrapper identityKeyStoreWrapper,
-        TrustKeyStoreWrapper trustKeyStoreWrapper) {
-        return new CustomSecretRepositoryImpl(identityKeyStoreWrapper, trustKeyStoreWrapper);
+        public SecretRepository getSecretRepository(IdentityKeyStoreWrapper identityKeyStoreWrapper, TrustKeyStoreWrapper trustKeyStoreWrapper) {
+            return new CustomSecretRepositoryImpl(identityKeyStoreWrapper, trustKeyStoreWrapper);
         }
     } 
     ```

@@ -22,6 +22,8 @@ To understand how the `response_type` value specified in an authorization reques
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ---
 
 ## code token
@@ -30,13 +32,16 @@ This `response_type` requests a code and an access token from the authorization 
   
 1. Use the following authorization request with `code token` as the `response_type`. 
 
-    ```tab="Request Format"
-    https://<host>:<port>/oauth2/authorize?response_type=code token&client_id=<oauth_client_key>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
-    ```
-
-    ```tab="Sample Request"
-    https://localhost:9443/oauth2/authorize?response_type=code token&client_id=N_nhS_UXctKHofSyLju1rbt_Cbwa&nonce=asd&redirect_uri=http://localhost:8080/playground2/oauth2client&scope=openid
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```
+        https://<host>:<port>/oauth2/authorize?response_type=code token&client_id=<oauth_client_key>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        https://localhost:9443/oauth2/authorize?response_type=code token&client_id=N_nhS_UXctKHofSyLju1rbt_Cbwa&nonce=asd&redirect_uri=http://localhost:8080/playground2/oauth2client&scope=openid
+        ```
 
     You will receive the following sample response upon successful authorization. 
 
@@ -46,18 +51,28 @@ This `response_type` requests a code and an access token from the authorization 
 
 2. Send the code to the token endpoint using the following curl command to request for an access token, refresh token, and id\_token.
 
-    ``` tab="Request Format"
-    curl -k -v --basic -u <oauth_client_key>:<oauth_client_secret> -d "grant_type=<grant_type>&code=<code>&redirect_uri=<redirect_uri>" https://<host>:<port>/oauth2/token
-    ```
-
-    ``` tab="Sample Request"
-    curl -k -v --basic -u N_nhS_UXctKHofSyLju1rbt_Cbwa:AOkWrH42XKRSsFongXpUnR6mpHYa -d "grant_type=authorization_code&code=99b34587–5483–374d-8b25–50485498e761&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```
+        curl -k -v --basic -u <oauth_client_key>:<oauth_client_secret> -d "grant_type=<grant_type>&code=<code>&redirect_uri=<redirect_uri>" https://<host>:<port>/oauth2/token
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        curl -k -v --basic -u N_nhS_UXctKHofSyLju1rbt_Cbwa:AOkWrH42XKRSsFongXpUnR6mpHYa -d "grant_type=authorization_code&code=99b34587–5483–374d-8b25–50485498e761&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
+        ```
 
     You will receive the following response from the token endpoint.
 
     ```
-    {"access_token":"1940a308-d492–3660-a9f8–46723cc582e9","refresh_token":"6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4","scope":"openid","id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiJmZDI3NTk4ZWI5ZTBmYTAxN2I1NmNlYjllZjIwZDk2OTk1M2Q2YWZmMTc3NDg5YWEwNGNjZjA1MTY0OTI1YjlkIiwiYXRfaGFzaCI6IjViYlowOHpFQjVlNVNINUJCRFdmaVEiLCJhdWQiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiY19oYXNoIjoibURSRmNLcDFid19fZG1MaTRRRC1tQSIsInN1YiI6ImFkbWluIiwibmJmIjoxNjE1ODY4OTMzLCJhenAiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MTU4NzI1MzMsImlhdCI6MTYxNTg2ODkzMywibm9uY2UiOiJhc2QifQ.cODLbsrcaZpf6NUwI19Nb2LRCcv5Qxwmz3YbarVyrXnEoD0_ZB-CfJPogCD4JKXekzjOEE28ykBx8GlZaMtHY7z5K4DuIlxwWlmjs6grqzZbUhUme3YhBqM7l2cmBXZ3yp4czudh4rTdzuu1zjvJfwBAiMjTc2FDAliV4fGSYK4e8ZzLxuqCqxPzp0cMuyBEWD_447Nun9LJfcJW4cmb32AMcMizE2sQgc1T4vIPXrihJJ8Vz4n6ekWA59JG5z10b-1Thrq4FshM3vGPLEVfWVlBXyDwI-u4YALXThJFJhmdxAB9Rsx-LSqHjBew39Yatti91SF9lqscMgQmQKuYPw","token_type":"Bearer","expires_in":299494}
+    {
+        "access_token":"1940a308-d492–3660-a9f8–46723cc582e9",
+        "refresh_token":"6b96cc3a-00da-3d7d-acd1–5aaf76dcd9d4",
+        "scope":"openid",
+        "id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiJmZDI3NTk4ZWI5ZTBmYTAxN2I1NmNlYjllZjIwZDk2OTk1M2Q2YWZmMTc3NDg5YWEwNGNjZjA1MTY0OTI1YjlkIiwiYXRfaGFzaCI6IjViYlowOHpFQjVlNVNINUJCRFdmaVEiLCJhdWQiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiY19oYXNoIjoibURSRmNLcDFid19fZG1MaTRRRC1tQSIsInN1YiI6ImFkbWluIiwibmJmIjoxNjE1ODY4OTMzLCJhenAiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MTU4NzI1MzMsImlhdCI6MTYxNTg2ODkzMywibm9uY2UiOiJhc2QifQ.cODLbsrcaZpf6NUwI19Nb2LRCcv5Qxwmz3YbarVyrXnEoD0_ZB-CfJPogCD4JKXekzjOEE28ykBx8GlZaMtHY7z5K4DuIlxwWlmjs6grqzZbUhUme3YhBqM7l2cmBXZ3yp4czudh4rTdzuu1zjvJfwBAiMjTc2FDAliV4fGSYK4e8ZzLxuqCqxPzp0cMuyBEWD_447Nun9LJfcJW4cmb32AMcMizE2sQgc1T4vIPXrihJJ8Vz4n6ekWA59JG5z10b-1Thrq4FshM3vGPLEVfWVlBXyDwI-u4YALXThJFJhmdxAB9Rsx-LSqHjBew39Yatti91SF9lqscMgQmQKuYPw",
+        "token_type":"Bearer",
+        "expires_in":299494
+    }
     ```
 
 3. Optionally, you can decrypt the `id_token`. It will be similar to the decrypted `id_token` shown below.
@@ -91,13 +106,16 @@ This `response_type` requests a code and an id\_token from the authorization end
 
 1. Use the following authorization request with `code id_token` as the `response_type`. 
 
-    ```tab="Request Format"
-    https://<host>:<port>/oauth2/authorize?response_type=code id_token&client_id=<oauth_client_key>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
-    ```
-
-    ```tab="Sample Request"
-    https://localhost:9443/oauth2/authorize?response_type=code id_token&client_id=N_nhS_UXctKHofSyLju1rbt_Cbwa&nonce=asd&redirect_uri=http://localhost:8080/playground2/oauth2client&scope=openid
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```
+        https://<host>:<port>/oauth2/authorize?response_type=code id_token&client_id=<oauth_client_key>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        https://localhost:9443/oauth2/authorize?response_type=code id_token&client_id=N_nhS_UXctKHofSyLju1rbt_Cbwa&nonce=asd&redirect_uri=http://localhost:8080/playground2/oauth2client&scope=openid
+        ```
 
     You will receive the following response upon successful authorization:
 
@@ -108,7 +126,7 @@ This `response_type` requests a code and an id\_token from the authorization end
     !!! note
         You will not receive an Id Token if the `nonce` value is a not present in the request.
         
-3. Optionally, you can decrypt the `id_token`. It will be similar to the decrypted `id_token` shown below.
+2. Optionally, you can decrypt the `id_token`. It will be similar to the decrypted `id_token` shown below.
 
     ``` 
     {
@@ -136,15 +154,22 @@ This `response_type` requests a code and an id\_token from the authorization end
         The `c_hash` value is mandatory when an id_token is issued with code, and the `response_type` is equal to `code id_token` or `code id_token token` .
 
 
-4. You can send the code to the token endpoint to request for an access token, refresh token and id\_token. For this you can use the same curl command provided for the code token specified [above](#curl).
+3. You can send the code to the token endpoint to request for an access token, refresh token and id\_token. For this you can use the same curl command provided for the code token specified [above](#curl).
     
     You will receive the following response from the token endpoint.
 
     ```
-    {"access_token":"97696e2a-46e3-34d4-b29e-5ef601c8c2ca","refresh_token":"18917dd6-4566-3294-92a9-01ec89cccf4d","scope":"openid","id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiJjYWFkOWRlYjM2NjQxMjdiMDJkNWM5ZTQzNWQ2NDcyMzI0ZTc4MmMyMjIwZWY2NDQ0ZWQ5YWZlNDJlYTU3OTNmIiwiYXRfaGFzaCI6IjViYlowOHpFQjVlNVNINUJCRFdmaVEiLCJhdWQiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiY19oYXNoIjoic090SW44SV9UMEV1RGdaQVBsUGxVZyIsInN1YiI6ImFkbWluIiwibmJmIjoxNjE1ODY5NTE2LCJhenAiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MTU4NzMxMTYsImlhdCI6MTYxNTg2OTUxNiwibm9uY2UiOiJhc2QifQ.IimyN_iztv0ImkJXRYMBYqSWpGw7RBbhq20Xj1CDhX_gR3XP02ph2gTBuJwJthHY_taW8g-2eDrjhTpJ_KgbX4ntumAY0zpw1KpqaMfn_41uR4DNTkJmRsx0CA_wcK5y4o3dXRhStTkwzBh5_qwCCmVq5jD4WzYhA8bnLloHEJMZQuoE6pS5TfbtC6lLmtx7OGseZNT1SgId31rFDvP2fUlkdWLlJJPooCdd-S9YVopt7hekQykg9VZ6HzPI2o_9ZB5WgmcYYVonP0Rd6fiUyAykMd2CoiMoNcCL0nc8fdaQZq9DAFVRWdnLitJ-GJqr4jrz4C2dteU_FKYMS_Sq3Q","token_type":"Bearer","expires_in":2926} 
+    {
+        "access_token":"97696e2a-46e3-34d4-b29e-5ef601c8c2ca",
+        "refresh_token":"18917dd6-4566-3294-92a9-01ec89cccf4d",
+        "scope":"openid",
+        "id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiJjYWFkOWRlYjM2NjQxMjdiMDJkNWM5ZTQzNWQ2NDcyMzI0ZTc4MmMyMjIwZWY2NDQ0ZWQ5YWZlNDJlYTU3OTNmIiwiYXRfaGFzaCI6IjViYlowOHpFQjVlNVNINUJCRFdmaVEiLCJhdWQiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiY19oYXNoIjoic090SW44SV9UMEV1RGdaQVBsUGxVZyIsInN1YiI6ImFkbWluIiwibmJmIjoxNjE1ODY5NTE2LCJhenAiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MTU4NzMxMTYsImlhdCI6MTYxNTg2OTUxNiwibm9uY2UiOiJhc2QifQ.IimyN_iztv0ImkJXRYMBYqSWpGw7RBbhq20Xj1CDhX_gR3XP02ph2gTBuJwJthHY_taW8g-2eDrjhTpJ_KgbX4ntumAY0zpw1KpqaMfn_41uR4DNTkJmRsx0CA_wcK5y4o3dXRhStTkwzBh5_qwCCmVq5jD4WzYhA8bnLloHEJMZQuoE6pS5TfbtC6lLmtx7OGseZNT1SgId31rFDvP2fUlkdWLlJJPooCdd-S9YVopt7hekQykg9VZ6HzPI2o_9ZB5WgmcYYVonP0Rd6fiUyAykMd2CoiMoNcCL0nc8fdaQZq9DAFVRWdnLitJ-GJqr4jrz4C2dteU_FKYMS_Sq3Q",
+        "token_type":"Bearer",
+        "expires_in":2926
+    } 
     ```
 
-5. You can decrypt this `id_token` as well. It will be similar to the decrypted `id_token` shown below.
+4. You can decrypt this `id_token` as well. It will be similar to the decrypted `id_token` shown below.
 
     ``` 
     {
@@ -165,7 +190,7 @@ This `response_type` requests a code and an id\_token from the authorization end
     }
     ```
 
-6. If there are two id\_tokens issued, where one id\_token is from authorization endpoint and other is from token endpoint, be sure to perform the [neccessary validations](#id_token-validations), which are based on the OpenID Connect specification.
+5. If there are two id\_tokens issued, where one id\_token is from authorization endpoint and other is from token endpoint, be sure to perform the [neccessary validations](#id_token-validations), which are based on the OpenID Connect specification.
 
 -----
 
@@ -175,13 +200,16 @@ This `response_type` requests a code, an access token, and an id\_token from the
 
 1. Use the following authorization request with `code id_token token` as the `response_type`. 
 
-    ```tab="Request Format"
-    https://<host>:<port>/oauth2/authorize?response_type=code id_token token&client_id=<oauth_client_key>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
-    ```
-
-    ```tab="Sample Request"
-    https://localhost:9443/oauth2/authorize?response_type=code id_token token&client_id=N_nhS_UXctKHofSyLju1rbt_Cbwa&nonce=asd&redirect_uri=http://localhost:8080/playground2/oauth2client&scope=openid
-    ```
+    !!! abstract ""
+        **Request Format**
+        ```
+        https://<host>:<port>/oauth2/authorize?response_type=code id_token token&client_id=<oauth_client_key>&nonce=asd&redirect_uri=<redirect_uri>&scope=openid
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        https://localhost:9443/oauth2/authorize?response_type=code id_token token&client_id=N_nhS_UXctKHofSyLju1rbt_Cbwa&nonce=asd&redirect_uri=http://localhost:8080/playground2/oauth2client&scope=openid
+        ```
 
     You will receive the following upon successful authorization. 
 
@@ -214,7 +242,14 @@ This `response_type` requests a code, an access token, and an id\_token from the
     You will receive the following response from the token endpoint. 
 
     ``` 
-    {"access_token":"97696e2a-46e3-34d4-b29e-5ef601c8c2ca","refresh_token":"18917dd6-4566-3294-92a9-01ec89cccf4d","scope":"openid","id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiI1YjU2ZTU1ODhiZjcyMGRhNDYxYzA1YTk5ZGRhNzFmOTI1MDdhMGZlNGY2YjA1ZTc1MDdiZWM3NjFmMDNmZjllIiwiYXRfaGFzaCI6IjViYlowOHpFQjVlNVNINUJCRFdmaVEiLCJhdWQiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiY19oYXNoIjoiZEN5eW5lZTA1QkptQmtRNHZab3M2QSIsInN1YiI6ImFkbWluIiwibmJmIjoxNjE1ODcwNzYxLCJhenAiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MTU4NzQzNjEsImlhdCI6MTYxNTg3MDc2MSwibm9uY2UiOiJhc2QifQ.SVlEYFEPd5JvdjnkjuSJrZDB1DYA-8BNLXjX2olbFtLEXK10DSrmDn5kXi3W8Txv5MVpOJnKaMHsgZeZEj67EMXatXj_UidvPBRslbhA8SHkUMJ1ZwbukOhIKLzBVXAJjupYvQpbRWfJ6wx3C38W9KvQKvUKK0pBL06idFi56AWNPydZIq4KDqGC2-YPSCftMWGAYA-T380-ITUVOrtZKHZE-sl8U-Ie-TjR6kNgZqyrNBcmefM1w2CzAwngFz0Oj-hO3rLnEN5rk8bkPFLNnB2o6Wva2Gc72EqG8Wsf0T19o6d9qubNzRs30S1T-IFhur37XE8evQ8dZWMCSscKXQ","token_type":"Bearer","expires_in":1681}
+    {
+        "access_token":"97696e2a-46e3-34d4-b29e-5ef601c8c2ca",
+        "refresh_token":"18917dd6-4566-3294-92a9-01ec89cccf4d",
+        "scope":"openid",
+        "id_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiI1YjU2ZTU1ODhiZjcyMGRhNDYxYzA1YTk5ZGRhNzFmOTI1MDdhMGZlNGY2YjA1ZTc1MDdiZWM3NjFmMDNmZjllIiwiYXRfaGFzaCI6IjViYlowOHpFQjVlNVNINUJCRFdmaVEiLCJhdWQiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiY19oYXNoIjoiZEN5eW5lZTA1QkptQmtRNHZab3M2QSIsInN1YiI6ImFkbWluIiwibmJmIjoxNjE1ODcwNzYxLCJhenAiOiJDVnlRZU01UDMzZ2ZOODB2dXIzTmN4elBnSHdhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MTU4NzQzNjEsImlhdCI6MTYxNTg3MDc2MSwibm9uY2UiOiJhc2QifQ.SVlEYFEPd5JvdjnkjuSJrZDB1DYA-8BNLXjX2olbFtLEXK10DSrmDn5kXi3W8Txv5MVpOJnKaMHsgZeZEj67EMXatXj_UidvPBRslbhA8SHkUMJ1ZwbukOhIKLzBVXAJjupYvQpbRWfJ6wx3C38W9KvQKvUKK0pBL06idFi56AWNPydZIq4KDqGC2-YPSCftMWGAYA-T380-ITUVOrtZKHZE-sl8U-Ie-TjR6kNgZqyrNBcmefM1w2CzAwngFz0Oj-hO3rLnEN5rk8bkPFLNnB2o6Wva2Gc72EqG8Wsf0T19o6d9qubNzRs30S1T-IFhur37XE8evQ8dZWMCSscKXQ",
+        "token_type":"Bearer",
+        "expires_in":1681
+    }
     ```
 
 4. If there are two id\_tokens issued, where one id\_token is from authorization endpoint and other is from token endpoint, be sure to perform the [neccessary validations](#id_token-validations), which are based on the OpenID Connect specification.

@@ -32,9 +32,9 @@ If you have your own application, click the button below.
 
     1.  Now set the configurations as follows:
 
-        1.  **Issuer** : `travelocity.com`
+        1.  **Issuer**: `travelocity.com`
 
-        2.  **Assertion Consumer URL** : `http://wso2is.local:8080/travelocity.com/home.jsp`  
+        2.  **Assertion Consumer URL**: `http://wso2is.local:8080/travelocity.com/home.jsp`  
             Click Yes, in the message that appears.
 
     2.  Select the following check-boxes:
@@ -58,7 +58,7 @@ If you have your own application, click the button below.
            ![enable-audience-restriction](../assets/img/samples/enable-audience-restriction.png) 
     
     !!! tip
-        For more information on other advanced configurations refer, [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced/)
+        For more information on other advanced configurations refer, [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/)
 
 5.  Click **Register** to save the changes.  
 
@@ -168,7 +168,7 @@ For example,
 
 2. Edit the following configurations.
 
-    Enter the client ID and client secret you recieved when registering the OAuth/OpenID Connect application.
+    Enter the client ID and client secret you received when registering the OAuth/OpenID Connect application.
 
     ``` java
     EnableOAuth2SAML2Grant=true
@@ -205,40 +205,65 @@ For example,
 
     **Request**
 
-    ``` java tab="Request Format"
-    curl -k -u <username>:<password> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<access token>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
-    ```
-
-    ``` java tab="Sample Request"
-    curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=f3116b04-924f-3f1a-b323-4f0988b94f9f' https://localhost:9443/oauth2/introspect
-    ```
+    !!! abstract ""
+        **Request Format**
+        ``` java
+        curl -k -u <username>:<password> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<access token>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
+        ```
+        ---
+        **Sample Request**
+        ``` java
+        curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=f3116b04-924f-3f1a-b323-4f0988b94f9f' https://localhost:9443/oauth2/introspect
+        ```
 
     **Response**
 
     ``` java
-    {"active":true,"token_type":"Bearer","exp":1508927700,"iat":1508924100,"client_id":"EiqKsYfVH6dffF0b6LmrFBJW95Aa","username":"admin@carbon.super"}
+    {
+        "active":true,
+        "token_type":"Bearer",
+        "exp":1508927700,
+        "iat":1508924100,
+        "client_id":"EiqKsYfVH6dffF0b6LmrFBJW95Aa"
+        "username":"admin@carbon.super"
+    }
     ```
 
-6.  Since the Travelocity application has now exchanged the SAML assertion for a valid OAuth access token, you can use the received access token to access a protected resource in WSO2 Identity Server. 
+7.  Since the Travelocity application has now exchanged the SAML assertion for a valid OAuth access token, you can use the received access token to access a protected resource in WSO2 Identity Server. 
 
-    Use the [SCIM User Endpoint](insertlink) which is secured with OAuth to retrieve users. 
+    Use the [SCIM User Endpoint](../../develop/apis/scim2-rest-apis/#/Users%20Endpoint) which is secured with OAuth to retrieve users. 
 
     **Request**
 
-    ``` java tab="Request Format"
-    curl -v -k --header "Authorization: Bearer <access token>" https://<IS_HOST>:<IS_PORT>/wso2/scim/Users
-    ```
-
-    ``` java tab="Sample Request"
-    curl -v -k --header "Authorization: Bearer 865c60a5-969b-36b4-95e2-721a1fb5c867" https://localhost:9443/wso2/scim/Users
-    ```
+    !!! abstract ""
+        **Request Format**
+        ``` java
+        curl -v -k --header "Authorization: Bearer <access token>" https://<IS_HOST>:<IS_PORT>/wso2/scim/Users
+        ```
+        ---
+        **Sample Request**
+        ``` java
+        curl -v -k --header "Authorization: Bearer 865c60a5-969b-36b4-95e2-721a1fb5c867" https://localhost:9443/wso2/scim/Users
+        ```
     
     **Response**
 
     ``` java
-    {"totalResults":1,"schemas":["urn:scim:schemas:core:1.0"],"Resources":[{"meta":{"created":"2017-11-15T11:23:25","location":"https://localhost:9443/wso2/scim/Users/admin","lastModified":"2017-11-15T11:23:25"},"id":"0fb2af3f-03f2-4d6b-8340-957012df23f4","userName":"admin"}]}
+    {
+        "totalResults":1,
+        "schemas":["urn:scim:schemas:core:1.0"],
+        "Resources":[{
+            "meta":{
+                "created":"2017-11-15T11:23:25",
+                "location":"https://localhost:9443/wso2/scim/Users/admin"
+                "lastModified":"2017-11-15T11:23:25"
+            },
+            "id":"0fb2af3f-03f2-4d6b-8340-957012df23f4",
+            "userName":"admin"
+        }]
+    }
     ```
 
 !!! info "Related topics"
-    -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../../references/concepts/authorization/saml2-bearer-assertion-profile)
-    -   [Guide: Set Up SAML2 Bearer Assertion Profile](../../../guides/access-delegation/saml2-bearer-assertion-profile/)
+    -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../references/concepts/authorization/saml2-bearer-assertion-profile)
+    -   [Guide: Set Up SAML2 Bearer Assertion Profile](../../guides/access-delegation/saml2-bearer-assertion-profile/)

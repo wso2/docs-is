@@ -1,6 +1,6 @@
 # Configurations Related to Symmetric Key Encryption
 
-This section explains the configurations related to [symmetric key encryption](../../../deploy/security/symmetric-overview). From WSO2 Identity Server 5.11.0 onwards, symmetric encryption will be used by default. You can switch to [asymmetric key encryption](../../../deploy/security/use-asymmetric-encryption) if required.
+This section explains the configurations related to [symmetric key encryption](../../../deploy/security/symmetric-overview). This version of WSO2 Identity Server uses symmetric encryption by default. You can switch to [asymmetric key encryption](../../../deploy/security/use-asymmetric-encryption) if required.
 
 ---
 
@@ -20,7 +20,7 @@ org.wso2.CipherTransformation=AES/GCM/NoPadding
 
 ## Internal crypto provider
 
-The `org.wso2.carbon.crypto.provider.SymmetricKeyInternalCryptoProvider` provider is used as the internal crypto provider. When configuring the `SymmetricKeyInternalCryptoProvider` the secret key value needs to be provided in the configuration as well. 
+The `org.wso2.carbon.crypto.provider.SymmetricKeyInternalCryptoProvider` provider is used as the internal crypto provider. When configuring the `SymmetricKeyInternalCryptoProvider`, the secret key value needs to be provided in the configuration as well. 
 
 The following configuration is enabled by default in the `<IS_HOME>/repository/resources/conf/default.json` file to use the above-mentioned internal crypto provider.
 
@@ -53,8 +53,8 @@ key = "3cc0481b70794667b5bee7e2beed2de4"
 
 ## Userstore password encryption
 
-Prior to 5.11.0, there was a configuration to enable the preferred keystore (internal or primary) to encrypt secondary userstore passwords.
-However, with symmetric key encryption keystore references are not required. So, this configuration has a blank as its value. 
+In the previous versions, there was a configuration to enable the preferred keystore (internal or primary) to encrypt secondary userstore passwords.
+However, with symmetric key encryption, keystore references are not required. So this configuration has a blank as its value. 
 
 ```toml
 "keystore.userstore_password_encryption": "",
@@ -64,4 +64,4 @@ However, with symmetric key encryption keystore references are not required. So,
 
 ## Encrypting symmetric encryption key with cipher tool
 
-It is adviced to encrypt the symmetric encryption key with cipher tool as mentioned [here](../../../deploy/security/encrypt-passwords-with-cipher-tool)
+It is adviced to encrypt the symmetric encryption key with cipher tool as mentioned [here](../../../deploy/security/encrypt-passwords-with-cipher-tool).

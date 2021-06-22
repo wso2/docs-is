@@ -457,7 +457,7 @@ conversion when reading from/writing to a userstore.
 </table>
 
 
-!!! tip "Related Topics"
+!!! info "Related topics"
     -   [Deploy: Configure the Primary Userstore](../../../deploy/configure-the-primary-user-store)
     -   [Deploy: Configure Secondary Userstores](../../../deploy/configure-secondary-user-stores)
 

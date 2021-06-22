@@ -1,6 +1,6 @@
 # Log into a Sample Application using Microsoft Azure
 
-This page guides you through using Microsoft Azure as a federated authenticator and logging into a sample application. Here, we use a **sample application** called Pickup. 
+This page guides you through using Microsoft Azure as a federated authenticator and logging into a sample application. Here, we use a sample application called Pickup Dispatch. 
 
 ---
 

@@ -278,7 +278,6 @@ Log forging can be prevented by appending a UUID to the log message.
 
     ```java
     -Xms512m -Xmx2048m 
-    ```
 
 - To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine. 
 

@@ -250,8 +250,8 @@ template: templates/landing-page.html
                   Learn about how the product is built, and how it can be efficiently deployed and upgraded.
                </p>
             </div>
-            <div class="row gy-4">
-               <div class="col-xl-3 col-lg-6 col-sm-12 position-relative">
+            <div class="row gy-4 px-sm-1">
+               <div class="col-xl-3 col-sm-6 col-xs-12 position-relative">
                   <div class="row">
                      <div class="card icon-card">
                         <i class="material-icons-outlined icon-font">
@@ -271,7 +271,7 @@ template: templates/landing-page.html
                      </a>
                   </div>
                </div>
-               <div class="col-xl-3 col-lg-6 col-sm-12 position-relative">
+               <div class="col-xl-3 col-sm-6 col-xs-12 position-relative">
                   <div class="row">
                      <div class="card icon-card">
                         <i class="material-icons-outlined icon-font">
@@ -291,7 +291,7 @@ template: templates/landing-page.html
                      </a>
                   </div>
                </div>
-               <div class="col-xl-3 col-lg-6 col-sm-12 position-relative">
+               <div class="col-xl-3 col-sm-6 col-xs-12 position-relative">
                   <div class="row">
                      <div class="card icon-card">
                         <i class="material-icons-outlined icon-font">
@@ -311,7 +311,7 @@ template: templates/landing-page.html
                      </a>
                   </div>
                </div>
-               <div class="col-xl-3 col-lg-6 col-sm-12 position-relative">
+               <div class="col-xl-3 col-sm-6 col-xs-12 position-relative">
                   <div class="row">
                      <div class="card icon-card">
                         <i class="material-icons-outlined icon-font">

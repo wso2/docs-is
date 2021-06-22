@@ -20,6 +20,8 @@ This page guides you through invoking the [OAuth Introspection Endpoint](../../.
 
 {!fragments/oauth-app-config-basic.md!}
 
+{!fragments/oauth-app-config-advanced-tip.md!}
+
 ----
 
 ## Invoking the endpoint for the super tenant
@@ -454,3 +456,5 @@ The samples given above only demonstrate how to validate a token obtained for th
 
 ----
 
+!!! info "Related topics"
+    - [Concept: OAuth Introspection Endpoint](../../../references/concepts/authorization/introspection)

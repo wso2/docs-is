@@ -46,4 +46,3 @@ For Jaggery-based applications stored in the `<IS_HOME>/repository/deployment/se
  [{"name":"patterns","value":"text/html\",application/json\",plain/text"},{"name" : "filterAction","value":"enforce"},  {"name":"httpHeaders","value": "Cache-Control: no-store, no-cache, must-revalidate, private"}]        
 }],
 ```
--->

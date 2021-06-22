@@ -25,14 +25,14 @@ If you have your own application, click the button below.
 
 1. Create a user called "Tom" with login permission.
 
-    For instructions, see [Adding Users](../../../guides/identity-lifecycles/admin-creation-workflow/) and [Adding Roles](../../../guides/identity-lifecycles/add-user-roles/).
+    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/) and [Add a Role](../../guides/identity-lifecycles/add-user-roles/).
 
 2. Edit Tom's user profile and enter values for **email**, **country**, **challenge Question1**, and **challenge Question 2**. 
-    For instructions, see [Editing User Profile](../../../guides/identity-lifecycles/update-profile/).
+    For instructions, see [Edit User Profile](../../guides/identity-lifecycles/update-profile/).
 
 3. Create a JWT with the following payload and sign(RSA256) it with the private key of the keystore you created above.
 
-    ```java
+    ```
     {
       "client_id": "<client-id>",
       "sub": "<client-id>",
@@ -108,10 +108,10 @@ Request objects can either be signed or unsigned. Therefore, if you want to only
 
     If signature validation is successfully enforced, the request should get rejected and you should see an error page.
 
-    ![signature-validation-successful](../../../assets/img/samples/signature-validation-successful.png)
+    ![Signature validation successful](../../assets/img/samples/signature-validation-successful.png)
 
 ---- 
 
 !!! info "Related topics"
-    - [Pass OIDC Authentication Request Parameters in a Request Object](../../../guides/login/oidc-request-object/)
-    - [Use Advanced Parameters in Authentication Requests ](../../../guides/login/oidc-parameters-in-auth-request/)
+    - [Pass OIDC Authentication Request Parameters in a Request Object](../../guides/login/oidc-request-object/)
+    - [Use Advanced Parameters in Authentication Requests ](../../guides/login/oidc-parameters-in-auth-request/)

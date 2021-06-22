@@ -1,5 +1,3 @@
-
-
 ### Sample prerequisites
 
 - Download Apache Tomcat 8.x from

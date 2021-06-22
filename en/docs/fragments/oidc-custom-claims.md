@@ -31,6 +31,6 @@
 
     -   Mark the claims given above as **Mandatory Claims**. This will ensure that the user will be prompted once again to provide consent for the newly added/changed claims.
 
-    -   Log in to the user portal and revoke the consent reciept for the application.  When you attempt to log in to the application again, you will be prompted to provide consent for all requested claims, including the newly added/changed claims. For more information on revoking/accepting user consent, see [Consent management](../../../references/concepts/consent-management/).
+    -   Log in to the user portal and revoke the consent receipt for the application.  When you attempt to log in to the application again, you will be prompted to provide consent for all requested claims, including the newly added/changed claims. For more information on revoking/accepting user consent, see [Consent management](../../../references/concepts/consent-management/).
 
 7. Click **Update**.

@@ -1,6 +1,6 @@
 # Migration Process
 
-This section contains the complete migration process related to the WSO2 Identity Server.
+This section contains the complete migration process related to WSO2 Identity Server.
 Go through the guidelines given below before attempting to migrate the production environment.
 
 ## Recommendations
@@ -32,9 +32,7 @@ However, if a custom requirement is not available in the latest version, follow 
 dependant WSO2 components and re-build the customized component.
 - As a practice, WSO2 does not make API changes in minor releases of the dependency jars. However, if 
 there are API changes, update the custom code and re-build.
--  For more information about migrating customizations, see [Migrating Custom Components](../../../deploy/migrate/prepare-for-migration/#migrate-custom-components).
-
----
+-  For more information about migrating customizations, see [Migrate Custom Components](../../../deploy/migrate/prepare-for-migration/#migrate-custom-components).
                         
 ###  Step-by-step instructions 
 
@@ -54,7 +52,7 @@ test your functional and nonfunctional requirements.
 
 5.  Before starting the migration, run the [token and session 
 cleanup scripts](../../../deploy/remove-unused-tokens-from-the-database#using-stored-procedures-for-token-cleanup)
- in the databases of the environment, if you are not doing regular cleanups.
+ in the databases of the environment if you are not doing regular cleanups.
     
     !!! info
         Clean-up scripts can be found in the relevant db folder in `<IS-HOME>/dbscripts/identity/stored-procedures`

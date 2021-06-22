@@ -10,7 +10,12 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="{{ path }}" type="checkbox" id="{{ path }}">
     {% endif %}
     <label class="md-nav__link" for="{{ path }}">
-      {{ nav_item.title }}
+      <div class="nav__link-text">
+        {{ nav_item.title }}
+      </div>
+      <i class="md-icon nav__link-icon">
+        expand_more
+      </i>
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="{{ level }}">
       <label class="md-nav__title" for="{{ path }}">
