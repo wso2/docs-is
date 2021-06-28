@@ -186,7 +186,7 @@ Next, you can try out self-registration.
 3.  Fill in the user details, provide consent to share the requested
     information and then click **Register**.
     
-    ![self-signup-form](../../../assets/img/guides/self-signup-form.png) 
+    ![Self sign up form](../../../assets/img/guides/self-signup-form.png) 
         
     ??? Abstract "Click to see steps on configuring requested attributes for self registration" 
         
