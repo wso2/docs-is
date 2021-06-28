@@ -1,18 +1,17 @@
 # Enable HTTP Strict Transport Security (HSTS) Headers
 
-Enable HTTP Strict Transport Security headers (HSTS) for the applications deployed in your server, to confirm that the relevant headers are present in the HTTP response. HSTS is not enabled for applications in WSO2 Identity Server by default. 
+Enable HTTP Strict Transport Security (HSTS) headers for the applications deployed in your server, to confirm that the relevant headers are present in the HTTP response. HSTS is not enabled for applications in WSO2 Identity Server by default. 
 
 !!! note 
-
 	HSTS should not be enabled in development environments because transport security validations can interrupt the development processes by validating signatures of self-signed certificates. 
 
 ---
 
 ## Enable for Management Console 
 
-If the `HttpHeaderSecurityFilter` element is available in the `web.xml` file (stored in the `<IS_HOME>/repository/conf/tomcat/carbon/WEB-INF/` directory) as shown below, it implies that security headers are by default configured for the management consoles of all of your profiles. However, in a production deployment, Strict-Transport-Security needs to be explicitly enabled by replacing the default <init-param> values of the `HttpHeaderSecurityFilter` filter.
+If the `HttpHeaderSecurityFilter` element is available in the `<IS_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml` file as shown below, it implies that security headers are by default configured for the WSO2 Management Consoles of all of your profiles. However, in a production deployment, Strict-Transport-Security needs to be explicitly enabled by replacing the default <init-param> values of the `HttpHeaderSecurityFilter` filter.
 
-Following is the default filter configuration..
+Following is the default filter configuration.
 
 ```
 <!-- Tomcat http header security filter -->
@@ -45,7 +44,7 @@ Shown below is how you should explicitly enable HSTS.
 
 ## Enable for web applications
 
-Similar to the management console, check whether the `HttpHeaderSecurityFilter` that is sstored in the `<IS_HOME>/repository/deployment/server/webapps/` directory that is available in the `web.xml` file of that particular web application. If the filter is available, enable HSTS as shown below.
+Similar to the WSO2 Identity Server Management Console, check whether `HttpHeaderSecurityFilter` stored in the `<IS_HOME>/repository/deployment/server/webapps/` directory is available in the `web.xml` file of that particular web application. If the filter is available, enable HSTS as shown below.
 
 ```
 <filter>
@@ -58,19 +57,18 @@ Similar to the management console, check whether the `HttpHeaderSecurityFilter` 
 </filter-mapping>
 ```
 
----
 
-## Enable for Jaggery applications
+<!--## Enable for Jaggery applications
 
-For Jaggery applications, the `HttpHeaderSecurityFilter` element should be configured in the jaggery.conf file (stored in the `<IS_HOME>/repository/deployment/server/jaggeryapps/` directory. This filter configuration is applicable to the /dashboard jaggery applications in this location. To enable HSTS for a Jaggery application, change the default filter configuration as shown below.
+For Jaggery applications, the `HttpHeaderSecurityFilter` element should be configured in the `<IS_HOME>/repository/deployment/server/jaggeryapps/jaggery.conf` file. <!--This filter configuration is applicable to the /dashboard jaggery applications in this location-->. To enable HSTS for a Jaggery application, change the default filter configuration as shown below.
 
-The default filter configuration:
+Given below is the default filter configuration.
 
 ```
 "params" : [{"name" : "hstsEnabled", "value" : "false"}]
 ```
 
-The filter configuration after enabling HSTS:
+This is the filter configuration after enabling HSTS.
 
 ```
 "params" : [{"name" : "hstsMaxAgeSeconds", "value" : "15768000"}]
@@ -78,6 +76,6 @@ The filter configuration after enabling HSTS:
 
 !!! note
 
-	Returning HTTP security headers could also be achieved by configuring those headers from the Proxy/LB configuration.
+	Returning HTTP security headers could also be achieved by configuring the headers from the `Proxy/LB` configuration.
 
-
+-->

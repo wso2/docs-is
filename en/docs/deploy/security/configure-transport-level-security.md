@@ -1,20 +1,17 @@
 # Configure Transport Level Security
 
 Given below are the various transport-level security configurations that
-are required for WSO2 Identity Server. See the following topics for
-instructions.
+are required for WSO2 Identity Server. 
 
 ---
 
 ## Enable SSL protocols and ciphers in ThriftAuthenticationService
 
-Do the following to enable SSL protocols and ciphers in the
-`         ThriftAuthenticationService.        `
+Folow the instructions given below to enable SSL protocols and ciphers in `         ThriftAuthenticationService.        `
 
 1.  Add the following configurations in the
     `           <CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml          `
-    file as sub-elements of the root `           <Server>          `
-    element.
+    file as sub-elements of the root `           <Server>          ` element.
 
     ``` java
     <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>
@@ -44,7 +41,7 @@ Do the following to enable SSL protocols and ciphers in the
 
 A cipher is an algorithm for performing encryption or decryption. When
 you set the `         sslprotocol        ` of your server to TLS, the
-TLS and the default ciphers get enabled without considering the strength
+TLS and the default ciphers are enabled without considering the strength
 of the ciphers. This is a security risk as weak ciphers, also known as
 EXPORT ciphers, can make your system vulnerable to attacks such as the
 Logjam attack on Diffie-Hellman key exchange. The Logjam attack is also
@@ -52,7 +49,7 @@ called the Man-in-the-Middle attack. It downgrades your connection's
 encryption to a less-secured level (e.g., 512 bit) that can be decrypted
 with sufficient processing power.
 
-To prevent these types of security attacks, it is encouraged to disable
+To prevent these security attacks, it is encouraged to disable
 the weak ciphers. You can enable only the ciphers that you want the
 server to support in a comma-separated list in the
 `         ciphers        ` attribute. Also, if you do not add this
@@ -61,9 +58,9 @@ ciphers by JSSE. This will enable the weak ciphers.
 
 ### Disable weak ciphers in WSO2 IS
 
-A cipher is an algorithm for performing encryption or decryption. When the sslprotocol is set to "TLS", only the TLS and default ciphers are enabled by default. However, note that the strength of the ciphers will not be considered when they are enabled. Therefore, to disable the weak ciphers, you must ensure that only the ciphers you want your server to support are entered for the ciphers attribute in a comma-separated list. Also, if you do not add this cipher attribute or keep it blank, all SSL ciphers by JSSE will be supported by your server, thereby enabling the weak ciphers.
+A cipher is an algorithm for performing encryption or decryption. When the `sslprotocol` is set to `TLS`, only the TLS and default ciphers are enabled by default. However, note that the strength of the ciphers will not be considered when they are enabled. Therefore, to disable the weak ciphers, you must ensure that only the ciphers you want your server to support are entered as the `ciphers` attribute in the comma-separated list. Also, if you do not add this cipher attribute or keep it blank, all SSL ciphers by JSSE will be supported by your server, thereby enabling the weak ciphers.
 
-1.  Go to the ` deployment.toml ` file in the ` <IS_HOME>/repository/conf   ` directory.
+1.  Navigate to the ` deployment.toml ` file in the ` <IS_HOME>/repository/conf   ` directory.
 
 2.  Take a backup of the ` deployment.toml ` file and stop the WSO2 IS server.
 
@@ -93,23 +90,20 @@ that you want your server to support as follows: ciphers="<cipher-name>,<cipher-
             contain any EXPORT ciphers.
     
         -   When you use the supported cipher suites, the BEAST attack status will
-            be shown as vulnerable. Note that this is a client-side
+            be shown as vulnerable. This is a client-side
             vulnerability caused by the TLSv1 protocol. You can make the
             BEAST status protected by removing TLSv1, which will make
             clients with TLSv1 unusable. Therefore, it is recommended
-            tofixed this from the client side.
+            to resolve this at the client side.
 
-From **Firefox** 39.0 onwards, the browser does not allow to access Web
-sites that support DHE with keys less than 1023 bits (not just
+From **Firefox** 39.0 onwards, the browser does not allow to access websites that support DHE with keys less than 1023 bits (not just
 DHE\_EXPORT). 768/1024 bits are considered to be too small and
 vulnerable to attacks if the hacker has enough computing resources.
 
 !!! tip
     
     To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy
-    files need to be installed. Download them from
-    [http://www.oracle.com/technetwork/java/javase/downloads/index.html](index)
-    .
+    files need to be installed. Download them from [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
     
     
     From Java 7, you must set the
@@ -120,24 +114,23 @@ vulnerable to attacks if the hacker has enough computing resources.
     . It rejects all algorithms that have key sizes less than 2048 for MD2,
     DSA and RSA.
     
-    **Note** : This tip is not applicable when you are disabling weak
-    ciphers in WSO2 Identity Server.
+    !!! note
+        This tip is not applicable when you are disabling weak ciphers in WSO2 Identity Server.
 
 ---
   
 ## Change the server name in HTTP response headers
 
-By default, WSO2 Identity Server pass "WSO2 WSO2 IS server" as the server
+By default, WSO2 Identity Server pass `WSO2 WSO2 IS server` as the server
 value in HTTP headers when sending HTTP responses. This means that
-information about the WSO2 product stack will be exposed through HTTP
+information about the WSO2 Identity Server stack will be exposed through HTTP
 responses. It is recommended to change this by configuring the server
 name in the `deployment.toml` file.
 
 1.  Open the
-    `          <IS_HOME>/repository/conf/deployment.toml          `
-    file.
+    `          <IS_HOME>/repository/conf/deployment.toml          ` file.
 2.  Add a new server name by adding the following
-    property (under the relevant Tomcat connector configuration):
+    property under the relevant Tomcat connector configuration.
 
     ```
     [transport.https.properties]
@@ -146,7 +139,6 @@ name in the `deployment.toml` file.
     server="WSO2 WSO2 IS server"
     ```
 
-    
 ---
 
 ## Enable/disable http/https transport
@@ -163,6 +155,5 @@ http.enabled=false
 https.enabled=false
 ```
 
-See the [Security Guidelines for Production
-Deployment](../../../deploy/security/security-guidelines-for-production-deployment) for the
-full list of security-related recommendations for WSO2 Identity Server.
+!!! info "Related topics"
+    [Deploy: Security Guidelines for Production Deployment](../../../deploy/security/security-guidelines-for-production-deployment)
