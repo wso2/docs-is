@@ -57,7 +57,7 @@ functions for adaptive authentication.
 
     !!! note
     
-        **Note** : It is recommended to throw errors from the Java methods
+        **Note** : It is recommended not to throw errors from the Java methods
         to the authentication script. All the errors have to be handled by
         the method itself.
     
