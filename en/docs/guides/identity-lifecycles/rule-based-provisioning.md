@@ -41,7 +41,7 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 
 ## Set up XACML rules
 
-1.	Click on **Policy Administration** under the **Entitlement\>PAP** section on the **Main** tab of the management console.
+1.	Click on **Policy Administration** under the **Entitlement** > **PAP** section on the **Main** tab of the management console.
 
 2.	Since this sample scenario is based on role, we select the policy
     `                       provisioing_role_based_policy_template.                     `
