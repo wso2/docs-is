@@ -11,7 +11,6 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-(TODO: dev-portal-fragment)
 {!fragments/register-a-service-provider.md!}
 
 ----

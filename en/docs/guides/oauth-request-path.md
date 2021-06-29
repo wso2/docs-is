@@ -22,7 +22,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 {!fragments/oauth-app-config-basic.md!}
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+<!--{!fragments/oauth-app-config-advanced-tip.md!}-->
 
 ----
 
@@ -99,9 +99,9 @@ Send the following requests via your application to connect your application to 
             ```
 ------
 
-!!! info "Related Links"
+!!! info "Related topics"
      -   [Quick Start: Authentication with OAuth Request Path Authenticator](../../quick-starts/oauth-request-path-sample)
-     -   [Guide: Authenticate with Basic Auth Request Path Authenticator](../../../guides/basic-auth-request-path)
+     -   [Guide: Authenticate with Basic Auth Request Path Authenticator](basic-auth-request-path.md)
      -   [Quick Start: Enable Authentication with Basic Auth Request Path Authenticator](../../quick-starts/basic-auth-request-path-sample)
 
            

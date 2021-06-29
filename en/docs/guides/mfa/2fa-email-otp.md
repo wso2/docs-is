@@ -56,8 +56,8 @@ This page guides you through configuring [two-factor authentication](../../../re
     CaptureAndUpdateEmailAddress = true
     showEmailAddressInUI = true
     ```
-    !!! info
-        For information on each of these configurations, see [Email OTP Configurations](../email-otp-config-advanced)
+    <!--!!! info
+        For information on each of these configurations, see [Email OTP Configurations](../email-otp-config-advanced)-->
 
 2. Restart the server once configurations are in place. 
 
@@ -151,5 +151,5 @@ You have successfully configured and logged in using 2-factor authentication.
 
 
 !!! info "Related topics"
-    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication/#two-factor-authentication)
     - [Guide: Configure an Authentication Journey](../configure-authentication-journey)

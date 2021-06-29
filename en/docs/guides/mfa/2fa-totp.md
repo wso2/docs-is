@@ -71,5 +71,5 @@ configure the email adapter for this purpose.
 ----
 
 !!! info "Related topics"
-    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication/#two-factor-authentication)
     - [Guide: Configure an Authentication Journey](../configure-authentication-journey)

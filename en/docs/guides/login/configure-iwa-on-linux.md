@@ -21,7 +21,7 @@ For information on Integrated Windows Authentication (IWA), see [IWA](TO-DO: con
     -   Performance and security on Kerberos are better.
     
 
-!!! info "Related Links"
+!!! info "Related topics"
 
 	-   For more information about IWA, see [Integrated Windows
 		Authentication](../../../references/concepts/authentication/integrated-windows-authentication-overview)

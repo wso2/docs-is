@@ -289,8 +289,8 @@ First, you need to configure the WSO2 Identity Server for user account locking a
         ```
    
         !!! note
-            Since `BackupCode = true` in the default configuration, configure the backup code claim according to 
-            [Configuring Backup Codes for SMSOTP](../../../guides/mfa/2fa-sms-otp/)
+            Since `BackupCode = true` in the default configuration, configure the backup code claim. <!--according to 
+            [Configuring Backup Codes for SMSOTP](../../../guides/mfa/2fa-sms-otp/)-->
             Alternatively, you can disable the backup codes for SMS OTP by setting the property to **false**.
             
             ```
@@ -333,6 +333,6 @@ for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. To c
         3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
 
 !!! info "Related topics" 
-    -   [Guides: Configure SMS OTP for 2-Factor Authentication](../../../guides/mfa/2fa-sms-otp/)
+    <!---   [Guides: Configure SMS OTP for 2-Factor Authentication](../../../guides/mfa/2fa-sms-otp/)-->
     -   [Guides: Customize Automated Emails](../../../guides/tenants/customize-automated-mails)
     -   [Guides: Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account)

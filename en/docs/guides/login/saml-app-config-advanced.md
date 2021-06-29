@@ -169,7 +169,7 @@ Enable **Assertion Encryption**, if you wish to encrypt the assertion.
 
 Select **Enable Single Logout** so that all sessions are terminated once the user signs out from one server. If single logout is enabled, the identity provider sends logout requests to all service providers. Basically, the identity provider acts according to the single logout profile. If the service provider supports a different URL for logout, you can enter a SLO Response URL and SLO Request URL for logging out. These URLs indicate where the request and response should go to. If you do not specify this URL, the identity provider uses the Assertion Consumer Service (ACS) URL.
 
-WSO2 Identity Server supports both **SAML Back-Channel Logout** and **SAML Front-Channel Logout** methods. By default, when you select **Enable Single Logout**, the Back-Channel Logout is enabled . In order to enable **SAML Front-Channel Logout**, you can either select **Front-Channel Logout (HTTP Redirect Binding)** or **Front-Channel Logout (HTTP POST Binding)** .
+WSO2 Identity Server supports both **SAML Back-Channel Logout** and **SAML Front-Channel Logout** methods. By default, when you select **Enable Single Logout**, the Back-Channel Logout is enabled. In order to enable **SAML Front-Channel Logout**, you can either select **Front-Channel Logout (HTTP Redirect Binding)** or **Front-Channel Logout (HTTP POST Binding)**.
 
 ----
 
@@ -207,7 +207,7 @@ Select the **Enable IdP Initiated SLO** checkbox to enable this functionality. Y
 
 ## Enable Assertion Query Request Profile
 
-Select the **Enable Assertion Query Request Profile** checkbox to query assertions that are persisted to the database when you log in to the service provider application. For more information, see [Query SAML 2.0 Assertions](../../../guides/login/query-saml-assertions) .
+Select the **Enable Assertion Query Request Profile** checkbox to query assertions that are persisted to the database when you log in to the service provider application. For more information, see [Query SAML 2.0 Assertions](../../../guides/login/query-saml-assertions).
 
 ----
 

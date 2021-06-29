@@ -29,7 +29,7 @@
             Here, the expiration time should be specified in milliseconds.
 
 2.  Expand the **Claim Configuration** section and map the relevant claims. 
-    See [Request Attributes for the Application](../../../guides/login/request-attributes/) for more information.
+    <!--See [Request Attributes for the Application](../../../guides/login/request-attributes/) for more information.-->
     
 3.  Click **Update** to save changes.
 

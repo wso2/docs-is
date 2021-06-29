@@ -60,7 +60,7 @@ divided into different sections.
 
 ![identity-section-mgt-console](../../../assets/img/deploy/identity-section-mgt-console.png)
 
-!!! info "Related Links"
+!!! info "Related topics"
     Refer to the following topics for instructions to use sub menu items.
     
     -   [Guide: Manage User Operations](../../../guides/identity-lifecycles/manage-user-overview/) 
@@ -75,7 +75,7 @@ divided into different sections.
 
 ![entitlement-section-mgt-console](../../../assets/img/deploy/entitlement-section-mgt-console.png)
 
-<!--!!! info "Related links"
+<!--!!! info "Related topics"
     Refer to the following topics for instructions to use sub menu items.
     
     -   See [Configuring the Policy Administration Point](TO-DO:../../learn/configuring-the-policy-administration-point) 
@@ -89,7 +89,7 @@ divided into different sections.
 
 ![manage-section-mgt-console](../../../assets/img/deploy/manage-section-mgt-console.png)
 
-!!! info "Related links"  
+!!! info "Related topics"  
     Refer to the following topics for instructions to use sub menu items.
 
     <!---   See [Workflow Management](../../../guides/workflows/adding-a-workflow-engine/) for information on
@@ -126,7 +126,7 @@ specific requirements.
 
 ![configure-section-mgt-console](../../../assets/img/deploy/configure-section-mgt-console.png)
 
-!!! info "Related links"
+!!! info "Related topics"
     Refer to the following topics for instructions to use sub menu items.
 
     -   See [Creating and Managing Tenants](../../../guides/tenants/add-new-tenants/)

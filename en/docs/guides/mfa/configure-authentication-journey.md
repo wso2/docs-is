@@ -8,7 +8,7 @@ etc.
 ## Try MFA
 
 - [Password as the First Factor](../../../guides/mfa/password)
-- [SMS OTP for 2-Factor Authentication](../../../guides/mfa/2fa-sms-otp)
+<!--- [SMS OTP for 2-Factor Authentication](../../../guides/mfa/2fa-sms-otp)-->
 - [Email OTP for 2-Factor Authentication](../../../guides/mfa/2fa-email-otp)
 - [TOTP for 2-Factor Authentication](../../../guides/mfa/2fa-totp)
 - [X.509 Certificate for 2-Factor Authentication](../../../guides/mfa/x509)

@@ -294,7 +294,7 @@ above figure and video.
 <div class="panel" style="border-width: 1px;">
 <div class="panelHeader" style="border-bottom-width: 1px;">
 <div class="admonition info">
-<p class="admonition-title">Related Links</p>
+<p class="admonition-title">Related topics</p>
 <ul>
 For information on configuring claims, see <a href="../../guides/dialects/configure-claims">Configure Claims</a>.
 </li>
@@ -323,7 +323,7 @@ For information on configuring claims, see <a href="../../guides/dialects/config
 <p><img src="../../assets/img/get-started/local-authenticators.png" title="local authenticators" alt="local authenticators"></p>
 <p>Local authenticators are authentication processes available within the Identity Server itself. username /password authentication happens by authenticating the credentials entered against the values in the userstore connected to the Identity Server.</p>
 <div class="admonition info">
-<p class="admonition-title">Related Links</p>
+<p class="admonition-title">Related topics</p>
 <p>
 For more information about windows-based authentication, see <a href="../../references/concepts/integrated-windows-authentication-overview/">Integrated Windows Authentication</a> .
 </div>
@@ -344,7 +344,7 @@ For more information about windows-based authentication, see <a href="../../refe
 <p><img src="../../assets/img/get-started/federated-authenticators.png" title="federated authenticators" alt="federated authenticators"></p>
 <p>Federated authenticators are authentication processes that are not available within the Identity Server. These need to be configured to reach out to external applications to do the authentication process and send the response back to the Identity Server.</p>
 <div class="admonition info">
-<p class="admonition-title">Related Links</p>
+<p class="admonition-title">Related topics</p>
 <p>For more information on how to configure federated authenticators with the various identity providers, see <a href="../../guides/identity-federation/enterprise-identity-federation/">Configuring Federated Authentication</a> .</p>
 </div>
 </div></td>
@@ -422,7 +422,7 @@ For more information about windows-based authentication, see <a href="../../refe
 <p><img src="../../assets/img/get-started/user-store-manager.png" title="userstore manager" alt="userstore manager"></p>
 <p>WSO2 Identity Server implements flexible userstore via built-in LDAP (powered by ApacheDS), external LDAP, Microsoft Active Directory or any JDBC database. It provides an API for integrating identity management to any application. WSO2 Identity Server allows tenants/organizations to configure their userstores through the admin console. WSO2 Identity Server supports multiple profiles per user using its flexible profile management feature.</p>
 <div class="admonition info">
-<p class="admonition-title">Related Links</p>
+<p class="admonition-title">Related topics</p>
 <ul>
 <li>For more information, see <a href="../../get-started/user-management-architecture/">User Management Architecture</a></li>
 <li>For more information on how to configure userstores, see <a href="../../deploy/configure-the-realm">Configuring the Realm</a> .</li>
@@ -444,7 +444,7 @@ For more information about windows-based authentication, see <a href="../../refe
 <td><div class="content-wrapper">
 <p>A claim is a piece of information about a particular subject. It can be anything that the subject is owned by or associated with, such as name, group, preferences, etc. A claim provides a single and general notion to define the identity information related to the subject. Claim-based identity is a common way for any application to acquire the identity information. It provides a consistent approach for all applications by hiding the lower level implementation. Claims are also used in identity propagation, by packaging the claims into one or more tokens (such as SAML). These tokens are then issued by an issuer; commonly known as a security token service (STS).</p>
 <div class="admonition info">
-<p class="admonition-title">Related Links</p>
+<p class="admonition-title">Related topics</p>
 For more information on managing claims, see <a href="../../guides/dialects/configure-claims/">Claim Management</a>
 </div>
 </div></td>
