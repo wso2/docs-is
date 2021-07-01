@@ -115,7 +115,7 @@ WSO2 Identity Server supports the following DBMSs.
 	<li>Mozilla Firefox 81.0.2 (64-bit)</li>
 	<li>Google Chrome Version 84.0.4147.125 (Official Build) (64-bit)</li>
 	<li>Google Chrome Version 85.0.4183.102 (Official Build) (64-bit)</li>
-	<li>Google Chrome Version 86.0.4240.75 (Official Build) (x86_64)</li>
+	<li>Google Chrome Version 86.0.4240.75 (Official Build, x86_64)</li>
 	<li>Chromium version 86.0.4240.111 (Official Build)</li>
 	</li>MS Edge 44.18362</li>
 </ul>
@@ -128,7 +128,6 @@ Following is a list of LDAPs that WSO2 Identity Server 5.11.0 is tested with.
 	<li>Open LDAP 2.4.28</li>
 	<li>Microsoft Active Directory Windows 2012</li>
 </ul>
-
 
 
 
