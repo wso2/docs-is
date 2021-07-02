@@ -588,7 +588,7 @@ var onLoginRequest = function(context) {
 This function sends the username and Ip address of the user to the Choreo as a JSON String. In Choreo obtain the text 
 payload from the http:Request and convert it into a JSON object as follows. 
 
- ![template-for-risk-based-authentication](../assets/img/tutorials/choreo-sample-service.png)
+ ![sample-Choreo-service](../assets/img/tutorials/choreo_sample_service.png)
 
 Finally can return the response (i.e. calculated risk score) as a JSON object. Adaptive Authentication JS script reads 
 the received JSON object as the responseData in the onSuccess callback.
