@@ -526,6 +526,72 @@ It includes the following parameters:
 var state = getValueFromDecodedAssertion(context.request.params.request[0],"state",true);
 ```
 
+##### callChoreo( connectionMetadata, payloadData, eventHandlers )
+
+This function sends data to Choreo and gets the response from the Choreo service. It includes the following parameters.
+
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>connectionMetadata</td>
+<td><p>A Map that contains the following keys:</p>
+<ul>
+<li><p><code>                 url:                </code> Endpoint URL to the Choreo service </p></li>
+<li><p><code>                 apiKey:                </code> Api-key to call Choreo service
+</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>payloadData</td>
+<td>The data that needs to be sent to the Choreo.</td>
+</tr>
+<tr class="odd">
+<td>eventHandlers</td>
+<td>The callback event handlers.</td>
+</tr>
+</tbody>
+</table>
+
+``` java
+var connectionMetaData = {};
+connectionMetaData.url = "https://tom.choreoapis.dev/riskCalculation/1.0.0/riskScore";
+connectionMetaData.apiKey = "eyJraWQiOiJnYXRld2F5X2NlcnRpZmljYXRlX2FsaWFzIiwiYWxnIjoiUlMyNTYifQ";
+
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function (context) {
+            var username = context.currentKnownSubject.username;
+            var loggingIp = context.request.ip;
+            callChoreo(connectionMetaData, {'username':username, 'loggingIp':loggingIp}, {
+                onSuccess : function(context, responseData) {
+                    Log.info('--------------- Received risk score value: ' + responseData.riskScore);
+                    if (responseData.riskScore > 0) {
+                        executeStep(2);
+                    }
+                }, onFail : function(context, responseData) {
+                    Log.info('--------------- Failed to call Choreo');
+                    executeStep(2);
+                }
+            });
+        }
+    });
+};
+
+```
+
+This function sends the username and Ip address of the user to the Choreo as a JSON String. In Choreo obtain the text 
+payload from the http:Request and convert it into a JSON object as follows. 
+
+ ![template-for-risk-based-authentication](../assets/img/tutorials/choreo-sample-service.png)
+
+Finally can return the response (i.e. calculated risk score) as a JSON object. Adaptive Authentication JS script reads 
+the received JSON object as the responseData in the onSuccess callback.
 ### Object Reference
 
 ##### context Object
