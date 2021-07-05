@@ -305,3 +305,41 @@ window.addEventListener('scroll', function() {
 window.addEventListener("hashchange", function () {
     window.scrollTo(window.scrollX, window.scrollY - 40, 'smooth');
 });
+
+// Preserving scroll position of the left nav on reload or switching pages.
+let timer = null;
+var leftSidebarScrollPos = 0;
+var leftSidebar = document.querySelector(".md-sidebar--primary > .md-sidebar__scrollwrap");
+leftSidebar.addEventListener('scroll', (function (e) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        leftSidebarScrollPos = leftSidebar.scrollTop;
+    },100)
+}));
+
+// Saving the scroll position in session storage.
+window.onbeforeunload = function () {
+    sessionStorage.clear("navScrollPos");
+    sessionStorage.setItem("navScrollPos", leftSidebarScrollPos);
+}
+// Retrieving the scroll position on reload.
+window.onload = function () {
+    var prevScrollPos = parseInt(sessionStorage.getItem("navScrollPos"));
+    if(prevScrollPos) {
+        leftSidebar.scrollTop = prevScrollPos;
+        sessionStorage.clear("navScrollPos");
+    }
+}
+
+// Offsetting the scroll in anchors to compensate for the secondary header (tabs).
+window.onload = function () {
+    var targetHash = window.location.hash;
+    var offset = 50;
+    // If coming from an external link, the hash value will be there in the URL.
+    if (targetHash) {
+        var targetElement = document.querySelector(targetHash);
+        // Scroll to the target element with the offset value set above.
+        window.scroll({top: (targetElement.offsetTop - offset), left: 0, behavior: "smooth"});
+    }
+}
+
