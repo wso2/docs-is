@@ -140,7 +140,7 @@ authentication.
     !!! tip
     
         For more information on revoking/accepting user consent, see
-        [Consent management](../../learn/consent-management/)
+        [Consent management](../../learn/my-account/#consent-management)
         .
     
 
