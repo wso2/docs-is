@@ -17,7 +17,7 @@ Server. Follow the instructions given below to configure WSO2 Identity Server t
 
     ![create-credentials](../assets/img/learn/create-credentials.png)
 
-4.  Select **OAuth Client ID** to configure the OAuth web application in Google. For more information, see the [OpenID Connect] (https://developers.google.com/identity/protocols/OpenIDConnect)topic in the Google Developer documentation.
+4.  Select **OAuth Client ID** to configure the OAuth web application in Google. For more information, see the [OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) topic in the Google Developer documentation.
       
     ![register-oauth2](../assets/img/learn/oauth-clientid.png)
 
