@@ -12,7 +12,7 @@ To do this, the developers need to view authentication statistics about the logi
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 
-2. [Download WSO2 Identity Server Analytics distribution](https://wso2.com/identity-and-access-management/install/analytics/).
+2. [Download WSO2 Identity Server Analytics distribution](https://github.com/wso2/analytics-is/releases/tag/v5.8.0-rc3).
 
 ## Enable analytics
 
