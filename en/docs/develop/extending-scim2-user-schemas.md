@@ -49,13 +49,13 @@ WSO2 Identity Server allows users to define their own user schema in addition to
 3.  Add the attribute names of the attributes that you added to the
     `           scim2-schema-extension.config          ` file as
     `                       subAttributes                     ` of the
-    `           wso2Extension          ` attribute as seen in the code
+    `           urn:ietf:params:scim:schemas:extension:enterprise:2.0:User          ` attribute as seen in the code
     block below.
 
     ``` java
         {
         "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-        "attributeName":"EnterpriseUser",
+        "attributeName":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
         "dataType":"complex",
         "multiValued":"false",
         "description":"Enterprise User",
@@ -84,7 +84,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
     - **Description**: Custom Claim
     - **Mapped Attribute(s**):
         - **User Store Domain Name**: PRIMARY
-        - **apped Attribute**: customClaim
+        - **Mapped Attribute**: customClaim
     - **Supported By Default**: True
 
     ![add-scim-local-custom-claim](../assets/img/learn/add-scim-local-custom-claim.png)

@@ -12,29 +12,29 @@ To do this, the developers need to view authentication statistics about the logi
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 
-2. [Download WSO2 Identity Server Analytics distribution](https://wso2.com/identity-and-access-management/install/analytics/).
+2. [Download WSO2 Identity Server Analytics distribution](https://github.com/wso2/analytics-is/releases/tag/v5.8.0-rc3).
 
 ## Enable analytics
 
 Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and add the following event listeners to enable analytics in WSO2 Identity Server. 
  
-    ``` toml
-    [[event_listener]]
-    id = "authn_data_publisher_proxy"
-    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
-    name = "org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy" 
-    order = 11 
-    ```
+``` toml
+[[event_listener]]
+id = "authn_data_publisher_proxy"
+type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
+name = "org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy" 
+order = 11 
+```
 
-    ``` toml
-    [identity_mgt.analytics_login_data_publisher]
-    enable=true
-    ```
+``` toml
+[identity_mgt.analytics_login_data_publisher]
+enable=true
+```
 
-    ```toml
-    [identity_mgt.analytics_session_data_publisher] 
-    enable=true
-    ```
+```toml
+[identity_mgt.analytics_session_data_publisher] 
+enable=true
+```
 
 The rest of the configurations required to connect the analytics distribution with the WSO2 IS distribution have already been pre-configured for fresh distributions. To see more information about these pre-configurations, see [Prerequisites to Publish Statistics](../../learn/prerequisites-to-publish-statistics). 
 

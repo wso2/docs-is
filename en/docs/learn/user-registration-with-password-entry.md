@@ -6,9 +6,9 @@ In this approach, an administrator first creates a user account in the system up
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Jane** is a new recruit. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Sam** is an administrator at Pickup, **Jane** is a new recruit. 
 
-Robert wants to register a user account for Jane and get it activated by requesting Jane to enter a password. 
+Sam wants to register a user account for Jane and get it activated by requesting Jane to enter a password. 
 
 <img src="../../assets/img/learn/pickup-user-registration-with-password.png" alt="Scenario Diagram" width="800">  
 
@@ -27,7 +27,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 		ask_password_from_user= true
 		```
 
-	2.	To configure the email server to send emails requesting passwor entry, add the following configurations.
+	2.	To configure the email server to send emails requesting password entry, add the following configurations.
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
 		-	**username**: This is the user name of the given email address.
@@ -108,11 +108,20 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 		-	**Username**: `Jane`
 		-	**Define password here**: Unselected
 		-	**Ask Password from user**: Selected
-		-	**Email Address**: Enter the email address to which you wish to recieve the account confirmation email. 
+		-	**Email Address**: Enter the email address to which you wish to receive the account confirmation email. 
 
-			!!! tip "Using special characters in the email address"
+            !!! tip "Using special characters"
+            
+                - **In the username**
+                
+                    Note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and
+                      whitespaces are not allowed in usernames as they have been reserved for other purposes. See
+                       [Usernames in WSO2 Identity Server](../references/usernames-in-identity-server.md) for more
+                        information on this.
 
-				If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters](../../learn/adding-email-special-characters).
+			    - **In the email address**
+
+                    If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters](../../learn/adding-email-special-characters).
 
 
 	4.	Click **Finish**. 

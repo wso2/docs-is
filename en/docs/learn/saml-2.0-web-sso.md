@@ -240,7 +240,7 @@ Likewise the message from the WSO2 Identity Server can be read easily.
 	[Identity-agent-sso](https://github.com/wso2-extensions/identity-agent-sso/)
 	is an implementation of all the details discussed above, which can be
 	used to implement SSO enabled web applications.
-	[Travelocity](https://github.com/wso2/product-is/tree/master/modules/samples/sso)
+	[Travelocity](https://github.com/wso2/samples-is/tree/master/sso/sso-agent-sample)
 	is a sample SSO enabled web-app, which is implemented based on
 	[Identity-agent-sso](https://github.com/wso2-extensions/identity-agent-sso/).
 
@@ -275,8 +275,19 @@ foo.com)
     
 
 This request will authenticate and redirect the user to the registered
-Assertion Consumer URL. Optionally, you can send in a RelayState
-parameter as follows.
+Assertion Consumer URL. You can use `acs` query parameter in the request
+to specify the Assertion Consumer URL that the browser should be redirected
+to after the authentication is successful. 
+
+-   If the `acs` query parameter is not present in the request, the Identity
+    Server sends the response to default ACS URL of the service provider.
+-   If the `acs` parameter is present and the value of that parameter matches
+    with any of the registered ACS URLs of the service provider, then the
+    Identity Server sends the response to the matched one.
+    
+<https://localhost:9443/samlsso?spEntityID=foo.com&acs=http://localhost:8080/foo.com/my-home.jsp>
+ 
+Optionally, you can send a `RelayState` parameter as follows.
 
 <https://localhost:9443/samlsso?spEntityID=foo.com&RelayState=http://localhost:8080/foo.com/my-home.jsp>
 
@@ -291,7 +302,7 @@ RelayState parameter itself.
 	service provider is allowed to do SP initiated SSO as well.
 
 !!! info "Related Topics"
-	-   See [Configuring SAML2 Web Single-Sign-On](../../learn/configuring-saml2-web-single-sign-On) to configure
+	-   See [Configuring SAML2 Web Single-Sign-On](../../learn/configuring-saml2-web-single-sign-on) to configure
 		SAML2 Web Single-Sign-On in WSO2 Identity Server.
 	-   See [Configuring SAML2 Single-Sign-On Across Different WSO2
 		Products](../../learn/configuring-saml2-single-sign-on-across-different-wso2-products)

@@ -13,8 +13,8 @@ see [OAuth2 Scope Management REST APIs](../../develop/oauth2-scope-management-re
     To try some APIs, a tenant needs to be created with the domain name as 'wso2.com'. 
     See [here](../administer/adding-new-tenant.md) for more details on this.
     
-    1.  Expand the relevant API operation and click **Try It Out** button.  
-    2.  Fill in relevant sample values for the input parameters and click **Execute**. 
+    1.  Expand the relevant API operation and click **Try It Out**.  
+    2.  Fill in the relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
     3. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS. 
     
@@ -25,7 +25,7 @@ see [OAuth2 Scope Management REST APIs](../../develop/oauth2-scope-management-re
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/oidc-scope-management.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-server/v1.0.190/components/org.wso2.carbon.identity.api.server.oidc.scope.management/org.wso2.carbon.identity.api.server.oidc.scope.management.v1/src/main/resources/oidc-scope-management.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

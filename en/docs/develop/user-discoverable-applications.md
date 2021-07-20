@@ -3,10 +3,10 @@ template: templates/swagger.html
 ---
 # User Discoverable Application Management Rest API Definition - v1
 
-??? Note "Note: Click to view"
-    Do the following to try out the REST APIs with your local instance of WSO2 Identity Server.
+??? Note "Click to view"
+    Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server.
 
-    1.  Expand the relevant API operation and click the **Try It Out** button.
+    1.  Expand the relevant API operation and click **Try It Out**.
     2.  Fill in relevant sample values for the input parameters and click **Execute**.
         You will receive a sample curl command with the sample values you filled in.
     3. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS.
@@ -18,7 +18,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/user-discoverable-applications.yaml",
+    url: "https://raw.githubusercontent.com/wso2/identity-api-user/v1.1.17/components/org.wso2.carbon.identity.api.user.application/org.wso2.carbon.identity.rest.api.user.application.v1/src/main/resources/application.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

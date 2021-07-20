@@ -33,7 +33,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/travelocity.com.war) the `travelocity.com.war` file from the latest release
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/travelocity.com.war) the `travelocity.com.war` file from the latest release
    assets.
 
 ### Deploy the sample web application
@@ -115,6 +115,32 @@ For example,
     
 ### Configuring the service provider
 
+!!! note "Important"
+
+    SAML2 POST Binding requires CORS configurations. Before configuring the service provider, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
+
+    ```toml
+    [cors]
+    allow_generic_http_requests = true
+    allow_any_origin = false
+    allowed_origins = [
+        "http://localhost:8080"
+    ]
+    allow_subdomains = false
+    supported_methods = [
+        "GET",
+        "POST",
+        "HEAD",
+        "OPTIONS"
+    ]
+    support_any_header = true
+    supported_headers = []
+    exposed_headers = []
+    supports_credentials = true
+    max_age = 3600
+    tag_requests = false
+    ```
+
 The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
@@ -172,7 +198,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/playground2.war)
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/playground2.war)
    the `playground2.war` file from the latest release assets.
 
 ### Deploy the sample web app
@@ -312,7 +338,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -333,6 +359,32 @@ For example,
 `                     http://localhost:8080/saml2-web-app-pickup-dispatch.com/index.jsp                 .         `
     
 ### Configuring the service provider
+
+!!! note "Important"
+
+    SAML2 POST Binding requires CORS configs set up. Before configuring the service provider, make sure you add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
+
+    ```toml
+    [cors]
+    allow_generic_http_requests = true
+    allow_any_origin = false
+    allowed_origins = [
+        "http://localhost:8080"
+    ]
+    allow_subdomains = false
+    supported_methods = [
+        "GET",
+        "POST",
+        "HEAD",
+        "OPTIONS"
+    ]
+    support_any_header = true
+    supported_headers = []
+    exposed_headers = []
+    supports_credentials = true
+    max_age = 3600
+    tag_requests = false
+    ```
 
 The next step is to configure the service provider.
 
@@ -390,7 +442,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -412,6 +464,32 @@ For example,
 
 
 ### Configuring the service provider
+
+!!! note "Important"
+
+    SAML2 POST Binding requires CORS configs set up. Before configuring the service provider, make sure you add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
+
+    ```toml
+    [cors]
+    allow_generic_http_requests = true
+    allow_any_origin = false
+    allowed_origins = [
+        "http://localhost:8080"
+    ]
+    allow_subdomains = false
+    supported_methods = [
+        "GET",
+        "POST",
+        "HEAD",
+        "OPTIONS"
+    ]
+    support_any_header = true
+    supported_headers = []
+    exposed_headers = []
+    supports_credentials = true
+    max_age = 3600
+    tag_requests = false
+    ```
 
 The next step is to configure the service provider.
 
@@ -470,7 +548,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
 
     
 ### Configuring the service provider
@@ -540,7 +618,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-manager.war) the `pickup-manager.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) the `pickup-manager.war` file from the
    latest release assets.
 
 ### Configuring the service provider
@@ -609,9 +687,9 @@ it onto your machine first.
 Follow the instructions below to download the samples from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/photo-edit.war) the `photo-edit.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/photo-edit.war) the `photo-edit.war` file from the
    latest release assets.
-3. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/photo-view.war) the `photo-view.war` file from the
+3. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/photo-view.war) the `photo-view.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -629,7 +707,12 @@ To check the **photo-edit** sample application, navigate to
 on your browser.
 
 For example,
-`                     http://localhost.com:8080/photo-edit/index.jsp                 .         `
+`                     http://localhost.com:8080/photo-edit/index.jsp                 . 
+
+!!! note
+    -   The default password configuration for photo-editor and photo-viewer is `admin`. If a different password needs to be used to test the samples, change the hardcoded password in `<TOMCAT_HOME>/webapps/photo-view/WEB-INF/classes/apptwo.properties` or `<TOMCAT_HOME>/webapps/photo-edit/WEB-INF/classes/apptwo.properties`. 
+
+    -    All the directories of the tomcat server should be accessible even without root access. Otherwise, the application fails due to insufficient permissions. `
     
 ### Configuring the service provider
 
@@ -668,7 +751,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/PassiveSTSSampleApp.war) the `PassiveSTSSampleApp.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/PassiveSTSSampleApp.war) the `PassiveSTSSampleApp.war` file from the
    latest release assets.
 
 ### Deploy the sample web app

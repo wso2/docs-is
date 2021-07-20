@@ -1,4 +1,40 @@
 # REST APIs
 
 This section provides information on REST APIs in WSO2 Identity Server
-including the sample requests and responses.
+including the sample requests and responses. 
+
+- [Authenticating and Authorizing](../../develop/authenticating-and-authorizing-rest-apis)
+- [Account Recovery](../../develop/using-the-account-recovery-rest-apis)
+- [Application Management](../../develop/application-rest-api)
+- [Approvals](../../develop/approvals-rest-api)
+- [Associations](../../develop/association-rest-api)
+- [Authentication Data](../../develop/authentication-data-api)
+- [Authentication](../../develop/using-the-authentication-rest-apis)
+- [Authorized Apps](../../develop/authorized-apps-v2-rest-api)
+- [Challenge Question](../../develop/challenge-rest-api)
+- [Claim Management](../../develop/claim-management-rest-api)
+- [Configuration Management](../../develop/using-the-configuration-management-rest-apis)
+- [CORS](../../develop/cors-rest-api)
+- [Retrieving Tenant Resources Based on Search Parameters](../../develop/retrieving-tenant-resources-based-on-search-parameters)
+- [Consent Management](../../develop/using-the-consent-management-rest-apis)
+- [Email Templates](../../develop/email-templates-rest-api)
+- [Entitlement](../../develop/entitlement-with-rest-apis)
+- [Fido](../../develop/fido-rest-api)
+- [Identity Governance](../../develop/identity-governance-rest-api)
+- [Identity Providers](../../develop/idp-rest-api)
+- [Keystore Management](../../develop/keystore-rest-api)
+- [OAuth2 Scope Management](../../develop/oauth2-scope-management-rest-apis)
+- [OpenID Connect Scope Management](../../develop/oidc-scope-management-rest-apis)
+- [OIDC Dynamic Client Registration](../../develop/using-the-openid-connect-dynamic-client-registration-rest-apis)
+- [Permission Management](../../develop/permission-management-rest-api)
+- [Personal Information Export](../../develop/using-the-personal-information-export-rest-apis)
+- [SCIM 1.1](../../develop/scim-1.1-apis)
+- [SCIM 2.0](../../develop/scim2-rest-apis)
+- [Script Libraries](../../develop/script-library-rest-api)
+- [Secondary User Store](../../develop/userstore-rest-api)
+- [Self Sign-Up](../../develop/using-the-self-sign-up-rest-apis)
+- [Server Configuration](../../develop/configs-rest-api)
+- [Session Management](../../develop/session-mgt-rest-api)
+- [TOTP](../../develop/totp-rest-api)
+- [User Discoverable Application Management](../../develop/user-discoverable-applications)
+

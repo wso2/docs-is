@@ -16,10 +16,10 @@ distribution.
 2.  Download the WSO2 Identity Server Analytics 5.8.0 pack.
     
     !!! Note 
-        WSO2 Identity Server 5.10.0 analytics capabilities are fully
+        WSO2 Identity Server 5.11.0 analytics capabilities are fully
         compatible with WSO2 IS Analytics 5.8.0. Please note that **WSO2 IS
         Analytics 5.8.0 is the recommended version for WSO2 Identity Server
-        5.10.0**.
+        5.11.0**.
     
     1.  To download the pack with updates, click **SIGN-IN & DOWNLOAD**
         .
@@ -27,7 +27,6 @@ distribution.
     2.  To download the pack without updates, click **DOWNLOAD**.
 
     !!! note
-    
         The installation prerequisites for WSO2 IS Analytics is as same as
         for WSO2 Stream Processor (WSO2 SP). Therefore, for detailed
         information about the supporting applications you need to install,
@@ -62,7 +61,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence">
     <pre class="sourceCode java"><code class="sourceCode java">
     <a class="sourceLine" id="cb1-1" title="1">
-    [identity_mgt.analytics_login_data_publisher]</br>
+    [identity_mgt.analyticsLoginDataPublisherV110] </br>
     enable=true
     </a>
     </code>
@@ -100,7 +99,16 @@ Follow the steps below to enable event publishing in WSO2 IS.
     </tr>
     </tbody>
     </table>
-
+    
+    **Enable analytics for Password grant logins**
+     Optionally, you can enable analytics for password grant type logins. Add the following configuration to the 
+     deployment.toml file to enable this feature.
+         
+     ```
+     [analytics]
+     publish_password_grant_logins=true
+     ```
+     
 ### Step 03: Configure Event Publishers
 
 In a fresh WSO2 IS pack, you can view all the event publishers related

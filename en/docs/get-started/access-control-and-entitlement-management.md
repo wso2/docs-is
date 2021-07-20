@@ -143,7 +143,7 @@ at from an authorization system.
 -   Can we achieve a fine-grained authorization level without defining
     a large number of static combinations?
 -   Are the authorization systems capable of answering the questions
-    such as: “Can a user, Bob, transfer X amount from Y current account
+    such as: “Can a user, Alex, transfer X amount from Y current account
     at 1.00pm?“
 
 Clearly, the above goals cannot be achieved from a traditional
@@ -622,7 +622,7 @@ Advice is similar to obligations and it shares much of its syntax. The
 difference is contractual: the PEP can disregard any advice it receives.
 PEPs do not have to comply with advice statements; PEPs can consider or
 discard the statement. A common scenario is to explain why something was
-denied: “User bob is denied because he does not have a valid email”.
+denied: “User, Alex is denied because Alex does not have a valid email”.
 
 The XACML specification says that any advice returned with a decision
 can be safely ignored by compliant PEPs. This means that PEPs should
@@ -651,7 +651,7 @@ XACML 2.0, we have an `         AND        ` relationship between
 relationship between **bar1** and **bar2** actions. However, we cannot
 create an `         OR        ` relationship between a **foo1** resource
 and **bar1** action. so we cannot define something such as “Target would
-be matched when Bob can access the **foo** resource or do a **bar**
+be matched when Alex can access the **foo** resource or do a **bar**
 action” by using the `         Target        ` element.
 
 ``` java
@@ -688,7 +688,7 @@ action” by using the `         Target        ` element.
 XACML 3.0 has an `AND` relationship between “ **foo** ”
 resource and **bar1** role and an `OR` relationship
 between **bar2** action. So we cannot define something as “Target
-would be matched, when Bob can access **foo** resource and do **bar1**
+would be matched, when Alex can access **foo** resource and do **bar1**
 action or do **bar2** action”.
 
 ``` java
@@ -1026,7 +1026,7 @@ Format](../../learn/fine-grained-authorization-using-xacml-requests-in-json-form
 
 This is also a new profile that comes with XACML 3.0. This allows you to
 define policies about who can write policies about what. For
-example, “Bob may issue a policy but only about resources in department
+example, "Alex may issue a policy but only about resources in department
 X”.
 
 ### XACML 2.0 and XACML 3.0 samples

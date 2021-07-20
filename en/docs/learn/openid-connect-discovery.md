@@ -127,20 +127,6 @@ acct:admin@ wso2.com@localhost (for tenant)</td>
 </tbody>
 </table>
 
-By default, all endpoints in the WSO2 Identity Server are secured with
-basic authentication. You will need authentication details to call an
-endpoint. By default, you can use admin credentials, or an access token
-for the request.
-
--   For more information on how to obtain an access token, see [Allowed
-    grant types for OAuth2-OpenID
-    Connect](../../learn/configuring-oauth2-openid-connect-single-sign-on#configuring-oauth2-openidconnect-single-sign-on-grants)
-    .
--   For more information on securing the REST API or customizing
-    authentication/authorization for the REST API, see [Authenticating
-    and Authorizing REST
-    APIs](../../develop/authenticating-and-authorizing-rest-apis).
-
 Sample requests and responses are given below:
 
 <table>
@@ -153,7 +139,7 @@ Sample requests and responses are given below:
 <strong>Sample Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user admin:admin https:<span class="co">//localhost:9443/.well-known/webfinger?resource=&#39;acct:admin@localhost&amp;rel=http://openid.net/specs/connect/1.0/issuer&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k https:<span class="co">//localhost:9443/.well-known/webfinger?resource=&#39;acct:admin@localhost&amp;rel=http://openid.net/specs/connect/1.0/issuer&#39;</span></a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -184,7 +170,7 @@ Sample requests and responses are given below:
 <strong>Sample Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">curl -v -k --user admin:admin https:<span class="co">//localhost:9443/.well-known/webfinger?resource=&#39;acct:admin%40wso2.com@localhost&amp;rel=http://openid.net/specs/connect/1.0/issuer&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">curl -v -k  https:<span class="co">//localhost:9443/.well-known/webfinger?resource=&#39;acct:admin%40wso2.com@localhost&amp;rel=http://openid.net/specs/connect/1.0/issuer&#39;</span></a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -236,7 +222,7 @@ OpenID Proivder.
     <strong>Sample Request</strong>
     </div>
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user admin:admin https:<span class="co">//localhost:9443/oauth2/token/.well-known/openid-configuration</span></a></code></pre></div>
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v https:<span class="co">//localhost:9443/oauth2/token/.well-known/openid-configuration</span></a></code></pre></div>
     </div>
     </div>
     </div></td>
@@ -301,7 +287,7 @@ OpenID Proivder.
     <a class="sourceLine" id="cb2-50" title="50">    <span class="st">&quot;userinfo_endpoint&quot;</span>: <span class="st">&quot;https://localhost:9443/oauth2/userinfo&quot;</span>,</a>
     <a class="sourceLine" id="cb2-51" title="51">    <span class="st">&quot;jwks_uri&quot;</span>: <span class="st">&quot;https://localhost:9443/oauth2/jwks&quot;</span>,</a>
     <a class="sourceLine" id="cb2-52" title="52">    <span class="st">&quot;subject_types_supported&quot;</span>: [</a>
-    <a class="sourceLine" id="cb2-53" title="53">        <span class="st">&quot;pairwise&quot;</span></a>
+    <a class="sourceLine" id="cb2-53" title="53">        <span class="st">&quot;public&quot;</span></a>
     <a class="sourceLine" id="cb2-54" title="54">    ],</a>
     <a class="sourceLine" id="cb2-55" title="55">    <span class="st">&quot;id_token_signing_alg_values_supported&quot;</span>: [</a>
     <a class="sourceLine" id="cb2-56" title="56">        <span class="st">&quot;RS256&quot;</span></a>

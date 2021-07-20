@@ -45,9 +45,11 @@ paths:
       description: |
         This API returns the user details of the currently authenticated user.
 
-
           <b>Permission required:</b>
             * /permission/admin/login
+          
+          <b>Scope required:</b>
+            * internal_login
 
       parameters:
         - name: attributes
@@ -84,6 +86,9 @@ paths:
 
          <b>Permission required:</b>
             * /permission/admin/manage/identity/usermgt/create
+            
+         <b>Scope required:</b>
+            * internal_user_mgt_create
 
       operationId: createUserMe
       consumes:
@@ -142,6 +147,9 @@ paths:
 
           <b>Permission required:</b>
           * /permission/admin/login
+          
+          <b>Scope required:</b>
+            * internal_login
 
       operationId: updateUserMe
       consumes:
@@ -186,6 +194,9 @@ paths:
 
           <b>Permission required:</b>
            * /permission/admin/manage/identity/usermgt/delete
+           
+           <b>Scope required:</b>
+            * internal_user_mgt_delete
 
       operationId: deleteUserMe
       produces:
@@ -215,6 +226,10 @@ paths:
 
           <b>Permission required:</b>
            * /permission/admin/login
+           
+           <b>Scope required:</b>
+            * internal_login
+         
 
       operationId: patchUserMe
       consumes:
@@ -256,10 +271,13 @@ paths:
         - Groups Endpoint
       summary: Filter Groups
       description: |
-        This API returns groups according to the specified filter, sort and pagination parameters.
+        This API returns groups according to the specified filter, sort, and pagination parameters.
 
           <b>Permission required:</b>
           * / permission/admin/manage/identity/rolemgt/view
+          
+          <b>Scope required:</b>
+            * internal_role_mgt_view
 
       operationId: getGroup
       produces:
@@ -292,18 +310,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
         - name: domain
           in: query
           description: The name of the user store where filtering needs to be applied.
@@ -335,6 +341,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/create
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_create
+            
       operationId: createGroup
       consumes:
         - application/scim+json
@@ -383,10 +393,14 @@ paths:
         - Groups Endpoint
       summary: Search Groups
       description: |
-        This API returns groups according to the specified filter, sort and pagination parameters.
+        This API returns groups according to the specified filter, sort, and pagination parameters.
 
         <b>Permission required:</b>
-        * /permission/admin/manage/identity/rolemgt/create
+        * /permission/admin/manage/identity/rolemgt/view
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_view
+            
       operationId: getGroupsByPost
       consumes:
         - application/scim+json
@@ -425,6 +439,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/view
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_view
+            
       operationId: getGroup by id
       produces:
         - application/scim+json
@@ -471,6 +489,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/update
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_update
+            
       operationId: updateGroup
       consumes:
         - application/scim+json
@@ -527,6 +549,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/delete
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_delete
+            
       operationId: deleteGroup
       produces:
         - application/scim+json
@@ -560,6 +586,9 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/rolemgt/update
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_update
 
       operationId: patchGroup
       consumes:
@@ -605,152 +634,6 @@ paths:
           schema:
             $ref: '#/definitions/ErrorNoGroupAvailable'
 
-  '/Groups/{id}/permissions':
-    get:
-      tags:
-        - Groups Endpoint
-      summary: Get permissions of a group by its id
-      description: |
-        This API returns the permission list of a particular group using its unique ID.
-
-        <b>Permission required:</b>
-        * /permission/admin/manage/identity/rolemgt/view
-      operationId: getPermissionbyGroup
-      consumes:
-        - application/scim+json
-      produces:
-        - application/scim+json
-      parameters:
-        - name: id
-          in: path
-          description: Unique ID of the resource type.
-          required: true
-          type: string
-      responses:
-        200:
-          description: Valid group and permissions found
-          schema:
-            $ref: '#/definitions/GroupPermissionResponseObject'
-        401:
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorUnauthorized'
-        403:
-          description: Forbidden
-          schema:
-            $ref: '#/definitions/ErrorForbidden'
-        404:
-          description: Valid group is not found
-          schema:
-            $ref: '#/definitions/ErrorNoGroupAvailable'
-    put:
-      tags:
-        - Groups Endpoint
-      summary: Update permissions of a group by its id
-      description: |
-        This API returns the permission list of a particular group after updating the permissions.
-
-        <b>Permission required:</b>
-         * /permission/admin/manage/identity/rolemgt/update
-      operationId: updatePermissions
-      consumes:
-        - application/scim+json
-      produces:
-        - application/scim+json
-      parameters:
-        - name: id
-          in: path
-          description: Unique ID of the resource type.
-          required: true
-          type: string
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/PermissionPutRequestObject'
-
-      responses:
-        200:
-          description: Valid group is found
-          schema:
-            $ref: '#/definitions/PermissionPutResponseObject'
-        401:
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorUnauthorized'
-        403:
-          description: Forbidden
-          schema:
-            $ref: '#/definitions/ErrorForbidden'
-        404:
-          description: Valid group is not found
-          schema:
-            $ref: '#/definitions/ErrorNoGroupAvailable'
-        406:
-          description: Not Acceptable
-          schema:
-            $ref: '#/definitions/ErrorNotAcceptable'
-        500:
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorInternalServerError'
-    patch:
-      tags:
-        - Groups Endpoint
-      summary: Patch permissions of a group by its id
-      description: |
-        This API returns the permission list of a particular group after patching the permissions.
-
-        <b>Permission required:</b>
-        * /permission/admin/manage/identity/rolemgt/update
-
-      operationId: patchPermissions
-      consumes:
-        - application/scim+json
-      produces:
-        - application/scim+json
-      parameters:
-        - name: id
-          in: path
-          description: Unique ID of the resource type.
-          required: true
-          type: string
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/PermissionPatchOpperationRequestObject'
-
-      responses:
-        200:
-          description: Valid group is found.
-          schema:
-            $ref: '#/definitions/PermissionPatchResponseObject'
-        400:
-          description: Invalid Input
-          schema:
-            $ref: '#/definitions/ErrorInvalidInput'
-        401:
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorUnauthorized'
-        403:
-          description: Forbidden
-          schema:
-            $ref: '#/definitions/ErrorForbidden'
-        404:
-          description: Valid group is not found
-          schema:
-            $ref: '#/definitions/ErrorNoGroupAvailable'
-        406:
-          description: Not Acceptable
-          schema:
-            $ref: '#/definitions/ErrorNotAcceptable'
-        500:
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorInternalServerError'
-
   /Users:
     get:
       tags:
@@ -761,6 +644,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/usermgt/view
+        
+        <b>Scope required:</b>
+            * internal_user_mgt_list
+            
       operationId: getUser
       produces:
         - application/scim+json
@@ -793,18 +680,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses.
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
         - name: domain
           in: query
           description: The name of the user store where filtering needs to be applied.
@@ -835,7 +710,11 @@ paths:
         This API creates a user and returns the user details along with the user's unique ID.
 
         <b>Permission required:</b>
-        * /permission/admin/manage/identity/usermgt/view
+        * /permission/admin/manage/identity/usermgt/create
+        
+        <b>Scope required:</b>
+            * internal_user_mgt_create
+            
       operationId: createUser
       consumes:
         - application/scim+json
@@ -894,7 +773,11 @@ paths:
         This API returns users according to the filter, sort and pagination parameters.
 
          <b>Permission required:</b>
-          * /permission/admin/manage/identity/usermgt/create
+          * /permission/admin/manage/identity/usermgt/list
+          
+          <b>Scope required:</b>
+            * internal_user_mgt_list
+            
       operationId: getUsersByPost
       consumes:
         - application/scim+json
@@ -931,8 +814,13 @@ paths:
       summary: Get User by ID
       description: |
         Return user details if a user found.
+        
         <b>Permission required:</b>
         * /permission/admin/manage/identity/usermgt/view
+        
+        <b>Scope required:</b>
+            * internal_user_mgt_list
+            
       operationId: getUser by id
       produces:
         - application/scim+json
@@ -976,8 +864,13 @@ paths:
       summary: Update User - PUT
       description: |
         This API updates user details and returns the updated user details using a PUT operation.
+        
          <b>Permission required:</b>
           * /permission/admin/manage/identity/usermgt/update
+          
+          <b>Scope required:</b>
+            * internal_user_mgt_update
+            
       operationId: updateUser
       consumes:
         - application/scim+json
@@ -1031,6 +924,9 @@ paths:
 
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt/delete
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_delete
 
       operationId: deleteUser
       produces:
@@ -1065,12 +961,15 @@ paths:
 
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt/update
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_update
 
         <b>Supported Operations:</b>
-
             * add
             * replace
             * remove
+            
       operationId: patchUser
       consumes:
         - application/scim+json
@@ -1115,6 +1014,337 @@ paths:
           description: Valid user is not found
           schema:
             $ref: '#/definitions/ErrorUserNotAvailable'
+  /Roles:
+    get:
+      tags:
+        - Roles Endpoint
+      summary: Filter Roles
+      description: |
+        This API returns roles according to the specified filter, sort, and pagination parameters.
+
+          <b>Permission required:</b>
+            * / permission/admin/manage/identity/rolemgt/view
+            
+           <b>Scope required:</b>
+            * internal_role_mgt_view
+            
+      operationId: getRole
+      produces:
+        - application/scim+json
+      parameters:
+        - name: filter
+          in: query
+          description: Filter expression for filtering
+          required: false
+          type: string
+        - name: startIndex
+          in: query
+          description: The 1-based index of the first query result
+          required: false
+          type: integer
+          format: int32
+        - name: count
+          in: query
+          description: Specifies the desired maximum number of query results per page.
+          required: false
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Valid roles are found
+          schema:
+            $ref: '#/definitions/RolesListResponseObject'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: No Role found
+          schema:
+            $ref: '#/definitions/ErrorNoRoleAvailable'
+    post:
+      tags:
+        - Roles Endpoint
+      summary: Create Role
+      description: |
+        This API creates a role and returns the details of the created role including its unique ID.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/rolemgt/create
+            
+         <b>Scope required:</b>
+            * internal_role_mgt_create
+            
+      operationId: createRole
+      consumes:
+        - application/scim+json
+      produces:
+        - application/scim+json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RoleRequestObject'
+      responses:
+        201:
+          description: Valid role is created
+          schema:
+            $ref: '#/definitions/RolePostResponseObject'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Role is not found
+          schema:
+            $ref: '#/definitions/ErrorRoleNotAvailable'
+        409:
+          description: Role already exist
+          schema:
+            $ref: '#/definitions/ErroRoleAlreadyAvailable'
+  /Roles/.search:
+    post:
+      tags:
+        - Roles Endpoint
+      summary: Search Roles
+      description: |
+        This API returns roles according to the specified filter, sort and pagination parameters.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/rolemgt/view
+            
+        <b>Scope required:</b>
+            * internal_role_mgt_view
+            
+      operationId: getRolesByPost
+      consumes:
+        - application/scim+json
+      produces:
+        - application/scim+json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RoleSearchRequestObject'
+      responses:
+        200:
+          description: Valid roles are found
+          schema:
+            $ref: '#/definitions/RoleSearchResponseObject'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Valid roles are not found
+          schema:
+            $ref: '#/definitions/RoleSearchErrorResponseObject'
+  /Roles/{id}:
+    get:
+      tags:
+        - Roles Endpoint
+      summary: Get Role by ID
+      description: |
+        This API returns the role details of a particular role using its unique ID.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/rolemgt/view
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_view
+            
+      operationId: getRolebyId
+      produces:
+        - application/scim+json
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          type: string
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          required: false
+          type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          required: false
+          type: string
+      responses:
+        200:
+          description: Valid role is found
+          schema:
+            $ref: '#/definitions/RoleGetResponseObject'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Valid role is not found
+          schema:
+            $ref: '#/definitions/ErrorNoRoleAvailable'
+    put:
+      tags:
+        - Roles Endpoint
+      summary: Update Role - PUT
+      description: |
+        This API updates the role details and returns the updated role details using a PUT operation.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/rolemgt/update
+            
+        <b>Scope required:</b>
+            * internal_role_mgt_update
+            
+      operationId: updateRole
+      consumes:
+        - application/scim+json
+      produces:
+        - application/scim+json
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RolePutRequestObject'
+      responses:
+        200:
+          description: Role is updated
+          schema:
+            $ref: '#/definitions/RolePutResponseObject'
+        400:
+          description: Invalid Input
+          schema:
+            $ref: '#/definitions/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Valid role is not found
+          schema:
+            $ref: '#/definitions/ErrorNoRoleAvailable'
+        406:
+          description: Not Acceptable
+          schema:
+            $ref: '#/definitions/ErrorNotAcceptable'
+    delete:
+      tags:
+        - Roles Endpoint
+      summary: Delete Role
+      description: |
+        This API deletes a particular role using its unique ID.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/rolemgt/delete
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_delete
+            
+      operationId: deleteRole
+      produces:
+        - application/scim+json
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          type: string
+      responses:
+        204:
+          description: Role is deleted
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Valid role is not found
+          schema:
+            $ref: '#/definitions/ErrorNoRoleAvailable'
+    patch:
+      tags:
+        - Roles Endpoint
+      summary: Update Role - PATCH
+      description: |
+        This API updates the role details and returns the updated role details using a PATCH operation.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/rolemgt/update
+        
+        <b>Scope required:</b>
+            * internal_role_mgt_update
+            
+      operationId: patchRole
+      consumes:
+        - application/scim+json
+      produces:
+        - application/scim+json
+      parameters:
+        - name: id
+          in: path
+          description: Unique id of the resource type.
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/PatchRoleOperationRequestObject'
+      responses:
+        200:
+          description: Role is updated
+          schema:
+            $ref: '#/definitions/PatchRoleOperationResponseObject'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Valid role is not found
+          schema:
+            $ref: '#/definitions/ErrorNoRoleAvailable'
+        406:
+          description: Not Acceptable
+          schema:
+            $ref: '#/definitions/ErrorNotAcceptable'
+
   /Bulk:
     post:
       tags:
@@ -1122,8 +1352,12 @@ paths:
       summary: Create Users in Bulk
       description: |
         This API is used to create multiple users at once.
+        
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_create
 
       operationId: createBulkUsers
       consumes:
@@ -1151,6 +1385,47 @@ paths:
             $ref: '#/definitions/ErrorForbidden'
         409:
           description: Users already exists
+    delete:
+      tags:
+        - Bulk Endpoint
+      summary: Delete Users in Bulk
+      description: |
+        This API is used to delete multiple users at once.
+        
+         <b>Permission required:</b>
+         * /permission/admin/manage/identity/usermgt/delete
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_delete
+
+      operationId: deleteBulkUsers
+      consumes:
+        - application/scim+json
+      produces:
+        - application/scim+json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/BulkUserDeleteRequestObject'
+      responses:
+        204:
+          description: User group is deleted
+          schema:
+            $ref: '#/definitions/BulkUserDeleteResponseObject'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorForbidden'
+        404:
+          description: Valid group is not found
+          schema:
+            $ref: '#/definitions/ErrorNoGroupAvailable'
 
   /ResourceTypes:
     get:
@@ -1243,10 +1518,10 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       userName:
@@ -1259,13 +1534,13 @@ definitions:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1277,6 +1552,7 @@ definitions:
               value:
                 type: string
                 example: "Taylor"
+
 
   #-----------------------------------------------------
   # The User Response object
@@ -1315,23 +1591,23 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       emails:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1363,10 +1639,10 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       userName:
@@ -1376,13 +1652,13 @@ definitions:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1462,23 +1738,23 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       emails:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1494,9 +1770,16 @@ definitions:
         type: array
         items:
           type: object
-          example:
-            type: "default"
-            value: "Internal/everyone"
+          properties:
+            $ref:
+              type: string
+              example: "https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0"
+            display:
+              type: string
+              example: 'loginRole'
+            value:
+              type: string
+              example: '4645709c-ea8c-4495-8590-e1fa0efe3de0'
       nickName:
         type: string
         example: "shaggy"
@@ -1571,6 +1854,20 @@ definitions:
             value:
               type: string
               example: '008bba85-451d-414b-87de-c03b5a1f4217'
+      roles:
+        type: array
+        items:
+          type: object
+          properties:
+            $ref:
+              type: string
+              example: "https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0"
+            display:
+              type: string
+              example: 'loginRole'
+            value:
+              type: string
+              example: '4645709c-ea8c-4495-8590-e1fa0efe3de0'       
   #-----------------------------------------------------
   # The Groups List Response Object
   #-----------------------------------------------------
@@ -1670,6 +1967,20 @@ definitions:
             value:
               type: string
               example: '008bba85-451d-414b-87de-c03b5a1f4217'
+      roles:
+        type: array
+        items:
+          type: object
+          properties:
+            $ref:
+              type: string
+              example: "https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0"
+            display:
+              type: string
+              example: 'loginRole'
+            value:
+              type: string
+              example: '4645709c-ea8c-4495-8590-e1fa0efe3de0'
       id:
         type: string
         example: '7bac6a86-1f21-4937-9fb1-5be4a93ef469'
@@ -1845,6 +2156,324 @@ definitions:
       startIndex: 1
       count: 10
   #-----------------------------------------------------
+  # The Roles List Response Object
+  #-----------------------------------------------------
+  RolesListResponseObject:
+    type: object
+    properties:
+      totalResults:
+        type: integer
+        example: 3
+      startIndex:
+        type: integer
+        example: 1
+      itemsPerPage:
+        type: integer
+        example: 3
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+      Resources:
+        type: array
+        items:
+          $ref: "#/definitions/RoleOb"
+  #-----------------------------------------------------
+  # The Roles Search Request Object
+  #-----------------------------------------------------
+  RoleSearchRequestObject:
+    type: object
+    properties:
+      schemas:
+        type: object
+        example:
+          - urn:ietf:params:scim:api:messages:2.0:SearchRequest
+      startIndex:
+        type: integer
+        example: 1
+      count:
+        type: integer
+        example: 10
+      filter:
+        type: string
+        example: 'displayName eq loginRole'
+
+  #-----------------------------------------------------
+  # The Roles Search Response Object
+  #-----------------------------------------------------
+  RoleSearchResponseObject:
+    type: object
+    properties:
+      totalResults:
+        type: integer
+        example: 1
+      startIndex:
+        type: integer
+        example: 1
+      itemsPerPage:
+        type: integer
+        example: 3
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+      Resources:
+        type: array
+        items:
+          $ref: "#/definitions/RoleOb"
+  #-----------------------------------------------------
+  # The Roles List Response Object
+  #-----------------------------------------------------
+  RoleOb:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: 'loginRole'
+      meta:
+        type: object
+        properties:
+          location:
+            type: string
+            example: 'https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0'
+      id:
+        type: string
+        example: '4645709c-ea8c-4495-8590-e1fa0efe3de0'
+  #-----------------------------------------------------
+  # The Role Request Object
+  #-----------------------------------------------------
+  RoleRequestObject:
+    type: object
+    required:
+      - displayName
+      - schemas
+    properties:
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:schemas:extension:2.0:Role"
+      displayName:
+        type: string
+        example: "loginRole"
+      users:
+        type: array
+        items:
+          type: object
+          example:
+            value: "008bba85-451d-414b-87de-c03b5a1f4217"
+      groups:
+        type: array
+        items:
+          type: object
+          example:
+            value: "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+      permissions:
+        type: array
+        items:
+          type: string
+          example: '/permission/admin/login'
+  #-----------------------------------------------------
+  # The Role GET Response Object
+  #-----------------------------------------------------
+  RoleGetResponseObject:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: 'loginRole'
+      meta:
+        type: object
+        properties:
+          location:
+            type: string
+            example: "https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0"
+          resourceType:
+            type: string
+            example: Role
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:schemas:extension:2.0:Role"
+      id:
+        type: string
+        example: "4645709c-ea8c-4495-8590-e1fa0efe3de0"
+      users:
+        type: array
+        items:
+          type: object
+          properties:
+            $ref:
+              type: string
+              example: "https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45"
+            display:
+              type: string
+              example: 'kim'
+            value:
+              type: string
+              example: '008bba85-451d-414b-87de-c03b5a1f4217'
+      groups:
+        type: array
+        items:
+          type: object
+          properties:
+            $ref:
+              type: string
+              example: "https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+            display:
+              type: string
+              example: 'PRIMARY/manager'
+            value:
+              type: string
+              example: '7bac6a86-1f21-4937-9fb1-5be4a93ef469'
+      permissions:
+        type: array
+        items:
+          type: string
+          example: '/permission/admin/login'
+  #-----------------------------------------------------
+  # The Role Post Response Object
+  #-----------------------------------------------------
+  RolePostResponseObject:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: 'loginRole'
+      meta:
+        type: object
+        properties:
+          location:
+            type: string
+            example: "https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0"
+          resourceType:
+            type: string
+            example: Role
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:schemas:extension:2.0:Role"
+      id:
+        type: string
+        example: "4645709c-ea8c-4495-8590-e1fa0efe3de0"
+  #-----------------------------------------------------
+  # The Role PUT request object
+  #-----------------------------------------------------
+  RolePutRequestObject:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: "loginRole"
+      users:
+        type: array
+        items:
+          type: object
+          example:
+            value: '409ca90b-2ba6-4474-9a45-2cf7376e6e43'
+      groups:
+        type: array
+        items:
+          type: object
+          example:
+            value: '7bac6a86-1f21-4937-9fb1-5be4a93ef469'
+      permissions:
+        type: array
+        items:
+          type: string
+          example: '/permission/admin/manage/add'
+
+  #-----------------------------------------------------
+  # The Role PUT response object
+  #-----------------------------------------------------
+  RolePutResponseObject:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: 'loginRole'
+      meta:
+        type: object
+        properties:
+          location:
+            type: string
+            example: "https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0"
+          resourceType:
+            type: string
+            example: Role
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:schemas:extension:2.0:Role"
+      id:
+        type: string
+        example: "4645709c-ea8c-4495-8590-e1fa0efe3de0"
+  #-----------------------------------------------------
+  # The Patch Role Operation Input
+  #-----------------------------------------------------
+  PatchRoleOperationRequestObject:
+    type: object
+    properties:
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+      Operations:
+        type: array
+        items:
+          $ref: "#/definitions/RoleItemAddGroupobj"
+
+  #-----------------------------------------------------
+  # The Role Item
+  #-----------------------------------------------------
+  RoleItemAddGroupobj:
+    type: object
+    properties:
+      op:
+        type: string
+        enum: ["add", "remove", "replace"]
+      path:
+        type: string
+        example: 'groups'
+      value:
+        type: array
+        items:
+          type: object
+          example:
+            value: "7bac6a86-1f21-4937-9fb1-5be4a93ef469"
+
+  #-----------------------------------------------------
+  # The Patch Role Operation Output - Role
+  #-----------------------------------------------------
+  PatchRoleOperationResponseObject:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: 'loginRole'
+      meta:
+        type: object
+        properties:
+          location:
+            type: string
+            example: "https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0"
+          resourceType:
+            type: string
+            example: Role
+      schemas:
+        type: object
+        example:
+          - urn:ietf:params:scim:schemas:extension:2.0:Role
+      id:
+        type: string
+        example: "4645709c-ea8c-4495-8590-e1fa0efe3de0"
+  #-----------------------------------------------------
   # Bulk User Request Object
   #-----------------------------------------------------
   BulkUserRequestObject:
@@ -1925,6 +2554,88 @@ definitions:
           code:
             type: string
             example: "201"
+
+  #-----------------------------------------------------
+  # Bulk User Delete Request Object
+  #-----------------------------------------------------
+  BulkUserDeleteRequestObject:
+    type: object
+    properties:
+      failOnErrors:
+        type: integer
+        example: 1
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+      Operations:
+        type: array
+        items:
+          $ref: '#/definitions/BulkUserDeleteOb'
+
+
+
+  BulkUserDeleteOb:
+    type: object
+    properties:
+      method:
+        type: string
+        example: "DELETE"
+      path:
+        type: string
+        example: "/Users"
+      bulkId:
+        type: string
+        example: "ytrewq"
+      data:
+        type: object
+        properties:
+          schemas:
+            type: array
+            items:
+              type: string
+              example:
+                "urn:ietf:params:scim:schemas:core:2.0:User"
+          username:
+            type: string
+            example: "jesse"
+          password:
+            type: string
+            example: "jesspass"
+
+  #-----------------------------------------------------
+  # Bulk User Delete Response Object
+  #-----------------------------------------------------
+  BulkUserDeleteResponseObject:
+    type: object
+    properties:
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:BulkResponse"
+      Operations:
+        $ref: '#/definitions/OperationDeleteObBulk'
+
+  OperationDeleteObBulk:
+    type: object
+    properties:
+      bulkId:
+        type: string
+        example: "qwerty"
+      method:
+        type: string
+        example: "DELETE"
+      location:
+        type: string
+        example: "https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1"
+      status:
+        type: object
+        properties:
+          code:
+            type: string
+            example: "204"
 
   #-----------------------------------------------------
   # Resource Type response
@@ -2015,89 +2726,6 @@ definitions:
         supported: true
       changePassword:
         supported: false
-  #-----------------------------------------------------
-  # The permission response Object
-  #-----------------------------------------------------
-  GroupPermissionResponseObject:
-    type: array
-    items:
-      type: string
-      example:
-        - "/permission/admin/login"
-        - "/permission/admin/manage/search"
-        - "/permission/admin/manage/search/advanced-search"
-        - "/permission/admin/manage/search/resources"
-        - "/permission/admin/manage/add"
-        - "/permission/admin/manage/add/module"
-        - "/permission/admin/manage/add/service"
-        - "/permission/admin/manage/add/webapp"
-
-  #-----------------------------------------------------
-  # The permission patch request Object
-  #-----------------------------------------------------
-  PermissionPatchOpperationRequestObject:
-    type: object
-    properties:
-      schemas:
-        type: array
-        items:
-          type: string
-          example: "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-      Operations:
-        type: array
-        items:
-          $ref: '#/definitions/OperationItem'
-
-
-
-
-  #-----------------------------------------------------
-  # The permission patch response Object
-  #-----------------------------------------------------
-  PermissionPatchResponseObject:
-    type: array
-    items:
-      type: string
-      example:
-        - "/permission/admin/configure/security/usermgt"
-        - "/permission/admin/configure/security/usermgt/passwords"
-        - "/permission/admin/configure/security/usermgt/profiles"
-        - "/permission/admin/configure/security/usermgt/users"
-        - "/permission/admin/configure/security/usermgt/provisioning"
-        - "/permission/admin/login"
-        - "/permission/admin/manage/search"
-        - "/permission/admin/manage/search/advanced-search"
-        - "/permission/admin/manage/search/resources"
-        - "/permission/admin/manage/add"
-        - "/permission/admin/manage/add/module"
-        - "/permission/admin/manage/add/service"
-        - "/permission/admin/manage/add/webapp"
-
-  #-----------------------------------------------------
-  # The permission patch request Object
-  #-----------------------------------------------------
-  PermissionPutRequestObject:
-    type: array
-    items:
-      type: string
-      example:
-        - "/permission/admin/configure/security/usermgt"
-
-
-  #-----------------------------------------------------
-  # The permission patch response Object
-  #-----------------------------------------------------
-  PermissionPutResponseObject:
-    type: array
-    items:
-      type: string
-      example:
-        - "/permission/admin/configure/security/usermgt"
-        - "/permission/admin/configure/security/usermgt/passwords"
-        - "/permission/admin/configure/security/usermgt/profiles"
-        - "/permission/admin/configure/security/usermgt/users"
-        - "/permission/admin/configure/security/usermgt/provisioning"
-
 
   #-----------------------------------------------------
   # The Error Invalid Input
@@ -2303,6 +2931,90 @@ definitions:
         example: "Group with name: PRIMARY/manager already exists in the system."
 
   #-----------------------------------------------------
+  # The Error No roles found
+  #-----------------------------------------------------
+  ErrorNoRoleAvailable:
+    type : object
+    required:
+      - status
+      - schema
+      - detail
+    properties:
+      status:
+        type: string
+        example: "404"
+      schemas:
+        type: array
+        items:
+          type: string
+          example: "urn:ietf:params:scim:api:messages:2.0:Error"
+      detail:
+        type: string
+        example: "Role not found in the system."
+  #-----------------------------------------------------
+  # The Error Role Not Available
+  #-----------------------------------------------------
+  ErrorRoleNotAvailable:
+    type : object
+    required:
+      - status
+      - schema
+      - detail
+    properties:
+      status:
+        type: string
+        example: "404"
+      schemas:
+        type: string
+        example: "urn:ietf:params:scim:api:messages:2.0:Error"
+      detail:
+        type: string
+        example: "No Role with the id : 4645709c-ea8c-4495-8590-e1fa0efe3de0 in the system."
+  #-----------------------------------------------------
+  # The Error Role Already Available
+  #-----------------------------------------------------
+  ErroRoleAlreadyAvailable:
+    type : object
+    required:
+      - status
+      - schema
+      - detail
+    properties:
+      status:
+        type: string
+        example: "409"
+      schemas:
+        type: string
+        example: "urn:ietf:params:scim:api:messages:2.0:Error"
+      detail:
+        type: string
+        example: "Role with name: Internal/loginRole already exists in the system."
+  #-----------------------------------------------------
+  # The Error No roles found from search
+  #-----------------------------------------------------
+  RoleSearchErrorResponseObject:
+    type: object
+    required:
+      - totalResults
+      - startIndex
+      - itemsPerPage
+      - schemas
+    properties:
+      totalResults:
+        type: integer
+        example: 0
+      startIndex:
+        type: integer
+        example: 1
+      itemsPerPage:
+        type: integer
+        example: 0
+      schemas:
+        type: array
+        items:
+          example: "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+
+  #-----------------------------------------------------
   # The Error Internal Server Error
   #-----------------------------------------------------
   ErrorInternalServerError:
@@ -2341,16 +3053,3 @@ definitions:
       detail:
         type: string
         example: "Self delete is not supported."
-
-
-  OperationItem:
-    type: object
-    properties:
-      op:
-        type: string
-        enum: ["add", "remove"]
-      value:
-        type: array
-        items:
-          type: string
-          example: "/permission/admin/configure/security/usermgt"

@@ -1,9 +1,9 @@
-# JWT Grant
+# JWT Bearer Grant
 
 
 ## About JWT
 
-The JSON Web Token (JWT) is simply a JSON string containing claim values that will be evaluated and validated by the JWT Grant Handlers at the Authorization Server before issuing an access token.  
+The JSON Web Token (JWT) is simply a JSON string containing claim values that will be evaluated and validated by the JWT Bearer Grant Handler at the Authorization Server before issuing an access token.  
 
 JWT contains a header, payload, and signature that are separated by periods (.). Let's learn more about them!
 
@@ -165,6 +165,8 @@ When an entity initates a request to gain access to an application:
 	!!! note
 
 		For this verification to work, the identity provider should have been registered as a trusted identity provider in WSO2 Identity Server.
+		The `Identity Provider Name` or the `Identity Provider's Issuer Name` property in the Identity Provider configuration 
+		should match the value in the `iss` claim of the JWT assertion.
 
 4.	Once the identity provider is identified, WSO2 Identity Server retrieves the corresponding **identity provider configurations** containing the identity provider's `public certificate`.
 
@@ -314,13 +316,12 @@ To add the application as a service provider in WSO2 Identity Server:
 
 	!!! note
 
-		While configuring the JWT grant type, the **iat** validating time period can also be configured in the `identity.xml` file in the `<IS_HOME>/repository/conf` as shown below. The default value is 30 minutes. 
+		While configuring the JWT bearer grant type, the **iat** validating time period can also be configured in the `deployment.toml` file in the `<IS_HOME>/repository/conf` as shown below. The default value is 30 minutes. 
 		
-		```json
-		<JWTGrant>            
-            <EnableIATValidation>true</EnableIATValidation>            
-            <IATValidityPeriod>30</IATValidityPeriod>
-    	</JWTGrant>
+		```toml
+		[oauth.grant_type.jwt]
+		enable_iat_validation="true"
+		iat_validity_period=30
 		```  
 
 ## Try out

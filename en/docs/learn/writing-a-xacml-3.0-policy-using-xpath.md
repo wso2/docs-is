@@ -27,7 +27,7 @@ simple policy that can be used to evaluate XML data.
 
 According to our usecase, it says “Users can only read their own patients'
 data”. For example, if you log in to the Medicom web application with patient
-id “bob” then you can only read the data that is stored for “bob”.
+id “alex” then you can only read the data that is stored for “alex”.
 
 The code given below shows a sample policy that is written to match the
 **resources** relevant to a specific **patientId.**
@@ -114,16 +114,16 @@ The easiest way to evaluate the poilcy is to use the **Try It** tool available i
 <a class="sourceLine" id="cb1-2" title="2">&lt;<span class="bu">Request</span> xmlns=<span class="st">&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot;</span> ReturnPolicyIdList=<span class="st">&quot;false&quot;</span> CombinedDecision=<span class="st">&quot;false&quot;</span>&gt;</a>
 <a class="sourceLine" id="cb1-3" title="3">   &lt;<span class="bu">Attributes</span> Category=<span class="st">&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;</span>&gt;</a>
 <a class="sourceLine" id="cb1-4" title="4">      &lt;<span class="bu">Attribute</span> IncludeInResult=<span class="st">&quot;false&quot;</span> AttributeId=<span class="st">&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot;</span>&gt;</a>
-<a class="sourceLine" id="cb1-5" title="5">         &lt;AttributeValue DataType=<span class="st">&quot;http://www.w3.org/2001/XMLSchema#string&quot;</span>&gt;bob&lt;/AttributeValue&gt;</a>
+<a class="sourceLine" id="cb1-5" title="5">         &lt;AttributeValue DataType=<span class="st">&quot;http://www.w3.org/2001/XMLSchema#string&quot;</span>&gt;alex&lt;/AttributeValue&gt;</a>
 <a class="sourceLine" id="cb1-6" title="6">      &lt;/<span class="bu">Attribute</span>&gt;</a>
 <a class="sourceLine" id="cb1-7" title="7">   &lt;/<span class="bu">Attributes</span>&gt;</a>
 <a class="sourceLine" id="cb1-8" title="8">   &lt;<span class="bu">Attributes</span> Category=<span class="st">&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot;</span>&gt;</a>
 <a class="sourceLine" id="cb1-9" title="9">      &lt;Content&gt;</a>
 <a class="sourceLine" id="cb1-10" title="10">         &lt;ak:record xmlns:ak=<span class="st">&quot;http://akpower.org&quot;</span>&gt;</a>
 <a class="sourceLine" id="cb1-11" title="11">            &lt;ak:patient&gt;</a>
-<a class="sourceLine" id="cb1-12" title="12">               &lt;ak:patientId&gt;bob&lt;/ak:patientId&gt;</a>
+<a class="sourceLine" id="cb1-12" title="12">               &lt;ak:patientId&gt;alex&lt;/ak:patientId&gt;</a>
 <a class="sourceLine" id="cb1-13" title="13">               &lt;ak:patientName&gt;</a>
-<a class="sourceLine" id="cb1-14" title="14">                  &lt;ak:first&gt;Bob&lt;/ak:first&gt;</a>
+<a class="sourceLine" id="cb1-14" title="14">                  &lt;ak:first&gt;alex&lt;/ak:first&gt;</a>
 <a class="sourceLine" id="cb1-15" title="15">                  &lt;ak:last&gt;Allan&lt;/ak:last&gt;</a>
 <a class="sourceLine" id="cb1-16" title="16">               &lt;/ak:patientName&gt;</a>
 <a class="sourceLine" id="cb1-17" title="17">               &lt;ak:patientContact&gt;</a>
@@ -132,7 +132,7 @@ The easiest way to evaluate the poilcy is to use the **Try It** tool available i
 <a class="sourceLine" id="cb1-20" title="20">                  &lt;ak:state&gt;Western&lt;/ak:state&gt;</a>
 <a class="sourceLine" id="cb1-21" title="21">                  &lt;ak:zip&gt;<span class="dv">11730</span>&lt;/ak:zip&gt;</a>
 <a class="sourceLine" id="cb1-22" title="22">                  &lt;ak:phone&gt;<span class="dv">94332189873</span>&lt;/ak:phone&gt;</a>
-<a class="sourceLine" id="cb1-23" title="23">                  &lt;ak:email&gt;bob<span class="at">@wso2</span>.<span class="fu">com</span>&lt;/ak:email&gt;</a>
+<a class="sourceLine" id="cb1-23" title="23">                  &lt;ak:email&gt;alex<span class="at">@wso2</span>.<span class="fu">com</span>&lt;/ak:email&gt;</a>
 <a class="sourceLine" id="cb1-24" title="24">               &lt;/ak:patientContact&gt;</a>
 <a class="sourceLine" id="cb1-25" title="25">               &lt;ak:patientDoB&gt;<span class="dv">1991</span>-<span class="bn">05</span>-<span class="dv">11</span>&lt;/ak:patientDoB&gt;</a>
 <a class="sourceLine" id="cb1-26" title="26">               &lt;ak:patientGender&gt;male&lt;/ak:patientGender&gt;</a>

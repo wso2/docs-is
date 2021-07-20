@@ -9,27 +9,27 @@ When an Identity Provider is added, the details are stored in this
 table. Following are the columns of the table.
 
 -   `ID`
--   `TENANT\_ID`
+-   `TENANT_ID`
 -   `NAME`
--   `IS\_ENABLED`
--   `IS\_PRIMARY`
--   `HOME\_REALM\_ID`
+-   `IS_ENABLED`
+-   `IS_PRIMARY`
+-   `HOME_REALM_ID`
 -   `IMAGE`
 -   `CERTIFICATE`
 -   `ALIAS`
--   `INBOUND\_PROV\_ENABLED`
--   `INBOUND\_PROV\_USER\_STORE\_ID`
--   `USER\_CLAIM\_URI`
--   `ROLE\_CLAIM\_URI`
+-   `INBOUND_PROV_ENABLED`
+-   `INBOUND_PROV_USER_STORE_ID`
+-   `USER_CLAIM_URI`
+-   `ROLE_CLAIM_URI`
 -   `DESCRIPTION`
--   `DEFAULT\_AUTHENTICATOR\_NAME`
--   `DEFAULT\_PRO\_CONNECTOR\_NAME`
--   `PROVISIONING\_ROLE`
--   `IS\_FEDERATION\_HUB`
--   `IS\_LOCAL\_CLAIM\_DIALECT`
--   `DISPLAY\_NAME`
+-   `DEFAULT_AUTHENTICATOR_NAME`
+-   `DEFAULT_PRO_CONNECTOR_NAME`
+-   `PROVISIONING_ROLE`
+-   `IS_FEDERATION_HUB`
+-   `IS_LOCAL_CLAIM_DIALECT`
+-   `DISPLAY_NAME`
 
-#### IDP\_ROLE
+#### IDP_ROLE
 
 An Identity Provider may have different roles for authorization which
 are different from the local roles of the Identity Server. In such a
@@ -40,150 +40,150 @@ is the ID of the Identity Provider. Following are the columns of the
 table.
 
 -   `ID`
--   `IDP\_ID`
--   `TENANT\_ID`
+-   `IDP_ID`
+-   `TENANT_ID`
 -   `ROLE`
 
-#### IDP\_ROLE\_MAPPING
+#### IDP_ROLE_MAPPING
 
 The mappings of local roles of the Identity Server to the roles of
-Identity Providers are stored in this table. `LOCAL\_ROLE` column has the
-value of the role name of the local role. `IDP\_ROLE\_ID` column has the
+Identity Providers are stored in this table. `LOCAL_ROLE` column has the
+value of the role name of the local role. `IDP_ROLE_ID` column has the
 ID of the Identity Provider’s role which points to the ID column of the
-`IDP\_ROLE` table.
+`IDP_ROLE` table.
 
 -   `ID`
--   `IDP\_ROLE\_ID`
--   `TENANT\_ID`
--   `USER\_STORE\_ID`
--   `LOCAL\_ROLE`
+-   `IDP_ROLE_ID`
+-   `TENANT_ID`
+-   `USER_STORE_ID`
+-   `LOCAL_ROLE`
 
-#### IDP\_CLAIM
+#### IDP_CLAIM
 
 When an Identity Provider is having claims that are different from the
 local claims of the Identity Server, corresponding claims of the
 Identity Provider can be mapped to the local claims where the Identity
 Provider claims are stored in this table. The mapping details of the
-local claims are stored in `IDP\_CLAIM\_MAPPING` table. Following are the
+local claims are stored in `IDP_CLAIM_MAPPING` table. Following are the
 columns of the table.
 
 -   `ID`
--   `IDP\_ID`
--   `TENANT\_ID`
+-   `IDP_ID`
+-   `TENANT_ID`
 -   `CLAIM`
 
-#### IDP\_CLAIM\_MAPPING
+#### IDP_CLAIM_MAPPING
 
 The mappings of the local claims with the Identity Provider claims are
-stored in this table.`IDP\_CLAIM\_ID` column has the Identity Provider’s
-claim ID which points to the ID column of the `IDP\_CLAIM` table.
- `LOCAL\_CLAIM` column contains the claim value of the local claim in the
+stored in this table.`IDP_CLAIM_ID` column has the Identity Provider’s
+claim ID which points to the ID column of the `IDP_CLAIM` table.
+ `LOCAL_CLAIM` column contains the claim value of the local claim in the
 mapping. Following are the columns of the table.
 
 -   `ID`
--   `IDP\_CLAIM\_ID`
--   `TENANT\_ID`
--   `LOCAL\_CLAIM`
--   `DEFAULT\_VALUE`
--   `IS\_REQUESTED`
+-   `IDP_CLAIM_ID`
+-   `TENANT_ID`
+-   `LOCAL_CLAIM`
+-   `DEFAULT_VALUE`
+-   `IS_REQUESTED`
 
-#### IDP\_AUTHENTICATOR
+#### IDP_AUTHENTICATOR
 
 The Local and Federated authenticators for each Identity Provider are
 stored in this table. The NAME column contains the name of the
-authenticator. `IDP\_ID` is the Identity Provider’s ID which points to the
+authenticator. `IDP_ID` is the Identity Provider’s ID which points to the
 ID column of the IDP table. Following are the columns of the table.
 
 -   `ID`
--   `TENANT\_ID`
--   `IDP\_ID`
+-   `TENANT_ID`
+-   `IDP_ID`
 -   `NAME`
--   `IS\_ENABLED`
--   `DISPLAY\_NAME`
+-   `IS_ENABLED`
+-   `DISPLAY_NAME`
 
-#### IDP\_AUTHENTICATOR\_PROPERTY
+#### IDP_AUTHENTICATOR_PROPERTY
 
 The properties related to the authenticators stored in
-`IDP\_AUTHENTICATOR` table are stored in this table. The properties are
-stored as key value pairs in `PROPERTY\_KEY` and `PROPERTY\_VALUE` tables
+`IDP_AUTHENTICATOR` table are stored in this table. The properties are
+stored as key value pairs in `PROPERTY_KEY` and `PROPERTY_VALUE` tables
 respectively. The associated authenticator ID is given in the
-`AUTHENTICATOR\_ID` column which points to the ID column of the
-`IDP\_AUTHENTICATOR` table. Following are the columns of the table.
+`AUTHENTICATOR_ID` column which points to the ID column of the
+`IDP_AUTHENTICATOR` table. Following are the columns of the table.
 
 -   `ID`
--   `TENANT\_ID`
--   `AUTHENTICATOR\_ID`
--   `PROPERTY\_KEY`
--   `PROPERTY\_VALUE`
--   `IS\_SECRET`
+-   `TENANT_ID`
+-   `AUTHENTICATOR_ID`
+-   `PROPERTY_KEY`
+-   `PROPERTY_VALUE`
+-   `IS_SECRET`
 
-#### IDP\_PROVISIONING\_CONFIG
+#### IDP_PROVISIONING_CONFIG
 
 The Outbound Provisioning Connector details for each Identity Provider
 is stored in this table. The Identity Provider’s ID is given in the
-`IDP\_ID` column which points to the ID column of the IDP. Provisioning
-Connector Type is given in the `PROVISIONING\_CONNECTOR\_TYPE` column.
+`IDP_ID` column which points to the ID column of the IDP. Provisioning
+Connector Type is given in the `PROVISIONING_CONNECTOR_TYPE` column.
 Detailed configuration for each type of provisioning connector is stored
-in `IDP\_PROV\_CONFIG\_PROPERTY` table. Following are the columns of this
+in `IDP_PROV_CONFIG_PROPERTY` table. Following are the columns of this
 table.
 
 -   `ID`
--   `TENANT\_ID`
--   `IDP\_ID`
--   `PROVISIONING\_CONNECTOR\_TYPE`
--   `IS\_ENABLED`
--   `IS\_BLOCKING`
+-   `TENANT_ID`
+-   `IDP_ID`
+-   `PROVISIONING_CONNECTOR_TYPE`
+-   `IS_ENABLED`
+-   `IS_BLOCKING`
 
-#### IDP\_PROV\_CONFIG\_PROPERTY
+#### IDP_PROV_CONFIG_PROPERTY
 
 The properties for each Provisioning Connector are stored in this table
-as key value pairs in `PROPERTY\_KEY` and `PROPERTY\_VALUE` columns
-respectively. `PROVISIONING\_CONFIG\_ID` is the ID of the Provisioning
-Connector in `IDP\_PROVISIONING\_CONFIG` table. Data type of the property
-is stored in `PROPERTY\_TYPE` column. Following are the columns of the
+as key value pairs in `PROPERTY_KEY` and `PROPERTY_VALUE` columns
+respectively. `PROVISIONING_CONFIG_ID` is the ID of the Provisioning
+Connector in `IDP_PROVISIONING_CONFIG` table. Data type of the property
+is stored in `PROPERTY_TYPE` column. Following are the columns of the
 table.
 
 -   `ID`
--   `TENANT\_ID`
--   `PROVISIONING\_CONFIG\_ID`
--   `PROPERTY\_KEY`
--   `PROPERTY\_VALUE`
--   `PROPERTY\_BLOB\_VALUE`
--   `PROPERTY\_TYPE`
--   `IS\_SECRET`
+-   `TENANT_ID`
+-   `PROVISIONING_CONFIG_ID`
+-   `PROPERTY_KEY`
+-   `PROPERTY_VALUE`
+-   `PROPERTY_BLOB_VALUE`
+-   `PROPERTY_TYPE`
+-   `IS_SECRET`
 
-#### IDP\_PROVISIONING\_ENTITY
+#### IDP_PROVISIONING_ENTITY
 
 When Outbound Provisioning is enabled for an Identity Provider and a
 User or a Group is created inside Identity Server, this table is storing
-records such that the `PROVISIONING\_CONFIG\_ID` contains the ID of the
+records such that the `PROVISIONING_CONFIG_ID` contains the ID of the
 Provisioning Config that points to the ID column of the
-`IDP\_PROVISIONING\_CONFIG` table. `ENTITY\_TYPE` column contains the type
+`IDP_PROVISIONING_CONFIG` table. `ENTITY_TYPE` column contains the type
 of the entity which can be either USER or GROUP. The user store of the
 Identity Server where the user or group is created is added to
-`ENTITY\_LOCAL\_USERSTORE` column. `ENTITY\_NAME` contains the name of the
-user or role created inside Identity Server. `ENTITY\_VALUE` contains the
+`ENTITY_LOCAL_USERSTORE` column. `ENTITY_NAME` contains the name of the
+user or role created inside Identity Server. `ENTITY_VALUE` contains the
 unique identifier of the user or group created at the external
 provisioned Identity Provider.
 
 -   `ID`
--   `PROVISIONING\_CONFIG\_ID`
--   `ENTITY\_TYPE`
--   `ENTITY\_LOCAL\_USERSTORE`
--   `ENTITY\_NAME`
--   `ENTITY\_VALUE`
--   `TENANT\_ID`
+-   `PROVISIONING_CONFIG_ID`
+-   `ENTITY_TYPE`
+-   `ENTITY_LOCAL_USERSTORE`
+-   `ENTITY_NAME`
+-   `ENTITY_VALUE`
+-   `TENANT_ID`
 
-#### IDP\_LOCAL\_CLAIM
+#### IDP_LOCAL_CLAIM
 
 This table is not used in the latest version of Identity Server.
 
 -   `ID`
--   `TENANT\_ID`
--   `IDP\_ID`
--   `CLAIM\_URI`
--   `DEFAULT\_VALUE`
--   `IS\_REQUESTED`  
+-   `TENANT_ID`
+-   `IDP_ID`
+-   `CLAIM_URI`
+-   `DEFAULT_VALUE`
+-   `IS_REQUESTED`  
       
       
     ![Identity provider related tables](../assets/img/using-wso2-identity-server/identity-provider-related-tables.png) 

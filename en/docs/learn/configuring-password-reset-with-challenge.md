@@ -4,9 +4,9 @@ WSO2 Identity Server enables resetting user passwords by correctly responding to
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Larry** who is a new recruit at Pickup has forgotten his password. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Alex** who is a new recruit at Pickup has forgotten the password. 
 
-Let's learn how he can recover his password by answering to a challenge question!
+Let's learn how Alex can recover the password by answering to a challenge question!
 
 ## Set up
 
@@ -38,7 +38,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 ## Try out
 
-1.	To create the user account for Larry:
+1.	To create the user account for Alex:
 
 	1.	On the **Main** menu of the Management Console, click **Identity > Users and Roles > Add**.
 
@@ -53,13 +53,13 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 		<img src="../../assets/img/learn/add-new-user-screen.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
 
 		-	**Domain**: `Primary`
-		-	**Username**: `Larry`
+		-	**Username**: `Alex`
 
 	4.	Click **Finish**. 
 
 2.	To assign login permissions to the user:
 	
-	1.	Click the **View Roles** option of Larry.
+	1.	Click the **View Roles** option of Alex.
 
 		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
@@ -105,7 +105,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 		<img src="../../assets/img/learn/forgotten-password-option.png" alt="Sign In form" width="700" style="border:1px solid grey"> 	
 
-	3.	Enter the user name as `Larry` and select the **Recover with Security Questions** option.
+	3.	Enter the user name as `Alex` and select the **Recover with Security Questions** option.
 
 		<img src="../../assets/img/learn/recover-password-screen.png" alt="Consent form" width="600" style="border:1px solid grey">
 
