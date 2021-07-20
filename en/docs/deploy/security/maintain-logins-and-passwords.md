@@ -2,7 +2,7 @@
 
 ## Change the super admin password
 
-To change the default admin password, log in to the management console
+To change the default admin password, log in to the WSO2 Identity Server management console (`https://<IS_HOST>:<PORT>/carbon`)
 with admin/admin credentials and use the **Change my password** option.
 
 ---
@@ -15,6 +15,6 @@ Use the  `         <IS_HOME>/bin/chpasswd.sh        ` script.
 
 ## Log in with an email address
 
-You can configure WSO2 Identity Server to authenticate users using an email address instead of a username. Refer [Using Email Address as the Username](TO DO: using-email-address-as-the-username) section for configurations steps.
+You can configure WSO2 Identity Server to authenticate users using an email address instead of a username. Refer [Enable Using Email Address as the Username](../../../guides/identity-lifecycles/enable-email-as-username) for further information.
 
 

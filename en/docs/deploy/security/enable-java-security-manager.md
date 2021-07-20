@@ -8,7 +8,7 @@ The Java Security Manager is used to define various security policies that preve
 
 ## How it works
 
-Enabling the Java Security Manager for WSO2 Identity Server activates the Java permissions that are in the `sec.policy` in the `<IS_HOME>/repository/conf/` directory.    
+Enabling the Java Security Manager for WSO2 Identity Server activates the Java permissions that are in `sec.policy` in the `<IS_HOME>/repository/conf/` directory.    
 
 Administrators can modify this file to change the Java security permissions as required and grant various application-level permissions to the signed and trusted code using Java.   
 
@@ -18,14 +18,11 @@ When granting specific Java-level permissions to a certain signed code, it is re
 
 ## Instructions 
 
-Let's get started!
-
 !!! tip "Before you begin"
 
 	1. Make sure that you have installed Java 1.8. 
-	2. Download WSO2 Identity Server to any location, e.g., `<HOME>/user/<PRODUCT-PACK>`. The location of `<PRODUCT_PACK>` will hereafter be referred to as `<IS_HOME>`.
 
-1. 	To sign the JARs in WSO2 Identity Server, a **key** is required. You can generate a key by generating a new keystore. To generate a new keystore with a new key:
+1. 	To sign the JARs in WSO2 Identity Server, a **key** is required. You can generate a key by generating a new keystore. Follow the steps given below to generate a new keystore with a new key.
 
 	1. Execute the following keytool command. 
 
@@ -68,30 +65,27 @@ Let's get started!
         $ keytool -import -alias signFiles -file sign-cert.cer -keystore <IS_HOME>/repository/resources/security/wso2carbon.jks 
         ```
 
-        You will be prompted enter the keystore password and verify the certificate.
+        You will be prompted to enter the keystore password and verify the certificate.
 
-		!!! abstract ""
-			**Example**
-			```java
-			Enter keystore password:  
-			Owner: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
-			Issuer: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
-			Serial number: 5486f3b0
-			Valid from: Tue Dec 09 18:35:52 IST 2014 until: Fri Dec 06 18:35:52 IST 2024
-			Certificate fingerprints:
-			MD5:  54:13:FD:06:6F:C9:A6:BC:EE:DF:73:A9:88:CC:02:EC
-			SHA1: AE:37:2A:9E:66:86:12:68:28:88:12:A0:85:50:B1:D1:21:BD:49:52
-			Signature algorithm name: SHA1withRSA
-			Version: 3
-			Trust this certificate? [no]:  yes
-			```
+        ```java
+        Enter keystore password:  
+        Owner: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
+        Issuer: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
+        Serial number: 5486f3b0
+        Valid from: Tue Dec 09 18:35:52 IST 2014 until: Fri Dec 06 18:35:52 IST 2024
+        Certificate fingerprints:
+        MD5:  54:13:FD:06:6F:C9:A6:BC:EE:DF:73:A9:88:CC:02:EC
+        SHA1: AE:37:2A:9E:66:86:12:68:28:88:12:A0:85:50:B1:D1:21:BD:49:52
+        Signature algorithm name: SHA1withRSA
+        Version: 3
+        Trust this certificate? [no]:  yes
+        ```
 
         !!! warning
-    
         	WSO2 no longer recommends MD5 for JAR signing due to cryptographic limitations.
 
 
-3.	Open the security policy file, and replace the `grant signedBy` parameter value with the new `signFiles` alias key, as shown below.
+3.	Open the security policy file and replace the `grant signedBy` parameter value with the new `signFiles` alias key as shown below.
 
     ``` java
     grant signedBy "signFiles" {
@@ -103,8 +97,8 @@ Let's get started!
     ```
 
 
-4.	To sign the JARS:
-	1.	Prepare the scripts to sign the JARs and grant them the required permission. You can either use the `signJar.sh` script given below to sign each JAR file separately or you can use the `signJars.sh` script that runs a loop to read all JARs and sign them. 
+4.	Follow the instructions given below to sign the JARS.
+	1.	Prepare the scripts to sign the JARs and grant them the required permission. You can either use the `signJar.sh` script given below to sign each JAR file separately or you can use the `signJars.sh` script that runs a loop to read all the JAR files and sign them. 
 
 		``` java tab="signJar.sh"
 	     #!/bin/bash
@@ -159,13 +153,13 @@ Let's get started!
     -Ddenied.system.properties=javax.net.ssl.trustStore,javax.net.ssl.trustStorePassword,denied.system.properties \
     ```
 
-7. Create a sec.policy file with the required security policies in the `<IS_HOME>/repository/conf` directory and start WSO2 Identity Server. Starting the server makes the Java permissions defined in the `sec.policy` file take effect as given in the following sample file. 
+7. Create a `sec.policy` file with the required security policies in the `<IS_HOME>/repository/conf` directory and start WSO2 Identity Server. Starting the server makes the Java permissions defined in the `sec.policy` file take effect as given in the following sample file. 
 
 	!!! note
 
 		The first line of the file indicates the `keystore path` and the `alias` of the certificate.	
 
-    ??? example "Sample sec.policy"
+    ??? example	 "Sample sec.policy"
 
 	    ```java
 	    keystore "file:${user.dir}/repository/resources/security/wso2carbon.jks", "JKS";
