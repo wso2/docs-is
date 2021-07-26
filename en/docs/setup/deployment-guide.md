@@ -251,7 +251,54 @@ WSO2 supports the following membership schemes for clustering
                 consume this docker image to 
                 create a `Task Definition` and run a new `Service` or a `Task` 
                 on the `AWS ECS cluster` that you created.
-            
+
+        ??? tip "Click to see the instructions for Kubernetes membership scheme"
+            When IS nodes are deployed in a clustered mode on Kubernetes, the Kubernetes Membership Scheme enables automatically discovering these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
+
+            - If not already present, download and copy the [kubernetes-membership-scheme-1.x.x.jar](https://github.com/wso2/kubernetes-common/tags) to `<IS_HOME>/repository/components/dropins/` directory.
+
+            - Configure the `<IS_HOME>/repository/conf/deployment.toml` file with the following configurations.
+
+
+                | Parameter                               | Description                                                                                                | Example        |
+                |-----------------------------------------|------------------------------------------------------------------------------------------------------------|----------------|
+                | membershipScheme                        | This is the membership scheme that will be used to manage the membership of nodes in a cluster.            | kubernetes     |
+                | local_member_host                       | This is the hostname or the IP address of the member. Set it to the pod's local IP address.                | 172.17.0.2     |
+                | local_member_port                       | This is the TCP port that is used by this member and through which other members will contact this member. | 4000           |
+                | membershipSchemeClassName               | org.wso2.carbon.membership.scheme.kubernetes.KubernetesMembershipScheme                                    |                |
+                | KUBERNETES_NAMESPACE                    | This is the Kubernetes Namespace in which the pods are deployed,                                           | wso2-is        |
+                | KUBERNETES_SERVICES                     | These are the Kubernetes Services that belong in the cluster.                                              | wso2is-service |
+                | KUBERNETES_MASTER_SKIP_SSL_VERIFICATION | This defines whether the SSL certificate verification of the Kubernetes API should be carried out or not.  | true           |
+                | USE_DNS                                 | This configures the membership scheme to use Kubernetes API for pod IP resolution. Set this to false .     | false          |
+
+
+                ```
+                [clustering]
+                membership_scheme = "kubernetes"
+                local_member_host = "172.17.0.2"
+                local_member_port = "4000"
+
+                [clustering.properties]
+                membershipSchemeClassName = "org.wso2.carbon.membership.scheme.kubernetes.KubernetesMembershipScheme"
+                KUBERNETES_NAMESPACE = "wso2-is"
+                KUBERNETES_SERVICES = "wso2is-service"
+                KUBERNETES_MASTER_SKIP_SSL_VERIFICATION = true
+                USE_DNS = false
+                ```
+            - In order to retrieve the pod IP addresses information from the Kubernetes apiserver, the Kubernetes membership scheme uses the pods service account hence the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the Role you bind has the following permissions.
+                ```
+                rules:
+                - apiGroups: [""]
+                verbs: ["get", "list"]
+                resources: ["endpoints"]
+                ```
+            - Optionally a Kubernetes token or basic authentication can be used to authenticate with the Kubernetes apiserver. The following properties can be set under [clustering.properties] accordingly.
+                - KUBERNETES_API_SERVER : This is the Kubernetes API endpoint,e.g., http://172.17.8.101:8080 . Alternatively, an https endpoint can be set via KUBERNETES_SERVICE_HOST and KUBERNETES_SERVICE_PORT_HTTPS.
+                - KUBERNETES_SERVICE_HOST : This is the Kubernetes API host name or IP address, e.g., kuberneteshostname 
+                - KUBERNETES_SERVICE_PORT_HTTPS : This is the Kubernetes API https listening port. This must be an Integer value.
+                - KUBERNETES_API_SERVER_TOKEN : This is the Kubernetes Master token for authentication (optional), e.g., yourkubernetestoken. 
+                - KUBERNETES_API_SERVER_USERNAME : This is the Kubernetes Master username (optional), e.g., admin.
+                - KUBERNETES_API_SERVER_PASSWORD : This is the Kubernetes Master password (optional).                
         
 2. Configure caching.
 
