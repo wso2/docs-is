@@ -12,9 +12,9 @@ sample scenario.
 credentials to sign in to different internal enterprise applications.
 Following are two such applications:
 
--   **Pickup Dispatch** : This application helps manage the overall
+-   **Pickup Dispatch** : This application helps to manage the overall
     operations at Pickup.
--   **Pickup Manager** : This application helps allocate vehicles to
+-   **Pickup Manager** : This application helps to allocate vehicles to
     drivers.
 
 Pickup needs to identify the necessary permission levels to be granted
@@ -453,7 +453,7 @@ A message appears to pick a scenario.
     ![register-oauth2](../assets/img/tutorials/register-oauth2.png)
       
     Select a web application and give it a name (e.g.,
-    SampleWebApllication). Enter the Authorized **redirect URI** as
+    SampleWebApplication). Enter the Authorized **redirect URI** as
     `https://localhost.com:9443/commonauth`
     (this is the endpoint in WSO2 Identity Server that accepts the
     response sent by Google).  
@@ -527,7 +527,7 @@ Pickup is going through a major expansion and is in the process of
 hiring new employees. Currently, when a new employee joins, the Pickup
 HR team requests for their details, and creates user accounts and then
 asks them to verify, edit and customize their user profiles. This
-process sometimes takes few days. Thus, the Rowan and the Pickup HR team
+process sometimes takes few days. Thus, Rowan and the Pickup HR team
 is having a hard time doing this one by one for especially when a larger
 number of employees come on-board. Cameron realizes that allowing the
 new employees to self sign-up to Pickup web applications will speed up
