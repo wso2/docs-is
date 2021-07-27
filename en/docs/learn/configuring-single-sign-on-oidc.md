@@ -29,6 +29,9 @@ Pickup is a cab company that has two SAML web applications called **pickup-dispa
 
 You are now ready to try out OpenID Connect SSO with the Pickup Dispatch and Pickup Manager sample web applications.
 
+    !!! note
+        To avoid errors while redirecting to the home page of the Pickup Dispatch and Pickup Manager applications, upgrade the Tomcat server to the latest version.
+
 ## Try it out
 1. Navigate to <http://localhost.com:8080/pickup-dispatch> on your browser and click **Login**.
 
@@ -36,9 +39,6 @@ You are now ready to try out OpenID Connect SSO with the Pickup Dispatch and Pic
 
 2. You will be redirected to the login page of WSO2 Identity Server. Log in using your WSO2 Identity Server credentials (admin/admin). Provide the required consent.
 You will be redirected to the Pickup Dispatch application home page.
-
-    !!! note
-        If you encounter issues where you cannot redirect to the home page of the Pickup Dispatch application, provided you are using Tomcat as the web container, please check the compatibility of the version of the Tomcat server being used to deploy the web apps. Make sure to change it to another version (preferably the latest one) before you try again.
 
 3. Now, if you navigate to <http://localhost.com:8080/pickup-manager> and click **Login**, you can see that user has been automatically logged in to this application without being prompted for user credentials.
 
