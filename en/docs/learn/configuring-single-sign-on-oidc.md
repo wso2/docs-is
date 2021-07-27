@@ -29,6 +29,9 @@ Pickup is a cab company that has two SAML web applications called **pickup-dispa
 
 You are now ready to try out OpenID Connect SSO with the Pickup Dispatch and Pickup Manager sample web applications.
 
+    !!! note
+        To avoid errors while redirecting to the home page of the Pickup Dispatch and Pickup Manager applications, upgrade the Tomcat server to the latest version.
+
 ## Try it out
 1. Navigate to <http://localhost.com:8080/pickup-dispatch> on your browser and click **Login**.
 
