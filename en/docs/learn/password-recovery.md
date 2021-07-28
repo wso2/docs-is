@@ -80,7 +80,7 @@ with email notification.
     API](../../develop/using-the-account-recovery-rest-apis)
 .
 
-    ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery.png)
+    ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery-conf.png)
     
     !!! info 
         - To enable password recovery with reCaptcha verification, select the **Enable reCaptcha for Password Recovery** checkbox. For more information, see [Configuring reCaptcha for Password Recovery](../../learn/configuring-recaptcha-for-password-recovery).
@@ -104,8 +104,10 @@ with email notification.
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails)
-.
-    
+
+6. To allow the users to be redirect to a certain location after the password recovery request is complete, change the
+default configuration in **Recovery callback URL regex** to a specific regular expression that will match the 
+redirect URL that the user needs to be redirected to.
 
 !!! note
     

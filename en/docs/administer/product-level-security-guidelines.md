@@ -192,6 +192,15 @@ To enable hostname verification:
 
 By default, XSS attacks are prevented in the latest WSO2 Identity Server versions. This is due to output encoding of the displaying values. 
 
+## Callback URL Regular Expressions
+
+For password recovery, you can define a regular expression to validate the callback URL. The default configuration 
+allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular 
+expression that validates and only allows access to specific callback URLs.
+
+!!! info
+
+    For more informatoin, see [Password Recovery](../../learn/password-recovery).
 
 ## JSESSIONID length
 
