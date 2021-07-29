@@ -350,7 +350,7 @@ Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
             Deployment](https://docs.wso2.com/display/SP440/Minimum+High+Availability+Deployment) 
             (recommended) and [Fully Distributed 
             Deployment](https://docs.wso2.com/display/SP440/Fully+Distributed+Deployment).
-            For both types, database system state persistence must be enabled and configured.
+            For both types, database system state persistence need to be enabled and configured.
             Furthermore, if required, the dashboard profile can be hosted outside the cluster with
             the state persistence database of the cluster configured as a datasource.
 
