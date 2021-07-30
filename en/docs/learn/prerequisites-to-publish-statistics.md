@@ -338,7 +338,13 @@ Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
         -   If you are running WSO2 IS Analytics in a clustered setup, see
             [WSO2 Stream Processor Deployment
             Guide](https://docs.wso2.com/stream-processor/Deployment+Guide).
-    
+            The viable cluster types for WSO2 IS Analytics are [Minimum High Availability 
+            Deployment](https://docs.wso2.com/display/SP440/Minimum+High+Availability+Deployment) 
+            (recommended) and [Fully Distributed 
+            Deployment](https://docs.wso2.com/display/SP440/Fully+Distributed+Deployment).
+            For both types, database system state persistence need to be enabled and configured.
+            If required, the dashboard profile can be hosted outside the cluster with
+            the state persistence database of the cluster configured as a datasource.
 
     1.  Run the Worker node of WSO2 IS Analytics. For detailed
         instructions, see [WSO2 SP - Starting Worker
