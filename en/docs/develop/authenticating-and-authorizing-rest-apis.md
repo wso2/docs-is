@@ -8,7 +8,8 @@ The requests that are sent via REST APIs are intercepted by tomcat valves and au
 
 ## REST API authentication
 
-WSO2 Identity Server supports three ways of API authentication: 
+WSO2 Identity Server supports three ways of API authentication:
+
     -   Basic authentication: Uses the user’s credentials in the API invocation
     -   OAuth 2 common flows: Obtains a token using an oauth2 flow and uses it to invoke the API
     -   Client certificate-based: Uses Mutual SSL to authenticate in order to consume the APIs
