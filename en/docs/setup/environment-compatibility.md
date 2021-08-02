@@ -27,6 +27,7 @@ As WSO2 Identity Server is a Java application, you can generally run them on mos
 				<li>Ubuntu 18.04</li>
 				<li>Ubuntu 20.04</li>
 				<li>CentOS 7</li>
+				<li>Windows Server 2019 Standard x64</li>
 				<li>Windows Server 2016 Standard x64</li>
 				<li>Windows 10</li>
 				<li>Mac OS 10.13.6</li>
