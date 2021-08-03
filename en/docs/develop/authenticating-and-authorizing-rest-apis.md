@@ -10,9 +10,9 @@ The requests that are sent via REST APIs are intercepted by tomcat valves and au
 
 WSO2 Identity Server supports three ways of API authentication:
 
-    -   Basic authentication: Uses the user’s credentials in the API invocation
-    -   OAuth 2 common flows: Obtains a token using an oauth2 flow and uses it to invoke the API
-    -   Client certificate-based: Uses Mutual SSL to authenticate in order to consume the APIs
+-   Basic authentication: The user's credentials are used when invoking the API.
+-   OAuth 2 common flows: Gets a token using an oauth2 flow and uses it to invoke the API.
+-   Client certificate-based: Uses mutual SSL to authenticate when consuming APIs.
 
 !!! note 
     Unless one of the above authentication elements is sent in an API invocation request, the 401 Unauthorized HTTP response will be returned.
