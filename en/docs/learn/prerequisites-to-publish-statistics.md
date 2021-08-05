@@ -61,7 +61,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence">
     <pre class="sourceCode java"><code class="sourceCode java">
     <a class="sourceLine" id="cb1-1" title="1">
-    [identity_mgt.analyticsLoginDataPublisherV110] </br>
+    [identity_mgt.analytics_login_data_publisher] </br>
     enable=true
     </a>
     </code>
