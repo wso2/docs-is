@@ -3,11 +3,9 @@
 Follow the steps below to configure WSO2 IS Analytics Server to display
 the regions of the users authenticated though WSO2 Identity Server.
 
-1.  Download the geolocation data from
-    [here](https://svn.wso2.org/repos/wso2/people/tharindua/geodata/Geolocation%20Data.tar.gz)
+1.  Use the Geo Location dataset that you created [here](../../learn/creating-geo-location-data-set/) when configuring geo location based statistics.
     .
-2.  Unzip the file that you downloaded in step 1.
-3.  Create the database by executing one of the scripts in the
+2.  Create the database by executing one of the scripts in the
     `           Geolocation Data/dbscripts          ` directory. In this
     example, `           mysql.sql          ` is executed.
 
@@ -45,7 +43,7 @@ the regions of the users authenticated though WSO2 Identity Server.
         .
     
 
-4.  Populate the data to the **BLOCKS** and **LOCATION** tables from the
+3.  Populate the data to the **BLOCKS** and **LOCATION** tables from the
     following files.
 
     -   `            Geolocation Data/data/BLOCKS.csv           `
@@ -80,12 +78,12 @@ the regions of the users authenticated though WSO2 Identity Server.
         Provide the mysql password when
         prompted.
 
-5.  Download a JDBC provider depending on the database you are using
+4.  Download a JDBC provider depending on the database you are using
     (MySQL in this example) from
     [here](https://www.mysql.com/products/connector/), and extract it.
-6.  Copy the `          mysql-connector-java-<VERSION>.jar         ` to
+5.  Copy the `          mysql-connector-java-<VERSION>.jar         ` to
     `          <IS_ANALYTICS_HOME>/lib         ` directory.
-7.  Configure the following in
+6.  Configure the following in
     `           <IS_ANALYTICS_HOME>/conf/worker/deployment.yaml          `
     file as given below.
 
@@ -120,7 +118,7 @@ the regions of the users authenticated though WSO2 Identity Server.
         name of the JDBC driver of your mysql connector, e.g.,
         `            com.mysql.jdbc.Driver           ` .
 
-8.  Open the
+7.  Open the
     `          <IS_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files/IS_ANALYTICS_AUTHENTICATION_COMMON.sidddhi         `
     file.
 
@@ -145,4 +143,4 @@ the regions of the users authenticated though WSO2 Identity Server.
             
 
 
-9.  Restart WSO2 IS Analytics worker node.
+8.  Restart WSO2 IS Analytics worker node.
