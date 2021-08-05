@@ -9,7 +9,7 @@ you need to follow in order to use MySQL for this purpose.
         create the database with charset latin1 as shown in the example below:
 
         `create database regdb`  
-        `character set latin1`
+        `character set latin1;`
 
 ## Datasource configurations
 
