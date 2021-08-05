@@ -16,16 +16,8 @@ To do this, the developers need to view authentication statistics about the logi
 
 ## Enable analytics
 
-Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and add the following event listeners to enable analytics in WSO2 Identity Server. 
+Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and enable the following event publishers to enable analytics in WSO2 Identity Server. 
  
-``` toml
-[[event_listener]]
-id = "authn_data_publisher_proxy"
-type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
-name = "org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy" 
-order = 11 
-```
-
 ``` toml
 [identity_mgt.analytics_login_data_publisher]
 enable=true
