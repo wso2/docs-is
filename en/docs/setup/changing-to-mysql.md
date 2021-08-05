@@ -4,11 +4,11 @@ By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
 you need to follow in order to use MySQL for this purpose. 
 
-    !!! note     
+!!! note
         If you are using MySQL version 8.0 or later, make sure that you 
         create the database with charset latin1 as shown in the example below:
-        
-        `create database regdb`
+
+        `create database regdb`  
         `character set latin1`
 
 ## Datasource configurations
