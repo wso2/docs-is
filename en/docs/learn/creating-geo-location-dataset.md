@@ -27,7 +27,7 @@ Follow the procedure below in order to create a geolocation dataset to use when 
 
         E.g :  /&lt;PATH\_TO&gt;/geoip2-csv-converter-v1.1.0
 
-    -   After executing the script, you will find the `final.csv` file inside your current directory.
+    -   After executing the script, you can find the `final.csv` file inside your current directory.
 
         ``` java
         ** get first column form original
