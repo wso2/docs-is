@@ -467,7 +467,7 @@ nav:
         - 'Analytics': learn/analytics.md
         - 'Prerequisites to Publish Statistics':
           - 'Prerequisites to Publish Statistics': learn/prerequisites-to-publish-statistics.md
-          - 'Creating Geo Location Data Set' : learn/creating-geo-location-dataset.md
+          - 'Creating Geo Location Data Set': learn/creating-geo-location-dataset.md
           - 'Enabling Geolocation Based Statistics': learn/enabling-geolocation-based-statistics.md
         - 'Analyzing the Authentication Operations':
           - 'Analyzing the Authentication Operations': learn/analyzing-the-authentication-operations.md
