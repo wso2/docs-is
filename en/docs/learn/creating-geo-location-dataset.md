@@ -19,7 +19,7 @@ Follow the procedure below in order to create a geolocation dataset to use when 
     sh update-geolocation-data.sh
     ```      
 
-    -   Enter the path to the extracted GeoLite2-City-Blocks-IPv4 directory which you downloaded first, as the response for **Enter path to GeoLite2-City-Blocks-IPv4 directory:**
+3. Enter the path to the extracted GeoLite2-City-Blocks-IPv4 directory which you downloaded first, as the response for **Enter path to GeoLite2-City-Blocks-IPv4 directory:**
 
         E.g :   /&lt;PATH\_TO&gt;/GeoLite2-City-CSV_20200310
 
@@ -40,4 +40,4 @@ Follow the procedure below in order to create a geolocation dataset to use when 
         ** merge csv files
         ```
 
-3.  The created `final.csv` file and the `GeoLite2-City-Locations-en.csv` file (located in the downloaded latest CSV zip file) will be used in the [next step](../../learn/enabling-geolocation-based-statistics).
+4.  The created `final.csv` file and the `GeoLite2-City-Locations-en.csv` file (located in the downloaded latest CSV zip file) will be used in the [next step](../../learn/enabling-geolocation-based-statistics).
