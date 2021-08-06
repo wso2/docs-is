@@ -1,6 +1,6 @@
 # Creating a Geolocation Dataset
 
-Follow the procedure below in order to create a Geo Location dataset to use when [Enabling Geolocation Based Statistics
+Follow the procedure below in order to create a geolocation dataset to use when [Enabling Geolocation Based Statistics
 ](../../learn/enabling-geolocation-based-statistics).
 
 1.  Create an account in [www.maxmind.com](https://www.maxmind.com/) and download the **GeoLite2 City: CSV Format** as a ZIP file.
