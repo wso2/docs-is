@@ -82,7 +82,7 @@ the regions of the users authenticated though WSO2 Identity Server.
     (MySQL in this example) from
     [here](https://www.mysql.com/products/connector/), and extract it.
 5.  Copy the `          mysql-connector-java-<VERSION>.jar         ` to
-    `          <IS_ANALYTICS_HOME>/lib         ` directory.
+    the `          <IS_ANALYTICS_HOME>/lib         ` directory.
 6.  Configure the following in the
     `           <IS_ANALYTICS_HOME>/conf/worker/deployment.yaml          `
     file as given below.
