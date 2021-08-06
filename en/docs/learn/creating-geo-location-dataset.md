@@ -23,7 +23,7 @@ Follow the procedure below in order to create a geolocation dataset to use when 
 
         E.g :   /&lt;PATH\_TO&gt;/GeoLite2-City-CSV_20200310
 
-    -   Enter the path to geoip2-csv-converter directory as the response for **Enter path to geoip2-csv-converter home directory:**
+    -   Enter the path to the `geoip2-csv-converter` directory as the response for **Enter path to geoip2-csv-converter home directory:**
 
         E.g :  /&lt;PATH\_TO&gt;/geoip2-csv-converter-v1.1.0
 
