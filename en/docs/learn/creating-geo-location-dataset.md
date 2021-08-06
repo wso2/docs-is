@@ -8,7 +8,7 @@ Follow the procedure below in order to create a geolocation dataset to use when 
 
 ## Prepare the database entries
 
-1.  Unzip the latest CSV file and the geoip-2-csv-converter you have downloaded in the steps above.
+1.  Unzip the latest CSV file and the geoip-2-csv-converter you have downloaded in the previous step.
 2.  Run `update-geolocation-data.sh` file using the command below.
 
     For Linux  : [update-geolocation-data.sh](../../assets/attachments/learn/geo-location/linux/update-geolocation-data.sh)
