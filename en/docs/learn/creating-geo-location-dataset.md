@@ -6,7 +6,7 @@ Follow the procedure below in order to create a geolocation dataset to use when 
 1.  Create an account in [www.maxmind.com](https://www.maxmind.com/) and download the **GeoLite2 City: CSV Format** as a ZIP file.
 2.  Download the geoip-2-csv-converter from <https://github.com/maxmind/geoip2-csv-converter/releases> depending on your operating system.
 
-#### Prepare the database entries
+## Prepare the database entries
 
 1.  Unzip the latest CSV file and the geoip-2-csv-converter you have downloaded in the steps above.
 2.  Run `update-geolocation-data.sh` file using the command below.
