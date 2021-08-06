@@ -4,7 +4,7 @@ Follow the procedure below in order to create a geolocation dataset to use when 
 ](../../learn/enabling-geolocation-based-statistics).
 
 1.  Create an account in [www.maxmind.com](https://www.maxmind.com/) and download the **GeoLite2 City: CSV Format** as a ZIP file.
-2.  Download the geoip-2-csv-converter from <https://github.com/maxmind/geoip2-csv-converter/releases> according to your operating system.
+2.  Download the geoip-2-csv-converter from <https://github.com/maxmind/geoip2-csv-converter/releases> depending on your operating system.
 
 #### Prepare the database entries
 
