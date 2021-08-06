@@ -1,4 +1,4 @@
-# Creating Geo Location Data Set
+# Creating a Geolocation Dataset
 
 Follow the procedure below in order to create a Geo Location dataset to use when [Enabling Geolocation Based Statistics
 ](../../learn/enabling-geolocation-based-statistics).
