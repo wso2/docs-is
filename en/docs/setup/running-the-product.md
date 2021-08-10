@@ -208,7 +208,7 @@ To stop the server, press **Ctrl+C** in the command window.
     To stop the server in the background mode of Linux, run
     `           wso2server.sh stop          `command.
 !!! note "Restart via the command window"
-    If you have stated the server with `wso2server.sh` command, you want be able to restart the 
+    If you have started the server with `wso2server.sh` command, you want be able to restart the 
     server from the command window.
     
     If you wish to restart the server from the command window, flow the proceeding steps.
