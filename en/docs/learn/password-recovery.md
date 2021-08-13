@@ -4,19 +4,6 @@ This section guides you through setting up password recovery for users
 to recover a lost or forgotten password. There are two methods of
 password recovery:
 
-!!! warning
-    From 5.3.0 onwards there is a new implementation for identity management
-    features. The steps given below in this document follows the new
-    implemenation which is the **recommended approach** for password
-    recovery.
-    
-    Alternatively, to see steps on how to enable this identity management
-    feature using the **old implementation**, see [Password Recovery
-    documentation in WSO2 IS
-    5.2.0](https://docs.wso2.com/display/IS520/Password+Recovery). The old
-    implementation has been retained within the WSO2 IS pack for backward
-    compatitbility and can still be used if required.
-
 !!! note
 	WSO2 IS validates whether the user account is locked or disabled prior to account recovery. In addition, if any customization prior to account recovery such as checking the eligibility of the user for account recovery by validating certain conditions/ user claims is needed, WSO2 Identity Server provides an extension for that.
 
