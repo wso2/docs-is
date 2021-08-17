@@ -1286,7 +1286,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-               
+
 servers:
   - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
     variables:
@@ -1453,7 +1453,7 @@ components:
         $ref: '#/components/schemas/Patch'
     Patch:
       description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root level attributes of
-       an identity provider.
+        an identity provider.
       required:
         - operation
         - path
@@ -1488,15 +1488,15 @@ components:
           example: identity-providers
       readOnly: true
     Certificate:
-          type: object
-          properties:
-            certificates:
-              type: array
-              items:
-                type: string
-            jwksUri:
-              type: string
-              example: "https://localhost:9444/oauth2/jwks"
+      type: object
+      properties:
+        certificates:
+          type: array
+          items:
+            type: string
+        jwksUri:
+          type: string
+          example: "https://localhost:9444/oauth2/jwks"
     IdentityProviderPOSTRequest:
       type: object
       required:
@@ -1591,13 +1591,13 @@ components:
             $ref: '#/components/schemas/Link'
           example:
             [
-                {
-                    "href": "identity-provider?offset=50&limit=10",
-                    "rel": "next",
-                },  {
-                    "href": "identity-provider?offset=30&limit=10",
-                    "rel": "previous",
-                }
+              {
+                "href": "identity-provider?offset=50&limit=10",
+                "rel": "next",
+              },  {
+              "href": "identity-provider?offset=30&limit=10",
+              "rel": "previous",
+            }
             ]
         identityProviders:
           type: array
@@ -1643,7 +1643,7 @@ components:
         federatedAuthenticators:
           $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
         provisioning:
-          $ref: '#/components/schemas/ProvisioningResponse'  
+          $ref: '#/components/schemas/ProvisioningResponse'
         self:
           type: string
           example: /t/carbon.super/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000
@@ -2003,34 +2003,34 @@ components:
           example: PRIMARY
     ConnectedApps:
       type: object
-properties:
-  totalResults:
-    type: integer
-    example: 10
-  startIndex:
-    type: integer
-    example: 1
-  count:
-    type: integer
-    example: 10
-  links:
-    type: array
-    items:
-      $ref: '#/components/schemas/Link'
-    example:
-      [
-          {
-              "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=50&limit=10",
-              "rel": "next"
-          },  {
+      properties:
+        totalResults:
+          type: integer
+          example: 10
+        startIndex:
+          type: integer
+          example: 1
+        count:
+          type: integer
+          example: 10
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            [
+              {
+                "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=50&limit=10",
+                "rel": "next"
+              },  {
               "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=30&limit=10",
               "rel": "previous"
-          }
-      ]
-  connectedApps:
-    type: array
-    items:
-      $ref: '#/components/schemas/ConnectedApp'
+            }
+            ]
+        connectedApps:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectedApp'
     ConnectedApp:
       type: object
       properties:
@@ -2040,87 +2040,3 @@ properties:
         self:
           type: string
           example: connected-app-url
-    IdentityProviderTemplateListResponse:
-        type: object
-        properties:
-          totalResults:
-            type: integer
-            example: 10
-          startIndex:
-            type: integer
-            example: 1
-          count:
-            type: integer
-            example: 10
-          links:
-            type: array
-            items:
-              $ref: '#/components/schemas/Link'
-            example:
-              [
-              {
-                "href": "identity-provider/templates?offset=50&limit=10",
-                "rel": "next",
-              },  {
-                "href": "identity-provider/templates?offset=30&limit=10",
-                "rel": "previous",
-              }
-              ]
-          templates:
-            type: array
-            items:
-              $ref: '#/components/schemas/IdentityProviderTemplateListItem'
-    IdentityProviderTemplateListItem:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-          example: 123e4567-e89b-12d3-a456-556642440000
-        name:
-          type: string
-          example: 'google'
-        description:
-          type: string
-          example: 'Identity provider template for google federation'
-        image:
-          type: string
-          example: 'google-logo-url'
-        category:
-          type: string
-          enum: [DEFAULT, CUSTOM]
-          example: 'DEFAULT'
-        displayOrder:
-          type: integer
-          example: 10
-        self:
-          type: string
-          example: '/t/carbon.super/api/server/v1/identity-providers/templates/123e4567-e89b-12d3-a456-556642440000'
-    IdentityProviderTemplate:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-          example: 123e4567-e89b-12d3-a456-556642440000
-        name:
-          type: string
-          example: google
-        description:
-          type: string
-          example: 'Google federated connector'
-        image:
-          type: string
-          example: 'google-logo-url'
-        category:
-          type: string
-          enum: [DEFAULT, CUSTOM]
-          example: 'DEFAULT'
-        displayOrder:
-          type: integer
-          example: 10
-        idp:
-          $ref : '#/components/schemas/IdentityProviderPOSTRequest'
-      required:
-        - name
-        - idp        

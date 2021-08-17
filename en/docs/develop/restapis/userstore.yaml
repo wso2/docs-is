@@ -575,10 +575,10 @@ components:
           type: string
           example: /t/{tenant-domain}/api/server/v1/userstores/SkRCQy1TRUNPTkRBUlk
           description: Location of the created/updated resource.
-        	        properties:	
-          type: array	
-          description: Requested configured user store property for the set	
-          items:	
+        properties:
+          type: array
+          description: Requested configured user store property for the set
+          items:
             $ref: '#/components/schemas/AddUserStorePropertiesRes'
     MetaUserStoreType:
       type: object
@@ -639,8 +639,8 @@ components:
         className:
           type: string
           example: org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager
-        self:	
-          type: string	
+        self:
+          type: string
           example: /t/{tenant-domain}/api/server/v1/userstores/meta/types/SkRCQ1VzZXJTdG9yZU1hbmFnZXI
     UserStoreConfigurationsRes:
       type: object
