@@ -29,7 +29,7 @@ elif [ -d "$original_dir" ];then
 
         #Change column name ‘network’ to ‘network_cidr’
         echo " ** change column name to ‘network_cidr’"
-        cut -d , -f 1 $original_dir/GeoLite2-City-Blocks-IPv4.csv > first.csv
+        sed -i '1s/network/network_cidr/' first.csv
 
         #Extract first two numbers from first.csv
         echo " ** Extract ip address data"
