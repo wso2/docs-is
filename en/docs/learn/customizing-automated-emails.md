@@ -168,12 +168,12 @@ corresponds to an email template type.
 Once you have set the template language for the user, it is also necessary to specify the locale for the user. Do the following steps to configure this.
 
 1.  Click on **List** under **Claims** and select <http://wso2.org/claims>.
-2.  Select the **Locality** claim and click **Edit**. Select the **Supported by Default** checkbox and click **Update**.
+2.  Select the **Local** claim and click **Edit**. Select the **Supported by Default** checkbox and click **Update**.
 3.  Logout as admin and login as a user with user profile management permissions.
 4.  Click on **List** under **Users and Roles** and then select **Users**.
 5.  Click on the **User Profile** button corresponding to the logged in user.  
     ![updating-user-locale](../assets/img/using-wso2-identity-server/updating-user-locale.png) 
-6.  Enter the locale code for the **Locality** field and click **Update**.
+6.  Enter the locale code for the **Local** field and click **Update**.
 
     !!! tip
     
