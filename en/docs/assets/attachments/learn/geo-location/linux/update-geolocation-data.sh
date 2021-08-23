@@ -18,13 +18,18 @@ elif [ -d "$original_dir" ];then
         echo "Cannot find the directory path $converted_dir, execution terminated! "
         exit 0;
     elif [ -d "$original_dir" ];then
+    
+        #Convert GeoLite2-City-Blocks-IPv4
+        echo " ** convert GeoLite2-City-Blocks-IPv4"
+        $converted_dir/geoip2-csv-converter -block-file=$original_dir/"GeoLite2-City-Blocks-IPv4.csv" -include-integer-range=true -output-file=$original_dir/"GeoLite2-City-Blocks-IPv4-converted.csv"
+        
         #Get first column form original GeoLite2-City-Blocks-IPv4
         echo " ** get first column form original"
         cut -d , -f 1 $original_dir/GeoLite2-City-Blocks-IPv4.csv > first.csv
 
         #Change column name ‘network’ to ‘network_cidr’
         echo " ** change column name to ‘network_cidr’"
-        cut -d , -f 1 $original_dir/GeoLite2-City-Blocks-IPv4.csv > first.csv
+        sed -i '1s/network/network_cidr/' first.csv
 
         #Extract first two numbers from first.csv
         echo " ** Extract ip address data"
@@ -36,7 +41,7 @@ elif [ -d "$original_dir" ];then
 
         #Extract entries from GeoLite2-City-Blocks-IPv4-converted.csv
         echo " ** extract entries from original"
-        cut -d , -f 1-10 $converted_dir/GeoLite2-City-Blocks-IPv4-converted.csv > middle.csv
+        cut -d , -f 1-10 $original_dir/GeoLite2-City-Blocks-IPv4-converted.csv > middle.csv
 
         #Change column name ‘network_start_integer’ to ‘network’
         echo " ** change column name to ‘network’"

@@ -31,11 +31,12 @@ Follow the procedure below in order to create a geolocation dataset to use when 
     -   In the `final.csv` file,
 
         ``` java
+        ** convert GeoLite2-City-Blocks-IPv4
         ** get the first column form original
         ** change the column name to ‘network_cidr’
         ** Extract the ip address data
         ** change the column name to ‘network_blocks’
-        ** extract the entries from original cut: /home/user/xxx/geoip2-csv-converter-v1.1x.0/GeoLite2-City-Blocks-IPv4-converted.csv: No such file or directory
+        ** extract the entries from original
         ** change the column name to ‘network’
         ** change the column name to ‘broadcast’
         ** merge the csv files
