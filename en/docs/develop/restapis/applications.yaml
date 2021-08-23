@@ -2497,15 +2497,14 @@ components:
           type: array
           description: Authorized redirect URIs
           example:
-            - 'https://app.example.com/callback1'
-            - 'https://app.example.com/callback2'	
+            - 'regexp=(https://app.example.com/callback1|https://app.example.com/callback2)'
           items:	
             type: string	
         allowedOrigins:	
           type: array	
           description: Authorized JavaScript origins	
           example:	
-            - 'https://app.example.com/js'
+            - 'https://app.example.com'
           items:
             type: string
         publicClient:
@@ -2532,16 +2531,14 @@ components:
         scopeValidators:
           type: array
           example:
-            - XACMLScopeValidator	
-            - RoleBasedScopeValidator
+            - Role based scope validator
+            - XACML Scope Validator
           items:
             type: string
         accessTokenBindingType:	
           type: string	
           description: Access token binding type.	
-          example:	
-            - sso-session	
-            - cookie
+          example:cookie
     OAuth2PKCEConfiguration:
       type: object
       properties:
