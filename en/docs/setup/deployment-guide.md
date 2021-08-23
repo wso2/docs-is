@@ -255,7 +255,7 @@ WSO2 supports the following membership schemes for clustering
         ??? tip "Click to see the instructions for Kubernetes membership scheme"
             When IS nodes are deployed in a clustered mode on Kubernetes, the Kubernetes Membership Scheme enables automatically discovering these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
 
-            - If not already present, download and copy the [kubernetes-membership-scheme-1.x.x.jar](https://github.com/wso2/kubernetes-common/tags) to `<IS_HOME>/repository/components/dropins/` directory.
+            - If not already present, download and copy the [kubernetes-membership-scheme-1.x.x.jar](https://github.com/wso2/kubernetes-common/tags) to the  `<IS_HOME>/repository/components/dropins/` directory.
 
             - Configure the `<IS_HOME>/repository/conf/deployment.toml` file with the following configurations.
 
@@ -285,14 +285,14 @@ WSO2 supports the following membership schemes for clustering
                 KUBERNETES_MASTER_SKIP_SSL_VERIFICATION = true
                 USE_DNS = false
                 ```
-            - In order to retrieve the pod IP addresses information from the Kubernetes apiserver, the Kubernetes membership scheme uses the pods service account hence the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the Role you bind has the following permissions.
+            - In order to retrieve the pod IP addresses information from the Kubernetes apiserver, the Kubernetes membership scheme uses the pods service account. Hence, the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the Role you bind has the following permissions.
                 ```
                 rules:
                 - apiGroups: [""]
                 verbs: ["get", "list"]
                 resources: ["endpoints"]
                 ```
-            - Optionally a Kubernetes token or basic authentication can be used to authenticate with the Kubernetes apiserver. The following properties can be set under [clustering.properties] accordingly.
+            - Optionally, a Kubernetes token or basic authentication can be used to authenticate with the Kubernetes apiserver. The following properties can be set under `[clustering.properties]` accordingly.
                 - KUBERNETES_API_SERVER : This is the Kubernetes API endpoint,e.g., http://172.17.8.101:8080 . Alternatively, an https endpoint can be set via KUBERNETES_SERVICE_HOST and KUBERNETES_SERVICE_PORT_HTTPS.
                 - KUBERNETES_SERVICE_HOST : This is the Kubernetes API host name or IP address, e.g., kuberneteshostname 
                 - KUBERNETES_SERVICE_PORT_HTTPS : This is the Kubernetes API https listening port. This must be an Integer value.
