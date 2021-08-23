@@ -55,7 +55,7 @@ authentication.
     
         -   To successfully proceed with the authentication flow, the user
             must select all mandatory claims (marked with \* ) and a pprove
-            the consent request. The u ser cannot proceed with
+            the consent request. The user cannot proceed with
             authentication without providing consent for the mandatory
             claims.
     
@@ -76,7 +76,7 @@ authentication.
 
     -   The user has revoked consent for the application. For more
         information on revoking user consent, see 
-        [Consent management](../../learn/user-portal/#consent-management)
+        [Consent management](../learn/my-account/#consent-management)
         .
 
     -   The application requires new mandatory claims that the user has
