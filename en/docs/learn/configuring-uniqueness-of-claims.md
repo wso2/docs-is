@@ -1,5 +1,8 @@
 # Configuring Uniqueness of Claims
 
+!!! Note
+      This feature is available with wso2is- 5.11.0.22 or above update levels only.
+
 WSO2 Identity Server can be configured to keep uniqueness of user claims.
 After enabling this feature you can keep a user claim value as a unique value within all userstores.
 
