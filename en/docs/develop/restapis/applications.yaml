@@ -2538,7 +2538,7 @@ components:
         accessTokenBindingType:	
           type: string	
           description: Access token binding type.	
-          example:cookie
+          example: cookie
     OAuth2PKCEConfiguration:
       type: object
       properties:
