@@ -4,6 +4,87 @@ The Device Authorization Grant is one of the grant types in the OAuth 2.0
 specification. For more information about this grant type, see
 [Device Authorization Grant](../../learn/device-flow-grant).
 This section guides you on how to try out the Device Authorization grant type.
+
+### Device Authorization Grant Configurations
+
+Following are the device authorization grant properties that are configurable.
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Configuration
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="even">
+            <td>
+                <p>Key length</p>
+            </td>
+            <td>
+                <p>The length of the user code.</p>
+            </td>
+            <td>
+                key_length
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <p>Expiry time</p>
+            </td>
+            <td>
+                <p>The expiry time of the user code in milliseconds.</p>
+            </td>
+            <td>
+                expiry_time
+            </td>
+        </tr>
+        <tr class="even">
+            <td>
+                <p>Polling interval</p>
+            </td>
+            <td>
+                <p>The minimum amount of time in seconds that the client should wait between polling requests to the
+                 token endpoint in milliseconds.</p> 
+            </td>
+            <td>
+                polling_interval
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <p>Key set</p>
+            </td>
+            <td>
+                <p>The set of characters that is used to generate the user code.</p>
+            </td>
+            <td>
+                key_set
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+### Configuring Device Authorization Grant properties during deployment
+
+All the above parameters can be configured at the server level through the `deployment.toml` file. A sample configuration 
+is shown below. 
+
+```
+[oauth.grant_type.device_code]
+key_length = 7
+expiry_time = 60000
+polling_interval = 5000
+key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
+```
+
     
 1. Navigate to <IS_HOME>/bin and start the server by executing the following command on a terminal window.
 
