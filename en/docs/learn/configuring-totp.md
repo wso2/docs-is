@@ -92,7 +92,7 @@ and security during the authentication for this application.
 ## Configuring the user profile
 
 1.  Login to the
-    [user portal](../../learn/user-portal) and go to **Personal info**.  
+    [My Account user portal](../../learn/my-account) and go to **Personal info**.  
 2.  Update your email address in **Profile**(this email address is used to send the
     token).
     ![my-profile-gadget](../assets/img/tutorials/update-email-in-profile.png)
