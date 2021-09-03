@@ -15,8 +15,8 @@
             When configuring single-sign-on for Management Console, "Issuer" value of the SAML request is defaulted to **carbonServer** as mentioned above.
             You can change this value by adding following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
             ```toml
-                [admin_console.authenticator.saml_sso_authenticator.config]
-                ServiceProviderID = "CustomCarbonServerIssuer"
+                [admin_console.authenticator.saml_sso_authenticator]
+                service_provider_id = "CustomCarbonServerIssuer"
             ```
     
     
@@ -67,7 +67,15 @@
     priority="1"
     ```
 
-14. Save and close the `deployment.toml` file.
+14. Set `assertion_consumer_service_url` and `identity_provider_sso_service_url`.
+
+    ``` toml
+    [admin_console.authenticator.saml_sso_authenticator]
+    assertion_consumer_service_url = "https://localhost:9443/acs"
+    identity_provider_sso_service_url = "https://localhost:9443/samlsso"
+    ```
+    
+15. Save and close the `deployment.toml` file.
 
 
 ## Try it out
