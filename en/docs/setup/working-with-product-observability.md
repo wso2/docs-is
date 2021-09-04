@@ -45,7 +45,7 @@ database calls.
     appender.CORRELATION.type = RollingFile
     appender.CORRELATION.name = CORRELATION
     appender.CORRELATION.fileName =${sys:carbon.home}/repository/logs/correlation.log
-    appender.CORRELATION.filePattern =${sys:carbon.home}/repository/logs/correlation-%d{MM-dd-yyyy}.log
+    appender.CORRELATION.filePattern =${sys:carbon.home}/repository/logs/correlation-%d{MM-dd-yyyy}.%i.log
     appender.CORRELATION.layout.type = PatternLayout
     appender.CORRELATION.layout.pattern = %d{yyyy-MM-dd HH:mm:ss,SSS}|%X{Correlation-ID}|%t|%mm%n
     appender.CORRELATION.policies.type = Policies
