@@ -70,7 +70,7 @@ WSO2 Identity Server to define work flows.
     
     ```toml
     [user_store]
-    type = "database"
+    type = "database_unique_id"
     ```
 
 6.  Start WSO2 IS if you have not started it already and the WSO2 EI business-process profile using the following commands. Alternatively for running the products in Windows, execute `wso2server.bat`. 
