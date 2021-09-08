@@ -121,17 +121,17 @@ below:
     
 ### Configuring JIT Provisioning Enhanced Feature (Optional)
 
-Add the following configuration to deployment.toml in <IS_HOME>/conf directory.
+Add the following configuration to `deployment.toml` in the <IS_HOME>/conf directory.
 
-    ```toml
-    [authentication.jit_provisioning]
-    enable_enhanced_feature = "true"
-    ```
+```toml
+[authentication.jit_provisioning]
+enable_enhanced_feature = "true"
+```
 
-With the JIT provisioned enhanced feature following capabilities will be available.
+With the the JIT provisioned enhanced feature, the following capabilities will be available.
 
 -   A Federated unique user id will be set as the username of the JIT provisioned user.
 -   Second-factor authenticators(Ex:- TOTP, Email OTP) will be able to configure for federated users when JIT provisioing is enabled
--   When IDP deletes, all provisioned users from that IDP will be deleted.
+-   When an IDP is deleted, all provisioned users from that IDP will be deleted.
 -   Editing JIT provisioned user’s attributes will not be allowed.
--   JIT provisioned user accounts will be able to lock based on social identity.
+-   Ability to lock JIT provisioned user accounts based on social identity.
