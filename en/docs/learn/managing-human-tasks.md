@@ -13,19 +13,13 @@ Human tasks are the steps that require human interaction in order to allow the p
     
     ![workflow-pending-status](../assets/img/using-wso2-identity-server/console.png)  
 
-3.  [Sign in to the User Portal](../../learn/user-portal/#accessing-the-user-portal-and-its-components) as a manager. 
+3.  Access the console URL (`https://<IS_HOST>:<IS_PORT>/console`) and sign in as a manager.
 
-4.  Choose **Operations** from the left panel. Select **Ready** tab in **Pending Approvals**.  
+4.  In the **Manage** tab, choose **Approvals** from the left panel.  
 
-    ![pending-approvals](../assets/img/using-wso2-identity-server/pending-list.png)       
+5.  Select the approval task corresponding to the request made for user, Alex.
     
-5.  To view more information about the request, click the **show more** button corresponding to the request made for user, Alex.
-
-    ![workflow-task-status](../assets/img/using-wso2-identity-server/pending-info.png) 
-
-6.  Click on the button corresponding to a state to move the state of the selected task to a new state and to complete
-    the workflow approval process. For example, clicking **Approve** will approve the pending task and complete the workflow process. Now you can find this request in the **Completed** tab.  
-    ![approving-pending-task](../assets/img/using-wso2-identity-server/approved.png)   
+6.  Click **Approve** to approve the pending task and complete the workflow process. Now the approval task will be changed to **Completed** state. 
 
     | Operation  | Description                                                                                                                                                               |
     |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
