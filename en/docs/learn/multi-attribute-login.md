@@ -7,53 +7,44 @@ how to configure this.
 
 ## Configuring WSO2 IS for Multi Attribute Login
 
-1. Start the Identity Server and log in to the [Management Console](https://<IS_HOST>:<PORT>/carbon) using your tenant credentials.
+1.  Start the Identity Server and log in to the [Management Console](https://<IS_HOST>:<PORT>/carbon) using your 
+    tenant credentials.
 
-   !!! info
-       'admin' is the default administrative user in WSO2 Identity Server.
+    !!! info
+        'admin' is the default administrative user in WSO2 Identity Server.
    
-   !!! info
-       If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
+    !!! info
+        If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
 
-2. Click **Main** > **Identity Providers** > **Resident**  and expand the **Account Management** section.
+2.  Click **Main** > **Identity Providers** > **Resident**  and expand the **Account Management** section.
 
-3. Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
+3.  Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
 
-4. Then add claim URIs which allow for multi-attribute login in the given text box.
+4.  Then add claim URIs which allow for multi-attribute login in the given text box.
 
-   ![adding-claims-for-multi-attribute-login](../assets/img/learn/multi-attribute-login/adding-claims-for-multi-attribute-login.png)
 
-5. Add Regular Expression for Allowed Claims. 
+    ![adding-claims-for-multi-attribute-login](../assets/img/learn/multi-attribute-login/adding-claims-for-multi-attribute-login.png)
 
-   Once you have configured WSO2 Identity Server for multi attribute login, you need to provide regular expression for multi attribute allowed claims. Some claims already have a default regex, if not you need to provide it under the claim edit window.
-   Select claim from claim list and open the Edit window. Then enter the Regex pattern under Regular Expression field.
-   
-   ![adding-regex-pattern-to-claims](../assets/img/learn/multi-attribute-login/adding-regex-pattern-to-claim.png)
+5. Add Regular Expression for Allowed Claims.
 
-   Here are a few examples for regex patterns.
-   
-    <table>
-        <thead>
-            <tr class="header">
-                <th>Claim URI</th>
-                <th>Example Regex pattern</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="odd">
-                <td>http://wso2.org/claims/emailaddress</td>
-                <td>^([a-zA-Z0–9_\.\-])+\@(([a-zA-Z0–9\-])+\.)+([a-zA-Z0–9]{2,4})+$</td>
-            </tr>
-            <tr class="even">
-                <td>http://wso2.org/claims/telephone</td>
-                <td>^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$</td>
-            </tr>
-            <tr class="odd">
-                <td>http://wso2.org/claims/username</td>
-                <td>^[a-zA-Z0–9._-]{3,}$</td>
-            </tr>
-        </tbody>
-    </table>
+    Once you have configured WSO2 Identity Server for multi attribute login, you need to provide regular expression 
+    for multi attribute allowed claims.
+    Some claims already have a default regex, if not you need to provide it.
+
+    1.  Open Management Console and in the **Main** menu, click **List** under **Claims**.
+    2.  Select the claim you want to provide the regular expression and click **Edit**.
+    3.  Enter the regex pattern under the **Regular Expression** field.
+    4.  Click **Update** button to save the changes.
+
+    ![adding-regex-pattern-to-claims](../assets/img/learn/multi-attribute-login/adding-regex-pattern-to-claim.png)
+
+    Here are a few examples for regex patterns.
+
+    | Claim URI                           | Example Regex pattern    |
+    |-------------------------------------|-----------------------------------------------------------------|
+    | http://wso2.org/claims/emailaddress | ^([a-zA-Z0–9_\.\-])+\@(([a-zA-Z0–9\-])+\.)+([a-zA-Z0–9]{2,4})+$ |
+    | http://wso2.org/claims/telephone    | ^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$ |
+    | http://wso2.org/claims/username     | ^[a-zA-Z0–9._-]{3,}$                                            |
 
 You have now successfully set up WSO2 Identity Server to enable multi-attribute login.
 
@@ -70,9 +61,8 @@ using any of following flow.
 6. Password recovery flow
 
 !!! Note "What happens if two users use the same value for the same claim?"
-
-   If two users use the same value for the same claim, the multi attribute login feature
-   does not support those claims for those users. Retaining the uniqueness of claim values avoids this conflict.
+    If two users use the same value for the same claim, the multi attribute login feature
+    does not support those claims for those users. Retaining the uniqueness of claim values avoids this conflict.
 
 !!! info "Related Topics"
     See the [Configuring Uniqueness of Claims](../../learn/configuring-uniqueness-of-claims) topic for information on configuring uniqueness of claims.
