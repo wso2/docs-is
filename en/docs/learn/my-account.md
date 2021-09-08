@@ -284,18 +284,6 @@ WSO2 IS provides a comprehensive consent management solution that can be used to
 
 ---
 
-## Review pending approvals
-
-WSO2 IS enables more control over the tasks that are executed using workflows. This is particularly useful in a scenario where user accounts need to be approved in WSO2 IS. Workflows provide the flexibility to configure this approval process in a way that suits the user's scenario.
-
-****My Account**** allows you to review the workflow operations like adding users, updating user claims, deleting users, and approving or denying them. For the convenience of the users, pending approvals are categorized into three states namely, **ready, reserved and completed**.
-
-Whenever a user gets created in the system, that task will appear under the **ready** section waiting for approval. Whenever a task  is reviewed and claimed, that task will be listed under the **reserved** section of approvals. Once the task is approved or denied, it will appear under the **completed** section.
-
-![pending-approvals-all](../assets/img/using-wso2-identity-server/user-portal/pending-approvals/pending-approvals-all.png)
-
----
-
 !!! info "Related Topics"
     - To change the look and feel of the **My Account** UI, see [Customizing the **My Account** UI](../../develop/customizing-my-account-ui).
     - To set up **My Account** in a dev environment, see [Setting Up **My Account** in a Development Environment](../../develop/setting-up-my-account-in-a-dev-environment).

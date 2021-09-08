@@ -17,13 +17,6 @@ Consider a company where new employees are added to the system by HR but only af
 
 ![sample-for-workflow](../assets/img/using-wso2-identity-server/sample-for-workflow.png) 
 
-!!! info
-    
-    For more information about workflow usecases and a demo of workflow management using the WSO2 Identity Server Management console, watch the screencast video below.
-
-    <iframe width="600" height="400" src="https://www.youtube.com/embed/2MM-0B3SI7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 !!! info 
     An embedded Business Process Management engine is included in WSO2 Identity Server to execute this feature. However, if you need more flexibility and more extensibility with this feature than what is
     currently provided, it is advisable to integrate WSO2 Identity Server with [WSO2 Enterprise Integrator](https://ei.docs.wso2.com/en/latest/).
