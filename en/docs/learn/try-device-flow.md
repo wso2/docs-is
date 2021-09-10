@@ -112,7 +112,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
 5. Select `urn:ietf:params:oauth:grant-type:device_code` to enable using the device flow grant type. 
 
     !!! info
-    Since these are public clients, ensure that the Allow authentication without the client secret option is checked.
+    Since these are public clients, ensure that the **Allow authentication without the client secret** option is checked.
 
 6. Next, click Update to save the service provider configurations. Note the generated OAuth client key and client
  secret.
