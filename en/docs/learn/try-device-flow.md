@@ -114,7 +114,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
     !!! info
     Since these are public clients, ensure that the **Allow authentication without the client secret** option is checked.
 
-6. Next, click Update to save the service provider configurations. Note the generated OAuth client key and client
+6. Next, click **Update** to save the service provider configurations. Note the generated OAuth client key and client
  secret.
 
     ![consumer-key-service-provider-oauth](../assets/img/using-wso2-identity-server/get-oauth-consumer-key.jpg)
