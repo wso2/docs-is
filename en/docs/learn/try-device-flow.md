@@ -179,7 +179,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
  authorization server. The client will poll the authorization server with the polling interval mentioned in the
   response in step 7. 
   
-    Open a terminal window and run the following command to send a token request to  the authorization server.
+    Open a terminal window and run the following command to send a token request to the authorization server.
     
     <table>
     <tbody>
