@@ -105,7 +105,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
     
     ![register-service-provider-name](../assets/img/using-wso2-identity-server/register-sp-name.jpg)
 
-4. Expand Inbound Authentication Configuration and then expand OAuth/OpenID Connect Configuration. Click Configure.
+4. Expand **Inbound Authentication Configuration**  > **OAuth/OpenID Connect Configuration**. Click **Configure**.
 
     ![register-service-provider-oauth](../assets/img/using-wso2-identity-server/register-sp-oauth.jpg)
 
