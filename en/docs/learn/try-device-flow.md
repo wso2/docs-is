@@ -122,7 +122,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
     !!! tip
     When configuring with your device, configure the client ID as your OAuth client-key.
 
-7. Open a terminal window and run the following command to send a request to the device_authorize endpoint. 
+7. Open a terminal window and run the following command to send a request to the `device_authorize` endpoint. 
 
     The client (the device) is initiating this request to obtain a device
     code, a user code, and a verification URI from the authorization server.
