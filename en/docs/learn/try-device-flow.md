@@ -99,7 +99,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
 2. Access the [WSO2 Identity Server Management Console] (https://localhost:9443/carbon) and log in using your user
  name and password.
 
-3. On the Main menu, click Service Providers > Add and add a new service provider.
+3. On the **Main** menu, click **Service Providers** > **Add**.
 
     ![register-service-provider](../assets/img/using-wso2-identity-server/register-service-provider.png)
     
