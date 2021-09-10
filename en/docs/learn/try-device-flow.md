@@ -112,7 +112,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
 5. Select `urn:ietf:params:oauth:grant-type:device_code` to enable using the device flow grant type. 
 
     !!! info
-    Since these are public clients, ensure that the **Allow authentication without the client secret** option is checked.
+        Since these are public clients, ensure that the **Allow authentication without the client secret** option is checked.
 
 6. Next, click **Update** to save the service provider configurations. Note the generated OAuth client key and client
  secret.
@@ -120,7 +120,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
     ![consumer-key-service-provider-oauth](../assets/img/using-wso2-identity-server/get-oauth-consumer-key.jpg)
 
     !!! tip
-    When configuring with your device, configure the client ID as your OAuth client-key.
+        When configuring with your device, configure the client ID as your OAuth client-key.
 
 7. Open a terminal window and run the following command to send a request to the `device_authorize` endpoint. 
 
