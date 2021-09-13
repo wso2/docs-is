@@ -63,6 +63,7 @@ as explained [here](../../setup/configuring-email-sending).
     CaptureAndUpdateEmailAddress = true
     showEmailAddressInUI = true
     useEventHandlerBasedEmailSender = true
+    emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
     ``` 
 
 
@@ -236,6 +237,16 @@ as explained [here](../../setup/configuring-email-sending).
                         </ul>
                     </td>
                 </tr>
+                <tr>
+                    <td><code>emailAddressRegex</code></td>
+                    <td>When the `showEmailAddressInUI` is enabled, this provides the capability to define the way the email address to be displayed in the UI. This can be configured with a proper regex pattern as required.</td>
+                    <td>
+                        <ul>
+                            <li><code>(?&lt;=.{1}).(?=.*@)</code>&nbsp;&nbsp;:&nbsp;&nbsp;`t***@mail.com`</li>
+                            <li><code>(?&lt;=.)[^@](?=[^@]*?@)|(?:(?&lt;=@.)|(?!^)\\G(?=[^@]*$)).(?=.*\\.)</code>&nbsp;&nbsp;:&nbsp;&nbsp;`t***@m***.com`</li>
+                        </ul>
+                    </td>
+                </tr>
             </tbody>
         </table>
 
@@ -376,6 +387,7 @@ Follow the steps below to send the One Time Password (OTP) using Gmail APIs or u
     CaptureAndUpdateEmailAddress = true
     showEmailAddressInUI = true
     useEventHandlerBasedEmailSender = true
+    emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
     ```
         
     !!! Tip
