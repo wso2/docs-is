@@ -64,6 +64,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
         CaptureAndUpdateEmailAddress = true
         showEmailAddressInUI = true
         useEventHandlerBasedEmailSender = true
+        emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
         ``` 
     
     
@@ -237,6 +238,16 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                             </ul>
                         </td>
                     </tr>
+                    <tr>
+                        <td><code>emailAddressRegex</code></td>
+                        <td>When the `showEmailAddressInUI` is enabled, this provides the capability to define the way the email address to be displayed in the UI. This can be configured with a proper regex pattern as required.</td>
+                        <td>
+                            <ul>
+                                <li><code>(?&lt;=.{1}).(?=.*@)</code>&nbsp;&nbsp;:&nbsp;&nbsp;`t***@mail.com`</li>
+                                <li><code>(?&lt;=.)[^@](?=[^@]*?@)|(?:(?&lt;=@.)|(?!^)\\G(?=[^@]*$)).(?=.*\\.)</code>&nbsp;&nbsp;:&nbsp;&nbsp;`t***@m***.com`</li>
+                            </ul>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     
@@ -395,6 +406,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
             CaptureAndUpdateEmailAddress = true
             showEmailAddressInUI = true
             useEventHandlerBasedEmailSender = true
+            emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
             ```
             
         ??? Tip
