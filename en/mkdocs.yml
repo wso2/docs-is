@@ -422,6 +422,7 @@ nav:
             - 'Refresh Token Grant': learn/refresh-token-grant.md
             - 'Kerberos Grant': learn/kerberos-grant.md
             - 'JWT Bearer Grant': learn/jwt-grant.md
+            - 'Device Authorization grant': learn/device-flow-grant.md
           - 'SAML2 Bearer Assertion Profile for OAuth 2.0': learn/saml2-bearer-assertion-profile-for-oauth-2.0.md
           - 'Setting Up OAuth Token Hashing': learn/setting-up-oauth-token-hashing.md
           - 'JWT Token Generation': learn/jwt-token-generation.md
@@ -498,6 +499,7 @@ nav:
             - 'Try Password Grant': learn/try-password-grant.md
             - 'Try Request Path Authentication': learn/try-request-path-authentication.md
           - 'Setting up a SAML2 Bearer Assertion Profile for OAuth 2.0': learn/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0.md
+          - 'Try Device Flow Grant': learn/try-device-flow.md
         - 'OpenIDConnect':
           - 'Basic Client Profile with Playground': learn/basic-client-profile-with-playground.md
           - 'Implicit Client Profile with Playground': learn/implicit-client-profile-with-playground.md
