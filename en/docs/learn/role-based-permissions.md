@@ -160,7 +160,7 @@ follows:
     <td>When the <strong>Admin/Manage</strong> permission is selected, the following menus will be enabled in the management console:<br />
     <br />
     <strong>- Main</strong> menu <strong>/Service Providers:</strong> See the topic on <a href="../../learn/adding-and-configuring-a-service-provider">working with service providers</a> for details on how to use this option.<br />
-    <strong>- Tools</strong> menu <strong>/SAML:</strong> See the topic on <a href="../../administer/using-the-saml2-toolkit">working with the SAML tool kit</a> for more details. <strong><br />
+    <strong>
     <br />
     </strong> - Additionally, all permissions listed under <strong>Admin/Manage</strong> in the permissions navigator will be enabled automatically. <strong></strong></td>
     </tr>
