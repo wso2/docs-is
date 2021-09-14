@@ -395,6 +395,3 @@ of entity configuration.
         Server](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     -   [Configuring SAML2 Single-Sign-On Across Different WSO2
         Products](../../learn/configuring-saml2-single-sign-on-across-different-wso2-products)
-
-    See [Using the SAML2
-    Toolkit](../../administer/using-the-saml2-toolkit) for support on debugging issues with SAML2 configurations.
