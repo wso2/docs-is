@@ -56,10 +56,10 @@ If you need to configure a different keystore for SSL, you may change the values
     
 ```toml 
 [transport.https.sslHostConfig.certificate.properties]
-certificateKeystoreFile = "${carbon.home}/repository/resources/security/$ref{keystore.tls.file_name}",
-certificateKeystorePassword = "$ref{keystore.tls.password}"",
-certificateKeystoreType = "$ref{keystore.tls.type}",
-certificateKeyAlias = "$ref{keystore.tls.alias}",
+certificateKeystoreFile = "${carbon.home}/repository/resources/security/$ref{keystore.tls.file_name}"
+certificateKeystorePassword = "$ref{keystore.tls.password}"
+certificateKeystoreType = "$ref{keystore.tls.type}"
+certificateKeyAlias = "$ref{keystore.tls.alias}"
 certificateKeyPassword = "$ref{keystore.tls.key_password}"
 ```
   

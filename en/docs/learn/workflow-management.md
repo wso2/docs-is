@@ -13,16 +13,9 @@ Let's consider a sample use case.
 
 ## Sample use case
 
-Consider a company where new employees are added to the system by HR, but only after it goes through an approval process. For example, a senior HR manager has to approve new user additions. Once this is done, the user can login to the system and continue his work. The following pre-requisites are necessary to implement this sample use case:
+Consider a company where new employees are added to the system by HR but only after it goes through an approval process. For example, a senior HR manager has to approve new user additions. Once this is done, the users can log in to the system and continue their work. The following pre-requisites are necessary to implement this sample use case:
 
 ![sample-for-workflow](../assets/img/using-wso2-identity-server/sample-for-workflow.png) 
-
-!!! info
-    
-    For more information about workflow usecases and a demo of workflow management using the WSO2 Identity Server Management console, watch the screencast video below.
-
-    <iframe width="600" height="400" src="https://www.youtube.com/embed/2MM-0B3SI7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 !!! info 
     An embedded Business Process Management engine is included in WSO2 Identity Server to execute this feature. However, if you need more flexibility and more extensibility with this feature than what is

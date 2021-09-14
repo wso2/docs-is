@@ -201,13 +201,7 @@ failed login attempts. To configure this, follow the steps below.
 
 #### Configuring email templates for WUM Updated version
 
-!!! warning
-    To use this feature, apply the `0015` WUM update for WSO2 Identity Server 5.9.0 using the WSO2 Update Manager 
-    (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, 
-    you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating 
-    WSO2 Identity Server using WUM, see [Updating WSO2 Products](../../administer/getting-wso2-updates)
-    
-WUM Updated WSO2 Identity Server 5.9.0 uses separate email templates for notifying, 
+WSO2 Identity Server uses separate email templates for notifying, 
 
 - Account locking by exceeding `Maximum Failed Login Attempts`
 - Account unlocking by exceeding `Account Unlock Time`

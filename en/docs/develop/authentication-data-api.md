@@ -28,7 +28,7 @@ need to configure the Identity Server as follows.
     [authentication.endpoint.redirect_params] 
     filter_policy = "include"    
     remove_on_consume_from_api = "true"
-    parameters = [sessionDataKey]
+    parameters = ["sessionDataKey"]
     ```
 
     <table>
@@ -41,7 +41,7 @@ need to configure the Identity Server as follows.
         <tbody>
             <tr>
                 <td>filter_policy</td>
-                <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates a whitelist, whereas an <b>exclude</b> indicates a blacklist.</td>
+                <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates an allowlist value, whereas an <b>exclude</b> indicates a denylist value.</td>
             </tr>
             <tr>
                 <td>remove_on_consume_from_api</td>
@@ -49,7 +49,7 @@ need to configure the Identity Server as follows.
             </tr>
             <tr>
                 <td>parameters</td>
-                <td>The list of parameters to be whitelisted/blacklisted. The name attribute is used to specify the parameter name.</td>
+                <td>The list of parameters to be allowlisted/denylisted. The name attribute is used to specify the parameter name.</td>
             </tr>
             <tr>
                 <td>sessionDataKey</td>

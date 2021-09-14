@@ -27,7 +27,6 @@ distribution.
     2.  To download the pack without updates, click **DOWNLOAD**.
 
     !!! note
-    
         The installation prerequisites for WSO2 IS Analytics is as same as
         for WSO2 Stream Processor (WSO2 SP). Therefore, for detailed
         information about the supporting applications you need to install,
@@ -100,6 +99,25 @@ Follow the steps below to enable event publishing in WSO2 IS.
     </tr>
     </tbody>
     </table>
+    
+    **Enable analytics for Password grant logins**
+            
+    !!! warning
+                 
+             To use this feature, apply the 0038 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
+             (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a 
+             paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is 
+             released. For more information on updating WSO2 Identity Server using WUM, see 
+             [Updating WSO2 Products](https://is.docs.wso2.com/en/5.10.0/administer/getting-wso2-updates/).
+             
+     Optionally, you can enable analytics for password grant type logins. Add the following configuration to the 
+     deployment.toml file to enable this feature.
+         
+     ```
+     [analytics]
+     publish_password_grant_logins=true
+     ```
+         
 
 ### Step 03: Configure Event Publishers
 
@@ -338,7 +356,13 @@ Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
         -   If you are running WSO2 IS Analytics in a clustered setup, see
             [WSO2 Stream Processor Deployment
             Guide](https://docs.wso2.com/stream-processor/Deployment+Guide).
-    
+            The viable cluster types for WSO2 IS Analytics are [Minimum High Availability 
+            Deployment](https://docs.wso2.com/display/SP440/Minimum+High+Availability+Deployment) 
+            (recommended) and [Fully Distributed 
+            Deployment](https://docs.wso2.com/display/SP440/Fully+Distributed+Deployment).
+            For both types, database system state persistence need to be enabled and configured.
+            If required, the dashboard profile can be hosted outside the cluster with
+            the state persistence database of the cluster configured as a datasource.
 
     1.  Run the Worker node of WSO2 IS Analytics. For detailed
         instructions, see [WSO2 SP - Starting Worker

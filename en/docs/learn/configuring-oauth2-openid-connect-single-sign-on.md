@@ -29,7 +29,7 @@ Let's get started to configure the service provider you created!
 
 1.  Expand the **Inbound Authentication Configuration** section and then
     expand **OAuth/OpenID Connect Configuration.** Click **Configure**.
-2.  Fill in the form that appears. For the **Allowed Grant Types** you
+2.  Fill in the form that appears. For the **Allowed Grant Types**, you
     can disable the ones you do not require or wish to block.
 
     !!! note
@@ -169,7 +169,7 @@ Let's get started to configure the service provider you created!
       <tr class="odd">
          <td><strong>Enable Request Object Signature Validation</strong></td>
          <td>
-            <p>This is to define whether to only accept signed request objects in an authorization rqeuest or not. For more information, see <a href="../../learn/enforcing-signature-validation-for-request-objects">Enforcing Signature Validation for Request Objects</a>.</p>
+            <p>This is to define whether to only accept signed request objects in an authorization request or not. For more information, see <a href="../../learn/enforcing-signature-validation-for-request-objects">Enforcing Signature Validation for Request Objects</a>.</p>
          </td>
       </tr>
       <tr class="even">
@@ -239,10 +239,12 @@ Let's get started to configure the service provider you created!
 
         Add the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
     
-        ``` toml
-        [oauth]
-        hash_tokens_and_secrets= true
-        ```
+		``` toml
+		[oauth]
+		hash_tokens_and_secrets= true
+		[oauth.extensions]
+		token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor"
+		```
 
     After updating the configuration, make sure to restart the server
     for the changes to be applied on WSO2 IS.

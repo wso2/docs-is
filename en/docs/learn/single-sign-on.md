@@ -54,7 +54,7 @@ Single Sign-On (SSO) requires you to sign in only once but provides access to mu
 
 You use SSO on it's own or use SSO and Federation coupled together. Identity Federation involves configuring a third party identity provider as the federated authenticator to login to an application. When federation is coupled with SSO, the user can log in to one application using the credentials of the federated authenticator, and simultaneously be authenticated to other connected applications without having to provide credentials again.
 
-For instance, you can set up google as a federated authenticator and then set up SSO between App1 and App2.  This will allow users to log in to App1 using their google credentials. Once the user is logged in, when the user attempts to access App2, he/she will not be prompted for credentails again and is logged in automatically. 
+For instance, you can set up google as a federated authenticator and then set up SSO between App1 and App2.  This will allow users to log in to App1 using their google credentials. Once the user is logged in, when the user attempts to access App2, he/she will not be prompted for credentials again and is logged in automatically. 
 
 For more information on Identity Federation on it's own (without SSO), see the [Identity Federation](../../learn/identity-federation) topic.
 

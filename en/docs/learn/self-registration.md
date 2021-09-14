@@ -2,13 +2,13 @@
 
 Self-registration is an [account management](../../learn/managing-user-accounts) feature offered by WSO2 Identity Server. 
 
-In this approach, when a user self-registers, a user account gets created and an email requesting for account confirmation is send to the user's registerd email ID. The account remains locked for a predefined duration during which the user should confirm the account creation. If the user does not confirm the account creation before the predefined duration, the user account gets locked. Such accounts can be deleted by administrators to manage resources effectively.
+In this approach, when a user self-registers, a user account gets created and an email requesting for account confirmation is sent to the user's registered email ID. The account remains locked for a predefined duration during which the user should confirm the account creation. If the user does not confirm the account creation before the predefined duration, the user account gets locked. Such accounts can be deleted by administrators to manage resources effectively.
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Mark** is a new recruit who wishes to use the self-registration option to create a user account. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Sam** is a new recruit who wishes to use the self-registration option to create a user account. 
 
-When Mark self-registers, an email requesting for account creation confirmation is sent to Mark's registered email account. Mark should respond to the confirmation email before the confirmation acceptance window expires. If Mark fails to confirm the account creation, his user account will be locked and Robert will be able to delete his user account. 
+When Alex self-registers, an email requesting for account creation confirmation is sent to Alex's registered email account. Alex should respond to the confirmation email before the confirmation acceptance window expires. If Alex fails to confirm the account creation, the user account will be locked and Sam will be able to delete this user account. 
 
 <img src="../../assets/img/learn/self-registration.png" alt="Scenario Diagram" width="800">  
 
@@ -138,7 +138,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 		8. 	Click **Finish**. Note that the Consent Purposes screen appears.
 
-		9.	Clic **Finish**. Note that the User Self Registration screen appears. 	
+		9.	Click **Finish**. Note that the User Self Registration screen appears. 	
 
 7.	Click **Update**.
 
@@ -153,15 +153,21 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 	<img src="../../assets/img/learn/register-now-option.png" alt="Register Now option" width="400" style="border:1px solid grey"> 	
 
-3.	Enter the user name as `Mark` and click **Proceed to Self Register**.
+3.	Enter the user name as `Alex` and click **Proceed to Self Register**.
 
 	<img src="../../assets/img/learn/start-signing-up-form.png" alt="Start Signing Up form" width="500" style="border:1px solid grey">
 
+    !!! tip "Using special characters in the username"
+                
+        Note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and whitespaces are
+         not allowed in usernames as they have been reserved for other purposes. See [Usernames in WSO2 Identity Server
+         ](../references/usernames-in-identity-server.md) for more information on this.
+                     
 	The **Create New Account** screen appears.
 
 	<img src="../../assets/img/learn/create-new-account-screen.png" alt="Create New screen" width="500" style="border:1px solid grey">
 
-	1.	Enter `Mark` in the **First Name** text box.
+	1.	Enter `Alex` in the **First Name** text box.
 
 	2.	Enter a preferred password in the **Password** and **Confirm password** text boxes.
 
@@ -183,12 +189,12 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 6.	Click **Close**. The WSO2 Identity Server User Portal Login screen appears.
 
-7. 	Log in with Mark's credentials and navigate to the Home screen.  
+7. 	Log in with Alex's credentials and navigate to the Home screen.  
 
 
 !!! tip
 
 	Following are more self-registration methods:
 
-	-	[Self-Registration with REST API](/develop/using-the-self-sign-up-rest-apis/)
-	-	[Self-Registration with SCIM/Me](/learn/creating-users-using-the-ask-password-option#ask-password)  
+	-	[Self-Registration with REST API](../../develop/using-the-self-sign-up-rest-apis/)
+	-	[Self-Registration with SCIM/Me](../../learn/creating-users-using-the-ask-password-option/#ask-password)  

@@ -5,15 +5,15 @@ This section describes multi-factor authentication (MFA) and guides you on how t
 ## About MFA
 
 ### Shortcomings in traditional authentication
-Due to increasing digital crimes and internet fraud in the world, people are highly concerned about the topic of online security. It is obvious that traditional user Id and password is not enough to
+Due to increasing digital crimes and internet fraud in the world, people are highly concerned about the topic of online security. It is obvious that traditional user Id and password are not enough to
 secure the authentication. Processing speeds of CPUs have increased, so brute force attacks are a reality and dictionary attacks have become a common threat. GPGPU password cracking and rainbow tables have provided similar advantages to attackers.
 
 ### Benefits of MFA
-MFA creates a layered defence and makes it more difficult for an unauthorized person to access a target such as a physical location, computing device, web service, network, or database. If one factor is compromised or broken, the attacker still has at least one more barriers to breach before successfully breaking into the target.
+MFA creates a layered defence and makes it more difficult for an unauthorized person to access a target such as a physical location, computing device, web service, network, or database. If one factor is compromised or broken, the attacker still has at least one more barrier to breach before successfully breaking into the target.
 
 
 ### Authentication factors
-Authentication factors in MFA relies on two or more independent credentials of the three categories.    
+Authentication factors in MFA rely on two or more independent credentials of the three categories.    
 
 -   **Knowledge factors**: Things only the user knows, such as passwords.  
 
@@ -38,7 +38,7 @@ WSO2 Identity Server has comprehensive support for MFA, with authenticators avai
     For a complete list of readily available authenticators, click [here](https://store.wso2.com/store/assets/isconnector/list).
 
 !!! note    
-    There are certain second-factor authenticators that should be followed by a Knowledge factors authenticators to figure out the user first, e.g., when you configure FIDO authenticator, it should not be  onfigured as the first step. Instead, it should be followed by a first factor authenticator. 
+    There are certain second-factor authenticators that should be followed by a Knowledge-factor authenticators to figure out the user first, e.g., when you configure FIDO authenticator, it should not be  onfigured as the first step. Instead, it should be followed by a first factor authenticator. 
 
 
 ### MFA with federated authenticators

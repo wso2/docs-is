@@ -1,228 +1,128 @@
 # Writing a Custom Event Handler
 
-By default, WSO2 Identity Server only supports user-store operations to
-be engaged with workflows. But this is a extensible feature where you
-can implement workflow support for any other operation such as SP/IDP
-operations, XACML policy creation, tenant operations, etc. which has
-implemented a interceptor which get executed before method execution.
-Here we have explained how to implement workflow support for SP
-operations.
+The WSO2 Identity Server eventing framework can be used to trigger events such as user operation events like `PRE_SET_USER_CLAIMS`,`POST_ADD_USER`. A full list of the sample events can be found below. The eventing framework also supports handlers which can be used to do operations upon a triggered event. For instance, an event handler can be used to validate the changed user password against previously used entries when a `PRE_UPDATE_CREDENTIAL` event is triggered. 
 
-You can add a new handler by adding a new .jar file to
-`         <IS_HOME>/repository/components/dropins        ` folder. You
-can create a .jar file as described below.
+## What is an event handler?
 
-Following is the hierarchy where we need to structure this new handler.
+An event handler is used to perform an operation based on the published events. 
 
-![Handler hierarchy](../assets/img/using-wso2-identity-server/handler-hierarchy.png)
+For instance, an event handler can be used to send an email after a user addition. The following sequence of operations are executed while adding a user.
 
-We need to add a separate handler for each operation we need to add
-workflow support. In this example to implement workflow support for SP
-create functionality, we need to add ‘
-`         SPCreateHandler        ` ’ by extending
-`         AbstractWorkflowRequestHandler        ` . The following
-methods should be overridden:
+1. Publish the `PRE_ADD_USER` event — The subscribed handlers will be executed for the pre-add user event.
+2. Execute the `AddUser` operation — The user will be persisted to the user store (LDAP or JBDC user store).
+3. Publish the `POST_ADD_USER` event — The subscribed handlers will be executed for the post-add user event.
 
--   `          retryNeedAtCallback()         ` - Return whether the same
-    request is initiated at the callback. If set to 'true', this will
-    take actions to skip the request initiated at the callback.
--   `          getEventID()         ` - Return the event that this
-    handler is subscribed, used when handling the callback.
--   `          getParamDefinitions()         ` - Returns the parameter
-    names and their types. Will be used in input validation and in UIs.
--   `          getFriendlyName()         ` - Return the human friendly
-    name for the event associated with this handler.
--   `          getDescription()         ` - Return the human friendly
-    description for the event associated with this handler
--   `          getCategory()         ` - Return the category of the
-    event associated with this handler.
--   `          isValidOperation()         ` - Check if the operation is
-    operation execute. For example, if there is already a SP added is
-    pending in a workflow with same name, this method should return
-    false.
--   `          onWorkflowCompletion()         ` - This is the callback
-    method from executor. This will be called when IS receives the
-    callback. This method should contains details of how to handle the
-    call back such as retrieving parameters of operation from map
-    received, call the operation again, etc.
+Therefore, the email can be sent through an event handler that is subscribed to the `POST_ADD_USER` event.
 
-Other than these implemented methods, we need to write a function such
-as `         ‘startSPCreateWorkflow’        ` which will be the function
-that will get called from operation listener. In this method, we should
-add operation parameters to `         wfParams        ` and
-`         nonWfParams        ` maps. Also we need to check if operation
-is valid using implemented `         isOperatonValid()        ` method
-and should throw exception if this is not valid.
+The following list is a list of sample events. 
 
-Also we need to define a map called `         PARAM_DEFINITIONS        `
-which contains the types of each parameters used for the operation.
+- `PRE_AUTHENTICATION`
+- `POST_AUTHENTICATION`
+- `PRE_SET_USER_CLAIMS`
+- `POST_SET_USER_CLAIMS`
+- `PRE_ADD_USER`
+- `POST_ADD_USER`
+- `PRE_UPDATE_CREDENTIAL`
+- `POST_UPDATE_CREDENTIAL`
+- `PRE_UPDATE_CREDENTIAL_BY_ADMIN`
+- `POST_UPDATE_CREDENTIAL_BY_ADMIN`
+- `PRE_DELETE_USER`
+- `POST_DELETE_USER`
+- `PRE_SET_USER_CLAIM`
+- `PRE_GET_USER_CLAIM`
+- `POST_GET_USER_CLAIMS`
+- `POST_GET_USER_CLAIM`
+- `POST_SET_USER_CLAIM`
+- `PRE_DELETE_USER_CLAIMS`
+- `POST_DELETE_USER_CLAIMS`
+- `PRE_DELETE_USER_CLAIM`
+- `POST_DELETE_USER_CLAIM`
+- `PRE_ADD_ROLE`
+- `POST_ADD_ROLE`
+- `PRE_DELETE_ROLE`
+- `POST_DELETE_ROLE`
+- `PRE_UPDATE_ROLE`
+- `POST_UPDATE_ROLE`
+- `PRE_UPDATE_USER_LIST_OF_ROLE`
+- `POST_UPDATE_USER_LIST_OF_ROLE`
+- `PRE_UPDATE_ROLE_LIST_OF_USER`
+- `POST_UPDATE_ROLE_LIST_OF_USER`
+- `UPDATE_GOVERNANCE_CONFIGURATION`
+- `TRIGGER_NOTIFICATION`
 
-??? example "Click to view a sample class written for a SP create workflow handler"
-    ``` java
-    public class SPCreateHandler extends AbstractWorkflowRequestHandler {
+## Writing an event handler
 
-      private static final Map<String, String> PARAM_DEFINITION;
-      private static final Log log = LogFactory.getLog(SPCreateHandler.class);
+To write a new event handler, you must extend the `org.wso2.carbon.identity.event.handler.AbstractEventHandler`. 
 
-      static {
-          PARAM_DEFINITION = new LinkedHashMap<>();
-          PARAM_DEFINITION.put("Application ID", WorkflowDataType.INTEGER_TYPE);
-          PARAM_DEFINITION.put("Application Name", WorkflowDataType.STRING_TYPE);
-          PARAM_DEFINITION.put("Application Description", WorkflowDataType.STRING_TYPE);
-          PARAM_DEFINITION.put("Tenant Domain", WorkflowDataType.STRING_TYPE);
-          PARAM_DEFINITION.put("Username", WorkflowDataType.STRING_TYPE);
-      }
+1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priory of the event handler. The handlers will be executed based on the priority.
 
-      @Override
-      public void onWorkflowCompletion(String status, Map<String, Object> requestParams, Map<String, Object>
-              responseAdditionalParams, int tenantId) throws WorkflowException {
+    ```
+    public String getName() {
+    return "emailSender";
+    }
 
-          String applicationName = (String)requestParams.get("Application Name");
-          String applicationDescription = (String)requestParams.get("Application Description");
-          String tenantDoamin = (String)requestParams.get("Tenant Domain");
-          String username = (String)requestParams.get("Username");
-
-          if (WorkflowRequestStatus.APPROVED.toString().equals(status) ||
-                  WorkflowRequestStatus.SKIPPED.toString().equals(status)) {
-              try {
-
-                  ApplicationManagementService applicationMgtService = ApplicationManagementService.getInstance();
-                  ServiceProvider serviceProvider = new ServiceProvider();               serviceProvider.setApplicationName(applicationName);
-                  serviceProvider.setDescription(applicationDescription);
-                  applicationMgtService.createApplication(serviceProvider, tenantDoamin, username);
-              } catch (Exception e) {
-                  throw new WorkflowException(e.getMessage(), e);
-              }
-          } else {
-              if (retryNeedAtCallback()) {
-                  unsetWorkFlowCompleted();
-              }
-              if (log.isDebugEnabled()) {
-                  log.debug("Adding user is aborted for SP '" + applicationName + "', Reason: Workflow response was " +
-                                  status);
-              }
-          }
-      }
-
-      @Override
-      public boolean retryNeedAtCallback() {
-          return true;
-      }
-
-     @Override
-     public String getEventId() {
-          return "ADD_SP";
-      }
-     
-     @Override
-     public Map<String, String> getParamDefinitions() {
-          return PARAM_DEFINITION;
-      }
-
-      @Override
-     public String getFriendlyName() {
-          return "Add SP";
-      }
-
-      @Override
-     public String getDescription() {
-          return "";
-      }
-
-      @Override
-     public String getCategory() {
-          return "SP Operations";
-      }
-
-      public boolean startSPCreateWorkflow (ServiceProvider serviceProvider, String tenantDomain, String userName)
-              throws WorkflowException{
-          Map<String, Object> wfParams = new HashMap<>();
-          Map<String, Object> nonWfParams = new HashMap<>();
-          wfParams.put("Application ID",serviceProvider.getApplicationID());
-          wfParams.put("Application Name",serviceProvider.getApplicationName());
-          wfParams.put("Application Description",serviceProvider.getDescription());
-          wfParams.put("Tenant Domain",tenantDomain);
-          wfParams.put("Username",userName);
-          String uuid = UUID.randomUUID().toString();
-          Entity[] entities = new Entity[1];
-          entities[0] = new Entity(serviceProvider.getApplicationName(), "SP", -1234);
-          if (!Boolean.TRUE.equals(getWorkFlowCompleted()) && !isValidOperation(entities)) {
-              throw new WorkflowException("Operation is not valid.");
-          }
-          boolean state = startWorkFlow(wfParams, nonWfParams, uuid).getExecutorResultState().state();
-          return state;
-      }
-
-      @Override
-      public boolean isValidOperation(Entity[] entities) throws WorkflowException {
-          //Check if the operation is valid, eg:- Is there a SP already added and not approved with the same name as
-          // this SP.
-          return true;
-      }
+    @Override
+    public int getPriority(MessageContext messageContext) {
+        return 50;
     }
     ```
 
-Now we have to call the `         ‘startSPCreateWorkflow’        `
-before the operation get executed. We can easily do this by implementing
-the ‘doPre’ method of the operation through an interface. Following is a
-sample listener implementation created for this purpose. We need to
-define `         orderID        ` of this listener so that this will
-execute as the first listener before all other listeners.
+2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations. 
 
-??? example "Click to view the sample listener implementation"
-    ``` java
-    public class SPWorkflowListener extends AbstractApplicationMgtListener {
+    ```
+    @Override
+    public void handleEvent(Event event) throws IdentityEventException {
 
-          @Override
-          public int getDefaultOrderId() {
-                  return 1;
-          }
+    Map<String, Object> eventProperties = event.getEventProperties();
+    String userName = (String) eventProperties.get(IdentityEventConstants.EventProperty.USER_NAME);
+    UserStoreManager userStoreManager = (UserStoreManager) eventProperties.get(IdentityEventConstants.EventProperty.USER_STORE_MANAGER);
 
-          @Override
-          public boolean doPreCreateApplication(ServiceProvider serviceProvider, String tenantDomain, String userName)
-                  throws IdentityApplicationManagementException {
-                  if (!isEnable()) {
-                          return true;
-                  }
-                  try {
-                          SPCreateHandler spCreateHandler = new SPCreateHandler();
-                          return spCreateHandler.startSPCreateWorkflow(serviceProvider, tenantDomain, userName);
-                  } catch (Exception e) {
-                          // Sending e.getMessage() since it is required to give error message to end user.
-                          throw new IdentityApplicationManagementException(e.getMessage(), e);
-                  } finally {
-                  }
-          }
+    String tenantDomain = (String) eventProperties.get(IdentityEventConstants.EventProperty.TENANT_DOMAIN);
+    String domainName = userStoreManager.getRealmConfiguration().getUserStoreProperty(UserCoreConstants.RealmConfig.PROPERTY_DOMAIN_NAME);
 
-    }
+    String[] roleList = (String[]) eventProperties.get(IdentityEventConstants.EventProperty.ROLE_LIST);
     ```
 
-Finally in the service component, we need to register the handler
-and the listener we implemented. We can do this as follows.
+## Registering the event handler 
 
-``` java
-**
-* @scr.component name="tenant.mgt.workflow" immediate="true"
-*/
-public class SPWorkflowServiceComponent {
+Register the event handler in the service component as follows.
 
-  protected void activate(ComponentContext context) {
-
-      BundleContext bundleContext = context.getBundleContext();
-      bundleContext.registerService(ApplicationMgtListener.class.getName(), new SPWorkflowListener(), null);
-      bundleContext.registerService(WorkflowRequestHandler.class.getName(), new SPCreateHandler(), null);
-  }
-}
+```
+protected void activate(ComponentContext context) {
+    try {
+        BundleContext bundleContext = context.getBundleContext();
+        bundleContext.registerService(AbstractEventHandler.
+class.getName(),new SampleEventHandler(), null);
+    } catch (Exception e) {
+       ...
+    }
 ```
 
-After adding the .jar file of this handler to the
-`         <IS_HOME>/repository/components/dropins        ` folder, you
-will see the new operation category and the operation is available to
-select when adding a new workflow engagement.
+## Configuring the event handler
 
-![Operation category selection](../assets/img/using-wso2-identity-server/operation-category-selection.png)
+Add the event handler configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. The events that need to subscribe to the handler can be listed in subscriptions.
 
-![Operation category name](../assets/img/using-wso2-identity-server/operation-category-name.png)
+```
+[[event_handler]]
+name= "emailSender"
+subscriptions =["POST_ADD_USER"]
+```
 
-A sample handler implementation is available
-[here](https://github.com/wso2/product-is/tree/v5.9.0/modules/samples/workflow).
+When you want to execute an operation related to an event, publish the event. Then, the handler that is subscribed for the relevant events will be used to execute those events. In the sample configuration given above, the `emailSender` handler is subscribed to the `POST_ADD_USER` operation.
+
+!!! info
+    The following sample event handlers are available with WSO2 Identity Server.
+
+    - [UserEmailVerificationHandler](https://github.com/wso2-extensions/identity-governance/blob/master/components/org.wso2.carbon.identity.recovery/src/main/java/org/wso2/carbon/identity/recovery/handler/UserEmailVerificationHandler.java)
+
+    - [AccountConfirmationValidationHandler](https://github.com/wso2-extensions/identity-governance/blob/master/components/org.wso2.carbon.identity.recovery/src/main/java/org/wso2/carbon/identity/recovery/handler/AccountConfirmationValidationHandler.java)
+
+    - [AdminForcedPasswordResetHandler](https://github.com/wso2-extensions/identity-governance/blob/master/components/org.wso2.carbon.identity.recovery/src/main/java/org/wso2/carbon/identity/recovery/handler/AdminForcedPasswordResetHandler.java)
+
+    - [UserSelfRegistrationHandler](https://github.com/wso2-extensions/identity-governance/blob/master/components/org.wso2.carbon.identity.recovery/src/main/java/org/wso2/carbon/identity/recovery/handler/UserSelfRegistrationHandler.java)
+
+    - [PasswordHistoryValidationHandler](https://github.com/wso2-extensions/identity-governance/blob/master/components/org.wso2.carbon.identity.password.history/src/main/java/org/wso2/carbon/identity/password/history/handler/PasswordHistoryValidationHandler.java)
+
+    - [PasswordPolicyValidationHandler](https://github.com/wso2-extensions/identity-governance/blob/master/components/org.wso2.carbon.identity.password.policy/src/main/java/org/wso2/carbon/identity/password/policy/handler/PasswordPolicyValidationHandler.java)
+
+    - [AccountSuspensionNotificationHandler](https://github.com/wso2-extensions/identity-governance/blob/master/components/org.wso2.carbon.identity.account.suspension.notification.task/src/main/java/org/wso2/carbon/identity/account/suspension/notification/task/handler/AccountSuspensionNotificationHandler.java)

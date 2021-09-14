@@ -39,7 +39,7 @@ Change the default key stores and create new keys for all the cryptographic oper
 
 ## Passwords in config files
 
-WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Securing Passwords in Configuration Files](../../administer/encrypting-passwords-with-cipher-tool).
+WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Securing Passwords in Configuration Files](../../setup/encrypting-passwords-with-cipher-tool).
 
 
 ## Default ports
@@ -97,7 +97,7 @@ It is recommended to change this by configuring the server name in the `deployme
 For products based on Carbon 4.4.11 or later versions, HTTP Strict Transport Security (HSTS) is disabled for the applications with which WSO2 Identity Server is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.
 
 
-Make sure to enable  (HSTS) for all the applications that are deployed in your WSO2 Identity Server. This includes Management Console and any other web applications. For instructions, see <a href="../../setup/enabling-hsts">Enabling HTTP Strict Transport Security (HSTS) Headers</a>.
+Make sure to enable  (HSTS) for all the applications that are deployed in your WSO2 Identity Server. This includes Management Console and any other web applications. For instructions, see <a href="../../administer/enabling-hsts">Enabling HTTP Strict Transport Security (HSTS) Headers</a>.
 
 
 ## Browser cache
@@ -192,8 +192,6 @@ To enable hostname verification:
 
 By default, XSS attacks are prevented in the latest WSO2 Identity Server versions. This is due to output encoding of the displaying values. 
 
-If additional protection is required, an input validation valve can be configured. For instructions, see <a href="../../administer/mitigating-cross-site-scripting-attacks">Mitigating Cross Site Scripting Attacks</a>.
-
 
 ## JSESSIONID length
 
@@ -227,7 +225,7 @@ To change the administrator credentials:
 
 Majority of the users only need to sign in to the connected service providers via WSO2 Identity Server. Such users should not have permissions to sign in to the Management Console.
 
-Make sure that the permission for signing in to the Canagement Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a>.
+Make sure that the permission for signing in to the Management Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a>.
 
 ## Log rotation and monitoring
 
@@ -258,21 +256,72 @@ Log forging can be prevented by appending a UUID to the log message.
 
 ## JVM parameters
 
-
-
-!!! note 
-
-    The recommended JDK versions are JDK 1.7 and 1.8. For more information, see <a href="../../setup/installation-prerequisites">installation pre-requisites</a>. 
-
-
--   **For JDK 1.7**: Set the appropriate Heap and Permgen values for the JVM based on your deployment scenario. These can be set in the `wso2server.sh` file in the `<IS_HOME>/bin` directory.
-
--   **For JDK 1.8**: As the `MaxPermSize` value has been removed from Hotspot JVM, it is not required set this.
+- The recommended JDK versions are JDK 1.8 and 11. For more information, see <a href="../../setup/installation-prerequisites">installation pre-requisites</a>. 
 
     ```java  tab="Example" 
-    -Xms512m -Xmx2048m -XX:MaxPermSize=1024m
+    -Xms512m -Xmx2048m 
     ```
 
-!!! tip 
+- To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine.
 
-    To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine. 
+## Mutual SSL
+
+If mutual SSL is enabled, [enable intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
+
+If mutual SSL authentication capabilities are not required, you can [disable it](../../administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is).
+
+## Configuring client authentication
+
+Client authentication is used to identify the application or the client that is making the request. 
+The web applications provided out-of-the-box use a set of default credentials to authenticate with WSO2 Identity Server REST APIs that are marked as **secure** under the 'ResourceAccessControl' tag of the the`<IS_HOME>/repository/conf/identity/identity.xml` file. 
+
+Follow the steps below to change the default credentials.
+
+1.  Before applying the configurations, make sure that you get the latest WUM updates for this release. See [WSO2 
+    Update Manager](https://wso2.com/updates/wum)(WUM) to get any
+        fixes or latest updates for this release.
+    
+        !!! note "Important"
+            If you are upgrading to use this version in your production
+            environment, use WSO2 Update Manager to get the latest updates
+            available for WSO2 IS 5.10.0. For more information on how to use WSO2
+            Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
+
+2.  Shut the server down in case you have already started it. 
+
+3.  Add the following configuration changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
+    
+    -   Add the `app_password` property and enter a preferred password as the value.
+      
+        ``` toml
+        [identity.auth_framework.endpoint] 
+        app_password="<value of preferred password>"
+        ```  
+        
+    -   Add the `hash` property and enter the SHA-256 hash value of the `app_password` as the property value.
+
+        ``` toml
+        [account_recovery.endpoint.auth]
+        hash="<SHA-256 hash of the newly added app_password property value>"
+        ``` 
+        
+    - If the `authenticationendpoint` web app is hosted externally, do the following:
+
+            a.  Open the `EndpointConfig.properties` file found in the root of the `authenticationendpoint` folder. 
+
+            b.   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
+
+            c.   Do the same changes to the `EndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes` directory.
+
+    - If the `accountrecoveryendpoint` web app is hosted externally, do the following:
+
+            a.   Open the `RecoveryEndpointConfig. properties` file found in the root of the `accountrecoveryendpoint` folder. 
+
+            b.   Change the `app.password` property value to the value added as `app_password` in the `deployment.toml` file. 
+
+            c.   Do the same changes to the `RecoveryEndpointConfig.properties` file located in the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes` directory.
+    
+4.  Once these changes are configured, restart the server with,
+    
+    - Linux/Unix : sh wso2server.sh
+    - Windows : wso2server.bat

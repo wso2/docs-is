@@ -68,7 +68,7 @@ necessary system requirements and a compatible environment.
 </tr>
 <tr class="even">
 <th>Java</th>
-<td>Oracle JDK 1.8 (There’s a <a href="https://bugs.openjdk.java.net/browse/JDK-8189789">known issue</a> with JDK1.8.0_151)</td>
+<td>Oracle JDK 1.8</td>
 </tr>
 <tr class="odd">
 <th>Web browsers</th>
@@ -76,7 +76,7 @@ necessary system requirements and a compatible environment.
 </tr>
 <tr class="even">
 <th>Load balancers</th>
-<td><p>For more information about load balancers, see <a href="https://docs.wso2.com/display/CLUSTER44x/Setting+up+a+Cluster#SettingupaCluster-Configuringtheloadbalancer">Configuring the load balancer</a> .</p></td>
+<td><p>For more information about load balancers, see <a href="../../administer/load-balancing/#types-of-load-balancers">Configuring the load balancer</a> .</p></td>
 </tr>
 </tbody>
 </table>
@@ -146,8 +146,7 @@ includes services, service descriptions, endpoints or data sources.
     see [Working with the Registry](../../administer/working-with-the-registry).
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
-governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server 
-5.9.0, config and governance registries are mounted by default.
+governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server, config and governance registries are mounted by default.
 
 !!! note
     The production recommendation is to set the `<versionResourcesOnChange>` property in the `registry.xml` 
@@ -419,7 +418,7 @@ Identity Server endpoints. The `hostName` should be resolved to the Load Balance
 
     ```
     [server]
-    hostname = "wso2.is.com"
+    hostname = "wso2.is"
     ```
 
     !!! note 
@@ -427,7 +426,7 @@ Identity Server endpoints. The `hostName` should be resolved to the Load Balance
         the `/etc/hosts` file in each node so that internal calls will not be routed through the Load Balancer.
         
         Example: 
-        `192.168.2.1   wso2.is.com`
+        `192.168.2.1   wso2.is`
 
 ## Enabling artifact synchronization
 
@@ -442,11 +441,8 @@ To enable synchronization for runtime artifacts you must have a shared file syst
 Once you have chosen a file system, 
 
 1. Mount it in the nodes that are participating in the cluster.
-2. Create two directories called `Deployment` and `Tenants` in the shared file system.
-3. Create a symlink from the `<IS_HOME>/repository/deployment` path to the `Deployment` directory of the shared 
-file system that you created in step 2 of this section.
-4. Create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory of the shared file 
-system that you created in step 2 of this section.
+2. If the userstores need to be updated at runtime, create a directory called `Userstores` in the shared file system and create a symlink from the `<IS_HOME>/repository/deployment/userstores` path to the `Userstores` directory. 
+3. If multi-tenancy is required, create a directory called `Tenants` in the shared file system and create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory.
 
 !!! note
     Instead of mounting the file system directly to the `<IS_HOME>/repository/deployment` and
@@ -469,7 +465,7 @@ You can use any load balancer that is available to your system.
 ## Running the cluster
 
 1. Start the load balancer and WSO2 Identity Server nodes.
-2. Access the management console at `https://wso2.is.com/carbon/`. 
+2. Access the management console at `https://wso2.is/carbon/`. 
     Traffic will be served by one of the nodes in the cluster, depending on your load balancer.
 3. Shut down the cluster node 1 and observe that the traffic is served by node 2. 
 3. Start node 1 and shut down node 2. Note that traffic will be served by node 1.

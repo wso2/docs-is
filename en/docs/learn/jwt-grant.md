@@ -1,9 +1,9 @@
-# JWT Grant
+# JWT Bearer Grant
 
 
 ## About JWT
 
-The JSON Web Token (JWT) is simply a JSON string containing claim values that will be evaluated and validated by the JWT Grant Handlers at the Authorization Server before issuing an access token.  
+The JSON Web Token (JWT) is simply a JSON string containing claim values that will be evaluated and validated by the JWT Bearer Grant Handler at the Authorization Server before issuing an access token.  
 
 JWT contains a header, payload, and signature that are separated by periods (.). Let's learn more about them!
 
@@ -165,6 +165,15 @@ When an entity initates a request to gain access to an application:
 	!!! note
 
 		For this verification to work, the identity provider should have been registered as a trusted identity provider in WSO2 Identity Server.
+		The `Identity Provider Name` should match the value in the `iss` claim of the JWT assertion.
+		
+	!!! info
+        From WUM update 0224 the `Identity Provider's Issuer Name` property in the Identity Provider configuration can also be used to specify the
+        issuer name of the identity provider. To make this property available, apply the 0224 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager
+        (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid
+        subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For
+        more information on updating WSO2 Identity Server using WUM, see [Updating WSO2 Products](https://is.docs.wso2
+        .com/en/latest/administer/getting-wso2-updates/)
 
 4.	Once the identity provider is identified, WSO2 Identity Server retrieves the corresponding **identity provider configurations** containing the identity provider's `public certificate`.
 
@@ -314,13 +323,12 @@ To add the application as a service provider in WSO2 Identity Server:
 
 	!!! note
 
-		While configuring the JWT grant type, the **iat** validating time period can also be configured in the `identity.xml` file in the `<IS_HOME>/repository/conf` as shown below. The default value is 30 minutes. 
+		While configuring the JWT bearer grant type, the **iat** validating time period can also be configured in the `deployment.toml` file in the `<IS_HOME>/repository/conf` as shown below. The default value is 30 minutes. 
 		
-		```json
-		<JWTGrant>            
-            <EnableIATValidation>true</EnableIATValidation>            
-            <IATValidityPeriod>30</IATValidityPeriod>
-    	</JWTGrant>
+		```toml
+		[oauth.grant_type.jwt]
+		enable_iat_validation="true"
+		iat_validity_period=30
 		```  
 
 ## Try out

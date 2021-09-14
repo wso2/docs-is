@@ -1789,241 +1789,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /applications/templates:	
-      get:	
-        tags:	
-          - Application Templates	
-        operationId: getAllApplicationTemplates	
-        summary: |	
-          List Application Templates	
-        description: |	
-          This API provides the capability to retrieve the list of templates available.	
-        parameters:	
-          - $ref: '#/components/parameters/limitWithoutDefaultQueryParam'	
-          - $ref: '#/components/parameters/offsetWithoutDefaultQueryParam'	
-        responses:	
-          '200':	
-            description: OK	
-            content:	
-              application/json:	
-                schema:	
-                  $ref: '#/components/schemas/ApplicationTemplatesList'	
-          '400':	
-            description: "Bad Request"	
-            content:	
-              application/json:	
-                schema:	
-                  $ref: '#/components/schemas/Error'	
-          '401':	
-            description: "Unauthorized"	
-          '403':	
-            description: "Forbidden"	
-          '404':	
-            description: "Not Found"	
-            content:	
-              application/json:	
-                schema:	
-                  $ref: '#/components/schemas/Error'	
-          '500':	
-            description: "Server Error"	
-            content:	
-              application/json:	
-                schema:	
-                  $ref: '#/components/schemas/Error'	
-          '501':	
-            description: "Not Implemented"	
-            content:	
-              application/json:	
-                schema:	
-                  $ref: '#/components/schemas/Error'	
-      post:	
-        tags:	
-          - Application Templates	
-        summary: |	
-          Add application template	
-        operationId: createApplicationTemplate	
-        description: >	
-          This API provides the capability to store the application template provided by users.	
-        requestBody:	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/ApplicationTemplateModel'	
-          description: "This represents the application template to be created."	
-          required: true	
-        responses:	
-          '201':	
-            description: "Successful response."	
-            headers:	
-              Location:	
-                description: "Location of the newly created application template."	
-                schema:	
-                  type: string	
-                  example: "/t/wso2.com/api/server/v1/applications/templates/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"	
-          '400':	
-            description: "Bad Request"	
-            content:	
-              application/json:	
-                schema:	
-                  $ref: '#/components/schemas/Error'	
-          '401':	
-            description: "Unauthorized"	
-          '403':	
-            description: "Forbidden"	
-          '409':	
-            description: "Conflict"	
-            content:	
-              application/json:	
-                schema:	
-                  $ref: '#/components/schemas/Error'	
-          '500':	
-            description: "Server Error"	
-            content:	
-              application/json:	
-                schema:	
-                  $ref: '#/components/schemas/Error'	
-          '501':	
-            description: "Not Implemented"	
-            content:	
-              application/json:	
-                schema:	
-                  $ref: '#/components/schemas/Error'	
-  '/applications/templates/{template-id}':	
-    get:	
-      tags:	
-        - Application Templates	
-      summary: |	
-        Retrieve application template by ID	
-      operationId: getApplicationTemplate	
-      description: >	
-        This API provides the capability to retrieve the application template from the template id.	
-      parameters:	
-        - $ref: '#/components/parameters/templateIdPathParam'	
-      responses:	
-        '200':	
-          description: OK	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/ApplicationTemplateModel'	
-        '400':	
-          description: "Bad Request"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-            application/xml:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-        '401':	
-          description: "Unauthorized"	
-        '403':	
-          description: "Forbidden"	
-        '404':	
-          description: "Not Found"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-            application/xml:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-        '500':	
-          description: "Server Error"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-            application/xml:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-    put:	
-      tags:	
-        - Application Templates	
-      summary: |	
-        Update the application template by the template ID.	
-      operationId: updateApplicationTemplate	
-      description: |	
-        This API provides the capability to update an application template by the template ID.	
-      parameters:	
-        - $ref: '#/components/parameters/templateIdPathParam'	
-      requestBody:	
-        content:	
-          application/json:	
-            schema:	
-              $ref: '#/components/schemas/ApplicationTemplateModel'	
-        description: "This represents the new application template."	
-        required: true	
-      responses:	
-        '200':	
-          description: "Successfully Updated"	
-        '400':	
-          description: "Bad Request"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-        '401':	
-          description: "Unauthorized"	
-        '403':	
-          description: "Forbidden"	
-        '404':	
-          description: "Not Found"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-        '409':	
-          description: "Conflict"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-        '500':	
-          description: "Server Error"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-    delete:	
-      tags:	
-        - Application Templates	
-      summary: |	
-        Delete application template by template ID.	
-      operationId: deleteApplicationTemplate	
-      description: |	
-        This API provides the capability to delete an application template by template ID.	
-      parameters:	
-        - $ref: '#/components/parameters/templateIdPathParam'	
-      responses:	
-        '204':	
-          description: "Successfully Deleted"	
-        '400':	
-          description: "Bad Request"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-        '401':	
-          description: "Unauthorized"	
-        '403':	
-          description: "Forbidden"	
-        '404':	
-          description: "Not Found"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-            application/xml:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-        '500':	
-          description: "Server Error"	
-          content:	
-            application/json:	
-              schema:	
-                $ref: '#/components/schemas/Error'	
-
 components:
   parameters:
     limitQueryParam:
@@ -2345,14 +2110,18 @@ components:
           description: Decides whether the application is visible for end users.
         certificate:
           $ref: '#/components/schemas/Certificate'
-        skipLoginConsent:
+        skipConsent:
           type: boolean
           example: false
-          description: Decides whether user consent needs to be skipped during login flows.
-        skipLogoutConsent:	
-          type: boolean	
-          example: false	
-          description: Decides whether user consent needs to be skipped during logout flows.  
+          description: >-
+            Decides whether user consent needs to be skipped during login flows.
+            Note:
+            In addition to login flows, if you need to skip consent during logout flows via the 'skipConsent' property
+            , apply the 0623 WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager (WUM). To deploy
+            a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription,
+            you can use this feature with the next version of WSO2 Identity Server when it is released. For more
+            information on updating WSO2 Identity Server using WUM, see
+            [Updating WSO2 Products](https://is.docs.wso2.com/en/latest/administer/getting-wso2-updates/)
         returnAuthenticatedIdpList:
           type: boolean
           example: false
@@ -2728,15 +2497,14 @@ components:
           type: array
           description: Authorized redirect URIs
           example:
-            - 'https://app.example.com/callback1'
-            - 'https://app.example.com/callback2'	
+            - 'regexp=(https://app.example.com/callback1|https://app.example.com/callback2)'
           items:	
             type: string	
         allowedOrigins:	
           type: array	
           description: Authorized JavaScript origins	
           example:	
-            - 'https://app.example.com/js'
+            - 'https://app.example.com'
           items:
             type: string
         publicClient:
@@ -2763,16 +2531,14 @@ components:
         scopeValidators:
           type: array
           example:
-            - XACMLScopeValidator	
-            - RoleBasedScopeValidator
+            - Role based scope validator
+            - XACML Scope Validator
           items:
             type: string
         accessTokenBindingType:	
           type: string	
           description: Access token binding type.	
-          example:	
-            - sso-session	
-            - cookie
+          example: cookie
     OAuth2PKCEConfiguration:
       type: object
       properties:

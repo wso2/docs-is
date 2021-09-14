@@ -16,13 +16,6 @@ info:
 # The base path of the SCIM2 API.
 # If the tenant domain is carbon.super then basepath can be /scim2.
 
-
-servers:
-  - url: 'https://localhost:9443/scim2'
-    variables:
-      tenant-domain:
-        default: unknown
-
 basePath: /t/{tenant-domain}/scim2
 
 schemes:
@@ -292,18 +285,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
         - name: domain
           in: query
           description: The name of the user store where filtering needs to be applied.
@@ -611,7 +592,13 @@ paths:
         - Users Endpoint
       summary: Filter Users
       description: |
-        This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores.
+        This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores. </br></br>
+
+        By default, duplicate user entries in the SCIM2 users response are removed. To persist the duplicate user
+        entries and resolve the inconsistencies in the user listing, add the following configuration to the deployment.toml file. </br> </br>
+
+        [scim2]
+        remove_duplicate_users_in_users_response = false
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/usermgt/view
@@ -647,18 +634,6 @@ paths:
           required: false
           type: integer
           format: int32
-        - name: sortBy
-          in: query
-          description: |-
-            Specifies the attribute whose value
-            SHALL be used to order the returned responses.
-          required: false
-          type: string
-        - name: sortOder
-          in: query
-          description: The order in which the "sortBy" parameter is applied.
-          required: false
-          type: string
         - name: domain
           in: query
           description: The name of the user store where filtering needs to be applied.
@@ -1097,10 +1072,10 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       userName:
@@ -1113,13 +1088,13 @@ definitions:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1169,23 +1144,23 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       emails:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1217,10 +1192,10 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       userName:
@@ -1230,13 +1205,13 @@ definitions:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1316,23 +1291,23 @@ definitions:
       name:
         type: object
         properties:
-          firstName:
+          givenName:
             type: string
             example: "Kim"
-          lastName:
+          familyName:
             type: string
             example: "Berry"
       emails:
         type: array
         items:
           type: object
-          example:
-            - type: "home"
-              value: "kim@gmail.com"
-              primary: true
-            - type: "work"
-              value: "kim@wso2,com"
-      EnterpriseUser:
+        example:
+          - type: "home"
+            value: "kim@gmail.com"
+            primary: true
+          - type: "work"
+            value: "kim@wso2.com"
+      urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
         type: object
         properties:
           employeeNumber:
@@ -1870,90 +1845,6 @@ definitions:
       changePassword:
         supported: false
   #-----------------------------------------------------
-  # The permission response Object
-  #-----------------------------------------------------
-  GroupPermissionResponseObject:
-    type: array
-    items:
-      type: string
-      example:
-        - "/permission/admin/login"
-        - "/permission/admin/manage/search"
-        - "/permission/admin/manage/search/advanced-search"
-        - "/permission/admin/manage/search/resources"
-        - "/permission/admin/manage/add"
-        - "/permission/admin/manage/add/module"
-        - "/permission/admin/manage/add/service"
-        - "/permission/admin/manage/add/webapp"
-
-  #-----------------------------------------------------
-  # The permission patch request Object
-  #-----------------------------------------------------
-  PermissionPatchOpperationRequestObject:
-    type: object
-    properties:
-      schemas:
-        type: array
-        items:
-          type: string
-          example: "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-      Operations:
-        type: array
-        items:
-          $ref: '#/definitions/OperationItem'
-
-
-
-
-  #-----------------------------------------------------
-  # The permission patch response Object
-  #-----------------------------------------------------
-  PermissionPatchResponseObject:
-    type: array
-    items:
-      type: string
-      example:
-        - "/permission/admin/configure/security/usermgt"
-        - "/permission/admin/configure/security/usermgt/passwords"
-        - "/permission/admin/configure/security/usermgt/profiles"
-        - "/permission/admin/configure/security/usermgt/users"
-        - "/permission/admin/configure/security/usermgt/provisioning"
-        - "/permission/admin/login"
-        - "/permission/admin/manage/search"
-        - "/permission/admin/manage/search/advanced-search"
-        - "/permission/admin/manage/search/resources"
-        - "/permission/admin/manage/add"
-        - "/permission/admin/manage/add/module"
-        - "/permission/admin/manage/add/service"
-        - "/permission/admin/manage/add/webapp"
-
-  #-----------------------------------------------------
-  # The permission patch request Object
-  #-----------------------------------------------------
-  PermissionPutRequestObject:
-    type: array
-    items:
-      type: string
-      example:
-        - "/permission/admin/configure/security/usermgt"
-
-
-  #-----------------------------------------------------
-  # The permission patch response Object
-  #-----------------------------------------------------
-  PermissionPutResponseObject:
-    type: array
-    items:
-      type: string
-      example:
-        - "/permission/admin/configure/security/usermgt"
-        - "/permission/admin/configure/security/usermgt/passwords"
-        - "/permission/admin/configure/security/usermgt/profiles"
-        - "/permission/admin/configure/security/usermgt/users"
-        - "/permission/admin/configure/security/usermgt/provisioning"
-
-
-  #-----------------------------------------------------
   # The Error Invalid Input
   #-----------------------------------------------------
   ErrorInvalidInput:
@@ -1993,24 +1884,6 @@ definitions:
       scimType:
         type: string
         example: "Unauthorized"
-  #-----------------------------------------------------
-  # The Error NotAcceptable
-  #-----------------------------------------------------
-  ErrorNotAcceptable:
-    type: object
-    required:
-      - status
-      - schema
-    properties:
-      status:
-        type: string
-        example: "406"
-      schemas:
-        type: string
-        example: "urn:ietf:params:scim:api:messages:2.0:Error"
-      scimType:
-        type: string
-        example: "Not Acceptable"
     #-----------------------------------------------------
     # The Error Forbidden
     #-----------------------------------------------------
@@ -2195,16 +2068,3 @@ definitions:
       detail:
         type: string
         example: "Self delete is not supported."
-
-
-  OperationItem:
-    type: object
-    properties:
-      op:
-        type: string
-        enum: ["add", "remove"]
-      value:
-        type: array
-        items:
-          type: string
-          example: "/permission/admin/configure/security/usermgt"

@@ -17,7 +17,7 @@ achieve this using [WSO2 Identity
 Server](https://is.docs.wso2.com/en) and [WSO2 Enterprise
 Service Bus](http://docs.wso2.org/enterprise-service-bus)
 . Additionally, an STS Sample is used which can be downloaded
-[here](https://github.com/wso2/product-is/tree/master/modules/samples/sts/sts-client)
+[here](https://github.com/wso2/samples-is/tree/master/sts/sts-client)
 . This sts-sample includes executables as well as the source files with
 an Eclipse project that was configured using Maven.
 

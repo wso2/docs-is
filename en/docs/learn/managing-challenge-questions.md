@@ -155,7 +155,10 @@ additional form of security and account management.
 3.  Navigate to **Account Management Policies>Account Recovery**.
     Select the **Enable forced challenge questions** setting to
     make this mandatory.
-
+    
 After enabling the above setting, users are redirected during the login
-process to the following page (redirection happens only if the user has
+process to the following page (redirection happens only if the user has 
 not given the challenge questions).
+
+   ![answering-challenge-questions.png](../assets/img/using-wso2-identity-server/answering-challenge-questions.png)
+

@@ -23,7 +23,7 @@ To configure WS-Federation SSO:
     **WS-Federation (Passive) Configuration** section and provide the
     following values. 
 
-    -   **Passive STS Realm** - This should be an unique identifier for
+    -   **Passive STS Realm** - This should be a unique identifier for
         the web app. Provide the same realm name given to the web app
         you are configuring WS-Federation for.
 

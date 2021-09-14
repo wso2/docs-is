@@ -188,8 +188,11 @@
         If the user is not already a superuser, assign the permission before starting the migration.
             
             ALTER USER <user> WITH SUPERUSER;
+
+10. If you are migrating your user stores to the new user store managers with the unique ID capabilities, Follow 
+    the guidelines given in the [Migrating User Store Managers](../../setup/migrating-userstore-managers) before moving to the next section.
             
-10.  Start the WSO2 Identity Server 5.10.0 with the following command to
+11.  Start the WSO2 Identity Server 5.10.0 with the following command to
     execute the migration client.
 
     1.  Linux/Unix:
@@ -204,7 +207,7 @@
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
-11.  Stop the server once the migration client execution is complete.
+12.  Stop the server once the migration client execution is complete.
     
 ## Executing the sync tool
 

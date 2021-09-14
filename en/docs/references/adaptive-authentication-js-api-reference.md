@@ -544,17 +544,26 @@ step number.
     (Read/Write) User’s attribute (claim) value for the given
     “local\_claim\_url”. If the user is a federated user, this will be
     the value of the mapped remote claim from the IdP.
+    
+-   `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
+    
+    !!! note 
+        -   To use the `user.claims[“<local_claim_url>”]` property, apply the **0376** WUM update for WSO2 Identity Server 5.10.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see [Getting Started with WUM.](../../administer/dminister/getting-wso2-updates)
+        -   `          user.localClaims[“<local_claim_url>”]         ` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis only.
+        
 -   `          user.remoteClaims[“<remote_claim_url”]         ` :
     (Read/Write) User’s attribute (claim) as returned by IdP for the
     given “remote\_claim\_url”. Applicable only for federated users.
+    
+
 
 ##### request Object
 
 -   `          request.headers[“<header_name>”]         ` : Request’s
     header value for the given header name by &lt;header\_name&gt;
--   `          request.params[“<param_name>”]         ` : Request’s
-    parameter value for the given parameter name by
-    &lt;parameter\_name&gt;
+-   `          request.params.param_name[0]         ` : Request’s
+    parameter value for the given parameter name by the
+    &lt;param\_name&gt; index (`param_name` is an array). 
 -   `          request.cookies[“<cookie_name”]         ` : Request’s
     cookie value for the given cookie name by &lt;cookie\_name&gt;
 -   `          request.ip         ` : The client IP address of the user

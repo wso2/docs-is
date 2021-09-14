@@ -259,8 +259,12 @@ current Identity Server and run the below scripts against the database that is u
         
         delete from REG_RESOURCE_COMMENT where REG_PATH_ID is NULL;
         
-        delete from REG_PROPERTY where REG_ID NOT IN (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY);
-        
+        create index REG_RESOURCE_PROPERTY_REG_PROPERTY_ID_INDEX ON REG_RESOURCE_PROPERTY(REG_PROPERTY_ID);
+
+        create index REG_PROPERTY_REG_ID_INDEX ON REG_PROPERTY(REG_ID);
+
+        delete from REG_PROPERTY WHERE NOT EXISTS (select REG_PROPERTY_ID from REG_RESOURCE_PROPERTY where REG_PROPERTY.REG_ID=REG_RESOURCE_PROPERTY.REG_PROPERTY_ID);
+
         delete from REG_TAG where REG_ID NOT IN (select REG_TAG_ID from REG_RESOURCE_TAG);
         
         delete from REG_COMMENT where REG_ID NOT IN (select REG_COMMENT_ID from REG_RESOURCE_COMMENT);
@@ -276,6 +280,9 @@ current Identity Server and run the below scripts against the database that is u
         
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
         
+        drop index REG_RESOURCE_PROPERTY_REG_PROPERTY_ID_INDEX;
+
+        drop index REG_PROPERTY_REG_ID_INDEX;
         ```
        
 !!! warning "Not recommended"
@@ -299,11 +306,10 @@ Ideally, the internal keystore should be used for encrypting internal critical d
 previous versions, the secondary userstore passwords are encrypted using the primary keystore, 
 which is also used to sign and encrypt tokens.
 
-In WSO2 Identity Server 5.10.0 we have moved the secondary userstore password encryption functionality 
+From WSO2 Identity Server 5.9.0, we have moved the secondary userstore password encryption functionality 
 from the primary keystore to the internal keystore.
 
-Check this [link](../../administer/migrating-the-secondary-userstore-password-to-the-internal-keystore) 
-to see the instructions on migrating the secondary userstore password to encrypt using internal keystore. 
+If you are migrating from a version earlier than WSO2 IS 5.9.0, click [here](https://is.docs.wso2.com/en/5.9.0/setup/migrating-the-secondary-userstore-password-to-the-internal-keystore/) to see the instructions on migrating the secondary userstore password to the internal keystore. 
 
 
 ## Migrating custom components
@@ -396,13 +402,17 @@ All the other data will not be preserved in the new system.
 
 Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
+!!! info
+    Note that this **data sync tool** is only recommended for use with MySQL and Oracle databases
+    since it has only been tested with MySQL and Oracle.
+
 1.  Create a new databases for the new WSO2 Identity Server version (5.10.0) 
     that you are migrating to.
 2.  Unzip a WSO2 Identity Server 5.10.0 distribution (use a WUM updated distribution 
     if possible). This will be used as the data sync tool between the Identity 
     Server versions. We will refer to WSO2 Identity Server distribution as 
     “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
-3.  Copy the [sync client jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.23/org.wso2.is.data.sync.client-1.0.23.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
+3.  Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.146/org.wso2.is.data.sync.client-1.0.146.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
 4.  Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` 
     with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). 
     This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory 
@@ -410,7 +420,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 5.  Add the data sources used in **source** and **target** WSO2 Identity Server deployments involved in the migration 
     to `deployment.toml` file located `<SYNC-TOOL-HOME>/repository/conf/deployment.toml`.
     
-    ??? tip "A sample configuration written for the MySQL DB type will look this"
+    ??? tip "Sample configuration written for the MySQL DB type"
             
         ```
         [[datasource]]
@@ -442,6 +452,25 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         validationQuery="SELECT 1"
         validationInterval="30000"
         defaultAutoCommit="false"
+
+        ```
+
+    ??? tip "Sample configuration written for the Oracle DB type"
+
+        ```
+        [[datasource]]
+        id="source"
+        url="jdbc:oracle:thin:@localhost:1521/SID"
+        username="sourceUsername"
+        password="sourcePassword"
+        driver="oracle.jdbc.OracleDriver"
+        
+        [[datasource]]
+        id="target"
+        url="jdbc:oracle:thin:@localhost:1521/SID"
+        username="targetUsername"
+        password="targetPassword"
+        driver="oracle.jdbc.OracleDriver"
 
         ```
                 

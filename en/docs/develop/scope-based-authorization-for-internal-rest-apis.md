@@ -1,4 +1,4 @@
-# Scope based Authorization for Internal REST APIs
+# Scope-based Authorization for Internal REST APIs
 
 WSO2 Identity Server supports API authentication using 
 OAuth2 common flows, where users can obtain a token using an 
@@ -9,16 +9,15 @@ at the endpoint level using **permissions**. Each secured endpoint
 has a predefined minimum level of permission that is required to be
 able to consume the endpoint. In order to access a particular endpoint,
 the user has to belong to a **role** that includes the defined
-permissions. WSO2 Identity Server now supports scope based API
+permissions. WSO2 Identity Server now supports scope-based API
 authorization for internal REST APIs.
 
 When obtaining a token to consume the API, you can define the scope
 corresponding to the permission required to consume the API.
 
-As an example, if user Bob (having username 'bob') wants to 
-retrieve challenges available for a user identified by the user-id by 
-calling the **/{user-id}/challenges** GET API available in [Challenge Question](../../develop/challenge-rest-api) REST API, 
-the calling user Bob requires `/permission/admin/manage/identity/identitymgt/view`
+For example, let's assume that a user whose username is Bob, wants to 
+retrieve the challenges available by calling the **/{user-id}/challenges** GET API available in [Challenge Question](../../develop/challenge-rest-api) REST API. This requires the user-id as an input. 
+To retrieve the challenges, Bob requires `/permission/admin/manage/identity/identitymgt/view`
 permission and `internal_identity_mgt_view` scope. Hence, Bob can invoke the following 
 cURL command with `scope=internal_identity_mgt_view` and obtain a token.
 
@@ -57,5 +56,5 @@ requires the particular scope.
 !!! info "Related Links"
     -   See [Scopes Corresponding to Permissions Required to Invoke API Calls](../../references/scopes-corresponding-to-api-permissions) 
     for a list of scopes corresponding to the permissions required for different REST APIs.
-    -   You can find the permissions and scopes required for each REST API under API description in corresponding
-    API Documentation under **REST APIs** section available under [Using APIs](../../develop/using-apis/)
+    -   You can find the permissions and scopes required for each REST API under API description in the corresponding
+    API Documentation in the [REST APIs](../../develop/rest-apis) section.
