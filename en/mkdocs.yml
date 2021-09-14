@@ -748,7 +748,6 @@ nav:
           - 'Identity Provider Related Tables': administer/identity-provider-related-tables.md
       - 'Using Tools':
         - 'Using Tools': administer/using-tools.md
-        - 'Using the SAML2 Toolkit': administer/using-the-saml2-toolkit.md
         - 'Using the XACML TryIt Tool':
           - 'Using the XACML TryIt Tool': administer/using-the-xacml-tryit-tool.md
           - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
