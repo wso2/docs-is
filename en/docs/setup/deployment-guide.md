@@ -488,11 +488,11 @@ To enable synchronization for runtime artifacts you must have a shared file syst
 Once you have chosen a file system, 
 
 1. Mount it in the nodes that are participating in the cluster.
-2. If the userstores need to be updated at runtime, create a directory called `Userstores` in the shared file system and create a symlink from the `<IS_HOME>/repository/deployment/userstores` path to the `Userstores` directory. 
+2. If the userstores need to be updated at runtime, create a directory called `Userstores` in the shared file system and create a symlink from the `<IS_HOME>/repository/deployment/server/userstores` path to the `Userstores` directory. 
 4. If multi-tenancy is required, create a directory called `Tenants` in the shared file system and create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory.
 
 !!! note
-    Instead of mounting the file system directly to the `<IS_HOME>/repository/deployment/userstores` and
+    Instead of mounting the file system directly to the `<IS_HOME>/repository/deployment/server/userstores` and
      `<IS_HOME>/repository/tenants` paths, a symlink is created to avoid issues that may occur 
      if you delete the product to redeploy it, the file system would get mounted to a non-existing path.
  
