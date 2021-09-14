@@ -168,13 +168,14 @@ At the moment, the tables given below can be synced synced during key rotation f
     *   enableSyncMigrator - Enable/disable syncing mechanism
     !!! note
         You only need to set this to **true**, if you have opted in for blue-green key rotation with zero downtime for the end user flows.
+    *   chunkSize - Size of the record chunks being retrieved from the database tables for syncing.    
 
     ??? tip "Sample configuration written for the properties.yaml file"
             
         ```
         oldSecretKey: AFA27B44D43B02A9FEA41D13CEDC2E40
         newSecretKey: 1fc0bc7a3805b42afa5f5af07a595f56
-        newISHome: /home/geesa/Desktop/IS/copy/mysql/wso2is-5.11.0
+        newISHome: /home/IS/wso2is-5.12.0
         oldIdnDBUrl: jdbc:mysql://localhost:3306/regdb?useSSL=false
         oldIdnUsername: root
         oldIdnPassword: cm9vdA==
@@ -187,6 +188,7 @@ At the moment, the tables given below can be synced synced during key rotation f
         enableDBMigrator: true
         enableConfigMigrator: true
         enableSyncMigrator: true
+        chunkSize: 2
         ```
     ??? tip "Sample configuration written for H2 DB type URL"
             
@@ -219,7 +221,7 @@ At the moment, the tables given below can be synced synced during key rotation f
         jdbc:oracle:thin:@localhost:1521/ORCLCDB.LOCALDOMAIN
         ```
 
-6.  Run the tool using `./keyrotation.sh keyrotation-tool-<version>-SNAPSHOT.jar properties.yaml` command from the `<KEY_ROTATION_TOOL>` location.
+6.  Run the tool using `./keyrotation.sh keyrotation-tool-<version>-SNAPSHOT.jar` command from the `<KEY_ROTATION_TOOL>` location.
 
 7.  Edit the `<NEW_IS_HOME>` `deployment.toml` file having the new configured databases and the new key. 
 
