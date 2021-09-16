@@ -2,7 +2,7 @@
 
 !!! warning
     
-    **WSO2 recommends using** **[SCIM 2.0 APIs](../../develop/using-the-scim-2.0-rest-apis/)** because of the following
+    **WSO2 recommends using** **[SCIM 2.0 APIs](../../develop/scim2-rest-apis/)** because of the following
     reasons:
     
     -   SCIM 2.0 APIs provide additional methods that are not available with
