@@ -333,9 +333,9 @@ Make note of the following points and configure your database to match
 your use case:  
   
 -   [Disabling Certificate Validation in an Unstarted WSO2 IS
-    Pack](#disabling-certificate-validation-in-an-unstarted-WSO2-IS-Pack)
+    Pack](#disabling-certificate-validation)
 -   [Disabling Certificate Validation in an Already-started WSO2 IS
-    Pack](#Disabling-Certificate-Validation-in-an-Already-started-WSO2-IS-Pack)
+    Pack](#Disabling-Certificate-Validation)
 
 ## Deploying travelocity.com sample app
 
