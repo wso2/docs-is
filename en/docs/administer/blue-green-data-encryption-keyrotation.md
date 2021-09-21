@@ -221,7 +221,7 @@ At the moment, the tables given below can be synced during key rotation from the
         jdbc:oracle:thin:@localhost:1521/ORCLCDB.LOCALDOMAIN
         ```
 
-6.  Run the tool using `./keyrotation.sh keyrotation-tool-<version>-SNAPSHOT.jar` command from the `<KEY_ROTATION_TOOL>` location.
+6.  Run the tool using the `./keyrotation.sh keyrotation-tool-<version>-SNAPSHOT.jar` command from `<KEY_ROTATION_TOOL>`.
 
 7.  Edit the `<NEW_IS_HOME>` `deployment.toml` file having the new configured databases and the new key. 
 
