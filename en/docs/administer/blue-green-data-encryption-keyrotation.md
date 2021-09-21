@@ -41,7 +41,7 @@ From WSO2 IS 5.11.0 onwards, symmetric encryption is used to encrypt the interna
 
 ## DEK rotation frequency
 
-In the case of a security compliance requirement we can see that symmetric DEK rotation can be done in 2 years or less based on the volume of data we have.
+In the case of a security compliance requirement, we can see that symmetric DEK rotation can be done in 2 years or less based on the volume of data present.
 
 In a security breach scenario, we must rotate the DEK immediately and re-encrypt all the data to the new DEK.
 
