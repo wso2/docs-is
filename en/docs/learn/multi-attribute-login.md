@@ -18,7 +18,7 @@ how to configure this.
    !!! info
    If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
 
-2. Click **Main** > **Identity Providers** > **Resident**  and expand the **Login Policies** section.
+2. Click **Main** > **Identity Providers** > **Resident** and expand the **Login Policies** section.
 
 3. Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
 
