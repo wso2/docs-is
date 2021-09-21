@@ -1,6 +1,6 @@
 # Blue-Green Data Encryption Key Rotation
 
-This section contains the complete process you need to follow in order to perform symmetric data encryption key rotation on a WSO2 Identity Sever(5.11.0 and above).
+This section contains the complete process you need to follow in order to perform symmetric data encryption key rotation in WSO2 Identity Sever(WSO2 IS version 5.11.0 and above).
 
 Key rotation can be defined as retiring an encryption key and replacing it with a new key. Data is encrypted using a key known as Data Encryption Key(DEK) and the DEK is then encrypted with another key called Key Encryption Key(KEK). This is known as envelope encryption. Frequent rotations of these encryption keys are considered as an industry best practice by PCI DSS and NIST standards. 
 
