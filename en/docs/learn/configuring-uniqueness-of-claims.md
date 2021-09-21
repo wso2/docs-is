@@ -47,5 +47,5 @@ Follow the steps below to configure WSO2 Identity Server.
 
 6. Finally, click the `Update` button to save the additional claim property.
 
-Now you can check and verify the functionality by adding users with existing claim value or update the user claim value of an existing claim.
+Now you can check and verify the functionality by adding users with an existing claim value or updating the user claim value of an existing claim.
 If you have successfully carried out the above-mentioned steps, you will not be able to create or update users with an existing claim value.
