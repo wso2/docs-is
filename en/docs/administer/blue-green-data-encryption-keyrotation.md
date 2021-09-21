@@ -112,7 +112,7 @@ At the moment, the tables given below can be synced during key rotation from the
 
 2.  Build it using maven by running the command `mvn clean install`.
 
-3.  Go to the `<KEY_ROTATION_REPO>/target` folder and copy the `keyrotation-tool-<version>-SNAPSHOT.jar` jar file and the `<KEY_ROTATION_REPO>/target/lib` folder to `<KEY_ROTATION_TOOL>` location. Get the `properties.yaml` file, `keyrotation.sh` file and the `triggers` folder from `<KEY_ROTATION_REPO>/src/main/resources` and copy to the same `<KEY_ROTATION_TOOL>` location.
+3.  Go to the `<KEY_ROTATION_REPO>/target` folder and copy the `keyrotation-tool-<version>-SNAPSHOT.jar` file and the `<KEY_ROTATION_REPO>/target/lib` folder to `<KEY_ROTATION_TOOL>`. Get the `properties.yaml` file, `keyrotation.sh` file, and the `triggers` folder from `<KEY_ROTATION_REPO>/src/main/resources` and copy them to the same `<KEY_ROTATION_TOOL>` location.
 
 ------------------------------------------------------------------------
 
