@@ -12,11 +12,11 @@ how to configure this.
 
 1. Start WSO2 Identity Server and log in to the Management Console (https://<IS_HOST>:<PORT>/carbon) using your tenant credentials.
 
-   !!! info
-   'admin' is the default administrative user in WSO2 Identity Server.
+!!! info
+      'admin' is the default administrative user in WSO2 Identity Server.
 
-   !!! info
-   If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
+!!! info
+      If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
 
 2. Click **Main** > **Identity Providers** > **Resident** and expand the **Login Policies** section.
 
@@ -78,4 +78,4 @@ using any of the given flows.
      does not support those claims for those users. Retaining the uniqueness of claim values avoids this conflict.
 
 !!! info "Related Topics"
-See the [Configuring Uniqueness of Claims](../../learn/configuring-uniqueness-of-claims) topic for information on configuring uniqueness of claims.
+      See the [Configuring Uniqueness of Claims](../../learn/configuring-uniqueness-of-claims) topic for information on configuring uniqueness of claims.
