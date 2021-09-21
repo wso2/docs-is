@@ -28,7 +28,7 @@ how to configure this.
 
 5. Add Regular Expression for Allowed Claims.
 
-   Once you have configured WSO2 Identity Server for multi attribute login, you need to provide regular expression for multi attribute allowed claims. Some claims already have a default regex, if not you need to provide it under the claim edit window.
+   Once you have configured WSO2 Identity Server for multi attribute login, you need to provide the regular expression for multi attribute allowed claims. Some claims already have a default regex. If not, you need to provide it under the claim edit window.
    Select claim from claim list and open the Edit window. Then enter the Regex pattern under Regular Expression field.
 
    ![adding-regex-pattern-to-claims](../assets/img/learn/multi-attribute-login/adding-regex-pattern-to-claim.png)
