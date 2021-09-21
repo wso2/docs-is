@@ -135,7 +135,7 @@ At the moment, the tables given below can be synced during key rotation from the
     !!! note
         The triggers can be found inside the `<KEY_ROTATION_TOOL>/triggers` folder.
 
-5.  Open the properties.yaml file inside `<KEY_ROTATION_TOOL>` location and edit the configurations accordingly.   
+5.  Open the `properties.yaml` file in `<KEY_ROTATION_TOOL>` and edit the configurations accordingly.   
 
     *   oldSecretKey - The symmetric encryption key used in the `<OLD_IS_HOME>`
     !!! note
