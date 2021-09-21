@@ -1,7 +1,7 @@
 # Multi Attribute Login
 
 !!! Note
-     This feature is available with wso2is- 5.10.0.15 or above update levels only.
+     This feature is available from WSO2 Identity Server 5.10.0.15 onwards.
 
 WSO2 Identity Server can be configured to use multiple attributes as the login identifier.
 By default, WSO2 Identity server uses the username as the login identifier.  First, you need to
