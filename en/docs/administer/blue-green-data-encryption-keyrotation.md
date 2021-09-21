@@ -35,7 +35,7 @@ WSO2 Identity Server has the following key usages for signing/encrypting data an
 3.  Encryption of sensitive runtime level configuration secrets/user data persisted in datastores and userstores
 4.  Encryption of sensitive deployment level configuration data in configuration files
 
-From WSO2 IS 5.11.0 onwards, symmetric encryption mechanism is used to encrypt internal sensitive runtime data above. The DEK used to encrypt these data is configured in the `deployment.toml` file and it is protected by a KEK. The secure vault is utilized as of now to protect this DEK. Here, only the rotation of the Data Encryption Key configured in the `deployment.toml` file is considered. 
+From WSO2 IS 5.11.0 onwards, symmetric encryption is used to encrypt the internal sensitive runtime data above. The DEK used to encrypt these data is configured in the `deployment.toml` file and it is protected by a KEK. The secure vault is utilized as of now to protect this DEK. Here, only the rotation of the Data Encryption Key configured in the `deployment.toml` file is considered. 
 
 ------------------------------------------------------------------------
 
