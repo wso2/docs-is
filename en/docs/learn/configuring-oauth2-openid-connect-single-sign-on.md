@@ -128,7 +128,7 @@ Let's get started to configure the service provider you created!
       </tr>
       <tr class="odd">
          <td><strong>Support PKCE 'Plain' Transform Algorithm</strong></td>
-         <td>Select this if you are using PKCE.</td>
+         <td>Select this if you need to use the 'Plain' transformation method.</td>
       </tr>
       <tr class="even">
          <td><strong>Allow Authentication without the client secret</strong></td>
