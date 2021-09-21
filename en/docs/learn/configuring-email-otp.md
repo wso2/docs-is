@@ -239,7 +239,7 @@ as explained [here](../../setup/configuring-email-sending).
                 </tr>
                 <tr>
                     <td><code>emailAddressRegex</code></td>
-                    <td>When the `showEmailAddressInUI` is enabled, this provides the capability to define the way the email address to be displayed in the UI. This can be configured with a proper regex pattern as required.</td>
+                    <td>When `showEmailAddressInUI` is enabled, it provides the capability to define the way the email address should be displayed in the UI. This can be configured with a proper regex pattern as required.</td>
                     <td>
                         <ul>
                             <li><code>(?&lt;=.{1}).(?=.*@)</code>&nbsp;&nbsp;:&nbsp;&nbsp;`t***@mail.com`</li>
