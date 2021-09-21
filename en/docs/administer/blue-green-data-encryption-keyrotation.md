@@ -139,7 +139,7 @@ At the moment, the tables given below can be synced during key rotation from the
 
     *   oldSecretKey - The symmetric encryption key used in the `<OLD_IS_HOME>`
     !!! note
-        If the key is encrypted using cipher tool decrypt it back as shown [here](https://shagihan.medium.com/decrypt-encrypted-text-with-the-wso2-cipher-tool-15b67624620a).
+        If the key is encrypted using cipher tool, decrypt it back as shown [here](https://shagihan.medium.com/decrypt-encrypted-text-with-the-wso2-cipher-tool-15b67624620a).
     *   newSecretKey - The new symmetric encryption key
     !!! tip
         Generate using a tool like openssl using the command, `openssl rand -hex 16`.
