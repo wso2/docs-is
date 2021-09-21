@@ -225,7 +225,7 @@ At the moment, the tables given below can be synced during key rotation from the
 
 7.  Edit the `<NEW_IS_HOME>` `deployment.toml` file having the new configured databases and the new key. 
 
-8.  Start `<NEW_IS_HOME>` once existing DB and config file data re-encryption is done.
+8.  Start `<NEW_IS_HOME>` once the re-encryption for the existing DB and config file is done.
 
 9.  When no new entries are being synced in the logs, route traffic to `<NEW_IS_HOME>` and enable all load balancer API endpoints(privileged and end user flows).
 
