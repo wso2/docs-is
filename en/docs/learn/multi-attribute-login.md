@@ -22,7 +22,7 @@ how to configure this.
 
 3. Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
 
-4. Then add claim URIs which allow for multi-attribute login in the given text box.
+4. Add the claim URIs that allow multi-attribute login in the given text box.
 
    ![adding-claims-for-multi-attribute-login](../assets/img/learn/multi-attribute-login/adding-claims-for-multi-attribute-login.png)
 
