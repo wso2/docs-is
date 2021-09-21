@@ -121,7 +121,7 @@ At the moment, the tables given below can be synced during key rotation from the
 1.  Block all privileged user flows and allow only end user flows.
 
     !!! note
-        For the privileged user flows, block all admin services from the load balancer and the management console as well. For end user flows the above [tables](../../administer/blue-green-data-encryption-keyrotation/#tables-that-support-syncing) will be synced to the `<NEW_IS_HOME>`, so only these end user data flows should be allowed to generate in the `<OLD_IS_HOME>`.
+        For the privileged user flows, block all admin services from the load balancer and the management console as well. For end user flows, the above [tables](../../administer/blue-green-data-encryption-keyrotation/#tables-that-support-syncing) will be synced to the `<NEW_IS_HOME>`, so only these end user data flows should be allowed to generate in `<OLD_IS_HOME>`.
 
 2.  Execute the `old<identity-db-type>.sql` script in the `<OLD_IS_HOME>` identity database to create temp tables and triggers.
 
