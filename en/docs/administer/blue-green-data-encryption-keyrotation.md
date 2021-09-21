@@ -22,7 +22,7 @@ Key rotation can be defined as retiring an encryption key and replacing it with 
 *   Security breach requirements
 
 !!! note
-    The above mentioned cryptoperiods can vary based on other factors like the sensitivity of data and the amount of data we have etc.
+    The above mentioned cryptoperiods can vary based on other factors like the sensitivity of data and the amount of data we have.
 
 ------------------------------------------------------------------------
 
