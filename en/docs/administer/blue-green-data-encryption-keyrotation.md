@@ -89,7 +89,7 @@ At the moment, the configuration files given below are supported for re-encrypti
 
 ## Tables that support syncing
 
-At the moment, the tables given below can be synced synced during key rotation from the old setup to the new setup. Any other data will not be persisted in the new setup.
+At the moment, the tables given below can be synced during key rotation from the old setup to the new setup. Any other data will not be persisted in the new setup.
 
 !!! info "Tables that support syncing"
 
