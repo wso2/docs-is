@@ -63,7 +63,7 @@ You have now successfully set up WSO2 Identity Server to enable multi-attribute 
 ### Try it out
 
 This feature is supported via the following flows. So you can try multi attribute login feature
-using any of following flow.
+using any of the given flows.
 
 1. Identifier first authenticator
 2. Basic Authenticator
