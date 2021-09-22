@@ -7,7 +7,7 @@ how to configure this.
 
 ## Configuring WSO2 IS for Multi Attribute Login
 
-1.  Start the Identity Server and log in to the [Management Console](https://<IS_HOST>:<PORT>/carbon) using your 
+1.  Log in to the [WSO2 Identity Server Management Console](`https://<IS_HOST>:<PORT>/carbon`) using your 
     tenant credentials.
 
     !!! info
@@ -16,11 +16,11 @@ how to configure this.
     !!! info
         If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
 
-2.  Click **Main** > **Identity Providers** > **Resident**  and expand the **Account Management** section.
+2.  Click **Main** > **Identity Providers** > **Resident** and expand the **Account Management** section.
 
 3.  Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
 
-4.  Then add claim URIs which allow for multi-attribute login in the given text box.
+4.  Add claim URIs which allow for multi-attribute login in the given text box.
 
 
     ![adding-claims-for-multi-attribute-login](../assets/img/learn/multi-attribute-login/adding-claims-for-multi-attribute-login.png)
@@ -28,13 +28,14 @@ how to configure this.
 5. Add Regular Expression for Allowed Claims.
 
     Once you have configured WSO2 Identity Server for multi attribute login, you need to provide regular expression 
-    for multi attribute allowed claims.
-    Some claims already have a default regex, if not you need to provide it.
+    for the allowed claims.
+    Some claims have a default regex. If they don't, you need to provide it.
 
-    1.  Open Management Console and in the **Main** menu, click **List** under **Claims**.
-    2.  Select the claim you want to provide the regular expression and click **Edit**.
+    1.  Open the WSO2 Identity Server Management Console. 
+    2.  In the **Main** menu, click **List** under **Claims**.
+    2.  Select the claim you want to provide the regular expression for and click **Edit**.
     3.  Enter the regex pattern under the **Regular Expression** field.
-    4.  Click **Update** button to save the changes.
+    4.  Click **Update** to save the changes.
 
     ![adding-regex-pattern-to-claims](../assets/img/learn/multi-attribute-login/adding-regex-pattern-to-claim.png)
 
@@ -65,4 +66,4 @@ using any of following flow.
     does not support those claims for those users. Retaining the uniqueness of claim values avoids this conflict.
 
 !!! info "Related Topics"
-    See the [Configuring Uniqueness of Claims](../../learn/configuring-uniqueness-of-claims) topic for information on configuring uniqueness of claims.
+    See the [Configuring Uniqueness of Claims](../../learn/configuring-uniqueness-of-claims) topic for more information.
