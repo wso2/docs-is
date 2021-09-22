@@ -677,6 +677,7 @@ nav:
                 - 'Configuring the User Realm': setup/configuring-the-realm.md
                 - 'Configuring the Authorization Manager': setup/configuring-the-authorization-manager.md
                 - 'Configuring the System Administrator': setup/configuring-the-system-administrator.md
+                - 'Configuring a Separate JDBC Session Store': setup/configuring-a-seperate-session-store.md
                 - 'Configuring User Stores':
                   - 'Configuring User Stores': setup/configuring-user-stores.md
                   - 'Configuring the Primary User Store':
