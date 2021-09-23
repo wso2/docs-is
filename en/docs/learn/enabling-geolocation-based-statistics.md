@@ -3,8 +3,8 @@
 Follow the steps below to configure WSO2 IS Analytics Server to display
 the regions of the users authenticated though WSO2 Identity Server.
 
-1.  Create a Geo Location dataset by following the guide given [here](../../learn/creating-geo-location-data-set/).
-    .
+1.  Create a Geo Location dataset by following the guide given [here](../../learn/creating-geo-location-dataset/).
+
 2.  Create the database by executing one of the scripts in the
     `           Geolocation Data/dbscripts          ` directory. In this
     example, `           mysql.sql          ` is executed.
