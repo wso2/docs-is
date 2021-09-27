@@ -167,13 +167,13 @@ template for this option can be configured in the
 2. Define the extension by adding the attributes in the following format before the last element of the JSON array in the `scim2-schema-extension.config` file.
 	
 	```xml 
-	{ "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:adminForcedPasswordReset", "attributeName":"adminForcedPasswordReset", "dataType":"boolean", "multiValued":"false", "description":"Enable password change required notification in the user creation.", "required":"false", "caseExact":"false", "mutability":"readwrite", "returned":"default", "uniqueness":"none", "subAttributes":"null", "canonicalValues":[], "referenceTypes":[] },
+	{ "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:forcePasswordReset", "attributeName":"forcePasswordReset", "dataType":"boolean", "multiValued":"false", "description":"Enable password change required notification in the user creation.", "required":"false", "caseExact":"false", "mutability":"readwrite", "returned":"default", "uniqueness":"none", "subAttributes":"null", "canonicalValues":[], "referenceTypes":[] },
 	```
 	
 3. Add the attribute names to the `scim2-schema-extension.config` file as `subAttributes` of the wso2Extension attribute as shown below.
 	
 	```xml
-	{ "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", "attributeName":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", "dataType":"complex", "multiValued":"false", "description":"Enterprise User", "required":"false", "caseExact":"false", "mutability":"readWrite", "returned":"default", "uniqueness":"none", "subAttributes":"verifyEmail askPassword employeeNumber costCenter organization division department manager adminForcedPasswordReset", "canonicalValues":[], "referenceTypes":["external"] }
+	{ "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", "attributeName":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", "dataType":"complex", "multiValued":"false", "description":"Enterprise User", "required":"false", "caseExact":"false", "mutability":"readWrite", "returned":"default", "uniqueness":"none", "subAttributes":"verifyEmail askPassword employeeNumber costCenter organization division department manager forcePasswordReset", "canonicalValues":[], "referenceTypes":["external"] }
 	```
 	
 4. Restart the server.
@@ -183,8 +183,8 @@ template for this option can be configured in the
     
 	| Field              | Value                                                                       |
     |--------------------|-----------------------------------------------------------------------------|
-    | Dialect URI*       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:forcePasswordReset|
-    |External Claim URI* |forcePasswordReset                                                           | 
+    | Dialect URI*       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User                   |
+    |External Claim URI* |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:forcePasswordReset| 
     |Mapped Local Claim* |http://wso2.org/claims/identity/adminForcedPasswordReset                     |
     
 8. Use the following SCIM 2.0 request to trigger a password reset.
