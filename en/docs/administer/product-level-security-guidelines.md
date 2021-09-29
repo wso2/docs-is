@@ -36,6 +36,9 @@ Change the default key stores and create new keys for all the cryptographic oper
 
     For more information, see [Recommendations for using keystores](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products) and [Creating New Keystores](../../administer/creating-new-keystores).
 
+## Symmetric Encryption Key
+
+Generate a secure secret key by following the instructions given in [Using Symmetric Encryption](../../administer/using-symmetric-encryption/#internal-crypto-provider).
 
 ## Passwords in config files
 
