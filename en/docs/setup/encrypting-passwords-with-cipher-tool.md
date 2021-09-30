@@ -43,7 +43,7 @@ When you have [encrypted passwords](#encrypting-passwords), you can refer them f
 You can add the encrypted password to the relevant sections in the `deployment.toml` file by using a place holder: `$secret{alias}`. 
 
 !!! note 
-    You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties](../../administer/set-passwords-using-environment-variables-or-system-properties)
+    You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties](../../setup/set-passwords-using-environment-variables-or-system-properties)
 
 ```toml
 [super_admin]
