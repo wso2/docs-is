@@ -101,7 +101,7 @@ The instructions in this section enable you to successfully set up MFA using the
 
 
 ### Setting up an account for MFA
-To associate a FIDO device with the user account, refer [Add security device](../learn/user-portal.md#add-security-device).
+To associate a FIDO device with the user account, refer [Add security device](../learn/my-account.md#add-security-device).
   
 
 ### Configuring FIDO U2F as an authenticator
