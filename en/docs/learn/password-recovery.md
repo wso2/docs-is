@@ -32,27 +32,6 @@ notifications. The flow of this method is as follows:
 Follow the steps given below to set up and try out password recovery
 with email notification.
 
-!!! tip "Before you begin"
-    
-    Ensure that the identity listener with the
-    `         priority=50        ` is set to **false** and that the Identity
-    Listeners with `         priority=95        ` and
-    `         priority=97        ` are set to **true** by adding the following configuration in the
-    `         <IS_HOME>/repository/conf/deployment.toml        ` file.
-    
-    ``` java
-    [event.default_listener.identity_mgt]
-    priority= "50"
-    enable = false
-    [event.default_listener.governance_identity_mgt]
-    priority= "95"
-    enable = true
-    [event.default_listener.governance_identity_store]
-    priority= "97"
-    enable = true
-    ```
-
-
 1.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending).
     

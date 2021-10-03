@@ -351,6 +351,7 @@ nav:
             - 'Locking a Specific User Account': learn/locking-a-specific-user-account.md
             - 'Account Disabling': learn/account-disabling.md
           - 'Setting Up ReCaptcha': learn/setting-up-recaptcha.md
+          - 'Multi Attribute Login': learn/multi-attribute-login.md
         - 'Workflows':
           - 'Workflows': learn/workflow-management.md
           - 'Adding a workflow Engine':
@@ -368,6 +369,7 @@ nav:
         - 'Creating and Managing Tenants': learn/creating-and-managing-tenants.md
         - 'Using Email Address as the Username': learn/using-email-address-as-the-username.md
         - 'Managing Consent Purposes': learn/managing-consent-purposes.md
+        - 'Configuring Uniqueness of Claims': learn/configuring-uniqueness-of-claims.md
       - 'Identity Bus':
         - 'Identity Bus': learn/identity-bus.md
         - 'Adding and Configuring a Service Provider':
@@ -732,7 +734,6 @@ nav:
           - 'Identity Provider Related Tables': administer/identity-provider-related-tables.md
       - 'Using Tools':
         - 'Using Tools': administer/using-tools.md
-        - 'Using the SAML2 Toolkit': administer/using-the-saml2-toolkit.md
         - 'Using the XACML TryIt Tool':
           - 'Using the XACML TryIt Tool': administer/using-the-xacml-tryit-tool.md
           - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
