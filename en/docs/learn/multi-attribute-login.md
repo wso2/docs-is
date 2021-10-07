@@ -1,9 +1,11 @@
 # Multi Attribute Login
 
-WSO2 Identity Server can be configured to use multiple attributes as the login identifier. 
-By default, WSO2 Identity server uses the username as the login identifier.  First, you need to
-configure WSO2 identity server for multi attribute authentication. The following section explains
-how to configure this.
+WSO2 Identity Server can be configured to use multiple attributes as the login identifier. This feature can be 
+useful when you need to allow the users to login with their mobile number, email address or any other preferred 
+attribute without restricting to the username.
+
+By default, WSO2 Identity server uses the username as the login identifier. The following section explains
+how to configure WSO2 identity server for multi attribute authentication.
 
 ## Configuring WSO2 IS for Multi Attribute Login
 
@@ -55,22 +57,22 @@ After configuring the multi attribute login in WSO2 IS, the users can use any of
 
 **Example:** Allow users to user the mobile number as the login identifier.
 
-1. Configure Multi Attribute login for `http://wso2.org/claims/mobile` claim.
-2. Go to the My Account URL: (`https://localhost:9443/myaccount`).
-3. Enter mobile number as the login identifier and click **Continue**.
+1.  Configure Multi Attribute login for `http://wso2.org/claims/mobile` claim.
+2.  Go to the My Account URL: (`https://localhost:9443/myaccount`).
+3.  Enter mobile number as the login identifier and click **Continue**.
 
-![adding-regex-pattern-to-claims](../assets/img/learn/multi-attribute-login/login-with-mobile-number.png)
+    ![adding-regex-pattern-to-claims](../assets/img/learn/multi-attribute-login/login-with-mobile-number.png)
 
 ### Supported flows
 This feature is supported via the following flows. So you can use multi attribute login feature
 using any of following flow.
 
-1. Identifier first authenticator
-2. Basic Authenticator
-3. Request path authenticator
-4. Authentication REST APIs
-5. Oauth Password grant
-6. Password recovery flow
+1.  Identifier first authenticator
+2.  Basic Authenticator
+3.  Request path authenticator
+4.  Authentication REST APIs
+5.  Oauth Password grant
+6.  Password recovery flow
 
 !!! Note "What happens if two users use the same value for the same claim?"
     If two users use the same value for the same claim, the multi attribute login feature
