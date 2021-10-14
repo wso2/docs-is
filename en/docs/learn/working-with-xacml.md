@@ -12,12 +12,11 @@ than it being just a fine grained authorization mechanism.
     For more information about XACML, see [Access Control and Entitlement
     Management](../../get-started/access-control-and-entitlement-management#introducing-xacml).
 
-We generally uses the HTTPS transport for calling the Web Service API
-that has been exposed by the PDP.  With WSO2 Identity Server, we can
-also use **Thrift** protocal to communicate with PDP.  It is said that
-thrift is more faster than the HTTP.  Therefore we hope that we can get
-more performance and less response time by using thrift protocol with
-WSO2 Identity Server.
+We generally use the HTTPS transport protocol for calling a Web Service API
+that has been exposed by the PDP ([Policy Decision Point](configuring-the-policy-decision-point.md)). 
+With WSO2 Identity Server, we can also use the **Thrift** protocol to communicate with the PDP. 
+Since is a well known fact that Thrift is faster than HTTP, we can get significantly higher performance along with less 
+response time by using thrift protocol with WSO2 Identity Server.
 
   
 
