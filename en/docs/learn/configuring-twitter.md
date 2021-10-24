@@ -29,7 +29,7 @@ In the WSO2 Identity Server management console,
     .
     ![twitter-config-federated-auth.png](../assets/img/tutorials/twitter-config-federated-auth.png)
     Fill in the following fields details according to the application
-    [registered in the Twitter](http://docs.inboundnow.com/guide/create-twitter-application/):
+    [registered in the Twitter](https://developer.twitter.com/en/apps):
 
     <table>
     <thead>
