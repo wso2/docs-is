@@ -110,8 +110,25 @@ Following are the basic configurations and their descriptions.
            username = "regadmin"
            password = "regadmin"
            ```  
-               
-           
+!!! tip "Troubleshooting Tip"
+
+    -  The following error can be thrown in the WSO2 Identity Server even when the connection with the DB server is working fine. 
+            `The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.`
+
+    - The following two properties in the MySQL connection URL could solve it.
+        ``` toml
+        autoReconnect=true
+        useSSL=false
+        ```
+
+    - This needs to be added to the url as follows
+        ``` toml
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/regdb?autoReconnect=true&amp;useSSL=false"
+        username = "regadmin"
+        password = "regadmin"
+        ```
+
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
