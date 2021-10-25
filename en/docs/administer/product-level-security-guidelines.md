@@ -251,7 +251,7 @@ Log forging can be prevented by appending a UUID to the log message.
 
 !!! info
 
-    For more information on configuring the `log4j.properties` file, see <a href="../../setup/monitoring-logs/">Monitoring Logs</a>.
+    For more information on configuring the `log4j2.properties` file, see <a href="../../setup/monitoring-logs/">Monitoring Logs</a>.
 
 
 ## JVM parameters
