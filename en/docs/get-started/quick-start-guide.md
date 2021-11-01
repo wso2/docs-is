@@ -92,7 +92,6 @@ using WSO2 Identity Server.
     allow_generic_http_requests = true
     allow_any_origin = true
     supported_methods = [
-        "GET",
         "POST",
         "HEAD",
         "OPTIONS"
