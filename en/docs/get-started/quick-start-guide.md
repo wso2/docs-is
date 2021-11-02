@@ -96,7 +96,7 @@ using WSO2 Identity Server.
         "HEAD",
         "OPTIONS"
     ]
-    supports_credentials = true
+    supports_credentials = false
     max_age = 3600
     tag_requests = false
     ```
