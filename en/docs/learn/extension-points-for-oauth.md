@@ -42,7 +42,7 @@ respective extension point below.
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
 <a class="sourceLine" id="cb1-2" title="2">[[oauth.custom_grant_type]] </a>
 <a class="sourceLine" id="cb1-3" title="3">name = "name of the grant type" </a>
-<a class="sourceLine" id="cb1-3" title="4">handler_class = "full qualified class name of grant handler" </a></code></pre></div>
+<a class="sourceLine" id="cb1-3" title="4">grant_handler = "full qualified class name of grant handler" </a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -79,7 +79,7 @@ implement a grant validator and register
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
 <a class="sourceLine" id="cb1-2" title="2">[[oauth.custom_grant_type]] </a>
 <a class="sourceLine" id="cb1-3" title="3">name = "name of the grant type" </a>
-<a class="sourceLine" id="cb1-3" title="4">handler_class = "full qualified class name of grant handler" </a>
+<a class="sourceLine" id="cb1-3" title="4">grant_handler = "full qualified class name of grant handler" </a>
 <a class="sourceLine" id="cb1-4" title="5">grant_validator = "full qualified class name of grant validator" </a></code></pre></div>
 </div>
 </div>
