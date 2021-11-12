@@ -131,10 +131,12 @@ directly used as well.
         for more information.
     4.  Expand the **OAuth/OpenID Connect Configuration** and click
         **Configure**.
-    5.  Enter a callback URL. For example,
+    5.  Check that the `mobile` grant type is selected as shown below.
+        <img src="../../assets/img/learn/mobile-grant-type.jpeg" width="400">
+    6.  Enter a callback URL. For example,
         http://localhost:8080/playground2/oauth2client .
-    6.  Click **Add**.   
-    7.  The **OAuth Client Key** and **OAuth Client Secret** will now be
+    7.  Click **Add**.   
+    8.  The **OAuth Client Key** and **OAuth Client Secret** will now be
         visible.
 
 6.  Send the grant request to the `          /token         ` API using
@@ -207,10 +209,12 @@ This section provides instructions on how to
         for more information.
     4.  Expand the **OAuth/OpenID Connect Configuration** and click
         **Configure**.
-    5.  Enter a callback URL. For example,
+    5.  Check that the `mobile` grant type is selected as shown below.
+        <img src="../../assets/img/learn/mobile-grant-type.jpeg" width="400">
+    6.  Enter a callback URL. For example,
         http://localhost:8080/playground2/oauth2client.
-    6.  Click **Add**.
-    7.  The **OAuth Client Key** and **OAuth Client Secret** will now be
+    7.  Click **Add**.
+    8.  The **OAuth Client Key** and **OAuth Client Secret** will now be
         visible.
 5.  Send the password grant request to the `           /token          `
     API using a cURL command.
