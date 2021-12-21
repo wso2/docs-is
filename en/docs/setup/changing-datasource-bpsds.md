@@ -20,6 +20,9 @@ Following are the sample configuration for each database type.
         username = "regadmin"
         password = "regadmin"
         driver = "org.postgresql.Driver"
+
+        [bps_database.config.pool_options]
+        defaultAutoCommit = true
         ```
         
     2. Executing database scripts. 
