@@ -12,7 +12,7 @@ development platforms before starting the installation.
 <tr class="odd">
 <th><p>Memory</p></th>
 <td><ul>
-<li>4 vCPUs</li>
+<li>4 vCPUs (x86_64 Architecture)</li>
 <li>4 GB RAM</li>
 <li>10 GB Disk Space</li>
 </ul>
@@ -26,6 +26,10 @@ development platforms before starting the installation.
 </tr>
 </tbody>
 </table>
+
+!!! note
+    
+    We do not recommend running WSO2 Identity Server on ARM architecture. However, official support for this is being considered for future releases.
 
 ### Environment compatibility
 
