@@ -17,7 +17,7 @@ See [Configuring the Email Sending Module](../../setup/configuring-email-sending
 
 ## Step 02 - Enable the feature in the management console
 
-1.  In the management console, navigate to **Main > Identity Providers > Resident > Account Management Policies > User Claim Update**.
+1.  In the management console, navigate to **Main > Identity Providers > Resident > Other Settings > User Claim Update**.
 
 2.  Enable **User Email Verification On Update**. Additionally, you can define the expiry time for the verification link to match your requirement.
 
