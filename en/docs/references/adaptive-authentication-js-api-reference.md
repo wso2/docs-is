@@ -100,7 +100,16 @@ The API can be called in either of the following ways:
         }
     });
     ```
-      
+    ``` java
+    executeStep(1, {
+        stepOptions: {
+            forceAuth: 'true',
+            subjectIdentifier: 'true',
+            subjectAttributeStep: 'true'
+        }
+    });
+    ```
+
     !!! note
     
         The API cannot be called with only the `           stepId          `
@@ -125,6 +134,55 @@ executeStep(1,{
    },{
        onSuccess: function (context) {
            // Do something on success
+};
+```
+
+<a name = "step-options"></a>
+**Authentication step options**
+
+`         stepOptions        ` is an optional property that can be defined in the `         executeStep         `.
+This will add additional authentication options like `         forceAuth        `,
+`         subjectIdentifier        ` &
+`         subjectAttributeStep        ` . These attributes work as follows,
+
+<table>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>forceAuth</td>
+<td>force a particular authentication step from adaptive authentication script.<br />
+**note: <b>onSuccess</b> callback should be provided for this to work.</td>
+</tr>
+<tr class="even">
+<td>subjectIdentifier</td>
+<td>Set the current authentication step as the subject identifier step.</td>
+</tr>
+<tr class="odd">
+<td>subjectAttributeStep</td>
+<td>Set the current authentication step as the subject attribute step.</td>
+</tr>
+</tbody>
+</table>
+
+**Example code**
+
+``` java
+executeStep(1, {
+    stepOptions: {
+        forceAuth: 'true'
+};
+```
+
+``` java
+executeStep(1, {
+    stepOptions: {
+        subjectIdentifier: 'true',
+        subjectAttributeStep: 'true'
 };
 ```
 
