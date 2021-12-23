@@ -105,9 +105,7 @@ object such as `           authenticationOptions          `, `           authent
     ``` java
     executeStep(1, {
         stepOptions: {
-            forceAuth: 'true',
-            subjectIdentifier: 'true',
-            subjectAttributeStep: 'true'
+            forceAuth: 'true'
         }
     }, {} );
     ```
@@ -143,33 +141,8 @@ executeStep(1,{
 **Authentication step options**
 
 `         stepOptions        ` is an optional property that can be defined in the `         executeStep         `.
-This will add additional authentication options like `         forceAuth        `,
-`         subjectIdentifier        ` &
-`         subjectAttributeStep        ` . These attributes work as follows,
-
-<table>
-<thead>
-<tr class="header">
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>forceAuth</td>
-<td>Force the authenticators in the steps to prompt again even if it's already authenticated<br />
-**note: <b>onSuccess</b> callback should be provided for this to work.</td>
-</tr>
-<tr class="even">
-<td>subjectIdentifier</td>
-<td>Set the current authentication step as the subject identifier step. This will override the already configured subject identifier step.</td>
-</tr>
-<tr class="odd">
-<td>subjectAttributeStep</td>
-<td>Set the current authentication step as the subject attribute step.  This will override the already configured subject attribute step.</td>
-</tr>
-</tbody>
-</table>
+This will allow adding the additional `         forceAuth        ` authentication option. The `         forceAuth        ` option can
+force the authenticator in the steps to prompt again event if it was already authenticated.
 
 **Example code**
 
@@ -178,17 +151,9 @@ executeStep(1, {
     stepOptions: {
         forceAuth: 'true'
      }
-}, {} );
+}, {});
 ```
 
-``` java
-executeStep(1, {
-    stepOptions: {
-        subjectIdentifier: 'true',
-        subjectAttributeStep: 'true'
-     }
-}, {} );
-```
 
 ### Utility functions
 
