@@ -80,7 +80,9 @@ The API can be called in either of the following ways:
 
 -   With the `           stepId          `,
     `           options          `, and an empty
-    `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` object such as `           authenticationOptions          `, `           authenticatorParams          `. See the following two examples:
+    `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` 
+object such as `           authenticationOptions          `, `           authenticatorParams          `,
+`           stepOptions          `. See the following examples:
 
     ``` java
     executeStep(1,{
@@ -98,9 +100,18 @@ The API can be called in either of the following ways:
                                     }
             }
         }
-    });
+    }, {} );
     ```
-      
+    ``` java
+    executeStep(1, {
+        stepOptions: {
+            forceAuth: 'true',
+            subjectIdentifier: 'true',
+            subjectAttribute: 'true'
+        }
+    }, {} );
+    ```
+
     !!! note
     
         The API cannot be called with only the `           stepId          `
@@ -126,6 +137,56 @@ executeStep(1,{
        onSuccess: function (context) {
            // Do something on success
 };
+```
+
+<a name = "step-options"></a>
+**Authentication step options**
+
+`         stepOptions        ` is an optional property that can be defined in the `         executeStep         `.
+This will add additional authentication options like `         forceAuth        `,
+`         subjectIdentifier        ` &
+`         subjectAttribute        ` . These attributes work as follows,
+
+<table>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>forceAuth</td>
+<td>Force the authenticators in the steps to prompt again even if it's already authenticated.<br /></td>
+</tr>
+<tr class="even">
+<td>subjectIdentifier</td>
+<td>Set the current authentication step as the subject identifier step. This will override the already configured subject identifier step.</td>
+</tr>
+<tr class="odd">
+<td>subjectAttribute</td>
+<td>Set the current authentication step as the subject attribute step.  This will override the already configured subject attribute step.</td>
+</tr>
+</tbody>
+</table>
+
+**Example code**
+
+``` java
+executeStep(1, {
+    stepOptions: {
+        forceAuth: 'true'
+     }
+}, {} );
+```
+
+``` java
+executeStep(1, {
+    stepOptions: {
+        subjectIdentifier: 'true',
+        subjectAttribute: 'true'
+     }
+}, {} );
 ```
 
 ### Utility functions
