@@ -126,6 +126,12 @@ password feature:
     [identity_mgt.user_onboarding]
     ask_password_from_user= true
     ```
+    
+    !!! info 
+         If you are adding users via the management console you should have the following permissions to enable 
+        "Ask password" option in the management console.
+    
+        -	/permission/admin/manage/identity/governance/view
 
 6.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending).
