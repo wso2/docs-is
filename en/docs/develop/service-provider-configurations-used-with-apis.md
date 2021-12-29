@@ -349,7 +349,7 @@ This section guides you through the configurations you can include in a service 
                                 <li>https://testapp:8000/callback</li>
                             </ul>
                         <p>To configure the callback URL to work for both of these URLs, set it using a regex pattern as follows:<br>
-                            <code>regexp=(https://myapp.com/callback|https://testapp:8000/callback)</code><br>
+                            <code>regexp=(https://((myapp\.com)|(testapp:8000))(/callback))</code><br>
                         <p>Make sure to set the prefix 'regexp=' before your regex pattern. To define a normal URL, you can specify the callback URL without this prefix.</p>
                         </p>
                     </div> 
