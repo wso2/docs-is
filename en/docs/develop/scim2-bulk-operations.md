@@ -9,19 +9,25 @@ You need to specify the following information in the request payload.
 <table>
     <tr>
         <th>Parameter</th>
-        <th>Possible Values</th>
         <th>Required/Optional</th>
         <th>Description</th>
     </tr>
     <tr>
+        <td><code>failOnErrors</code></td>
+        <td>Optional</td>
+        <td>The number of errors that will be accepted by WSO2 IS before returning the response.</br>
+            Specify an integer.
+        </td>
+    </tr>
+    <tr>
         <td><code>schemas</code></td>
-        <td>urn:ietf:params:scim:api:messages:2.0:BulkRequest</td>
         <td>Required</td>
-        <td>This is the schema that is required for sending bulk requests.</td>
+        <td>This is the schema that is required for sending bulk requests:</br></br>
+        <code>urn:ietf:params:scim:api:messages:2.0:BulkRequest</code>.
+        </td>
     </tr>
     <tr>
         <td><code>operations</code></td>
-        <td>Array of POST operations</td>
         <td>Required</td>
         <td>Specify the array of POST, PUT, PATCH, and/or DELETE operations that should be used to update the information. You can include any number of operations in one bulk request.</br></br>
         See the instructions given below to define the required operations.</td>
@@ -29,6 +35,8 @@ You need to specify the following information in the request payload.
 </table>
 
 ## Manage users in bulk
+
+You can use the **bulk** operations to add, remove, update, and delete users in bulk.
 
 ### Add users
 
@@ -93,6 +101,108 @@ Given below is an example request payload to manage users in bulk. This request 
 
 The parameters in the request body are explained below.
 
+-   Main parameters
+
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Required/Optional</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>failOnErrors</code></td>
+            <td>Optional</td>
+            <td>The number of errors that will be accepted by WSO2 IS before returning the response.</br>
+                <b>Possible values</b>: Specify an integer.
+            </td>
+        </tr>
+        <tr>
+            <td><code>schemas</code></td>
+            <td>Required</td>
+            <td>This is the schema that is required for sending bulk requests:</br></br>
+            <code>urn:ietf:params:scim:api:messages:2.0:BulkRequest</code>.
+            </td>
+        </tr>
+        <tr>
+            <td><code>operations</code></td>
+            <td>Required</td>
+            <td>Array of operations. To add multiple new users, add an array of POST operations. You can include any number of operations in one bulk request.</br></br>
+            The parameters that can be used for the operation are explained below.
+            </td>
+        </tr>
+    </table>
+
+-   Operation parameters
+
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Required/Optional</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>method</code></td>
+            <td>Optional</td>
+            <td>
+                The method that should be used in the operation.</br></br>
+                <b>Possible Value</b>:<code>POST</code>.
+            </td>
+        </tr>
+        <tr>
+            <td><code>path</code></td>
+            <td>Required</td>
+            <td>
+                Add this path to specify that a new user is being added.</br></br>
+                <b>Possible Value</b>:<code>/Users</code>.
+            </td>
+        </tr>
+        <tr>
+            <td><code>bulkid</code></td>
+            <td>Required</td>
+            <td>
+                A unique identifier for the bulk operation. The bulkid is required for POST operations.</br></br>
+                <b>Possible Value</b>: An integer value.
+            </td>
+        </tr>
+        <tr>
+            <td><code>data</code></td>
+            <td>Required</td>
+            <td>
+                Specify the details of the new user that should be added. The parameters that can be used for this “data” object are explained below.
+            </td>
+        </tr>
+    </table>
+
+-   Data parameters
+
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Required/Optional</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>schemas</code></td>
+            <td>Required</td>
+            <td>
+                Specify the list of SCIM2 user schemas to which the new user should be linked.</br></br>
+                <b>Possible Values:</b>
+                <ul>
+                    <li><code>urn:ietf:params:scim:schemas:core:2.0:User</code></li>
+                    <li><code>urn:ietf:params:scim:schemas:enterprise:2.0:User</code></li>
+                    <li><code>urn:ietf:params:scim:schemas:custom:2.0:Use</code></li>
+                </ul>   
+            </td>
+        </tr>
+        <tr>
+            <td><code><attribute></code></td>
+            <td>Required</td>
+            <td>
+                Specify the array of user attributes.
+            </td>
+        </tr>
+    </table>
+
 ### Update users
 
 Given below is an example request payload to update users in bulk. This request includes an array of operations that updates multiple details of multiple users.
@@ -139,6 +249,117 @@ Given below is an example request payload to update users in bulk. This request 
 ```
 
 The parameters in the request body are explained below.
+
+-   Main parameters
+
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Required/Optional</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>failOnErrors</code></td>
+            <td>Optional</td>
+            <td>The number of errors that will be accepted by WSO2 IS before returning the response.</br>
+                <b>Possible values</b>: Specify an integer.
+            </td>
+        </tr>
+        <tr>
+            <td><code>schemas</code></td>
+            <td>Required</td>
+            <td>This is the schema that is required for sending bulk requests:</br></br>
+            <code>urn:ietf:params:scim:api:messages:2.0:BulkRequest</code>.
+            </td>
+        </tr>
+        <tr>
+            <td><code>operations</code></td>
+            <td>Required</td>
+            <td>Array of operations. To update multiple users, add an array of PATCH operations. You can include any number of operations in one bulk request.</br></br>
+            The parameters that can be used for the operation are explained below.
+            </td>
+        </tr>
+    </table>
+
+-   Operation parameters
+
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Required/Optional</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>method</code></td>
+            <td>Optional</td>
+            <td>
+                The method that should be used in the operation.</br></br>
+                <b>Possible Value</b>:<code>PATCH</code>.
+            </td>
+        </tr>
+        <tr>
+            <td><code>path</code></td>
+            <td>Required</td>
+            <td>
+                Add this path to specify that a new user is being added.</br></br>
+                <b>Possible Value</b>:<code>/Users/{user_id}</code>.
+            </td>
+        </tr>
+        <tr>
+            <td><code>bulkid</code></td>
+            <td>Optional</td>
+            <td>
+                A unique identifier for the bulk operation. The bulkid is required for POST operations.</br></br>
+                <b>Possible Value</b>: An integer value.
+            </td>
+        </tr>
+        <tr>
+            <td><code>data</code></td>
+            <td>Required</td>
+            <td>
+                Specify the details of the new user that should be added. The parameters that can be used for this “data” object are explained below.
+            </td>
+        </tr>
+    </table>
+
+-   Data parameters
+
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Required/Optional</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>op</code></td>
+            <td>Required</td>
+            <td>
+                The operation that should be applied to the existing user’s data.</br></br>
+                <b>Possible Values:</b>
+                <ul>
+                    <li><code>add</code></li>
+                    <li><code>replace</code></li>
+                    <li><code>remove</code></li>
+                </ul>   
+            </td>
+        </tr>
+        <tr>
+            <td><code>path</code></td>
+            <td>Required</td>
+            <td>
+                The path to the resource (user attribute) that should be updated.</br> 
+                For example, if the name of the user is to be updated, the path should be “name”.
+            </td>
+        </tr>
+        <tr>
+            <td><code>value</code></td>
+            <td>Required</td>
+            <td>
+                The path to the resource (user attribute) that should be updated.</br> 
+                For example, if the name of the user is to be updated, the path should be “name”.
+            </td>
+        </tr>
+    </table>
 
 ### Replace users
 
@@ -217,6 +438,8 @@ Given below is an example request payload to delete existing users in bulk. This
 The parameters in the request body are explained below.
 
 ## Manage user groups in bulk
+
+You can use the **bulk** operations to add, remove, update, and delete user groups in bulk.
 
 ### Add user groups
 
