@@ -106,8 +106,8 @@ object such as `           authenticationOptions          `, `           authent
     executeStep(1, {
         stepOptions: {
             forceAuth: 'true',
-            subjectIdentifier: 'true',
-            subjectAttribute: 'true'
+            markAsSubjectIdentifierStep: 'true',
+            markAsSubjectAttributeStep: 'true'
         }
     }, {} );
     ```
@@ -144,8 +144,8 @@ executeStep(1,{
 
 `         stepOptions        ` is an optional property that can be defined in the `         executeStep         `.
 This will add additional authentication options like `         forceAuth        `,
-`         subjectIdentifier        ` &
-`         subjectAttribute        ` . These attributes work as follows,
+`         markAsSubjectIdentifierStep        ` &
+`         markAsSubjectAttributeStep        ` . These attributes work as follows,
 
 <table>
 <thead>
@@ -160,11 +160,11 @@ This will add additional authentication options like `         forceAuth        
 <td>Force the authenticators in the steps to prompt again even if it's already authenticated.<br /></td>
 </tr>
 <tr class="even">
-<td>subjectIdentifier</td>
+<td>markAsSubjectIdentifierStep</td>
 <td>Set the current authentication step as the subject identifier step. This will override the already configured subject identifier step.</td>
 </tr>
 <tr class="odd">
-<td>subjectAttribute</td>
+<td>markAsSubjectAttributeStep</td>
 <td>Set the current authentication step as the subject attribute step.  This will override the already configured subject attribute step.</td>
 </tr>
 </tbody>
@@ -183,8 +183,8 @@ executeStep(1, {
 ``` java
 executeStep(1, {
     stepOptions: {
-        subjectIdentifier: 'true',
-        subjectAttribute: 'true'
+        markAsSubjectIdentifierStep: 'true',
+        markAsSubjectAttributeStep: 'true'
      }
 }, {} );
 ```
