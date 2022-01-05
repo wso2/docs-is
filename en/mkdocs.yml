@@ -593,7 +593,6 @@ nav:
             - 'SCIM 2.0': 
               - 'SCIM2 API Definition': develop/scim2-rest-apis.md
               - 'SCIM2 Patch Operations': develop/scim2-patch-operations.md
-              - 'SCIM2 Bulk Operations': develop/scim2-bulk-operations.md
             - 'Script Libraries': develop/script-library-rest-api.md
             - 'Secondary User Store': develop/userstore-rest-api.md
             - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
