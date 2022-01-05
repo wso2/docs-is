@@ -4,7 +4,7 @@ Follow the topics given below to understand how **Patch** operations can be used
 
 ## Introduction
 
-WSO2 Identity Server supports SCIM Patch, which can be used to update one or more attributes of a SCIM resource. 
+WSO2 Identity Server supports **SCIM Patch**, which can be used to update one or more attributes of a SCIM resource. 
 
 When you create your request payload to update attributes in a SCIM resource, you need to first determine the following two factors: 
 
