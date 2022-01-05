@@ -622,7 +622,7 @@ Consider the `emails` attribute in the **Core** user schema, which can have mult
 
 ## Patch groups
 
-You can use the patch operations to add/remove/replace users (members) in a user group.
+You can use the patch operations to add/remove/replace users (members) in a user group. You can also rename the a user group by using the `replace` operation.
 
 ### Add members
 
@@ -713,6 +713,31 @@ Let's create patch request payloads to `remove` members from a user group.
     {
         "op": "remove",
         "path": "members[display eq alex]"
+    }
+    ```
+
+### Rename user group
+
+Let's create a patch request payload to rename an existing user group.
+
+-   **Example 1:** Rename a user group (without using the path param):
+
+    ```json
+    {
+        "op": "replace",
+        "value": {
+            "displayName": "new_group_name"
+        }
+    }
+    ```
+
+-   **Example 1:** Rename a user group (using the path param):
+
+    ```json
+    {
+        "op": "replace",
+        "path": "displayName",
+        "value": "new_group_name"
     }
     ```
 
