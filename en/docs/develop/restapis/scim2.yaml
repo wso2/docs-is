@@ -1357,10 +1357,15 @@ paths:
     post:
       tags:
         - Bulk Endpoint
-      summary: Create Users in Bulk
+      summary: Create/ Update/ Replace/ Delete SCIM Resources (Users/ Groups/ Roles) in Bulk
       description: |
-        This API is used to create multiple users at once. The list of new users that you add in bulk should be specified as an array of POST operations in the request body.</br> 
-        If a new user you are adding from this request already exists in the system (that is, a user already exists with the same username), that particular new user record (as well as all the user records that follow) will not be created.
+        This API is used to create/update/replace/delete SCIM resources in bulk. You need to specify different operations in the request payload corresponding to the type of bulk update: </br>
+          - **POST** operation: Adds new resources.
+          - **PUT** operation: Replaces an existing resource.
+          - **PATCH** opearation: Updates attribues of an existing resource.
+          - **DELETE** operation: Removes an existing resource.
+
+        Learn more about [defining batch operations](../../develop/scim2-batch-operations).
         
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt
@@ -1376,6 +1381,7 @@ paths:
       parameters:
         - in: body
           name: body
+          description: The following example payload is defined for adding users in bulk.
           required: false
           schema:
             $ref: '#/definitions/BulkUserRequestObject'
@@ -1384,126 +1390,6 @@ paths:
           description: Valid user is created
           schema:
             $ref: '#/definitions/BulkUserResponseObject'
-        401:
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorUnauthorized'
-        403:
-          description: Forbidden
-          schema:
-            $ref: '#/definitions/ErrorForbidden'
-        409:
-          description: Users already exists
-    put:
-      tags:
-        - Bulk Endpoint
-      summary: Replace Users in Bulk
-      description: |
-        This API is used to replace multiple users at once. A PUT request replaces an existing user with the new user details you specify in the request body.
-        
-         <b>Permission required:</b>
-         * /permission/admin/manage/identity/usermgt
-         
-         <b>Scope required:</b>
-            * internal_user_mgt_create
-
-      operationId: replaceBulkUsers
-      consumes:
-        - application/scim+json
-      produces:
-        - application/scim+json
-      parameters:
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/BulkReplaceUserRequestObject'
-      responses:
-        201:
-          description: Valid user is created
-          schema:
-            $ref: '#/definitions/BulkReplaceUserResponseObject'
-        401:
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorUnauthorized'
-        403:
-          description: Forbidden
-          schema:
-            $ref: '#/definitions/ErrorForbidden'
-        409:
-          description: Users already exists
-    delete:
-      tags:
-        - Bulk Endpoint
-      summary: Delete Users in Bulk
-      description: |
-        This API is used to delete multiple users at once.
-        
-         <b>Permission required:</b>
-         * /permission/admin/manage/identity/usermgt/delete
-         
-         <b>Scope required:</b>
-            * internal_user_mgt_delete
-
-      operationId: deleteBulkUsers
-      consumes:
-        - application/scim+json
-      produces:
-        - application/scim+json
-      parameters:
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/BulkUserDeleteRequestObject'
-      responses:
-        204:
-          description: User group is deleted
-          schema:
-            $ref: '#/definitions/BulkUserDeleteResponseObject'
-        401:
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorUnauthorized'
-        403:
-          description: Forbidden
-          schema:
-            $ref: '#/definitions/ErrorForbidden'
-        404:
-          description: Valid group is not found
-          schema:
-            $ref: '#/definitions/ErrorNoGroupAvailable'
-    patch:
-      tags:
-        - Bulk Endpoint
-      summary: Update Users in Bulk
-      description: |
-        This API is used to update multiple users at once. A PATCH request updates specific attributes of an existing user without replacing the user. This includes adding new attribute, replacing attributes, and removing attributes.</br>
-        Learn more about [defining patch operations for users](../../develop/scim2-patch-operations/#patch-users).
-        
-         <b>Permission required:</b>
-         * /permission/admin/manage/identity/usermgt
-         
-         <b>Scope required:</b>
-            * internal_user_mgt_create
-
-      operationId: updateBulkUsers
-      consumes:
-        - application/scim+json
-      produces:
-        - application/scim+json
-      parameters:
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/BulkUpdateUserRequestObject'
-      responses:
-        201:
-          description: Valid user is created
-          schema:
-            $ref: '#/definitions/BulkUpdateUserResponseObject'
         401:
           description: Unauthorized
           schema:
@@ -2072,6 +1958,7 @@ definitions:
       id:
         type: string
         example: '7bac6a86-1f21-4937-9fb1-5be4a93ef469'
+        
   #-----------------------------------------------------
   # The Group PUT request object
   #-----------------------------------------------------
@@ -2607,103 +2494,6 @@ definitions:
         password:
           type: string
           example: "jesspass"
-            
-  #-----------------------------------------------------
-  # Bulk Update User Request Object
-  #-----------------------------------------------------
-          
-  BulkUpdateUserRequestObject:
-    type: object
-    properties:
-      failOnErrors:
-        type: integer
-        example: 1
-      schemas:
-        type: array
-        items:
-          type: string
-          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
-      Operations:
-        type: array
-        items:
-          $ref: '#/definitions/BulkUpdateUserOb'
-
-  BulkUpdateUserOb:
-    type: object
-    properties:
-      method:
-        type: string
-        example: "PATCH"
-      path:
-        type: string
-        example: "/Users/{User_ID}"
-      data:
-        type: object
-        properties:
-          operations:
-            type: array
-            items:
-              type: object
-            example:
-              - op: "add"
-                path: "name"
-                value:
-                  givenName: "john"
-                  familyName: "Anderson"
-                  
-              - op: "replace"
-                path: "nickName"
-                value: "shaggy"
-              - op: "remove"
-                path: "emails[type eq home]"
-  
-  #-----------------------------------------------------
-  # Bulk Replace User Request Object
-  #-----------------------------------------------------
-          
-  BulkReplaceUserRequestObject:
-    type: object
-    properties:
-      failOnErrors:
-        type: integer
-        example: 1
-      schemas:
-        type: array
-        items:
-          type: string
-          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
-      Operations:
-        type: array
-        items:
-          $ref: '#/definitions/BulkReplaceUserOb'
-    
-  BulkReplaceUserOb:
-   type: object
-   properties:
-    method:
-      type: string
-      example: "PUT"
-    path:
-      type: string
-      example: "/Users/{User_ID}"
-    bulkId:
-      type: string
-      example: "ytrewq"
-    data:
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            type: string
-            example:
-              "urn:ietf:params:scim:schemas:core:2.0:User"
-        username:
-          type: string
-          example: "jesse"
-        password:
-          type: string
-          example: "jesspass"
 
   #-----------------------------------------------------
   # Bulk User Response Object
@@ -2737,125 +2527,6 @@ definitions:
           code:
             type: string
             example: "201"
-  
-  BulkUpdateUserResponseObject:
-    type: object
-    properties:
-      schemas:
-        type: array
-        items:
-          type: string
-          example: "urn:ietf:params:scim:api:messages:2.0:BulkResponse"
-      Operations:
-        $ref: '#/definitions/OperationUpdateObBulk'
-
-  OperationUpdateObBulk:
-    type: object
-    properties:
-      method:
-        type: string
-        example: "PATCH"
-      location:
-        type: string
-        example: "https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1"
-      status:
-        type: object
-        properties:
-          code:
-            type: string
-            example: "201"
-  
-  BulkReplaceUserResponseObject:
-    type: object
-    properties:
-      schemas:
-        type: array
-        items:
-          type: string
-          example: "urn:ietf:params:scim:api:messages:2.0:BulkResponse"
-      Operations:
-        $ref: '#/definitions/OperationReplaceObBulk'
-
-  OperationReplaceObBulk:
-    type: object
-    properties:
-      method:
-        type: string
-        example: "PUT"
-      location:
-        type: string
-        example: "https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1"
-      status:
-        type: object
-        properties:
-          code:
-            type: string
-            example: "201"
-
-  #-----------------------------------------------------
-  # Bulk User Delete Request Object
-  #-----------------------------------------------------
-  BulkUserDeleteRequestObject:
-    type: object
-    properties:
-      failOnErrors:
-        type: integer
-        example: 1
-      schemas:
-        type: array
-        items:
-          type: string
-          example: "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
-      Operations:
-        type: array
-        items:
-          $ref: '#/definitions/BulkUserDeleteOb'
-
-
-
-  BulkUserDeleteOb:
-    type: object
-    properties:
-      method:
-        type: string
-        example: "DELETE"
-      path:
-        type: string
-        example: "/Users/{User_ID}"
-
-
-  #-----------------------------------------------------
-  # Bulk User Delete Response Object
-  #-----------------------------------------------------
-  BulkUserDeleteResponseObject:
-    type: object
-    properties:
-      schemas:
-        type: array
-        items:
-          type: string
-          example: "urn:ietf:params:scim:api:messages:2.0:BulkResponse"
-      Operations:
-        $ref: '#/definitions/OperationDeleteObBulk'
-
-  OperationDeleteObBulk:
-    type: object
-    properties:
-      bulkId:
-        type: string
-        example: "qwerty"
-      method:
-        type: string
-        example: "DELETE"
-      location:
-        type: string
-        example: "https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1"
-      status:
-        type: object
-        properties:
-          code:
-            type: string
-            example: "204"
 
   #-----------------------------------------------------
   # Resource Type response
