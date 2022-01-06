@@ -1359,7 +1359,8 @@ paths:
         - Bulk Endpoint
       summary: Create Users in Bulk
       description: |
-        This API is used to create multiple users at once. You can import users individually or import all users linked to specific groups.
+        This API is used to create multiple users at once. The list of new users that you add in bulk should be specified as an array of POST operations in the request body.</br> 
+        If a new user you are adding from this request already exists in the system (that is, a user already exists with the same username), that particular new user record (as well as all the user records that follow) will not be created.
         
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt
@@ -1398,7 +1399,7 @@ paths:
         - Bulk Endpoint
       summary: Replace Users in Bulk
       description: |
-        This API is used to replace multiple users at once.
+        This API is used to replace multiple users at once. A PUT request replaces an existing user with the new user details you specify in the request body.
         
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt
@@ -1478,7 +1479,8 @@ paths:
         - Bulk Endpoint
       summary: Update Users in Bulk
       description: |
-        This API is used to update multiple users at once.
+        This API is used to update multiple users at once. A PATCH request updates specific attributes of an existing user without replacing the user. This includes adding new attribute, replacing attributes, and removing attributes.</br>
+        Learn more about [defining patch operations for users](../../develop/scim2-patch-operations/#patch-users).
         
          <b>Permission required:</b>
          * /permission/admin/manage/identity/usermgt
@@ -2634,7 +2636,7 @@ definitions:
         example: "PATCH"
       path:
         type: string
-        example: "/Users"
+        example: "/Users/{User_ID}"
       data:
         type: object
         properties:
@@ -2683,7 +2685,7 @@ definitions:
       example: "PUT"
     path:
       type: string
-      example: "/Users"
+      example: "/Users/{User_ID}"
     bulkId:
       type: string
       example: "ytrewq"
