@@ -12,12 +12,14 @@ Follow the steps below to configure WSO2 Identity Server.
 
 1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and add the following configuration.
 ```
-       [[event_listener]] id = "unique_claim_user_operation_event_listener" 
-       type = "org.wso2.carbon.user.core.listener.UserOperationEventListener"
-       name = "org.wso2.carbon.identity.unique.claim.mgt.listener.UniqueClaimUserOperationEventListener" 
-       order = 2 
-       enable = true
+[[event_listener]]
+id = "unique_claim_user_operation_event_listener" 
+type = "org.wso2.carbon.user.core.listener.UserOperationEventListener"
+name = "org.wso2.carbon.identity.unique.claim.mgt.listener.UniqueClaimUserOperationEventListener" 
+order = 2 
+enable = true
 ```
+
 2.	Restart WSO2 identity server and access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) .
 
 3.  From the list of claims, select the claim you want to configure to keep it unique.
