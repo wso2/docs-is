@@ -319,4 +319,12 @@ Follow the steps below to change the default credentials.
     
     - Linux/Unix : sh wso2server.sh
     - Windows : wso2server.bat
+
+## Certificate validation for REST APIs
+
+When configuring intermediate certificate validation for REST APIs, it is recommended to add the exempt_contexts parameter and leave it empty. This is because authentication might be broken in your system for the exempted contexts.
+
+!!! info
+
+    For more information, see the instructions on [Configure intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation). 
     
