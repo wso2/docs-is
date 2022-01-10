@@ -100,7 +100,18 @@ below:
             store
             configuration](../../setup/configuring-user-stores)
             .
-        
+
+        !!! note
+
+            To associate any user with the same JIT provisioned username with the local user with the same username, 
+            add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
+
+            ``` toml
+            [authentication]
+            jit_provisioning.associating_to_existing_user = true
+            ```
+
+            Note that if this is enabled, there's a risk of unauthorized profile update.
 
 6.  Click **Register** to add the identity provider.
 
