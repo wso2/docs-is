@@ -103,7 +103,7 @@ below:
 
         !!! note
 
-            To associate any user with the same JIT provisioned username with the local user with the same username, 
+            To associate any user having the same JIT provisioned username with the local user having the same username, 
             add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
             ``` toml
