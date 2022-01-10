@@ -332,4 +332,4 @@ When configuring intermediate certificate validation for REST APIs, it is recomm
 
 !!! info
 
-    For more information, see the instructions on [configure intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation). 
+    For more information, see the instructions on [configuring intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation). 
