@@ -71,7 +71,7 @@ exempt_contexts=[]
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **enable**          | Defines whether intermediate certificate validation is enabled or not.                                                                                                                      |
 | **cert_cns**        | Specifies the context paths of the intermediate certificates. Multiple context paths can be defined for multiple certificates as follows.  ``` cert_cns=["wso2is.org","abc.com"] ```        |
-| **exempt_contexts** | Specifies the context paths that need to be exempted from intermediate certificate validation. It is recommended to add this parameter and **leave it empty** as shown in the above sample. This is because authentication might fail for the exempted contexts. However, if you still require context paths to be exempted, you can list the context paths as follows. ``` exempt_contexts=["dcr","scim2"] ``` |
+| **exempt_contexts** | Specifies the context paths that need to be exempted from intermediate certificate validation. It is recommended to add this parameter and **leave it empty** as shown in the above sample. This is because authentication might fail for the exempted contexts. However, if you still require context paths to be exempted, you can list the context paths as follows: ``` exempt_contexts=["dcr","scim2"] ``` |
 
 
 !!! info
