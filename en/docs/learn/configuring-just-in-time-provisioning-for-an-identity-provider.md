@@ -109,15 +109,15 @@ below:
             (Updates 2.0 model). If you don't already have this update, see the instructions on
             [updating your product](https://updates.docs.wso2.com/en/latest/updates/overview/).
 
-            To associate the JIT provisioned user with the local user having the same username, 
-            add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
+        To associate the JIT provisioned user with the local user having the same username, 
+        add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
+        
+        ``` toml
+        [authentication]
+        jit_provisioning.associating_to_existing_user = true
+        ```
 
-            ``` toml
-            [authentication]
-            jit_provisioning.associating_to_existing_user = true
-            ```
-
-            Note that if this is enabled, there's a risk of unauthorized profile update.
+        Note that if this is enabled, there's a risk of unauthorized profile update.
 
 6.  Click **Register** to add the identity provider.
 
