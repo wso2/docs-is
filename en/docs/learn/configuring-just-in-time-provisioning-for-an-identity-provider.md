@@ -101,9 +101,15 @@ below:
             configuration](../../setup/configuring-user-stores)
             .
 
+    - Associate JIT provisioned user with local user.
+              
         !!! note
 
-            To associate any user having the same JIT provisioned username with the local user having the same username, 
+            This configuration is available as an update in WSO2 IS 5.11.0 from update level 69 onwards
+            (Updates 2.0 model). If you don't already have this update, see the instructions on
+            [updating your product](https://updates.docs.wso2.com/en/latest/updates/overview/).
+
+            To associate the JIT provisioned user with the local user having the same username, 
             add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
             ``` toml
@@ -112,11 +118,6 @@ below:
             ```
 
             Note that if this is enabled, there's a risk of unauthorized profile update.
-
-            This configuration is available as an update in WSO2 IS 5.11.0 from update level 69 onwards 
-            (Updates 2.0 model). If you don't already have this update, see the instructions on 
-            [updating your product](https://updates.docs.wso2.com/en/latest/updates/overview/).
-            Previous update levels have this behavior by default.
 
 6.  Click **Register** to add the identity provider.
 
