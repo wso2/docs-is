@@ -80,7 +80,9 @@ The API can be called in either of the following ways:
 
 -   With the `           stepId          `,
     `           options          `, and an empty
-    `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` object such as `           authenticationOptions          `, `           authenticatorParams          `. See the following two examples:
+    `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` 
+object such as `           authenticationOptions          `, `           authenticatorParams          `,
+`           stepOptions          `. See the following examples:
 
     ``` java
     executeStep(1,{
@@ -98,9 +100,16 @@ The API can be called in either of the following ways:
                                     }
             }
         }
-    });
+    }, {} );
     ```
-      
+    ``` java
+    executeStep(1, {
+        stepOptions: {
+            forceAuth: 'true'
+        }
+    }, {} );
+    ```
+
     !!! note
     
         The API cannot be called with only the `           stepId          `
@@ -127,6 +136,24 @@ executeStep(1,{
            // Do something on success
 };
 ```
+
+<a name = "step-options"></a>
+**Authentication step options**
+
+`         stepOptions        ` is an optional property that can be defined in the `         executeStep         `.
+This will allow adding the additional `         forceAuth        ` authentication option. The `         forceAuth        ` option can
+force the authenticator in the steps to prompt again event if it was already authenticated.
+
+**Example code**
+
+``` java
+executeStep(1, {
+    stepOptions: {
+        forceAuth: 'true'
+     }
+}, {});
+```
+
 
 ### Utility functions
 
