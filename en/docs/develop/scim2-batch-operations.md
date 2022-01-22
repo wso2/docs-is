@@ -190,7 +190,7 @@ The parameters in the request body are explained below.
                <ul>
                    <li><code>urn:ietf:params:scim:schemas:core:2.0:User</code></li>
                    <li><code>urn:ietf:params:scim:schemas:enterprise:2.0:User</code></li>
-                   <li><code>urn:ietf:params:scim:schemas:custom:2.0:Use</code></li>
+                   <li><code>urn:scim:wso2:schema</code></li>
                </ul>  
            </td>
        </tr>
@@ -199,7 +199,7 @@ The parameters in the request body are explained below.
            <td>Required</td>
            <td>
                The name of the attribute that will be updated.</br>
-               <b>Possible values:</b> Each attribute you update is a single object. If there are sub-attributes for the attribute, specify them as an array.
+               <b>Possible values:</b> User attributes as per the SCIM protocol.
            </td>
        </tr>
     </table>
@@ -292,7 +292,7 @@ The parameters in the request body are explained below.
        </tr>
        <tr>
            <td><code>method</code></td>
-           <td>Optional</td>
+           <td>Required</td>
            <td>
                The method that should be used in the operation.</br></br>
                <b>Possible Value</b>:<code>PATCH</code>.
@@ -318,7 +318,7 @@ The parameters in the request body are explained below.
            <td><code>data</code></td>
            <td>Required</td>
            <td>
-               Specify the details of the new user that should be added. The parameters that can be used for this “data” object are explained below.
+               Specify the details of the new user that should be updated. The parameters that can be used for this “data” object are explained below.
            </td>
        </tr>
     </table>
@@ -355,7 +355,9 @@ The parameters in the request body are explained below.
        </tr>
        <tr>
            <td><code>value</code></td>
-           <td>Required</td>
+           <td>Required if <code>op</code> is <code>remove</code>.</br>
+                Optional if <code>op</code> is <code>add</code> or <code>replace</code>.
+           </td>
            <td>
                The value of the parameter specified by the <code>path</code>.</br>
                For example, if the name of the user is to be updated, the path should be “name”.</br>
@@ -506,7 +508,7 @@ The parameters in the request body are explained below.
                <ul>
                    <li><code>urn:ietf:params:scim:schemas:core:2.0:User</code></li>
                    <li><code>urn:ietf:params:scim:schemas:enterprise:2.0:User</code></li>
-                   <li><code>urn:ietf:params:scim:schemas:custom:2.0:Use</code></li>
+                   <li><code>urn:scim:wso2:schema</code></li>
                </ul>  
            </td>
        </tr>
@@ -515,7 +517,7 @@ The parameters in the request body are explained below.
            <td>Required</td>
            <td>
                The name of the attribute that will be replaced.</br>
-               <b>Possible values:</b> Each attribute you replace is a single object. If there are sub-attributes for the attribute, specify them as an array.
+               <b>Possible values:</b> User attributes as per the SCIM protocol.
            </td>
        </tr>
     </table>
@@ -568,7 +570,7 @@ The parameters in the request body are explained below.
        <tr>
            <td><code>operations</code></td>
            <td>Required</td>
-           <td>Array of  operations. To delete multiple users, add an array of PUT operations. You can include any number of operations in one bulk request.</br>
+           <td>Array of  operations. To delete multiple users, add an array of DELETE operations. You can include any number of operations in one bulk request.</br>
            The parameters that can be used for the operation are explained below.
            </td>
        </tr>
@@ -741,14 +743,14 @@ The parameters in the request body are explained below.
        </tr>
        <tr>
            <td><code>members</code></td>
-           <td>Required</td>
+           <td>Optional</td>
            <td>
                An array of member users.</br>
            </td>
        </tr>
        <tr>
            <td><code>display</code></td>
-           <td>Required</td>
+           <td>Required if <code>members</code> is used.</td>
            <td>
                The display name of a user assigned to the group.</br>
                <b>Possible values:</b> The username.
@@ -756,7 +758,7 @@ The parameters in the request body are explained below.
        </tr>
        <tr>
            <td><code>value</code></td>
-           <td>Required</td>
+           <td>Required if <code>members</code> is used.</td>
            <td>
                The ID of the user.</br>
                <b>Possible values:</b> The user ID.
@@ -914,7 +916,9 @@ The parameters in the request body are explained below.
        </tr>
        <tr>
            <td><code>path</code></td>
-           <td>Required</td>
+           <td>Required if <code>op</code> is <code>remove</code>.</br>
+               Optional if <code>op</code> is <code>add</code> or <code>replace</code>.
+            </td>
            <td>
                Specify “members” as the path.</br>
                <b>Possible values:</b> <code>members</code>
@@ -922,7 +926,7 @@ The parameters in the request body are explained below.
        </tr>
        <tr>
            <td><code>value</code></td>
-           <td>Optional</td>
+           <td>Required if <code>op</code> is <code>add</code> or <code>replace</code>.</td>
            <td>
                An array of users that belong to the group.
            </td>

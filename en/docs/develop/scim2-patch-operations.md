@@ -25,12 +25,12 @@ When you create your request payload to update attributes in a SCIM resource, yo
         </td>
     </tr>
     <tr>
-        <th>Complex attributes</th>
+        <th>Complex attribute</th>
         <td>A singular or multi-valued attribute, which has a value that is a composition of one or more simple attributes. For example, the <code>addresses</code> attribute has the sub-attributes <code>streetAddress</code>, <code>locality</code>, <code>postalCode</code>, and <code>country</code>.
         </td>
     </tr>
     <tr>
-        <th>Simple attributes</th>
+        <th>Simple attribute</th>
         <td>A singular or multi-valued attribute, which has a value that is a primitive. A simple attribute must not contain sub-attributes.
         </td>
     </tr>
@@ -124,8 +124,8 @@ The parameters per operation in the above payload are explained below.
     </tr>
     <tr>
         <td><code>value</code></td>
-        <td>Required</td>
-        <td>The value of that should be updated.</td>
+        <td>Required if <code>op</code> is <code>add</code> or <code>replace</code>.</td>
+        <td>The value that should be updated.</td>
     </tr>
 </table>
 
@@ -194,7 +194,7 @@ Consider the `nickname` attribute in the **Core** user schema and the `country` 
 
 **Complex singular attributes**
 
-Consider the `name` attribute in **Core** user schema, which has sub-attributes such as `givenName`, `familyName`, etc. and the `manager` attribute in the **Enterprise** user schema (`urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`), which has `displayName`, `value`, `ref`, etc. as sub-attributes. 
+Consider the `name` attribute in the **Core** user schema, which has sub-attributes such as `givenName`, `familyName`, etc. and the `manager` attribute in the **Enterprise** user schema (`urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`), which has `displayName`, `value`, `ref`, etc. as sub-attributes. 
 
 These a complex singular attributes because there are multiple sub-attributes.
 
@@ -215,15 +215,28 @@ These a complex singular attributes because there are multiple sub-attributes.
 -   **Example 2:** Add the `name` attribute in the **Core** user schema (using the path param):
 
     !!! Note
-        You need to define two separate operations to add the two sub-attributes.
+        There are two ways to define the `path` paratmeter. 
+
+    In the first method, you need only one operation to add the sub-attributes as shown below.
 
     ```json
     {
         "op": "add",
         "path": "name",
         "value": {
-            "givenName": "John"
+            "givenName": "John",
+            "familyName": "John"
         }
+    },
+    ```
+
+    In the second method, you need two separate operations to add the sub-attributes as shown below.
+
+    ```json
+    {
+        "op": "add",
+        "path": "name.givenName",
+        "value": "John"
     },
     {
         "op": "add",
@@ -272,7 +285,7 @@ Let's consider a custom schema with an attribute called `devices`, which can hav
     {
         "op": "add",
         "value": {
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+            "urn:scim:wso2:schema": {
                 "devices": [
                     "D1",
                     "D2",
@@ -288,7 +301,7 @@ Let's consider a custom schema with an attribute called `devices`, which can hav
     ```json
     {
         "op": "add",
-        "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:devices",
+        "path": "urn:scim:wso2:schema:devices",
         "value": ["D4", "D5"]
     }
     ```
@@ -462,13 +475,13 @@ This type of attribute is not found in the core schemas of the SCIM specificatio
 
 Let's consider a custom schema with an attribute called devices.
 
--   **Example 1:** Replace the `devices` attribue in a **custom** user schema (without using the path param):
+-   **Example 1:** Replace the `devices` attribue in a **Custom** user schema (without using the path param):
 
     ```json
     {
         "op": "replace",
         "value": {
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+            "urn:scim:wso2:schema": {
                 "devices": ["M1", "M2"]
             }
         }
@@ -480,7 +493,7 @@ Let's consider a custom schema with an attribute called devices.
     ```json
     {
         "op": "replace",
-        "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:devices",
+        "path": "urn:scim:wso2:schema:devices",
         "value": [
             "M6",
             "M7"
@@ -563,7 +576,7 @@ Consider the `name` attribute in **Core** user schema, which has sub-attributes 
 
 !!! Note    
     -   If the path contains the complex attribute, all sub-attribute values are removed. 
-    -   There is a special case for the `name` attribute. Even though `“path”: “name”` is specified, the `familyName` attribute is not removed. 
+    -   There is a special case for the `name` attribute. Even though `“path”: “name”` is specified, the `familyName` attribute is not removed. This is only applicable when an LDAP user store is used.
     -   If you just want to delete a sub-attribute of a complex attribute, use the `attribute.subattribute` format as shown below.
 
 -   **Example 1:** Remove a sub-attribute of the `name` attribute in the **Core** user schema:
@@ -575,7 +588,7 @@ Consider the `name` attribute in **Core** user schema, which has sub-attributes 
     }
     ```
 
--   **Example 2:** Remove the `name` attribute in the **Enterprise** user schema:
+-   **Example 2:** Remove the manager's `value` attribute and whole `manager` object in the **Enterprise** user schema:
 
     ```json
     {
@@ -597,11 +610,11 @@ Let's consider a custom schema with an attribute called devices.
 ```json
 {
     "op": "remove",
-    "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:devices[value eq \"M7\"]"
+    "path": "urn:scim:wso2:schema:devices[value eq \"M7\"]"
 },
 {
     "op": "remove",
-    "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:devices"
+    "path": "urn:scim:wso2:schema:devices"
 }
 ```
 
@@ -663,7 +676,7 @@ Let's create patch request payloads to `add` members to a user group.
 
 Let's create patch request payloads to `replace` members in a user group.
 
--   **Example 1:** Replace a member in a group (without using the path param):
+-   **Example 1:** Replace members in a group (without using the path param):
 
     ```json
     {
@@ -679,7 +692,7 @@ Let's create patch request payloads to `replace` members in a user group.
     }
     ```
 
--   **Example 2:** Replace a member in a group (using the path param):
+-   **Example 2:** Replace members in a group (using the path param):
 
     ```json
     {
@@ -786,7 +799,7 @@ Let's create patch request payloads to `add` users to a user role.
 
 Let's create patch request payloads to `replace` users assigned to a user role.
 
--   **Example 1:** Replace a user in a role (without using the path param):
+-   **Example 1:** Replace users in a role (without using the path param):
 
     ```json
     {
@@ -802,7 +815,7 @@ Let's create patch request payloads to `replace` users assigned to a user role.
     }
     ```
 
--   **Example 2:** Replace a user in a role (using the path param):
+-   **Example 2:** Replace users in a role (using the path param):
 
     ```json
     {
@@ -826,7 +839,7 @@ Let's create patch request payloads to `remove` users from a user role.
     ```json
     {
         "op": "remove",
-        "path": "members[value eq 0565f472-28fe-4d93-83ad-096c66ed4a47]"
+        "path": "users[value eq 0565f472-28fe-4d93-83ad-096c66ed4a47]"
     }
     ```
 
@@ -835,7 +848,7 @@ Let's create patch request payloads to `remove` users from a user role.
     ```json
     {
         "op": "remove",
-        "path": "members[display eq alex]"
+        "path": "members[users eq alex]"
     }
     ```
 
@@ -876,7 +889,7 @@ Let's create patch request payloads to `add` user groups to a user role.
 
 Let's create patch request payloads to `replace` user groups assigned to a user role.
 
--   **Example 1:** Replace a user group in a role (without using the path param):
+-   **Example 1:** Replace user groups in a role (without using the path param):
 
     ```json
     {
@@ -891,7 +904,7 @@ Let's create patch request payloads to `replace` user groups assigned to a user 
     }
     ```
 
--   **Example 2:** Replace a user group in a role (using the path param):
+-   **Example 2:** Replace user groups in a role (using the path param):
 
     ```json
     {
