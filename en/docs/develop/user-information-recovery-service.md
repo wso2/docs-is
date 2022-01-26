@@ -2,7 +2,7 @@
 
 !!! warning
 
-    The functionalities enabled by this SOAP API are available with the [Account Recovery REST APIs](../../using-the-account-recovery-rest-apis/) 
+    The functionalities enabled by this SOAP API are available with the [Account Recovery REST APIs](../../develop/using-the-account-recovery-rest-apis/) 
     with better performance. Note that it is recommended to use REST APIs wherever possible.
 
 This section lists out and describes the operations that are available in the **User Information Recovery API**. 
