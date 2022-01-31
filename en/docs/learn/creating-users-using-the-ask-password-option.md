@@ -128,7 +128,7 @@ password feature:
     ```
     
     !!! info 
-         If you are adding users via the management console you should have the following permissions to enable 
+         If you are adding users via the management console, you should have the following permissions to enable 
         "Ask password" option in the management console.
     
         -	/permission/admin/manage/identity/governance/view
