@@ -72,9 +72,17 @@ Server).
     - org.wso2.carbon.identity.mgt.stub_*.jar 
     - org.wso2.carbon.identity.mgt_*.jar 
     - org.wso2.carbon.identity.mgt.ui_*.jar 
-    - org.wso2.carbon.identity.oauth_*.jar 
-    - org.wso2.carbon.identity.application.authentication.endpoint.util-*.jar 
+    - org.wso2.carbon.identity.oauth_*.jar
     - jettison_*.jar 
+    - org.wso2.carbon.identity.captcha_*.jar
+    - commons-text_*.jar
+    - org.wso2.carbon.identity.governance_*.jar
+    - commons-lang3_*.jar
+    ```
+
+2.  Copy the following .jar files from the `<IS_HOME>/lib/runtimes/cxf/` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib` directory.  
+    
+    ```xml
     - javax.ws.rs-api-*.jar 
     - cxf-core-*.jar 
     - cxf-rt-frontend-jaxrs-*.jar 
@@ -83,33 +91,39 @@ Server).
     - cxf-rt-rs-extension-search-*.jar 
     - cxf-rt-rs-service-description-*.jar 
     - cxf-rt-transports-http-*.jar 
-    - org.wso2.carbon.bootstrap-*.jar 
-    - tomcat-juli-*.jar 
-    - xercesImpl-*.jar 
-    - geronimo-jta_*.jar 
-    - stax2-api-*.jar 
-    - woodstox-core-asl-*.jar 
-    - log4j-*.jar 
-    - pax-logging-api-*.jar 
     ```
-
-2.  Copy the following .jar files from the `<IS_HOME>/lib/runtimes/cxf/` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib`
-    directory.  
+    
+3.  Copy the following .jar files from the `<IS_HOME>/lib/` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib` directory. 
     
     ```xml
-    - javax.ws.rs-
-    - api `-2.0-m10.jar
-    - cxf `-bundle-2.7.16.wso2v1.jar
-    - neethi `-3.0.3.jar
-    - wsdl4j-1.6.3.jar
+    - xercesImpl-*.jar
+    - geronimo-jta_*.jar
+    - stax2-api-*.jar
+    - woodstox-core-asl-*.jar
     ```
-3.  Copy the `RecoveryEndpointConfig.properties` file from the `<IS-HOME>/repository/conf/identity` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes` directory.
+    
+4.  Copy the following .jar files from the `<IS_HOME>/bin/` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib` directory. 
+    
+    ```xml
+    - org.wso2.carbon.bootstrap-*.jar
+    - tomcat-juli-*.jar
+    ```
 
-4.  Navigate to `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file and uncomment the following line.
+5. Copy the following .jar files from the `<IS_HOME>/repository/components/tools/forget-me/lib/` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib` directory. 
+
+    ```xml
+    - log4j-*.jar
+    - pax-logging-api-*.jar
+    ```
+6. Copy the .jar files from `<IS_HOME>repository/components/features/org.wso2.carbon.identity.application.authentication.framework.server_*/runtimes/cxf3/org.wso2.carbon.identity.application.authentication.endpoint.util-*.jar` to the`<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib` directory. 
+    
+7. Copy the `RecoveryEndpointConfig.properties` file from the `<IS-HOME>/repository/conf/identity` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes` directory.
+
+8. Navigate to `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file and uncomment the following line.
     ```xml
     identity.server.service.contextURL=https://localhost:9443
     ```
-5.  Navigate to `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the following line,
+9. Navigate to `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the following line,
     ```
     identity.server.origin=\${carbon.protocol}://\${carbon.host}:\${carbon.management.port}
     ```
@@ -118,7 +132,7 @@ Server).
     identity.server.origin=https://localhost:9443
     ```
 
-6.  Uncomment following section in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/web.xml` and point to identity server URLs.
+10. Uncomment following section in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/web.xml` and point to identity server URLs.
 
     ``` xml
     ...   
@@ -138,7 +152,7 @@ Server).
     ...
     ```
 
-7.  Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
+11. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ``` toml tab="Format"
     [authentication.endpoints] 
@@ -154,7 +168,7 @@ Server).
     request_missing_claims_url = "https://localhost.com:8443//authenticationendpoint/claims.do"
     ```
 
-8.  Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to point to the authentication endpoint hosted outside the WSO2 server.
+12. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to point to the authentication endpoint hosted outside the WSO2 server.
 
     ``` toml
     [oauth.endpoints]
@@ -172,7 +186,7 @@ Server).
     retry= "https://localhost:8443/authenticationendpoint/retry.do"
     ```
 
-9.  Import the public certificate of the identity server to the javaca certs (or web-serverstruststore) of the JVM that the authenticationendpoint is running.
+13. Import the public certificate of the identity server to the javaca certs (or web-serverstruststore) of the JVM that the authenticationendpoint is running.
 
     ``` 
     keytool -export -keystore $IS_HOME/repository/resources/security/wso2carbon.jks -alias wso2carbon -file wso2carbon.cer
@@ -182,7 +196,7 @@ Server).
     keytool -import -alias wso2carbon -keystore  $WEB_APP_TRUSTSTORE -file wso2carbon.cer
     ```
 
-10.  Import the public certificate of the Web\_server’s keystore to the Identity Server truststore.
+14. Import the public certificate of the Web\_server’s keystore to the Identity Server truststore.
 
     ``` 
     keytool -export -keystore $WEB_APP_KEYSTORE -alias wso2carbon -file webserver.cer
