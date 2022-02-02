@@ -93,7 +93,7 @@ Server).
     - pax-logging-api-*.jar 
     ```
 
-2.  Copy the following .jar files from the `IS_HOME>/lib/runtimes/cxf/` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib`
+2.  Copy the following .jar files from the `<IS_HOME>/lib/runtimes/cxf/` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib`
     directory.  
     
     ```xml
@@ -103,8 +103,22 @@ Server).
     - neethi `-3.0.3.jar
     - wsdl4j-1.6.3.jar
     ```
+3.  Copy the `RecoveryEndpointConfig.properties` file from the `<IS-HOME>/repository/conf/identity` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes` directory.
 
-3.  Uncomment following section in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/web.xml` and point to identity server URLs.
+4.  Navigate to `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file and uncomment the following line.
+    ```xml
+    identity.server.service.contextURL=https://localhost:9443
+    ```
+5.  Navigate to `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the following line,
+    ```
+    identity.server.origin=\${carbon.protocol}://\${carbon.host}:\${carbon.management.port}
+    ```
+    as follows and update the Keystore file paths on the same file accordingly.
+    ```
+    identity.server.origin=https://localhost:9443
+    ```
+
+6.  Uncomment following section in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/web.xml` and point to identity server URLs.
 
     ``` xml
     ...   
@@ -114,7 +128,7 @@ Server).
        </context-param>
         <context-param>
            <param-name>AccountRecoveryRESTEndpointURL</param-name>
-         <param-value>https://localhost:9443/t/tenant-domain/api/identity/user/v0.9/</param-value>
+         <param-value>https://localhost:9443/t/tenant-domain/api/identity/user/v1.0/</param-value>
        </context-param>
     ...
         <context-param>
@@ -124,7 +138,7 @@ Server).
     ...
     ```
 
-4.  Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
+7.  Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ``` toml tab="Format"
     [authentication.endpoints] 
@@ -140,7 +154,7 @@ Server).
     request_missing_claims_url = "https://localhost.com:8443//authenticationendpoint/claims.do"
     ```
 
-5.  Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to point to the authentication endpoint hosted outside the WSO2 server.
+8.  Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to point to the authentication endpoint hosted outside the WSO2 server.
 
     ``` toml
     [oauth.endpoints]
@@ -158,7 +172,7 @@ Server).
     retry= "https://localhost:8443/authenticationendpoint/retry.do"
     ```
 
-6.  Import the public certificate of the identity server to the javaca certs (or web-serverstruststore) of the JVM that the authenticationendpoint is running.
+9.  Import the public certificate of the identity server to the javaca certs (or web-serverstruststore) of the JVM that the authenticationendpoint is running.
 
     ``` 
     keytool -export -keystore $IS_HOME/repository/resources/security/wso2carbon.jks -alias wso2carbon -file wso2carbon.cer
@@ -168,7 +182,7 @@ Server).
     keytool -import -alias wso2carbon -keystore  $WEB_APP_TRUSTSTORE -file wso2carbon.cer
     ```
 
-7.  Import the public certificate of the Web\_server’s keystore to the Identity Server truststore.
+10.  Import the public certificate of the Web\_server’s keystore to the Identity Server truststore.
 
     ``` 
     keytool -export -keystore $WEB_APP_KEYSTORE -alias wso2carbon -file webserver.cer
@@ -355,7 +369,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
         </context-param>
         <context-param>
             <param-name>AuthenticationRESTEndpointURL</param-name>
-            <param-value>https://localhost:9443/api/identity/auth/v1.1/</param-value>
+            <param-value>https://localhost:9443/t/tenant-domain/api/identity/user/v1.0/</param-value>
         </context-param>
     …..
         <context-param>
@@ -365,7 +379,19 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     …...
     ```
 
-8.  Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
+8.  Navigate to `<TOMCAT_HOME>/authenticationendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file and uncomment the following line.
+    ```
+    identity.server.service.contextURL=https://localhost:9443
+    ```
+9.  Navigate to `<TOMCAT_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the following line,
+    ```
+    identity.server.origin=\${carbon.protocol}://\${carbon.host}:\${carbon.management.port}
+    ```
+    as follows and update the Keystore file paths on the same file accordingly.
+    ```
+    identity.server.origin=https://localhost:9443
+    ```
+10. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ``` toml
     [authentication.endpoints] 
@@ -374,7 +400,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     request_missing_claims_url="https://localhost:8443/authenticationendpoint/claims.do"
     ```
 
-9.  Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to point to the authentication endpoint hosted outside the WSO2 server.
+11. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to point to the authentication endpoint hosted outside the WSO2 server.
 
     ``` toml
     [oauth.endpoints]
@@ -392,14 +418,14 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     retry= "https://localhost:8443/authenticationendpoint/retry.do"
     ```
 
-10. Start both Identity Server and tomcat and access `https://localhost:9443/dashboard`. Now you can see that the authentication is redirected to: `https://localhost:8443/authenticationendpoint/login.do`
+12. Start both Identity Server and tomcat and access `https://localhost:9443/dashboard`. Now you can see that the authentication is redirected to: `https://localhost:8443/authenticationendpoint/login.do`
 
     Now let’s take out account recovery endpoint into the external
     Tomcat server as well.
 
-11. Run `setup-accountrecovery.sh` obtained from [step 2](#HostingAuthenticationEndpointonaDifferentServer-step2) and follow the instructions.
+13. Run `setup-accountrecovery.sh` obtained from [step 2](#HostingAuthenticationEndpointonaDifferentServer-step2) and follow the instructions.
 
-12. Change the following section in `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/web.xml` file and point to `IdentityManagementEndpointContextURL` into tomcat URL.
+14. Change the following section in `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/web.xml` file and point to `IdentityManagementEndpointContextURL` into tomcat URL.
 
     ``` xml
     … 
@@ -410,7 +436,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     …
     ```
 
-13. Uncomment and change the user portal reference in the `<TOMCAT_HOME>/accountrecoveryendpoint/WEB-INF/web.xml` file.
+15. Uncomment and change the user portal reference in the `<TOMCAT_HOME>/accountrecoveryendpoint/WEB-INF/web.xml` file.
 
     ``` xml
     …
@@ -421,7 +447,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     ...
     ```
 
-14. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+16. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
     ``` toml
     [identity.auth_framework.endpoint]
