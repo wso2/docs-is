@@ -405,7 +405,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     ```
     identity.server.origin=https://localhost:9443
     ```
-10. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
+10. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ``` toml
     [authentication.endpoints] 
