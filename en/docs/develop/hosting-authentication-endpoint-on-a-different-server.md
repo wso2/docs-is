@@ -393,7 +393,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     …...
     ```
 
-8.  Navigate to `<TOMCAT_HOME>/authenticationendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file and uncomment the following line.
+8.  Open the `<TOMCAT_HOME>/authenticationendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file and uncomment the following line:
     ```
     identity.server.service.contextURL=https://localhost:9443
     ```
