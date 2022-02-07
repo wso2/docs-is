@@ -450,7 +450,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     …
     ```
 
-15. Uncomment and change the user portal reference in the `<TOMCAT_HOME>/accountrecoveryendpoint/WEB-INF/web.xml` file.
+15.  Open the `<TOMCAT_HOME>/accountrecoveryendpoint/WEB-INF/web.xml` file, uncomment the section given below, and update the user portal reference.
 
     ``` xml
     …
