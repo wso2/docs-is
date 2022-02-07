@@ -439,7 +439,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
 
 13. Run `setup-accountrecovery.sh` obtained from [step 2](#HostingAuthenticationEndpointonaDifferentServer-step2) and follow the instructions.
 
-14. Change the following section in `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/web.xml` file and point to `IdentityManagementEndpointContextURL` into tomcat URL.
+14. Change the following section in the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/web.xml` file and point `IdentityManagementEndpointContextURL` to the Tomcat URL.
 
     ``` xml
     … 
