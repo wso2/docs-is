@@ -152,7 +152,7 @@ Server).
     ...
     ```
 
-11. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
+11. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ``` toml tab="Format"
     [authentication.endpoints] 
