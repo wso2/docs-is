@@ -397,7 +397,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     ```
     identity.server.service.contextURL=https://localhost:9443
     ```
-9.  Navigate to `<TOMCAT_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the following line,
+9.  Open the `<TOMCAT_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change `identity.server.origin=\${carbon.protocol}://\${carbon.host}:\${carbon.management.port}` to the following:
     ```
     identity.server.origin=\${carbon.protocol}://\${carbon.host}:\${carbon.management.port}
     ```
