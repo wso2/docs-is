@@ -115,7 +115,7 @@ Server).
     - log4j-*.jar
     - pax-logging-api-*.jar
     ```
-6. Copy the .jar files from `<IS_HOME>repository/components/features/org.wso2.carbon.identity.application.authentication.framework.server_*/runtimes/cxf3/org.wso2.carbon.identity.application.authentication.endpoint.util-*.jar` to the`<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib` directory. 
+6. Copy `<IS_HOME>repository/components/features/org.wso2.carbon.identity.application.authentication.framework.server_*/runtimes/cxf3/org.wso2.carbon.identity.application.authentication.endpoint.util-*.jar` to the`<WEBAPP_HOME>/authenticationendpoint/WEB-INF/lib` directory. 
     
 7. Copy the `RecoveryEndpointConfig.properties` file from the `<IS-HOME>/repository/conf/identity` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes` directory.
 
