@@ -196,7 +196,7 @@ Server).
     keytool -import -alias wso2carbon -keystore  $WEB_APP_TRUSTSTORE -file wso2carbon.cer
     ```
 
-14. Import the public certificate of the Web\_server’s keystore to the Identity Server truststore.
+14. Import the public certificate of the web server’s keystore to the Identity Server truststore.
 
     ``` 
     keytool -export -keystore $WEB_APP_KEYSTORE -alias wso2carbon -file webserver.cer
