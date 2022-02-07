@@ -414,7 +414,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     request_missing_claims_url="https://localhost:8443/authenticationendpoint/claims.do"
     ```
 
-11. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to point to the authentication endpoint hosted outside the WSO2 server.
+11. To point to the authentication endpoint hosted outside the WSO2 server, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ``` toml
     [oauth.endpoints]
