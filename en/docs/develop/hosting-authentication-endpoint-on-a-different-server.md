@@ -119,7 +119,7 @@ Server).
     
 7. Copy the `RecoveryEndpointConfig.properties` file from the `<IS-HOME>/repository/conf/identity` directory to the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes` directory.
 
-8. Navigate to `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file and uncomment the following line.
+8. Open the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties` file and uncomment the following line.
     ```xml
     identity.server.service.contextURL=https://localhost:9443
     ```
