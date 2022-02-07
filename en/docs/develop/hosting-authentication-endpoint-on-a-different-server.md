@@ -168,7 +168,7 @@ Server).
     request_missing_claims_url = "https://localhost.com:8443//authenticationendpoint/claims.do"
     ```
 
-12. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to point to the authentication endpoint hosted outside the WSO2 server.
+12. To point to the authentication endpoint hosted outside the WSO2 server, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ``` toml
     [oauth.endpoints]
