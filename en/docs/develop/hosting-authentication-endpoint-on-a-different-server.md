@@ -401,7 +401,6 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     ```
     identity.server.origin=\${carbon.protocol}://\${carbon.host}:\${carbon.management.port}
     ```
-    as follows and update the Keystore file paths on the same file accordingly.
     ```
     identity.server.origin=https://localhost:9443
     ```
