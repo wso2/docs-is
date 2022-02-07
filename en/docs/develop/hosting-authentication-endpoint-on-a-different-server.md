@@ -132,7 +132,7 @@ Server).
     identity.server.origin=https://localhost:9443
     ```
 
-10. Uncomment following section in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/web.xml` and point to identity server URLs.
+10. Uncomment the following section in the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/web.xml` file and point to the identity server URLs.
 
     ``` xml
     ...   
