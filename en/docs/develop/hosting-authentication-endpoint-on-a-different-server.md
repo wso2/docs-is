@@ -123,7 +123,7 @@ Server).
     ```xml
     identity.server.service.contextURL=https://localhost:9443
     ```
-9. Navigate to `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the following line,
+9. Open the `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the `identity.server.origin=\${carbon.protocol}://\${carbon.host}:\${carbon.management.port}` line as follows:
     ```
     identity.server.origin=\${carbon.protocol}://\${carbon.host}:\${carbon.management.port}
     ```
