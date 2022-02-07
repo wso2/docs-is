@@ -437,7 +437,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
     Now let’s take out account recovery endpoint into the external
     Tomcat server as well.
 
-13. Run `setup-accountrecovery.sh` obtained from [step 2](#HostingAuthenticationEndpointonaDifferentServer-step2) and follow the instructions.
+13. Run the `setup-accountrecovery.sh` script, which you obtained from [step 2](#HostingAuthenticationEndpointonaDifferentServer-step2) and follow the instructions.
 
 14. Change the following section in the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/web.xml` file and point `IdentityManagementEndpointContextURL` to the Tomcat URL.
 
