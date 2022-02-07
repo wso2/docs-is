@@ -186,7 +186,7 @@ Server).
     retry= "https://localhost:8443/authenticationendpoint/retry.do"
     ```
 
-13. Import the public certificate of the identity server to the javaca certs (or web-serverstruststore) of the JVM that the authenticationendpoint is running.
+13. Import the public certificate of the identity server to the `javaca` certs (or `web-serverstruststore`) of the JVM where the authentication endpoint is running.
 
     ``` 
     keytool -export -keystore $IS_HOME/repository/resources/security/wso2carbon.jks -alias wso2carbon -file wso2carbon.cer
