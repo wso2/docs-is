@@ -40,7 +40,7 @@ You need to specify the following information in the request payload.
 You can use the **bulk** operations to add, remove, update, and replace users in bulk.
 
 !!! Info
-    Note that you can include any number of operations in one bulk request.
+    The examples given below show individual resource operations (POST, PATCH, PUT, or DELETE) handled in a single request. However, note that a single request can execute a combination of operation types simultaneously.
  
 ### Add users
  
@@ -370,8 +370,8 @@ The parameters in the request body are explained below.
                 Optional if <code>op</code> is <code>add</code> or <code>replace</code>.
            </td>
            <td>
-               The value of the parameter specified by the <code>path</code>.</br>
-               For example, if the name of the user is to be updated, the path should be “name”.</br>
+               The value of the parameter specified by the <code>path</code>.
+               <p>For example, if the path is “name”, the value should be the actual name.</p>
                See <a href="/develop/scim2-patch-operations/#patch-users">SCIM2 Patch Operations</a> for details on how to define values for the patch operations.
            </td>
        </tr>
@@ -618,7 +618,7 @@ The parameters in the request body are explained below.
 You can use **bulk** operations to add, update, replace, and delete user groups in bulk.
 
 !!! Info
-    Note that you can include any number of operations in one bulk request.
+    The examples given below show individual resource operations (POST, PATCH, PUT, or DELETE) handled in a single request. However, note that a single request can execute a combination of operation types simultaneously.
  
 ### Add user groups
  
