@@ -696,14 +696,14 @@ Let's create patch request payloads to `replace` members in a user group.
 
     ```json
     {
-        "op": "replace",
-        "path": "members",
-        "value": [
-                    {
-                      "display": "alex",
-                      "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
-                }
-            ]
+        "op":"replace",
+        "path":"members",
+        "value":[
+            {
+                "display":"alex",
+                "value":"0565f472-28fe-4d93-83ad-096c66ed4a47"
+            }
+        ]
     }
     ```
 
