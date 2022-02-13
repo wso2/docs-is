@@ -322,8 +322,8 @@ Consider the `emails` attribute in the **Core** user schema, which can have mult
                     "type": "home"
                 },
                 {
-                "value": "xyz@gmail.com",
-                "type": "work"
+                    "value": "xyz@gmail.com",
+                    "type": "work"
                 }
             ]
         }
@@ -505,7 +505,7 @@ Let's consider a custom schema with an attribute called devices.
 
 Consider the `emails` attribute in the **Core** user schema, which can have multiple emails types such as `home`, `work`, etc. Each email attribute has sub-attributes such as `value`, `type`, and `primary`.
 
--   **Example 1:** Replace the `emails` attribute in a **custom** user schema (without using the path param):
+-   **Example 1:** Replace the `emails` attribute in a **Core** user schema (without using the path param):
 
     ```json
     {
@@ -525,7 +525,7 @@ Consider the `emails` attribute in the **Core** user schema, which can have mult
     }
     ```
 
--   **Example 2:** Replace the `emails` attribute in a **custom** user schema (using the path param):
+-   **Example 2:** Replace the `emails` attribute in a **Core** user schema (using the path param):
 
     ```json
     {
@@ -665,8 +665,8 @@ Let's create patch request payloads to `add` members to a user group.
         "path": "members",
         "value": [
                     {
-                    "display": "alex",
-                    "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
+                      "display": "alex",
+                      "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
                 }
             ]
     }
@@ -788,9 +788,9 @@ Let's create patch request payloads to `add` users to a user role.
         "path": "users",
         "value": [
                     {
-                    "display": "alex",
-                    "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
-                }
+                      "display": "alex",
+                      "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
+                    }
             ]
     }
     ```
@@ -823,8 +823,8 @@ Let's create patch request payloads to `replace` users assigned to a user role.
         "path": "users",
         "value": [
                     {
-                    "display": "alex",
-                    "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
+                      "display": "alex",
+                      "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
                 }
             ]
     }
@@ -879,9 +879,9 @@ Let's create patch request payloads to `add` user groups to a user role.
         "path": "groups",
         "value": [
                     {
-                    "value": "78144fd9-48e7-4fc9-95b5-cd3883f5ce4a"
-                }
-            ]
+                      "value": "78144fd9-48e7-4fc9-95b5-cd3883f5ce4a"
+                    }
+                 ]
     }
     ```
 
@@ -912,9 +912,9 @@ Let's create patch request payloads to `replace` user groups assigned to a user 
         "path": "groups",
         "value": [
                     {
-                    "value": "78144fd9-48e7-4fc9-95b5-cd3883f5ce4a"
-                }
-            ]
+                      "value": "78144fd9-48e7-4fc9-95b5-cd3883f5ce4a"
+                    }
+                 ]
     }
     ```
 

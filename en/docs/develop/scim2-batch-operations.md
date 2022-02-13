@@ -29,14 +29,18 @@ You need to specify the following information in the request payload.
    <tr>
        <td><code>operations</code></td>
        <td>Required</td>
-       <td>Specify the array of POST, PUT, PATCH, and/or DELETE operations that should be used to update the information. You can include any number of operations in one bulk request.</br></br>
+       <td>Specify the array of POST, PUT, PATCH, and/or DELETE operations that should be used to update the information. 
+        <p><b>Note:</b> You can include any number of operations in one bulk request.</p>
        See the instructions given below to define the required operations.</td>
    </tr>
 </table>
  
 ## Manage users in bulk
  
-You can use the **bulk** operations to add, remove, update, and delete users in bulk.
+You can use the **bulk** operations to add, remove, update, and replace users in bulk.
+
+!!! Info
+    Note that you can include any number of operations in one bulk request.
  
 ### Add users
  
@@ -300,7 +304,9 @@ The parameters in the request body are explained below.
        </tr>
        <tr>
            <td><code>path</code></td>
-           <td>Required</td>
+           <td>Required if <code>op</code> is <code>remove</code>.</br>
+           Optional if <code>op</code> is <code>add</code> or <code>replace</code>.
+           </td>
            <td>
                Add this path to specify the new user that is being updated.</br></br>
                <b>Possible Value</b>:<code>/Users/{user_id}</code>.
@@ -604,7 +610,10 @@ The parameters in the request body are explained below.
  
 ## Manage user groups in bulk
  
-You can use **bulk** operations to add, remove, update, and delete user groups in bulk.
+You can use **bulk** operations to add, update, replace, and delete user groups in bulk.
+
+!!! Info
+    Note that you can include any number of operations in one bulk request.
  
 ### Add user groups
  
@@ -623,8 +632,8 @@ Given below is an example request payload to add user groups in bulk. This reque
                "displayName": "TourGuides",
                "members": [
                    {
-                   "type": "User",
-                   "value": "3633c988-69bf-48fc-978a-83dfde12695f"
+                     "type": "User",
+                     "value": "3633c988-69bf-48fc-978a-83dfde12695f"
                    }
                ]
            }
@@ -638,12 +647,12 @@ Given below is an example request payload to add user groups in bulk. This reque
                "displayName": "SLTourGuides",
                "members": [
                    {
-                   "type": "User",
-                   "value": "3633c988-69bf-48fc-978a-83dfde12695f"
+                     "type": "User",
+                     "value": "3633c988-69bf-48fc-978a-83dfde12695f"
                    },
-                    {
-                   "type": "User",
-                   "value": "40390b19-54c9-4e77-b223-fe31d55e59e0"
+                   {
+                     "type": "User",
+                     "value": "40390b19-54c9-4e77-b223-fe31d55e59e0"
                    }
                ]
            }
@@ -772,47 +781,49 @@ Given below is an example request payload to update user groups in bulk. This re
  
 ```json
 {
-   "schemas": [ "urn:ietf:params:scim:api:messages:2.0:BulkRequest" ],
-   "Operations": [
-{
-          "method": "PATCH",
-          "path": "/Groups/46887262-2ba1-4cee-b3ef-64549423e0b0",
-          "data": {
-              "Operations": [
-                  {
-                      "op": "replace",
-                      "path": "members",
-                      "value": [
-                          {
-                          "display": "smith",
-                          "value": "ba1db5ff-8062-415b-bc78-5f79738d00ea"
-                          }
-                      ]
-                  }
-              ]
-          }
+   "schemas":[
+      "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+   ],
+   "Operations":[
+      {
+         "method":"PATCH",
+         "path":"/Groups/46887262-2ba1-4cee-b3ef-64549423e0b0",
+         "data":{
+            "Operations":[
+               {
+                  "op":"replace",
+                  "path":"members",
+                  "value":[
+                     {
+                        "display":"smith",
+                        "value":"ba1db5ff-8062-415b-bc78-5f79738d00ea"
+                     }
+                  ]
+               }
+            ]
+         }
       },
-       {
-          "method": "PATCH",
-          "path": "/Groups/18d04a36-0894-4f71-bdc4-2610fcc6ae42",
-          "data": {
-              "Operations": [
-                  {
-                      "op": "add",
-                      "path": "members",
-                      "value": [
-                          {
-                          "display": "smith",
-                          "value": "ba1db5ff-8062-415b-bc78-5f79738d00ea"
-                          }
-                      ]
-                  },
-                  {
-                       "op":"remove",
-                       "path":"members[value eq \"3633c988-69bf-48fc-978a-83dfde12695f\"]"
-                   }
-              ]
-          }
+      {
+         "method":"PATCH",
+         "path":"/Groups/18d04a36-0894-4f71-bdc4-2610fcc6ae42",
+         "data":{
+            "Operations":[
+               {
+                  "op":"add",
+                  "path":"members",
+                  "value":[
+                     {
+                        "display":"smith",
+                        "value":"ba1db5ff-8062-415b-bc78-5f79738d00ea"
+                     }
+                  ]
+               },
+               {
+                  "op":"remove",
+                  "path":"members[value eq \"3633c988-69bf-48fc-978a-83dfde12695f\"]"
+               }
+            ]
+         }
       }
    ]
 }
@@ -931,9 +942,14 @@ The parameters in the request body are explained below.
                An array of users that belong to the group.
            </td>
        </tr>
-       <tr>
+    </table>
+
+-   Data operation value parameters
+
+    <table>
+        <tr>
            <td><code>display</code></td>
-           <td>Required</td>
+           <td>Required if <code>path</path> is set to <code>members</code>.</td>
            <td>
                The display name of the user, who is a member.</br>
                <b>Possible values</b>: The username.
@@ -941,7 +957,7 @@ The parameters in the request body are explained below.
        </tr>
        <tr>
            <td><code>value</code></td>
-           <td>Required</td>
+           <td>Required if <code>path</path> is set to <code>members</code>.</td>
            <td>
                The user ID of the member user.</br>
                <b>Possible values:</b> The user ID.
@@ -956,34 +972,36 @@ Given below is an example request payload to replace existing user groups in bul
 ```json
 {
    "failOnErrors":1,
-   "schemas":["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],
+   "schemas":[
+      "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+   ],
    "Operations":[
-       {
-           "method": "PUT",
-           "path": "/Groups/46887262-2ba1-4cee-b3ef-64549423e0b0",
-           "data":{
-               "displayName": "TourGuides",
-               "members": [
-                   {
-                   "display": "Alice",
-                   "value": "3633c988-69bf-48fc-978a-83dfde12695f"
-                   }
-               ]
-           }
-       },
-       {
-           "method": "PUT",
-           "path": "/Groups/18d04a36-0894-4f71-bdc4-2610fcc6ae42",
-           "data":{
-               "displayName": "SLTourGuides",
-               "members": [
-                   {
-                   "display": "Alice",
-                   "value": "3633c988-69bf-48fc-978a-83dfde12695f"
-                   }
-           ]
-           }
-       }
+      {
+         "method":"PUT",
+         "path":"/Groups/46887262-2ba1-4cee-b3ef-64549423e0b0",
+         "data":{
+            "displayName":"TourGuides",
+            "members":[
+               {
+                  "display":"Alice",
+                  "value":"3633c988-69bf-48fc-978a-83dfde12695f"
+               }
+            ]
+         }
+      },
+      {
+         "method":"PUT",
+         "path":"/Groups/18d04a36-0894-4f71-bdc4-2610fcc6ae42",
+         "data":{
+            "displayName":"SLTourGuides",
+            "members":[
+               {
+                  "display":"Alice",
+                  "value":"3633c988-69bf-48fc-978a-83dfde12695f"
+               }
+            ]
+         }
+      }
    ]
 }
 ```
