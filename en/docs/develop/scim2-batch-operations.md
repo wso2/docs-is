@@ -214,41 +214,44 @@ Given below is an example request payload to update users in bulk. This request 
  
 ```json
 {
-   "failOnErrors": 1,
-   "schemas": [ "urn:ietf:params:scim:api:messages:2.0:BulkRequest" ],
-   "Operations": [
-       {
-           "method": "PATCH",
-           "path": "/Users/e67906fb-308f-4b15-89bd-0ab6e3d996e5",
-           "data": {
-               "Operations": [
-                   {
-                       "op": "replace",
-                       "path": "name",
-                       "value":
-                       {
-                           "givenName": "john",
-                           "familyName": "Anderson"
-                       }
-                   },
-                   {
-                       "op": "add",
-                       "path": "nickName",
-                       "value": "shaggy" 
-                   }
-               ]
-           }
-       },
-       {
-           "method": "PATCH",
-           "path": "/Users/b1781d25-bde5-460a-a58a-8fe8dbfd8487",
-           "data": {
-               "Operations": [{
-                   "op": "remove",
-                   "path": "emails[type eq home]"
-               }]
-           }
-       }
+   "failOnErrors":1,
+   "schemas":[
+      "urn:ietf:params:scim:api:messages:2.0:BulkRequest"
+   ],
+   "Operations":[
+      {
+         "method":"PATCH",
+         "path":"/Users/e67906fb-308f-4b15-89bd-0ab6e3d996e5",
+         "data":{
+            "Operations":[
+               {
+                  "op":"replace",
+                  "path":"name",
+                  "value":{
+                     "givenName":"john",
+                     "familyName":"Anderson"
+                  }
+               },
+               {
+                  "op":"add",
+                  "path":"nickName",
+                  "value":"shaggy"
+               }
+            ]
+         }
+      },
+      {
+         "method":"PATCH",
+         "path":"/Users/b1781d25-bde5-460a-a58a-8fe8dbfd8487",
+         "data":{
+            "Operations":[
+               {
+                  "op":"remove",
+                  "path":"emails[type eq home]"
+               }
+            ]
+         }
+      }
    ]
 }
 ```
@@ -353,7 +356,9 @@ The parameters in the request body are explained below.
        </tr>
        <tr>
            <td><code>path</code></td>
-           <td>Required</td>
+           <td>Required if <code>op</code> is <code>remove</code>.</br>
+                Optional if <code>op</code> is <code>add</code> or <code>replace</code>
+            </td>
            <td>
                The path to the resource (user attribute) that should be updated.</br>
                For example, if the name of the user is to be updated, the path should be “name”.
@@ -450,7 +455,7 @@ The parameters in the request body are explained below.
        <tr>
            <td><code>operations</code></td>
            <td>Required</td>
-           <td>Arrayof  operations. To replace multiple users, add an array of PUT operations. You can include any number of operations in one bulk request.</br>
+           <td>Array of operations. To replace multiple users, add an array of PUT operations. You can include any number of operations in one bulk request.</br>
            The parameters that can be used for the operation are explained below.
            </td>
        </tr>
