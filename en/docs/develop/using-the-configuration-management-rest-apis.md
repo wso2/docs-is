@@ -15,7 +15,7 @@ Add the following configuration to the `<IS_HOME>/repository/conf/deployment.tom
     
 ``` 
 [configuration.store.query_length]
-max="4194304
+max="4194304"
 ```
 
 ### Configuration management architecture
