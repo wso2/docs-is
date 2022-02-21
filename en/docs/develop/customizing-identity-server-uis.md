@@ -215,7 +215,7 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
                        <i class="icon fw fw-wso2"></i>
                        <%=AuthenticationEndpointUtil.i18n(resourceBundle, "Inc")%>
                     </a>
-                    . <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
+                    . <%=AuthenticationEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
                 </p>
             </div>
         </footer>
