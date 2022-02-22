@@ -210,12 +210,12 @@ Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as 
             <div class="container-fluid">
                 <p>XYZ Company | &copy;
                     <script>document.write(new Date().getFullYear());</script>
-                    <a href="<%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "business.homepage")%>"
+                    <a href="<%=AuthenticationEndpointUtil.i18n(resourceBundle, "business.homepage")%>"
                        target="_blank">
                        <i class="icon fw fw-wso2"></i>
-                       <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "Inc")%>
+                       <%=AuthenticationEndpointUtil.i18n(resourceBundle, "Inc")%>
                     </a>
-                    . <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
+                    . <%=AuthenticationEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
                 </p>
             </div>
         </footer>
