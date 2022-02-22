@@ -39,7 +39,7 @@ From 5.9.0 onwards, all endpoints are secured by default. To configure user role
 ```toml tab="Example"
 [resource.access_control]
 context = "/api/identity/*"
-secured = true
+secure = true
 http_method = "all"
 permissions = ["p1","p2"]
 scope = ["scope1", "scope2"]
