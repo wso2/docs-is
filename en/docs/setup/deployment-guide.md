@@ -44,7 +44,7 @@ necessary system requirements and a compatible environment.
 !!! note
     We do not recommend running WSO2 Identity Server on ARM architecture. However, official support for this is being considered for future releases.
     
-    For more information on prerequisites, see [Installation Prerequisites](../../setup/installation-prerequisites).
+    For more information see the [installation prerequisites](../../setup/installation-prerequisites).
 
 ### Environment compatibility
 
