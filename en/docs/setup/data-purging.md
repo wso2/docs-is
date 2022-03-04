@@ -237,16 +237,14 @@ You can perform data purging by clearing the session data using the script given
 
     !!! info
 
-        For DB2, MySQL, Oracle, and Postgre database scripts, see [Stored Procedures](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures).
-   
-        You can change the session cleanup task in the stored procedure according to your DB policies. You can clean the session data either based on the time created or the expired time. By default, the session clean up task cleans the data based on the time session was created.
-         You can change it to expiry time as shown below according to your DB policies.
-        
-        ``` INSERT INTO IDN_AUTH_SESSION_STORE_TMP (SESSION_ID) SELECT TOP (@chunkLimit) SESSION_ID FROM IDN_AUTH_SESSION_STORE 
-            where EXPIRY_TIME < @sessionCleanupTime;
-        ```
+        - For DB2, MySQL, Oracle, and Postgre database scripts, see [Stored Procedures](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures).
+        - You can change the session cleanup task in the stored procedure according to your DB policies. You can change the session cleanup task in the stored procedure according to your DB policies. You can clean the session data either based on the session created time or the session expiry time. By default, the session created time is used.
+             ``` 
+              INSERT INTO IDN_AUTH_SESSION_STORE_TMP (SESSION_ID) SELECT TOP (@chunkLimit) SESSION_ID FROM IDN_AUTH_SESSION_STORE 
+              where EXPIRY_TIME < @sessionCleanupTime;
+             ```
 
-4.  Once the cleanup is over, start the WSO2 Identity Server pointing to the cleaned-up database dump and test throughly for any issues.  
+5. Once the cleanup is over, start the WSO2 Identity Server pointing to the cleaned-up database dump and test throughly for any issues.  
     You can also schedule a cleanup task that will be automatically run after a given period of time. 
 
     ??? example "Click to view an example"     
