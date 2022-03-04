@@ -239,12 +239,14 @@ You can perform data purging by clearing the session data using the script given
 
         - For DB2, MySQL, Oracle, and Postgre database scripts, see [Stored Procedures](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures).
         - You can change the session cleanup task in the stored procedure according to your DB policies. You can change the session cleanup task in the stored procedure according to your DB policies. You can clean the session data either based on the session created time or the session expiry time. By default, the session created time is used.
+        - A sample script is given below where you can clear the session data based on the EXPIRY_TIME
+           
              ``` 
               INSERT INTO IDN_AUTH_SESSION_STORE_TMP (SESSION_ID) SELECT TOP (@chunkLimit) SESSION_ID FROM IDN_AUTH_SESSION_STORE 
               where EXPIRY_TIME < @sessionCleanupTime;
              ```
 
-5. Once the cleanup is over, start the WSO2 Identity Server pointing to the cleaned-up database dump and test throughly for any issues.  
+4. Once the cleanup is over, start the WSO2 Identity Server pointing to the cleaned-up database dump and test throughly for any issues.  
     You can also schedule a cleanup task that will be automatically run after a given period of time. 
 
     ??? example "Click to view an example"     
