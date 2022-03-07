@@ -42,7 +42,7 @@ necessary system requirements and a compatible environment.
 </tbody>
 </table>
 !!! note
-    We do not recommend running WSO2 Identity Server on ARM architecture. However, official support for this is being considered for future releases.
+    We do not recommend running WSO2 Identity Server on ARM processors. However, official support for this is being considered for future releases.
     
     For more information on prerequisites, see [Installation Prerequisites](../../setup/installation-prerequisites).
 
