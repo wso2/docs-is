@@ -29,7 +29,7 @@ development platforms before starting the installation.
 
 !!! note
     
-    We do not recommend running WSO2 Identity Server on ARM architecture. However, official support for this is being considered for future releases.
+    We do not recommend running WSO2 Identity Server on ARM processors. However, official support for this is being considered for future releases.
 
 ### Environment compatibility
 
