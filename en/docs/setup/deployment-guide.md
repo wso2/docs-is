@@ -33,7 +33,7 @@ necessary system requirements and a compatible environment.
 <tr class="odd">
 <td></td>
 <td><ul>
-<li>4 vCPUs</li>
+<li>4 vCPUs (x86_64 Architecture)</li>
 <li>4 GB RAM</li>
 <li>10 GB Disk Space</li>
 </ul>
@@ -42,7 +42,9 @@ necessary system requirements and a compatible environment.
 </tbody>
 </table>
 !!! note
-    For more information on prerequisites, see [Installation Prerequisites](../../setup/installation-prerequisites)
+    We do not recommend running WSO2 Identity Server on ARM processors. However, official support for this is being considered for future releases.
+    
+    For more information on prerequisites, see [Installation Prerequisites](../../setup/installation-prerequisites).
 
 ### Environment compatibility
 
