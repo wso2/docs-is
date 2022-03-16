@@ -85,7 +85,7 @@ First, register two service providers in WSO2 Identity Server.
 5.  Configure the following details for travelocity.com and repeat steps
     1 to 6 and configure details for avis.com.
 
-    ![New application screen](../assets/img/using-wso2-identity-server/new-application-screen.png) 
+    ![New application screen](../assets/img/using-wso2-identity-server/new-application-screen-saml.png) 
 
     **travelocity.com**
 
