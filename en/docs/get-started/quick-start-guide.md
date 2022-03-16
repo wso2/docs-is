@@ -315,7 +315,7 @@ and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.
 3.  Add the following configurations to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and restart the server.
 
        ```toml
-       [resource.access_control]
+       [[resource.access_control]]
        context = "(.*)/sample-auth/(.*)"
        secure = false
        http_method = "all" 
