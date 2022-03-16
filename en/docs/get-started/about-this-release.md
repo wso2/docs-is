@@ -42,6 +42,8 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
 
 - /identity/connect/register API
 - OAuth 1.0
+
+## Removed Features
 - H2 Console
 
 For more information, see [What Has Changed:Deprecated Features](../../setup/migrating-what-has-changed/#deprecated-features) and [WSO2 Identity Server Feature Deprecation](../../setup/wso2-identity-server-feature-deprecation/).
