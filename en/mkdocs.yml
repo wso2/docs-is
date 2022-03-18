@@ -672,7 +672,6 @@ nav:
             - 'Changing to Remote H2': setup/changing-to-remote-h2.md
             - 'Changing default datasource of BPS': setup/changing-datasource-bpsds.md
             - 'Changing the Default Datasource for Consent Management': setup/changing-datasource-consent-management.md
-          - 'Browsing the H2 Database': setup/browsing-the-h2-database.md
         - 'Working with Users, Roles and Permissions':
               - 'Working with Users, Roles and Permissions': setup/working-with-users-roles-and-permissions.md
               - 'Introduction to User Management': setup/introduction-to-user-management.md
