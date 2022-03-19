@@ -30,7 +30,7 @@ From 5.9.0 onwards, all endpoints are secured by default. To configure user role
 | Parameter            | Description                                                                                                                                                 | Sample Value                                               |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
 | **context** | This defines the resource context relative to the root context, which needs to be secured.                                                                  | `                 /api/identity/*                `         |
-| **secured**          | This specifies whether to enable or disable security in the given resource context.                                                                         | `                 true                `                    |
+| **secure**          | This specifies whether to enable or disable security in the given resource context.                                                                         | `                 true                `                    |
 | **http_method**      | This defines the method as `                 all                `, `                 post                `, `                 get                `, etc. | `                 all                `                     |
 | **permissions**      | This defines the user role permission that is required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
 | **scope**      | This defines scopes that an access token requires to access the resource. You can enter multiple scopes in a comma-separated list.     | `                 internal_idp_create                ` |
@@ -39,7 +39,7 @@ From 5.9.0 onwards, all endpoints are secured by default. To configure user role
 ```toml tab="Example"
 [resource.access_control]
 context = "/api/identity/*"
-secured = true
+secure = true
 http_method = "all"
 permissions = ["p1","p2"]
 scope = ["scope1", "scope2"]
