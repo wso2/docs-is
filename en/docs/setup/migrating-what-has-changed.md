@@ -301,6 +301,10 @@ From WSO2 Identity Server 5.11.0 onwards, we have deprecated the `WebContextRoot
 proxy_context_path="abc"
 ```
 
+## Removed H2 Console
+
+The H2 console packed with the embedded H2 database bears the risk of having security vulnerabilities due to remote code execution. Since there is no valid usage of the H2 console feature in the production environments and is only useful during development tasks, it has been removed from the WSO2 IS 5.12.0. As an alternative, use standard database client software for development or testing purposes.  
+
 ## WS-Trust authenticator moved to the connector store
 
 WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. To use WS-Trust authentication, [configure the connector](https://github.com/wso2-extensions/identity-inbound-auth-sts/tree/master/docs). 
