@@ -16,7 +16,7 @@ Follow the steps given below to authenticate users to a sample JavaScript servic
 Download the [sample JavaScript application](https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip).
 
 ## Configure the sample
-1. Open the `index.html` file located at the root of the project 
+1. Open the `index.html` file located at the root of the project.
 2. Scroll down to the `<script>` tag at the end of the body tag and find `authConfig` object and change the configurations with the relevant values.
     - **clientID** - Add the client id of the registered application. The client ID can be copied from **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** section of your service provider.
 
