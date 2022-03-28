@@ -412,9 +412,10 @@ nav:
   - SDKs:
       - Overview: sdks/sdk-overview.md
       - Enable Authentication for Spring Boot App: sdks/spring-boot.md
-      - Integrate a react app: sdks/integrate-a-react-app.md
-      - Integrate an angular app: sdks/integrate-an-angular-app.md
-      - Integrate a JS app: sdks/integrate-a-js-app.md
+      - Start Integrating Apps:
+        - Integrate a react app: sdks/start-integrating-apps/integrate-a-react-app.md
+        - Integrate an angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
+        - Integrate a JS app: sdks/start-integrating-apps/integrate-a-js-app.md
   - References:
     - Overview: references/references-overview.md
     - Default Ports of WSO2 Products: references/default-ports-of-wso2-products.md
