@@ -301,7 +301,7 @@ From WSO2 Identity Server 5.11.0 onwards, we have deprecated the `WebContextRoot
 proxy_context_path="abc"
 ```
 
-## Removed H2 Console
+## Removed H2 console
 
 The H2 console packed with the embedded H2 database bears the risk of having security vulnerabilities due to remote code execution. Since there is no valid usage of the H2 console feature in the production environments and is only useful during development tasks, it has been removed from the WSO2 IS 5.12.0. As an alternative, use standard database client software for development or testing purposes.  
 
