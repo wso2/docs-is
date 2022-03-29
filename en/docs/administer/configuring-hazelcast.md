@@ -60,4 +60,3 @@ important to add all the members to the well-known members list in the `
         ```java
         hazelcast.enterprise.license.key=<key>
         ```
-    
