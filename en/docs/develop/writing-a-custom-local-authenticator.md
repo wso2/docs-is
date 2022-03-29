@@ -1,11 +1,11 @@
 # Writing a Custom Local Authenticator
 
-The default WSO2 Identity Server authenticator is the basic authenticator. It is a local authenticator that authenticates the end users using a connected user store and the provided user name and password. When a user needs to be authenticated with the user store and authorized based on the assigned user role, you can write a custom local authenticator. Let's try out a sample scenario on this.
+A basic authenticator is available by default in the WSO2 identity server. It is a local authenticator that authenticates end users with a connected user store and the provided credentials. Writing a custom local authenticator grants you the ability to authorize users based on their user roles.
 
 ### Sample scenario
-You have an app called playground that is used for importing/exporting photos. The playground uses OpenID Connect to let the users log into it. The playground only allows the users who are assigned with the photoSharingRole user role to log in to it. (The users with other user roles are not allowed to log in to the playground application)
+You have an app called playground that is used for importing/exporting photos. The playground app uses OpenID Connect for authentication. The app only allows users assigned to photoSharingRole role to log in.
 
-This requirement can be easily achieved through WSO2 Identity Server extension points that have the ability to plug custom local authenticators. 
+To achieve this, you can plug a custom local authenticator to a WSO2 Identity Server extension point.
 
 ### Configurations
 The following steps explain how you can write a custom local authenticator by extending the **AbstractApplicationAuthenticator** class and implementing the **LocalApplicationAuthenticator** class and how this custom local authenticator can be plugged into these extension points.
@@ -139,11 +139,6 @@ Let's begin.
 
 2.  Write a custom local authenticator.
 
-    !!! note    
-        The `            BasicCustomAuthenticatorConsta           `
-        `            nts.java           ` file that is referred in the below
-        example is available
-        [here](../../assets/attachments/BasicCustomAuthenticatorConstants.java).
     
     ??? example "Click to view the sample custom authenticator class"
         ```
@@ -304,6 +299,12 @@ Let's begin.
         }
         ```    
 
+        !!! note    
+        The `BasicCustomAuthenticatorConstants.java` file that is referred to in the above
+        example is available
+        [here](../../assets/attachments/BasicCustomAuthenticatorConstants.java).
+    
+
 3.  Write an OSGi service component class to register the custom authenticator. 
 
     ??? example "Click to view" 
@@ -382,24 +383,24 @@ Let's begin.
         ```
 
 4.  Build the project using maven. (Click to see the sample project
-    [here](../../assets/attachments/org.wso2.custom.authenticator.local.zip)).
+    [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator)).
 
-5.  Copy the .jar file
+5.  Copy and paste the .jar file
     `           org.wso2.custom.authenticator.local-1.0.0.jar          `
-    inside
+    inside 
     `           <IS_HOME>/repository/components/dropins          `
     folder.
 
 6.  Start WSO2 Identity Server.
 
-7.  Sign in to the Management Console.
+7.  Sign in to the **Management Console**.
 
-8.  Create a new user with the name `Larry`.
+8.  Create a new user named `Larry`.
 
 9.  Create a new user role called  `photoSharingRole` and assign it to the newly created user.
 
 10. Create a service provider for the application.  
-    (You must have the app deployed on the tomcat server.)
+    (You must have the app deployed in the tomcat server.)
 
 11. In the service provider configuration, under **Inbound Authentication Configuration** section, click **OAuth/OpenID Connect Configuration > Configure**. 
     ![OAuth/OpenID Connect Configuration option](../assets/img/using-wso2-identity-server/oauth-openid-connect-configuration-option.png) 
