@@ -114,12 +114,6 @@ If you have your own application, click the button below.
 
 ---
 
-## Deploy the Sample App
-
-{! fragments/pickup-dispatch-saml.md !}
-
----
-
 ## Try it out
 
 1.  Access the Pickup sample application URL:
