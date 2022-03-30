@@ -1,16 +1,16 @@
 # Writing a Custom Local Authenticator
 
-The default authenticator in the WSO2 Identity Server is the Basic authenticator.  It is a local authenticator that authenticates the end users using a connected userstore and the provided username and password.
+A basic authenticator is available in the WSO2 Identity Server by default. A basic authenticator authenticates end users using a connected userstore and the provided username and password.
 
-You can extend the local authenticator that comes with the WSO2 Identity Server by writing your own authenticator and deploying it.
+With the WSO2 Identity Server, you can write your own local authenticator to define various authentication logic.
 
 ### Sample scenario
 You have the **playground2** app that you want users to log in with their telephone numbers instead of usernames. Once a user enters a telephone number, your authentication logic should identifiy the user and validate the user's credentials. 
 
-You can write a custom local authenticator to implement this authentication logic.
+The following guide shows you how to write a custom local authenticator to implement this authentication logic.
 
-### Configurations
-The following steps explain how you can write a custom local authenticator by extending the **AbstractApplicationAuthenticator** class and implementing the **LocalApplicationAuthenticator** class and how this custom local authenticator can be plugged into these extension points.
+### Implement the custom local authenticator
+You can write a custom local authenticator by extending the **AbstractApplicationAuthenticator** class and implementing the **LocalApplicationAuthenticator** class.
 
 Let's begin.    
 
@@ -449,20 +449,18 @@ Let's begin.
 
 13. Under **Local & Outbound Authentication Configuration**, select **Local
     authentication** check box.
-    ![Local authentication check box](../assets/img/using-wso2-identity-server/local-authentication-check-box.jpeg) 
+    ![Local authentication check box](../assets/img/using-wso2-identity-server/local-authentication-check-box.png) 
 
     !!! note
         On the corresponding drop-down list, you can see, `sample-local-authenticator` which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.    
 
-14. Visit the app and provide the **Client ID** of the registered
+14. Visit the playground2 app and provide the **Client ID** of the registered
     app and give the **Scope** as `openid` to make sure it is
     using the OpenID Connect flow. Click **Authorize**.  
     ![Playground app](../assets/img/using-wso2-identity-server/playground-app.jpeg)
     Note that you will be directed to WSO2 Identity Server login page.
 
-15. Provide the username and password of the user `Larry` who is in the
-    `photoSharingRole`. You are prompted to approve the app and log
-    in.
+15. Provide the telephone number as the user identifier and enter the password of the user `Larry`. You are prompted to approve the app and log in.
 
 The following is a set of methods related to writing a custom local
 authenticator.
