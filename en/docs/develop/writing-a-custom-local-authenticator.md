@@ -459,13 +459,14 @@ Now, let's try out the new authenticator.
         See to the [documentation](../../learn/deploying-the-sample-app/#deploying-the-pickup-dispatch-webapp) for details.
 
 9. Be sure to configure the pickup-dispatch app with the **Client ID** and **Client Secret** from the service provider you registered in WSO2 Identity Server.
-10. Start the Tomcat server with the pickup-dispatch app and click **Login**.
+10. Start the Tomcat server with the pickup-dispatch app.
+11. Access the pickup-dispatch app (`http://localhost:8080/pickup-dispatch/`) and click **Login**.
     
     ![pickup-dispatch app](../assets/img/using-wso2-identity-server/pickup-dispatch-app.png)
 
     You will be directed to the WSO2 Identity Server login page.
 
-17. Enter Larry's telephone number as the user identifier and enter Larry's password. 
+12. Enter Larry's telephone number as the user identifier and enter Larry's password. 
 
 You are now prompted to approve the app and log in.
 
