@@ -452,7 +452,7 @@ Let's begin.
     ![Local authentication check box](../assets/img/using-wso2-identity-server/local-authentication-check-box.png) 
 
     !!! note
-        On the corresponding drop-down list, you can see, `sample-local-authenticator` which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.    
+        On the corresponding drop-down list, you can see `sample-local-authenticator`, which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.    
 
 14. Visit the playground2 app and provide the **Client ID** of the registered
     app and give the **Scope** as `openid` to make sure it is
