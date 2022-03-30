@@ -16,7 +16,7 @@ You can use one of the following methods for token cleanup.
 
 ### Using stored procedures for token cleanup
 
-Alternatively, you can also use the provided stored procedures to run a
+You can use the provided stored procedures to run a
 token cleanup task periodically to remove the old and invalid tokens.
 Follow the instructions below to configure token cleanup using this
 method.
@@ -45,7 +45,7 @@ method.
 
 ### Configuring WSO2 Identity Server for token cleanup
 
-WSO2 Identity Server triggers token cleanup during the following
+Alternatively, you can also use the WSO2 Identity Server which triggers token cleanup during the following
 instances.  
 
 1.  New token generation
