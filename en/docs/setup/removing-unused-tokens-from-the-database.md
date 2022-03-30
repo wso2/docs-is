@@ -10,7 +10,7 @@ avoid a growing access token table.
 
 You can use one of the following methods for token cleanup.
 
-    !!! note
+!!! note
     We recommend using stored procedures instead of the WSO2 Identity Server to cleanup tokens since there 
     have been a few reported issues when the WSO2 Identity server is used for token cleanup.
 
@@ -21,7 +21,7 @@ token cleanup task periodically to remove the old and invalid tokens.
 Follow the instructions below to configure token cleanup using this
 method.
 
-    !!! tip
+!!! tip
     It is safe to run these steps in read-only mode or during a time when traffic on the server is low, but that is not mandatory.
 
 1. Disable the internal token cleanup process by configuring the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
