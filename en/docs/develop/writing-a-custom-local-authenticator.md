@@ -5,7 +5,7 @@ The default authenticator in the WSO2 Identity Server is the Basic authenticator
 You can extend the local authenticator that comes with the WSO2 Identity Server by writing your own authenticator and deploying it.
 
 ### Sample scenario
-You have an app that you want users to log in with their telephone numbers instead of usernames. Once a user enters a telephone number, your authentication logic should identifiy the user and validate the user's credentials. 
+You have the **playground2** app that you want users to log in with their telephone numbers instead of usernames. Once a user enters a telephone number, your authentication logic should identifiy the user and validate the user's credentials. 
 
 You can write a custom local authenticator to implement this authentication logic.
 
@@ -21,23 +21,23 @@ Let's begin.
         
         <?xml version="1.0" encoding="UTF-8"?>
 
-            <!--
+        <!--
         ~ Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
-  ~
-  ~ WSO2 Inc. licenses this file to you under the Apache License,
-  ~ Version 2.0 (the "License"); you may not use this file except
-  ~ in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~ http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing,
-  ~ software distributed under the License is distributed on an
-  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-  ~ KIND, either express or implied.  See the License for the
-  ~ specific language governing permissions and limitations
-  ~ under the License.
-  -->
+        ~
+        ~ WSO2 Inc. licenses this file to you under the Apache License,
+        ~ Version 2.0 (the "License"); you may not use this file except
+        ~ in compliance with the License.
+        ~ You may obtain a copy of the License at
+        ~
+        ~ http://www.apache.org/licenses/LICENSE-2.0
+        ~
+        ~ Unless required by applicable law or agreed to in writing,
+        ~ software distributed under the License is distributed on an
+        ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+        ~ KIND, either express or implied.  See the License for the
+        ~ specific language governing permissions and limitations
+        ~ under the License.
+        -->
 
         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
@@ -146,175 +146,175 @@ Let's begin.
     
     ??? example "Click to view the sample custom authenticator class"
         ```
-/*
- * Copyright (c)  2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
- * WSO2 Inc. licenses this file to you under the Apache License,
- * Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+        /*
+        * Copyright (c)  2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+        *
+        * WSO2 Inc. licenses this file to you under the Apache License,
+        * Version 2.0 (the "License"); you may not use this file except
+        * in compliance with the License.
+        * You may obtain a copy of the License at
+        *
+        * http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing,
+        * software distributed under the License is distributed on an
+        * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+        * KIND, either express or implied.  See the License for the
+        * specific language governing permissions and limitations
+        * under the License.
+        */
 
-package org.wso2.carbon.identity.sample.local.authenticator;
+        package org.wso2.carbon.identity.sample.local.authenticator;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.wso2.carbon.identity.application.authentication.framework.AbstractApplicationAuthenticator;
-import org.wso2.carbon.identity.application.authentication.framework.LocalApplicationAuthenticator;
-import org.wso2.carbon.identity.application.authentication.framework.config.ConfigurationFacade;
-import org.wso2.carbon.identity.application.authentication.framework.context.AuthenticationContext;
-import org.wso2.carbon.identity.application.authentication.framework.exception.AuthenticationFailedException;
-import org.wso2.carbon.identity.application.authentication.framework.exception.InvalidCredentialsException;
-import org.wso2.carbon.identity.application.authentication.framework.model.AuthenticatedUser;
-import org.wso2.carbon.identity.application.authentication.framework.util.FrameworkUtils;
-import org.wso2.carbon.identity.application.common.model.User;
-import org.wso2.carbon.identity.base.IdentityRuntimeException;
-import org.wso2.carbon.identity.core.util.IdentityTenantUtil;
-import org.wso2.carbon.identity.sample.local.authenticator.internal.SampleLocalAuthenticatorServiceComponent;
-import org.wso2.carbon.user.api.UserRealm;
-import org.wso2.carbon.user.core.UniqueIDUserStoreManager;
-import org.wso2.carbon.user.core.UserCoreConstants;
-import org.wso2.carbon.user.core.common.AuthenticationResult;
+        import org.apache.commons.logging.Log;
+        import org.apache.commons.logging.LogFactory;
+        import org.wso2.carbon.identity.application.authentication.framework.AbstractApplicationAuthenticator;
+        import org.wso2.carbon.identity.application.authentication.framework.LocalApplicationAuthenticator;
+        import org.wso2.carbon.identity.application.authentication.framework.config.ConfigurationFacade;
+        import org.wso2.carbon.identity.application.authentication.framework.context.AuthenticationContext;
+        import org.wso2.carbon.identity.application.authentication.framework.exception.AuthenticationFailedException;
+        import org.wso2.carbon.identity.application.authentication.framework.exception.InvalidCredentialsException;
+        import org.wso2.carbon.identity.application.authentication.framework.model.AuthenticatedUser;
+        import org.wso2.carbon.identity.application.authentication.framework.util.FrameworkUtils;
+        import org.wso2.carbon.identity.application.common.model.User;
+        import org.wso2.carbon.identity.base.IdentityRuntimeException;
+        import org.wso2.carbon.identity.core.util.IdentityTenantUtil;
+        import org.wso2.carbon.identity.sample.local.authenticator.internal.SampleLocalAuthenticatorServiceComponent;
+        import org.wso2.carbon.user.api.UserRealm;
+        import org.wso2.carbon.user.core.UniqueIDUserStoreManager;
+        import org.wso2.carbon.user.core.UserCoreConstants;
+        import org.wso2.carbon.user.core.common.AuthenticationResult;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.Optional;
+        import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.HttpServletResponse;
+        import java.io.IOException;
+        import java.util.Optional;
 
-/**
- * This is the sample local authenticator which will be used to authenticate the user based on the registered telephone
- * number.
- */
-public class SampleLocalAuthenticator extends AbstractApplicationAuthenticator implements
-        LocalApplicationAuthenticator {
+        /**
+        * This is the sample local authenticator which will be used to authenticate the user based on the registered telephone
+        * number.
+        */
+        public class SampleLocalAuthenticator extends AbstractApplicationAuthenticator implements
+                LocalApplicationAuthenticator {
 
-    private static final Log log = LogFactory.getLog(SampleLocalAuthenticator.class);
-    private static final String TELEPHONE_CLAIM_URL = "http://wso2.org/claims/telephone";
-    private static final String USERNAME = "username";
-    private static final String PASSWORD = "password";
+            private static final Log log = LogFactory.getLog(SampleLocalAuthenticator.class);
+            private static final String TELEPHONE_CLAIM_URL = "http://wso2.org/claims/telephone";
+            private static final String USERNAME = "username";
+            private static final String PASSWORD = "password";
 
-    @Override
-    public boolean canHandle(HttpServletRequest httpServletRequest) {
+            @Override
+            public boolean canHandle(HttpServletRequest httpServletRequest) {
 
-        String userName = httpServletRequest.getParameter(USERNAME);
-        String password = httpServletRequest.getParameter(PASSWORD);
-        return userName != null && password != null;
-    }
-
-    @Override
-    protected void initiateAuthenticationRequest(HttpServletRequest request, HttpServletResponse response,
-                                                 AuthenticationContext context) throws AuthenticationFailedException {
-
-        String loginPage = ConfigurationFacade.getInstance().getAuthenticationEndpointURL();
-        // This is the default WSO2 IS login page. If you can create your custom login page you can use that instead.
-        String queryParams = FrameworkUtils.getQueryStringWithFrameworkContextId(context.getQueryParams(),
-                context.getCallerSessionKey(), context.getContextIdentifier());
-
-        try {
-            String retryParam = "";
-
-            if (context.isRetrying()) {
-                retryParam = "&authFailure=true&authFailureMsg=login.fail.message";
+                String userName = httpServletRequest.getParameter(USERNAME);
+                String password = httpServletRequest.getParameter(PASSWORD);
+                return userName != null && password != null;
             }
 
-            response.sendRedirect(response.encodeRedirectURL(loginPage + ("?" + queryParams)) +
-                    "&authenticators=BasicAuthenticator:" + "LOCAL" + retryParam);
-        } catch (IOException e) {
-            throw new AuthenticationFailedException(e.getMessage(), e);
-        }
-    }
+            @Override
+            protected void initiateAuthenticationRequest(HttpServletRequest request, HttpServletResponse response,
+                                                        AuthenticationContext context) throws AuthenticationFailedException {
 
-    @Override
-    protected void processAuthenticationResponse(HttpServletRequest httpServletRequest, HttpServletResponse
-            httpServletResponse, AuthenticationContext authenticationContext) throws AuthenticationFailedException {
+                String loginPage = ConfigurationFacade.getInstance().getAuthenticationEndpointURL();
+                // This is the default WSO2 IS login page. If you can create your custom login page you can use that instead.
+                String queryParams = FrameworkUtils.getQueryStringWithFrameworkContextId(context.getQueryParams(),
+                        context.getCallerSessionKey(), context.getContextIdentifier());
 
-        String username = httpServletRequest.getParameter(USERNAME);
-        String password = httpServletRequest.getParameter(PASSWORD);
+                try {
+                    String retryParam = "";
 
-        Optional<org.wso2.carbon.user.core.common.User> user = Optional.empty();
+                    if (context.isRetrying()) {
+                        retryParam = "&authFailure=true&authFailureMsg=login.fail.message";
+                    }
 
-        boolean isAuthenticated = false;
-
-        // Check the authentication.
-        try {
-            int tenantId = IdentityTenantUtil.getTenantIdOfUser(username);
-            UserRealm userRealm = SampleLocalAuthenticatorServiceComponent.getRealmService()
-                    .getTenantUserRealm(tenantId);
-            if (userRealm != null) {
-                UniqueIDUserStoreManager userStoreManager = (UniqueIDUserStoreManager) userRealm.getUserStoreManager();
-
-                // This custom local authenticator is using the telephone number as the username.
-                // Therefore the login identifier claim is http://wso2.org/claims/telephone.
-                AuthenticationResult authenticationResult = userStoreManager.
-                        authenticateWithID(TELEPHONE_CLAIM_URL, username, password, UserCoreConstants.DEFAULT_PROFILE);
-                if (AuthenticationResult.AuthenticationStatus.SUCCESS == authenticationResult.getAuthenticationStatus()) {
-                    user = authenticationResult.getAuthenticatedUser();
-                    isAuthenticated = true;
+                    response.sendRedirect(response.encodeRedirectURL(loginPage + ("?" + queryParams)) +
+                            "&authenticators=BasicAuthenticator:" + "LOCAL" + retryParam);
+                } catch (IOException e) {
+                    throw new AuthenticationFailedException(e.getMessage(), e);
                 }
-            } else {
-                if (log.isDebugEnabled()) {
-                    log.debug("Custom authentication failed since the user realm for the given tenant, " +
-                            tenantId + " is null.");
+            }
+
+            @Override
+            protected void processAuthenticationResponse(HttpServletRequest httpServletRequest, HttpServletResponse
+                    httpServletResponse, AuthenticationContext authenticationContext) throws AuthenticationFailedException {
+
+                String username = httpServletRequest.getParameter(USERNAME);
+                String password = httpServletRequest.getParameter(PASSWORD);
+
+                Optional<org.wso2.carbon.user.core.common.User> user = Optional.empty();
+
+                boolean isAuthenticated = false;
+
+                // Check the authentication.
+                try {
+                    int tenantId = IdentityTenantUtil.getTenantIdOfUser(username);
+                    UserRealm userRealm = SampleLocalAuthenticatorServiceComponent.getRealmService()
+                            .getTenantUserRealm(tenantId);
+                    if (userRealm != null) {
+                        UniqueIDUserStoreManager userStoreManager = (UniqueIDUserStoreManager) userRealm.getUserStoreManager();
+
+                        // This custom local authenticator is using the telephone number as the username.
+                        // Therefore the login identifier claim is http://wso2.org/claims/telephone.
+                        AuthenticationResult authenticationResult = userStoreManager.
+                                authenticateWithID(TELEPHONE_CLAIM_URL, username, password, UserCoreConstants.DEFAULT_PROFILE);
+                        if (AuthenticationResult.AuthenticationStatus.SUCCESS == authenticationResult.getAuthenticationStatus()) {
+                            user = authenticationResult.getAuthenticatedUser();
+                            isAuthenticated = true;
+                        }
+                    } else {
+                        if (log.isDebugEnabled()) {
+                            log.debug("Custom authentication failed since the user realm for the given tenant, " +
+                                    tenantId + " is null.");
+                        }
+                        throw new AuthenticationFailedException("Cannot find the user realm for the given tenant: " + tenantId,
+                                User.getUserFromUserName(username));
+                    }
+                } catch (IdentityRuntimeException e) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("Custom authentication failed while trying to get the tenant ID of the user " + username, e);
+                    }
+                    throw new AuthenticationFailedException(e.getMessage(), e);
+                } catch (org.wso2.carbon.user.api.UserStoreException e) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("Custom authentication failed while trying to authenticate the user " + username, e);
+                    }
+                    throw new AuthenticationFailedException(e.getMessage(), e);
                 }
-                throw new AuthenticationFailedException("Cannot find the user realm for the given tenant: " + tenantId,
-                        User.getUserFromUserName(username));
+
+                // If the authentication fails, throws the invalid client credential exception.
+                if (!isAuthenticated) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("User authentication failed due to invalid credentials");
+                    }
+                    throw new InvalidCredentialsException("User authentication failed due to invalid credentials",
+                            User.getUserFromUserName(username));
+                }
+
+                // When the user is successfully authenticated, add the user to the authentication context to be used later in
+                // the process.
+                if (user != null) {
+                    username = user.get().getUsername();
+                    authenticationContext.setSubject(AuthenticatedUser.createLocalAuthenticatedUserFromSubjectIdentifier(username));
+                }
             }
-        } catch (IdentityRuntimeException e) {
-            if (log.isDebugEnabled()) {
-                log.debug("Custom authentication failed while trying to get the tenant ID of the user " + username, e);
+
+            @Override
+            public String getContextIdentifier(HttpServletRequest httpServletRequest) {
+
+                return httpServletRequest.getParameter("sessionDataKey");
             }
-            throw new AuthenticationFailedException(e.getMessage(), e);
-        } catch (org.wso2.carbon.user.api.UserStoreException e) {
-            if (log.isDebugEnabled()) {
-                log.debug("Custom authentication failed while trying to authenticate the user " + username, e);
+
+            @Override
+            public String getName() {
+
+                return "SampleLocalAuthenticator";
             }
-            throw new AuthenticationFailedException(e.getMessage(), e);
+
+            @Override
+            public String getFriendlyName() {
+
+                return "sample-local-authenticator";
+            }
         }
-
-        // If the authentication fails, throws the invalid client credential exception.
-        if (!isAuthenticated) {
-            if (log.isDebugEnabled()) {
-                log.debug("User authentication failed due to invalid credentials");
-            }
-            throw new InvalidCredentialsException("User authentication failed due to invalid credentials",
-                    User.getUserFromUserName(username));
-        }
-
-        // When the user is successfully authenticated, add the user to the authentication context to be used later in
-        // the process.
-        if (user != null) {
-            username = user.get().getUsername();
-            authenticationContext.setSubject(AuthenticatedUser.createLocalAuthenticatedUserFromSubjectIdentifier(username));
-        }
-    }
-
-    @Override
-    public String getContextIdentifier(HttpServletRequest httpServletRequest) {
-
-        return httpServletRequest.getParameter("sessionDataKey");
-    }
-
-    @Override
-    public String getName() {
-
-        return "SampleLocalAuthenticator";
-    }
-
-    @Override
-    public String getFriendlyName() {
-
-        return "sample-local-authenticator";
-    }
-}
         ```    
 
         !!! note    
@@ -327,77 +327,97 @@ public class SampleLocalAuthenticator extends AbstractApplicationAuthenticator i
 
     ??? example "Click to view" 
         ``` java
-            /*
-            * Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
-            *
-            * WSO2 Inc. licenses this file to you under the Apache License,
-            * Version 2.0 (the "License"); you may not use this file except
-            * in compliance with the License.
-            * You may obtain a copy of the License at
-            *
-            *      http://www.apache.org/licenses/LICENSE-2.0
-            *
-            * Unless required by applicable law or agreed to in writing,
-            * software distributed under the License is distributed on an
-            * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-            * KIND, either express or implied.  See the License for the
-            * specific language governing permissions and limitations
-            * under the License.
-            */
-            package org.wso2.custom.authenticator.local.internal;
-        
-            import org.apache.commons.logging.Log;
-            import org.apache.commons.logging.LogFactory;
-            import org.osgi.service.component.ComponentContext;
-            import org.wso2.custom.authenticator.local.BasicCustomAuthenticator;
-            import org.wso2.carbon.identity.application.authentication.framework.ApplicationAuthenticator;
-            import org.wso2.carbon.user.core.service.RealmService;
-        
-        
-            /**
-            * @scr.component name="org.wso2.custom.authenticator.local.basic.component" immediate="true"
-            * @scr.reference name="realm.service"
-            * interface="org.wso2.carbon.user.core.service.RealmService"cardinality="1..1"
-            * policy="dynamic" bind="setRealmService" unbind="unsetRealmService"
-            */
-            public class BasicCustomAuthenticatorServiceComponent {
-        
-            private static final Log log = LogFactory.getLog(BasicCustomAuthenticatorServiceComponent.class);
-        
+                /*
+        * Copyright (c)  2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+        *
+        * WSO2 Inc. licenses this file to you under the Apache License,
+        * Version 2.0 (the "License"); you may not use this file except
+        * in compliance with the License.
+        * You may obtain a copy of the License at
+        *
+        * http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing,
+        * software distributed under the License is distributed on an
+        * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+        * KIND, either express or implied.  See the License for the
+        * specific language governing permissions and limitations
+        * under the License.
+        */
+
+        package org.wso2.carbon.identity.sample.local.authenticator.internal;
+
+        import org.apache.commons.logging.Log;
+        import org.apache.commons.logging.LogFactory;
+        import org.osgi.service.component.ComponentContext;
+        import org.osgi.service.component.annotations.Activate;
+        import org.osgi.service.component.annotations.Component;
+        import org.osgi.service.component.annotations.Deactivate;
+        import org.osgi.service.component.annotations.Reference;
+        import org.osgi.service.component.annotations.ReferenceCardinality;
+        import org.osgi.service.component.annotations.ReferencePolicy;
+        import org.wso2.carbon.identity.application.authentication.framework.ApplicationAuthenticator;
+        import org.wso2.carbon.identity.sample.local.authenticator.SampleLocalAuthenticator;
+        import org.wso2.carbon.user.core.service.RealmService;
+
+        @Component(
+                name = "sample.local.auth.component",
+                immediate = true)
+        public class SampleLocalAuthenticatorServiceComponent {
+
+            private static Log log = LogFactory.getLog(SampleLocalAuthenticatorServiceComponent.class);
+
             private static RealmService realmService;
-        
-            public static RealmService getRealmService() {
-                return realmService;
-            }
-        
+
+            @Activate
             protected void activate(ComponentContext ctxt) {
+
                 try {
-                    BasicCustomAuthenticator basicCustomAuth = new BasicCustomAuthenticator();
-                    ctxt.getBundleContext().registerService(ApplicationAuthenticator.class.getName(), basicCustomAuth, null);
+                    SampleLocalAuthenticator sampleLocalAuthenticator = new SampleLocalAuthenticator();
+                    ctxt.getBundleContext().registerService(ApplicationAuthenticator.class.getName(),
+                            sampleLocalAuthenticator, null);
                     if (log.isDebugEnabled()) {
-                        log.info("BasicCustomAuthenticator bundle is activated");
+                        log.debug("SampleLocalAuthenticator bundle is activated");
                     }
                 } catch (Throwable e) {
-                    log.error("BasicCustomAuthenticator bundle activation Failed", e);
+                    log.error("SampleLocalAuthenticator bundle activation failed.", e);
                 }
             }
-        
+
+            @Deactivate
             protected void deactivate(ComponentContext ctxt) {
+
                 if (log.isDebugEnabled()) {
-                    log.info("BasicCustomAuthenticator bundle is deactivated");
+                    log.debug("SampleLocalAuthenticator bundle is deactivated");
                 }
             }
-        
-            protected void unsetRealmService(RealmService realmService) {
-                log.debug("UnSetting the Realm Service");
-                BasicCustomAuthenticatorServiceComponent.realmService = null;
+
+            public static RealmService getRealmService() {
+
+                return realmService;
             }
-        
+
+            @Reference(name = "realm.service",
+                    service = org.wso2.carbon.user.core.service.RealmService.class,
+                    cardinality = ReferenceCardinality.MANDATORY,
+                    policy = ReferencePolicy.DYNAMIC,
+                    unbind = "unsetRealmService")
             protected void setRealmService(RealmService realmService) {
-                log.debug("Setting the Realm Service");
-                BasicCustomAuthenticatorServiceComponent.realmService = realmService;
+
+                if (log.isDebugEnabled()) {
+                    log.debug("Setting the Realm Service");
+                }
+                SampleLocalAuthenticatorServiceComponent.realmService = realmService;
             }
+
+            protected void unsetRealmService(RealmService realmService) {
+
+                if (log.isDebugEnabled()) {
+                    log.debug("UnSetting the Realm Service");
+                }
+                SampleLocalAuthenticatorServiceComponent.realmService = null;
             }
+        }
         ```
 
 4.  Build the project using maven. (Click to see the sample project
