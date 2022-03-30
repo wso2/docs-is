@@ -427,7 +427,6 @@ Let's begin.
 9.  Go to `Larry`'s profile and update the telephone number.
 
 10. Create a service provider for the application.  
-    (You must have the app deployed in the tomcat server.)
 
 11. In the service provider configuration, under **Inbound Authentication Configuration** section, click **OAuth/OpenID Connect Configuration > Configure**. 
     ![OAuth/OpenID Connect Configuration option](../assets/img/using-wso2-identity-server/oauth-openid-connect-configuration-option.png) 
