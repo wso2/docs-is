@@ -5,7 +5,7 @@ A basic authenticator is available in the WSO2 Identity Server by default. A bas
 With the WSO2 Identity Server, you can write your own local authenticator to define various authentication logic.
 
 ### Sample scenario
-You have the **playground2** app that you want users to log in with their telephone numbers instead of usernames. Once a user enters a telephone number, your authentication logic should identifiy the user and validate the user's credentials. 
+You have the **pickup-dispatch** app that you want users to log in with their telephone numbers instead of usernames. Once a user enters a telephone number, your authentication logic should identifiy the user and validate the user's credentials. 
 
 The following guide shows you how to write a custom local authenticator to implement this authentication logic.
 
@@ -454,7 +454,7 @@ Let's begin.
     !!! note
         On the corresponding drop-down list, you can see, `sample-local-authenticator` which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.    
 
-14. Visit the playground2 app and provide the **Client ID** of the registered
+14. Configure the pickup-dispatch app with the appropriate **Client ID** of the registered
     app and give the **Scope** as `openid` to make sure it is
     using the OpenID Connect flow. Click **Authorize**.  
     ![Playground app](../assets/img/using-wso2-identity-server/playground-app.jpeg)
