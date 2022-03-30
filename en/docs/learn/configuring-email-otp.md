@@ -253,7 +253,7 @@ as explained [here](../../setup/configuring-email-sending).
                     <td>This parameter helps to define a custom Email OTP expiry time. The default expiration time is 300000 milliseconds.</td>
                     <td>
                         <ul>
-                            <li>300000</li>
+                            <li><code>300000</code></li>
                         </ul>
                     </td>
                 </tr>
