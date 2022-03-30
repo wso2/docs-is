@@ -32,6 +32,7 @@ SMSOTPMandatory = false
 CaptureAndUpdateMobileNumber = true
 SendOTPDirectlyToMobile = false
 redirectToMultiOptionPageOnFailure = false
+TokenExpiryTime = 12
 ```
 
 
@@ -83,7 +84,7 @@ redirectToMultiOptionPageOnFailure = false
         </tr>
         <tr>
             <td>SMSOTPEnableByUserClaim</td>
-            <td>Disabl the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
+            <td>Disable the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
             <code>false</code>. If the value is set to <code>true</code>, the user can enable and disable the 
             SMS OTP according to what the admin selects in <code>SMSOTPMandatory</code> parameter value.</td>
         </tr>
@@ -107,6 +108,11 @@ redirectToMultiOptionPageOnFailure = false
             <td>redirectToMultiOptionPageOnFailure</td>
             <td>During a failed attempt enable redirect to the Multi Option Page where the user 
             can select the authentication mechanism.</td>
+		</tr>
+		<tr>
+            <td>TokenExpiryTime</td>
+            <td>SMS OTP does not have a default validity period hence you will have to explicitly configure it by adding the <code>TokenExpiryTime</code> parameter. The value provided for the parameter is considered as seconds.</td>
+		</tr>
     </tbody>
 </table>
 
