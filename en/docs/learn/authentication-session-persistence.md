@@ -128,33 +128,10 @@ before the other node accesses the same data from the database.
     invalidation notification system to ensure that data is consistent among
     the nodes in the cluster when data is deleted or updated, but this is
     not triggered when adding new data.
-    
 
-Add the following configuration to the
-`         <IS_HOME>/repository/conf/deployment.toml        ` file.
+The following table describes the elements of the session cleanup configurations.
 
-``` xml
-    [session_data.persistence]
-    enable_persistence = true
-    persist_temporary_data = true
-    persistence_pool_size = "0"
-
-    [session_data.cleanup]
-    enable_expired_data_cleanup = true
-    expire_session_data_after = "14d"
-    clean_expired_session_data_every = "1d"
-    clean_expired_session_data_in_chunks_of = "8192"
-    clean_logged_out_sessions_at_immediate_cycle = "true"
-
-    enable_pre_session_data_cleanup = true
-    pre_session_data_cleanup_thread_pool_size= "20"
-    expire_pre_session_data_after= "40m"       
-```
-
-The following table describes the elements of the configurations
-mentioned above.
-
-`[session_data.persistence]` section of the configuration is related to the persistence of session data.                                                                                                                                                                                         
+`[session_data.persistence]` section is related to the persistence of session data.                                                                                                                                                                                         
 
 | Configuration element | Description                                                                                                                                                                                                                                                                                                                                               |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -163,7 +140,7 @@ mentioned above.
 | persistence_pool_size              | ‘persistence_pool_size’ equals to 0 means that it is disabled and then the authentication flow is blocked until this particular data persistence task is completed. To execute the persistence task in asynchronously, set the value to \>0 value. Based on the pool size, the system creates the task parallel to execute the persistence task that was in the queue. |
 
 
-`[session_data.cleanup]` section of the configuration is related to the cleaning up of session data.    
+`[session_data.cleanup]` section is related to the cleaning up of session data.    
                                                                                                                                                                                                                                                                       
 | Configuration element | Description                                                                                                                                                                                                                                                                                                                                               |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
