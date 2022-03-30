@@ -1,6 +1,6 @@
 # Writing a Custom Local Authenticator
 
-A basic authenticator is available in the WSO2 Identity Server by default. A basic authenticator authenticates end users using a connected user store and the provided username and password.
+A basic authenticator is available in the WSO2 Identity Server by default. A basic authenticator authenticates end users using a connected userstore and the provided username and password.
 
 With the WSO2 Identity Server, you can write your own local authenticator to define various authentication logic.
 
@@ -317,7 +317,7 @@ Let's begin.
         }
         ```    
 
-        !!! Note    
+        !!! note    
         The `BasicCustomAuthenticatorConstants.java` file that is referred to in the above
         example is available
         [here](../../assets/attachments/BasicCustomAuthenticatorConstants.java).
@@ -420,11 +420,10 @@ Let's begin.
         }
         ```
 
-4.  Build the project using maven. (Click to see the sample project
-    [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator)).
+4.  Build the project using maven. See the [sample project](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator) for details.
 
 5.  Copy and paste the .jar file
-    `           org.wso2.custom.authenticator.local-1.0.0.jar          `
+    `           org.wso2.carbon.auth.local.sample-1.0.0.jar          `
     inside 
     `           <IS_HOME>/repository/components/dropins          `
     folder.
@@ -433,9 +432,9 @@ Let's begin.
 
 7.  Sign in to the **Management Console**.
 
-8.  Create a new user named `Larry`.
+8.  Create a new user named `Larry`. Learn how to [Create a user](https://is.docs.wso2.com/en/latest/learn/adding-users-and-roles/#create-a-user)
 
-9.  Go to the user's profile and update the telephone number.
+9.  Go to `Larry`'s profile and update the telephone number.
 
 10. Create a service provider for the application.  
     (You must have the app deployed in the tomcat server.)
@@ -445,20 +444,21 @@ Let's begin.
 
 12. Provide the `callback URL` and register it as an OAuth2 client app.
 
-    ![Callback url](../assets/img/using-wso2-identity-server/callbacl-url.jpeg) 
+    ![Callback url](../assets/img/using-wso2-identity-server/app-callback-url.png) 
 
 13. Under **Local & Outbound Authentication Configuration**, select **Local
-    authentication** check box.
+    authentication**.
+    
     ![Local authentication check box](../assets/img/using-wso2-identity-server/local-authentication-check-box.png) 
 
     !!! note
-        On the corresponding drop-down list, you can see `sample-local-authenticator`, which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.    
+        On the corresponding drop-down list, you can see, `sample-local-authenticator` which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.    
 
-14. Configure the pickup-dispatch app with the appropriate **Client ID** of the registered
-    app and give the **Scope** as `openid` to make sure it is
-    using the OpenID Connect flow. Click **Authorize**.  
-    ![Playground app](../assets/img/using-wso2-identity-server/playground-app.jpeg)
-    Note that you will be directed to WSO2 Identity Server login page.
+14. Configure the pickup-dispatch app with the appropriate **Client ID**. Learn how to [deploy the pickup-dispatch webapp](https://is.docs.wso2.com/en/5.11.0/learn/deploying-the-sample-app/#deploying-the-pickup-dispatch-webapp) 
+
+    
+15. Visit the pickup-dispatch app and click **Login**. You will be directed to the WSO2 Identity Server login page.
+![pickup-dispatch app](../assets/img/using-wso2-identity-server/pickup-dispatch-app.png)
 
 15. Provide the telephone number as the user identifier and enter the password of the user `Larry`. You are prompted to approve the app and log in.
 
