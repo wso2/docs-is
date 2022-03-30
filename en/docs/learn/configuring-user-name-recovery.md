@@ -6,9 +6,9 @@ WSO2 Identity Server enables recovering user accounts where the user has forgott
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Alex** who is a new recruit at Pickup has forgotten the username. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. **Larry** who is a new recruit at Pickup has forgotten the username. 
 
-Let's learn how Alex can recover the password by providing the corresponding profile information!
+Let's learn how Larry can recover the password by providing the corresponding profile information!
 
 
 ## Set up
@@ -64,19 +64,21 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
 
+			3.  Enable **Less secure app access** in Google Account **Security** section.
+
 2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
 3.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
 	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
-4.	Under the **Account Management Policies** section, click **Account Recovery**.
+4.	Under the **Account Management** section, click **Account Recovery**.
 
 	<img src="../../assets/img/learn/account-recovery-option.png" alt="Account Recovery Option" width="700" style="border:1px solid grey">  	
 
 5.	Select the following check boxes:
-	-	**Enable Username Recovery**
-	-	**Enable Internal Notification Management**
+	-	**Username recovery**
+	-	**Manage notifications sending internally**
 
 	<img src="../../assets/img/learn/user-name-recovery-options.png" alt="User Name Recover options" width="600" style="border:1px solid grey">  	
 
@@ -85,7 +87,7 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 
 ## Try out
 
-1.	To create the user account for Alex:
+1.	To create the user account for Larry:
 
 	1.	On the **Main** menu of the Management Console, click **Identity > Users and Roles > Add**.
 
@@ -100,13 +102,13 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 		<img src="../../assets/img/learn/add-new-user-screen.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
 
 		-	**Domain**: `Primary`
-		-	**Username**: `Alex`
+		-	**Username**: `Larry`
 
 	4.	Click **Finish**. 
 
 2.	To assign login permissions to the user:
 	
-	1.	Click the **View Roles** option of Alex.
+	1.	Click the **View Roles** option of Larry.
 
 		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
@@ -118,13 +120,13 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 
 		<img src="../../assets/img/learn/login-permission.png" alt="Login permission" width="700" style="border:1px solid grey">  
 
-3.	To add Alex's email Id:
+3.	To add Larry's email Id:
 	
-	1.	Click **User Profile** option of Alex.
+	1.	Click **User Profile** option of Larry.
 
 		<img src="../../assets/img/learn/user-profile-option.png" alt="User Profile option" width="700" style="border:1px solid grey">   
 
-	2.	Enter an email address to which Alex's password recovery emails will be sent.
+	2.	Enter an email address to which Larry's password recovery emails will be sent. Enter the first name as `Larry`.
 
 		<img src="../../assets/img/learn/user-email.png" alt="User Email option" width="700" style="border:1px solid grey">   
 
@@ -132,12 +134,12 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 
 4.	To mimic a forgotten username:
 
-	1.	On the Sign In screen of the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`, click
+	1.	On the Sign In screen of the WSO2 Identity Server My Account at `https://localhost:9443/myaccount`, click
 	 **Username**.
 
 		<img src="../../assets/img/learn/forgotten-user-name-option.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
-	3.	Enter the first name as `Alex`.
+	3.	Enter the first name as `Larry`.
 
 		<img src="../../assets/img/learn/recover-user-name-screen.png" alt="Consent form" width="600" style="border:1px solid grey">
 
