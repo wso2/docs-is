@@ -194,7 +194,6 @@ The parameters in the request body are explained below.
                <ul>
                    <li><code>urn:ietf:params:scim:schemas:core:2.0:User</code></li>
                    <li><code>urn:ietf:params:scim:schemas:enterprise:2.0:User</code></li>
-                   <li><code>urn:scim:wso2:schema</code></li>
                </ul>  
            </td>
        </tr>
