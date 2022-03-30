@@ -1,6 +1,6 @@
 # Configuring Admin-Initiated Account Locking
 
-WSO2 Identity Server enables the privileged users to temporarily lock suspicious user accounts and prevent the users from logging in. These locked user accounts can only be unlocked by privileged users. 
+WS02 Identity Server enables the privileged users to temporarily lock suspicious user accounts and prevent the users from logging in. These locked user accounts can only be unlocked by privileged users. 
 
 ## Scenario
 
@@ -12,16 +12,55 @@ Let's learn how Sam can lock Alex's user account!
 
 Follow the steps below to configure admin-initiated account locking in WSO2 Identity Server.
 
-1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and check whether the following listener configs are in place.
+1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory 
+    1.	Check whether the following listener configs are in place.
 
-	```toml
-	[event.default_listener.identity_mgt]
-	priority= "50"
-	enable = false
-	[event.default_listener.governance_identity_mgt]
-	priority= "95"
-	enable = true
-	```
+		```
+		[event.default_listener.identity_mgt]
+		priority= "50"
+		enable = false
+		[event.default_listener.governance_identity_mgt]
+		priority= "95"
+		enable = true
+		```
+
+	2.	To configure the email server to send emails requesting passwor reset, add the following configurations.
+
+		-	**from_address**: This is the email address from which the confirmation email will be sent.
+		-	**username**: This is the user name of the given email address.
+		-	**password**: This is the password of the given email address. 
+
+		```toml tab="Format"
+		[output_adapter.email]
+		from_address= ""
+		username= ""
+		password= ""
+		hostname= "smtp.gmail.com"
+		port= 587
+		enable_start_tls= true
+		enable_authentication= true
+		```
+
+		```toml tab="Sample"
+		[output_adapter.email]
+		from_address= "wso2iamtest@gmail.com"
+		username= "wso2iamtest"
+		password= "Wso2@iam70"
+		hostname= "smtp.gmail.com"
+		port= 587
+		enable_start_tls= true
+		enable_authentication= true
+		```
+
+		!!! warning "If you are using a Google email account"
+
+			Google has restricted third-party applications and less secure applications from sending emails by default. As WSO2 Identity Server acts as a third-party application when sending emails for password entry, follow the steps below to enable your Google email account to provide access to third-party applications.
+
+			1.	Access [https://myaccount.google.com/security](https://myaccount.google.com/security).
+
+			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
+
+			3.  Enable **Less secure app access** in Google account security section.
 
 2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
@@ -112,14 +151,14 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 		<img src="../../assets/img/learn/account-locked-email.png" alt="Account Locked email" width="500" style="border:1px solid grey"> 
 
-	5.	Access the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.
+	5.	Access the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`.
 
 		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
 		 solid grey"> 	
 
 	6.	Try logging in with Alex's credentials. Note that an error message appears.
 
-	7.	Wait for 15 minutes and try to log in again. The WSO2 Identity Server User Portal home screen appears.  
+	7.	Wait for 15 minutes and try to log in again. The WSO2 Identity Server **My Account** home screen appears.  
 
 4. To unlock Alex's user account:
 
@@ -133,5 +172,5 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 		<img src="../../assets/img/learn/account-unlocked-email.png" alt="Account Unlocked email" width="500" style="border:1px solid grey"> 		
 
-	5.	Try logging in to the WSO2 Identity Server User Portal with Alex's credentials. The WSO2 Identity Server
-	 User Portal home screen appears.
+	5.	Try logging in to the WSO2 Identity Server **My Account** with Alex's credentials. The WSO2 Identity Server
+	 **My Account** home screen appears.
