@@ -465,6 +465,11 @@ the various values you can configure for the authenticator.
             <td>redirectToMultiOptionPageOnFailure</td>
             <td>During a failed attempt enable redirect to the Multi Option Page where the user 
             can select the authentication mechanism.</td>
+		</tr>
+		<tr>
+            <td>TokenExpiryTime</td>
+            <td>SMS OTP does not have a default validity period hence you will have to explicitly configure it by adding the `TokenExpiryTime` parameter.</td>
+		</tr>
     </tbody>
 </table>
 
@@ -491,6 +496,7 @@ You can configure any of the above as following in the
     CaptureAndUpdateMobileNumber = true
     SendOTPDirectlyToMobile = false
     redirectToMultiOptionPageOnFailure = false
+	TokenExpiryTime = 12
     ```
 
 ## Validating the mobile number format of the user

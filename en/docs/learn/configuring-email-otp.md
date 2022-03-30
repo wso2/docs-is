@@ -64,6 +64,7 @@ as explained [here](../../setup/configuring-email-sending).
     showEmailAddressInUI = true
     useEventHandlerBasedEmailSender = true
     emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
+    tokenExpirationTime = 300000
     ``` 
 
 
@@ -244,6 +245,15 @@ as explained [here](../../setup/configuring-email-sending).
                         <ul>
                             <li><code>(?&lt;=.{1}).(?=.*@)</code>&nbsp;&nbsp;:&nbsp;&nbsp;`t***@mail.com`</li>
                             <li><code>(?&lt;=.)[^@](?=[^@]*?@)|(?:(?&lt;=@.)|(?!^)\\G(?=[^@]*$)).(?=.*\\.)</code>&nbsp;&nbsp;:&nbsp;&nbsp;`t***@m***.com`</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>tokenExpirationTime</code></td>
+                    <td>This parameter helps to define a custom Email OTP expiry time. The default expiration time is 300000 milliseconds.</td>
+                    <td>
+                        <ul>
+                            <li>300000</li>
                         </ul>
                     </td>
                 </tr>
