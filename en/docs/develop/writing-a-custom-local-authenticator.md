@@ -317,12 +317,6 @@ Let's begin.
         }
         ```    
 
-        !!! note    
-        The `BasicCustomAuthenticatorConstants.java` file that is referred to in the above
-        example is available
-        [here](../../assets/attachments/BasicCustomAuthenticatorConstants.java).
-    
-
 3.  Write an OSGi service component class to register the custom authenticator. 
 
     ??? example "Click to view" 
@@ -422,17 +416,13 @@ Let's begin.
 
 4.  Build the project using maven. See the [sample project](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator) for details.
 
-5.  Copy and paste the .jar file
-    `           org.wso2.carbon.auth.local.sample-1.0.0.jar          `
-    inside 
-    `           <IS_HOME>/repository/components/dropins          `
-    folder.
+5.  Copy the .jar file (`org.wso2.custom.authenticator.local-1.0.0.jar `) from the **target** folder in your project directory and paste it to the `<IS_HOME>/repository/components/dropins ` folder
 
 6.  Start WSO2 Identity Server.
 
 7.  Sign in to the **Management Console**.
 
-8.  Create a new user named `Larry`. Learn how to [Create a user](https://is.docs.wso2.com/en/latest/learn/adding-users-and-roles/#create-a-user)
+8.  Create a new user named `Larry`. Learn how to [Create a user](../../learn/adding-users-and-roles/#create-a-user)
 
 9.  Go to `Larry`'s profile and update the telephone number.
 
@@ -452,15 +442,16 @@ Let's begin.
     ![Local authentication check box](../assets/img/using-wso2-identity-server/local-authentication-check-box.png) 
 
     !!! note
-        On the corresponding drop-down list, you can see, `sample-local-authenticator` which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.    
+        On the corresponding drop-down list, you can see, `sample-local-authenticator` which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.   
 
-14. Configure the pickup-dispatch app with the appropriate **Client ID**. Learn how to [deploy the pickup-dispatch webapp](https://is.docs.wso2.com/en/5.11.0/learn/deploying-the-sample-app/#deploying-the-pickup-dispatch-webapp) 
+14. Deploy the pickup-dispatch application. Refer to the [documentation](../../learn/deploying-the-sample-app/#deploying-the-pickup-dispatch-webapp).
 
-    
-15. Visit the pickup-dispatch app and click **Login**. You will be directed to the WSO2 Identity Server login page.
+15. Configure the pickup-dispatch app with the appropriate **Client ID** and **Client Secret**.  
+  
+16. Visit the pickup-dispatch app and click **Login**. You will be directed to the WSO2 Identity Server login page.
 ![pickup-dispatch app](../assets/img/using-wso2-identity-server/pickup-dispatch-app.png)
 
-15. Provide the telephone number as the user identifier and enter the password of the user `Larry`. You are prompted to approve the app and log in.
+17. Provide the telephone number as the user identifier and enter the password of the user `Larry`. You are prompted to approve the app and log in.
 
 The following is a set of methods related to writing a custom local
 authenticator.
