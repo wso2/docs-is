@@ -468,7 +468,7 @@ the various values you can configure for the authenticator.
 		</tr>
 		<tr>
             <td>TokenExpiryTime</td>
-            <td>SMS OTP does not have a default validity period hence you will have to explicitly configure it by adding the `TokenExpiryTime` parameter.</td>
+            <td>SMS OTP does not have a default validity period hence you will have to explicitly configure it by adding the <code>TokenExpiryTime</code> parameter. The value provided for the parameter is considered as seconds.</td>
 		</tr>
     </tbody>
 </table>
