@@ -64,6 +64,7 @@ as explained [here](../../setup/configuring-email-sending).
     showEmailAddressInUI = true
     useEventHandlerBasedEmailSender = true
     emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
+    tokenExpirationTime = 300000
     ``` 
 
 
@@ -83,9 +84,9 @@ as explained [here](../../setup/configuring-email-sending).
                         <ul>
                             <li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore . The federated username must be the same as the local username.</li>
                             <li><code>assocication</code>: The federated username must be associated with the
-                                local account in advance in the user portal. The local username is retrieved
-                                from the association. To associate the user, log into the  [user portal](../../learn
-                                /user-portal)  and go to  **Associated Account**  by clicking  **View details**.</li>
+                                local account in advance in the **My Account**. The local username is retrieved
+                                from the association. To associate the user, log into the  [**My Account**](../../learn
+                                /my-account)  and go to  **Associated Account**  by clicking  **View details**.</li>
                             <li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service provider section in UI, this is used as the username of the  <code>EmailOTP</code> authenticator.</li>
                             <li>
                                 <p><code>userAttribute </code>: The name of the  federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the  ```[authentication.authenticator.email_otp.parameters]```  section in the ```deployment.toml``` file and put the value, e.g., email and screen_name, id.</p>
@@ -244,6 +245,15 @@ as explained [here](../../setup/configuring-email-sending).
                         <ul>
                             <li><code>(?&lt;=.{1}).(?=.*@)</code>&nbsp;&nbsp;:&nbsp;&nbsp;`t***@mail.com`</li>
                             <li><code>(?&lt;=.)[^@](?=[^@]*?@)|(?:(?&lt;=@.)|(?!^)\\G(?=[^@]*$)).(?=.*\\.)</code>&nbsp;&nbsp;:&nbsp;&nbsp;`t***@m***.com`</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>tokenExpirationTime</code></td>
+                    <td>This parameter helps to define a custom Email OTP expiry time. The default expiration time is 300000 milliseconds.</td>
+                    <td>
+                        <ul>
+                            <li>300000</li>
                         </ul>
                     </td>
                 </tr>
