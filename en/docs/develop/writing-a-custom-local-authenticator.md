@@ -317,7 +317,7 @@ Let's begin.
         }
         ```    
 
-        !!! note    
+        !!! Note    
         The `BasicCustomAuthenticatorConstants.java` file that is referred to in the above
         example is available
         [here](../../assets/attachments/BasicCustomAuthenticatorConstants.java).
