@@ -1,6 +1,6 @@
 # Writing a Custom Local Authenticator
 
-A basic authenticator is available in the WSO2 Identity Server by default. A basic authenticator authenticates end users using a connected userstore and the provided username and password.
+A basic authenticator is available in the WSO2 Identity Server by default. A basic authenticator authenticates end users using a connected user store and the provided username and password.
 
 With the WSO2 Identity Server, you can write your own local authenticator to define various authentication logic.
 
