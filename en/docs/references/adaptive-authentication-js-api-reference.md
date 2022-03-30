@@ -61,13 +61,13 @@ Supported results are “ <code>             onSuccess            </code> ” an
 
 The API can be called in either of the following ways:
 
--   With only the `           stepId          ` . Example:
+- With only the `           stepId          ` . Example:
 
     ``` java
     executeStep(1)
     ```
 
--   With only the `           stepId          ` and
+- With only the `           stepId          ` and
     `           eventCallbacks          ` . Example:
 
     ``` java
@@ -78,11 +78,11 @@ The API can be called in either of the following ways:
     });
     ```
 
--   With the `           stepId          `,
+- With the `           stepId          `,
     `           options          `, and an empty
     `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` 
-object such as `           authenticationOptions          `, `           authenticatorParams          `,
-`           stepOptions          `. See the following examples:
+  object such as `           authenticationOptions          `, `           authenticatorParams          `,
+  `           stepOptions          `. See the following examples:
 
     ``` java
     executeStep(1,{
@@ -97,7 +97,10 @@ object such as `           authenticationOptions          `, `           authent
             local: {
                 SessionExecutor: {
                     MaxSessionCount: '1'
-                                    }
+                },
+                totp: {
+                    enableRetryFromAuthenticator: 'true'
+                }
             }
         }
     }, {} );
