@@ -1,6 +1,6 @@
 # Writing a Custom Local Authenticator
 
-A basic authenticator is available in the WSO2 Identity Server by default. A basic authenticator authenticates end users using a connected userstore and the provided username and password.
+A basic authenticator is available in the WSO2 Identity Server by default. A basic authenticator authenticates end users using a connected user store and the provided username and password.
 
 With the WSO2 Identity Server, you can write your own local authenticator to define various authentication logic.
 
@@ -317,7 +317,7 @@ Let's begin.
         }
         ```    
 
-        !!! note    
+        !!! Note    
         The `BasicCustomAuthenticatorConstants.java` file that is referred to in the above
         example is available
         [here](../../assets/attachments/BasicCustomAuthenticatorConstants.java).
@@ -452,7 +452,7 @@ Let's begin.
     ![Local authentication check box](../assets/img/using-wso2-identity-server/local-authentication-check-box.png) 
 
     !!! note
-        On the corresponding drop-down list, you can see, `sample-local-authenticator` which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.    
+        On the corresponding drop-down list, you can see `sample-local-authenticator`, which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.    
 
 14. Configure the pickup-dispatch app with the appropriate **Client ID** of the registered
     app and give the **Scope** as `openid` to make sure it is
