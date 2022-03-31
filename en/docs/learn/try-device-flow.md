@@ -40,7 +40,7 @@ Following are the device authorization grant properties that are configurable.
                 <p>Expiry time</p>
             </td>
             <td>
-                <p>The expiry time of the user code and device code.</p>
+                <p>The expiry time of the user code and the device code.</p>
             </td>
             <td>
                 expiry_time
