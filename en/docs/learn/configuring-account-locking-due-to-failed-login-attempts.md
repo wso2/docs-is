@@ -14,16 +14,57 @@ Let's learn how Sam implements this!
 
 Follow the steps below to configure account locking due to failed login attempts.
 
-1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and check whether the following listener configs are in place.
+1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-	```
-	[event.default_listener.identity_mgt]
-	priority= "50"
-	enable = false
-	[event.default_listener.governance_identity_mgt]
-	priority= "95"
-	enable = true
-	```
+	1.	To request password entry from the users who are registered via Management Console, add the following configurations. 
+
+
+	 	```
+	  	[event.default_listener.identity_mgt]
+	  	priority= "50"
+	  	enable = false
+	  	event.default_listener.governance_identity_mgt]
+	    priority= "95"
+	    enable = true
+	    ```
+
+	2.	To configure the email server to send emails requesting password entry, add the following configurations.
+
+		-	**from_address**: This is the email address from which the confirmation email will be sent.
+		-	**username**: This is the user name of the given email address.
+		-	**password**: This is the password of the given email address. 
+
+		```toml tab="Format"
+		[output_adapter.email]
+		from_address= ""
+		username= ""
+		password= ""
+		hostname= "smtp.gmail.com"
+		port= 587
+		enable_start_tls= true
+		enable_authentication= true
+		```
+
+		```toml tab="Sample"
+		[output_adapter.email]
+		from_address= "wso2iamtest@gmail.com"
+		username= "wso2iamtest"
+		password= "Wso2@iam70"
+		hostname= "smtp.gmail.com"
+		port= 587
+		enable_start_tls= true
+		enable_authentication= true
+		```
+
+		!!! warning "If you are using a Google email account"
+
+			Google has restricted third-party applications and less secure applications from sending emails by default. As WSO2 Identity Server acts as a third-party application when sending emails for password entry, follow the steps below to enable your Google email account to provide access to third-party applications.
+
+			1.	Access [https://myaccount.google.com/security](https://myaccount.google.com/security).
+
+			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
+
+			3.  Enable **Less secure app access** in Google Account security section.
 
 2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
