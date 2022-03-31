@@ -1,6 +1,6 @@
 # Writing a Custom Local Authenticator
 
-The default WSO2 Identity Server authenticator is the basic authenticator. It is a local authenticator that authenticates the end users using a connected user store and the provided username and password.
+The default authenticator available in the WSO2 Identity Server is the basic authenticator. It authenticates end users using a connected user store and the provided username and password.
 
 With the WSO2 Identity Server, you can write your own local authenticator to define various authentication logic.
 
@@ -21,9 +21,8 @@ Let's begin.
         ``` xml
         
         <?xml version="1.0" encoding="UTF-8"?>
-
         <!--
-        ~ Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+        ~ Copyright (c)  2022, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
         ~
         ~ WSO2 Inc. licenses this file to you under the Apache License,
         ~ Version 2.0 (the "License"); you may not use this file except
@@ -40,105 +39,106 @@ Let's begin.
         ~ under the License.
         -->
 
-        <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <project xmlns="http://maven.apache.org/POM/4.0.0"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+            <modelVersion>4.0.0</modelVersion>
 
-        <parent>
-        <groupId>org.wso2.samples.is</groupId>
-        <artifactId>wso2is-identity-samples-authenticators</artifactId>
-        <version>4.4.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
-        </parent>
-
-        <modelVersion>4.0.0</modelVersion>
-        <artifactId>org.wso2.carbon.identity.sample.local.authenticator</artifactId>
-        <packaging>bundle</packaging>
-        <name>WSO2 Carbon - Sample Local Authenticator</name>
-        <url>http://wso2.org</url>
-
-        <dependencies>
-        <dependency>
-        <groupId>org.wso2.carbon</groupId>
-        <artifactId>org.wso2.carbon.user.core</artifactId>
-        <version>${wso2.carbon.kernel.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.utils</artifactId>
-            <version>${wso2.carbon.kernel.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>${commons.logging.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.identity.framework</groupId>
-            <artifactId>org.wso2.carbon.identity.application.authentication.framework</artifactId>
-            <version>${wso2.carbon.identity.framework.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
-            <version>${apache.felix.ds.annotations.version}</version>
-        </dependency>
-        </dependencies>
-        <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
+            <groupId>sample-local-authenticator</groupId>
+            <artifactId>org.wso2.carbon.auth.local.sample</artifactId>
+            <version>1.0.0</version>
+            <name>WSO2 Carbon - Sample Local Authenticator</name>
+            <packaging>bundle</packaging>
+            <dependencies>
+                <dependency>
+                    <groupId>org.wso2.carbon</groupId>
+                    <artifactId>org.wso2.carbon.utils</artifactId>
+                    <version>4.6.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                    <version>1.2</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.wso2.carbon.identity.framework</groupId>
+                    <artifactId>org.wso2.carbon.identity.application.authentication.framework</artifactId>
+                    <version>5.18.187</version>
+                </dependency>
+                <dependency>
                     <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-bundle-plugin</artifactId>
-                    <version>3.2.0</version>
-                    <extensions>true</extensions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+                    <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+                    <version>1.2.8</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.felix</groupId>
+                            <artifactId>maven-bundle-plugin</artifactId>
+                            <version>3.2.0</version>
+                            <extensions>true</extensions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
 
-        <plugins>
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>2.3.1</version>
-            <configuration>
-                    <encoding>UTF-8</encoding>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-        </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Name>${project.artifactId}</Bundle-Name>
-                        <Import-Package>
-                            org.osgi.framework,
-                            *;resolution:=optional
-                        </Import-Package>
-                        <Private-Package>
-                            org.wso2.carbon.identity.sample.local.authenticator.internal,
-                        </Private-Package>
-                        <Export-Package>
-                            !org.wso2.carbon.identity.sample.local.authenticator.internal,
-                            org.wso2.carbon.identity.sample.local.authenticator.*; version="1.0.0"
-                        </Export-Package>
-                        <DynamicImport-Package>*</DynamicImport-Package>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-        </build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>2.3.1</version>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.felix</groupId>
+                        <artifactId>maven-bundle-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <instructions>
+                                <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                                <Bundle-Name>${project.artifactId}</Bundle-Name>
+                                <Import-Package>
+                                    org.osgi.framework,
+                                    *;resolution:=optional
+                                </Import-Package>
+                                <Private-Package>
+                                    org.wso2.carbon.auth.local.sample.internal,
+                                </Private-Package>
+                                <Export-Package>
+                                    !org.wso2.carbon.auth.local.sample.internal,
+                                    org.wso2.carbon.auth.local.sample.*; version="1.0.0"
+                                </Export-Package>
+                                <DynamicImport-Package>*</DynamicImport-Package>
+                            </instructions>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
 
-        <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <wso2.carbon.kernel.version>4.6.1</wso2.carbon.kernel.version>
-        <wso2.carbon.identity.framework.version>5.18.187</wso2.carbon.identity.framework.version>
-        <commons.logging.version>1.2</commons.logging.version>
-        <apache.felix.ds.annotations.version>1.2.8</apache.felix.ds.annotations.version>
-        </properties>
+            <repositories>
+                <repository>
+                    <id>wso2-nexus</id>
+                    <name>WSO2 internal Repository</name>
+                    <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>daily</updatePolicy>
+                        <checksumPolicy>ignore</checksumPolicy>
+                    </releases>
+                </repository>
+            </repositories>
+
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>wso2-maven2-repository</id>
+                    <url>http://dist.wso2.org/maven2</url>
+                </pluginRepository>
+            </pluginRepositories>
         </project>
         ```
 
@@ -148,7 +148,7 @@ Let's begin.
     ??? example "Click to view the sample custom authenticator class"
         ```
         /*
-        * Copyright (c)  2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+        * Copyright (c)  2022, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
         *
         * WSO2 Inc. licenses this file to you under the Apache License,
         * Version 2.0 (the "License"); you may not use this file except
@@ -323,7 +323,7 @@ Let's begin.
     ??? example "Click to view" 
         ``` java
                 /*
-        * Copyright (c)  2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+        * Copyright (c)  2022, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
         *
         * WSO2 Inc. licenses this file to you under the Apache License,
         * Version 2.0 (the "License"); you may not use this file except
@@ -418,9 +418,9 @@ Let's begin.
 4.  Build the project using maven. 
 
     !!! Info
-        See the [sample project](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator) for details.
+        See the [sample project](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator) for more details.
 
-5.  Copy the .jar file (`org.wso2.custom.authenticator.local-1.0.0.jar `) from the **target** folder in your project directory and paste it to the `<IS_HOME>/repository/components/dropins ` folder.
+5.  Copy the .jar file (`org.wso2.carbon.auth.local.sample-1.0.0.jar`) from the **target** folder in your project directory and paste it to the `<IS_HOME>/repository/components/dropins ` folder.
 
 6.  Start WSO2 Identity Server.
 
