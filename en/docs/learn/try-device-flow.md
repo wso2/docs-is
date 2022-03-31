@@ -51,7 +51,7 @@ Following are the device authorization grant properties that are configurable.
                 <p>Polling interval</p>
             </td>
             <td>
-                <p>The minimum amount of time that the client should wait between polling requests to the
+                <p>The minimum delay of the client between each polling request to the
                  token endpoint.</p> 
             </td>
             <td>
