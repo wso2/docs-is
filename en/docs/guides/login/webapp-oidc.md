@@ -16,20 +16,25 @@ This page guides you through enabling login for an [OpenID Connect](../../../ref
 
 ----
 
-## Try a sample app
-
+## Try it
 {!fragments/deploying-sample-apps.md!}
 
 ### Set up the sample
 
-To be able to deploy a WSO2 Identity Server sample, you need to download
-it onto your machine first.
+- Download Apache Tomcat 8.x from
+[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+server installation location will be referred as `<TOMCAT_HOME>` later
+in this guide.      
 
-Follow the instructions below to download the sample from GitHub.
+- It is recommended that you use a hostname that is not
+`          localhost         ` to avoid browser errors. Modify the
+`          /etc/hosts         ` entry in your machine to reflect this.
+Note that `          wso2is.local         ` is used in
+this documentation as an example, but you must modify this when
+configuring the authenticators or connectors with this sample
+application.
 
-1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) the `pickup-manager.war` file from the latest release assets.
+-   [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) the `pickup-manager.war` file from the latest release assets.
 
 ### Configure the sample
 
@@ -43,7 +48,7 @@ Next, deploy the sample web app on a web container.
 
 3. Next, copy the extracted and modified `pickup-manager` folder to the `<TOMCAT_HOME>/webapps` folder.
 
-### Try it out 
+### Log in
 
 1. Start the Tomcat server and access the following URL on your browser: `http://wso2is.local:8080/pickup-dispatch/home.jsp`.
 
