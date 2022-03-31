@@ -135,7 +135,6 @@ You can use the patch operations to add/remove/replace attributes of users in a 
 
 -  User Core schema
 -  Enterprise schema
--  Custom schemas
 
 !!! Note
     If you are adding or replacing user attributes from a user in the **Core** user schema, it is not necessary to specify the schema in the request payload. See the examples given below.
@@ -275,17 +274,17 @@ These a complex singular attributes because there are multiple sub-attributes.
 
 **Simple multi-valued attributes**
 
-Attributes of this type are not found in the core schemas of the SCIM specification. However, you can add simple multi-valued attributes to custom schemas as shown below. 
+Attributes of this type are not found in the core schemas of the SCIM specification. However, you can add simple multi-valued attributes to the enterprise schema as shown below. 
 
-Let's consider a custom schema with an attribute called `devices`, which can have multiple attributes.
+Let's consider an enterprise schema with an attribute called `devices`, which can have multiple attributes.
 
--   **Example 1:** Add the `devices` attribute to a **custom** user schema (without using the path param):
+-   **Example 1:** Add the `devices` attribute to the **Enterprise** user schema (without using the path param):
 
     ```json
     {
         "op": "add",
         "value": {
-            "urn:scim:wso2:schema": {
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
                 "devices": [
                     "D1",
                     "D2",
@@ -296,12 +295,12 @@ Let's consider a custom schema with an attribute called `devices`, which can hav
     }
     ```
 
--   **Example 2:** Add the `devices` attribute to a **custom** user schema (using the path param):
+-   **Example 2:** Add the `devices` attribute to the **enterprise** user schema (using the path param):
 
     ```json
     {
         "op": "add",
-        "path": "urn:scim:wso2:schema:devices",
+        "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:devices",
         "value": ["D4", "D5"]
     }
     ```
@@ -471,29 +470,29 @@ Consider the `name` attribute in **Core** user schema, which has sub-attributes 
 
 **Simple multi-valued attributes**
 
-This type of attribute is not found in the core schemas of the SCIM specification. However, there is a capability to add simple multi-valued attributes to our extended schemas (custom schemas). 
+This type of attribute is not found in the core schemas of the SCIM specification. However, there is a capability to add simple multi-valued attributes to our extended schemas. 
 
-Let's consider a custom schema with an attribute called devices.
+Let's consider the **Enterprise** schema with an attribute called devices.
 
--   **Example 1:** Replace the `devices` attribue in a **Custom** user schema (without using the path param):
+-   **Example 1:** Replace the `devices` attribue in attribute in the **Enterprise** user schema (without using the path param):
 
     ```json
     {
         "op": "replace",
         "value": {
-            "urn:scim:wso2:schema": {
+            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
                 "devices": ["M1", "M2"]
             }
         }
     }
     ```
 
--   **Example 2:** Replace the `devices` attribue in a **custom** user schema (using the path param):
+-   **Example 2:** Replace the `devices` attribue in attribute in the **Enterprise** user schema (using the path param):
 
     ```json
     {
         "op": "replace",
-        "path": "urn:scim:wso2:schema:devices",
+        "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:devices",
         "value": [
             "M6",
             "M7"
@@ -603,18 +602,18 @@ Consider the `name` attribute in **Core** user schema, which has sub-attributes 
 
 **Simple multi-valued attributes**
 
-This type of attribute is not found in the core schemas of the SCIM specification. However, there is a capability to add simple multi-valued attributes to our extended schemas (custom schemas). 
+This type of attribute is not found in the core schemas of the SCIM specification. However, there is a capability to add simple multi-valued attributes to our extended schemas. 
 
-Let's consider a custom schema with an attribute called devices.
+Let's consider the **Enterprise** schema with an attribute called devices.
 
 ```json
 {
     "op": "remove",
-    "path": "urn:scim:wso2:schema:devices[value eq \"M7\"]"
+    "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:devices[value eq \"M7\"]"
 },
 {
     "op": "remove",
-    "path": "urn:scim:wso2:schema:devices"
+    "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:devices"
 }
 ```
 
@@ -766,18 +765,16 @@ Let's create patch request payloads to `add` users to a user role.
 
     ```json  
     {
-           "op": "add",
-           "value": {
-               "users": [
-                   {
-                       "display": "alex",
-                       "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
-                   }
-               ]
-           }
-       }
-
-
+        "op": "add",
+        "value": {
+            "users": [
+                {
+                    "display": "alex",
+                    "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
+                }
+            ]
+        }
+    }
     ```
 
 -   **Example 2:** Assign users to a role (using the path param):
@@ -787,11 +784,11 @@ Let's create patch request payloads to `add` users to a user role.
         "op": "add",
         "path": "users",
         "value": [
-                    {
-                      "display": "alex",
-                      "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
-                    }
-            ]
+            {
+                "display": "alex",
+                "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
+            }
+        ]
     }
     ```
 
@@ -822,11 +819,11 @@ Let's create patch request payloads to `replace` users assigned to a user role.
         "op": "replace",
         "path": "users",
         "value": [
-                    {
-                      "display": "alex",
-                      "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
-                }
-            ]
+            {
+                "display": "alex",
+                "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
+            }
+        ]
     }
     ```
 
@@ -878,10 +875,10 @@ Let's create patch request payloads to `add` user groups to a user role.
         "op": "add",
         "path": "groups",
         "value": [
-                    {
-                      "value": "78144fd9-48e7-4fc9-95b5-cd3883f5ce4a"
-                    }
-                 ]
+            {
+                "value": "78144fd9-48e7-4fc9-95b5-cd3883f5ce4a"
+            }
+        ]
     }
     ```
 
@@ -911,10 +908,10 @@ Let's create patch request payloads to `replace` user groups assigned to a user 
         "op": "replace",
         "path": "groups",
         "value": [
-                    {
-                      "value": "78144fd9-48e7-4fc9-95b5-cd3883f5ce4a"
-                    }
-                 ]
+            {
+                "value": "78144fd9-48e7-4fc9-95b5-cd3883f5ce4a"
+            }
+        ]
     }
     ```
 
