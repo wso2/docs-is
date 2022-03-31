@@ -15,7 +15,12 @@ Only customer users can log in to applications. [Create a user account](../../gu
     !!! note
         The **Callback URL** is the exact location in the service provider's application to which an access token will be sent. This URL should be the landing page to which the user is redirected after successful authentication.
 
-6. Click **Add** to complete the configuration. 
+6. Enable **Allow authentication without the client secret** checkbox.
+
+    !!! warning
+        If this checkbox is not enabled, users will experience login failures as we provide authentication using the client ID only.
+
+7. Click **Add** to complete the configuration. 
 
     !!! note
         Make a note of the **OAuth Client Key** and **OAuth Client Secret** that appear, as it will be used to configure the sample application.
