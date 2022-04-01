@@ -8,7 +8,7 @@ With the WSO2 Identity Server, you can write your own local authenticator to def
 You have the **pickup-dispatch** app to which you want users to log in with their telephone numbers instead of usernames. Once a user enters a telephone number, your authentication logic should identify the user and validate the user's credentials. 
 
 The following guide shows you how to write a custom local authenticator to implement this authentication logic.
-cd 
+
 ## Implement the custom local authenticator
 
 You can write a custom local authenticator by extending the **AbstractApplicationAuthenticator** class and implementing the **LocalApplicationAuthenticator** class.
