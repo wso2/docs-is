@@ -6,7 +6,7 @@ Using the WSO2 Identity Server Analytics distribution, you can view and analyze 
 
 A taxi company called "Pickup" has launched a new application to be used by their customers. The Pickup developers wish to measure the performance of the authentication mechanism used for users to log into the application so that they can improve the user login experience. 
 
-To do this, the developers need to view authentication statistics about the login attempts to the application. This tutorial demonstrates how the Pickup developers can setup WSO2 IS Analytics to view login attempts to the Pickup application. 
+To do this, the developers need to view authentication statistics about the login attempts to the application. This tutorial demonstrates how the Pickup developers can setup WSO2 IS Analytics to view login attempts to the Pickup application.
 
 ## Set up 
 
@@ -15,18 +15,51 @@ To do this, the developers need to view authentication statistics about the logi
 2. [Download WSO2 Identity Server Analytics distribution](https://wso2.com/identity-and-access-management/install/analytics/).
 
 ## Enable analytics
+Follow the steps below to configure WSO2 Identity Server Analytics.
 
-Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and enable the following event publishers to enable analytics in WSO2 Identity Server. 
+1.	Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and enable the following event publishers to enable analytics in WSO2 Identity Server. 
+ 
+    ``` toml
+    [identity_mgt.analytics_login_data_publisher]
+    enable=true
+    ```
 
-``` toml
-[identity_mgt.analytics_login_data_publisher]
-enable=true
-```
+    ```toml
+    [identity_mgt.analytics_session_data_publisher] 
+    enable=true
+    ```
 
-```toml
-[identity_mgt.analytics_session_data_publisher] 
-enable=true
-```
+
+2.  An HTTP connection is used to communicate between WSO2 IS and WSO2
+    IS Analytics. Therefore, you must add the certificate of WSO2 IS Analytics to WSO2 IS.
+    Follow the steps given below to import the certificate from WSO2 IS Analytics
+    to WSO2 IS. Import the
+    `           public certificate          ` of each keystore to the
+    `           client­-truststore.jks          ` of the WSO2 IS. This example uses the default keystores and
+    certificates.
+
+    1.  Navigate to the
+        `             <ISANALYTICS_HOME>/resources/security            `
+        directory on a new terminal window and run the following
+        command. The default keystore password is `wso2carbon`.
+
+        ``` java
+        keytool -export -alias wso2carbon -keystore wso2carbon.jks -file sp.pem
+        ```
+
+    2.  Navigate to the
+        `             <IS_HOME>/repository/resources/security            `
+        directory and run the following command.
+
+        !!! info 
+			Replace the `              <ISANALTICS_HOME>             ` placeholder
+			in the command with the filepath location of your
+			`              <ISANALYTICS_HOME>             ` folder.
+
+        ``` java
+        keytool -import -alias certalias -file <ISANALYTICS_HOME>/resources/security/sp.pem -keystore client-truststore.jks -storepass wso2carbon
+        ```
+
 
 The rest of the configurations required to connect the analytics distribution with the WSO2 IS distribution have already been pre-configured for fresh distributions. To see more information about these pre-configurations, see [Prerequisites to Publish Statistics](../../learn/prerequisites-to-publish-statistics). 
 
@@ -73,7 +106,7 @@ Let's create some basic authentication statistics. To do this, log in to the WSO
 
 2. Next, access the WSO2 Identity Server Analytics Dashboard at the following URL: 
 
-    `http://<HTTPS_IS_ANALYTICS_HOST>: 9643 /portal`
+    `https://<HTTPS_IS_ANALYTICS_HOST>:9643/portal`
 
 3. Log in using admin/admin credentials. 
 
