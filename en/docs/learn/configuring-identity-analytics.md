@@ -44,7 +44,7 @@ Follow the steps below to configure WSO2 Identity Server Analytics.
         command. The default keystore password is `wso2carbon`.
 
         ``` java
-        keytool -export -alias wso2carbon -keystore wso2carbon.jks -file sp.pem
+        keytool -export -alias wso2carbon -keystore wso2carbon.jks -file sp.cer
         ```
 
     2.  Navigate to the
@@ -57,7 +57,7 @@ Follow the steps below to configure WSO2 Identity Server Analytics.
 			`              <ISANALYTICS_HOME>             ` folder.
 
         ``` java
-        keytool -import -alias certalias -file <ISANALYTICS_HOME>/resources/security/sp.pem -keystore client-truststore.jks -storepass wso2carbon
+        keytool -import -alias certalias -file <ISANALYTICS_HOME>/resources/security/sp.cer -keystore client-truststore.jks -storepass wso2carbon
         ```
 
 
