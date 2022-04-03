@@ -6,7 +6,7 @@ Only customer users can log in to applications. [Create a user account](../../gu
 
 ## Configure a service provider
 
-1. On the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) go to **Main** > **Identity** > **Service Providers**.
+1. On the WSO2 Identity Server management console (`https://<IS_HOST>:<PORT>/carbon`) go to **Main** > **Identity** > **Service Providers**.
 2. Click **Add** and enter a **Service Provider Name**.
 3. Click **Register** to complete the registration.
 4. Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration** and click **Configure**.
