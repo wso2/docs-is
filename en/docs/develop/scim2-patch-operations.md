@@ -663,11 +663,11 @@ Let's create patch request payloads to `add` members to a user group.
         "op": "add",
         "path": "members",
         "value": [
-                    {
-                      "display": "alex",
-                      "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
-                }
-            ]
+            {
+              "display": "alex",
+              "value": "0565f472-28fe-4d93-83ad-096c66ed4a47"
+            }
+        ]
     }
     ```
 
