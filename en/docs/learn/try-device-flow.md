@@ -40,7 +40,7 @@ Following are the device authorization grant properties that are configurable.
                 <p>Expiry time</p>
             </td>
             <td>
-                <p>The expiry time of the user code in milliseconds.</p>
+                <p>The expiry time of the user code and the device code.</p>
             </td>
             <td>
                 expiry_time
@@ -51,8 +51,8 @@ Following are the device authorization grant properties that are configurable.
                 <p>Polling interval</p>
             </td>
             <td>
-                <p>The minimum amount of time in seconds that the client should wait between polling requests to the
-                 token endpoint in milliseconds.</p> 
+                <p>The minimum delay of the client between each polling request to the
+                 token endpoint.</p> 
             </td>
             <td>
                 polling_interval
@@ -80,8 +80,8 @@ is shown below.
 ```
 [oauth.grant_type.device_code]
 key_length = 7
-expiry_time = 60000
-polling_interval = 5000
+expiry_time = "10m"
+polling_interval = "5s"
 key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
 ```
 
