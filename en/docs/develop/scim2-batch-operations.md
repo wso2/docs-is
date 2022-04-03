@@ -641,7 +641,7 @@ Given below is an example request payload to add user groups in bulk. This reque
                ]
            }
        },
-              {
+       {
            "method": "POST",
            "path": "/Groups",
            "bulkId": "ytrewq",
