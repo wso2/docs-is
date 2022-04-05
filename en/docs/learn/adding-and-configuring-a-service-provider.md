@@ -73,6 +73,12 @@ the following:
     Name** is a required field.  
     ![sp-name](../assets/img/using-wso2-identity-server/sp-name.png)
 
+    !!! note "Management Application"
+        Identity server itself expose all the management capabilities as [REST APIs](../../develop/rest-apis/).
+        These APIs are protected by OAuth2 access tokens and other API authentication mechanism. The applications
+        which are marked as Management Application can only be used to access these Management APIs in OAuth2 flow.
+        This can be configured when creating the application only.
+
     !!! note "Configure validation for service provider name"
            The default javascript regex used to validate the service provider name entered in the Management Console is `^[a-zA-Z0-9\\s.+_-]*$`. 
            This regex can be modified by adding the following configuration to the `deployment.toml` file located in `<IS_HOME>/repository/conf/`.
