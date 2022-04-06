@@ -265,6 +265,7 @@ nav:
             #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
             - Work with Properties of Userstores: deploy/work-with-properties-of-user-stores.md
             - Write a Custom Userstore Manager: deploy/write-a-custom-user-store-manager.md
+            - Secure a JDBC userstore with PBKDF2 hashing: deploy/secure-userstore-using-pbkdf2
         - Data Stores:
           - Databases:
             - Overview: deploy/work-with-databases.md
