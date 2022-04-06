@@ -12,8 +12,10 @@ WSO2 Identity Server supports the following API authentication methods:
 
 -   Basic authentication: Use the user’s credentials to invoke the APIs.
 -   OAuth2 common flows based authentication: Obtains a token using an OAuth2 flow and uses it to invoke the API.
+
     !!! info
         To invoke the API using OAuth common flows, the application should be a management application. Refer the [service provider creation guide](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider) to create a new management application on IS.
+
 -   Client certificate-based authentication: This method uses mutual SSL to authenticate users in order to invoke the APIs.
 
 !!! note 
