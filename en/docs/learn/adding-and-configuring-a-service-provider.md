@@ -74,9 +74,9 @@ the following:
     ![sp-name](../assets/img/using-wso2-identity-server/sp-name.png)
 
     !!! note "Management Application"
-        Identity server itself expose all the management capabilities as [REST APIs](../../develop/rest-apis/).
-        These APIs are protected by OAuth2 access tokens and other API authentication mechanism. The applications
-        which are marked as Management Application can only be used to access these Management APIs in OAuth2 flow.
+        Identity Server expose all the management capabilities as [REST APIs](../../develop/rest-apis/).
+        These APIs are protected by OAuth2 access tokens and other API authentication mechanisms. The applications
+        which are marked as management applications can only be used to access these management APIs in the OAuth2 flow.
         This can be configured when creating the application only.
 
     !!! note "Configure validation for service provider name"
