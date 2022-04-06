@@ -9,6 +9,7 @@ If you have your own application, click the button below.
 
 ----
 
+
 ## Set up Pickup Dispatch sample
 
 {!fragments/pickup-dispatch-saml.md!}
