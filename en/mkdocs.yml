@@ -149,6 +149,12 @@ nav:
           - Configure XACML engine: guides/authorization/access-control/xacml-engine.md
           - Fine grained access control: guides/authorization/access-control/fine-grained-ac.md
           - Multiple Decision Point: guides/authorization/access-control/mdp-requests.md
+        - Access control: 
+          - Overview: guides/authorization/access-control/overview.md
+          - Access management: guides/authorization/access-control/access-mgt.md
+          - Configure XACML engine: guides/authorization/access-control/xacml-engine.md
+          - Fine grained access control: guides/authorization/access-control/fine-grained-ac.md
+          - Multiple Decision Point: guides/authorization/access-control/mdp-requests.md
       - Access Delegation:
         - Overview: quick-starts/access-delegation.md
         - Authorization code flows:
