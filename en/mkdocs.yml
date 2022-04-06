@@ -434,49 +434,50 @@ nav:
           - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
   - APIs:
-      - Rest APIs: apis/rest-apis.md
-      - Authenticate and Authorize: apis/authenticate-and-authorize-rest-apis.md
-      - Account Recovery: apis/use-the-account-recovery-rest-apis.md
-      - Application Management: apis/application-rest-api.md
-      #- Approvals: apis/approvals-rest-api.md
-      - Associations: apis/association-rest-api.md
-      - Authentication Data:
-          - Authentication Data: apis/authentication-data-api.md
-          - Authentication REST API: apis/use-the-authentication-rest-apis.md
-      - Authorized Apps:
-          - Authorized Apps V1: apis/authorized-apps-rest-api.md
-          - Authorized Apps V2: apis/authorized-apps-v2-rest-api.md
-      - Challenge Question: apis/challenge-rest-api.md
-      - Claim Management : apis/claim-management-rest-api.md
-      - Configuration Management:
-          - Configuration Management: apis/use-the-configuration-management-rest-apis.md
-          - Retrieve Tenant Resources Based on Search Parameters: apis/retrieve-tenant-resources-based-on-search-parameters.md
-      - Consent Management: apis/use-the-consent-management-rest-apis.md
-      - CORS: apis/cors-rest-api.md
-      - Email Templates: apis/email-templates-rest-api.md
-      - Entitlement: apis/entitlement-with-rest-apis.md
-      - Fido: apis/fido-rest-api.md
-      - Identity Governance: apis/identity-governance-rest-api.md
-      - Identity Providers: apis/idp-rest-api.md
-      - Identity Provider Session Extend: apis/idp-session-extender-endpoint.md
-      - Keystore Management: apis/keystore-rest-api.md
-      - Notification Senders: apis/notification-sender-rest-api.md
-      - OAuth2 Scope Management: apis/oauth2-scope-management-rest-apis.md
-      - OpenID Connect Scope Management: apis/oidc-scope-management-rest-apis.md
-      - OIDC Dynamic Client Registration: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
-      - Permission Management: apis/permission-management-rest-api.md
-      - Personal Information Export: apis/use-the-personal-information-export-rest-apis.md
-      - SCIM 2.0: apis/scim2-rest-apis.md
-      - Server Configurations: apis/configs-rest-api.md
-      - Script Libraries: apis/script-library-rest-api.md
-      - Self Sign-Up: apis/use-the-self-sign-up-rest-apis.md
-      - Session Management: apis/session-mgt-rest-api.md
-      - Tenant Management: apis/tenant-management-rest-api.md
-      - TOTP: apis/totp-rest-api.md
-      - User Discoverable Application Management: apis/user-discoverable-applications.md
-      - User Functionality Management: apis/user-functionality-mgt-rest-api.md
-      - Userstore Management: apis/userstore-rest-api.md
-      - Workflow Engine Management: apis/workflow-engine-rest-api.md
+      - Introduction: apis/rest-apis.md
+      - Authentication:
+          - Authentication data: apis/authentication-data-api.md
+          - Session management: apis/session-mgt-rest-api.md
+      - Authorization:
+          - Entitlement: apis/entitlement-with-rest-apis.md
+      - User management:
+          - SCIM 2.0: apis/scim2-rest-apis.md
+          - Account recovery: apis/use-the-account-recovery-rest-apis.md
+          - Associations: apis/association-rest-api.md
+          - Challenge question: apis/challenge-rest-api.md
+          - Self Sign-Up: apis/use-the-self-sign-up-rest-apis.md
+      - Identity providers: apis/idp-rest-api.md
+      - Self-service:
+          - FIDO: apis/fido-rest-api.md
+          - Personal information export: apis/use-the-personal-information-export-rest-apis.md
+          - TOTP: apis/totp-rest-api.md
+          - User Discoverable Application Management: apis/user-discoverable-applications.md
+      - Workflow management: 
+          - Approvals: apis/approvals-rest-api.md
+      - Application management:
+          - Application Management: apis/application-rest-api.md
+          - Authorized Apps:
+              - Authorized Apps V1: apis/authorized-apps-rest-api.md
+              - Authorized Apps V2: apis/authorized-apps-v2-rest-api.md
+          - OAuth2 Scope Management: apis/oauth2-scope-management-rest-apis.md
+          - OpenID Connect Scope Management: apis/oidc-scope-management-rest-apis.md
+          - OIDC Dynamic Client Registration: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+          - Script Libraries: apis/script-library-rest-api.md
+      - Attribute management:
+          - Claim management: apis/claim-management-rest-api.md
+      - Server management:
+          - Configuration Management:
+              - Configuration Management: apis/use-the-configuration-management-rest-apis.md
+              - Retrieve Tenant Resources Based on Search Parameters: apis/retrieve-tenant-resources-based-on-search-parameters.md
+          - Identity governance: apis/identity-governance-rest-api.md
+          - Keystore Management: apis/keystore-rest-api.md
+          - Userstore Management: apis/userstore-rest-api.md
+          - Tenant Management: apis/tenant-management-rest-api.md
+          - CORS: apis/cors-rest-api.md
+          - Consent Management: apis/use-the-consent-management-rest-apis.md
+          - Email Templates: apis/email-templates-rest-api.md
+          - Workflow Engine Management: apis/workflow-engine-rest-api.md
+          
   - SDKs:
       - Overview: sdks/sdk-overview.md
       - Enable Authentication for Spring Boot App: sdks/spring-boot.md
