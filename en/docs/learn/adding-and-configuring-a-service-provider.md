@@ -80,7 +80,7 @@ the following:
         This can be configured when creating the application only.
 
     !!! note "Configure validation for service provider name"
-           The default javascript regex used to validate the service provider name entered in the Management Console is `^[a-zA-Z0-9\\s.+_-]*$`. 
+           The default javascript regex used to validate the service provider name entered in the management console is `^[a-zA-Z0-9\\s.+_-]*$`. 
            This regex can be modified by adding the following configuration to the `deployment.toml` file located in `<IS_HOME>/repository/conf/`.
 
         ``` java
