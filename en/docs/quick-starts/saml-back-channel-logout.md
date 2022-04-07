@@ -9,6 +9,7 @@ If you have your own application, click the button below.
 
 ----
 
+
 ## Scenario
 
 The user is required to log in to two different applications. For convenience and security, the user should be logged out of both the applications when the user attempts to log out from either one of them. 

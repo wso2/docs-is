@@ -143,12 +143,10 @@ nav:
           - Log in with Twitter: guides/identity-federation/twitter.md
       - Authorization:
         - Overview: guides/overview.md
-        - Access control: 
-          - Overview: guides/authorization/access-control/overview.md
-          - Access management: guides/authorization/access-control/access-mgt.md
-          - Configure XACML engine: guides/authorization/access-control/xacml-engine.md
-          - Fine grained access control: guides/authorization/access-control/fine-grained-ac.md
-          - Multiple Decision Point: guides/authorization/access-control/mdp-requests.md
+        - Access Management: guides/authorization/access-mgt.md
+        - Configure XACML Engine: guides/authorization/xacml-engine.md
+        - Fine-Grained Authorization: guides/authorization/fine-grained-authorization.md
+        - Multiple Decision Point: guides/authorization/mdp-requests.md
       - Access Delegation:
         - Overview: quick-starts/access-delegation.md
         - Authorization code flows:
@@ -634,6 +632,7 @@ extra:
   nav_list:
     - Home
     - Get Started
+    - Quick Starts
     - Guides
     - Setup
     - APIs
