@@ -30,7 +30,7 @@ To configure PBKDF2 hashing on a JDBC user store:
         <tr>
             <td>UserStore Hashing Configurations</td>
             <td><code>{pbkdf2.iteration.count:10000, pbkdf2.dkLength:256, pbkdf2.prf:PBKDF2WithHmacSHA256} </code></td>
-            <td>Additional parameters required for password hashing algorithm. This should be given in JSON format. Learn more about these [configurations](#PBKDF2-parameters).</td>
+            <td>Additional parameters required for password hashing algorithm. This should be given in JSON format. Learn more about these [configurations](#pbkdf2-parameters).</td>
         </tr>
     </table>
 
