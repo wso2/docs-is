@@ -143,6 +143,12 @@ nav:
           - Log in with Twitter: guides/identity-federation/twitter.md
       - Authorization:
         - Overview: guides/overview.md
+        - Access control: 
+          - Overview: guides/authorization/access-control/overview.md
+          - Access management: guides/authorization/access-control/access-mgt.md
+          - Configure XACML engine: guides/authorization/access-control/xacml-engine.md
+          - Fine grained access control: guides/authorization/access-control/fine-grained-ac.md
+          - Multiple Decision Point: guides/authorization/access-control/mdp-requests.md
       - Access Delegation:
         - Overview: quick-starts/access-delegation.md
         - Authorization code flows:
@@ -337,9 +343,12 @@ nav:
         - Deployment Checklist: deploy/deployment-checklist.md
         - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
         - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
+        - Configure External PEP Endpoints Notifications: deploy/ext-pep-endpoint-notifications.md
+        - Enable XACML Policy Updates Notifications: deploy/enable-xacml-policy-update-notifications.md
         - Performance:
           - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
           - Configure Cache Layers: deploy/performance/configure-cache-layers.md
+          - Improve PDP performance: deploy/performance/improve-pdp-performance.md
         - Environment Compatibility: deploy/environment-compatibility.md
       - Monitor:
         - Overview: deploy/monitor/monitor-the-identity-server.md
@@ -448,8 +457,16 @@ nav:
       - Identity federation:
         - Write a Custom Federated Authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
         - Write a Custom Local Authenticator: references/extend/federation/write-a-custom-local-authenticator.md
-      #- Access Control for Developers:
+      - Access Control for Developers:
         #- Write a Custom Policy Info Point: references/extend/access-control/write-a-custom-policy-info-point.md
+        - XACML policy writing:
+          - XACML policy language structure and syntax: references/extend/access-control/xacml-structure-and-syntax.md
+          - Write a XACML 2 policy: 
+            - Introduction: references/extend/access-control/xacml2-policy-writing.md
+            - XACML 2 policy samples: references/extend/access-control/xacml2-sample.md
+          - Write a XACML 3 policy: 
+            - Introduction: references/extend/access-control/xacml3-policy-writing.md
+            - XACML 3 policy samples: references/extend/access-control/xacml3-sample.md
       - Adaptive authentication:
         - Write Custom Functions for Adaptive Authentication: references/extend/write-custom-functions-for-adaptive-authentication.md
       #- Workflow Management for Developers:
