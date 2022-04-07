@@ -366,7 +366,9 @@ nav:
           - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
   - APIs:
-      - Introduction: apis/rest-apis.md
+      - Overview: 
+          - Introduction: apis/rest-apis.md
+          - Authentication: apis/authenticate-and-authorize-rest-apis.md
       - Authentication:
           - Authentication data: apis/authentication-data-api.md
           - Session management: apis/session-mgt-rest-api.md
