@@ -142,11 +142,25 @@ nav:
           - Log in with Google: guides/identity-federation/google.md
           - Log in with Twitter: guides/identity-federation/twitter.md
       - Authorization:
-        - Overview: guides/overview.md
-        - Access Management: guides/authorization/access-mgt.md
+        - Overview: guides/authorization/overview.md
+        - Access Management: 
+          - Intro: guides/authorization/access-mgt.md
+          - Create a policy: guides/authorization/create-a-policy.md
+          - Edit a policy: guides/authorization/edit-a-policy.md
+          - Verson control: guides/authorization/version-control.md
+          - Publish a policy: guides/authorization/publish-a-policy.md
+          - View status of a policy: guides/authorization/view-status.md
+          - Enable and Disable a policy: guides/authorization/enable-disable-policy.md
+          - Clear cache: guides/authorization/clear-cache.md
         - Configure XACML Engine: guides/authorization/xacml-engine.md
-        - Fine-Grained Authorization: guides/authorization/fine-grained-authorization.md
-        - Multiple Decision Point: guides/authorization/mdp-requests.md
+        - Fine-Grained Authorization: 
+          - Using XACML: guides/authorization/fine-grained-auth-xacml.md
+          - Using JSON: guides/authorization/fine-grained-auth-json.md
+        - Multiple Decision Point: 
+          - Introduction: guides/authorization/mdp-requests.md
+          - MDP to authorize hierarchical resources: guides/authorization/mdp-authorize-resources.md
+          - MDP with repeating attributes: guides/authorization/mdp-repeating-attr.md
+          - MDP requests and responses: guides/authorization/mdp-req-and-response.md
       - Access Delegation:
         - Overview: quick-starts/access-delegation.md
         - Authorization code flows:
