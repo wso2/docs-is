@@ -395,9 +395,9 @@ The next step is to configure the service provider.
             ![browser-certificate](../assets/img/learn/browser-certificate.png)
 
             !!! note
-                For more information on creating users and assigning roles
-                using management console, refer
-                [here](../../learn/configuring-users-roles-and-permissions).
+                For more information on creating users from the Email address as the username 
+                in management console, refer
+                [here](../../learn/using-email-address-as-the-username).
             
 10. Finally, click on **Update** to finish the service provider
     configurations.
