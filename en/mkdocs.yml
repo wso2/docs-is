@@ -475,10 +475,21 @@ nav:
           - XACML policy language structure and syntax: references/extend/access-control/xacml-structure-and-syntax.md
           - Write a XACML 2 policy: 
             - Introduction: references/extend/access-control/xacml2-policy-writing.md
-            - XACML 2 policy samples: references/extend/access-control/xacml2-sample.md
+            - XACML 2 sample policy 1: references/extend/access-control/xacml2-sample1.md
+            - XACML 2 sample policy 2: references/extend/access-control/xacml2-sample2.md
+            - XACML 2 sample policy 3: references/extend/access-control/xacml2-sample3.md
+            - XACML 2 sample policy 4: references/extend/access-control/xacml2-sample4.md
+            - XACML 2 sample policy 5: references/extend/access-control/xacml2-sample5.md
+            - XACML 2 sample policy 6: references/extend/access-control/xacml2-sample6.md
           - Write a XACML 3 policy: 
             - Introduction: references/extend/access-control/xacml3-policy-writing.md
-            - XACML 3 policy samples: references/extend/access-control/xacml3-sample.md
+            - XACML 3 sample policy 1: references/extend/access-control/xacml3-sample1.md
+            - XACML 3 sample policy 2: references/extend/access-control/xacml3-sample2.md
+            - XACML 3 sample policy 3: references/extend/access-control/xacml3-sample3.md
+            - XACML 3 sample policy 4: references/extend/access-control/xacml3-sample4.md
+            - XACML 3 sample policy 5: references/extend/access-control/xacml3-sample5.md
+            - XACML 3 sample policy 6: references/extend/access-control/xacml3-sample6.md
+            - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md
       - Adaptive authentication:
         - Write Custom Functions for Adaptive Authentication: references/extend/write-custom-functions-for-adaptive-authentication.md
       #- Workflow Management for Developers:
