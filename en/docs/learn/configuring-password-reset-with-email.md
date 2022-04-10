@@ -28,7 +28,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 		enable = true
 		```
 
-	2.	To configure the email server to send emails requesting passwor reset, add the following configurations.
+	2.	To configure the email server to send emails requesting password reset, add the following configurations.
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
 		-	**username**: This is the user name of the given email address.
@@ -63,6 +63,8 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 			1.	Access [https://myaccount.google.com/security](https://myaccount.google.com/security).
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
+			
+			3.  Enable **Less secure app access** in Google Account security section.
 
 2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
@@ -72,11 +74,11 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
-5.	Under the **Account Management Policies** section, click **Account Recovery**.
+5.	Under the **Account Management** section, click **Account Recovery**.
 
 	<img src="../../assets/img/learn/account-recovery-option.png" alt="Account Recovery Option" width="700" style="border:1px solid grey">  	
 
-6.	Select **Enable Notification Based Password Recovery** check box.
+6.	Select **Notification Based Password Recovery** check box.
 
 	<img src="../../assets/img/learn/notification-based-password-recovery-option.png" alt="Notification-Based Password Recovery Option" width="600" style="border:1px solid grey">  	
 
@@ -119,7 +121,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 2.	To add Alex's email Id:
 	
-	1.	Click **User Profile** option of Patrick.
+	1.	Click **User Profile** option of Alex.
 
 		<img src="../../assets/img/learn/user-profile-option.png" alt="User Profile option" width="700" style="border:1px solid grey">   
 
