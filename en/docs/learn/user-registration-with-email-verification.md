@@ -1,14 +1,14 @@
 # User Registration with Email Verification
 
-[Registering users](../../learn/user-registraion) with email verification is an [account management](../../learn/managing-user-accounts) feature offered by WSO2 Identity Server. 
+[Registering users](../../learn/user-registration) with email verification is an [account management](../../learn/managing-user-accounts) feature offered by WSO2 Identity Server. 
 
 In this approach, an administrator first creates a user account with a default password that will be emailed to the user's registered email Id for confirmation. 
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Sam** is an administrator at Pickup, **Alex** is a new recruit. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Mark** is a new recruit. 
 
-Sam wants to register a user account with a default password for Alex and get it activated by requesting Alex to verify. 
+Robert wants to register a user account with a default password for Mark and get it activated by requesting Mark to verify. 
 
 <img src="../../assets/img/learn/pickup-user-registration-with-email-verification.png" alt="Scenario Diagram" width="800">  
 
@@ -65,8 +65,10 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option. 
 
+			3. Enable **Less secure app access** in Google Account **Security** section.
 
-2.	[Restart WSO2 Identity Server]((../../setup/running-the-product/)).
+
+2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
 3.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator. 	
 
@@ -74,7 +76,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
-5.	Under the **Account Management Policies** section, click **User Onboarding**.
+5.	Under the **User Onboarding** section, click **Ask Password**.
 
 	<img src="../../assets/img/learn/user-onboarding-option.png" alt="User Onboarding Option" width="700" style="border:1px solid grey">  	
 
@@ -91,7 +93,7 @@ You have now configured WSO2 Identity Server to send the user account confirmati
 
 ## Try out 
 
-1.	To create the user account for Alex, execute the following cURL.
+1.	To create the user account for Mark, execute the following cURL.
 
 	!!! tip
 
@@ -99,7 +101,7 @@ You have now configured WSO2 Identity Server to send the user account confirmati
 
 
 	```curl 
-	curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Alex","givenName":"Roe"},"userName":"Alex","password":"password","emails":[{"primary":true,"value":"<USER_EMAIL>"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
+	curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Mark","givenName":"Roe"},"userName":"Mark","password":"password","emails":[{"primary":true,"value":"<USER_EMAIL>"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
 	```
     !!! tip "Using special characters in the username"
                 
