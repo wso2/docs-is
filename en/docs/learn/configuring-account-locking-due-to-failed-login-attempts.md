@@ -24,9 +24,9 @@ Follow the steps below to configure account locking due to failed login attempts
 	  	priority= "50"
 	  	enable = false
 	  	[event.default_listener.governance_identity_mgt]
-	    	priority= "95"
-	   	 enable = true
-	    	```
+	    priority= "95"
+	   	enable = true
+		```
 
     2.  To configure the email server to send emails requesting password entry, add the following configurations.
 
