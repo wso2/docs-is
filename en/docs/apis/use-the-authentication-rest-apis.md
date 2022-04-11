@@ -1,9 +1,30 @@
 # Authentication REST APIs
 
-The authentication framework API allows you to authenticate users and
-retrieve authentication context parameters using REST API calls.
+<div id="swagger-ui"></div>
+<script src="../../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
+<script src="../../../assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
+<script>
+window.onload = function() {
+  // Begin Swagger UI call region
+  const ui = SwaggerUIBundle({
+    url: "https://github.com/wso2-extensions/identity-local-auth-api/blob/5ad032a0d01c9037e48554a0c555322ff9657dd6/components/org.wso2.carbon.api.server.local.auth.api/src/main/resources/api.identity.local.auth.yaml",
+    dom_id: '#swagger-ui',
+    deepLinking: true,
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: "StandaloneLayout"
+  })
+  // End Swagger UI call region
 
-!!! info     
-    For information on the REST API, supported operations, as well as sample
-    requests and responses, see the [authentication framework REST API documentation](https://docs.wso2.com/display/IS510/apidocs/Authentication-framework-apis/).
+  window.ui = ui
+}
+</script>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/51139ad1cff6875115a1)
+
     

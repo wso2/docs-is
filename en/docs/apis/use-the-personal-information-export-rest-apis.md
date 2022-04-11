@@ -1,16 +1,7 @@
 # Personal Information Export REST APIs
 
-This API is intended for application developers who expose personal
-information export functionality in their applications. Using these REST
-APIs, the end user can retrieve the following personal information that
-WSO2 Identity Server has stored.
+https://github.com/wso2-extensions/identity-governance/blob/68e3f2d5e246b6a75f48e314ee1019230c662b55/components/org.wso2.carbon.identity.api.user.governance/src/gen/java/org/wso2/carbon/identity/user/endpoint/PiInfoApi.java
 
--   Claims stored in the profile
 
--   Configured security questions
 
--   Consent receipts that the user has approved
 
-!!! tip    
-    For information on the REST APIs, supported operations, and sample requests/responses, see [Personal Information Export API Swagger documentation](https://docs.wso2.com/display/IS511/apidocs/User-export-apis/).
-    
