@@ -31,7 +31,7 @@ the users with an authorization server-based authentication.
     ![oauth2-openid-connect-configuration](../assets/img/tutorials/oauth2-openid-connect-configuration.png)
         
     !!! note
-        WSO2 Identity Server supports RP-initiated logout requests to OpenID Connect identity providers.
+        WSO2 Identity Server supports RP-initiated logout requests to OpenID Connect identity providers..
     
 5.  Fill in the following fields where relevant.
 
