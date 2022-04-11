@@ -19,11 +19,11 @@ Follow the steps below to configure account locking due to failed login attempts
 	1.	To request password entry from the users who are registered via Management Console, add the following configurations. 
 
 
-	 	```
+	 	```toml tab="Format"
 	  	[event.default_listener.identity_mgt]
 	  	priority= "50"
 	  	enable = false
-	  	event.default_listener.governance_identity_mgt]
+	  	[event.default_listener.governance_identity_mgt]
 	    priority= "95"
 	    enable = true
 	    ```
