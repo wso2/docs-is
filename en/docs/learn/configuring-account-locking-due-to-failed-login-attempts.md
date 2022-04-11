@@ -19,7 +19,7 @@ Follow the steps below to configure account locking due to failed login attempts
 	1.	To request password entry from the users who are registered via Management Console, add the following configurations. 
 
 
-	 	```
+	 	```toml
 	  	[event.default_listener.identity_mgt]
 	  	priority= "50"
 	  	enable = false
@@ -28,7 +28,7 @@ Follow the steps below to configure account locking due to failed login attempts
 	    enable = true
 	    ```
 
-	2.	To configure the email server to send emails requesting password entry, add the following configurations.
+    2.  To configure the email server to send emails requesting password entry, add the following configurations.
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
 		-	**username**: This is the user name of the given email address.
