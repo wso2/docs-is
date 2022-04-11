@@ -52,7 +52,9 @@ the users with an authorization server-based authentication.
 
         ```toml
         [oauth]
-		hash_tokens_and_secrets = true 
+		hash_tokens_and_secrets = true
+        hash_token_algorithm = "SHA-256"
+        token_storage_method = "hashed"
 		```
         For information on
         possible values that you can specify based on your
