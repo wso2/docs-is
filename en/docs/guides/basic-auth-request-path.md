@@ -5,15 +5,6 @@ The Basic Authentication Request Path Authenticator is engaged when user credent
 are sent along with a request for authentication. You can use this authentication mechanism if you wish to skip 
 prompting the user with the login page during the authentication flow.
 
----
-
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
-
-<a class="samplebtn_a" href="../../quick-starts/basic-auth-request-path-sample" rel="nofollow noopener">Try it with the sample</a>
-
-
-----
-
 ## Create a service provider
 
 {!fragments/register-a-service-provider.md!}

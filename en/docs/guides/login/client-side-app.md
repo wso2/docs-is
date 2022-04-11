@@ -6,14 +6,6 @@ grant type with PKCE for client side applications (e.g.,mobile application , sin
 !!! tip
     PKCE is a recommended security measure used to mitigate a [code interception attack](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/).
 
----
-
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
-
-<a class="samplebtn_a" href="../../../quick-starts/webapp-oidc-sample"   rel="nofollow noopener">Try it with the sample</a>
-
-----
-
 ## Create a service provider
 
 {!fragments/register-a-service-provider.md!}

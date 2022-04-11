@@ -2,22 +2,45 @@
 
 This page guides you through enabling login for an [OpenID Connect](../../../references/concepts/authentication/intro-oidc) web application. 
 
-## Create a service provider
+## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+First, you need to register your application as a service provider in WSO2 Identity Server.
 
-----
+1. Log in to the management console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin as the username and password. 
+
+2. Click **Service Providers** > **Add**. 
+
+3. Enter `pickup-dispatch` as the **Service Provider Name**.
+ 
+4. Click **Register**.
 
 ## Configure the service provider
 
-{!fragments/oauth-app-config-basic.md!}
+Select the service provider you registered from the management console and apply the following configurations:
+    
+1. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+2. Click **Configure**.   
+
+3. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
+        
+4.  Enter `http://wso2is.local:8080/pickup-dispatch/oauth2client` as the **Callback Url**.
+    
+    !!! Info
+        For more information on the `Callback Url` and other configurations, see [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
+        
+5.  Click **Add**. 
+
+    !!! Note 
+        The **OAuth Client Key** and **Client Secret** are now generated. You will need these values later when deploying the sample application.
+
+6.  Click **Register** to finish creating the service provider.
 
 ----
 
 ## Try it
-{!fragments/deploying-sample-apps.md!}
+
+Let's set up the sample app and log in.
 
 ### Set up the sample
 
@@ -34,7 +57,7 @@ this documentation as an example, but you must modify this when
 configuring the authenticators or connectors with this sample
 application.
 
--   [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) the `pickup-manager.war` file from the latest release assets.
+-   [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) the `pickup-manager.war` file from the latest released assets.
 
 ### Configure the sample
 
@@ -50,15 +73,21 @@ Next, deploy the sample web app on a web container.
 
 ### Log in
 
+Now, let's log in to the application.
+
 1. Start the Tomcat server and access the following URL on your browser: `http://wso2is.local:8080/pickup-dispatch/home.jsp`.
 
 2. Click **Login**. You will be redirected to the login page of WSO2 Identity Server. 
 
-3. Log in using your WSO2 Identity Server credentials (e.g., admin/admin). Provide the required consent. You will be redirected to the Pickup Dispatch application home page.
+3. Log in using your WSO2 Identity Server credentials (e.g., admin/admin). 
+
+4.  Provide the required consent when prompted. 
+
+    You will be redirected to the Pickup Dispatch application's home page.
 
 You have successfully configured authentication for an OpenID Connect application.
 
-## How login works
+## How OIDC login works
 
 1. Obtain the `authorization_code` by sending an authorization request to the authorization endpoint.
 
@@ -126,7 +155,6 @@ You have successfully configured authentication for an OpenID Connect applicatio
 
 !!! info "Related topics"
     - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
-    - [Quick Start: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
     - [Guide: Authorization Code Grant](../../access-delegation/authorization-code/)
     - [Guide: Manage User Sessions](../session-management-logout)

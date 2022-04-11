@@ -3,15 +3,6 @@
 This page guides you through using the request path authenticator for token-based authentication. 
 The OAuth Request Path Authenticator is engaged when an access token is sent along with a request for authentication.
 
----
-
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
-
-<a class="samplebtn_a" href="../../quick-starts/oauth-request-path-sample" rel="nofollow noopener">Try it with the sample</a>
-
-
-----
-
 ## Create a service provider
 
 {!fragments/register-a-service-provider.md!}
