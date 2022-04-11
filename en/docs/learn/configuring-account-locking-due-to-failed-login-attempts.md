@@ -24,9 +24,9 @@ Follow the steps below to configure account locking due to failed login attempts
 	  	priority= "50"
 	  	enable = false
 	  	[event.default_listener.governance_identity_mgt]
-	    priority= "95"
-	    enable = true
-	    ```
+	    	priority= "95"
+	   	 enable = true
+	    	```
 
     2.  To configure the email server to send emails requesting password entry, add the following configurations.
 
@@ -64,7 +64,7 @@ Follow the steps below to configure account locking due to failed login attempts
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
 
-			3.  Enable **Less secure app access** in Google Account security section.
+			3.  	Enable **Less secure app access** in Google Account security section.
 
 2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
