@@ -64,7 +64,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
 			
-			3.  Enable **Less secure app access** in Google Account security section.
+			3.  Enable **Less secure app access** in the Google Account security section.
 
 2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
