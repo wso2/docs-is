@@ -142,11 +142,25 @@ nav:
           - Log in with Google: guides/identity-federation/google.md
           - Log in with Twitter: guides/identity-federation/twitter.md
       - Authorization:
-        - Overview: guides/overview.md
-        - Access Management: guides/authorization/access-mgt.md
+        - Overview: guides/authorization/overview.md
+        - Access Management: 
+          - Intro: guides/authorization/access-mgt.md
+          - Create a policy: guides/authorization/create-a-policy.md
+          - Edit a policy: guides/authorization/edit-a-policy.md
+          - Verson control: guides/authorization/version-control.md
+          - Publish a policy: guides/authorization/publish-a-policy.md
+          - View status of a policy: guides/authorization/view-status.md
+          - Enable and Disable a policy: guides/authorization/enable-disable-policy.md
+          - Clear cache: guides/authorization/clear-cache.md
         - Configure XACML Engine: guides/authorization/xacml-engine.md
-        - Fine-Grained Authorization: guides/authorization/fine-grained-authorization.md
-        - Multiple Decision Point: guides/authorization/mdp-requests.md
+        - Fine-Grained Authorization: 
+          - Using XACML: guides/authorization/fine-grained-auth-xacml.md
+          - Using JSON: guides/authorization/fine-grained-auth-json.md
+        - Multiple Decision Point: 
+          - Introduction: guides/authorization/mdp-requests.md
+          - MDP to authorize hierarchical resources: guides/authorization/mdp-authorize-resources.md
+          - MDP with repeating attributes: guides/authorization/mdp-repeating-attr.md
+          - MDP requests and responses: guides/authorization/mdp-req-and-response.md
       - Access Delegation:
         - Overview: guides/access-delegation/access-delegation.md
         - Authorization code flows:
@@ -461,10 +475,21 @@ nav:
           - XACML policy language structure and syntax: references/extend/access-control/xacml-structure-and-syntax.md
           - Write a XACML 2 policy: 
             - Introduction: references/extend/access-control/xacml2-policy-writing.md
-            - XACML 2 policy samples: references/extend/access-control/xacml2-sample.md
+            - XACML 2 sample policy 1: references/extend/access-control/xacml2-sample1.md
+            - XACML 2 sample policy 2: references/extend/access-control/xacml2-sample2.md
+            - XACML 2 sample policy 3: references/extend/access-control/xacml2-sample3.md
+            - XACML 2 sample policy 4: references/extend/access-control/xacml2-sample4.md
+            - XACML 2 sample policy 5: references/extend/access-control/xacml2-sample5.md
+            - XACML 2 sample policy 6: references/extend/access-control/xacml2-sample6.md
           - Write a XACML 3 policy: 
             - Introduction: references/extend/access-control/xacml3-policy-writing.md
-            - XACML 3 policy samples: references/extend/access-control/xacml3-sample.md
+            - XACML 3 sample policy 1: references/extend/access-control/xacml3-sample1.md
+            - XACML 3 sample policy 2: references/extend/access-control/xacml3-sample2.md
+            - XACML 3 sample policy 3: references/extend/access-control/xacml3-sample3.md
+            - XACML 3 sample policy 4: references/extend/access-control/xacml3-sample4.md
+            - XACML 3 sample policy 5: references/extend/access-control/xacml3-sample5.md
+            - XACML 3 sample policy 6: references/extend/access-control/xacml3-sample6.md
+            - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md
       - Adaptive authentication:
         - Write Custom Functions for Adaptive Authentication: references/extend/write-custom-functions-for-adaptive-authentication.md
       #- Workflow Management for Developers:
