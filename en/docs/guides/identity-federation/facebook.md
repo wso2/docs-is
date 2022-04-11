@@ -2,6 +2,7 @@
 
 This page guides you through configuring Facebook as a federated authenticator in WSO2 Identity Server. 
 
+
 ---
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
@@ -19,51 +20,58 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 1. Go to <https://developers.facebook.com/> and log in using your Facebook credentials.
 
-2. Click on **My Apps**.
+2. Click on **Create App**.
 
-3. Click on **Create App**.
+	![Create app](../../assets/img/samples/create-app.png)
 
-4. Choose what you need your app to do. 
+3. Enter a **Display Name** and your **Contact Email**.
 
-5. Enter a **Display Name** and your **Contact Email**.
+4.  Click on **Create App ID**.
 
-6. Choose your **App Purpose**.
+	![Create app ID](../../assets/img/samples/register-app-fb.png)
 
-7. Click **Create App**.
+5. Complete the security check and click **Submit**. 
 
-8. Complete the security check and click **Submit**. 
+6. Click **Set up** under Facebook Login.
 
-9. Click **Set up** under Facebook Login.
+	![Setup fb](../../assets/img/samples/facebook-login.png)
 
-7. Select **Web** as the platform for the app used.
+7. Select **Website** as the platform for the app used in this sample.
 
-8. Enter the **Site URL** and click **Save**. Click **Continue**.
+8. Enter `https://<IS_HOST>:<IS_PORT>/` as the **Site URL** and click **Save**.
 
-9. You will see the basic version of the Facebook SDK for JavaScript. Replace {your-app-id} with the App ID and {api-version} with the required values.
+	![Enter site URL](../../assets/img/samples/enter-url.png)
 
-10. Click **Next** on **Check Login Status** and **Add the Facebook Login Button**. 
+9.  You can configure the **Client OAuth Settings** on the window that
+    appears.
+      
+    ![Client OAuth settings](../../assets/img/samples/client-oauth-settings.png)
 
-12. Click **Facebook Login** > **Settings** on the left menu. 
+    1.  Set **Client OAuth Login** to **Yes**.  
+        
+    2.  Set **Web OAuth Login** to **Yes**.  
+        
+    3.  Enter  ` https://<IS_HOST>:<IS_PORT>/commonauth.  ` as the value for **Valid OAuth redirect URIs**. 
 
-13. Ensure that **Client OAuth Login** and **Web OAuth Login** are enabled. 
+10. Click **Save Changes**.
 
-14. Enter `https://localhost:9443/commonauth` as the value for **Valid OAuth redirect URIs**.
+11. Click on **Settings** > **Basic.** You can see the **App ID** and **App
+    Secret** as shown in the image below. Click **Show** to view the
+    **App Secret**.
 
-14. Click **Save Changes**.
+12. Click **Settings** on the left menu and navigate to the **Basic** tab. 
 
-15. Click on **Settings** > **Basic**. You can see the **App ID** and **App Secret**. Click **Show** to view the **App Secret**.
+13. Add the **App Domains** as shown below. 
 
-17. Add the **App Domains**.
+	![App basic details](../../assets/img/samples/details-basic.png)
 
-18. Click **Save Changes**.
+13. Click **Save Changes**.
 
 Now you have finished configuring Facebook as an Identity Provider.
 
 {! fragments/fb-review.md !}
 
 ---
-
-## Configure the identity provider 
 
 {! fragments/register-an-identity-provider.md !}
     
@@ -185,7 +193,9 @@ You have now added and configured the service provider.
 
 ---
 
-## Configure claim mappings and requested claims
+## Configure claim mapping
+
+### Enable FB claims for WSO2 IS
 
 All the basic information of a user/application is stored in the form of
 claims. But for the same information, different Identity Providers(IdP)
@@ -237,12 +247,159 @@ claims.
     this through **User ID Claim URI** (e.g., email).
 9.  Click **Update** to save changes.
 
+### Enable claims for service provider (optional)
+
+Generally, the service providers need some information from the Identity
+Provider side after the authentication process in order to provide their
+service. To help this process we need to configure the necessary claims
+on the service provider side.
+
+For that follow the below steps:
+
+1.  In the **Identity** section under the **Main** tab, click **List**
+    under **Service Providers**.
+2.  Click **Edit** to edit the travelocity.com service provider.
+3.  Go to **Claim Configuration**.
+4.  Click on **Add Claim URI** under **Requested Claims** to add the
+    requested claims as follows. Here you should add the claims you
+    mapped in the Identity Provider claim configuration. Select the
+    **Mandatory Claim** checkbox for any claims that are mandatory.
+
+    !!! info "Do only,"
+
+		If the service provider needs any claims to be used after
+		authentication process, the SP can request those claims from IDP as
+		" **Requested Claims**".
+
+    ![Add requested claims](../../assets/img/fragments/add-requested-claims.png)
+
+	!!! info 
+		Here, the claims which are marked as **mandatory** are requested by
+		the service provider from the identity provider. If they are not
+		available, the user will be redirected to a different page to
+		request those mandatory claim values from the user as they are
+		mandatory.
+
+5.  **Subject Claim URI** is the unique claim which we can use to
+    identify a service provider. Therefore, select a suitable claim for
+    the **Subject Claim URI** such that it will become a unique
+    identifier for the service provider.
+
+6.  Click **Update** to save changes.
 
 ---
 
-You have successfully configured facebook as your federated authenticator. Now, when you try to log in to your application, it should redirect to the Facebook login page. On successful authentication with your Facebook credentials, you will be able to access your application. 
+## Try it
 
+You have successfully configured facebook as your federated authenticator. Now, when you try to log in to your application, it should redirect to the Facebook login page. On successful authentication with your Facebook credentials, you will be able to access your application.
 
+### Set up the sample app
+
+- Download Apache Tomcat 8.x from
+[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+server installation location will be referred as `<TOMCAT_HOME>` later
+in this guide.      
+
+- It is recommended that you use a hostname that is not
+`          localhost         ` to avoid browser errors. Modify the
+`          /etc/hosts         ` entry in your machine to reflect this.
+Note that `          wso2is.local         ` is used in
+this documentation as an example, but you must modify this when
+configuring the authenticators or connectors with this sample
+application.
+
+- Download the sample from GitHub.
+
+    1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
+    2. Download the `travelocity.com.war` file from the latest release assets.
+
+### Configure CORS
+
+{!fragments/cors-config.md!}
+
+### Deploy the sample app
+
+Deploy this sample web app on a web container.
+
+1.  Copy the `travelocity.com.war`file into the `webapps` folder. For
+    example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
+    
+2.  Open a terminal window and add the following entry to the
+    `/etc/hosts` file of your machine to configure
+    the hostname.
+
+    ``` bash
+    127.0.0.1   wso2is.local
+    127.0.0.1   localhost.com
+    ```
+
+    !!!info "Why is this step needed?"
+		Some browsers do not allow you to create cookies for a naked
+		hostname, such as `            localhost           `. Cookies are
+		required when working with SSO . Therefore, to ensure that the SSO
+		capabilities work as expected in this tutorial, you need to
+		configure the `            etc/host           ` file as explained in
+		this step.
+
+		The `            etc/host           ` file is a read-only file.
+		Therefore, you won't be able to edit it by opening the file via a
+		text editor. Instead, edit the file using the terminal commands.  
+		For example, use the following command if you are working on a
+		Mac/Linux environment.
+
+		``` java
+		sudo nano /etc/hosts
+		```
+		
+3.  Open the `travelocity.properties` file found in the `
+    <TOMCAT_HOME>/webapps/travelocity.com/WEB-INF/classes ` directory
+    and configure the following property with the hostname ( `
+    wso2is.local ` ) that you configured above.
+
+    ``` text
+    #The URL of the SAML 2.0 Assertion Consumer
+    SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
+    ```
+    
+4.  Restart the Tomcat server.
+
+To check the sample application, navigate to
+`http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp`
+on your browser.
+
+For example,
+`http://wso2is.local:8080/travelocity.com/index.jsp`
+
+!!! tip
+    
+    If you wish to change properties like the issuer ID, consumer
+    URL, and IdP URL, you can edit the **travelocity.properties** file found
+    in the `         travelocity.com/WEB-INF/classes        ` directory.
+    Also if the service provider is configured in a tenant you can use
+    "QueryParams" property to send the tenant domain.For example,
+    "QueryParams=tenantDomain=wso2.com".
+    
+    This sample uses the following default values.
+    
+    | Properties                                                                                                                                                                          | Description                                                        |
+    |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+    | `             SAML2.SPEntityId=travelocity.com                         `                                                                                                            | A unique identifier for this SAML 2.0 Service Provider application |
+    | `              SAML2.AssertionConsumerURL=                                             http://wso2is.local:8080/travelocity.com/home.jsp                                          ` | The URL of the SAML 2.0 Assertion Consumer                         |
+    | `              SAML2.IdPURL=                                             https://localhost:9443/samlsso                                          `                                  | The URL of the SAML 2.0 Identity Provider                          |
+    | `             SAML2.IsPassiveAuthn=true                         `                                                                                                                   | Set this to send SAML2 passive authentication requests             |
+    
+    If you edit the `travelocity.properties` file, restart the
+    Apache Tomcat server for the changes to take effect.
+
+### Log in
+
+1. To test the sample, go to the following URL: `http://<IS_HOST>:<IS_PORT>/travelocity.com`.
+
+	![Travelocity application](../../assets/img/samples/travelocity-fb.png)
+
+2. Click the link to log in with SAML from WSO2 Identity Server.
+
+3. You are redirected to the Facebook Login page. Enter your Facebook credentials and you will be taken to the home page of the Travelocity app.
 
 !!! info "Related topics"
 	-   See the following topics for samples of configuring Facebook for

@@ -1,16 +1,9 @@
 {!fragments/deploying-sample-apps.md!}
+-   Download the sample from GitHub.
 
----
-### Download the sample
+    1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-To be able to deploy a WSO2 Identity Server sample, you need to download
-it onto your machine first.
-
-Follow the instructions below to download a sample from GitHub.
-
-1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
+    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
 
 ---
 

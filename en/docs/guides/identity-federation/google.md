@@ -2,14 +2,6 @@
 
 This page guides you through configuring Google as a federated authenticator in WSO2 Identity Server. 
 
----
-
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
-
-<a class="samplebtn_a" href="../../../quick-starts/google-as-federated-authenticator-sample"   rel="nofollow noopener">Try it with the sample</a>
-
----
-
 ## Set up Google as a SAML IdP
 
 !!! note
@@ -85,8 +77,6 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ---
 
-## Configure the service provider
-
 {! fragments/register-a-service-provider.md !}
 
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
@@ -153,7 +143,94 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ---
 
+## Register a service provider
+
+1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials. 
+
+2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
+
+3.  Enter `saml2-web-app-pickup-dispatch` in the **Service Provider Name** text box,
+    and click **Register**.
+
+4.  In the **Inbound Authentication Configuration** section, click
+    **Configure** under the **SAML2 Web SSO Configuration** section.
+
+    1.  Now set the configuration as follows:
+
+        1.  **Issuer** : `saml2-web-app-pickup-dispatch.com`
+
+        2.  **Assertion Consumer URL** :  ` http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp `                       
+        
+        Click **Yes**, in the message that appears.
+
+    2.  Select the following check-boxes:
+        1.  **Enable Response Signing**
+
+        2.  **Enable Single Logout**
+
+        3.  **Enable Attribute Profile**
+
+        4.  **Include Attributes in the Response Always**  
+        
+        5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
+    
+    !!! tip
+        For more information on the advanced configurations, see [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
+
+5.  Click **Register** to save the changes.
+
+---
+
+## Try it out
+
 You have successfully configured Google as your federated authenticator. Now, when you try to login to your application, it should redirect to the Google login page. On successful authentication with your Google credentials, you will be able to access your application. 
+
+### Set up the sample app
+
+- Download Apache Tomcat 8.x from
+[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+server installation location will be referred as `<TOMCAT_HOME>` later
+in this guide.      
+
+- It is recommended that you use a hostname that is not
+`          localhost         ` to avoid browser errors. Modify the
+`          /etc/hosts         ` entry in your machine to reflect this.
+Note that `          wso2is.local         ` is used in
+this documentation as an example, but you must modify this when
+configuring the authenticators or connectors with this sample
+application.
+
+- Download the sample from GitHub.
+    1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
+    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
+
+### Configure CORS
+
+{!fragments/cors-config.md!}
+
+### Deploy the sample app
+
+Deploy this sample web app on a web container.
+
+1.  Copy the `saml2-web-app-pickup-dispatch.com.war` file into the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder. 
+
+2.  Start the Tomcat server.
+
+### Log in
+
+1.  Access the Pickup sample application URL:
+    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
+2.  Click **Login**. You are redirected to the Google login page.
+  
+    ![Google login page](../../assets/img/samples/sign-in-google.png)
+    
+3.  Sign in using your Google credentials. You are redirected to the
+    Pickup sample homepage.
+4.  On a new tab on your browser, access the following URL:
+    <https://mail.google.com>.
+
+    !!! info 
+    	You are automatically logged in to your Gmail using single sign-on (SSO).
 
 !!! info "Related topics" 
     - [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)

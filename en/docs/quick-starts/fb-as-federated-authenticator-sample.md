@@ -12,6 +12,7 @@ If you have your own application, click the button below.
 
 Follow the steps given below to configure WSO2 Identity Server to authenticate users using their Facebook credentials.
 
+
 ## Create a Facebook app
 
 1. Go to <https://developers.facebook.com/> and log in using your Facebook credentials.

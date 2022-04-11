@@ -1,27 +1,77 @@
 # Enable Single Sign-On for a SAML Web Application
 
-This page guides you through enabling [single sign-on](../../../references/concepts/single-sign-on) (SSO) for a SAML application using WSO2 Identity Server.
+This page guides you through configuring [single sign-on authentication](../../references/concepts/single-sign-on) between two SAML web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager.
 
----
+## Scenario
 
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
+Pickup is a cab company that has two SAML web applications called pickup-dispatch and pickup-manager. Both applications use WSO2 Identity Server (IS) as the identity provider. When SSO is configured for both these applications, an employee is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
-<a class="samplebtn_a" href="../../../quick-starts/sso-for-saml-apps" rel="nofollow noopener">Try it with the sample</a>
+![SAML SSO scenario](../../assets/img/samples/saml-sso-scenario-diagram.png)
 
-----
-
-## Create a service provider
-
-{!fragments/register-a-service-provider.md!}
+Follow the steps below to deploy two sample applications and see how this works. 
 
 ----
 
-{!fragments/saml-app-config-basic.md!}
+## Set up Pickup Dispatch sample
+
+{!fragments/pickup-dispatch-saml.md!}
+
+----
+
+## Set up Pickup Manager sample
+
+{!fragments/pickup-manager-saml.md!}
+
+You are now ready to try out SAML SSO with the Pickup Dispatch and Pickup Manager sample web applications.
+
+----
+
+## Try it out
+
+1. Navigate to `http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com` on your browser and click **Login**.
+
+    ![Pickup Dispatch login](../../assets/img/samples/dispatch-login.png)
+
+2. You will be redirected to the login page of WSO2 IS. Log in using your WSO2 IS credentials (admin/admin). Provide the required consent.
+You will be redirected to the Pickup Dispatch application home page.
+
+3. Now, if you navigate to `http://wso2is.local:8080/saml2-web-app-pickup-manager.com` and click **Login**, you can see that the user has been automatically logged in to this application without being prompted for user credentials.
+
+You have successfully configured SAML single sign-on for two web applications using WSO2 IS as the identity provider. 
+
+----
+
+## Configure claims
+
+Additionally, you can also configure claims for the service providers.
+
+1. On the **Main** menu of the management console, click **Service Providers**>**List**, and **Edit** the "pickup-dispatch" service provider.
+
+2. Expand the **Claim Configuration** section in the service provider form.
+
+3. You can select the claims that must be sent to the service provider. Select **Use Local Claim Dialect** and click **Add Claim URI**.
+
+4. Add the following claims as **Requested Claims**. 
+	1. http://wso2.org/claims/fullname
+	2. http://wso2.org/claims/emailaddress
+
+5. Select `http://wso2.org/claims/fullname` as the **Subject claim URI** and click **Update** to save the service provider configurations. 
+
+    ![Service provider claim configurations](../../assets/img/samples/dispatch-configure-claims.png)
+
+6. Now, logout of the **Pickup Dispatch** and **Pickup Manager** applications.
+
+7. Access `http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com` on your browser and click **Login**.
+
+8. Note that the user is now prompted for consent to share the **Email Address** claim value with the sample application.  
+
+    ![Pickup Dispatch email consent](../../assets/img/samples/dispatch-email-consent.png)
+
+Now you have successfully configured additional claims for your service provider.
 
 ----
 
 !!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
-    - [Quick Start: Single Sign-On for a SAML Application](../../../quick-starts/sso-for-saml-apps)
     - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)
     - [Guide: SAML Back-Channel Logout](../saml-back-channel-logout)
