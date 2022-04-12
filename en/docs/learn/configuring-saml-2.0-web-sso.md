@@ -112,7 +112,7 @@ To configure manually,
 				<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence">
 				<pre class="sourceCode xml"><code class="sourceCode xml">
 				<a class="sourceLine" id="cb1-1" title="1">[authentication.authenticator.saml.parameters] </a>
-				<a class="sourceLine" id="cb1-2" title="2">VerifyAsserstionIssuer: true </a>
+				<a class="sourceLine" id="cb1-2" title="2">VerifyAssertionIssuer=true </a>
 				</div>
 				</div>
 				</div></td>
@@ -476,6 +476,8 @@ To configure through file upload:
         ``` java
         [authentication.authenticator.saml] 
         enable=true
+
+		[authentication.authenticator.saml.parameters]
         SAMLSSOAssertionConsumerUrl="https://localhost:9443/commonauth"
     	```
 
@@ -490,7 +492,7 @@ To configure through file upload:
 	 
 		``` xml
 		[saml.slo] 
-		host_name_verification: false
+		host_name_verification=false
 		```
 	
 	- If the certificate is self-signed, import the service
