@@ -1,4 +1,3 @@
-## Local & Outbound configurations
 
 1. Expand the **Local & Outbound Authentication Configuration** section and then the **Request Path Authentication Configuration** section.
 

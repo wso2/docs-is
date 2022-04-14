@@ -8,11 +8,11 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 
 -----
 
-## Configure a service provider
+## Register a service provider
 
 {!fragments/register-a-service-provider.md!}
 
-## OAuth/OpenID Connect Configuration
+## Configure the service provider
 
 Make the following changes to the created service provider.
 

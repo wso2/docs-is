@@ -3,7 +3,7 @@
 This page guides you through passing a set of request parameters as its claims using a JWT in a [request object](../../../references/concepts/authentication/request-object). 
 If you want to pass any sensitive parameter with the authentication request which needs additional security you can pass it as a request object.
 
-## Create  a service provider
+## Register a service provider
 
 {!fragments/register-a-service-provider.md!}
 
@@ -119,7 +119,7 @@ This creates a signed request object.
 
 ---
 
-## Testing the flow
+## Try it
 
 -   To test the flow without a signed request object, specify the
     `          authorization_code         ` grant type for the user, and

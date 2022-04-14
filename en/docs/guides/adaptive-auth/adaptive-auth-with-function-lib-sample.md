@@ -2,14 +2,6 @@
 
 This page guides you through configuring adaptive authentication using the function library for a sample web application.
 
-----
-
-If you have your own application, click the button below.
-
-<a class="samplebtn_a" href="../../guides/adaptive-auth/adaptive-auth-with-function-lib/"   rel="nofollow noopener">I have my own application</a>
-
------
-
 ## Scenario
 
 The instructions below guide you through adding an adaptive authentication function using the function library that specifies authentication based on the user's age. In this example, any user who is underage and below the specified age limit (i.e., under the age of 18 years) is restricted access and prevented from logging in to the application.

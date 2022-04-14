@@ -74,19 +74,31 @@ This page guides you through configuring [two-factor authentication](../../../re
 
 ----
 
-## Create a service provider
+## Register a service provider
 
 {!fragments/register-a-service-provider.md!}
 
-4. Expand **Claim configuration**.
+## Configure the service provider
+
+You need to register the application as a service provider in WSO2 Identity Server.
+
+### Claims
+
+Configure claims for the service provider:
+
+1. Expand **Claim configuration**.
  
-5. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**.
+2. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**.
 
-6. Expand **Local and Outbound Authentication Configuration**.
+### Authentication steps
 
-7. Click the **Advanced Configuration** radio button. 
+Configure the multiple factor authentication steps for the service provider:
 
-8. Add the following authentication steps. 
+1. Expand **Local and Outbound Authentication Configuration**.
+
+2. Click the **Advanced Configuration** radio button. 
+
+3. Add the following authentication steps. 
     - **Step 1**
         1. Click **Add Authentication Step**.
 
@@ -103,7 +115,7 @@ This page guides you through configuring [two-factor authentication](../../../re
     
         <img name='sms-otp-authentication-steps' src='../../../assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
 
-9. Click **Update** to save the changes.
+4. Click **Update** to save the changes.
 
 ----
 

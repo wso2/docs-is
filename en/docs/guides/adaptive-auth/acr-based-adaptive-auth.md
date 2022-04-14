@@ -2,14 +2,6 @@
 
 This page guides you through configuring Authentication-Context-Reference-based (ACR-based) adaptive authentication for a sample web application using a sample hardware key authenticator. 
 
-----
-
-If you have your own application, click the button below.
-
-<a class="samplebtn_a" href="../../guides/adaptive-auth/work-with-acr-amr"   rel="nofollow noopener">I have my own application</a>
-
-----
-
 ## Scenario
 
 The instructions below guide you through specifying authentication steps based on the authentication context value used when logging in.

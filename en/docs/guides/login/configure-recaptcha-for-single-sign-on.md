@@ -16,6 +16,8 @@ attacks.
 
 {! fragments/set-up-recaptcha.md !}
 
+## Configure reCAPTCHA for SSO
+
 {! fragments/configure-recaptcha-for-sso.md !}
 
 !!! info "Related topics"

@@ -452,6 +452,7 @@ nav:
     - Usernames in WSO2 Identity Server: references/usernames-in-identity-server.md
     - Extend:
       - Work with the Source Code: references/extend/work-with-the-source-code.md
+      - Authenticator: references/extend/authenticator-x509.md
       - User management:
         #- Write a Custom Password Validator: references/extend/user-mgt/write-a-custom-password-validator.md
         - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-custom-global-scope-validator.md
