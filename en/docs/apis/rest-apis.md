@@ -1,7 +1,6 @@
 # REST APIs
 
-This section provides information on REST APIs in WSO2 Identity Server
-including the sample requests and responses. 
+This section provides information on REST APIs in WSO2 Identity Server. 
 
 - [Account Recovery](../../apis/use-the-account-recovery-rest-apis)
 - [Application Management](../../apis/application-rest-api)
