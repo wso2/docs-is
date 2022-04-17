@@ -1,4 +1,4 @@
-# Enable Authentication for Spring Boot App
+# Integrate your Spring Boot app
 
 This page guides you through integrating your spring-boot application with WSO2 Identity Server for secure authentication using OpenID Connect standard.
 
