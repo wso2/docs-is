@@ -15,7 +15,7 @@ Try integrating one of the sample applications.
 
 ## Github repositories
 
-Apart from the above guides provided, you can use the following Github repository links to view the source code, download samples and test out how the SDKs work with WSO2 IS.
+Apart from the above guides provided, you can use the following Github repository links to view the source code, download samples, and test out how the SDKs work with WSO2 IS.
 
 - [Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent)
 
