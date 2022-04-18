@@ -72,7 +72,7 @@ This feature is supported by the following flows:
 !!! Tip
     - **What happens if two users use the same value for a claim?** 
 
-        Multi attribute login will not work for these users. Retaining uniqueness for claim values avoids this conflict.
+        Multi-attribute login will not work for these users. Retaining uniqueness for claim values avoids this conflict.
 
     - **Using email address as login attribute for super tenant users**
 
