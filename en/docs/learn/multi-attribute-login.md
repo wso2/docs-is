@@ -60,7 +60,7 @@ When multi-attribute login is configured in WSO2 IS, application users can use a
     ![adding-regex-pattern-to-claims](../assets/img/learn/multi-attribute-login/login-with-mobile-number.png)
 
 ### Supported flows
-This feature is supported by the following flows.
+This feature is supported by the following flows:
 
 1.  Identifier first authenticator
 2.  Basic Authenticator
