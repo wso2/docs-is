@@ -1,13 +1,11 @@
 # Device Authorization Grant (Device Flow)
 
-### Recommended use
-
-This is an OAuth 2.0 extension that lets clients sign in to applications in,
+Device flow is an OAuth 2.0 extension that lets clients sign in to applications in,
 
 * Input constrained devices
 * Devices without a browser
 
-Such devices include smart TVs, printers, and gaming consoles. This authorization flow is known as the “device flow”. Device flow instructs the user to review the authorization request on a secondary device, such as a smartphone.
+Such devices include smart TVs, printers, and gaming consoles. Device flow instructs the user to review the authorization request on a secondary device, such as a smartphone.
 
 ### The flow
 
@@ -28,7 +26,7 @@ The diagram below illustrates the device flow.
 
 (E) — While the end user reviews the authorization request, the client polls the authorization server with the device code and client identifier to check if the user has completed the authorization step.
 
-(F) — If the user grants access, the authorization server validates the verification code and responds with the access token. If not, 
+(F) — If the user grants access, the authorization server validates the verification code and responds with the access token.
 
 !!! info "Support for refresh token grant - Yes"
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
