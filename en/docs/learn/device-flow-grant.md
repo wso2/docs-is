@@ -2,21 +2,16 @@
 
 ### Recommended use
 
-This is an OAuth 2.0 extension that enables OAuth clients to 
-request user authorization from applications on,
+This is an OAuth 2.0 extension that lets clients sign in to applications in,
 
 * Input constrained devices
 * Devices without a browser
 
-Such devices include smart TVs, printers, and play-stations. This 
-authorization flow is defined as the “device flow”. This specification instructs the user to
- review the authorization request on a secondary device, such as a smartphone.
+Such devices include smart TVs, printers, and gaming consoles. This authorization flow is known as the “device flow”. Device flow instructs the user to review the authorization request on a secondary device, such as a smartphone.
 
 ### The flow
 
-The device flow does not require two-way communication between the OAuth client and the device. Instead of directly
- contacting the end user's user-agent, it guides the end user to connect to the authorization server through another
-  device, and then approves the access request.
+The device flow does not require two-way communication between the OAuth client and the device. It guides the end user to another device to complete the sign in process.
  
 The diagram below illustrates the device flow.
 
@@ -26,17 +21,14 @@ The diagram below illustrates the device flow.
 
 (B) — The authorization server issues a device code, an end user code, and an end user verification URI.
 
-(C) — The client instructs the end user to access the provided URI using a secondary device (e.g., a mobile device
-). The client then provides the end user code that is used to review the authorization request, to the user.
+(C) — The client instructs the user to access the provided URI using a secondary device (e.g., a mobile device
+). The client provides the user with the end user code.
  
-(D) — The authorization server prompts the end user to approve granting access via the user-agent and also prompts
- the user to enter the end user code.
+(D) — The authorization server prompts the user to enter the end user code. The authorization server validates the code and asks the end user to accept or decline the authorization request.
 
-(E) — While the end user reviews user credentials and consents, the device starts polling along with client id and
- verification code to check the status of user authorization.
+(E) — While the end user reviews the authorization request, the client polls the authorization server with the device code and client identifier to check if the user has completed the authorization step.
 
-(F) — Once the user provides authorization, the authorization server validates the verification code and responds
- back to the device with an access token.
+(F) — If the user grants access, the authorization server validates the verification code and responds with the access token. If not, 
 
 !!! info "Support for refresh token grant - Yes"
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
@@ -44,5 +36,4 @@ The diagram below illustrates the device flow.
 
 !!! info "Related Topics"
     See the [Try Device Authorization
-    Grant](../../learn/try-device-flow) topic to try out a sample of
-    it with WSO2 Identity Server.
+    Grant](../../learn/try-device-flow) topic to try out a sample with WSO2 Identity Server.
