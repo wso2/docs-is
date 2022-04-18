@@ -30,7 +30,7 @@ for the allowed claims.
 
 Some claims have regex defined by default. If you need to define regex for a claim, follow the steps below.
 
-1.  Open the WSO2 Identity Server Management Console. 
+1.  Open the WSO2 Identity Server management console. 
 2.  In the **Main** menu, under **Claims**, click **List**.
 3.  Select the claim you want to provide the regular expression for and click **Edit**.
 4.  Enter the regex pattern under the **Regular Expression** field.
