@@ -10,7 +10,7 @@ The following section explains how to configure WSO2 identity server for multi-a
     tenant credentials.
 
     !!! info
-        - **admin** is the default administrative user in WSO2 Identity Server.
+        - The **admin** is the default administrative user in WSO2 Identity Server.
         - If you use multiple tenant domains, you need to configure multi attribute login for each tenent.
 
 2.  Click **Main** > **Identity Providers** > **Resident** and expand the **Account Management** section.
