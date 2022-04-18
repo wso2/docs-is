@@ -23,7 +23,7 @@ The following section explains how to configure WSO2 identity server for multi-a
 
 5. Click **Update**
 
-### Add Regular Expressions for Allowed Claims.
+### Add Regular Expressions for Allowed Claims
 
 Once you have configured WSO2 Identity Server for multi attribute login, you need to provide regular expressions 
 for the allowed claims.
