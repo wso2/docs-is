@@ -3,34 +3,30 @@
 This page guides you through using the request path authenticator for token-based authentication. 
 The OAuth Request Path Authenticator is engaged when an access token is sent along with a request for authentication.
 
----
-
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
-
-<a class="samplebtn_a" href="../../quick-starts/oauth-request-path-sample" rel="nofollow noopener">Try it with the sample</a>
-
-
-----
-
-## Create a service provider
+## Register a service provider
 
 {!fragments/register-a-service-provider.md!}
 
 ----
 
-## Basic OAuth/OpenID Connect configuration
+## Configure the service provider
+
+Now, let's configure the service provider you registered.
+
+### Basic OAuth/OIDC
 
 {!fragments/oauth-app-config-basic.md!}
 
 <!--{!fragments/oauth-app-config-advanced-tip.md!}-->
 
-----
+### Local & Outbound
 
 {!fragments/local-outbound-for-request-path-oauth.md!}
 
 ----
 
 ## Configure the client application
+
 Send the following requests via your application to connect your application to WSO2 IS.
 
 1. Use the following cURL command to get a valid token using password grant type. Replace the `<CLIENT_ID>`, `<CLIENT_SECRET>`, `<USERNAME>`, `<PASSWORD>`, `<IS_HOST>`, and `<IS_PORT>` tags with the relevant values.
@@ -101,6 +97,8 @@ Send the following requests via your application to connect your application to 
 
 ## Try it
 
+Let's set up the sample app and log in.
+
 ### Set up the sample 
 
 - Download Apache Tomcat 8.x from
@@ -116,13 +114,10 @@ this documentation as an example, but you must modify this when
 configuring the authenticators or connectors with this sample
 application.
 
--   Download the sample from GitHub.
-
-    1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/playground2.war)
+-   [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/playground2.war)
    the `playground2.war` file from the latest release assets.
 
-### Deploy the sample app
+### Deploy the sample
 
 Deploy this sample web app on a web container.
 
@@ -184,6 +179,8 @@ Deploy this sample web app on a web container.
 5.	Restart Apache Tomcat. 
 
 ### Log in
+
+Now, let's log in to the application.
 
 1. Access `http://wso2is.local:8080/playground2/` to open the application.
 

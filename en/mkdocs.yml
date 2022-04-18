@@ -118,17 +118,17 @@ nav:
           - FIDO: guides/mfa/2fa-fido.md
         - Adaptive Authentication:
           - Configure Adaptive Authentication: guides/adaptive-auth/configure-adaptive-auth.md
-          - Adaptive Authentication Scenarios: quick-starts/adaptive-auth-overview.md
-          - Role-Based: quick-starts/role-based-adaptive-auth.md
-          - User Age-Based: quick-starts/age-based-adaptive-auth.md
-          - Tenant-Based: quick-starts/tenant-based-adaptive-auth.md
-          - Userstore-Based: quick-starts/user-store-based-adaptive-auth.md
-          - IP-Based: quick-starts/ip-based-adaptive-auth.md
-          - Device-Based: quick-starts/device-based-adaptive-auth.md
-          - Login Attempts-Based: quick-starts/login-attempts-based-adaptive-auth.md
-          - ACR-Based: quick-starts/acr-based-adaptive-auth.md
-          - Using Function Library: quick-starts/adaptive-auth-with-function-lib-sample.md
-          - Limiting Active User Sessions: quick-starts/limiting-active-sessions-adaptive-auth.md
+          - Adaptive Authentication Scenarios: guides/adaptive-auth/adaptive-auth-overview.md
+          - Role-Based: guides/adaptive-auth/role-based-adaptive-auth.md
+          - User Age-Based: guides/adaptive-auth/age-based-adaptive-auth.md
+          - Tenant-Based: guides/adaptive-auth/tenant-based-adaptive-auth.md
+          - Userstore-Based: guides/adaptive-auth/user-store-based-adaptive-auth.md
+          - IP-Based: guides/adaptive-auth/ip-based-adaptive-auth.md
+          - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
+          - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
+          - ACR-Based: guides/adaptive-auth/acr-based-adaptive-auth.md
+          - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
+          - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
       - Identity Federation:
         - Enterprise Identity Federation:
           - Overview: guides/identity-federation/enterprise-identity-federation.md
@@ -162,16 +162,16 @@ nav:
           - MDP with repeating attributes: guides/authorization/mdp-repeating-attr.md
           - MDP requests and responses: guides/authorization/mdp-req-and-response.md
       - Access Delegation:
-        - Overview: quick-starts/access-delegation.md
+        - Overview: guides/access-delegation/access-delegation.md
         - Authorization code flows:
-          - Authorization Code Grant: quick-starts/auth-code-playground.md
-          - Implicit Grant: quick-starts/implicit-playground.md
-          - Client Credentials Grant: quick-starts/client-credentials-playground.md
-          - Password Grant: quick-starts/password-playground.md
-          - Microprofile JWT: quick-starts/microprofile-jwt-sample.md
-          - SAML2 Bearer Assertion Profile: quick-starts/saml2-bearer-assertion-profile.md
-          - Encrypt ID Tokens: quick-starts/oidc-token-encryption-sample.md
-          - Passing OIDC Parameters as a Request Object: quick-starts/request-object.md
+          - Authorization Code Grant: guides/access-delegation/auth-code-playground.md
+          - Implicit Grant: guides/access-delegation/implicit-playground.md
+          - Client Credentials Grant: guides/access-delegation/client-credentials-playground.md
+          - Password Grant: guides/access-delegation/password-playground.md
+          - Microprofile JWT: guides/access-delegation/microprofile-jwt-sample.md
+          - SAML2 Bearer Assertion Profile: guides/access-delegation/saml2-bearer-assertion-profile.md
+          - Encrypt ID Tokens: guides/access-delegation/oidc-token-encryption-sample.md
+          - Passing OIDC Parameters as a Request Object: guides/access-delegation/request-object.md
           - Kerberos: guides/access-delegation/configure-kerberos-grant.md
           - Refresh Tokens: guides/access-delegation/configure-refresh-token.md
         - Invoke the OAuth 2.0 Introspection Endpoint: guides/access-delegation/invoke-oauth-introspection-endpoint.md
@@ -452,6 +452,7 @@ nav:
     - Usernames in WSO2 Identity Server: references/usernames-in-identity-server.md
     - Extend:
       - Work with the Source Code: references/extend/work-with-the-source-code.md
+      - Authenticator: references/extend/authenticator-x509.md
       - User management:
         #- Write a Custom Password Validator: references/extend/user-mgt/write-a-custom-password-validator.md
         - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-custom-global-scope-validator.md
