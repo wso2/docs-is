@@ -1,6 +1,6 @@
 #  Multi Attribute Login
 
-WSO2 Identity Server lets you configure multiple attributes as the login identifier. While username is the default login identifier, users can have the option to enter a mobile number, email address or any attribute of your choice.
+WSO2 Identity Server lets you configure multiple attributes as the login identifier. While username is the default login identifier, users can have the option to enter a mobile number, email address or any attribute of their choice.
 
 The following section explains how to configure WSO2 identity server for multi attribute login.
 
