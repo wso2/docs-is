@@ -436,12 +436,6 @@ nav:
         - Integrate an angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
         - Integrate a JS app: sdks/start-integrating-apps/integrate-a-js-app.md
   - References:
-    - WSO2 Identity Server: 
-      - About: get-started/about-this-release.md
-      - Architecture:
-        - Architecture: get-started/architecture.md
-        - Provisioning Architecture: get-started/provisioning-architecture.md
-        - User Management Architecture: get-started/user-management-architecture.md
     - Overview: references/references-overview.md
     - Default Ports of WSO2 Products: references/default-ports-of-wso2-products.md
     - New Configuration Model: references/new-configuration-model.md
@@ -602,6 +596,12 @@ nav:
         - GDPR: references/concepts/compliance/gdpr.md
         - eIDAS: references/concepts/compliance/eidas.md
         - CCPA: references/concepts/compliance/ccpa.md
+    - WSO2 Identity Server: 
+      - About: get-started/about-this-release.md
+      - Architecture:
+        - Architecture: get-started/architecture.md
+        - Provisioning Architecture: get-started/provisioning-architecture.md
+        - User Management Architecture: get-started/user-management-architecture.md
   - '': page-not-found.md
 
 # Extensions
