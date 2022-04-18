@@ -53,7 +53,7 @@ When multi-attribute login is configured in WSO2 IS, application users can use a
 
 ### Example: Allow users to use mobile number as a login identifier
 
-1.  Configure Multi Attribute login for the claim `http://wso2.org/claims/mobile`.
+1.  Configure multi-attribute login for the claim `http://wso2.org/claims/mobile`.
 2.  Go to the My Account URL: (`https://localhost:9443/myaccount`).
 3.  Enter mobile number as the login identifier and click **Continue**.
 
