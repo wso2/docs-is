@@ -49,7 +49,7 @@ Here are a few examples of regex patterns.
 You have now successfully set up WSO2 Identity Server to allow multi-attribute login.
 
 ## Using Multi Attribute login
-After configuring multi attribute login in WSO2 IS, the users can use any of the configured attributes to login. 
+When multi-attribute login is configured in WSO2 IS, application users can use any of the configured attributes to login. 
 
 ### Example: Allow users to use mobile number as a login identifier.
 
