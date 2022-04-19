@@ -49,12 +49,6 @@ nav:
   - Home: index.md
   - Get Started:
       - Introduction: get-started/overview.md
-      - Architecture:
-        - Architecture: get-started/architecture.md
-        - Provisioning Architecture: get-started/provisioning-architecture.md
-        - User Management Architecture: get-started/user-management-architecture.md
-      - About this Release: get-started/about-this-release.md
-      - Contribute: get-started/community.md
       - Feature Tour: get-started/quick-start-guide.md
   - Guides:
       - Overview: guides/before-you-start.md
@@ -442,6 +436,13 @@ nav:
         - Integrate a JS app: sdks/start-integrating-apps/integrate-a-js-app.md
   - References:
     - Overview: references/references-overview.md
+    - About WSO2 Identity Server:
+      - About this Release: get-started/about-this-release.md
+      - Architecture:
+        - Architecture: get-started/architecture.md
+        - Provisioning Architecture: get-started/provisioning-architecture.md
+        - User Management Architecture: get-started/user-management-architecture.md
+      - Contribute: get-started/community.md
     - Default Ports of WSO2 Products: references/default-ports-of-wso2-products.md
     - New Configuration Model: references/new-configuration-model.md
     - Product Startup Options: references/product-startup-options.md
