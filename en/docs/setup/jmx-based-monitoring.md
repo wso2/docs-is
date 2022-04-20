@@ -8,9 +8,7 @@
   
 
 ### Configuring JMX in WSO2 Identity Server
-
-JMX is enabled in WSO2 Identity Server by default ensuring that the JMX
-server starts automatically. Additionally, you can enable JMX separately for the various datasources
+JMX  can be enabled separately for the various datasources
 that are used by WSO2 IS. Once JMX is enabled, you can log in to the
 JConsole tool and monitor your WSO2 IS instance as explained in the [Monitoring WSO2 Identity Server with JConsole](#monitoring-wso2-identity-server-with-jconsole) section.
 
@@ -29,14 +27,14 @@ rmi_registry_port = "9999"
 rmi_server_por = "11111"
 ```
 
-#### Disabling JMX for the server
+#### Enabling JMX for the server
 
-You can disable the JMX server by setting the following
-property to ` false ` in the `deployment.toml` file.
+You can enable the JMX server by setting the following
+property to ` true ` in the `deployment.toml` file.
 
 ```toml
 [monitoring.jmx]
-rmi_server_start = false
+rmi_server_start = true
 ```
 
 #### Enabling JMX for a datasource
