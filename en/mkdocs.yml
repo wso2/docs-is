@@ -187,15 +187,19 @@ nav:
           - User Self-Registration Workflow: guides/identity-lifecycles/self-registration-workflow.md
           - Lite User Registration Workflow: guides/identity-lifecycles/lite-user-registration.md
           - reCAPTCHA for Self-Registration: guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
-          - Bulk Import Users: guides/identity-lifecycles/import-users.md
+          - Bulk Import Users: guides/identity-lifecycles/bulk-import-users.md
         - Manage Users:
           - Overview: guides/identity-lifecycles/manage-user-overview.md
           - List/Search Users: guides/identity-lifecycles/search-users.md
           - Delete Users: guides/identity-lifecycles/delete-users.md
           - View/Update User Profiles: guides/identity-lifecycles/update-profile.md
           - Manage User Attributes: guides/identity-lifecycles/manage-user-attributes.md
+          - Import Users: guides/identity-lifecycles/import-users.md
           - Recover Username: guides/identity-lifecycles/recover-username.md
-          - Enable Using Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
+          - Reset Password: guides/identity-lifecycles/reset-password.md
+          - Customize User Profiles: guides/identity-lifecycles/customize-profiles.md
+          - Set Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
+          - Track User Deletion: guides/identity-lifecycles/track-deletion.md
         - Manage Roles: 
           - Overview: guides/identity-lifecycles/manage-roles-overview.md
           - Add User Roles: guides/identity-lifecycles/add-user-roles.md
@@ -209,6 +213,7 @@ nav:
           - Salesforce: guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
           - Role Based Provisioning: guides/identity-lifecycles/role-based-provisioning.md
           - Rule Based Provisioning: guides/identity-lifecycles/rule-based-provisioning.md
+          - Hubspot Provisioning: guides/identity-lifecycles/hubspot-provisioning
         - Inbound Provision Users:
           - Overview: guides/identity-lifecycles/inbound-provisioning.md
           - Configure Userstores for SCIM 2.0: guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
@@ -224,6 +229,15 @@ nav:
         - Enable Verification for Updated User Attributes:
           - Enable Email Account Verification for an Updated Email Address : guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md
           - Enable Mobile Number Verification for an Updated Mobile Number: guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md
+        - Sync User Accounts:
+          - Overview: guides/identity-lifecycles/sync-account-overview.md
+          - Hubspot: guides/identity-lifecycles/sync-with-hubspot.md
+          - MailChimp: guides/identity-lifecycles/sync-with-mailchimp.md
+          - Pardot: guides/identity-lifecycles/sync-with-pardot.md
+          - Pipedrive CRM: guides/identity-lifecycles/sync-with-pipedrive.md
+          - Salesforce: guides/identity-lifecycles/sync-with-salesforce.md
+          - Sendgrid: guides/identity-lifecycles/sync-with-sendgrid.md
+          - Zoho CRM: guides/identity-lifecycles/sync-with-zoho.md
       - Password Management:
         - Password Policies: guides/password-mgt/password-policies.md
         - Admin-Initiated Password Reset: guides/password-mgt/forced-password-reset.md
