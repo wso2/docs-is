@@ -83,7 +83,7 @@ WSO2 Identity Server supports the following DBMSs.
 				<li>Oracle 12c</li>
 				<li>Microsoft SQL Server 2019</li>
 				<li>DB2 v11.5</li>
-				<li>Postgres 13</li>
+				<li>Postgres 13.6</li>
 				<li>Postgres 12.2</li>
 				<li>Postgres 12.4</li>
 				<li>MariaDB 10.4.13</li>
