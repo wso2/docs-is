@@ -2,13 +2,6 @@
 
 This page guides you through passing OpenID Connect authentication request parameters in a self contained JWT, instead of passing plain request parameters using a sample application. A JWT that contains a set of request parameters as its claims is known as a request object.
 
-----
-If you have your own application, click the button below.
-
-<a class="samplebtn_a" href="../../guides/login/oidc-request-object"   rel="nofollow noopener">I have my own application</a>
-
-----
-
 {!fragments/oauth-playground.md!}
 
 ----

@@ -54,7 +54,7 @@ Consider a scenario where you want a user who has an administrator role that can
 
 ----
 
-## Try it out
+## Try it
 
 1.  Access the sample PickUp application using the following URL: 
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`

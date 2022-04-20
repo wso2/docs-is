@@ -76,7 +76,7 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
 
 ----
 
-## Try it out
+## Try it
 
 1. Access the following sample Pickup Dispatch application URL:
 

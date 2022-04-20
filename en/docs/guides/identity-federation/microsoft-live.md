@@ -1,0 +1,1 @@
+# Configure Microsoft Live as a federated authenticator

@@ -67,7 +67,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 ----
 
-## Try it out
+## Try it
 
 1.  Access the following sample Pickup Dispatch application URL:
 

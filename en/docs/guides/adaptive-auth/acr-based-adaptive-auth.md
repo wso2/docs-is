@@ -82,7 +82,7 @@ The instructions below guide you through specifying authentication steps based o
 
 ----
 
-## Try it out
+## Try it
 
 1.  Access the following sample Playground application URL:
     `http://wso2is.local:8080/playground2/index.jsp`
