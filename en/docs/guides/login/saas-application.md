@@ -4,7 +4,7 @@ To enable users from other tenants to access your application too, follow the in
 
 -----
 
-## Configure service provider to enable SaaS
+Configure service provider to enable SaaS:
 
 {! fragments/saas-application.md !}
 

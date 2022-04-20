@@ -7,15 +7,17 @@ This page guides you through configuring [two-factor authentication](../../../re
 
 ----
 
-## Create a service provider
+## Register a service provider
 
 {!fragments/register-a-service-provider.md!}
 
-4. Expand **Local and Outbound Authentication Configuration**.
+## Configure the service provider
 
-5. Click the **Advanced Configuration** radio button. 
+1. Expand **Local and Outbound Authentication Configuration**.
 
-6. Add the following authentication steps. 
+2. Click the **Advanced Configuration** radio button. 
+
+3. Add the following authentication steps. 
     - **Step 1**
         1. Click **Add Authentication Step**.
 
@@ -32,8 +34,7 @@ This page guides you through configuring [two-factor authentication](../../../re
     
          <img name='totp-authentication-steps' src='../../../assets/img/guides/totp-authentication-steps.png' class='img-zoomable'/>
 
-7. Click **Update** to save the changes.
-
+4. Click **Update** to save the changes.
 
 You have successfully configured TOTP as the second factor of authentication. 
 You can use an application such as the [Google Authenticator Mobile Application](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en) to generate one time passwords (tokens).

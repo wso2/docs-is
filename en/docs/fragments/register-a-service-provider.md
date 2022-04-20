@@ -1,3 +1,5 @@
+You need to register your application as a service provider in WSO2 Identity Server.
+
 1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
 
 2. Navigate to **Main** > **Identity** > **Service Providers** > **Add**.

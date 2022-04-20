@@ -1,47 +1,48 @@
 # Configure Twitter as a Federated Authenticator
 
-This page guides you through configuring Twitter as a federated authenticator in WSO2 Identity Server. 
-
----
-
-This guide assumes you have your own applications. If you wish to try out this flow with a sample application, click the button below. 
-
-<a class="samplebtn_a" href="../../../quick-starts/twitter-as-federated-authenticator-sample"   rel="nofollow noopener">Try it with the sample</a>
-
----
+This page guides you through configuring Twitter as a federated authenticator in WSO2 Identity Server.
 
 ## Set up a Twitter app
 
 !!! note 
 	You can skip this section if you have already registered your application on Twitter. 
 
-1. Log in to <https://developer.twitter.com/> using your Twitter credentials. 
+1. Login to <https://developer.twitter.com/> using your Twitter credentials. 
 
-2. Click on **Developer Portal**.
+2. Click on the downwards arrow adjecent to your profile icon and select **Apps**.
 
-3. On the left panel, Click on **Projects & Apps** > **Overview**. 
+3. Click on **Create an app**.
+    
+    ![Create Twittter app](../../assets/img/samples/create-app-twitter.png)
 
-4. Click on **Create App** in the **Standalone Apps** section.
+4. Fill in the application details with the following values. 
 
-5. Give a suitable application name and click **Complete**. 
+    - App name - Pickup-Dispatch-Application
+    - Application description - A sample app which can be accessed via twitter
+    - Website URL - `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp`
+    - Select **Enable sign in with Twitter**
+    - Callback URLs - `https://localhost:9443/commonauth`
+    - Tell us how this app will be used - This is a test app used to verify logging into a sample application, using Twitter as a federated authenticator
 
-6. Click **Application Settings**.
+5. Click  **Create**.
 
-7. Click **Edit** in the **App permissions** section. 
+    ![App details](../../assets/img/samples/app-created-twitter.png)
 
-8. Select **Read and write** as the Access Permission. 
+6. Move to the next tab, **keys and tokens**. 
 
-9. Click **Save**.
+7. Click on the **Generate** button adjacent to **Access token & access token secret**. 
 
-6. Move to the **keys and tokens** tab. 
-
-7. Click on the **Generate** button adjacent to **Access Token and Secret**. 
+    ![Create access token](../../assets/img/samples/create-access-token.png)
 
 8. Make note of the Access token and Access token secret that appears next. 
 
----
+    ![Access token and access token secret](../../assets/img/samples/note-tokens.png)
 
-## Configure Twitter as an IdP in WSO2 IS 
+9. Move to the next tab, **Permissions**. 
+
+10. Select **Read and write** as the Access Permission.
+
+---
 
 {! fragments/register-an-identity-provider.md !}
 
@@ -162,7 +163,55 @@ This guide assumes you have your own applications. If you wish to try out this f
 
 ---
 
+## Try it
+
 You have successfully configured Twitter as your federated authenticator. Now, when you try to login to your application, it should redirect to the Twitter login page. On successful authentication with your Twitter credentials, you will be able to access your application. 
+
+### Set up the sample app
+
+- Download Apache Tomcat 8.x from
+[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+server installation location will be referred as `<TOMCAT_HOME>` later
+in this guide.      
+
+- It is recommended that you use a hostname that is not
+`          localhost         ` to avoid browser errors. Modify the
+`          /etc/hosts         ` entry in your machine to reflect this.
+Note that `          wso2is.local         ` is used in
+this documentation as an example, but you must modify this when
+configuring the authenticators or connectors with this sample
+application.
+
+- Download the sample from GitHub.
+    1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
+    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
+
+### Configure CORS
+
+{!fragments/cors-config.md!}
+
+### Deploy the sample app
+
+Deploy this sample web app on a web container.
+
+1.  Copy the `saml2-web-app-pickup-dispatch.com.war` file into the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder. 
+
+2.  Start the Tomcat server.
+
+### Log in
+
+1.  Access the Pickup sample application URL:
+    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
+2.  Click **Login**. You are redirected to the Twitter login page.
+  
+    ![Twitter login page](../../assets/img/samples/consent-twitter.png)
+    
+3.  Click **Continue**. 
+4.  On a new tab on your browser, access the following URL:
+    <https://twitter.com/home>.
+
+    !!! info 
+    	You are automatically logged in to your Gmail using single sign-on (SSO).
 
 !!! info "Related topics" 
     - [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)

@@ -4,7 +4,7 @@ The user's [consent](../../../references/concepts/consent-management/) is requir
 
 ----
 
-## Configure service provider to skip user consent
+Configure service provider to skip user consent:
 
 {! fragments/skip-user-consent.md !}
 

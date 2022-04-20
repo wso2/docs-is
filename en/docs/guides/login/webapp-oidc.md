@@ -2,29 +2,92 @@
 
 This page guides you through enabling login for an [OpenID Connect](../../../references/concepts/authentication/intro-oidc) web application. 
 
----
+## Register a service provider
 
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
+First, you need to register your application as a service provider in WSO2 Identity Server.
 
-<a class="samplebtn_a" href="../../../quick-starts/webapp-oidc-sample" rel="nofollow noopener">Try it with the sample</a>
+1. Log in to the management console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin as the username and password. 
+
+2. Click **Service Providers** > **Add**. 
+
+3. Enter `pickup-dispatch` as the **Service Provider Name**.
+ 
+4. Click **Register**.
+
+## Configure the service provider
+
+Select the service provider you registered from the management console and apply the following configurations:
+    
+1. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
+
+2. Click **Configure**.   
+
+3. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
+        
+4.  Enter `http://wso2is.local:8080/pickup-dispatch/oauth2client` as the **Callback Url**.
+    
+    !!! Info
+        For more information on the `Callback Url` and other configurations, see [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
+        
+5.  Click **Add**. 
+
+    !!! Note 
+        The **OAuth Client Key** and **Client Secret** are now generated. You will need these values later when deploying the sample application.
+
+6.  Click **Register** to finish creating the service provider.
 
 ----
 
-## Create a service provider
+## Try it
 
-{!fragments/register-a-service-provider.md!}
+Let's set up the sample app and log in.
 
-----
+### Set up the sample
 
-## Basic OAuth/OpenID Connect configuration
+- Download Apache Tomcat 8.x from
+[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+server installation location will be referred as `<TOMCAT_HOME>` later
+in this guide.      
 
-{!fragments/oauth-app-config-basic.md!}
+- It is recommended that you use a hostname that is not
+`          localhost         ` to avoid browser errors. Modify the
+`          /etc/hosts         ` entry in your machine to reflect this.
+Note that `          wso2is.local         ` is used in
+this documentation as an example, but you must modify this when
+configuring the authenticators or connectors with this sample
+application.
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+-   [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) the `pickup-manager.war` file from the latest released assets.
 
-----
+### Configure the sample
 
-## Login to the application
+Next, deploy the sample web app on a web container.
+
+1. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
+
+2. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
+
+    ![pickup-key-secret-2](../../../assets/img/fragments/pickup-key-secret-2.png)
+
+3. Next, copy the extracted and modified `pickup-manager` folder to the `<TOMCAT_HOME>/webapps` folder.
+
+### Log in
+
+Now, let's log in to the application.
+
+1. Start the Tomcat server and access the following URL on your browser: `http://wso2is.local:8080/pickup-dispatch/home.jsp`.
+
+2. Click **Login**. You will be redirected to the login page of WSO2 Identity Server. 
+
+3. Log in using your WSO2 Identity Server credentials (e.g., admin/admin). 
+
+4.  Provide the required consent when prompted. 
+
+    You will be redirected to the Pickup Dispatch application's home page.
+
+You have successfully configured authentication for an OpenID Connect application.
+
+## How OIDC login works
 
 1. Obtain the `authorization_code` by sending an authorization request to the authorization endpoint.
 
@@ -92,7 +155,6 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 !!! info "Related topics"
     - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
-    - [Quick Start: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
     - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
     - [Guide: Authorization Code Grant](../../access-delegation/authorization-code/)
     - [Guide: Manage User Sessions](../session-management-logout)

@@ -1,4 +1,4 @@
-## Configure the service provider public certificate
+## Configure the public certificate
 
 The following steps describe how to configure a service provider public certificate.
 

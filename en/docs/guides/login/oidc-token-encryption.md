@@ -1,22 +1,14 @@
 # Encrypt ID Tokens
 
-This page guides you through configuring token encryption for ID tokens. 
+This page guides you through configuring token encryption for ID tokens.
 
-----
-
-This guide assumes you have your own application. If you wish to try out this flow with a sample application click the button below. 
-
-<a class="samplebtn_a" href="../../../quick-starts/oidc-token-encryption-sample"   rel="nofollow noopener">Try it with the sample</a>
-
-----
-
-## Configure the service provider
+## Register a service provider
 
 {!fragments/register-a-service-provider.md!}
 
 ----
 
-## OAuth/OpenID Connect configuration
+## Configure the service provider
 
 Make the following changes to the created service provider.
 
@@ -51,7 +43,7 @@ Make the following changes to the created service provider.
 
 ----
 
-## Try it out
+## Try it
 
 This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token](../../../guides/login/oidc-token-decryption).
 

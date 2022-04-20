@@ -15,6 +15,36 @@ With OAuth as its base, OpenID Connect allows many types of clients such
 as web-based clients, mobile clients and javascript clients to verify
 the users with an authorization server-based authentication.
 
+## Configure the identity provider
+
+You need to configure an oauth application in the federated authorization server and get the application information such as client ID and secret. For example, see [configure OAuth2-OpenID Connect single sign-on](../../../guides/login/webapp-oidc/).
+
+!!! tip
+    By default, the **Client Id** and **Client Secret** are stored as
+    plain text values, where the **Client Secret** is generally stored
+    as a random number generated using two UUIDs and HMAC-SHA1 hash
+    function, which is known to resist the strongest attack known
+    against HMAC.
+
+    If you want to change the format in which the **Client Secret** is
+    stored, open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration.
+
+    ```toml
+    [oauth]
+    hash_tokens_and_secrets = true 
+    ```
+
+    Once you configure a required token persistence processor, be sure
+    to restart the server for the changes to be applied to WSO2 Identity
+    Server.
+    
+<!--For information on
+possible values that you can specify based on your
+requirement, see [Supported token persistence
+processors](TO-DO:../../learn/extension-points-for-oauth#token-persistence-processor).-->
+
+## Register the identity provider
+
 1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using the `admin/admin` credentials.
     
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
@@ -30,35 +60,6 @@ the users with an authorization server-based authentication.
         WSO2 Identity Server supports RP-initiated logout requests to OpenID Connect identity providers.
     
 5.  Fill in the following fields where relevant.
-
-    Prior to this, you need to configure an oauth application in the
-    federated authorization server and get the application information
-    such as client ID and secret. For example, see
-    [configure OAuth2-OpenID Connect single sign-on](../../../guides/login/webapp-oidc/).
-
-    !!! tip
-        By default, the **Client Id** and **Client Secret** are stored as
-        plain text values, where the **Client Secret** is generally stored
-        as a random number generated using two UUIDs and HMAC-SHA1 hash
-        function, which is known to resist the strongest attack known
-        against HMAC.
-    
-        If you want to change the format in which the **Client Secret** is
-        stored, open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration.
-
-        ```toml
-        [oauth]
-		hash_tokens_and_secrets = true 
-		```
-
-        Once you configure a required token persistence processor, be sure
-        to restart the server for the changes to be applied to WSO2 Identity
-        Server.
-    
-     <!--For information on
-        possible values that you can specify based on your
-        requirement, see [Supported token persistence
-        processors](TO-DO:../../learn/extension-points-for-oauth#token-persistence-processor).-->
 
     <div class="tg-wrap"><table>
     <thead>

@@ -12,6 +12,8 @@ to configure authentication for native mobile applications.
 
 ---
 
+## Configure the service provider
+
 {!fragments/oauth-app-pkce.md!}
 
 ----
