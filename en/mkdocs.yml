@@ -860,10 +860,10 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
-plugins:
-    - redirects:
-          redirect_maps:
-              'references/references-overview.md': 'https://is.docs.wso2.com/en/next/administer/wso2-administration-guide/'
+# plugins:
+#    - redirects:
+#          redirect_maps:
+#              'references/references-overview.md': 'https://is.docs.wso2.com/en/next/administer/wso2-administration-guide/'
 
 # Extra
 extra_css:
