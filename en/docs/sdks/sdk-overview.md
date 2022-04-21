@@ -1,27 +1,41 @@
 # Overview
 
-This section lists all the SDKs related to WSO2 Identity Server (WSO2 IS) written using various technologies. The samples to test out each SDK's features are mentioned in the respective SDK docs listed below.
+This section lists all the SDKs related to WSO2 Identity Server (WSO2 IS) written using various technologies. 
 
-- [SAML-based login for Apache Tomcat web apps using Asgardeo Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent)
+## Guides
 
-- [Asgardeo SAML SDK for Java to integrate SAML based SSO authentication with Java web applications](https://github.com/asgardeo/asgardeo-java-saml-sdk)
+Try integrating one of the sample applications.
 
-- [JavaScript OIDC SDK to implement OIDC authentication in JavaScript/TypeScript based apps](https://github.com/asgardeo/asgardeo-js-oidc-sdk)
+- [Integrate a sample React application](../sdks/start-integrating-apps/integrate-a-react-app.md)
 
-- [Android OIDC SDK to secure android-based applications](https://github.com/asgardeo/asgardeo-android-oidc-sdk)
+- [Integrate a sample Angular application](../sdks/start-integrating-apps/integrate-an-angular-app.md)
 
-- [.NET OIDC SDK to add OIDC-based login to .NET apps](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk)
+- [Integrate a sample JavaScript application](../sdks/start-integrating-apps/integrate-a-js-app.md)
 
-- [Spring-boot application for secure OIDC authentication](https://github.com/wso2-extensions/identity-samples-spring-boot)
 
-- [Asgardeo Auth Angular SDK for Angular Applications to use OIDC or OAuth2 authentication](https://github.com/asgardeo/asgardeo-auth-angular-sdk)
+## Github repositories
 
-- [React Native OIDC SDK to add OIDC or OAuth2 authentication in mobile applications](https://github.com/asgardeo/asgardeo-react-native-oidc-sdk)
+Apart from the above guides provided, you can use the following Github repository links to view the source code, download samples, and test out how the SDKs work with WSO2 IS.
 
-- [Asgardeo Auth React SDK for JavaScript to use OIDC or OAuth2 authentication in React applications](https://github.com/asgardeo/asgardeo-auth-react-sdk)
+- [Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent)
 
-- [Asgardeo Auth SPA SDK for JavaScript to allow Single Page Applications to use OIDC or OAuth2 authentication](https://github.com/asgardeo/asgardeo-auth-spa-sdk)
+- [Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent)
 
-- [OIDC-based login for Apache Tomcat web apps using Asgardeo Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent)
+- [SAML SDK for Java](https://github.com/asgardeo/asgardeo-java-saml-sdk)
 
-- [Asgardeo OIDC SDK for Java to integrate OIDC based SSO authentication with Java web applications](https://github.com/asgardeo/asgardeo-java-oidc-sdk)
+- [OIDC SDK for Java](https://github.com/asgardeo/asgardeo-java-oidc-sdk)
+
+- [Android OIDC SDK](https://github.com/asgardeo/asgardeo-android-oidc-sdk)
+
+- [.NET OIDC SDK](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk)
+
+- [React Native OIDC SDK](https://github.com/asgardeo/asgardeo-react-native-oidc-sdk)
+
+- [Auth Single Page Application SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk)
+
+- [Spring-boot application](https://github.com/wso2-extensions/identity-samples-spring-boot)
+
+
+
+
+

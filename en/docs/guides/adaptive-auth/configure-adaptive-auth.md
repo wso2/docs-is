@@ -4,9 +4,7 @@ This page guides you through setting up [adaptive authentication](../../../refer
 
 -----
 
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
-
-<a class="samplebtn_a" href="../../../quick-starts/adaptive-auth-overview"   rel="nofollow noopener">Try it with the sample</a>
+This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below.
 
 !!! note
     The following scenarios are available as samples.
