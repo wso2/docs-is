@@ -185,10 +185,13 @@ nav:
           - Passing OIDC Parameters as a Request Object: guides/access-delegation/request-object.md
           - Kerberos: guides/access-delegation/configure-kerberos-grant.md
           - Refresh Tokens: guides/access-delegation/configure-refresh-token.md
+          - JWT Grant: guides/access-delegation/configure-jwt-grant.md
         - Invoke the OAuth 2.0 Introspection Endpoint: guides/access-delegation/invoke-oauth-introspection-endpoint.md
         - OAuth 2.0 Dynamic Client Registration: guides/access-delegation/oauth-dynamic-client-registration.md
         - OAuth 2.0 Client Authentication: guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
         - OAuth Transaction Logs: guides/access-delegation/oauth-transaction-logs.md
+        - OAuth Token Hashing: guides/access-delegation/oauth-token-hashing.md
+        - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
       - User management:
         - Onboard Users:
