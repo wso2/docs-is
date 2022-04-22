@@ -12,7 +12,7 @@ You should have a secondary JDBC userstore added.  [Create a JDBC user store](..
 ## Configure PBKDF2 hashing
 To configure PBKDF2 hashing on a JDBC user store: 
 
-1. On Identity Server console application (`https://<IS_HOST>:<PORT>/console`), go to  **Manage > Userstores**.
+1. On Identity Server management console (`https://<IS_HOST>:<PORT>`), go to  **Manage > Userstores**.
 2. Select the secondary JDBC userstore you have created.
 3. Navigate to the **User** tab of the userstore and expand the **Show more** section.
 4. Edit the following properties with the values given: 
