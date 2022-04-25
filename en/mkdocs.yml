@@ -48,14 +48,148 @@ theme:
 nav:
   - Home: index.md
   - Get Started:
-      - Introduction: get-started/overview.md
-      - Architecture:
-        - Architecture: get-started/architecture.md
-        - Provisioning Architecture: get-started/provisioning-architecture.md
-        - User Management Architecture: get-started/user-management-architecture.md
-      - About this Release: get-started/about-this-release.md
-      - Contribute: get-started/community.md
-      - Feature Tour: get-started/quick-start-guide.md
+      - Introduction: get-started/quick-start-guide.md
+      - Try it:
+          - Sample scenario: sample-use-cases/index.md
+          - Quick set up: sample-use-cases/set-up.md
+          - Try a use case:
+            - Single Sign-On: sample-use-cases/single-sign-on.md
+            - Multi-factor authentication: sample-use-cases/multi-factor-authentication.md
+            - Federated authentication: sample-use-cases/federated-authentication.md
+            - Self sign-up: sample-use-cases/self-sign-up.md
+  - Setup:
+      - Install:
+        - Install: deploy/get-started/install.md
+        - Run: deploy/get-started/run-the-product.md
+        - Get WSO2 Updates: deploy/get-started/get-wso2-updates.md
+        - Management Console:
+          - Overview: deploy/get-started/get-started-with-the-management-console.md
+          - Customize: deploy/get-started/customize-the-management-console.md  
+      - Configure:
+        - User Stores:
+          - Overview: deploy/configure-the-realm.md
+          - Configure the Authorization Manager: deploy/configure-the-authorization-manager.md
+          - Configure the System Administrator: deploy/configure-the-system-administrator.md
+          - Configure Userstores:
+            - Overview: deploy/configure-user-stores.md
+            - Configure the Primary Userstore: 
+              - Overview: deploy/configure-the-primary-user-store.md
+              - Configure a JDBC Userstore: deploy/configure-a-jdbc-user-store.md
+              - Configure a Read-only LDAP Userstore: deploy/configure-a-read-only-ldap-user-store.md
+              - Configure a Read-write Active Directory Userstore: deploy/configure-a-read-write-active-directory-user-store.md
+              - Configure a Read-write LDAP Userstore: deploy/configure-a-read-write-ldap-user-store.md
+            - Add High Availability for LDAP: deploy/add-high-availability-for-ldap.md
+            - Configure Secondary Userstores: deploy/configure-secondary-user-stores.md
+            #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
+            - Work with Properties of Userstores: deploy/work-with-properties-of-user-stores.md
+            - Write a Custom Userstore Manager: deploy/write-a-custom-user-store-manager.md
+        - Data Stores:
+          - Databases:
+            - Overview: deploy/work-with-databases.md
+            - Change the Carbon Database:
+              - Change to IBM DB2: deploy/change-to-ibm-db2.md
+              - Change to MariaDB: deploy/change-to-mariadb.md
+              - Change to MSSQL: deploy/change-to-mssql.md
+              - Change to MySQL: deploy/change-to-mysql.md
+              - Change to Oracle: deploy/change-to-oracle.md
+              - Change to Oracle RAC: deploy/change-to-oracle-rac.md
+              - Change to PostgreSQL: deploy/change-to-postgresql.md
+              - Change to remote H2: deploy/change-to-remote-h2.md
+              - Change the Default Datasource of BPS: deploy/change-datasource-bpsds.md
+              - Change the Default Datasource for Consent Management: deploy/change-datasource-consent-management.md
+            - Browse the H2 Database: deploy/browse-the-h2-database.md
+            - Data Dictionary:
+              - Registry Related Tables: deploy/registry-related-tables.md
+              - User Management Related Tables: deploy/user-management-related-tables.md
+              - Identity Related Tables: deploy/identity-related-tables.md
+              - Service Provider Related Tables: deploy/service-provider-related-tables.md
+              - Identity Provider Related Tables: deploy/identity-provider-related-tables.md
+            - Data Purging: deploy/data-purging.md
+            - Remove References to Deleted User Identities: deploy/remove-references-to-deleted-user-identities.md
+        - Analytics:
+          - Configure an SP and IdP Using Configuration Files: deploy/configure-an-sp-and-idp-using-configuration-files.md
+      - Secure:
+        - Mitigate Attacks:
+          - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
+          - Mitigate Authorization Code Interception Attacks: deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
+          - Mitigate Brute Force Attacks: deploy/mitigate-attacks/mitigate-brute-force-attacks.md
+          - Mitigate Replay Attacks: deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
+          - SameSite Attribute Support: deploy/samesite-attribute-support.md
+          - Prevent Browser Caching: deploy/security/prevent-browser-caching.md
+        - Work with Tokens: 
+          - Add Logs for Tokens: deploy/add-logs-for-tokens.md
+          - Token Persistence: deploy/token-persistence.md
+          - Remove Unused Tokens from the Database: deploy/remove-unused-tokens-from-the-database.md
+          - Enable Assertions In Access Tokens: deploy/enable-assertions-in-access-tokens.md
+        #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
+        - Configure the Email Sending Module: deploy/configure-email-sending.md
+        - Enable HostName Verification: deploy/enable-hostname-verification.md
+        - Configure TLS Termination: deploy/configure-tls-termination.md
+        - Maintain Logins and Passwords: deploy/security/maintain-logins-and-passwords.md
+        - Secure Passwords in Configuration Files: 
+          - Encrypt Passwords with Cipher Tool: deploy/security/encrypt-passwords-with-cipher-tool.md
+          - Resolve Encrypted Passwords: deploy/security/resolve-encrypted-passwords.md
+          - Customize Secure Vault: deploy/security/customize-secure-vault.md
+          - Set Passwords using Environment Variables/System Properties: deploy/security/set-passwords-using-environment-variables-or-system-properties.md
+        - Enable HTTP Strict Transport Security (HSTS) Headers: deploy/security/enable-hsts.md
+        - Configure Transport Level Security: deploy/security/configure-transport-level-security.md
+        - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
+        - Security Guidelines:
+          - Overview: deploy/security/security-guidelines-for-production-deployment.md
+          - Product-Level: deploy/security/product-level-security-guidelines.md
+          - OS-Level: deploy/security/os-level-security-guidelines.md 
+          - Network-Level: deploy/security/network-level-security-guidelines.md
+        - Encryption:
+          - Asymmetric Encryption:
+            - Use Asymmetric Encryption: deploy/security/use-asymmetric-encryption.md
+            - Create New Keystores: deploy/security/create-new-keystores.md
+            - Configure Keystores: deploy/security/configure-keystores-in-wso2-products.md
+            - Renew a CA-Signed Certificate in a Keystore: deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md
+            - Manage Keystores via UI: deploy/security/manage-keystores-with-the-ui.md
+            - Add Multiple Keys to the Primary Keystore: deploy/security/add-multiple-keys-to-the-primary-keystore.md
+          - Symmetric Encryption:
+            - Overview: deploy/security/symmetric-overview.md
+            - Configurations Related to Symmetric Key Encryption: deploy/security/use-symmetric-encryption.md
+      - Deploy:
+        - Deployment Patterns: deploy/deployment-guide.md
+        - Set up WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
+        - Set up Separate Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
+        - Change the hostname: deploy/change-the-hostname.md
+        - Configure Hazelcast: deploy/configure-hazelcast.md
+        - Deployment Checklist: deploy/deployment-checklist.md
+        - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
+        - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
+        - Configure External PEP Endpoints Notifications: deploy/ext-pep-endpoint-notifications.md
+        - Enable XACML Policy Updates Notifications: deploy/enable-xacml-policy-update-notifications.md
+        - Performance:
+          - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
+          - Configure Cache Layers: deploy/performance/configure-cache-layers.md
+          - Improve PDP performance: deploy/performance/improve-pdp-performance.md
+        - Environment Compatibility: deploy/environment-compatibility.md
+      - Monitor:
+        - Overview: deploy/monitor/monitor-the-identity-server.md
+        - Monitor Logs:
+          - Overview: deploy/monitor/monitor-logs.md
+          - HTTP Access Logging: deploy/monitor/http-access-logging.md
+          - Mask Sensitive Information in Logs: deploy/monitor/mask-sensitive-information-in-logs.md
+          - Log Claims in Audit Logs: deploy/monitor/log-claims-in-audit-logs.md
+        - System Statistics: deploy/monitor/system-statistics.md
+        - Monitor TCP-Based Messages:
+          - Monitor TCP-based Messages: deploy/monitor/monitor-tcp-based-messages.md
+          - Message Monitoring with TCPMon: deploy/monitor/message-monitoring-with-tcpmon.md
+          - Other Usages of TCPMon: deploy/monitor/other-usages-of-tcpmon.md
+        - Monitor Server Health: deploy/monitor/monitor-server-health.md
+        - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
+        - Work with Product Observability: deploy/monitor/work-with-product-observability.md
+      - Migrate:
+        - Migration Process: deploy/migrate/migration-process.md
+        - What has Changed: deploy/migrate/what-has-changed.md
+        - Migration Guide:
+          - Before you Begin: deploy/migrate/migration-guide.md
+          - Prepare for Migration: deploy/migrate/prepare-for-migration.md
+          - Migrate to 5.11.0: deploy/migrate/migrate-to-5110.md
+          - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
+        - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
   - Guides:
       - Overview: guides/before-you-start.md
       - Authentication:
@@ -253,139 +387,7 @@ nav:
           - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
           - Configure Email Notifications for Account Locking: guides/tenants/email-account-locking.md
       - User Self-Service: guides/my-account/my-account.md
-  - Setup:
-      - Install:
-        - Install: deploy/get-started/install.md
-        - Run: deploy/get-started/run-the-product.md
-        - Get WSO2 Updates: deploy/get-started/get-wso2-updates.md
-        - Management Console:
-          - Overview: deploy/get-started/get-started-with-the-management-console.md
-          - Customize: deploy/get-started/customize-the-management-console.md  
-      - Configure:
-        - User Stores:
-          - Overview: deploy/configure-the-realm.md
-          - Configure the Authorization Manager: deploy/configure-the-authorization-manager.md
-          - Configure the System Administrator: deploy/configure-the-system-administrator.md
-          - Configure Userstores:
-            - Overview: deploy/configure-user-stores.md
-            - Configure the Primary Userstore: 
-              - Overview: deploy/configure-the-primary-user-store.md
-              - Configure a JDBC Userstore: deploy/configure-a-jdbc-user-store.md
-              - Configure a Read-only LDAP Userstore: deploy/configure-a-read-only-ldap-user-store.md
-              - Configure a Read-write Active Directory Userstore: deploy/configure-a-read-write-active-directory-user-store.md
-              - Configure a Read-write LDAP Userstore: deploy/configure-a-read-write-ldap-user-store.md
-            - Add High Availability for LDAP: deploy/add-high-availability-for-ldap.md
-            - Configure Secondary Userstores: deploy/configure-secondary-user-stores.md
-            #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
-            - Work with Properties of Userstores: deploy/work-with-properties-of-user-stores.md
-            - Write a Custom Userstore Manager: deploy/write-a-custom-user-store-manager.md
-        - Data Stores:
-          - Databases:
-            - Overview: deploy/work-with-databases.md
-            - Change the Carbon Database:
-              - Change to IBM DB2: deploy/change-to-ibm-db2.md
-              - Change to MariaDB: deploy/change-to-mariadb.md
-              - Change to MSSQL: deploy/change-to-mssql.md
-              - Change to MySQL: deploy/change-to-mysql.md
-              - Change to Oracle: deploy/change-to-oracle.md
-              - Change to Oracle RAC: deploy/change-to-oracle-rac.md
-              - Change to PostgreSQL: deploy/change-to-postgresql.md
-              - Change to remote H2: deploy/change-to-remote-h2.md
-              - Change the Default Datasource of BPS: deploy/change-datasource-bpsds.md
-              - Change the Default Datasource for Consent Management: deploy/change-datasource-consent-management.md
-            - Browse the H2 Database: deploy/browse-the-h2-database.md
-            - Data Dictionary:
-              - Registry Related Tables: deploy/registry-related-tables.md
-              - User Management Related Tables: deploy/user-management-related-tables.md
-              - Identity Related Tables: deploy/identity-related-tables.md
-              - Service Provider Related Tables: deploy/service-provider-related-tables.md
-              - Identity Provider Related Tables: deploy/identity-provider-related-tables.md
-            - Data Purging: deploy/data-purging.md
-            - Remove References to Deleted User Identities: deploy/remove-references-to-deleted-user-identities.md
-        - Analytics:
-          - Configure an SP and IdP Using Configuration Files: deploy/configure-an-sp-and-idp-using-configuration-files.md
-      - Secure:
-        - Mitigate Attacks:
-          - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
-          - Mitigate Authorization Code Interception Attacks: deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
-          - Mitigate Brute Force Attacks: deploy/mitigate-attacks/mitigate-brute-force-attacks.md
-          - Mitigate Replay Attacks: deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
-          - SameSite Attribute Support: deploy/samesite-attribute-support.md
-          - Prevent Browser Caching: deploy/security/prevent-browser-caching.md
-        - Work with Tokens: 
-          - Add Logs for Tokens: deploy/add-logs-for-tokens.md
-          - Token Persistence: deploy/token-persistence.md
-          - Remove Unused Tokens from the Database: deploy/remove-unused-tokens-from-the-database.md
-          - Enable Assertions In Access Tokens: deploy/enable-assertions-in-access-tokens.md
-        #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
-        - Configure the Email Sending Module: deploy/configure-email-sending.md
-        - Enable HostName Verification: deploy/enable-hostname-verification.md
-        - Configure TLS Termination: deploy/configure-tls-termination.md
-        - Maintain Logins and Passwords: deploy/security/maintain-logins-and-passwords.md
-        - Secure Passwords in Configuration Files: 
-          - Encrypt Passwords with Cipher Tool: deploy/security/encrypt-passwords-with-cipher-tool.md
-          - Resolve Encrypted Passwords: deploy/security/resolve-encrypted-passwords.md
-          - Customize Secure Vault: deploy/security/customize-secure-vault.md
-          - Set Passwords using Environment Variables/System Properties: deploy/security/set-passwords-using-environment-variables-or-system-properties.md
-        - Enable HTTP Strict Transport Security (HSTS) Headers: deploy/security/enable-hsts.md
-        - Configure Transport Level Security: deploy/security/configure-transport-level-security.md
-        - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
-        - Security Guidelines:
-          - Overview: deploy/security/security-guidelines-for-production-deployment.md
-          - Product-Level: deploy/security/product-level-security-guidelines.md
-          - OS-Level: deploy/security/os-level-security-guidelines.md 
-          - Network-Level: deploy/security/network-level-security-guidelines.md
-        - Encryption:
-          - Asymmetric Encryption:
-            - Use Asymmetric Encryption: deploy/security/use-asymmetric-encryption.md
-            - Create New Keystores: deploy/security/create-new-keystores.md
-            - Configure Keystores: deploy/security/configure-keystores-in-wso2-products.md
-            - Renew a CA-Signed Certificate in a Keystore: deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md
-            - Manage Keystores via UI: deploy/security/manage-keystores-with-the-ui.md
-            - Add Multiple Keys to the Primary Keystore: deploy/security/add-multiple-keys-to-the-primary-keystore.md
-          - Symmetric Encryption:
-            - Overview: deploy/security/symmetric-overview.md
-            - Configurations Related to Symmetric Key Encryption: deploy/security/use-symmetric-encryption.md
-      - Deploy:
-        - Deployment Patterns: deploy/deployment-guide.md
-        - Set up WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
-        - Set up Separate Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
-        - Change the hostname: deploy/change-the-hostname.md
-        - Configure Hazelcast: deploy/configure-hazelcast.md
-        - Deployment Checklist: deploy/deployment-checklist.md
-        - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
-        - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
-        - Configure External PEP Endpoints Notifications: deploy/ext-pep-endpoint-notifications.md
-        - Enable XACML Policy Updates Notifications: deploy/enable-xacml-policy-update-notifications.md
-        - Performance:
-          - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
-          - Configure Cache Layers: deploy/performance/configure-cache-layers.md
-          - Improve PDP performance: deploy/performance/improve-pdp-performance.md
-        - Environment Compatibility: deploy/environment-compatibility.md
-      - Monitor:
-        - Overview: deploy/monitor/monitor-the-identity-server.md
-        - Monitor Logs:
-          - Overview: deploy/monitor/monitor-logs.md
-          - HTTP Access Logging: deploy/monitor/http-access-logging.md
-          - Mask Sensitive Information in Logs: deploy/monitor/mask-sensitive-information-in-logs.md
-          - Log Claims in Audit Logs: deploy/monitor/log-claims-in-audit-logs.md
-        - System Statistics: deploy/monitor/system-statistics.md
-        - Monitor TCP-Based Messages:
-          - Monitor TCP-based Messages: deploy/monitor/monitor-tcp-based-messages.md
-          - Message Monitoring with TCPMon: deploy/monitor/message-monitoring-with-tcpmon.md
-          - Other Usages of TCPMon: deploy/monitor/other-usages-of-tcpmon.md
-        - Monitor Server Health: deploy/monitor/monitor-server-health.md
-        - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
-        - Work with Product Observability: deploy/monitor/work-with-product-observability.md
-      - Migrate:
-        - Migration Process: deploy/migrate/migration-process.md
-        - What has Changed: deploy/migrate/what-has-changed.md
-        - Migration Guide:
-          - Before you Begin: deploy/migrate/migration-guide.md
-          - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-          - Migrate to 5.11.0: deploy/migrate/migrate-to-5110.md
-          - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
-        - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
+  
   - APIs:
       - Overview: 
           - Introduction: apis/rest-apis.md
@@ -442,6 +444,13 @@ nav:
         - Integrate a JS app: sdks/start-integrating-apps/integrate-a-js-app.md
   - References:
     - Overview: references/references-overview.md
+    - About WSO2 Identity Server: 
+      - Architecture:
+        - Architecture: get-started/architecture.md
+        - Provisioning Architecture: get-started/provisioning-architecture.md
+        - User Management Architecture: get-started/user-management-architecture.md
+      - About this Release: get-started/about-this-release.md
+      - Contribute: get-started/community.md
     - Default Ports of WSO2 Products: references/default-ports-of-wso2-products.md
     - New Configuration Model: references/new-configuration-model.md
     - Product Startup Options: references/product-startup-options.md
