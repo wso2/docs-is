@@ -1,14 +1,6 @@
 # Encrypt ID Tokens
 
-This page guides you through configuring token encryption for ID tokens using the WSO2 IS playground sample application. 
-
-----
-
-If you have your own application, click the button below.
-
-<a class="samplebtn_a" href="../../guides/login/oidc-token-encryption"   rel="nofollow noopener">I have my own application</a>
-
-----
+This page guides you through configuring token encryption for ID tokens using the WSO2 IS playground sample application.
 
 ## Set up the sample application
 

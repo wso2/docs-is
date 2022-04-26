@@ -4,9 +4,9 @@ WSO2 Identity Server supports the [OpenID Connect hybrid flow](../../../referenc
 
 Specifying any of the following `response_type` values in an authorization request selects the hybrid flow for authentication.
 
--   [code token](#code-token)
--   [code id\_token](#code-id_token)
--   [code id\_token token](#code-id_token-token)
+- [code token](#code-token)
+- [code id\_token](#code-id_token)
+- [code id\_token token](#code-id_token-token)
 
 To understand how the `response_type` value specified in an authorization request selects the hybrid flow to be the authentication flow, let's take a look at the following `response_type` values in detail.
 
@@ -18,7 +18,7 @@ To understand how the `response_type` value specified in an authorization reques
 
 ---
 
-## Basic OAuth/OpenID Connect configuration
+## Configure the service provider
 
 {!fragments/oauth-app-config-basic.md!}
 
@@ -26,7 +26,11 @@ To understand how the `response_type` value specified in an authorization reques
 
 ---
 
-## code token
+## Try out the flows
+
+Let's try out the different OIDC hybrid flows by specifyin the following response types in the authorization request.
+
+### Get code and access token
 
 This `response_type` requests a code and an access token from the authorization endpoint.  
   
@@ -100,7 +104,7 @@ There can be instances where you get two access tokens. One from the authorizati
 
 ---
 
-## code id_token 
+### Get code and id token
 
 This `response_type` requests a code and an id\_token from the authorization endpoint.
 
@@ -194,7 +198,7 @@ This `response_type` requests a code and an id\_token from the authorization end
 
 -----
 
-## code id_token token 
+### Get code, access token, and id token
 
 This `response_type` requests a code, an access token, and an id\_token from the authorization endpoint.
 

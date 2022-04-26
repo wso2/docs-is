@@ -10,7 +10,7 @@ relevant responses that the WSO2 Identity Server would generate for the
 
 ---
 
-## Basic OAuth/OpenID Connect configuration
+## Configure the service provider
 
 {!fragments/oauth-app-config-basic.md!}
 
@@ -18,7 +18,11 @@ relevant responses that the WSO2 Identity Server would generate for the
 
 ---
 
-## Response\_type=id\_token
+## Try out the flows
+
+Let's try out the different OIDC hybrid flows by specifyin the following response types in the authorization request.
+
+### Get id token
 
 1. Send the following request using a browser-based application.
 
@@ -73,7 +77,7 @@ relevant responses that the WSO2 Identity Server would generate for the
 
 ---
 
-## Response\_type : id\_token token
+### Get access token and id token
 
 1. Send the following request using a browser-based application.
 
