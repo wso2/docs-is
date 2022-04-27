@@ -219,8 +219,10 @@ nav:
             - Hubspot: guides/identity-lifecycles/hubspot-provisioning.md
           - Inbound Provision Users:
             - Overview: guides/identity-lifecycles/inbound-provisioning.md
+            - Configure Userstores for SCIM 1.1: guides/identity-lifecycles/configure-user-stores-for-scim1.1-based-inbound-provisioning.md
             - Configure Userstores for SCIM 2.0: guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
-            - Configure Active Directory Userstores: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
+            - Configure Active Directory Userstores for SCIM 1.1: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
+            - Configure Active Directory Userstores for SCIM 2.0: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
             - Setup Service Provider for Inbound Provisioning: guides/identity-lifecycles/sp-for-inbound-provisioning.md
           - Just-in-Time Provision Users:
             - Configure Just-In-Time Provisioning for an Identity Provider: guides/identity-lifecycles/jit-workflow.md
