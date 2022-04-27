@@ -2,17 +2,9 @@
 
 This page guides you through querying dynamic or existing SAML2 assertions using standard request messages via WSO2 Identity Server. 
 
-Due to some reason if you can not pass a SAML Assertion to the backend, then you can pass an identifier with the request to query and obtain the assertion from the backend instead. 
+Due to some reason if you can not pass a SAML Assertion to the backend, then you can pass an identifier with the request to query and obtain the assertion from the backend instead.
 
-----
-
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
-
-<a class="samplebtn_a" href="../../../quick-starts/query-saml-assertions-sample" rel="nofollow noopener">Try it with the sample</a>
-
-----
-
-## Create a service provider
+## Register a service provider
 
 1.  Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). 
 

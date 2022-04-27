@@ -70,7 +70,7 @@ The instructions below guide you through specifying authentication steps based o
 
 ----
 
-## Try it out
+## Try it
 
 1.  Access the following sample Pickup Dispatch application URL:
     

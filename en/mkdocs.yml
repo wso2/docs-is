@@ -69,30 +69,36 @@ nav:
             - Salesforce: guides/login/log-into-salesforce-using-is.md
             - Google: guides/login/log-into-google-using-is.md
           - Request Path Authentication:
-            - Basic Auth Request Path Authentication: guides/basic-auth-request-path.md
-            - OAuth Request Path Authentication: guides/oauth-request-path.md
+            - Overview: guides/request-path-auth/request-paths-overview.md
+            - Basic Auth Request Path Authentication: guides/request-path-auth/basic-auth-request-path.md
+            - OAuth Request Path Authentication: guides/request-path-auth/oauth-request-path.md
           - Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
           - Advanced settings:
             - Skip User Consent: guides/login/skip-user-consent.md
             - SaaS Applications: guides/login/saas-application.md
             - Use Certificates with Applications: guides/login/use-certificates-with-applications.md
             - SP/IdP Session Timeout: guides/login/session-timeout.md
-            - Advanced OpenID Connect:
-              - Advanced Configurations: guides/login/oauth-app-config-advanced.md
-              - Use Advanced Parameters in the Authentication Request: guides/login/oidc-parameters-in-auth-request.md
-              - Pass Parameters as a Request Object: guides/login/oidc-request-object.md
-              - Manage Scopes and Claims: guides/login/oidc-scopes-claims.md
-              - Encrypt ID Tokens: guides/login/oidc-token-encryption.md
-              - Decrypt ID Tokens: guides/login/oidc-token-decryption.md
-              - Discover OpenID Connect Provider: guides/login/oidc-discovery.md
-              - Obtain Key Set Using JWKS: guides/login/using-jwks.md
-              - Validate JWT based on JWKS: guides/login/validate-jwt-using-jwks.md
-            - Advanced SAML:
-              - Advanced Configurations: guides/login/saml-app-config-advanced.md
-              - Use Advanced Parameters in the Authentication Request: guides/login/saml-parameters-in-auth-request.md
-              - Use SAML Artifact Binding: guides/login/use-artifact-binding.md
-              - Query SAML Assertions: guides/login/query-saml-assertions.md
-              - Use SAML Metadata: guides/login/use-saml-metadata.md
+            - Multi-attribute login: guides/login/multi-attribute-login.md
+        - OpenID Connect:
+          - Overview: guides/login/oidc-authentication.md 
+          - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 
+          - OIDC Implicit Flow: guides/login/oidc-implicit-client-profile.md 
+          - OIDC Hybrid Flow: guides/login/oidc-hybrid-flow.md 
+          - Advanced Configurations: guides/login/oauth-app-config-advanced.md
+          - Use Advanced Parameters in the Authentication Request: guides/login/oidc-parameters-in-auth-request.md
+          - Pass Parameters as a Request Object: guides/login/request-object.md
+          - Manage Scopes and Claims: guides/login/oidc-scopes-claims.md
+          - Encrypt ID Tokens: guides/login/oidc-token-encryption.md
+          - Decrypt ID Tokens: guides/login/oidc-token-decryption.md
+          - Discover OpenID Connect Provider: guides/login/oidc-discovery.md
+          - Obtain Key Set Using JWKS: guides/login/using-jwks.md
+          - Validate JWT based on JWKS: guides/login/validate-jwt-using-jwks.md
+        - SAML:
+          - Advanced Configurations: guides/login/saml-app-config-advanced.md
+          - Use Advanced Parameters in the Authentication Request: guides/login/saml-parameters-in-auth-request.md
+          - Use SAML Artifact Binding: guides/login/use-artifact-binding.md
+          - Query SAML Assertions: guides/login/query-saml-assertions.md
+          - Use SAML Metadata: guides/login/use-saml-metadata.md
         - Single Sign On: 
           - Enable Single Sign On: guides/login/enable-single-sign-on.md
           - SSO For OIDC Applications: guides/login/sso-for-oidc.md
@@ -113,9 +119,14 @@ nav:
           - Configure an Authentication Journey: guides/mfa/configure-authentication-journey.md
           - Password: guides/mfa/password.md
           - Email OTP: guides/mfa/2fa-email-otp.md
+          - SMS OTP: guides/mfa/2fa-sms-otp.md
           - TOTP: guides/mfa/2fa-totp.md
           - X509: guides/mfa/x509.md
           - FIDO: guides/mfa/2fa-fido.md
+          - Advanced configs:
+            - Email OTP configs: guides/mfa/email-otp-config-advanced.md
+            - TOTP configs: guides/mfa/totp-config-advanced.md
+            - SMS OTP configs: guides/mfa/sms-otp-config-advanced.md
         - Adaptive Authentication:
           - Configure Adaptive Authentication: guides/adaptive-auth/configure-adaptive-auth.md
           - Adaptive Authentication Scenarios: guides/adaptive-auth/adaptive-auth-overview.md
@@ -130,6 +141,7 @@ nav:
           - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
           - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
       - Identity Federation:
+        - Overview: guides/identity-federation/identity-federation-overview.md
         - Enterprise Identity Federation:
           - Overview: guides/identity-federation/enterprise-identity-federation.md
           - SAML: guides/identity-federation/configure-saml-2.0-web-sso.md
@@ -141,6 +153,9 @@ nav:
           - Log in with Facebook: guides/identity-federation/facebook.md
           - Log in with Google: guides/identity-federation/google.md
           - Log in with Twitter: guides/identity-federation/twitter.md
+          - Log in with Yahoo: guides/identity-federation/yahoo.md
+          - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
+          - Log in with IWA: guides/identity-federation/iwa-kerberos.md
       - Authorization:
         - Overview: guides/authorization/overview.md
         - Access Management: 
@@ -171,13 +186,15 @@ nav:
           - Microprofile JWT: guides/access-delegation/microprofile-jwt-sample.md
           - SAML2 Bearer Assertion Profile: guides/access-delegation/saml2-bearer-assertion-profile.md
           - Encrypt ID Tokens: guides/access-delegation/oidc-token-encryption-sample.md
-          - Passing OIDC Parameters as a Request Object: guides/access-delegation/request-object.md
           - Kerberos: guides/access-delegation/configure-kerberos-grant.md
           - Refresh Tokens: guides/access-delegation/configure-refresh-token.md
+          - JWT Grant: guides/access-delegation/configure-jwt-grant.md
         - Invoke the OAuth 2.0 Introspection Endpoint: guides/access-delegation/invoke-oauth-introspection-endpoint.md
         - OAuth 2.0 Dynamic Client Registration: guides/access-delegation/oauth-dynamic-client-registration.md
         - OAuth 2.0 Client Authentication: guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
         - OAuth Transaction Logs: guides/access-delegation/oauth-transaction-logs.md
+        - OAuth Token Hashing: guides/access-delegation/oauth-token-hashing.md
+        - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
       - User management:
         - Onboard Users:
@@ -225,6 +242,7 @@ nav:
           - Enable Email Account Verification for an Updated Email Address : guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md
           - Enable Mobile Number Verification for an Updated Mobile Number: guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md
       - Password Management:
+        - Overview: guides/password-mgt/password-mgt-overview.md
         - Password Policies: guides/password-mgt/password-policies.md
         - Admin-Initiated Password Reset: guides/password-mgt/forced-password-reset.md
         - Password Recovery Using Email Verification: guides/password-mgt/recover-password.md
@@ -241,9 +259,14 @@ nav:
         - Add Claim Mapping: guides/dialects/add-claim-mapping.md
         - Edit Claim Mapping: guides/dialects/edit-claim-mapping.md
         - Delete Claim Mapping: guides/dialects/delete-claim-mapping.md
+        - Configure unique claims: guides/dialects/configure-unique-claims.md
+        - Share claims with apps: guides/dialects/share-claims-with-apps.md
         #- Use a Custom Attribute Dialect: guides/attribute-dialects/custom-dialect.md
         #- Map Attributes: guides/attribute-dialects/map-attributes.md
         #- Configure Attribute Metadata: guides/attribute-dialects/metadata.md
+      - Consent Management:
+        - Manage user consent: guides/consent-mgt/manage-user-consent.md
+        - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md
       - Tenant Management:
         - Set Up a Tenant Loading Policy: guides/tenants/configure-the-tenant-loading-policy.md
         - Add New Tenants: guides/tenants/add-new-tenants.md
@@ -529,7 +552,7 @@ nav:
                 - Introduction: references/concepts/authentication/intro-profiles.md
                 - Basic Client Profile: references/concepts/authentication/basic-client-profile.md
                 - Implicit Profile: references/concepts/authentication/implicit-client-profile.md
-                - Hybrid Profile: references/concepts/authentication/hybrid-client-profile.md
+                - Hybrid Profile: references/concepts/authentication/oidc-hybrid-flow.md
             - OIDC Tokens:
                 - Overview:  references/concepts/authentication/oidc-tokens.md
                 - ID Tokens:  references/concepts/authentication/id-token.md

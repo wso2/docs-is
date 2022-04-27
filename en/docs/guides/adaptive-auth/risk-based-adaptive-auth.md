@@ -97,7 +97,7 @@ First, create a Siddhi application as instructed below. The application has two 
 
 ----
 
-## Try it out
+## Try it
 
 1.  Start the Tomcat server and access the following sample PickUp
     application URL:

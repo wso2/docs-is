@@ -1,0 +1,1 @@
+# Configure Yahoo as a federated authenticator

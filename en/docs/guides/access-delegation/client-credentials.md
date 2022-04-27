@@ -14,7 +14,6 @@ to configure authentication for an OAuth/OpenID Connect application.
 6. Click **Configure.**   
 
 7. Make sure **Client Credential** is selected from the **Allowed Grant Types** list.
-        
 8. Enter the **Callback Url**.
 
     !!! tip

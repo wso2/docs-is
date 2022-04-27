@@ -1,0 +1,2 @@
+# Manage user consent
+

@@ -66,7 +66,7 @@ Role-based adaptive authentication can be used to trigger additional authenticat
 
 ----
 
-## Try it out
+## Try it
 
 1.  Access the following sample Pickup Dispatch application URL:
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`

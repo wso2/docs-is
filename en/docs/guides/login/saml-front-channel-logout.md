@@ -2,12 +2,6 @@
 
 This page guides you through configuring [SAML 2.0 front-channel logout](../../../references/concepts/authentication/saml-front-channel/) for applications with WSO2 Identity Server. This will ensure that the user is logged out from all configured applications with a single logout request via one of the applications.
 
-!!! note
-    Make sure you have a service provider configured in WSO2 Identity Server for every application that you are going 
-    to try out this feature.  
-
-----
-
 ## Scenario
 
 The user is required to log in to two different applications, `application1` and `application2`. For convenience and security, the user should be logged out of both the applications when the user attempts to logout from either one of them. 
@@ -15,8 +9,6 @@ The user is required to log in to two different applications, `application1` and
 ----
 
 ## Register two applications in WSO2 Identity Server
-
-Create two service providers for the two sample applications we deployed. Follow the steps given below to create a service provider and configure SAML2 front-channel logout on WSO2 IS.
 
 {!fragments/register-a-service-provider.md!}
 
@@ -37,7 +29,7 @@ Create two service providers for the two sample applications we deployed. Follow
 
      ![SAML service provider configurations](../../assets/img/samples/spring-security.png)
 
-Follow the same steps and change the values for sample2 and register another service provider.
+3.  Follow the same steps and change the values for sample2 and register another service provider.
 
 ---
 ## SAML Configurations 

@@ -2,7 +2,7 @@
 
 This page guides you through enabling login for a [SAML](../../../references/concepts/authentication/intro-saml/) web application. 
 
-## Create a service provider
+## Register a service provider
 
 1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials. 
 
