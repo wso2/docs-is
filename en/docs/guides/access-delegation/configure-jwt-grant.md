@@ -7,9 +7,6 @@ This page guides you through the flow involved in exchanging a JWT assertion wit
 ## Configure the trusted identity provider
 
 1.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Add**. 
-
-	![add-identity-provider](../../../assets/img/fragments/add-identity-provider.png)
-
 2.	Enter the following information.
 
     ![add-new-identity-provider-screen](../../../assets/img/fragments/add-new-identity-provider-screen.png)

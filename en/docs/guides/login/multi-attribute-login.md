@@ -4,32 +4,32 @@ WSO2 Identity Server can be configured to use multiple attributes as the login i
 
 By default, WSO2 Identity server uses the username as the login identifier. The following section explains how to configure WSO2 identity server for multi attribute authentication.
 
-## Configure WSO2 IS for Multi Attribute Login
+## Enable multi-attribute Login
 
-1. Log in to the [management console](`https://<IS_HOST>:<PORT>/carbon`) with your tenant credentials.
+1.  Log in to the [management console](`https://<IS_HOST>:<PORT>/carbon`) with your tenant credentials.
 
-   !!! info
-       -   The default administrative in WSO2 Identity Server is `admin`.
-       -   If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
+    !!! info
+        -   The default administrative in WSO2 Identity Server is `admin`.
+        -   If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
 
-2. Click **Main** > **Identity Providers** > **Resident** and expand the **Account Management** section.
+2.  Click **Main** > **Identity Providers** > **Resident** and expand the **Account Management** section.
 
-3. Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
+3.  Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
 
-4. Add claim URIs in the given text box to enable those claims for login.
+4.  Add claim URIs in the given text box to enable those claims for login.
 
     ![adding-claims-for-multi-attribute-login](../../assets/img/guides/adding-claims-for-multi-attribute-login.png)
 
-5. Add a regular expression for **Allowed Claims**.
+5.  Add a regular expression for **Allowed Claims**.
 
-   !!! Info
-       Once you have configured WSO2 IS for multi-attribute login, you need to provide a regular expression for the allowed claims. Some claims have a default regex. If they don't, you need to provide it.
+    !!! Info
+        Once you have configured WSO2 IS for multi-attribute login, you need to provide a regular expression for the allowed claims. Some claims have a default regex. If they don't, you need to provide it.
 
-   1. Open the WSO2 Identity Server Management Console. 
-   2. In the **Main** menu, click **List** under **Claims**.
-   3. Select the claim you want to provide the regular expression for and click **Edit**.
-   4. Enter the regex pattern under the **Regular Expression** field.
-   5. Click **Update** to save the changes.
+    1. Open the WSO2 Identity Server Management Console. 
+    2. In the **Main** menu, click **List** under **Claims**.
+    3. Select the claim you want to provide the regular expression for and click **Edit**.
+    4. Enter the regex pattern under the **Regular Expression** field.
+    5. Click **Update** to save the changes.
 
     ![adding-regex-pattern-to-claims](../../assets/img/guides/adding-regex-pattern-to-claim.png)
 
@@ -72,4 +72,4 @@ You can use multi-attribute login using any of following flows:
     -   Super tenant users who are using the email address as a login attribute need to append the tenant domain to the email address (Ex: `john@wso2.com@caron.super`) when they log in to a SaaS application.
 
 !!! info "Related Topics"
-    See the [Configuring Uniqueness of Claims](../../learn/configuring-uniqueness-of-claims) topic for more information.
+    See the [Configuring Uniqueness of Claims](../../dialects/configure-unique-claims) topic for more information.
