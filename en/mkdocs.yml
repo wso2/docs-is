@@ -204,43 +204,66 @@ nav:
           - User Self-Registration Workflow: guides/identity-lifecycles/self-registration-workflow.md
           - Lite User Registration Workflow: guides/identity-lifecycles/lite-user-registration.md
           - reCAPTCHA for Self-Registration: guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
-          - Bulk Import Users: guides/identity-lifecycles/import-users.md
+          - Bulk Import Users: guides/identity-lifecycles/bulk-import-users.md
         - Manage Users:
           - Overview: guides/identity-lifecycles/manage-user-overview.md
           - List/Search Users: guides/identity-lifecycles/search-users.md
           - Delete Users: guides/identity-lifecycles/delete-users.md
           - View/Update User Profiles: guides/identity-lifecycles/update-profile.md
           - Manage User Attributes: guides/identity-lifecycles/manage-user-attributes.md
+          - Import Users: guides/identity-lifecycles/import-users.md
           - Recover Username: guides/identity-lifecycles/recover-username.md
-          - Enable Using Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
+          - Reset Password: guides/identity-lifecycles/reset-password.md
+          - Customize User Profiles: guides/identity-lifecycles/customize-profiles.md
+          - Set Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
+          - Track User Deletion: guides/identity-lifecycles/track-deletion.md
         - Manage Roles: 
           - Overview: guides/identity-lifecycles/manage-roles-overview.md
           - Add User Roles: guides/identity-lifecycles/add-user-roles.md
           - Edit/Delete Roles: guides/identity-lifecycles/edit-delete-roles.md
           - Role-Based Permissions: guides/identity-lifecycles/role-based-permissions.md
-        - Outbound Provision Users:
-          - Overview: guides/identity-lifecycles/outbound-provisioning.md
-          - SCIM 2.0: guides/identity-lifecycles/outbound-provisioning-with-scim.md
-          #- Microsoft Azure AD: guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
-          - Google Directory: guides/identity-lifecycles/outbound-provisioning-with-google.md
-          - Salesforce: guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
+        - Provisioning:
+          - Overview: guides/identity-lifecycles/provisioning-overview.md
+          - Provisioning Patterns: guides/identity-lifecycles/provisioning-patterns.md
           - Role Based Provisioning: guides/identity-lifecycles/role-based-provisioning.md
           - Rule Based Provisioning: guides/identity-lifecycles/rule-based-provisioning.md
-        - Inbound Provision Users:
-          - Overview: guides/identity-lifecycles/inbound-provisioning.md
-          - Configure Userstores for SCIM 2.0: guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
-          - Configure Active Directory Userstores: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
-        - Just-in-Time Provision Users:
-          - Configure Just-In-Time Provisioning for an Identity Provider: guides/identity-lifecycles/jit-workflow.md
-        - Manage Account States:
-          - Overview: guides/identity-lifecycles/account-states-overview.md
-          - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
-          - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
-          - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
-          - Disable Accounts: guides/identity-lifecycles/enable-account.md
+          - Outbound Provision Users:
+            - Overview: guides/identity-lifecycles/outbound-provisioning.md
+            - SCIM 2.0: guides/identity-lifecycles/outbound-provisioning-with-scim.md
+            #- Microsoft Azure AD: guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
+            - Google Directory: guides/identity-lifecycles/outbound-provisioning-with-google.md
+            - Salesforce: guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
+            - Hubspot: guides/identity-lifecycles/hubspot-provisioning.md
+          - Inbound Provision Users:
+            - Overview: guides/identity-lifecycles/inbound-provisioning.md
+            - Configure Userstores for SCIM 1.1: guides/identity-lifecycles/configure-user-stores-for-scim1.1-based-inbound-provisioning.md
+            - Configure Userstores for SCIM 2.0: guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
+            - Configure Active Directory Userstores for SCIM 1.1: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
+            - Configure Active Directory Userstores for SCIM 2.0: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
+            - Setup Service Provider for Inbound Provisioning: guides/identity-lifecycles/sp-for-inbound-provisioning.md
+          - Just-in-Time Provision Users:
+            - Configure Just-In-Time Provisioning for an Identity Provider: guides/identity-lifecycles/jit-workflow.md
         - Enable Verification for Updated User Attributes:
           - Enable Email Account Verification for an Updated Email Address : guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md
           - Enable Mobile Number Verification for an Updated Mobile Number: guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md
+        - Sync User Accounts:
+          - Overview: guides/identity-lifecycles/sync-account-overview.md
+          - Hubspot: guides/identity-lifecycles/sync-with-hubspot.md
+          - MailChimp: guides/identity-lifecycles/sync-with-mailchimp.md
+          - Pardot: guides/identity-lifecycles/sync-with-pardot.md
+          - Pipedrive CRM: guides/identity-lifecycles/sync-with-pipedrive.md
+          - Salesforce: guides/identity-lifecycles/sync-with-salesforce.md
+          - Sendgrid: guides/identity-lifecycles/sync-with-sendgrid.md
+          - Zoho CRM: guides/identity-lifecycles/sync-with-zoho.md
+      - Account Management:
+        - Overview: guides/identity-lifecycles/account-states-overview.md
+        - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
+        - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
+        - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
+        - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
+        - Disable Accounts: guides/identity-lifecycles/enable-account.md
+        - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
+        - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
       - Password Management:
         - Overview: guides/password-mgt/password-mgt-overview.md
         - Password Policies: guides/password-mgt/password-policies.md
