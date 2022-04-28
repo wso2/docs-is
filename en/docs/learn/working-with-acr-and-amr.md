@@ -282,7 +282,7 @@ Follow the steps below to translate the AMR values that get returned through the
 2. Add the following configurations:
 
     !!! note 
-    You can add any custom AMR mapping to this config.
+        You can add any custom AMR mapping to this config.
 
        ```
        [[authentication_context.method_refs]]
@@ -295,16 +295,16 @@ Follow the steps below to translate the AMR values that get returned through the
        excluded_methods = ["BasicAuthenticator", "AuthenticationMethodToBeIgnored"]
        ```
 	
-    `method`: Authentication Method Name
+    * `method`: Authentication Method Name
 
-    `amr_value`: AMR value mapping you prefer to have as the amr in the ID token. You can refer [AMR draft specification](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-04) for this.
+    * `amr_value`: AMR value mapping you prefer to have as the amr in the ID token. You can refer [AMR draft specification](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-04) for this.
 
-	`excluded_methods`: List of Authentication Methods that you would like to prevent being available on the ID token.
+    * `excluded_methods`: List of Authentication Methods that you would like to prevent being available on the ID token.
 
-4. Start the WSO2 Identity Server.
+3. Start the WSO2 Identity Server.
 
 !!! info
-You can verify whether the changes are successfully applied by opening the `identity.xml` file in the `<IS_HOME>/repository/conf/identity` directory after starting the server. It should contain a similar configuration as shown below.
+	You can verify whether the changes are successfully applied by opening the `identity.xml` file in the `<IS_HOME>/repository/conf/identity` directory after starting the server. It should contain a similar configuration as shown below.
 
 ```
 <AuthenticationContext>
