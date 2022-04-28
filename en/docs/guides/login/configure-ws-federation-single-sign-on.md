@@ -181,4 +181,4 @@ The next step is to configure the service provider.
 
 !!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
-    - [Concept: WS-Federation](../../../references/concepts/intro-ws-federation)
+    - [Concept: WS-Federation](../login/webapp-ws-federation.md)
