@@ -6,21 +6,17 @@ Server. 
 Follow the steps given below to configure the Identity Server to
 authenticate users using their Yahoo user accounts.
 
-## Set up Yahoo
+## Create a Yahoo app
     
-1. [Create a Yahoo developer account](https://developer.yahoo.com/oauth2/guide/openid_connect/getting_started.html#getting-started-setup=).
-2. You need to have an application registered in Yahoo. 
+1.  [Create a Yahoo developer account](https://developer.yahoo.com/oauth2/guide/openid_connect/getting_started.html#getting-started-setup=).
+2.  You need to have an application registered in Yahoo. 
 
-!!! Info
-    See [Getting Started](https://developer.yahoo.com/oauth2/guide/openid_connect/getting_started.html) for instructions.
+    !!! Info
+        See [Getting Started](https://developer.yahoo.com/oauth2/guide/openid_connect/getting_started.html) for instructions.
    
-  ![yahoo-configuration](../assets/img/tutorials/yahoo-configuration.png)
+    ![yahoo-configuration](../../assets/img/guides/yahoo-configuration.png)
 
-## Configure Yahoo as an IdP
-
-1. Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console) at `https://<Server Host>:9443/carbon` using your `username` and `password`.
-2. Go to **Main** --> **Identity** menu and click **Add** under **Identity Providers**.
-3. Fill in the details in the **Basic Information** section.
+{! fragments/register-an-identity-provider.md !}
 4. Expand the **Yahoo Configuration** section and specify the following values:
 
     <table>

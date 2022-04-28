@@ -33,25 +33,26 @@ management console.
     -   `/permission/admin/manage/identity/consentmgt/add`
     -   `/permission/admin/manage/identity/claimmgt/metadata/view`
 
-1. Sign in to the [management console](../../setup/getting-started-with-the-management-console).   
+1.  Sign in to the [management console](../../setup/getting-started-with-the-management-console).
+
     !!! info
-        To add a consent purpose within a specific tenant domain, log in
-    using tenant credentials.
-2. On the **Main** menu, click **Manage > Consent Purposes > Add**.  
+        To add a consent purpose within a specific tenant domain, log in using tenant credentials.
+
+2.  On the **Main** menu, click **Manage > Consent Purposes > Add**.  
     ![add-consent-purposes](../../assets/img/guides/add-consent-purposes.png)
     The following window will be displayed.
 
     ![add-new-purpose](../../assets/img/guides/add-new-purpose.png) 
 
-3. Add a **Purpose Name** and a **Description**.
+3.  Add a **Purpose Name** and a **Description**.
 
-   1. **Purpose Name:** A short name for the requirement of why the
+    1. **Purpose Name:** A short name for the requirement of why the
         PII item is required.
-   2. **Description:** A short, clear explanation of why the PII item
+    2. **Description:** A short, clear explanation of why the PII item
         is required.
-   3. **Associated Flow:** The flow in which the user will be prompted with the PIIs, requiring consent.  
-   4. **Purpose Group Type:** The subtype of the associated flow chosen. 
-   3. **PII Categories:** In WSO2 Identity Server context, PII
+    3. **Associated Flow:** The flow in which the user will be prompted with the PIIs, requiring consent.  
+    4. **Purpose Group Type:** The subtype of the associated flow chosen. 
+    3. **PII Categories:** In WSO2 Identity Server context, PII
         categories are the user claims. Users can give consent to share
         claims (PII categories) for different reasons. These PII
         Categories can be defined by clicking **Add PII Category** and
@@ -69,7 +70,7 @@ management console.
             -   http://wso2.org/claims/emailaddress
             -   http://wso2.org/claims/phonenumber
 
-4. Click **Finish** to save the purpose.The following screen will be
+4.  Click **Finish** to save the purpose.The following screen will be
     displayed:
 
     ![consent-purpose-list](../../assets/img/guides/consent-list.png) 

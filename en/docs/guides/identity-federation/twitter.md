@@ -163,7 +163,7 @@ This page guides you through configuring Twitter as a federated authenticator in
 
 ---
 
-## Try it
+## Try it out
 
 You have successfully configured Twitter as your federated authenticator. Now, when you try to login to your application, it should redirect to the Twitter login page. On successful authentication with your Twitter credentials, you will be able to access your application. 
 

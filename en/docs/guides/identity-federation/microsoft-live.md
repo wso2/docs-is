@@ -1,27 +1,25 @@
 # Configure Microsoft Live as a federated authenticator
 
 Microsoft Windows Live can be used as a federated authenticator in the
-Identity Server. Do the following to configure the Identity Server to
-authenticate users using their Microsoft Live user accounts.
+Identity Server.
 
-## Set up Microsoft Live
+Follow the steps given below to configure WSO2 Identity Server to
+authenticate users with their Microsoft Live user accounts.
 
-1. [Register an application on Windows Live](https://msdn.microsoft.com/en-us/library/hh826541.aspx).
-2. You need to have an application created in Windows live. 
+## Create a Microsoft Live app
 
-   !!! Info
-       See [Configuring your app](https://msdn.microsoft.com/en-us/library/hh826541.aspx) for instructions.
+1.  [Register an application on Windows Live](https://msdn.microsoft.com/en-us/library/hh826541.aspx).
+2.  You need to have an application created in Windows live.
 
-## Configure Microsoft Live as an IdP
+    !!! Info
+        See [Configuring your app](https://msdn.microsoft.com/en-us/library/hh826541.aspx) for instructions.
 
-1. Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console) at `https://<Server Host>:9443/carbon` using your `username` and `password`.
-2. Go to **Main** --> **Identity** menu and click **Add** under **Identity Providers**.
-3. Fill in the details in the **Basic Information** section.
-4. Expand the **Microsoft (Hotmail, MSN, Live) Configuration** section and specify the following values:  
+{! fragments/register-an-identity-provider.md !}
+4.  Expand the **Microsoft (Hotmail, MSN, Live) Configuration** section and specify the following values:  
    
-   ![microsoft-configuration](../assets/img/tutorials/microsoft-configuration.png)
+    ![microsoft-configuration](../../assets/img/guides/microsoft-configuration.png)
     
-   <table>
+    <table>
         <tr>
             <th>Parameter</th>
             <th>Description</th>

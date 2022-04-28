@@ -5,7 +5,7 @@ After enabling this feature, you can keep a user claim value as a unique value w
 
 Follow the steps below to configure WSO2 Identity Server.
 
-1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and add the following configuration.
+1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and add the following configuration.
 
     ``` toml
     [[event_listener]]
@@ -16,32 +16,35 @@ Follow the steps below to configure WSO2 Identity Server.
     enable = true
     ```
 
-2. Restart WSO2 identity server and access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) .
+2.  Restart WSO2 identity server and access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) .
 
-3. From the list of claims, select the claim you want to configure to keep it unique.
+3.  From the list of claims, select the claim you want to configure to keep it unique.
+
     ![select-claim-from-list](../../assets/img/guides/select-claim-from-list.png)
 
-4. Open the claim edit window by clicking the `Edit` button.
-   ![claim-edite-window](../../assets/img/guides/claim-edite-window.png)
+4.  Open the claim edit window by clicking the `Edit` button.
 
-5. By clicking `Add Claim Property`, add an additional claim property as follows.
-   <table>
-   <thead>
-   <tr class="header">
-   <th>Property Name</th>
-   <th>Property Value</th>
-   </tr>
-   </thead>
-   <tbody>
-   <tr class="odd">
-   <td>isUnique</td>
-   <td>true</td>
-   </tr>
-   </tbody>
-   </table>
+    ![claim-edite-window](../../assets/img/guides/claim-edite-window.png)
 
-   ![additional-claim-properties](../../assets/img/guides/additional-claim-properties.png)
+5.  By clicking `Add Claim Property`, add an additional claim property as follows.
+    
+    <table>
+        <thead>
+        <tr class="header">
+        <th>Property Name</th>
+        <th>Property Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td>isUnique</td>
+        <td>true</td>
+        </tr>
+        </tbody>
+    </table>
 
-6. Finally, click the `Update` button to save the additional claim property.
+    ![additional-claim-properties](../../assets/img/guides/additional-claim-properties.png)
+
+6.  Finally, click the `Update` button to save the additional claim property.
 
 Now you can check and verify the functionality by adding users with an existing claim value or updating the user claim value of an existing claim.
