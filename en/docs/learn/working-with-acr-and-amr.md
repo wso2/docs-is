@@ -275,11 +275,11 @@ Follow the steps below to try the scenario without using an application:
 	Note that the AMR values in this example are 	`DemoFaceIdAuthenticator`	, 	`BasicAuthenticator`	, and 	`DemoFingerprintAuthenticator`. These are the authenticators that are used in the authentication process.
 
 #### Translating AMR values
-Follow the steps below to translate the AMR values that get returned to the authentication process.
+Follow the steps below to translate the AMR values that get returned through the authentication process.
 
 1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf directory`.
 
-2. Add the following configurations
+2. Add the following configurations:
 
     !!! note 
     You can add any custom AMR mapping to this config.
@@ -301,10 +301,10 @@ Follow the steps below to translate the AMR values that get returned to the auth
 
 	`excluded_methods`: List of Authentication Methods that you would like to prevent being available on the ID token.
 
-4. Start the identity server
+4. Start the WSO2 Identity Server.
 
 !!! info
-You can verify the whether the changes have been successfully applied by opening the `identity.xml` file in the `<IS_HOME>/repository/conf/identity` directory after starting the server. It should contain a similar configuration as follows,
+You can verify whether the changes are successfully applied by opening the `identity.xml` file in the `<IS_HOME>/repository/conf/identity` directory after starting the server. It should contain a similar configuration as shown below.
 
 ```
 <AuthenticationContext>
