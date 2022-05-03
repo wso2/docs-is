@@ -262,7 +262,7 @@ The next step is to configure the service provider.
 
     ![subject-claim-uri](../assets/img/tutorials/subject-claim-uri.png)
 
-5.  Go to **Local and Outbound Authentication Configuration** section.
+5.  Go to the **Local and Outbound Authentication Configuration** section.
 
     1.  Select the **Advanced configuration** radio button option.
 
