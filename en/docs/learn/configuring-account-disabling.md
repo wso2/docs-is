@@ -55,7 +55,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		!!! warning "If you are using a Google email account"
 
-			Google has restricted third-party applications and less secure applications from sending emails by default. As WSO2 Identity Server acts as a third-party application when sending emails for password entry, follow the steps below to enable your Google email account to provide access to third-party applications.
+			Google has restricted third-party applications and less-secure applications from sending emails by default. As WSO2 Identity Server acts as a third-party application when sending emails for password entry, follow the steps below to enable your Google email account to provide access to third-party applications.
 
 			1.	Access [https://myaccount.google.com/security](https://myaccount.google.com/security).
 
