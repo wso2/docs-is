@@ -163,7 +163,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 	1.	Click **User Profile** option of Larry.
 
-	2.	Unselect the **Account Disabled** check box.
+	2.	Clear the **Account Disabled** checkbox.
 
 	3.	Click **Update**.
 
