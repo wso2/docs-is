@@ -214,7 +214,7 @@ To configure manually,
 			</tr>
 			<tr class="odd">
 				<td>Authentication Context Class</td>
-				<td><p>Choose one or multiple <a href="https://docs.oasis-open.org/security/saml/v2.0/saml-authn-context-2.0-os.pdf">Authentication Context Class References</a> (AuthnContextClassRef) to be included in the requested authentication context from the Identity Server which specifies the authentication context requirements of authentication statements returned in the response. Authentication Context Class table below lists the usable classes and their respective URIs that will be sent in the SAMLRequest from the Identity Server to trusted IdP.</p></td>
+				<td><p>Choose one or multiple <a href="https://docs.oasis-open.org/security/saml/v2.0/saml-authn-context-2.0-os.pdf">Authentication Context Class References</a> (AuthnContextClassRef) to be included in the requested authentication context from the Identity Server, which specifies the authentication context requirements of authentication statements returned in the response. The Authentication Context Class table below lists the usable classes and their respective URIs that will be sent in the SAMLRequest from the Identity Server to the trusted IdP.</p></td>
 				<td>Default value: <code>             PasswordProtectedTransport            </code> .</td>
 			</tr>
 			<tr class="even">
