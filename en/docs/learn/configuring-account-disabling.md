@@ -59,7 +59,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 			1.	Access [https://myaccount.google.com/security](https://myaccount.google.com/security).
 
-			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
+			2.	In the **Signing in to Google** section, turn off the **2-step Verification** option.
 
 			3.  Enable **Less secure app access** in Google Account **Security** section.
 
