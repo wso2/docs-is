@@ -274,6 +274,49 @@ Follow the steps below to try the scenario without using an application:
 	
 	Note that the AMR values in this example are 	`DemoFaceIdAuthenticator`	, 	`BasicAuthenticator`	, and 	`DemoFingerprintAuthenticator`. These are the authenticators that are used in the authentication process.
 
+#### Translating AMR values
+Follow the steps below to translate the AMR values that get returned through the authentication process.
+
+1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
+
+2. Add the following configurations:
+
+    !!! note 
+        You can add any custom AMR mapping to this config.
+
+       ```
+       [[authentication_context.method_refs]]
+       method = "SMSOTP"
+       amr_value = "sms"
+       [[authentication_context.method_refs]]
+       method = "EmailOTP"
+       amr_value = "otp"
+       [[authentication_context.method_refs]]
+       excluded_methods = ["BasicAuthenticator", "AuthenticationMethodToBeIgnored"]
+       ```
+	
+    * `method`: Authentication Method Name
+
+    * `amr_value`: AMR value mapping you prefer to have as the amr in the ID token. You can refer [AMR draft specification](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-04) for this.
+
+    * `excluded_methods`: List of Authentication Methods that you would like to prevent being available on the ID token.
+
+3. Start the WSO2 Identity Server.
+
+!!! info
+	You can verify whether the changes are successfully applied by opening the `identity.xml` file in the `<IS_HOME>/repository/conf/identity` directory after starting the server. It should contain a similar configuration as shown below.
+
+```
+<AuthenticationContext>
+        <MethodRefs>
+                <MethodRef method="SMSOTP" uri="sms" />
+                <MethodRef method="EmailOTP" uri="otp" />
+                <MethodRef method="BasicAuthenticator" xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+                <MethodRef method="AuthenticationMethodToBeIgnored" xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+        </MethodRefs>
+ </AuthenticationContext>
+```
+
 ### FAQ
 
 1. **Can I define my own URI as the ACR**
