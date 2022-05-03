@@ -27,7 +27,7 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 	2.	To configure the email server to send emails requesting password reset, add the following configurations:
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
-		-	**username**: This is the user name of the given email address.
+		-	**username**: This is the username of the given email address.
 		-	**password**: This is the password of the given email address. 
 
 		```toml tab="Format"
