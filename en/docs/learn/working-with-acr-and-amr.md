@@ -277,7 +277,7 @@ Follow the steps below to try the scenario without using an application:
 #### Translating AMR values
 Follow the steps below to translate the AMR values that get returned through the authentication process.
 
-1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf directory`.
+1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
 2. Add the following configurations:
 
