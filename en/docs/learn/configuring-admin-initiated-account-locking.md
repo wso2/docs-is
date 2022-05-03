@@ -60,7 +60,7 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option.
 
-			3.  Enable **Less secure app access** in Google account security section.
+			3.  Enable **Less secure app access** in the Google account's security section.
 
 2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
