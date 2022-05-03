@@ -97,7 +97,7 @@ To create a sample certificate and create your own Certificate Authority to sign
             -  `validation.cnf`
             -  `/usr/lib/ssl/openssl.cnf`
 
-        2.  Set the following properties under `x509\_extensions`.
+        2.  Set the following properties under `x509_extensions`:
 
             ``` java
             crlDistributionPoints = URI:http://pki.google.com/GIAG2.crl
@@ -395,9 +395,9 @@ The next step is to configure the service provider.
             ![browser-certificate](../assets/img/learn/browser-certificate.png)
 
             !!! note
-                For more information on creating users and assigning roles
-                using management console, refer
-                [here](../../learn/configuring-users-roles-and-permissions).
+                For more information on creating users from the Email address as the username 
+                in management console, refer
+                [here](../../learn/using-email-address-as-the-username).
             
 10. Finally, click on **Update** to finish the service provider
     configurations.
