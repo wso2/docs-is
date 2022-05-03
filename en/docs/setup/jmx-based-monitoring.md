@@ -30,7 +30,7 @@ rmi_server_por = "11111"
 #### Enabling JMX for the server
 
 You can enable the JMX server by setting the following
-property to ` true ` in the `deployment.toml` file.
+property to ` true ` in the `deployment.toml` file:
 
 ```toml
 [monitoring.jmx]
