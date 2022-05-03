@@ -25,7 +25,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 		enable = true
 		```
 
-	2.	To configure the email server to send emails that informs about the disabled account to the user, add the following configurations.
+	2.	To configure the email server to send emails that informs about the disabled account to the user, add the following configurations:
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
 		-	**username**: This is the username of the given email address.
