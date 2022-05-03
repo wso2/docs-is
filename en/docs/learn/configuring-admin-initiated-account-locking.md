@@ -12,7 +12,7 @@ Let's learn how Sam can lock Alex's user account!
 
 Follow the steps below to configure admin-initiated account locking in WSO2 Identity Server.
 
-1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory 
+1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
     1.	Check whether the following listener configs are in place.
 
 		```
