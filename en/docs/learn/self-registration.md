@@ -6,9 +6,9 @@ In this approach, when a user self-registers, a user account gets created and an
 
 ## Scenario
 
-**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Sam** is a new recruit who wishes to use the self-registration option to create a user account. 
+**Pickup** is a cab company that has many employees who use different credentials to sign in to different internal enterprise applications. While **Robert** is an administrator at Pickup, **Mark** is a new recruit who wishes to use the self-registration option to create a user account. 
 
-When Alex self-registers, an email requesting for account creation confirmation is sent to Alex's registered email account. Alex should respond to the confirmation email before the confirmation acceptance window expires. If Alex fails to confirm the account creation, the user account will be locked and Sam will be able to delete this user account. 
+When Mark self-registers, an email requesting for account creation confirmation is sent to Mark's registered email account. Mark should respond to the confirmation email before the confirmation acceptance window expires. If Mark fails to confirm the account creation, the user account will be locked and Robert will be able to delete this user account. 
 
 <img src="../../assets/img/learn/self-registration.png" alt="Scenario Diagram" width="800">  
 
@@ -78,8 +78,10 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 			2.	Under **Signing in to Google** section, turn off the **2-step Verification** option. 
 
+			3. 	Enable **Less secure app access** in the Google Account's **Security** section.
 
-2.	[Restart WSO2 Identity Server]((../../setup/running-the-product/)).
+
+2.	[Restart WSO2 Identity Server](../../setup/running-the-product/).
 
 3.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator. 	
 
@@ -87,7 +89,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
-5.	Under the **Account Management Policies** section, click **User Self Registration**.
+5.	Under the **User Onboarding** section, click **Self Registration**.
 
 	<img src="../../assets/img/learn/user-self-registration-option.png" alt="User Self-Registration Option" width="700" style="border:1px solid grey">  	
 
@@ -153,7 +155,7 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 	<img src="../../assets/img/learn/register-now-option.png" alt="Register Now option" width="400" style="border:1px solid grey"> 	
 
-3.	Enter the user name as `Alex` and click **Proceed to Self Register**.
+3.	Enter the user name as `Mark` and click **Proceed to Self Register**.
 
 	<img src="../../assets/img/learn/start-signing-up-form.png" alt="Start Signing Up form" width="500" style="border:1px solid grey">
 
@@ -167,7 +169,7 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 	<img src="../../assets/img/learn/create-new-account-screen.png" alt="Create New screen" width="500" style="border:1px solid grey">
 
-	1.	Enter `Alex` in the **First Name** text box.
+	1.	Enter `Mark` in the **First Name** text box.
 
 	2.	Enter a preferred password in the **Password** and **Confirm password** text boxes.
 
@@ -189,7 +191,7 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 6.	Click **Close**. The WSO2 Identity Server **My Account** Login screen appears.
 
-7. 	Log in with Alex's credentials and navigate to the Home screen.  
+7. 	Log in with Mark's credentials and navigate to the Home screen.  
 
 
 !!! tip
