@@ -97,7 +97,7 @@ To create a sample certificate and create your own Certificate Authority to sign
             -  `validation.cnf`
             -  `/usr/lib/ssl/openssl.cnf`
 
-        2.  Set the following properties under `x509_extensions`.
+        2.  Set the following properties under `x509_extensions`:
 
             ``` java
             crlDistributionPoints = URI:http://pki.google.com/GIAG2.crl
