@@ -18,5 +18,9 @@ attacks.
 
 {! fragments/configure-recaptcha-for-sso.md !}
 
+!!! Info
+    - If the user exceeds the Maximum failed login attempts as well, the  email notification for account locking scenario can be configured by [Configure Email Notifications for Account Locking](../../../guides/tenants/email-account-locking)
+    
+
 !!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
