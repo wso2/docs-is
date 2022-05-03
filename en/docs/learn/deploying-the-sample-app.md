@@ -124,7 +124,7 @@ For example,
     allow_generic_http_requests = true
     allow_any_origin = false
     allowed_origins = [
-        "http://localhost:8080"
+        "http://localhost:8080", "http://localhost.com:8080"
     ]
     allow_subdomains = false
     supported_methods = [
@@ -369,7 +369,7 @@ For example,
     allow_generic_http_requests = true
     allow_any_origin = false
     allowed_origins = [
-        "http://localhost:8080"
+        "http://localhost:8080", "http://localhost.com:8080"
     ]
     allow_subdomains = false
     supported_methods = [
@@ -474,7 +474,7 @@ For example,
     allow_generic_http_requests = true
     allow_any_origin = false
     allowed_origins = [
-        "http://localhost:8080"
+        "http://localhost:8080", "http://localhost.com:8080"
     ]
     allow_subdomains = false
     supported_methods = [
