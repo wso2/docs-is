@@ -30,26 +30,29 @@ Follow the steps below to configure WSO2 Identity Server Analytics.
     ```
 
 
-2.  An HTTP connection is used to communicate between WSO2 IS and WSO2
-    IS Analytics. Therefore, you must add the certificate of WSO2 IS Analytics to WSO2 IS.
-    Follow the steps given below to import the certificate from WSO2 IS Analytics
-    to WSO2 IS. Import the
+2.  Import the certificate from WSO2 IS Analytics to WSO2 IS. That is, import the
     `           public certificate          ` of each keystore to the
-    `           client­-truststore.jks          ` of the WSO2 IS. This example uses the default keystores and
-    certificates.
+    `           client­-truststore.jks          ` of the WSO2 IS. 
+    
+    This example uses the default keystores and certificates.
+    
+    !!! info
+    	An HTTP connection is used to communicate between WSO2 IS and WSO2 IS Analytics. Therefore, you must add the certificate of WSO2 IS Analytics to WSO2 IS.
 
     1.  Navigate to the
         `             <ISANALYTICS_HOME>/resources/security            `
         directory on a new terminal window and run the following
-        command. The default keystore password is `wso2carbon`.
-
+        command.
+	!!! info
+            The default keystore password is `wso2carbon`.
+	
         ``` java
         keytool -export -alias wso2carbon -keystore wso2carbon.jks -file sp.cer
         ```
 
     2.  Navigate to the
         `             <IS_HOME>/repository/resources/security            `
-        directory and run the following command.
+        directory and run the following command:
 
         !!! info 
 			Replace the `              <ISANALTICS_HOME>             ` placeholder
