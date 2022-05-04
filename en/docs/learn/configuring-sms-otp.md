@@ -253,9 +253,6 @@ The next step is to configure the service provider.
 
 3. Configure Inbound Authentication for the service provider. For instructions, see [Configuring Inbound Authentication for a Service Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
 
-    !!! info 
-        Try out the the sample application. To deploy the pickup-dispatch sample application, follow the steps in [Deploying the SAML2 Pickup-Dispatch Sample App](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp).
-
 4.  Go to **Claim configuration** and select the
     **`            http://wso2.org/claims/mobile           `** claim for
     the **Subject Claim URI**.
@@ -528,4 +525,5 @@ The `CaptureAndUpdateMobileNumber` property in the SMS OTP configuration propert
     connector in the identity provider would also change based on this.
 
 !!! info
+    Try out the the sample application. To deploy the pickup-dispatch sample application, follow the steps in [Deploying the SAML2 Pickup-Dispatch Sample App](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp).
     For a full tutorial demonstrating multi-factor authentication with SMSOTP using a sample application, see  [Configuring Multifactor Authentication](../../learn/configuring-multifactor-authentication). 
