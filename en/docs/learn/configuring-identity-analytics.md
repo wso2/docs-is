@@ -17,7 +17,7 @@ To do this, the developers need to view authentication statistics about the logi
 ## Enable analytics
 Follow the steps below to configure WSO2 Identity Server Analytics.
 
-1.	Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and enable the following event publishers to enable analytics in WSO2 Identity Server. 
+1.	Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and enable the following event publishers to enable analytics in WSO2 Identity Server:
  
     ``` toml
     [identity_mgt.analytics_login_data_publisher]
