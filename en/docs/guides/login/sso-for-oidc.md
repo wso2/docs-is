@@ -1,6 +1,6 @@
 # Enable Single Sign-On for an OIDC Web Application
 
-This page guides you through configuring [single sign-on authentication](../../references/concepts/single-sign-on) between two OIDC web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager.
+This page guides you through configuring [single sign-on authentication](../../../references/concepts/single-sign-on) between two OIDC web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager.
 
 ## Scenario
 
@@ -39,7 +39,7 @@ You need to register the two sample applications as service providers in WSO2 Id
         
 9.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 
-10.  Click the **Register** button to finish creating the service provider.
+10.  Click **Update** to save the changes.
 
 ### Pickup Manager
 
@@ -64,7 +64,7 @@ You need to register the two sample applications as service providers in WSO2 Id
         For more information on the advanced configurations
         refer, [Advanced OAuth/OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
 
-5.  Click **Register** to save the changes.
+5.  Click **Update** to save the changes.
 
 ----
 
