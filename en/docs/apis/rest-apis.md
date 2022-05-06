@@ -1,3 +1,7 @@
+---
+template: templates/2-column.html
+---
+
 # REST APIs
 
 This section introduces REST APIs in WSO2 Identity Server that can be invoked by tenant administrators to manage their tenants and application users to manage their own logins.

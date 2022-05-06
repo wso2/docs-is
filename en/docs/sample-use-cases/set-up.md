@@ -1,3 +1,7 @@
+# Quick setup
+
+Follow the steps given below to set up and install WSO2 Identity Server.
+
 1. Download and install Oracle Java SE Development Kit (JDK) version version 1.8 or 11).
 
 2. Install WSO2 Identity Server by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 

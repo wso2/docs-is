@@ -1,6 +1,8 @@
-## Multi-factor authentication
+# Multi-factor authentication
 
-### Problem scenario
+Follow the instructions given here to to try out multi-factor authentication.
+
+## Problem scenario
 
 Cameron wants to enhance the security standards by introducing another level of authentication. As a result, Cameron decides to use Multi-factor Authentication (MFA) in WSO2 Identity Server using the following factors:
     
@@ -9,7 +11,7 @@ Cameron wants to enhance the security standards by introducing another level of 
 
 Let's use the command-line to check the MFA functionality.
 
-### Configure multi-factor authentication
+## Configure multi-factor authentication
 
 First deploy the sample authenticator dependency and web application in
     WSO2 Identity Server.
