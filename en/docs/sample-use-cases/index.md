@@ -1,3 +1,5 @@
+# Sample Scenario
+
 **Pickup** is a cab company that has many employees who use different
 credentials to sign in to different internal enterprise applications.
 Following are two such applications:

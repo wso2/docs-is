@@ -1,13 +1,15 @@
-## Federated authentication
+# Federated authentication
 
-### Problem scenario
+Follow the instructions given here to to try out federated authentication.
+
+## Problem scenario
 
 Pickup works with a team of external consultants. However, it is a hassle to keep adding and maintaining their accounts in the employee database as these consultants are temporary and employed on a rolling basis. Therefore, Cameron decides to use the identity federation
 capability of WSO2 Identity Server. This facilitates the external consultants to use
 their already existing Google account credentials to sign in to the
 Pickup applications.
 
-### Configure federated authentication
+## Configure federated authentication
 
 Follow the steps below to configure federated authentication using WSO2 IS
 

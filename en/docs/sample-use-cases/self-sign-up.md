@@ -1,12 +1,14 @@
-## Self Sign-up
+# Self Sign-up
 
-### Problem Scenario
+Follow the instructions given here to to try out user self sign-up.
+
+## Problem Scenario
 
 Cameron realizes that allowing the new employees to self sign-up to Pickup web applications will speed up
 the onboarding process. As a result Cameron sets self sign-up up for Pickup HR
 using WSO2 Identity Server.
 
-### Configure self sign-up
+## Configure self sign-up
 
 Follow the steps below to configure self sign-up for Pickup Dispatch and
 Pickup Manager applications using WSO2 Identity Server.

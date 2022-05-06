@@ -1,4 +1,8 @@
-### Problem scenario
+# Single Sign-On
+
+Follow the instructions given here to to try out single sign-on.
+
+## Problem scenario
 
 When the number of applications that are used in Pickup increases, the
 employees have to maintain more credentials. This is not scalable.
@@ -14,7 +18,7 @@ the need to maintain multiple credentials.
 <!-- ![QSG SSO scenario2](../../assets/img/get-started/qsg-sso-scenario2.png) -->
 
 
-### Configure SSO with SAML 2.0
+## Configure SSO with SAML 2.0
 
 If the two applications are using SAML 2.0 as their authentication
 protocol, follow the steps below:
@@ -94,7 +98,7 @@ protocol, follow the steps below:
       
     ![QSG cleanup](../../assets/img/get-started/qsg-sso-cleanup.png)
 
-### Configure SSO with OIDC
+## Configure SSO with OIDC
 
 If the two applications are using OIDC as their authentication protocol,
 follow the steps below:
