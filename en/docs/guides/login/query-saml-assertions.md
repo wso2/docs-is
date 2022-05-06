@@ -26,13 +26,13 @@ Due to some reason if you can not pass a SAML Assertion to the backend, then you
     2.  Select the following check-boxes:
         1.  **Enable Response Signing**
 
-        2.  **Enable Single Logout**
+        2.  **Enable Signature Validation in Authentication Requests and Logout Requests**
 
-        3.  **Enable Attribute Profile**
+        3.  **Enable Single Logout**
 
-        4.  **Include Attributes in the Response Always**  
-        
-        5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
+        4.  **Enable Attribute Profile**
+
+        5.  **Include Attributes in the Response Always**
     
     !!! tip
         For more information on other advanced configurations, refer [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
