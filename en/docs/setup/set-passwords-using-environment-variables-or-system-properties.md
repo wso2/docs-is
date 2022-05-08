@@ -39,9 +39,10 @@ password = "$env{ENV_VAR}"
     password="$sys{admin.password}"
     ```
     
-2.  Pass the above configured system property to runtime by using one of following options (`admin.password` has been used as the sample system property)
+2.  Pass the above configured system property to the runtime by using one of following options during server startup. 
 
-    -   During the server startup time
+    !!! info
+        Note that `admin.password` has been used as the sample system property.
 
-        * On Linux: `./wso2server.sh -Dadmin.password=admin`
-        * On Windows: `./wso2server.bat -Dadmin.password=admin`
+    - On **Linux**: `./wso2server.sh -Dadmin.password=admin`
+    - On **Windows**: `./wso2server.bat -Dadmin.password=admin`
