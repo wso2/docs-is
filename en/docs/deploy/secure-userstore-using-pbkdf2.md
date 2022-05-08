@@ -1,21 +1,22 @@
 # PBKDF2 hashing
-We can use Password-Based Key Derivation Function 2 (PBKDF2) hashing method to securely store user passwords in user stores. This method reduces the risk of brute-force attacks due to insecure passwords.
+Password-Based Key Derivation Function 2 (PBKDF2) hashing algorithm is a modern hashing algorithm recommended by NIST.  We can use PBKDF2 hashing method to securely store user passwords in user stores. This method reduces the risk of brute-force attacks due to insecure passwords.
 
 This guide walks you through the steps of configuring PBKDF2 as the hashing algorithm of a JDBC userstore.
 
 !!! note
-    Currently PBKDF2 supports only JDBC userstores in Asgardeo.
-
-## Prerequisite
-You should have a secondary JDBC userstore added.  [Create a JDBC user store](../configure-secondary-user-stores) if you don’t already have one.
+    Currently, PBKDF2 supports only JDBC userstores of WSO2 Identity Server.
 
 ## Configure PBKDF2 hashing
-To configure PBKDF2 hashing on a JDBC user store: 
+To configure PBKDF2 hashing on a JDBC user store:
 
-1. On Identity Server management console (`https://<IS_HOST>:<PORT>`), go to  **Manage > Userstores**.
-2. Select the secondary JDBC userstore you have created.
+1. On Identity Server management console (`https://<IS_HOST>:<PORT>`) and [create a JDBC user store](../configure-secondary-user-stores).
+
+    !!! info
+        - You may also use an existing user store which does not have any users in it. If you already have users in the userstore, once the hashing algorithm is configured these users will not be able to get authenticated.
+
+2. Navigate to  **Manage > Userstores**, select the secondary JDBC userstore you have created.
 3. Navigate to the **User** tab of the userstore and expand the **Show more** section.
-4. Edit the following properties with the values given: 
+4. Edit the following properties with the values given:
     <table>
         <tr>
             <th>Property</th>
@@ -36,10 +37,10 @@ To configure PBKDF2 hashing on a JDBC user store:
 
 5. Click **Update** to save the configurations.
 
-Successful updation of these configurations will convert the password hashing algorithm of the userstore to PBKDF2. 
+Successful updation of these configurations will convert the password hashing algorithm of the userstore to PBKDF2.
 
 ## PBKDF2 parameters
-When configuring the PBKDF2 hashing algorithm the following parameters must be specified in the configurations: 
+When configuring the PBKDF2 hashing algorithm the following parameters must be specified in the configurations:
 
 <table>
     <tr>
@@ -67,7 +68,7 @@ When configuring the PBKDF2 hashing algorithm the following parameters must be s
         <td>The key component of the PBKDF2 hashing algorithm in which the actual hashing part is done.</td>
 </table>
 
-!!! info 
+!!! info
     NIST recommends ```PBKDF2WithHmacSHA256``` as the pseudo-random function (prf) value, but the pfr can also be changed. Some examples of possible prf values are as follows:
 
     - ```PBKDF2WithHmacSHA512```
