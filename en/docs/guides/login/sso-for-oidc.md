@@ -85,8 +85,8 @@ configuring the authenticators or connectors with this sample
 application.
 
 -   Download the samples from GitHub.
-    -   [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war)
-    -   [pickup-dispatch.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-dispatch.war)
+    -   [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/pickup-manager.war)
+    -   [pickup-dispatch.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/pickup-dispatch.war)
 
 ## Deploy the samples
 
