@@ -166,7 +166,7 @@ Deploy this sample web app on a web container.
         `                         https://localhost:9443/oauth2/token                       `
     -   **Client Secret:** Enter the client secret of playground2
         application
-        iam/docs-is/en/docs/
+        
     <img name='authorization-code' src='../../../assets/img/samples/authorization-code.png' class='img-zoomable' alt='Authorization code'/>
     
 5.  You will receive the access token. You can also enter the **UserInfo
