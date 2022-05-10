@@ -262,11 +262,16 @@ This page guides you through configuring [two-factor authentication](../../../re
 
     ![supported-by-default](../../../assets/img/guides/supported-by-default.png)
 
+
+
 5. To verify whether the option is available for the users, navigate to a user 
     profile of a user and check whether the **Disable SMSOTP** option is available.
     
     ![user-disable-smsotp](../../../assets/img/guides/user-disable-smsotp.png)
-	
+
+6. To disable SMS OTP in the user profile, enter **True** in the **Disable SMSOTP** field and click **Update**.	
+   
+
 ----
 
 ## Configuring backup codes for SMS OTP
