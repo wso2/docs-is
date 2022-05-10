@@ -269,7 +269,7 @@ This page guides you through configuring [two-factor authentication](../../../re
     
     ![user-disable-smsotp](../../../assets/img/guides/user-disable-smsotp.png)
 
-6. Enter **True** for the Disable SMSOTP option and click **Update**, in the user profile to Disable the SMS OTP.	
+6. To disable SMS OTP in the user profile, enter **True** in the **Disable SMSOTP** field and click **Update**.	
    
 
 ----
