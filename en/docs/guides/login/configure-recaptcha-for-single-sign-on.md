@@ -20,5 +20,9 @@ attacks.
 
 {! fragments/configure-recaptcha-for-sso.md !}
 
+!!! Info
+     If the user exceeds the maximum allowed failed login attempts as well, be sure to [configure email notifications for account locking](../../../guides/tenants/email-account-locking).
+    
+
 !!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
