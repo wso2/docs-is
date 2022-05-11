@@ -34,7 +34,7 @@ Follow the steps given below if you are using a reverse proxy enabled setup to c
     ```
 
 ----
-## Setting up an account for MFA
+### Setting up an account for MFA
 To associate a FIDO device with the user account, refer [Add security device](../my-account/my-account.md#add-security-device).
 ## Create a service provider
 
