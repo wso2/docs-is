@@ -141,7 +141,7 @@ If the logo should be changed without touching the compiled javascript bundle, f
 1.  Download an icon from any of the providers such as [Flaticon.com](https://www.flaticon.com/). In this example, `owl.svg` was the downloaded icon. Now add it to the
 `modules/theme/src/themes/default/assets/images` folder.
 
-2.  Open the `modules/theme/src/definitions/globals/product.less` file and replace the existing styles in the `.product-logo` class with the following.
+2.  Open the `modules/theme/src/theme-core/definitions/globals/product.less` file and replace the existing styles in the `.product-logo` class with the following.
 
     ```java
     .product-title {
