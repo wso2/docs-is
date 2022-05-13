@@ -121,7 +121,7 @@ navigate to `http://<TOMCAT_HOST>:<TOMCAT_PORT>/PassiveSTSSampleApp/home.jsp ` o
 For example, ` http://localhost:8080/PassiveSTSSampleApp/home.jsp .`
 
 
-### Configuring the service provider
+## Configuring the service provider
 
 The next step is to configure the service provider.
 
@@ -135,20 +135,19 @@ The next step is to configure the service provider.
 4.  In the **Inbound Authentication Configuration** section, set following configurations
     under the **WS-Federation (Passive) Configuration** section.
 
-    1.  
+     
 
-        1.  **Passive STS Realm:** : `               PassiveSTSSampleApp             `
+    -   **Passive STS Realm** :`               PassiveSTSSampleApp             `
 
-        2.  **Assertion Consumer URL** : `
-            http://localhost:8080/PassiveSTSSampleApp/index.jsp`
+    -   **Assertion Consumer URL** :`http://localhost:8080/PassiveSTSSampleApp/index.jsp`
                  
-            Click Yes, in the message that appears.
+    Click Yes, in the message that appears.
 
     
 
 5. Expand the **Claim Configuration** section and click **Add Requested Claim** to add the following claims. 
-    1. http://wso2.org/claims/username
-    2. http://wso2.org/claims/emailaddress
+    -  http://wso2.org/claims/username
+    -  http://wso2.org/claims/emailaddress
 
 6. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**. 
 
