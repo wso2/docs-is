@@ -109,9 +109,9 @@ Configure the multiple factor authentication steps for the service provider:
     - **Step 2**
         1. Click **Add Authentication Step**.
 
-        2. Select `emailotp` under **Federated Authenticators** and click **Add Authenticator** to add SMSOTP authentication as the second step.
+        2. Select `emailotp` under **Federated Authenticators** and click **Add Authenticator** to add EMAIL OTP authentication as the second step.
 
-            Adding SMSOTP as a second step adds another layer of authentication and security.
+            Adding EMAIL OTP as a second step adds another layer of authentication and security.
     
         <img name='sms-otp-authentication-steps' src='../../../assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
 
