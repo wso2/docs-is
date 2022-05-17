@@ -616,7 +616,7 @@ enable = true
 This section covers the updates related to system configurations on Identity Server 5.12.0.
 
 ### Default CORS Configuration
-In previously versions of Identity Server, the default HTTP methods allowed for CORS were only ```GET```, ```POST```, ```HEAD``` and ```OPTIONS```.
+In previously versions of WSO2 Identity Server, the default HTTP methods allowed for CORS were only ```GET```, ```POST```, ```HEAD``` and ```OPTIONS```.
 
 In Identity Server 5.12.0, this has been changed to allow the following HTTP methods ```GET```, ```POST```, ```PUT```, ```PATCH```, ```DELETE```, ```HEAD``` and ```OPTIONS```.
 
