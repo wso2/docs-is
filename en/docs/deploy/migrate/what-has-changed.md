@@ -69,7 +69,7 @@ The following changes have been made to the Email OTP authenticator.
 
 - The artifact ID of the authenticator has been updated.
 
-- The ```emailotpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the steps to integrate their changes to Identity Server 5.12.0 for users with customized email TOTP pages.
+- The ```emailotpauthethentication``` endpoint, which was packed with the product is now an integral part of the authentication portal. Following are the steps to integrate their changes to Identity Server 5.12.0 for users with customized email TOTP pages.
 
     1. Merge the customizations to the authentication portal app.The pages related to Email OTP available in authentication portal are included in the table below.
     <table>
