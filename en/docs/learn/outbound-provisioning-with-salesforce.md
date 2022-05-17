@@ -520,8 +520,6 @@ management console, this user should also appear in Salesforce.
         unique across all Salesforce organizations.
         Otherwise the user might not be provisioned to Salesforce if the username already exists 
         even in another Salesforce organization.
-        For example, if we consider test@gmail.com as the username, this will not get provisioned to Salesforce.
-        This is because this username is already in use in one of the organizations in Salesforce.
         For more information visit https://help.salesforce.com/s/articleView?id=000325728&type=1
         
         Later on, if you want to update the user details, you
