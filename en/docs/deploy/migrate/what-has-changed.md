@@ -595,7 +595,7 @@ To migrate the H2 databases to the newer versions, follow the instructions given
 This section covers the updates related to data provider configurations on Identity Server 5.12.0.
 
 ### Introspection Data Providers
-Up until Identity Server 5.11.0, the following single configuration was used to enable or disable all the registered OAuth introspection data providers.
+Up until WSO2 Identity Server 5.11.0, the following single configuration was used to enable or disable all the registered OAuth introspection data providers.
 
 ``` js
 [oauth.grant_type.uma_ticket]
