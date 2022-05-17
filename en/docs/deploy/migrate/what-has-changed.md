@@ -12,6 +12,8 @@ This page provides details about the behavioral changes from WSO2 Identity Serve
     - Changes introduced in IS 5.8.0 and before can be found at [Migrating Configurations to IS 5.8.0](https://docs.wso2.com/display/IS580/Upgrading+From+an+Older+Version+of+WSO2+IS#UpgradingFromanOlderVersionofWSO2IS-Migratingtheconfigurations).
 
 ## Webapp
+This section covers the updates related to Console application and the MyAccount application on Identity Server 5.12.0.
+
 ### Console App
 Identity Server 5.11.0 had two ways of adding the certification for an application. The two methods used are as follows:
 - Upload the certificate through the UI
@@ -67,7 +69,7 @@ The following changes have been made to the Email OTP authenticator.
 
 - The artifact ID of the authenticator has been updated.
 
-- The ```emailotpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the options available for users with customized email OTP pages to integrate their changes to Identity Server 5.12.0.
+- The ```emailotpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the steps to integrate their changes to Identity Server 5.12.0 for users with customized email TOTP pages.
 
     1. Merge the customizations to the authentication portal app.The pages related to Email OTP available in authentication portal are included in the table below.
     <table>
@@ -106,7 +108,7 @@ The following changes have been made to the TOTP authenticator.
 
 - It’s no longer required to add the TOTP authenticator into the ```dropins``` folder as the authenticator has been moved into the ```plugins``` directory by default in IS 5.12.0.
 
-- The ```totpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the options available for users with customized TOTP pages to integrate their changes to Identity Server 5.12.0.
+- The ```totpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the steps to integrate their changes to Identity Server 5.12.0 for users with customized TOTP pages.
     1. Merge the customizations to the authentication portal app.The pages related to TOTP available in authentication portal are:
         
         - enableTOTP.jsp (TOTP enroll page)
@@ -122,12 +124,12 @@ The following changes have been made to the TOTP authenticator.
         TOTPAuthenticationEndpointEnableTOTPPage="totpauthenticationendpoint/enableTOTP.jsp"
         ```
 
-- Unlike the earlier versions of the Identity server, the TOTP authenticator of IS 5.12.0 does not offer sending the TOTP via email as a default option. Add the following configuration to the ```deployment.toml``` file, to enable sending the TOTP through Email.
+    3. Unlike the earlier versions of the Identity server, the TOTP authenticator of IS 5.12.0 does not offer sending the TOTP via email as a default option. Add the following configuration to the ```deployment.toml``` file, to enable sending the TOTP through Email.
 
-    ``` js
-    [authentication.authenticator.totp.parameters]
-    Allow_sending_verification_code_by_email = true
-    ```
+        ``` js
+        [authentication.authenticator.totp.parameters]
+        Allow_sending_verification_code_by_email = true
+        ```
 
 !!! note
 
@@ -343,6 +345,7 @@ enable_scope_based_claim_filtering = false
 ```
 
 ## Token
+This section covers the updates related to Token configurations on Identity Server 5.12.0.
 ### JWT Access Token Signing Behavior
 In the previous versions of the Identity Server, JWT access token signing is done using the tenant of the user accessing  the application. This behavior has been improved to maintain consistency with the ID token which is signed using the application’s tenant by default. This behavioral change will also simplify token validation at the application, especially SaaS applications.
 
@@ -388,6 +391,7 @@ JWTClaimsSet claims = jwt.getPayload().toSignedJWT().getJWTClaimsSet();
     This behavior cannot be reversed.
 
 ## Claims
+This section covers the updates related to claims on Identity Server 5.12.0.
 ### Regex Pattern Validation for User Claim Input Values
 In Identity Server 5.12.0, server-side regex pattern validation has been introduced as a mechanism for validating inputs when adding and updating user claim values.
 With this feature, the input values for the user claims will be validated against the following patterns by default.
@@ -468,7 +472,10 @@ enable_oidc_dialect = false
 ```
 
 ## API Endpoints
+This section covers the updates related to APIs and API endpoints on Identity Server 5.12.0.
+
 ### SCIM2 Endpoint
+This section covers the updates related to SCIM2 endpoint on Identity Server 5.12.0.
 #### Intermediate Certificate Validation
 In WSO2 Identity Server versions 5.11.0 and older, intermediate certificate validation is skipped for the SCIM2 endpoint.
 This has been enabled by default in WSO2 Identity Server 5.12.0. If the previous behavior is required, add the following configuration to the ```deployment.toml``` file.
@@ -498,7 +505,7 @@ The data type of the ```client_secret_expires_at``` property of an OAuth2 Applic
 Therefore, any client applications that are using this API must update the response parsing mechanisms to work with a long value for this attribute.
 
 ### UserInfo Endpoint Attributes
-The representation of the groups claim in the UserInfo response has been changed. The groups claim is a multi-valued attribute, and it is represented accordingly as a JSON array in the ID token. But in earlier versions of the Identity Server, the value of the groups claim in the UserInfo response is a single string of comma-separated values as shown below.
+The representation of the groups claim in the ```UserInfo``` response has been changed. The groups claim is a multi-valued attribute, and it is represented accordingly as a JSON array in the ID token. But in earlier versions of the Identity Server, the value of the groups claim in the UserInfo response is a single string of comma-separated values as shown below.
 
 ```"groups": "Internal/everyone,dev"```
 
@@ -507,7 +514,7 @@ With Identity Server 5.12.0, the UserInfo response has been updated to return a 
 ```"groups": ["Internal/everyone","dev"]```
 Hence, any client application that consumes the UserInfo response should be updated to parse this new format of the response properly.
 
-### Permissions for Function Library Management Admin Services and APIs
+### Library Management Permissions
 Up until WSO2 Identity Server 5.11.0, manage level permissions were required to access the Function Library Management Admin services and APIs.
 
 With WSO2 Identity Server 5.12.0, more fine-grained permissions are supported for these services and APIs. The following table maps the operation to the required permissions.
@@ -541,7 +548,7 @@ With WSO2 Identity Server 5.12.0, more fine-grained permissions are supported fo
 
 
 ### Remote Server Shutdown/Restart via SOAP API
-With Identity Server 5.12.0, the capability of the SOAP API to initiate server shutdowns or restarts has been disabled by default. If these features are required, add the following configurations to the ```deployment.toml``` file to enable the features.
+With Identity Server 5.12.0, the capability of the SOAP APIs to initiate server shutdowns or restarts has been disabled by default. If these features are required, add the following configurations to the ```deployment.toml``` file to enable the features.
 
 ``` js
 [server]
@@ -550,39 +557,52 @@ enable_restart_from_api = true
 ```
 
 ### Server Management API Restrictions
-From Identity Server 5.12.0 onwards, only Client Applications configured as Management Applications are able to access Server Management APIs. This can be configured via the Console by checking the Management Application option in the Application edit page or by setting the isManagementApp attribute to true using Application Management REST API for the required applications.
+From Identity Server 5.12.0 onwards, only client applications configured as Management Applications are able to access Server Management APIs.
+
+Applications can configured as management applications in the following methods:
+- Check the **Management Application** option available in the application's edit page.
+- Set the ```isManagementApp``` attribute to ```true``` using Application Management REST API for the required applications.
 
 !!! Note
-    This will affect only new applications. All applications that existed prior to the migration will still be able to access the Server Management APIs.
+    This will affect only new applications. All applications that existed prior to the migration will still be able to access the Server's Management APIs.
 
 ## Database
+This section covers the updates related to database configurations on Identity Server 5.12.0.
+
 ### H2 Database Version Upgrade
-The H2 database engine version has been upgraded from 1.4.199 to 2.1.210 in Identity Server 5.12.0. As a result of this, Identity Server 5.12.0 will not be able to interact properly with existing H2 databases of the older version. Therefore, it is mandatory to migrate the existing H2 databases to the newer version before running the product migration tool. This applies mainly to the embedded H2 database in the product, if being used.
+The H2 database engine version has been upgraded from ```1.4.199``` to ```2.1.210``` in Identity Server 5.12.0. As a result of this, Identity Server 5.12.0 will not be able to properly interact with existing H2 databases of the older version.
+
+Therefore, it is mandatory to migrate the existing H2 databases to the newer version before running the product migration tool. This applies mainly to the embedded H2 database in the product, if being used.
 
 To migrate the H2 databases to the newer versions, follow the instructions given below.
 1. Download the [migration.sh script](https://github.com/wso2/samples-is/blob/master/h2-migration-tool/migration.sh) and run it using the command ```sh migration.sh``.
-Alternatively, you could run the following command to download and run the script in one go.
 
-``` js
-curl -s https://raw.githubusercontent.com/wso2/samples-is/master/h2-migration-tool/migration.sh | bash
-```
+    Alternatively, you could run the following command to download and run the script in one go.
 
-2. Enter the path of the files of the old database which needs to be migrated. If the database being migrated is the embedded H2 database, the path should be ```<OLD_IS_HOME>/repository/database```.
-3. Enter the path of the target directory where the new database files should be generated.
-4. Once the migration script execution has ended, copy the files in the target directory to the ```repository/database``` directory in the new Identity Server 5.12.0 pack for embedded H2 database migration.
+    ``` js
+    curl -s https://raw.githubusercontent.com/wso2/samples-is/master/h2-migration-tool/migration.sh | bash
+    ```
+
+2. Once you run the script, you will be prompted with the following questions on the terminal:
+    - **Enter the path to the previous database files:**
+        If the database being migrated is the embedded H2 database, the path should be ```<OLD_IS_HOME>/repository/database```.
+    - **Enter the path to store the newly created files:**
+        Enter the path of the target directory where the new database files should be generated.
+
+3. After successfully executing the migration script, copy the files in the target directory to the ```repository/database``` directory in the new Identity Server 5.12.0 pack for embedded H2 database migration.
 
 ## Data providers
-### Introspection Data Providers Configuration Update
-Up until Identity Server 5.11.0, the following single configuration was used to enable/disable all the registered OAuth Introspection data providers.
+This section covers the updates related to data provider configurations on Identity Server 5.12.0.
+
+### Introspection Data Providers
+Up until Identity Server 5.11.0, the following single configuration was used to enable or disable all the registered OAuth introspection data providers.
 
 ``` js
 [oauth.grant_type.uma_ticket]
 retrieve_uma_permission_info_through_introspection = true
 ```
 
-This configuration is now deprecated.
-
-From Identity Server 5.12.0 onwards, Introspection Data Providers are registered as event listeners and can be individually activated using the configurations given below in the deployment.toml file.
+This configuration is deprecated from Identity Server 5.12.0 onwards. Introspection data providers are now registered as event listeners and can be individually activated using the configurations given below in the ```deployment.toml``` file.
 
 ``` js
 [event.default_listener.is_introspection_data_provider]
@@ -593,19 +613,21 @@ enable = true
 ```
 
 ## System configs
+This section covers the updates related to system configurations on Identity Server 5.12.0.
+
 ### Default CORS Configuration
-Previously, the default allowed HTTP methods for CORS were only ```GET```, ```POST```, ```HEAD``` and ```OPTIONS```.
+In previously versions of Identity Server, the default HTTP methods allowed for CORS were only ```GET```, ```POST```, ```HEAD``` and ```OPTIONS```.
 
 In Identity Server 5.12.0, this has been changed to allow the following HTTP methods ```GET```, ```POST```, ```PUT```, ```PATCH```, ```DELETE```, ```HEAD``` and ```OPTIONS```.
 
 Learn more on [how to change the CORS configuration](https://is.docs.wso2.com/en/latest/learn/cors).
 
-### Log4j2 logging in Hazelcast Cluster Setups
-If you have been using Identity Server in a [Hazelcast cluster](https://is.docs.wso2.com/en/latest/administer/configuring-hazelcast/), you may have configured the logging type for Hazelcast as log4j ```(Log4j1)```. Log4j1 logging is no longer supported in WSO2 Identity Server. The Log4j version has been upgraded to ```Log4j2```. Hence, the Hazelcast configuration has to be updated to use ```log4j2``` as follows.
+### Log4j2 logging in Hazelcast
+If you have been using Identity Server in a [Hazelcast cluster](https://is.docs.wso2.com/en/latest/administer/configuring-hazelcast/), you may have configured the logging type for Hazelcast as log4j ```(Log4j1)```. Log4j1 logging is no longer supported in WSO2 Identity Server.
+
+In Identity Server 5.12.0, the Log4j version is upgraded to ```Log4j2```. Therefore the Hazelcast configuration needs to be updated to ```log4j2``` by adding the following configuration to the ```deployment.toml``` file.
 
 ``` js
 [hazelcast]
 hazelcast.logging.type = log4j2
 ```
-
-
