@@ -475,7 +475,7 @@ enable_oidc_dialect = false
 This section covers the updates related to APIs and API endpoints on Identity Server 5.12.0.
 
 ### SCIM2 Endpoint
-This section covers the updates related to SCIM2 endpoint on Identity Server 5.12.0.
+This section covers the updates related to the SCIM2 endpoint on Identity Server 5.12.0.
 #### Intermediate Certificate Validation
 In WSO2 Identity Server versions 5.11.0 and older, intermediate certificate validation is skipped for the SCIM2 endpoint.
 This has been enabled by default in WSO2 Identity Server 5.12.0. If the previous behavior is required, add the following configuration to the ```deployment.toml``` file.
