@@ -592,7 +592,7 @@ To migrate the H2 databases to the newer versions, follow the instructions given
 3. After successfully executing the migration script, copy the files in the target directory to the ```repository/database``` directory in the new Identity Server 5.12.0 pack for embedded H2 database migration.
 
 ## Data providers
-This section covers the updates related to data provider configurations on Identity Server 5.12.0.
+This section covers the updates related to data provider configurations on WSO2 Identity Server 5.12.0.
 
 ### Introspection Data Providers
 Up until WSO2 Identity Server 5.11.0, the following single configuration was used to enable or disable all the registered OAuth introspection data providers.
