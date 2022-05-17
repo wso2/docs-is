@@ -625,7 +625,7 @@ Learn more on [how to change the CORS configuration](https://is.docs.wso2.com/en
 ### Log4j2 logging in Hazelcast
 If you have been using Identity Server in a [Hazelcast cluster](https://is.docs.wso2.com/en/latest/administer/configuring-hazelcast/), you may have configured the logging type for Hazelcast as log4j ```(Log4j1)```. Log4j1 logging is no longer supported in WSO2 Identity Server.
 
-In Identity Server 5.12.0, the Log4j version is upgraded to ```Log4j2```. Therefore the Hazelcast configuration needs to be updated to ```log4j2``` by adding the following configuration to the ```deployment.toml``` file.
+In WSO2 Identity Server 5.12.0, the Log4j version is upgraded to ```Log4j2```. Therefore the Hazelcast configuration needs to be updated to ```log4j2``` by adding the following configuration to the ```deployment.toml``` file.
 
 ``` js
 [hazelcast]
