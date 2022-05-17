@@ -19,7 +19,7 @@ Identity Server 5.11.0 had two ways of adding the certification for an applicati
 - Upload the certificate through the UI
 - Add the certificate to the keystore and select the certificate through the UI.
 
-Having two methods for the same process creates redundancy, therefore in 5.12.0, we have removed the second option by default. If you need to enable the signature validation certificate alias option in the UI, add the following configuration to the ``deployment.toml`` file.
+Having two methods for the same process creates redundancy, therefore in 5.12.0, the second option is removed by default. If you need to enable the signature validation certificate alias option in the UI, add the following configuration to the ``deployment.toml`` file.
 
 ``` java
 [console.applications.ui]
@@ -286,7 +286,7 @@ prompt=false
 This sections contains the details of the updates realted to User Management section in IS 5.12.0.
 
 ### Configuring Custom Userstore Managers
-In earlier versions of WSO2 IS, we  enabled custom userstore managers by adding the following configuration to the ```deployment.toml``` file.
+In earlier versions of WSO2 IS, custom userstore managers were enabled by adding the following configuration to the ```deployment.toml``` file.
 
 ``` js
 [user_store_mgt]
