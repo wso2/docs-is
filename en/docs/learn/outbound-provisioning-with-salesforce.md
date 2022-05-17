@@ -516,11 +516,9 @@ management console, this user should also appear in Salesforce.
 3.  Enter the username in the form of an email and enter the password.
     
     !!! note
-        When adding the username, make sure to add a unique email address as the username which must be 
-        unique across all Salesforce organizations.
-        Otherwise the user might not be provisioned to Salesforce if the username already exists 
-        even in another Salesforce organization.
-        For more information visit https://help.salesforce.com/s/articleView?id=000325728&type=1
+        When adding the username, make sure to add an email address that is unique across all Salesforce organizations.
+        The user might not be provisioned to Salesforce if the username already exists even in another Salesforce organization.
+        For more information see the [Salesforce documentation](https://help.salesforce.com/s/articleView?id=000325728&type=1).
         
         Later on, if you want to update the user details, you
         won't be able to update the email address.
