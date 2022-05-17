@@ -124,7 +124,7 @@ The following changes have been made to the TOTP authenticator.
         TOTPAuthenticationEndpointEnableTOTPPage="totpauthenticationendpoint/enableTOTP.jsp"
         ```
 
-    3. Unlike the earlier versions of the Identity server, the TOTP authenticator of IS 5.12.0 does not offer sending the TOTP via email as a default option. Add the following configuration to the ```deployment.toml``` file, to enable sending the TOTP through Email.
+    3. Unlike the earlier versions of the Identity server, the TOTP authenticator of IS 5.12.0 does not offer sending the TOTP via email as a default option. Add the following configuration to the ```deployment.toml``` file to enable sending the TOTP through Email.
 
         ``` js
         [authentication.authenticator.totp.parameters]
