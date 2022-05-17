@@ -108,7 +108,7 @@ The following changes have been made to the TOTP authenticator.
 
 - It’s no longer required to add the TOTP authenticator into the ```dropins``` folder as the authenticator has been moved into the ```plugins``` directory by default in IS 5.12.0.
 
-- The ```totpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the steps to integrate their changes to Identity Server 5.12.0 for users with customized TOTP pages.
+- The ```totpauthethentication``` endpoint, which was packed with the product is now an integral part of the authentication portal. Following are the steps to integrate their changes to Identity Server 5.12.0 for users with customized TOTP pages.
     1. Merge the customizations to the authentication portal app.The pages related to TOTP available in authentication portal are:
         
         - enableTOTP.jsp (TOTP enroll page)
