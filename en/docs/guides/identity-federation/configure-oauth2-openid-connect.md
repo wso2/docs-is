@@ -114,13 +114,20 @@ processors](TO-DO:../../learn/extension-points-for-oauth#token-persistence-proce
         <td>Additional Query Parameters</td>
         <td>This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here.
         <div class="admonition note">
-        <p>If you wish to send query parameters that need to be updated dynamically with each OIDC request, the value needs to be defined within parenthesis.This value should be the key of the query parameter sent in the OIDC request URL. </br>
-        <strong>Format:</strong> <code> login_hint=${paramName}</code> </br>
-        </br>
-        Multiple parameters can be defined by separation of query parameters using the & character.</br>
-        <strong>Sample:</strong></br> <code>login_hint=${paramName}&scope=openid email profile </code></br> </br>
-        Alternatively, use the following format to send query parameters that are resolved using an adaptive authentication script. </br>
-        <strong>Format:</strong> <code>login_hint=$authparam{paramName} </code> </br>
+        <p>If you wish to send query parameters that need to be updated dynamically with each OIDC request, the value needs to be defined within parenthesis.This value should be the key of the query parameter sent in the OIDC request URL.
+        <ul>
+            <li>
+                <b>Format:</b> <code>login_hint=&#36;{paramName}</code>
+                Multiple parameters can be defined by separation of query parameters using the & character.
+            </li>
+            <li>
+                <b>Sample:</b> <code>login_hint=&#36;{paramName}&scope=openid email profile</code>
+                 Alternatively, use the following format to send query parameters that are resolved using an adaptive authentication script.
+            </li>
+            <li>
+                <b>Format:</b><code>login_hint=$authparam{paramName} </code>
+            </li>
+        </ul>
         </p>
         </div>
         </td>
