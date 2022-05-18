@@ -123,7 +123,7 @@ claim configuration changes needs to be reverted manually in both tenants and su
 please refer to the claim changes introduced with this effort and revert them manually or via a script.
 
 In order to stop claim data migration related to the groups vs roles improvements during the 
-migration, open migration-configs.yaml file and remove the 5th step from 5.12.0 migration section prior to the migration.
+migration, open migration-configs.yaml file and remove the 5th step from 6.0.0 migration section prior to the migration.
 
 ```java
   - name: "ClaimDataMigrator"
