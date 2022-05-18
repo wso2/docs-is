@@ -10,6 +10,7 @@ Follow the steps given below to set up the repo in a development environment.
 !!! note "Before you begin"
 
     1. Install [node](https://nodejs.org/en/download/) if you have not already installed it. Npm is already bundled with node.
+        * npm 7 has some breaking changes to peer dependencies. Hence, go with a *npm version lower than 7*.
     2. Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
     3. A running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
 
@@ -45,7 +46,7 @@ Follow the steps given below to set up the repo in a development environment.
     ]
     support_any_header = true
     supported_headers = []
-    exposed_headers = [Location]
+    exposed_headers = ["Location"]
     supports_credentials = true
     max_age = 3600
     tag_requests = false
@@ -75,7 +76,7 @@ Follow the steps given below to set up the repo in a development environment.
     4.  Expand **Inbound Authentication Configuration**, and then expand **OAuth/OpenID Connect Configuration**. Click **Edit**.
     5.  Change the **Callback URL** field to reflect the port as 9000 or you can add a regexp as follows.
         ```
-        regexp=(https://localhost:9443/user-portal/login|https://localhost:9000/user-portal/login)
+        regexp=(https://localhost:9443/myaccount|https://localhost:9443/t/(.*)/myaccount|https://localhost:9443/myaccount/login|https://localhost:9443/t/(.*)/myaccount/login|https://localhost:9000/myaccount|https://localhost:9000/t/(.*)/myaccount|https://localhost:9000/myaccount/login|https://localhost:9000/t/(.*)/myaccount/login)
         ```
 
 ### Step 2: Build the Identity Apps repository
@@ -93,7 +94,7 @@ mvn clean install or npm run build
 
 After the build is complete, navigate to the **My Account** directory and run the portal using the webpack dev server.
 ```java
-cd apps/user-portal
+cd apps/myaccount
 npm start
 ```
 
