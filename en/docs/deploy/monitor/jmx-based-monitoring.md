@@ -1,22 +1,18 @@
 # JMX-Based Monitoring
 
-**JMX** is a technology that lets you implement management interfaces for Java applications. 
-A management interface, as defined by JMX, is composed of named objects called **MBeans** (Management
-Beans). MBeans are registered with a name (an ObjectName) in an **MBeanServer**. To manage a resource or many resources in your application, you can write an MBean defining its management interface and register
-that MBean in your MBeanServer. The content of the MBeanServer can then be exposed through various protocols, implemented by protocol connectors, or protocol adaptors.
+!!! info "Java Management Extensions (JMX)" 
+    **JMX** is a technology that lets you implement management interfaces for Java applications. 
+    A management interface, as defined by JMX, is composed of named objects called **MBeans** (Management
+    Beans). MBeans are registered with a name (an ObjectName) in an **MBeanServer**. To manage a resource or many resources in your application, you can write an MBean defining its management interface and register
+    that MBean in your MBeanServer. The content of the MBeanServer can then be exposed through various protocols, implemented by protocol connectors, or protocol adaptors.
   
----
 
-## Configure JMX in WSO2 Identity Server
-
-JMX is enabled in WSO2 Identity Server by default ensuring that the JMX
-server starts automatically. Additionally, you can enable JMX separately for the various datasources
+### Configuring JMX in WSO2 Identity Server
+JMX  can be enabled separately for the various datasources
 that are used by WSO2 IS. Once JMX is enabled, you can log in to the
-JConsole tool and monitor your WSO2 IS instance as explained in the [Monitor WSO2 Identity Server with JConsole](#monitor-wso2-identity-server-with-jconsole) section.
+JConsole tool and monitor your WSO2 IS instance as explained in the [Monitoring WSO2 Identity Server with JConsole](#monitoring-wso2-identity-server-with-jconsole) section.
 
----
-
-## Configure JMX ports for the server
+#### Configuring JMX ports for the server
 
 The default JMX ports (RMIRegistryPort and the RMIServerPort) are
 configured in the `         deployment.toml        ` file (stored in the
@@ -28,39 +24,40 @@ below. If required, you can update these default values.
 rmi_registry_port = "9999"
 
 [monitoring.jmx]
-rmi_server_por = "11111"
+rmi_server_port = "11111"
 ```
 
----
+#### Enabling JMX for the server
 
-## Disable JMX for the server
-
-You can disable the JMX server by setting the following
-property to ` false ` in the `deployment.toml` file.
+You can enable the JMX server by setting the following
+property to ` true ` in the `deployment.toml` file.
 
 ```toml
 [monitoring.jmx]
-rmi_server_start = false
+rmi_server_start = true
 ```
 
----
+#### Enabling JMX for a datasource
 
-## Enable JMX for a datasource
+You can enable JMX for a datasource by adding the `jmxEnabled` as `true`
+element to the datasource configuration. For example, to enable JMX for
+the default Carbon datasources, add the following
+property to the ` deployment.toml` file (stored in the `
+<IS_HOME>/repository/conf/ ` directory).
 
-You can enable JMX for a datasource by adding `jmxEnabled` as `true` to the datasource configuration. For example, to enable JMX for
-the default Carbon datasources, add the following property to the ` deployment.toml` file stored in the `<IS_HOME>/repository/conf/ ` directory.
+!!! abstract "For IDENTITY_DB"
+    ``` toml
+    [database.identity_db.pool_options]
+    jmxEnabled = true
+    ```
 
-``` toml tab="For IDENTITY_DB"
-[database.identity_db.pool_options]
-jmxEnabled = true
-```
-
-``` toml tab="For SHARED_DB"
-[database.shared_db]
-...
-jmx_enable = true
-```
-
+!!! abstract "For SHARED_DB"
+    ``` toml
+    [database.shared_db]
+    ...
+    jmx_enable = true
+    ```
+    
 ---
 
 ## Monitor WSO2 Identity Server with JConsole

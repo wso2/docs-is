@@ -341,7 +341,6 @@ nav:
               - Change to remote H2: deploy/change-to-remote-h2.md
               - Change the Default Datasource of BPS: deploy/change-datasource-bpsds.md
               - Change the Default Datasource for Consent Management: deploy/change-datasource-consent-management.md
-            - Browse the H2 Database: deploy/browse-the-h2-database.md
             - Data Dictionary:
               - Registry Related Tables: deploy/registry-related-tables.md
               - User Management Related Tables: deploy/user-management-related-tables.md

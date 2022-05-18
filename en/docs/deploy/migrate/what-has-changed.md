@@ -304,6 +304,10 @@ You may use the following configuration on ```deployment.toml``` file to configu
 custom_user_stores=[“<new userstore managers…>”]
 ```
 
+## Removed H2 console
+
+The H2 console, which is packed with the embedded H2 database can cause security vulnerabilities due to remote code execution. Since there is no valid usage of the H2 console in production environments and is only useful during development tasks, it has been removed from WSO2 IS 5.12.0. As an alternative, you can use standard database client software for development or testing purposes. 
+
 ## Provisioning
 This sections contains the details of the updates realted to provisioing section in IS 5.12.0.
 
