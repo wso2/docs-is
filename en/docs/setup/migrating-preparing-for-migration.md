@@ -5,9 +5,9 @@
     prerequisites.
 
 !!! note
-    In this section, `<OLD_IS_HOME> ` is the directory that current Identity
+    In this section, `<OLD_IS_HOME>` is the directory that current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
-    directory that WSO2 Identity Server 5.11.0 resides in. 
+    directory that WSO2 Identity Server 6.0.0 resides in. 
 
 !!! info "Important" 
     Before proceeding with the migration, change the following property to `false` in the `<IS_HOME>/repository/conf/deployment.toml` file.
@@ -19,43 +19,43 @@
         
 ## Groups and Roles Migration 
 
-With WSO2 Identity Server 5.11.0, groups and roles are separated. For more information, see [What Has Changed in 5.11.0](../../setup/migrating-what-has-changed#group-and-role-separation).
+With WSO2 Identity Server 5.11.0, groups and roles are separated. For more information, see [What Has Changed in 5.11.0](../../../5.11.0/setup/migrating-what-has-changed#group-and-role-separation).
 
 ## Groups and Roles Improvements Migration
 
-With WSO2 Identity Server 5.12.0, groups and roles improvements are introduced. For more information, see [What Has Changed in 5.11.0](../../setup/migrating-what-has-changed#Group and role separation Improvements).
+With WSO2 Identity Server 6.0.0, groups and roles improvements are introduced. For more information, see [Group and role separation](../../../5.11.0/setup/migrating-what-has-changed/#group-and-role-separation).
 
 Please note that following abbreviations are used in the sections below.
 
-* Wso2.role claim = http://wso2.org/claims/role
-* Wso2.roles claim = http://wso2.org/claims/roles
-* Wso2.groups claim = http://wso2.org/claims/groups
+* wso2.role claim = http://wso2.org/claims/role
+* wso2.roles claim = http://wso2.org/claims/roles
+* wso2.groups claim = http://wso2.org/claims/groups
 
 Please refer to the below sections related to this improvement.
 
 ### Claim configuration changes
 
-Following changes are added to the product claims.
+Following changes have been made to the product claims.
 
-* Wso2.role claim - Modified
-  * Remove `supported by default`
-  * Change display name to `Roles and groups`
-  * Change description to `Include both userstore groups and internal roles`
-* Wso2.roles claim - New
+* wso2.role claim - Modified
+  * Removed `supported by default`
+  * Updated display name to `Roles and groups`
+  * Updated description to `Include both userstore groups and internal roles`
+* wso2.roles claim - New
   * Display name : Roles 
   * AttributeID:  roles
   * Description: Roles
-  * Add `Supported by default`
-  * Add `read-only`
-* Wso2.groups claim - Modified
-  * Add  `supported by default`
-  * Add  `read-only`
+  * `Supported by default` configured as true
+  * `read-only` configured as true
+* wso2.groups claim - Modified
+  * `supported by default` configured as true
+  * `read-only` configured as true
 * OIDC group claim - Modified
-  * Change mapped local claim to wso2.groups claim
+  * Updated mapped local claim to wso2.groups claim
 * OIDC roles claim - New
-  * Mapped to the local claim, wso2.roles
+  * Mapped to the local claim wso2.roles
 * SCIM2 roles.default claim - Modified
-  * Change mapped local claim to wso2.roles claim
+  * Updated mapped local claim to wso2.roles claim
     
 #### Migration preparation for claim changes
 * All claim configurations are already configured OOTB in the fresh pack, and will be done via the 
@@ -63,8 +63,8 @@ Following changes are added to the product claims.
 * Any custom external claim mapped to the wso2.role claim should be mapped to either wso2.roles 
   or wso2.groups claim as per the requirement of the custom use case.
 * Our recommendation is to fix any consuming client to become compatible with these changes. 
-  But if somehow the above configs need to be reverted(possibly in a migrated deployment), it can 
-  be done via calling IS server [Claim Management REST APIs](../develop/claim-management-rest-api.md).
+  But if somehow the above configs need to be reverted (possibly in a migrated deployment), it can 
+  be done via the Identity Server [Claim Management REST APIs](../develop/claim-management-rest-api.md).
   
 ### Utilizing carbon kernel level support
 
@@ -89,14 +89,14 @@ the SAML assertion.
 
 ### SCIM2 roles.default claim returns roles and groups claim return groups
 
-Previously the roles.default claim in SCIM2 returned both groups and roles as it was mapped to 
-the wso2.roles claim. Going forward it is mapped to the wso2.roles claim, where only roles are 
+Previously, the roles.default claim in SCIM2 returned both groups and roles as it was mapped to 
+the wso2.roles claim. Going forward, it is mapped to the wso2.roles claim, where only roles are 
 returned. In order to get groups, `urn:ietf:params:scim:schemas:core:2.0:User:groups` claim should 
 be used instead since with this improvement it is returning groups as intended.
 
 ### Groups and roles in SCIM2 user response
 
-Previously users and roles in the SCIM2 user response returned as a comma separated single entity. 
+Previously users and roles in the SCIM2 user response returned as a single comma-separated entity. 
 However, that has been changed, and now they return as separate complex entities. We recommend 
 modifying clients that consume this response.
 
@@ -135,16 +135,16 @@ migration, open migration-configs.yaml file and remove the 5th step from 5.12.0 
 
 ## Migrating custom components
 
-In WSO2 Identity Server 5.11.0 we have done a major upgrade to our kernel and our main components. 
+In WSO2 Identity Server 6.0.0, we have done a major upgrade to our kernel and our main components. 
 Any custom OSGI bundles which are added manually should be recompiled with new dependency versions 
 that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the 
 `<OLD_IS_HOME>/repository/components/dropins` directory.
 
-1.  Get the source codes of the custom OSGI components located in the dropins directory. 
+1.  Get the source codes of the custom OSGI components located in the `dropins` directory. 
 
 2.  Change the dependency versions in the relevant POM files according to the WSO2 IS version that 
     you are upgrading to, and compile them. The compatible dependency versions can be found 
-    [here](https://github.com/wso2/product-is/blob/v5.11.0-rc1/pom.xml). 
+    [here](https://github.com/wso2/product-is/blob/v6.0.0-rc1/pom.xml). 
 
 3.  If you come across any compile time errors, refer to the WSO2 IS code base and make the 
     necessary changes related to that particular component version.
@@ -168,7 +168,7 @@ Refer to the relevant feature documents and
 
 !!! info
     If you do not require a zero down time migration, then you can directly proceed to the
-    next section, [Migrating to 5.11.0](../../setup/migrating-to-5110).
+    next section, [Migrating to 6.0.0](../../setup/migrating-to-600).
     
 A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, 
 usually when there’s a patch, or critical security upgrade for products used in the solution, 
@@ -205,9 +205,9 @@ All the other data will not be preserved in the new system.
 
 Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
-1.  Create a new databases for the new WSO2 Identity Server version (5.11.0) 
+1.  Create a new databases for the new WSO2 Identity Server version (6.0.0) 
     that you are migrating to.
-2.  Unzip a WSO2 Identity Server 5.11.0 distribution (use a WUM updated distribution 
+2.  Unzip a WSO2 Identity Server 6.0.0 distribution (use a WUM updated distribution 
     if available). This will be used as the data sync tool between the Identity 
     Server versions. We will refer to WSO2 Identity Server distribution as 
     “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
@@ -356,4 +356,4 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 9.  Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) 
 and restore in the new databases created.
 
-10. Proceed to the next section [Migrating to 5.11.0](../../setup/migrating-to-5110).
+10. Proceed to the next section [Migrating to 6.0.0](../../setup/migrating-to-600).

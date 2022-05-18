@@ -1,7 +1,7 @@
 # What Has Changed
-WSO2 Identity Server 5.12.0 brings a range of new features and major improvements. The following aspects have changed in 5.12.0 compared to the previous WSO2 IS versions.
+WSO2 Identity Server 6.0.0 brings a range of new features and major improvements. The following aspects have changed in 6.0.0 compared to the previous WSO2 IS versions.
 
-This page provides details about the behavioral changes from WSO2 Identity Server 5.11.0 to 5.12.0.
+This page provides details about the behavioral changes from WSO2 Identity Server 5.11.0 to 6.0.0.
 
 !!! note "If you are migrating from an older version of Identity Server"
     To find the changes introduced in the previous versions, you can refer to the following documentation:
@@ -17,7 +17,7 @@ Identity Server 5.11.0 had two ways of adding the certification for an applicati
 - Upload the certificate through the UI
 - Add the certificate to the keystore and select the certificate through the UI.
 
-Having two methods for the same process creates redundancy, therefore in 5.12.0, we have removed the second option by default. If you need to enable the signature validation certificate alias option in the UI, add the following configuration to the ``deployment.toml`` file.
+Having two methods for the same process creates redundancy, therefore in 6.0.0, we have removed the second option by default. If you need to enable the signature validation certificate alias option in the UI, add the following configuration to the ``deployment.toml`` file.
 
 ``` java
 [console.applications.ui]
@@ -27,7 +27,7 @@ certificate_alias_enabled = true
 ### Common Changes
 The default token binding type of both the Console and MyAccount is changed from ```SSO-based binding``` to ```cookie-based binding```. Read more on [Access Token Binding Type](../../learn/configuring-oauth2-openid-connect-single-sign-on/).
 
-With IS 5.12.0, the ```Post-Logout Redirect URL``` the Console and MyAccount are now tenant qualified by default. Hence, after migrating to IS 5.12.0, the Callback URLs of both the MyAccount and Console applications should be updated as follows:
+With IS 6.0.0, the ```Post-Logout Redirect URL``` the Console and MyAccount are now tenant qualified by default. Hence, after migrating to IS 6.0.0, the Callback URLs of both the MyAccount and Console applications should be updated as follows:
 
 - Console
     ``` js
@@ -40,14 +40,14 @@ With IS 5.12.0, the ```Post-Logout Redirect URL``` the Console and MyAccount are
     ```
 
 ## User Management
-This section contains the changes of the User Management functioanlities of IS 5.12.0.
+This section contains the changes of the User Management functionalities of IS 6.0.0.
 
 ### Admin Forced Password Reset
-Identity Server 5.12.0, comes with a new configuration to specify the password reset code validity period for the admin initiated password reset flow.
+Identity Server 6.0.0, comes with a new configuration to specify the password reset code validity period for the admin initiated password reset flow.
 
 In earlier versions of the Identity Server, a single configuration was used to govern the code validity period of all password reset flows. The configuration used in the earlier versions of IS was the ```ExpiryTime``` in the ```identity.xml``` file. This property not only affects the admin initiated password reset flow but also some other password reset flows.
 
-Updating the ```ExpiryTime``` of the ```identity.xml``` file does not affect admin initiated password reset flow in IS 5.12.0. This is because usually the code of admin initiated password reset flow is expected to have a longer validity period than the other flows. Therefore  If you need to update the code validity period of this add the following configuration to the ```deployment.toml``` file.
+Updating the ```ExpiryTime``` of the ```identity.xml``` file does not affect admin initiated password reset flow in IS 6.0.0. This is because usually the code of admin initiated password reset flow is expected to have a longer validity period than the other flows. Therefore  If you need to update the code validity period of this add the following configuration to the ```deployment.toml``` file.
 
 ``` js
 [identity_mgt.password_reset_by_admin]
@@ -55,24 +55,24 @@ code_validity_period = <time>
 ```
 
 ## Authentication
-This section contains the updates done to the Authentication features of IS 5.12.0.
+This section contains the updates done to the Authentication features of IS 6.0.0.
 
 ### OTP Authenticator
-Some significant changes have been made to the below mentioned OTP authenticators. Please follow the instructions given below to incorporate your custom OTP requirements and changes to Identity Server 5.12.0.
+Some significant changes have been made to the below mentioned OTP authenticators. Please follow the instructions given below to incorporate your custom OTP requirements and changes to Identity Server 6.0.0.
 
 #### Email OTP Authenticator
 The following changes have been made to the Email OTP authenticator.
 
-- It’s no longer required to add the Email OTP authenticator into the ```dropins``` folder as the authenticator has been moved into the ```plugins``` directory by default in IS 5.12.0.  
+- It’s no longer required to add the Email OTP authenticator into the ```dropins``` folder as the authenticator has been moved into the ```plugins``` directory by default in IS 6.0.0.  
 
 - The artifact ID of the authenticator has been updated.
 
-- The ```emailotpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the options available for users with customized email OTP pages to integrate their changes to Identity Server 5.12.0.
+- The ```emailotpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the options available for users with customized email OTP pages to integrate their changes to Identity Server 6.0.0.
 
     1. Merge the customizations to the authentication portal app.The pages related to Email OTP available in authentication portal are included in the table below.
     <table>
         <tr>
-            <th>Page name in IS 5.12.0</th>
+            <th>Page name in IS 6.0.0</th>
             <th>Page name in earlier version</th>
             <th>Page description</th>
         </tr>
@@ -104,9 +104,9 @@ The following changes have been made to the Email OTP authenticator.
 #### TOTP Authenticator
 The following changes have been made to the TOTP authenticator.
 
-- It’s no longer required to add the TOTP authenticator into the ```dropins``` folder as the authenticator has been moved into the ```plugins``` directory by default in IS 5.12.0.
+- It’s no longer required to add the TOTP authenticator into the ```dropins``` folder as the authenticator has been moved into the ```plugins``` directory by default in IS 6.0.0.
 
-- The ```totpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the options available for users with customized TOTP pages to integrate their changes to Identity Server 5.12.0.
+- The ```totpauthethentication``` endpoint which was packed with the product is now an integral part of the authentication portal. Following are the options available for users with customized TOTP pages to integrate their changes to Identity Server 6.0.0.
     1. Merge the customizations to the authentication portal app.The pages related to TOTP available in authentication portal are:
         
         - enableTOTP.jsp (TOTP enroll page)
@@ -122,7 +122,7 @@ The following changes have been made to the TOTP authenticator.
         TOTPAuthenticationEndpointEnableTOTPPage="totpauthenticationendpoint/enableTOTP.jsp"
         ```
 
-- Unlike the earlier versions of the Identity server, the TOTP authenticator of IS 5.12.0 does not offer sending the TOTP via email as a default option. Add the following configuration to the ```deployment.toml``` file, to enable sending the TOTP through Email.
+- Unlike the earlier versions of the Identity server, the TOTP authenticator of IS 6.0.0 does not offer sending the TOTP via email as a default option. Add the following configuration to the ```deployment.toml``` file, to enable sending the TOTP through Email.
 
     ``` js
     [authentication.authenticator.totp.parameters]
@@ -159,7 +159,7 @@ In earlier versions of the Identity Server, the parameters required by this func
 
 The function in earlier versions of IS: ``` getUniqueUserWithClaimValues (claimMap, tenantDomain, profile) ```
 
-With Identity Server 5.12.0, the parameters of this method signature have been changed.The updated parameters used by this function are as follows:
+With Identity Server 6.0.0, the parameters of this method signature have been changed.The updated parameters used by this function are as follows:
 
 <table>
     <tr>
@@ -180,7 +180,7 @@ With Identity Server 5.12.0, the parameters of this method signature have been c
     </tr>
 </table>
 
-The function in IS 5.12.0: ``` getUniqueUserWithClaimValues (claimMap, context, profile) ```
+The function in IS 6.0.0: ``` getUniqueUserWithClaimValues (claimMap, context, profile) ```
 
 Example usage of the updated function:
 
@@ -196,7 +196,7 @@ Make sure to update the usages of this function, if any, after the migration pro
 ## Application management
 ### Application Roles in Application Management Flows
 
-With WSO2 IS 5.12.0, the following functions have been removed by default:
+With WSO2 IS 6.0.0, the following functions have been removed by default:
 - The creation of application roles
 - The validation of application roles in application management flows.
 
@@ -220,7 +220,7 @@ enable_role_validation = true
 ## OIDC Protocol
 According to the OIDC specification, the OIDC claim ```locality``` should be used to store the city of an address. In the earlier versions of the Identity Server, the ```locality``` claim was mapped to the local claim ```http://wso2.org/claims/locality```, which is used to store a localization code used mainly in email templates.
 
-To maintain compliance with the OIDC specification, the local claim ```http://wso2.org/claims/locality``` will be used to store the city of an address with Identity Server 5.12.0 and upwards. The localization code information will be stored in the local claim ```http://wso2.org/claims/local```.
+To maintain compliance with the OIDC specification, the local claim ```http://wso2.org/claims/locality``` will be used to store the city of an address with Identity Server 6.0.0 and upwards. The localization code information will be stored in the local claim ```http://wso2.org/claims/local```.
 
 To revert to the previous claim usage system, add the following configuration to the deployment.toml file.
 
@@ -230,7 +230,7 @@ use_legacy_localization_claim = true
 ```
 
 ### OIDC Claim Mapping
-In Identity Server 5.12.0, the claim dialect of the website claim has been changed from ```http://wso2.org/claims/url``` to ```http://wso2.org/claims/websiteurl```. This claim mapping migration will be done automatically when executing the migration client.
+In Identity Server 6.0.0, the claim dialect of the website claim has been changed from ```http://wso2.org/claims/url``` to ```http://wso2.org/claims/websiteurl```. This claim mapping migration will be done automatically when executing the migration client.
 
 ### OIDC Backchannel Logout Token
 To maintain compliance with the OIDC specification for Backchannel logout, the logout token attributes have been updated.
@@ -248,7 +248,7 @@ In Identity Server 5.11.0, a logout token generated during OIDC Backchannel logo
  } 
 ```
 
-In Identity Server 5.12.0, the event attribute has been renamed to events and default value has been added to the events list. Hence, a logout token generated in IS 5.12.0 would be as follows.
+In Identity Server 6.0.0, the event attribute has been renamed to events and default value has been added to the events list. Hence, a logout token generated in IS 6.0.0 would be as follows.
 ``` js
 {
    "iss": "https://server.example.com",
@@ -266,10 +266,10 @@ In Identity Server 5.12.0, the event attribute has been renamed to events and de
 Make sure to update all the client applications that use OIDC Backchannel logout to work with the new format of the logout token.
 
 ### OpenID Scope
-From Identity Server 5.12.0 onwards, using the openid scope in OpenID Connect flows will not return any user claims. This change will only affect new tenants and will not have an impact on the existing tenants. If user claims are required, the recommended approach is to define a custom OIDC scope with required claims and use that scope in the OIDC flows.
+From Identity Server 6.0.0 onwards, using the openid scope in OpenID Connect flows will not return any user claims. This change will only affect new tenants and will not have an impact on the existing tenants. If user claims are required, the recommended approach is to define a custom OIDC scope with required claims and use that scope in the OIDC flows.
 
 ### OIDC Consent Updates
-Following are the changes made to the behavior of the Consent prompt page in the login flow of IS 5.12.0:
+Following are the changes made to the behavior of the Consent prompt page in the login flow of IS 6.0.0:
 
 The OIDC scopes requested by a client application was displayed under the permissions section of the user consent page. These requested OIDC scopes are no longer mentioned under the permissions section of the user consent page. Only the relevant claims will be displayed.
 
@@ -281,7 +281,7 @@ prompt=false
 ```
 
 ## Userstore management
-This sections contains the details of the updates realted to User Management section in IS 5.12.0.
+This sections contains the details of the updates realted to User Management section in IS 6.0.0.
 
 ### Configuring Custom Userstore Managers
 In earlier versions of WSO2 IS, we  enabled custom userstore managers by adding the following configuration to the ```deployment.toml``` file.
@@ -293,7 +293,7 @@ allowed_user_stores=[“<existing userstore managers...>”,"<new userstore mana
 
 This configuration requires the developer to enter the names of all existing userstore managers together with the new userstore managers that needed to be enabled.
 
-In Identity Server 5.12.0, a new configuration has been introduced to enable the custom userstore managers but adding the name of the new userstore manager only.
+In Identity Server 6.0.0, a new configuration has been introduced to enable the custom userstore managers but adding the name of the new userstore manager only.
 
 You may use the following configuration on ```deployment.toml``` file to configure new custom userstore managers
 
@@ -303,12 +303,12 @@ custom_user_stores=[“<new userstore managers…>”]
 ```
 
 ## Provisioning
-This sections contains the details of the updates realted to provisioing section in IS 5.12.0.
+This sections contains the details of the updates realted to provisioing section in IS 6.0.0.
 
 ### Provisioning Unmapped Roles in JIT Provisioning
 In Identity Server 5.11.0, provisioning of roles in the JIT provisioning flow took place only for roles which had role mappings configured.
 
-In Identity Server 5.12.0, this behavior has been changed. If there is a local role with a name similar to the Identity Provider role name, such roles will be provisioned during JIT provisioning even if there is no role mapping set in the IDP configuration. This is now the default behavior. If the previous behavior is required, add the following configuration to the ```deployment.toml``` file.
+In Identity Server 6.0.0, this behavior has been changed. If there is a local role with a name similar to the Identity Provider role name, such roles will be provisioned during JIT provisioning even if there is no role mapping set in the IDP configuration. This is now the default behavior. If the previous behavior is required, add the following configuration to the ```deployment.toml``` file.
 
 ``` js
 [idp_role_management]
@@ -316,12 +316,12 @@ return_only_mapped_local_roles = true
 ```
 
 ## Scopes
-This sections contains the details of the updates realted to scopes section in IS 5.12.0.
+This sections contains the details of the updates realted to scopes section in IS 6.0.0.
 
 ### System Level Permission Binding for Maintaining Internal Scopes
 In earlier versions of the Identity Server, internal system scopes and permissions were managed separately for every tenant. This behavior was not a necessity as these scopes were only used to access the Identity Server’s internal APIs, but it had a negative impact on the tenant creation process.
 
-With Identity Servery 5.12.0, the internal scope’s permission bindings will be managed at the server level as system data. All tenants will now use the bindings available in the ```oauth-scope-bindings.xml``` file for internal scopes.
+With Identity Servery 6.0.0, the internal scope’s permission bindings will be managed at the server level as system data. All tenants will now use the bindings available in the ```oauth-scope-bindings.xml``` file for internal scopes.
 
 If the previous behavior is required, add the following configuration to the ```deployment.toml``` file.
 
@@ -333,7 +333,7 @@ enable_system_level_internal_scope_management = false
 ### Scope Based Claim Filtering in Applications
 In the previous versions of the Identity Server, if there are requested claims configured at the service provider, the claims will be sent to the client application regardless of the scope set in the authorization request.
 
-From Identity Server 5.12.0 onwards, this behavior has been changed. The claims configured in the service provider will now be filtered by the scopes set in the authorization requests and only those filtered claims will be sent to the client application.
+From Identity Server 6.0.0 onwards, this behavior has been changed. The claims configured in the service provider will now be filtered by the scopes set in the authorization requests and only those filtered claims will be sent to the client application.
 
 To revert to the previous behavior, add the following configuration to the deployment.toml file.
 
@@ -346,7 +346,7 @@ enable_scope_based_claim_filtering = false
 ### JWT Access Token Signing Behavior
 In the previous versions of the Identity Server, JWT access token signing is done using the tenant of the user accessing  the application. This behavior has been improved to maintain consistency with the ID token which is signed using the application’s tenant by default. This behavioral change will also simplify token validation at the application, especially SaaS applications.
 
-In Identity Server 5.12.0, JWT Access Token signing is done using the tenant in which the application (service provider) has been registered. 
+In Identity Server 6.0.0, JWT Access Token signing is done using the tenant in which the application (service provider) has been registered. 
 
 This behavioral change will have an impact on SaaS applications as the user may not always be from the same tenant as that of the application. Token validation may fail at the client application when obtaining new tokens after the migration. The SaaS client applications need to be updated to handle JWT token validation using the application tenant in order to function properly with this behavioral change. If the previous behavior is required, add the following configuration to the ```deployment.toml``` file.
 
@@ -362,7 +362,7 @@ This change will not have an impact on existing non-SaaS applications as both th
 ### ID Token Signing Behavior
 In previous versions of the Identity Server, ID Token encryption happens before signing the token. This behavior has been updated to follow the OIDC specification.
 
-In Identity Server 5.12.0, ID Token encryption will occur after the token has been signed. It is important to note that the result of token decryption now will be a signed JWT, instead of the claims set as in previous versions. Hence, client applications that perform token decryption will have to be updated accordingly to read the claims in the JWT token.
+In Identity Server 6.0.0, ID Token encryption will occur after the token has been signed. It is important to note that the result of token decryption now will be a signed JWT, instead of the claims set as in previous versions. Hence, client applications that perform token decryption will have to be updated accordingly to read the claims in the JWT token.
 
 The following is an example written in JAVA portraying the differences between the old and new scenarios.
 
@@ -380,7 +380,7 @@ jwt.decrypt(decrypter);
 // Obtaining claims set in IS 5.11.0 and prior versions
 JWTClaimsSet claims = jwt.getJWTClaimsSet();
 
-// Obtaining claims set in IS 5.12.0
+// Obtaining claims set in IS 6.0.0
 JWTClaimsSet claims = jwt.getPayload().toSignedJWT().getJWTClaimsSet();
 ```
 
@@ -389,7 +389,7 @@ JWTClaimsSet claims = jwt.getPayload().toSignedJWT().getJWTClaimsSet();
 
 ## Claims
 ### Regex Pattern Validation for User Claim Input Values
-In Identity Server 5.12.0, server-side regex pattern validation has been introduced as a mechanism for validating inputs when adding and updating user claim values.
+In Identity Server 6.0.0, server-side regex pattern validation has been introduced as a mechanism for validating inputs when adding and updating user claim values.
 With this feature, the input values for the user claims will be validated against the following patterns by default.
 
 <table>
@@ -422,9 +422,9 @@ enable_user_claim_input_regex_validation = false
 However, if user claim value validation is required with different regex patterns, it can be done by configuring the required regex patterns in the user claim configuration window, which will override the default regex validation pattern for that claim. For this to work, the above configuration should be removed (as it is enabled by default) or the value should be set to true.
 
 ### Regex Pattern Validation for SCIM Attribute Names
-With Identity Server 5.12.0, server-side regex pattern validation has been added for SCIM attribute names. This means that new SCIM attributes created will be validated against the regex ```<dialect_uri>:[a-z 0-9$\-_]*$```. The regex only allows alphanumeric characters, ```$```, ```-``` and ```_``` in the attribute names.
+With Identity Server 6.0.0, server-side regex pattern validation has been added for SCIM attribute names. This means that new SCIM attributes created will be validated against the regex ```<dialect_uri>:[a-z 0-9$\-_]*$```. The regex only allows alphanumeric characters, ```$```, ```-``` and ```_``` in the attribute names.
 
-If you are using a modified claim-config.xml file and you want to incorporate this update to your Identity Server 5.12.0 setup, add the regex patterns manually to your custom claim-config.xml file according to the format given below and replace the default file in ```<IS_HOME>/repository/conf``` directory. Refer the table for the Claim Dialect URIs and their corresponding regex patterns.
+If you are using a modified claim-config.xml file and you want to incorporate this update to your Identity Server 6.0.0 setup, add the regex patterns manually to your custom claim-config.xml file according to the format given below and replace the default file in ```<IS_HOME>/repository/conf``` directory. Refer the table for the Claim Dialect URIs and their corresponding regex patterns.
 
 #### Dialect XML tag format
 ``` js
@@ -458,7 +458,7 @@ If you are using a modified claim-config.xml file and you want to incorporate th
 ### Conversion of Claims of Assertions to OIDC Dialect
 For OAuth/OIDC applications, the default behavior of Identity Server versions till 5.11.0 was to send the original claims sent from IDP directly to the service provider/application as it is without converting the claims to the OIDC dialect.
 
-In Identity Server 5.12.0, this behavior has been changed. The claims sent from IDP are now being converted to the OIDC dialect by default before they are sent to the service provider.
+In Identity Server 6.0.0, this behavior has been changed. The claims sent from IDP are now being converted to the OIDC dialect by default before they are sent to the service provider.
 
 To disable this and revert to the previous behavior, add the following configuration to the ```deployment.toml``` file.
 
@@ -471,7 +471,7 @@ enable_oidc_dialect = false
 ### SCIM2 Endpoint
 #### Intermediate Certificate Validation
 In WSO2 Identity Server versions 5.11.0 and older, intermediate certificate validation is skipped for the SCIM2 endpoint.
-This has been enabled by default in WSO2 Identity Server 5.12.0. If the previous behavior is required, add the following configuration to the ```deployment.toml``` file.
+This has been enabled by default in WSO2 Identity Server 6.0.0. If the previous behavior is required, add the following configuration to the ```deployment.toml``` file.
 
 ``` js
 [intermediate_cert_validation]
@@ -483,7 +483,7 @@ Read more about [Intermediate Certificate Validation](https://is.docs.wso2.com/e
 
 In the older versions of the Identity Server, the responses of the SCIM2 Users endpoint did not contain duplicate entries of the same user (it is possible to have to duplicate usernames in separate userstores).
 
-In Identity Server 5.12.0, the SCIM2 User responses will contain duplicate entries of the same user as returned by the list of userstores. This has been done to maintain the consistency of the results returned by the userstores for the search queries.
+In Identity Server 6.0.0, the SCIM2 User responses will contain duplicate entries of the same user as returned by the list of userstores. This has been done to maintain the consistency of the results returned by the userstores for the search queries.
 
 If this behavior is not required, it can be disabled using the following configuration.
 
@@ -492,7 +492,7 @@ If this behavior is not required, it can be disabled using the following configu
 remove_duplicate_users_in_users_response = true 
 ```
 ### OAuth DCR Endpoint Response
-With WSO2 Identity Server 5.12.0, the response model of an application ```GET/PUT``` response from the OAuth DCR endpoint has been updated.
+With WSO2 Identity Server 6.0.0, the response model of an application ```GET/PUT``` response from the OAuth DCR endpoint has been updated.
 The data type of the ```client_secret_expires_at``` property of an OAuth2 Application object has been changed from ```string``` to ```long```.
 
 Therefore, any client applications that are using this API must update the response parsing mechanisms to work with a long value for this attribute.
@@ -502,7 +502,7 @@ The representation of the groups claim in the UserInfo response has been changed
 
 ```"groups": "Internal/everyone,dev"```
 
-With Identity Server 5.12.0, the UserInfo response has been updated to return a JSON array value for the groups claim, similar to that in the ID token.
+With Identity Server 6.0.0, the UserInfo response has been updated to return a JSON array value for the groups claim, similar to that in the ID token.
 
 ```"groups": ["Internal/everyone","dev"]```
 Hence, any client application that consumes the UserInfo response should be updated to parse this new format of the response properly.
@@ -510,7 +510,7 @@ Hence, any client application that consumes the UserInfo response should be upda
 ### Permissions for Function Library Management Admin Services and APIs
 Up until WSO2 Identity Server 5.11.0, manage level permissions were required to access the Function Library Management Admin services and APIs.
 
-With WSO2 Identity Server 5.12.0, more fine-grained permissions are supported for these services and APIs. The following table maps the operation to the required permissions.
+With WSO2 Identity Server 6.0.0, more fine-grained permissions are supported for these services and APIs. The following table maps the operation to the required permissions.
 <table>
     <tr>
         <th>Service Operation</th>
@@ -541,7 +541,7 @@ With WSO2 Identity Server 5.12.0, more fine-grained permissions are supported fo
 
 
 ### Remote Server Shutdown/Restart via SOAP API
-With Identity Server 5.12.0, the capability of the SOAP API to initiate server shutdowns or restarts has been disabled by default. If these features are required, add the following configurations to the ```deployment.toml``` file to enable the features.
+With Identity Server 6.0.0, the capability of the SOAP API to initiate server shutdowns or restarts has been disabled by default. If these features are required, add the following configurations to the ```deployment.toml``` file to enable the features.
 
 ``` js
 [server]
@@ -550,14 +550,14 @@ enable_restart_from_api = true
 ```
 
 ### Server Management API Restrictions
-From Identity Server 5.12.0 onwards, only Client Applications configured as Management Applications are able to access Server Management APIs. This can be configured via the Console by checking the Management Application option in the Application edit page or by setting the isManagementApp attribute to true using Application Management REST API for the required applications.
+From Identity Server 6.0.0 onwards, only Client Applications configured as Management Applications are able to access Server Management APIs. This can be configured via the Console by checking the Management Application option in the Application edit page or by setting the isManagementApp attribute to true using Application Management REST API for the required applications.
 
 !!! Note
     This will affect only new applications. All applications that existed prior to the migration will still be able to access the Server Management APIs.
 
 ## Database
 ### H2 Database Version Upgrade
-The H2 database engine version has been upgraded from 1.4.199 to 2.1.210 in Identity Server 5.12.0. As a result of this, Identity Server 5.12.0 will not be able to interact properly with existing H2 databases of the older version. Therefore, it is mandatory to migrate the existing H2 databases to the newer version before running the product migration tool. This applies mainly to the embedded H2 database in the product, if being used.
+The H2 database engine version has been upgraded from 1.4.199 to 2.1.210 in Identity Server 6.0.0. As a result of this, Identity Server 6.0.0 will not be able to interact properly with existing H2 databases of the older version. Therefore, it is mandatory to migrate the existing H2 databases to the newer version before running the product migration tool. This applies mainly to the embedded H2 database in the product, if being used.
 
 To migrate the H2 databases to the newer versions, follow the instructions given below.
 1. Download the [migration.sh script](https://github.com/wso2/samples-is/blob/master/h2-migration-tool/migration.sh) and run it using the command ```sh migration.sh``.
@@ -569,7 +569,7 @@ curl -s https://raw.githubusercontent.com/wso2/samples-is/master/h2-migration-to
 
 2. Enter the path of the files of the old database which needs to be migrated. If the database being migrated is the embedded H2 database, the path should be ```<OLD_IS_HOME>/repository/database```.
 3. Enter the path of the target directory where the new database files should be generated.
-4. Once the migration script execution has ended, copy the files in the target directory to the ```repository/database``` directory in the new Identity Server 5.12.0 pack for embedded H2 database migration.
+4. Once the migration script execution has ended, copy the files in the target directory to the ```repository/database``` directory in the new Identity Server 6.0.0 pack for embedded H2 database migration.
 
 ## Data providers
 ### Introspection Data Providers Configuration Update
@@ -582,7 +582,7 @@ retrieve_uma_permission_info_through_introspection = true
 
 This configuration is now deprecated.
 
-From Identity Server 5.12.0 onwards, Introspection Data Providers are registered as event listeners and can be individually activated using the configurations given below in the deployment.toml file.
+From Identity Server 6.0.0 onwards, Introspection Data Providers are registered as event listeners and can be individually activated using the configurations given below in the deployment.toml file.
 
 ``` js
 [event.default_listener.is_introspection_data_provider]
@@ -596,7 +596,7 @@ enable = true
 ### Default CORS Configuration
 Previously, the default allowed HTTP methods for CORS were only ```GET```, ```POST```, ```HEAD``` and ```OPTIONS```.
 
-In Identity Server 5.12.0, this has been changed to allow the following HTTP methods ```GET```, ```POST```, ```PUT```, ```PATCH```, ```DELETE```, ```HEAD``` and ```OPTIONS```.
+In Identity Server 6.0.0, this has been changed to allow the following HTTP methods ```GET```, ```POST```, ```PUT```, ```PATCH```, ```DELETE```, ```HEAD``` and ```OPTIONS```.
 
 Learn more on [how to change the CORS configuration](https://is.docs.wso2.com/en/latest/learn/cors).
 
