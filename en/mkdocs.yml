@@ -393,6 +393,7 @@ nav:
           - Symmetric Encryption:
             - Overview: deploy/security/symmetric-overview.md
             - Configurations Related to Symmetric Key Encryption: deploy/security/use-symmetric-encryption.md
+            - Symmetric Data Encryption Key Rotation: deploy/security/blue-green-data-encryption-keyrotation.md
       - Deploy:
         - Deployment Patterns: deploy/deployment-guide.md
         - Set up WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md

@@ -3,7 +3,6 @@
 Follow the steps given below to set up and install WSO2 Identity Server.
 
 1. Download and install Oracle Java SE Development Kit (JDK) version version 1.8 or 11).
-
 2. Install WSO2 Identity Server by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
    The WSO2 Identity Server installation location varies according to the OS as given below.
 
@@ -55,7 +54,23 @@ Follow the steps given below to set up and install WSO2 Identity Server.
     server.host.port=8080
     ```
 
-3.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
+3.  Add the following configurations to the deployment.toml file in `<IS_HOME>/repository/conf` directory to make the CORS configurations applicable.
+
+    ``` toml
+    [cors]
+    allow_generic_http_requests = true
+    allow_any_origin = true
+    supported_methods = [
+        "POST",
+        "HEAD",
+        "OPTIONS"
+    ]
+    supports_credentials = false
+    max_age = 3600
+    tag_requests = false
+    ```
+
+4.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
 
     ``` java
     Linux   --> sh wso2server.sh
@@ -71,19 +86,19 @@ Follow the steps given below to set up and install WSO2 Identity Server.
         
         ![QSG stop server](../../assets/img/get-started/qsg-stop-server.png)
 
-4.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute either of the following commands to start the sample application. 
+5.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute either of the following commands to start the sample application. 
        
     ``` java
     Linux   --> sh app-server.sh
     Windows --> app-server.bat
     ```
 
-5.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute the following commands to start the Quick Start samples accordingly.
+6.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute the following commands to start the Quick Start samples accordingly.
 
     ``` java
     Linux   --> sh qsg.sh 
     Windows --> qsg.bat 
     ```
 
-6.  When prompted, confirm the configurations.
-7. Note that a message appears to pick a scenario, which indicates that the samples are deployed and WSO2 Identity Server is up and running.
+7.  When prompted, confirm the configurations.
+8. Note that a message appears to pick a scenario, which indicates that the samples are deployed and WSO2 Identity Server is up and running.
