@@ -37,6 +37,8 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
 
 - **Managing CORS configurations tenant-wise** is possible with this release as the CORS configurations can now be made at application level and enforced at tenant level. 
 
+## Removed Features
+- H2 Console
 
 ## Deprecated Features
 

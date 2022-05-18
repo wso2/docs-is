@@ -41,20 +41,6 @@ You can use an application such as the [Google Authenticator Mobile Application]
 
 ----
 
-## Disable TOTP authenticator
-
-The  TOTP authenticator is enabled by default.
-
-To disable the TOTP authenticator by add the following configuration to the `deployment.toml` file in the
-`<IS_HOME>/repository/conf` folder and restart the server.
-
-```toml
-[authentication.authenticator.totp]
-enable=false
-```
-
-----
-
 ## Send emails with TOTP
 
 Optionally, you can set up the users to receive the TOTP code via an email during the authentication flow. You need to 
