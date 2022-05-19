@@ -135,7 +135,7 @@ migration, open migration-configs.yaml file and remove the 5th step from 6.0.0 m
 
 ## Migrating custom components
 
-In WSO2 Identity Server 6.0.0, we have done a major upgrade to our kernel and our main components. 
+In WSO2 Identity Server 6.0.0, a major upgrade has been made to the kernel and the main components. 
 Any custom OSGI bundles which are added manually should be recompiled with new dependency versions 
 that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the 
 `<OLD_IS_HOME>/repository/components/dropins` directory.
