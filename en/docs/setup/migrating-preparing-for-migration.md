@@ -90,7 +90,7 @@ the SAML assertion.
 ### SCIM2 roles.default claim returns roles and groups claim return groups
 
 Previously, the ```roles.default``` claim in SCIM2 returned both groups and roles as it was mapped to 
-the wso2.roles claim. Going forward, it is mapped to the wso2.roles claim, where only roles are 
+the wso2.roles claim. Going forward, it is mapped to the ```wso2.roles``` claim, where only roles are 
 returned. In order to get groups, `urn:ietf:params:scim:schemas:core:2.0:User:groups` claim should 
 be used instead since with this improvement it is returning groups as intended.
 
