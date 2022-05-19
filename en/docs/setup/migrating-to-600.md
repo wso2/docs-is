@@ -1,8 +1,8 @@
-# Migrating to 5.11.0
+# Migrating to 6.0.0
 
 ## Prerequisites
 
-Make sure you have met the following prerequisites before proceeding with the instructions to migrate to 5.11.0. 
+Make sure you have met the following prerequisites before proceeding with the instructions to migrate to 6.0.0. 
 
 1.  Make sure you satisfy the prerequisites in [Before you begin](../../setup/migration-guide).
 2.  Carry out the pre-processing steps in [Preparing for migration](../../setup/migrating-preparing-for-migration).
@@ -10,10 +10,11 @@ Make sure you have met the following prerequisites before proceeding with the in
 !!! note
     In this section, `<OLD_IS_HOME> ` is the directory that the current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
-    directory that WSO2 Identity Server 5.11.0 resides in. 
+    directory that WSO2 Identity Server 6.0.0 resides in. 
 
 ??? info "If you are using DB2"
-    Move indexes to the TS32K Tablespace. The index tablespace in the 
+    Verify that the indexes are in the TS32K tablespace. If not, move indexes
+    to the TS32K tablespace. The index tablespace in the 
     `           IDN_OAUTH2_ACCESS_TOKEN          `  and 
     `           IDN_OAUTH2_AUTHORIZATION_CODE          ` tables need
     to be moved to the existing TS32K tablespace in order to support
@@ -91,34 +92,34 @@ Make sure you have met the following prerequisites before proceeding with the in
 
 ---
 
-## Steps to migrate to 5.11.0
+## Steps to migrate to 6.0.0
 
 Once all the above prerequisites have been met, follow the instructions given below to migrate to the latest version. 
 
-1.  If you have manually added any custom OSGI bundles to the
+1. If you have manually added any custom OSGI bundles to the
     `          <OLD_IS_HOME>/repository/components/dropins         `
     directory, copy those OSGI bundles to the
     `          <NEW_IS_HOME>/repository/components/dropins         `
     directory.
     
     !!! warning "Important" 
-        You may need to update the custom components to work with WSO2 Identity Server 5.11.0. 
+        You may need to update the custom components to work with WSO2 Identity Server 6.0.0. 
         Refer [Migrating custom components](../../setup/migrating-preparing-for-migration/#migrating-custom-components).
 
-2.  If you have manually added any JAR files to the
+2. If you have manually added any JAR files to the
     `           <OLD_IS_HOME>/repository/components/lib          `
     directory, copy and paste those JARs in the
     `           <NEW_IS_HOME>/repository/components/lib          `
     directory.
 
-3.  Copy the `           .jks          ` files from the
+3. Copy the `           .jks          ` files from the
     `           <OLD_IS_HOME>/repository/resources/security          `
     directory and paste them in the
     `           <NEW_IS_HOME>/repository/resources/security          `
     directory.
 
     !!! note
-        In WSO2 Identity Server 5.11.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` to configure internal and primary keystores. 
+        From WSO2 Identity Server 5.11.0 onwards, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` to configure internal and primary keystores. 
 
         ```toml
         [keystore.primary]
@@ -138,66 +139,68 @@ Once all the above prerequisites have been met, follow the instructions given be
 
         Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
 
-4.  To migrate the super tenant, copy the content from `<OLD_IS_HOME>/repository/deployment/server` directory to the `<NEW_IS_HOME>/repository/deployment/server` directory. 
-
-    If you have created tenants in the previous WSO2 Identity Server
+4. If you have created tenants in the previous WSO2 Identity Server
     version that contain resources, copy the content from `<OLD_IS_HOME>/repository/tenants` directory,
     to the `<NEW_IS_HOME>/repository/tenants` directory.
     
-5.  If you have created secondary user stores in the previous WSO2 IS
+5. If you have created secondary user stores in the previous WSO2 IS
     version, copy the content in the
     `           <OLD_IS_HOME>/repository/deployment/server/userstores          `
     directory to the
     `           <NEW_IS_HOME>/repository/deployment/server/userstores          `
     directory.
+
+6. If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with IS 6.0.0
+    and copy the webapps to `<NEW_IS_HOME>/repository/deployment/server/webapps` directory. See [What Has Changed](../../setup/migrating-what-has-changed)
+    to learn about the changes, if any, need to be made to the webapps.
     
-6. Ensure that you have migrated the configurations into the new version as
+7. Ensure that you have migrated the configurations into the new version as
    advised in [preparing for migration section.](../../setup/migrating-preparing-for-migration/#migrating-the-configurations)
 
-7.  Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
+8. Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
 
-8. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with
+9. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with
    `<OLD_IS_HOME>/repository/conf/email/email-admin-config.xml`.   
     
-9. Follow the steps given below to perform database updates:
-    1.     To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**. Unzip it to a local directory.
+10. Follow the steps given below to perform database updates:
+     1.     To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**. Unzip it to a local directory.
         
-        !!! Note 
-            - **x.x.x** of `wso2is-migration-x.x.x.zip` denotes the
-            version number of the most recently-released migration resources. 
-            - The
-            directory where the `wso2is-migration-x.x.x.zip` is unziped
-            will be referred to as ` <IS_MIGRATION_TOOL_HOME> `.
+         !!! Note 
+             - **x.x.x** of `wso2is-migration-x.x.x.zip` denotes the
+             version number of the most recently-released migration resources. 
+             - The
+             directory where the `wso2is-migration-x.x.x.zip` is unziped
+             will be referred to as ` <IS_MIGRATION_TOOL_HOME> `.
 
-    2.   Copy the ` org.wso2.carbon.is.migration-x.x.x.jar ` file in the
-        ` <IS_MIGRATION_TOOL_HOME>/dropins ` directory into the ` <NEW_IS_HOME>/repository/components/dropins `
-        directory.
+     2.   Copy the ` org.wso2.carbon.is.migration-x.x.x.jar ` file in the
+         ` <IS_MIGRATION_TOOL_HOME>/dropins ` directory into the ` <NEW_IS_HOME>/repository/components/dropins `
+         directory.
 
-    3.  Copy migration-resources directory to the
-        `             <NEW_IS_HOME>            ` root directory.
+     3.  Copy migration-resources directory to the
+         `             <NEW_IS_HOME>            ` root directory.
 
-    4.  Ensure that the property values are as follows in the
-        `  <NEW_IS_HOME>/migration-resources/migration-config.yaml ` file.
+     4.  Ensure that the property values are as follows in the
+         `  <NEW_IS_HOME>/migration-resources/migration-config.yaml ` file.
 
-        ``` java
-        migrationEnable: "true"
+         ``` java
+         migrationEnable: "true"
 
-        currentVersion: "5.7.0"
+         currentVersion: "5.7.0"
 
-        migrateVersion: "5.11.0"
-        ```
+         migrateVersion: "6.0.0"
+         ```
         
-        !!! note
-            Here, the `currentVersion` is the current WSO2 Identity Server version that you are using.
+         !!! note
+             Here, the `currentVersion` is the current WSO2 Identity Server version that you are using.
 
-    ??? note "If you are using PostgreSQL"
-        During the migration, "uuid-ossp" extension is created in the database. In order to create this extension, 
-        the database user should have the '**Superuser**' permission. 
-        If the user is not already a superuser, assign the permission before starting the migration.
+     ??? note "If you are using PostgreSQL"
+         During the migration, "uuid-ossp" extension is created in the database. In order to create this extension, 
+         the database user should have the '**Superuser**' permission. 
+         If the user is not already a superuser, assign the permission before starting the migration.
             
-            ALTER USER <user> WITH SUPERUSER;
+             ALTER USER <user> WITH SUPERUSER;
 
-10. Configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
+11. If you're migrating from a version prior to 5.11.0, configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
 
     1. Generate your own secret key using a tool like OpenSSL.
 
@@ -230,22 +233,22 @@ Once all the above prerequisites have been met, follow the instructions given be
     
     Under each migrator's parameters, find the property value of **currentEncryptionAlgrithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
             
-11.  Start the WSO2 Identity Server 5.11.0 with the following command to
+12. Start the WSO2 Identity Server 6.0.0 with the following command to
     execute the migration client.
 
-    1.  Linux/Unix:
+13. Linux/Unix:
 
-        ```bash 
-        sh wso2server.sh -Dmigrate -Dcomponent=identity
-        ```
+     ```bash 
+     sh wso2server.sh -Dmigrate -Dcomponent=identity
+     ```
 
-    2.  Windows:
+14. Windows:
 
-        ```bash
-        wso2server.bat -Dmigrate -Dcomponent=identity
-        ```
+     ```bash
+     wso2server.bat -Dmigrate -Dcomponent=identity
+     ```
 
-12.  Stop the server once the migration client execution is complete.
+15. Stop the server once the migration client execution is complete.
 
 ---
 
@@ -286,7 +289,7 @@ After the migration is complete, proceed to the following verification steps.
 
 +   Monitor the system health (CPU, memory usage etc).
 +   Monitor the WSO2 logs to see if there are errors logged in the log files.
-+   Run functional tests against the migrated deployment to verify that all the functionalies are working as expected.
++   Run functional tests against the migrated deployment to verify that all the functionalities are working as expected.
 
 
 !!! note 
