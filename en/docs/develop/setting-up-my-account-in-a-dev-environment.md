@@ -10,7 +10,7 @@ Follow the steps given below to set up the repo in a development environment.
 !!! note "Before you begin"
 
     1. Install [node](https://nodejs.org/en/download/) if you have not already installed it. Npm is already bundled with node.
-        * npm 7 has some breaking changes to peer dependencies. Hence, go with a *npm version lower than 7*.
+        * npm 7 has some breaking changes to peer dependencies. Hence, go with a **npm version lower than 7**.
     2. Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
     3. A running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
 
@@ -79,7 +79,7 @@ Follow the steps given below to set up the repo in a development environment.
         regexp=(https://localhost:9443/myaccount|https://localhost:9443/t/(.*)/myaccount|https://localhost:9443/myaccount/login|https://localhost:9443/t/(.*)/myaccount/login|https://localhost:9000/myaccount|https://localhost:9000/t/(.*)/myaccount|https://localhost:9000/myaccount/login|https://localhost:9000/t/(.*)/myaccount/login)
         ```
 
-### Step 2: Build the Identity Apps repository
+## Step 2: Build the Identity Apps repository
 
 Fork the original repository to start working on it. You can also directly clone the original repo but it is
 recommended to create your own fork.
@@ -90,7 +90,7 @@ cd identity-apps
 mvn clean install or npm run build
 ```
 
-### Step 3: Run My Account in dev mode
+## Step 3: Run My Account in dev mode
 
 After the build is complete, navigate to the **My Account** directory and run the portal using the webpack dev server.
 ```java
