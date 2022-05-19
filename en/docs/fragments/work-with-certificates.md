@@ -138,7 +138,7 @@ Once you have done the above steps, you have the keystore (`localcrt.jks`), trus
     `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ``` toml 
-    [custom_trasport.x509.properties]
+    [custom_transport.x509.properties]
     protocols="HTTP/1.1"
     port="8443"
     maxThreads="200"

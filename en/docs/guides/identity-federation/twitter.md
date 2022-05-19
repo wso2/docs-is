@@ -50,7 +50,7 @@ This page guides you through configuring Twitter as a federated authenticator in
     .
     ![twitter-config-federated-auth.png](../../../assets/img/guides/twitter-config-federated-auth.png)
     Fill in the following fields details according to the application
-    [registered in the Twitter](http://docs.inboundnow.com/guide/create-twitter-application/):
+    [registered in the Twitter](https://developer.twitter.com/en/apps):
 
     <table>
     <thead>
