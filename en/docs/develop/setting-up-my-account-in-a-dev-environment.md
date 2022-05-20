@@ -10,7 +10,7 @@ Follow the steps given below to set up the repo in a development environment.
 !!! note "Before you begin"
 
     1. Install [node](https://nodejs.org/en/download/) if you have not already installed it. Npm is already bundled with node.
-        * npm 7 has some breaking changes to peer dependencies. Hence, go with a **npm version lower than 7**.
+        * Note that **npm 7** has some breaking changes to peer dependencies. Hence, go with a **npm version lower than 7**.
     2. Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
     3. A running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
 
