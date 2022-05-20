@@ -94,7 +94,7 @@ lighter shade. Add a new variable under the brand colors. It is called `globalBa
     
     As seen in the image above, the background color of the header, footer, side navigation, and content cards can be changed.
 
-6.  In order to change the header and footer background colors,
+6.  To change the header and footer background colors:
     1. Add a new variable to the "Brand Colors" section of the `modules/theme/src/themes/default/globals/site.variables` file. This variable is named
 `globalForegroundColor` in this example.
 
