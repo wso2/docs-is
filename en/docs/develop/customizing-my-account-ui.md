@@ -9,8 +9,6 @@ been introduced which is the successor to the dashboard. It also adheres to the 
 
 This section explains how we can customize the theming of **My Account**. 
 
-## Changing the default theme to dark mode
-
 !!! info
     A customized version of the [default theme](https://github
     .com/Semantic-Org/Semantic-UI-LESS/tree/master/themes/default) in the Semantic UI LESS package has been used to
@@ -20,15 +18,14 @@ This section explains how we can customize the theming of **My Account**.
 
     For information on the Semantic UI theming, see [Semantic UI documentation](https://semantic-ui.com/usage/theming.html).
 
-### Before you begin
+## Before you begin
 
 1. Check out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps)
-and set it up in the [development environment](../../develop/setting-up-my-account-in-a-dev-environment). Check out the latest tag of the identity-apps. The v1.0.72 tag is used in the sample mentioned below. 
+and set it up in the [development environment](../../develop/setting-up-my-account-in-a-dev-environment). Check out the `5.11.0` branch of the `identity-apps` repo. 
 
-```java
-$ git fetch --all --tags --prune
-$ git checkout tags/v1.0.72 -b feature-dark-theme-demo
-```
+    ```java
+    $ git checkout 5.11.0
+    ```
 
 2. Navigate to the `modules/theme/src/themes` folder within identity-apps. All the theme global variable overrides
 can be found in the `modules/theme/src/themes/default/globals/site.variables` file. For the full set of variables,
@@ -97,13 +94,42 @@ lighter shade. Add a new variable under the brand colors. It is called `globalBa
     
     As seen in the image above, the background color of the header, footer, side navigation, and content cards can be changed.
 
-6.  In order to change the header and footer background colors, add a new variable to the
-`modules/theme/src/themes/default/collections/menu.variables` file under the brand, "colors". This variable is named
+6.  To change the header and footer background colors:
+    1. Add a new variable to the "Brand Colors" section of the `modules/theme/src/themes/default/globals/site.variables` file. This variable is named
 `globalForegroundColor` in this example.
+
+        ```java
+        /*-------------------
+            Brand Colors
+        --------------------*/
+
+        @globalForegroundColor: #1d2630;
+        ```
+     
+     2. Add the color defined in the step above (globalForegroundColor) to the Menu, App Header and App Footer sections in the `modules/theme/src/themes/default/collections/menu.variables` file.
     
-    ```java
-    @background: @globalForegroundColor;
-    ```
+        ```java
+        /*******************************
+                    Menu
+        *******************************/
+
+        @background: @globalForegroundColor;
+        ```
+        ```java
+        /*-------------------
+            App Header
+        --------------------*/
+
+        @appHeaderBackground: @globalForegroundColor;
+        ```
+
+        ```java
+        /*-------------------
+            App Footer
+        --------------------*/
+
+        @appFooterBackground: @globalForegroundColor;
+        ```
 
 
 7.  Change the side panel background in the `modules/theme/src/themes/default/collections/menu.overrides` file.
@@ -123,7 +149,13 @@ lighter shade. Add a new variable under the brand colors. It is called `globalBa
     ```java
     @background: @globalForegroundColor;
     ```
-The status can be checked by rebuilding the theme module. The changes should be reflected on the running dev server in no time. A sample screen of the new theme is shown below.
+
+9. The status can be checked by rebuilding the theme module. 
+    ```java
+    # from inside `modules/theme`
+    $ npm run build
+    ```
+The changes should be reflected on the running dev server in no time. A sample screen of the new theme is shown below.
 ![custom-theme-2](../assets/img/develop/customize-theme2.png)
 
 ## Step 2: Change the branding
