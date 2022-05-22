@@ -14,7 +14,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-	1.	Check whether the following listener configs are in place.
+	1.	Check whether the following listener configs are in place:
 
 		```toml
 		[event.default_listener.identity_mgt]
