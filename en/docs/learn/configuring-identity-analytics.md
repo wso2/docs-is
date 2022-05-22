@@ -6,7 +6,7 @@ Using the WSO2 Identity Server Analytics distribution, you can view and analyze 
 
 A taxi company called "Pickup" has launched a new application to be used by their customers. The Pickup developers wish to measure the performance of the authentication mechanism used for users to log into the application so that they can improve the user login experience. 
 
-To do this, the developers need to view authentication statistics about the login attempts to the application. This tutorial demonstrates how the Pickup developers can setup WSO2 IS Analytics to view login attempts to the Pickup application.
+To do this, the developers need to view authentication statistics about the login attempts to the application. This tutorial demonstrates how the Pickup developers can set up WSO2 IS Analytics to view login attempts to the Pickup application.
 
 ## Set up 
 
