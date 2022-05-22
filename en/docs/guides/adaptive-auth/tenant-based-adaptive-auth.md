@@ -83,7 +83,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 ----
 
-## Try it out
+## Try it
 
 1. Log out of the management console and log in with the **abc.com** tenant admin's credentials (alex@abc.com).  
     

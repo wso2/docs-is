@@ -1,6 +1,6 @@
 # Enable Single Sign-On for an OIDC Web Application
 
-This page guides you through configuring [single sign-on authentication](../../references/concepts/single-sign-on) between two OIDC web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager.
+This page guides you through configuring [single sign-on authentication](../../../references/concepts/single-sign-on) between two OIDC web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager.
 
 ## Scenario
 
@@ -16,8 +16,7 @@ Follow the steps below to deploy the sample applications and see how this works.
 
 You need to register the two sample applications as service providers in WSO2 Identity Server.
 
-### pickup-dispatch
-
+### Pickup Dispatch
 1. Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials. 
 
 2. Click **Service Providers** > **Add**. 
@@ -40,9 +39,9 @@ You need to register the two sample applications as service providers in WSO2 Id
         
 9.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 
-10.  Click the **Register** button to finish creating the service provider.
+10.  Click **Update** to save the changes.
 
-### pickup-manager
+### Pickup Manager
 
 1. Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 
@@ -65,52 +64,48 @@ You need to register the two sample applications as service providers in WSO2 Id
         For more information on the advanced configurations
         refer, [Advanced OAuth/OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
 
-5.  Click **Register** to save the changes.
+5.  Click **Update** to save the changes.
 
 ----
 
 ## Set up the samples
 
--   Download Apache Tomcat 8.x from
-[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
-server installation location will be referred as `<TOMCAT_HOME>` later
-in this guide.      
+Let's set up and configure the sample applications:
 
--   It is recommended that you use a hostname that is not
-`          localhost         ` to avoid browser errors. Modify the
-`          /etc/hosts         ` entry in your machine to reflect this.
-Note that `          wso2is.local         ` is used in
-this documentation as an example, but you must modify this when
-configuring the authenticators or connectors with this sample
-application.
+### Pickup Dispatch
 
--   Download the samples from GitHub.
-    -   [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/pickup-manager.war)
-    -   [pickup-dispatch.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/pickup-dispatch.war)
+
+1. Download the [pickup-dispatch.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/pickup-dispatch.war) sample.
+
+3.  Extract the `pickup-dispatch.war` file and open the `dispatch.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
+
+4. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
+
+    ![Configurations of Pickup Dispatch application](../../assets/img/fragments/pickup-key-secret.png)
+
+### Pickup Manager
+
+1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/pickup-manager.war) sample.
+
+2. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
+
+3. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
+
+    ![pickup-key-secret-2](../../../assets/img/fragments/pickup-key-secret-2.png)
 
 ## Deploy the samples
 
 Next, deploy the sample web apps on a web container.
 
--   Deploy Pickup Dispatch
+1.  Download Apache Tomcat 8.x from
+[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+server installation location will be referred as `<TOMCAT_HOME>` later
+in this guide.      
+    
+    !!! Info
+        It is recommended that you use a hostname that is not `localhost` to avoid browser errors. Modify the `/etc/hosts` entry in your machine to reflect this. Note that `wso2is.local` is used in this documentation as an example, but you must modify this when configuring the authenticators or connectors with this sample application.
 
-    1. Extract the `pickup-dispatch.war` file and open the `dispatch.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
-
-    2. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
-
-        ![Configurations of Pickup Dispatch application](../../assets/img/fragments/pickup-key-secret.png)
-
-    3. Next, copy the extracted and modified `pickup-dispatch` folder to the `<TOMCAT_HOME>/webapps` folder.
-
--   Deploy Pickup Manager
-
-    1. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
-
-    2. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
-
-        ![pickup-key-secret-2](../../../assets/img/fragments/pickup-key-secret-2.png)
-
-    3. Next, copy the extracted and modified `pickup-manager` folder to the `<TOMCAT_HOME>/webapps` folder.
+4.  Next, copy the extracted and modified `pickup-manager` and `pickup-dispatch` folders to the `<TOMCAT_HOME>/webapps` folder.
 
 You are now ready to try out OpenID Connect SSO with the Pickup Dispatch and Pickup Manager sample web applications.
 

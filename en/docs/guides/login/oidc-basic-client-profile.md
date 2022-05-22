@@ -11,7 +11,7 @@ relevant responses that the WSO2 Identity Server would generate for the
 
 ---
 
-## Basic OAuth/OpenID Connect configuration
+## Configure the service provider
 
 {!fragments/oauth-app-config-basic.md!}
 
@@ -67,8 +67,7 @@ relevant responses that the WSO2 Identity Server would generate for the
     ```
 
     The returned ID token carries the user details. It follows the following format:
-    ` <header>.<body>.<signature>` . 
-    
+    `<header>.<body>.<signature>`.
     The decoded ID token can be seen below.
     
     ```

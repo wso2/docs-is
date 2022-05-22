@@ -1,4 +1,4 @@
-# Setting Up OAuth Token Hashing
+# OAuth Token Hashing
 
 WSO2 Identity Server (WSO2 IS) allows you to enable OAuth2 token hashing to protect OAuth2 access tokens, refresh tokens, consumer secrets, and
 authorization codes.
@@ -61,11 +61,13 @@ authorization codes.
     
 -----
 
+## Register a service provider
+
 {!fragments/register-a-service-provider.md!}
 
 -----
 
-## Basic OAuth/OpenID Connect configuration
+## Configure the service provider
 
 {!fragments/oauth-app-config-basic.md!}
 

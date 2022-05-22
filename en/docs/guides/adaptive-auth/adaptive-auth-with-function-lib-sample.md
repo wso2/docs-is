@@ -125,7 +125,7 @@ Add a function library with the following properties.
 
 4. Click **Ok**, then **Update**.
 
-## Test the sample scenario
+## Try it
 
 1. Access the following sample Pickup Dispatch application URL: 
 

@@ -30,11 +30,10 @@ descriptions you need to configure:
    This indicates the number of consecutive attempts that a user can try to log in without the account getting locked. If the value you specify is 2, the account gets locked if the login attempt fails twice.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to 
-configure the <strong>Maximum Failed Login Attempts</strong> property by default for all the tenants at tenant creation. 
+Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to configure the <strong>Maximum Failed Login Attempts</strong> property by default for all the tenants at tenant creation.
 <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" 
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
     data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[identity_mgt.account_locking]<br>allowed_failed_attempts=5</code></pre>
     </div>
   </div>
@@ -45,12 +44,11 @@ configure the <strong>Maximum Failed Login Attempts</strong> property by default
 <td><p>Lock Timeout Increment Factor</p></td>
 <td><div class="content-wrapper">
 <p>This indicates how much the account unlock timeout is incremented by after each failed login attempt. For example, according to the values configured in the above screen, when a user exceeds the specified limit of 4 <strong>Maximum Failed Login Attempts</strong>, the account is locked for 10 minutes. This account unlock timeout is calculated as follows.</p>
-<p>Account unlock timeout = Configured <strong>Account Unlock Time</strong> * ( <strong>Lock Timeout Increment Factor</strong> ^ failed login attempt cycles)</p>
+<p>Account unlock timeout = Configured <strong>Account Unlock Time</strong> * (<strong>Lock Timeout Increment Factor</strong> ^ failed login attempt cycles)</p>
 <p>i.e.,10 minutes = 5 * ( 2 ^ 1 )</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to 
-configure the <strong>Lock Timeout Increment Factor</strong> property by default for all the tenants at tenant creation. 
+Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to configure the <strong>Lock Timeout Increment Factor</strong> property by default for all the tenants at tenant creation.
 <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" 
@@ -88,11 +86,10 @@ configure the <strong>Account Unlock Time</strong> property by default for all t
 <p>This enables locking the account when authentication fails.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to 
-<strong>Enable</strong> Account lock on failed login by default for all the tenants at tenant creation. 
+Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to <strong>Enable</strong> Account lock on failed login by default for all the tenants at tenant creation.
 <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" 
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
     data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[identity_mgt.account_locking]<br>enable_account_locking=true</code></pre>
     </div>
   </div>
@@ -108,13 +105,12 @@ and follow the same steps to configure these properties for the other
 tenants.
 
 !!! note "Configuring WSO2 IS for automatic account unlock"
-      
+
     A user account locked by failed login attempts can be unlocked 
     by setting the <strong>Account Unlock Time</strong> period.
     
     If the lock time is set to 0, the account has to be unlocked by an admin
     user. For more information about this, see [Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account/).
-    
 ---
 
 ## Send email notifications for account locking
@@ -136,18 +132,17 @@ failed login attempts. To configure this, follow the steps below.
         Emails](../../../guides/tenants/customize-automated-mails).
 
 
-WSO2 Identity Server uses separate email templates for notifying, 
+WSO2 Identity Server uses separate email templates for notifying,
 
 - Account locking by exceeding `Maximum Failed Login Attempts`
 - Account unlocking by exceeding `Account Unlock Time`
 
-Add the following email templates by referring to the instructions in 
-[Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
+Add the following email templates by referring to the instructions in [Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
 
 Following are the sample email templates.
 
 ??? example "Account lock by `Maximum Failed Login Attempts`"
-    
+
     - Email Template Type: AccountLockFailedAttempt
     - Template Language: English(United States)
     - Email Content Type:text/html
@@ -269,43 +264,41 @@ Following are the sample email templates.
 ## Configure WSO2 IS for Failed OTP attempts based account locking
 
 WSO2 Identity Server can be configured to lock a user account when the number of consecutive failed OTP attempts is exceeded. 
-First, you need to configure the WSO2 Identity Server for user account locking and disabling according to 
-[Configure WSO2 IS for account locking](#configure-wso2-is-for-account-locking).
+First, you need to configure the WSO2 Identity Server for user account locking and disabling according to [Configure WSO2 IS for account locking](#configure-wso2-is-for-account-locking).
 
-1.  Add the following configurations into `<IS_HOME>/repository/conf/deployment.toml` file to enable account locking for each type of OTP attempts.
-    
-    -   For Email OTP:
+1. Add the following configurations into `<IS_HOME>/repository/conf/deployment.toml` file to enable account locking for each type of OTP attempts.
+
+    - For Email OTP:
 
         ```
         [authentication.authenticator.email_otp.parameters]
         EnableAccountLockingForFailedAttempts = true
         ```
-    
-    -   For SMS OTP:
+
+    - For SMS OTP:
 
         ```
         [authentication.authenticator.sms_otp.parameters]
         EnableAccountLockingForFailedAttempts = true
         ```
-   
+
         !!! note
             Since `BackupCode = true` in the default configuration, configure the backup code claim. <!--according to 
             [Configuring Backup Codes for SMSOTP](../../../guides/mfa/2fa-sms-otp/)-->
             Alternatively, you can disable the backup codes for SMS OTP by setting the property to **false**.
-            
+
             ```
             [authentication.authenticator.sms_otp.parameters]
             BackupCode = false
             ```
-   
-    -   For TOTP:
+    - For TOTP:
 
         ```
         [authentication.authenticator.totp.parameters]
         EnableAccountLockingForFailedAttempts = true
         ```
 
-3. Restart the server. 
+3. Restart the server.
 4. Navigate to **Main** > **Identity** > **Claims** > **Add** > **Add Local Claim**.
 5. Click **http://wso2.org/claims**.
 
@@ -313,26 +306,25 @@ First, you need to configure the WSO2 Identity Server for user account locking a
 To check this via the user profile:
     1. Click **Edit** under the **Account Locked** claim.
     2. Select **Supported by Default** and click **Update**.
-    3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
+    3. Navigate to the relevant user's user profile and you will see that the attribute has been updated.
   
-7. **Failed Email OTP Attempts**, **Failed SMS Attempts**, and **Failed TOTP Attempts** attribute values will be incremented 
-for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. To check this via the user profile.
+7. **Failed Email OTP Attempts**, **Failed SMS Attempts**, and **Failed TOTP Attempts** attribute values will be incremented for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. To check this via the user profile.
     - For Email OTP:
         1. Click **Edit** under the **Failed Email OTP Attempts** claim.
         2. Select **Supported by Default** and click **Update**.
-        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
-      
+        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated.
+
     - For SMS OTP:
         1. Click **Edit** under the **Failed SMS Attempts** claim.
         2. Select **Supported by Default** and click **Update**.
-        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
-      
+        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated.
+
     - For TOTP:
         1. Click **Edit** under the **Failed TOTP Attempts** claim.
         2. Select **Supported by Default** and click **Update**.
-        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated. 
+        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated.
 
-!!! info "Related topics" 
+!!! info "Related topics"
     <!---   [Guides: Configure SMS OTP for 2-Factor Authentication](../../../guides/mfa/2fa-sms-otp/)-->
     -   [Guides: Customize Automated Emails](../../../guides/tenants/customize-automated-mails)
     -   [Guides: Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account)

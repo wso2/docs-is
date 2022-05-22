@@ -1,7 +1,5 @@
 # Personal Information Export REST APIs
 
-# OpenID Connect Dynamic Client Registration REST APIs
-
 <div id="swagger-ui"></div>
 <script src="../../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
 <script src="../../../assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>

@@ -115,8 +115,7 @@ The instructions given below guide you through creating a new LDAP database and 
 
 ----
 
-
-## Try it out
+## Try it
     
 1.  Access the following sample Pickup Dispatch application URL:
 

@@ -1,6 +1,8 @@
 # Map OpenID Connect Scopes and Claims
 
-This page guides you through mapping [OpenID Connect (OIDC) scopes and claims](../../../references/concepts/authentication/scopes-claims). 
+This page guides you through mapping [OpenID Connect (OIDC) scopes and claims](../../../references/concepts/authentication/scopes-claims).
+
+This means that when you request for an OIDC token, you can specify a single scope value that is bound to a set of multiple claims. When that OIDC token is sent to the UserInfo endpoint, only the claims which are common in **both** the OIDC scope config file and the SP claim configuration (i.e., the intersection of claims in both these configurations) will be returned.
 
 -----
 ## Add scopes
@@ -46,6 +48,33 @@ When the existing claim mappings are not enough for your requirement and if you 
 
 !!! tip     
     For a sample use case, see [Handling Custom OIDC Claims.](https://medium.com/identity-beyond-borders/handling-custom-claims-with-openid-connect-in-wso2-identity-server-56d3b6e4319b)
+
+## Handling claims that are JSON objects
+
+OIDC considers `address` as a JSON object. Therefore, if you want to pass an address using a different claim other than the address claim that is already available, you can do it using any of the following methods:
+
+!!! Info
+    The values do not have to be added in complex object format.
+
+-   Without using the `address.` prefix. 
+    1. Register a scope named `address` in the WSO2 Identity Server's registry.
+    2. Add the value as the street or lane or any preferred value.
+
+-   Create a new external claim using the `address` prefix.
+    1.  Click **Add** under **Claims**.
+    2.  Click **Add External Claim**.
+    3.  Select ` http://wso2.ord/oidc/claim ` as the value for **Dialect URI**.
+    4.  Enter `   address.street    ` as the value for **External Claim URI**.
+
+        !!! Info
+            You can enter any value with the prefix `address.`, such as `address.country`, `address.lane`, and much more.
+
+    5.  Map the claim you are creating to any claim within WSO2 Identity server.  
+        
+        !!! Info
+            For example, you can map it to ` http://wso2.org/claims/location `.
+
+Now you can see the claim you created being listed. It is created as a JSON object in WSO2 Identity Server.
 
 -----  
 

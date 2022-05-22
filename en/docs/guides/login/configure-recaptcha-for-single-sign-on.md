@@ -12,6 +12,7 @@ attacks.
 
 {! fragments/configure-recaptcha-api-keys.md !}
 
+
 ---
 
 {! fragments/set-up-recaptcha.md !}
@@ -19,6 +20,10 @@ attacks.
 ## Configure reCAPTCHA for SSO
 
 {! fragments/configure-recaptcha-for-sso.md !}
+
+!!! Info
+     If the user exceeds the maximum allowed failed login attempts as well, be sure to [configure email notifications for account locking](../../../guides/tenants/email-account-locking).
+    
 
 !!! info "Related topics"
     - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)

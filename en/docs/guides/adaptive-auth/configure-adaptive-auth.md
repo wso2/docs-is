@@ -2,25 +2,6 @@
 
 This page guides you through setting up [adaptive authentication](../../../references/concepts/authentication/adaptive-authentication) for an application. 
 
------
-
-This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below.
-
-!!! note
-    The following scenarios are available as samples.
-
-     - Role-Based Adaptive Authentication
-     - User Age-Based Adaptive Authentication
-     - Tenant-Based Adaptive Authentication
-     - User Store-Based Adaptive Authentication
-     - IP-Based Adaptive Authentication
-     - Device-Based Adaptive Authentication
-     - Login Attempts-Based Adaptive Authentication
-     - ACR-Based Adaptive Authentication
-     - Adaptive Authentication Using Function Library
-     - Limit Active User Sessions
-
-----
 
 ## Create a service provider
 
@@ -28,7 +9,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ---
 
-## Add an adaptive authentication script to the service provider
+## Add an adaptive authentication script
 
 Make the following changes to the created service provider.
 
@@ -71,7 +52,7 @@ Make the following changes to the created service provider.
     }
     ```
 
-2. Click **Update** to save changes.
+3. Click **Update** to save changes.
 
 !!! info "Related topics"
     - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)

@@ -1,5 +1,7 @@
 # Onboard Users 
 
+To enable users to log into the IS management console, you need to create user accounts. You can add individual users or import users in bulk. 
+
 This section guides you through different ways of onboarding users to WSO2 Identity Server and to external systems.  
 
 - [Admin Creation Workflow](../admin-creation-workflow) 

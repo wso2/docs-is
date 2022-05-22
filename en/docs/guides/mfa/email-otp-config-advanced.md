@@ -20,6 +20,8 @@ federatedEmailAttributeKey = "email"
 EmailOTPEnableByUserClaim = true
 CaptureAndUpdateEmailAddress = true
 showEmailAddressInUI = true
+useEventHandlerBasedEmailSender = true
+emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
 ```
 
 The parameter values given above show the **default** configurations in WSO2 Identity Server. 
@@ -178,3 +180,10 @@ This parameter enables the user to update the email address that is used to send
 This parameter enables displaying the email address to which the OTP is sent to, on the UI.
 
 ----
+
+#### emailAddressRegex
+
+When `showEmailAddressInUI` is enabled, it provides the capability to define the way the email address should be displayed in the UI. This can be configured with a proper regex pattern as required.</td>
+
+-   `(?<=.{1}).(?=.@)  :  t***@mail.com`
+-   `(?<=.)^@|(?:(?<=@.)|(?!)\G(?=[@]$)).(?=.*\.)  :  t***@m***.com`

@@ -262,11 +262,16 @@ This page guides you through configuring [two-factor authentication](../../../re
 
     ![supported-by-default](../../../assets/img/guides/supported-by-default.png)
 
+
+
 5. To verify whether the option is available for the users, navigate to a user 
     profile of a user and check whether the **Disable SMSOTP** option is available.
     
     ![user-disable-smsotp](../../../assets/img/guides/user-disable-smsotp.png)
-	
+
+6. To disable SMS OTP in the user profile, enter **True** in the **Disable SMSOTP** field and click **Update**.	
+   
+
 ----
 
 ## Configuring backup codes for SMS OTP
@@ -306,20 +311,6 @@ A backup code can have any number of digits, and you can define many backup code
     ![define-backup-codes](../../../assets/img/guides/define-backup-codes.png)
 	
 ----
-
-## Disable SMS OTP authenticator
-
-The SMS OTP authenticator is enabled by default.
-
-To disable the SMS OTP authenticator, add the following configuration to the `deployment.toml` file in the
-`<IS_HOME>/repository/conf` folder and restart the server.
-
-```toml
-[authentication.authenticator.sms_otp] 
-enable=false
-```
-
----
 
 ## Try it out
 

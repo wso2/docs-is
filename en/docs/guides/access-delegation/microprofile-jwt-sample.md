@@ -2,13 +2,6 @@
 
 This page guides you through configuring [microprofile JWT (MP-JWT)](../../references/concepts/authentication/microprofile-jwt/) for an OAuth/OpenID Connect web application. This is demonstrated using a sample application and describes how to generate JWT tokens by invoking the endpoints.
 
-----
-If you have your own application, click the button below.
-
-<a class="samplebtn_a" href="../../guides/access-delegation/microprofile-jwt"   rel="nofollow noopener">I have my own application</a>
-
-----
-
 ## Pre-requisites
 
 - [Maven 3.x](https://maven.apache.org/download.cgi)

@@ -72,7 +72,7 @@ The instructions below guide you through specifying authentication steps based o
 
 ----
 
-## Try it out
+## Try it
 
 1.  Access the following sample Pickup Dispatch application URL:
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`

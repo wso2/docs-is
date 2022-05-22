@@ -2,10 +2,7 @@
 
 This page guides you through configuring Google as a federated authenticator in WSO2 Identity Server. 
 
-## Set up Google as a SAML IdP
-
-!!! note
-    You can skip this section if you have already registered your application on Google. 
+## Set up a Google app
 
 1.  Access the Google Admin console by navigating to this URL:
     <https://admin.google.com/>.
@@ -19,17 +16,15 @@ This page guides you through configuring Google as a federated authenticator in 
 
 	![more-controls-saml-apps](../../../assets/img/samples/saml-app.png)
 	
-
-5.  Click on the 
-    ![more-controls-icon](../../../assets/img/samples/more-controls.png) icon found at
+5.  Click the ![more-controls-icon](../../../assets/img/samples/more-controls.png) icon found at
     the bottom-right of the page.
-6.  Click **SETUP MY OWN CUSTOM APP**  
+6.  Click **SETUP MY OWN CUSTOM APP**.
     ![setup-my-own-custom-app](../../../assets/img/samples/set-up-my-own-app.png)
     
 7.  Click **Download** next to the **IDP Metadata** field to download
-    the Google identity provider metadata.  
-    A `          GoogleIDPMetadata.xml         ` file is downloaded on
-    to your machine.  
+    the Google identity provider metadata.
+
+    A `GoogleIDPMetadata.xml` file is downloaded to your machine.  
     
     ![idp-metadata](../../../assets/img/samples/download-idp-metadata.png)
     
@@ -45,37 +40,37 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ---
 
-## Configure Google as a SAML IdP in WSO2 IS
+{! fragments/register-an-identity-provider.md !}
 
-1.  Log in to the management console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials.
-2.  Click **Add** under **Identity Providers** on the **Main** tab.
-3.  Enter "GoogleIdP" as the identity provider name and expand
-    **Federated Authenticators\>SAML2 Web SSO Configuration**.
-4.  Select **Enable SAML2 Web SSO** and enter "wso2is1" as the **Service
+4.  Expand **Federated Authenticators\>SAML2 Web SSO Configuration**.
+5.  Select **Enable SAML2 Web SSO** and enter "wso2is1" as the **Service
     Provider Entity ID**.
 
     !!! info 
 		The **Service Provider Entity ID** value should be equal to the
 		value you entered as the Entity ID when configuring Google.
 
-5.  Select **Metadata File Configuration** as the **Mode** and upload
-    the `          GoogleIDPMetadata         `.xml file you downloaded
-    earlier.  
+6.  Select **Metadata File Configuration** as the **Mode** and upload
+    the `GoogleIDPMetadata.xml` file you downloaded earlier.  
     ![metadata-file-config](../../../assets/img/guides/metadata-file-config.png)
     
-6.  Click **Register** to save the identity provider configurations.
-7.  Once the IdP is registered, it is listed under Identity
-    Providers. Click **Edit** and expand **Federated
-    Authenticators\>SAML2 Web SSO Configuration**.  
+7.  Click **Register** to save the identity provider configurations.
+
+    !!! Info
+        Once the IdP is registered, it is listed under Identity Providers.
+    
+8.  Click **Edit** and expand **Federated Authenticators\>SAML2 Web SSO Configuration**.  
     ![idp-list](../../../assets/img/guides/idp-list.png)
     
-8.  Select **Enable Logout** and enter "
-    https://accounts.google.com/logout" as the Logout URL.
+9.  Select **Enable Logout** and enter `https://accounts.google.com/logout` as the Logout URL.
+
     ![enter-the-logout-url](../../../assets/img/guides/enter-the-logout-url.png)
     
-9. Click **Update** to save the changes.
+10. Click **Update** to save the changes.
 
 ---
+
+## Register a service provider
 
 {! fragments/register-a-service-provider.md !}
 
@@ -140,44 +135,6 @@ This page guides you through configuring Google as a federated authenticator in 
     </table>
 
 7.  Click **Register** to save your configurations.
-
----
-
-## Register a service provider
-
-1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials. 
-
-2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
-
-3.  Enter `saml2-web-app-pickup-dispatch` in the **Service Provider Name** text box,
-    and click **Register**.
-
-4.  In the **Inbound Authentication Configuration** section, click
-    **Configure** under the **SAML2 Web SSO Configuration** section.
-
-    1.  Now set the configuration as follows:
-
-        1.  **Issuer** : `saml2-web-app-pickup-dispatch.com`
-
-        2.  **Assertion Consumer URL** :  ` http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp `                       
-        
-        Click **Yes**, in the message that appears.
-
-    2.  Select the following check-boxes:
-        1.  **Enable Response Signing**
-
-        2.  **Enable Single Logout**
-
-        3.  **Enable Attribute Profile**
-
-        4.  **Include Attributes in the Response Always**  
-        
-        5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
-    
-    !!! tip
-        For more information on the advanced configurations, see [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
-
-5.  Click **Register** to save the changes.
 
 ---
 

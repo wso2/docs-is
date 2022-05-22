@@ -4,7 +4,11 @@ This page guides you through configuring and obtaining refresh tokens using the 
 
 ----
 
-## Configure validity period
+## Configure WSO2 IS
+
+Apply the following configurations to WSO2 Identity Server.
+
+### validity period
 
 Configure the following property in the `<IS_HOME>/repository/conf/deployment.toml` file to configure the validity period of the refresh token.
 
@@ -21,13 +25,12 @@ You can also provide the validity period in minutes, hours, or days using differ
 
 
 !!! info
-    Note that you cannot combine two units together. 
-
+    Note that you cannot combine two units together.
     For instance, "1h 30m" is not a valid value but you can enter "90m" instead.
 
 ----
 
-## Configure refresh token renewal 
+### Refresh token renewal
 
 Refresh tokens are renewed by default. 
 
@@ -47,7 +50,7 @@ The refresh token is renewed when the refresh grant is used to get an access tok
 
 ----
 
-## Obtain access token 
+## Get access token
 
 A refresh token can be obtained when using one of the [OAuth 2.0 grant types](oauth-grant-types.md). 
 

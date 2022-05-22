@@ -50,7 +50,7 @@ This page guides you through configuring Twitter as a federated authenticator in
     .
     ![twitter-config-federated-auth.png](../../../assets/img/guides/twitter-config-federated-auth.png)
     Fill in the following fields details according to the application
-    [registered in the Twitter](http://docs.inboundnow.com/guide/create-twitter-application/):
+    [registered in the Twitter](https://developer.twitter.com/en/apps):
 
     <table>
     <thead>
@@ -163,7 +163,7 @@ This page guides you through configuring Twitter as a federated authenticator in
 
 ---
 
-## Try it
+## Try it out
 
 You have successfully configured Twitter as your federated authenticator. Now, when you try to login to your application, it should redirect to the Twitter login page. On successful authentication with your Twitter credentials, you will be able to access your application. 
 

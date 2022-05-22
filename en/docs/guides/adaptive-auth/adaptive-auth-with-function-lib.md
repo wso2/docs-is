@@ -167,7 +167,7 @@ Follow the instructions below to delete a function library.
 4. To confirm your request, click **Yes**.
 
 -----
-## Try it out
+## Try it
 
 ### Create a service provider
 

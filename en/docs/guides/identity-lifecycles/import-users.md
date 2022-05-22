@@ -1,61 +1,65 @@
-# Import Users
+# Importing users
 
-This page guides you through importing users in bulk using the WSO2 Identity Server admin portal, SCIM, SOAP, a .csv file, or directly plugging in an existing userstore. 
+In addition to manually adding individual users, you can import multiple
+users in bulk if you have exported them to comma-separated values (.csv)
+file or Microsoft Excel (.xls) file.
 
------
+!!! info "Note the following before you use this feature"
 
-## Import users using SCIM
-You can create users in bulk using a SCIM request as shown below. 
+      -   If the option to import users in bulk is not enabled in your product
+         by default, you can enable it by adding the following property to
+         the JDBC user store configured in the
+         `            deployment.toml           ` file (stored in the
+         `            <IS_HOME>/repository/conf           ` directory).
+         Please see the [User Store management](../../setup/configuring-the-primary-user-store) section for more
+         information.
 
-**Request**
+		```toml
+		[user_store.properties]
+		is_bulk_import_supported  =  true
+		```
 
-```curl
-curl -v -k --user [username]:[password] --data '{"failOnErrors": [value],"schemas":[],"Operations":[{"method": [request type],"path": [end point],"bulkId": [bulk id],"data": [input user details] }] }' --header "Content-Type:application/scim+json" https://localhost:9443/scim2/Bulk
-```
+      -   It is recommended to upload a maximum of 500,000 users at a time. If
+         you need to upload more users, you can upload them in separate
+         batches of 500,000 each.
+      -   You can also specify the size of the file that you can upload to the
+         product in the
+         `            <IS_HOME>/repository/conf/deployment.toml           `
+         file as shown below. This value is in MB.
 
-Below is a sample request and its corresponding response using SCIM 2.0. 
+		``` toml
+		[server.file_upload]
+		file_size_limit = "100"
+		```
 
-!!! abstract ""
-    **Sample Request**
-    ```
-    curl -v -k --user admin:admin --data '{"failOnErrors":1,"schemas":["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],"Operations":[{"method": "POST","path": "/Users","bulkId": "qwerty","data":{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],"userName": "Kris","password":"krispass"}},{"method": "POST","path": "/Users","bulkId":"ytrewq","data":{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],"userName":"Jesse","password":"jessepass","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber": "11250","manager": {"value": "bulkId:qwerty"}}}}]}' --header "Content-Type:application/scim+json" https://localhost:9443/scim2/Bulk
-    ```
-    ---
-    **Sample Response**
-    ```
-    {
-        "schemas":["urn:ietf:params:scim:api:messages:2.0:BulkResponse"],
-        "Operations":[
-            {
-                "bulkId":"qwerty",
-                "method":"POST",
-                "location":"https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1",
-                "status":{"code":201}
-            },
-            {
-                "bulkId":"ytrewq",
-                "method":"POST",
-                "location":"https://localhost:9443/scim2/Users/b489dacc-fc89-449c-89f6-7acc37422031",
-                "status":{"code":201}
-            }
-        ]
-    }
-    ```
+## Creating a file with users
 
----
+You must first create a CSV file or an Excel file with the user
+information. It is possible to import the **username** and **password**
+directly from the CSV/Excel to the product. Other user attributes can be
+imported if [claim URls are defined for such
+attributes](../../learn/managing-user-attributes). Shown below are the
+claim URls that are defined by default in WSO2 IS. These will allow you
+to import the user's **email address**, **country**, **given name**
+etc. in addition to the **username** and **password**.
 
-## Import users using CSV files
+-   http://wso2.org/claims/country
+-   http://wso2.org/claims/emailaddress
+-   http://wso2.org/claims/givenname
+-   http://wso2.org/claims/im
+-   http://wso2.org/claims/lastname
+-   http://wso2.org/claims/mobile
+-   http://wso2.org/claims/organization
+-   http://wso2.org/claims/role
+-   http://wso2.org/claims/streetaddress
+-   http://wso2.org/claims/telephone
+-   http://wso2.org/claims/url
 
-### Create a file with user attributes
-You must first create a CSV file or an Excel file with the user information. It is possible to import the username and 
-password directly from the CSV/Excel to the product. Other user attributes can be imported if claim URls are defined for
-such attributes. Shown below are the claim URls that are defined be default in WSO2 IS. These will allow you to import 
-the user's **email address, country, given name etc**. in addition to the **username** and **password**.
+The username, password and other attributes (claim URls) that you import
+should be given in a CSV file as shown below. Note that the first line
+of the file will not be imported considering that it is not a username.
 
-The **username**, **password** and **other attributes** (claim URls) that you import should be given in a CSV file as 
-shown below. Note that the first line of the file will not be imported considering that it is not a username.
-
-```
+``` java
 UserName,Password,Claims
 name1,Password1,http://wso2.org/claims/emailaddress=name1@gmail.com,http://wso2.org/claims/country=France
 name2,Password2,http://wso2.org/claims/emailaddress=name2@gmail.com,http://wso2.org/claims/country=France
@@ -63,16 +67,16 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
 ```
 
 !!! note
-    [Ask Password](../invitation-workflow) option can be enabled for bulk user creation by passing a value for password and 
-     setting the askPassword claim to true as shown below.
-     ```
-     UserName,Password,Claims
-     name1,Password1,http://wso2.org/claims/emailaddress=name1@gmail.com,http://wso2.org/claims/country=France
-     name2,Password2,http://wso2.org/claims/emailaddress=name2@gmail.com,http://wso2.org/claims/country=France
-     name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.org/claims/country=France,http://wso2.org/claims/identity/askPassword=true
-     ```
-     
-### Import users from the CSV/Excel file
+    The Ask Password option can be enabled for bulk user creation by passing a value for password and setting the `askPassword` claim to true as shown below.
+    
+    ``` java
+    UserName,Password,Claims
+    name1,Password1,http://wso2.org/claims/emailaddress=name1@gmail.com,http://wso2.org/claims/country=France
+    name2,Password2,http://wso2.org/claims/emailaddress=name2@gmail.com,http://wso2.org/claims/country=France     	     name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.org/claims/country=France,http://wso2.org/claims/identity/askPassword=true
+    ```
+    
+
+## Importing users from the CSV/Excel file
 
 To import users in bulk:
 
@@ -80,8 +84,8 @@ To import users in bulk:
 2.  Click **Add** under **Users and Roles** in the **Main** menu.
 3.  In the **Add Users** and **Roles** screen, click **Bulk Import
     Users**.
-4.  The userstores configured for your product will be listed in the
-    **Domain** field. Select the userstore to which you want to import
+4.  The user stores configured for your product will be listed in the
+    **Domain** field. Select the user store to which you want to import
     the users from the list.
 5.  Click **Choose File** to give the path to the CSV/Excel file that
     contains the users that you want to import.
@@ -93,19 +97,3 @@ To import users in bulk:
       by logging in as the Admin and changing the user's password from the
       **User Management -\>** **Users** page. The 'Everyone' role will be
       assigned to the users by default.
-
-----
-
-### Import users by plugging in a userstore
-
-Apart from this, users can also be added by directly plugging userstores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](../../../deploy/configure-secondary-user-stores/).
-
-
-!!! info "Related topics"
-    - [Concept: Users](../../../references/concepts/user-management/users)
-    - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
-    - [Guide: User Self Registration Workflow](../self-registration-workflow)
-    - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)
-    - [Guide: Invitation Workflow](../invitation-workflow) 
-    - [Guide: Outbound Provisioning](../outbound-provisioning)
-    
