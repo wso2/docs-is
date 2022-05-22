@@ -39,7 +39,7 @@ password = "$env{ENV_VAR}"
     password="$sys{admin.password}"
     ```
     
-2.  Pass the above configured system property to the runtime by using one of following options during server startup. 
+2.  Pass the above configured system property to the runtime by using one of following options during server startup:
 
     !!! info
         Note that `admin.password` has been used as the sample system property.
