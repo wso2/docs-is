@@ -111,7 +111,7 @@ TokenExpiryTime = 12
 		</tr>
 		<tr>
             <td>TokenExpiryTime</td>
-            <td>SMS OTP does not have a default validity period hence you will have to explicitly configure it by adding the <code>TokenExpiryTime</code> parameter. The value provided for the parameter is considered as seconds.</td>
+            <td>SMS OTP does not have a default validity period. Therefore, you must explicitly configure it by adding the <code>TokenExpiryTime</code> parameter. The value provided for the parameter is considered as seconds.</td>
 		</tr>
     </tbody>
 </table>
