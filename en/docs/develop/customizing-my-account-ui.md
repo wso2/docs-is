@@ -4,14 +4,13 @@ From [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-manageme
 been introduced which is the successor to the dashboard. It also adheres to the UI extensions scheme
  introduced with WSO2 Identity Server 5.9.0 to use a centralized theming for all the front-end portals. 
 
-!!! note 
+!!! note
     The **My Account** application has been renamed as **My Account** from this release onwards.
 
-This section explains how we can customize the theming of **My Account**. 
+This section explains how we can customize the theming of **My Account**.
 
 !!! info
-    A customized version of the [default theme](https://github
-    .com/Semantic-Org/Semantic-UI-LESS/tree/master/themes/default) in the Semantic UI LESS package has been used to
+    A customized version of the [default theme](https://github.com/Semantic-Org/Semantic-UI-LESS/tree/master/themes/default) in the Semantic UI LESS package has been used to
     achieve the look and feel of the **My Account**.
 
     ![default-my-account-theme](../assets/img/develop/default-my-account-theme.png)
@@ -21,16 +20,19 @@ This section explains how we can customize the theming of **My Account**.
 ## Before you begin
 
 1. Check out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps)
-and set it up in the [development environment](../../develop/setting-up-my-account-in-a-dev-environment). Check out the `5.11.0` branch of the `identity-apps` repo. 
+and set it up in the developer environment. 
 
-    ```java
-    $ git checkout 5.11.0
-    ```
+    !!! info  
+        - See the instructions on [setting up My Account in a development environment](../../develop/setting-up-my-account-in-a-dev-environment).
+        - When you build the `identity-apps` repo (as explained in the instructions on setting up the developer environment), be sure to check out the `5.11.0` branch:
+
+          ```java
+          $ git checkout 5.11.0
+          ```
 
 2. Navigate to the `modules/theme/src/themes` folder within identity-apps. All the theme global variable overrides
 can be found in the `modules/theme/src/themes/default/globals/site.variables` file. For the full set of variables,
-    see the [original theme variables file](https://github
-    .com/Semantic-Org/Semantic-UI-LESS/blob/master/themes/default/globals/site.variables).
+    see the [original theme variables file](https://github.com/Semantic-Org/Semantic-UI-LESS/blob/master/themes/default/globals/site.variables).
 
 ---
 
@@ -38,9 +40,9 @@ Follow the steps given below to further customize **My Account**.
 
 ## Step 1: Change the primary color of the portal
 
-In order to change the primary color of the portal, the variables in `site.variables` need to be overridden.
+To change the primary color of the portal, the variables in `site.variables` need to be overridden.
 
-1.  Add a new color under the site colors and name it. In this example it is named, `facebookBlue`.
+1.  Add a new color under the site colors and name it. In this example, it is named `facebookBlue`.
 
     ```java
     /*-------------------
@@ -50,7 +52,7 @@ In order to change the primary color of the portal, the variables in `site.varia
     @facebookBlue     : #2d88ff;
     ```
 
-2. Now change the primary color variable.
+2. Now, change the primary color variable.
 
     ```java
     /*-------------------
@@ -60,8 +62,8 @@ In order to change the primary color of the portal, the variables in `site.varia
     @primaryColor        : @facebookBlue;
     ```
 
-3. Next, change the page background color and text color. In this example, the background color is changed from white to dark gray and the default text color is changed to a
-lighter shade. Add a new variable under the brand colors. It is called `globalBackgroundColor` in this example.
+3. Next, change the page background color and text color. In this example, the background color is changed from white to dark gray and the default text color is changed to a lighter shade.
+   Add a new variable under the brand colors as shown below. It is called `globalBackgroundColor` in this example.
 
     ```java
     /*-------------------
@@ -82,7 +84,7 @@ lighter shade. Add a new variable under the brand colors. It is called `globalBa
     @textColor           : #e4e6eb;
     ```
 
-5. Build the theme module by running the following command and check the results reflected on the dev server.
+5. Build the `theme` module by running the following command and check the results reflected on the dev server.
 
     ```java
     # from inside `modules/theme`
@@ -158,89 +160,7 @@ lighter shade. Add a new variable under the brand colors. It is called `globalBa
 The changes should be reflected on the running dev server in no time. A sample screen of the new theme is shown below.
 ![custom-theme-2](../assets/img/develop/customize-theme2.png)
 
-## Step 2: Change the branding
-
-Now that the styling is complete, the following steps explain how the product branding can be changed.
-
-1.  Change the product logo.
-
-Use one of the following methods to change the product logo.
-
-**Method 1 (Recommended)**
-
-If the logo should be changed without touching the compiled javascript bundle, follow these instructions to override the existing WSO2 IS logo using CSS.
-
-1.  Download an icon from any of the providers such as [Flaticon.com](https://www.flaticon.com/). In this example, `owl.svg` was the downloaded icon. Now add it to the
-`modules/theme/src/themes/default/assets/images` folder.
-
-2.  Open the `modules/theme/src/theme-core/definitions/globals/product.less` file and replace the existing styles in the `.product-logo` class with the following.
-
-    ```java
-    .product-title {
-        .product-logo {
-            width: 25px;
-            height: 25px;
-            vertical-align: text-top;
-            margin-right: 5px;
-            background: url(assets/images/owl.svg) no-repeat;
-            background-size: auto;
-
-            svg {
-                display: none;
-            }
-        }
-
-        // Other styles
-    }
-    ```
-
-**Method 2**
-
-1. Download an icon from any of the providers such as [Flaticon.com](https://www.flaticon.com/). In this example, `owl.svg` was the downloaded icon. Now add it to the
-`modules/theme/src/themes/default/assets/images` folder.
-
-2. Open the `modules/theme/src/index.js` file and replace `Logo` with the path to the new icon.
-
-    ```java
-    export const Logo = require("../lib/assets/images/owl.svg");
-    ```
-3.  Build **my-account** artifacts.
-
-    ```java
-    npx lerna run build — scope @wso2is/my-account
-    ```
-
-4. Copy the `main.js` and `main.js.map` files from the `apps/my-account/build/my-account` folder and paste it
-    inside the **my-account** web app found in the `<IS_HOME>/repository/deployment/server/webapps/my-account` folder.
-
-5.  Change the product title & copyright.
-
-    Add the following entries to the `runConfig` window object in the
-    `<IS_HOME>/repository/deployment/server/webapps/my-account/index.jsp` file.
-    
-    ```java
-    window["runConfig"] = {
-        ...
-        applicationName: "NIGHT OWL EXPRESS",
-        copyrightText: "Night Owl Express © 2020"
-    };
-    ```
-6.  Change the Favicon.
-
-    Replace `favicon.ico` in the `<IS_HOME>/repository/deployment/server/webapps/my-account` folder with the
-    desired icon.
-
-    !!! tip
-        If you do not have a favicon already, you can use an online generator like [favicon.oi](https://favicon.io/) to generate a favicon for free.
-
-4.  Change the title.
-
-    Change the `<title>` tag in the `<IS_HOME>/repository/deployment/server/webapps/my-account/index.jsp` file.
-    ```html
-    <title>Night Owl Express</title>
-    ```
-
-## Step 3: Deploy the changes in the web app
+## Step 2: Deploy the changes in the web app
 
 The final step of the process is the deployment. Follow the sequence of steps listed below to deploy
 the changes performed in the previous steps.

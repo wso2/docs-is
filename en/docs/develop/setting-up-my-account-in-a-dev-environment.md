@@ -7,12 +7,15 @@ In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/)(WSO2
 
 Follow the steps given below to set up the repo in a development environment.
 
-!!! note "Before you begin"
+## Before you begin
 
-    1. Install [node](https://nodejs.org/en/download/) if you have not already installed it. Npm is already bundled with node.
-        * Note that **npm 7** has some breaking changes to peer dependencies. Hence, go with a **npm version lower than 7**.
-    2. Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
-    3. A running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
+- Install [node](https://nodejs.org/en/download/) if you have not already installed it. Npm is already bundled with node.
+
+  !!! info
+      Note that **npm 7** has some breaking changes to peer dependencies. Hence, go with an **npm version lower than 7**.
+
+-   Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
+-   Set up a running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
 
 
 ## Step 1: Configure WSO2 Identity Server
@@ -25,7 +28,7 @@ Follow the steps given below to set up the repo in a development environment.
 1.  Enable cross-origin requests for WSO2 Identity Server.
 
     Cross-origin requests are blocked by default in WSO2 IS as a security measure. Add the following CORS configuration to
-    the `<IS_HOME>/repository/resources/conf/deployment.toml` file to enable it.
+    the `<IS_HOME>/repository/conf/deployment.toml` file to enable it.
 
     ``` toml
     [cors]
@@ -52,7 +55,7 @@ Follow the steps given below to set up the repo in a development environment.
     tag_requests = false
     ```
 
-2.  Allowlist your hostname and port as a trusted FIDO2 origin by adding the dev url as an allowed origin in the `<IS_HOME>/repository/resources/conf/deployment.toml` file.
+2.  Allowlist your hostname and port as a trusted FIDO2 origin by adding the dev url as an allowed origin in the `<IS_HOME>/repository/conf/deployment.toml` file.
     
     ```toml
     [fido.trusted]
@@ -81,18 +84,26 @@ Follow the steps given below to set up the repo in a development environment.
 
 ## Step 2: Build the Identity Apps repository
 
-Fork the original repository to start working on it. You can also directly clone the original repo but it is
+1.  Fork the original repository to start working on it. You can also directly clone the original repo but it is
 recommended to create your own fork.
 
-```java
-git clone https://github.com/wso2/identity-apps
-cd identity-apps
-mvn clean install or npm run build
-```
+    ```java
+    git clone https://github.com/wso2/identity-apps
+    ```
+
+2.  Navigate to the `identity-apps` folder from your terminal and execute one of the following commands to build the project:
+
+    ```java
+    mvn clean install
+    ```
+    ```java
+    npm run build
+    ```
 
 ## Step 3: Run My Account in dev mode
 
 After the build is complete, navigate to the **My Account** directory and run the portal using the webpack dev server.
+
 ```java
 cd apps/myaccount
 npm start
