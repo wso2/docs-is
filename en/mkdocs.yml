@@ -739,7 +739,7 @@ nav:
       - 'Migration Guide':
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
-          - "Migrating to 5.11.0" : setup/migrating-to-5110.md
+          - "Migrating to 6.0.0" : setup/migrating-to-600.md
           - 'Migrating Userstore Managers': setup/migrating-userstore-managers.md
       - 'WSO2 Identity Server Feature Deprecation': setup/wso2-identity-server-feature-deprecation.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
@@ -859,6 +859,11 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+# plugins:
+#    - redirects:
+#          redirect_maps:
+#              'references/references-overview.md': 'https://is.docs.wso2.com/en/next/administer/wso2-administration-guide/'
 
 # Extra
 extra_css:

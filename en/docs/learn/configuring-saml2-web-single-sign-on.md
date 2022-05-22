@@ -16,7 +16,7 @@ Let's start configuring SAML2 Web SSO.
 	 
 To configure SAML2 Web SSO:
 
-1.  Expand the **SAML2 Web SSO Configuration** and click **Configure**.
+1.  Expand **SAML2 Web SSO Configuration** under **Inbound Authentication Configuration** and click **Configure**.
 2.  Select one of the following modes:  
 
 !!! info "Metadata and URL configuration"
