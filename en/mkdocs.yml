@@ -68,7 +68,18 @@ nav:
           - Client-Side Application: guides/login/client-side-app.md
           - SaaS Applications:
             - Salesforce: guides/login/log-into-salesforce-using-is.md
+            - Salesforce with Facebook: guides/login/log-into-salesforce-using-fb.md
+            - Salesforce with IWA: guides/login/log-into-salesforce-using-iwa.md
             - Google: guides/login/log-into-google-using-is.md
+            - WordPress: guides/login/log-into-wordpress-using-is.md
+            - OpenCart: guides/login/log-into-opencart-using-is.md
+            - Workday: guides/login/log-into-workday-using-is.md
+            - SimpleSAMLphp: guides/login/log-into-simplesaml-using-is.md
+            - Office365: guides/login/log-into-office365-using-is.md
+          - PaaS Applications:
+            - Drupal: guides/login/log-into-drupal-using-is.md
+            - Microsoft Sharepoint: guides/login/log-into-sharepoint-using-is.md
+            - Magento: guides/login/log-into-magento-using-is.md
           - Request Path Authentication:
             - Overview: guides/request-path-auth/request-paths-overview.md
             - Basic Auth Request Path Authentication: guides/request-path-auth/basic-auth-request-path.md
