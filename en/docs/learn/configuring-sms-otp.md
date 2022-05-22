@@ -370,21 +370,6 @@ backup codes, follow the steps given below.
     
 ## Advanced Configurations of SMS OTP authenticator
 
-### Disable SMS OTP
- 
-From WSO2 Identity Server 5.9.0 onwards, SMS OTP authenticator is enabled by
-default.
-
-You can disable the SMS OTP authenticator by adding following
-configuration to the `deployment.toml` file in the
-`<IS_HOME>/repository/conf` folder.
-
-```toml
-[authentication.authenticator.sms_otp] 
-name ="SMSOTP"
-enable=false
-```
-
 ### SMS OTP Configuration Properties
 
 You may configure any of the following parameters to change the

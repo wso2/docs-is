@@ -58,7 +58,7 @@ or with an existing service provider.
     sample application.
 
 2.  Access the PickUp application URL at
-        <http://localhost:8080/saml2-web-app-pickup-dispatch.com.>
+        <http://localhost:8080/saml2-web-app-pickup-dispatch.com>
 
 3.  Once you deploy the sample application and start the tomcat server,
     a folder named **saml2-web-app-pickup-dispatch.com** is created inside the
