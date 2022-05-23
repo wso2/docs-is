@@ -28,28 +28,5 @@
         ``` toml
         redirect_urls="/authenticationendpointone/login.do,/authenticationendpointtwo/login.do"
         ```
-
-    !!! tip
-        
-        To modify the filter mapping for reCAPTCHA, open the
-        `           web.xml          ` file located in the
-        `           <IS_HOME>/repository/conf/tomcat/carbon/WEB-INF          `
-        directory and find the following filter. You can modify the relevant
-        URL patterns if required.
-    
-        ``` xml
-        <filter>
-            <filter-name>CaptchaFilter</filter-name>
-            <filter-class>org.wso2.carbon.identity.captcha.filter.CaptchaFilter</filter-class>
-        </filter>
-        <filter-mapping>
-            <filter-name>CaptchaFilter</filter-name>
-            <url-pattern>/samlsso</url-pattern>
-            <url-pattern>/oauth2</url-pattern>
-            <url-pattern>/commonauth</url-pattern>
-            <dispatcher>FORWARD</dispatcher>
-            <dispatcher>REQUEST</dispatcher>
-        </filter-mapping>
-        ```
         
 2. Restart the WSO2 IS server.

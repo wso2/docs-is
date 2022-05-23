@@ -89,10 +89,14 @@ Specify the **NameID** format. This defines the name identifier formats supporte
 Select the **Certificate Alias** from the dropdown. This is used to validate the signature of SAML2 requests and is used to generate encryption. Basically the service provider’s certificate must be selected here. Note that this can also be the Identity Server tenant's public certificate in a scenario where you are doing a tenant specific configuration.
 
 !!! tip 
-     From WSO2 IS 5.5.0 onwards, the `.pem` certificate can be updated via the Service Provider screen in the management console UI using the Application Certificate field. If the certificate has been entered in the Application Certifiate field, the system will use the certificate given there and override the certificate alias field.
+     -    From WSO2 IS 5.5.0 onwards, the `.pem` certificate can be updated via the Service Provider screen in the management console UI using the Application Certificate field. If the certificate has been entered in the Application Certifiate field, the system will use the certificate given there and override the certificate alias field.
+          However, if the Application Certificate field has been left blank, the certificate specified in Certificate Alias will be used.
+     -    From WSO2 IS 5.12.0 onwards, the <strong>Certificate Alias</strong> option is hidden from the application configurations. To enable the <strong>Certificate Alias</strong> option in the console UI, add the following configuration to the <code>&lt;IS_HOME&gt;/repository/deployment.toml</code> file.
 
-     However, if the Application Certificate field has been left blank, the certificate specified in Certificate Alias will be used.
-
+          ```toml
+          [console.applications.ui]
+          certificate_alias_enabled=true
+          ```
 ----
 
 ## Response Signing Algorithm

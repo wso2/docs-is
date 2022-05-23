@@ -352,7 +352,6 @@ nav:
               - Change to remote H2: deploy/change-to-remote-h2.md
               - Change the Default Datasource of BPS: deploy/change-datasource-bpsds.md
               - Change the Default Datasource for Consent Management: deploy/change-datasource-consent-management.md
-            - Browse the H2 Database: deploy/browse-the-h2-database.md
             - Data Dictionary:
               - Registry Related Tables: deploy/registry-related-tables.md
               - User Management Related Tables: deploy/user-management-related-tables.md
@@ -405,6 +404,7 @@ nav:
           - Symmetric Encryption:
             - Overview: deploy/security/symmetric-overview.md
             - Configurations Related to Symmetric Key Encryption: deploy/security/use-symmetric-encryption.md
+            - Symmetric Data Encryption Key Rotation: deploy/security/blue-green-data-encryption-keyrotation.md
       - Deploy:
         - Deployment Patterns: deploy/deployment-guide.md
         - Set up WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
@@ -442,7 +442,7 @@ nav:
         - Migration Guide:
           - Before you Begin: deploy/migrate/migration-guide.md
           - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-          - Migrate to 5.11.0: deploy/migrate/migrate-to-5110.md
+          - Migrate to 6.0.0: deploy/migrate/migrate-to-600.md
           - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
   

@@ -312,20 +312,6 @@ A backup code can have any number of digits, and you can define many backup code
 	
 ----
 
-## Disable SMS OTP authenticator
-
-The SMS OTP authenticator is enabled by default.
-
-To disable the SMS OTP authenticator, add the following configuration to the `deployment.toml` file in the
-`<IS_HOME>/repository/conf` folder and restart the server.
-
-```toml
-[authentication.authenticator.sms_otp] 
-enable=false
-```
-
----
-
 ## Try it out
 
 1. Log in to the configured service provider.
