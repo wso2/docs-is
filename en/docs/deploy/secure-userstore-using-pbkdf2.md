@@ -1,5 +1,5 @@
 # PBKDF2 hashing
-Password-Based Key Derivation Function 2 (PBKDF2) hashing algorithm is a modern hashing algorithm recommended by NIST.  We can use PBKDF2 hashing method to securely store user passwords in user stores. This method reduces the risk of brute-force attacks due to insecure passwords.
+Password-Based Key Derivation Function 2 (PBKDF2) hashing algorithm is a modern hashing algorithm recommended by NIST. We can use the PBKDF2 hashing method to securely store user passwords in user stores. This method reduces the risk of brute-force attacks due to insecure passwords.
 
 This guide walks you through the steps of configuring PBKDF2 as the hashing algorithm of a JDBC userstore.
 
