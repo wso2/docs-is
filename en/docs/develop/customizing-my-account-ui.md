@@ -18,14 +18,15 @@ This section explains how we can customize the theming of **My Account**.
 
 ## Before you begin
 
-1. Check out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps)
-and set it up in the developer environment. 
+1. Set up [My Account in a development environment](../../develop/setting-up-my-account-in-a-dev-environment). 
 
-    !!! info  
-        - See the instructions on [setting up My Account in a development environment](../../develop/setting-up-my-account-in-a-dev-environment).
-        - When you build the `identity-apps` repo (as explained in the instructions on setting up the developer environment), be sure to check out the `5.11.0` branch:
+    !!! info
+        Note the following when you set up the dev environment:
+
+        - You will be checking out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps) and setting it up in the dev environment.
+        - When you build the `identity-apps` repo, be sure to check out the `5.11.0` branch:
            ```java
-           $ git checkout 5.11.0
+           git checkout 5.11.0
            ```
 
 2. Navigate to the `modules/theme/src/themes` folder within identity-apps. All the theme global variable overrides
@@ -70,7 +71,7 @@ To change the primary color of the portal, the variables in the `modules/theme/s
     @globalBackgroundColor: #18191a;
     ```
 
-4.  Now, change the page background color (by using the `globalBackgroundColor` variable defined above) and the text color. 
+4.  Now, change the page background color (by using the `globalBackgroundColor` variable defined above) and the text color as shown below.
 
     ```java
     /*-------------------
@@ -85,7 +86,7 @@ To change the primary color of the portal, the variables in the `modules/theme/s
 
     ```java
     # from inside `modules/theme`
-    $ npm run build
+    npm run build
     ```
     The response should be similar to the screenshot given below. 
 
@@ -151,7 +152,7 @@ The background color of the header, footer, side navigation, and content cards c
 
     ```java
     # from inside `modules/theme`
-    $ npm run build
+    npm run build
     ```
 
 The changes should be reflected on the running dev server in no time. A sample screen of the new theme is shown below.
@@ -166,19 +167,18 @@ the changes performed in the previous steps.
 
     ```java
     # from inside modules/theme
-    $npm run build
+    npm run build
     ```
 
 2.  Copy the artifacts to the web app.
 
-    The built artifacts will be available inside the `modules/theme/dist/lib/themes` folder. Copy everything to the clipboard and
-    navigate to **my-account** web app in the WSO2 IS pack.
+    !!! warning
+        Make sure that you keep a backup of the original CSS folder.
+
+    The built artifacts will be available inside the `modules/theme/dist/lib/themes` folder. Copy everything to the clipboard and navigate to the **my-account** web app in the WSO2 IS distribution.
 
     Copy everything to the clipboard and paste it inside the
     `<IS_HOME>/repository/deployment/server/webapps/myaccount/libs/themes` folder.
-    
-    !!! warning
-        Make sure that you keep a backup of the original CSS folder.
 
 <!--
 The final theme should look similar to following.

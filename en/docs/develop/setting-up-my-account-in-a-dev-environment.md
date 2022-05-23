@@ -9,9 +9,9 @@ Follow the steps given below to set up the repo in a development environment.
 
 ## Before you begin
 
-- Install [node](https://nodejs.org/en/download/) if you have not already installed it. Npm is already bundled with node.
+- Install [node](https://nodejs.org/en/download/) if you have not already installed it.
 
-    - Note that **npm 7** has some breaking changes to peer dependencies. Hence, go with an **npm version lower than 7**.
+    - Note that npm is already bundled with node. Also, **npm 7** has some breaking changes to peer dependencies, and therefore, go with an **npm version lower than 7**.
 
 - Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
 - Set up a running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
@@ -75,7 +75,7 @@ Follow the steps given below to set up the repo in a development environment.
     1.  Log in to the WSO2 IS management console.
     2.  Click **Service Providers > List**.
     3.  Click **Edit** to edit the **My Account** service provider.
-    4.  Expand **Inbound Authentication Configuration**, and then expand **OAuth/OpenID Connect Configuration**. Click **Edit**.
+    4.  Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration** and click **Edit**.
     5.  Change the **Callback URL** field to reflect the port as 9000 or you can add a regexp as follows.
         ```
         regexp=(https://localhost:9443/myaccount|https://localhost:9443/t/(.*)/myaccount|https://localhost:9443/myaccount/login|https://localhost:9443/t/(.*)/myaccount/login|https://localhost:9000/myaccount|https://localhost:9000/t/(.*)/myaccount|https://localhost:9000/myaccount/login|https://localhost:9000/t/(.*)/myaccount/login)
@@ -100,14 +100,14 @@ recommended to create your own fork.
         ```
 
     -   Using npm
-    
+
         ```java
         npm run build
         ```
 
 ## Step 3: Run My Account in dev mode
 
-After the build is complete, navigate to the **My Account** directory and run the portal using the webpack dev server.
+After the build is complete, navigate to the **My Account** directory and run the portal using the dev server.
 
 ```java
 cd apps/myaccount
