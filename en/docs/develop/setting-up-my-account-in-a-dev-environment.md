@@ -11,11 +11,10 @@ Follow the steps given below to set up the repo in a development environment.
 
 - Install [node](https://nodejs.org/en/download/) if you have not already installed it. Npm is already bundled with node.
 
-  !!! info
-      Note that **npm 7** has some breaking changes to peer dependencies. Hence, go with an **npm version lower than 7**.
+    - Note that **npm 7** has some breaking changes to peer dependencies. Hence, go with an **npm version lower than 7**.
 
--   Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
--   Set up a running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
+- Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
+- Set up a running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
 
 
 ## Step 1: Configure WSO2 Identity Server
@@ -91,14 +90,20 @@ recommended to create your own fork.
     git clone https://github.com/wso2/identity-apps
     ```
 
-2.  Navigate to the `identity-apps` folder from your terminal and execute one of the following commands to build the project:
+2.  On your terminal, navigate to the `identity-apps` folder.
+3.  Navigate to the branch that you want build and execute one of the following commands to build the project:
 
-    ```java
-    mvn clean install
-    ```
-    ```java
-    npm run build
-    ```
+    -   Using Maven
+
+        ```java
+        mvn clean install
+        ```
+
+    -   Using npm
+    
+        ```java
+        npm run build
+        ```
 
 ## Step 3: Run My Account in dev mode
 

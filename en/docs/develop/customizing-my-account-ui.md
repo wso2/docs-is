@@ -1,8 +1,7 @@
 # Customizing the My Account UI
 
-From [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management/) onwards, a new **My Account** has
-been introduced which is the successor to the dashboard. It also adheres to the UI extensions scheme
- introduced with WSO2 Identity Server 5.9.0 to use a centralized theming for all the front-end portals. 
+From [WSO2 Identity Server 5.10.0](https://wso2.com/identity-and-access-management/) onwards, a new **My Account** has been introduced which is the successor to the dashboard. It also adheres to the UI extensions scheme
+ introduced with WSO2 Identity Server 5.9.0 to use a centralized theming for all the front-end portals.
 
 !!! note
     The **My Account** application has been renamed as **My Account** from this release onwards.
@@ -25,10 +24,9 @@ and set it up in the developer environment.
     !!! info  
         - See the instructions on [setting up My Account in a development environment](../../develop/setting-up-my-account-in-a-dev-environment).
         - When you build the `identity-apps` repo (as explained in the instructions on setting up the developer environment), be sure to check out the `5.11.0` branch:
-
-          ```java
-          $ git checkout 5.11.0
-          ```
+           ```java
+           $ git checkout 5.11.0
+           ```
 
 2. Navigate to the `modules/theme/src/themes` folder within identity-apps. All the theme global variable overrides
 can be found in the `modules/theme/src/themes/default/globals/site.variables` file. For the full set of variables,
@@ -40,9 +38,9 @@ Follow the steps given below to further customize **My Account**.
 
 ## Step 1: Change the primary color of the portal
 
-To change the primary color of the portal, the variables in `site.variables` need to be overridden.
+To change the primary color of the portal, the variables in the `modules/theme/src/themes/default/globals/site.variables` file need to be overridden.
 
-1.  Add a new color under the site colors and name it. In this example, it is named `facebookBlue`.
+1.  Add a new variable under 'Site Colors' and give it a value as shown below. In this example, the variable is `facebookBlue`.
 
     ```java
     /*-------------------
@@ -52,7 +50,7 @@ To change the primary color of the portal, the variables in `site.variables` nee
     @facebookBlue     : #2d88ff;
     ```
 
-2. Now, change the primary color variable.
+2.  Now, change the primary color variable to refer the site color variable you defined above.
 
     ```java
     /*-------------------
@@ -62,8 +60,7 @@ To change the primary color of the portal, the variables in `site.variables` nee
     @primaryColor        : @facebookBlue;
     ```
 
-3. Next, change the page background color and text color. In this example, the background color is changed from white to dark gray and the default text color is changed to a lighter shade.
-   Add a new variable under the brand colors as shown below. It is called `globalBackgroundColor` in this example.
+3.  Next, add a new variable under 'Brand Colors' and give it a value as shown below. In this example, the variable name is `globalBackgroundColor`. This will be used to change the background color from white to dark gray.
 
     ```java
     /*-------------------
@@ -73,7 +70,7 @@ To change the primary color of the portal, the variables in `site.variables` nee
     @globalBackgroundColor: #18191a;
     ```
 
-4. Override the `@pageBackground` variable.
+4.  Now, change the page background color (by using the `globalBackgroundColor` variable defined above) and the text color. 
 
     ```java
     /*-------------------
@@ -84,7 +81,7 @@ To change the primary color of the portal, the variables in `site.variables` nee
     @textColor           : #e4e6eb;
     ```
 
-5. Build the `theme` module by running the following command and check the results reflected on the dev server.
+5.  Build the `theme` module by running the following command and check the results reflected on the dev server.
 
     ```java
     # from inside `modules/theme`
@@ -94,11 +91,10 @@ To change the primary color of the portal, the variables in `site.variables` nee
 
     ![custom-theme-1](../assets/img/develop/customize-theme1.png)
     
-    As seen in the image above, the background color of the header, footer, side navigation, and content cards can be changed.
+The background color of the header, footer, side navigation, and content cards can be changed by following the steps given below.
 
-6.  To change the header and footer background colors:
-    1. Add a new variable to the "Brand Colors" section of the `modules/theme/src/themes/default/globals/site.variables` file. This variable is named
-`globalForegroundColor` in this example.
+1. To change the header and footer background colors: 
+    1.  Add a new variable to the 'Brand Colors' section in the `modules/theme/src/themes/default/globals/site.variables` file and give it a value as shown below. This variable is named `globalForegroundColor` in this example.
 
         ```java
         /*-------------------
@@ -107,9 +103,9 @@ To change the primary color of the portal, the variables in `site.variables` nee
 
         @globalForegroundColor: #1d2630;
         ```
-     
-     2. Add the color defined in the step above (globalForegroundColor) to the Menu, App Header and App Footer sections in the `modules/theme/src/themes/default/collections/menu.variables` file.
     
+    2. Add the color defined in the step above (`globalForegroundColor`) to the Menu, App Header, and App Footer sections as shown below.
+
         ```java
         /*******************************
                     Menu
@@ -133,8 +129,7 @@ To change the primary color of the portal, the variables in `site.variables` nee
         @appFooterBackground: @globalForegroundColor;
         ```
 
-
-7.  Change the side panel background in the `modules/theme/src/themes/default/collections/menu.overrides` file.
+2.  To change the side panel background, apply the following to the `modules/theme/src/themes/default/collections/menu.overrides` file:
 
     ```java
     .ui.vertical.menu {
@@ -146,17 +141,19 @@ To change the primary color of the portal, the variables in `site.variables` nee
     }
     ```
 
-8.  Modify the content card background color in the `modules/theme/src/themes/default/views/card.variables` file.
+8.  To change the content card background color, apply the following to the `modules/theme/src/themes/default/views/card.variables` file:
 
     ```java
     @background: @globalForegroundColor;
     ```
 
-9. The status can be checked by rebuilding the theme module. 
+9.  The status can be checked by rebuilding the theme module.
+
     ```java
     # from inside `modules/theme`
     $ npm run build
     ```
+
 The changes should be reflected on the running dev server in no time. A sample screen of the new theme is shown below.
 ![custom-theme-2](../assets/img/develop/customize-theme2.png)
 
@@ -183,9 +180,11 @@ the changes performed in the previous steps.
     !!! warning
         Make sure that you keep a backup of the original CSS folder.
 
+<!--
 The final theme should look similar to following.
 
 ![final-theme1](../assets/img/develop/customize-theme-final1.png)
 ![final-theme2](../assets/img/develop/customize-theme-final2.png)
 ![final-theme3](../assets/img/develop/customize-theme-final3.png)
 ![final-theme4](../assets/img/develop/customize-theme-final4.png)
+-->
