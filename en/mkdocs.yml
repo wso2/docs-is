@@ -431,7 +431,7 @@ nav:
         - Migration Guide:
           - Before you Begin: deploy/migrate/migration-guide.md
           - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-          - Migrate to 5.11.0: deploy/migrate/migrate-to-5110.md
+          - Migrate to 6.0.0: deploy/migrate/migrate-to-600.md
           - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
   
