@@ -13,6 +13,12 @@ To configure PBKDF2 hashing on a JDBC user store:
 
     !!! info
         - You may also use an existing user store which does not have any users in it. If you already have users in the userstore, once the hashing algorithm is configured these users will not be able to get authenticated.
+        - PBKDF2 is also supported by [primary JDBC userstores](../configure-a-jdbc-user-store), but PBKDF2 should be enabled before the initial server startup by adding the following to the `deployment.toml` file.
+        ``` js
+        [user_store]
+        type = "database_unique_id"
+        password_digest="PBKDF2"
+        ```
 
 2. Navigate to  **Manage > Userstores**, select the secondary JDBC userstore you have created.
 3. Navigate to the **User** tab of the userstore and expand the **Show more** section.
