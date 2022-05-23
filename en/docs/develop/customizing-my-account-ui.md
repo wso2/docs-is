@@ -254,11 +254,11 @@ the changes performed in the previous steps.
 
 2.  Copy the artifacts to the web app.
 
-    The built artifacts will be available inside the `modules/theme/lib` folder. Copy everything to the clipboard and
+    The built artifacts will be available inside the `modules/theme/dist/lib/themes` folder. Copy everything to the clipboard and
     navigate to **my-account** web app in the WSO2 IS pack.
 
     Copy everything to the clipboard and paste it inside the
-    `<IS_HOME>/repository/deployment/server/webapps/my-account/libs/styles/css` folder.
+    `<IS_HOME>/repository/deployment/server/webapps/myaccount/libs/themes` folder.
     
     !!! warning
         Make sure that you keep a backup of the original CSS folder.
