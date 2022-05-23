@@ -16,7 +16,7 @@ Let's start configuring SAML2 Web SSO.
 	 
 To configure SAML2 Web SSO:
 
-1.  Expand the **SAML2 Web SSO Configuration** and click **Configure**.
+1.  Expand **SAML2 Web SSO Configuration** under **Inbound Authentication Configuration** and click **Configure**.
 2.  Select one of the following modes:  
 
 !!! info "Metadata and URL configuration"
@@ -138,7 +138,7 @@ To configure SAML2 Web SSO:
     [saml]
     signing_alg="signing algorithm"
     ```
-    If it is not provided the default algorithm is RSA­SHA 1, at URI ‘ http://www.w3.org/2000/09/xmldsig#rsa­sha1 ' .</p></td>
+    If it is not provided the default algorithm is RSA­SHA 1, at URI ‘ http://www.w3.org/2000/09/xmldsig#rsa­-sha1 ' .</p></td>
     <td>http://www.w3.org/2000/09/xmldsig#rsa­sha1</td>
     </tr>
     <tr class="even">

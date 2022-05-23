@@ -358,12 +358,12 @@ below steps:
           when the back button is pressed.
 
         - Relying party name with redirect URL needs to be configured like below:
-           - <OAuth2_client_id>=<login_redirect_url>  
-           - <SAML_Issuer_Name>=<login_redirect_url>
+            - `<OAuth2_client_id>`=`<login_redirect_url>`
+            - `<SAML_Issuer_Name>`=`<login_redirect_url>`
 
         - Following are two sample values for Name and Value:
-            - Name : USER_PORTAL
-            - Value : https://localhost:9443/user-portal/overview        
+            - Name : MY_ACCOUNT
+            - Value : https://localhost:9443/myaccount/overview        
 
         - If you are using travelocity as the sample app, you can use the below values:
             - Name : travelocity.com
