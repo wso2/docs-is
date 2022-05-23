@@ -1,15 +1,16 @@
 # Writing a Custom Local Authenticator
 
-A basic authenticator is available in the WSO2 Identity Server by default. A basic authenticator authenticates end users using a connected userstore and the provided username and password.
+The default WSO2 Identity Server authenticator is the basic authenticator. It is a local authenticator that authenticates the end users using a connected user store and the provided username and password.
 
 With the WSO2 Identity Server, you can write your own local authenticator to define various authentication logic.
 
-### Sample scenario
-You have the **pickup-dispatch** app that you want users to log in with their telephone numbers instead of usernames. Once a user enters a telephone number, your authentication logic should identifiy the user and validate the user's credentials. 
+## Sample scenario
+You have the **pickup-dispatch** app to which you want users to log in with their telephone numbers instead of usernames. Once a user enters a telephone number, your authentication logic should identify the user and validate the user's credentials. 
 
 The following guide shows you how to write a custom local authenticator to implement this authentication logic.
 
-### Implement the custom local authenticator
+## Implement the custom local authenticator
+
 You can write a custom local authenticator by extending the **AbstractApplicationAuthenticator** class and implementing the **LocalApplicationAuthenticator** class.
 
 Let's begin.    
@@ -414,46 +415,63 @@ Let's begin.
         }
         ```
 
-4.  Build the project using maven. See the [sample project](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator) for details.
+4.  Build the project using maven. 
 
-5.  Copy the .jar file (`org.wso2.custom.authenticator.local-1.0.0.jar `) from the **target** folder in your project directory and paste it to the `<IS_HOME>/repository/components/dropins ` folder
+    !!! Info
+        See the [sample project](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator) for details.
+
+5.  Copy the .jar file (`org.wso2.custom.authenticator.local-1.0.0.jar `) from the **target** folder in your project directory and paste it to the `<IS_HOME>/repository/components/dropins ` folder.
 
 6.  Start WSO2 Identity Server.
 
-7.  Sign in to the **Management Console**.
+The new authenticator is now deployed in your WSO2 Identity Server instance.
 
-8.  Create a new user named `Larry`. Learn how to [Create a user](../../learn/adding-users-and-roles/#create-a-user)
+## Test the authenticator
 
-9.  Go to `Larry`'s profile and update the telephone number.
+Now, let's try out the new authenticator.
 
-10. Create a service provider for the application.  
+1.  Sign in to the **Management Console**.
+2.  Create a new user named **Larry**. 
 
-11. In the service provider configuration, under **Inbound Authentication Configuration** section, click **OAuth/OpenID Connect Configuration > Configure**. 
+    !!! Info
+        Learn how to [create a user](../../learn/adding-users-and-roles/#create-a-user).
+
+3.  Go to Larry's profile and update the telephone number.
+
+4. Create a service provider for the **pickup-dispatch** application.
+5. In the service provider configuration, under **Inbound Authentication Configuration**, click **OAuth/OpenID Connect Configuration > Configure**. 
     ![OAuth/OpenID Connect Configuration option](../assets/img/using-wso2-identity-server/oauth-openid-connect-configuration-option.png) 
 
-12. Provide the `callback URL` and register it as an OAuth2 client app.
+6. Provide the **callback URL** as `http://localhost.com:8080/pickup-dispatch/oauth2client` and register it as an OAuth2 client app.
 
     ![Callback url](../assets/img/using-wso2-identity-server/app-callback-url.png) 
 
-13. Under **Local & Outbound Authentication Configuration**, select **Local
-    authentication**.
+7. Under **Local & Outbound Authentication Configuration**, select **Local authentication** and then select **sample-local-authenticator** from the list.
+
+    !!! Note
+        Note that **sample-local-authenticator** is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use. 
     
-    ![Local authentication check box](../assets/img/using-wso2-identity-server/local-authentication-check-box.png) 
+    ![Local authentication check box](../assets/img/using-wso2-identity-server/local-authentication-check-box.png)   
 
-    !!! note
-        On the corresponding drop-down list, you can see, `sample-local-authenticator` which is the display name of the custom authenticator that was written. Thus, you can make sure your custom authenticator is there and ready for use.   
+8. Deploy the pickup-dispatch application in a Tomcat server. 
 
-14. Deploy the pickup-dispatch application. Refer to the [documentation](../../learn/deploying-the-sample-app/#deploying-the-pickup-dispatch-webapp).
+    !!! Info
+        See to the [documentation](../../learn/deploying-the-sample-app/#deploying-the-pickup-dispatch-webapp) for details.
 
-15. Configure the pickup-dispatch app with the appropriate **Client ID** and **Client Secret**.  
-  
-16. Visit the pickup-dispatch app and click **Login**. You will be directed to the WSO2 Identity Server login page.
-![pickup-dispatch app](../assets/img/using-wso2-identity-server/pickup-dispatch-app.png)
+9. Be sure to configure the pickup-dispatch app with the **Client ID** and **Client Secret** from the service provider you registered in WSO2 Identity Server.
+10. Start the Tomcat server with the pickup-dispatch app and click **Login**.
+    
+    ![pickup-dispatch app](../assets/img/using-wso2-identity-server/pickup-dispatch-app.png)
 
-17. Provide the telephone number as the user identifier and enter the password of the user `Larry`. You are prompted to approve the app and log in.
+    You will be directed to the WSO2 Identity Server login page.
 
-The following is a set of methods related to writing a custom local
-authenticator.
+17. Enter Larry's telephone number as the user identifier and enter Larry's password. 
+
+You are now prompted to approve the app and log in.
+
+## Reference
+
+The following is a set of methods related to writing a custom local authenticator.
 
 <table style="width:100%;">
 <colgroup>

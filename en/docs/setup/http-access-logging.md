@@ -6,7 +6,7 @@ it received, what the errors are, etc. This information is useful for
 troubleshooting errors. WSO2 Identity Server can enable access logs for the
 HTTP servlet transport. This servlet transport works on `9443`/`9763` ports,
 and it recieves admin/operation requests. Therefore, access logs for the
-servert transpot is useful for analysing operational/admin-level access
+servlet transport is useful for analysing operational/admin-level access
 details.
 
 
@@ -78,8 +78,8 @@ In the Identity Server 5.9.0 only the access log pattern is configurable.
 
 3.  Restart the server. According to the configurations, a log
     file named
-    `           localhost_access_log_sample.{DATE}.log          ` is
-    created inside the `<IS_HOME>/repository/logs          ` directory. The
+    `           http_access.{DATE}.log          ` is
+    created by default inside the `<IS_HOME>/repository/logs          ` directory. The
     log is rotated on a daily basis.
 
 ### Customizing access logs by pattern
@@ -106,7 +106,7 @@ GET http://<IP>:<PORT>/example/servlets/servlet/RequestInfoExample?abc=xyz
 ```
 
 The following log entry is recorded in the
-`         localhost_access_log_sample.{DATE}.log        ` file.
+`         http_access.{DATE}.log        ` file.
 
 ``` java
 text/plain; charset=utf-8        */*        gzip,deflate,sdch
@@ -145,7 +145,7 @@ exists), and a remote hostname (or IP) of every request coming to the
 server as follows:
 
 ``` java
-“GET /example/servlets/servlet/RequestInfoExample?abc=xyz HTTP/1.1”      ?abc=xyz     10.100.0.67
+“GET http://<IP>:<PORT>//example/servlets/servlet/RequestInfoExample?abc=xyz HTTP/1.1”      ?abc=xyz     10.100.0.67
 ```
 
 #### Example 4: Logging URL encoded parameters
