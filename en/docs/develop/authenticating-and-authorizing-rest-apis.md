@@ -8,11 +8,15 @@ The requests that are sent via REST APIs are intercepted by tomcat valves and au
 
 ## REST API authentication
 
-WSO2 Identity Server supports three ways of API authentication:
+WSO2 Identity Server supports the following API authentication methods:
 
-    -   Basic authentication: Uses the user’s credentials in the API invocation
-    -   OAuth 2 common flows: Obtains a token using an oauth2 flow and uses it to invoke the API
-    -   Client certificate-based: Uses Mutual SSL to authenticate in order to consume the APIs
+-   Basic authentication: Use the user’s credentials to invoke the APIs.
+-   OAuth2 common flows based authentication: Obtains a token using an OAuth2 flow and uses it to invoke the API.
+
+    !!! info
+        To invoke the API using OAuth common flows, the application should be a management application. Refer the [service provider creation guide](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider) to create a new management application on IS.
+
+-   Client certificate-based authentication: This method uses mutual SSL to authenticate users in order to invoke the APIs.
 
 !!! note 
     Unless one of the above authentication elements is sent in an API invocation request, the 401 Unauthorized HTTP response will be returned.
@@ -30,7 +34,7 @@ From 5.9.0 onwards, all endpoints are secured by default. To configure user role
 | Parameter            | Description                                                                                                                                                 | Sample Value                                               |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
 | **context** | This defines the resource context relative to the root context, which needs to be secured.                                                                  | `                 /api/identity/*                `         |
-| **secured**          | This specifies whether to enable or disable security in the given resource context.                                                                         | `                 true                `                    |
+| **secure**          | This specifies whether to enable or disable security in the given resource context.                                                                         | `                 true                `                    |
 | **http_method**      | This defines the method as `                 all                `, `                 post                `, `                 get                `, etc. | `                 all                `                     |
 | **permissions**      | This defines the user role permission that is required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
 | **scope**      | This defines scopes that an access token requires to access the resource. You can enter multiple scopes in a comma-separated list.     | `                 internal_idp_create                ` |
@@ -39,7 +43,7 @@ From 5.9.0 onwards, all endpoints are secured by default. To configure user role
 ```toml tab="Example"
 [resource.access_control]
 context = "/api/identity/*"
-secured = true
+secure = true
 http_method = "all"
 permissions = ["p1","p2"]
 scope = ["scope1", "scope2"]
