@@ -7,7 +7,7 @@ This guide walks you through the steps of configuring PBKDF2 as the hashing algo
     Currently, PBKDF2 supports only JDBC userstores of WSO2 Identity Server.
 
 ## Configure PBKDF2 hashing
-To configure PBKDF2 hashing on a JDBC user store:
+To configure PBKDF2 hashing on a secondary JDBC user store:
 
 1. On Identity Server management console (`https://<IS_HOST>:<PORT>`) and [create a JDBC user store](../configure-secondary-user-stores).
 
