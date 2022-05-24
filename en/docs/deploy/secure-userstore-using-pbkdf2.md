@@ -18,7 +18,7 @@ To configure PBKDF2 hashing on a secondary JDBC user store:
             - Trigger password reset for all accounts of the userstore using [admin initiated password reset](../guides/password-mgt/forced-password-reset.md).
     
     !!! info "PBKDF2 for primary JDBC userstores"
-        - PBKDF2 is also supported by [primary JDBC userstores](../configure-a-jdbc-user-store), but PBKDF2 should be enabled before the initial server startup by adding the following to the `deployment.toml` file.
+        - PBKDF2 is also supported by [primary JDBC userstores](../configure-a-jdbc-user-store), but PBKDF2 **should be enabled before the initial server startup** by adding the following to the `deployment.toml` file.
         ``` js
         [user_store]
         type = "database_unique_id"
