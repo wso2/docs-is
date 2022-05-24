@@ -9,7 +9,7 @@ This guide walks you through the steps of configuring PBKDF2 as the hashing algo
 ## Configure PBKDF2 hashing
 To configure PBKDF2 hashing on a secondary JDBC user store:
 
-1. On Identity Server management console (`https://<IS_HOST>:<PORT>`) and [create a JDBC user store](../configure-secondary-user-stores).
+1. Login to the Identity Server management console (`https://<IS_HOST>:<PORT>/console`) and [create a JDBC user store](../configure-secondary-user-stores).
 
     !!! info "Existing userstores"
         - You may also use an existing user store which does not have any users in it. If you already have users in the userstore, once the hashing algorithm is configured these users will not be able to get authenticated.
