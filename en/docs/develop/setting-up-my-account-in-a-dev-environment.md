@@ -7,11 +7,14 @@ In [WSO2 Identity Server](https://wso2.com/identity-and-access-management/)(WSO2
 
 Follow the steps given below to set up the repo in a development environment.
 
-!!! note "Before you begin"
+## Before you begin
 
-    1. Install [node](https://nodejs.org/en/download/) if you have not already installed it. Npm is already bundled with node.
-    2. Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
-    3. A running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
+- Install [node](https://nodejs.org/en/download/) if you have not already installed it.
+
+    - Note that npm is already bundled with node. Also, **npm 7** has some breaking changes to peer dependencies, and therefore, go with an **npm version lower than 7**.
+
+- Install [maven](https://maven.apache.org/download.cgi). This is needed to run `mvn` commands.
+- Set up a running instance of WSO2 IS. To build from source, follow the instructions given [here](https://github.com/wso2/product-is).
 
 
 ## Step 1: Configure WSO2 Identity Server
@@ -24,7 +27,7 @@ Follow the steps given below to set up the repo in a development environment.
 1.  Enable cross-origin requests for WSO2 Identity Server.
 
     Cross-origin requests are blocked by default in WSO2 IS as a security measure. Add the following CORS configuration to
-    the `<IS_HOME>/repository/resources/conf/deployment.toml` file to enable it.
+    the `<IS_HOME>/repository/conf/deployment.toml` file to enable it.
 
     ``` toml
     [cors]
@@ -45,13 +48,13 @@ Follow the steps given below to set up the repo in a development environment.
     ]
     support_any_header = true
     supported_headers = []
-    exposed_headers = [Location]
+    exposed_headers = ["Location"]
     supports_credentials = true
     max_age = 3600
     tag_requests = false
     ```
 
-2.  Allowlist your hostname and port as a trusted FIDO2 origin by adding the dev url as an allowed origin in the `<IS_HOME>/repository/resources/conf/deployment.toml` file.
+2.  Allowlist your hostname and port as a trusted FIDO2 origin by adding the dev url as an allowed origin in the `<IS_HOME>/repository/conf/deployment.toml` file.
     
     ```toml
     [fido.trusted]
@@ -72,28 +75,42 @@ Follow the steps given below to set up the repo in a development environment.
     1.  Log in to the WSO2 IS management console.
     2.  Click **Service Providers > List**.
     3.  Click **Edit** to edit the **My Account** service provider.
-    4.  Expand **Inbound Authentication Configuration**, and then expand **OAuth/OpenID Connect Configuration**. Click **Edit**.
+    4.  Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration** and click **Edit**.
     5.  Change the **Callback URL** field to reflect the port as 9000 or you can add a regexp as follows.
         ```
-        regexp=(https://localhost:9443/user-portal/login|https://localhost:9000/user-portal/login)
+        regexp=(https://localhost:9443/myaccount|https://localhost:9443/t/(.*)/myaccount|https://localhost:9443/myaccount/login|https://localhost:9443/t/(.*)/myaccount/login|https://localhost:9000/myaccount|https://localhost:9000/t/(.*)/myaccount|https://localhost:9000/myaccount/login|https://localhost:9000/t/(.*)/myaccount/login)
         ```
 
-### Step 2: Build the Identity Apps repository
+## Step 2: Build the Identity Apps repository
 
-Fork the original repository to start working on it. You can also directly clone the original repo but it is
+1.  Fork the original repository to start working on it. You can also directly clone the original repo but it is
 recommended to create your own fork.
 
-```java
-git clone https://github.com/wso2/identity-apps
-cd identity-apps
-mvn clean install or npm run build
-```
+    ```java
+    git clone https://github.com/wso2/identity-apps
+    ```
 
-### Step 3: Run My Account in dev mode
+2.  On your terminal, navigate to the `identity-apps` folder.
+3.  Navigate to the branch that you want build and execute one of the following commands to build the project:
 
-After the build is complete, navigate to the **My Account** directory and run the portal using the webpack dev server.
+    -   Using Maven
+
+        ```java
+        mvn clean install
+        ```
+
+    -   Using npm
+
+        ```java
+        npm run build
+        ```
+
+## Step 3: Run My Account in dev mode
+
+After the build is complete, navigate to the **My Account** directory and run the portal using the dev server.
+
 ```java
-cd apps/user-portal
+cd apps/myaccount
 npm start
 ```
 

@@ -97,7 +97,10 @@ object such as `           authenticationOptions          `, `           authent
             local: {
                 SessionExecutor: {
                     MaxSessionCount: '1'
-                                    }
+                },
+                totp: {
+                    enableRetryFromAuthenticator: 'true'
+                }
             }
         }
     }, {} );
