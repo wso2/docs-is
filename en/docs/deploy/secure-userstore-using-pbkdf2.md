@@ -80,7 +80,7 @@ When configuring the PBKDF2 hashing algorithm the following parameters must be s
 </table>
 
 !!! info
-    NIST recommends ```PBKDF2WithHmacSHA256``` as the pseudo-random function (prf) value, but the pfr can also be changed. Some examples of possible prf values are as follows:
+    NIST recommends ```PBKDF2WithHmacSHA256``` as the pseudo-random function (prf) value, but the prf can also be changed. Some examples of possible prf values are as follows:
 
     - ```PBKDF2WithHmacSHA512```
     - ```PBKDF2WithHmacSHA256```
