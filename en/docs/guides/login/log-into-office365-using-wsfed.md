@@ -17,44 +17,34 @@ first part of the process of configuring WS-Federation with Office 365.
 
 ### Prerequisites
 
--   [Office 365 Business
-    Account](https://products.office.com/en/business/office-365-business)
-    with access to the Admin Portal
--   An internet-resolvable domain name (Office 365 SSO requires each
-    user's username to have an Internet-resolvable domain name as the
-    suffix. You cannot federate the default domain that is provided by
-    Microsoft that ends with "onmicrosoft.com")
--   A Windows Platform with [Windows Azure Active Directory
-    Powershell](https://technet.microsoft.com/library/jj151815.aspx)
-    installed
--   [WSO2 Identity Server 5.1.0 or a later
-    version](https://github.com/wso2/product-is/releases)
+- [Office 365 Business Account](https://products.office.com/en/business/office-365-business) with access to the Admin Portal
+- An internet-resolvable domain name (Office 365 SSO requires each user's username to have an Internet-resolvable domain name as the suffix. You cannot federate the default domain that is provided by Microsoft that ends with "onmicrosoft.com")
+- A Windows Platform with [Windows Azure Active Directory Powershell](https://technet.microsoft.com/library/jj151815.aspx) installed
+- [WSO2 Identity Server 5.1.0 or a later version](https://github.com/wso2/product-is/releases)
 
 ### Configuring Azure AD
 
-1.  Start the Windows Azure Active Directory Powershell.
+1. Start the Windows Azure Active Directory Powershell.
 
-2.  The following commands connect with Windows Azure AD Powershell.
+2. The following commands connect with Windows Azure AD Powershell.
 
-    1.  This command prompts user credentials.
+    1. This command prompts user credentials.
 
         ``` powershell
         Run $cred=Get-Credential
         ```
-        
-        !!! tip 
-			This will prompt for Windows Azure AD Admin credentials for the
-			Office365 domain. The admin user’s domain credentials are
-			usually in the following format: <user@domain.onmicrosoft.com>.
 
-    2.  This command connects with the stored credentials. Provided that
+        !!! tip
+            This will prompt for Windows Azure AD Admin credentials for the Office365 domain. The admin user’s domain credentials are usually in the following format: <user@domain.onmicrosoft.com>.
+
+    2. This command connects with the stored credentials. Provided that
         the credentials are accurate, the connection will be successful.
 
         ``` powershell
         Connect-MsolService -Credential $cred
         ```
 
-    3.  This command verifies the availability of the validated domain.
+    3. This command verifies the availability of the validated domain.
         This will return the **Status** and **Authentication**. The
         ‘Status’ of our domain should be ‘Verified’, and
         ‘Authentication’ should be ‘Managed’.
@@ -63,18 +53,18 @@ first part of the process of configuring WS-Federation with Office 365.
         Get-MsolDomain
         ```
 
-3.  Configure the domain as a federated domain, providing respective
+3. Configure the domain as a federated domain, providing respective
     federation settings that match the IdP. Store the following
     federation settings in parameters. Replace the values below with
     your own.  
-    -   Store your domain
+    - Store your domain
 
         ``` powershell
 		$dom = "wso2test.com"
 		$brandname = "wso2"
         ```
 
-    -   Set the Issuer Id of the IdP. This value should be the same as
+    - Set the Issuer Id of the IdP. This value should be the same as
         the **Identity Provider Entity Id** in the Resident IDP of WSO2
         Identity server.
 
@@ -82,7 +72,7 @@ first part of the process of configuring WS-Federation with Office 365.
         $issuerUri = "https://wso2test.com"
         ```
 
-    -   Set the Passive STS Endpoint URL of the IdP. This should be the
+    - Set the Passive STS Endpoint URL of the IdP. This should be the
         Passive STS endpoint of the WSO2 Identity server.
 
         ``` powershell
@@ -90,10 +80,7 @@ first part of the process of configuring WS-Federation with Office 365.
         ```
 
         !!! note
-			If you will be configuring Office365 Active STS clients
-			(complying with the WS-Trust protocol) through WSO2 Identity
-			Server as well, you can do the following configuration along
-			with these configurations.  
+            If you will be configuring Office365 Active STS clients (complying with the WS-Trust protocol) through WSO2 Identity Server as well, you can do the following configuration along with these configurations.  
 
 			Set the Active STS Endpoint URL of the IdP. This should be the
 			Security Token Service endpoint of the WSO2 Identity

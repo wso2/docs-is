@@ -4,8 +4,7 @@ OpenCart is a popular open source platform facilitating trading products online,
 
 ## The flow
 
-The diagram below demonstrates the flow of how OpenCart uses WSO2 Identity Server as a SAML2 federated authenticator to 
-authenticate a user.
+The diagram below demonstrates the flow of how OpenCart uses WSO2 Identity Server as a SAML2 federated authenticator to authenticate a user.
 
 ![opencart-is-flow](../assets/img/tutorials/opencart-is-flow.png)
 
@@ -98,9 +97,9 @@ Service Provider Name is a required field and you can use Opencart-SP as the nam
     In the form that appears, fill out the following configuration details required for single sign-on. 
     For more details on these attributes, refer 
     [SAML2 Web SSO Configuration](../../learn/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-saml2-web-sso).
-    1. For the value of **Issuer**, provide the SP Entity ID obtained as Service Provider Metadata when configuring 
+    1. For the value of **Issuer**, provide the SP Entity ID obtained as Service Provider Metadata when configuring
     SAML SSO extension in OpenCart.
-    2. For the value of **Assertion Consumer URL**, provide the ACS Url obtained as Service Provider Metadata when configuring SAML SSO extension in OpenCart. 
+    2. For the value of **Assertion Consumer URL**, provide the ACS Url obtained as Service Provider Metadata when configuring SAML SSO extension in OpenCart.
     3. Uncheck **Enable Signature Validation in Authentication Requests and Logout Requests**.
     4. Check **Enable Attribute Profile** and **Include Attributes in the Response Always**.
     5. Save the configuration.
@@ -112,8 +111,7 @@ Service Provider Name is a required field and you can use Opencart-SP as the nam
 1. Visit the OpenCart site and click on login.
     ![opencart-login](../assets/img/tutorials/opencart-login.png)
 
-2. In the next view click on ‘Login with $app’ where $app is the application name you have provided when configuring 
-the SSO extension.
+2. In the next view click on ‘Login with $app’ where $app is the application name you have provided when configuring the SSO extension.
     ![opencart-sso-login-button](../assets/img/tutorials/opencart-sso-login-button.png)
 
 3. You will be redirected to WSO2 Identity Server login page. Login by providing credentials of a user in WSO2 IS.
@@ -122,7 +120,7 @@ the SSO extension.
 4. Upon successful login you will be logged in to OpenCart.
     ![opencart-sso-success.png](../assets/img/tutorials/opencart-sso-success.png)
 
-5. The user profile attributes configured in WSO2 Identity Server will be populated in the Personal details of your 
+5. The user profile attributes configured in WSO2 Identity Server will be populated in the Personal details of your
 account.
     ![opencart-sso-account-info.png](../assets/img/tutorials/opencart-sso-account-info.png)
 

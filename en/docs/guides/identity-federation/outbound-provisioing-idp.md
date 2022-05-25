@@ -7,9 +7,9 @@ fits into the overall picture.
 
 To navigate to the outbound provisioning section, do the following.
 
-1.  Sign in. Enter your username and password to log on to the Management Console. 
-2.  Navigate to the Main menu to access the Identity menu. Click Add under Identity Providers.
-3.  Fill in the details in the Basic Information section. 
+1. Sign in. Enter your username and password to log on to the Management Console.
+2. Navigate to the Main menu to access the Identity menu. Click Add under Identity Providers.
+3. Fill in the details in the Basic Information section.
     <table>
           <colgroup> <col/> <col/> </colgroup>
           <tbody>
@@ -71,7 +71,7 @@ In addition to this, you can also create [custom
 connectors](../../develop/writing-an-outbound-provisioning-connector) that are added
 to the list of outbound provisioning connectors once created.
 
-#### Configuring Google provisioning
+## Configuring Google provisioning
 
 This configuration involves setting up the Identity Server to send
 provisioning requests to Google applications.
@@ -150,18 +150,18 @@ If there are multiple identity providers configured for same Google domain.</p><
 </tbody>
 </table>
 
-![google-provisioning](../assets/img/using-wso2-identity-server/google-provisioning.png) 
+![google-provisioning](../assets/img/using-wso2-identity-server/google-provisioning.png)
 
-####  Configuring Salesforce provisioning
+## Configuring Salesforce provisioning
 
 This configuration involves setting up the Identity Server to send
 provisioning requests to Salesforce. See [Outbound Provisioning with
 Salesforce](../../learn/outbound-provisioning-with-salesforce) for more
 information on how this is configured from end to end.
 
-1.  Expand the **Salesforce Provisioning Configuration** form.  
-    ![salesforce-provisioning](../assets/img/using-wso2-identity-server/salesforce-provisioning.png) 
-2.  Fill in the following fields where relevant.
+1. Expand the **Salesforce Provisioning Configuration** form.  
+    ![salesforce-provisioning](../assets/img/using-wso2-identity-server/salesforce-provisioning.png)
+2. Fill in the following fields where relevant.
 
     <table>
     <colgroup>
@@ -258,7 +258,7 @@ information on how this is configured from end to end.
         -   UserPermissionsMarketingUser
         -   UserPermissionsOfflineUser
 
-#### Configuring SCIM provisioning
+## Configuring SCIM provisioning
 
 The System for Cross-domain Identity Management (SCIM) specification is
 designed to make managing user identities in the WSO2 Identity Server
@@ -273,8 +273,8 @@ provisioning requests to an external application that supports SCIM. See
 [Outbound Provisioning with SCIM](../../learn/outbound-provisioning-with-scim) for
 more information on how this works in a typical scenario.
 
-1.  Expand the **SCIM Provisioning Configuration** form.  
-    ![scim-provisioning](../assets/img/using-wso2-identity-server/scim-provisioning.png)   
+1. Expand the **SCIM Provisioning Configuration** form.  
+    ![scim-provisioning](../assets/img/using-wso2-identity-server/scim-provisioning.png)
     Fill in the following fields where relevant.
 
     | Field                        | Description                                                                                                                                                                                                                                                                                               | Sample value                            |
@@ -288,7 +288,7 @@ more information on how this works in a typical scenario.
     | Enable Password Provisioning | This is to specify whether to send a default password, or the password sent in the SCIM request, to the server where it gets provisioned. In a scenario where the Identity Server is used as a proxy, and sending the password to some other server is not appropriate, the default password can be sent. | Selected                                |
     | Default Password             | The default password that must be sent.                                                                                                                                                                                                                                                                   | \<password\>                            |
 
-#### Configuring SPML provisioning
+## Configuring SPML provisioning
 
 The Service Provisioning Markup Language (SPML) is the open standard for
 the integration and interoperation of service provisioning requests. The
@@ -302,9 +302,9 @@ provisioning requests to an external application that supports SPML. See
 [Outbound Provisioning with SPML](../../learn/outbound-provisioning-with-spml) for
 more information on how this works in a typical scenario.
 
-1.  Expand the **SPML Provisioning Configuration** form.  
-    ![spml-provisioning](../assets/img/using-wso2-identity-server/spml-provisioning.png) 
-2.  Fill in the following fields where relevant.
+1. Expand the **SPML Provisioning Configuration** form.  
+    ![spml-provisioning](../assets/img/using-wso2-identity-server/spml-provisioning.png)
+2. Fill in the following fields where relevant.
 
     | Field            | Description                                                                                                                                 | Sample value                        |
     |------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|

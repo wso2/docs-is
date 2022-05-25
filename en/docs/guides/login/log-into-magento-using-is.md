@@ -60,7 +60,7 @@ After the installation is successful, you should see the plugin listed in the Ma
     3. Untick **Enable Signature Validation in Authentication Requests and Logout Requests** for the moment.
 
 6. Once completed, the settings page should look similar to this.
-	<!--![magento-saml-sso-sp-configurations](../assets/img/tutorials/magento-saml-sso-sp-configurations.png)-->
+<!--![magento-saml-sso-sp-configurations](../assets/img/tutorials/magento-saml-sso-sp-configurations.png)-->
 
 7. Click on the **Download IDP Metadata** button to download the metadata XML file, which we will need when configuring the SAML SSO plugin.
 

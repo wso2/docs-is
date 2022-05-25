@@ -25,7 +25,7 @@ Identity Server.
 The following must be configured to log in to Microsoft Dynamics CRM
 using the WSO2 Identity Server.
 
-### Configuring user stores
+## Configuring user stores
 
 Users need to be configured within the Identity Server in order to
 perform authentication. This can be done by manually adding users to the
@@ -49,8 +49,8 @@ Within the service provider, in the inbound authentication section, a
 Passive STS realm must be defined under the WS-Federation (Passive)
 Configuration area. This value should match the CRM server URL.
 Typically, it will be in the format
-`                              https://servername                           .domain.com/        `
-(for non-IFD) or `         https://orgname.domain.com/        ` (for
+`https://servername .domain.com/`
+(for non-IFD) or `https://orgname.domain.com/` (for
 IFD). For IFD servers, one server provider must be created for
 each organization, with each one having the specific organization's URL
 set as the Passive STS Realm in the Inbound WS-Federation
@@ -58,43 +58,43 @@ authentication settings. Ensure that the trailing "/" is included, as
 CRM appends this by default to all its endpoints and the values must
 match exactly.
 
-1.  Sign in. Enter your username and password to log on to the
+1. Sign in. Enter your username and password to log on to the
     [Management
     Console](../../setup/getting-started-with-the-management-console)
    .
-2.  Navigate to the **Main** menu to access the **Identity** menu. Click
+2. Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
-3.  Fill in the **Service Provider Name** and provide a brief
+3. Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider.
-4.  Expand the **Inbound Authentication Configuration** section followed
+4. Expand the **Inbound Authentication Configuration** section followed
     by the **WS-Federation (Passive) Configuration** section.
-5.  Enter an appropriate value for the **Passive STS Realm** as
+5. Enter an appropriate value for the **Passive STS Realm** as
     explained above.  
     ![passive-sts-realm](../assets/img/tutorials/passive-sts-realm.png)
-6.  Expand the **Claim Configuration** section. Claims must be
+6. Expand the **Claim Configuration** section. Claims must be
     configured in order to log the requester into CRM as the correct
     user. Microsoft Dynamics CRM expects two specific claims returned
     from the STS. They are as follows.
 
-    -   `                                          http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn                                       `
+    - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
 
-    -   `                                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name                                    `
+    - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
 
     In order to retrieve these values from WSO2, map the local claim
     value to the CRM value. In the **Subject Claim URI**, select the
-    `                                    http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name          `
+    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
     claim. This example assumes that the
-    `                                    http://wso2.org/claims/logonname                                 `
+    `http://wso2.org/claims/logonname`
     contains the username field and the
-    `                                    https://wso2.claims/upn                                 `
-    contains a `           DOMAIN\username          ` or
-    `           username@domain.com          ` formatted field that
+    `https://wso2.claims/upn`
+    contains a `DOMAIN\username` or
+    `username@domain.com` formatted field that
     matches up to a username that exists in the CRM organization that is
     being accessed.
 
     ![sub-claim-uri](../assets/img/tutorials/sub-claim-uri.png)
 
-7.  Click **Update**.
+7. Click **Update**.
 
 ### Configure Microsoft Dynamics CRM
 
@@ -103,7 +103,7 @@ federation metadata that contains specific details about the service.
 It requires the certificate that the STS uses to sign the responses as
 well as the passive STS endpoint for the WSO2 server, in addition to
 the claims expected. A sample file can be found inside
-`         <IS_HOME>/repository/deployment/server/webapps/mex        `
+`<IS_HOME>/repository/deployment/server/webapps/mex`
 directory. This file needs to be hosted somewhere accessible to the CRM
 server. For the purposes of testing this scenario, you can add it to the
 wwwroot folder for easy access.
@@ -132,5 +132,5 @@ to https://\<orgname\>.crmdomain.com.
 ![wso2-login](../assets/img/tutorials/wso2-login.png)
 
 !!! info "Related Topics"
-	To test out WSO2 Identity Server's passive security token service
+    To test out WSO2 Identity Server's passive security token service
     using a sample, see [Configuring Single Sign On Using WS-Federation](../../learn/configuring-single-sign-on-wsfed).

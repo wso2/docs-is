@@ -6,7 +6,7 @@ Let's get started!
 
 !!! tip "Before you begin!"
     - You need to have Drupal installed. Click[ here](https://www.drupal.org/docs/installing-drupal) for more information on installing Drupal.
-    
+
     - You need to have Composer installed. Click[ here](https://getcomposer.org/) for more information on installing Composer.
     
     - You need to have SimpleSAMLphp Authentication Drupal modules installed. This module helps Drupal to communicate with WSO2 Identity Server. You can install it using the composer by executing the following command.

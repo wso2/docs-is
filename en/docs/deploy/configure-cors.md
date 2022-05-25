@@ -1,8 +1,7 @@
 # CORS
 
 Cross Origin Resource Sharing (CORS) is a mechanism that allows the web services to control the access to its resources from different origins. The WSO2 Identity Server (WSO2 IS) supports enforcing CORS at the tenant level. This is particularly useful when a Single Page Application (SPA) is needed to be connected to the IS.
-You can configure the CORS either at the server level during deployment or through the REST API. Any CORS preference that is configured at 
-the server level can be overriden at the tenant level with the notable exception of the `Allowed CORS origins`. Any CORS origin that will be made allowed at the deployment stage through the `deployment.toml` will always be enabled for all the tenants under that particular WSO2 IS instance.
+You can configure the CORS either at the server level during deployment or through the REST API. Any CORS preference that is configured at the server level can be overriden at the tenant level with the notable exception of the `Allowed CORS origins`. Any CORS origin that will be made allowed at the deployment stage through the `deployment.toml` will always be enabled for all the tenants under that particular WSO2 IS instance.
 
 **The Identity Server must be running in the tenant URL mode in order for CORS to work.**
 
@@ -30,7 +29,7 @@ Following are the CORS configurations that are configurable.
                 <p>Allow generic HTTP requests</p>
             </td>
             <td>
-                <p>If this is through, then the generic HTTP requests will be allowed to pass through to the WSO2 IS. 
+                <p>If this is through, then the generic HTTP requests will be allowed to pass through to the WSO2 IS.
                 Otherwise, only valid and accepted CORS requests will be allowed.</p>
             </td>
             <td>
@@ -42,9 +41,7 @@ Following are the CORS configurations that are configurable.
                 <p>Allow any origin</p>
             </td>
             <td>
-                <p>If through, the CORS valve will allow requests from any origin to the WSO2 IS while ignoring the 
-                whitelisted origins. Otherwise the 'Allowed origins' for the server/tenant is considered when allowing 
-                CORS requests.</p>
+                <p>If through, the CORS valve will allow requests from any origin to the WSO2 IS while ignoring the whitelisted origins. Otherwise the 'Allowed origins' for the server/tenant is considered when allowing CORS requests.</p>
             </td>
             <td>
                 allow_any_origin
@@ -132,7 +129,7 @@ Following are the CORS configurations that are configurable.
                 <p>Max age</p>
             </td>
             <td>
-                <p>Indicates how long the results of a preflight request can be cached by the web client, in seconds. 
+                <p>Indicates how long the results of a preflight request can be cached by the web client, in seconds.
                 Here -1 means the age is unspecified.</p>
             </td>
             <td>
@@ -155,8 +152,7 @@ Following are the CORS configurations that are configurable.
 
 ## Configuring CORS during deployment
 
-All the above parameters can be configured at the server level through the `deployment.toml` file. A sample configuration 
-is shown below. 
+All the above parameters can be configured at the server level through the `deployment.toml` file. A sample configuration is shown below.
 
 ```
 [cors]
@@ -182,18 +178,13 @@ tag_requests = false
 
 ## Working with CORS through the REST APIs
 
-The CORS functionality of the WSO2 Identity Server is managed by three different REST APIs. 
+The CORS functionality of the WSO2 Identity Server is managed by three different REST APIs.
 
 ### [Server Configuration API](../../develop/configs-rest-api)
-<p>The Server Configuration API is able to manage all the CORS configurations of a tenant except allowed CORS origins. 
-These configurations cannot be set at the application level.</p>
+<p>The Server Configuration API is able to manage all the CORS configurations of a tenant except allowed CORS origins. These configurations cannot be set at the application level.</p>
 
 ### [Application Management API](../../develop/application-rest-api)
-<p>Even if the enforcement happens at the tenant level, the developers are able to configure `Allowed CORS origins` for 
-their applications individually through the Application Management REST API. Any CORS origin that will be made allowed 
-through this API will be automatically allowed for other applications under the tenant as the CORS can only be enforced 
-at the tenant level under the tenant-url mode.</p>
+<p>Even if the enforcement happens at the tenant level, the developers are able to configure `Allowed CORS origins` for their applications individually through the Application Management REST API. Any CORS origin that will be made allowed through this API will be automatically allowed for other applications under the tenant as the CORS can only be enforced at the tenant level under the tenant-url mode.</p>
 
-### [CORS API](../../develop/cors-rest-api) 
-<p>CORS API allows the developers to view all the CORS origins configured per tenant. In addition, this API facilitates 
-viewing the applications that are associated with a single CORS origin.</p>
+### [CORS API](../../develop/cors-rest-api)
+<p>CORS API allows the developers to view all the CORS origins configured per tenant. In addition, this API facilitates viewing the applications that are associated with a single CORS origin.</p>
