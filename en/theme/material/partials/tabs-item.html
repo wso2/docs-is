@@ -1,17 +1,15 @@
 {% if nav_item.is_homepage %}
-  {% if not page.ancestors | length and nav | selectattr("url", page.url) %}
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" class="md-tabs__link md-tabs__link--active nav-link-text">
-        {{ nav_item.title }}
+  <li class="md-tabs__item home_icon">
+    {% if not page.ancestors | length and nav | selectattr("url", page.url) %}
+      <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" class="md-tabs__link md-tabs__link--active">
+          <i class="fa fa-home"></i>
       </a>
-    </li>
-  {% else %}
-    <li class="md-tabs__item md-tabs__item">
-      <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" class="md-tabs__link nav-link-text">
-        {{ nav_item.title }}
+    {% else %}
+      <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" class="md-tabs__link">
+          <i class="fa fa-home"></i>
       </a>
-    </li>
-  {% endif %}
+    {% endif %}
+  </li>
 {% elif nav_item.children and nav_item.children | length > 0 %}
   {% set title = title | default(nav_item.title) %}
   {% if (nav_item.children | first).children %}
@@ -19,19 +17,17 @@
     {% include "partials/tabs-item.html" %}
   {% else %}
   {% if title in config.extra.nav_list %}
-    {% if main_nav_item.active %}
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link md-tabs__link--active nav-link-text">
+  <li class="md-tabs__item">
+    {% if nav_item.active %}
+        <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link md-tabs__link--active">
           {{ title }}
         </a>
-      </li>
     {% else %}
-      <li class="md-tabs__item md-tabs__item">
-        <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link nav-link-text">
+        <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link">
           {{ title }}
         </a>
-      </li>
     {% endif %}
+  </li>
 {% endif %}
 {% endif %}
 {% endif %}
