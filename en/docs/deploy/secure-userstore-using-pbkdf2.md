@@ -7,6 +7,19 @@ This guide walks you through the steps of configuring PBKDF2 as the hashing algo
     Currently, PBKDF2 supports only JDBC userstores of WSO2 Identity Server.
 
 ## Configure PBKDF2 hashing
+This section guides you on how to configure PBKDF2 hashing on primary and secondary JDBC userstores.
+
+### PBKDF2 for primary JDBC userstores
+
+PBKDF2 is supported by [primary JDBC userstores](../configure-a-jdbc-user-store), but PBKDF2 should be enabled before the initial server startup by adding the following to the `deployment.toml` file.
+
+    ``` js
+    [user_store]
+    type = "database_unique_id"
+    password_digest="PBKDF2"
+    ```
+
+### PBKDF2 for secondary JDBC userstores
 To configure PBKDF2 hashing on a JDBC user store:
 
 1. On Identity Server management console (`https://<IS_HOST>:<PORT>`) and [create a JDBC user store](../configure-secondary-user-stores).
@@ -16,14 +29,6 @@ To configure PBKDF2 hashing on a JDBC user store:
         - Such cases will impact with bad user experience as the users will not get authenticated even when they try to login using the correct credentials. Admins may use the following approaches to reset the user passwords after configuring the PBKDF2 hashing algorithm on an existing userstore:
             - Ask users to [reset their own passwords](../guides/my-account/my-account.md).
             - Trigger password reset for all accounts of the userstore using [admin initiated password reset](../guides/password-mgt/forced-password-reset.md).
-    
-    !!! info "PBKDF2 for primary JDBC userstores"
-        - PBKDF2 is also supported by [primary JDBC userstores](../configure-a-jdbc-user-store), but PBKDF2 should be enabled before the initial server startup by adding the following to the `deployment.toml` file.
-        ``` js
-        [user_store]
-        type = "database_unique_id"
-        password_digest="PBKDF2"
-        ```
 
 2. Navigate to  **Manage > Userstores**, select the secondary JDBC userstore you have created.
 3. Navigate to the **User** tab of the userstore and expand the **Show more** section.
