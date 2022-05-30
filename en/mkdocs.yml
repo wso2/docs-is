@@ -120,9 +120,9 @@ nav:
           - Use SAML Metadata: guides/login/use-saml-metadata.md
         - Single Sign On: 
           - Enable Single Sign On: guides/login/enable-single-sign-on.md
-          - SSO For OIDC Applications: guides/login/sso-for-oidc.md
-          - SSO For SAML Applications: guides/login/sso-for-saml.md
-          - SSO For WS-Federation Applications: guides/login/configure-ws-federation-single-sign-on.md
+          - OIDC Applications: guides/login/sso-for-oidc.md
+          - SAML Applications: guides/login/sso-for-saml.md
+          - WS-Federation Applications: guides/login/configure-ws-federation-single-sign-on.md
           - reCAPTCHA for SSO: guides/login/configure-recaptcha-for-single-sign-on.md
         - Single Logout:
           - OpenID Connect:
@@ -162,7 +162,7 @@ nav:
           - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
       - Identity Federation:
         - Overview: guides/identity-federation/identity-federation-overview.md
-        - Basic IdP Configurations: 
+        - IdP Configurations: 
           - Overview: guides/identity-federation/basic-overview.md
           - Add an IdP: guides/identity-federation/add-idp.md
           - Configure Roles of an IdP: guides/identity-federation/roles-idp.md
@@ -173,6 +173,11 @@ nav:
           - OpenID Connect: guides/identity-federation/configure-oauth2-openid-connect.md
           - ADFS: guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
           - WS-Federation: guides/identity-federation/configure-ws-federation.md
+          - WS-Trust: 
+            - WS Trust STS: guides/identity-federation/configure-ws-trust.md
+            - Obtain tokens using STS: guides/identity-federation/obatin-tokens-using-sts.md
+            - Access claims using STS: guides/identity-federation/access-claims-using-sts.md
+          - Shibboleth: guides/identity-federation/configure-shibboleth-idp.md
         - Social Login:
           - Overview: guides/identity-federation/social-login.md
           - Log in with Facebook: guides/identity-federation/facebook.md
@@ -327,6 +332,8 @@ nav:
           - Customize Automated Emails: guides/tenants/customize-automated-mails.md
           - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
           - Configure Email Notifications for Account Locking: guides/tenants/email-account-locking.md
+        - User-wise Account Locking: guides/tenants/account-locking-per-user.md
+        - User operation notifications: guides/tenants/user-operation-notifications.md
       - User Self-Service: guides/my-account/my-account.md
 
   - Setup:
@@ -688,6 +695,8 @@ nav:
         - GDPR: references/concepts/compliance/gdpr.md
         - eIDAS: references/concepts/compliance/eidas.md
         - CCPA: references/concepts/compliance/ccpa.md
+      - Integrations: 
+        - Master Data Management: references/concepts/integrations/master-data-mgt.md
   - '': page-not-found.md
 
 # Extensions
