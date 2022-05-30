@@ -12,7 +12,6 @@ This section guides you on how to configure PBKDF2 hashing on primary and second
 ### PBKDF2 for primary JDBC userstores
 
 PBKDF2 is supported by [primary JDBC userstores](../configure-a-jdbc-user-store), but PBKDF2 should be enabled before the initial server startup by adding the following to the `deployment.toml` file.
-
     ``` js
     [user_store]
     type = "database_unique_id"
@@ -22,7 +21,7 @@ PBKDF2 is supported by [primary JDBC userstores](../configure-a-jdbc-user-store)
 ### PBKDF2 for secondary JDBC userstores
 To configure PBKDF2 hashing on a JDBC user store:
 
-1. On Identity Server management console (`https://<IS_HOST>:<PORT>`) and [create a JDBC user store](../configure-secondary-user-stores).
+1. Login to the Identity Server management console (`https://<IS_HOST>:<PORT>/console`) and [create a JDBC user store](../configure-secondary-user-stores).
 
     !!! info "Existing userstores"
         - You may also use an existing user store which does not have any users in it. If you already have users in the userstore, once the hashing algorithm is configured these users will not be able to get authenticated.
@@ -85,7 +84,7 @@ When configuring the PBKDF2 hashing algorithm the following parameters must be s
 </table>
 
 !!! info
-    NIST recommends ```PBKDF2WithHmacSHA256``` as the pseudo-random function (prf) value, but the pfr can also be changed. Some examples of possible prf values are as follows:
+    NIST recommends ```PBKDF2WithHmacSHA256``` as the pseudo-random function (prf) value, but the prf can also be changed. Some examples of possible prf values are as follows:
 
     - ```PBKDF2WithHmacSHA512```
     - ```PBKDF2WithHmacSHA256```
