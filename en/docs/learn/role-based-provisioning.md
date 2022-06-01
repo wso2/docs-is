@@ -14,7 +14,7 @@ To do role-based provisioning, we need to configure the following,
 ### Step 1: Configuring an identity provider
 
 1.  Download the [WSO2 Identity
-    Server](http://wso2.com/products/identity-server/) and [run
+    Server](https://wso2.com/products/identity-server/) and [run
     it](../../setup/running-the-product).
 2.  Log in to the [Management
     Console](../../setup/getting-started-with-the-management-console)

@@ -189,8 +189,8 @@ Follow the steps below to configure the email address as the user name.
 		With these configuration users can log in to super tenant with both
 		email user name ( *[alex@gmal.com](mailto:alex@wso2.com)* ) or
 		non-email user names (larry). But for tenant only email user names
-		allowed (tod@ [gmail.com](http://gmail.com) @
-		[wso2.com](http://wso2.com) )
+		allowed (tod@ [gmail.com](https://gmail.com) @
+		[wso2.com](https://wso2.com) )
 
 	!!! note
 		You can configure email user name without enabling
@@ -318,7 +318,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
     </tr>
     <tr class="even">
     <td>Entity Id</td>
-    <td>http://saml.salesforce.com</td>
+    <td>https://saml.salesforce.com</td>
     </tr>
     <tr class="odd">
     <td>Identity Provider Certificate</td>

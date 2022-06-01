@@ -33,7 +33,7 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 		3.  Open the `<IS_HOME>/repository/conf/claim-config.xml              `
 			file and configure the `               AttributeID              `
 			property of the
-			`                               http://wso2.org/claims/username                             `
+			`                               https://wso2.org/claims/username                             `
 			claim ID that is under
 			`               <Dialect dialectURI="                               http://wso2.org/claims                              ">              `
 			to `               mail              `.
@@ -186,8 +186,8 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 				With these configuration users can log in to super tenant with both
 				email user name ( *[alex@gmal.com](mailto:alex@wso2.com)* ) or
 				non-email user names (larry). But for tenant only email user names
-				allowed (tod@ [gmail.com](http://gmail.com) @
-				[wso2.com](http://wso2.com) )
+				allowed (tod@ [gmail.com](https://gmail.com) @
+				[wso2.com](https://wso2.com) )
 
 			!!! note
 				You can configure email user name without enabling
@@ -492,8 +492,8 @@ Let's get started!
         | Service Provider Claim | Local Claim                                                                                                                                    |
         |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
         | email                  | `                                                      http://wso2.org/claims/emailaddress                                                   ` |
-        | first\_name            | `                                   http://wso2.org/claims/givenname                                 `                                         |
-        | last\_name             | `                                   http://wso2.org/claims/lastname                                 `                                          |
+        | first\_name            | `                                   https://wso2.org/claims/givenname                                 `                                         |
+        | last\_name             | `                                   https://wso2.org/claims/lastname                                 `                                          |
 
     4.  <a name="LoggingintoSalesforcewithFacebook-subject-claim-id"></a>Select all of these claims as **Requested Claims**.  
         Select **email** from the **Subject Claim URI** dropdown. The

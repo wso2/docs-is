@@ -76,7 +76,7 @@ identity
 provider](../../learn/adding-and-configuring-an-identity-provider).
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) and [run
+    [here](https://wso2.com/products/identity-server/) and [run
     it](../../setup/running-the-product).
 2.  Log in to the [management
     console](../../setup/getting-started-with-the-management-console)
