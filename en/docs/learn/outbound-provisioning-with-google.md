@@ -130,7 +130,7 @@ other tasks such as provisioning of resources associated with enabling
 new users.
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/).
+    [here](https://wso2.com/products/identity-server/).
 2.  <a name= "email"></a>When you log into Google, you normally use an email address. So, to
     integrate this with the Identity Server, you need to configure WSO2
     IS to enable users to log in using their email addresses. In order

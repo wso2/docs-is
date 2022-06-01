@@ -19,7 +19,7 @@ with REST API via XACML.
 
 !!! tip "Before you begin"
     Download and run the [WSO2 Identity
-    Server](http://wso2.com/identity-and-access-management). For more
+    Server](https://wso2.com/identity-and-access-management). For more
     details on running the Identity Server, see [Running the
     Product](../../setup/running-the-product).
     

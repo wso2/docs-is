@@ -650,4 +650,4 @@ This section guides you through the configurations you can include in a service 
     -   For key APIs relevant for developers, see [Using APIs](../../develop/using-apis). 
     -   For a list of the operations that can be performed with different permission levelsSee [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services). 
     -   The following article guides you through transforming existing SOAP-based services into REST services in WSO2 Identity Server:
-        [Exposing WSO2 Identity Server Admin Services the REST Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).
+        [Exposing WSO2 Identity Server Admin Services the REST Way](https://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).
