@@ -1,0 +1,280 @@
+swagger: '2.0'
+######################################################
+# Prolog
+######################################################
+info:
+  version: "1.2"
+  title: "WSO2 Identity Server Rest API - Authentication"
+  description: |
+    This document specifies a **RESTful API** for WSO2 **Identity Server** .
+    It is written with [swagger 2](http://swagger.io/).
+  contact:
+    name: "WSO2"
+    url: "http://wso2.com/products/identity-server/"
+    email: "architecture@wso2.org"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+######################################################
+# The fixed parts of the URLs of the API
+######################################################
+
+# The schemes supported by the API
+schemes:
+- https
+
+# The domain of the API.
+# This is configured by the customer during deployment.
+# The given host is just an example.
+host: apis.is.com
+
+# The base path of the API.
+# Will be prefixed to all paths.
+
+# if the tenant domain is carbon.super basepath can be /api/identity/auth/v0.1 like this too.
+basePath: /t/{tenant-domain}/api/identity/auth/v1.2
+
+# The following media types can be passed as input in message bodies of the API.
+# The actual media type must be specified in the Content-Type header field of the request.
+# The default is json, i.e. the Content-Type header is not needed to
+# be set, but supporting it serves extensibility.
+consumes:
+- application/json
+
+# The following media types may be passed as output in message bodies of the API.
+# The media type(s) consumable by the requestor is specified in the Accept header field
+# of the corresponding request.
+# The actual media type returned will be specfied in the Content-Type header field
+# of the of the response.
+# The default of the Accept header is json, i.e. there is not needed to
+# set the value, but supporting it serves extensibility.
+produces:
+- application/json
+
+paths:
+  /authenticate:
+    post:
+      description: |
+        This API is used to authenticate the user and to get a JWT that can be used to identify the user authenticated
+      x-wso2-request: |
+        curl -k -v -X POST -H "Authorization: Basic <Base64Encoded[username:password]>" -H "Content-Type: application/json"
+        "https://localhost:9443/api/identity/auth/v1.2/authenticate"
+        curl -k -v -X POST -H "Content-Type: application/json" -d '{ "username": "[username]","password": "[password]"}'
+        "https://localhost:9443/api/identity/auth/v1.2/authenticate"
+      x-wso2-curl: |
+        curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"
+        "https://localhost:9443/api/identity/auth/v1.2/authenticate"
+        curl -k -v -X POST -H "Content-Type: application/json" -d '{ "username": "admin","password": "admin"}'
+        "https://localhost:9443/api/identity/auth/v1.2/authenticate"
+      x-wso2-response: |
+        {"token": "eyJ4NXQiOiJObUptT0dVeE16WmxZak0yWkRSaE5UWmxZVEExWXpkaFpUUmlPV0UwTldJMk0ySm1PVGMxWkEiLCJraWQiOiJObUptT0dVeE16WmxZak0yWkRSaE5UWmxZVEExWXpkaFpUUmlPV0UwTldJMk0ySm1PVGMxWkEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiX01yYUVvZjlzdXN3aHNabC1sOXkxQSIsImFjciI6InVybjptYWNlOmluY29tbW9uOmlhcDpzaWx2ZXIiLCJzdWIiOiJhZG1pbiIsImF1ZCI6WyJmOVpRR182UFdSbTRidUZIcWkzWGw4SkZpZGNhIl0sImF6cCI6ImY5WlFHXzZQV1JtNGJ1RkhxaTNYbDhKRmlkY2EiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE1Mjg4ODg2NDksImlhdCI6MTUyODg4NTA0OX0.EhOa4TDMroWrZfKFXq0wJU4bLSq79GvTXsZVpb3hJkEFL7OSx0YKZ6A9FhAi4TUcRRpFyti74kNGcU2DcRg_UZVQ9drq4L_YfdPBvqDUfwt8Au0Q3lRVVE-nvNzbJVa3IukxD6KSBMqynua6RtLRv5n3P6MuHy8uWDJR4KxMlDc"}
+      summary: |
+        Authenticate User
+      # post parameters:
+      parameters:
+      - in: header
+        name: Authorization
+        description:  Authorization header that contains the 'Basic' word followed by a space and a base64-encoded username:password string. Required unless username, password not passed in request body.
+        required: false
+        type: string
+
+      - name: credentials
+        in: body
+        description:  Username and password in request body. Required unless username, password not passed with 'Authorization' header.
+        required: false
+        schema:
+          $ref: '#/definitions/AuthenticationRequest'
+
+      responses:
+        202:
+          description: Authentication accepted
+          schema:
+            $ref: '#/definitions/AuthenticationSuccessResponse'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+      - Authenticate
+
+  # Endpoint used get the properties for the authentication context
+  "/context/{sessionKey}":
+
+    get:
+      description: |
+        This API is used to retrieve parameters set by authentication framework to be accessed by authentication
+        endpoint. Parameters should be set by calling AuthenticationContext.addEndpointParam() to be eligible to
+        query with this API. This can be used to retieve sensitive parameters required for the authentication endpoint.
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/auth/v1.2/context/<sessionKey>" -H "Authorization: Basic
+        <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/auth/v1.2/context/7a6886ab-b02f-424f-9cd4-adf5e92f0798"
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        {
+          "paramKey": "paramValue"
+        }
+      summary: |
+        Retrieve a authentication context parameter.
+      operationId: getContextParameters
+
+      parameters:
+      - name: sessionKey
+        in: path
+        description:  This represents the session data key that will uniquely identify the authentication context
+        required: true
+        type: 'string'
+
+      - name: parameters
+        in: query
+        description:  Comma separated list of parameters to filter. If none provided all available parameters will be sent.
+        required: false
+        type: 'string'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Parameters'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+      - Authentication
+
+  "/data/{keyType}/{correlationKey}":
+    get:
+      description: |
+        This API is used to retrieve the sensitive parameters can't be sent as query parameters during the authentication flow.
+        <b>Note:</b> This call may not be idempotent if IS is configured to clear the data on retrieval to prevent multiple retrievals.
+      x-wso2-request: |
+        curl -k -X GET "https://localhost:9443/api/identity/auth/v1.2/data/<keyType>/<sessionKey>" -H "Authorization:
+               Basic
+        <Base64Encoded[username:password]>" -H "accept: application/json"
+      x-wso2-curl: |
+        curl -k -X GET "https://localhost:9443/api/identity/auth/v1
+                    .1/data/AuthRequestKey/7a6886ab-b02f-424f-9cd4-adf5e92f0798"
+        -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json"
+      x-wso2-response: |
+        {
+          "paramKey": "paramValue"
+        }
+      summary: |
+        Retrieve sensitive parameters used at authentication flow
+      operationId: getSensitiveParameters
+
+      parameters:
+      - name: keyType
+        in: path
+        description: |
+          This represents the corelation key type. eg. AuthRequestKey, OauthConsentKey. 'AuthRequestKey' can be
+          used to query parameters set by authentication framework and relates to sessionDataKey. 'OauthConsentKey'
+          can be used to query parameters set by oauth concent flow and relates to sessionDataKeyConsent.
+        required: true
+        type: 'string'
+      - name: correlationKey
+        in: path
+        description:  This represents correlation key which is of type 'keyType'
+        required: true
+        type: 'string'
+      - name: parameters
+        in: query
+        description:  Comma separated list of parameters to filter. If none provided all available parameters will be sent.
+        required: false
+        type: 'string'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Parameters'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+      - Authentication
+
+
+definitions:
+  #-----------------------------------------------------
+  # Authentication request  object
+  #-----------------------------------------------------
+  AuthenticationRequest:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+
+  #-----------------------------------------------------
+  # Authentication success response  object
+  #-----------------------------------------------------
+  AuthenticationSuccessResponse:
+    type: object
+    properties:
+      token:
+        type: string
+
+  #-----------------------------------------------------
+  # Properties object
+  #-----------------------------------------------------
+  Parameters:
+    type: object
+    additionalProperties:
+      type: object
+
+  #-----------------------------------------------------
+  # Error response  object
+  #-----------------------------------------------------
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      description:
+        type: string
+      properties:
+        type: object
+        additionalProperties:
+          type: string

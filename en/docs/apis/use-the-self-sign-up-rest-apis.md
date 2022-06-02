@@ -7,7 +7,7 @@
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://github.com/wso2-extensions/identity-governance/blob/v1.5.69/components/org.wso2.carbon.identity.api.user.governance/src/main/resources/api.identity.user.yaml",
+    url: "../../restapis/api.identity.user.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
