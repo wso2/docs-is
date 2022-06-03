@@ -190,7 +190,7 @@ hljs.initHighlightingOnLoad();
 /*
  * Handle TOC toggle
  */
-var tocBtn = document.querySelector('#tocToggleBtn');
+var tocBtn = document.querySelector('.md-sidebar.md-sidebar--secondary #tocToggleBtn');
 var tocClass = document.getElementsByTagName('main')[0];
 
 if (tocBtn) {
