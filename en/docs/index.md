@@ -17,101 +17,87 @@ template: templates/single-column.html
         <div class="content">
             <!-- begin card -->
             <div class="card-wrapper">
-                <div class="card" onclick="location.href='get-started/quick-start-guide';">
-                    <div class="line"></div>
-                    <div class="icon">
-                        <i class="material-icons md-36">timer</i>
-                    </div>
-                    <div class="card-content">
-                        <p class="title">Quick Start</p>
-                        <a href="http://www.google.com"></a>
-                        <p class="hint">Try out SSO, MFA, Federation, Self Sign-Up, and Workflows in minutes</p>
-                    </div>
-                </div>
-            </div>
-            <!-- end card -->
-            <!-- begin card -->
-            <div class="card-wrapper">
-                <div class="card" onclick="location.href='learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials';">
+                <div class="card" onclick="location.href='guides/login/webapp-oidc/';">
                     <div class="line"></div>
                     <div class="icon">
                         <i class="material-icons md-36">how_to_reg</i>
                     </div>
                     <div class="card-content">
                         <p class="title">Authentication</p>
-                        <p class="hint">Configure Authentication with WSO2 Identity Server</p>
+                        <a href="http://www.google.com"></a>
+                        <p class="hint">Try out SSO, MFA, Federation, Self Sign-Up, and Workflows</p>
                     </div>
                 </div>
             </div>
             <!-- end card -->
             <!-- begin card -->
             <div class="card-wrapper">
-                <div class="card" onclick="location.href='learn/adaptive-authentication/';">
+                <div class="card" onclick="location.href='guides/identity-federation/identity-federation-overview/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">call_split</i>
+                        <i class="material-icons md-36">how_to_reg</i>
                     </div>
                     <div class="card-content">
-                        <p class="title">Adaptive Authentication</p>
-                        <p class="hint">Configure Adaptive Authentication with WSO2 Identity Server</p>
+                        <p class="title">Identity Federation</p>
+                        <p class="hint">Enable login using federated identity providers</p>
                     </div>
                 </div>
             </div>
             <!-- end card -->
-            <!-- start card -->
+            <!-- begin card -->
             <div class="card-wrapper">
-                <div class="card" onclick="location.href='learn/single-sign-on/';">
+                <div class="card" onclick="location.href='guides/access-delegation/access-delegation/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">dynamic_feed</i>
+                        <i class="material-icons md-36">how_to_reg</i>
                     </div>
                     <div class="card-content">
-                        <p class="title">Single Sign-On</p>
-                        <p class="hint">Configure Single Sign-On (SSO) with WSO2 Identity Server</p>
+                        <p class="title">Access Delegation</p>
+                        <p class="hint">Enable access delagation using OAuth2, UMA</p>
                     </div>
                 </div>
             </div>
             <!-- end card -->
         </div>
         <div class="content flex-wrap">
-            <!-- begin card -->
+            <!-- start card -->
             <div class="card-wrapper">
-                <div class="card" onclick="location.href='learn/identity-federation/';">
+                <div class="card" onclick="location.href='guides/identity-lifecycles/onboard-overview/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">cloud_download</i>
+                        <i class="material-icons md-36">how_to_reg</i>
                     </div>
                     <div class="card-content">
-                        <p class="title">Identity Federation</p>
-                        <p class="hint">Configure Federated Authentication with WSO2 Identity Server</p>
+                        <p class="title">User Management</p>
+                        <p class="hint">Manage users and groups in your tenant organization</p>
                     </div>
                 </div>
             </div>
             <!-- end card -->
             <!-- begin card -->
             <div class="card-wrapper">
-                <div class="card" onclick="location.href='learn/access-control/';">
+                <div class="card" onclick="location.href='guides/tenants/configure-the-tenant-loading-policy/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">security</i>
+                        <i class="material-icons md-36">how_to_reg</i>
                     </div>
                     <div class="card-content">
-                        <p class="title">Access Control</p>
-                        <p class="hint">Configure Access Control with WSO2 Identity Server</p>
+                        <p class="title">Tenant Management</p>
+                        <p class="hint">Configure and management tenants in your organization</p>
                     </div>
                 </div>
             </div>
             <!-- end card -->
             <!-- begin card -->
             <div class="card-wrapper">
-                <div class="card" onclick="location.href='develop/calling-admin-services/';">
+                <div class="card" onclick="location.href='guides/my-account/my-account/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">settings_applications</i>
+                        <i class="material-icons md-36">how_to_reg</i>
                     </div>
                     <div class="card-content">
-                        <p class="title">APIs</p>
-                        <p class="hint">Identity and Access Management with APIs</p>
+                        <p class="title">User Self-Service</p>
+                        <p class="hint">Manage self-service capabilities for your users</p>
                     </div>
                 </div>
             </div>
