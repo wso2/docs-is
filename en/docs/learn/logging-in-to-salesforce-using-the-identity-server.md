@@ -27,7 +27,7 @@ Server credentials.
 		2.  Open the ` <IS_HOME>/repository/conf/claim-config.xml `
 			file and configure the `               AttributeID              `
 			property as mail for the
-			`                               https://wso2.org/claims/username                             `
+			`                               http://wso2.org/claims/username                             `
 			claim URI as shown below. 
 
 			!!! warning
