@@ -8,7 +8,7 @@ enable advanced cases.
 ```toml
     [hazelcast]
     "hazelcast.shutdownhook.enabled" = "false"
-    "hazelcast.logging.type"= "log4j"
+    "hazelcast.logging.type"= "log4j2"
 ```
 
 The above configurations are explained below.
@@ -22,7 +22,7 @@ The above configurations are explained below.
     the product node: This is because the hazelcast instance shuts down
     too early when the shutdown hook is enabled.
 -   **Hazelcast logging type:** This configuration sets the hazelcast
-    logging type to log4j, which allows hazelcast logs to be written to
+    logging type to log4j2, which allows hazelcast logs to be written to
     the `          wso2carbon.log         ` file.
 
 Once you enable advanced logs for hazelcast as explained above, change
