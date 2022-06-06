@@ -19,7 +19,7 @@ password is unique.
 !!! Tip "Before You begin"
 
     1.  Download the WSO2 Identity Server from
-        [here](http://wso2.com/products/identity-server/ ) and
+        [here](https://wso2.com/products/identity-server/ ) and
         [run it](../../setup/running-the-product/#starting-the-server).
         
     2.  Sign in to the [Management Console](../../setup/getting-started-with-the-management-console/) by entering your

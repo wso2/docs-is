@@ -163,7 +163,7 @@ Sample requests and responses are given below:
 </div></td>
 </tr>
 <tr class="odd">
-<td>Request (for tenant: <a href="http://wso2.com">wso2.com</a> )</td>
+<td>Request (for tenant: <a href="https://wso2.com">wso2.com</a> )</td>
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">

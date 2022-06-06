@@ -5,7 +5,7 @@ instances with different user stores can be used for federated
 authentication.
 
 !!! note "The scenario uses the following software" 
-    -   [WSO2 Identity Server](http://wso2.com/products/identity-server/) as the Identity Provider 
+    -   [WSO2 Identity Server](https://wso2.com/products/identity-server/) as the Identity Provider 
     -   [Apache Tomcat](http://tomcat.apache.org/) to run the client application
     
 

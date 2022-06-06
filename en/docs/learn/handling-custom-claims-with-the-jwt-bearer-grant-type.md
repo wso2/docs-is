@@ -55,7 +55,7 @@ Before you begin
 
 Follow the steps below to set up the two WSO2 Identity Server instances:
 
-1.  [Download](http://wso2.com/products/identity-server/) and
+1.  [Download](https://wso2.com/products/identity-server/) and
     [install](../../setup/installing-the-product) two Identity Server instances.
 2.  Add the following configuration to the `<IS-IP_HOME>/repository/conf/deployment.toml` file and set the value to 1. This is done to increment the port value of IS-IP so that
     there is no port conflict with IS-SP.

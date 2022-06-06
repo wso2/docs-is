@@ -7,7 +7,7 @@ providers. The following steps illustrate how to do this.
     Manager, Oracle waveset, and ActiveRoles Server SPML provider are
     some examples for SPML compliant providers.
 2.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) and [run
+    [here](https://wso2.com/products/identity-server/) and [run
     it](../../setup/running-the-product).
 3.  Log in to the [Management
     Console](../../setup/getting-started-with-the-management-console) as an
