@@ -16,7 +16,7 @@ Identity Server. For simplicity, cURL commands are used in this example
 to send CRUD requests to the REST endpoints of Identity Server.
 
 To execute these commands, you need to [Download the WSO2 Identity
-Server](http://wso2.com/products/identity-server/), unzip it and run
+Server](https://wso2.com/products/identity-server/), unzip it and run
 it.
 
 -   Navigate to the *SCIM User Endpoint* at the following URL:

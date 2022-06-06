@@ -10,7 +10,7 @@ all by providing credentials only once.
 
 -   [WSO2 Identity Server](http://wso2.com/products/identity-server)
     (4.0.0 onwards)
--   [WSO2 Enterprise Service Bus](http://wso2.com/products/enterprise-service-bus) (4.5.1
+-   [WSO2 Enterprise Service Bus](https://wso2.com/products/enterprise-service-bus) (4.5.1
     onwards)
 -   [WSO2 API Manager](https://wso2.com/api-management/) (1.4.0 onwards)
 
@@ -39,7 +39,7 @@ Configure the port and the authenticator of the WSO2 Enterprise Service Bus.
 ### Port configuration
 
 1.  Download the WSO2 ESB from
-    [here](http://wso2.com/products/enterprise-service-bus) and extract
+    [here](https://wso2.com/products/enterprise-service-bus) and extract
     it. This unzipped folder is referred to as
     `            <ESB_HOME>           ` in this topic.
 2.  Open the

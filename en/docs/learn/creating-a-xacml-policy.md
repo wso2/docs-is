@@ -91,7 +91,7 @@ rules are **evaluated from top to bottom**.
     -   If you want to define value as java regexp expression, you need to
         embedded value in the **curly brackets “{ }”**
     
-    Ex : ***{ ^(\[a-zA-Z0-9\_.-\])+@ [wso2.com](http://wso2.com/) }***
+    Ex : ***{ ^(\[a-zA-Z0-9\_.-\])+@ [wso2.com](https://wso2.com/) }***
     
     -   If you want to define multiple values as OR or AND value sets. you
         can separate those multiple values with **“\|” or “&”** separates
@@ -125,8 +125,8 @@ satisfied*
     and deleted by the users in the admin role.
 -   Rule 2: Resources under “foo/wso2″ collection can be read by only
     the users in the WSO2 (whose email address is
-    [wso2.com](http://wso2.com/) domain) regex for email (
-    **^(\[a-zA-Z0-9\_.-\])+@ [wso2.com](http://wso2.com/)** )between
+    [wso2.com](https://wso2.com/) domain) regex for email (
+    **^(\[a-zA-Z0-9\_.-\])+@ [wso2.com](https://wso2.com/)** )between
     9.00am and 4.00pm ( **09:00:00+05:00, 16:00:00+05:00** )
 -   All other access requests to “foo” resource must be denied.
 

@@ -22,7 +22,7 @@ information in the following sections.
 ## Deploying Twitter artifacts
 
 -   Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/).
+    [here](https://wso2.com/products/identity-server/).
 
 -   Place the Twitter authenticator .jar file (
     `           org.wso2.carbon.extension.identity.authenticator.twitter.connector-X.X.X.jar          `

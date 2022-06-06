@@ -8,8 +8,8 @@ Apply all the security patches relevant to your WSO2 Identity Server version.
 
 If your WSO2 Identity Server product version is supported by WSO2 Update Manager (WUM), you need to use WUM to get the latest fixes.
     <ul>
-        <li>If your WSO2 Identity Server is listed as a WUM-supported product <a href="http://wso2.com/update/">here</a>, follow the instructions in <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a>.</li>
-        <li><p>If you are using an older WSO2 Identity Server version that is not WUM-supported, download the security patches that are relevant to your version from the <a href="http://wso2.com/security-patch-releases/">WSO2 Security Patch Release</a> page and manually apply them to your system. For instructions, see <a href="../../administer/wso2-patch-application-process">WSO2 Patch Application Process</a>.</p></li>
+        <li>If your WSO2 Identity Server is listed as a WUM-supported product <a href="https://wso2.com/update/">here</a>, follow the instructions in <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a>.</li>
+        <li><p>If you are using an older WSO2 Identity Server version that is not WUM-supported, download the security patches that are relevant to your version from the <a href="https://wso2.com/security-patch-releases/">WSO2 Security Patch Release</a> page and manually apply them to your system. For instructions, see <a href="../../administer/wso2-patch-application-process">WSO2 Patch Application Process</a>.</p></li>
     </ul>
 
 !!! note
