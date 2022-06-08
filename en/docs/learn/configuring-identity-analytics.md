@@ -94,3 +94,23 @@ Let's create some basic authentication statistics. To do this, log in to the WSO
     ![is-analytics-login-attempts](../assets/img/learn/is-analytics-login-attempts.png)
 
 You have succesfully enabled WSO2 IS Analytics and published statistics to the dashboard. For more information on what you can do with IS analytics, see [Analytics](../../learn/analytics).
+
+!!! note
+    * For self registered users, by default user information such as username, tenant domain, etc will not be published to analytics if the account is in `PENDING_SR` state. To learn more about account pending status, see [Account Pending Status](../../learn/pending-account-status).
+    * This can be enabled system wide by adding below configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+    ```xml
+    [show_pending_user_information]
+    enable=true
+    ```
+    * This can be configured tenant wise using the configuration management feature. Before that make sure you have enabled the configuration management feature as mentioned in [Using the Configuration Management REST APIs](../../develop/using-the-configuration-management-rest-apis).
+    
+        First create a resource type named `basic-authenticator-config` through the following cURL command.
+        ```powershell
+        curl --location --request POST 'https://localhost:9443/api/identity/config-mgt/v1.0/resource-type' --header 'accept: application/json' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' --data-raw '{"name": "basic-authenticator-config", "description": "This is the resource type for pending users."}'
+        ```
+
+        Then create the `user-information` resource and the attribute through the following cURL command.
+        ```powershell
+        curl --location --request POST 'https://localhost:9443/api/identity/config-mgt/v1.0/resource/basic-authenticator-config' --header 'accept: application/json' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' --data-raw '{"name": "user-information","attributes": [{"key": "ShowPendingUserInformation.enable","value": "true"}]}'
+        ```
+    * Publishing user information for `PENDING_SR` users is available as an update in WSO2 IS 5.10.0 from 2022-06-01 onwards (WUM model) and from update level 146 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [Updating WSO2 Products](../../administer/getting-wso2-updates).
