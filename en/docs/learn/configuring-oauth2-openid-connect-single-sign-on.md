@@ -106,7 +106,7 @@ Let's get started to configure the service provider you created!
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
-                        <pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">regexp=(https:<span class="co">//myapp.com/callback|https://testapp:8000/callback)</span></a></code></pre>
+                        <pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">regexp=(https:<span class="co">//((myapp\.com)|(testapp:8000))(/callback))</span></a></code></pre>
                      </div>
                   </div>
                </div>

@@ -102,7 +102,7 @@ Do the following configurations to enable this feature.
     file, set its priority to 0. Otherwise ignore this step.
 
     ```toml
-    "[admin_console.authenticator.saml_sso_authenticator]
+    [admin_console.authenticator.saml_sso_authenticator]
     enable = true
     priority = 0
     ```
@@ -302,68 +302,76 @@ below steps:
     ![Registry Browse menu item](../assets/img/using-wso2-identity-server/registry-browse-menu-item.png)
 
 3.  Browse the registry and go to
-    `          /_system/config/identity/config.         `  
+    `/_system/config/identity.`  
     ![Registry browser](../assets/img/using-wso2-identity-server/registry-browser.png)  
     Once you navigate to
-    `          /_system/config/identity/config         `, follow the
-    steps below to add a registry resource.
+    `/_system/config/identity`, follow the
+    steps below to add a registry collection.
 
-4.  Click **Add Resource**.  
-    ![Add resource option](../assets/img/using-wso2-identity-server/add-resource-option.png)
+4.  Click **Add Collection**.  
+    ![Add collection option](../assets/img/using-wso2-identity-server/add-collection-option.png)
 
 5.  Fill the form with following information.
+    -   Name : config
+
+    ![Add collection form](../assets/img/using-wso2-identity-server/add-collection-form.png)
+
+    Once the **Add** button is clicked, it will navigate to the new collection
+    `/_system/config/identity/config`. Then, follow the
+    steps below to add a registry resource.
+
+6.  Click **Add Resource**.  
+    ![Add resource option](../assets/img/using-wso2-identity-server/add-resource-option.png)
+
+7.  Fill the form with following information.
     -   Method : Select **Create text content** from the dropdown.
 
     -   Name : Enter **relyingPartyRedirectUrls** as Name.
 
     ![Add resource form](../assets/img/using-wso2-identity-server/add-resource-form.png) 
 
-6.  Click the **Add** button. The created registry resource can be seen
+8.  Click the **Add** button. The created registry resource can be seen
     once you click on **Add** button.  
     ![Registry resource](../assets/img/using-wso2-identity-server/registry-resource.png) 
 
-7.  Click on the added resource (relyingPartyRedirectUrls). You can see
+9.  Click on the added resource (relyingPartyRedirectUrls). You can see
     the **Properties** section.  
     ![Resource properties](../assets/img/using-wso2-identity-server/resource-properties.png) 
 
-8.  Click the “+” sign at the right hand corner of **Properties**
+10.  Click the “+” sign at the right hand corner of **Properties**
     section. This allows you to add a property to the resource.
 
-9.  Click **Add New Property**.  
+11.  Click **Add New Property**.  
     ![Add New Property option](../assets/img/using-wso2-identity-server/add-new-property-option.png)
 
-10. Enter the relying party name for name and the redirect URL for
+12. Enter the relying party name for name and the redirect URL for
     value.  
     ![Add New Property form](../assets/img/using-wso2-identity-server/add-new-property-form.png)
 
-    !!! note
-    
-        The redirectURL is the URL you want the application to be redirected
-        when the back button is pressed.
-    
 
     !!! info
+        - Relying party name can be derived as below:
+            - Relying party name for SAML : Issuer Name
+            - Relying party name for OAuth2 : OAuth Client Key  
+
+        - Redirect URL is the URL you want the application to be redirected 
+          when the back button is pressed.
+
         - Relying party name with redirect URL needs to be configured like below:
-           <code>
-           \<Oauth2\_client\_id\>=\<login\_redirect\_url\>  
-           \<Issuer Name\>=\<login\_redirect\_url\>
-           </code>        
+             - `<OAuth2_client_id>`=`<login_redirect_url>` 
+             - `<SAML_Issuer_Name>`=`<login_redirect_url>`
 
-        - Also note the following settings:
-            - Relying party for SAML = Issuer Name
-            - Relying party for Oauth2 = OAuth Client Key  
-
-        - Following are two sample values for Name and value:
+        - Following are two sample values for Name and Value:
             - Name : USER_PORTAL
             - Value : https://localhost:9443/user-portal/overview        
 
         - If you are using travelocity as the sample app, you can use the below values:
-            - Name : travelocity.com
+            - Name : travelocity.com
             - Value : http://localhost:8080/travelocity.com/home.jsp
 
-11. Once you fill name and the value, click the **Add** button.
+13. Once you fill name and the value, click the **Add** button.
 
-12. Now try out the back button and book marking scenarios.
+14. Now try out the back button and book marking scenarios.
 
     !!! note
     
