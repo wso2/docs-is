@@ -209,7 +209,7 @@ Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html).
 <tbody>
 <tr class="odd">
 <td>maxActive</td>
-<td><p>The maximum number of active connections that can be allocated from the connection pool at the same time. The default value is <code>              100.             </code></p></td>
+<td><p>The maximum number of active connections that can be allocated from the connection pool at the same time. The default value is <code>              50.             </code></p></td>
 <td><p>The maximum latency (approximately) = (P / M) * T,</p>
 <p><em>where,</em></p>
 <ul>

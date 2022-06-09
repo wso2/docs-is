@@ -39,17 +39,11 @@ This document explains the steps to configure WSO2 Identity Server to send email
 
     If you are using a Google mail account, note that Google has
     restricted third-party apps and less secure apps from sending emails
-    by default. Therefore, you need to configure your account to disable
+    by default. Therefore, you need to configure your account to work around
     this restriction, as WSO2 Identity Server acts as a third-party application when
     sending emails to confirm user registrations or notification for
     password reset WSO2 Identity Server.     
        
-    Follow the steps given below to enable your Google mail account to
-    provide access to third-party applications.
-
-    1.  Navigate to <https://myaccount.google.com/security>.
-    2.  Click **Security** on the left menu and make sure
-        that **2-step Verification** under **Signing in to Google** is disabled or off.  
-    3.  Enable **Less secure app access**.  
-               
-    
+    Follow the steps provided by [Google](https://support.google.com/mail/answer/185833) to create an app specific 
+    password and use it for the SMTP configurations on the WSO2 Identity Server so that Google does not restrict the 
+    access.
