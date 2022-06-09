@@ -80,7 +80,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
     `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
 
     ``` toml
-    [oauth.grant_type.kerberos_grant]
+    [oauth.grant_type.kerberos]
     enable = true
     ```
 
