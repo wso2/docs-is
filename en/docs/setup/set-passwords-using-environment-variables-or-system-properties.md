@@ -25,7 +25,7 @@ password = "$env{ENV_VAR}"
 ``` 
 
 ### Set passwords using System Properties
- 1.  Open `<IS_HOME>/repository/deployment.toml` file and refer the required password value in the configuration using `$sys{system.property}` placeholder. 
+ 1.  Open the `<IS_HOME>/repository/deployment.toml` file and refer the required password value in the configuration using the `$sys{system.property}` placeholder. 
    
     ``` tab="Format"
     [super_admin]
