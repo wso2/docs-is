@@ -45,6 +45,6 @@ notifications](../../learn/enabling-notifications-for-user-operations),
     sending emails to confirm user registrations or notification for
     password reset WSO2 Identity Server.     
        
-    Follow the steps provided by [Google](https://support.google.com/mail/answer/185833) to create an app specific 
+    Follow the steps provided by [Google](https://support.google.com/mail/answer/185833) to create an app-specific 
     password and use it for the SMTP configurations on the WSO2 Identity Server so that Google does not restrict the 
     access.
