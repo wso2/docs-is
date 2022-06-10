@@ -32,8 +32,11 @@ should be active_directory_unique_id.
 <tr class="odd">
 <td>base_dn</td>
 <td>User Search Base</td>
-<td>DN of the context or object under which the user entries are stored in the user store. When the user store searches for users, it will start from this location of the directory<br />
-Sample values: ou=Users,dc=wso2,dc=org</td>
+<td>DN of the base directory where the <b>Users</b> container (which holds user entries) is stored in the user store.
+When the user store searches for users, it will start from this location of the directory and search inside the <b>Users</b> container for users.<br />
+Sample values: <code>dc=wso2,dc=org</code>
+
+<b>Note:</b> By default, <code>cn=Users</code> is appended to this <code>base_dn</code> value for the <code>UserSearchBase</code>. If the users are stored inside a different context or object, add the DN of it as an additional property through the <code>UserSearchBase</code> property.</td>
 </tr>
 </table>
 
@@ -449,6 +452,13 @@ Default: not configured</td>
 <td>This is a comma-separated list of user store attributes that have the data type of Timestamp and may require a 
 conversion when reading from/writing to user store.
 <p>Default: not configured</p></td>
+</tr>
+<tr class="odd">
+<td>UserSearchBase</td>
+<td>user_search_base</td>
+<td>User Search Base</td>
+<td>DN of the context or object under which the user entries are stored in the user store. When the user store searches for users, it will start from this location of the directory.
+<p>Default: <code>cn=Users,dc=wso2,dc=org</code></p></td>
 </tr>
 </tbody>
 </table>
