@@ -2,7 +2,7 @@
 
 When setting up the WSO2 Identity Server cluster with Nginx,
 you can follow the instructions given below (you must do this **after**
-setting up the cluster following the above instructions). 
+setting up the cluster following the instructions in [deploying the identity server](../../setup/deployment-guide). 
 
 !!! tip 
     When clustering WSO2 Identity Server with a load balancer, you may need to
