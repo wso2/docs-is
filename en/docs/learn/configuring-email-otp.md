@@ -51,9 +51,9 @@ as explained [here](../../setup/configuring-email-sending).
     name ="EmailOTP"
     enable=true
     [authentication.authenticator.email_otp.parameters]
-    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
-    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
-    EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
+    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/authenticationendpoint/email_otp.do"
+    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/authenticationendpoint/email_otp_error.do"
+    EmailAddressRequestPage = "https://localhost:9443/authenticationendpoint/email_capture.do"
     usecase = "local"
     secondaryUserstore = "primary"
     EMAILOTPMandatory = false
@@ -385,9 +385,9 @@ Follow the steps below to send the One Time Password (OTP) using Gmail APIs or u
     enable= true
 
     [authentication.authenticator.email_otp.parameters]
-    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
-    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
-    EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
+    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/authenticationendpoint/email_otp.do"
+    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/authenticationendpoint/email_otp_error.do"
+    EmailAddressRequestPage = "https://localhost:9443/authenticationendpoint/email_capture.do"
     usecase = "association"
     secondaryUserstore = "primary"
     EMAILOTPMandatory = false
