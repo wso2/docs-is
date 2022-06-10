@@ -32,11 +32,11 @@ should be active_directory_unique_id.
 <tr class="odd">
 <td>base_dn</td>
 <td>User Search Base</td>
-<td>DN of the base directory where Users container with user entries is stored in the user store.
-When the userstore searches for users, it will start from this location of the directory and search inside the Users container for users.<br />
+<td>DN of the base directory where the <b>Users</b> container (which holds user entries) is stored in the user store.
+When the user store searches for users, it will start from this location of the directory and search inside the <b>Users</b> container for users.<br />
 Sample values: dc=wso2,dc=org
 
-Note: By default, cn=Users is appended to this base_dn value for the UserSearchBase. If the users are stored inside a different context or object, add the DN of it as an additional property through the UserSearchBase property.</td>
+<b>Note:</b> By default, <code>cn=Users</code> is appended to this <code>base_dn</code> value for the <code>UserSearchBase</code>. If the users are stored inside a different context or object, add the DN of it as an additional property through the <code>UserSearchBase</code> property.</td>
 </tr>
 </table>
 
@@ -458,7 +458,7 @@ conversion when reading from/writing to user store.
 <td>user_search_base</td>
 <td>User Search Base</td>
 <td>DN of the context or object under which the user entries are stored in the user store. When the user store searches for users, it will start from this location of the directory.
-<p>Default: cn=Users,dc=wso2,dc=org</p></td>
+<p>Default: <code>cn=Users,dc=wso2,dc=org</code></p></td>
 </tr>
 </tbody>
 </table>
