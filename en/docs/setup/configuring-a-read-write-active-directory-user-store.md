@@ -34,7 +34,7 @@ should be active_directory_unique_id.
 <td>User Search Base</td>
 <td>DN of the base directory where the <b>Users</b> container (which holds user entries) is stored in the user store.
 When the user store searches for users, it will start from this location of the directory and search inside the <b>Users</b> container for users.<br />
-Sample values: dc=wso2,dc=org
+Sample values: <code>dc=wso2,dc=org</code>
 
 <b>Note:</b> By default, <code>cn=Users</code> is appended to this <code>base_dn</code> value for the <code>UserSearchBase</code>. If the users are stored inside a different context or object, add the DN of it as an additional property through the <code>UserSearchBase</code> property.</td>
 </tr>
