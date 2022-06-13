@@ -67,8 +67,26 @@ nav:
             - WS-Federation: guides/login/webapp-ws-federation.md
           - Client-Side Application: guides/login/client-side-app.md
           - SaaS Applications:
-            - Salesforce: guides/login/log-into-salesforce-using-is.md
             - Google: guides/login/log-into-google-using-is.md
+            - WordPress: guides/login/log-into-wordpress-using-is.md
+            - OpenCart: guides/login/log-into-opencart-using-is.md
+            - Workday: guides/login/log-into-workday-using-is.md
+            - SimpleSAMLphp: guides/login/log-into-simplesaml-using-is.md
+            - Salesforce: 
+              - Salesforce with IS: guides/login/log-into-salesforce-using-is.md
+              - Salesforce with Facebook: guides/login/log-into-salesforce-using-fb.md
+              - Salesforce with IWA: guides/login/log-into-salesforce-using-iwa.md
+            - Office365: 
+              - Office365 with IS: guides/login/log-into-office365-using-is.md
+              - Office365 with SAML2: guides/login/log-into-office365saml-using-is.md
+              - Office365 with SAML2 for Multiple Domains: guides/login/log-into-office365saml-multiple-domains.md
+              - Office365 with WS federation: guides/login/log-into-office365-using-wsfed.md
+              - Office365 with WS Trust: guides/login/log-into-office365-using-ws-trust.md
+          - PaaS Applications:
+            - Drupal: guides/login/log-into-drupal-using-is.md
+            - Microsoft Sharepoint: guides/login/log-into-sharepoint-using-is.md
+            - Magento: guides/login/log-into-magento-using-is.md
+            - Microsoft Dynamics CRM with WS Federation: guides/login/log-into-dynamic-crm-with-wsfederation.md
           - Request Path Authentication:
             - Overview: guides/request-path-auth/request-paths-overview.md
             - Basic Auth Request Path Authentication: guides/request-path-auth/basic-auth-request-path.md
@@ -102,9 +120,9 @@ nav:
           - Use SAML Metadata: guides/login/use-saml-metadata.md
         - Single Sign On: 
           - Enable Single Sign On: guides/login/enable-single-sign-on.md
-          - SSO For OIDC Applications: guides/login/sso-for-oidc.md
-          - SSO For SAML Applications: guides/login/sso-for-saml.md
-          - SSO For WS-Federation Applications: guides/login/configure-ws-federation-single-sign-on.md
+          - OIDC Applications: guides/login/sso-for-oidc.md
+          - SAML Applications: guides/login/sso-for-saml.md
+          - WS-Federation Applications: guides/login/configure-ws-federation-single-sign-on.md
           - reCAPTCHA for SSO: guides/login/configure-recaptcha-for-single-sign-on.md
         - Single Logout:
           - OpenID Connect:
@@ -118,7 +136,8 @@ nav:
           - Cross Protocol Logout: guides/login/cross-protocol-logout.md
         - Multi-Factor Authentication:
           - Configure an Authentication Journey: guides/mfa/configure-authentication-journey.md
-          - Password: guides/mfa/password.md
+          - Username and Password: guides/mfa/username-and-password.md
+          #- Password: guides/mfa/password.md
           - Email OTP: guides/mfa/2fa-email-otp.md
           - SMS OTP: guides/mfa/2fa-sms-otp.md
           - TOTP: guides/mfa/2fa-totp.md
@@ -143,12 +162,22 @@ nav:
           - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
       - Identity Federation:
         - Overview: guides/identity-federation/identity-federation-overview.md
+        - IdP Configurations: 
+          - Overview: guides/identity-federation/basic-overview.md
+          - Add an IdP: guides/identity-federation/add-idp.md
+          - Configure Roles of an IdP: guides/identity-federation/roles-idp.md
+          - Configure Claims of an IdP: guides/identity-federation/claims-idp.md
         - Enterprise Identity Federation:
           - Overview: guides/identity-federation/enterprise-identity-federation.md
           - SAML: guides/identity-federation/configure-saml-2.0-web-sso.md
           - OpenID Connect: guides/identity-federation/configure-oauth2-openid-connect.md
           - ADFS: guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
           - WS-Federation: guides/identity-federation/configure-ws-federation.md
+          - WS-Trust: 
+            - WS Trust STS: guides/identity-federation/configure-ws-trust.md
+            - Obtain tokens using STS: guides/identity-federation/obatin-tokens-using-sts.md
+            - Access claims using STS: guides/identity-federation/access-claims-using-sts.md
+          - Shibboleth: guides/identity-federation/configure-shibboleth-idp.md
         - Social Login:
           - Overview: guides/identity-federation/social-login.md
           - Log in with Facebook: guides/identity-federation/facebook.md
@@ -157,6 +186,12 @@ nav:
           - Log in with Yahoo: guides/identity-federation/yahoo.md
           - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
+        - Provisioing for an IdP: 
+          - Outbound Provisioining: guides/identity-federation/outbound-provisioing-idp.md
+          - JIT Provisioning:
+            - Configure JIT Provisioning: guides/identity-federation/jit-workflow.md
+            - JIT Consent Purposes: guides/identity-federation/jit-consent-purposes.md
+            - JIT User Interfaces: guides/identity-federation/jit-user-interfaces.md
       - Authorization:
         - Overview: guides/authorization/overview.md
         - Access Management: 
@@ -242,8 +277,6 @@ nav:
             - Configure Active Directory Userstores for SCIM 1.1: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
             - Configure Active Directory Userstores for SCIM 2.0: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
             - Setup Service Provider for Inbound Provisioning: guides/identity-lifecycles/sp-for-inbound-provisioning.md
-          - Just-in-Time Provision Users:
-            - Configure Just-In-Time Provisioning for an Identity Provider: guides/identity-lifecycles/jit-workflow.md
         - Enable Verification for Updated User Attributes:
           - Enable Email Account Verification for an Updated Email Address : guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md
           - Enable Mobile Number Verification for an Updated Mobile Number: guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md
@@ -299,6 +332,8 @@ nav:
           - Customize Automated Emails: guides/tenants/customize-automated-mails.md
           - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
           - Configure Email Notifications for Account Locking: guides/tenants/email-account-locking.md
+        - User-wise Account Locking: guides/tenants/account-locking-per-user.md
+        - User operation notifications: guides/tenants/user-operation-notifications.md
       - User Self-Service: guides/my-account/my-account.md
 
   - Setup:
@@ -352,6 +387,7 @@ nav:
             - Remove References to Deleted User Identities: deploy/remove-references-to-deleted-user-identities.md
         - Analytics:
           - Configure an SP and IdP Using Configuration Files: deploy/configure-an-sp-and-idp-using-configuration-files.md
+        - CORS : deploy/configure-cors.md
       - Secure:
         - Mitigate Attacks:
           - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
@@ -643,6 +679,7 @@ nav:
                                     - Resource Registration Endpoint: references/concepts/authorization/uma-resource-registration.md
                                     - Permission Endpoint: references/concepts/authorization/uma-permission-endpoint.md
       - Single Sign On: references/concepts/single-sign-on.md
+      - Identity Bus: references/concepts/identity-bus.md
       - Identity Federation: references/concepts/identity-federation.md
       - Identity Provisioning:
           - Introduction: references/concepts/identity-provisioning-intro.md
@@ -658,6 +695,8 @@ nav:
         - GDPR: references/concepts/compliance/gdpr.md
         - eIDAS: references/concepts/compliance/eidas.md
         - CCPA: references/concepts/compliance/ccpa.md
+      - Integrations: 
+        - Master Data Management: references/concepts/integrations/master-data-mgt.md
   - '': page-not-found.md
 
 # Extensions
