@@ -645,6 +645,9 @@ paths:
 
         By default, duplicate user entries in the SCIM2 users response are persisted. To remove the duplicate user entries, add the following configuration to the deployment.toml file. </br> </br>
 
+        ** Note
+        According to the SCIM specification, the `totalResutls` attribute should return total number of results returned by the list or query operation.  But due to the limitation of the LDAP user store, when we use the pagination paramters, we cannot get total number of users in the database. So, we are returning the total number of users per page as the `totalResults`. This is only applicable for the LDAP user store. The JDBC user store is working according to the specification.
+
         [scim2]
         remove_duplicate_users_in_users_response = true
 
