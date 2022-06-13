@@ -67,4 +67,4 @@ Currently, the following subject confirmation methods are supported:
     - The relying party trusts both the intermediary and the STS. So, it validates both of them.
 
 <!-- ## Related Topics
-See Configuring WS-Trust Security Token Service to configure WS-Trust in WSO2 Identity Server. >
+See Configuring WS-Trust Security Token Service to configure WS-Trust in WSO2 Identity Server. -->

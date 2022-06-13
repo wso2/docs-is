@@ -1,14 +1,12 @@
 # Integrated Windows Authentication
 
-Integrated Windows Authentication (IWA) is a popular authentication
-mechanism used to authenticate users on Microsoft Windows
-servers.
+Integrated Windows Authentication (IWA) is a popular authentication mechanism used to authenticate users on Microsoft Windows servers.
 
 ---
 
 ## Introduction to IWA
 
-IWA is a mechanism used by Microsoft Windows NT based operating systems to authenticated their users to web application. This is an easy method for users to log in to web applications that use Windows Active Directory as a user store.
+IWA is a mechanism used by Microsoft Windows NT based operating systems to authenticate their users to web application. This is an easy method for users to log in to web applications that use Windows Active Directory as a user store.
 
 This authentication mechanism does not use the traditional form-based authentication, where the users have to enter credentials in a form. Instead, it uses a browser-based authentication, where the authentication is handled by the web browser.
 
@@ -23,7 +21,7 @@ Following are the requirements for an application to use IWA:
 - Web application protected with IWA
 - Web application and the server should be on the same domain
 
-Once all the requirements are fulfiled and the user enters the correct protected web application URL on the browser, the browser and the server uses IWA to authenticate the user.
+Once all the requirements are fulfilled and the user enters the correct protected web application URL on the browser, the browser and the server uses IWA to authenticate the user.
 
 ## How IWA works
 
