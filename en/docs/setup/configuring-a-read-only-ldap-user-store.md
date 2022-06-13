@@ -28,8 +28,11 @@ should be read_only_ldap_unique_id.
 <tr class="odd">
 <td>base_dn</td>
 <td>User Search Base</td>
-<td>DN of the context or object under which the user entries are stored in the user store. When the user store searches for users, it will start from this location of the directory<br />
-Sample values: ou=Users,dc=wso2,dc=org</td>
+<td>DN of the base directory where the <b>Users</b> organizational unit (which holds user entries) is stored in the user store.
+When the user store searches for users, it will start from this location of the directory and search inside the <b>Users</b> organizational unit for users.<br />
+Sample values: <code>dc=wso2,dc=org</code>
+
+<b>Note:</b> By default, <code>ou=Users</code> is appended to this <code>base_dn</code> value for the <code>UserSearchBase</code>. If the users are stored inside a different context or object, add the DN of it as an additional property through the <code>UserSearchBase</code> property.</td>
 </tr>
 </table>
 </thead>
@@ -420,6 +423,13 @@ will be terminated.
 <p>Default: not configured</p>
 <p>Sample: 20</p>
 </td>
+</tr>
+<tr class="even">
+<td>UserSearchBase</td>
+<td>user_search_base</td>
+<td>User Search Base</td>
+<td>DN of the context or object under which the user entries are stored in the user store. When the user store searches for users, it will start from this location of the directory.
+<p>Default: <code>ou=Users,dc=wso2,dc=org</code></p></td>
 </tr>
 </tbody>
 </table>
