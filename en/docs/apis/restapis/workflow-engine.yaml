@@ -1,0 +1,134 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: WorkFlow Engine
+  description: This is the RESTful API for managing WorkFlow Engines in WSO2 Identity Server
+  contact:
+    name: "WSO2 Identity Server"
+    url: "https://wso2.com/identity-and-access-management/"
+    email: "architecture@wso2.com"
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+schemes:
+ - https
+
+# tags are used for organizing operations
+tags:
+- name: default
+  description: Secured Admin-only calls
+
+# applicable authentication mechanisms
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /workflow-engines:
+    get:
+      summary: Retrieve all the available workflow engines.
+      operationId: searchWorkFlowEngines
+      description: |
+        Retrieve metadata information of all the workflow engines in the system.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/humantask/viewtasks
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WorkFlowEngine'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+
+definitions:
+    #-----------------------------------------------------
+    # WorkFlowEngine Properties object
+    #-----------------------------------------------------
+  WorkFlowEngine:
+    type: object
+    required:
+      - profileName
+      - questions
+    properties:
+      profileName:
+        type: string
+        example: embeded_bps
+        description: A unique name for the workflow engine.
+      workerHostURL:
+        type: string
+        example: https://localhost:9443/services
+        description: URL of the workflow worker node.
+      managerHostURL:
+        type: string
+        example: https://localhost:9443/services
+        description: URL of the workflow manager node.
+      userName:
+        type: string
+        example: challengeQuestion1
+        description: Username of the creator of the workflow engine.
+
+
+  #-----------------------------------------------------
+  # The Error Response  object
+  #-----------------------------------------------------
+  Error:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: string
+        example: "some_error_code"
+      message:
+        type: string
+        example: "Some Error Message"
+      description:
+        type: string
+        example: "Some Error Description"
+      traceId:
+        type: string
+        example: "Some Trace ID"
+
+securityDefinitions:
+  BasicAuth:
+    type: basic
+  OAuth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://localhost:9443/oauth2/authorize
+    tokenUrl: https://localhost:9443/oauth2/token
+
+#-----------------------------------------------------
+# Descriptions of dispatcher responses
+#-----------------------------------------------------
+responses:
+  NotFound:
+    description: The specified resource is not found
+    schema:
+      $ref: '#/definitions/Error'
+  Unauthorized:
+    description: Unauthorized
+  ServerError:
+    description: Internal Server Error
+    schema:
+      $ref: '#/definitions/Error'
+  Created:
+    description: Item Created
+  OK:
+    description: OK
+  Forbidden:
+    description: Resource Forbidden
+
+host: localhost:9443
+basePath: /t/{tenant-domain}/api/server/v1

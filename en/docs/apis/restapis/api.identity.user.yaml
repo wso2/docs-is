@@ -1,0 +1,1007 @@
+swagger: '2.0'
+######################################################
+# Prolog
+######################################################
+info:
+  version: "1.0.0"
+  title: "WSO2 Identity Server Rest API - User"
+  description: |
+    This document specifies a **RESTful API** for WSO2 **Identity Server** .
+
+    It is written with [swagger 2](http://swagger.io/).
+
+  contact:
+    name: "WSO2"
+    url: "http://wso2.com/products/identity-server/"
+    email: "architecture@wso2.org"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+######################################################
+# The fixed parts of the URLs of the API
+######################################################
+
+# The schemes supported by the API
+schemes:
+  - https
+
+# The domain of the API.
+# This is configured by the customer during deployment.
+# The given host is just an example.
+host: apis.is.com
+
+# The base path of the API.
+# Will be prefixed to all paths.
+
+# if the tenant domain is carbon.super basepath can be /api/identity/user/v1.0 like this too.
+basePath: /t/{tenant-domain}/api/identity/user/v1.0
+
+# The following media types can be passed as input in message bodies of the API.
+# The actual media type must be specified in the Content-Type header field of the request.
+# The default is json, i.e. the Content-Type header is not needed to
+# be set, but supporting it serves extensibility.
+consumes:
+  - application/json
+
+# The following media types may be passed as output in message bodies of the API.
+# The media type(s) consumable by the requestor is specified in the Accept header field
+# of the corresponding request.
+# The actual media type returned will be specfied in the Content-Type header field
+# of the of the response.
+# The default of the Accept header is json, i.e. there is not needed to
+# set the value, but supporting it serves extensibility.
+produces:
+  - application/json
+paths:
+  # Endpoint uses to send recovery notificataion
+  /me:
+    post:
+      description: |
+         This API is used for user self registration.
+      x-wso2-request: |
+        curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user": {"username": "<username>","realm": "<user_store>", "password": "<password>","claims": [{"uri": "<claim_URI>","value": "<claim_value>" },{"uri": "<claim_URI2>","value": "<claim_value2>"},{"uri": "<claim_URI3>","value": "<claim_value3>"},{"uri": "<claim_URI4>","value": "<claim_value4>"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
+      x-wso2-curl: |
+        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user": {"username": "kim","realm": "PRIMARY", "password": "Password12!","claims": [{"uri": "http://wso2.org/claims/givenname","value": "kim" },{"uri": "http://wso2.org/claims/emailaddress","value": "kim.anderson@gmail.com"},{"uri": "http://wso2.org/claims/lastname","value": "Anderson"},{"uri": "http://wso2.org/claims/mobile","value": "+947721584558"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
+      x-wso2-response: |
+        "HTTP/1.1 201 Created"
+
+      summary: |
+        Self register user
+
+      # This are the post parameters:
+      parameters:
+        -
+          name: user
+          in: body
+          description:  Sends optional property parameters over email based on an email template.
+          required: true
+          schema:
+            $ref: '#/definitions/SelfUserRegistrationRequest'
+
+
+      responses:
+        201:
+          description: Successfully created
+          schema:
+            $ref: '#/definitions/SuccessfulUserCreation'
+        400:
+          description: Bad Request
+          schema:
+             $ref: '#/definitions/Error'
+
+        500:
+          description: Server Error
+          schema:
+             $ref: '#/definitions/Error'
+
+        409:
+          description: Conflict
+          schema:
+             $ref: '#/definitions/Error'
+      tags:
+        - Self Register
+
+    get:
+      x-wso2-request: |
+        curl -X GET -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/user/v1.0/me"
+      x-wso2-curl: |
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/user/v1.0/me"
+      x-wso2-response: |
+        {"security":{"challengeQuestions":["City where you were born ?","Model of your first car ?"]},"consents":[{"version":"KI-CR-v1.1.0","jurisdiction":"global","consentTimestamp":1518061604295,"collectionMethod":"string","consentReceiptID":"e83fa396-f80e-4835-9d79-754ce3f6ef93","publicKey":null,"language":"string","piiPrincipalId":"admin","tenantDomain":"carbon.super","state":"ACTIVE","piiControllers":[{"piiController":"sample","contact":"sample","address":{"addressCountry":"USA","addressLocality":"Mountain View","addressRegion":"CA","postOfficeBoxNumber":"233","postalCode":"94043","streetAddress":"1600 Amphitheatre Pkwy"},"email":"sample@abc.com","phone":"+01433444333","onBehalf":false,"piiControllerUrl":"https://sample.piicontroller.url"}],"policyUrl":"string","services":[{"service":"travelocity","tenantDomain":"carbon.super","purposes":[{"purpose":"test-purpose","purposeCategory":["test-purpose-category"],"consentType":"explicit","piiCategory":[{"piiCategory":"test-category","validity":"string"}],"primaryPurpose":true,"termination":"string","thirdPartyDisclosure":false,"thirdPartyName":null}]}],"sensitive":true,"spiCat":["test-category"]}],"basic":{"http://wso2.org/claims/userid":"a42b7c0a-ae21-46c9-bb78-3bfeb8e7625c","http://wso2.org/claims/username":"admin","http://wso2.org/claims/created":"2018-02-08T14:34:06Z","http://wso2.org/claims/role":"Internal/everyone,admin,Application/aaaa","http://wso2.org/claims/fullname":"admin","http://wso2.org/claims/modified":"2018-02-08T14:34:06Z","http://wso2.org/claims/emailaddress":"admin@wso2.com","http://wso2.org/claims/lastname":"admin","http://wso2.org/claims/givenname":"admin"}}
+      tags:
+      - User Export
+      summary: Export self user information
+      description: This API is used to retrieve the personal information of the authenticated user.
+      operationId: getMe
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/ExportedUser'
+        401:
+          description: Unauthorized request
+
+  /me/resend-code:
+    post:
+      description: |
+        This API is used to resend the confirmation code to the authenticated user if it is missing.
+      x-wso2-request: |
+        curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"properties": [{"key":"RecoveryScenario","value": "SCENARIO_NAME"}]}' "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
+      x-wso2-curl: |
+        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"properties": [{"key":"RecoveryScenario","value": "MOBILE_VERIFICATION_ON_UPDATE"}]}' "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
+      x-wso2-response: |
+        "HTTP/1.1 201 Created"
+      summary: |
+        Self resend code
+
+      # These are the post parameters:
+      parameters:
+        - name: meResendCodeRequest
+          in: body
+          description: Sends property parameters such as the recovery scenario.
+          required: true
+          schema:
+            $ref: '#/definitions/MeResendCodeRequest'
+
+      responses:
+        201:
+          description: Created
+          schema:
+            title: key
+            type: string
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - Self Register
+
+  /me/validate-code:
+    post:
+      description: |
+        This API is used to validate the code submitted by the authenticated user in a verification scenario.
+      x-wso2-request: |
+        curl -k -v -X POST -H "Authorization: <Base64Encoded_username:password>" -H "Content-Type: application/json"
+         -d '{ "code": "<validation_code>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
+      x-wso2-curl: |
+        curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "84325529-8aa7-4851-8751-5980a7f2d9f7","properties": []}' "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
+
+      x-wso2-response: |
+        "HTTP/1.1 202 Accepted"
+
+      summary: |
+        Self validate code
+
+      # These are the post parameters:
+      parameters:
+        - name: code
+          in: body
+          description:  The validation code retrieved for the verification scenario, and optional property parameters.
+          required: true
+          schema:
+            $ref: '#/definitions/MeCodeValidationRequest'
+      responses:
+        202:
+          description: Accepted
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - Self Register
+
+  # The endpoint that is used to self register lite accounts with email/SMS verification.
+  /lite:
+    post:
+      description: |
+        This API is used for lite user self registration.
+      x-wso2-request: |
+        curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"email": "<username>","realm": "<user_store>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/lite"
+      x-wso2-curl: |
+        curl -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{"email": "lanka@wso2.com","realm": "PRIMARY","properties": []}' "https://localhost:9443/api/identity/user/v1.0/lite"
+        curl -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{"email": "lanka@wso2.com","realm": "PRIMARY","preferredChannel":"Email","claims":[], "properties": []}' "https://localhost:9443/api/identity/user/v1.0/lite"
+      x-wso2-response: |
+        "HTTP/1.1 201 Created"
+
+      summary: |
+        Lite register user
+
+      # These are the post parameters:
+      parameters:
+        - name: user
+          in: body
+          description:  Sends optional property parameters over email based on an email template.
+          required: true
+          schema:
+            $ref: '#/definitions/LiteUserRegistrationRequest'
+
+      responses:
+        201:
+          description: Successfully created
+          schema:
+            $ref: '#/definitions/SuccessfulUserCreation'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+
+        409:
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - Self Register
+        - Lite
+
+  /validate-code:
+    post:
+      description: |
+         This API is used to validate the code used by self registered users.
+      x-wso2-request: |
+       curl -k -v -X POST -H "Authorization: <Base64Encoded_username:password>" -H "Content-Type: application/json"
+        -d '{ "code": "<validation_code>","verifiedChannel":{"type":<type>, "claim":<claim_uri},
+         "properties": []}' "https://localhost:9443/api/identity/user/v1.0/validate-code"
+      x-wso2-curl: |
+        curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "84325529-8aa7-4851-8751-5980a7f2d9f7","verifiedChannel":{"type":"SMS", "claim":"http://wso2.org/claims/mobile"},"properties": []}' "https://localhost:9443/api/identity/user/v1.0/validate-code"
+
+      x-wso2-response: |
+        "HTTP/1.1 202 Accepted"
+
+      summary: |
+        Validate code
+
+      # This are the post parameters:
+      parameters:
+        -
+          name: code
+          in: body
+          description:  The validation code retrieved after user self registration, and optional property parameters.
+          required: true
+          schema:
+            $ref: '#/definitions/CodeValidationRequest'
+      responses:
+        202:
+          description: Accepted
+        400:
+          description: Bad Request
+          schema:
+             $ref: '#/definitions/Error'
+
+        500:
+          description: Server Error
+          schema:
+             $ref: '#/definitions/Error'
+      tags:
+        - Self Register
+
+  #valid the code and retrieve related information.
+  /introspect-code:
+    post:
+      description: |
+        This API is used to validate the code used by self registered users and retrieve the details.
+      x-wso2-request: |
+        curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "17f00958-a1d7-47b9-8183-be99c08a800f"}' "https://localhost:9443/api/identity/user/v1.0/introspect-code"
+      x-wso2-curl: |
+        curl -k -v -X POST -H "Authorization: Basic YWRtaW5Ad3NvMi5jb206YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "17f00958-a1d7-47b9-8183-be99c08a800f"}' "https://localhost:9443/api/identity/user/v1.0/introspect-code"
+
+      x-wso2-response: |
+        "HTTP/1.1 200 OK"
+
+      summary: |
+        Introspect code
+
+      # This are the post parameters:
+      parameters:
+        - name: code
+          in: body
+          description:  The validation code retrieved after user self registration, and optional property parameters.
+          required: true
+          schema:
+            $ref: '#/definitions/CodeValidationRequest'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/CodeValidateInfoResponse'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - Self Register
+        - Verification
+
+  /validate-username:
+    post:
+      description: |
+         This API is used to check whether a given username is available for self registration.
+      x-wso2-request: |
+        curl -k -v -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{ "username": "<username>","properties": []}' "https://localhost:9443/api/identity/user/v1.0/validate-username"
+      x-wso2-curl: |
+        curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "username": "john@wso2.com","properties": []}' "https://localhost:9443/api/identity/user/v1.0/validate-username"
+
+      x-wso2-response: |
+        "HTTP/1.1 200 OK" { "statusCode": 0 }
+
+
+      summary: |
+        Validate username
+
+      # These are the post parameters:
+      parameters:
+        -
+          name: username
+          in: body
+          description:  Username for validation.
+          required: true
+          schema:
+            $ref: '#/definitions/UsernameValidationRequest'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/UsernameValidateInfoResponse'
+        400:
+          description: Bad Request
+          schema:
+             $ref: '#/definitions/Error'
+
+        500:
+          description: Server Error
+          schema:
+             $ref: '#/definitions/Error'
+      tags:
+        - Self Register
+
+  /resend-code:
+    post:
+      description: |
+        This API is used to resend the confirmation code if it is missing.
+      x-wso2-request: |
+        curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user":{"username": "<username>","realm": "<user_store_name>"},"properties": []}' "https://localhost:9443/api/identity/user/v1.0/resend-code"
+      x-wso2-curl: |
+        curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "kim","realm": "PRIMARY"},"properties": []}' "https://localhost:9443/api/identity/user/v1.0/resend-code"
+      x-wso2-response: |
+        "HTTP/1.1 201 Created"
+      summary: |
+        Resend code
+
+      # This are the post parameters:
+      parameters:
+        -
+          name: user
+          in: body
+          description: Sends optional property parameters over email based on an email template.
+          required: true
+          schema:
+            $ref: '#/definitions/ResendCodeRequest'
+
+      responses:
+        200:
+          description: Successful
+          schema:
+            title: key
+            type: string
+        400:
+          description: Bad Request
+          schema:
+             $ref: '#/definitions/Error'
+
+        500:
+          description: Server Error
+          schema:
+             $ref: '#/definitions/Error'
+      tags:
+        - Self Register
+
+  /pi-info:
+    get:
+      x-wso2-request: |
+        curl -X GET -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/user/v1.0/pi-info?username=<username>"
+      x-wso2-curl: |
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/user/v1.0/pi-info?username=admin"
+
+      x-wso2-response: |
+        [{"username":"admin","userId":"YWRtaW4%3D"}]
+      tags:
+      - User Export
+      summary: Search user ID by username
+      description: Returns the user ID of the given username. This ID can be used with the /pi-info endpoint.
+      operationId: searchUserByName
+      produces:
+      - application/json
+      parameters:
+      - name: username
+        in: query
+        description: Username pattern used to search for the user ID.
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/UserSearchResponse'
+        401:
+          description: Unauthorized request
+        404:
+          description: User not found
+
+  /pi-info/{userId}:
+    get:
+      x-wso2-request: |
+        curl -X GET -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/user/v1.0/pi-info/<Base64&URLEncoded_username>"
+      x-wso2-curl: |
+        curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"  "https://localhost:9443/api/identity/user/v1.0/pi-info/YWRtaW4%3D"
+      x-wso2-response: |
+        {"security":{"challengeQuestions":["City where you were born ?","Model of your first car ?"]},"consents":[{"version":"KI-CR-v1.1.0","jurisdiction":"global","consentTimestamp":1518061604295,"collectionMethod":"string","consentReceiptID":"e83fa396-f80e-4835-9d79-754ce3f6ef93","publicKey":null,"language":"string","piiPrincipalId":"admin","tenantDomain":"carbon.super","state":"ACTIVE","piiControllers":[{"piiController":"sample","contact":"sample","address":{"addressCountry":"USA","addressLocality":"Mountain View","addressRegion":"CA","postOfficeBoxNumber":"233","postalCode":"94043","streetAddress":"1600 Amphitheatre Pkwy"},"email":"sample@abc.com","phone":"+01433444333","onBehalf":false,"piiControllerUrl":"https://sample.piicontroller.url"}],"policyUrl":"string","services":[{"service":"travelocity","tenantDomain":"carbon.super","purposes":[{"purpose":"test-purpose","purposeCategory":["test-purpose-category"],"consentType":"explicit","piiCategory":[{"piiCategory":"test-category","validity":"string"}],"primaryPurpose":true,"termination":"string","thirdPartyDisclosure":false,"thirdPartyName":null}]}],"sensitive":true,"spiCat":["test-category"]}],"basic":{"http://wso2.org/claims/userid":"a42b7c0a-ae21-46c9-bb78-3bfeb8e7625c","http://wso2.org/claims/username":"admin","http://wso2.org/claims/created":"2018-02-08T14:34:06Z","http://wso2.org/claims/role":"Internal/everyone,admin,Application/aaaa","http://wso2.org/claims/fullname":"admin","http://wso2.org/claims/modified":"2018-02-08T14:34:06Z","http://wso2.org/claims/emailaddress":"admin@wso2.com","http://wso2.org/claims/lastname":"admin","http://wso2.org/claims/givenname":"admin"}}
+      tags:
+      - User Export
+      summary: Export user information by ID
+      description: This API is used to retrieve the personal information of a single user using the given user ID.
+      operationId: getUserById
+      produces:
+      - application/json
+      parameters:
+      - name: userId
+        in: path
+        description: Unique Identifier of user. First encode the user's username using the Base64 Encoder. Then encode the Base64 Encoded username using the URL Encoder. Use the result you get as the user ID.
+        required: true
+        type: string
+      responses:
+        200:
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/ExportedUser'
+        401:
+          description: Unauthorized request
+        404:
+          description: User not found
+
+definitions:
+  #-----------------------------------------------------
+  # SuccessfulUserCreation object
+  #-----------------------------------------------------
+  SuccessfulUserCreation:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "USR-02007"
+        description: Status code of the operation.
+      message:
+        type: string
+        example: "successful user self registration"
+        description: Descriptive message regarding the operation.
+      notificationChannel:
+        type: string
+        example: "EMAIL"
+        description: Account confirmation notification sent channel.
+
+  #-----------------------------------------------------
+  # The SelfRegistrationUser  Object
+  #-----------------------------------------------------
+  SelfRegistrationUser:
+    type: object
+    properties:
+      username:
+        type: string
+      realm:
+        type: string
+      password:
+        type: string
+      claims:
+        type: array
+        items:
+          $ref: '#/definitions/Claim'
+
+#-----------------------------------------------------
+# The User  Object
+#-----------------------------------------------------
+  User:
+    type: object
+    properties:
+      username:
+        type: string
+      realm:
+        type: string
+
+#-----------------------------------------------------
+# The Error Response  object
+#-----------------------------------------------------
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      description:
+        type: string
+
+
+#-----------------------------------------------------
+# The Property  object
+#-----------------------------------------------------
+  Property:
+    type: object
+    properties:
+      key:
+        type: string
+      value:
+        type: string
+
+#-----------------------------------------------------
+# The Property  object
+#-----------------------------------------------------
+  Claim:
+    type: object
+    properties:
+      uri:
+        type: string
+      value:
+        type: string
+
+#-----------------------------------------------------
+# The SelfRegistrationUser Registration Request
+#-----------------------------------------------------
+  SelfUserRegistrationRequest:
+    type: object
+    properties:
+      user:
+        $ref: '#/definitions/SelfRegistrationUser'
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+
+  #-----------------------------------------------------
+  # The Lite SelfRegistrationUser Registration Request
+  #-----------------------------------------------------
+  LiteUserRegistrationRequest:
+    type: object
+    properties:
+      email:
+        type: string
+      mobile:
+        type: string
+      realm:
+        type: string
+      preferredChannel:
+        type: string
+        enum:
+          - Mobile
+          - Email
+      claims:
+        type: array
+        items:
+          $ref: '#/definitions/Claim'
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+
+#-----------------------------------------------------
+# The CodeValidationRequest  object
+#-----------------------------------------------------
+  CodeValidationRequest:
+    type: object
+    properties:
+      code:
+        type: string
+      verifiedChannel:
+        $ref: '#/definitions/VerifiedChannel'
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+
+#-----------------------------------------------------
+# The MeCodeValidationRequest  object
+#-----------------------------------------------------
+  MeCodeValidationRequest:
+    type: object
+    required:
+      - code
+    properties:
+      code:
+        type: string
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+
+  #-----------------------------------------------------
+  # The VerifiedChannel  object
+  #-----------------------------------------------------
+  VerifiedChannel:
+    type: object
+    description: "Verified channel information"
+    properties:
+      type:
+        type: string
+        example: EMAIL
+        description: verified channel type
+      claim:
+        type: string
+        example: http://wso2.org/claims/emailaddress
+        description: verified channel claim
+
+#-----------------------------------------------------
+# The UsernameValidationRequest  object
+#-----------------------------------------------------
+  UsernameValidationRequest:
+    type: object
+    properties:
+      username:
+        type: string
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+
+#-----------------------------------------------------
+# Username Availability
+#----------------------------------------------------
+
+  UsernameValidateInfoResponse:
+    type: object
+    properties:
+      statusCode:
+        type: 'integer'
+        description: 'status code'
+
+#-----------------------------------------------------
+# Validated code information object
+#-----------------------------------------------------
+  CodeValidateInfoResponse:
+    type: object
+    properties:
+      user:
+        $ref: '#/definitions/User'
+      recoveryScenario:
+        type: string
+      recoveryStep:
+        type: string
+
+
+#-----------------------------------------------------
+# The SelfRegistrationUser Registration Request
+#-----------------------------------------------------
+  ResendCodeRequest:
+    type: object
+    properties:
+      user:
+        $ref: '#/definitions/User'
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+
+#-----------------------------------------------------
+# The MeResendCode Request
+#-----------------------------------------------------
+  MeResendCodeRequest:
+    type: object
+    required:
+      - properties
+    properties:
+      properties:
+        type: array
+        items:
+          $ref: '#/definitions/Property'
+
+#-----------------------------------------------------
+# The Basic User Profile Information
+#----------------------------------------------------
+
+  BasicProfile:
+    type: object
+    additionalProperties:
+        $ref: '#/definitions/BasicInfoEntry'
+
+#-----------------------------------------------------
+# The Basic User Profile Entry
+#----------------------------------------------------
+
+  BasicInfoEntry:
+    type: object
+    properties:
+      claimUri:
+        type: string
+        description: 'Claim Uri'
+      value:
+        type: string
+        description: 'Claim value'
+
+#-----------------------------------------------------
+# The Consent Receipt  object
+#----------------------------------------------------
+
+  ConsentReceipt:
+    type: object
+    required:
+      - version
+      - jurisdiction
+      - consentTimestamp
+      - collectionMethod
+      - consentReceiptID
+      - piiPrincipalId
+      - piiControllers
+      - policyUrl
+      - services
+      - sensitive
+      - spiCat
+
+    properties:
+      version:
+        type: 'string'
+        description: 'The version of this specification to which a receipt conforms. The value MUST be “KI-CR-v1.1.0” for this version of the specification.'
+      jurisdiction:
+        type: 'string'
+        description: 'The jurisdiction(s) applicable to this transaction.'
+      consentTimestamp:
+        type: 'integer'
+        format: 'int64'
+        description: 'Date and time of the consent transaction. The JSON value is expressed as the number of seconds since 1970-01-01 00:00:00 GMT'
+      collectionMethod:
+        type: 'string'
+        description: 'A description of the method by which consent was obtained.'
+      consentReceiptID:
+        type: 'string'
+        description: 'A unique number for each Consent Receipt.'
+      publicKey:
+        type: 'string'
+        description: 'The PII Controller’s public key.'
+      language:
+        type: 'string'
+        description: 'Language in which the consent was obtained as for ISO 639-1:2002 [ISO 639].'
+      piiPrincipalId:
+        type: 'string'
+        description: 'PII Principal-provided identifier. E.g., email address.'
+      tenantDomain:
+        type: 'string'
+        description: 'Tenant domain of the service (SP).'
+      state:
+        type: 'string'
+        description: 'Current state of the receipt.'
+      piiControllers:
+        type: array
+        description: 'An array that contains one or more items where each item represents one PII Controller.'
+        items:
+          $ref: '#/definitions/piiController'
+      policyUrl:
+        type: 'string'
+        description: 'A link to the PII Controller’s privacy statement/policy and applicable terms of use in effect when the consent was obtained, and the receipt was issued.'
+      services:
+        type: array
+        description: 'An array that contains one or more items where each item represents one Service.'
+        items:
+          $ref: '#/definitions/serviceResponse'
+      sensitive:
+        type: 'boolean'
+        description: 'Indicates whether the consent interaction contains PII that is designated sensitive or not sensitive.'
+      spiCat:
+        type: array
+        description: 'A listing of categories where PII data collected is sensitive.'
+        items:
+          type: 'string'
+
+#-----------------------------------------------------
+# Exported User  object
+#----------------------------------------------------
+
+  ExportedUser:
+    type: object
+    properties:
+      basic:
+        $ref: '#/definitions/BasicProfile'
+      consents:
+        type: array
+        items:
+          $ref: '#/definitions/ConsentReceipt'
+      security:
+        $ref: '#/definitions/Security'
+
+#-----------------------------------------------------
+# The piiController  object
+#-----------------------------------------------------
+  piiController:
+    type: 'object'
+    required:
+      - address
+      - piiController
+      - contact
+      - email
+      - phone
+    properties:
+      piiController:
+        type: 'string'
+        description: 'Name of the first PII Controller who collects the data. This entity is accountable for compliance with the management of PII. The PII Controller determines the purpose(s) and type(s) of PII processing.'
+      contact:
+        type: 'string'
+        description: 'Contact name of the PII Controller. This field MUST contain a non-empty string.'
+      address:
+        $ref: '#/definitions/address'
+      email:
+        type: 'string'
+        description: 'Contact email address of the PII Controller. The direct email to contact the PII Controller regarding the consent or privacy contract.'
+      phone:
+        type: 'string'
+        description: 'Contact phone number of the PII Controller. The business phone number to contact the PII Controller regarding the consent.'
+      onBehalf:
+        type: 'boolean'
+        description: 'A PII Processor acting on behalf of a PII Controller or PII Processor. For example, a third-party analytics service would be a PII Processor on behalf of the PII Controller, or a site operator acting on behalf of the PII Controller.'
+      piiControllerUrl:
+        type: 'string'
+        description: 'A URL for contacting the PII Controller.'
+
+
+#-----------------------------------------------------
+# The Service  Response object
+#-----------------------------------------------------
+  serviceResponse:
+    type: 'object'
+    properties:
+      service:
+        type: 'string'
+        description: 'The service or group of services being provided for which PII is collected. The name of the service for which consent for the collection, use, and disclosure of PII is being provided.'
+      tenantDomain:
+        type: 'string'
+        description: 'Tenant domain of the SP'
+      purposes:
+        type: array
+        items:
+          $ref: '#/definitions/purposeResponse'
+
+#-----------------------------------------------------
+# The address  object
+#-----------------------------------------------------
+  address:
+    type: 'object'
+    description: 'The physical address of PII controller. Postal address for contacting the PII Controller. This is complient with the schema https://schema.org/PostalAddress.'
+    properties:
+      addressCountry:
+        type: 'string'
+      addressLocality:
+        type: 'string'
+      addressRegion:
+        type: 'string'
+      postOfficeBoxNumber:
+        type: 'string'
+      postalCode:
+        type: 'string'
+      streetAddress:
+        type: 'string'
+
+
+#-----------------------------------------------------
+# The purpose response object
+#-----------------------------------------------------
+  purposeResponse:
+    type: 'object'
+    required:
+      - thirdPartyDisclosure
+      - thirdPartyName
+      - termination
+      - piiCategory
+      - purposeCategory
+    properties:
+      purpose:
+        type: 'string'
+        description: 'A short, clear explanation of why the PII item is required.'
+      purposeCategory:
+        type: array
+        description: 'The reason the PII Controller is collecting the PII.'
+        items:
+          type: 'string'
+      consentType:
+        type: 'string'
+        description: 'The type of the consent used by the PII Controller as their authority to collect, use or disclose PII.'
+      piiCategory:
+        type: array
+        description: 'A list of defined PII categories Ids.  PII Category should reflect the category that will be shared as understood by the PII Principal.'
+        items:
+          $ref: '#/definitions/piiCategoryNameList'
+      primaryPurpose:
+        type: 'boolean'
+        description: 'Indicates if a purpose is part of the core service of the PII Controller. Possible values are TRUE or FALSE.'
+      termination:
+        type: 'string'
+        description: 'Conditions for the termination of consent. Link to policy defining how consent or purpose is terminated.'
+      thirdPartyDisclosure:
+        type: 'boolean'
+        description: 'Indicates if the PII Controller is disclosing PII to a third party.  Possible values are TRUE or FALSE.'
+      thirdPartyName:
+        type: 'string'
+        description: 'The name or names of the third party to which the PII Processor may disclose the PII.'
+
+#-----------------------------------------------------
+# The PII category object with name, validity
+#-----------------------------------------------------
+
+  piiCategoryNameList:
+    type: object
+    properties:
+      piiCategory:
+        type: 'string'
+      validity:
+        type: 'string'
+
+#-----------------------------------------------------
+# User Search response object
+#-----------------------------------------------------
+
+  UserSearchResponse:
+    type: array
+    items:
+      $ref: '#/definitions/UserSearchEntry'
+
+#-----------------------------------------------------
+# User Search entry object
+#-----------------------------------------------------
+
+  UserSearchEntry:
+    type: object
+    properties:
+      username:
+        type: 'string'
+      userId:
+        type: 'string'
+
+#-----------------------------------------------------
+# Security category response of user
+#-----------------------------------------------------
+
+  Security:
+    type: object
+    properties:
+      challengeQuestions:
+        $ref: '#/definitions/ChallengeQuestions'
+
+#-----------------------------------------------------
+# Challenge questions of user
+#-----------------------------------------------------
+
+  ChallengeQuestions:
+    type: array
+    description: 'Challenge questions configured for the user.'
+    items:
+      type: string
+
+#-----------------------------------------------------
+# Username update request
+#-----------------------------------------------------
+
+  UsernameUpdateRequest:
+    type: object
+    properties:
+      realm:
+        type: string
+        description: Userstore domain of the User.
+      existingUsername:
+        type: string
+        description: Existing username of the User.
+      newUsername:
+        type: string
+        description: Expected new username of the User.
