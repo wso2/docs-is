@@ -730,7 +730,6 @@ markdown_extensions:
   - markdown_include.include:
       base_path: docs/
   - attr_list
-
 plugins:
     - search
     - redirects:
