@@ -1298,7 +1298,6 @@ plugins:
               'compliance/general-data-protection-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'compliance/electronic-identification-authentication-and-trust-services-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'compliance/california-consumer-privacy-act.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'references/references-overview.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/default-ports-of-wso2-products.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/'
