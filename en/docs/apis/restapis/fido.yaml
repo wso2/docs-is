@@ -7,9 +7,7 @@ info:
   title: "WSO2 Identity Server FIDO2 Rest API "
   description: |
     This document specifies a **FIDO 2 RESTfulAPI** for WSO2 **Identity Server** .
-
     It is written with [swagger 2](http://swagger.io/).
-
   contact:
     name: "WSO2"
     url: "http://wso2.com/products/identity-server/"
@@ -67,7 +65,6 @@ paths:
     post:
       description: |
         This API is used to trigger FIDO2 device registration flow.
-
          <b>Permission required:</b>
          * /permission/admin/login
       summary: |
@@ -130,7 +127,6 @@ paths:
     post:
       description: |
         This API is used to trigger FIDO2 usernameless device registration flow.
-
          <b>Permission required:</b>
          * /permission/admin/login
       summary: |
@@ -192,7 +188,6 @@ paths:
     post:
       description: |
         This API is used to complete FIDO2 device registration flow.
-
         <b>Permission required:</b>
          * /permission/admin/login
       summary: |
@@ -245,7 +240,6 @@ paths:
     delete:
       description: |
         This API is used to deregister devices by username and credentialId.
-
         <b>Permission required:</b>
          * /permission/admin/login
       summary: |
@@ -281,7 +275,6 @@ paths:
     patch:
       description: |
         This API is used to update display name of a device by username and credentialId.
-
         <b>Permission required:</b>
          * /permission/admin/login
       summary: |
@@ -326,7 +319,6 @@ paths:
     get:
       description: |
         This API is used to get fido metadata by username.
-
         <b>Permission required:</b>
          * /permission/admin/login
       summary: |

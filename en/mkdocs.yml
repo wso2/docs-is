@@ -497,6 +497,7 @@ nav:
       - Identity Governance: apis/identity-governance-rest-api.md
       - Identity Providers: apis/idp-rest-api.md
       - Keystore Management: apis/keystore-rest-api.md
+      - Notification Senders: apis/notification-sender-rest-api.md
       - Server Configurations: apis/configs-rest-api.md
       - OAuth2 Scope Management: apis/oauth2-scope-management-rest-apis.md
       - OpenID Connect Scope Management: apis/oidc-scope-management-rest-apis.md
