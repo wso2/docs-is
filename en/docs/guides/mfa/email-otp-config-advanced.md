@@ -185,5 +185,11 @@ This parameter enables displaying the email address to which the OTP is sent to,
 
 When `showEmailAddressInUI` is enabled, it provides the capability to define the way the email address should be displayed in the UI. This can be configured with a proper regex pattern as required.</td>
 
+----
+
+#### tokenExpirationTime
+
+This parameter helps to define a custom Email OTP expiry time. The default expiration time is 300000 milliseconds.
+
 -   `(?<=.{1}).(?=.@)  :  t***@mail.com`
 -   `(?<=.)^@|(?:(?<=@.)|(?!)\G(?=[@]$)).(?=.*\.)  :  t***@m***.com`

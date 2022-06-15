@@ -55,6 +55,7 @@ This page guides you through configuring [two-factor authentication](../../../re
     EmailOTPEnableByUserClaim = true
     CaptureAndUpdateEmailAddress = true
     showEmailAddressInUI = true
+    tokenExpirationTime = 300000
     ```
     <!--!!! info
         For information on each of these configurations, see [Email OTP Configurations](../email-otp-config-advanced)-->

@@ -20,6 +20,7 @@ SMSOTPMandatory = false
 CaptureAndUpdateMobileNumber = true
 SendOTPDirectlyToMobile = false
 redirectToMultiOptionPageOnFailure = false
+TokenExpiryTime = 12
 ```
 
 The parameter values given above show the **default** configurations in WSO2 Identity Server. 
@@ -104,3 +105,7 @@ When SMSOTPMandatory is set to *true* and the user does not exist in the user st
 During a failed attempt enable redirect to the Multi Option Page where the user can select the authentication mechanism.
 
 ----
+
+#### TokenExpiryTime
+
+SMS OTP does not have a default validity period hence you will have to explicitly configure it by adding the <code>TokenExpiryTime</code> parameter. The value provided for the parameter is considered as seconds.
