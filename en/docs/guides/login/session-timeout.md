@@ -31,6 +31,8 @@ To configure the **Session Timeout** and **Remember Me period** tenant-wise, fol
         </tr>
     </table>
 
+3. Click **Update** to save the configurations.
+
 The above configuration is effective only for the respective tenant. If it is required to apply the changes for all tenants [configure timeout values globally](#configure-timeout-values-globally).
 
 ## Configure timeout values globally
