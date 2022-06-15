@@ -59,6 +59,14 @@ nav:
   
   - Guides:
       - Overview: guides/before-you-start.md
+      - Applications:
+        - Configure a Service Provider: guides/applications/configure-sp.md
+        - Inbound Authentication: guides/applications/inbound-auth-for-sp.md
+        - Local and Outbound Authentication: guides/applications/local-outbound-auth-for-sp.md
+        - Provisioning:
+          - Inbound Provisioning: guides/applications/inbound-provisioning-for-sp.md
+          - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
+        - Import and Export a Service Provider: guides/applications/import-export-sp.md
       - Authentication:
         - Login:
           - Web Application:
@@ -96,7 +104,7 @@ nav:
             - Skip User Consent: guides/login/skip-user-consent.md
             - SaaS Applications: guides/login/saas-application.md
             - Use Certificates with Applications: guides/login/use-certificates-with-applications.md
-            - SP/IdP Session Timeout: guides/login/session-timeout.md
+            - Session Timeout: guides/login/session-timeout.md
             - Multi-attribute login: guides/login/multi-attribute-login.md
         - OpenID Connect:
           - Overview: guides/login/oidc-authentication.md 

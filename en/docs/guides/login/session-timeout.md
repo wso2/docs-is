@@ -1,44 +1,71 @@
 # Configure Session Time Out and Remember Me
 
-Follow the instructions given below to configure the session time out and the duration for which a user session will be remembere by WSO2 Identity Server.
-
-- Session time out
-
-    This is the duration in minutes for which an single sign-on (SSO) session can be idle for. If WSO2 Identity Server does not receive any SSO authentication requests for the given duration, a session time out occurs. The default value is **15 minutes**.
-
-- Remember me
-
-    This is the duration in weeks for which WSO2 Identity Server should remember an SSO session given that you have selected the Remember Me option in the WSO2 Identity Server login screen. The default value is **2 weeks**.
+This guide walks you through the steps on how to configure session time out and the duration for which a user session will be remembered by the WSO2 Identity Server.
 
 ## Update timeout values per tenant
 
-To configure the **Session Timeout** and **Remember Me period**  tenant wise, follow the steps below:
+To configure the **Session Timeout** and **Remember Me period** tenant-wise, follow the steps below:
 
-1. Start the WSO2 Identity Server and log in to the management console (`https://<IS_HOST>:<PORT>/carbon`).
+1. On the WSO2 IS management console (`https://<IS_HOST>:<PORT>/carbon`), go to **Main > Identity Providers > Resident**.
 
-2. Click **Resident** under **Identity Providers** on the **Main** tab.
-
-3. Fill in the fields as seen below to configure **Idle Session Time Out**
-    and **Remember Me Period**.  
+2. Enter the following details under **Resident Realm Configuration** section.  
 
     ![session-time-out](../../assets/img/guides/session-time-out-config.png)
 
+    <table>
+        <tr>
+            <th>Field name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Home Realm Identifier</td>
+            <td>This is the domain name of the identity provider.</td>
+        </tr>
+        <tr>
+            <td>Idle Session Time Out</td>
+            <td>This is the duration in minutes for which a single sign-on (SSO) session can be idle for.</td>
+        </tr>
+        <tr>
+            <td>Remember Me period</td>
+            <td>This is the duration in weeks for which WSO2 Identity Server should remember an SSO session given that you have selected the **Remember Me** option in the WSO2 Identity Server login screen.</td>
+        </tr>
+    </table>
+
+3. Click **Update** to save the configurations.
+
+The above configuration is effective only for the respective tenant. If it is required to apply the changes for all tenants [configure timeout values globally](#configure-timeout-values-globally).
+
 ## Configure timeout values globally
 
-The global configuration can be added to the
-`<IS_HOME>/repository/conf/deployment.toml` file as shown below. The `idle_session_timeout` property defines the session time out period. The `remember_me_session_timeout` property defines the period of time for which the WSO2 Identity Server will remember the user's SSO session.
+To configure session timeouts globally add the following section to the ```deployment.toml``` file.  
 
 ```toml
 [session.timeout]
 idle_session_timeout= "15m"
 remember_me_session_timeout= "14d"
 ```
-
-Restart the server to save the changes. Once you add these global configurations, each tenant that is created after adding the configuration will inherit the same configurations.
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Definition</th>
+    </tr>
+    <tr>
+        <td><code>idle_session_timeout</code></td>
+        <td>Defines the session time-out period</td>
+    </tr>
+    <tr>
+        <td><code>remember_me_session_timeout</code></td>
+        <td>Defines the period for which the WSO2 IS will remember the user's SSO session.</td>
+    </tr>
+</table>
 
 ## Advanced settings
 
-With every authentication, the value of `remember_me_session_timeout` is updated for each user. To disable extending this expiry time with each authentication request, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+With every login, the value of `remember_me_session_timeout` is rest to the configured value, for each user.
+
+For example, if you set `remember_me_session_timeout` as `14d` and log in to the management console every day, the`remember_me_session_timeout` keeps resetting to `14d`.
+
+To disable resetting of the expiry time with each authentication request, add the following configuration to the `deployment.toml` file.
 
 ```toml
 [session.timeout]
