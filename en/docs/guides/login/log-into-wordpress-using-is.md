@@ -1,46 +1,39 @@
 # Logging in to WordPress using the Identity Server
 
-WordPress is a popular open-source content management system. This topic provides instructions on configuring WordPress 
-and WSO2 Identity Server (WSO2 IS) to enable users to log in to WordPress using your WSO2 IS credentials.
+WordPress is a popular open-source content management system. This topic provides instructions on configuring WordPress and WSO2 Identity Server (WSO2 IS) to enable users to log in to WordPress using your WSO2 IS credentials.
 
-In this tutorial, WSO2 Identity Server acts as the identity provider and the miniOrange SAML Single Sign on (SSO) third 
-party plugin acts as the SAML 2.0 service provider which can be configured to establish the trust between the plugin 
-and WSO2 IS to securely authenticate the user to the WordPress site.
+In this tutorial, WSO2 Identity Server acts as the identity provider, and the miniOrange SAML Single Sign on (SSO) third party plugin acts as the SAML 2.0 service provider which can be configured to establish the trust between the plugin and WSO2 IS to securely authenticate the user to the WordPress site.
 
 ## The flow
 
-The diagram below demonstrates the flow of how WordPress uses WSO2 Identity Server as a SAML2 federated authenticator to 
-authenticate a user.
+The diagram below demonstrates the flow of how WordPress uses WSO2 Identity Server as a SAML2 federated authenticator to authenticate a user.
 
 ![wordpress-is-flow](../assets/img/tutorials/wordpress-is-flow.png)
 
-!!! tip "Before you begin!"
-    You need to have WordPress installed. Refer: [https://wordpress.org/support/article/how-to-install-wordpress/](https://wordpress.org/support/article/how-to-install-wordpress/)
- 
-Let's get started!
+## Pre-requisites
+- You need to have WordPress installed. Refer [the official wordpress website](https://wordpress.org/support/article/how-to-install-wordpress/) for the installation guide.
 
 ## Configure SAML SSO extension in WordPress
 
-1.  In the WordPress admin dashboard, on the left navigation panel click **Plugins > Add New**.
+1. On the WordPress admin dashboard, go to **Plugins > Add New**.
 
-2.  Install miniOrange SSO using SAML 2.0 extension.
+2. Install miniOrange SSO using SAML 2.0 extension.
     ![wordpress-miniorange](../assets/img/tutorials/wordpress-miniorange.png)
 
-3.  On the left navigation panel, click **miniOrange SAML 2.0 SSO > Plugin Configuration**.
+3. Go to **miniOrange SAML 2.0 SSO > Plugin Configuration > Service Provider Metadata**.
     ![wordpress-miniorange-config](../assets/img/tutorials/wordpress-miniorange-config.png)
 
-4.  Navigate to **Service Provider Metadata** tab. Here you will see the configuration details which will be needed 
-later for Identity Provider configurations.
+4. Navigate to **Service Provider Metadata** tab. Here you will see the configuration details which will be needed later for Identity Provider configurations.
     ![wordpress-miniorange-sp-meta](../assets/img/tutorials/wordpress-miniorange-sp-meta.png)
     
-5.  In the **Service Provider Setup** tab, click **Upload IDP Metadata** and enter the following values.
+5. In the **Service Provider Setup** tab, click **Upload IDP Metadata** and enter the following values.
     1. Identity Provider Name: WSO2
     2. Enter metadata URL: https://localhost:9443/identity/metadata/saml2
-    
-    !!! Note 
+
+    !!! Note
         Browse ```<IS_HOME>/repository/resources/conf/templates/repository/conf/identity/identity.xml.j2``` file and 
         add the following configuration as a sub tag of `ResourceAccessControl` tag.
-         
+
         &nbsp;```<Resource context="(.*)/identity/metadata/(.*)" secured="false" http-method="all"/>```
         
 6.  Click on **Fetch Metadata**.

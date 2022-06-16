@@ -36,11 +36,13 @@ The identity federation flow is as follows:
 
 ## Identity federation with WSO2 Identity Server
 
-WSO2 Identity Server can be used as an identity provider to authenticate users for multiple client applications. 
+WSO2 Identity Server can be used as an identity provider to authenticate users for multiple client applications.
 
-Furthermore, in a real-world implementation, organizations may have multiple relying party applications that need trust relationships with multiple identity providers, in order to authenticate users. Another requirement may be to enable relying party applications or services to provide access to identities that are *outside* the organization's traditional boundary/trust domain. These scenarios require an **identity broker** or a federated identity management system such as WSO2 Identity Server (WSO2 IS), which already has trust relationships with external identity providers. The identity broker can be used to set up a federation arrangement for multiple relying party applications. 
+Furthermore, in a real-world implementation, organizations may have multiple relying party applications that need trust relationships with multiple identity providers, in order to authenticate users. Another requirement may be to enable relying party applications or services to provide access to identities that are *outside* the organization's traditional boundary/trust domain.
+These scenarios require an **identity broker** or a federated identity management system such as WSO2 Identity Server (WSO2 IS), which already has trust relationships with external identity providers. The identity broker can be used to set up a federation arrangement for multiple relying party applications.
 
 WSO2 IS has federated authenticators for social identity providers such as Google, Facebook, LinkedIn, Twitter, Salesforce, etc., as well as authenticators for protocols such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation (passive).
 
-You can register relying party applications in WSO2 IS and configure which federated authenticators are to be used for each relying party. As it is highly extensible, you can also develop your own federated authenticator and plug it into WSO2 IS if required. 
+You can register relying party applications in WSO2 IS and configure which federated authenticators are to be used for each relying party. As it is highly extensible, you can also develop your own federated authenticator and plug it into WSO2 IS if required.
+
 
