@@ -1,11 +1,7 @@
 # Configuring WS-Trust Security Token Service
 
 WSO2 Identity Server uses the security token service (STS) as the
-[WS-Trust](../../learn/ws-trust) implementation. The STS is capable of issuing
-SAML 1.1 and 2.0 security tokens and has a SOAP/XML API for token
-issuance. This API can be secured with the
-`         UserNameToken        ` or with any other WS-Security mechanism
-as explained below.
+[WS-Trust](../../references/concepts/authentication/intro-ws-trust.md) implementation. The STS is capable of issuing SAML 1.1 and 2.0 security tokens and has a SOAP/XML API for token issuance. This API can be secured with the `UserNameToken` or with any other WS-Security mechanism as explained below.
 
 !!! Tip "Before you begin"
     WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. 
@@ -27,49 +23,44 @@ Console](../../setup/getting-started-with-the-management-console).
 
 To secure the Security Token Service:
 
-1.  On the **Main** tab, click **Identity \> Identity Providers \>
-    Resident**.  
-    ![main-tab-resident](../assets/img/tutorials/main-tab-resident.png)  
-    The Resident Identity Provider page appears.  
-    ![resident-identity-provider](../assets/img/tutorials/resident-identity-provider.png)
+1. On the management console, Go to **Main > Identity > Identity Providers > Resident**.  
 
-2.  Enter the required values as given below.
-
+2. On the **Resident Identity Provider** page, enter the required values as given below.
     <table>
-    <thead>
-    <tr class="header">
-    <th>Field</th>
-    <th>Description</th>
-    <th>Sample Value</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><strong>Home Realm Identifier</strong></td>
-    <td>This is the domain name of the identity provider. If you do not enter a value here, when an authentication request comes to WSO2 Identity Server, a user will be prompted to specify a domain. You can enter multiple identifiers as a comma-separated list.</td>
-    <td><code>               localhost              </code></td>
-    </tr>
-    <tr class="even">
-    <td><strong>Idle Session Time Out</strong></td>
-    <td>This is the duration in minutes for which an SSO session can be idle for. If WSO2 Identity Server does not receive any SSO authentication requests for the given duration, a session time out occurs. The default value is <code>               15              </code> .</td>
-    <td><code>               15              </code></td>
-    </tr>
-    <tr class="odd">
-    <td><strong>Remember Me Period</strong></td>
-    <td><div class="content-wrapper">
-    <p>This is the duration in weeks for which WSO2 Identity Server should remember an SSO session given that the <strong>Remember Me</strong> option is selected in the WSO2 Identity Server login screen.</p>
-    <p>The default value is <code>                 2                </code> weeks.</p>
-    </div></td>
-    <td><code>               2              </code></td>
-    </tr>
-    </tbody>
+        <thead>
+            <tr class="header">
+                <th>Field</th>
+                <th>Description</th>
+                <th>Sample Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td><strong>Home Realm Identifier</strong></td>
+                <td>This is the domain name of the identity provider. If you do not enter a value here, when an authentication request comes to WSO2 Identity Server, a user will be prompted to specify a domain. You can enter multiple identifiers as a comma-separated list.</td>
+                <td><code>localhost</code></td>
+            </tr>
+            <tr class="even">
+                <td><strong>Idle Session Time Out</strong></td>
+                <td>This is the duration in minutes for which an SSO session can be idle for. If WSO2 Identity Server does not receive any SSO authentication requests for the given duration, a session time out occurs. The default value is <code>15</code> .</td>
+                <td><code>15</code></td>
+            </tr>
+            <tr class="odd">
+                <td><strong>Remember Me Period</strong></td>
+                <td><div class="content-wrapper">
+                <p>This is the duration in weeks for which WSO2 Identity Server should remember an SSO session given that the <strong>Remember Me</strong> option is selected in the WSO2 Identity Server login screen.</p>
+                <p>The default value is <code>2</code> weeks.</p>
+                </div></td>
+                <td><code>2</code></td>
+            </tr>
+        </tbody>
     </table>
 
-3.  Under the **Inbound Authentication Configuration** section, click
-    **Security Token Service Configuration \> Apply Security Policy**
+3. Under the **Inbound Authentication Configuration** section, click
+    **Security Token Service Configuration > Apply Security Policy**
     .  
     ![security-token-service-config](../assets/img/tutorials/security-token-service-config.png)
-4.  Select **Yes** in the **Enable Security?** drop down and  select a
+4. Select **Yes** in the **Enable Security?** drop down and  select a
     pre-configured security scenario according to your requirements. For
     this tutorial, use **UsernameToken** under the **Basic Scenarios**
     section.  
