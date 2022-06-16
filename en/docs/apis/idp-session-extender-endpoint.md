@@ -1,4 +1,4 @@
-# Identity Provider Session Extend API
+# Identity Provider Session Extending API
 
 !!! info
     To access this API, use the following endpoint URL.
@@ -15,17 +15,14 @@ This API can be used to extend the user's session at the identity provider. To i
 !!! info
     Currently, the session identifier value can only be obtained via OIDC flows that have sessions involved.
 
----
+### Extracting the session identifier value
 
-## Extract the session identifier value
+If the above config has been enabled, the session identifier can be extracted from the ID token. 
+To do this, decode the ID token and read the value of the claim `isk`, which is the identifier of the session.
 
-To extract the session identifier from the ID token, decode the ID token and read the value of the claim `isk`.
+### Supported requests
 
----
-
-## Supported requests
-
-### Send session identifier as a request parameter
+##### Sending session identifier as a request parameter
 
 ```java
 curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/identity/extend-session?idpSessionKey=<SESSION_IDENTIFIER>'
@@ -34,7 +31,7 @@ curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/ide
 Replace the `<SESSION_IDENTIFIER>` with the `isk` value obtained from the ID token. This method is ideal
  in cases where the use of third party cookies has been blocked.
 
-### Send session identifier as a cookie
+##### Sending session identifier as a cookie
 
 ```java
 curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/identity/extend-session' \
@@ -43,9 +40,7 @@ curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/ide
 
 In this case, replace the `<SESSION_IDENTIFIER>` with the `commonAuthId` cookie.
 
----
-
-## API responses
+### API responses
 
 If session extension has been successful, a `200 OK` response will be returned.
 

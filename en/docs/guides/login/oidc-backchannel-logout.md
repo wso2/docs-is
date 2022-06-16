@@ -2,6 +2,10 @@
 
 This page guides you through configuring [OpenID Connect back-channel logout](../../../references/concepts/authentication/back-channel-logout) between OpenID Connect Relying Parties (RP) or client applications.
 
+!!! Note
+    When a session is terminated via the [Session Management REST API](../../../apis/session-mgt-rest-api), 
+    WSO2 Identity Server will send a back-channel logout notification.
+
 ## Register a service provider
 
 1. Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).

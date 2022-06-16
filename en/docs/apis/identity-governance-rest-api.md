@@ -167,7 +167,7 @@ and properties of connectors as mentioned below. <br>
     | Manage notifications sending internally   | Recovery.Notification.InternallyManage  | This property should be disabled if the client application handles notification sending. |
     | Notify when recovery success   | Recovery.NotifySuccess   | Upon a successful password reset, a success notification is sent to the user. |
     | Notify when security questions based recovery starts   | Recovery.Question.Password.NotifyStart   | A notification will be sent to the user that the security question-based recovery has started. |
-    | Recovery link expiry time  | Recovery.ExpiryTime   | The expiration time for the recovery link. |
+    | Recovery link expiry time in Minutes  | Recovery.ExpiryTime   | The expiration time for the recovery link. |
     | SMS OTP expiry time  | Recovery.Notification.Password.ExpiryTime.smsOtp   | Expiration time of the SMS OTP code for password recovery |
     | SMS OTP regex  | Recovery.Notification.Password.smsOtp.Regex  | The regular expression pattern for SMS OTP in format [allowed characters]{length}. Supported character ranges are a-z, A-Z, 0-9. |
     | Enable forced security questions   | Recovery.Question.Password.Forced.Enable   | Force users to provide answers to security questions during sign-in |
