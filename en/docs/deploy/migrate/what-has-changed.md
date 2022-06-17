@@ -518,7 +518,7 @@ With Identity Server 6.0.0, the UserInfo response has been updated to return a J
 Hence, any client application that consumes the UserInfo response should be updated to parse this new format of the response properly.
 
 #### Address Claims
-The representation of the following claims in the UserInfo response has been changed. 
+The representation of the following claims in the ```UserInfo``` response has been changed. 
 - country 
 - locality 
 - region 
