@@ -524,7 +524,7 @@ The representation of the following claims in the UserInfo response has been cha
 - region 
 - postal_code
 
-These claims will be listed as sub-claims inside a JSON object under the address claim in the ID token. In earlier versions of the Identity Server, these claims were received separately in the UserInfo response as shown below.
+These claims will be listed as sub-claims within a JSON object under the address claim in the ID token. In earlier versions of the Identity Server, these claims were listed separately in the UserInfo response as shown below.
 
 ```
 "country": "Andorra",
