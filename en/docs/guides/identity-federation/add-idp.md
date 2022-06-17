@@ -1,258 +1,115 @@
-# Adding and Configuring an Identity Provider
+# Introduction
 
-An Identity Provider (IdP) is responsible for authenticating users and
-issuing identification information by using security tokens like [SAML 2.0](../../learn/saml-2.0-web-sso), [OpenID Connect](../../learn/oauth2-openid-connect-overview), [OAuth 2.0](../../learn/oauth2-openid-connect-overview) and [WS-Trust](../../learn/ws-trust). This is a favourable alternative to explicitly authenticating a user within a security realm.
+WSO2 Identity Server allows you to add identity providers (IdP) and specify various details that help you to link the identity provider to WSO2 Identity Server. To properly configure the IdPs you must specify all information required to send the authentication requests and get a response back from the identity provider.
 
-The responsibility of the identity provider configuration is to
-represent external identity providers. These external identity providers
-can be Facebook, Yahoo, Google, Salesforce, Microsoft Windows Live, etc.
-If you want to authenticate users against these identity providers, then
-you must associate one or more federated authenticators with the WSO2
-Identity Server. These identity providers support for different
-authentication protocols. For example, if you want to authenticate users
-against Salesforce, then you must associate the SAML 2.0 authenticator
-with the Salesforce identity provider, if you want to authenticate users
-against Yahoo, then you must associate the OpenID Connect authenticator
-with it. To make this process much easier, the WSO2 Identity Server also
-comes with a set of more specific federated authenticators. For example,
-if you want to authenticate against Facebook, you do not need to
-configure OAuth 2.0 authenticator. Instead, you can directly use the
-Facebook federated authenticator.
+This guide walks you through the process of adding and configuring identity providers based on your requirements.
 
-Each identity provider configuration can also maintain a claim mapping.
-This is to map the identity provider's own set of claims to WSO2
-Identity Server's claims. When the response from an external identity
-provider is received by the response processor component of the
-federated authenticator, before it hands over the control to the
-authentication framework, the response processor will create a
-name/value pair of user claims received in the response from the
-identity provider. These claims are specific to the external identity
-provider. Then it is the responsibility of the authentication framework
-to read the claim mapping configuration from the identity provider
-component and do the conversion. So, while inside the framework, all the
-user claim values will be in a common format.
+!!! note
+    Adding and configuring an IdP can be performed by administrators only.
 
-So, in short, WSO2 Identity Server allows you to add identity providers
-and specify various details that help you to link the identity provider
-to WSO2 Identity Server.  Therefore, you must specify all information
-required to send the authentication requests and get a response back
-from the identity provider. This topic contains the following sections.
+## Add an identity provider
 
-## Adding an identity provider
+To add a new identity provider.
 
-Follow the instructions below to add a new identity provider.
+1. On WSO2 Identity Server [Management
+    Console](../../setup/getting-started-with-the-management-console), go to **Main > Identity \> Identity Providers**
 
-1. Access the WSO2 Identity Server [Management
-    Console](../../setup/getting-started-with-the-management-console) and sign in
-    as an admin user.
-2. On the **Main** tab, click **Identity \> Identity Providers \> Add**
-    .  
-    ![add-idp]( ../assets/img/using-wso2-identity-server/add-idp.png)
+2. Click **Add**, and enter the details in the **Basic Information** section.  
+    ![basic-info](../../assets/img/guides/add-identity-provider-screen.png)
 
-3. Fill in the details in the **Basic Information** section.  
-    ![basic-info]( ../assets/img/using-wso2-identity-server/basic-info.png)
-    Note the following when filling the above form.
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Field</th>
-    <th>Description</th>
-    <th>Sample Value</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Identity Provider Name</td>
-    <td><p>The <strong>Identity Provider Name</strong> must be unique as it is used as the primary identifier of the identity provider.</p></td>
-    <td><code>               FacebookIdP              </code></td>
-    </tr>
-    <tr class="even">
-    <td>Display Name</td>
-    <td><p>The <strong>Display Name</strong> is used to identify the identity provider. If this is left blank, the <strong>Identity Provider Name</strong> is used. This is used in the login page when selecting the identity provider that you want to use to log in to the service provider.</p></td>
-    <td><code>               Facebook              </code></td>
-    </tr>
-    <tr class="odd">
-    <td>Description</td>
-    <td>The <strong>Description</strong> is added in the list of identity providers to provide more information on what the identity provider is. This is particularly useful in situations where there are many identity providers configured and a description is required to differentiate and identify them.</td>
-    <td><code>               This is the identity provider configuration for Facebook.              </code></td>
-    </tr>
-    <tr class="even">
-    <td>Federation Hub Identity Provider</td>
-    <td><p>Select the <strong>Federation Hub Identity Provider</strong> check-box to indicate if this points to an identity provider that acts as a federation hub. A federation hub is an identity provider that has multiple identity providers configured to it and can redirect users to the correct identity provider depending on their Home Realm identifier or their Identity Provider Name.
-    When we have this check-box selected additional window will pop-up in the multi-option page in the first identity server to get the home realm identifier for the desired identity provider in the identity provider hub.</p></td>
-    <td>Selected</td>
-    </tr>
-    <tr class="odd">
-    <td>Home Realm Identifier</td>
-    <td><p>The <strong>Home Realm Identifier</strong> value can be specified in each federated IDP and can send the Home Realm Identifier value as the “fidp” query parameter (e.g., fidp=googleIdp) in the authentication request by the service provider. Then WSO2 Identity Server finds the IDP related to the “fidp” value and redirects the end user to the IDP directly rather than showing the SSO login page. By using this, you can avoid multi-option, in a multi-option scenario without redirecting to the multi-option page.</p></td>
-    <td><code>               FB              </code></td>
-    </tr>
-    <tr class="even">
-    <td><div class="content-wrapper">
-    <p>Identity Provider Public Certificate</p>
-    </div></td>
-    <td><div class="content-wrapper">
-    <p>The <strong>Identity Provider Public Certificate</strong> is the public certificate of the identity provider. Uploading this is necessary to authenticate responses from the identity provider.<br />
-    If necessary, you can upload multiple certificates for an identity provider. This is useful in scenarios where one certificate is expired, but the second can be used for certificate validation.</p>
-    <p>For example, consider a scenario where a third party IDP needs to change its certificate in one week, but cannot specify the exact time that the certificate would change. In such a scenario, it is useful to be able to upload a secondary certificate to the IDP so that during SAML assertion validation if certificate validation fails with the first certificate, the second certificate can be used for certificate validation.</p>
-    <div class="admonition note">
-    <p class="admonition-title">Note</p>
-        <p>To create the identity provider certificate, navigate to the <code>                 &lt;IS_HOME&gt;/repository/resources/security/                </code> directory in a command prompt and execute the following command:</p>
-        <div class="code panel pdl" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-        <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">keytool -export -alias wso2carbon -file wso2.<span class="fu">crt</span> -keystore wso2carbon.<span class="fu">jks</span> -storepass wso2carbon</a></code></pre></div>
-        </div>
-        </div>
-        <p>Note that the <code>                 wso2.crt                </code> file is generated. This file is located in the <code>                 &lt;IS_HOME&gt;/repository/resources/security/                </code> directory.</p>
-        <p>Click <strong>Choose File</strong> and navigate to this location to obtain and the file so that you can upload the file.</p>
-        <div>
-        See <a href="../../administer/using-asymmetric-encryption">Using Asymmetric Encryption</a> in the WSO2 Product Administration Guide for more information.</div>
-        </div>
-        <div class="admonition tip">
-        <p class="admonition-title">Tip</p>
-        <p>If you are adding an identity provider using a configuration file, and you want to specify multiple certificates for the identity provider, use the following sample configuration:</p>
-        <div class="code panel pdl" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-        <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;<span class="bu">Certificate</span>&gt;</a>
-        <a class="sourceLine" id="cb2-2" title="2">-----BEGIN CERTIFICATE-----</a>
-        <a class="sourceLine" id="cb2-3" title="3">MIIDUTCCAjmgAwIBAgIEXvHuADANBgkqhkiG9w0BAQsFADBZMQswCQYDVQQGEwJMSzELMAkGA1UE</a>
-        <a class="sourceLine" id="cb2-4" title="4">CBMCV1MxCzAJBgNVBAcTAlNMMQ0wCwYDVQQKEwRIb21lMQ0wCwYDVQQLEwRIb21lMRIwEAYDVQQD</a>
-        <a class="sourceLine" id="cb2-5" title="5">-----END CERTIFICATE-----</a>
-        <a class="sourceLine" id="cb2-6" title="6">-----BEGIN CERTIFICATE-----</a>
-        <a class="sourceLine" id="cb2-7" title="7">MIIDUTCCAjmgAwIBAgIEXvHuADANBgkqhkiG9w0BAQsFADBZMQswCQYDVQQGEwJMSzELMAkGA1UE</a>
-        <a class="sourceLine" id="cb2-8" title="8">CBMCV1MxCzAJBgNVBAcTAlNMMQ0wCwYDVQQKEwRIb21lMQ0wCwYDVQQLEwRIb21lMRIwEAYDVQQD</a>
-        <a class="sourceLine" id="cb2-9" title="9">-----END CERTIFICATE-----</a>
-        <a class="sourceLine" id="cb2-10" title="10">-----BEGIN CERTIFICATE-----</a>
-        <a class="sourceLine" id="cb2-11" title="11">MIIDUTCCAjmgAwIBAgIEHMcPtzANBgkqhkiG9w0BAQsFADBZMQswCQYDVQQGEwJM</a>
-        <a class="sourceLine" id="cb2-12" title="12">SzELMAkGA1UECBMCV1MxCzAJBgNVBAcTAlNMMQ0wCwYDVQQKEwRIb21lMQ0wCwYD</a>
-        <a class="sourceLine" id="cb2-13" title="13">-----END CERTIFICATE-----</a>
-        <a class="sourceLine" id="cb2-14" title="14">&lt;/<span class="bu">Certificate</span>&gt;</a></code></pre></div>
-        </div></div>
-        </div>
-    <p>See <a href="../../administer/using-asymmetric-encryption">Using Asymmetric Encryption</a> in the WSO2 Product Administration Guide for information on how public keys work, and how to get the keys signed by a certification authority.</p>
-    </div></td>
-    <td><div class="content-wrapper">
-    <p>This can be any certificate. If the identity provider is another Identity Server, this can be a wso2.crt file.</p>
-    <p><br />
-    </p>
-    </div></td>
-    </tr>
-    <tr class="odd">
-    <td>Alias</td>
-    <td><p>The <strong>Alias</strong> is a value that has an equivalent value specified in the identity provider that we are configuring. This is required for authentication in some scenarios.</p></td>
-    <td><code>               http://localhost:9443/oauth2/token              </code></td>
-    </tr>
-    <tr class="even">
-        <td>Identity Provider's Issuer Name</td>
-        <td><p>The <strong>Identity Provider's Issuer Name</strong> is a optional property that can be used to define the issuer name of the Identity Provider if it is different from the <strong>Identity Provider Name</strong>.</p></td>
-        <td><code>               http://is.wso2.com              </code></td>
-     </tr>
-    </tbody>
-    </table>
+    | Method      | Description                          | Sample Value                         |
+    | ----------- | ------------------------------------ | ------------------------------------ |
+    | Identity Provider Name       | A unique name used as the primary identifier of the IdP. | `FacebookIdP`
+    | Display Name       | This is used to identify the identity provider. If this is left blank, the Identity Provider Name is used. | `Facebook`                       |
+    | Description    | A description about the identity provider. | `This is the identity provider configuration for Facebook.`                       |
+    | Federation Hub Identity Provider    | Select the Federation Hub Identity Provider check-box to indicate if this points to an identity provider that acts as a federation hub. | Selected                        |
+    | Home Realm Identifier    | This value is an identifier when your application useds federated IdP. If a user selects this IdP, and an authentication request is sent, the `fidp` query parameter will be populated with this value. (example: `fidp` = googleIdP) | `googleIdP`                         |
+    | Choose IDP certificate type    | This is used to authenticate responses from the IdP. You can either **Upload IDP certificate** or use the **Use IDP JWKS endpoint**.       | Selected                        |
+    | Identity Provider's JWKS Endpoint:    | If you have selected **Use IDP JWKS endpoint** in the above field, this field will appear. You need to add the JWKS endpoint URL in this field.        | Selected                        |
+    | Identity Provider Public Certificate    | If you have selected **Upload IDP certificate** in the above field, this field will appear. You need to upload the public certificate of your IdP in this field.      | Selected                        |
+    | Alias    | This is a value that has an equivalent value specified in the identity provider that we are configuring. This is required for authentication in some scenarios. | http://localhost:9443/oauth2/token                         |
+    | Identity Provider's Issuer Name    | This is an optional property that can be used to define the issuer name of the Identity Provider if it is different from the Identity Provider Name. | http://is.wso2.com                        |
 
-    ??? note "Click here for more information on the federation hub and the home realm identifier"
+    ??? note "Create IdP certificate"
 
-        !!! info "About the federation hub and the home realm identifier"
+        To create the identity provider certificate, navigate to the ```<IS_HOME>/repository/resources/security/``` directory, open a terminal, and execute the following command:
 
-            The federation hub has multiple identity providers configured to it.
-            In a typical federation hub with multiple identity providers, each
-            identity provider can have a unique home realm identifier that can
-            be used to identify the identity provider you are logging into.
-
-            So when a user tries to log in to a service provider following flow
-            will happen,
-
-            -   The Identity Server which this service provider is configured on
-                will find the required federated authenticator from the service
-                provider configuration
-            -   If this Identity Provider configured as a federation hub, the
-                user can specify the preferred identity provider in the
-                federation hub using the multi-option page of the first Identity
-                Server.
-            -   This information will pass with the authentication request to
-                the federation hub.
-            -   When the request comes to the federation hub, it is sent to the
-                identity provider that the user specifies from the first
-                identity server. For instance, if the users prefer to use their
-                Facebook credentials to log in, and Facebook is one of the
-                identity providers configured in the federation hub, the user
-                simply has to specify Facebook as the domain in the login screen
-                of first Identity Server.
-
-            ![fed-hub-home-realm-identifier]( ../assets/img/using-wso2-identity-server/fed-hub-home-realm-identifier.png) 
-
-            When the Home Realm Identifier is not specified, you can either
-            select the domain name from a dropdown in the login page, or you
-            have to enter the domain value in a separate page prior to logging
-            in (as shown below).
+            keytool -export -alias wso2carbon -file wso2.crt -keystore wso2carbon.jks -storepass wso2carbon
             
-            ![home-realm-identifier]( ../assets/img/using-wso2-identity-server/home-realm-identifier.png) 
-                     
-            The `proxy_mode` configuration allows the framework to operate in either
-            `smart` mode or `dumb` mode. 
-            
-            In `smart` mode, both local and federated authentication is supported, while in `dumb` mode, only federated
-            authentication is supported. If `dumb` mode is configured here, you must provide the Home Realm Identifier,
-            or you have to display a separate screen to the user to get it.
+        See [Using Asymmetric Encryption](../../deploy/security/use-asymmetric-encryption.md) guide for more information about certificates.
 
-            If smart mode is configured, the default behavior applies, where you can enter a local username and 
-            password, or use federated authenticators for authentication.
-            
-            To configure the `proxy_mode`, open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory 
-            and add the following configuration.
-            ```               
-            [authentication] 
-            proxy_mode="smart" 
-            ```       
+    ??? note "Federation hub and the home realm identifier"
+        A federation hub is a collection of multiple IdPs configured on WSO2 Identity Server.
 
-    ??? note "Click here for more information on the Alias"
+        On the federation hub, each IdP is recognized by the **home realm identifier** of the IdP. This home realm identifier is configured when creating the IdP.
 
-        !!! info "About the Alias"
+        The following diagrams illustrates the work flow of authentication with a federated hub.
 
-            The **Alias** is used in the following authentication scenario.
+        ![fed-hub-home-realm-identifier]( ../../assets/img/guides/federation-hub-flow.png) 
 
-            ![alias-authentication]( ../assets/img/using-wso2-identity-server/alias-authentication.png)
+        When the Home Realm Identifier is not specified, you can either
+        select the domain name from a dropdown in the login page, or you
+        have to enter the domain value in a separate page prior to logging
+        in (as shown below).
+        
+        ![home-realm-identifier]( ../assets/img/using-wso2-identity-server/home-realm-identifier.png) 
+                    
+        The `proxy_mode` configuration allows the framework to operate in either `smart` mode or `dumb` mode. 
+        
+        In `smart` mode, both local and federated authentication is supported, while in `dumb` mode, only federated authentication is supported. If `dumb` mode is configured here, you must provide the Home Realm Identifier,
+        or you have to display a separate screen to the user to get it.
 
-            Here a SAML identity provider sends a SAML token to a web
-            application for authentication. The SAML token has an audience
-            restriction element that controls access and has a reference to the
-            web application in order to access it. Using this token, the
-            authentication takes place. Now, if the web application needs to
-            access an API that is protected by OAuth 2.0, the same SAML token is
-            sent to the token endpoint of the Identity Server. The **Alias**
-            value you configure in the Identity Server is associated with this
-            token endpoint. This alias value must be added to the audience
-            restriction element of the SAML token. When this SAML token is sent
-            to the Identity Server, you obtain an access token, which is used to
-            access the API.
+        If smart mode is configured, the default behavior applies, where you can enter a local username and 
+        password, or use federated authenticators for authentication.
+        
+        To configure the `proxy_mode`, open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory 
+        and add the following configuration.
+        ```               
+        [authentication] 
+        proxy_mode="smart" 
+        ```       
 
-            So in order to configure this, you must add the SAML identity
-            provider as an identity provider in the Identity Server using the
-            instructions in this topic. When configuring this in the Identity
-            Server, you must specify the token alias for this scenario to work.
-            This indicates that any token coming from the SAML identity provider
-            must have this alias value in the audience restriction element.
+    ??? note "Details about Alias"
 
-4. Enter the **Identity Provider Name** and provide a brief
-    **Description** of the identity provider. Only **Identity Provider
-    Name** is a required field.
+        The **Alias** is used in the following authentication scenario.
 
-5. Fill in the remaining details where applicable. Click the arrow
-    buttons to expand the forms available to update.  
-    ![Adding Configurations for the Identity
-    Provider](../assets/img/using-wso2-identity-server/adding-configs-for-the-idp.png)
+        ![alias-authentication]( ../assets/img/using-wso2-identity-server/alias-authentication.png)
 
-    - See [here](../../learn/configuring-claims-for-an-identity-provider) for details on how to configure claims.
+        Here a SAML identity provider sends a SAML token to a web
+        application for authentication. The SAML token has an audience
+        restriction element that controls access and has a reference to the
+        web application in order to access it. Using this token, the
+        authentication takes place. Now, if the web application needs to
+        access an API that is protected by OAuth 2.0, the same SAML token is
+        sent to the token endpoint of the Identity Server. The **Alias**
+        value you configure in the Identity Server is associated with this
+        token endpoint. This alias value must be added to the audience
+        restriction element of the SAML token. When this SAML token is sent
+        to the Identity Server, you obtain an access token, which is used to
+        access the API.
 
-    - See [here](../../learn/configuring-roles-for-an-identity-provider) for details on how to configure roles.
+        So in order to configure this, you must add the SAML identity
+        provider as an identity provider in the Identity Server using the
+        instructions in this topic. When configuring this in the Identity
+        Server, you must specify the token alias for this scenario to work.
+        This indicates that any token coming from the SAML identity provider
+        must have this alias value in the audience restriction element.
 
-    - See [here](../../learn/configuring-federated-authentication) for details on how to configure federated authenticators.
+3. Click the expandales to check and update the available optional configurations.
+![expand-configurations](../../assets/img/guides/adding-configs-for-the-idp.png)
 
-    - See [here](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider) for details on how to configure just-in-time provisioning.
+    !!! info
+        **Identity Provider Name** is the only required field. You can fill in the remaning details if applicable.
 
-    - See [here](../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider) for details on how to configure outbound provisioning connectors.
+        For more information about the other configurations, see the following documentation. 
+        
+        - [Configure claims for an IdP](../identity-federation/claims-idp.md)
+        - [Configure roles for an IdP](../identity-federation/roles-idp.md)
+        - [Configure federated authenticators](../identity-federation/configure-ad-fs-as-a-federated-authenticator.md)
+        - [Configure just-in-time provisioning](../identity-federation/jit-workflow.md)
+        - [Configure outbound provisioning connectors](../identity-federation/outbound-provisioing-idp.md)
 
-6. Click **Register** to add the Identity Provider.  
+4. Click **Register** to add the Identity Provider.
 
 ## Configuring a resident identity provider
 
@@ -262,28 +119,21 @@ provider and an identity provider. When WSO2 Identity Server acts as an
 identity provider, it is called the **resident identity provider**.
 
 !!! note
-    The resident identity provider configuration is helps service providers
-    to send authentication or provisioning requests to WSO2 Identity Server
-    via SAML, OpenID Connect, SCIM, or WS-Trust. For an example on how a
-    resident identity provider is used to implement a security token
-    service, see [Configuring WS-Trust Security Token
-    Service](../../learn/configuring-ws-trust-security-token-service). The Resident
-    identity provider configuration is a one-time configuration for a given
-    tenant. It shows WSO2 Identity Server's metadata, e.g., endpoints. The
-    resident identity provider configurations can be used to secure the
-    WS-Trust endpoint with a security policy.
+    The resident identity provider configuration helps service providers
+    to send authentication or provisioning requests to WSO2 Identity Server via SAML, OpenID Connect, SCIM, or WS-Trust.
+
+    For an example on how a resident identity provider is used to implement a security token service, see [Configuring WS-Trust Security Token Service](../../learn/configuring-ws-trust-security-token-service).
+    
+    The Resident identity provider configuration is a one-time configuration for a given tenant. It shows WSO2 Identity Server's metadata, e.g., endpoints. The resident identity provider configurations can be used to secure the WS-Trust endpoint with a security policy.
 
 Follow the instructions below to configure a resident identity provider:
 
-1. Access the WSO2 Identity Server Management Console.
-2. Sign in as an admin user.
-3. On the **Main** tab, click **Identity \> Identity Providers \>
-    Resident**.  
+1. On the WSO2 Identity Server Management Console, go to **Main \> Identity \> Identity Providers \> Resident**.  
     ![idp-resident-main](../assets/img/using-wso2-identity-server/idp-resident-main.png)
     The Resident Identity Provider page appears.  
     ![resident-identity-provider](../assets/img/using-wso2-identity-server/resident-identity-provider.png)
 
-4. Enter the required values as given below.
+2. Enter the required values as given below.
 
     <table>
     <thead>
@@ -297,20 +147,20 @@ Follow the instructions below to configure a resident identity provider:
     <tr class="odd">
     <td><strong>Home Realm Identifier</strong></td>
     <td>This is the domain name of the identity provider. If you do not enter a value here, when an authentication request comes to WSO2 Identity Server, a user will be prompted to specify a domain. You can enter multiple identifiers as a comma-separated list.</td>
-    <td><code>                localhost               </code></td>
+    <td><code>localhost</code></td>
     </tr>
     <tr class="even">
     <td><strong>Idle Session Time Out</strong></td>
-    <td>This is the duration in minutes for which an SSO session can be idle for. If WSO2 Identity Server does not receive any SSO authentication requests for the given duration, a session time out occurs. The default value is <code>                15               </code> .</td>
-    <td><code>                15               </code></td>
+    <td>This is the duration in minutes for which an SSO session can be idle for. If WSO2 Identity Server does not receive any SSO authentication requests for the given duration, a session time out occurs. The default value is <code>15</code> .</td>
+    <td><code>15</code></td>
     </tr>
     <tr class="odd">
     <td><strong>Remember Me Period</strong></td>
     <td><div class="content-wrapper">
     <p>This is the duration in weeks for which WSO2 Identity Server should remember an SSO session given that you have selected the <strong>Remember Me</strong> option in the WSO2 Identity Server login screen.</p>
-    <p>The default value is <code>                  2                 </code> weeks.</p>
+    <p>The default value is <code>2</code> weeks.</p>
     </div></td>
-    <td><code>                2               </code></td>
+    <td><code>2</code></td>
     </tr>
     </tbody>
     </table>
@@ -322,8 +172,8 @@ Follow the instructions below to configure a resident identity provider:
             ![saml2-sso-config](../assets/img/using-wso2-identity-server/saml2-sso-config.png)
             The SAML2 Web SSO Configuration form appears.  
             ![saml2-sso-form]( ../assets/img/using-wso2-identity-server/saml2-sso-form.png)
-        2. Enter the required values and learn the fixed values as
-            given below.
+
+        2. Enter the required values and learn the fixed values as given below.
 
             | Field                           | Description                                                                                                                                                                             | Sample/Fixed Value                                                                                                      |
             |---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -373,20 +223,14 @@ Follow the instructions below to configure a resident identity provider:
 7. Click **Update**.
 
 !!! note
-    To modify the host name of the above-above mentioned URLs,
+    To modify the host name of the above mentioned URLs,
 
-    1.  open the `            deployment.toml           ` file in the
-        `            <IS_HOME>/repository/conf           ` directory and
-        add the following configuration.
-    
+    Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and add the following configuration.
+
         ``` xml
         [server]
         hostname = "localhost"
         ```
-    
-    2.  Open the `            deployment.toml           ` file in the
-        `            <IS_HOME>/repository/conf         `
-        and add the following configuration.
     
         ``` xml
         [sts.endpoint] 
