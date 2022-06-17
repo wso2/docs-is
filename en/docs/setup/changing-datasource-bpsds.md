@@ -93,4 +93,19 @@ Following are the sample configuration for each database type.
         Navigate to <IS-HOME>/dbscripts. Execute the scripts in the following file, against the created database.    
          
           - `<IS-HOME>/dbscripts/bps/bpel/create/oracle.sql`
-        
+
+**Advanced BPS Database Configurations**
+
+Apart from above basic configurations, WSO2 Identity Server supports advanced BPS database configurations such as 
+the following. The explanation for the following configurations can be found in the 
+[Performance Tuning](../../setup/performance-tuning-recommendations/#jdbc-pool-configuration) documentation.
+
+   ``` toml
+   [bps_database.config.pool_options]
+   maxActive = "50"
+   maxWait = "60000"
+   minIdle = "5"
+   testOnBorrow = true
+   validationInterval = "30000"
+   validationQuery = "SELECT 1; COMMIT"
+   ```
