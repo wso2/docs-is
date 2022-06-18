@@ -6,7 +6,7 @@ You can perform data purging by clearing the session data using the script given
     For more information about session persistence, see [Authentication Session Persistence](../../learn/authentication-session-persistence).
 
 !!! tip
-    It is recommended to run these steps at the time when server traffic is low. Especially if you are running this in the production environment for the first time, since the data volume to be purged may be higher. However, consider this as a housekeeping task that needs to be run at regular intervals. 
+    It is recommended to run these steps at a time when server traffic is low. This recommendation is particularly important if you are running these steps in the production environment for the first time because the data volume to be purged may be higher. However, consider this as a housekeeping task that needs to be run at regular intervals. 
     You can schedule the aforementioned queries to be run at regular intervals.
     
 
