@@ -10,11 +10,11 @@ how to configure this.
 
 ## Configuring WSO2 IS for Multi Attribute Login
 
-!!! Note 'Before you begin'
-
-     Create the following DB index in the shared/user DB and any secondary JDBC user stores if it does not exist already:
-
-     ```CREATE INDEX UM_ATTR_NAME_VALUE_INDEX ON UM_USER_ATTRIBUTE(UM_ATTR_NAME, UM_ATTR_VALUE);```
+!!! note "Before you begin"
+    Create the following DB index in the shared/user DB and any secondary JDBC user stores if it does not exist already:
+    ```bash
+    CREATE INDEX UM_ATTR_NAME_VALUE_INDEX ON UM_USER_ATTRIBUTE(UM_ATTR_NAME, UM_ATTR_VALUE);
+    ```
 
 1. Start WSO2 Identity Server and log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using your tenant credentials.
 
