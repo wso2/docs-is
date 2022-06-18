@@ -14,28 +14,26 @@ how to configure this.
 1. Start WSO2 Identity Server and log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using your tenant credentials.
 
     !!! info
-         'admin' is the default administrative user in WSO2 Identity Server.
+         - Note that 'admin' is the default administrative user in WSO2 Identity Server.
+         - If you use multiple tenant domains, you need to configure multi-attribute login tenant-wise.
 
-    !!! info
-         If you use multiple tenant domains, you need to configure the multi attribute login tenant-wise.
-
-2.  Click **Main** > **Identity Providers** > **Resident** and expand the **Login Policies** section.
+2.  Click **Main** > **Identity Providers** > **Resident** and expand **Login Policies**.
 
 3.  Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
 
-4.  Add claim URIs which allow for multi-attribute login in the given text box.
+4.  Add claim URIs, which will allow multi-attribute login in the given text box.
 
 
       ![adding-claims-for-multi-attribute-login](../assets/img/learn/multi-attribute-login/adding-claims-for-multi-attribute-login.png)
 
-5. Add Regular Expression for Allowed Claims.
+5. Add a regular expression for allowed claims.
 
-   Once you have configured WSO2 Identity Server for multi attribute login, you need to provide regular expression
+   Once you have configured WSO2 Identity Server for multi-attribute login, you need to provide a regular expression
    for the allowed claims.
    Some claims have a default regex. If they don't, you need to provide it.
 
    1.  Open the WSO2 Identity Server Management Console.
-   2.  In the **Main** menu, click **List** under **Claims**.
+   2.  Go to **Main** >  **Claims** and click **List**.
    3.  Select the claim you want to provide the regular expression for and click **Edit**.
    4.  Enter the regex pattern under the **Regular Expression** field.
    5.  Click **Update** to save the changes.
@@ -64,9 +62,9 @@ using any of the given flows.
 5.  Oauth Password grant
 6.  Password recovery flow
 
-!!! Note "What happens if two users use the same value for the same claim?"
-      If two users use the same value for the same claim, the multi attribute login feature
-      does not support those claims for those users. Retaining the uniqueness of claim values avoids this conflict.
+!!! Note
+      If two users use the same value for the same claim, multi-attribute login
+      will not work for those claims for those users. Retaining the uniqueness of claim values avoids this conflict.
 
 !!! info "Related Topics"
-      See the [Configuring Uniqueness of Claims](../../learn/configuring-uniqueness-of-claims) topic for information on configuring uniqueness of claims.
+      Learn more about [Configuring Uniqueness of Claims](../../learn/configuring-uniqueness-of-claims).
