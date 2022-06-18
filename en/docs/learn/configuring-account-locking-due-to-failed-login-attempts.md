@@ -16,7 +16,7 @@ Follow the steps below to configure account locking due to failed login attempts
 
 1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-	1.	To request password entry from the users who are registered via Management Console, add the following configurations. 
+	1.	To request password entry from the users who are registered via Management Console, add the following configurations:
 
 
 	 	```toml
