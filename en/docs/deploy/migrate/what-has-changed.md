@@ -507,6 +507,7 @@ The data type of the ```client_secret_expires_at``` property of an OAuth2 Applic
 Therefore, any client applications that are using this API must update the response parsing mechanisms to work with a long value for this attribute.
 
 ### UserInfo Endpoint Attributes
+#### Groups Claim
 The representation of the groups claim in the ```UserInfo``` response has been changed. The groups claim is a multi-valued attribute, and it is represented accordingly as a JSON array in the ID token. But in earlier versions of the Identity Server, the value of the groups claim in the UserInfo response is a single string of comma-separated values as shown below.
 
 ```"groups": "Internal/everyone,dev"```
@@ -514,6 +515,30 @@ The representation of the groups claim in the ```UserInfo``` response has been c
 With Identity Server 6.0.0, the UserInfo response has been updated to return a JSON array value for the groups claim, similar to that in the ID token.
 
 ```"groups": ["Internal/everyone","dev"]```
+Hence, any client application that consumes the UserInfo response should be updated to parse this new format of the response properly.
+
+#### Address Claims
+The representation of the following claims in the ```UserInfo``` response has been changed. 
+- country 
+- locality 
+- region 
+- postal_code
+
+These claims will be listed as sub-claims within a JSON object under the address claim in the ID token. In earlier versions of the Identity Server, these claims were listed separately in the UserInfo response as shown below.
+
+```
+"country": "Andorra",
+"locality": "Wales"
+```
+
+With Identity Server 6.0.0, the UserInfo response will list the above claims inside the address claim as shown below.
+
+```
+"address": {
+   "country": "Andorra",
+   "locality": "Wales"
+}   
+```
 Hence, any client application that consumes the UserInfo response should be updated to parse this new format of the response properly.
 
 ### Library Management Permissions
