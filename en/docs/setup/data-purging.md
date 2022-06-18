@@ -10,7 +10,7 @@ You can perform data purging by clearing the session data using the script given
     You can schedule the aforementioned queries to be run at regular intervals.
     
 
-1. Disable the internal session cleanup process by configuring the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
+1. Disable the internal session cleanup process by configuring the following properties in the `deployment.toml` file (which is stored in the `<IS_HOME>/repository/conf` folder).
 
     ```toml
     [session_data.cleanup]
