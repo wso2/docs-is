@@ -89,7 +89,7 @@ object such as `           authenticationOptions          `, `           authent
         authenticationOptions:[{
             authenticator: 'totp'
         }]},
-    });
+    }, {});
     ```
     ``` java
     executeStep(1, {

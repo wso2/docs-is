@@ -27,8 +27,20 @@ You can find an example below,
 ``` toml
 [catalina.valves.valve.properties]
 className = "org.apache.catalina.valves.RemoteIpValve"
-internalProxies = "192\.168\.0\.10|192\.168\.0\.11"
-remoteIpHeader ="x-forwarded-for"
-proxiesHeader="x-forwarded-by"
-trustedProxies="proxy1|proxy2"
+internalProxies = "192.168.0.10|192.168.0.11"
+remoteIpHeader = "x-forwarded-for"
+proxiesHeader = "x-forwarded-by"
+trustedProxies = "proxy1|proxy2"
+```
+
+If you are on an update level that is greater than or equal to 5.11.0.2, you can use the following configuration instead.
+
+``` toml
+[catalinaValves.remoteIpValve]
+enable = true
+internalProxies = "192.168.0.10|192.168.0.11"
+remoteIpHeader = "x-forwarded-for"
+protocolHeader = "x-forwarded-proto"
+proxiesHeader = "x-forwarded-by"
+trustedProxies = "proxy1|proxy2"
 ```

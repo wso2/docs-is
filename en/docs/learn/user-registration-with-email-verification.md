@@ -96,13 +96,13 @@ You have now configured WSO2 Identity Server to send the user account confirmati
 1.	To create the user account for Mark, execute the following cURL.
 
 	!!! tip
-
 		Make sure to enter a valid user email.
 
 
 	```curl 
 	curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Mark","givenName":"Roe"},"userName":"Mark","password":"password","emails":[{"primary":true,"value":"<USER_EMAIL>"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
 	```
+
     !!! tip "Using special characters in the username"
                 
         Note that the special characters `@`, `/`, `\`, `!`, `(`, `)`, `*`, `~`, `<`, `>`, and whitespaces are
