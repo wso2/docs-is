@@ -377,29 +377,8 @@ Follow the steps below to send the One Time Password (OTP) using Gmail APIs or u
     OAuth2 access token, token validity period, and the refresh token.  
     ![oauth2-access-refresh](../assets/img/tutorials/oauth2-access-refresh.png)
 
-14. Update the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file. The configurations shown below are sample configurations used when WSO2 IS is used as the Email OTP Provider. 
-
-    ``` toml
-    [authentication.authenticator.email_otp]
-    name = "EmailOTP"
-    enable= true
-
-    [authentication.authenticator.email_otp.parameters]
-    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/authenticationendpoint/email_otp.do"
-    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/authenticationendpoint/email_otp_error.do"
-    EmailAddressRequestPage = "https://localhost:9443/authenticationendpoint/email_capture.do"
-    usecase = "association"
-    secondaryUserstore = "primary"
-    EMAILOTPMandatory = false
-    sendOTPToFederatedEmailAttribute = false
-    federatedEmailAttributeKey = "email"
-    EmailOTPEnableByUserClaim = true
-    CaptureAndUpdateEmailAddress = true
-    showEmailAddressInUI = true
-    useEventHandlerBasedEmailSender = true
-    emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
-    ```
-        
+14. Update the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
+    
     !!! Tip
         -   If you need to send the content in a payload, you can introduce
             a property in a format \<API\> Payload and define the value.
@@ -479,6 +458,22 @@ Follow the steps below to send the One Time Password (OTP) using Gmail APIs or u
     </tbody>
     </table>
 
+    Sample configuration: 
+    
+     ``` toml
+    [authentication.authenticator.email_otp]
+    name = "EmailOTP"
+    enable= true
+
+    [authentication.authenticator.email_otp.parameters]
+    GmailClientId = "<gmail_client_id>"
+    GmailClientSecret = "<gmail_client_secret>"
+    GmailRefreshToken = "<refresh_token>"
+    GmailEmailEndpoint = "https://www.googleapis.com/gmail/v1/users/<mail_address>/messages/send"
+    accessTokenRequiredAPIs = "Gmail"
+    GmailAuthTokenType = "Bearer"
+    GmailTokenEndpoint = "https://www.googleapis.com/oauth2/v3/token"
+    ```
     	
 ------------------------------------------------------------------------
 
