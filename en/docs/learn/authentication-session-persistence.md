@@ -131,7 +131,7 @@ before the other node accesses the same data from the database.
 
 The following table describes the elements of the session cleanup configurations.
 
-`[session_data.persistence]` section is related to the persistence of session data.                                                                                                                                                                                         
+The `[session_data.persistence]` section is related to the persistence of session data.                                                                                                                                                                                         
 
 | Configuration element | Description                                                                                                                                                                                                                                                                                                                                               |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
