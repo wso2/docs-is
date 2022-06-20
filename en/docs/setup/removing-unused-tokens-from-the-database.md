@@ -11,7 +11,7 @@ avoid a growing access token table.
 You can use one of the following methods for token cleanup.
 
 !!! note
-    We recommend using stored procedures instead of using the cleanup task that is available in the WSO2 Identity 
+    We recommend using stored procedures instead of using the cleanup task that is available in WSO2 Identity 
     Server by default.
 
 ### Using stored procedures for token cleanup
