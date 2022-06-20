@@ -97,4 +97,17 @@ access token cache object in node A expires.
 
 If there are multiple WSO2 IS nodes in the deployment, the cache coherence problem is inevitable. One could think of 
 disabling all the cache layers. But it is a huge sacrifice of performance. It is not only about access tokens, but there 
-are multiple cache layers [Configuring Cache Layers](../../setup/configuring-cache-layers/), and it could lead to unexpected scenarios with any of them.
+are multiple cache layers [Configuring Cache Layers](../../setup/configuring-cache-layers/), and it could lead to 
+unexpected scenarios with any of them.
+
+Hazelcast is an in-memory data grid, which is used in clustering and distributed shared memory. When using Hazelcast as 
+a clustering implementation, data is evenly distributed among the nodes in a cluster. But later on, it was decided to 
+avoid using distributed shared memory, but keep caches local to each node in the cluster and use messages to cluster 
+members in order to notify about cache invalidations when required. This was due to many practical issues that are 
+related to configuring and running distributed caching properly where the network is not tightly controlled hence, 
+distributed caching fails in unexpected ways. There are multiple clustered deployment cache scenarios and the 
+recommended approach is “All caches are local with distributed cache invalidation”. You can expand the topic 
+[Caching in WSO2 Identity Server](../../setup/deployment-guide/#clustering-related-configurations) to read about other 
+cache scenarios and their disadvantages. With the above approach, the WSO2 Identity Server employs Hazelcast as the 
+primary method of implementing cluster messages while using distributed caching in a simple setup. Cache invalidation 
+uses Hazelcast messaging to distribute the invalidation message over the cluster and invalidate the caches properly.
