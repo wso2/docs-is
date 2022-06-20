@@ -11,8 +11,8 @@ avoid a growing access token table.
 You can use one of the following methods for token cleanup.
 
 !!! note
-    We recommend using stored procedures instead of the WSO2 Identity Server to cleanup tokens since there 
-    have been a few reported issues when the WSO2 Identity server is used for token cleanup.
+    We recommend using stored procedures instead of using the cleanup task that is available in WSO2 Identity 
+    Server by default.
 
 ### Using stored procedures for token cleanup
 
@@ -22,7 +22,7 @@ Follow the instructions below to configure token cleanup using this
 method.
 
 !!! tip
-    It is safe to run these steps in read-only mode or during a time when traffic on the server is low, but that is not mandatory.
+    It is safe to run these steps in read-only mode or during a time when traffic on the server is low but that is not mandatory.
 
 1. Disable the internal token cleanup process by configuring the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
@@ -32,24 +32,22 @@ method.
    
     ```
 
-2. Depending on your database, select the appropriate token cleanup
-   script based on the links mentioned in the sub-points below and run it on the database. This takes a backup of the
-   necessary tables, turns off SQL updates and cleans the database of
-   unused tokens.
-      1. [DB2](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/db2/token-cleanup/)
-      2. [MSSQL](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mssql/token-cleanup/)
-      3. [MySQL](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/token-cleanup/)
-      4. [Oracle](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/token-cleanup/)
-      5. [PostgreSQL 9.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-9x/token-cleanup/)
-      6. [PostgreSQL 11.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/token-cleanup/)
+2. Select the token cleanup script that is relevant to your database type from the list given below and run it on your database. This takes a backup of the
+   necessary tables, turns off SQL updates, and cleans the database of unused tokens.
+      - [DB2](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/db2/token-cleanup/)
+      - [MSSQL](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mssql/token-cleanup/)
+      - [MySQL](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/token-cleanup/)
+      - [Oracle](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/token-cleanup/)
+      - [PostgreSQL 9.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-9x/token-cleanup/)
+      - [PostgreSQL 11.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/token-cleanup/)
 
-3. Once the cleanup is over, start the WSO2 Identity Server pointing to
+3. Once the cleanup is over, start WSO2 Identity Server by pointing to
    the cleaned-up database. You can also schedule a cleanup task that will be automatically run
    after a given period of time.
 
 ### Configuring WSO2 Identity Server for token cleanup
 
-Alternatively, you can also use the WSO2 Identity Server which triggers token cleanup during the following
+Alternatively, you can also use WSO2 Identity Server, which triggers token cleanup during the following
 instances.  
 
 1.  New token generation
