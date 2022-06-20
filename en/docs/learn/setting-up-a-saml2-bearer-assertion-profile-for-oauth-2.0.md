@@ -38,12 +38,12 @@ Server and as well as the Resource Server.
             for any other operations during this sample.
     
 
-2.  Configure single sign-on with the Travelocity sample.
+2. Configure single sign-on with the Travelocity sample.
 
     See [Deploying the Sample App](../../learn/deploying-the-sample-app) to
     configure Travelocity application with WSO2 Identity Server.
 
-3.  Navigate to **Main\>Service Providers\>List** and click **Edit** to
+3. Navigate to **Main\>Service Providers\>List** and click **Edit** to
     modify the service provider you just created. Modify the following
     fields of the SAML configuration and click **Update**.
 
@@ -58,7 +58,7 @@ Server and as well as the Resource Server.
 
     ![enable-audience-restriction](../assets/img/using-wso2-identity-server/enable-audience-restriction.png) 
 
-4.  Open the `           travelocity.properties          ` file found in
+4. Open the `           travelocity.properties          ` file found in
     the
     `           <TOMCAT_HOME>/webapps/travelocity.com/WEB-INF/classes          `
     folder and edit the following configurations and restart the tomcat
@@ -105,6 +105,20 @@ Server and as well as the Resource Server.
         ``` java
         [oauth.grant_type.saml_bearer]
         user_type= "PER_REQUEST"  
+        ```
+
+        Restart the server to apply the configuration changes.
+
+    !!! info
+        If you are using a custom SAML bearer grant handler instead of the default SAML bearer
+        grant handler, the following configuration should be applied to the
+        `            <IS_HOME>/repository/conf/deployment.toml           ` file so that you can
+        use the custom SAML bearer grant handler instead of the default one. Please change the handler name according 
+        to your implementation
+
+        ``` java
+        [oauth.grant_type.saml_bearer]
+        grant_handler = "com.wso2.carbon.custom.handlers.CustomSAML2BearerGrantHandler"
         ```
 
         Restart the server to apply the configuration changes.
