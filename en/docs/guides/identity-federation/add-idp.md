@@ -46,21 +46,13 @@ To add a new identity provider.
         The following diagrams illustrates the work flow of authentication with a federated hub.
 
         ![fed-hub-home-realm-identifier]( ../../assets/img/guides/federation-hub-flow.png) 
-
-        When the Home Realm Identifier is not specified, you can either
-        select the domain name from a dropdown in the login page, or you
-        have to enter the domain value in a separate page prior to logging
-        in (as shown below).
-        
-        ![home-realm-identifier]( ../assets/img/using-wso2-identity-server/home-realm-identifier.png) 
                     
-        The `proxy_mode` configuration allows the framework to operate in either `smart` mode or `dumb` mode. 
+        At the login page of the application, you can support both local and federated authentication or just federated authentication. This can be done by setting the `proxy_mode` configuration in the `deployment.toml` file. Following are the modes available for configuration: 
         
-        In `smart` mode, both local and federated authentication is supported, while in `dumb` mode, only federated authentication is supported. If `dumb` mode is configured here, you must provide the Home Realm Identifier,
-        or you have to display a separate screen to the user to get it.
-
-        If smart mode is configured, the default behavior applies, where you can enter a local username and 
-        password, or use federated authenticators for authentication.
+        | `proxy_mode` name | Description   |
+        |-------------------|---------------|
+        | `smart`           | Allows both local nd federated authentication |
+        | `dumb`            | Allows only federated authentication. The home realm identifier must be configured to operate in this mode. If it is not configured, a seperate screen should be displayed to get it from the user    |
         
         To configure the `proxy_mode`, open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory 
         and add the following configuration.
@@ -95,7 +87,7 @@ To add a new identity provider.
         This indicates that any token coming from the SAML identity provider
         must have this alias value in the audience restriction element.
 
-3. Click the expandales to check and update the available optional configurations.
+3. Click the expandables to check and update the available optional configurations.
 ![expand-configurations](../../assets/img/guides/adding-configs-for-the-idp.png)
 
     !!! info
@@ -111,29 +103,27 @@ To add a new identity provider.
 
 4. Click **Register** to add the Identity Provider.
 
-## Configuring a resident identity provider
+## Configure a resident IdP
 
-Apart from mediating authentication requests between service providers
-and identity providers, WSO2 Identity Server can act as a service
-provider and an identity provider. When WSO2 Identity Server acts as an
-identity provider, it is called the **resident identity provider**.
+WSO2 Identity server can also act as an IdP, which provides identity for applications, rather than mediating authentication requests between service providers and identity providers.
 
-!!! note
+In such cases, the Identity Server is known as the **resident identity provider**.
+
+<!-- !!! note
     The resident identity provider configuration helps service providers
     to send authentication or provisioning requests to WSO2 Identity Server via SAML, OpenID Connect, SCIM, or WS-Trust.
 
     For an example on how a resident identity provider is used to implement a security token service, see [Configuring WS-Trust Security Token Service](../../learn/configuring-ws-trust-security-token-service).
     
     The Resident identity provider configuration is a one-time configuration for a given tenant. It shows WSO2 Identity Server's metadata, e.g., endpoints. The resident identity provider configurations can be used to secure the WS-Trust endpoint with a security policy.
+-->
 
-Follow the instructions below to configure a resident identity provider:
+To configure a resident identity provider:
 
-1. On the WSO2 Identity Server Management Console, go to **Main \> Identity \> Identity Providers \> Resident**.  
-    ![idp-resident-main](../assets/img/using-wso2-identity-server/idp-resident-main.png)
-    The Resident Identity Provider page appears.  
-    ![resident-identity-provider](../assets/img/using-wso2-identity-server/resident-identity-provider.png)
+1. On the WSO2 Identity Server Management Console, go to **Main \> Identity \> Identity Providers \> Resident**.
 
-2. Enter the required values as given below.
+2. On the expanded **Resident Realm Configurations** tab enter the required values as given below.
+    ![resident-identity-provider](../../assets/img/guides/resident-realm-configurations.png)
 
     <table>
     <thead>
@@ -151,7 +141,7 @@ Follow the instructions below to configure a resident identity provider:
     </tr>
     <tr class="even">
     <td><strong>Idle Session Time Out</strong></td>
-    <td>This is the duration in minutes for which an SSO session can be idle for. If WSO2 Identity Server does not receive any SSO authentication requests for the given duration, a session time out occurs. The default value is <code>15</code> .</td>
+    <td>This is the duration in minutes for which an SSO session can be idle for. The default value is <code>15</code> .</td>
     <td><code>15</code></td>
     </tr>
     <tr class="odd">
@@ -165,29 +155,41 @@ Follow the instructions below to configure a resident identity provider:
     </tbody>
     </table>
 
-5. You may configure inbound authentication by expanding the **Inbound
-    Authentication Configuration** section.  
-    1. To configure SAML2 configurations:
-        1. Click **SAML2 Web SSO Configuration**.  
-            ![saml2-sso-config](../assets/img/using-wso2-identity-server/saml2-sso-config.png)
-            The SAML2 Web SSO Configuration form appears.  
-            ![saml2-sso-form]( ../assets/img/using-wso2-identity-server/saml2-sso-form.png)
+3. Click **Update** to save the configurations.
 
-        2. Enter the required values and learn the fixed values as given below.
 
-            | Field                           | Description                                                                                                                                                                             | Sample/Fixed Value                                                                                                      |
-            |---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-            | **Identity Provider Entity ID** | This is for tenant identification. The users who are provisioned through this tenant can be identified using this ID.                                                                   | `localhost`                                                                      |
-            | **Destination URLs**            | This defines the destination URL of the identity provider. This helps the service providers that connect to WSO2 Identity Server through a proxy server to locate WSO2 Identity Server. | `https://localhost:9443/samlsso`        |
-            | **SSO URL**                     | This is the SAML SSO endpoint of the identity provider.                                                                                                                                 | `https://localhost:9443/samlsso`        |
-            | **Logout Url**                  | This is the identity provider's end point that accepts SAML logout requests.                                                                                                            | `https://localhost:9443/samlsso`        |
-            | **Artifact Resolution URL**     | This is the identity provider's endpoint that resolves SAML artifacts.                                                                                                                  | `https://localhost:9443/samlartresolve` |
-            | **Metadata Validity Period**    | This is the duration for which the metadata will be valid for.                                                                                                                          | `60`                                                                             |
-            | **Enable metadata signing**     | This facilitates to enable or disable metadata signing                                                                                                                                  | `false`                                                                          |
+### Configure inbound authentication
 
-    2. To configure OAuth2 or OIDC, click **OAuth2/OpenID Connect
-        Configuration**.  
-        ![oauth2-oidc-config](../assets/img/using-wso2-identity-server/oauth2-oidc-config.png)
+This section of the guide walks you through how to configure inbound authentication for your resident IdP using the following technologies:
+
+- [SAML2 Web SSO Configuration](#saml2-configurations)
+- [OAuth2/OpenID Connect Configuration](#oauth2openid-connect-configurations)
+
+#### SAML2 configurations
+1. To configure SAML2 configurations:
+    1. Click **SAML2 Web SSO Configuration**.  
+        ![saml2-sso-form]( ../../assets/img/guides/saml2-config-idp.png)
+
+    2. Enter the required values and learn the fixed values as given below.
+
+        | Field                           | Description                                                                                                                                                                             | Sample/Fixed Value                                                                                                      |
+        |---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+        | **Identity Provider Entity ID** | This is for tenant identification. The users who are provisioned through this tenant can be identified using this ID.                                                                   | `localhost`                                                                      |
+        | **Destination URLs**            | This defines the destination URL of the identity provider. This helps the service providers that connect to WSO2 Identity Server through a proxy server to locate WSO2 Identity Server. | `https://localhost:9443/samlsso`        |
+        | **SSO URL**                     | This is the SAML SSO endpoint of the identity provider.                                                                                                                                 | `https://localhost:9443/samlsso`        |
+        | **Logout Url**                  | This is the identity provider's end point that accepts SAML logout requests.                                                                                                            | `https://localhost:9443/samlsso`        |
+        | **Artifact Resolution URL**     | This is the identity provider's endpoint that resolves SAML artifacts.                                                                                                                  | `https://localhost:9443/samlartresolve` |
+        | **Metadata Validity Period**    | This is the duration for which the metadata will be valid for.                                                                                                                          | `60`                                                                             |
+        | **Enable metadata signing**     | This facilitates to enable or disable metadata signing                                                                                                                                  | `false`                                                                          |
+
+    3. Click **Update** to save the configurations.
+
+#### OAuth2/OpenID Connect configurations
+1. To configure OAuth2 or OIDC:
+    1. Click **OAuth2/OpenID Connect Configuration**.  
+        ![oauth2-oidc-config](../../assets/img/guides/oauth-oidc-config-idp.png)
+
+    2. Enter the required values and learn the fixed values as given below.
 
         | Field                                        | Description                                                                                                                                                                                         | Sample/Fixed Value                                                                                                                     |
         |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -204,28 +206,30 @@ Follow the instructions below to configure a resident identity provider:
         | **Dynamic Client Registration Endpoint URL** | This is the URL of the endpoint at which OpenID Connect dynamic client registration takes places.                                                                                                   | `https://localhost:9443/api/identity/oauth2/dcr/v1.1/register` |
         | **JWKS Endpoint URL**                        | This is the URL of the endpoint that returns WSO2 Identity Server's public key set in JSON Web Key Set (JWKS) format.                                                                               | `https://localhost:9443/oauth2/jwks`                           |
 
-    3. To secure the WS-Trust endpoint with a security policy, click
+    3. Click **Update** to save the configurations.
+
+    <!-- 3. To secure the WS-Trust endpoint with a security policy, click
         **Security Token Service Configuration** section.  
         ![ws-trust-endpoint-security]( ../assets/img/using-wso2-identity-server/ws-trust-endpoint-security.png)
         For more information on security token service (STS), see
         [Configuring WS-Trust Security Token
-        Service](../../learn/configuring-ws-trust-security-token-service).
+        Service](../../learn/configuring-ws-trust-security-token-service). -->
 
-6. You may view the inbound provisioning configurations by clicking
-    **Inbound Provisioning Configuration** section.
-    ![inbound-porvisioning-configuration](../assets/img/using-wso2-identity-server/inbound-porvisioning-configuration.png)
+### View inbound provisioning configurations
 
-    | Field                   | Description                                                                                                                                                    | Sample Value                                                                                              |
-    |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-    | **SCIM User Endpoint**  | This is the identity provider's endpoint for SCIM user operations, e.g., creating and managing users.                                                          | `https://localhost:9443/wso2/scim/Users`  |
-    | **SCIM Group Endpoint** | This is the identity provider's endpoint for the SCIM user role operations, e.g., creating user roles, assigning user roles to users, and managing user roles. | `https://localhost:9443/wso2/scim/Groups` |
+To view the inbound provisioning configs, expand **Inbound Provisioning Configuration** section.
 
-7. Click **Update**.
+![inbound-porvisioning-configuration](../../assets/img/guides/inbound-provision-idp.png)
 
-!!! note
+| Field                   | Description                                                                                                                                                    | Sample Value                                                                                              |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| **SCIM User Endpoint**  | This is the identity provider's endpoint for SCIM user operations, e.g., creating and managing users.                                                          | `https://localhost:9443/wso2/scim/Users`  |
+| **SCIM Group Endpoint** | This is the identity provider's endpoint for the SCIM user role operations, e.g., creating user roles, assigning user roles to users, and managing user roles. | `https://localhost:9443/wso2/scim/Groups` |
+
+??? note "Modify the hostname"
     To modify the host name of the above mentioned URLs,
 
-    Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and add the following configuration.
+    Add the folllowing congiguration to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
         ``` xml
         [server]
@@ -237,17 +241,14 @@ Follow the instructions below to configure a resident identity provider:
         idp="https://localhost:9443/samlsso"
         ```
     
-        To ensure the client application is communicating with the right
-        identity provider, WSO2 Identity Server compares the destination
-        value in the SAML request with the URL in the above configuration.
+    To ensure the client application is communicating with the right identity provider, WSO2 Identity Server compares the destination value in the SAML request with the URL in the above configuration.
 
-
-### <a name="exporting-saml2-metadata-of-the-resident-idp"></a> Exporting SAML2 metadata of the resident IdP
+### Identity Server as a trusted IdP
 
 To configure WSO2 Identity Server as a trusted identity provider in a
-service provider application, export the SAML2 metadata of the resident
-identity provider of WSO2 IS and import the metadata to the relevant
-service provider.
+service provider application, you need to perorm the following tasks.
+1. Export the SAML2 metadata of the resident identity provider.
+2. Import the metadata to the relevant service provider.
 
 !!! tip
     Use **one** of the following approaches to do this.
@@ -257,76 +258,54 @@ service provider.
     -   **Alternatively**, access the management console and follow the
         steps given below to download the metadata.
 
-1. Expand the **Inbound Authentication Configuration** section and then
-    expand **SAML2 Web SSO Configuration**.
-2. Click **Download SAML2 metadata**. A `metadata.xml` file will be downloaded on to your machine.
-3. Import the `metadata.xml` file to thenrelevant service provider to configure WSO2 Identity Server as antrusted identity provider for your application.
+1. Expand the **Inbound Authentication Configuration > SAML2 Web SSO Configuration**.
+2. Click **Download SAML Metadata**, to download the `metadata.xml` file.
+3. Import the `metadata.xml` file to the relevant service provider.
 
-    ![import-sp]( ../assets/img/using-wso2-identity-server/import-sp.png) \
+    <!-- ![import-sp]( ../assets/img/using-wso2-identity-server/import-sp.png) \ -->
 
-## Managing identity providers
+## Manage an identity provider
 
 This section provides instructions on how to manage identity providers
 once they are created.
 
-### Viewing identity providers
+### View an identity provider
 
-Follow the instructions below to view the list of identity providers
-added in the WSO2 Identity Server.
+To view the list of identity providers added in the WSO2 Identity Server:
 
-1. Sign in. Enter your username and password to log on to
-    the Management Console.
-2. In the **Main** menu under the **Identity** section, click **List**
-    under **Identity Providers**. The list of identity providers you
-    added appears.  
-    ![identity-provider-list](../assets/img/using-wso2-identity-server/identity-provider-list.png)
+1. Sign in to the Management Console, go to **Main > Identity > Identity Providers** section.
+2. Click **List**, to get the list if IdPs created.
+    ![identity-provider-list](../../assets/img/guides/identity-provider-list.png)
 
-### Editing identity providers
+### Edit identity provider configs
 
-Follow the instructions below to edit an identity provider's details.
+To edit an identity provider's details:
 
-1. Sign in. Enter your username and password to log on to
-    the Management Console.
-2. In the **Main** menu under the **Identity** section, click **List**
-    under **Identity Providers**. The list of identity providers you
-    added appears.
-3. Locate the identity provider you want to edit and click on the
-    corresponding **Edit** link.  
-    ![idp-edit](../assets/img/using-wso2-identity-server/idp-edit.png)
-4. You are directed to the edit screen where you can modify the details
-    you configured for the identity provider.
+1. On the Management Console, go to **Main > Identity > Identity Providers** section.
+2. Click **List**, select identity provider you want to edit and click on the corresponding **Edit** link.  
+    ![idp-edit](../../assets/img/guides/idp-edit.png)
+4. You will be redirected to the edit screen where you can modify the details you configured for the identity provider.
 
-### Deleting identity providers
+### Delete an identity providers
 
-Follow the instructions below to delete an identity provider.
+To delete an identity provider:
 
-1. Sign in. Enter your username and password to log on to
-    the Management Console.
-2. In the **Main** menu under the **Identity** section, click **List**
-    under **Identity Providers**. The list of identity providers you
-    added appears.
-3. Locate the identity provider you want to delete and click on the
-    corresponding **Delete** link.  
-    ![delete-idp](../assets/img/using-wso2-identity-server/delete-idp.png)
-4. Confirm your request in the WSO2 Carbon window. Click the **Yes**
-    button.
+1. On the Management Console, go to **Main > Identity > Identity Providers** section.
+2. Click **List**, select identity provider you want to delete and click on the corresponding **Delete** link.  
+    ![delete-idp](../../assets/img/guides/delete-idp.png)
+4. Click **Yes** to confirm your action.
 
-#### Disabling/Enabling identity providers
+### Disable an identity provider
 
-Follow the instructions below to disable or enable an identity provider.
+To disable an identity provider:
 
-1. Sign in. Enter your username and password to log on to
-    the Management Console.
-2. In the **Main** menu under the **Identity** section, click **List**
-    under **Identity Providers**. The list of identity providers you
-    added appears.
-3. Locate the identity provider you want to delete and click on the
-    corresponding **Disable** link to disable the identity provider.
-    Clicking this link will change the link to **Enable**. To enable
-    the identity provider again, click the **Enable** link.
-    ![enable-disable-idp](../assets/img/using-wso2-identity-server/enable-disable-idp.png)
-4. Click **Ok** on the confirmation form that appears when clicking
-    **Disable** / **Enable**.  
+1. On the Management Console, go to **Main > Identity > Identity Providers** section.
+2. Click **List**, select identity provider you want to disable and click on the corresponding **Disable** link.
+
+    !!! note
+        If you want to enable a disabled IdP, select the disabled identity provider you want to enable and click on the corresponding **Enable** link.
+
+![enable-disable-idp](../../assets/img/guides/enable-disable-idp.png)
 
 !!! info "Related Topics"
 
