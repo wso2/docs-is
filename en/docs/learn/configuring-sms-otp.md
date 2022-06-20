@@ -253,13 +253,16 @@ The next step is to configure the service provider.
 
 3. Configure Inbound Authentication for the service provider. For instructions, see [Configuring Inbound Authentication for a Service Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
 
-6.  Go to **Claim configuration** and select the
+    !!! info 
+        Try out the the sample application. To deploy the pickup-dispatch sample application, follow the steps in [Deploying the SAML2 Pickup-Dispatch Sample App](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp).
+
+4.  Go to **Claim configuration** and select the
     **`            http://wso2.org/claims/mobile           `** claim for
     the **Subject Claim URI**.
 
     ![subject-claim-uri](../assets/img/tutorials/subject-claim-uri.png)
 
-7.  Go to **Local and Outbound Authentication Configuration** section.
+5.  Go to **Local and Outbound Authentication Configuration** section.
 
     1.  Select the **Advanced configuration** radio button option.
 
@@ -287,7 +290,7 @@ The next step is to configure the service provider.
 
         ![creating-the-second-authentication](../assets/img/tutorials/creating-the-second-authentication.jpeg)
 
-8.  Click **Update** to save the changes.
+6.  Click **Update** to save the changes.
 
 You have now added and configured the service provider.
 
@@ -465,6 +468,11 @@ the various values you can configure for the authenticator.
             <td>redirectToMultiOptionPageOnFailure</td>
             <td>During a failed attempt enable redirect to the Multi Option Page where the user 
             can select the authentication mechanism.</td>
+		</tr>
+		<tr>
+            <td>TokenExpiryTime</td>
+            <td>SMS OTP does not have a default validity period. Therefore, you must explicitly configure it by adding the <code>TokenExpiryTime</code> parameter. The value provided for the parameter is considered in seconds.</td>
+		</tr>
     </tbody>
 </table>
 
@@ -491,6 +499,7 @@ You can configure any of the above as following in the
     CaptureAndUpdateMobileNumber = true
     SendOTPDirectlyToMobile = false
     redirectToMultiOptionPageOnFailure = false
+	TokenExpiryTime = 12
     ```
      
 !!! note

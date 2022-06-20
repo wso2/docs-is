@@ -89,7 +89,7 @@ object such as `           authenticationOptions          `, `           authent
         authenticationOptions:[{
             authenticator: 'totp'
         }]},
-    });
+    }, {});
     ```
     ``` java
     executeStep(1, {
@@ -97,7 +97,10 @@ object such as `           authenticationOptions          `, `           authent
             local: {
                 SessionExecutor: {
                     MaxSessionCount: '1'
-                                    }
+                },
+                totp: {
+                    enableRetryFromAuthenticator: 'true'
+                }
             }
         }
     }, {} );

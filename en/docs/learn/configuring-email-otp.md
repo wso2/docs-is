@@ -51,9 +51,9 @@ as explained [here](../../setup/configuring-email-sending).
     name ="EmailOTP"
     enable=true
     [authentication.authenticator.email_otp.parameters]
-    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
-    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
-    EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
+    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/authenticationendpoint/email_otp.do"
+    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/authenticationendpoint/email_otp_error.do"
+    EmailAddressRequestPage = "https://localhost:9443/authenticationendpoint/email_capture.do"
     usecase = "local"
     secondaryUserstore = "primary"
     EMAILOTPMandatory = false
@@ -64,6 +64,7 @@ as explained [here](../../setup/configuring-email-sending).
     showEmailAddressInUI = true
     useEventHandlerBasedEmailSender = true
     emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
+    tokenExpirationTime = 300000
     ``` 
 
 
@@ -83,9 +84,9 @@ as explained [here](../../setup/configuring-email-sending).
                         <ul>
                             <li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore . The federated username must be the same as the local username.</li>
                             <li><code>assocication</code>: The federated username must be associated with the
-                                local account in advance in the user portal. The local username is retrieved
-                                from the association. To associate the user, log into the  [user portal](../../learn
-                                /user-portal)  and go to  **Associated Account**  by clicking  **View details**.</li>
+                                local account in advance in the **My Account**. The local username is retrieved
+                                from the association. To associate the user, log into the  [**My Account**](../../learn
+                                /my-account)  and go to  **Associated Account**  by clicking  **View details**.</li>
                             <li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service provider section in UI, this is used as the username of the  <code>EmailOTP</code> authenticator.</li>
                             <li>
                                 <p><code>userAttribute </code>: The name of the  federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the  ```[authentication.authenticator.email_otp.parameters]```  section in the ```deployment.toml``` file and put the value, e.g., email and screen_name, id.</p>
@@ -247,6 +248,15 @@ as explained [here](../../setup/configuring-email-sending).
                         </ul>
                     </td>
                 </tr>
+                <tr>
+                    <td><code>tokenExpirationTime</code></td>
+                    <td>This parameter helps to define a custom Email OTP expiry time. The default expiration time is 300000 milliseconds.</td>
+                    <td>
+                        <ul>
+                            <li><code>300000</code></li>
+                        </ul>
+                    </td>
+                </tr>
             </tbody>
         </table>
 
@@ -367,29 +377,8 @@ Follow the steps below to send the One Time Password (OTP) using Gmail APIs or u
     OAuth2 access token, token validity period, and the refresh token.  
     ![oauth2-access-refresh](../assets/img/tutorials/oauth2-access-refresh.png)
 
-14. Update the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file. The configurations shown below are sample configurations used when WSO2 IS is used as the Email OTP Provider. 
-
-    ``` toml
-    [authentication.authenticator.email_otp]
-    name = "EmailOTP"
-    enable= true
-
-    [authentication.authenticator.email_otp.parameters]
-    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
-    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
-    EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
-    usecase = "association"
-    secondaryUserstore = "primary"
-    EMAILOTPMandatory = false
-    sendOTPToFederatedEmailAttribute = false
-    federatedEmailAttributeKey = "email"
-    EmailOTPEnableByUserClaim = true
-    CaptureAndUpdateEmailAddress = true
-    showEmailAddressInUI = true
-    useEventHandlerBasedEmailSender = true
-    emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
-    ```
-        
+14. Update the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
+    
     !!! Tip
         -   If you need to send the content in a payload, you can introduce
             a property in a format \<API\> Payload and define the value.
@@ -469,6 +458,22 @@ Follow the steps below to send the One Time Password (OTP) using Gmail APIs or u
     </tbody>
     </table>
 
+    Sample configuration: 
+    
+     ``` toml
+    [authentication.authenticator.email_otp]
+    name = "EmailOTP"
+    enable= true
+
+    [authentication.authenticator.email_otp.parameters]
+    GmailClientId = "<gmail_client_id>"
+    GmailClientSecret = "<gmail_client_secret>"
+    GmailRefreshToken = "<refresh_token>"
+    GmailEmailEndpoint = "https://www.googleapis.com/gmail/v1/users/<mail_address>/messages/send"
+    accessTokenRequiredAPIs = "Gmail"
+    GmailAuthTokenType = "Bearer"
+    GmailTokenEndpoint = "https://www.googleapis.com/oauth2/v3/token"
+    ```
     	
 ------------------------------------------------------------------------
 

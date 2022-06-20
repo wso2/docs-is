@@ -198,7 +198,7 @@ other tasks such as provisioning of resources associated with enabling
 new users.
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) and [run
+    [here](https://wso2.com/products/identity-server/) and [run
     it](../../setup/running-the-product).
 2.  Log in to the [Management
     Console](../../setup/getting-started-with-the-management-console) as an

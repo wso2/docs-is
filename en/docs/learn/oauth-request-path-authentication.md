@@ -9,7 +9,7 @@ to the OAuth request path authenticator in two ways.
 -   **As a header in the authentication request:**
     `          "Authorization: Bearer <access_token>"         `
 -   **As a query parameter in the request URL:**
-    `          "&token=<access_token>"         `
+    `          "&access_token=<access_token>"         `
 
 For more information on Request Path Authentication in general, see
 [Request Path Authentication](../../learn/request-path-authentication).
