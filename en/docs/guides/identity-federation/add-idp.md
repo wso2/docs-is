@@ -21,9 +21,9 @@ To add a new identity provider.
     | ----------- | ------------------------------------ | ------------------------------------ |
     | Identity Provider Name       | A unique name used as the primary identifier of the IdP. | `FacebookIdP`
     | Display Name       | This is used to identify the identity provider. If this is left blank, the Identity Provider Name is used. | `Facebook`                       |
-    | Description    | A description about the identity provider. | `This is the identity provider configuration for Facebook.`                       |
+    | Description    | A description of the identity provider. | `This is the identity provider configuration for Facebook.`                       |
     | Federation Hub Identity Provider    | Select the Federation Hub Identity Provider check-box to indicate if this points to an identity provider that acts as a federation hub. | Selected                        |
-    | Home Realm Identifier    | This value is an identifier when your application useds federated IdP. If a user selects this IdP, and an authentication request is sent, the `fidp` query parameter will be populated with this value. (example: `fidp` = googleIdP) | `googleIdP`                         |
+    | Home Realm Identifier    | This value is an identifier that is used when your application uses a federated IdP. If a user selects this IdP, and an authentication request is sent, the `fidp` query parameter will be populated with this value. (example: `fidp` = googleIdP) | `googleIdP`                         |
     | Choose IDP certificate type    | This is used to authenticate responses from the IdP. You can either **Upload IDP certificate** or use the **Use IDP JWKS endpoint**.       | Selected                        |
     | Identity Provider's JWKS Endpoint:    | If you have selected **Use IDP JWKS endpoint** in the above field, this field will appear. You need to add the JWKS endpoint URL in this field.        | Selected                        |
     | Identity Provider Public Certificate    | If you have selected **Upload IDP certificate** in the above field, this field will appear. You need to upload the public certificate of your IdP in this field.      | Selected                        |
@@ -43,16 +43,16 @@ To add a new identity provider.
 
         On the federation hub, each IdP is recognized by the **home realm identifier** of the IdP. This home realm identifier is configured when creating the IdP.
 
-        The following diagrams illustrates the work flow of authentication with a federated hub.
+        The following diagrams illustrate the workflow of authentication with a federated hub.
 
         ![fed-hub-home-realm-identifier]( ../../assets/img/guides/federation-hub-flow.png) 
                     
-        At the login page of the application, you can support both local and federated authentication or just federated authentication. This can be done by setting the `proxy_mode` configuration in the `deployment.toml` file. Following are the modes available for configuration: 
+        At the application's login page, you can support both local and federated authentication or just federated authentication. This can be done by setting the `proxy_mode` configuration in the `deployment.toml` file. Following are the modes available for configuration: 
         
         | `proxy_mode` name | Description   |
         |-------------------|---------------|
-        | `smart`           | Allows both local nd federated authentication |
-        | `dumb`            | Allows only federated authentication. The home realm identifier must be configured to operate in this mode. If it is not configured, a seperate screen should be displayed to get it from the user    |
+        | `smart`           | Allows both local and federated authentication |
+        | `dumb`            | Allows only federated authentication. The home realm identifier must be configured to operate in this mode. If it is not configured, a separate screen should be displayed to get it from the user    |
         
         To configure the `proxy_mode`, open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory 
         and add the following configuration.
@@ -74,7 +74,7 @@ To add a new identity provider.
         authentication takes place. Now, if the web application needs to
         access an API that is protected by OAuth 2.0, the same SAML token is
         sent to the token endpoint of the Identity Server. The **Alias**
-        value you configure in the Identity Server is associated with this
+        the value you configure in the Identity Server is associated with this
         token endpoint. This alias value must be added to the audience
         restriction element of the SAML token. When this SAML token is sent
         to the Identity Server, you obtain an access token, which is used to
@@ -82,7 +82,7 @@ To add a new identity provider.
 
         So in order to configure this, you must add the SAML identity
         provider as an identity provider in the Identity Server using the
-        instructions in this topic. When configuring this in the Identity
+        instructions on this topic. When configuring this in the Identity
         Server, you must specify the token alias for this scenario to work.
         This indicates that any token coming from the SAML identity provider
         must have this alias value in the audience restriction element.
@@ -91,7 +91,7 @@ To add a new identity provider.
 ![expand-configurations](../../assets/img/guides/adding-configs-for-the-idp.png)
 
     !!! info
-        **Identity Provider Name** is the only required field. You can fill in the remaning details if applicable.
+        **Identity Provider Name** is the only required field. You can fill in the remaining details if applicable.
 
         For more information about the other configurations, see the following documentation. 
         
@@ -113,7 +113,7 @@ In such cases, the Identity Server is known as the **resident identity provider*
     The resident identity provider configuration helps service providers
     to send authentication or provisioning requests to WSO2 Identity Server via SAML, OpenID Connect, SCIM, or WS-Trust.
 
-    For an example on how a resident identity provider is used to implement a security token service, see [Configuring WS-Trust Security Token Service](../../learn/configuring-ws-trust-security-token-service).
+    For an example of how a resident identity provider is used to implement a security token service, see [Configuring WS-Trust Security Token Service](../../learn/configuring-ws-trust-security-token-service).
     
     The Resident identity provider configuration is a one-time configuration for a given tenant. It shows WSO2 Identity Server's metadata, e.g., endpoints. The resident identity provider configurations can be used to secure the WS-Trust endpoint with a security policy.
 -->
@@ -177,10 +177,10 @@ This section of the guide walks you through how to configure inbound authenticat
         | **Identity Provider Entity ID** | This is for tenant identification. The users who are provisioned through this tenant can be identified using this ID.                                                                   | `localhost`                                                                      |
         | **Destination URLs**            | This defines the destination URL of the identity provider. This helps the service providers that connect to WSO2 Identity Server through a proxy server to locate WSO2 Identity Server. | `https://localhost:9443/samlsso`        |
         | **SSO URL**                     | This is the SAML SSO endpoint of the identity provider.                                                                                                                                 | `https://localhost:9443/samlsso`        |
-        | **Logout Url**                  | This is the identity provider's end point that accepts SAML logout requests.                                                                                                            | `https://localhost:9443/samlsso`        |
+        | **Logout Url**                  | This is the identity provider's endpoint that accepts SAML logout requests.                                                                                                            | `https://localhost:9443/samlsso`        |
         | **Artifact Resolution URL**     | This is the identity provider's endpoint that resolves SAML artifacts.                                                                                                                  | `https://localhost:9443/samlartresolve` |
-        | **Metadata Validity Period**    | This is the duration for which the metadata will be valid for.                                                                                                                          | `60`                                                                             |
-        | **Enable metadata signing**     | This facilitates to enable or disable metadata signing                                                                                                                                  | `false`                                                                          |
+        | **Metadata Validity Period**    | This is the duration for which the metadata will be valid.                                                                                                                          | `60`                                                                             |
+        | **Enable metadata signing**     | This facilitates enabling or disabling metadata signing                                                                                                                                  | `false`                                                                          |
 
     3. Click **Update** to save the configurations.
 
@@ -196,14 +196,14 @@ This section of the guide walks you through how to configure inbound authenticat
         | **Identity Provider Entity ID**              | This is for tenant identification. The users who are provisioned through this tenant can be identified using this ID.                                                                               | `localhost`                                                                                         |
         | **Authorization Endpoint URL**               | This is the identity provider's OAuth2/OpenID Connect authorization endpoint URL.                                                                                                                   | `https://localhost:9443/oauth2/authorize`                      |
         | **Token Endpoint URL**                       | This is the identity provider's token endpoint URL.                                                                                                                                                 | `https://localhost:9443/oauth2/token`                          |
-        | **Token Revocation Endpoint URL**            | This is the URL of the endpoint at which access tokens and refresh token are revoked.                                                                                                               | `https://localhost:9443/oauth2/revoke`                         |
+        | **Token Revocation Endpoint URL**            | This is the URL of the endpoint at which access tokens and refresh tokens are revoked.                                                                                                               | `https://localhost:9443/oauth2/revoke`                         |
         | **Token Introspection Endpoint URL**         | This is the URL of the endpoint at which OAuth tokens are validated.                                                                                                                                | `https://localhost:9443/oauth2/introspect`                     |
-        | **User Info Endpoint URL**                   | This the URL of the endpoint through which user information can be retrieved. The information is gathered by passing an access token.                                                               | `https://localhost:9443/oauth2/userinfo`                       |
-        | **Session iFrame Endpoint URL**              | This the URL of the endpoint that provides an iframe to synchronize the session states between the client and the identity provider.                                                                | `https://localhost:9443/oidc/checksession`                     |
+        | **User Info Endpoint URL**                   | This is the URL of the endpoint through which user information can be retrieved. The information is gathered by passing an access token.                                                               | `https://localhost:9443/oauth2/userinfo`                       |
+        | **Session iFrame Endpoint URL**              | This is the URL of the endpoint that provides an iframe to synchronize the session states between the client and the identity provider.                                                                | `https://localhost:9443/oidc/checksession`                     |
         | **Logout Endpoint URL**                      | This is the identity provider's endpoint that accepts SAML logout requests.                                                                                                                         | `https://localhost:9443/oidc/logout`                           |
-        | **Web finger Endpoint URL**                  | This is the URL of the OpenID Connect token discovery endpoint at which WSO2 Identity Server's meta data are retrieved from.                                                                        | `https://localhost:9443/.well-known/webfinger`                 |
+        | **Web finger Endpoint URL**                  | This is the URL of the OpenID Connect token discovery endpoint at which WSO2 Identity Server's metadata are retrieved from.                                                                        | `https://localhost:9443/.well-known/webfinger`                 |
         | **Discovery Endpoint URL**                   | This is the URL of the endpoint that is used to discover the end user's OpenID provider and obtain the information required to interact with the OpenID provider, e.g., OAuth 2 endpoint locations. | `https://localhost:9443/oauth2/oidcdiscovery`                  |
-        | **Dynamic Client Registration Endpoint URL** | This is the URL of the endpoint at which OpenID Connect dynamic client registration takes places.                                                                                                   | `https://localhost:9443/api/identity/oauth2/dcr/v1.1/register` |
+        | **Dynamic Client Registration Endpoint URL** | This is the URL of the endpoint at which OpenID Connect dynamic client registration takes place.                                                                                                   | `https://localhost:9443/api/identity/oauth2/dcr/v1.1/register` |
         | **JWKS Endpoint URL**                        | This is the URL of the endpoint that returns WSO2 Identity Server's public key set in JSON Web Key Set (JWKS) format.                                                                               | `https://localhost:9443/oauth2/jwks`                           |
 
     3. Click **Update** to save the configurations.
@@ -227,9 +227,7 @@ To view the inbound provisioning configs, expand **Inbound Provisioning Configur
 | **SCIM Group Endpoint** | This is the identity provider's endpoint for the SCIM user role operations, e.g., creating user roles, assigning user roles to users, and managing user roles. | `https://localhost:9443/wso2/scim/Groups` |
 
 ??? note "Modify the hostname"
-    To modify the host name of the above mentioned URLs,
-
-    Add the folllowing congiguration to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
+    To modify the hostname of the above-mentioned URLs, add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
         ``` xml
         [server]
@@ -245,8 +243,7 @@ To view the inbound provisioning configs, expand **Inbound Provisioning Configur
 
 ### Identity Server as a trusted IdP
 
-To configure WSO2 Identity Server as a trusted identity provider in a
-service provider application, you need to perorm the following tasks.
+To configure WSO2 Identity Server as a trusted identity provider in a service provider application, you need to perform the following tasks.
 1. Export the SAML2 metadata of the resident identity provider.
 2. Import the metadata to the relevant service provider.
 
@@ -282,7 +279,7 @@ To view the list of identity providers added in the WSO2 Identity Server:
 To edit an identity provider's details:
 
 1. On the Management Console, go to **Main > Identity > Identity Providers** section.
-2. Click **List**, select identity provider you want to edit and click on the corresponding **Edit** link.  
+2. Click **List**, select the identity provider you want to edit, and click on the corresponding **Edit** link.  
     ![idp-edit](../../assets/img/guides/idp-edit.png)
 4. You will be redirected to the edit screen where you can modify the details you configured for the identity provider.
 
@@ -300,7 +297,7 @@ To delete an identity provider:
 To disable an identity provider:
 
 1. On the Management Console, go to **Main > Identity > Identity Providers** section.
-2. Click **List**, select identity provider you want to disable and click on the corresponding **Disable** link.
+2. Click **List**, select the identity provider you want to disable, and click on the corresponding **Disable** link.
 
     !!! note
         If you want to enable a disabled IdP, select the disabled identity provider you want to enable and click on the corresponding **Enable** link.
@@ -312,15 +309,11 @@ To disable an identity provider:
     See the following topics for information on configuring service
     providers using different specifications.
 
-    -   See [Identity Federation](../../learn/identity-federation) for information on configuring federated authenticators.
+    -   See [Identity Federation](../identity-federation/basic-overview.md) for information on configuring federated authenticators.
 
     See the following topics to configure different applications as service providers in Identity Server.
 
-    -   [Configuring Shibboleth IdP as a Trusted Identity
-        Provider](../../learn/configuring-shibboleth-idp-as-a-trusted-identity-provider)
-    -   [Logging in to Salesforce with
-        Facebook](../../learn/logging-in-to-salesforce-with-facebook)
-    -   [Logging in to Salesforce with Integrated Windows
-        Authentication](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
-    -   [Logging in to your application via Identity Server using Facebook
-        Credentials](../../learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
+    -   [Configuring Shibboleth IdP as a Trusted Identity Provider](../identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider.md)
+    -   [Logging in to Salesforce with Facebook](../login/log-into-salesforce-using-fb.md)
+    -   [Logging in to Salesforce with Integrated Windows Authentication](../login/log-into-salesforce-using-iwa.md)
+    -   [Logging in to your application via Identity Server using Facebook Credentials](../identity-federation/facebook.md)
