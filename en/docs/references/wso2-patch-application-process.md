@@ -14,7 +14,7 @@ must use the following patch application process.
     
 The patch application process described below guides you on how to
 manually apply patches, such as [security
-patches](http://wso2.com/security-patch-releases/), to Carbon
+patches](https://wso2.com/security-patch-releases/), to Carbon
 4.5.x-based products (if your product version is currently not supported
 by WUM).
 

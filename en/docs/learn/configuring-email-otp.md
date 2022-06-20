@@ -86,6 +86,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
         EmailOTPEnableByUserClaim = true
         CaptureAndUpdateEmailAddress = true
         showEmailAddressInUI = true
+        tokenExpirationTime = 300000
         ``` 
     
     
@@ -253,6 +254,15 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                             <ul>
                                 <li><code>true</code></li>
                                 <li><code>false</code></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>tokenExpirationTime</code></td>
+                        <td>This parameter helps to define a custom Email OTP expiry time. The default expiration time is 300000 milliseconds.</td>
+                        <td>
+                            <ul>
+                                <li><code>300000</code></li>
                             </ul>
                         </td>
                     </tr>

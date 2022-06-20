@@ -70,7 +70,7 @@ to enable users to log in using their email addresses. In order to do
 that, follow the steps given below.
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/).
+    [here](https://wso2.com/products/identity-server/).
 2.  When you log in to Google, you normally use an email address. So, to
     integrate this with the Identity Server, you need to configure WSO2
     IS to enable users to log in using their email addresses. In order
@@ -125,7 +125,7 @@ email address, configure the service provider.
     </tr>
     <tr class="even">
     <td>Assertion Consumer URL</td>
-    <td><pre><code>https://google.com/a/&lt;ENTER_YOUR_DOMAIN&gt;/acs</code></pre>
+    <td><pre><code>https://www.google.com/a/&lt;ENTER_YOUR_DOMAIN&gt;/acs</code></pre>
     <code>              </code></td>
     <td>This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request.</td>
     </tr>
