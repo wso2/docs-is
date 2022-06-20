@@ -140,7 +140,7 @@ The following table describes the elements of the session cleanup configurations
 | persistence_pool_size              | ‘persistence_pool_size’ equals to 0 means that it is disabled and then the authentication flow is blocked until this particular data persistence task is completed. To execute the persistence task in asynchronously, set the value to \>0 value. Based on the pool size, the system creates the task parallel to execute the persistence task that was in the queue. |
 
 
-`[session_data.cleanup]` section is related to the cleaning up of session data.    
+The `[session_data.cleanup]` section is related to the cleaning up of session data.    
                                                                                                                                                                                                                                                                       
 | Configuration element | Description                                                                                                                                                                                                                                                                                                                                               |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
