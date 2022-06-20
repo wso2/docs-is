@@ -109,6 +109,20 @@ Server and as well as the Resource Server.
 
         Restart the server to apply the configuration changes.
 
+    !!! info
+        If you are using a custom SAML bearer grant handler instead of the default SAML bearer
+        grant handler, the following configuration should be applied to the
+        `            <IS_HOME>/repository/conf/deployment.toml           ` file so that you can
+        use the custom SAML bearer grant handler instead of the default one. Please change the handler name according 
+        to your implementation
+
+        ``` java
+        [oauth.grant_type.saml_bearer]
+        grant_handler = "com.wso2.carbon.custom.handlers.CustomSAML2BearerGrantHandler"
+        ```
+
+        Restart the server to apply the configuration changes.
+
 ### Running the sample
 
 1.  Access the following URL:
