@@ -288,7 +288,7 @@ Provider.
     | UserPermissionsOfflineUser         | `               http://wso2.org/claims/country              `                  |
     | Username                           | `               http://wso2.org/claims/emailaddress              `             |
     
-    ![add-claim-mapping](https://user-images.githubusercontent.com/28682701/174729411-c9c201b1-a376-4c73-8d61-cd230858a923.png)
+    ![add-claim-mapping](../assets/img/using-wso2-identity-server/add-claim-mapping.png)
 
 7.  Expand the **Advanced Claim Configuration** section.
 8.  Select the Claim URI you added from the **Provisioning Claim
