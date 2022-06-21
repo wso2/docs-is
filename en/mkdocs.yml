@@ -547,11 +547,11 @@ nav:
     - Overview: references/references-overview.md
     - About WSO2 Identity Server: 
       - Architecture:
-        - Architecture: get-started/architecture.md
-        - Provisioning Architecture: get-started/provisioning-architecture.md
-        - User Management Architecture: get-started/user-management-architecture.md
-      - About this Release: get-started/about-this-release.md
-      - Contribute: get-started/community.md
+        - Architecture: references/architecture/architecture.md
+        - Provisioning Architecture: references/architecture/provisioning-architecture.md
+        - User Management Architecture: references/architecture/user-management-architecture.md
+      - About this Release: references/about-this-release.md
+      - Contribute: references/community.md
     - Default Ports of WSO2 Products: references/default-ports-of-wso2-products.md
     - New Configuration Model: references/new-configuration-model.md
     - Product Startup Options: references/product-startup-options.md
@@ -1370,6 +1370,7 @@ plugins:
               'get-started/architecture.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'get-started/provisioning-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'get-started/user-management-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'get-started/community.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'get-started/about-this-release.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'get-started/single-sign-on-and-identity-federation.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'get-started/identity-provisioning-and-its-standards.md': 'https://is.docs.wso2.com/en/6.0.0/'
