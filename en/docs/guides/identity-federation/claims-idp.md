@@ -18,6 +18,17 @@ This involves a straightforward mapping of the claim that is used on the identit
 
 This involves more advanced mapping, where the mapped claims can have specific default values.
 
+!!! Note
+
+    If your considering to define a custom claim dialect, the following configuration should be added to the 
+    `<IS_HOME>/repository/conf/deployment.toml` file for that to take effect, otherwise the protocol specific claim 
+    dialect such as the OIDC dialect is always picked.
+
+    ```toml
+    [authentication.endpoint]
+    enable_custom_claim_mappings = true
+    ```
+
 ## Configuring basic claims
 
 Select the claim mapping dialect by either choosing to use a local claim dialect (i.e., a claim dialect local to the Identity Server) or define your own custom claim dialect (i.e., a claim dialect which exists in the identity provider that must be mapped to the Identity Server).
@@ -33,17 +44,6 @@ To use local claim dialects:
     ![user-id-claim-uri](../../assets/img/guides/user-id-claim-uri.png)
 
 To define custom claim dialects:
-
-!!! Note 
-
-    If your considering to define a custom claim dialect, the following configuration should be added to the 
-    `<IS_HOME>/repository/conf/deployment.toml` file for that to take effect, otherwise the protocol specific claim 
-    dialect such as the OIDC dialect is always picked.
-
-    ```toml
-    [authentication.endpoint]
-    enable_custom_claim_mappings = true
-    ```
 
 1. On WSO2 Identity Server Management Console, go to **Main > Identity > Identity Providers** section.
 2. Click **List**, select the identity provider you want to edit, and click on the corresponding **Edit** link.
