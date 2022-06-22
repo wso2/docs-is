@@ -148,4 +148,10 @@ you can make sure that the existing encrypted data is not affected.
     data encryption, signing, etc.
     
 
-Once this is done, you need to change all localhost references.  
+Once this is done, you need to change all `localhost` references. The following points would be the main places where
+the references should be changed.
+
+- The configurations in the `<IS_HOME/repository/conf/deployment.toml` file that references localhost.
+- The entity ID that is available in the resident identity provider configurations.
+- The callback URLs of the federated identity providers.
+- The callback URLs of the default system applications such as the User Portal application.
