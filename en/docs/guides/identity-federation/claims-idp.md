@@ -1,184 +1,144 @@
 # Configuring Claims for an Identity Provider
 
-Configuring claims for an identity provider involves mapping the claims
-available in the identity provider to claims that are local to the WSO2
-Identity Server. This is done so that the Identity Server can identify
-the user attributes in the response sent from the identity provider. As
-an example, Facebook IdP will return authenticated user email as 'email'
-and identity server will map it to the '
-http://wso2.org/claims/emailaddress ' using the IdP claim mapping. See
-the [Identity Server Architecture](../../get-started/architecture) topic for more
-information on how claim mapping fits into the identity provider
-scenario.
+When you add an identity provider to the Identity Server, the claims of the Identity Server are different from the claims of the identity provider that you connect.
 
-In the **Claim Configuration** form, there are two sub forms.
+Therefore claim mapping is done so that the Identity Server can identify the user attributes in the response sent from the identity provider.
 
-- Basic claim
-    configuration - This involves a straightforward mapping of the claim that is used on
-    the identity provider side with the claims local to the Identity Server.
-- Advanced claim configuration - This involves more advanced mapping, where the mapped claims can
-    have specific default values.
+For example, Facebook IdP will return authenticated user email as `email`, and the identity server will map it to the `http://wso2.org/claims/emailaddress` using the IdP claim mapping.
 
-Let's get started!
+See the [Identity Server Architecture](../../get-started/architecture.md) topic for more information on how claim mapping fits into the identity provider scenario.
 
-To view the claim configuration section, expand the **Claim
-Configuration** form.
+In the **Claim Configuration** form, there are two sub-forms as follows:
+
+- [Basic claim configuration](#configuring-basic-claims)
+
+This involves a straightforward mapping of the claim that is used on the identity provider side with the local claims of the Identity Server.
+
+- [Advanced claim configuration](#configuring-advanced-claims)
+
+This involves more advanced mapping, where the mapped claims can have specific default values.
 
 ## Configuring basic claims
 
-Select the claim mapping dialect by either choosing to use a local
-claim dialect (i.e., a claim dialect local to the Identity Server) or
-define your own custom claim dialect (i.e., a claim dialect which exists
-in the identity provider that must be mapped to the Identity Server).
+Select the claim mapping dialect by either choosing to use a local claim dialect (i.e., a claim dialect local to the Identity Server) or define your own custom claim dialect (i.e., a claim dialect which exists in the identity provider that must be mapped to the Identity Server).
 
-- If you choose to **Use Local Claim Dialect**, select the claim you require from the **User ID Claim URI** dropdown that includes a list of all the claims defined in the Identity Server.  
-    ![user-id-claim-uri](../assets/img/using-wso2-identity-server/user-id-claim-uri.png)
-- You can alternatively choose the **Define Custom Claim Dialect** option.  
-    ![custom-claim-dialect](../assets/img/using-wso2-identity-server/custom-claim-dialect.png)
-    For custom claim dialects, you must map the attributes of the user
-    in the identity provider to the claims that are local to the
-    Identity Server. These claims can be part of the response that is
-    sent from the identity provider to the Identity Server. This can
-    also be used when provisioning users from the Identity Server to an
-    external identity provider. These claim values are sent as part of
-    the outbound provisioning request. Do the following to configure
-    this.  
-    1. Click the **Add Claim Mapping** button under **Identity Provider
-        Claim URIs**. Clicking this button again enables you to perform
-        more claim mapping.
-    2. Map the value of the corresponding claim in the identity
-        provider to the claim in the Identity Server. Click the
-        **Delete** button to remove the claim mapping.  
-        ![delete-claim-mapping](../assets/img/using-wso2-identity-server/delete-claim-mapping.png)
+Basic claim configurations can be done by using local claims and defining custom claims on WSO2 Identity Server.
 
-        | Property                    | Description                                         | Sample Value                          |
-        |-----------------------------|-----------------------------------------------------|---------------------------------------|
-        | Identity Provider Claim URI | Claim identifier used in the Identity Provider side | emailID                               |
-        | Local Claim URI             | Claim identifier used in the WSO2 Identity Server   | http://wso2.org/claims/emailaddress |
+To use local claim dialects:
 
-    3. Select the **User ID Claim URI** from the dropdown that includes
-        the list of identity provider claims you defined. This is used
-        to uniquely identify the user in the response sent by the
-        identity provider. This is also used to identify the user in
-        provisioning requests.
-    4. Select the **Role ID Claim URI** from the dropdown that includes
-        the list of identity provider claims you defined. This is used
-        to uniquely identify the role of the user in the response sent
-        by the identity provider. This is also used to identify the role
-        in provisioning requests.  
+1. On WSO2 Identity Server Management Console, go to **Main > Identity > Identity Providers** section.
+2. Click **List**, select the identity provider you want to edit, and click on the corresponding **Edit** link.
+3. Expand the **Claim Configurations > Basic Claim Configurations** section
+4. Select **Use Local Claim Dialect**, and select the claim that includes a list of all the claims defined in the Identity Server from the **User ID Claim URI** dropdown.
+    ![user-id-claim-uri](../../assets/img/guides/user-id-claim-uri.png)
+
+To define custom claim dialects:
+
+1. On WSO2 Identity Server Management Console, go to **Main > Identity > Identity Providers** section.
+2. Click **List**, select the identity provider you want to edit, and click on the corresponding **Edit** link.
+3. Expand the **Claim Configurations > Basic Claim Configurations** section.
+4. Select **Define Custom Claim Dialect** and click **Add Claim Mapping** button under **Identity Provider Claim URIs**. Clicking this button again enables you to perform more claim mapping.
+    ![custom-claim-dialect](../../assets/img/guides/custom-claim-dialect.png)
+5. Map the value of the corresponding claim in the identity provider to the claim in the Identity Server.
+    ![delete-claim-mapping](../../assets/img/guides/delete-claim-mapping.png)
+
+    | Property                    | Description                                         | Sample Value                          |
+    |-----------------------------|-----------------------------------------------------|---------------------------------------|
+    | Identity Provider Claim URI | Claim identifier used in the Identity Provider side | `emailID`                               |
+    | Local Claim URI             | Claim identifier used in the WSO2 Identity Server   | `http://wso2.org/claims/emailaddress` |
+
+3. Select the **User ID Claim URI** from the dropdown that includes the list of identity provider claims you defined. This is used to uniquely identify the user in the response sent by the identity provider, and identify the user in provisioning requests.
+
+4. Select the **Role ID Claim URI** from the dropdown that includes the list of identity provider claims you defined. This is used to uniquely identify the role of the user in the response sent by the identity provider, and the role in provisioning requests.
 
 ## Configuring advanced claims
 
-You can make advanced claim configurations based on the basic
-configurations you have made.
+The advanced claim configurations are made based on the basic
+claim configurations done in the above steps.
 
-??? note "Click here for more information on when advanced claims are useful"
+??? note "When to use Advanced Claims?"
 
-    !!! info "Provisioning scenario where advanced claims can be useful"
+    This section encompasses two scenarios where provisioning happens. For both these scenarios, advanced claims are very useful.
 
-        The following scenario encompasses two different scenarios where
-        provisioning happens. For both these scenarios, advanced claims are very
-        useful.
+    **Scenario 1**
+    
+    Entities associated in the scenario: 
+    
+    1. Google Apps as the Identity Provider. This IdP is connected with Google provisioning connector to provsion user.
+    2. Administrator
 
-        ![provisioning-scenarios](../assets/img/using-wso2-identity-server/provisioning-scenarios.png)
+    The scenario:
+    
+    1. The administrator adds a user to the management console. 
+    2. The new user is provisioned to Google Apps (as it is the IdP).
 
-        In the above scenario, Google Apps is configured as an identity provider
-        in the Identity Server and you would configure the Google provisioning
-        connector for provisioning requests. When a user is added to the
-        management console of the Identity Server, it is assumed in this
-        scenario that the Identity Server acts as a resident service provider.
-        This user is provisioned to Google Apps using the Google Apps identity
-        provider configuration in the Identity Server. So when configuring
-        claims for this scenario, we would have multiple local claim URIs
-        associated to the user. For example,
-        http://wso2.org/claims/emailaddress, http://wso2.org/claims/title, etc.
-        From these claims, only some may be required to provision to Google
-        Apps. This is where the **Provisioning Claim Filter** comes into play.
+    When configuring claims for the above scenario, you have to keep the following facts in mind: 
+    - The user may have multiple local claims.
+    - Google Apps may require only some of these claims to be provisioned.
 
-        The next scenario is for Just-In-Time (JIT) provisioning. Salesforce is
-        the service provider and Facebook is the identity provider configured in
-        the Identity Server. When JIT provisioning is configured in the service
-        provider configuration, the user is provisioned to the user store
-        configured in the Identity Server. What happens here is that the
-        authentication request is sent from Salesforce to the Identity Server,
-        which sends it along to Facebook for authentication. Once authentication
-        is done, the response is sent back to the Identity Server, and this is
-        when JIT provisioning happens. So basically, JIT provisioning happens
-        while in the middle of an authentication flow.
+    In this scenario, the administrators can use **Provisioing Claim Filter** to filter out the claims that need to be provisioned.
 
-        If the same user store is configured in the Google Apps identity
-        provider configuration and JIT provisioning is enabled, the user is
-        provisioned there as well. Once again, the **Provisioning Claim Filter**
-        is vital to map only the required claims for the specific identity
-        provider.
+    **Scenario 2**
 
-        !!! note
-            
-            **Note** : The provisioning can happen in a blocking mode or in a
-            non-blocking mode. In the blocking mode, the authentication flow will be
-            blocked until the provisioning finishes - while in the non-blocking
-            mode, provisioning happens in a different thread. This can be specified
-            in the [service provider
-            configuration](../../learn/adding-and-configuring-a-service-provider).
-            
+    Entities associated in the scenario: 
 
-        In both these scenarios, only some specific user attributes must be configured for provisioning as the claims are different for both Facebook and Google Apps and must be mapped to the claims in the Identity Server.
+    1. SalesForce as the Service Provider. The SP has JIT provisioning configured.
+    2. Facebook as the Identity Provider.
 
-Use the following instructions to configure advanced claims.
+    The scenario: 
+    
+    What happens here is that the authentication request is sent from Salesforce to the Identity Server, which sends it along to Facebook for authentication. Once authentication is done, the response is sent back to the Identity Server, and this is when JIT provisioning happens. So basically, JIT provisioning happens while in the middle of an authentication flow.
 
-- If you chose to **Use Local Claim Dialect** in the **Basic Claim
-    Configuration**, do the following.
-    1. When you send provisioning requests from the Identity Server to
-        the external identity provider, it may not be necessary to send
-        all the requests. So, you can use the **Provisioning Claim
-        Filter** to filter out the user attributes you need to send from
-        the other available attributes. To use the **Provisioning Claim
-        Filter**, select the claims that exist in the Identity Server
-        from the dropdown list and click **Add Claim**. Clicking this
-        button again enables you to add a new entry.  
-        ![Advanced Claim for local
-        claims](../assets/img/using-wso2-identity-server/advanced-claim-for-local-claim.png)
-    2. Enter a **Default Value** for your claim. This value is the
-        default value used when provisioning this claim. This value will
-        be used in all instances of this field, e.g., if all users are
-        from one organization, you can specify the name of the
-        organization as a default value using this field. Clicking the
-        **Delete** button will remove this advanced claim.
-- If you chose to **Define Custom Claim Dialect** in the **Basic Claim
-    Configuration**, do the following.
-    1. Select the **Identity Provider Claim URI** you defined from the
-        dropdown list and click **Add Claim**. Clicking this button
-        again will add a new entry.  
-        ![Advanced Claim for custom
-        claims](../assets/img/using-wso2-identity-server/advanced-claim-for-custom-claims.png)
+    If the same user store is configured in the Google Apps identity provider configuration and JIT provisioning is enabled, the user is provisioned there as well. Once again, the **Provisioning Claim Filter** is vital to map only the required claims for the specific identity provider.
+        
+    In both these scenarios, only some specific user attributes must be configured for provisioning as the claims are different for both Facebook and Google Apps and must be mapped to the claims in the Identity Server.
 
-    2. Enter a **Default Value** for your claim. This value is the
-        default value used when provisioning this claim. This value will
-        be used in all instances of this field, e.g., if all users are
-        from one organization, you can specify the name of the
-        organization as a default value using this field. Clicking the
-        **Delete** button will remove this advanced claim.
+??? note "Provisioning modes"
+    Provisioning can happen in the following two modes:
 
-### Mapping configured claims to an OpenID Connect claim
+    - Blocking mode: The authentication flow will be blocked until the provisioning finishes.
+    
+    - Non-blocking mode: Provisioning happens in a different thread. 
+    
+    This provisioning mode can be specified when [creating and configuring the service provider](../applications/configure-sp.md).
 
-!!! info "Do this only,"
+To configure advanced claim configurations:
 
-    If your IDP is using OIDC claims and your newly added OIDC claims are
-    not available in WSO2 OIDC claim dialect, you need to map those new OIDC
-    claims to an existing unused OpenID Connect(OIDC) claim in WSO2 Identity
-    Server. For that follow the below steps.
+1. On WSO2 Identity Server Management Console, go to **Main > Identity > Identity Providers** section.
+2. Click **List**, select the identity provider you want to edit, and click on the corresponding **Edit** link.
+3. Expand the **Claim Configurations > Advanced Claim Configurations** section.
 
-Once you create a claim definition, you need to map that newly added
-claim to an OpenID Connect (OIDC) claim. To do this, do the following:
+    1. To configure advanced claims if you have chosen **Use Local Claim Dialect** as the basic claim configuration method:
 
-1. Select **Home** -\> **Identity** -\> **Claims** -\> **List** -\>
-    http://wso2.org/oidc/claim
-2. In the list select a claim that you do not use and map that to the
-    newly added claim.
+        1. From the **Provisioning Claim Filter** dropdown, select the claim that needs to be provisioned, and click **Add Claim**.
+        2. Enter the **Default Value** of the claim in the corresponding field.
+            ![Advanced Claim for local claims](../../assets/img/guides/advanced-claim-for-local-claim.png)
 
-See the following topics for samples of claim mapping for an identity
+            For example, the **Claim URI** can be `http://wso2.org/claims/organization` and the corresponding **Default Value** can be `docsorg`, which is the organization that all the users belong to.
+
+    2. To configure advanced claims if you have chosen **Define Custom Claim Dialect** as the basic claim configuration method:
+
+        1. Select the **Identity Provider Claim URI** you defined from the dropdown list and click **Add Claim**.
+
+        2. Enter a **Default Value** for your claim. This value is the default value used when provisioning this claim.
+            ![Advanced Claim for custom claims](../../assets/img/guides/advanced-claim-for-custom-claims.png)
+
+    !!! note
+        You can use the **Add Claim** link to add many claims as you wish.
+
+## Map a new OIDC claim to an unused OIDC claim
+
+If your IdP is using OIDC claims and your newly added OIDC claims are not available in WSO2 OIDC claim dialect, you need to map those new OIDC claims to an existing unused OIDC claim in WSO2 Identity Server.
+
+To map a newly added OIDC claim to an unused OIDC claim:
+
+1. On the management console, go to **Claims > List**, and select `http://wso2.org/oidc/claim` from the list.
+
+2. A list of claim related to `http://wso2.org/oidc/claim` will appear. From the list select a claim that you do not use and map it to the newly added claim.
+
+See the following topics for samples of claim mapping for an identity
 provider.
 
-- [Logging in to your application via Identity Server using Facebook Credentials](../../learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
-- [Logging in to Salesforce with Facebook](../../learn/logging-in-to-salesforce-with-facebook)
+- [Logging in to your application via Identity Server using Facebook Credentials](../identity-federation/facebook.md)
+- [Logging in to Salesforce with Facebook](../login/log-into-salesforce-using-fb.md)
 - [Outbound Provisioning with Salesforce](../../learn/outbound-provisioning-with-salesforce)

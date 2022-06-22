@@ -6,7 +6,7 @@ Integrated Windows Authentication (IWA) is a popular authentication mechanism us
 
 ## Introduction to IWA
 
-IWA is a mechanism used by Microsoft Windows NT based operating systems to authenticate their users to web application. This is an easy method for users to log in to web applications that use Windows Active Directory as a user store.
+IWA is a mechanism used by Microsoft Windows NT-based operating systems to authenticate their users to web applications. This is an easy method for users to log in to web applications that use Windows Active Directory as a user store.
 
 This authentication mechanism does not use the traditional form-based authentication, where the users have to enter credentials in a form. Instead, it uses a browser-based authentication, where the authentication is handled by the web browser.
 
@@ -39,18 +39,18 @@ This section covers the pros and cons of using IWA for your web applications.
 - Using IWA is secure, because IWA uses a hash function and a challenge response to authenticate the users
 
 ### Cons
-- The client should  always be in the same domain as of the server. IWA is functional only within the Intranet.
+- The client should  always be in the same domain as the server. IWA is functional only within the Intranet.
 - For some web browsers (ex: Mozilla Firefox), IWA requires extra configurations.
 
 ---
 
 ## IWA for a Java web apps
 
-IWA was developed by Microsoft as an authentication mechanism for their .NET based IIS servers.
+IWA was developed by Microsoft as an authentication mechanism for their .NET-based IIS servers.
 
 However, neither Java nor the server applications that host Java web applications (like Tomcat) have native support for IWA. There are several third-party libraries that provide the ability to enable the IWA for Java web applications. Following are some of those libraries:
 
-- **JCIFS** is an open-source library that had been commonly used for IWA authentication of Java web applications. However, this library is no longer maintained and it is not recommended using due to security flaws.
+- **JCIFS** is an open-source library that had been commonly used for IWA authentication of Java web applications. However, this library is no longer maintained and it is not recommended to use due to security flaws.
 - **JESPA** is a commercial library that can be used to enable IWA in Java web applications.
 - **Tomcat IWA** is Tomcat's implementation of IWA. However, this is not fully completed yet.
 - **SPNEGO** is an open-source library. which uses Java Authentication and Authorization Service (JAAS) for authentication.
