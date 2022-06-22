@@ -68,7 +68,7 @@ starting with the following location.
 
 `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes/org/wso2/carbon/identity/mgt/recovery/endpoint/i18n/`
 
-### Configuring Localization for My Account and Console
+## Configuring Localization for My Account and Console
 
 We maintain the i18n (localization) resources for My Account and Console in a separate module inside the
 [identity-apps](https://github.com/wso2/identity-apps/tree/v1.0.558) repository hence the localization configurations
