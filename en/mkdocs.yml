@@ -343,6 +343,8 @@ nav:
         - User-wise Account Locking: guides/tenants/account-locking-per-user.md
         - User operation notifications: guides/tenants/user-operation-notifications.md
       - User Self-Service: guides/my-account/my-account.md
+      - Analytics:
+        - Overview: guides/elk-analytics/elk-analytics.md
 
   - Setup:
       - Install:
@@ -351,7 +353,7 @@ nav:
         - Get WSO2 Updates: deploy/get-started/get-wso2-updates.md
         - Management Console:
           - Overview: deploy/get-started/get-started-with-the-management-console.md
-          - Customize: deploy/get-started/customize-the-management-console.md  
+          - Customize: deploy/get-started/customize-the-management-console.md 
       - Configure:
         - User Stores:
           - Overview: deploy/configure-the-realm.md
@@ -394,6 +396,7 @@ nav:
             - Data Purging: deploy/data-purging.md
             - Remove References to Deleted User Identities: deploy/remove-references-to-deleted-user-identities.md
         - Analytics:
+          - Configure ELK Analytics: deploy/elk-analytics-installation-guide.md
           - Configure an SP and IdP Using Configuration Files: deploy/configure-an-sp-and-idp-using-configuration-files.md
         - CORS : deploy/configure-cors.md
       - Secure:
