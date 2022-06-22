@@ -42,20 +42,136 @@ The following sections guide you through configuring and running the
 Identity Anonymization tool in WSO2 IS.
 
 ---
+### Building the Identity Anonymization tool
+
+Follow the steps below to build the tool:
+
+1.  Clone the <https://github.com/wso2/identity-anonymization-tool>
+    repository to a required location.
+2.  In the source that you checked out, navigate to
+    `          identity-anonymization-tool         `, and run
+    `          mvn clean install         ` . This downloads all
+    dependencies and builds the tool in your local repository. You can
+    find the
+    `          org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip         `
+    file created in the
+    `          identity-anonymization-tool/components/org.wso2.carbon.privacy.forgetme.tool/target         `
+    directory.
+3.  Unzip the
+    `           org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip          `
+    file. This creates the
+    `           identity-anonymization-tool-SNAPSHOT          `
+    directory with a directory. The path to the
+    `           identity-anonymization-tool-SNAPSHOT          `
+    directory will be referred to as `           <TOOL_HOME>          `
+    throughout this section.
+
+    The following table describes the purpose of the most important
+    configuration related directories and files of the tool, which are
+    in the `           <TOOL_HOME>/conf          ` directory:
+
+    <table>
+    <thead>
+    <tr class="header">
+    <th>Directory/File name</th>
+    <th>Purpose</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><code>               config.json              </code></td>
+    <td>This is the master configuration file.<br />
+    You can configure this file depending on the metadata database tables, access logs, audit logs, or any other log
+     files on which you want the Identity Anonymization tool to run. For information on how to configure this file
+     , see <a href="#configuring-the-master-configuration-file">
+     Configuring the master configuration file</a> .</td>
+    </tr>
+    <tr class="even">
+    <td><code>               datasources              </code></td>
+    <td><p>This is the default directory where configured datasources are searched for when you run the Identity Anonymization tool.<br />
+    If necessary, you can define your own datasource configurations depending on the databases that you want to connect to, and specify the defined datasource configuration location using command line arguments.</p></td>
+    </tr>
+    <tr class="odd">
+    <td><code>               log-config/patterns.xml              </code></td>
+    <td>This file should contain all the regex patterns that can be used to find and replace references to deleted user identities in log file entries.</td>
+    </tr>
+    <tr class="even">
+    <td><code>               sql              </code></td>
+    <td>This directory should include all the SQL files that contain required queries to replace or delete references to deleted user identities.</td>
+    </tr>
+    </tbody>
+    </table>
+
+
 
 ## Change the default configurations of the tool
 
 All configurations related to this tool can be found inside the
-`         <IS_HOME>/repository/components/tools/forget-me/conf        `
-directory. The default configurations of the tool are set up to search
-for references of the deleted user from the following file paths:
+`         <TOOL_HOME>/conf        `
+directory.
+
+The master configuration file of the Identity Anonymization tool is the
+`         config.json        ` file. Following is a sample config.json
+file:
+
+``` java
+
+  "processors" : [
+    "log-file", "rdbms"
+  ],
+  "directories": [
+    {
+      "dir": "log-config",
+      "type": "log-file",
+      "processor" : "log-file",
+      "log-file-path" : "<IS_HOME>/repository/logs",
+      "log-file-name-regex" : "^(wso2carbon(.)*\\.log|audit(.)*\\.log)$"
+    },
+    {
+      "dir": "sql",
+      "type": "rdbms",
+      "processor" : "rdbms"
+    }
+  ],
+  "extensions": [
+    {
+      "dir": "<IS_HOME>/repository/conf/datasources/",
+      "type": "datasource",
+      "processor" : "rdbms",
+      "properties" : [
+        {"identity": "WSO2_CARBON_DB"}
+      ]
+    }
+  ]
+}
+```
+
+You can configure the following in the `         config.json        `
+file based on your requirement:
+
+-   `          processors         ` - A list of processors on which you
+    want the tool run. The processors that you can specify are
+    pre-defined. Possible values are `          RDBMS         ` and
+    `          log-file         ` .
+-   `          directories         ` - The definitions of directories on
+    which you want the tool to run. When you specify a directory
+    definition, be sure to either specify the directory path relative to
+    the location of the `          config.json         ` file, or
+    specify the absolute path to the directory.
+-   `          processor         ` - The type of processor to use to
+    process instructions in the corresponding directory.
+-   `          extensions         ` - The extensions to be initialized
+    prior to starting a processor.
+
+
+The configurations of the tool need to be set up to search
+for references of the deleted user from the following file paths. You need to change the config.json file accordingly.
 
 -   **Read Logs** : `          <IS_HOME>/repository/logs         `
 -   **Read Data sources** :
-    `          <IS_HOME>/repository/conf/datasources/         `
+    `          <IS_HOME>/repository/conf/datasources         `
 -   **Default data source name** : `          WSO2_CARBON_DB         `
--   **Log file name regex** : `          wso2carbon.log         `
-
+-   **Log file name regex** : `          ^(wso2carbon(.)*\\.log|audit(.)*\\.log)$         `
 
 <!--For information on changing these configurations, see [Configuring the
 config.json file](TBD:../../setup/removing-references-to-deleted-user-identities-in-wso2-products#configuring-the-master-configuration-file)
@@ -92,8 +208,7 @@ the following:
 
 ## Run the tool in WSO2 IS
 
-This tool is packaged with WSO2 Identity Server by default. Follow the
-steps below to run the tool:
+This tool has independent runtime. From IS 6.0.0 onwards, this tool is externalised.
 
 !!! note    
     -   This tool is designed to run in offline mode (i.e., the server
@@ -104,13 +219,13 @@ steps below to run the tool:
     
     -   If you configure any JDBC database other than the H2 database
         provided by default, copy the relevant JDBC driver to the
-        `            <IS_HOME>/repository/components/tools/forget-me/lib           `
+        `            <TOOL_HOME>/lib           `
         directory.
     
-
-1.  Open a new terminal window and navigate to the
-    `           <IS_HOME>/bin          ` directory.
-2.  Execute one of the following commands depending on your operating
+1. Modify the config.json file with the logs directory location and datasources directory location.
+2. Open a new terminal window and navigate to the
+    `           <TOOL_HOME>/bin          ` directory.
+3. Execute one of the following commands depending on your operating
     system:
 
     -   On Linux/Mac OS:
@@ -285,19 +400,7 @@ steps below to run the tool:
     convention.
 
 ---
-
-## Run the tool in WSO2 IS Analytics
-
-To use this tool with WSO2 IS Analytics, you can configure and run the
-tool by following the same steps given in this guide in the
-`          <IS_ANALYTICS_HOME>         ` directory (the WSO2 IS
-analytics installation directory) instead of the
-`          <IS_HOME>         ` directory.
-
-!!! note    
-    Before you run the tool, be sure to start the WSO2 IS Analytics server
-    at least once to generate the required analytics streams.
-    
+ 
 
 ### Run the standalone version of the tool
 
