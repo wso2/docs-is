@@ -64,18 +64,29 @@ To disable JIT provisioning for an IdP:
 
 !!! info "Related topics"
 
-    - [JIT Provisioning Architecture](../../../get-started/provisioning-architecture).
+    - [JIT Provisioning Architecture](../../references/architecture/provisioning-architecture.md/#jit-provisioning).
 
     - [Introduction to Just-in-Time Provisioning](../../../references/concepts/jit-provisioning)
-
-<!--For information on how to configure purposes and appropriate user
-    attributes to obtain user consent at the time of JIT provisioning, see
-    [Configuring Just-In-Time Provisioning Consent
-    Purposes](../../learn/configuring-just-in-time-provisioning-consent-purposes).
-
-    For information on how to customize the default user name and password
-    provisioning user interfaces, see [Customizing Just-In-Time Provisioning
-    User Interfaces](../../learn/customizing-just-in-time-provisioning-user-interfaces).
     
-    [Guide: Outbound Just-in-Time Provisioning](TODO:link-to-guide)-->
-    
+    - [Configuring Just-In-Time Provisioning Consent Purposes](../identity-federation/jit-consent-purposes.md).
+
+    - [Customizing Just-In-Time Provisioning User Interfaces](../identity-federation/jit-user-interfaces.md).
+
+<!-- [Guide: Outbound Just-in-Time Provisioning](TODO:link-to-guide) -->
+
+## Enhanced Feature (Optional)
+
+Add the following configuration to deployment.toml in the `/conf` directory.
+
+```xml
+[authentication.jit_provisioning]
+enable_enhanced_feature = "true"
+```
+
+With the the JIT provisioned enhanced feature, the following capabilities will be available.
+
+- A Federated unique user id will be set as the username of the JIT provisioned user.
+- Second-factor authenticators (Ex:- TOTP, Email OTP) will be able to configure for federated users when JIT provisioing is enabled
+- When an IDP is deleted, all provisioned users from that IDP will be deleted.
+- Editing JIT provisioned user’s attributes will not be allowed.
+- Ability to lock JIT provisioned user accounts based on social identity.

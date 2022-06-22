@@ -6,7 +6,7 @@ Therefore claim mapping is done so that the Identity Server can identify the use
 
 For example, Facebook IdP will return authenticated user email as `email`, and the identity server will map it to the `http://wso2.org/claims/emailaddress` using the IdP claim mapping.
 
-See the [Identity Server Architecture](../../get-started/architecture.md) topic for more information on how claim mapping fits into the identity provider scenario.
+See the [Identity Server Architecture](../../references/architecture/architecture.md) topic for more information on how claim mapping fits into the identity provider scenario.
 
 In the **Claim Configuration** form, there are two sub-forms as follows:
 
