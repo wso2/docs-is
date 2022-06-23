@@ -12,7 +12,7 @@ enable advanced cases.
 ```toml
 [hazelcast]
 "hazelcast.shutdownhook.enabled" = "false"
-"hazelcast.logging.type" = "log4j2"
+"hazelcast.logging.type"= "log4j2"
 ```
 
 The above configurations are explained below.
