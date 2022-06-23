@@ -87,29 +87,17 @@ hazelcast.phone.home.enabled = "false"
 
 ## Why Hazelcast is required for a clustered deployment
 
-Applications are scaled horizontally when good performance and reliability are critical. But here comes the problem 
-with caching; the cache coherence problem.
+Applications are scaled horizontally when good performance and reliability are critical to a deployment. However, horizontal scaling introduces the problem of **cache coherence**.
 
-For example, let’s assume there are two WSO2 IS nodes deployed and node A issues an access token and then a token 
-revocation request comes to node B. Still, node A is not aware of this cache revocation event, and it still keeps track 
-of the previously issued access token as a valid one in its cache.
+!!! info "What is cache coherence?"
 
-Now the old access token will still be valid according to node A even though it is already revoked by node B until the 
-access token cache object in node A expires.
+    Let’s assume there are two WSO2 IS nodes (A and B) clustered in a deployment.  Consider a scenario where node A issues an access token and then a token revocation request comes to node B. Because node A is not aware of the cache renovation event, it will continue to keep track of the previously issues access token as a valid token in its cache. The access token of node A is removed only when the token cache object of node A expires. 
+    
+    Cache coherence is inevitable in a multi-node WSO2 deployment. If you disable all the cache layers to solve this problem, you are sacrificing good performance. Further, the existence of multiple cache layers (see [Configuring Cache Layers](../../setup/configuring-cache-layers/)) could also lead to unexpected problems. 
 
-If there are multiple WSO2 IS nodes in the deployment, the cache coherence problem is inevitable. One could think of 
-disabling all the cache layers. But it is a huge sacrifice of performance. It is not only about access tokens, but there 
-are multiple cache layers [Configuring Cache Layers](../../setup/configuring-cache-layers/), and it could lead to 
-unexpected scenarios with any of them.
+The current Hazelcast implementation in WSO2 IS solves this problem of **cache coherence** for clustered deployments by ensuring that all caches are maintained locally for each node while facilitating distributed cache invalidation. In this method, although caches are local to each node, the nodes will use messages to notify each other when cache invalidation occurs in any of the nodes. Thereby, cache invalidation will be synchronised across all cluster nodes.
 
-Hazelcast is an in-memory data grid, which is used in clustering and distributed shared memory. When using Hazelcast as 
-a clustering implementation, data is evenly distributed among the nodes in a cluster. But later on, it was decided to 
-avoid using distributed shared memory, but keep caches local to each node in the cluster and use messages to cluster 
-members in order to notify about cache invalidations when required. This was due to many practical issues that are 
-related to configuring and running distributed caching properly where the network is not tightly controlled hence, 
-distributed caching fails in unexpected ways. There are multiple clustered deployment cache scenarios and the 
-recommended approach is “All caches are local with distributed cache invalidation”. You can expand the topic 
-[Caching in WSO2 Identity Server](../../setup/deployment-guide/#clustering-related-configurations) to read about other 
-cache scenarios and their disadvantages. With the above approach, the WSO2 Identity Server employs Hazelcast as the 
-primary method of implementing cluster messages while using distributed caching in a simple setup. Cache invalidation 
-uses Hazelcast messaging to distribute the invalidation message over the cluster and invalidate the caches properly.
+Note the following about this Hazelcast implementation in WSO2 IS:
+
+- Distributed shared memory (which Hazelcast is typically used for) is avoided and instead, caches are maintained locally in each node. This is due to practical issues that affect distributed caching in scenarios where the network is not tightly controlled.
+- There are multiple caching solutions for a clustered deployment. See [Caching in WSO2 Identity Server](../../setup/deployment-guide/#clustering-related-configurations) for details. However, local caches with distributed cache invalidation is the recommended method.
