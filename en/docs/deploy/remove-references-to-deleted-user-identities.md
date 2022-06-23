@@ -179,33 +179,6 @@ in the Product Administration Guide.-->
 
 ---
 
-## Change the default configuration directory location
-
-You can change the default location of the tool configurations if
-desired. You may want to do this if you are working with a multi-product
-environment where you want to manage configurations in a single location
-for ease of use. Note that this is **optional**.
-
-To change the default configurations location for the embedded tool, do
-the following:
-
-1.  Open the `            forgetme.sh           ` file found inside the
-    `            <IS_HOME>/bin           ` folder.
-
-2.  The location path is the value given after
-    `                         -d                       ` within the
-    following line. Modify the value after
-    `                         -d                       ` to change the
-    location.  
-    The default location path is
-    `            $CARBON_HOME/repository/components/tools/forget-me/conf.           `
-
-    ``` java
-    sh $CARBON_HOME/repository/components/tools/forget-me/bin/forget-me -d $CARBON_HOME/repository/components/tools/forget-me/conf $@
-    ```
-
----
-
 ## Run the tool in WSO2 IS
 
 This tool has independent runtime. From IS 6.0.0 onwards, this tool is externalised.
