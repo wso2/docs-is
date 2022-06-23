@@ -16,27 +16,47 @@ To do this, the developers need to view authentication statistics about the logi
 
 ## Enable analytics
 
-Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and add the following event listeners to enable analytics in WSO2 Identity Server. 
- 
-``` toml
-[[event_listener]]
-id = "authn_data_publisher_proxy"
-type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
-name = "org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy" 
-order = 11 
-```
+Follow the instructions given below.
 
-``` toml
-[identity_mgt.analytics_login_data_publisher]
-enable=true
-```
+-   Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and enable the following event publishers in WSO2 Identity Server.
 
-```toml
-[identity_mgt.analytics_session_data_publisher] 
-enable=true
-```
+    ``` toml
+    [identity_mgt.analytics_login_data_publisher]
+    enable=true
 
-The rest of the configurations required to connect the analytics distribution with the WSO2 IS distribution have already been pre-configured for fresh distributions. To see more information about these pre-configurations, see [Prerequisites to Publish Statistics](../../learn/prerequisites-to-publish-statistics). 
+    [identity_mgt.analytics_session_data_publisher] 
+    enable=true
+    ```
+
+-   Configure WSO2 IS to publish user information with pending status.
+
+    For self registered users, by default, user information such as username, tenant domain, etc. will not be published to analytics if the account is in `PENDING_SR` state. Learn more about [Account Pending Status](../../learn/pending-account-status).
+
+    !!! Note
+        The capability of publishing user information for `PENDING_SR` users is available as an update in WSO2 IS 5.10.0 from 2022-06-01 onwards (WUM model) and from update level 146 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
+
+    -  To enable this configuration globally, apply the following to the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+        ```toml
+        [show_pending_user_information]
+        enable=true
+        ```
+
+    -  To enable this configuration per tenant, apply the following steps: 
+    
+        1. First, be sure to enable the configuration management feature by using the [Configuration Management REST APIs](../../develop/using-the-configuration-management-rest-apis).
+    
+        2. Create a resource type named `basic-authenticator-config` through the following cURL command:
+            ```powershell
+            curl --location --request POST 'https://localhost:9443/api/identity/config-mgt/v1.0/resource-type' --header 'accept: application/json' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' --data-raw '{"name": "basic-authenticator-config", "description": "This is the resource type for pending users."}'
+            ```
+
+        3. Then, create the `user-information` resource and the attribute through the following cURL command:
+            ```powershell
+            curl --location --request POST 'https://localhost:9443/api/identity/config-mgt/v1.0/resource/basic-authenticator-config' --header 'accept: application/json' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' --data-raw '{"name": "user-information","attributes": [{"key": "ShowPendingUserInformation.enable","value": "true"}]}'
+            ```
+
+The rest of the configurations required to connect the analytics distribution with the WSO2 IS distribution have already been pre-configured for fresh distributions. To see more information about these pre-configurations, see [Prerequisites to Publish Statistics](../../learn/prerequisites-to-publish-statistics).
 
 If you do not need to change the default values, proceed to start the servers. 
 

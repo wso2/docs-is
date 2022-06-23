@@ -87,7 +87,7 @@ The API can be called in either of the following ways:
         authenticationOptions:[{
             authenticator: 'totp'
         }]},
-    });
+    }, {});
     ```
     ``` java
     executeStep(1, {
