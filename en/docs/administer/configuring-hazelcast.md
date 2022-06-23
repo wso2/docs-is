@@ -1,16 +1,18 @@
 # Configuring Hazelcast
 
-## Configuring Hazelcast
-
 WSO2 products use [Hazelcast](../../administer/clustering-overview) as
-its default clustering engine. The following configuration must be
+its default clustering engine. 
+
+## Configuring advanced use cases
+
+The following configuration must be
 placed in the ` <IS_HOME>/repository/conf/deployment.toml ` file to
 enable advanced cases.
 
 ```toml
-    [hazelcast]
-    "hazelcast.shutdownhook.enabled" = "false"
-    "hazelcast.logging.type" = "log4j2"
+[hazelcast]
+"hazelcast.shutdownhook.enabled" = "false"
+"hazelcast.logging.type" = "log4j2"
 ```
 
 The above configurations are explained below.
@@ -48,20 +50,20 @@ important to add all the members to the well-known members list in the `
      members = ["<member-x-host>:<member-x-port>", ...]
      ```
 
-The following properties can also be placed under the `[hazelcast]` line in the
-` <IS_HOME>/repository/conf/deployment.toml `file for better reliability of the cluster. These properties make sure that
-the cluster is not affected when one of the nodes goes offline suddenly.
+The following properties can also be placed under `[hazelcast]` in the
+` <IS_HOME>/repository/conf/deployment.toml` file for better reliability of the cluster.These properties make sure that
+the cluster is not affected in situations where one of the nodes suddenly go offline.
 
 ```toml
-    [hazelcast]
-    hazelcast.heartbeat.interval.seconds = 1
-    hazelcast.master.confirmation.interval.seconds = 5
-    hazelcast.max.no.heartbeat.seconds = 20
-    hazelcast.max.no.master.confirmation.seconds = 30
+[hazelcast]
+hazelcast.heartbeat.interval.seconds = 1
+hazelcast.master.confirmation.interval.seconds = 5
+hazelcast.max.no.heartbeat.seconds = 20
+hazelcast.max.no.master.confirmation.seconds = 30
 ```
 
-Furthermore, if you need to disable Hazelcast version check network call, you need to add the following properties in the
-` <IS_HOME>/repository/conf/deployment.toml `file. These configurations are explained in the [Hazelcast Advanced Configuration Properties documentation](https://docs.hazelcast.org/docs/3.0/manual/html/ch12s06.html).
+Furthermore, if you need to disable the Hazelcast version check network call, you need to add the following properties in the
+`<IS_HOME>/repository/conf/deployment.toml `file. See the [Hazelcast advanced configuration properties documentation](https://docs.hazelcast.org/docs/3.0/manual/html/ch12s06.html) for details.
 
 ```toml
     hazelcast.version.check.enabled = "false"
