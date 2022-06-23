@@ -109,6 +109,9 @@ compatibility information.
 
 ## Deciding how to set up your cluster
 
+!!! note
+    If there are multiple WSO2 IS nodes in a deployment, it is mandatory to enable hazelcast clustering. [Learn more](../../administer/configuring-hazelcast#why-hazelcast-is-required-for-a-clustered-deployment).
+
 When setting up your cluster, you must decide how you want to
 [set up separate databases for clustering](../../setup/setting-up-separate-databases-for-clustering/),
 whether to front your cluster with a
