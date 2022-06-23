@@ -4,7 +4,7 @@ This page guides you through configuring [Just-in-Time (JIT) provisioning](../..
 
 -----
 
-## Pre requisites
+## Prerequisites
 You need to [add and configure an identity provider](../identity-federation/add-idp.md) on the Identity Server.
 
 ## Enable JIT provisioning
@@ -17,28 +17,28 @@ To enable JIT provisioning for an IdP:
 
     ![just-in-time-provisioning](../../../assets/img/guides/just-in-time-provisioning.png)
 
-4. Select **Always provision to User Store Domain**, and select a required userstore domain from the list of available userstore domains.
+4. Select **Always provision to User Store Domain**, and select a required user store domain from the list of available user store domains.
 
     !!! tip
-        The userstore domain that you see by default is the **PRIMARY** userstore that is provided with WSO2 Identity Server.
+        The user store domain that you see by default is the **PRIMARY** user store that is provided with WSO2 Identity Server.
 
         If you want to provision users to multiple user stores depending on the user name specified at the time of provisioning, select **As in username** from the dropdown.
                     
         If you select this option and do not specify the user name
         appropriately, the relevant user is provisioned to the
-        PRIMARY userstore domain.  
+        PRIMARY user store domain.  
         For example,
                     
         -   If you specify the username as `user`, the user is provisioned to the domain.
-        -   If you specify the username as `user1`, the user is provisioned to the PRIMARY userstore domain.
+        -   If you specify the username as `user1`, the user is provisioned to the PRIMARY user store domain.
 
-        If you want to select a userstore domain other than the default primary userstore domain, you need to [configure a userstore](../../deploy/configure-the-primary-user-store.md) of your preference for it to appear in the list for you to select.
+        Suppose you want to select a user store domain other than the default primary user store domain. In that case, you need to [configure a userstore](../../deploy/configure-the-primary-user-store.md) of your preference for it to appear in the list for you to select.
 
-5. Select the provisioning options depending on how you want to prompt users for relevant credentials at the time of JIT provisioning. The provisioning options are as follows:
+5. Select the provisioning options depending on how you want to prompt users for relevant credentials at the time of JIT provisioning. The provisioning options are as follows:
 
-    - Prompt for username, password and consent
-    - Prompt for password and consent
-    - Prompt for consent
+    - Prompt for username, password and consent
+    - Prompt for password and consent
+    - Prompt for consent
     - Provision silently
 
     !!! note
@@ -50,12 +50,12 @@ To enable JIT provisioning for an IdP:
     Provisioning claims should be compatible with the policies defined in the userstore manager configuration. For example
     user name should match `UsernameJavaRegEx` and `RolenameJavaScriptRegEx` in the [userstore configuration](../../../deploy/configure-user-stores/).
 
-## Disable JIT Provisioining
+## Disable JIT Provisioning
 
 To disable JIT provisioning for an IdP:
 
 !!! note
-    JIT provisioing is disabled by default. If you have enabled JIT provisioing for the IdP, use these instructions to disable it.
+    JIT provisioning is disabled by default. If you have enabled JIT provisioning for the IdP, use these instructions to disable it.
 
 1. On WSO2 Identity Server Management Console, go to **Main > Identity > Identity Providers** section.
 2. Click **List**, select the identity provider you want to enable JIT provisioning on, and click on the corresponding **Edit** link.
@@ -83,10 +83,12 @@ Add the following configuration to deployment.toml in the `/conf` directory.
 enable_enhanced_feature = "true"
 ```
 
-With the the JIT provisioned enhanced feature, the following capabilities will be available.
+With the JIT provisioned enhanced feature, the following capabilities will be available.
 
 - A Federated unique user id will be set as the username of the JIT provisioned user.
-- Second-factor authenticators (Ex:- TOTP, Email OTP) will be able to configure for federated users when JIT provisioing is enabled
+- Second-factor authenticators (Ex:- TOTP, Email OTP) will be able to configure for federated users when JIT provisioning is enabled
 - When an IDP is deleted, all provisioned users from that IDP will be deleted.
-- Editing JIT provisioned user’s attributes will not be allowed.
+- Editing JIT-provisioned user’s attributes will not be allowed.
 - Ability to lock JIT provisioned user accounts based on social identity.
+
+
