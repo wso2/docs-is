@@ -398,28 +398,39 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
 
 #### Configure role mapping in Kibana
  
-1. Login to Kibana using basic authentication.
+1. Edit the following configuration in `kibana.yml` file.
+   ```
+   xpack.security.authc.providers:
+     basic.basic1:
+       order: 0
+     oidc.oidc1:
+       order: 1
+       realm: "oidc1"
+       description: "Log in with WSO2 via OIDC"
+   ```
+   
+2. Login to Kibana using basic authentication.
 
-2. Click **Stack Management** on the left panel and then click **Role Mappings** under the **Security** section.
+3. Click **Stack Management** on the left panel and then click **Role Mappings** under the **Security** section.
  
-3. Click **Create Role Mapping** and add a new role mapping by giving a **Mapping name**.
+4. Click **Create Role Mapping** and add a new role mapping by giving a **Mapping name**.
  
-4. Select a role that has access to the particular dashboard from  **Roles**.
+5. Select a role that has access to the particular dashboard from  **Roles**.
  
     ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-6.png)
  
-5. Click **Add Rules** under **Mapping rules**.
+6. Click **Add Rules** under **Mapping rules**.
 
-6. Select **groups** as the user field and enter the name of the role that you created in the WSO2 Identity Server.
+7. Select **groups** as the user field and enter the name of the role that you created in the WSO2 Identity Server.
  
     ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-7.png)
  
  
-7. Logout from Kibana and re-login by selecting the **Log in with WSO2 option**.
+8. Logout from Kibana and re-login by selecting the **Log in with WSO2 option**.
  
     ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-8.png)
  
-8. This will navigate to the WSO2 Identity Server login page. Try logging in with the credentials of the user that you created.
+9. This will navigate to the WSO2 Identity Server login page. Try logging in with the credentials of the user that you created.
  
     ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-9.png)
  
