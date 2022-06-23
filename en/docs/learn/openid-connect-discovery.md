@@ -11,7 +11,7 @@ OAuth 2.0 endpoint locations. For more information, see
 The OpenID Connect discovery endpoint is as follows:
 
 ``` java
-https://localhost:9443/.well-known/oidcdiscovery
+https://localhost:9443/oauth2/oidcdiscovery
 ```
 
 The following sections provide information and instructions on the
@@ -43,28 +43,12 @@ can be configured as the OpenID Provider Issuer location. Follow the
 instructions given below to configure the OpenID Provider Issuer
 location.
 
-1.  Add the following property to the `            deployment.toml         ` file found in the
-    `            <IS_HOME>/repository/conf/          ` folder.
+1.  Log in to the management console.
 
-    ``` java
-    [oauth]
-    use_entityid_as_issuer_in_oidc_discovery= "true"
-    ```
-
-    !!! warning
-        In future releases, the Entity ID will be used as the OpenID
-        Provider Issuer location by default and will not need to be enabled
-        manually using the property mentioned above. Therefore, the
-        `            use_entityid_as_issuer_in_oidc_discovery           `
-        property will be deprecated in the next release.
-    
-
-2.  Log in to the management console.
-
-3.  Click **Resident** under **Identity Providers** on the **Main** tab.
-4.  Expand the **Inbound Authentication Configuration** section and then
+2.  Click **Resident** under **Identity Providers** on the **Main** tab.
+3.  Expand the **Inbound Authentication Configuration** section and then
     expand OAuth2/OpenID Connect Configuration.
-5.  Enter a valid OpenID Provider issuer location as the **Identity
+4.  Enter a valid OpenID Provider issuer location as the **Identity
     Provider Entity Id** value.  
     ![idp-entity-id]( ../assets/img/using-wso2-identity-server/idp-entity-id.png) 
 
