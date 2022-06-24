@@ -658,3 +658,35 @@ In WSO2 Identity Server 6.0.0, the Log4j version is upgraded to ```Log4j2```. Th
 [hazelcast]
 hazelcast.logging.type = log4j2
 ```
+### Change In Data Type for Boolean Attributes From Schemas Endpoint
+
+`scim2/Schemas` endpoint now returns the attribute type of boolean attributes as `boolean`. Before this fix, the attribute type was returned as `string`.
+
+Following was the response for the boolean attribute `Active`. 
+
+```
+caseExact: false
+description: "Status of the account"
+displayName: "Active"
+displayOrder: "20"
+multiValued: false
+mutability: "READ_WRITE"
+name: "active"
+required: false
+returned: "DEFAULT"
+type: "STRING"
+```
+With the new change, the response will be as follows. 
+
+```
+caseExact: false
+description: "Status of the account"
+displayName: "Active"
+displayOrder: "20"
+multiValued: false
+mutability: "READ_WRITE"
+name: "active"
+required: false
+returned: "DEFAULT"
+type: "BOOLEAN"
+```
