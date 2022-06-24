@@ -397,8 +397,10 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
 
 
 #### Configure role mapping in Kibana
- 
-1. Edit the following configuration in `kibana.yml` file.
+
+1. In your Kibana installation, navigate to the **config** directory and open **kibana.yml** file
+
+2. Add the following configuration to the **kibana.yml** file.
    ```
    xpack.security.authc.providers:
      basic.basic1:
@@ -409,28 +411,27 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
        description: "Log in with WSO2 via OIDC"
    ```
    
-2. Login to Kibana using basic authentication.
+3. Login to Kibana using basic authentication.
 
-3. Click **Stack Management** on the left panel and then click **Role Mappings** under the **Security** section.
+4. Click **Stack Management** on the left panel and then click **Role Mappings** under the **Security** section.
  
-4. Click **Create Role Mapping** and add a new role mapping by giving a **Mapping name**.
+5. Click **Create Role Mapping** and add a new role mapping by giving a **Mapping name**.
  
-5. Select a role that has access to the particular dashboard from  **Roles**.
+6. Select a role that has access to the particular dashboard from  **Roles**.
  
     ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-6.png)
  
-6. Click **Add Rules** under **Mapping rules**.
+7. Click **Add Rules** under **Mapping rules**.
 
-7. Select **groups** as the user field and enter the name of the role that you created in the WSO2 Identity Server.
+8. Select **groups** as the user field and enter the name of the role that you created in the WSO2 Identity Server.
  
     ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-7.png)
- 
- 
-8. Logout from Kibana and re-login by selecting the **Log in with WSO2 option**.
+
+9. Logout from Kibana and re-login by selecting the **Log in with WSO2 option**.
  
     ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-8.png)
  
-9. This will navigate to the WSO2 Identity Server login page. Try logging in with the credentials of the user that you created.
+10. This will navigate to the WSO2 Identity Server login page. Try logging in with the credentials of the user that you created.
  
-    ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-9.png)
+     ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-9.png)
  
