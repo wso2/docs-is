@@ -1,21 +1,23 @@
 # Writing a Custom Local Authenticator
 
-The default authenticator available in the WSO2 Identity Server is the basic authenticator. It authenticates end users using a connected user store and the provided username and password.
+A local authenticator in WSO2 identity server acts as the plugin that authenticates users, who are stored in the local database, using a defined authentication logic.
+By default, the local authenticator in WSO2 identity server is the basic authenticator.
+It authenticates end users who are stored in a connected user store using the provided username and password.
 
-With the WSO2 Identity Server, you can write your own local authenticator to define various authentication logic.
+WSO2 identity server supports extensibility in local authentication, so that you can implement a different authentication logic by writing a custom local authenticator. You can authenticate users based on the combination of password and any claim that helps you to uniquely identify the user such as their telephone number, employee registration number, email address by writing a custom local authenticator.
 
 ## Sample scenario
-You have the **pickup-dispatch** app to which you want users to log in with their telephone numbers instead of usernames. Once a user enters a telephone number, your authentication logic should identify the user and validate the user's credentials. 
+Let’s consider a scenario where you are required to authenticate the users by their telephone number and password. Since the basic authenticator performs the username and password authentication, in this instance, you will have to write a custom local authenticator to implement this authentication logic.
 
-The following guide shows you how to write a custom local authenticator to implement this authentication logic.
+First, Let’s identify the primary difference between the basic authenticator and the local authenticator we are going to implement. In the local authenticator, the claim used to uniquely identify the user was the claim username with the claim uri  `http://wso2.org/claims/username`.
+But in the authenticator we are going to implement, we will use the telephone number claim (claim uri : `http://wso2.org/claims/telephone` ) to uniquely identify the user, instead of the username claim.
 
 ## Implement the custom local authenticator
+You can implement the custom local authenticator by extending the abstract class [abstractApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/AbstractApplicationAuthenticator.java) and implementing the interface [LocalApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/LocalApplicationAuthenticator.java). This requires you to implement several methods in the custom local authenticator. Please refer to this [table](https://is.docs.wso2.com/en/latest/develop/writing-a-custom-local-authenticator/#reference) to understand the generic purpose of the method and the usage of it in our implementation
 
-You can write a custom local authenticator by extending the **AbstractApplicationAuthenticator** class and implementing the **LocalApplicationAuthenticator** class.
+Let's begin the implementation (You can find the completed version of this custom local authenticator [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator)).
 
-Let's begin.    
-
-1.  Create a maven project to write the custom authenticator.
+1.  Create a maven project using the following pom.xml  to write the custom authenticator.
 
     ??? example "Click to view the sample pom.xml"
         ``` xml
@@ -486,17 +488,18 @@ The following is a set of methods related to writing a custom local authenticato
 <tbody>
 <tr class="odd">
 <td>canHandle()</td>
-<td><p>This method checks whether the authentication request is valid, according to the custom authenticator’s requirements. The user will be authenticated if the method returns 'true'. This method also c hecks whether the authentication or logout request can be handled by the authenticator.</p>
-<p>For example, you can check if the username and password is 'not null' in the <strong>canHandle</strong> method. if that succeeds, the authentication flow will continue (to have the user authenticated).</p></td>
+<td><p>This method checks whether the authentication request is valid, according to the custom authenticator’s requirements. The user will be authenticated if the method returns 'true'. This method also checks whether the authentication or logout request can be handled by the authenticator.</p>
+<p>In our sample project, we used this method to check if the username and password is 'not null' in the authentication request. If that succeeds, the authentication flow will continue.</p></td>
 </tr>
 <tr class="even">
 <td>process()</td>
-<td><p>This method is used to process or carry out the user authentication process. It calls the <strong>super.process()</strong>, so that the super class will handle the authentication process, and it calls <strong>processAuthenticationResponse()</strong> method in the custom authenticator class to execute the custom authentication logic.</p></td>
+<td><p>This method is used to process or carry out the user authentication process. It calls the <strong>super.process()</strong>, so that the super class will handle the authentication process, and it calls <strong>processAuthenticationResponse()</strong> method in the custom authenticator class to execute the custom authentication logic.</p>
+<p>In the sample project we call the super.process(), so that the super class process method will handle the authentication process, instead of implementing our own process method.</p></td>
 </tr>
 <tr class="odd">
 <td>processAuthenticationResponse()</td>
-<td><p>Implementation of custom authentication logic happens inside this method. For example, you can call any API that can do authentication and authenticate the user or you can authenticate the user against the underlying user store. Then you can also do any other custom logic after authenticating the user.</p>
-<p>For example, you can check if a user belongs to a particular role and allow authentication accordingly.</p></td>
+<td><p>Implementation of custom authentication logic happens inside this method. For example, you can call any API that can do authentication and authenticate the user or you can authenticate the user against the underlying user store. Then you can also do any other custom logic after authenticating the user such as, you can check if a user belongs to a particular role and allow authentication accordingly.</p>
+<p>In the sample project, we used this method to authenticate the user with the telephone number and password.</p></td>
 </tr>
 <tr class="even">
 <td>initiateAuthenticationrequest()</td>
@@ -509,15 +512,18 @@ The following is a set of methods related to writing a custom local authenticato
 </tr>
 <tr class="even">
 <td>getContextIdentifier()</td>
-<td><p>This method gets the Context identifier sent with the request. This identifier is used to retrieve the state of the authentication/logout flow.</p></td>
+<td><p>This method gets the Context identifier sent with the request. This identifier is used to retrieve the state of the authentication/logout flow.</p>
+<p>In the sample project, We have returned the name sample-local-authenticator.</p></td>
 </tr>
 <tr class="odd">
 <td>getFriendlyName()</td>
-<td><p>This method returns the name you want to display for your custom authenticator. This name will be displayed in the local authenticators drop down.</p></td>
+<td><p>This method returns the name you want to display for your custom authenticator. This name will be displayed in the local authenticators drop down.</p>
+<p>In the sample project, We have returned the name sample-local-authenticator.</p></td>
 </tr>
 <tr class="even">
 <td>getname()</td>
-<td><p>This method is used to get the name of the authenticator.</p></td>
+<td><p>This method is used to get the name of the authenticator.</p>
+<p>In the sample project, We have used this method to return the name SampleLocalAuthenticator.</p></td>
 </tr>
 </tbody>
 </table>
