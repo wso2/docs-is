@@ -460,7 +460,7 @@ Follow the steps below to send the One Time Password (OTP) using Gmail APIs or u
 
     Sample configuration: 
     
-     ``` toml
+    ```
     [authentication.authenticator.email_otp]
     name = "EmailOTP"
     enable= true
