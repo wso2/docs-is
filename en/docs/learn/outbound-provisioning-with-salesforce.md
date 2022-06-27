@@ -281,7 +281,7 @@ Provider.
     | LanguageLocaleKey                  | `               http://wso2.org/claims/dob              `                      |
     | LastName                           | `               http://wso2.org/claims/lastname              `                 |
     | LocaleSidKey                       | `               http://wso2.org/claims/primaryChallengeQuestion              ` |
-    | ProfileId                          | `               Empty            `                                             |
+    | ProfileId                          | Empty                                             |
     | TimeZoneSidKey                     | `               http://wso2.org/claims/challengeQuestion1              `       |
     | UserPermissionsCallCenterAutoLogin | `               http://wso2.org/claims/telephone              `                |
     | UserPermissionsMarketingUser       | `               http://wso2.org/claims/mobile              `                   |
