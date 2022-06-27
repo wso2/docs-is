@@ -1,74 +1,43 @@
 # Configuring Just-In-Time Provisioning Consent Purposes
 
 The provisioning framework of WSO2 Identity Server supports just-in-time
-(JIT) provisioning, which allows you to provision users to the identity
+(JIT) provisioning, which allows you to provision users to the identity
 server at the time of federated authentication. If necessary you can
-also configure purposes and appropriate user attributes to obtain user
-consent at the time of JIT provisioning depending on your requirement.  
+also, configure purposes and appropriate user attributes to obtain the user consent at the time of JIT provisioning depending on your requirement.  
+
 For example, if you want to obtain a user's phone number and email
 address for the purpose of account recovery, You have to get the user's
 consent to collect those attributes at the time of JIT provisioning.
 
-Follow the instructions below to configure JIT provisioning consent
-purposes and appropriate user attributes via the management console of
-WSO2 Identity Server:
+To configure JIT provisioning consent purposes and appropriate user attributes:
 
-!!! tip " Before you begin"
-        Download and install WSO2 Identity Server. For detailed information on
-        how to install, see [Installing the Product](../../setup/installing-the-product).
+1. On WSO2 Identity Server management console, go to **Main > Identity > Resident**
 
+2. Expand **User Onboarding > Ask Password** section.
 
-1. Start WSO2 Identity Server and access the management console via
-    `https://localhost:9443/carbon/` .
+3. Click on the link next to **Manage JIT provisioning purposes**. to display the **Consent Purposes** screen.
+    ![jit-provisioning]( ../../assets/img/guides/jit-consent-purposes.png)
 
-2. Click the **Main** tab, go to **Identity** -\> **Identity
-    Providers** and then click **Resident**. This displays the
-    **Resident Identity Provider** screen.
-3. Expand the **Account Management Policies** section, and then expand
-    the **User Onboarding** section. Under **User Onboarding** you will
-    see **Manage just-in-time provisioning purposes**.
-
-4. Click to configure JIT provisioning purposes and user attributes.  
-    ![jit-provisioning]( ../assets/img/using-wso2-identity-server/jit-provisioning.png)
-    This displays the **Consent Purposes** screen where you can add
-    consent purposes.
-
-5. Click **Add New Purpose**. This displays the **Add New Purpose**
-    screen.
-6. Specify appropriate values for the **Purpose** and **Description**
-    fields, and then click **Add PII Category** to add a user attribute
-    required to obtain consent for the specified purpose.
+4. Click **Add New Purpose**.
+5. Enter values for **Purpose** and **Description**, and then click **Add PII Category** to add the user attributes for the purpose.
 
     !!! tip
 
         You can add one or more user attributes to obtain consent for a
         particular purpose.
 
-    ![purpose-consent]( ../assets/img/using-wso2-identity-server/purpose-consent.png)
+    ![purpose-consent]( ../../assets/img/guides/purpose-consent.png)
 
-    If you want consent on a specific user attribute to be mandatory,
-    select the **Mandatory** check box for that attribute.
+    !!! info "Add mandatory attributes"
+        If it is mandatory to obtain consent for a specific user attribute, select the **Mandatory** check box corresponding to that attribute.
 
-    !!! tip
+6. Click **Finish**.
 
-        -   When you configure purposes for JIT provisioning, the attributes
-            that you specify for a specific purposes are the only attributes
-            for which users are requested to provide consent.
-        -   If a user attribute is set as **Mandatory**, JIT provisioning
-            will not happen if a user does not provide consent for the
-            attribute.
-        -   If a user does not provide consent for any of the non-mandatory
-            attributes, WSO2 Identity Server will not store those
-            attributes.
+    !!! info "Add more purposes"
+        Depending on your requirement, you can either add another new purposes and related user attributes, or click **Finish** if you have added all the purposes you need.
 
-7. Click **Finish**. This displays details related to the purpose that
-    you added.
+??? tip "Tips on JIT consent purposes"
 
-8. Depending on your requirement, you can either add another new
-    purposes and related user attributes, or click **Finish** if you
-    have added all the purposes you need.
-
-9. Click **Update**.
-
-Now you have configured the required JIT provisioning purposes and user
-attributes for which you require users to provide consent.
+    -   When you configure purposes for JIT provisionin, the attributes that you specify for a specific purpose are the only attributes for which users are requested to provide consent.
+    -   If a Mandatory user attributes are set as **Mandatory**, JIT provisioning will happen if the user provide consent for the attribute.
+    -   If a user does not provide consent for any of the non-mandatory attributes, WSO2 Identity Server will not store those attributes.
