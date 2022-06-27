@@ -281,14 +281,14 @@ Provider.
     | LanguageLocaleKey                  | `               http://wso2.org/claims/dob              `                      |
     | LastName                           | `               http://wso2.org/claims/lastname              `                 |
     | LocaleSidKey                       | `               http://wso2.org/claims/primaryChallengeQuestion              ` |
-    | ProfileId                          | `               http://wso2.org/claims/role              `                     |
+    | ProfileId                          | Empty                                             |
     | TimeZoneSidKey                     | `               http://wso2.org/claims/challengeQuestion1              `       |
     | UserPermissionsCallCenterAutoLogin | `               http://wso2.org/claims/telephone              `                |
     | UserPermissionsMarketingUser       | `               http://wso2.org/claims/mobile              `                   |
     | UserPermissionsOfflineUser         | `               http://wso2.org/claims/country              `                  |
     | Username                           | `               http://wso2.org/claims/emailaddress              `             |
-
-    ![add-claim-mapping](../assets/img/using-wso2-identity-server/add-claim-mapping.png) 
+    
+    ![add-claim-mapping](../assets/img/using-wso2-identity-server/add-claim-mapping.png)
 
 7.  Expand the **Advanced Claim Configuration** section.
 8.  Select the Claim URI you added from the **Provisioning Claim
