@@ -91,7 +91,7 @@ Pickup now needs to set up outbound provisioning between WSO2 IS and the **Sales
     | LanguageLocaleKey                  | http://wso2.org/claims/dob                      |
     | LastName                           | http://wso2.org/claims/lastname                 |
     | LocaleSidKey                       | http://wso2.org/claims/primaryChallengeQuestion |
-    | ProfileId                          | None                     |
+    | ProfileId                          | Empty                                           |
     | TimeZoneSidKey                     | http://wso2.org/claims/challengeQuestion1       |
     | UserPermissionsCallCenterAutoLogin | http://wso2.org/claims/telephone                |
     | UserPermissionsMarketingUser       | http://wso2.org/claims/mobile                   |
