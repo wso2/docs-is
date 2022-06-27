@@ -140,7 +140,7 @@ Once all the above prerequisites have been met, follow the instructions given be
 
 4.  To migrate the super tenant, copy the content (except the webapps folder) from `<OLD_IS_HOME>/repository/deployment/server` directory to the `<NEW_IS_HOME>/repository/deployment/server` directory. 
 
-    If you have done any customizations to the webapps in the previous WSO2 Identity Server version, those changes should be manually applied to the relevant files with careful inspection. If you have created tenants in the previous WSO2 Identity Server
+    If you have customized the web apps in the previous WSO2 Identity Server version, those changes should be manually applied to the relevant files with careful inspection. If you have created tenants in the previous WSO2 Identity Server
     version that contain resources, copy the content from `<OLD_IS_HOME>/repository/tenants` directory,
     to the `<NEW_IS_HOME>/repository/tenants` directory.
     
