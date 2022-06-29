@@ -500,6 +500,36 @@ If this behavior is not required, it can be disabled using the following configu
 [scim2]
 remove_duplicate_users_in_users_response = true 
 ```
+
+#### Change In Data Type for Boolean Attributes from the Schemas Endpoint
+
+In previous versions of WSO2 Identity Server, the `scim2/Schemas` endpoint returned the attribute type of boolean attributes as `string`.
+```
+caseExact: false
+description: "Status of the account"
+displayName: "Active"
+displayOrder: "20"
+multiValued: false
+mutability: "READ_WRITE"
+name: "active"
+required: false
+returned: "DEFAULT"
+type: "STRING"
+```
+In Identity Server 6.0.0, the attribute type returned for boolean attributes from the `scim2/Schemas` endpoint is `boolean`.
+```
+caseExact: false
+description: "Status of the account"
+displayName: "Active"
+displayOrder: "20"
+multiValued: false
+mutability: "READ_WRITE"
+name: "active"
+required: false
+returned: "DEFAULT"
+type: "BOOLEAN"
+```
+
 ### OAuth DCR Endpoint Response
 With WSO2 Identity Server 6.0.0, the response model of an application ```GET/PUT``` response from the OAuth DCR endpoint has been updated.
 The data type of the ```client_secret_expires_at``` property of an OAuth2 Application object has been changed from ```string``` to ```long```.
@@ -657,36 +687,4 @@ In WSO2 Identity Server 6.0.0, the Log4j version is upgraded to ```Log4j2```. Th
 ``` js
 [hazelcast]
 hazelcast.logging.type = log4j2
-```
-### Change In Data Type for Boolean Attributes From Schemas Endpoint
-
-`scim2/Schemas` endpoint now returns the attribute type of boolean attributes as `boolean`. Before this fix, the attribute type was returned as `string`.
-
-Following was the response for the boolean attribute `Active`. 
-
-```
-caseExact: false
-description: "Status of the account"
-displayName: "Active"
-displayOrder: "20"
-multiValued: false
-mutability: "READ_WRITE"
-name: "active"
-required: false
-returned: "DEFAULT"
-type: "STRING"
-```
-With the new change, the response will be as follows. 
-
-```
-caseExact: false
-description: "Status of the account"
-displayName: "Active"
-displayOrder: "20"
-multiValued: false
-mutability: "READ_WRITE"
-name: "active"
-required: false
-returned: "DEFAULT"
-type: "BOOLEAN"
 ```
