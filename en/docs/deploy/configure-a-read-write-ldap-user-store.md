@@ -151,7 +151,7 @@ Note: email address is considered as a special case in WSO2 products, if you wan
 <td>user_name_search_filter</td>
 <td>User Search Filter</td>
 <td>Filtering criteria used to search for a particular user entry.<br />
-Default : (&amp;amp;(objectClass=person)(uid=?))</td>
+Default : (&amp;amp;(objectClass=identityPerson)(uid=?))</td>
 </tr>
 <tr class="odd">
 <td>UserNameListFilter</td>
@@ -159,7 +159,7 @@ Default : (&amp;amp;(objectClass=person)(uid=?))</td>
 <td>User List Filter</td>
 <td>Filtering criteria for searching user entries in the userstore. This query or filter is used when doing search operations on users with different search attributes.<br />
 <br />
-Default: (objectClass=person)<br />
+Default: (objectClass=identityPerson)<br />
 In this case, the search operation only provides the objects created from the person object class.</td>
 </tr>
 <tr class="even">
