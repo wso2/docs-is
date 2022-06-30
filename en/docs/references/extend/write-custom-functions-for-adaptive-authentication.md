@@ -112,9 +112,31 @@ functions for adaptive authentication.
         jsFunctionRegistry.register(JsFunctionRegistry.Subsystem.SEQUENCE_HANDLER, "barMethod", (FooFunction)fooFunctionImpl::barMethod);
     ```
 
-      
+## Try out the sample adaptive authentication function
 
-  
+1. Build [this](https://github.com/wso2/samples-is/tree/master/adaptive-authentication/org.wso2.custom.auth.functions) sample using maven `mvn clean install`
+2. Copy the `org.wso2.custom.auth.functions-1.0.0` binary file from `target` directory into  `<IS_HOME>/repository/components/dropins` directory
+3. Restart WSO2 IS
+4. Register a service provider and add the following script as the  adaptive authentication script:
+    ``` js
+    var onLoginRequest = function(context) {
+        executeStep(1, {
+            onSuccess: function (context) {
+                var userName = getUsernameFromContext(context, 1);
+                Log.info("Username: " + userName);
+            } 
+        });
+    };
+    ```
+
+This custom `getUsernameFromContext()` function can be used to retrieve the username from the authentication context.
+
+
+!!! info "Related topics"
+
+    - [Concept: Multi-Factor Authentication](../multi-factor-authentication)
+    - [Guide: Adaptive Authentication](../../../guides/adaptive-auth/configure-adaptive-auth)
+    - [Quick Start: Adaptive Authentication](../../../quick-starts/adaptive-auth-overview)
 
   
 
