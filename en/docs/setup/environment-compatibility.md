@@ -117,7 +117,7 @@ WSO2 Identity Server supports the following DBMSs.
 	<li>Google Chrome Version 85.0.4183.102 (Official Build, 64-bit)</li>
 	<li>Google Chrome Version 86.0.4240.75 (Official Build, x86_64)</li>
 	<li>Chromium version 86.0.4240.111 (Official Build)</li>
-	</li>MS Edge 44.18362</li>
+	<li>MS Edge 44.18362</li>
 	<li>Safari 13.0.3</li>
 </ul>
 
