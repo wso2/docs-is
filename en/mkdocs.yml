@@ -60,7 +60,9 @@ nav:
   - Guides:
       - Overview: guides/before-you-start.md
       - Applications:
+        - Overview: guides/applications/service-provider-overview.md
         - Configure a Service Provider: guides/applications/configure-sp.md
+        - Configure Claims: guides/applications/configure-claims-for-sp.md
         - Inbound Authentication: guides/applications/inbound-auth-for-sp.md
         - Local and Outbound Authentication: guides/applications/local-outbound-auth-for-sp.md
         - Provisioning:
@@ -325,7 +327,6 @@ nav:
         - Edit Claim Mapping: guides/dialects/edit-claim-mapping.md
         - Delete Claim Mapping: guides/dialects/delete-claim-mapping.md
         - Configure unique claims: guides/dialects/configure-unique-claims.md
-        - Share claims with apps: guides/dialects/share-claims-with-apps.md
         #- Use a Custom Attribute Dialect: guides/attribute-dialects/custom-dialect.md
         #- Map Attributes: guides/attribute-dialects/map-attributes.md
         #- Configure Attribute Metadata: guides/attribute-dialects/metadata.md
