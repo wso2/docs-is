@@ -501,7 +501,7 @@ If this behavior is not required, it can be disabled using the following configu
 remove_duplicate_users_in_users_response = true 
 ```
 
-#### Change In Data Type for Boolean Attributes from the Schemas Endpoint
+#### Data type change for boolean attributes from the Schemas endpoint
 
 In previous versions of WSO2 Identity Server, the `scim2/Schemas` endpoint returned the attribute type of boolean attributes as `string`.
 ```
