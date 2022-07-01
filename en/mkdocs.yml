@@ -61,14 +61,16 @@ nav:
       - Overview: guides/before-you-start.md
       - Applications:
         - Overview: guides/applications/service-provider-overview.md
-        - Configure a Service Provider: guides/applications/configure-sp.md
-        - Configure Claims: guides/applications/configure-claims-for-sp.md
-        - Inbound Authentication: guides/applications/inbound-auth-for-sp.md
-        - Local and Outbound Authentication: guides/applications/local-outbound-auth-for-sp.md
-        - Provisioning:
+        - Register a Service Provider: guides/applications/register-sp.md
+        - Configure a Service Provider:
+          - Claims: guides/applications/configure-claims-for-sp.md
+          - Roles and Permissions: guides/applications/roles-and-permissions-for-sp.md
+          - Inbound Authentication: guides/applications/inbound-auth-for-sp.md
+          - Local and Outbound Authentication: guides/applications/local-outbound-auth-for-sp.md
           - Inbound Provisioning: guides/applications/inbound-provisioning-for-sp.md
           - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
-        - Import and Export a Service Provider: guides/applications/import-export-sp.md
+        - Manage a Service Provider: guides/applications/manage-sp.md
+        - Set up a Resident Service Provider: guides/applications/resident-sp.md
       - Authentication:
         - Login:
           - Web Application:
