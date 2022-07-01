@@ -1,17 +1,14 @@
 # ELK-based Analytics
  
-WSO2 Identity Server supports ELK-based Analytics which is the on-premise analytics solution for the WSO2 Identity Server.
+ELK-based Analytics is the on-premise analytics solution for the WSO2 Identity Server.
  
 You can configure the WSO2 Identity Server to publish authentication and session related events to the ELK cluster and use Kibana dashboards to view analytics.
  
-### Analytics Data flow
- 
 Analytics data is published to a log file by the WSO2 Identity Server and the log file is used as the source for the analytics.
  
-The ELK based on-premise analytics architecture
-has 4 main components.
+The ELK based on-premise analytics architecture has 4 main components.
  
-1. **Filebeat** monitors the log files locations that we specify, collects log events, and forwards them to logstash.
+1. **Filebeat** monitors the log files locations that you specify, collects log events, and forwards them to logstash.
  
 2. **Logstash** is a server‑side data processing pipeline that ingests data from multiple sources, transforms it, and then sends it to Elasticsearch.
  
@@ -47,4 +44,4 @@ ELK-based Analytics provides three types of dashboards:
 For more information on how to work with WSO2 Identity Server Analytics,
 explore the following topics:
  
-- [ELK-based Analytics Installation Guide](../../learn/elk-analytics-installation-guide)
+- [ELK-based Analytics Installation Guide](../../../deploy/elk-analytics-installation-guide)
