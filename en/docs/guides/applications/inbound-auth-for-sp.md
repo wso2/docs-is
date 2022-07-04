@@ -43,7 +43,7 @@ To configure inbound authentication for the registered service provider:
 
 !!! info "Related Topics"
 
-    See [Single Sign-On](../../learn/configuring-single-sign-on) for details on configuring single sign-on for service provider using inbound authentication. See the following topics for samples of configuring single sign-on:
+    See [Single Sign-On](../login/enable-single-sign-on.md) for details on configuring single sign-on for service provider using inbound authentication. See the following topics for samples of configuring single sign-on:
 
     - [Configuring Single Sign-On Using SAML](../login/sso-for-saml.md)
     - [Configuring Single Sign-On Using OpenID Connect](../login/sso-for-oidc.md)
