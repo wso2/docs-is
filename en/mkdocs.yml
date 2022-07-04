@@ -270,6 +270,25 @@ nav:
           - Add User Roles: guides/identity-lifecycles/add-user-roles.md
           - Edit/Delete Roles: guides/identity-lifecycles/edit-delete-roles.md
           - Role-Based Permissions: guides/identity-lifecycles/role-based-permissions.md
+        - Manage Accounts:
+          - Overview: guides/identity-lifecycles/account-states-overview.md
+          - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
+          - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
+          - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
+          - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
+          - Disable Accounts: guides/identity-lifecycles/enable-account.md
+          - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
+          - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
+        - Manage Passwords:
+          - Overview: guides/password-mgt/password-mgt-overview.md
+          - Password Policies: guides/password-mgt/password-policies.md
+          - Admin-Initiated Password Reset: guides/password-mgt/forced-password-reset.md
+          - Password Recovery Using Email Verification: guides/password-mgt/recover-password.md
+          - Password Recovery Using Challenge Question: guides/password-mgt/challenge-question.md
+          #- Resend Account Recovery Confirmation Mail: guides/password-mgt/recovery-confirmation.md
+          - Configure reCAPTCHA for Password Recovery: guides/password-mgt/recaptcha-password-recovery.md
+          - Configure reCAPTCHA on Invalid Challenge Question Attempt: guides/password-mgt/recaptcha-challenge-question-attempts.md
+          - Configure Email Masking Pattern for Notification Based Password Recovery: guides/identity-lifecycles/configure-email-masking-pattern.md
         - Provisioning:
           - Overview: guides/identity-lifecycles/provisioning-overview.md
           - Provisioning Patterns: guides/identity-lifecycles/provisioning-patterns.md
@@ -301,25 +320,6 @@ nav:
           - Salesforce: guides/identity-lifecycles/sync-with-salesforce.md
           - Sendgrid: guides/identity-lifecycles/sync-with-sendgrid.md
           - Zoho CRM: guides/identity-lifecycles/sync-with-zoho.md
-      - Account Management:
-        - Overview: guides/identity-lifecycles/account-states-overview.md
-        - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
-        - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
-        - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
-        - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
-        - Disable Accounts: guides/identity-lifecycles/enable-account.md
-        - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
-        - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
-      - Password Management:
-        - Overview: guides/password-mgt/password-mgt-overview.md
-        - Password Policies: guides/password-mgt/password-policies.md
-        - Admin-Initiated Password Reset: guides/password-mgt/forced-password-reset.md
-        - Password Recovery Using Email Verification: guides/password-mgt/recover-password.md
-        - Password Recovery Using Challenge Question: guides/password-mgt/challenge-question.md
-        #- Resend Account Recovery Confirmation Mail: guides/password-mgt/recovery-confirmation.md
-        - Configure reCAPTCHA for Password Recovery: guides/password-mgt/recaptcha-password-recovery.md
-        - Configure reCAPTCHA on Invalid Challenge Question Attempt: guides/password-mgt/recaptcha-challenge-question-attempts.md
-        - Configure Email Masking Pattern for Notification Based Password Recovery: guides/identity-lifecycles/configure-email-masking-pattern.md
       - Claim Management:
         - Add Claim Dialects: guides/dialects/add-claim-dialects.md
         - Edit Claim Dialects: guides/dialects/edit-claim-dialects.md
