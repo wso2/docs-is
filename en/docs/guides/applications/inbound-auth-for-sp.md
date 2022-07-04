@@ -4,21 +4,20 @@ The inbound authenticator component of WSO2 Identity Server identifies
 and parses all the incoming authentication requests and builds the
 corresponding response. A given inbound authenticator has two parts:
 
--   Request Processor
--   Response Builder
+- Request Processor
+- Response Builder
 
-For each protocol supported by WSO2 Identity Server, there should be an
-inbound authenticator. WSO2 Identity Server includes inbound
+There should be an inbound authenticator for each protocol supported by WSO2 Identity Server. WSO2 Identity Server includes inbound
 authenticators for SAML 2.0, OpenID Connect, OAuth 2.0, Kerberos KDC,
-WS-Trust STS, and WS-Federation (passive). The responsibility of the
+WS-Trust STS and WS-Federation (passive). The responsibility of the
 SAML 2.0 request processor is to accept a SAML request from a service
 provider, validate the SAML request, and build a common object model
-that is understood by the authentication framework and handover the
+that is understood by the authentication framework and hand over the
 request to it. The responsibility of the SAML response builder is to
 accept a common object model from the authentication framework and build
 a SAML response out of it.
 
-Both the request processors and the response builders are
+The request processors and the response builders are
 protocol-aware, while the authentication framework is not coupled to any
 protocol. For more information on the inbound authentication flow, see
 [Architecture](../../get-started/architecture).
@@ -26,7 +25,7 @@ protocol. For more information on the inbound authentication flow, see
 Let's learn how to configure inbound authentication for a service
 provider.
 
-!!! Tip "Before you begin"	
+!!! Tip "Before you begin"  
     You must first
     [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
     

@@ -1,6 +1,6 @@
 # Manage service providers
 
-This section of the guide provides instructions on managing service providers once they are created.
+This section provides instructions on how to manage the created service providers.
 
 ## View a service provider
 
