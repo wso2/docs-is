@@ -180,7 +180,7 @@ nav:
           - Configure an IdP:
             - Roles of an IdP: guides/identity-federation/roles-idp.md
             - Claims of an IdP: guides/identity-federation/claims-idp.md
-            - Federated Authenticators: guides/identity-federation/claims-idp.md
+            - Federated Authenticators: guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
             - JIT Provisioning: guides/identity-federation/jit-workflow.md
             - Outbound Provisioning Connectors: guides/identity-federation/outbound-provisioing-idp.md
           - Manage an IdP: guides/identity-federation/manage-idp.md
