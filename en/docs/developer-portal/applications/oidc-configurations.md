@@ -7,7 +7,7 @@ Now that you have created an application in the Identity Server using a template
 | Name          | Unique name for the application.   |  Asguardio   |
 | Description   | A meaningful description about the application.   | This is a cloud based developer portal.   |
 | Application image | An image to represent the application.    |  https://asguardio.io/logo.jpg    |
-| Discoverable application  | Enable this field to make an application accessible for the end users by making it appear in the applications section of the user portal.    |  enabled  |
+| Discoverable application  | Enable this field to make an application accessible for the end users by making it appear in the applications section of the My Account.    |  enabled  |
 | Access URL    | The URL to reach the login page of the application.    | https://asguardio.io  |
 
 ### Certificate Configuration
