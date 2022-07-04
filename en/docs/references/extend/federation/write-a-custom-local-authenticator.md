@@ -1,6 +1,7 @@
 # Write a Custom Local Authenticator
 
-A local authenticator in WSO2 identity server acts as the plugin that authenticates users, who are stored in the local database, using a defined authentication logic.
+A local authenticator in WSO2 identity server authenticates users, who are stored in the local database, using a defined authentication logic.
+
 By default, the local authenticator in WSO2 identity server is the basic authenticator.
 It authenticates end users who are stored in a connected user store using the provided username and password.
 
@@ -10,16 +11,16 @@ WSO2 identity server supports extensibility in local authentication, so that you
 
 ## Scenario
 
-Let’s consider a scenario where you are required to authenticate the users by their telephone number and password. Since the basic authenticator performs the username and password authentication, in this instance, you will have to write a custom local authenticator to implement this authentication logic.
+Let’s consider a scenario where you need to authenticate the users by their phone number and password. Since the basic authenticator uses only the username, you can write a custom local authenticator to implement this logic.
 
-First, Let’s identify the primary difference between the basic authenticator and the local authenticator we are going to implement. In the local authenticator, the claim used to uniquely identify the user was the claim username with the claim uri  `http://wso2.org/claims/username`.
-But in the authenticator we are going to implement, we will use the telephone number claim (claim uri : `http://wso2.org/claims/telephone` ) to uniquely identify the user, instead of the username claim.
+First, let’s identify the primary difference between the basic authenticator and the local authenticator we are going to implement. In the basic authenticator, the claim used to uniquely identify the user is the claim username with the claim URI  http://wso2.org/claims/username.
+But in the authenticator we are going to implement, we will use the telephone number claim (claim uri : http://wso2.org/claims/telephone ) to uniquely identify the user, instead of the username claim
 
 ---
 
 ## Write a custom local authenticator
 
-You can implement the custom local authenticator by extending the abstract class [abstractApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/AbstractApplicationAuthenticator.java) and implementing the interface [LocalApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/LocalApplicationAuthenticator.java). This requires you to implement several methods in the custom local authenticator. Please refer to this [table](https://is.docs.wso2.com/en/latest/develop/writing-a-custom-local-authenticator/#reference) to understand the generic purpose of the method and the usage of it in our implementation
+You can implement the custom local authenticator by extending the abstract class [abstractApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/AbstractApplicationAuthenticator.java) and implementing the interface [LocalApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/LocalApplicationAuthenticator.java). This requires you to implement several methods in the custom local authenticator. Please refer to this [table](https://is.docs.wso2.com/en/latest/develop/writing-a-custom-local-authenticator/#reference) to understand the generic purpose of the method and the usage of it in our implementation.
 
 Let's begin the implementation (You can find the completed version of this custom local authenticator [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator)).
 
