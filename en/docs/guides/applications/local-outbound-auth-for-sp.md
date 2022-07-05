@@ -1,6 +1,6 @@
 # Introduction
 
-Local authenticators use locally available credentials to authenticate users. Basic authentication using username and password, [IWA (Integrated Windows Authentication)](../../references/concepts/integrated-windows-authentication-overview.md) or [FIDO (Fast IDentity Online)](../../learn/multi-factor-authentication-using-fido) are examples of local authenticators.
+Local authenticators use locally available credentials to authenticate users. Basic authentication using username and password, [IWA (Integrated Windows Authentication)](../../references/concepts/integrated-windows-authentication-overview.md) or [FIDO (Fast IDentity Online)](../mfa/2fa-fido.md) are examples of local authenticators.
 
 See [Architecture](../../references/architecture/architecture.md) for more information on local authenticators fit into the WSO2 IS architecture.
 
@@ -60,7 +60,7 @@ To configure local and outbound authentication.
     | Use tenant domain in local subject identifier | Select this to append the tenant domain to the local subject identifier.  |
     | Use user store domain in local subject identifier | Select this to append the user store domain that the user resides to the local subject identifier.    |
     | Use user store domain in roles    | This is selected by default and appends the user store domain name to user roles. Clear the check box if you do not want to append the user store domain name to user roles. If a user role is not mapped to a service provider role, and you clear the **Use user store domain in roles** check box, the user store domain name will be removed from the role claim value unless the user store domain name is `APPLICATION`, `INTERNAL`, or `WORKFLOW`. |
-    | Enable Authorization  | This option enables you to engage authorization policies for the service provider. For more information, see [Configuring Access Control Policy for a Service Provider](../../learn/configuring-access-control-policy-for-a-service-provider). |
+    | Enable Authorization  | This option enables you to engage authorization policies for the service provider. |
 
 5. Add a local authenticator under **Request Path Authentication Configuration** by clicking the **Add** button. The two types of local authenticators available are as follows:
     - OAuthRequestPathAuthenticator
@@ -103,10 +103,10 @@ Once authentication is complete subject id will be taken from the Facebook claim
 
 A request path authenticator will get executed only if the initial
 authentication request brings the applicable set of credentials with it.
-See [Request Path Authentication](../../learn/request-path-authentication) for more details.
+See [Request Path Authentication](../request-path-auth/request-paths-overview.md) for more details.
 
 !!! info "Related Topics"
-    -   See [Multi-factor Authentication using FIDO](../../learn/multi-factor-authentication-using-fido) for more information on configuring multi-step and multi-option authentication using FIDO.
-    -   See [Integrated Windows Authentication](../../learn/integrated-windows-authentication-overview) and [Configuring IWA Single-Sign-On](../../learn/configuring-iwa-single-sign-on) or more information on configuring the IWA authenticator with WSO2 Identity Server.
-    -   See [Request Path Authentication](../../learn/request-path-authentication) for information on a local authenticator that is executed if the initial authentication request brings a set of credentials with it.
-    -   See [Try Request Path Authentication](../../learn/try-request-path-authentication) or more information on how the request path authenticator works using the WSO2 playground sample .
+    -   See [Multi-factor Authentication using FIDO](../mfa/2fa-fido.md)) for more information on configuring multi-step and multi-option authentication using FIDO.
+    -   See [Integrated Windows Authentication](../../references/concepts/integrated-windows-authentication-overview.md) for more information on configuring the IWA authenticator with WSO2 Identity Server.
+    -   See [Request Path Authentication](../request-path-auth/request-paths-overview.md) for information on a local authenticator that is executed if the initial authentication request brings a set of credentials with it.
+<!--    -   See [Try Request Path Authentication](../guides/request-path-auth/) or more information on how the request path authenticator works using the WSO2 playground sample . -->
