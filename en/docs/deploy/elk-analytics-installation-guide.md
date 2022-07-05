@@ -287,10 +287,11 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
      - wso2-iam-session-raw*
      - wso2-iam-session-time-series*
  
-3. Download the artifact file [here](../assets/img/elk-analytics/kibana-8-x-auth-and-session.ndjson).
-4. Navigate to **Stack Management** > **Saved Objects**.
-5. Click **Import**, add the downloaded artifact file as an import object, and import.
-6. Navigate to the **Dashboard** section to view the created **Auth** and **Session** dashboards.
+4. Download the artifact file [here](../assets/img/elk-analytics/kibana-8-x-auth-and-session.ndjson).
+5. Navigate to **Stack Management** > **Saved Objects**.
+6. Click **Import**, add the downloaded artifact file as an import object, and import. 
+7. Login to [MyAccount](https://localhost:9443/myaccount) of Identity Server using default admin credentials.
+8. Navigate to the **Dashboard** section of Kibana to view the created **Auth** and **Session** dashboards.
 
 
 ## Configure Security in ELK
@@ -299,3 +300,4 @@ Elasticsearch supports several authentication modes ranging from basic authentic
  
 In Elasticsearch version 8.x, security features are enabled by default. Basic authentication is enabled and cluster connections are encrypted.
  
+

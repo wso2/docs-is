@@ -25,7 +25,7 @@ You can write the custom classes for scope validators by extending the `org.wso2
 The following code block is a sample implementation. 
 
 ```java
-public CustomScopeValidator implements ScopeValidator {
+public class CustomScopeValidator implements ScopeValidator {
 
     /**
      * Validates scopes in the authorization request and manipulate the permitted scopes within the request. Engage
@@ -38,9 +38,9 @@ public CustomScopeValidator implements ScopeValidator {
      */
     public boolean validateScope(OAuthAuthzReqMessageContext authzReqMessageContext) throws IdentityOAuth2Exception {
 
-//handle implementation 
-    return true;
-}
+        //handle implementation 
+        return true;
+    }
 
     /**
      * Validates scopes in the token request and manipulate the permitted scopes within the request. Engage it after
@@ -53,10 +53,9 @@ public CustomScopeValidator implements ScopeValidator {
      */
      public boolean validateScope(OAuthTokenReqMessageContext tokenReqMessageContext) throws IdentityOAuth2Exception {
 
-//handle implementation 
- return true;
-
-}
+        //handle implementation 
+        return true;
+     }
 
     /**
      * Validates the scopes present in the token in the token validation flow.
@@ -68,20 +67,20 @@ public CustomScopeValidator implements ScopeValidator {
      */
    public boolean validateScope(OAuth2TokenValidationMessageContext tokenValidationMessageContext)
             throws IdentityOAuth2Exception {
-
-//handle implementation 
-
- return true;
-}
+       
+       //handle implementation
+       return true;
+   }
 
     /**
      * Get the friendly name of the implemented scope validator.
      *
      * @return Name of the scope validator.
      */
-   public String getName(){
-  return “CustomGlobalScopeValidator”
-}
+   public String getName() {
+       
+       return "CustomGlobalScopeValidator";
+   }
 }
 ```
 
@@ -96,3 +95,12 @@ Follow the instructions given below to deploy and enforce the custom global scop
 1.  Compile the custom global scope validator code and get the resulting .jar file.
 
 2.  Copy the .jar file into the `<IS_HOME>/repository/components/dropins` folder.
+
+
+## Try out the sample scope validator
+
+1. Build [this](https://github.com/wso2/samples-is/tree/master/scope-validator/sample.scope.validator) sample using maven `mvn clean install`
+2. Copy the `sample.scope.validator-1.0.0.jar` binary file from `target` directory into `<IS_HOME>/repository/components/dropins` directory
+3. Restart WSO2 IS
+
+This sample application removes the scopes that start with `test` prefix from the authorization request and token request.

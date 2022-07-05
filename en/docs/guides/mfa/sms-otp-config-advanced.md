@@ -9,9 +9,9 @@ The following code snippet shows a sample SMSOTP configuration in the `<IS_HOME>
 enable=true
 
 [authentication.authenticator.sms_otp.parameters]
-SMSOTPAuthenticationEndpointURL= "smsotpauthenticationendpoint/smsotp.jsp"
-SMSOTPAuthenticationEndpointErrorPage= "smsotpauthenticationendpoint/smsotpError.jsp"
-MobileNumberRegPage = "smsotpauthenticationendpoint/mobile.jsp"
+SMSOTPAuthenticationEndpointURL= "/smsotpauthenticationendpoint/smsotp.jsp"
+SMSOTPAuthenticationEndpointErrorPage= "/smsotpauthenticationendpoint/smsotpError.jsp"
+MobileNumberRegPage = "/smsotpauthenticationendpoint/mobile.jsp"
 RetryEnable = true
 ResendEnable = true
 BackupCode = true
