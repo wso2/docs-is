@@ -1,6 +1,6 @@
 # Introduction
 
-You can connect your application with Identity Server and control the way users login into your app. This guide provides instructions on how to add and configure a [service provider](../../get-started/architecture#service-provider-section) to Identity Server through the management console.
+You can connect your application with Identity Server and control the way users login to your app. This guide provides instructions on how to add and configure a [service provider](../../get-started/architecture#service-provider-section) to Identity Server through the management console.
 
 For more information on how the service provider fits into the WSO2 IS architecture, see [Architecture](../../references/architecture/architecture.md).
 
@@ -22,7 +22,7 @@ To add a new service provider on WSO2 Identity Server:
 
     ??? note "Modify validation for service provider name"
            The default javascript regex used to validate the service provider name is `^[a-zA-Z0-9\\s.+_-]*$`.
-           You can modify this regex by adding the following configuration to the `deployment.toml` file.
+           This regex can be modified by adding the following configuration to the `deployment.toml` file.
 
             ``` java
             [service_provider]
@@ -52,21 +52,21 @@ You can find the basic configurations of a service provider under **Service Prov
 | Select SP Certificate Type | A certificate is used to validate requests from the SP. You can either **Use SP JWKS endpoint** or **Upload SP certificate**.  |
 | JWKS URI    | If you have selected **Use SP JWKS endpoint** in the above field, this field will appear. You need to add the JWKS endpoint URI in this field.        |
 | Application Certificate    | If you have selected **Upload SP certificate** in the above field, paste the public certificate into the given text area or upload the certificate file in **PEM** format. Learn more about [public certificates for service providers](#public-certificates-for-service-providers).   |
-| SaaS Application   | Enable this to allow users to allow tenants to log in to the application. Disabling this allows only users of the current tenant (the tenant you use to configure the SP) to login into the application. |
+| SaaS Application   | Enable this to allow users to allow tenants to log in to the application. Disabling this allows only users of the current tenant, (the tenant you use to configure the SP) to login into the application. |
 | Discoverable Application  | Enable this to make the application discoverable to users. |
 | Access URL    | Access URL for the Service Provider.   |
 | Logo URL  | Add a link to the logo for your application here.   |
-| Logout Return URL or regex    | The URL that the users will be redirected to during a direct IdP logout   |
-| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated from the edit screen. |
+| Logout Return URL or regex    | The URL that the users will be redirected during a direct IdP logout   |
+| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated. |
 
 ### Public certificates for service providers
-A certificate is used to validate the signatures of the signed requests received from the application (service provider) to WSO2 IS.
+A certificate is used to validate the signatures of the signed requests recieved from the application (service provider) to WSO2 IS.
 
 #### Usage of the certificate
 
 The certificate is used in the following scenarios:
 
-- To validate the signature of the SAML2 authentication requests and the SAML2 logout requests sent by the service provider during [SAML SSO flows](../login/sso-for-saml.md).
+- To validate the signature of the SAML2 authentication requests and the SAML2 logout requests that are sent by the service provider during [SAML SSO flows](../login/sso-for-saml.md).
 - When [passing OIDC authentication request parameters](../login/oidc-parameters-in-auth-request.md) the certificate is used to:
 
     - Encrypt the `id_token` sent to the service provider in the OIDC Authentication Response.
@@ -87,7 +87,7 @@ To obtain the PEM content of a certificate in a JKS file:
     Example:
     `keytool -export -keystore wso2carbon.jks -alias wso2carbon -file wso2carbon.crt`
 
-2. The exported certificate will be in binary format. Convert this binary encoded certificate to a PEM-coded certificate using the following command.
+2. The exported certificate will be in binary format. Convert this binary encoded certificate to a PEM encoded certificate by using the following command.
 
     ``` java
     openssl x509 -inform der -in <path-of-binary-certificate> -out <path-of-expected-pem-content>
@@ -97,11 +97,11 @@ To obtain the PEM content of a certificate in a JKS file:
 
 #### What happens if you don't add the certificate
 
-If the **Application Certificate** field is left blank, as WSO2 IS is backward compatible and follows the previous implementation to locate the certificates in the key store.  
+If the **Application Certificate** field is left blank, as WSO2 IS is backward compatible and follows the previous implementation to locate the certificates in the keystore.  
 
 - For a SAML SSO flow, the certificate alias mentioned in SAML inbound authentication configuration will be used when the certificate is not updated via the management console.
 
-- For an OIDC request object signature validation, the certificate will be retrieved from the default key store, an alias to the consumer key of the auth application.
+- For an OIDC request object signature validation, the certificate will be retrieved from the default keystore, an alias to the consumer key of the auth application.
 
 !!! info "Related Topics"
 
