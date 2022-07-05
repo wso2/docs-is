@@ -89,11 +89,16 @@ Replace the default `user_store` configuration in the `         <IS_HOME>/reposi
 ```toml
 [user_store]
 type = "active_directory_unique_id"
-base_dn = "cn=Users,dc=wso2,dc=org"
+base_dn = "dc=wso2,dc=org"
 connection_url = "ldaps://10.100.1.102:639"
 connection_name = "cn=admin,ou=system"
 connection_password = "admin"
 ```
+
+!!! note
+    It is required to edit the claim mappings in the IS according to the user claims of the Active Directory version you have configured.
+    Before starting the server, edit the file configuration in <IS_HOME>/repository/conf/claim-config.xml and change the `AttributeID` of the `Created Time` and `Last Modified Time` claims into `whenCreated` and `whenChanged` respectively.
+    Start the server and edit the rest of the required claim mappings through the management console as explained in [edit claim mapping](../guides/dialects/edit-claim-mapping.md).
 
 ---
 
