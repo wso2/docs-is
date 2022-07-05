@@ -1,6 +1,6 @@
 # Configure a resident Service Provider
 
-WSO2 Identity Server can mediate authentication requests between service providers and identity providers. At the same time, the Identity Server can act as a service provider and an identity provider. When it acts as a service provider it is known as the resident service provider.
+WSO2 Identity Server can mediate authentication requests between service providers and identity providers. At the same time, the Identity Server can act as a service provider and an identity provider. When it acts as a service provider, it is known as the resident service provider.
 
 The Identity Server mainly acts as a resident service provider while
 adding users to the system.
