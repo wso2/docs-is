@@ -30,9 +30,7 @@ ELK-based Analytics provides three types of dashboards:
  
 -  **Session Dashboard** : Includes statistics related to specific
    sessions that get created for different applications accessed via
-   WSO2 Identity Server.
- 
-   A session is the time duration between a successful log on and the
+   WSO2 Identity Server. A session is the time duration between a successful log on and the
    subsequent log off by a specific user.
  
  
@@ -40,8 +38,4 @@ ELK-based Analytics provides three types of dashboards:
    abnormal behavior related to authentication operations carried out
    by WSO2 Identity Server.
  
- 
-For more information on how to work with WSO2 Identity Server Analytics,
-explore the following topics:
- 
-- [ELK-based Analytics Installation Guide](../../../deploy/elk-analytics-installation-guide)
+ To set up these components and deploy ELK analytics in the WSO2 Identity Server, follow the [ELK-based Analytics Installation Guide](../../../deploy/elk-analytics-installation-guide).

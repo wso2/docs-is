@@ -1,6 +1,6 @@
 # Analyze Login Attempts
 
-You can view and analyze statistics related to login attempts made via the WSO2 Identity Server from the Auth Dashboard.
+You can view and analyze statistics related to login attempts made via the WSO2 Identity Server from the Auth Dashboard. Learn how to [configure the Auth Dashboard](../../../deploy/elk-analytics-installation-guide)
 
 Auth Dashboard displays analytics for resident and federated authentication scenarios and statistics of overall authentication activities carried out by the WSO2 Identity Server.
 

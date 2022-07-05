@@ -1,7 +1,7 @@
 # Analyze Session Statistics
 
 The **Session Dashboard** displays statistics related to sessions of the different applications that are accessed
-via WSO2 Identity Server.
+via WSO2 Identity Server. Learn how to [configure the Session Dashboard](../../../deploy/elk-analytics-installation-guide)
 
 ## Session Dashboard Widgets
 

@@ -36,5 +36,5 @@ Once you have [setup Elk analytics dashboards](../../../deploy/elk-analytics-ins
 
 Explore the following topics:
 
-   -   [Analyzing Login Attempts](../elk-analyzing-login-attempts)
-   -   [Analyzing Session Statistics](../elk-analyzing-session-statistics)
+   -   [Analyze Login Attempts](../elk-analyzing-login-attempts)
+   -   [Analyze Session Statistics](../elk-analyzing-session-statistics)
