@@ -96,7 +96,7 @@ connection_password = "admin"
 ```
 
 !!! note
-    It is required to edit the claim mappings in the IS according to the user claims of the Active Directory version you have configured.
+    It is required to edit the claim mappings in WSO2 IS according to the user claims of the Active Directory version you have configured.
     Before starting the server, edit the file configuration in <IS_HOME>/repository/conf/claim-config.xml and change the `AttributeID` of the `Created Time` and `Last Modified Time` claims into `whenCreated` and `whenChanged` respectively.
     Start the server and edit the rest of the required claim mappings through the management console as explained in [edit claim mapping](../guides/dialects/edit-claim-mapping.md).
 
