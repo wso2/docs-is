@@ -1,26 +1,23 @@
-# Configuring Inbound Provisioning for a Service Provider
+# Introduction
 
-To configure [inbound provisioning](../../learn/inbound-provisioning) for the
-service provider, follow the steps below.
+Inbound provisioning involves provisioning users or groups to the WSO2 Identity Server’s user store via an external application. For more information, see [inbound provisioning](../../references/concepts/provisioning-framework.md).
 
-To register a service provider, do the following.
+## Prerequisites
 
-1. Sign in. Enter your username and password to log on to the Management Console. 
-2. Navigate to the Main menu to access the Identity menu. Click Add under Service Providers.
-3. Fill in the Service Provider Name and briefly describe the service provider. Only Service Provider Name is a required field.
-4. Click Register to add the new service provider.
+You need to [register a service provider](../applications/register-sp.md) on the Management Console.
 
-Do the following to configure inbound provisioning.
+## Configure inbound provisioning
 
-1. Expand the **Inbound Provisioning Configuration** section and expand
-    the **SCIM/SOAP Configuration** form.  
-    ![scim-soap-config](../assets/img/using-wso2-identity-server/scim-soap-config.png)
-2. Select the user store domain name from the drop-down list to
-    provision users and groups.
+To configure inbound provisioning.
+
+1. On the Management Console, go to **Main > Identity > Service Providers**.
+2. Click **List**, select the service provider you want to configure, and click on the corresponding **Edit** link.
+3. Expand the **Inbound Provisioning Configuration** section.
+4. Under **SCIM Configurations**, select the user store domain name from the drop-down list to provision users and groups.
+    ![scim-config](../../assets/img/guides/scim-config.png)
+5. Click **Update** to save your configurations.
 
 !!! info "Related Topics"
 
-    -   See [Configuring User Stores](../../setup/configuring-user-stores) for more
-        information.
-    -   See [Inbound Provisioning](../../learn/inbound-provisioning) for configuring
-        user stores and service providers for inbound provisioning.
+    -   See [Configuring User Stores](../../setup/configuring-user-stores) for more information.
+    -   See [Inbound Provisioning](../../learn/inbound-provisioning) for configuring user stores and service providers for inbound provisioning.

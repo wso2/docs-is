@@ -10,13 +10,9 @@ See the [Identity Server Architecture](../../references/architecture/architectur
 
 In the **Claim Configuration** form, there are two sub-forms as follows:
 
-- [Basic claim configuration](#configuring-basic-claims)
+- [Basic claim configuration](#configuring-basic-claims): This involves a straightforward mapping of the claim that is used on the identity provider side with the local claims of the Identity Server.
 
-This involves a straightforward mapping of the claim that is used on the identity provider side with the local claims of the Identity Server.
-
-- [Advanced claim configuration](#configuring-advanced-claims)
-
-This involves more advanced mapping, where the mapped claims can have specific default values.
+- [Advanced claim configuration](#configuring-advanced-claims): This involves more advanced mapping, where the mapped claims can have specific default values.
 
 ## Configuring basic claims
 
