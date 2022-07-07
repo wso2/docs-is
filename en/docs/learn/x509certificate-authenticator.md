@@ -41,6 +41,7 @@ To create a sample certificate and create your own Certificate Authority to sign
     - Organization Name (eg, company) [Internet Widgits Pty Ltd]: WSO2
     - Organizational Unit Name (eg, section) [ ]: QA
     - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is.com 
+        (Please pay special attention to the CN field, as the **CN** has to be the same as the **username** of the user that is trying to log in in the future)
     - Email Address [ ]: kim@wso2.com
 
 4.  An OpenSSL CA requires new files and supporting directories. Therefore, create a new directory.
@@ -325,6 +326,7 @@ retrieved certificate from the request.
     below, e.g., select a mapped attribute for the claim that is
     supported by the underlying database type.
     ![claim-for-certificate](../assets/img/learn/claim-for-certificate.png)
+    **important**: the mapped attribute's name must be "**userCertificate**"
 5.  Click **Add**.
 
 ## Updating the column size of the database for X509 certificates
