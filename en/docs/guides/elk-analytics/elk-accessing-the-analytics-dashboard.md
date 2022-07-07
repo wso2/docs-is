@@ -1,6 +1,6 @@
 # Access the ELK Analytics Dashboard
 
-Once you have [setup Elk analytics dashboards](../../../deploy/elk-analytics-installation-guide), follow the guide below to learn how to access the analytics dashboard.
+Once you have [setup ELK analytics dashboards](../../../deploy/elk-analytics-installation-guide), follow the guide below to learn how to access the analytics dashboard.
 
 1.  Access Kibana using the following URL:
     http://<KIBANA\_HOST\>:5601

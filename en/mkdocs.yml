@@ -358,7 +358,7 @@ nav:
         - Access the Analytics Dashboard: guides/elk-analytics/elk-accessing-the-analytics-dashboard.md
         - Analyze Logins using Auth Dashboard: guides/elk-analytics/elk-analyzing-login-attempts.md
         - Analyze Sessions using Session Dashboard: guides/elk-analytics/elk-analyzing-session-statistics.md
-        - Elk Alerts: guides/elk-analytics/elk-alert-types.md
+        - ELK Alerts: guides/elk-analytics/elk-alert-types.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
@@ -411,7 +411,7 @@ nav:
         - Analytics:
           - Configure ELK Analytics: deploy/elk-analytics-installation-guide.md
           - Configure SSO in ELK Analytics: deploy/elk-analytics-sso-guide.md
-          - Configure Elk Alerts: deploy/elk-configuring-alerts.md
+          - Configure ELK Alerts: deploy/elk-configuring-alerts.md
           - Configure ELK for Adaptive Authentication: deploy/using-elk-analytics-for-adaptive-authentication.md
           - Configure an SP and IdP Using Configuration Files: deploy/configure-an-sp-and-idp-using-configuration-files.md
         - CORS : deploy/configure-cors.md

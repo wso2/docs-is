@@ -81,10 +81,8 @@ Follow the steps below to configure WSO2 IS to communicate with ELK.
 
       -  Click **Delete** to remove the `totp`
    authenticator from Step 2 (the second authentication step).  
-   ![second-step-risk-based-authentication](../../assets/img/tutorials/second-step-risk-based-authentication.png)
       - Select **Sample Hardware Key Authenticator** and click
    **Add**.  
-   ![sample-hardware-key-authenticator](../../assets/img/tutorials/sample-hardware-key-authenticator.png)
 
 7. Save the service provider configurations.
 

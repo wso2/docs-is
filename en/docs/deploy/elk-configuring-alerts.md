@@ -1,4 +1,4 @@
-# Configure Elk Alerts
+# Configure ELK Alerts
 
 The following guide shows you how to configure alerts in ELK.
 
@@ -62,10 +62,15 @@ Alert dashboards display long sessions and suspicious login alerts.
 
 Follow the steps below to configure the ELK Alert Dashboard.
 
-1. Download the following [file](../../assets/img/elk-analytics/kibana-8-x-alerts.ndjson).
-2. Log in to Kibana and navigate to **Stack Management** > **Saved Objects**.
-3. Click **Import**, add the downloaded file as an import object, and import.
-4. Navigate to the **Dashboard** section to view the created **Alert** Dashboard.
+1. Generate encryption keys for Kibana using the following command.
+    ```
+    {KIBANA_HOME}/bin/kibana-encryption-keys generate
+    ```
+2. Copy the generated content with keys and paste them at the bottom of `kibana.yml` file located at `{KIBANA_HOME}/config` and restart Kibana.
+3. Download the following [file](../../assets/img/elk-analytics/kibana-8-x-alerts.ndjson).
+4. Log in to Kibana and navigate to **Stack Management** > **Saved Objects**.
+5. Click **Import**, add the downloaded file as an import object, and import.
+6. Navigate to the **Dashboard** section to view the created **Alert** Dashboard.
 
 ## Configure Alert Connectors
 
