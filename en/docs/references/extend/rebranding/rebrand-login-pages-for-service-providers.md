@@ -188,7 +188,7 @@ When modifying the pages, ensure that the following is applied.
         RequestDispatcher dispatcher = request.getRequestDispatcher("default_login.jsp");
         dispatcher.forward(request, response);
     } 
-        %>
+    %>
     ```
 
     What this code basically does is it forwards the request to a
@@ -196,11 +196,10 @@ When modifying the pages, ensure that the following is applied.
     `           relyingParty          ` parameter.
 
 3.  Get the 'travelocity\_login.jsp' from
-    [here](https://svn.wso2.org/repos/wso2/people/malithim/samples/is-510/authenticationendpoint-customize-login-per-sp/)
+    [here](https://github.com/wso2/samples-is/blob/master/re-branding-the-default-login-page/authenticationendpoint/travelocity_loin.jsp)
     and place it at the same level as 'login.jsp'. Also, download the
-    contents of the 'css' and 'images' folders from that same link and
-    put them inside the respective folders in the
-    authenticationendpoint.
+    contents of the 'css' and 'images' folders from this [link](https://github.com/nsivanoly/WSO2-Identity-Server-Re-branding-the-Default-Login-Page/tree/main/authenticationendpoint)
+    and put them inside the respective folders in the authenticationendpoint.
 
 4.  Log in to the travelocity.com web app
     again. You are presented with the re-branded page.  
