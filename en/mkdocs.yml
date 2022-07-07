@@ -71,6 +71,21 @@ nav:
           - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
         - Manage a Service Provider: guides/applications/manage-sp.md
         - Set up a Resident Service Provider: guides/applications/resident-sp.md
+      - Identity Providers:
+        - Overview: guides/identity-federation/basic-overview.md
+        - Register an IdP: guides/identity-federation/add-idp.md
+        - Configure an IdP:
+          - Roles of an IdP: guides/identity-federation/roles-idp.md
+          - Claims of an IdP: guides/identity-federation/claims-idp.md
+          - Federated Authenticators: guides/identity-federation/federated-authenticator.md
+          - JIT Provisioning: guides/identity-federation/jit-workflow.md
+          - Outbound Provisioning Connectors: guides/identity-federation/outbound-provisioing-idp.md
+        - Manage an IdP: guides/identity-federation/manage-idp.md
+        - Resident IdP: 
+          - Set up a Resident IdP: guides/identity-federation/resident-idp.md
+          - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
+          - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
+          - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
       - Authentication:
         - Login:
           - Web Application:
@@ -177,21 +192,6 @@ nav:
           
       - Identity Federation:
         - Overview: guides/identity-federation/identity-federation-overview.md
-        - IdP Configurations: 
-          - Overview: guides/identity-federation/basic-overview.md
-          - Register an IdP: guides/identity-federation/add-idp.md
-          - Configure an IdP:
-            - Roles of an IdP: guides/identity-federation/roles-idp.md
-            - Claims of an IdP: guides/identity-federation/claims-idp.md
-            - Federated Authenticators: guides/identity-federation/federated-authenticator.md
-            - JIT Provisioning: guides/identity-federation/jit-workflow.md
-            - Outbound Provisioning Connectors: guides/identity-federation/outbound-provisioing-idp.md
-          - Manage an IdP: guides/identity-federation/manage-idp.md
-          - Resident IdP: 
-            - Set up a Resident IdP: guides/identity-federation/resident-idp.md
-            - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
-            - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
-            - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
         - Enterprise Identity Federation:
           - Overview: guides/identity-federation/enterprise-identity-federation.md
           - SAML: guides/identity-federation/configure-saml-2.0-web-sso.md
@@ -252,6 +252,7 @@ nav:
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
       - User management:
+        - Overview: guides/identity-lifecycles/user-management.md
         - Onboard Users:
           - Overview: guides/identity-lifecycles/onboard-overview.md
           - Admin Creation Workflow: guides/identity-lifecycles/admin-creation-workflow.md
