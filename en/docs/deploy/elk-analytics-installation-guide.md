@@ -77,13 +77,13 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 ### Install Filebeat
 1. [Install Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html#installation) according to your operating system.
 
-2. Open the **filebeat.yml** file in the root directory and enter the configurations found [here](https://github.com/wso2-extensions/identity-elk-integration/blob/main/filebeat/filebeat.yml).
+2. Open the **filebeat.yml** file in the root directory and enter these [configurations](https://github.com/wso2-extensions/identity-elk-integration/blob/main/filebeat/filebeat.yml).
 
 
 ### Install Logstash
  
 1. [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html) according to your operating system.
-2. In the Logstash directory, create a file with the **.conf** extension and add the configurations found [here](https://github.com/wso2-extensions/identity-elk-integration/blob/main/logstash/logstash-filebeat.conf).
+2. In the Logstash directory, create a file with the **.conf** extension and add these [configurations](https://github.com/wso2-extensions/identity-elk-integration/blob/main/logstash/logstash-filebeat.conf).
 
 3.  [Start the logstash server](https://www.elastic.co/guide/en/logstash/8.1/running-logstash-command-line.html#running-logstash-command-line) with the `-f` flag set to the configuration file you created.
 
