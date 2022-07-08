@@ -69,13 +69,3 @@ To import the certificate, open a terminal window and run the following command.
 
 !!! info
       This example uses the default keystores and certificates. Replace {IS_HOME} and {ELASTICSEARCH_HOME} accordingly. The default keystore password is `wso2carbon`.
-    
-
-### What's Next?
-
-Now that you have successfully deployed a Siddhi application for risk
-based login, you can configure WSO2 Identity Server to receive data from
-this Siddhi application and set up rules for adaptive authentication.
-Follow the [Configuring Risk-Based Adaptive
-Authentication](../../guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication)
-tutorial to set this up.

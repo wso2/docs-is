@@ -4,8 +4,8 @@ The following guide shows you how to configure alerts in ELK.
 
 ## Create Elasticsearch Transforms
 
-[Elasticsearch transforms](https://www.elastic.co/guide/en/elasticsearch/reference/current/transforms.html) are used to
-capture the alert events from the raw event data.
+Elasticsearch transforms are used to capture the alert events from the raw event data. Learn more about transforms in the [elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/transforms.html).
+
 
 1. Execute the following cURL commands to create the ELK transforms.
 
@@ -48,7 +48,7 @@ capture the alert events from the raw event data.
             {"acknowledged": true}
             ```
 
-2. Login to Kibana as administrator and navigate to **Stack Management** > **Transforms**. There should be newly created
+2. Login to Kibana as an administrator and navigate to **Stack Management** > **Transforms** to view the newly created
 transforms named **wso2-iam-alert-suspicious-login** and **wso2-iam-alert-long-session**.
 
     <img src="../../assets/img/elk-analytics/alerting/elk-alerting-4.png" alt="Alert transform configuration">
@@ -58,15 +58,15 @@ transforms named **wso2-iam-alert-suspicious-login** and **wso2-iam-alert-long-s
 
 ## Configure Alert Dashboards
 
-Alert dashboards display long sessions and suspicious login alerts.
-
-Follow the steps below to configure the ELK Alert Dashboard.
+Alert dashboards display long sessions and suspicious login alerts. Follow the steps below to configure the ELK Alert Dashboard.
 
 1. Generate encryption keys for Kibana using the following command.
     ```
     {KIBANA_HOME}/bin/kibana-encryption-keys generate
     ```
-2. Copy the generated content with keys and paste them at the bottom of `kibana.yml` file located at `{KIBANA_HOME}/config` and restart Kibana.
+2. Navigate to the Kibana directory and open the **kibana.yml** file found at **{KIBANA_HOME}/config**.
+3. Copy the generated keys and paste them at the bottom of the **kibana.yml** file.
+4. Restart Kibana.
 3. Download the following [file](../../assets/img/elk-analytics/kibana-8-x-alerts.ndjson).
 4. Log in to Kibana and navigate to **Stack Management** > **Saved Objects**.
 5. Click **Import**, add the downloaded file as an import object, and import.
@@ -95,10 +95,18 @@ the Alert Dashboard.
 Follow the steps below to configure alert connectors.
 
 !!! Prerequisite
-    [Import](#configure-alert-dashboards) the artifact file to Kibana.
+    Follow the [Configure Alert Dashboards](#configure-alert-dashboards) guide to import the artifact file to Kibana.
 
-1. To view the Alert Rule, navigate to **Stack Management** > **Rules and Connectors**.
+1. To view the Alert Rules, go to **Stack Management** > **Rules and Connectors**.
    <img src="../../assets/img/elk-analytics/alerting/elk-alerting-1.png" alt="Alert Connectors">
-4. Create a new connector from the **Connectors** tab. Provide the required fields and test if the connector is working.
-5. Edit each Alert Rule and provide the connector. Change the alert rule and other parameters if required.
+2. Navigate to the **Connectors** tab and click **Create connector**.
+3. Among the options presented, create your preferred connector type by entering the required details.
+4. Once created, click on the **play** icon to test the connection.
+
+Once you have set your preferred connectors, you need to provide those connectors for each alert rule. To do so:
+
+1. Navigate to the **Rules** tab and click on the **Edit** icon under a rule.
+2. Under **Actions**, provide the connectors that you configured above.
+3. Change the alert rule and other parameters to your preference and click **Save**.
+
    <img src="../../assets/img/elk-analytics/alerting/elk-alerting-3.png" alt="Alert Rule Connectors">
