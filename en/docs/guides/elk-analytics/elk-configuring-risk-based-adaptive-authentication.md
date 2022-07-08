@@ -67,26 +67,15 @@ Follow the steps below to configure WSO2 IS to communicate with ELK.
    with login permission.
 2. Navigate to **Service Providers\>List** and click **Edit** on the
    **saml2-web-app-pickup-dispatch.com** service provider.
-3. Expand the **Local and Outbound Configuration** section and click
-   **Advanced Authentication**.
-4. Click on **Templates** on the right side of the **Script Based
-   Conditional Authentication** field and then click **ELK-Risk-Based**.
+3. Expand the **Local and Outbound Configuration** section and under **Authentication Type** select
+   **Advanced Configuration**.
+4. Expand **Script Based Adaptive Authentication**.
+5. In the **Templates** tab, under **Analytics** click **ELK-Risk-Based**.
    ![template-for-risk-based-authentication](../../assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
-5. Click **Ok**.
 
-      The resulting authentication script defines a conditional step that executes the second step of authentication if the `riskScore` is greater than 0. The second authentication step that is added is `totp` However, `totp` is an
-      authentication step that you would normally use in a production setting.
-   
-6. We will replace `totp` with a hardware authenticator. To do so:
+      The resulting authentication script defines a conditional step that executes if the `riskScore` is greater than 0.
 
-      -  Click **Delete** to remove the `totp`
-   authenticator from Step 2 (the second authentication step).  
-      - Select **Sample Hardware Key Authenticator** and click
-   **Add**.  
-
-7. Save the service provider configurations.
-
-8. Restart WSO2 Identity Server.
+6. Click **Update** to save the service provider configurations.
 
 ## Try it out
 
@@ -139,8 +128,7 @@ Follow the steps below to configure WSO2 IS to communicate with ELK.
         }
         ```
 
-5. Log in to the sample PickUp application. You are prompted with the
-   hardware key authentication after the basic authentication step.
+5. Log in to the sample PickUp application. You are prompted for the second factor authentication after the basic authentication step.
 
     !!! info 
         Before executing the cURL command given in step 4, the user had no
