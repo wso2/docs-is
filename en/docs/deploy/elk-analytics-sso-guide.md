@@ -2,8 +2,11 @@
  
  You can enable Single-sign-on for an ElasticSearch/Kibana deployment with WSO2 Identity Server via OpenID Connect. To set this up, follow the steps given below.
  
-!!! note "Prerequisite"
-          An Elasticsearch platinum subscription is required to enable SSO in ELK.
+!!! note "Prerequisites"
+    - An Elasticsearch platinum subscription is required to enable SSO in ELK.
+    - [Configure ELK Analytics](./elk-analytics-installation-guide.md) in WSO2 Identity Server.
+
+    
 
 ## Configure a service provider at WSO2 Identity Server
  
