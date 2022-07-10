@@ -12,7 +12,7 @@ domain.
 !!! note
     -   For more information on how the consent purpose is used within the
         self registration flow, see [Configuring self-registration consent
-        purposes](../../learn/self-registration-and-account-confirmation)
+        purposes]({{base_path}}/learn/self-registration-and-account-confirmation)
         .
     -   Following are the definitions on the consent receipt, purposes, and PII
         categories.
@@ -33,16 +33,16 @@ management console.
     -   `/permission/admin/manage/identity/consentmgt/add`
     -   `/permission/admin/manage/identity/claimmgt/metadata/view`
 
-1.  Sign in to the [management console](../../setup/getting-started-with-the-management-console).
+1.  Sign in to the [management console]({{base_path}}/setup/getting-started-with-the-management-console).
 
     !!! info
         To add a consent purpose within a specific tenant domain, log in using tenant credentials.
 
 2.  On the **Main** menu, click **Manage > Consent Purposes > Add**.  
-    ![add-consent-purposes](../../assets/img/guides/add-consent-purposes.png)
+    ![add-consent-purposes]({{base_path}}/assets/img/guides/add-consent-purposes.png)
     The following window will be displayed.
 
-    ![add-new-purpose](../../assets/img/guides/add-new-purpose.png) 
+    ![add-new-purpose]({{base_path}}/assets/img/guides/add-new-purpose.png) 
 
 3.  Add a **Purpose Name** and a **Description**.
 
@@ -73,7 +73,7 @@ management console.
 4.  Click **Finish** to save the purpose.The following screen will be
     displayed:
 
-    ![consent-purpose-list](../../assets/img/guides/consent-list.png) 
+    ![consent-purpose-list]({{base_path}}/assets/img/guides/consent-list.png) 
 
 ## List consent purposes
 
@@ -88,9 +88,9 @@ management console.
 
     -   `            /permission/admin/manage/identity/consentmgt/view                       `
 
-1. Sign in to the [management console](../../setup/getting-started-with-the-management-console).
+1. Sign in to the [management console]({{base_path}}/setup/getting-started-with-the-management-console).
 2. On the **Main** menu, click **Manage > Consent Purposes > List**.  
-    ![manage-consent-purposes](../../assets/img/guides/manage-consent-purposes.png) 
+    ![manage-consent-purposes]({{base_path}}/assets/img/guides/manage-consent-purposes.png) 
 
 3. The following window will be displayed.
 
@@ -102,14 +102,14 @@ management console.
         IdP for SSO authentication. This **DEFAULT** purpose includes all
         the PII categories.
 
-    ![consent-purpose-list](../../assets/img/guides/consent-purpose-list.png) 
+    ![consent-purpose-list]({{base_path}}/assets/img/guides/consent-purpose-list.png) 
 
 4. You can delete a purpose by clicking **Delete**. You can also view
     the PII categories associated with the **Purpose** by clicking
     **View PII Categories** in the **Action** column. The following
     window will be displayed when you click **View PII Categories.**
 
-    ![manage-purpose](../../assets/img/guides/manage-purpose.png)
+    ![manage-purpose]({{base_path}}/assets/img/guides/manage-purpose.png)
 
     !!! tip "Deleting PII Category"
         To delete a specific PII cateogry, use the consent management [Delete PII Category REST API](https://docs.wso2.com/display/IS590/apidocs/Consent-management-apis/index.html#!/operations#PIICategory#consentsPiiCategoriesPiiCategoryIdDelete). Note that you can not delete a PII category that is already associated with a consent receipt.

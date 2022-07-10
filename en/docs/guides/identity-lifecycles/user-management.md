@@ -4,7 +4,7 @@ The users are the digital representations of the identities of physical users wh
 
 This section contains guides for the following:
 
-- [Onboard users](../identity-lifecycles/onboard-overview/)
-- [Manage users](../identity-lifecycles/manage-user-overview/)
-- [Manage user roles](../identity-lifecycles/manage-roles-overview/)
-- [User provisioning](../identity-lifecycles/provisioning-overview/)
+- [Onboard users]({{base_path}}/identity-lifecycles/onboard-overview/)
+- [Manage users]({{base_path}}/identity-lifecycles/manage-user-overview/)
+- [Manage user roles]({{base_path}}/identity-lifecycles/manage-roles-overview/)
+- [User provisioning]({{base_path}}/identity-lifecycles/provisioning-overview/)

@@ -4,7 +4,7 @@
     
     Before publishing a XACML policy to the Policy Decision Point (PDP), you
     need to create the policy first. For more information on how to create a
-    XACML policy, see [Creating a XACML Policy](../../learn/creating-a-xacml-policy).
+    XACML policy, see [Creating a XACML Policy]({{base_path}}/learn/creating-a-xacml-policy).
     
 
 In order to use a XACML policy for authorization in WSO2 Identity
@@ -19,13 +19,13 @@ Administration Point(PAP), and other additional information such as
 subject, resource, action and environmental resources in the Policy
 Information Point(PIP) to make the decision. For more information about
 this process, see [XACML system
-architecture](../../get-started/access-control-and-entitlement-management#xacml-system-architecture).
+architecture]({{base_path}}/get-started/access-control-and-entitlement-management#xacml-system-architecture).
 
 You can publish a XACML policy to PDP for runtime evaluation using the
 instructions in this topic.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](../../setup/getting-started-with-the-management-console).
+    [Management Console]({{base_path}}/setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**.
 3.  The policies that you created are listed in the **Available
@@ -70,7 +70,7 @@ instructions in this topic.
 	<tr class="even">
 	<td>Enable Policy</td>
 	<td><div class="content-wrapper">
-	<p>The target action of the policy is "ENABLE". This option enables the policy in the PDP. <img src="../../assets/img/tutorials/enable-policy.png"></p>
+	<p>The target action of the policy is "ENABLE". This option enables the policy in the PDP. <img src="{{base_path}}/assets/img/tutorials/enable-policy.png"></p>
 	<p>This is not relevant for the initial policy publishing process.<br/>
 	</p>
 	</div></td>
@@ -79,7 +79,7 @@ instructions in this topic.
 	<td>Disable Policy</td>
 	<td><div class="content-wrapper">
 	<p>The target action of the policy is "DISABLE". This option disables the policy in the PDP.</p>
-	<p><img src="../../assets/img/tutorials/disable-policy.png"><br/>
+	<p><img src="{{base_path}}/assets/img/tutorials/disable-policy.png"><br/>
 	</p>
 	<p>This is not relevant for the initial policy publishing process.</p>
 	</div></td>

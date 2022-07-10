@@ -116,7 +116,7 @@ artifacts.
         Note that the above 'TodayApp.jks' and 'TodayApp.p12' are sample
         values used to demonstrate this feature. You may need to create your
         own values to test the feature. Refer [Create New
-        Keystores](../../../deploy/security/create-new-keystores)
+        Keystores]({{base_path}}/deploy/security/create-new-keystores)
         for more information.
     
 
@@ -124,7 +124,7 @@ artifacts.
 
 12. Click **List** under **Keystores** which is under **Manage** menu.
 
-    ![list-keystores](../../../assets/img/guides/list-keystores.png) 
+    ![list-keystores]({{base_path}}/assets/img/guides/list-keystores.png) 
 
 13. To import the above cert  in
     to the default key store defined in
@@ -133,11 +133,11 @@ artifacts.
     !!! tip
         In a default pack, keystore name is `wso2carbon.jks`.
 
-    ![keystores-list](../../../assets/img/guides/keystores-list.png) 
+    ![keystores-list]({{base_path}}/assets/img/guides/keystores-list.png) 
 
     When you view the keystore in the same UI (using **View** ), there
     should be a certificate with clientID as below:  
-    ![keystore-cert](../../../assets/img/guides/keystore-cert.png) 
+    ![keystore-cert]({{base_path}}/assets/img/guides/keystore-cert.png) 
 
     !!! note
     
@@ -156,7 +156,7 @@ artifacts.
         Instead of importing the service provider certificate as shown above, you can choose to use the JWKS enpoint 
         as shown below and add the relevant JWKS URI.
     
-        ![configure-jwks-endpoint](../../../assets/img/guides/configure-jwks-endpoint.png) 
+        ![configure-jwks-endpoint]({{base_path}}/assets/img/guides/configure-jwks-endpoint.png) 
     
 
 14. Use the below cURL to retrieve the access token and refresh token
@@ -169,7 +169,7 @@ artifacts.
         ```
 
         For information on how to get the authorization-code, check [Try
-        Authorization Code Grant](../../../guides/access-delegation/authorization-code/#authorization-code-grant-type).
+        Authorization Code Grant]({{base_path}}/guides/access-delegation/authorization-code/#authorization-code-grant-type).
 
       
     - For client credential grant type:

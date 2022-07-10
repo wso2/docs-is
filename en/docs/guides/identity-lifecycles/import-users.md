@@ -11,7 +11,7 @@ file or Microsoft Excel (.xls) file.
          the JDBC user store configured in the
          `            deployment.toml           ` file (stored in the
          `            <IS_HOME>/repository/conf           ` directory).
-         Please see the [User Store management](../../setup/configuring-the-primary-user-store) section for more
+         Please see the [User Store management]({{base_path}}/setup/configuring-the-primary-user-store) section for more
          information.
 
 		```toml
@@ -38,7 +38,7 @@ You must first create a CSV file or an Excel file with the user
 information. It is possible to import the **username** and **password**
 directly from the CSV/Excel to the product. Other user attributes can be
 imported if [claim URls are defined for such
-attributes](../../learn/managing-user-attributes). Shown below are the
+attributes]({{base_path}}/learn/managing-user-attributes). Shown below are the
 claim URls that are defined by default in WSO2 IS. These will allow you
 to import the user's **email address**, **country**, **given name**
 etc. in addition to the **username** and **password**.

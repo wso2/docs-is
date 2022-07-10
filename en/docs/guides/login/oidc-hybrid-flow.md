@@ -1,6 +1,6 @@
 # OpenID Connect Hybrid Flow
 
-WSO2 Identity Server supports the [OpenID Connect hybrid flow](../../../references/concepts/authentication/hybrid-client-profile/) for authentication.
+WSO2 Identity Server supports the [OpenID Connect hybrid flow]({{base_path}}/references/concepts/authentication/hybrid-client-profile/) for authentication.
 
 Specifying any of the following `response_type` values in an authorization request selects the hybrid flow for authentication.
 
@@ -272,5 +272,5 @@ This `response_type` requests a code, an access token, and an id\_token from the
     the ID token returned from the authorization endpoint.
 
 !!! info "Related topics"
-    - [Concept: OpenID Connect Hybrid Flow](../../../references/concepts/authentication/hybrid-client-profile)
-    - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
+    - [Concept: OpenID Connect Hybrid Flow]({{base_path}}/references/concepts/authentication/hybrid-client-profile)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)

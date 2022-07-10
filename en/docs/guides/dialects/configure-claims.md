@@ -1,6 +1,6 @@
 # Configure Claims
 
-For information on claims, see [Claim Management](../../../references/concepts/claim-management)
+For information on claims, see [Claim Management]({{base_path}}/references/concepts/claim-management)
 
 By default, identity claim values are stored in the JDBC datasource
 configured in the `         deployment.toml       ` file. If needed, you
@@ -25,7 +25,7 @@ well.
 
 2.  The identity claims mentioned below should be mapped correctly to
     the attributes in the underlying userstore. For more information on
-    how to do this, see [Adding Claim Mapping](../../../guides/dialects/add-claim-mapping).
+    how to do this, see [Adding Claim Mapping]({{base_path}}/guides/dialects/add-claim-mapping).
 
     -   `http://wso2.org/claims/identity/accountLocked` - This claim is
         used to store the status of the user's account, i.e., if it is
@@ -41,9 +41,9 @@ well.
         
 !!! info "Related topics"
 
-    - [Guides: Add Claim Mapping](../../../guides/dialects/add-claim-mapping)
-    - [Guides: Edit Claim Mapping](../../../guides/dialects/edit-claim-mapping)
-    - [Guides: Delete Claim Mapping](../../../guides/dialects/delete-claim-mapping)
-    - [Concepts: Claim Management](../../../references/concepts/claim-management)
+    - [Guides: Add Claim Mapping]({{base_path}}/guides/dialects/add-claim-mapping)
+    - [Guides: Edit Claim Mapping]({{base_path}}/guides/dialects/edit-claim-mapping)
+    - [Guides: Delete Claim Mapping]({{base_path}}/guides/dialects/delete-claim-mapping)
+    - [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management)
 
   

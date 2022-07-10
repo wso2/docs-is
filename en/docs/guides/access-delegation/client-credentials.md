@@ -1,6 +1,6 @@
 # Client Credentials Grant
 
-This page guides you through using [Client Credentials Grant](../../../references/concepts/authorization/client-credential-grant/) 
+This page guides you through using [Client Credentials Grant]({{base_path}}/references/concepts/authorization/client-credential-grant/) 
 to configure authentication for an OAuth/OpenID Connect application. 
 
 ----
@@ -33,7 +33,7 @@ to configure authentication for an OAuth/OpenID Connect application.
 Send the following request using a browser-based application to obtain the access token. 
 
 !!! tip
-    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Client Credentials Grant with OAuth 2.0 Playground](../../../quick-starts/client-credentials-playground).
+    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Client Credentials Grant with OAuth 2.0 Playground]({{base_path}}/quick-starts/client-credentials-playground).
 
 !!! abstract ""
     **Request Format**
@@ -57,6 +57,6 @@ You will receive the following response with the access token.
 ```
 
 !!! info "Related topics"
-    - [Concept: Client Credentials Grant](../../../references/concepts/authorization/client-credential-grant/)
-    - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
-    - [Quick Start: Client Credentials Grant with OAuth 2.0 Playground](../../../quick-starts/client-credentials-playground)
+    - [Concept: Client Credentials Grant]({{base_path}}/references/concepts/authorization/client-credential-grant/)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
+    - [Quick Start: Client Credentials Grant with OAuth 2.0 Playground]({{base_path}}/quick-starts/client-credentials-playground)

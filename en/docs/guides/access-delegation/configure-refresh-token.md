@@ -1,6 +1,6 @@
 # Configure Refresh Token Grant
 
-This page guides you through configuring and obtaining refresh tokens using the [refresh token grant](../../../references/concepts/authorization/refresh-token-grant).
+This page guides you through configuring and obtaining refresh tokens using the [refresh token grant]({{base_path}}/references/concepts/authorization/refresh-token-grant).
 
 ----
 
@@ -79,5 +79,5 @@ You will receive an access token with the response.
 ```
 
 !!! info "Related topics"
-    - [Concept: Refresh token grant](../../../references/concepts/authorization/refresh-token-grant)
+    - [Concept: Refresh token grant]({{base_path}}/references/concepts/authorization/refresh-token-grant)
     

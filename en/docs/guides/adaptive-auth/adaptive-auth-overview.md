@@ -13,7 +13,7 @@ This section guides you through using pre-defined templates for common adaptive 
    - [Limiting Active User Sessions](limiting-active-sessions-adaptive-auth.md)
    
 !!! info "Related topics"
-    - [Concept: Adaptive-Authentication](../../references/concepts/authentication/adaptive-authentication)
-    - [Guide: Configure Adaptive Authentication for an Application](../../guides/adaptive-auth/configure-adaptive-auth)
-    - [Guide: Adaptive Authentication Using Function Library](../../guides/adaptive-auth/adaptive-auth-with-function-lib)
-    - [Guide: Ensure Assurance with ACR/AMR](../../guides/adaptive-auth/work-with-acr-amr)
+    - [Concept: Adaptive-Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication)
+    - [Guide: Configure Adaptive Authentication for an Application]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth)
+    - [Guide: Adaptive Authentication Using Function Library]({{base_path}}/guides/adaptive-auth/adaptive-auth-with-function-lib)
+    - [Guide: Ensure Assurance with ACR/AMR]({{base_path}}/guides/adaptive-auth/work-with-acr-amr)

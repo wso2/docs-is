@@ -7,7 +7,7 @@ screen. Make the changes required and click **Update**.
 ## Add multiple profiles for a user
 
 You can also add multiple profiles for a user. [Claim
-Management](../../dialects/add-claim-mapping/) can be used to update the details that are shown in the User Profile page.
+Management]({{base_path}}/dialects/add-claim-mapping/) can be used to update the details that are shown in the User Profile page.
 
 !!! note
     

@@ -15,7 +15,7 @@ Enable the email sending configurations of the WSO2 Identity Server as explained
     used for account disabling is the **AccountDisable** template. You
     can edit and customize the email template. For more information on
     how to do this, see [Customize Automated
-    Emails](../../../guides/tenants/customize-automated-mails).
+    Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
 WSO2 Identity Server uses separate email templates for notifying, 
 
@@ -35,7 +35,7 @@ There are default email templates available for the above-mentioned emails. Howe
 4.  Click **Save**. 
 
 !!! info "Related topics"
-    -   [Guides: Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account)
-    -   [Guides: Customize Automated Emails](../../../guides/tenants/customize-automated-mails)
-    -   [Deploy: Configure Email Sending Configuration](../../../deploy/configure-email-sending)
+    -   [Guides: Lock and Unlock User Accounts]({{base_path}}/guides/identity-lifecycles/lock-account)
+    -   [Guides: Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails)
+    -   [Deploy: Configure Email Sending Configuration]({{base_path}}/deploy/configure-email-sending)
     

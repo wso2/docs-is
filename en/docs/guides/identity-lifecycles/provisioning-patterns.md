@@ -34,7 +34,7 @@ mentioned user attributes.
 2. Navigate to the **Main** menu and click **List** under **Identity
     Providers.**
 3. Configure the [salesforce outbound provisioning
-    connector](../../learn/outbound-provisioning-with-salesforce)
+    connector]({{base_path}}/learn/outbound-provisioning-with-salesforce)
     or the google outbound provisioning connector.
 
     !!! info
@@ -54,7 +54,7 @@ mentioned user attributes.
         in WSO2 Identity Server. If no value is entered here, the WSO2
         IS will take the primary user store domain by default.
 
-    <!--![provisioning-pattern](../assets/img/using-wso2-identity-server/provisioning-pattern.png)-->
+    <!--![provisioning-pattern]({{base_path}}/assets/img/using-wso2-identity-server/provisioning-pattern.png)-->
 
 5. Click **Update** to save the changes.
 
@@ -63,16 +63,16 @@ mentioned user attributes.
 1. On the **Main** tab in the management console, click **Add** under
     **Users and Roles** in the **Identity** menu.
 2. Click **Add New User**. See [Configuring
-    Users](../../learn/configuring-users) for
+    Users]({{base_path}}/learn/configuring-users) for
     more information on this process.
 3. Provide a username and a password(with confirmation) and click
     **Next**.  
-    <!--![enter-username-password](../assets/img/using-wso2-identity-server/enter-username-password.png)-->
+    <!--![enter-username-password]({{base_path}}/assets/img/using-wso2-identity-server/enter-username-password.png)-->
 4. Click **Finish** to create the user.
 5. Login to your already created Salesforce account. O n the left
     navigation pane, click **Users** under **Manage Users**. You will
     see that the user you created in the WSO2 Identity Server has been
     added to Salesforce as well.  
-    <!--![manage-users](../assets/img/using-wso2-identity-server/manage-users.png)-->
+    <!--![manage-users]({{base_path}}/assets/img/using-wso2-identity-server/manage-users.png)-->
     Observe the username used for the provisioning. It is build using
     the provisioning pattern you specified in the configuration.  

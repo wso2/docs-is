@@ -20,7 +20,7 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
 
 2. Create a new user named "Alex" with login permission. 
 
-    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/).
+    For instructions, see [Add a User]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/).
 
 3. Navigate to **Main** > **Identity** > **Identity Providers** > **Resident** and expand the **Login Attempts Security** > **Account Lock** section.
 
@@ -28,7 +28,7 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
 
 5. Enter a value for **Maximum failed login attempts**. 
 
-    ![Enable account locking](../../assets/img/guides/account-locking.png)
+    ![Enable account locking]({{base_path}}/assets/img/guides/account-locking.png)
     
 
     !!! tip
@@ -52,7 +52,7 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
 
 6.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Login-Attempts-Based**. 
 
-    ![Tenant based template](../../assets/img/samples/login-attempts-based-template.png)
+    ![Tenant based template]({{base_path}}/assets/img/samples/login-attempts-based-template.png)
 
 7.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -67,10 +67,10 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![Delete authenticator](../../assets/img/samples/delete-authenticator-1.png)
+        ![Delete authenticator]({{base_path}}/assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![Add new authenticator](../../assets/img/samples/add-new-authenticator.png)
+        ![Add new authenticator]({{base_path}}/assets/img/samples/add-new-authenticator.png)
 
 9. Click **Update**.
 
@@ -95,7 +95,7 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
 5. You are prompted to use the hardware key after basic authentication according to the authentication step defined in the JavaScript above.
 
 6.  Enter the 4-digit key given on the screen and click **Sign In**.
-    ![Hardware key authenticator](../../assets/img/samples/hardware-key-authenticator.png)
+    ![Hardware key authenticator]({{base_path}}/assets/img/samples/hardware-key-authenticator.png)
 
 !!! note
     The failed login attempts need not be made during a given time frame. Login attempts-based adaptive authentication is valid even if the user makes two login attempts now and the other in a few days' time before trying to log in with the correct credentials.

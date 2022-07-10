@@ -63,7 +63,7 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
 ```
 
 !!! note
-    [Ask Password](../invitation-workflow) option can be enabled for bulk user creation by passing a value for password and 
+    [Ask Password]({{base_path}}/invitation-workflow) option can be enabled for bulk user creation by passing a value for password and 
      setting the askPassword claim to true as shown below.
      ```
      UserName,Password,Claims
@@ -98,14 +98,14 @@ To import users in bulk:
 
 ### Import users by plugging in a userstore
 
-Apart from this, users can also be added by directly plugging userstores into WSO2 Identity Server. For more information on this, see [Secondary User Stores](../../../deploy/configure-secondary-user-stores/).
+Apart from this, users can also be added by directly plugging userstores into WSO2 Identity Server. For more information on this, see [Secondary User Stores]({{base_path}}/deploy/configure-secondary-user-stores/).
 
 
 !!! info "Related topics"
-    - [Concept: Users](../../../references/concepts/user-management/users)
-    - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
-    - [Guide: User Self Registration Workflow](../self-registration-workflow)
-    - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)
-    - [Guide: Invitation Workflow](../invitation-workflow) 
-    - [Guide: Outbound Provisioning](../outbound-provisioning)
+    - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
+    - [Guide: Admin Creation Workflow]({{base_path}}/admin-creation-workflow) 
+    - [Guide: User Self Registration Workflow]({{base_path}}/self-registration-workflow)
+    - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/jit-workflow)
+    - [Guide: Invitation Workflow]({{base_path}}/invitation-workflow) 
+    - [Guide: Outbound Provisioning]({{base_path}}/outbound-provisioning)
     

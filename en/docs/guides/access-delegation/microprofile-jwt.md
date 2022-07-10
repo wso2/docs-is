@@ -1,6 +1,6 @@
 # Configure Microprofile JWT 1.0 
 
-This page guides you through configuring [microprofile JWT (MP-JWT) 1.0](../../../references/concepts/authentication/microprofile-jwt/) support for WSO2 Identity Server to provide role-based access control for microservices. 
+This page guides you through configuring [microprofile JWT (MP-JWT) 1.0]({{base_path}}/references/concepts/authentication/microprofile-jwt/) support for WSO2 Identity Server to provide role-based access control for microservices. 
 
 !!! tip
     To generate a MP-JWT-compatible token, all you need to do is set up the service provider to request the following claims.
@@ -12,7 +12,7 @@ This page guides you through configuring [microprofile JWT (MP-JWT) 1.0](../../.
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application and a sample authenticator, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/microprofile-jwt-sample"   rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="{{base_path}}/quick-starts/microprofile-jwt-sample"   rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
@@ -26,7 +26,7 @@ This guide assumes you have your own application. If you wish to try out this fl
     - http://wso2.org/claims/userprincipal
     - http://wso2.org/claims/role 
     
-    ![microprofile-jwt-sp-claims](../../../assets/img/guides/microprofile-jwt-sp-claims.png)
+    ![microprofile-jwt-sp-claims]({{base_path}}/assets/img/guides/microprofile-jwt-sp-claims.png)
 
 ----
 
@@ -107,6 +107,6 @@ As you can see in the decoded response, the `upn` and `groups` claims which map 
 
 
 !!! info "Related topics"
-    - [Concept: Microprofile JWT 1.0](../../../references/concepts/authentication/microprofile-jwt/)
-    - [Quick Start: Configure Microprofile JWT](../../../quick-starts/microprofile-jwt-sample)
+    - [Concept: Microprofile JWT 1.0]({{base_path}}/references/concepts/authentication/microprofile-jwt/)
+    - [Quick Start: Configure Microprofile JWT]({{base_path}}/quick-starts/microprofile-jwt-sample)
 

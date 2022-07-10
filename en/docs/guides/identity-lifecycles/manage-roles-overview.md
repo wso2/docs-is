@@ -12,11 +12,11 @@ permissions are added together.
 
 This section guides you through the operations that can be carried out on user roles. 
 
-- [Add User Roles](../add-user-roles)
+- [Add User Roles]({{base_path}}/add-user-roles)
 
-- [Edit/Delete Roles](../edit-delete-roles)
+- [Edit/Delete Roles]({{base_path}}/edit-delete-roles)
 
-- [Role-based Permissions](../role-based-permissions)
+- [Role-based Permissions]({{base_path}}/role-based-permissions)
 
 !!! note "Before you begin"
 
@@ -24,7 +24,7 @@ This section guides you through the operations that can be carried out on user r
 
     -   Only system administrators can add, modify and remove users and
         roles. To set up administrators, see [Configuring the System
-        Administrator](../../setup/configuring-the-system-administrator).  
+        Administrator]({{base_path}}/setup/configuring-the-system-administrator).  
         
 
     -   Your product has a primary user store where the users/roles that you
@@ -49,8 +49,8 @@ This section guides you through the operations that can be carried out on user r
         change the `            RegEx           ` configuration or enter
         values that conform to the `            RegEx           ` . If you
         [change the default user
-        store](../../setup/configuring-the-primary-user-store) or [set up a secondary
-        user store](../../setup/configuring-secondary-user-stores), configure the
+        store]({{base_path}}/setup/configuring-the-primary-user-store) or [set up a secondary
+        user store]({{base_path}}/setup/configuring-secondary-user-stores), configure the
         `            RegEx           ` accordingly under the user store
         manager configurations in the
         `            <IS_HOME>/repository/conf/deployment.toml          `

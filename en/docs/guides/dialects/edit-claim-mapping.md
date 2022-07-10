@@ -6,21 +6,21 @@ Follow the instructions below to edit a claim.
 1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 2.  Navigate to **Main** > **Identity** > **Claims** >  **List**.
 3.  Click on any available dialect links.  
-    ![dialect-links](../../../assets/img/guides/dialect-links.png)
+    ![dialect-links]({{base_path}}/assets/img/guides/dialect-links.png)
 4.  From the **Claim Dialect** view, you can view the claims defined for
     that particular dialect. Click on the appropriate **Edit** link.  
-    ![claim-dialect-view](../../../assets/img/guides/claim-dialect-view.png)
+    ![claim-dialect-view]({{base_path}}/assets/img/guides/claim-dialect-view.png)
 5.  Enter the new claim information in the required fields and click on
     the **Update** button.
 
     1.  If you are editing a local claim, you will see the following
         screen.
 
-        ![update-local-claim](../../../assets/img/guides/update-local-claim.png) 
+        ![update-local-claim]({{base_path}}/assets/img/guides/update-local-claim.png) 
 
     2.  If you are editing an external claim, you will see the following
         screen.  
-        ![editing-external-claim](../../../assets/img/guides/editing-external-claim.png)
+        ![editing-external-claim]({{base_path}}/assets/img/guides/editing-external-claim.png)
 
 !!! note    
     Alternatively, you can edit the file configuration in
@@ -32,5 +32,5 @@ Follow the instructions below to edit a claim.
     
 !!! info "Related topics"
 
-    -   [Guides: Configure Claims](../../../guides/dialects/configure-claims)
-    -   [Concepts: Claim Management](../../../references/concepts/claim-management/)
+    -   [Guides: Configure Claims]({{base_path}}/guides/dialects/configure-claims)
+    -   [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management/)

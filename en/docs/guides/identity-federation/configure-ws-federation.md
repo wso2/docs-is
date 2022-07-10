@@ -7,7 +7,7 @@ the following.
 
 1.  Sign in. Enter your username and password to log on to the
     [Management
-    Console](../../../deploy/get-started/getting-started-with-the-management-console).
+    Console]({{base_path}}/deploy/get-started/getting-started-with-the-management-console).
     
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.  
@@ -15,7 +15,7 @@ the following.
 3.  Fill in the details in the **Basic Information** section.
 
 4.  Expand the **WS-Federation(Passive) Configuration** form.  
-    ![ws-federation-passive-configuration](../../../assets/img/guides/ws-federation-passive-configuration.png)
+    ![ws-federation-passive-configuration]({{base_path}}/assets/img/guides/ws-federation-passive-configuration.png)
     
 5.  Fill in the following fields where relevant.
 
@@ -89,5 +89,5 @@ the following.
 		If the certificate is self-signed, import the service
 		provider's public key to the IS client trust store to ensure that the
 		SSL handshake in the SLO request is successful. For more information on
-		how to do this, see [Managing Keystores with the UI](../../../deploy/security/managing-keystores-with-the-ui) in
+		how to do this, see [Managing Keystores with the UI]({{base_path}}/deploy/security/managing-keystores-with-the-ui) in
 		the WSO2 Product Administration Guide.

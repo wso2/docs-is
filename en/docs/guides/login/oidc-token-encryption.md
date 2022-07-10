@@ -35,7 +35,7 @@ Make the following changes to the created service provider.
 4. Click **Add**
 
 !!! tip
-     To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced). 
+     To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced). 
 
 ----
 
@@ -45,9 +45,9 @@ Make the following changes to the created service provider.
 
 ## Try it
 
-This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token](../../../guides/login/oidc-token-decryption).
+This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token]({{base_path}}/guides/login/oidc-token-decryption).
 
-1. See [OAuth Grant Types](../../access-delegation/authorization-code) and try out one of the grant types with the `openid` scope to obtain an access token.
+1. See [OAuth Grant Types]({{base_path}}/access-delegation/authorization-code) and try out one of the grant types with the `openid` scope to obtain an access token.
 
 2. You will recieve an access token and an encrypted ID token. 
 
@@ -69,7 +69,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
 
     4.  Copy only the key string as shown in the sample below.
 
-        ![sample-key-string](../../assets/img/guides/sample-key-string.png)
+        ![sample-key-string]({{base_path}}/assets/img/guides/sample-key-string.png)
 
 4. The following sample JAVA program can be used to decrypt the ID token using the default `wso2carbon.jks` keystore. 
 
@@ -126,8 +126,8 @@ This section guides you through obtaining an encrypted ID token and decrypting i
     
 
 !!! info "Related topics"
-    - [Concept: ID Token](../../../references/concepts/authentication/id-token)
-    - [Quick Start: OpenID Connect Token Encryption](../../../quick-starts/oidc-token-encryption-sample)
-    - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)
-    - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)
+    - [Concept: ID Token]({{base_path}}/references/concepts/authentication/id-token)
+    - [Quick Start: OpenID Connect Token Encryption]({{base_path}}/quick-starts/oidc-token-encryption-sample)
+    - [Guide: Enable Login for an OpenID Connect Web Application]({{base_path}}/webapp-oidc)
+    - [Guide: Use Advanced Parameters in Authentication Requests]({{base_path}}/oidc-parameters-in-auth-request)
 

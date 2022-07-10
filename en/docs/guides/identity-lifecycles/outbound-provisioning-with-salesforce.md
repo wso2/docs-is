@@ -2,7 +2,7 @@
 
 The WSO2 Identity Server (WSO2 IS) has the ability to provision users
 into different domains like Salesforce, Google, Facebook, etc., using
-its [identity provisioning framework](../../../references/concepts/provisioning-framework/).
+its [identity provisioning framework]({{base_path}}/references/concepts/provisioning-framework/).
 
 This topic provides instructions on how to configure Salesforce as the
 Identity Provider to provision users from WSO2 Identity Server. The
@@ -28,11 +28,11 @@ too.
         This document is explained using the Salesforce lightning theme. If
         you are using the classic theme, click **Switch to Lightning Experience** on the top panel. 
 
-        ![lighteninig-experience](../../../assets/img/guides/switch-to-lightening.png)
+        ![lighteninig-experience]({{base_path}}/assets/img/guides/switch-to-lightening.png)
 
         You will be navigated to the lightening theme of Salesforce.
 
-        ![welcome-to-lightening.png](../../../assets/img/guides/welcome-to-lightening.png) 
+        ![welcome-to-lightening.png]({{base_path}}/assets/img/guides/welcome-to-lightening.png) 
 
 4.  Once you are logged in, add a connected app. Follow instructions
     below on how to do this. 
@@ -41,7 +41,7 @@ too.
 
     2. Click on **New Connected App**. 
 
-       ![connected-app](../../../assets/img/guides/connected-app.png) 
+       ![connected-app]({{base_path}}/assets/img/guides/connected-app.png) 
 
     3.  Fill in the form that appears with relevant details. 
         The following table describes the form labels in detail.
@@ -89,7 +89,7 @@ too.
         </tbody>
         </table>
 
-        ![new-connected-app](../../../assets/img/guides/fill-connected-app.png) 
+        ![new-connected-app]({{base_path}}/assets/img/guides/fill-connected-app.png) 
 
     4.  Click **Save** > **Continue** to add the connected app.
 
@@ -110,7 +110,7 @@ too.
         ownership of the consumer key. Referred to as `client_secret` in
         OAuth 2.0.
 
-    ![consumer-secret](../../../assets/img/guides/connected-app-screen.png) 
+    ![consumer-secret]({{base_path}}/assets/img/guides/connected-app-screen.png) 
 
 6.  <a name="step6"></a>Add your connected app to the profile you are going to use. This is
     necessary as this profile is used when you add users in to
@@ -122,13 +122,13 @@ too.
     
     1.  Expand **Users** in the **Administration** section of the left hand panel and click **Profiles**. A list of existing
         profiles can be viewed.  
-        ![user-profiles](../../../assets/img/guides/profiles.png) 
+        ![user-profiles]({{base_path}}/assets/img/guides/profiles.png) 
 
     2.  As an example, if you use the profile “Chatter Free User”, click
         **Edit** and select the connected app you created to configure
         with the Identity Server using the provided checkbox.  
          
-        ![select-connected-app](../../../assets/img/guides/example-app.png) 
+        ![select-connected-app]({{base_path}}/assets/img/guides/example-app.png) 
 
     3.  Click **Save**. Make a note of the profile ID (or address URL obtained from the address bar in your browser)
         of the Chatter Free User profile.
@@ -136,7 +136,7 @@ too.
         !!! tip
             Copy the URL and decode it using a URL decoder like [urldecoder.org]. 
 
-            ![decoder-online](../../../assets/img/guides/decoder-online.png)
+            ![decoder-online]({{base_path}}/assets/img/guides/decoder-online.png)
 
         
             In this case `             00e2x000001AT3y            ` is your
@@ -157,7 +157,7 @@ too.
     2.  Click **Create Self-Signed Certificate**.
     3.  Enter the **Label** and a **Unique Name** and click **Save**.
         The certificate is generated.  
-        ![self-signed-certificate](../../../assets/img/guides/add-certificate.png) 
+        ![self-signed-certificate]({{base_path}}/assets/img/guides/add-certificate.png) 
     4.  Click the **Download Certificate** button to download the
         certificate.
 
@@ -199,7 +199,7 @@ When you log into Salesforce, you normally use an email address. So, to integrat
         Identity Provider and to send encrypted data to the Identity
         Provider.
 
-    ![idp-public-certificate](../../../assets/img/guides/idp-public-certificate.png) 
+    ![idp-public-certificate]({{base_path}}/assets/img/guides/idp-public-certificate.png) 
 
 5.  Expand the **Claim Configuration** section of the form, followed by
     the **Basic Claim Configuration** section, and select **Define
@@ -211,7 +211,7 @@ When you log into Salesforce, you normally use an email address. So, to integrat
         via WSO2 Identity Server. Here, the **Identity Provider Claim URI**
         is the claim URI in Salesforce, which maps local claim URI in WSO2
         Identity Server. Read more about [Claim
-        Management](../../../guides/dialects/configure-claims/).
+        Management]({{base_path}}/guides/dialects/configure-claims/).
 
 6.  Click **Add Claim Mapping** and add the following claims.  
     Local claims in WSO2 IS are unique URIs. These are mapped to the
@@ -236,12 +236,12 @@ When you log into Salesforce, you normally use an email address. So, to integrat
     | UserPermissionsOfflineUser         | `               http://wso2.org/claims/country              `                  |
     | Username                           | `               http://wso2.org/claims/emailaddress              `             |
 
-    ![add-claim-mapping](../../../assets/img/guides/add-claim-mapping.png) 
+    ![add-claim-mapping]({{base_path}}/assets/img/guides/add-claim-mapping.png) 
 
 7.  Expand the **Advanced Claim Configuration** section.
 8.  Select the Claim URI you added from the **Provisioning Claim
     Filter** dropdown and click **Add Claim**.  
-    ![provisioning-claim-filter](../../../assets/img/guides/provisioning-claim-filter.png) 
+    ![provisioning-claim-filter]({{base_path}}/assets/img/guides/provisioning-claim-filter.png) 
 9.  For each Claim URI, enter a default value as shown in the following
     table. The default values are used when creating the role in
     Salesforce.  
@@ -317,11 +317,11 @@ When you log into Salesforce, you normally use an email address. So, to integrat
     </tbody>
     </table>
 
-    ![advanced-claim-config](../../../assets/img/guides/advanced-claim-config.png) 
+    ![advanced-claim-config]({{base_path}}/assets/img/guides/advanced-claim-config.png) 
 
 10. Expand the **Outbound Provisioning Connectors** section followed by
     the **Salesforce Provisioning Configuration** section.
-11. Do the following configurations for Salesforce provisioning. <!--For more information on any of these fields, see [Configuring Salesforce provisioning](../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider#configuring-salesforce-provisioning).-->
+11. Do the following configurations for Salesforce provisioning. <!--For more information on any of these fields, see [Configuring Salesforce provisioning]({{base_path}}/learn/configuring-outbound-provisioning-connectors-for-an-identity-provider#configuring-salesforce-provisioning).-->
     
     1.  Select **Enable Connector** to enable the Salesforce connector.
     2.  Enter the **API version**. This is the version of the API you
@@ -347,7 +347,7 @@ When you log into Salesforce, you normally use an email address. So, to integrat
 
             1.  Search for My Domain in the search bar that is on the left
                 navigation panel.  
-                ![my-domain](../../../assets/img/guides/my-domain.png) 
+                ![my-domain]({{base_path}}/assets/img/guides/my-domain.png) 
             2.  Click **My Domain**.
             3.  In the page that appears, come up with a name for your
                 domain. You can check if the domain is available by clicking
@@ -355,7 +355,7 @@ When you log into Salesforce, you normally use an email address. So, to integrat
                 !!! info 
                     For the page given below to load on your browser, make sure
                     that the Salesforce cookies are not blocked.
-                ![check-domain-availability](../../../assets/img/guides/check-domain-availability.png)
+                ![check-domain-availability]({{base_path}}/assets/img/guides/check-domain-availability.png)
 
             4.  If the domain is available, select **I agree to Terms and
                 Conditions** and click **Register Domain** to register your
@@ -385,7 +385,7 @@ When you log into Salesforce, you normally use an email address. So, to integrat
                 and click **App Manager**.
             2.  Click the expand button for your Connected App and click
                 **View**.  
-                ![view-connected-app](../../../assets/img/guides/view-connected-app.png) 
+                ![view-connected-app]({{base_path}}/assets/img/guides/view-connected-app.png) 
             3.  You are navigated to the page that has the Client ID and
                 Client Secret of the app under **API (Enable OAuth
                 Settings)**.
@@ -409,15 +409,15 @@ When you log into Salesforce, you normally use an email address. So, to integrat
             1.  Log in to Salesforce: <https://login.salesforce.com/>
             2.  Click on your avatar and click My Settings. You are
                 navigated to the Personal Information page.  
-                ![salesforce-personal-info](../../../assets/img/guides/salesforce-personal-info.png) 
+                ![salesforce-personal-info]({{base_path}}/assets/img/guides/salesforce-personal-info.png) 
             3.  On the left navigation, click **Reset My Security Token**
 .  
-                ![reset-security-token](../../../assets/img/guides/reset-security-token.png) 
+                ![reset-security-token]({{base_path}}/assets/img/guides/reset-security-token.png) 
             4.  Click **Reset Security Token**.  
                 An email is sent to you with the new security token. Check
                 the email of the email address you configured for
                 Salesforce.  
-                ![new-security-token](../../../assets/img/guides/new-security-token.png) 
+                ![new-security-token]({{base_path}}/assets/img/guides/new-security-token.png) 
         
 
 12. Click **Register**.
@@ -449,11 +449,11 @@ curl -v -k --header "Content-Type:application/json" --user kim@wso2.com:password
 
 You can see that the user has been created in the "Users" section in salesforce.
 
-![salesforce-user](../../../assets/img/guides/salesforce-user.png)
+![salesforce-user]({{base_path}}/assets/img/guides/salesforce-user.png)
 
 
 !!! info "Related topics"
-    - [Concept: Identity Provisioning Framework](../../../references/concepts/provisioning-framework/)
-    - [Guide: Configure Just-In-Time Provisioning for an Identity Provider](../jit-workflow/)
+    - [Concept: Identity Provisioning Framework]({{base_path}}/references/concepts/provisioning-framework/)
+    - [Guide: Configure Just-In-Time Provisioning for an Identity Provider]({{base_path}}/jit-workflow/)
 
 

@@ -2,11 +2,11 @@
 
 You can configure the WSO2 Identity Server to provision users to external applications.
 
-See the [Identity Server Architecture](../../references/architecture/architecture.md) for more information on how this process
+See the [Identity Server Architecture]({{base_path}}/references/architecture/architecture.md) for more information on how this process
 fits into the overall picture.
 
 ## Prerequisites
-You need to [register an identity provider](../identity-federation/add-idp.md) on the Identity Server.
+You need to [register an identity provider]({{base_path}}/identity-federation/add-idp.md) on the Identity Server.
 
 ## Configure Outbound Provisioning Connectors
 
@@ -25,7 +25,7 @@ To configure outbound provisioning connectors:
 To configure Google outbound provisioning:
 
 1. Expand **Google Provisioning Configuration** section.
-  ![google-provisioning](../../assets/img/guides/google-provisioning.png)
+  ![google-provisioning]({{base_path}}/assets/img/guides/google-provisioning.png)
 2. Fill in the following fields where relevant. The table contains all the configurations that can be done for Google outbound provisioning.
 
     | Field | Description | Sample Value  |
@@ -58,7 +58,7 @@ This configuration involves setting up the Identity Server to send
 provisioning requests to Salesforce.
 
 1. Expand the **Salesforce Provisioning Configuration** form.  
-    ![salesforce-provisioning](../../assets/img/guides/salesforce-provisioning.png)
+    ![salesforce-provisioning]({{base_path}}/assets/img/guides/salesforce-provisioning.png)
 2. Fill in the following fields where relevant. The table contains all the configurations that can be done for Salesforce outbound provisioning.
 
     | Field | Description | Sample Value  |
@@ -119,7 +119,7 @@ provisioning requests to Salesforce.
           -   UserPermissionsMarketingUser
           -   UserPermissionsOfflineUser
 
-  See [Outbound Provisioning with Salesforce](../identity-lifecycles/outbound-provisioning-with-salesforce.md) for more information on how this is configured from end to end.
+  See [Outbound Provisioning with Salesforce]({{base_path}}/identity-lifecycles/outbound-provisioning-with-salesforce.md) for more information on how this is configured from end to end.
 
 ### Configure SCIM provisioning
 
@@ -127,7 +127,7 @@ This configuration involves setting up the Identity Server to send
 provisioning requests to an external application that supports SCIM.
 
 1. Expand **SCIM Provisioning Configuration** section.
-    ![scim-provisioning](../../assets/img/guides/scim-provisioning.png)
+    ![scim-provisioning]({{base_path}}/assets/img/guides/scim-provisioning.png)
 2. Enter the required fields. The table contains all the configurations that can be done for SCIM outbound provisioning.
 
     | Field                        | Description                                                                                                                                                                                                                                                                                               | Sample value                            |
@@ -144,7 +144,7 @@ provisioning requests to an external application that supports SCIM.
 4. Select **Enable Connector** to enable identity provisioning from SCIM.
 5. Click **Update** to dave the configurations.
 
-See [Outbound Provisioning with SCIM](../identity-lifecycles/outbound-provisioning-with-scim.md) for more information on how this works in a typical scenario.
+See [Outbound Provisioning with SCIM]({{base_path}}/identity-lifecycles/outbound-provisioning-with-scim.md) for more information on how this works in a typical scenario.
 
 <!-- ## Configure SPML provisioning
 
@@ -157,13 +157,13 @@ generate provisioning requests within and across organizations
 
 This configuration involves setting up the Identity Server to send
 provisioning requests to an external application that supports SPML. See
-[Outbound Provisioning with SPML](../../learn/outbound-provisioning-with-spml) for
+[Outbound Provisioning with SPML]({{base_path}}/learn/outbound-provisioning-with-spml) for
 more information on how this works in a typical scenario.
 
 1. On WSO2 Identity Server Management Console, go to **Main > Identity > Identity Providers** section.
 2. Click **List**, select the identity provider you want to enable outbound provisioning on, and click on the corresponding **Edit** link.
 3. Expand the **SPML Provisioning Configuration** form.  
-    ![spml-provisioning](../../assets/img/guides/spml-provisioning.png)
+    ![spml-provisioning]({{base_path}}/assets/img/guides/spml-provisioning.png)
 4. Fill in the following fields where relevant.
 
     | Field            | Description                                                                                                                                 | Sample value                        |
@@ -176,4 +176,4 @@ more information on how this works in a typical scenario.
 -->
 
 !!! info "Custom Connectors"
-    In addition to this, you can also create [custom connectors](../../references/extend/provisioning/write-an-outbound-provisioning-connector.md) that are added to the list of outbound provisioning connectors once created.
+    In addition to this, you can also create [custom connectors]({{base_path}}/references/extend/provisioning/write-an-outbound-provisioning-connector.md) that are added to the list of outbound provisioning connectors once created.

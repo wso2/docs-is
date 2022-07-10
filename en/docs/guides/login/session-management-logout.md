@@ -1,6 +1,6 @@
 # Manage User Sessions and Logout
 
-This page guides you through [managing user sessions and logout](../../../references/concepts/authentication/session-management) for OpenID Connect applications with WSO2 Identity Server.
+This page guides you through [managing user sessions and logout]({{base_path}}/references/concepts/authentication/session-management) for OpenID Connect applications with WSO2 Identity Server.
 
 ## Register a service provider
 
@@ -167,13 +167,13 @@ Deploy this sample web app on a web container.
     -   **Client Secret:** Enter the client secret of playground2
         application
         
-    <img name='authorization-code' src='../../../assets/img/samples/authorization-code.png' class='img-zoomable' alt='Authorization code'/>
+    <img name='authorization-code' src='{{base_path}}/assets/img/samples/authorization-code.png' class='img-zoomable' alt='Authorization code'/>
     
 5.  You will receive the access token. You can also enter the **UserInfo
     Endpoint** as
     `                     https://localhost:9443/oauth2/userinfo                  `
     to use the received access token to obtain user claims if needed.  
-    <img name='access-token' src='../../../assets/img/samples/access-token.png' class='img-zoomable' alt='Access token'/> 
+    <img name='access-token' src='{{base_path}}/assets/img/samples/access-token.png' class='img-zoomable' alt='Access token'/> 
     
 6.  Access the following URL on a separate window of the browser, and
     click on **Import Photos:**
@@ -203,7 +203,7 @@ Deploy this sample web app on a web container.
     received, the app will update it’s session state value and keep
     polling the OP iframe again.
 
-    <img name='sesion-state' src='../../../assets/img/samples/session-state.png' class='img-zoomable' alt='Browser console'/> 
+    <img name='sesion-state' src='{{base_path}}/assets/img/samples/session-state.png' class='img-zoomable' alt='Browser console'/> 
 
 9. Go back to the browser window of the playground3 app, and click
     **Logout**. Click **Approve** when prompted for consent.
@@ -214,7 +214,7 @@ Deploy this sample web app on a web container.
     passive authentication request and has received an error since the
     end user session has ended. This means the app has successfully
     handled this as a single logout scenario.  
-   <img name='import-photos' src='../../../assets/img/samples/import-photos.png' class='img-zoomable' alt='Import photos'/> 
+   <img name='import-photos' src='{{base_path}}/assets/img/samples/import-photos.png' class='img-zoomable' alt='Import photos'/> 
 
 
 !!! tip "Redirect to a logout URL after RP-initiated logout"
@@ -223,10 +223,10 @@ Deploy this sample web app on a web container.
     particular page after the RP sends the OpenID Connect logout request.
     For more information on how to configure the redirect logout, see
     [OpenID Connect Logout URL
-    Redirection](../../guides/login/oidc-logout-url-redirection/).
+    Redirection]({{base_path}}/guides/login/oidc-logout-url-redirection/).
 
         
 !!! info "Related topics"
-    - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
-    - [Quick Start: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)
+    - [Concept: Manage User Sessions and Logout]({{base_path}}/references/concepts/authentication/session-management)
+    - [Quick Start: Manage User Sessions and Logout]({{base_path}}/quick-starts/oidc-session-management)
 

@@ -1,7 +1,7 @@
 # Authorization Code Grant With PKCE
 
-PKCE is a recommended security measure used to mitigate a [code interception attack](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/). 
-This page guides you through using [Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant/) with PKCE 
+PKCE is a recommended security measure used to mitigate a [code interception attack]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/). 
+This page guides you through using [Authorization Code Grant]({{base_path}}/references/concepts/authorization/authorization-code-grant/) with PKCE 
 to configure authentication for native mobile applications.
 
 ----
@@ -94,6 +94,6 @@ Make the following requests via your application to connect your application to 
     ```
     
 !!! info "Related topics"
-    - [Deploy: Mitigate Authorization Code Interception Attacks](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)
-    - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
+    - [Deploy: Mitigate Authorization Code Interception Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/login/oauth-app-config-advanced)
     

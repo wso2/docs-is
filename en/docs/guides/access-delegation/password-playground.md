@@ -1,6 +1,6 @@
 # Password Grant with OAuth 2.0 Playground
 
-This page guides you through using a sample Playground application to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Password](../../references/concepts/authorization/resource-owner-grant/) grant type.
+This page guides you through using a sample Playground application to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Password]({{base_path}}/references/concepts/authorization/resource-owner-grant/) grant type.
 
 ----
 
@@ -26,7 +26,7 @@ This page guides you through using a sample Playground application to try out au
 
 	- **Token Endpoint:** `https://localhost:9443/oauth2/token`
 
-	<img name='password-with-playground' src='../../assets/img/samples/password-with-playground.png' class='img-zoomable' alt='Password grant with Playground'/>
+	<img name='password-with-playground' src='{{base_path}}/assets/img/samples/password-with-playground.png' class='img-zoomable' alt='Password grant with Playground'/>
     
 2. Click **Authorize**. 
 
@@ -63,5 +63,5 @@ This page guides you through using a sample Playground application to try out au
 5.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
 
-	<img name='access-token-info' src='../../assets/img/samples/access-token-info.png' class='img-zoomable' alt='Access token information'/>
+	<img name='access-token-info' src='{{base_path}}/assets/img/samples/access-token-info.png' class='img-zoomable' alt='Access token information'/>
 

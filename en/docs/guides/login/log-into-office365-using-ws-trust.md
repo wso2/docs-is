@@ -35,10 +35,10 @@ you through the entire process.
 
 ### Prerequisites
 
-- Configure Azure Active Directory (AD) to trust WSO2 Identity Server. For more information on how to do this, see [Configuring Azure Active Directory toTrust WSO2 Identity Server](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server).
-- Configure an Active Directory user store as the primary user store in WSO2 Identity Server. For more information on how to do this, see [Configuring an Active Directory User Store](../../setup/configuring-a-read-write-active-directory-user-store).  
+- Configure Azure Active Directory (AD) to trust WSO2 Identity Server. For more information on how to do this, see [Configuring Azure Active Directory toTrust WSO2 Identity Server]({{base_path}}/learn/configuring-azure-active-directory-to-trust-wso2-identity-server).
+- Configure an Active Directory user store as the primary user store in WSO2 Identity Server. For more information on how to do this, see [Configuring an Active Directory User Store]({{base_path}}/setup/configuring-a-read-write-active-directory-user-store).  
 - Configure WSO2 Identity Server to authenticate users using the email address as the username. For more information on how to do this, see
-[Using Email Address as the Username](../../learn/using-email-address-as-the-username).
+[Using Email Address as the Username]({{base_path}}/learn/using-email-address-as-the-username).
 
 ### Configuring Office 365 WS-Trust
 
@@ -50,20 +50,20 @@ you through the entire process.
 
 3. Replace the value of the **Identity Provider Entity Id** with the
     value given for the parameter **$issueruri** when configuring Azure
-    AD (configured in step 3 of [this topic](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
+    AD (configured in step 3 of [this topic]({{base_path}}/learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
     ), and click **Update** to save changes.  
     In this sample scenario, the value for the Identity Provider Entity
     Id is https://wso2test.com.
 
-    ![idp-entity-id](../assets/img/tutorials/idp-entity-id.png)
+    ![idp-entity-id]({{base_path}}/assets/img/tutorials/idp-entity-id.png)
 
 4. Navigate to **Claims\>Add** in the **Main** menu and click **Add New
     Claim**. Set 'User Principle' and 'ImmutableID' as claims as seen
-    below. See [Adding Claim Mapping](../../learn/adding-claim-mapping) for more
+    below. See [Adding Claim Mapping]({{base_path}}/learn/adding-claim-mapping) for more
     information.
 
-    ![claim-user-principle](../assets/img/tutorials/claim-user-principle.png)
-    ![claim-immutable-id](../assets/img/tutorials/claim-immutable-id.png)
+    ![claim-user-principle]({{base_path}}/assets/img/tutorials/claim-user-principle.png)
+    ![claim-immutable-id]({{base_path}}/assets/img/tutorials/claim-immutable-id.png)
 
 5. Navigate to **Claims\>List** and click on the
     [http://wso2.org/claims](https://localhost:9443/carbon/claim-mgt/claim-view.jsp?store=Internal&dialect=http%3A%2F%2Fwso2.org%2Fclaims)
@@ -85,7 +85,7 @@ you through the entire process.
 
 4. Enter the following details in the form that appears and click
     **Apply**. See [Configuring WS-Trust Security Token
-    Service](../../learn/configuring-ws-trust-security-token-service) for more
+    Service]({{base_path}}/learn/configuring-ws-trust-security-token-service) for more
     information about these fields.
 
     - **Endpoint Address:**
@@ -93,7 +93,7 @@ you through the entire process.
 
     - **Certificate Alias:** wso2carbon
 
-    ![sts-configuration](../assets/img/tutorials/sts-configuration.png)
+    ![sts-configuration]({{base_path}}/assets/img/tutorials/sts-configuration.png)
 
 5. Expand the **Claim Configuration** section and configure the
     following attributes required by Azure AD as seen below.
@@ -130,7 +130,7 @@ you through the entire process.
     </tbody>
     </table>
 
-    ![claim-configuration-azure-id](../assets/img/tutorials/claim-configuration-azure-id.png)
+    ![claim-configuration-azure-id]({{base_path}}/assets/img/tutorials/claim-configuration-azure-id.png)
 
 6. Set the **Subject Claim URI** to the Immutable ID claim and the
     **Role Claim URI** to the role claim. Click **Update** to save
@@ -146,7 +146,7 @@ you through the entire process.
 9. Select **UsernameToken** under **Basic Scenarios** and click
     **Next**.
 
-    ![user-name-token](../assets/img/tutorials/user-name-token.png)  
+    ![user-name-token]({{base_path}}/assets/img/tutorials/user-name-token.png)  
 
 10. Select the **Admin** role checkbox from the User Groups and click
     **Finish**.
@@ -156,7 +156,7 @@ you through the entire process.
         authentication of the UserNameToken. Any role having ‘login’
         permissions would be sufficient.
 
-    ![usernametoken-authentication](../assets/img/tutorials/usernametoken-authentication.png)
+    ![usernametoken-authentication]({{base_path}}/assets/img/tutorials/usernametoken-authentication.png)
 
 11. Click **Update** to save all changes.
 
@@ -194,7 +194,7 @@ identity provider (i.e., the WSO2 Identity Server).
 
 ??? note "Click here to troubleshoot"
     You might receive the following login error while you are trying to sign in to the Skype for Business client. This usually happens due to a DNS resolving issue.
-    ![login-error](../assets/img/tutorials/login-error.png)
+    ![login-error]({{base_path}}/assets/img/tutorials/login-error.png)
 
     This issue can be resolved by manually configuring DNS settings of the Skype for Business client itself.
     
@@ -205,7 +205,7 @@ identity provider (i.e., the WSO2 Identity Server).
 		|-----------------------------|
 		| sipdir.online.lync. com:443 |
 
-		![skype-server-value](../assets/img/tutorials/skype-server-value.png)
+		![skype-server-value]({{base_path}}/assets/img/tutorials/skype-server-value.png)
 
 	3.  Save and try logging in again. Now you should be able to login
 		successfully.

@@ -7,30 +7,30 @@ authorization. It includes full support for policies based on XACML
 !!! info
     For more information on XACML and the concept of XACML engine, see
     [Access Control and Entitlement
-    Management](../../get-started/access-control-and-entitlement-management).
+    Management]({{base_path}}/get-started/access-control-and-entitlement-management).
 
 The following steps describe how you can configure the Identity Server
 as a XACML engine.
 
 1.  Log in to the [Management
-    Console](../../setup/getting-started-with-the-management-console) using your
+    Console]({{base_path}}/setup/getting-started-with-the-management-console) using your
     username and password.
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**. For more information
     on policy administration, see [Configuring the Policy Administration
-    Point](../../learn/configuring-the-policy-administration-point).   
+    Point]({{base_path}}/learn/configuring-the-policy-administration-point).   
 3.  Add a new policy or import external policy files to the system. Once
     you click **Add**, a  policy will be added. You can [edit a
     template
-    policy](../../learn/writing-a-xacml-policy-using-a-policy-template)
+    policy]({{base_path}}/learn/writing-a-xacml-policy-using-a-policy-template)
     it to suit your requirements, or you may [add a completely new
-    policy](../../learn/creating-a-xacml-policy)
+    policy]({{base_path}}/learn/creating-a-xacml-policy)
     .
 4.  After adding you can [publish the policy to Policy Decision
-    Point(PDP)](../../learn/publishing-a-xacml-policy)
+    Point(PDP)]({{base_path}}/learn/publishing-a-xacml-policy)
     .
 5.  Now try to evaluate the published policy by [using Try It
-    tool.](../../learn/evaluating-a-xacml-policy)
+    tool.]({{base_path}}/learn/evaluating-a-xacml-policy)
 
 Here you can build your own XACML request to evaluate the policy you
 just added. Copy and paste the following on the above screen and click

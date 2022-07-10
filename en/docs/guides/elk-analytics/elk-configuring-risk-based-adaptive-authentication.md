@@ -9,7 +9,7 @@ Consider a business use case where a bank wants to prompt an additional authenti
 The diagram below shows how the connection between the client applications, ELK Analytics, and WSO2 Identity Server
 works to assess risk of the user.
 
-![risk-based-adaptive-authentication](../../assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-1.png)
+![risk-based-adaptive-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-1.png)
 
 1. The user performs bank transactions through different applications.
 2. Trnasaction data from all these applications are published to the ELK Analytics via the “transaction” index.
@@ -35,7 +35,7 @@ works to assess risk of the user.
 
 ELK has two duties to fulfill in this scenario. Capture the transaction data into an index and calculate the risk score.
 
-1. [Configure](../../deploy/using-elk-analytics-for-adaptive-authentication.md) ELK Analytics for Adaptive Authentication.
+1. [Configure]({{base_path}}/deploy/using-elk-analytics-for-adaptive-authentication.md) ELK Analytics for Adaptive Authentication.
 2. Run the following command to create an index named `transaction` to store transaction data.
 
     !!! info
@@ -71,7 +71,7 @@ Follow the steps below to configure WSO2 IS to communicate with ELK.
    **Advanced Configuration**.
 4. Expand **Script Based Adaptive Authentication**.
 5. In the **Templates** tab, under **Analytics** click **ELK-Risk-Based**.
-   ![template-for-risk-based-authentication](../../assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
+   ![template-for-risk-based-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
 
       The resulting authentication script defines a conditional step that executes if the `riskScore` is greater than 0.
 

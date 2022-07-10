@@ -1,8 +1,8 @@
 # Introduction
 
-Local authenticators use locally available credentials to authenticate users. Basic authentication using username and password, [IWA (Integrated Windows Authentication)](../../references/concepts/integrated-windows-authentication-overview.md) or [FIDO (Fast IDentity Online)](../mfa/2fa-fido.md) are examples of local authenticators.
+Local authenticators use locally available credentials to authenticate users. Basic authentication using username and password, [IWA (Integrated Windows Authentication)]({{base_path}}/references/concepts/integrated-windows-authentication-overview.md) or [FIDO (Fast IDentity Online)]({{base_path}}/mfa/2fa-fido.md) are examples of local authenticators.
 
-See [Architecture](../../references/architecture/architecture.md) for more information on local authenticators fit into the WSO2 IS architecture.
+See [Architecture]({{base_path}}/references/architecture/architecture.md) for more information on local authenticators fit into the WSO2 IS architecture.
 
 ## Configure local and outbound authentication
 
@@ -12,7 +12,7 @@ To configure local and outbound authentication.
 2. Click **List**, select the service provider you want to configure, and click on the corresponding **Edit** link.
 3. Expand **Local & Outbound Authentication Configuration**, and select the **Authentication Type**.
 
-    ![local-outbound-config](../../assets/img/guides/local-outbound-config-sp.png)
+    ![local-outbound-config]({{base_path}}/assets/img/guides/local-outbound-config-sp.png)
 
     <table>
     <thead>
@@ -83,7 +83,7 @@ You can configure two types of multi-factor authentication in advance configurat
     | Use subject identifier from this step | Select this checkbox for the authentication step that you would like to get the subject identifier from. |
     | Use attributes from this step | Select this checkbox for the authentication step that you would like to get the attributes from.  |
     | Local Authenticators  | Select the local authenticator for authentication.  |
-    | Federated Authenticators  | Select the authenticator from the list of [federated IdPs](../identity-federation/federated-authenticator.md) configured on the IS. |
+    | Federated Authenticators  | Select the authenticator from the list of [federated IdPs]({{base_path}}/identity-federation/federated-authenticator.md) configured on the IS. |
 
 #### Scenario
 
@@ -93,7 +93,7 @@ Then configure the second step of authentication as Google and enable **Use attr
 
 Once authentication is complete subject id will be taken from the Facebook claims, and Google claims will be used as user attributes.
 
-![mfa-with-options-configured](../../assets/img/guides/mfa-with-options.png)
+![mfa-with-options-configured]({{base_path}}/assets/img/guides/mfa-with-options.png)
 
 !!! note
     If you have only one authentication step, both **Use subject identifier from this step** and **Use attributes from this step** will be obtained from the first step.
@@ -103,10 +103,10 @@ Once authentication is complete subject id will be taken from the Facebook claim
 
 A request path authenticator will get executed only if the initial
 authentication request brings the applicable set of credentials with it.
-See [Request Path Authentication](../request-path-auth/request-paths-overview.md) for more details.
+See [Request Path Authentication]({{base_path}}/request-path-auth/request-paths-overview.md) for more details.
 
 !!! info "Related Topics"
-    -   See [Multi-factor Authentication using FIDO](../mfa/2fa-fido.md)) for more information on configuring multi-step and multi-option authentication using FIDO.
-    -   See [Integrated Windows Authentication](../../references/concepts/integrated-windows-authentication-overview.md) for more information on configuring the IWA authenticator with WSO2 Identity Server.
-    -   See [Request Path Authentication](../request-path-auth/request-paths-overview.md) for information on a local authenticator that is executed if the initial authentication request brings a set of credentials with it.
-<!--    -   See [Try Request Path Authentication](../guides/request-path-auth/) or more information on how the request path authenticator works using the WSO2 playground sample . -->
+    -   See [Multi-factor Authentication using FIDO]({{base_path}}/mfa/2fa-fido.md)) for more information on configuring multi-step and multi-option authentication using FIDO.
+    -   See [Integrated Windows Authentication]({{base_path}}/references/concepts/integrated-windows-authentication-overview.md) for more information on configuring the IWA authenticator with WSO2 Identity Server.
+    -   See [Request Path Authentication]({{base_path}}/request-path-auth/request-paths-overview.md) for information on a local authenticator that is executed if the initial authentication request brings a set of credentials with it.
+<!--    -   See [Try Request Path Authentication]({{base_path}}/guides/request-path-auth/) or more information on how the request path authenticator works using the WSO2 playground sample . -->

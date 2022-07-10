@@ -19,7 +19,7 @@ Let's get started!
 1. Navigate to the Web directory on a terminal window and run the following command to create a symlink to the `vendor/simplesamlphp/simplesamlphp/www` folder.
 
     ```
-    ln -s ../vendor/simplesamlphp/simplesamlphp/www simplesaml
+    ln -s {{base_path}}/vendor/simplesamlphp/simplesamlphp/www simplesaml
     ```
 2. Create an `.htaccess file` inside the simplesaml symlink folder and add the following configurations.
 
@@ -96,7 +96,7 @@ Let's get started!
 
 2. Use `https://localhost:9443/samlsso` as the Identity Provider **Entity Id** and click **Update** to save the configuration.
 
-    <!-- ![resident-idp-config](../assets/img/tutorials/drupal-is-resident-idp-config.png) -->
+    <!-- ![resident-idp-config]({{base_path}}/assets/img/tutorials/drupal-is-resident-idp-config.png) -->
 
 3. Click **Service Providers > Add** and enter a unique name as the **Service Provider name** (e.g., "Drupal_SP").
 
@@ -122,7 +122,7 @@ Let's get started!
     Local Claim:[https://wso2.org/claims/givenname](https://wso2.org/claims/givenname)
     Requested Claim: Yes
 
-    <!-- ![image alt text](../assets/img/tutorials/drupal-sp-claim-config.png) -->
+    <!-- ![image alt text]({{base_path}}/assets/img/tutorials/drupal-sp-claim-config.png) -->
 
 11. Click **Update** to save.
 
@@ -130,17 +130,17 @@ Let's get started!
 
 1. On a browser window, navigate to: **http://'. $_SERVER[‘HTTP_HOST’] .’/simplesaml/**.
 
-    <!-- ![drupal-simple-saml-welcome-page](../assets/img/tutorials/drupal-simple-saml-welcome-page.png) -->
+    <!-- ![drupal-simple-saml-welcome-page]({{base_path}}/assets/img/tutorials/drupal-simple-saml-welcome-page.png) -->
 
 2. Click **Authentication > Test configured authentication sources**.
 
-    <!-- ![drupal-simple-saml-default-sp](../assets/img/tutorials/drupal-simple-saml-default-sp.png) -->
+    <!-- ![drupal-simple-saml-default-sp]({{base_path}}/assets/img/tutorials/drupal-simple-saml-default-sp.png) -->
 
 3. Click **default-sp**. You will be redirected to the WSO2 Identity Server authentication page.
 
 4. Login as the newly created user and you will see the User attributes, SAML Subject and Auth Data.
 
-    <!-- ![drupal-simple-saml-login](../assets/img/tutorials/drupal-simple-saml-login.png) -->
+    <!-- ![drupal-simple-saml-login]({{base_path}}/assets/img/tutorials/drupal-simple-saml-login.png) -->
 
 ## Configure Drupal
 
@@ -156,7 +156,7 @@ Let's get started!
 
 4. Enable **Activate authentication via SimpleSAMLphp**.
 
-    <!-- ![drupal-sp-enable-simpe-saml-php](../assets/img/tutorials/drupal-sp-enable-simpe-saml-php.png) -->
+    <!-- ![drupal-sp-enable-simpe-saml-php]({{base_path}}/assets/img/tutorials/drupal-sp-enable-simpe-saml-php.png) -->
 
 5. Enable **User provisioning > Register users** to create or register users using this module.
 
@@ -170,7 +170,7 @@ Let's get started!
 
 10. Enter `Mail` as the **SimpleSAMLphp attribute to be used as an email address for the user**.
 
-    <!-- ![drupal-sp-config-user-info](../assets/img/tutorials/drupal-sp-config-user-info.png)-->
+    <!-- ![drupal-sp-config-user-info]({{base_path}}/assets/img/tutorials/drupal-sp-config-user-info.png)-->
 
 11. Click **Save configuration**.
 
@@ -186,20 +186,20 @@ Let's get started!
 
 4. Click **Federated login** You will be directed to the WSO2 Login Page.
 
-    <!-- ![drupal-sp-login](../assets/img/tutorials/drupal-sp-login.png) -->
+    <!-- ![drupal-sp-login]({{base_path}}/assets/img/tutorials/drupal-sp-login.png) -->
 
-    <!-- ![drupal-idp-login](../assets/img/tutorials/drupal-idp-login.png) -->
+    <!-- ![drupal-idp-login]({{base_path}}/assets/img/tutorials/drupal-idp-login.png) -->
 
 5. Provide user credentials of the user you created in step 2 and click **Continue**.
 
 6. Enable **Select All**.
 
-    <!-- ![drupal-idp-consent](../assets/img/tutorials/drupal-idp-consent.png) -->
+    <!-- ![drupal-idp-consent]({{base_path}}/assets/img/tutorials/drupal-idp-consent.png) -->
 
 7. Click **continue** You will be redirected to the Drupal home page.
 
-    <!-- ![drupal-sp-welcome-page](../assets/img/tutorials/drupal-sp-welcome-page.png) -->
+    <!-- ![drupal-sp-welcome-page]({{base_path}}/assets/img/tutorials/drupal-sp-welcome-page.png) -->
 
 8. Click **edit** . The user profile attributes configured in WSO2 Identity Server will be populated in the **Personal details** section of your account.
 
-    <!-- ![drupal-sp-populated-user-info](../assets/img/tutorials/drupal-sp-populated-user-info.png) -->
+    <!-- ![drupal-sp-populated-user-info]({{base_path}}/assets/img/tutorials/drupal-sp-populated-user-info.png) -->

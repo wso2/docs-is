@@ -26,14 +26,14 @@ Consider a scenario where you want a user who has an administrator role that can
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Concurrent-Session-Management**. 
 
-    ![Concurrent-Session-Management template](../../assets/img/samples/limit-active-sessions-template.png)
+    ![Concurrent-Session-Management template]({{base_path}}/assets/img/samples/limit-active-sessions-template.png)
 
 7.  Click **Ok**. The authentication script and authentication steps
     are configured. 
     
     The authentication script defines a conditional step that executes session handling prompt only if the user belongs to an 'admin' or 'manager' role.  Here you can specify the value of `MaxSessionCount` variable to indicate the maximum number of sessions allowed. The default value is 1. For the purpose of this demo, change the value to 3. 
 
-    ![Limit active sessions](../../assets/img/samples/limit-active-sessions.png)
+    ![Limit active sessions]({{base_path}}/assets/img/samples/limit-active-sessions.png)
     
     !!! note
         You can configure the `MaxSessionCount` variable via the `deployment.toml` file in the  `<IS_HOME>/repository/conf/` directory as well. Priority will be given to the configuration in the adaptive authentication script. To configure the `MaxSessionCount` variable through the `deployment.toml` file, append the following configuration with the intended value for `MaxSessionCount`. 
@@ -44,11 +44,11 @@ Consider a scenario where you want a user who has an administrator role that can
 
 6.  Click **Add Authentication Step**.
 
-    ![Add authentication step](../../assets/img/samples/add-authentication-step.png)
+    ![Add authentication step]({{base_path}}/assets/img/samples/add-authentication-step.png)
 
 7.  Select **active-sessions-limit-handler** from the dropdown under **Local Authenticators** and click **Add Authenticator**. 
 
-    ![Session limit handler authenticator](../../assets/img/samples/session-limit-handler-authenticator.png)
+    ![Session limit handler authenticator]({{base_path}}/assets/img/samples/session-limit-handler-authenticator.png)
 
 8.  Click **Update**.
 
@@ -61,11 +61,11 @@ Consider a scenario where you want a user who has an administrator role that can
 
 2.  Click **Login** and enter admin/admin credentials.
 
-    ![Sign-in screen](../../assets/img/samples/pickup-sign-in.png)
+    ![Sign-in screen]({{base_path}}/assets/img/samples/pickup-sign-in.png)
 
 3.  Repeat the previous two steps in three different web browsers, e.g. Firefox, Safari, and Opera.
 
-    ![View active sessions adaptive auth](../../assets/img/samples/view-active-sessions-adaptive-auth.png)
+    ![View active sessions adaptive auth]({{base_path}}/assets/img/samples/view-active-sessions-adaptive-auth.png)
 
 4.  Now you can either terminate one or more active sessions or deny the login. 
 
@@ -75,4 +75,4 @@ Consider a scenario where you want a user who has an administrator role that can
 
 5.  If you deny the login, the Authentication Error screen appears.
 
-    ![Authentication error screen](../../assets/img/samples/authentication-error.png)
+    ![Authentication error screen]({{base_path}}/assets/img/samples/authentication-error.png)

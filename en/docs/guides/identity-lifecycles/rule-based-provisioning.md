@@ -11,9 +11,9 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 {! fragments/register-an-identity-provider.md !}
 
 1.	Expand the **Outbound Provisioning Connectors** section and select
-    [Google](../../../guides/identity-lifecycles/outbound-provisioning-with-google),
-    [SCIM](../../../guides/identity-lifecycles/outbound-provisioning-with-scim)
-    or [Salesforce connecter](../../../guides/identity-lifecycles/outbound-provisioning-with-salesforce).
+    [Google]({{base_path}}/guides/identity-lifecycles/outbound-provisioning-with-google),
+    [SCIM]({{base_path}}/guides/identity-lifecycles/outbound-provisioning-with-scim)
+    or [Salesforce connecter]({{base_path}}/guides/identity-lifecycles/outbound-provisioning-with-salesforce).
 
 ---
 
@@ -51,9 +51,9 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
          placeholders for different types of policies. For a full list of the
          available XACML policy templates, see [Writing a XACML Policy using
          a Policy
-         Template](../../learn/writing-a-xacml-policy-using-a-policy-template).-->
+         Template]({{base_path}}/learn/writing-a-xacml-policy-using-a-policy-template).-->
 
-    ![xacml-policy-templates](../../../assets/img/guides/xacml-policy-templates.png) 
+    ![xacml-policy-templates]({{base_path}}/assets/img/guides/xacml-policy-templates.png) 
 
 3.	Once you click **Edit**, the XML based policy will appear in the policy editor. There are placeholders in capitals for entering the service provider and role names.
 
@@ -156,25 +156,25 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 6.  Click **Save Policy** to save the changes. You can see the policy
     you just created on the policy list (the original template policy
     will remain unchanged for later use).  
-    ![save-created-policy](../../../assets/img/guides/save-created-policy.png) 
+    ![save-created-policy]({{base_path}}/assets/img/guides/save-created-policy.png) 
 
 7.  Click on the **Publish to My PDP** link corresponding to the new
     policy.  
-    ![publish-to-my-pdp](../../../assets/img/guides/publish-to-my-pdp.png)
+    ![publish-to-my-pdp]({{base_path}}/assets/img/guides/publish-to-my-pdp.png)
 8.  On the UI that appears, leave the default selected values as they
     are and click **Publish**.  
-    ![publish-policy](../../../assets/img/guides/publish-policy.png)
+    ![publish-policy]({{base_path}}/assets/img/guides/publish-policy.png)
 
 <!--!!! note
     For more information on Publishing a XACML policy, click
-    [here](../../learn/publishing-a-xacml-policy)-->
+    [here]({{base_path}}/learn/publishing-a-xacml-policy)-->
     
 9.  Click on **Policy View** under the **Entitlement\>PDP** section on
     the **Main** tab of the management console.
 10. To ensure that the policy has been published successfully, check if
     the policy is listed.  
       
-    ![policy-view](../../../assets/img/guides/policy-view.png)
+    ![policy-view]({{base_path}}/assets/img/guides/policy-view.png)
 11. To test out whether the policy works, follow the **Try it
     out** section.
 
@@ -182,7 +182,7 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
       If you want to write a more complicated policy, you can use the XACML
       policy editors available. For more information, read [How to create
       XACML
-      Policy](../../learn/creating-a-xacml-policy)-->
+      Policy]({{base_path}}/learn/creating-a-xacml-policy)-->
 
 
 ---
@@ -193,6 +193,6 @@ Once the policies are published to PDP, they are ready to execute during outboun
 
 
 !!! info "Related topics"
-	- [Guide: Role-Based Provisioning](../role-based-provisioning)
+	- [Guide: Role-Based Provisioning]({{base_path}}/role-based-provisioning)
 <!--- [Concept: Role-Based Provisioning](TODO:link-to-concept)-->
    

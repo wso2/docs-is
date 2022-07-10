@@ -1,6 +1,6 @@
 # Validate a JWT Based on JWKS
 
-This page guides you through providing the keys of an external Identity Provider in [JWKS](../../../references/concepts/authentication/jwks)
+This page guides you through providing the keys of an external Identity Provider in [JWKS]({{base_path}}/references/concepts/authentication/jwks)
 format which is used for signature verification purposes.
 
 ----
@@ -64,5 +64,5 @@ tokens from JWT assertion.
 ----
 
 !!! info "Related topics"
-    - [Concept: JSON Web Key Set](../../../references/concepts/authentication/jwks/)
-    - [Guide: Obtain Key Set Using JSON Web Key Set](../using-jwks)
+    - [Concept: JSON Web Key Set]({{base_path}}/references/concepts/authentication/jwks/)
+    - [Guide: Obtain Key Set Using JSON Web Key Set]({{base_path}}/using-jwks)

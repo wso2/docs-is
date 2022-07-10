@@ -21,7 +21,7 @@ a XACML Policy.
     !!! note
     
         To get more details on available XACML templates, [Read
-        me](../../learn/writing-a-xacml-policy-using-a-policy-template).
+        me]({{base_path}}/learn/writing-a-xacml-policy-using-a-policy-template).
     
 -   A set of UI editors to create a XACML policy using UI
     configurations.
@@ -30,7 +30,7 @@ The below steps explain how you can create a XACML policy using the
 management console of WSO2 Identity Server.
 
 1.  Sign in. Log in to the [Management
-    Console](../../setup/getting-started-with-the-management-console)
+    Console]({{base_path}}/setup/getting-started-with-the-management-console)
     using your username and password.
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**.
@@ -399,4 +399,4 @@ create your policy.
 !!! Info "Related Topics"
 	To evaluate the policy you just created and see a sample request and
 	response to it, see [Evaluating a XACML
-	Policy](../../administer/evaluating-a-xacml-policy).
+	Policy]({{base_path}}/administer/evaluating-a-xacml-policy).

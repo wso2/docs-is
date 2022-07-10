@@ -9,7 +9,7 @@ With this approach, the logic for processing an inbound authentication request w
 ---
 
 This guide assumes you have your own web application and a custom inbound authenticator. If you wish to try out this flow with a sample application, click the button below.--->
-<!--- a class="samplebtn_a" href="../../../quick-starts/webapp-custom-sample" rel="nofollow noopener">Try it with the sample</a ---> 
+<!--- a class="samplebtn_a" href="{{base_path}}/quick-starts/webapp-custom-sample" rel="nofollow noopener">Try it with the sample</a ---> 
 
 ----
 
@@ -29,6 +29,6 @@ Copy the custom inbound authenticator to the ```<IS_HOME>/repository/components/
 
 <!---
 !!! info "Related topics"
-    - [Quick Start: Enable Login for a Sample Custom Web Application](../../../quick-starts/webapp-custom-sample)
+    - [Quick Start: Enable Login for a Sample Custom Web Application]({{base_path}}/quick-starts/webapp-custom-sample)
     - [Guide: Write a Custom Inbound Protocol](TODO:insert-link)
 -->
