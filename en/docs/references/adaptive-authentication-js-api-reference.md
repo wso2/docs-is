@@ -98,6 +98,9 @@ The API can be called in either of the following ways:
                 SessionExecutor: {
                     MaxSessionCount: '1'
                 }
+                totp: {
+                enableRetryFromAuthenticator: 'true'
+                }
             }
         }
     });

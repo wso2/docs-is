@@ -1,16 +1,16 @@
-# Multi Attribute Login
+# Multi-Attribute Login
 
 WSO2 Identity Server lets you configure multiple attributes as the login identifier. While username is the default login identifier, users can have the option to enter a mobile number, email address or any attribute of their choice.
 
 The following section explains how to configure WSO2 identity server for multi-attribute login.
 
-## Configuring WSO2 IS for Multi Attribute Login
+## Configuring WSO2 IS for Multi-Attribute Login
 
 1.  Log in to the [WSO2 Identity Server Management Console](`https://<IS_HOST>:<PORT>/carbon`) using your tenant credentials.
 
     !!! info
         - The **admin** is the default administrative user in WSO2 Identity Server.
-        - If you use multiple tenant domains, you need to configure multi attribute login for each tenent.
+        - If you use multiple tenant domains, you need to configure multi-attribute login for each tenent.
 
 2.  Click **Main** > **Identity Providers** > **Resident** and expand the **Account Management** section.
 
@@ -47,7 +47,7 @@ Here are a few examples of regex patterns.
 
 You have now successfully set up WSO2 Identity Server to allow multi-attribute login.
 
-## Using Multi Attribute login
+## Using Multi-Attribute login
 When multi-attribute login is configured in WSO2 IS, application users can use any of the configured attributes to login. 
 
 ### Example: Allow users to use mobile number as a login identifier
