@@ -5,16 +5,21 @@ A local authenticator in WSO2 identity server authenticates users, who are store
 By default, the local authenticator in WSO2 identity server is the basic authenticator.
 It authenticates end users who are stored in a connected user store using the provided username and password.
 
-WSO2 identity server supports extensibility in local authentication, so that you can implement a different authentication logic by writing a custom local authenticator. You can authenticate users based on the combination of password and any claim that helps you to uniquely identify the user such as their telephone number, employee registration number, email address by writing a custom local authenticator.
+WSO2 identity server supports extensibility in local authentication, so that you can implement a different authentication logic by writing a custom local authenticator.
+You can implement custom authentication logic tailored to your requirement such as,
+
+1. Authenticating users only if they belong to a particular role.
+2. Authenticating based on any claim such as the user's telephone number or employee registration number.
+3. Calling another API to authenticate the user.
 
 ---
 
 ## Scenario
 
-Let’s consider a scenario where you need to authenticate the users by their phone number and password. Since the basic authenticator uses only the username, you can write a custom local authenticator to implement this logic.
+Let’s consider a scenario where there’s an application called `Playground` that is used to import/export photos. You need to authenticate the app users by their username and password, and allow login only if they belong to a role called `photoSharingRole`. You can write a custom local authenticator to implement this logic.
 
-First, let’s identify the primary difference between the basic authenticator and the local authenticator we are going to implement. In the basic authenticator, the claim used to uniquely identify the user is the claim username with the claim URI  http://wso2.org/claims/username.
-But in the authenticator we are going to implement, we will use the telephone number claim (claim uri : http://wso2.org/claims/telephone ) to uniquely identify the user, instead of the username claim
+First, let’s identify the primary difference between the basic authenticator and the local authenticator we are going to implement. In the basic authenticator, we are using the claim username with the claim URI  `http://wso2.org/claims/username` in order to uniquely identify the user.
+But in the custom local authenticator we are going to implement, we will go a bit ahead and also check whether the user belongs to the role `photoSharingRole` and allow login only he/she does.
 
 ---
 
@@ -22,7 +27,7 @@ But in the authenticator we are going to implement, we will use the telephone nu
 
 You can implement the custom local authenticator by extending the abstract class [abstractApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/AbstractApplicationAuthenticator.java) and implementing the interface [LocalApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/LocalApplicationAuthenticator.java). This requires you to implement several methods in the custom local authenticator. Please refer to this [table](https://is.docs.wso2.com/en/latest/develop/writing-a-custom-local-authenticator/#reference) to understand the generic purpose of the method and the usage of it in our implementation.
 
-Let's begin the implementation (You can find the completed version of this custom local authenticator [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator)).
+Let's begin the implementation. 
 
 1.   Create a maven project using the following pom.xml  to write the custom authenticator.
 
@@ -426,6 +431,8 @@ Let's begin the implementation (You can find the completed version of this custo
 
 15. Provide the username and password of the user `Larry` who is in the `photoSharingRole`. You are prompted to approve the app and logged in.
 
+For additional reference, You can find a completed version of a custom local authenticator that authenticates users based on their telephone number and password [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator).
+
 ## Reference
 
 The following is a set of methods related to writing a custom local authenticator.
@@ -449,13 +456,13 @@ The following is a set of methods related to writing a custom local authenticato
 </tr>
 <tr class="even">
 <td>process()</td>
-<td><p>Implementation of custom authentication logic happens inside this method. For example, you can call any API that can do authentication and authenticate the user or you can authenticate the user against the underlying user store. Then you can also do any other custom logic after authenticating the user such as, you can check if a user belongs to a particular role and allow authentication accordingly.</p>
-<p>In the sample project, we used this method to authenticate the user with the telephone number and password.</p></td>
+<td><p>This method is used to process or carry out the user authentication process. It calls the processAuthenticationResponse() method in the custom authenticator class to execute the custom authentication logic.</p>
+<p>In the sample project, we call the super.process(), so that the super class process method will handle the authentication process, instead of implementing our own process method.</p></td>
 </tr>
 <tr class="odd">
 <td>processAuthenticationResponse()</td>
 <td><p>Implementation of custom authentication logic happens inside this method. For example, you can call any API that can do authentication and authenticate the user or you can authenticate the user against the underlying user store. Then you can also do any other custom logic after authenticating the user such as, you can check if a user belongs to a particular role and allow authentication accordingly.</p>
-<p>In the sample project, we used this method to authenticate the user with the telephone number and password.</p></td>
+<p>In the sample project, we used this method to authenticate the user with the username and password,  then we check whether the user is assigned with the role `photoSharingRole` and if he/she does, make the authentication successful.</p></td>
 </tr>
 <tr class="even">
 <td>initiateAuthenticationrequest()</td>
@@ -473,12 +480,12 @@ The following is a set of methods related to writing a custom local authenticato
 <tr class="odd">
 <td>getFriendlyName()</td>
 <td><p>This method returns the name you want to display for your custom authenticator. This name will be displayed in the local authenticators drop down.</p>
-<p>In the sample project, We have returned the name sample-local-authenticator.</p></td>
+<p>In the sample project, We have returned the name BasicCustom.</p></td>
 </tr>
 <tr class="even">
 <td>getname()</td>
 <td><p>This method is used to get the name of the authenticator.</p>
-<p>In the sample project, We have used this method to return the name SampleLocalAuthenticator.</p></td>
+<p>In the sample project, We have used this method to return the name BasicCustomAuthenticator.</p></td>
 </tr>
 </tbody>
 </table>
