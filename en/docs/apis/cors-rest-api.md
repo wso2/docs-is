@@ -14,13 +14,12 @@ template: templates/swagger.html
     4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS.
 
 <div id="swagger-ui"></div>
-<script src="../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
-<script src="../../assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
+
 <script>
-window.onload = function() {
+
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../restapis/cors.yaml",
+     url: "../restapis/cors.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
@@ -34,8 +33,7 @@ window.onload = function() {
   })
   // End Swagger UI call region
 
-  window.ui = ui
-}
+   window.ui = ui
 </script>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/112cf1de37658c1b09d5)

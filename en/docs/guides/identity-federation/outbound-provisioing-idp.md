@@ -42,6 +42,9 @@ To configure Google outbound provisioning:
     | Google Outbound Provisioning pattern| This pattern is used to build the user ID of the Google domain. A combination of attributes UD (User Domain), UN (Username), TD (Tenant Domain), and IDP (Identity Provider) can be used to construct a valid pattern.| `{UD, UN, TD, IDP}`|
     | Google Provisioning Separator| This is used to separate the values you configure in the Google Outbound Provisioning pattern.|`_`|
 
+4. Select **Enable Connector** to enable identity provisioning from Goolgle.
+5. Click **Update** to dave the configurations.
+
     ??? note "Google Outbound Provisioning pattern"
         By using **Google Outbound Provisioning pattern** you differentiate the following scenarios:
 
@@ -71,7 +74,10 @@ provisioning requests to Salesforce.
     | Provisioning Pattern| This pattern is used to build the user id of the Salesforce domain. A combination of attributes UD (User Domain), UN (Username), TD (Tenant Domain), and IDP (Identity Provider) can be used to construct a valid pattern.| `{UD, UN, TD, IDP}`|
     | Provisioning Separator| This is used to separate the values you configure in the Salesforce Outbound Provisioning pattern.| `_`|
     | Provisioning Domain| The user name of Salesforce is an email address. Here you can configure a specific domain name the username should have.| `yahoo.com`|
-  
+
+3. Select **Enable Connector** to enable identity provisioning from Salesforce.
+4. Click **Update** to dave the configurations.
+
     ??? note "Salesforce Outbound Provisioning pattern"
         By using **Sales Outbound Provisioning pattern** you differentiate the following scenarios:
 
@@ -134,6 +140,9 @@ provisioning requests to an external application that supports SCIM.
     | User Store Domain            | This is the user store that users are created. You can specify any user store connected to your identity provider.                                                                                                                                                                                        | Domain                                  |
     | Enable Password Provisioning | This is to specify whether to send a default password or the password sent in the SCIM request, to the server where it gets provisioned. In a scenario where the Identity Server is used as a proxy, and sending the password to some other server is not appropriate, the default password can be sent. | Selected                                |
     | Default Password             | The default password that must be sent.                                                                                                                                                                                                                                                                   | `\<password\>`                            |
+
+4. Select **Enable Connector** to enable identity provisioning from SCIM.
+5. Click **Update** to dave the configurations.
 
 See [Outbound Provisioning with SCIM](../identity-lifecycles/outbound-provisioning-with-scim.md) for more information on how this works in a typical scenario.
 

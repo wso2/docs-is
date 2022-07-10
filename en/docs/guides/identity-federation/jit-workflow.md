@@ -12,7 +12,7 @@ You need to [add and configure an identity provider](../identity-federation/add-
 To enable JIT provisioning for an IdP:
 
 1. On WSO2 Identity Server Management Console, go to **Main > Identity > Identity Providers** section.
-2. Click **List**, select the identity provider you want to enable JIT provisioning on, and click on the corresponding **Edit** link.
+2. Click **List**, select the identity provider you want to enable JIT provisioning, and click on the corresponding **Edit** link.
 3. Expand the **Just-In-Time Provisioning** section and select the JIT provisioning options based on your requirement.
 
     ![just-in-time-provisioning](../../../assets/img/guides/just-in-time-provisioning.png)
@@ -20,7 +20,7 @@ To enable JIT provisioning for an IdP:
 4. Select **Always provision to User Store Domain**, and select a required user store domain from the list of available user store domains.
 
     !!! tip
-        The user store domain that you see by default is the **PRIMARY** user store that is provided with WSO2 Identity Server.
+        The default user store domain you see is the **PRIMARY** user store provided with WSO2 Identity Server.
 
         If you want to provision users to multiple user stores depending on the user name specified at the time of provisioning, select **As in username** from the dropdown.
                     
@@ -36,13 +36,13 @@ To enable JIT provisioning for an IdP:
 
 5. Select the provisioning options depending on how you want to prompt users for relevant credentials at the time of JIT provisioning. The provisioning options are as follows:
 
-    - Prompt for username, password and consent
+    - Prompt for username, password, and consent
     - Prompt for password and consent
     - Prompt for consent
     - Provision silently
 
     !!! note
-        By default **Provision silently** will be selected, you can change it as you wish.
+        By default, **Provision silently** will be selected. You can change it as you wish.
 
 6. Click **Update** to save your configurations.
 
@@ -58,7 +58,7 @@ To disable JIT provisioning for an IdP:
     JIT provisioning is disabled by default. If you have enabled JIT provisioning for the IdP, use these instructions to disable it.
 
 1. On WSO2 Identity Server Management Console, go to **Main > Identity > Identity Providers** section.
-2. Click **List**, select the identity provider you want to enable JIT provisioning on, and click on the corresponding **Edit** link.
+2. Click **List**, select the identity provider you want to enable JIT provisioning, and click on the corresponding **Edit** link.
 3. Expand the **Just-In-Time Provisioning** section and select the JIT provisioning options based on your requirement.  
 4. Select **No Provisioning** and click **Update** to disable JIT provisioning.
 
@@ -87,8 +87,26 @@ With the JIT provisioned enhanced feature, the following capabilities will be av
 
 - A Federated unique user id will be set as the username of the JIT provisioned user.
 - Second-factor authenticators (Ex:- TOTP, Email OTP) will be able to configure for federated users when JIT provisioning is enabled
-- When an IDP is deleted, all provisioned users from that IDP will be deleted.
+- When an IDP is deleted, the Identity Server will delete all provisioned users from that IDP.
 - Editing JIT-provisioned user’s attributes will not be allowed.
 - Ability to lock JIT provisioned user accounts based on social identity.
 
 
+## Customize JIT Provisioning User Interfaces
+
+You can customize the default user interface that is displayed to prompt for credentials at the time of just-in-time provisioning.
+
+To customize the user interfaces depending on your requirement, add the following configuration in the `deployment.toml` file.
+
+``` java
+[authentication.jit_provisioning]
+username_provisioning_url= "/accountrecoveryendpoint/register.do"
+password_provisioning_url= "/accountrecoveryendpoint/signup.do"
+```
+
+- Update `username_provisioning_url` if you have selected **Prompt for username, password and consent** as the provisioning option.
+
+- Update `password_provisioning_url` if you have selected **Prompt for password and consent** or **Prompt for consent** as the provisioning option.
+
+!!! note
+    Learn more about [configuring the provisioning methods](../identity-federation/jit-workflow.md).
