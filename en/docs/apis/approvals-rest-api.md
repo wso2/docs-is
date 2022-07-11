@@ -19,10 +19,10 @@ template: templates/swagger.html
 
 <div id="swagger-ui"></div>
 <script>
-window.onload = function() {
+
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../restapis/approvals.yaml",
+     url: "../restapis/approvals.yaml",
     name: "Download the yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
@@ -38,8 +38,7 @@ window.onload = function() {
   })
   // End Swagger UI call region
 
-  window.ui = ui
-}
+   window.ui = ui
 </script>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5756659f9134b101dd64)

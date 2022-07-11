@@ -71,6 +71,21 @@ nav:
           - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
         - Manage a Service Provider: guides/applications/manage-sp.md
         - Set up a Resident Service Provider: guides/applications/resident-sp.md
+      - Identity Providers:
+        - Overview: guides/identity-federation/basic-overview.md
+        - Register an IdP: guides/identity-federation/add-idp.md
+        - Configure an IdP:
+          - Roles of an IdP: guides/identity-federation/roles-idp.md
+          - Claims of an IdP: guides/identity-federation/claims-idp.md
+          - Federated Authenticators: guides/identity-federation/federated-authenticator.md
+          - JIT Provisioning: guides/identity-federation/jit-workflow.md
+          - Outbound Provisioning Connectors: guides/identity-federation/outbound-provisioing-idp.md
+        - Manage an IdP: guides/identity-federation/manage-idp.md
+        - Resident IdP: 
+          - Set up a Resident IdP: guides/identity-federation/resident-idp.md
+          - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
+          - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
+          - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
       - Authentication:
         - Login:
           - Web Application:
@@ -161,24 +176,22 @@ nav:
             - SMS OTP configs: guides/mfa/sms-otp-config-advanced.md
         - Adaptive Authentication:
           - Configure Adaptive Authentication: guides/adaptive-auth/configure-adaptive-auth.md
-          - Adaptive Authentication Scenarios: guides/adaptive-auth/adaptive-auth-overview.md
-          - Role-Based: guides/adaptive-auth/role-based-adaptive-auth.md
-          - User Age-Based: guides/adaptive-auth/age-based-adaptive-auth.md
-          - Tenant-Based: guides/adaptive-auth/tenant-based-adaptive-auth.md
-          - Userstore-Based: guides/adaptive-auth/user-store-based-adaptive-auth.md
-          - IP-Based: guides/adaptive-auth/ip-based-adaptive-auth.md
-          - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
-          - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
-          - ACR-Based: guides/adaptive-auth/acr-based-adaptive-auth.md
-          - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
-          - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
+          - Adaptive Authentication Scenarios: 
+            - Scenarios: guides/adaptive-auth/adaptive-auth-overview.md
+            - Role-Based: guides/adaptive-auth/role-based-adaptive-auth.md
+            - User Age-Based: guides/adaptive-auth/age-based-adaptive-auth.md
+            - Tenant-Based: guides/adaptive-auth/tenant-based-adaptive-auth.md
+            - Userstore-Based: guides/adaptive-auth/user-store-based-adaptive-auth.md
+            - IP-Based: guides/adaptive-auth/ip-based-adaptive-auth.md
+            - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
+            - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
+            - ACR-Based: guides/adaptive-auth/acr-based-adaptive-auth.md
+            - Risk-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
+            - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
+            - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
+          
       - Identity Federation:
         - Overview: guides/identity-federation/identity-federation-overview.md
-        - IdP Configurations: 
-          - Overview: guides/identity-federation/basic-overview.md
-          - Add an IdP: guides/identity-federation/add-idp.md
-          - Configure Roles of an IdP: guides/identity-federation/roles-idp.md
-          - Configure Claims of an IdP: guides/identity-federation/claims-idp.md
         - Enterprise Identity Federation:
           - Overview: guides/identity-federation/enterprise-identity-federation.md
           - SAML: guides/identity-federation/configure-saml-2.0-web-sso.md
@@ -198,12 +211,6 @@ nav:
           - Log in with Yahoo: guides/identity-federation/yahoo.md
           - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
-        - Provisioing for an IdP: 
-          - Outbound Provisioining: guides/identity-federation/outbound-provisioing-idp.md
-          - JIT Provisioning:
-            - Configure JIT Provisioning: guides/identity-federation/jit-workflow.md
-            - JIT Consent Purposes: guides/identity-federation/jit-consent-purposes.md
-            - JIT User Interfaces: guides/identity-federation/jit-user-interfaces.md
       - Authorization:
         - Overview: guides/authorization/overview.md
         - Access Management: 
@@ -245,6 +252,7 @@ nav:
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
       - User management:
+        - Overview: guides/identity-lifecycles/user-management.md
         - Onboard Users:
           - Overview: guides/identity-lifecycles/onboard-overview.md
           - Admin Creation Workflow: guides/identity-lifecycles/admin-creation-workflow.md
@@ -348,7 +356,10 @@ nav:
       - User Self-Service: guides/my-account/my-account.md
       - Analytics:
         - Overview: guides/elk-analytics/elk-analytics.md
-
+        - Access the Analytics Dashboard: guides/elk-analytics/elk-accessing-the-analytics-dashboard.md
+        - Analyze Logins using Auth Dashboard: guides/elk-analytics/elk-analyzing-login-attempts.md
+        - Analyze Sessions using Session Dashboard: guides/elk-analytics/elk-analyzing-session-statistics.md
+        - ELK Alerts: guides/elk-analytics/elk-alert-types.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
@@ -400,6 +411,9 @@ nav:
             - Remove References to Deleted User Identities: deploy/remove-references-to-deleted-user-identities.md
         - Analytics:
           - Configure ELK Analytics: deploy/elk-analytics-installation-guide.md
+          - Configure SSO in ELK Analytics: deploy/elk-analytics-sso-guide.md
+          - Configure ELK Alerts: deploy/elk-configuring-alerts.md
+          - Configure ELK for Adaptive Authentication: deploy/using-elk-analytics-for-adaptive-authentication.md
           - Configure an SP and IdP Using Configuration Files: deploy/configure-an-sp-and-idp-using-configuration-files.md
         - CORS : deploy/configure-cors.md
       - Secure:
