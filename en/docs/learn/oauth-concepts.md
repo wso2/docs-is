@@ -30,7 +30,7 @@ separation between the roles of ‘token issuance’ and ‘token reliance.’
 Development of OAuth 2.0 in the IETF consequently reflects the input of
 both OAuth 1.0, OAuth 1.0a, and the WRAP proposal. The different
 assumptions about what are appropriate security protections between
-OAuth 1.0a and WRAP have created tensions within IETG OAuth WG.
+OAuth 1.0a and WRAP have created tensions within IETF OAuth WG.
 
 While OAuth 2.0 initially reflected more of the WRAP input, lately there
 has been a swing in group consensus that the signatures of OAuth 1.0a
