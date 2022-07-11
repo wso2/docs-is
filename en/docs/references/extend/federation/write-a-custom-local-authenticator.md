@@ -490,6 +490,4 @@ The following is a set of methods related to writing a custom local authenticato
 </tbody>
 </table>
 
-## Contributing Your Connectors
-
 {! fragments/contributing-connectors.md !}
