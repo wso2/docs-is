@@ -4,7 +4,7 @@ The following guide shows you how to configure alerts in ELK.
 
 ## Prerequisite
 
-- [Configure ELK Analytics](./elk-analytics-installation-guide.md) in WSO2 Identity Server.
+[Configure ELK Analytics](./elk-analytics-installation-guide.md) in WSO2 Identity Server.
 
 ## Create Elasticsearch Transforms
 
