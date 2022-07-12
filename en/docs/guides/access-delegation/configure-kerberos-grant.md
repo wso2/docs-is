@@ -13,7 +13,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 3.  Add the following entry to the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
     ``` toml
-    [oauth.grant_type.kerberos_grant]
+    [oauth.grant_type.kerberos]
     enable = true
     ```
 

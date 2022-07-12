@@ -2,6 +2,10 @@
 
 The following guide shows you how to configure alerts in ELK.
 
+## Prerequisite
+
+[Configure ELK Analytics](./elk-analytics-installation-guide.md) in WSO2 Identity Server.
+
 ## Create Elasticsearch Transforms
 
 Elasticsearch transforms are used to capture the alert events from the raw event data. Learn more about transforms in the [elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/transforms.html).

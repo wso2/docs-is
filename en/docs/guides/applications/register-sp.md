@@ -56,8 +56,8 @@ You can find the basic configurations of a service provider under **Service Prov
 | Discoverable Application  | Enable this to make the application discoverable to users. |
 | Access URL    | Access URL for the Service Provider.   |
 | Logo URL  | Add a link to the logo for your application here.   |
-| Logout Return URL or regex    | The URL that the users will be redirected to during a direct IdP logout   |
-| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated from the edit screen. |
+| Logout Return URL or regex    | The URL that the users will be redirected during a direct IdP logout   |
+| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated. WSO2 Identity Server exposes all the management capabilities as [REST APIs](../../../apis/rest-apis/). These APIs are protected by OAuth2 access tokens and other API authentication mechanisms. The applications that are marked as management applications can only be used to access these management APIs in the OAuth2 flow. This can only be configured when creating the application.|
 
 ### Public certificates for service providers
 A certificate is used to validate the signatures of the signed requests received from the application (service provider) to WSO2 IS.
@@ -107,8 +107,16 @@ If the **Application Certificate** field is left blank, as WSO2 IS is backward c
 
     See the following topics to configure different applications as service providers in Identity Server.
 
+<<<<<<< HEAD
     -   [Logging in to SaaS applications using Identity Server]({{base_path}}/login/log-into-simplesaml-using-is.md)
     -   [Logging in to Salesforce using the Identity Server]({{base_path}}/login/log-into-salesforce-using-is.md)
     -   [Logging in to Salesforce with Facebook]({{base_path}}/login/log-into-salesforce-using-fb.md)
     -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/login/log-into-salesforce-using-iwa.md)
     -   [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server)
+=======
+    -   [Logging in to SaaS applications using Identity Server](../login/log-into-simplesaml-using-is.md)
+    -   [Logging in to Salesforce using the Identity Server](../login/log-into-salesforce-using-is.md)
+    -   [Logging in to Salesforce with Facebook](../login/log-into-salesforce-using-fb.md)
+    -   [Logging in to Salesforce with Integrated Windows Authentication](../login/log-into-salesforce-using-iwa.md)
+    -   [Logging in to WSO2 Products via the Identity Server](../../learn/logging-in-to-wso2-products-via-the-identity-server)
+>>>>>>> 5f6ccc50133986d32846c6e45ab10b0054d4d6fa

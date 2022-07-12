@@ -244,6 +244,7 @@ nav:
           - Kerberos: guides/access-delegation/configure-kerberos-grant.md
           - Refresh Tokens: guides/access-delegation/configure-refresh-token.md
           - JWT Grant: guides/access-delegation/configure-jwt-grant.md
+          - Device Flow Grant: guides/access-delegation/try-device-flow.md
         - Invoke the OAuth 2.0 Introspection Endpoint: guides/access-delegation/invoke-oauth-introspection-endpoint.md
         - OAuth 2.0 Dynamic Client Registration: guides/access-delegation/oauth-dynamic-client-registration.md
         - OAuth 2.0 Client Authentication: guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md

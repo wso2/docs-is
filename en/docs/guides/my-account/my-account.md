@@ -1,7 +1,7 @@
 # My Account
 
 !!! note 
-    The **User Portal** application has been renamed as **My Account**.
+    The **My Account** application has been renamed as **My Account**.
 
 ## Introduction
 

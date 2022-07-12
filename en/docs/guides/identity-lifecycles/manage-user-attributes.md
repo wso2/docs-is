@@ -105,7 +105,7 @@ LDAP.
         ```
 
 3.  To test this, restart WSO2 IS and attempt to log in to the
-    user portal by providing either the `          mail         `
+    My Account by providing either the `          mail         `
     or `          uid         ` values with the same password.
 
 ---
