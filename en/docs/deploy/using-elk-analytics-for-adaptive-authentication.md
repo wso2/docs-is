@@ -4,7 +4,7 @@ The following guide shows you how to prepare the WSO2 Identity server for adapti
 
 ## Prerequisite
 
-- [Configure ELK Analytics](./elk-analytics-installation-guide.md) in WSO2 Identity Server.
+[Configure ELK Analytics](./elk-analytics-installation-guide.md) in WSO2 Identity Server.
 
 ## Configure the analytics engine in WSO2 IS
 
