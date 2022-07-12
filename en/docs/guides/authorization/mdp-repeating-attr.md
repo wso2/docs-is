@@ -49,9 +49,9 @@ network.
 Upload and publish the following sample policies to the XACML PDP in
 WSO2 Identity Server as enabled policies:
 
--   [web-filter-policy-1.xml](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/web-filter/resources/multiple/web-filter-policy-1.xml)
--   [web-filter-policy-2.xml](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/web-filter/resources/multiple/web-filter-policy-2.xml)
--   [web-filter-policy-3.xml](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/web-filter/resources/multiple/web-filter-policy-3.xml)
+-   [web-filter-policy-1.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-for-resource-1.xml)
+-   [web-filter-policy-2.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-for-resource-2.xml)
+-   [web-filter-policy-3.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-for-resource-3.xml)
 
 Follow the steps below to publish a sample policy to the PDP in WSO2
 Identity Server:
