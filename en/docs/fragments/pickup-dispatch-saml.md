@@ -35,6 +35,9 @@ To deploy the sample web app on a web container:
     | **Issuer** | `saml2-web-app-pickup-dispatch.com`  |
     | **Assertion Consumer URL**    | `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp`    |
 
+    !!! info
+        Click **Yes** on the dialog that appears after you add the **Assertion Consumer URL**. This dialog appears when you add an `http` URL.
+
 6. Enable the following by selecting the corresponding checkboxes:
     - **Enable Response Signing**
     - **Enable Signature Validation in Authentication Requests and Logout Requests**

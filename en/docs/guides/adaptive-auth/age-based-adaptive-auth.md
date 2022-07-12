@@ -1,84 +1,62 @@
 # Configure User Age-Based Adaptive Authentication
 
-This page guides you through configuring user age-based adaptive authentication for a sample web application using sample hardware key and fingerprint authenticators. 
+This page guides you through configuring user age-based adaptive authentication for a sample web application.
 
 ----
 
 ## Scenario
 
-The instructions below guide you through specifying authentication steps based on the user's age. In this example, any user who is underage and below the specified age limit (i.e., under the age of 18 years) is restricted access and prevented from logging in to the application.
+Consider a scenario where users younger than 18 should be prevented from signing in to an application and redirected to an error message.
 
 ----
 
-## Configure claims
+## Prerequisites
 
-1.  Start the server and log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [update claims](../dialects/edit-claim-mapping.md) to support `BirthDate` by default.
+    1. On the management console, go to **Claims > List**, select `http://wso2.org/claims`.
+    2. Click on **Edit** corresponding to the **BirthDate** claim
+    3. Select the **Supported By Default** checkbox to enable the birthdate claim.
+- You need to [add two users](../identity-lifecycles/admin-creation-workflow/) with login permissions, and [update the age](../identity-lifecycles/update-profile.md) as specified:
 
-2.  Click **List** under **Claims** and click `http://wso2.org/claims`.
-
-3.  Click on the **Edit** corresponding to the **BirthDate** claim.
-
-4.  Select the **Supported By Default** checkbox to enable the birth
-    date claim.  
-
-    ![Enable supported by default for dob claim](../../assets/img/samples/enable-dob-claim.png)
-
-----
-
-## Add users
-
-1.  Create a user called "Alex" with login permission.
-
-    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/) and [Add a Role](../../guides/identity-lifecycles/add-user-roles/).
-
-2. Edit Alex's user profile and enter a birth date that specifies Alex as under 18 years of age.  
-    For instructions, see [Edit User Profile](../../guides/identity-lifecycles/update-profile/).
-
-    Enter the birth date in the following format: `yyyy-mm-dd`.
-
-3.  Next, create another user called "Kim".
-
-4.  Edit Kim's user profile and enter a birth date that specifies Kim as over 18 years of age.
-
-    Enter the birth date in the following format: `yyy-ymm-dd`.
+    1. Username: `Alex`; Age: `< 18 years`
+    2. Username: `Kim`; Age: `> 18 years`
 
 ----
 
 ## Configure user age-based authentication
 
-1.  Click **Service Providers>List**.
+To configure role-based authentication:
 
-2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
-3.  Expand the **Local and Outbound Configuration** section and click **Advanced Authentication**.
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-4.  Expand **Script Based Conditional Authentication**.
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **User-Age-Based**. 
+4. You will be redirected to **Advanced Configuration**, expand **Script Based Conditional Authentication**.
 
+5. In the **Templates** section, click on the **`+`** corresponding to the **User-Age-Based** template.
     ![User age based template](../../assets/img/samples/user-age-based-template.png)
 
-6.  Click **Ok**. The authentication script and authentication steps
-    are configured. 
-    
-    The authentication script grants access only to users who are 18 years or above and restricts underage users.
-    Underage users are redirected to an error page.
+6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
-7.  Click **Update**.
+    !!! info
+        The authentication script only grants the application access to users aged 18 years or above and restricts underage users.
+        Underage users are redirected to an error page.
+
+7. Click **Update** to save your configurations.
 
 ----
 
-## Try it
+## Try it out
 
-1.  Access the following sample Pickup Dispatch application URL:
-    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
+1. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    ![Pickup Dispatch login](../../assets/img/samples/dispatch-login.png)
+2. Click **Login** and enter Kim's credentials. You will be successfully logged in to the application.  
 
-2.  Click **Login** and enter Kim's credentials. You are successfully
-    logged in to the application.  
-
-3.  Logout and login as Alex. Note that you are now restricted from
-    logging in because Alex is underage.  
+3. Logout of the application and login as `Alex`.
 
     ![Error message based on age validation](../../assets/img/samples/age-validation.png)
+
+    You will now be restricted from logging in as Alex is underage.

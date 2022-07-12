@@ -22,15 +22,17 @@ Consider a scenario with two user roles, `admin` and `manager`. For users assign
 
 ## Configure role-based authentication
 
+To configure role-based authentication:
+
 1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
 2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-3. Expand the **Local and Outbound Configuration** section and click **Advanced Authentication**.
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-4. Expand **Script Based Conditional Authentication**.
+4. You will be redirected to **Advanced Configuration**, expand **Script Based Conditional Authentication**.
 
-5. Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click on the **`+`** corresponding to the **Role-Based** script.  
+5. In the **Templates** section, click on the **`+`** corresponding to **Role-Based** template.  
 
     ![Role based adaptive authentication template](../../assets/img/samples/role-based-template.png)
 
@@ -45,8 +47,7 @@ Consider a scenario with two user roles, `admin` and `manager`. For users assign
 
 ## Try it out
 
-1. Access the following sample Pickup Dispatch application URL:
-    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
+1. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
 2. Click **Login** and enter your admin account credentials.
 
