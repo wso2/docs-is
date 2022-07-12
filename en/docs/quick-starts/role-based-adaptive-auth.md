@@ -12,10 +12,6 @@ Role-based adaptive authentication can be used to trigger additional authenticat
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
-
-----
-
 ## Add a user
 
 

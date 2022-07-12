@@ -10,10 +10,6 @@ The instructions below guide you through specifying authentication steps based o
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
-
-----
-
 ## Configure claims
 
 1.  Start the server and log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).

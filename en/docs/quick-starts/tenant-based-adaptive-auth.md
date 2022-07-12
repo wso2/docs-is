@@ -10,10 +10,6 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
-
-----
-
 ## Set up tenant
 
 1. Start the server and log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).

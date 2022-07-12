@@ -10,10 +10,6 @@ The instructions below guide you through specifying authentication steps based o
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
-
-----
-
 ## Configure device-based authentication
 
 1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.

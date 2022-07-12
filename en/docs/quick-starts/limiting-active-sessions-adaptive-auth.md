@@ -10,10 +10,6 @@ Consider a scenario where you want a user who has an administrator role that can
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
-
-----
-
 ## Configure concurrent-session-based authentication
 
 1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.
