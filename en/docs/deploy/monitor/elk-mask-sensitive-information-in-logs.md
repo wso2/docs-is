@@ -1,22 +1,19 @@
 # Mask Sensitive Information in Logs
 
-There can be business sensitive information that are added to logs in
-the product console and/or Carbon log files. When these logs
-are shipped to ELK via Filebeat, the information is exposed to those who check.
+Log files and the product console may contain business sensitive information. To avoid such information being exposed, users can mask sensitive information through Filebeat.
 
-To avoid this potential security pitfall, users can mask sensitive
-information from the log file at the time of shipping via Filebeat. In this feature,
-you can define patterns that need to be masked from the logs. This is
-particularly useful in the cases of credit card numbers, access tokens
-etc.
+In Filebeat, you can define data patterns that need to be masked in logs. This is particularly useful if your logs contain sensitive information such as credit card numbers and access tokens.
 
-To configure this feature, follow the instructions given below.
+## Configure Filebeat to mask sensitive information
 
-## Configure Filebeat
+Follow the instructions given below to configure this feature.
 
-1. Open `filebeat.yml` file located at `{FILEBEAT_HOME}/filebeat.yml`.
+1. Navigate to the home directory of your Filebeat installation and open the **filebeat.yml** file.
+2. Add the following configuration after the **filebeat.input** section.
 
-2. Add the following configuration after input section.
+    !!! info
+        The given sample replaces the **username** field in the event to the word `MASKED`. This is done
+        with the [replace() function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) in Javascript.
 
     ```
     filebeat.inputs:
@@ -34,12 +31,8 @@ To configure this feature, follow the instructions given below.
     output.logstash:
         ...
     ```
-3. Edit the function `process(event)` to mask the fields inside the event. Sample is given to replace `username` field
-   in the event to the word `MASKED`. This is done
-   through [JavaScript replace() function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace).
-
-!!! note    
-      There can be a performance impact when using this
-      feature with many masking patterns since each log line is matched with
-      each of the patterns. Hence, it is recommended to only use the most necessary patterns.
     
+
+!!! note
+      As the number of masking patterns increases, performance will be affected since each log line is matched with each of the patterns. It is recommended to only use the most necessary patterns.
+

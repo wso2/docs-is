@@ -481,7 +481,7 @@ nav:
         - Monitor Logs:
           - Overview: deploy/monitor/monitor-logs.md
           - HTTP Access Logging: deploy/monitor/http-access-logging.md
-          - Mask Sensitive Information in Logs: deploy/monitor/mask-sensitive-information-in-logs.md
+          - Mask Sensitive Information in Logs: deploy/monitor/elk-mask-sensitive-information-in-logs.md
           - Log Claims in Audit Logs: deploy/monitor/log-claims-in-audit-logs.md
         - System Statistics: deploy/monitor/system-statistics.md
         - Monitor TCP-Based Messages:
