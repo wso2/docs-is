@@ -19,7 +19,7 @@ You can implement custom authentication logic tailored to your requirement such 
 Let’s consider a scenario where there’s an application called `Playground` that is used to import/export photos. You need to authenticate the app users by their username and password, and allow login only if they belong to a role called `photoSharingRole`. You can write a custom local authenticator to implement this logic.
 
 First, let’s identify the primary difference between the basic authenticator and the local authenticator we are going to implement. In the basic authenticator, we are using the claim username with the claim URI  `http://wso2.org/claims/username` in order to uniquely identify the user.
-But in the custom local authenticator we are going to implement, we will go a bit ahead and also check whether the user belongs to the role `photoSharingRole` and allow login only he/she does.
+But in the custom local authenticator we are going to implement, we will go a bit ahead and also check whether the user belongs to the role `photoSharingRole` and allow login only if he/she does.
 
 ---
 
