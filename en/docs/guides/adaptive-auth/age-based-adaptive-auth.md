@@ -26,7 +26,7 @@ Consider a scenario where users younger than 18 should be prevented from signing
 
 ## Configure user age-based authentication
 
-To configure role-based authentication:
+To configure user-age-based authentication:
 
 1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
@@ -42,8 +42,8 @@ To configure role-based authentication:
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
     !!! info
-        - The authentication script only grants the application access to users aged 18 years or above and restricts underage users.
-        Underage users are redirected to an error page.
+        By default, `totp` will be added as the second authentication step. You can update this with any authentication method.
+
 
 7. Click **Update** to save your configurations.
 
