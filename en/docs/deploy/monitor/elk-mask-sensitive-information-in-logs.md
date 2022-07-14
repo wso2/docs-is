@@ -9,10 +9,10 @@ In Filebeat, you can define data patterns that need to be masked in logs. This i
 Follow the instructions given below to configure this feature.
 
 1. Navigate to the home directory of your Filebeat installation and open the **filebeat.yml** file.
-2. Add the following configuration after the **filebeat.input** section.
+2. Add the following configuration after the **filebeat.inputs** section. Change the masking rules to fit your requirement.
 
     !!! info
-        The given sample replaces the **username** field in the event to the word `MASKED`. This is done
+        The given sample replaces the **username** field in the event to the word **MASKED**. This is done
         with the [replace() function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) in Javascript.
 
     ```
