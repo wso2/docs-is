@@ -4,7 +4,7 @@ This page provides instructions on how to configure the X509 certificate authent
 
 ## Working with certificates
 
-X509 authentication requires the client to possess a Public Key Certificate (PKC). 
+X509 authentication requires the client to possess a Public Key Certificate (PKC).
 
 ??? info "What is a Public Key Certificate (PKC) and Certificate Authority (CA)?"
     Public key cryptography relies on a public and private key pair to encrypt and decrypt the content. The keys are mathematically related, and content 
@@ -270,6 +270,12 @@ For more information on CRL and OCSP certificate validation, see
     enable=true
     AuthenticationEndpoint="https://localhost:8443/x509-certificate-servlet"
     username= "CN"
+    ```
+    
+    Please note: if you are going to access from a user from a secondary userstore, you will have to add this property:
+
+        ``` toml
+    SearchAllUserStores = true
     ```
 
     !!! note
