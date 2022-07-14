@@ -1,4 +1,3 @@
-## Contributing Your Connectors
 
 You are more than welcome to share your connectors to host it in our [connector store](https://store.wso2.com/store/assets/isconnector/list). As an organization that believes in the open source paradigm, we always encourage our community to make contributions so that our community around WSO2 Identity server can get the full benefit of using an open source product.
 Contributions can be made by following the procedure below.

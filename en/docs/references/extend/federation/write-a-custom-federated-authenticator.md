@@ -256,4 +256,6 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 Similarly, you can write a federated authenticator to authenticate the users using an external system.
 
+## Contributing Your Connectors
+
 {! fragments/contributing-connectors.md !}
