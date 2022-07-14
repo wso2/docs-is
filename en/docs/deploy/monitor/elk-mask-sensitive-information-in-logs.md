@@ -12,7 +12,7 @@ Follow the instructions given below to configure this feature.
 2. Add the following configuration after the **filebeat.inputs** section. Change the masking rules to fit your requirement.
 
     !!! info
-        The given sample replaces the **username** field in the event to the word **MASKED**. This is done
+        The given sample replaces the value in the **username** field in the event to **MASKED**. This is done
         with the [replace() function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) in Javascript.
 
     ```
