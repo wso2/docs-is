@@ -272,6 +272,12 @@ For more information on CRL and OCSP certificate validation, see
     AuthenticationEndpoint="https://localhost:8443/x509-certificate-servlet"
     username= "CN"
     ```
+    
+    Please note: if you are going to access from a user from a secondary userstore, you will have to add this property:
+   
+    ``` toml
+    SearchAllUserStores = true
+    ```
 
     !!! note
         When X509 authentication is configured as the second authentication
