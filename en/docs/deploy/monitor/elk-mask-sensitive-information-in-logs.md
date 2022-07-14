@@ -34,5 +34,5 @@ Follow the instructions given below to configure this feature.
     
 
 !!! note
-      As the number of masking patterns increases, performance will be affected since each log line is matched with each of the patterns. It is recommended to only use the most necessary patterns.
+      As the number of masking patterns increases, performance will be affected since each log line is matched with each pattern. It is recommended to only use the most necessary patterns.
 
