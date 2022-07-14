@@ -37,7 +37,8 @@ Users who log in from the internal network should be allowed to simply log in wi
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
     !!! info
-        The authentication script prompts the second step of authentication for users who log in from an IP address that is not included within the network range configured in the script.
+        - The authentication script prompts the second step of authentication for users who log in from an IP address that is not included within the network range configured in the script.
+        - By default, `totp` will be added as the second authentication step.
 
 7. Update the `corpNetwork` variable; two-factor authentication should apply when users log in from outside this range.
 

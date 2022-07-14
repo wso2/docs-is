@@ -42,7 +42,7 @@ To configure role-based authentication:
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
     !!! info
-        The authentication script only grants the application access to users aged 18 years or above and restricts underage users.
+        - The authentication script only grants the application access to users aged 18 years or above and restricts underage users.
         Underage users are redirected to an error page.
 
 7. Click **Update** to save your configurations.
@@ -59,4 +59,4 @@ To configure role-based authentication:
 
     ![Error message based on age validation](../../assets/img/samples/age-validation.png)
 
-    You will now be restricted from logging in as Alex is underage.
+    You will be restricted from logging in as Alex is underage.
