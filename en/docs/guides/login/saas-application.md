@@ -10,4 +10,4 @@ Configure service provider to enable SaaS:
 
 
 !!! info "Related topics"
-    - [Guide: Request Attributes for the Application](../request-attributes/)
+    - [Guide: Request Attributes for the Application]({{base_path}}/request-attributes/)

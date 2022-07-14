@@ -26,7 +26,7 @@ The instructions below guide you through specifying authentication steps based o
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **New-Device-Based**. 
 
-    ![device-based-template](../../assets/img/samples/device-based-template.png)
+    ![device-based-template]({{base_path}}/assets/img/samples/device-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -49,11 +49,11 @@ The instructions below guide you through specifying authentication steps based o
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![Delete authenticator](../../assets/img/samples/delete-authenticator-1.png)
+        ![Delete authenticator]({{base_path}}/assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.
       
-        ![Add new authenticator](../../assets/img/samples/add-new-authenticator.png)
+        ![Add new authenticator]({{base_path}}/assets/img/samples/add-new-authenticator.png)
 
 9.  Click **Update**.
 
@@ -66,7 +66,7 @@ The instructions below guide you through specifying authentication steps based o
 
 2.  Create a new user named 'Kim' with login permission. Do not assign any roles.
 
-    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/).
+    For instructions, see [Add a User]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/).
 
 ----
 
@@ -76,7 +76,7 @@ The instructions below guide you through specifying authentication steps based o
     
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    ![Pickup Dispatch login](../../assets/img/samples/dispatch-login.png)
+    ![Pickup Dispatch login]({{base_path}}/assets/img/samples/dispatch-login.png)
 
 2.  Click **Login** and enter Kim's credentials. 
 
@@ -86,7 +86,7 @@ The instructions below guide you through specifying authentication steps based o
 
     You are successfully logged in to the application.  
 
-    ![Hardware key authenticator](../../assets/img/samples/hardware-key-authenticator.png) 
+    ![Hardware key authenticator]({{base_path}}/assets/img/samples/hardware-key-authenticator.png) 
 
 4.  Log out and log in again using Kim's credentials on the same browser window. 
 

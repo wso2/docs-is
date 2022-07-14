@@ -1,10 +1,10 @@
 # Enable Login for a Client Side Application
 
-This page guides you through enabling authentication using the [Authorization Code](../../../references/concepts/authorization/authorization-code-grant) 
+This page guides you through enabling authentication using the [Authorization Code]({{base_path}}/references/concepts/authorization/authorization-code-grant) 
 grant type with PKCE for client side applications (e.g.,mobile application , single page application) that uses OpenID Connect. 
 
 !!! tip
-    PKCE is a recommended security measure used to mitigate a [code interception attack](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/).
+    PKCE is a recommended security measure used to mitigate a [code interception attack]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/).
 
 ## Register a service provider
 
@@ -74,11 +74,11 @@ Make the following requests via your application to connect your application to 
 ----
 
 !!! info "Related topics"
-    - [Concept: Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant)
-    - [Quick Start: OpenID Connect Authentication](../../../quick-starts/webapp-oidc-sample)
-    - [Guide: Authorization Code Grant](../../access-delegation/authorization-code)
-    - [Guide: Manage User Sessions](../session-management-logout)
-    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
-    - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
-    - [Deploy: Mitigate Authorization Code Interception Attacks](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)    
+    - [Concept: Authorization Code Grant]({{base_path}}/references/concepts/authorization/authorization-code-grant)
+    - [Quick Start: OpenID Connect Authentication]({{base_path}}/quick-starts/webapp-oidc-sample)
+    - [Guide: Authorization Code Grant]({{base_path}}/access-delegation/authorization-code)
+    - [Guide: Manage User Sessions]({{base_path}}/session-management-logout)
+    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/oidc-backchannel-logout)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/login/oauth-app-config-advanced)
+    - [Deploy: Mitigate Authorization Code Interception Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)    
 

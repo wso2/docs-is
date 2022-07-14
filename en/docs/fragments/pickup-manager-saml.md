@@ -40,7 +40,7 @@
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced).
+        refer, [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced).
 
 5.  Click **Register** to save the changes.  
 

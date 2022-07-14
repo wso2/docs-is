@@ -14,7 +14,7 @@ Follow the steps below to configure the analytics engine in WSO2 Identity Server
 2. Under **Identity Providers** click **Resident**. 
 3. Expand **Other Settings** > **Analytics Engine Configuration** > **ELK Analytics**.
 3. Configure the following properties.
-   ![elk-analytics-engine-properties](../../assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-4.png)
+   ![elk-analytics-engine-properties]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-4.png)
    <table>
    <thead>
    <tr class="header">
@@ -75,4 +75,4 @@ To import the certificate, open a terminal window and run the following command.
 
 ## What's Next?
 
-Now that you have prepared WSO2 Idenity server for adaptive authentication using ELK analytics, [try a scenario](../guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md).
+Now that you have prepared WSO2 Idenity server for adaptive authentication using ELK analytics, [try a scenario]({{base_path}}/guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md).

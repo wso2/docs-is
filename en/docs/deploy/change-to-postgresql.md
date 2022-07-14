@@ -65,7 +65,7 @@ A sample configuration is given below.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/postgresql.sql` file against the database created.
         
-3. If you have a requirement to use the workflow feature, see [Change the default database of BPS database](../../../deploy/change-datasource-bpsds).
+3. If you have a requirement to use the workflow feature, see [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds).
     
 4.  Download the Postgres JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
 

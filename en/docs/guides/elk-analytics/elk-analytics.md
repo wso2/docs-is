@@ -16,7 +16,7 @@ The ELK based on-premise analytics architecture has 4 main components.
  
 4. **Kibana** is a visualization layer that works on top of Elasticsearch, providing users with the ability to analyze and visualize the data.
  
-![ELK Analytics structure]( ../../assets/img/elk-analytics/elk-analytics-architecture.png)
+![ELK Analytics structure]( {{base_path}}/assets/img/elk-analytics/elk-analytics-architecture.png)
  
  
 ELK-based Analytics provides three types of dashboards:
@@ -37,5 +37,5 @@ ELK-based Analytics provides three types of dashboards:
    by the WSO2 Identity Server.
  
 ## What's Next?
-To set up these components and deploy ELK analytics in the WSO2 Identity Server, follow the [ELK-based Analytics Installation Guide](../../../deploy/elk-analytics-installation-guide).
+To set up these components and deploy ELK analytics in the WSO2 Identity Server, follow the [ELK-based Analytics Installation Guide]({{base_path}}/deploy/elk-analytics-installation-guide).
 

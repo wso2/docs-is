@@ -1,6 +1,6 @@
 # Configure FIDO for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO](../../../references/concepts/authentication/mfa-with-fido) as the second factor. 
+This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO]({{base_path}}/references/concepts/authentication/mfa-with-fido) as the second factor. 
 
 !!! info
     Certain changes made to the chrome u2f extension are causing the FIDO device to not register properly as an authentication factor. Additionally, Firefox no longer supports the u2f extension. WSO2 Identity Server resolves this by using the WebAuthn API to enable FIDO-based authentication. The WebAuthn API is already supported by the following browser versions:
@@ -35,7 +35,7 @@ Follow the steps given below if you are using a reverse proxy enabled setup to c
 
 ----
 ### Setting up an account for MFA
-To associate a FIDO device with the user account, refer [Add security device](../my-account/my-account.md#add-security-device).
+To associate a FIDO device with the user account, refer [Add security device]({{base_path}}/my-account/my-account.md#add-security-device).
 ## Create a service provider
 
 {!fragments/register-a-service-provider.md!}
@@ -61,7 +61,7 @@ To associate a FIDO device with the user account, refer [Add security device](..
 
             Adding FIDO as a second step adds another layer of authentication and security.
     
-        <img name='fido-authentication-steps' src='../../../assets/img/guides/fido-authentication-steps.png' class='img-zoomable'/>
+        <img name='fido-authentication-steps' src='{{base_path}}/assets/img/guides/fido-authentication-steps.png' class='img-zoomable'/>
     
     !!! warning
         The FIDO authenticator can be configured only after a local authenticator is configured in one of the previous steps. It cannot be configured as the first step and cannot be configured if a federated authenticator is set as the subject identifier.
@@ -97,6 +97,6 @@ authentication_page_url= "/authenticationendpoint/fido-auth.jsp"
 
 
 !!! info "Related topics"
-    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
-    - [Concept: FIDO](../../../references/concepts/authentication/mfa-with-fido)
-    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
+    - [Concept: Two-Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Concept: FIDO]({{base_path}}/references/concepts/authentication/mfa-with-fido)
+    - [Guide: Configure an Authentication Journey]({{base_path}}/configure-authentication-journey)

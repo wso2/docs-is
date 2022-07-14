@@ -6,7 +6,7 @@ This page guides you through configuring [risk-based adaptive authentication](in
 
 If you have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../guides/configure-adaptive-auth"   rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="{{base_path}}/guides/configure-adaptive-auth"   rel="nofollow noopener">I have my own application</a>
 
 ----
 
@@ -37,7 +37,7 @@ First, create a Siddhi application as instructed below. The application has two 
     @Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
     define stream InputStream (messageId string, username string);
 
-    @sink(type='http-response', source.id='testsource', message.id='{{messageId}}', @map(type='json'))
+    @sink(type='http-response', source.id='testsource', message.id='{{'{{messageId}}'}}', @map(type='json'))
     define stream OutputStream (messageId string, username string, riskScore int);
 
     define stream TempStream (messageId string, username string, sumTransactions double);
@@ -73,7 +73,7 @@ First, create a Siddhi application as instructed below. The application has two 
 
 6.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Risk-Based**. 
 
-    ![tenant based template](../assets/img/samples/login-attempts-based-template.png)
+    ![tenant based template]({{base_path}}/assets/img/samples/login-attempts-based-template.png)
 
 7.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -88,10 +88,10 @@ First, create a Siddhi application as instructed below. The application has two 
     1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticator](../assets/img/samples/delete-authenticator-1.png)
+        ![delete authenticator]({{base_path}}/assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](../assets/img/samples/add-new-authenticator.png)
+        ![add new authenticator]({{base_path}}/assets/img/samples/add-new-authenticator.png)
 
 9. Click **Update**.
 

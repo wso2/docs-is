@@ -1,6 +1,6 @@
 # Resource Owner Password Credentials Grant
 
-This page guides you through using [Resource Owner Password Credentials Grant](../../../references/concepts/authorization/resource-owner-grant/) 
+This page guides you through using [Resource Owner Password Credentials Grant]({{base_path}}/references/concepts/authorization/resource-owner-grant/) 
 to configure authentication for an OAuth/OpenID Connect application. 
 
 ----
@@ -34,7 +34,7 @@ to configure authentication for an OAuth/OpenID Connect application.
 Send the following request using a browser-based application to obtain the access token. 
 
 !!! tip
-    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Password Grant with OAuth 2.0 Playground](../../../quick-starts/password-playground).
+    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Password Grant with OAuth 2.0 Playground]({{base_path}}/quick-starts/password-playground).
 
 
 !!! abstract ""
@@ -60,6 +60,6 @@ You will receive the following response with the access token and refresh token.
 ```
 
 !!! info "Related topics"
-    - [Concept: Resource Owner Password Credentials Grant](../../../references/concepts/authorization/resource-owner-grant/)
-    - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
-    - [Quick Start: Password Grant with OAuth 2.0 Playground](../../../quick-starts/password-playground)
+    - [Concept: Resource Owner Password Credentials Grant]({{base_path}}/references/concepts/authorization/resource-owner-grant/)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
+    - [Quick Start: Password Grant with OAuth 2.0 Playground]({{base_path}}/quick-starts/password-playground)

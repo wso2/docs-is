@@ -38,7 +38,7 @@ Follow the steps given below to register users for the super tenant, which is ` 
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](../../../guides/tenants/customize-automated-mails/).
+        Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
     
 
 2.  Log in to the Management Console (`https://<IS_HOST>:<IS_PORT>/carbon`)  
@@ -51,7 +51,7 @@ Follow the steps given below to register users for the super tenant, which is ` 
 4.  Expand the **Self Registration** section and configure the
     following properties.
     
-    <!--![user-self-registration](../../../assets/img/guides/user-self-registration.png)--> 
+    <!--![user-self-registration]({{base_path}}/assets/img/guides/user-self-registration.png)--> 
     
     <table>
     <thead>
@@ -80,7 +80,7 @@ Follow the steps given below to register users for the super tenant, which is ` 
     </tr>
     <tr class="even">
     <td>Prompt reCaptcha</td>
-    <td>Select to enable reCaptcha for self-registration. See <a href="../../../guides/password-mgt/recaptcha-challenge-question-attempts/">Configuring Google reCaptcha for Security-Question Based Password Recovery</a> for more information.</td>
+    <td>Select to enable reCaptcha for self-registration. See <a href="{{base_path}}/guides/password-mgt/recaptcha-challenge-question-attempts/">Configuring Google reCaptcha for Security-Question Based Password Recovery</a> for more information.</td>
     </tr>
     <tr class="odd">
     <td>User self registration verification link expiry time</td>
@@ -108,7 +108,7 @@ of WSO2 Identity Server.
 
 !!! tip
     For information on the REST APIs for self-registration, see 
-    [Self-Registration Using REST APIs](../../../develop/apis/use-the-self-sign-up-rest-apis/).
+    [Self-Registration Using REST APIs]({{base_path}}/develop/apis/use-the-self-sign-up-rest-apis/).
     
 
 ## Configure self-registration consent purposes
@@ -123,7 +123,7 @@ purposes and appropriate user attributes:
 3.  Select `Click here` to configure self-registration consent purposes. This displays 
 the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purposes.
 
-    ![self-registration](../../../assets/img/guides/account-policies.png)   
+    ![self-registration]({{base_path}}/assets/img/guides/account-policies.png)   
     
 
 4.  Click **Add New Purpose**.  
@@ -136,7 +136,7 @@ the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purp
         You can add one or more user attributes to obtain consent for a
         particular purpose.
     
-    ![user-attributes-for-consent](../../../assets/img/guides/user-attributes-for-consent.png) 
+    ![user-attributes-for-consent]({{base_path}}/assets/img/guides/user-attributes-for-consent.png) 
 
 6.  If you want consent on a specific user attribute to be mandatory,
     select the **Mandatory** check box for that attribute.
@@ -181,16 +181,16 @@ Next, you can try out self-registration.
         `           foo.com          `, the username needs to be
         `           kim@foo.com          `
 
-    ![register-users-for-tenant](../../../assets/img/guides/register-users-for-tenant.png) 
+    ![register-users-for-tenant]({{base_path}}/assets/img/guides/register-users-for-tenant.png) 
 
 3.  Fill in the user details, provide consent to share the requested
     information and then click **Register**.
     
-    ![Self sign up form](../../../assets/img/guides/self-signup-form.png) 
+    ![Self sign up form]({{base_path}}/assets/img/guides/self-signup-form.png) 
         
     ??? Abstract "Click to see steps on configuring requested attributes for self registration" 
         
-        -   The attributes that show up on the self sign up page are WSO2 [local dialect](../../../guides/dialects/add-claim-mapping/) claims that have the Supported by Default configuration enabled.
+        -   The attributes that show up on the self sign up page are WSO2 [local dialect]({{base_path}}/guides/dialects/add-claim-mapping/) claims that have the Supported by Default configuration enabled.
         - Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) and navigate to **Main** > **Identity**.
         -   Click **List** under **Claims** and select the **http://wso2.org/claims** dialect. Expand any claim to view the configuration. 
         -   Mandatory attributes of
@@ -198,7 +198,7 @@ Next, you can try out self-registration.
         configuration enabled. 
         -   For example see below configurations of the
         department claim.
-        ![self-signup-required-claim-config](../../../assets/img/guides/self-signup-required-claim-config.png)
+        ![self-signup-required-claim-config]({{base_path}}/assets/img/guides/self-signup-required-claim-config.png)
 
     
 4.  Once the user has registered, they will receive a confirmation mail.
@@ -218,7 +218,7 @@ Next, you can try out self-registration.
         you should not have confirmed the account.
 
     2.  Click on the **Re-Send** link to resend the email.  
-        ![resend-link](../../../assets/img/guides/resend-link.png) 
+        ![resend-link]({{base_path}}/assets/img/guides/resend-link.png) 
 
     !!! tip
         The email template used to resend the confirmation email
@@ -226,7 +226,7 @@ Next, you can try out self-registration.
         
         You can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
-        Emails](../../../guides/tenants/customize-automated-mails).
+        Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
 !!! Note
     If you wish to send a account unlocked email upon account confirmation, do the following 
@@ -239,9 +239,9 @@ Next, you can try out self-registration.
         will be sent by the Identity server.
         
         For more information about account locking, see [Account
-        Locking](../../../guides/identity-lifecycles/lock-accounts-by-failed-login-attempts/).
+        Locking]({{base_path}}/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts/).
     
-        ![account-locking](../../../assets/img/guides/account-locking.png)
+        ![account-locking]({{base_path}}/assets/img/guides/account-locking.png)
 
 ---
 
@@ -270,9 +270,9 @@ curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Con
 
 
 !!! info "Related topics"
-    - [REST API: Self Register](../../../develop/apis/use-the-self-sign-up-rest-apis/)
-    - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
-    - [Guide: Invitation Workflow](../invitation-workflow) 
-    - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)
-    - [Guide: Bulk Import Users](../import-users)
-    - [Guide: Outbound Provisioning](../outbound-provisioning) 
+    - [REST API: Self Register]({{base_path}}/develop/apis/use-the-self-sign-up-rest-apis/)
+    - [Guide: Admin Creation Workflow]({{base_path}}/admin-creation-workflow) 
+    - [Guide: Invitation Workflow]({{base_path}}/invitation-workflow) 
+    - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/jit-workflow)
+    - [Guide: Bulk Import Users]({{base_path}}/import-users)
+    - [Guide: Outbound Provisioning]({{base_path}}/outbound-provisioning) 

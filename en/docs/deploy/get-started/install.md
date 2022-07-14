@@ -41,13 +41,13 @@ development platforms before starting the installation.
 <td><div class="content-wrapper">
 <ul>
 <li>WSO2 Identity Server requires an Oracle JDK 11 or JDK 8 compliant JDK. This will run on most common platforms that <strong>support Java 11 or Java 8.</strong> .</li>
-<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../../deploy/work-with-databases">Work with Databases</a>.</li>
+<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="{{base_path}}/deploy/work-with-databases">Work with Databases</a>.</li>
 <li>WSO2 Identity Server supports using any of the following as a userstore :
 <ul>
 <li>RDBMS</li>
 <li>An LDAP such as OpenLDAP</li>
 <li>Active Directory</li>
-<li><a href="../../../deploy/configure-user-stores">Custom Userstores</a></li>
+<li><a href="{{base_path}}/deploy/configure-user-stores">Custom Userstores</a></li>
 </ul></li>
 </ul>
 <div class="admonition note">
@@ -60,7 +60,7 @@ development platforms before starting the installation.
 </p>
 </div>
 <ul> 
-<li>For environments that WSO2 products are tested with, see <a href="../../../deploy/environment-compatibility">Environment Compatibility</a> .</li>
+<li>For environments that WSO2 products are tested with, see <a href="{{base_path}}/deploy/environment-compatibility">Environment Compatibility</a> .</li>
 <li>If you have difficulty setting up any WSO2 product in a specific platform or database, <a href="https://wso2.com/contact/">contact WSO2</a>.</li>
 </ul>
 </div></td>
@@ -127,7 +127,7 @@ binary files for both MS Windows, and Linux-based operating systems.
 <td><p><strong>Web Browser*</strong></p></td>
 <td><div class="content-wrapper">
 <ul>
-<li>To access the product's <a href="../../../deploy/get-started/run-the-product">Management Console</a>. The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
+<li>To access the product's <a href="{{base_path}}/deploy/get-started/run-the-product">Management Console</a>. The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
 </ul>
 <div class="admonition note">
 <p><strong>Note:</strong> On Windows Server 2003, you must not go below the medium security level in Internet Explorer 6.x.</p>
@@ -337,7 +337,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     echo $JAVA_HOME
     ```
 
-    ![Echo command](../../assets/img/deploy/echo-command.png)
+    ![Echo command]({{base_path}}/assets/img/deploy/echo-command.png)
 
 5.  The system returns the JDK installation path.
 
@@ -398,18 +398,18 @@ prompt](#java-home).
 1.  Right-click the **My Computer** icon on the desktop and choose
     **Properties**.  
 
-    ![Properties option](../../assets/img/deploy/properties-option.png) 
+    ![Properties option]({{base_path}}/assets/img/deploy/properties-option.png) 
 
 2.  In the System Properties window, click the **Advanced** tab, and
     then click the **Environment Variables** button.  
 
-    ![Advanced tab](../../assets/img/deploy/advanced-tab.png) 
+    ![Advanced tab]({{base_path}}/assets/img/deploy/advanced-tab.png) 
 
 3.  Click the **New** button under **System variables** (for all users) or
     under **User variables** (just for the user who is currently logged
     in).  
 
-    ![New button](../../assets/img/deploy/new-button.png) 
+    ![New button]({{base_path}}/assets/img/deploy/new-button.png) 
 
 4.  Enter the following information:  
     -   In the **Variable name** field, enter:
@@ -434,7 +434,7 @@ set JAVA_HOME
 ```
 
 The system returns the JDK installation path. You are now ready to [run
-the product.](../../../deploy/get-started/run-the-product)
+the product.]({{base_path}}/deploy/get-started/run-the-product)
 
 <a name="java-home"></a>
 
@@ -650,7 +650,7 @@ configuration for running a WSO2 product as a Windows Service.
         If you wish to set additional properties from an external registry
         at runtime, store sensitive information like usernames and passwords
         for connecting to the registry in a properties file, and secure it
-        with the [cipher tool](../../../deploy/security/encrypt-passwords-with-cipher-tool).
+        with the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 
     ??? note "Click to view a sample"
 
@@ -773,7 +773,7 @@ to the extracted product directory location. For example, if you want to
 run WSO2 IS 5.11.0 as a Windows service, you would set ` carbon_home ` to the
 extracted ` wso2is-5.11.0 ` directory.
 
-![Edit System Variable window](../../assets/img/deploy/add-carbon-home-system-variable-window.png)
+![Edit System Variable window]({{base_path}}/assets/img/deploy/add-carbon-home-system-variable-window.png)
 
 #### Run the product in console mode
 
@@ -797,7 +797,7 @@ Carbon-based product as a Windows service.
     output similar to the following. Now you can access the WSO2 management
     console from your web browser via <https://localhost:9443/carbon>.
 
-    ![Console output](../../assets/img/deploy/console-output.png)
+    ![Console output]({{base_path}}/assets/img/deploy/console-output.png)
 
 #### Work with the WSO2CARBON service
 
@@ -811,7 +811,7 @@ installService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been installed.
 
-![Service installation confirmation](../../assets/img/deploy/service-installation-confirmation.png)
+![Service installation confirmation]({{base_path}}/assets/img/deploy/service-installation-confirmation.png)
 
 To start the service, execute the following command in the same console
 window:
@@ -823,7 +823,7 @@ startService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been started.
 
-![Service startup message](../../assets/img/deploy/service-startup-message.png)
+![Service startup message]({{base_path}}/assets/img/deploy/service-startup-message.png)
 
 To stop the service, execute the following command in the same console
 window:
@@ -835,7 +835,7 @@ stopService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been stopped.
 
-![Service stop message](../../assets/img/deploy/service-stop-message.png)
+![Service stop message]({{base_path}}/assets/img/deploy/service-stop-message.png)
 
 To uninstall the service, execute the following command in the same
 console window:
@@ -847,7 +847,7 @@ uninstallService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been removed.
 
-![Service removal message](../../assets/img/deploy/service-removal-message.png)
+![Service removal message]({{base_path}}/assets/img/deploy/service-removal-message.png)
 
 ---
 

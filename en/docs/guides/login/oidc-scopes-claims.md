@@ -1,6 +1,6 @@
 # Map OpenID Connect Scopes and Claims
 
-This page guides you through mapping [OpenID Connect (OIDC) scopes and claims](../../../references/concepts/authentication/scopes-claims).
+This page guides you through mapping [OpenID Connect (OIDC) scopes and claims]({{base_path}}/references/concepts/authentication/scopes-claims).
 
 This means that when you request for an OIDC token, you can specify a single scope value that is bound to a set of multiple claims. When that OIDC token is sent to the UserInfo endpoint, only the claims which are common in **both** the OIDC scope config file and the SP claim configuration (i.e., the intersection of claims in both these configurations) will be returned.
 
@@ -15,7 +15,7 @@ This means that when you request for an OIDC token, you can specify a single sco
 
 4. Click **Add OIDC Claim** and select claims from the dropdown of available OIDC claims.
 
-    ![add-oidc-scope](../../assets/img/guides/add-oidc-scope.png)
+    ![add-oidc-scope]({{base_path}}/assets/img/guides/add-oidc-scope.png)
 
 5. Click **Finish** to add the new scope claim mapping.
 
@@ -27,7 +27,7 @@ This means that when you request for an OIDC token, you can specify a single sco
 
 2. Under **Manage**, click **OIDC Scopes > List**. 
 
-    ![oidc-scope-list](../../assets/img/guides/oidc-scope-list.png)
+    ![oidc-scope-list]({{base_path}}/assets/img/guides/oidc-scope-list.png)
 
 3.  Select one of the following actions.
 
@@ -41,8 +41,8 @@ This means that when you request for an OIDC token, you can specify a single sco
 
 When the existing claim mappings are not enough for your requirement and if you need to add a custom OIDC claim to a scope, then follow the steps below.
 
-1. [Add a custom claim](../../../guides/dialects/add-claim-mapping/#add-local-claim) to the local dialect (https://wso2.org/claims)
-2. [Add an external claim](../../../guides/dialects/add-claim-mapping/#add-external-claim) to the `http://wso2.org/oidc/claim` dialect referring the local claim created in step 1. 
+1. [Add a custom claim]({{base_path}}/guides/dialects/add-claim-mapping/#add-local-claim) to the local dialect (https://wso2.org/claims)
+2. [Add an external claim]({{base_path}}/guides/dialects/add-claim-mapping/#add-external-claim) to the `http://wso2.org/oidc/claim` dialect referring the local claim created in step 1. 
 
 3. Click **OIDC Scopes > List** and add the new OIDC claim under the desired scope. 
 
@@ -86,5 +86,5 @@ Now you can see the claim you created being listed. It is created as a JSON obje
 
 
 !!! info "Related topics"
-    - [Concept: OpenID Connect Scopes and Claims](../../../references/concepts/authentication/scopes-claims)
-    - [Guide: OpenID Connect Authentication](../webapp-oidc)
+    - [Concept: OpenID Connect Scopes and Claims]({{base_path}}/references/concepts/authentication/scopes-claims)
+    - [Guide: OpenID Connect Authentication]({{base_path}}/webapp-oidc)

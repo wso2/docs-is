@@ -20,7 +20,7 @@ The admin can change the permissions associated with a role if necessary and ass
 
 
 ## User role operations
-Similar to [users](../users), there are several operations that can be performed on user roles. These operations can be performed by the admin using the user management console, or SCIM requests. Following are some of the user role operations. 
+Similar to [users]({{base_path}}/users), there are several operations that can be performed on user roles. These operations can be performed by the admin using the user management console, or SCIM requests. Following are some of the user role operations. 
 
 - Adding a user role
 
@@ -31,11 +31,11 @@ Similar to [users](../users), there are several operations that can be performed
 
 
 !!! info "Related topics" 
-    - [Guide: Add a user role](../../../../guides/identity-lifecycles/add-user-roles)
-    - [Guide: Edit or Delete a Role](../../../../guides/identity-lifecycles/edit-delete-roles)
-    - [Guide: Role-based permissions](../../../../guides/identity-lifecycles/role-based-permissions)
-    - [Concept: Users](../users)
-    - [Concept: Userstores](../userstores)
-    - [Concept: Realms](../realm)
+    - [Guide: Add a user role]({{base_path}}/guides/identity-lifecycles/add-user-roles)
+    - [Guide: Edit or Delete a Role]({{base_path}}/guides/identity-lifecycles/edit-delete-roles)
+    - [Guide: Role-based permissions]({{base_path}}/guides/identity-lifecycles/role-based-permissions)
+    - [Concept: Users]({{base_path}}/users)
+    - [Concept: Userstores]({{base_path}}/userstores)
+    - [Concept: Realms]({{base_path}}/realm)
 
 

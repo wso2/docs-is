@@ -13,11 +13,11 @@ You can configure this for all tenants by configuring the `deployment.toml` file
 5. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced).
+        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations]({{base_path}}/login/oauth-app-config-advanced).
 
 6. Select **JWT** as the **Token Issuer**.
  
-    ![jwt-token-issuer](../../assets/img/guides/jwt-token-issuer.png)
+    ![jwt-token-issuer]({{base_path}}/assets/img/guides/jwt-token-issuer.png)
 
 7.  Click **Add**. 
 
@@ -105,12 +105,12 @@ You can configure this for all tenants by configuring the `deployment.toml` file
 
 Alternatively, you can also use the `OAuth2ValidationService` to send the request. 
 
-1. Call the `validate` method of `OAuth2ValidationService` to send a request with the user claims and recieve a JWT token as shown below. For more information, see [OAuth Token Validation Using SOAP Service](../oauth-token-validation)
+1. Call the `validate` method of `OAuth2ValidationService` to send a request with the user claims and recieve a JWT token as shown below. For more information, see [OAuth Token Validation Using SOAP Service]({{base_path}}/oauth-token-validation)
 
     Note that the response contains the received JWT token under the `<tokenString>` element. 
     If there are no requested claim URIs defined, all the claims that carry values for the user are returned.
     
-    ![jwt-request1]( ../../assets/img/guides/jwt-request1.png) 
+    ![jwt-request1]( {{base_path}}/assets/img/guides/jwt-request1.png) 
 
     The header contains the metadata for the token as seen below.
 

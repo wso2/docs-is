@@ -13,7 +13,7 @@ This page guides you through configuring Twitter as a federated authenticator in
 
 3. Click on **Create an app**.
     
-    ![Create Twittter app](../../assets/img/samples/create-app-twitter.png)
+    ![Create Twittter app]({{base_path}}/assets/img/samples/create-app-twitter.png)
 
 4. Fill in the application details with the following values. 
 
@@ -26,17 +26,17 @@ This page guides you through configuring Twitter as a federated authenticator in
 
 5. Click  **Create**.
 
-    ![App details](../../assets/img/samples/app-created-twitter.png)
+    ![App details]({{base_path}}/assets/img/samples/app-created-twitter.png)
 
 6. Move to the next tab, **keys and tokens**. 
 
 7. Click on the **Generate** button adjacent to **Access token & access token secret**. 
 
-    ![Create access token](../../assets/img/samples/create-access-token.png)
+    ![Create access token]({{base_path}}/assets/img/samples/create-access-token.png)
 
 8. Make note of the Access token and Access token secret that appears next. 
 
-    ![Access token and access token secret](../../assets/img/samples/note-tokens.png)
+    ![Access token and access token secret]({{base_path}}/assets/img/samples/note-tokens.png)
 
 9. Move to the next tab, **Permissions**. 
 
@@ -48,7 +48,7 @@ This page guides you through configuring Twitter as a federated authenticator in
 
 4.  Expand **Twitter Configuration** under **Federated Authenticators**
     .
-    ![twitter-config-federated-auth.png](../../../assets/img/guides/twitter-config-federated-auth.png)
+    ![twitter-config-federated-auth.png]({{base_path}}/assets/img/guides/twitter-config-federated-auth.png)
     Fill in the following fields details according to the application
     [registered in the Twitter](https://developer.twitter.com/en/apps):
 
@@ -105,7 +105,7 @@ This page guides you through configuring Twitter as a federated authenticator in
     Web SSO Configuration**, and click **Configure**.
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on. For more details about
-    attributes in the following configuration refer [SAML2 Web SSO Configuration](../../../guides/login/webapp-saml/)
+    attributes in the following configuration refer [SAML2 Web SSO Configuration]({{base_path}}/guides/login/webapp-saml/)
    .  
     See the following table for details.
 
@@ -204,7 +204,7 @@ Deploy this sample web app on a web container.
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 2.  Click **Login**. You are redirected to the Twitter login page.
   
-    ![Twitter login page](../../assets/img/samples/consent-twitter.png)
+    ![Twitter login page]({{base_path}}/assets/img/samples/consent-twitter.png)
     
 3.  Click **Continue**. 
 4.  On a new tab on your browser, access the following URL:
@@ -214,4 +214,4 @@ Deploy this sample web app on a web container.
     	You are automatically logged in to your Gmail using single sign-on (SSO).
 
 !!! info "Related topics" 
-    - [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)
+    - [Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)

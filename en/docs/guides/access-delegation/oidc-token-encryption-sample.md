@@ -91,7 +91,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
     4.  Copy only the key string as shown in the sample below.
 
-        ![Sample key string](../../assets/img/guides/sample-key-string.png)
+        ![Sample key string]({{base_path}}/assets/img/guides/sample-key-string.png)
 
 8.  Paste the copied private key in the **Client Private Key** text area.
 
@@ -138,7 +138,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
     4.  Copy only the key string as shown in the sample below.
 
-        ![Sample key string](../../assets/img/guides/sample-key-string.png)
+        ![Sample key string]({{base_path}}/assets/img/guides/sample-key-string.png)
 
 8.  Paste the copied private key in the **Client Private Key** text area.
 
@@ -185,7 +185,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
     4.  Copy only the key string as shown in the sample below.
 
-        ![Sample key string](../../../assets/img/guides/sample-key-string.png)
+        ![Sample key string]({{base_path}}/assets/img/guides/sample-key-string.png)
 
 
 6.  Paste the copied private key in the **Client Private Key** text area.

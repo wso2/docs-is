@@ -20,7 +20,7 @@ have the `travelocity` application configured as a service provider and an
 identity provider configured and shared across its tenant space. This is
 illustrated via the following diagram.
 
-![configuring an sp and idp using configuration files](../../../assets/img/deploy/configuration-files.png)
+![configuring an sp and idp using configuration files]({{base_path}}/assets/img/deploy/configuration-files.png)
 
 The following are the high level steps required for this scenario.
 
@@ -36,7 +36,7 @@ The following are the high level steps required for this scenario.
     step 1) as a federated authenticator.
 
 !!! note
-    The above processes can be easily done using [WSO2 Identity Server Management Console](../../../deploy/get-started/get-started-with-the-management-console/), but the
+    The above processes can be easily done using [WSO2 Identity Server Management Console]({{base_path}}/deploy/get-started/get-started-with-the-management-console/), but the
     `service provider` and `identity provider` created in `          service provider IS         `, will **only be visible to the
     tenant who creates them**. 
     
@@ -56,7 +56,7 @@ Follow the instructions given below to setup two WSO2 Identity Server instances
 for this scenario.
 
 1.  [Download](http://wso2.com/products/identity-server/) and
-    [install](../../../deploy/get-started/install/) the two WSO2 Identity Server
+    [install]({{base_path}}/deploy/get-started/install/) the two WSO2 Identity Server
     instances.
 2. Navigate to `<IDENTITY_PROVIDER_IS_HOME>/repository/conf/deployment.toml`
    and add an `offset` value to increment the port values in the 
@@ -73,7 +73,7 @@ for this scenario.
     
     !!! note
         To read more about new configurations, 
-        see [New Configuration Model](../../../references/new-configuration-model).
+        see [New Configuration Model]({{base_path}}/references/new-configuration-model).
 
 You have successfully setup the Identity Server instances. Now you can proceed to the
 the configuration steps.
@@ -86,7 +86,7 @@ This section involves adding the ` service provider IS ` as a
 service provider in the ` identity provider IS ` from the management
 console.
 
-1.  Start the `identity provider IS` and access WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). Refer [Run the Product(../../../deploy/get-started/run-the-product/).
+1.  Start the `identity provider IS` and access WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). Refer [Run the Product({{base_path}}/deploy/get-started/run-the-product/).
 2.  Navigate to the **Main** > **Identity** > **Service Providers** > Click **Add**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. 
@@ -422,7 +422,7 @@ service provider in the ` service provider IS ` via a file.
         WSO2 Identity Server Management Console will not show the SP-related
         configuration information if it is loaded through a file
 
-        ![no-service-providers](../../../assets/img/deploy/no-service-providers.png)
+        ![no-service-providers]({{base_path}}/assets/img/deploy/no-service-providers.png)
 
 
 ---
@@ -437,7 +437,7 @@ service provider in the ` service provider IS ` via a file.
     **Service Providers** > **List** > Click **Edit** in the corresponding SP > 
     **Inbound Authentication Configuration** > **SAML2 Web SSO Configuration** > **Edit**.
     
-    ![SAML2 web SSO configuration](../../../assets/img/deploy/sp_configs.png)
+    ![SAML2 web SSO configuration]({{base_path}}/assets/img/deploy/sp_configs.png)
     
     If you have not enabled the configs, add the following configs to travelocity as well.
     
@@ -462,7 +462,7 @@ service provider in the ` service provider IS ` via a file.
 
 Now you can test if the configurations you have done work in a tenant scenario.
 
-1.  [Create new tenants](../../../guides/tenants/add-new-tenants/) in the `            service provider IS           `.
+1.  [Create new tenants]({{base_path}}/guides/tenants/add-new-tenants/) in the `            service provider IS           `.
 
     !!! note
         You cannot provide access to the service provider and
@@ -599,7 +599,7 @@ Now you can test if the configurations you have done work in a tenant scenario.
         Click on `            Public Key           ` link to download
         the certificate.  
         
-        ![download public key certificate](../../../assets/img/deploy/public-key-certificate.png)
+        ![download public key certificate]({{base_path}}/assets/img/deploy/public-key-certificate.png)
         
     2.  Now you need to import this public certificate to
         `             <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes/wso2carbon.jks            `
@@ -638,11 +638,11 @@ Now you can test if the configurations you have done work in a tenant scenario.
 ---
 
 !!! info "Related topics"
-    -   [Quick Start: Configure SAML SSO](../../../quick-starts/sso-for-saml-apps/)
-    -   [Guide: Enable Single Sign-On for a SAML Web Application](../../../guides/login/sso-for-saml/)
+    -   [Quick Start: Configure SAML SSO]({{base_path}}/quick-starts/sso-for-saml-apps/)
+    -   [Guide: Enable Single Sign-On for a SAML Web Application]({{base_path}}/guides/login/sso-for-saml/)
 
 <!---   See [Configuring a SP and IdP Using Service
-    Calls](TBD:../../learn/configuring-a-sp-and-idp-using-service-calls) for
+    Calls](TBD:{{base_path}}/learn/configuring-a-sp-and-idp-using-service-calls) for
     information on creating a service provider or identity provider
     using admin services.-->
 

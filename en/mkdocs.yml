@@ -766,11 +766,10 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - markdown_include.include:
-      base_path: docs/
   - attr_list
 plugins:
     - search
+    - markdownextradata: {}
     - redirects:
           redirect_maps:
               'learn/tutorials.md': 'https://is.docs.wso2.com/en/6.0.0/'
@@ -1417,6 +1416,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
+  base_path: https://is.docs.wso2.com/en/6.0.0 
 
   nav_list:
     - Home

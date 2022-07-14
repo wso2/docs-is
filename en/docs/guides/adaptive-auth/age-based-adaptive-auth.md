@@ -25,7 +25,7 @@ The instructions below guide you through specifying authentication steps based o
 4.  Select the **Supported By Default** checkbox to enable the birth
     date claim.  
 
-    ![Enable supported by default for dob claim](../../assets/img/samples/enable-dob-claim.png)
+    ![Enable supported by default for dob claim]({{base_path}}/assets/img/samples/enable-dob-claim.png)
 
 ----
 
@@ -33,10 +33,10 @@ The instructions below guide you through specifying authentication steps based o
 
 1.  Create a user called "Alex" with login permission.
 
-    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/) and [Add a Role](../../guides/identity-lifecycles/add-user-roles/).
+    For instructions, see [Add a User]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) and [Add a Role]({{base_path}}/guides/identity-lifecycles/add-user-roles/).
 
 2. Edit Alex's user profile and enter a birth date that specifies Alex as under 18 years of age.  
-    For instructions, see [Edit User Profile](../../guides/identity-lifecycles/update-profile/).
+    For instructions, see [Edit User Profile]({{base_path}}/guides/identity-lifecycles/update-profile/).
 
     Enter the birth date in the following format: `yyyy-mm-dd`.
 
@@ -60,7 +60,7 @@ The instructions below guide you through specifying authentication steps based o
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **User-Age-Based**. 
 
-    ![User age based template](../../assets/img/samples/user-age-based-template.png)
+    ![User age based template]({{base_path}}/assets/img/samples/user-age-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -77,7 +77,7 @@ The instructions below guide you through specifying authentication steps based o
 1.  Access the following sample Pickup Dispatch application URL:
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    ![Pickup Dispatch login](../../assets/img/samples/dispatch-login.png)
+    ![Pickup Dispatch login]({{base_path}}/assets/img/samples/dispatch-login.png)
 
 2.  Click **Login** and enter Kim's credentials. You are successfully
     logged in to the application.  
@@ -85,4 +85,4 @@ The instructions below guide you through specifying authentication steps based o
 3.  Logout and login as Alex. Note that you are now restricted from
     logging in because Alex is underage.  
 
-    ![Error message based on age validation](../../assets/img/samples/age-validation.png)
+    ![Error message based on age validation]({{base_path}}/assets/img/samples/age-validation.png)

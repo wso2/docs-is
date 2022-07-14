@@ -8,7 +8,7 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
 1. Download and install WSO2 Identity Server. For detailed information
    on how to install WSO2 IS, see [Installing the
-   Product](../../setup/installing-the-product).
+   Product]({{base_path}}/setup/installing-the-product).
 
 2. Navigate to the `<IS_HOME>/repository/conf/` directory and open the `deployment.toml` file.
 
@@ -36,7 +36,7 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
         appender.ANALYTICS_EVENT_LOGFILE.fileName =${sys:carbon.home}/repository/logs/analytics_events.log
         appender.ANALYTICS_EVENT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/analytics_events-%d{MM-dd-yyyy}.%i.log
         appender.ANALYTICS_EVENT_LOGFILE.layout.type = PatternLayout
-        appender.ANALYTICS_EVENT_LOGFILE.layout.pattern=TID: [%tenantId] [%appName] [%d] [%X{Correlation-ID}] %5p {%c} — %mm%ex%n
+        appender.ANALYTICS_EVENT_LOGFILE.layout.pattern=TID: [%tenantId] [%appName] [%d] [%X{Correlation-ID}] %5p {% raw %}{%c}{% endraw %} — %mm%ex%n
         appender.ANALYTICS_EVENT_LOGFILE.policies.type = Policies
         appender.ANALYTICS_EVENT_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
         appender.ANALYTICS_EVENT_LOGFILE.policies.time.interval = 1
@@ -80,7 +80,7 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 2. Open the **filebeat.yml** file in the root directory and enter these [configurations](https://github.com/wso2-extensions/identity-elk-integration/blob/main/filebeat/filebeat.yml).
 
     !!! info
-        To configure Filebeat to mask sensitive information in logs, follow this [guide](../deploy/monitor/elk-mask-sensitive-information-in-logs.md).
+        To configure Filebeat to mask sensitive information in logs, follow this [guide]({{base_path}}/deploy/monitor/elk-mask-sensitive-information-in-logs.md).
 
 
 ### Install Logstash
@@ -111,7 +111,7 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
      - wso2-iam-session-raw*
      - wso2-iam-session-time-series*
  
-4. Download the artifact file [here](../assets/img/elk-analytics/kibana-8-x-auth-and-session.ndjson).
+4. Download the artifact file [here]({{base_path}}/assets/img/elk-analytics/kibana-8-x-auth-and-session.ndjson).
 5. Navigate to **Stack Management** > **Saved Objects**.
 6. Click **Import**, add the downloaded artifact file as an import object, and import. 
 7. Login to [MyAccount](https://localhost:9443/myaccount) of Identity Server using default admin credentials.

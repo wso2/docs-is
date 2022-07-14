@@ -17,5 +17,5 @@ Make the following changes to the created service provider.
 3. Click **Register**.
     
 !!! tip
-     To configure more advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced). 
+     To configure more advanced configurations, see [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced). 
 

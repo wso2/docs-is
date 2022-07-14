@@ -6,7 +6,7 @@
 
 3.  Enter `playground2` in the **Service Provider Name** text box, and click **Register**.
 
-     ![Add new service provider](../../assets/img/fragments/register-sp-playground.png) 
+     ![Add new service provider]({{base_path}}/assets/img/fragments/register-sp-playground.png) 
     
 4.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** and click **Configure.**   
@@ -19,18 +19,18 @@
         of the `oauth.custom_grant_type` in the `deployment.toml` file when
         creating the custom grant type is the value that will appear on the
         UI. For more information on writing a custom grant type, see
-        [Write a Custom OAuth 2.0 Grant Type](../../develop/extend/oauth2/write-a-custom-oauth-2.0-grant-type).
+        [Write a Custom OAuth 2.0 Grant Type]({{base_path}}/develop/extend/oauth2/write-a-custom-oauth-2.0-grant-type).
         
 6.  Fill the **Callback Url** field. 
 
     Example : `http://wso2is.local:8080/playground2/oauth2client`
     
-    ![Configure OAuth OIDC](../../assets/img/fragments/configure-oauth-oidc.png)
+    ![Configure OAuth OIDC]({{base_path}}/assets/img/fragments/configure-oauth-oidc.png)
 
     !!! tip
         For more information on other advanced configurations
-        refer, [Advanced OpenID Connect](../../guides/login/oidc-parameters-in-auth-request/).
+        refer, [Advanced OpenID Connect]({{base_path}}/guides/login/oidc-parameters-in-auth-request/).
         
 7.  Click **Add**. Note that `client key` and `client secret` get generated.
   
-    ![Generated OAuth client key and secret](../../assets/img/fragments/generated-key-secret.png) 
+    ![Generated OAuth client key and secret]({{base_path}}/assets/img/fragments/generated-key-secret.png) 

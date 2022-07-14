@@ -14,7 +14,7 @@ authenticate users using their Yahoo user accounts.
     !!! Info
         See [Getting Started](https://developer.yahoo.com/oauth2/guide/openid_connect/getting_started.html) for instructions.
    
-    ![yahoo-configuration](../../assets/img/guides/yahoo-configuration.png)
+    ![yahoo-configuration]({{base_path}}/assets/img/guides/yahoo-configuration.png)
 
 {! fragments/register-an-identity-provider.md !}
 3. Expand the **OAuth2/OpenID Connect Configuration** section and specify the following values:

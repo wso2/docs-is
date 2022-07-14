@@ -70,7 +70,7 @@ A sample configuration is given below.
         - `<IS-HOME>/dbscripts/oracle.sql`
         
 3. If you have a requirement to use the workflow feature, see 
-    [Change the default database of BPS database](../../../deploy/change-datasource-bpsds)
+    [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds)
     
 4.  Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
 

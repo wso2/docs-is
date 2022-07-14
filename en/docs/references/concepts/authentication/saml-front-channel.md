@@ -8,7 +8,7 @@ The SAML 2.0 specification specifies three types of asynchronous (front-channel)
 
 - **HTTP POST binding**: This method transfers data using HTTP POST forms. The logout request is signed and the signature is embedded in the SAML request body. 
 
-- **Artifact binding**: Generally, SAML authentication requests and assertion data are sent through the browser using POST or HTTP Redirect binding. To avoid exposing the entire message to the browser this way, use [artifact binding](../../../../guides/login/use-artifact-binding) instead. 
+- **Artifact binding**: Generally, SAML authentication requests and assertion data are sent through the browser using POST or HTTP Redirect binding. To avoid exposing the entire message to the browser this way, use [artifact binding]({{base_path}}/guides/login/use-artifact-binding) instead. 
 
 ---
 
@@ -22,7 +22,7 @@ Front-channel logout has two different use cases:
 
 The following diagram illustrates the flow for **SP-initiated logout**. 
 
-![SAML front-channel logout](../../../assets/img/concepts/saml-front-channel.png)
+![SAML front-channel logout]({{base_path}}/assets/img/concepts/saml-front-channel.png)
 
 1. Issue `<LogoutRequest>` 
 
@@ -51,12 +51,12 @@ In an **IdP-initiated logout** scenario, the identity provider (acting as sessio
 
 
 !!! info "Related topics"
-    - [Concept: SAML 2.0](../intro-saml)
-    - [Concept: SAML Back-Channel Logout](../saml-back-channel)
-    - [Guide: SAML Front-Channel Logout](../../../../guides/login/saml-front-channel-logout)
-    - [Quick Start: SAML Front-Channel Logout](../../../../quick-starts/saml-front-channel-logout)
-    - [Guide: Use SAML Artifact Binding](../../../../guides/login/use-artifact-binding)
-    - [Quick Start: Use SAML Artifact Binding](../../../../quick-starts/use-artifact-binding-sample)
+    - [Concept: SAML 2.0]({{base_path}}/intro-saml)
+    - [Concept: SAML Back-Channel Logout]({{base_path}}/saml-back-channel)
+    - [Guide: SAML Front-Channel Logout]({{base_path}}/guides/login/saml-front-channel-logout)
+    - [Quick Start: SAML Front-Channel Logout]({{base_path}}/quick-starts/saml-front-channel-logout)
+    - [Guide: Use SAML Artifact Binding]({{base_path}}/guides/login/use-artifact-binding)
+    - [Quick Start: Use SAML Artifact Binding]({{base_path}}/quick-starts/use-artifact-binding-sample)
 
 
 

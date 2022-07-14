@@ -20,7 +20,7 @@ The Identity Application Management API enables creating a service provider, upd
         https://localhost:9443/services/IdentityApplicationManagementService?wsdl
         ```
 
-    -   To enable the admin service, follow the instructions given in [Call Admin Services](../../apis/call-admin-services).  
+    -   To enable the admin service, follow the instructions given in [Call Admin Services]({{base_path}}/apis/call-admin-services).  
 
 
 !!! info "About creating applications"
@@ -415,7 +415,7 @@ The Identity Application Management API enables creating a service provider, upd
 The `<claimConfig>` element  defines all claim configuration level inputs. This element can have zero or more `          <claimMappings>         ` elements that specify claims
 referred by this service provider. A `          <claimMappings>         ` element includes two elements; `          <localClaim>         ` and `          <remoteClaim>         `
 where each is represented by a claimId and a claimURI.  The `          <localClaim>         ` denotes a standard claim which is local to the WSO2 Identity Server and the
-`          <remoteClaim>         ` denotes some remote claim value that maps to the local claim under the same [claim mapping](../../../guides/dialects/configure-claims). Remote
+`          <remoteClaim>         ` denotes some remote claim value that maps to the local claim under the same [claim mapping]({{base_path}}/guides/dialects/configure-claims). Remote
 claims are specifically used with identity federation scenarios to map claims received from the federated Identity Provider to local claims.   
 
 <table>
@@ -440,7 +440,7 @@ claims are specifically used with identity federation scenarios to map claims re
     <p>false - using the custom claim dialect</p>
     <br />
 
-    <p>If it is using the custom claim dialect, the local claim should map with a remote claim in each <a href="../../../guides/dialects/add-claim-mapping">claim mapping</a> otherwise, both the local claim URI and the remote claim URI should be the same (i.e. a URI defined under a dialect local to the WSO2 Identity Server).</p></td>
+    <p>If it is using the custom claim dialect, the local claim should map with a remote claim in each <a href="{{base_path}}/guides/dialects/add-claim-mapping">claim mapping</a> otherwise, both the local claim URI and the remote claim URI should be the same (i.e. a URI defined under a dialect local to the WSO2 Identity Server).</p></td>
     </tr>
     <tr class="odd">
     <td><p>claimMappings.localClaim.claimId</p>

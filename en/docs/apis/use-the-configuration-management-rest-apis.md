@@ -9,7 +9,7 @@ Configurations for the above scenarios can be stored using the configuration man
 
 ## Prerequisites
 
-The configuration management API sometimes uses dynamic query build for its database CRUD operations; especially in the `/search` endpoint (for more information, see [Retrieving Tenant Resources Based on Search Parameters](../../apis/retrieve-tenant-resources-based-on-search-parameters/)). However, a query that is too long can lead to errors. To prevent this, an upper limit to the dynamic query size is applied by default (the default value is the maximum packet size for MySQL 5.7 in bytes). To configure this upper limit value, do the following:
+The configuration management API sometimes uses dynamic query build for its database CRUD operations; especially in the `/search` endpoint (for more information, see [Retrieving Tenant Resources Based on Search Parameters]({{base_path}}/apis/retrieve-tenant-resources-based-on-search-parameters/)). However, a query that is too long can lead to errors. To prevent this, an upper limit to the dynamic query size is applied by default (the default value is the maximum packet size for MySQL 5.7 in bytes). To configure this upper limit value, do the following:
 
 Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
     
@@ -25,7 +25,7 @@ max="4194304"
 The configuration manager exposed with the configuration management REST
 APIs manages configurations as **Resources**.
 
-![Configuration management architecture diagram]( ../../assets/img/apis/resource.png)
+![Configuration management architecture diagram]( {{base_path}}/assets/img/apis/resource.png)
 
 What is a resource?
 
@@ -77,7 +77,7 @@ The section below describes each concept in more detail.
     
     For information on how to use the /search endpoint of the Configuration
     Management APIs, see [Retrieving Tenant Resources Based on Search
-    Parameters](../../apis/retrieve-tenant-resources-based-on-search-parameters).
+    Parameters]({{base_path}}/apis/retrieve-tenant-resources-based-on-search-parameters).
 
 ---   
 

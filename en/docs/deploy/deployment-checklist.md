@@ -24,7 +24,7 @@
 <strong>Related topics</strong>
 </div>
 <div class="panelContent">
-<li><a href="../../../deploy/security/security-guidelines-for-production-deployment">Security Guidelines for Production 
+<li><a href="{{base_path}}/deploy/security/security-guidelines-for-production-deployment">Security Guidelines for Production 
 Deployment</a></li>
 </div>
 </div>
@@ -44,7 +44,7 @@ by setting the relavent parameter in the <code>               &lt;IS_HOME&gt;/re
 <strong>Related topics</strong>
 </div>
 <div class="panelContent">
-<li><a href="../../../deploy/change-the-hostname">Change the hostname</a></li>
+<li><a href="{{base_path}}/deploy/change-the-hostname">Change the hostname</a></li>
 </ul></li>
 </div>
 </div>
@@ -65,7 +65,7 @@ by setting the relavent parameter in the <code>               &lt;IS_HOME&gt;/re
 <strong>Related topics</strong>
 </div>
 <div class="panelContent">
-<li><a href="../../../deploy/work-with-databases/">Working with Databases</a></li>
+<li><a href="{{base_path}}/deploy/work-with-databases/">Working with Databases</a></li>
 </div>
 </div>
 </div></td>
@@ -82,7 +82,7 @@ of product-specific features.</p>
 <div class="panelContent">
 <div>
 <ul>
-<li><a href="../../../deploy/performance/performance-tuning-recommendations">Performance Tuning Recommendations</a> </li>
+<li><a href="{{base_path}}/deploy/performance/performance-tuning-recommendations">Performance Tuning Recommendations</a> </li>
 </div></td>
 </tr>
 <tr class="odd">
@@ -98,7 +98,7 @@ of product-specific features.</p>
 <strong>Related topics</strong>
 </div>
 <div class="panelContent">
-<li><a href="../../../references/default-ports-of-wso2-products">Default Ports of WSO2 Identity Server</a> </li>
+<li><a href="{{base_path}}/references/default-ports-of-wso2-products">Default Ports of WSO2 Identity Server</a> </li>
 </div>
 </div>
 </div></td>
@@ -139,7 +139,7 @@ management, and business activity monitoring can also be configured in a cluster
 </div>
 <div class="panelContent">
 <ul>
-<li><a href="TBD:../../administer/clustering-overview">Clustering Overview</a> </li>
+<li><a href="TBD:{{base_path}}/administer/clustering-overview">Clustering Overview</a> </li>
 </ul>
 </div>-->
 </div>

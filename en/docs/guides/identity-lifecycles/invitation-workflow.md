@@ -54,7 +54,7 @@ true in the SCIM2 user create request.
     
 !!! Example "A sample curl command is given below:"
     ``` java
-    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Paul"},"userName":"Paul","password":"password","emails":[{"primary":true,"value":"paul@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{askPassword:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
+    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Paul"},"userName":"Paul","password":"password","emails":[{"primary":true,"value":"paul@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{askPassword:"true"}}'}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
 
 !!! Note  
@@ -76,16 +76,16 @@ Set the **verifyEmail** attribute under the`urn:ietf:params:scim:schemas:extensi
     
 !!! Example "A sample curl command is given below:"
     ``` java
-    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Peter"},"userName":"Peter","password":"password","emails":[{"primary":true,"value":"peter@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
+    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Peter"},"userName":"Peter","password":"password","emails":[{"primary":true,"value":"peter@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}'}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
 
 !!! info "Related topics"
-    - [Guide: Email Templates](../../../guides/tenants/customize-automated-mails/)
-    - [Guide: Admin Creation Workflow](../admin-creation-workflow) 
-    - [Guide: User Self Registration Workflow](../self-registration-workflow)
-    - [Guide: Just in Time User Provisioning Workflow](../jit-workflow)
-    - [Guide: Bulk Import Users](../import-users)
-    - [Guide: Outbound Provisioning](../outbound-provisioning)
+    - [Guide: Email Templates]({{base_path}}/guides/tenants/customize-automated-mails/)
+    - [Guide: Admin Creation Workflow]({{base_path}}/admin-creation-workflow) 
+    - [Guide: User Self Registration Workflow]({{base_path}}/self-registration-workflow)
+    - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/jit-workflow)
+    - [Guide: Bulk Import Users]({{base_path}}/import-users)
+    - [Guide: Outbound Provisioning]({{base_path}}/outbound-provisioning)
     <!--- [Concept: Ask Password and Email Verification](TODO:insert-link-to-concept) --->
 
    

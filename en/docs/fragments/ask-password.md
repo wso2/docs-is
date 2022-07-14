@@ -6,7 +6,7 @@
 
 4.  Also, select **Enable User Email Verification**. Click **Update** to save changes.
                 
-    ![Resident idp ask password](../../../assets/img/fragments/resident-idp-ask-password-configs.png) 
+    ![Resident idp ask password]({{base_path}}/assets/img/fragments/resident-idp-ask-password-configs.png) 
     
     You can also configure the above configurations via the configuration
     files. 
@@ -60,7 +60,7 @@
         the **AskPassword** template.
     
         You can edit and customize the email template. For more information
-        on how to do this, see [Customizing Automated Emails](../../../guides/tenants/customize-automated-mails).
+        on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
 
 Follow the steps below to test the account creation using the password option.
@@ -72,7 +72,7 @@ Follow the steps below to test the account creation using the password option.
     1.  Select the userstore where you want to create this user account
         from the drop-down as the **Domain**.  
         This includes the list of userstores you configured. See
-        [Configuring userstores](../../../deploy/configure-user-stores/) for more
+        [Configuring userstores]({{base_path}}/deploy/configure-user-stores/) for more
         information.
     2.  Enter a unique **User Name** that is used by the user to log in.
 
@@ -83,7 +83,7 @@ Follow the steps below to test the account creation using the password option.
 
         !!! tip "Using special characters in the email address"
 
-                If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters](../../../guides/tenants/add-email-special-characters). 
+                If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters]({{base_path}}/guides/tenants/add-email-special-characters). 
 
 5.  The Identity Server sends an email to the email address provided.
     The email contains a redirect URL that directs the users to a screen

@@ -1,6 +1,6 @@
 # Resource Registration Endpoint 
 
-This document describes the purpose, parameters, and flow of the resource registration endpoint of the protection API in [UMA 2.0](../user-managed-access). 
+This document describes the purpose, parameters, and flow of the resource registration endpoint of the protection API in [UMA 2.0]({{base_path}}/user-managed-access). 
 
 ----
 
@@ -9,7 +9,7 @@ This document describes the purpose, parameters, and flow of the resource regist
 This endpoint allows the resource server to place resources under the protection of the authorization server on behalf of the resource owner.
 The resource server uses a RESTful API resource registration endpoint at the authorization server to create, list, read, update, and delete resources and resource descriptions. 
 
-![UMA 2.0 resource registration endpoint](../../../../assets/img/concepts/uma-resource-registration-endpoint.png)
+![UMA 2.0 resource registration endpoint]({{base_path}}/assets/img/concepts/uma-resource-registration-endpoint.png)
 
 ---
 

@@ -9,7 +9,7 @@ Follow the steps below to add new keys to the **super tenant**
 1. 	Locate the `wso2carbon.jks` file in the `<IS_HOME>/repository/resources/security` directory in a command prompt. 
 
 	!!! info 
-		wso2carbon is the default keystore. To learn how to change the default keystore, see [Create New Keystores](../../../deploy/security/create-new-keystores) and [Configure Keystores](../../../deploy/security/configure-keystores-in-wso2-products).
+		wso2carbon is the default keystore. To learn how to change the default keystore, see [Create New Keystores]({{base_path}}/deploy/security/create-new-keystores) and [Configure Keystores]({{base_path}}/deploy/security/configure-keystores-in-wso2-products).
 
 2.	Follow the steps given below to generate the new keys and add them to the keystore. 
 
@@ -28,7 +28,7 @@ Follow the steps below to add new keys to the **super tenant**
 			---
 			**Example**
 			``` curl
-			keytool -genkey -alias newkey -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=localhost, OU=IT,O=ABC,L=SL,S=WS,C=LK" -storepass wso2carbon -keypass wso2carbon
+			keytool -genkey -alias newkey -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=localhost, OU=IT,O={{base_path}},L=SL,S=WS,C=LK" -storepass wso2carbon -keypass wso2carbon
 			```
 
 	!!! tip 	
@@ -61,13 +61,13 @@ Follow the steps below to view the private keys via the WSO2 Identity Server Man
 <ol>
 	<li>
 		<p>On <b>Main</b> menu of the Management Console, click <b>Manage > Keystore > List</b>.</p>
-		<p><img src="../../../assets/img/deploy/security/list-keystores-menu-item.jpeg" width="200" /></p>
+		<p><img src="{{base_path}}/assets/img/deploy/security/list-keystores-menu-item.jpeg" width="200" /></p>
 	</li>
 	<li>
 		<p>Click <b>View</b> of the relevant keystore.</p>
-		<p><img src="../../../assets/img/deploy/security/keystores.jpeg" width="600" /></p>
+		<p><img src="{{base_path}}/assets/img/deploy/security/keystores.jpeg" width="600" /></p>
 		<p>The certificate of the private key appears.</p>
-		<p><img src="../../../assets/img/deploy/security/private-key-certificate.jpeg" width="800"></p>
+		<p><img src="{{base_path}}/assets/img/deploy/security/private-key-certificate.jpeg" width="800"></p>
 	</li>
 </ol>
 

@@ -19,7 +19,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "../restapis/cors.yaml",
+     url: "{{base_path}}/restapis/cors.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

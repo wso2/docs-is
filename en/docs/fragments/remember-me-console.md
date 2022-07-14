@@ -6,4 +6,4 @@
 
 4.   In the **Realm configurations** section, change the value for **Remember Me Period**.
 
-     ![session-timeout](../../assets/img/fragments/session-timeout.png)
+     ![session-timeout]({{base_path}}/assets/img/fragments/session-timeout.png)

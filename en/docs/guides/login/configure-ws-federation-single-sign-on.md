@@ -1,6 +1,6 @@
 # Configure WS-Federation Single Sign-On
 
-This page guides you through enabling [single sign-on](../../../references/concepts/single-sign-on) (SSO) for a WS-Federation based application using WSO2 Identity Server.
+This page guides you through enabling [single sign-on]({{base_path}}/references/concepts/single-sign-on) (SSO) for a WS-Federation based application using WSO2 Identity Server.
 
 !!! info 
     WSO2 Identity Server's passive security token service (Passive STS) is used as the WS-Federation implementation. 
@@ -151,7 +151,7 @@ The next step is to configure the service provider.
 
 6. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**. 
 
-    ![passive-sts-claims](../../assets/img/samples/passive-sts-claims.png)
+    ![passive-sts-claims]({{base_path}}/assets/img/samples/passive-sts-claims.png)
 
 7.  Click **Update** to save the changes.  
     Now you are sent back to the Service Providers page.
@@ -176,8 +176,8 @@ The next step is to configure the service provider.
 
 3. On the screen, you will see the passive STS response with the requested claims. Click **Logout** to logout from the application.
    
-    ![passive-sts-response](../../assets/img/samples/passive-sts-response.png)
+    ![passive-sts-response]({{base_path}}/assets/img/samples/passive-sts-response.png)
 
 !!! info "Related topics"
-    - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
-    - [Concept: WS-Federation](../login/webapp-ws-federation.md)
+    - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)
+    - [Concept: WS-Federation]({{base_path}}/login/webapp-ws-federation.md)

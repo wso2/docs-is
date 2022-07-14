@@ -71,17 +71,17 @@ features.
 
 -   RESTful consent APIs to manage consents remotely. For more
     information, see [Consent Management REST
-    APIs](../../../develop/apis/use-the-consent-management-rest-apis/).
+    APIs]({{base_path}}/develop/apis/use-the-consent-management-rest-apis/).
 -   Consent portal for individuals to review, modify, and revoke already
-    given consents. For more information, see [Consent management](../../../guides/my-account/my-account#consent-management).
+    given consents. For more information, see [Consent management]({{base_path}}/guides/my-account/my-account#consent-management).
 -   Support for organizations to define and manage consent,
     data processing purposes, and user attributes per consent. <!-- For more
     information, see [Managing Consent
-    Purposes](TO-DO:../../learn/managing-consent-purposes).-->
+    Purposes](TO-DO:{{base_path}}/learn/managing-consent-purposes).-->
 -   Consent collection during single sign-on (SSO) before sharing the
     user attributes with external applications. <!-- For more information,
     see [Consent Management with
-    Single-Sign-On](TO-DO:../../learn/consent-management-with-single-sign-on).-->
+    Single-Sign-On](TO-DO:{{base_path}}/learn/consent-management-with-single-sign-on).-->
 -   Support for the Kantara consent receipt specification. For more
     information, see the [Kantara Consent Receipt
     Specification](https://kantarainitiative.org/download/7902/).
@@ -121,7 +121,7 @@ WSO2 IS.
 !!! tip
     For more information and instructions for setting up this use case, see
     [Configuring self-registration consent
-    purposes](../../../guides/identity-lifecycles/self-registration-workflow/).
+    purposes]({{base_path}}/guides/identity-lifecycles/self-registration-workflow/).
     
 
 ### Handle consent when sharing user attributes
@@ -152,7 +152,7 @@ supported in WSO2 IS.
     
     For more information and instructions for setting up this use case, see
     [Consent Management with
-    Single-Sign-On](TO-DO:../../learn/consent-management-with-single-sign-on).
+    Single-Sign-On](TO-DO:{{base_path}}/learn/consent-management-with-single-sign-on).
 -->
 
 ### Manage consents that belong to third party applications
@@ -178,5 +178,5 @@ Specification](https://kantarainitiative.org/confluence/display/infosharing/Cons
     
     For more information and instructions for setting up this use case, see
     [Consent Management REST
-    APIs](../../../develop/apis/use-the-consent-management-rest-apis/).
+    APIs]({{base_path}}/develop/apis/use-the-consent-management-rest-apis/).
     

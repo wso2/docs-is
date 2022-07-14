@@ -6,7 +6,7 @@ Therefore claim mapping is done so that the Identity Server can identify the use
 
 For example, Facebook IdP will return authenticated user email as `email`, and the identity server will map it to the `http://wso2.org/claims/emailaddress` using the IdP claim mapping.
 
-See the [Identity Server Architecture](../../references/architecture/architecture.md) topic for more information on how claim mapping fits into the identity provider scenario.
+See the [Identity Server Architecture]({{base_path}}/references/architecture/architecture.md) topic for more information on how claim mapping fits into the identity provider scenario.
 
 In the **Claim Configuration** form, there are two sub-forms as follows:
 
@@ -28,7 +28,7 @@ To use local claim dialects:
 2. Click **List**, select the identity provider you want to edit, and click on the corresponding **Edit** link.
 3. Expand the **Claim Configurations > Basic Claim Configurations** section
 4. Select **Use Local Claim Dialect**, and select the claim that includes a list of all the claims defined in the Identity Server from the **User ID Claim URI** dropdown.
-    ![user-id-claim-uri](../../assets/img/guides/user-id-claim-uri.png)
+    ![user-id-claim-uri]({{base_path}}/assets/img/guides/user-id-claim-uri.png)
 
 To define custom claim dialects:
 
@@ -36,9 +36,9 @@ To define custom claim dialects:
 2. Click **List**, select the identity provider you want to edit, and click on the corresponding **Edit** link.
 3. Expand the **Claim Configurations > Basic Claim Configurations** section.
 4. Select **Define Custom Claim Dialect** and click **Add Claim Mapping** button under **Identity Provider Claim URIs**. Clicking this button again enables you to perform more claim mapping.
-    ![custom-claim-dialect](../../assets/img/guides/custom-claim-dialect.png)
+    ![custom-claim-dialect]({{base_path}}/assets/img/guides/custom-claim-dialect.png)
 5. Map the value of the corresponding claim in the identity provider to the claim in the Identity Server.
-    ![delete-claim-mapping](../../assets/img/guides/delete-claim-mapping.png)
+    ![delete-claim-mapping]({{base_path}}/assets/img/guides/delete-claim-mapping.png)
 
     | Property                    | Description                                         | Sample Value                          |
     |-----------------------------|-----------------------------------------------------|---------------------------------------|
@@ -98,7 +98,7 @@ claim configurations done in the above steps.
     
     - Non-blocking mode: Provisioning happens in a different thread. 
     
-    This provisioning mode can be specified when [creating and configuring the service provider](../applications/configure-sp.md).
+    This provisioning mode can be specified when [creating and configuring the service provider]({{base_path}}/applications/configure-sp.md).
 
 To configure advanced claim configurations:
 
@@ -110,7 +110,7 @@ To configure advanced claim configurations:
 
         1. From the **Provisioning Claim Filter** dropdown, select the claim that needs to be provisioned, and click **Add Claim**.
         2. Enter the **Default Value** of the claim in the corresponding field.
-            ![Advanced Claim for local claims](../../assets/img/guides/advanced-claim-for-local-claim.png)
+            ![Advanced Claim for local claims]({{base_path}}/assets/img/guides/advanced-claim-for-local-claim.png)
 
             For example, the **Claim URI** can be `http://wso2.org/claims/organization`, and the corresponding **Default Value** can be `docsorg`, which is the organization that all the users belong to.
 
@@ -119,7 +119,7 @@ To configure advanced claim configurations:
         1. Select the **Identity Provider Claim URI** you defined from the dropdown list, and click **Add Claim**.
 
         2. Enter a **Default Value** for your claim. This value is the default value used when provisioning this claim.
-            ![Advanced Claim for custom claims](../../assets/img/guides/advanced-claim-for-custom-claims.png)
+            ![Advanced Claim for custom claims]({{base_path}}/assets/img/guides/advanced-claim-for-custom-claims.png)
 
     !!! note
         You can use the **Add Claim** link to add many claims.
@@ -137,6 +137,6 @@ To map a newly added OIDC claim to an unused OIDC claim:
 See the following topics for samples of claim mapping for an identity
 provider.
 
-- [Logging in to your application via Identity Server using Facebook Credentials](../identity-federation/facebook.md)
-- [Logging in to Salesforce with Facebook](../login/log-into-salesforce-using-fb.md)
-- [Outbound Provisioning with Salesforce](../../learn/outbound-provisioning-with-salesforce)
+- [Logging in to your application via Identity Server using Facebook Credentials]({{base_path}}/identity-federation/facebook.md)
+- [Logging in to Salesforce with Facebook]({{base_path}}/login/log-into-salesforce-using-fb.md)
+- [Outbound Provisioning with Salesforce]({{base_path}}/learn/outbound-provisioning-with-salesforce)

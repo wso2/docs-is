@@ -13,7 +13,7 @@ The device flow does not require two-way communication between the OAuth client 
  
 The diagram below illustrates the device flow.
 
-![device-authorization-grant-diagram](../assets/img/using-wso2-identity-server/deviceflow.png)
+![device-authorization-grant-diagram]({{base_path}}/assets/img/using-wso2-identity-server/deviceflow.png)
 
 (A) — The client sends an access request including its client identifier to the authorization server.
 
@@ -29,8 +29,8 @@ The diagram below illustrates the device flow.
 (F) — If the user grants access, the authorization server validates the verification code and responds with the access token.
 
 !!! info "Support for refresh token grant - Yes"
-	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
+	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/learn/refresh-token-grant).
 
 !!! info "Related Topics"
     See the [Try Device Authorization
-    Grant](../../learn/try-device-flow) topic to try out a sample with WSO2 Identity Server.
+    Grant]({{base_path}}/learn/try-device-flow) topic to try out a sample with WSO2 Identity Server.

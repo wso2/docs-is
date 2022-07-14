@@ -2,7 +2,7 @@
 
 This section provides information about the expected requests and the
 relevant responses that the WSO2 Identity Server would generate for the
-[OpenID Connect Implicit Client](../../../references/concepts/authentication/implicit-client-profile/) flow.
+[OpenID Connect Implicit Client]({{base_path}}/references/concepts/authentication/implicit-client-profile/) flow.
 
 ## Register a service provider
 
@@ -109,6 +109,6 @@ Let's try out the different OIDC hybrid flows by specifyin the following respons
         ```
 
 !!! info "Related topics"
-    - [Concept: OpenID Connect Implicit Client](../../../references/concepts/authentication/implicit-client-profile/)
-    - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
+    - [Concept: OpenID Connect Implicit Client]({{base_path}}/references/concepts/authentication/implicit-client-profile/)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
     

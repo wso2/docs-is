@@ -11,11 +11,11 @@ With SSO, when a user signs in to one application, that
 user is automatically signed in to other applications, eliminating
 the need to maintain multiple credentials.
 
-<!-- ![QSG SSO scenario](../../assets/img/get-started/qsg-sso-scenario.png)
+<!-- ![QSG SSO scenario]({{base_path}}/assets/img/get-started/qsg-sso-scenario.png)
  -->
 
 
-<!-- ![QSG SSO scenario2](../../assets/img/get-started/qsg-sso-scenario2.png) -->
+<!-- ![QSG SSO scenario2]({{base_path}}/assets/img/get-started/qsg-sso-scenario2.png) -->
 
 
 ## Configure SSO with SAML 2.0
@@ -32,17 +32,17 @@ protocol, follow the steps below:
     4.  Configure SAML2 web SSO for Pickup Dispatch and Pickup
         Manager.
           
-        ![List of scenarios in QSG](../../assets/img/get-started/qsg-configure-sso.png)
+        ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png)
         
     5.  Note that a message with the user and web application details
         appears.
           
-        ![User and web application details](../../assets/img/get-started/qsg-sso-configure-saml-2.png)
+        ![User and web application details]({{base_path}}/assets/img/get-started/qsg-sso-configure-saml-2.png)
 
 
     !!! note
         You can also perform the above using the WSO2 Identity Server Management Console.
-        For more information, see [Create Users](../../guides/identity-lifecycles/onboard-overview), [Create Roles](../../guides/identity-lifecycles/add-user-roles/), and [Configure Web Application for SSO](../../guides/login/sso-for-saml/).
+        For more information, see [Create Users]({{base_path}}/guides/identity-lifecycles/onboard-overview), [Create Roles]({{base_path}}/guides/identity-lifecycles/add-user-roles/), and [Configure Web Application for SSO]({{base_path}}/guides/login/sso-for-saml/).
     
 
 2.  Go to the URL
@@ -51,7 +51,7 @@ protocol, follow the steps below:
 
 3.  Click **Login**.
   
-    ![Pickup Dispatch application login](../../assets/img/get-started/qsg-sso-dispatch-login.png)
+    ![Pickup Dispatch application login]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-login.png)
     
 4.  Enter either of the following credentials to sign in to the
     application.
@@ -61,12 +61,12 @@ protocol, follow the steps below:
     Junior Manager --> Username: alex    | Password: alex123
     ```
 
-    ![WSO2 Identity Server sign in page](../../assets/img/get-started/qsg-sso-login-credentials.png)
+    ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-sso-login-credentials.png)
 
 5.  Select the attributes that you want to share with Pickup Dispatch and click
     **Continue**.
 
-    ![Consent page](../../assets/img/get-started/qsg-sso-consent.png)
+    ![Consent page]({{base_path}}/assets/img/get-started/qsg-sso-consent.png)
 
     !!! note
     
@@ -74,11 +74,11 @@ protocol, follow the steps below:
         the GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent
-        Management](../../references/concepts/consent-management/).
+        Management]({{base_path}}/references/concepts/consent-management/).
 
     Note that the Pickup Dispatch home screen appears.
 
-    ![Pickup Dispatch home screen](../../assets/img/get-started/qsg-sso-dispatch-home.png)
+    ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
 6.  Similarly, go to the URL
     `http://localhost.com:8080/saml2-web-app-pickup-manager.com` using
@@ -86,17 +86,17 @@ protocol, follow the steps below:
 
 7.  Click **Login**.
   
-    ![Pickup Manager login page](../../assets/img/get-started/qsg-sso-manager-login.png)
+    ![Pickup Manager login page]({{base_path}}/assets/img/get-started/qsg-sso-manager-login.png)
 
 8.  Note that the Pickup Manager application opens without having to
     enter the user credentials again.
     
-    ![Pickup Manager home screen](../../assets/img/get-started/qsg-sso-manager-home.png)
+    ![Pickup Manager home screen]({{base_path}}/assets/img/get-started/qsg-sso-manager-home.png)
 
 9.  To try out other scenarios, navigate back to where you ran the Quick
     Start sample on the command-line and enter `y` to clean the setup.
       
-    ![QSG cleanup](../../assets/img/get-started/qsg-sso-cleanup.png)
+    ![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)
 
 ## Configure SSO with OIDC
 
@@ -110,18 +110,18 @@ follow the steps below:
     3.  Create service providers for Pickup Dispatch and Pickup Manager.
     4.  Configure SAML2 web SSO for Pickup Dispatch and Pickup Manager.
 
-        ![List of scenarios in QSG](../../assets/img/get-started/qsg-configure-sso.png) 
+        ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png) 
      
     Note that a message with the user and web application details
     appears.
 
-    <img src="../../assets/img/get-started/qsg-configure-sso-2.png" width="600" alt="QSG user and web application details"/>
+    <img src="{{base_path}}/assets/img/get-started/qsg-configure-sso-2.png" width="600" alt="QSG user and web application details"/>
 
 2.  Enter `http://localhost.com:8080/pickup-dispatch` on a web browser to access the Pickup Dispatch application.
 
 3.  Click **Login**.
   
-    ![Pickup Dispatch application login](../../assets/img/get-started/qsg-sso-dispatch-login.png)
+    ![Pickup Dispatch application login]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-login.png)
     
 4.  Enter either of the following credentials to sign in to the
     application.
@@ -131,31 +131,31 @@ follow the steps below:
     Junior Manager --> Username: alex    | Password: alex123
     ```
 
-    ![WSO2 Identity Server sign in page](../../assets/img/get-started/qsg-sso-login-credentials.png)
+    ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-sso-login-credentials.png)
 
 5.  Select the approval type that you wish provide and the attributes
     that you wish to share with the application and click **Continue**.
       
-    ![Consent page](../../assets/img/get-started/qsg-oidc-consent.png)
+    ![Consent page]({{base_path}}/assets/img/get-started/qsg-oidc-consent.png)
 
     !!! note
         Obtaining the user consent is one of the fundamental requirements of
         GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent
-        Management](../../references/concepts/consent-management/).
+        Management]({{base_path}}/references/concepts/consent-management/).
     
 
     Note that the Pickup Dispatch home screen appears.
 
-    ![Pickup Dispatch home screen](../../assets/img/get-started/qsg-sso-dispatch-home.png)
+    ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
 6.  Similarly, enter `http://localhost:8080/pickup-manager`
     on a browser to access the Pickup Manager application. Notice that
     the Pickup Manager application opens without having to enter the
     user credentials.  
       
-    ![Pickup Manager home screen](../../assets/img/get-started/qsg-sso-manager-home.png)
+    ![Pickup Manager home screen]({{base_path}}/assets/img/get-started/qsg-sso-manager-home.png)
      
     You have set up SSO and your employees are happy with their
     experience as they only have to provide credentials once in order to
@@ -165,5 +165,5 @@ follow the steps below:
     command prompt where you ran the Quick Start sample and enter
     `y` to clean the setup.
       
-    ![QSG cleanup](../../assets/img/get-started/qsg-sso-cleanup.png)
+    ![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)
     

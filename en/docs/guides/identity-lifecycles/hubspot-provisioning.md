@@ -18,16 +18,16 @@ in HubSpot and lead information updates in WSO2 Identity Server being updated in
     !!! Note 
         Once you sign in to your developer account, you can create an app or a test account.
 
-    <!-- ![hubspot-developer-home](../assets/img/tutorials/hubspot-developer-home.png) >
+    <!-- ![hubspot-developer-home]({{base_path}}/assets/img/tutorials/hubspot-developer-home.png) >
 
 2. Create a test account.
 3. Add a test account name and create an account. The created account appears with the corresponding details as shown below. 
-    <!--![hubspot-test-account](../assets/img/tutorials/hubspot-test-account.png)>
+    <!--![hubspot-test-account]({{base_path}}/assets/img/tutorials/hubspot-test-account.png)>
 
 4. Click on the application and navigate to **settings>Integration>API key**.
 5. Click the **Generate Key** button and copy the API key.
 
-    <!--![hubspot-generate-key](../assets/img/tutorials/hubspot-generate-key.png)>
+    <!--![hubspot-generate-key]({{base_path}}/assets/img/tutorials/hubspot-generate-key.png)>
 
 ## Configure WSO2 Micro Integrator
 
@@ -35,7 +35,7 @@ In the WSO2 Micro Integrator, an API is deployed which will act as a proxy for r
 Hubspot APIs via the HubSpot connector. Follow the steps given below to deploy the MI application.
 
 1. Download [WSO2 Micro Integrator](https://wso2.com/integration/micro-integrator/#).
-2. Download the [MarketingSoftwareIntegrationCompositeApplication_1.0.0.car](../../assets/attachments/MarketingSoftwareIntegrationCompositeApplication_1.0.0.car).
+2. Download the [MarketingSoftwareIntegrationCompositeApplication_1.0.0.car]({{base_path}}/assets/attachments/MarketingSoftwareIntegrationCompositeApplication_1.0.0.car).
 3. Navigate to `<WSO2-EI-HOME>/micro-integrator/repository/deployment/server/carbonapps` and place the downloaded file.
 4. Navigate to `<WSO2-EI-HOME>/bin` and start the server by executing one of the following commands.
 
@@ -69,11 +69,11 @@ the file to configure the HubSpot API key as follows.
 4. Click on **List** under **Claims** on the left pane and click **http://wso2.org/claims**.
 5. Click edit on &quot; **Telephone**&quot; and uncheck supported and required checkboxes.
 
-    <!--![telephone-claim](../assets/img/tutorials/telephone-claim.png)>
+    <!--![telephone-claim]({{base_path}}/assets/img/tutorials/telephone-claim.png)>
 
 6. Then click edit on &quot; **Phone Numbers**&quot; and select supported and required checkboxes.
 
-    <!--![phone-number-claim](../assets/img/tutorials/phone-number-claim.png)>
+    <!--![phone-number-claim]({{base_path}}/assets/img/tutorials/phone-number-claim.png)>
 
 ### Step 02: Configure HubSpot as the identity Provider
 
@@ -93,7 +93,7 @@ for information on registering and configuring an identity provider.
     User Endpoint: https://localhost:8253/hubspot/contacts
     ```
 
-    <!--![scim-provisioning-conf](../assets/img/tutorials/scim-provisioning-conf.png)>
+    <!--![scim-provisioning-conf]({{base_path}}/assets/img/tutorials/scim-provisioning-conf.png)>
 
 1. Click **Update** and save the configuration
 
@@ -119,22 +119,22 @@ users created in WSO2 Identity Server can also be provisioned to external system
     XACML rules enabled.
     5. Click **Update** to save your configurations.
 
-    <!--![outbound-provisioning-conf](../assets/img/tutorials/outbound-provisioning-conf.png)>
+    <!--![outbound-provisioning-conf]({{base_path}}/assets/img/tutorials/outbound-provisioning-conf.png)>
 
 ## Try it out
 
 1. Access WSO2 Identity Server [**My Account**](https://localhost:9443/myaccount).
 2. Click **Create Account**.
 
-    <!--![sign-in](../assets/img/tutorials/sign-in.png)>
+    <!--![sign-in]({{base_path}}/assets/img/tutorials/sign-in.png)>
 
 3. Enter the user name and click **Proceed to Self Register**.
 
-    <!--![start-sign-in](../assets/img/tutorials/start-sign-in.png)>
+    <!--![start-sign-in]({{base_path}}/assets/img/tutorials/start-sign-in.png)>
 
 1. The **Create New Account** screen appears.
 
-    <!--![create-new-account](../assets/img/tutorials/create-new-account.png)>
+    <!--![create-new-account]({{base_path}}/assets/img/tutorials/create-new-account.png)>
 
 1. Enter the **First Name** and **LastName**.
 2. Enter a preferred password in the **Password** and **Confirm password** text boxes.
@@ -147,8 +147,8 @@ users created in WSO2 Identity Server can also be provisioned to external system
 HubSpot.
 9. Then try to edit user details through the **My Account** as follows.
 
-    <!-- ![personal-info](../assets/img/tutorials/personal-info.png) >
+    <!-- ![personal-info]({{base_path}}/assets/img/tutorials/personal-info.png) >
 
 10. You can see the edited user details in the HubSpot contacts as well.
 
-    <!-- ![hubspot-contacts](../assets/img/tutorials/hubspot-contacts.png) >
+    <!-- ![hubspot-contacts]({{base_path}}/assets/img/tutorials/hubspot-contacts.png) >

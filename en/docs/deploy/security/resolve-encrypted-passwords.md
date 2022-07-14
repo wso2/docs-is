@@ -7,7 +7,7 @@ Secure Vault. This is because the keystore passwords are needed to
 initialize the values encrypted by the Secret Manager in the secret
 Repository. Therefore, the Secret Callback handler is used to resolve
 these passwords. For more information on Secure Vault
-implementation in WSO2 Identity Server and to know more about how passwords in configuration files are encrypted, see [here](../../../deploy/security/encrypt-passwords-with-cipher-tool).
+implementation in WSO2 Identity Server and to know more about how passwords in configuration files are encrypted, see [here]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 
 The default secret CallbackHandler in WSO2 Identity Server provides two options for reading these encrypted passwords when you start the server.
 
@@ -72,4 +72,4 @@ start the server in daemon mode as explained below.
     ```
 
 !!! info
-    For information on customizing secure vault implementaion see [Customize Secure Vault](../../../deploy/security/customize-secure-vault).
+    For information on customizing secure vault implementaion see [Customize Secure Vault]({{base_path}}/deploy/security/customize-secure-vault).

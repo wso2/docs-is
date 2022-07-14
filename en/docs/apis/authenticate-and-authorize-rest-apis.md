@@ -2,7 +2,7 @@
 
 This section guides you through securing REST services and understanding how requests to REST APIs are authenticated and authorized in WSO2 Identity Server.
 
-The requests that are sent via REST APIs are intercepted by tomcat valves and authenticated and authorized by an OSGI service. There are two OSGi services that provide the authentication and authorization service based on its own handlers. You can write your own handlers for both authentication and authorization and register them in OSGI if you wish to do so. For more information, see [Write a Custom Local Authenticator](../../extend/federation/write-a-custom-local-authenticator).
+The requests that are sent via REST APIs are intercepted by tomcat valves and authenticated and authorized by an OSGI service. There are two OSGi services that provide the authentication and authorization service based on its own handlers. You can write your own handlers for both authentication and authorization and register them in OSGI if you wish to do so. For more information, see [Write a Custom Local Authenticator]({{base_path}}/extend/federation/write-a-custom-local-authenticator).
 
 ---
 
@@ -13,7 +13,7 @@ WSO2 Identity Server supports the following API authentication methods:
 -   Basic authentication: Use the user’s credentials to invoke the APIs.
 -   OAuth2 common flows based authentication: Obtains a token using an OAuth2 flow and uses it to invoke the API.
     !!! info
-        To invoke the API using OAuth common flows, the application should be a management application. Refer the [service provider creation guide](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider) to create a new management application on IS.
+        To invoke the API using OAuth common flows, the application should be a management application. Refer the [service provider creation guide]({{base_path}}/learn/adding-and-configuring-a-service-provider/#adding-a-service-provider) to create a new management application on IS.
 -   Client certificate-based authentication: This method uses mutual SSL to authenticate users in order to invoke the APIs.
 
 !!! note 
@@ -99,7 +99,7 @@ Authorization for the APIs in WSO2 Identity Server is enforced at the endpoint l
 
 When obtaining a token to consume the API, you can define the scope corresponding to the permission required to consume the API.
 
-For example, let's assume that a user whose username is Alex, wants to retrieve the challenges available by calling the **/{user-id}/challenges** GET API available in [Challenge Question](../challenge-rest-api) REST API. This requires the user-id as an input. 
+For example, let's assume that a user whose username is Alex, wants to retrieve the challenges available by calling the **/{user-id}/challenges** GET API available in [Challenge Question]({{base_path}}/challenge-rest-api) REST API. This requires the user-id as an input. 
 To retrieve the challenges, Alex requires `/permission/admin/manage/identity/identitymgt/view` permission and `internal_identity_mgt_view` scope. Hence, Alex can invoke the following cURL command with `scope=internal_identity_mgt_view` and obtain a token.
 
 !!! abstract ""
@@ -135,8 +135,8 @@ If the response with the generated token contains the scope specified in the cUR
 --- 
 
 !!! info "Related topics"
-    -   See [Scopes Corresponding to Permissions Required to Invoke REST API Calls](../../../references/scopes-corresponding-to-rest-api-permissions) 
+    -   See [Scopes Corresponding to Permissions Required to Invoke REST API Calls]({{base_path}}/references/scopes-corresponding-to-rest-api-permissions) 
     for a list of scopes corresponding to the permissions required for different REST APIs.
 
     -   The permissions and scopes required for each REST API can be found under API description in the corresponding
-    API Documentation in the [REST APIs](../../apis/rest-apis) section.
+    API Documentation in the [REST APIs]({{base_path}}/apis/rest-apis) section.

@@ -100,7 +100,7 @@ Note the following regarding the configuration above.
 <a name="related-topics"></a>
 
 !!! info "Related topics"
-    -   [Configure the Primary Userstore](../../../deploy/configure-the-primary-user-store)
-    -   [Configure the Authorization Manager](../../../deploy/configure-the-authorization-manager)
-    -   [Performance tuning](../../..deploy/performance/performance-tuning-recommendations)
-    -   [Changing a Password](../../../guides/identity-lifecycles/manage-user-overview/)
+    -   [Configure the Primary Userstore]({{base_path}}/deploy/configure-the-primary-user-store)
+    -   [Configure the Authorization Manager]({{base_path}}/deploy/configure-the-authorization-manager)
+    -   [Performance tuning]({{base_path}}/..deploy/performance/performance-tuning-recommendations)
+    -   [Changing a Password]({{base_path}}/guides/identity-lifecycles/manage-user-overview/)

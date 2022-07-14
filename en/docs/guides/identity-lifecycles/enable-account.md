@@ -16,7 +16,7 @@ locking and disabling. Follow the below steps to do this configuration.
 2.  <a name = "accountdisabling"></a> Click **Main** > **Identity** > **Identity Providers** > **Resident**.
 3.  Expand the **Account Management** tab.
 4.  Expand the **Account Disable** tab and select the **Enable account disabling** checkbox. Click **Update** to save changes.  
-	![account-disabling](../../../assets/img/guides/account-disabling.png) 
+	![account-disabling]({{base_path}}/assets/img/guides/account-disabling.png) 
     
     !!! tip "Disable the account disabling feature"
         To disable the account disabling option, unselect the **Enable
@@ -33,7 +33,7 @@ locking and disabling. Follow the below steps to do this configuration.
         ```
 5.  Next, enable account locking. Expand the **Login Attempts Security** tab.
 6.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
-    ![enable-locking](../../../assets/img/guides/enable-locking.png) 
+    ![enable-locking]({{base_path}}/assets/img/guides/enable-locking.png) 
 
     !!! tip
     
@@ -48,7 +48,7 @@ locking and disabling. Follow the below steps to do this configuration.
             **Internal/system** role by default. Required roles can be assigned
             to a user depending on the set of permission a user needs to have.
             For more information on roles and permission, see [Configure Roles
-            and Permissions](../../../guides/identity-lifecycles/manage-roles-overview).
+            and Permissions]({{base_path}}/guides/identity-lifecycles/manage-roles-overview).
     
             Although the **Internal/system** role is configured by default in
             WSO2 Identity Server, you can delete the role if necessary. To allow
@@ -68,11 +68,11 @@ management console.
 1.  Navigate to **Main** > **Identity** > **Claims** > **List** and click on `http://wso2.org/claims`.
 
 2.  Edit the **Account Disabled** claim. See [Edit Claim
-    Mapping](../../../guides/dialects/edit-claim-mapping/) for more information on how to do
+    Mapping]({{base_path}}/guides/dialects/edit-claim-mapping/) for more information on how to do
     this.
 
 3.  Tick the checkbox **Supported by Default** and click **Update.**  
-    ![click-supported-by-default](../../../assets/img/guides/click-supported-by-default.png) 
+    ![click-supported-by-default]({{base_path}}/assets/img/guides/click-supported-by-default.png) 
 4.  Navigate to **Main** > **Identity** > **Users and Roles** > **List** > **Users** and click on
     **User Profile** of the user account that you want to disable.
 5.  Tick the **Account Disabled** checkbox and click **Update**.  
@@ -91,7 +91,7 @@ steps below.
         account locking is the **AccountLock** template and the template
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
-        how to do this, see [Customize Automated Emails](../../../guides/tenants/customize-automated-mails)
+        how to do this, see [Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails)
 .
 
 ---
@@ -137,5 +137,5 @@ After setting the disable status to `true` for a particular user, the server sho
 
 
 !!! info "Related topics"
-	- [Guide: Configure Email Notifications for Account Locking](../../../guides/tenants/email-account-locking/)
+	- [Guide: Configure Email Notifications for Account Locking]({{base_path}}/guides/tenants/email-account-locking/)
 

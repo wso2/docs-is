@@ -1,6 +1,6 @@
 # Enable Login for an OIDC Web Application
 
-This page guides you through enabling login for an [OpenID Connect](../../../references/concepts/authentication/intro-oidc) web application. 
+This page guides you through enabling login for an [OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc) web application. 
 
 ## Register a service provider
 
@@ -27,7 +27,7 @@ Select the service provider you registered from the management console and apply
 4.  Enter `http://wso2is.local:8080/pickup-dispatch/oauth2client` as the **Callback Url**.
     
     !!! Info
-        For more information on the `Callback Url` and other configurations, see [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
+        For more information on the `Callback Url` and other configurations, see [Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
         
 5.  Click **Add**. 
 
@@ -67,7 +67,7 @@ Next, deploy the sample web app on a web container.
 
 2. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
 
-    ![pickup-key-secret-2](../../../assets/img/fragments/pickup-key-secret-2.png)
+    ![pickup-key-secret-2]({{base_path}}/assets/img/fragments/pickup-key-secret-2.png)
 
 3. Next, copy the extracted and modified `pickup-manager` folder to the `<TOMCAT_HOME>/webapps` folder.
 
@@ -154,9 +154,9 @@ You have successfully configured authentication for an OpenID Connect applicatio
 
 
 !!! info "Related topics"
-    - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
-    - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
-    - [Guide: Authorization Code Grant](../../access-delegation/authorization-code/)
-    - [Guide: Manage User Sessions](../session-management-logout)
-    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
-    - [Guide: OpenID Connect Discovery](../oidc-discovery)
+    - [Concept: OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/login/oauth-app-config-advanced)
+    - [Guide: Authorization Code Grant]({{base_path}}/access-delegation/authorization-code/)
+    - [Guide: Manage User Sessions]({{base_path}}/session-management-logout)
+    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/oidc-backchannel-logout)
+    - [Guide: OpenID Connect Discovery]({{base_path}}/oidc-discovery)

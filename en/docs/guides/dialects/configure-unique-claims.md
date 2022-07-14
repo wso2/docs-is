@@ -20,11 +20,11 @@ Follow the steps below to configure WSO2 Identity Server.
 
 3.  From the list of claims, select the claim you want to configure to keep it unique.
 
-    ![select-claim-from-list](../../assets/img/guides/select-claim-from-list.png)
+    ![select-claim-from-list]({{base_path}}/assets/img/guides/select-claim-from-list.png)
 
 4.  Open the claim edit window by clicking the `Edit` button.
 
-    ![claim-edite-window](../../assets/img/guides/claim-edite-window.png)
+    ![claim-edite-window]({{base_path}}/assets/img/guides/claim-edite-window.png)
 
 5.  By clicking `Add Claim Property`, add an additional claim property as follows.
     
@@ -43,7 +43,7 @@ Follow the steps below to configure WSO2 Identity Server.
         </tbody>
     </table>
 
-    ![additional-claim-properties](../../assets/img/guides/additional-claim-properties.png)
+    ![additional-claim-properties]({{base_path}}/assets/img/guides/additional-claim-properties.png)
 
 6.  Finally, click the `Update` button to save the additional claim property.
 

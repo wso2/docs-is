@@ -9,7 +9,7 @@ be logged in as a super user.
 1.  Click **Multitenancy** > **Add New Tenant** in the **Configure** tab of your product's
     management console.
 
-    <img src="../../../assets/img/guides/add-new-tenant.png" width="250" alt="Add a new tenant">
+    <img src="{{base_path}}/assets/img/guides/add-new-tenant.png" width="250" alt="Add a new tenant">
 
 2.  Enter the tenant information in **Register A New Organization**
     screen as follows, and click **Save**.
@@ -31,7 +31,7 @@ be logged in as a super user.
     specific domain, enter the domain name in the **Enter the Tenant
     Domain** parameter and click **Find**.  
     
-    ![View a tenant](../../../assets/img/guides/view-tenant.png) 
+    ![View a tenant]({{base_path}}/assets/img/guides/view-tenant.png) 
 
 !!! note
-    To try out the Tenant Management REST API, refer [here](../../../develop/apis/tenant-management-rest-api).
+    To try out the Tenant Management REST API, refer [here]({{base_path}}/develop/apis/tenant-management-rest-api).

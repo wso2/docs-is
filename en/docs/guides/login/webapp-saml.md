@@ -1,6 +1,6 @@
 # Enable Login for a SAML Web Application
 
-This page guides you through enabling login for a [SAML](../../../references/concepts/authentication/intro-saml/) web application. 
+This page guides you through enabling login for a [SAML]({{base_path}}/references/concepts/authentication/intro-saml/) web application. 
 
 ## Register a service provider
 
@@ -34,7 +34,7 @@ This page guides you through enabling login for a [SAML](../../../references/con
         5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
     
     !!! tip
-        For more information on the advanced configurations, see [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
+        For more information on the advanced configurations, see [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced/).
 
 5.  Click **Register** to save the changes.
 
@@ -68,10 +68,10 @@ Make the following changes to the created service provider.
 
 3. Expand **Inbound Authentication Configuration** and then expand **SAML2 Web SSO Configuration**. Edit the configuration.
 
-4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations](../../guides/login/saml-parameters-in-auth-request).
+4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations]({{base_path}}/guides/login/saml-parameters-in-auth-request).
 
 !!! tip
-     To configure more advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced).
+     To configure more advanced configurations, see [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced).
 
 ----
 
@@ -121,9 +121,9 @@ Deploy this sample web app on a web container.
 You have successfully configured authentication for a SAML application.
 
 !!! info "Related topics"
-    - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)
-    - [Quick Start: SAML Authentication](../../../quick-starts/webapp-saml-sample)
-    - [Guide: Advanced SAML Configurations](../saml-app-config-advanced)
-    - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)
-    - [Guide: SAML Back-Channel Logout](../saml-back-channel-logout)
+    - [Concept: SAML]({{base_path}}/references/concepts/authentication/intro-saml/)
+    - [Quick Start: SAML Authentication]({{base_path}}/quick-starts/webapp-saml-sample)
+    - [Guide: Advanced SAML Configurations]({{base_path}}/saml-app-config-advanced)
+    - [Guide: SAML Front-Channel Logout]({{base_path}}/saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout]({{base_path}}/saml-back-channel-logout)
 

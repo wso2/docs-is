@@ -5,11 +5,11 @@ The password account recovery feature implemented in the WSO2 Identity Server he
 By configuring reCAPTCHA, you can mitigate or block brute force attacks.
 
 !!! info 
-    For more information on setting up password recovery, see [Password Recovery Using Email Verification](../../../guides/password-mgt/recover-password) 
-    and [Password Recovery Using Challenge Question](../../../guides/password-mgt/challenge-question).
+    For more information on setting up password recovery, see [Password Recovery Using Email Verification]({{base_path}}/guides/password-mgt/recover-password) 
+    and [Password Recovery Using Challenge Question]({{base_path}}/guides/password-mgt/challenge-question).
 
     For more information on brute force attacks, see [Mitigating Brute Force
-    Attacks](../../../deploy/mitigate-attacks/mitigate-brute-force-attacks).
+    Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks).
 
 ---
 
@@ -50,18 +50,18 @@ reCAPTCHA for a specific tenant.
 
 5.  Select **Enable reCaptcha for password recovery**.
 
-    ![enable-recaptcha](../../assets/img/guides/enable-recaptcha.png) 
+    ![enable-recaptcha]({{base_path}}/assets/img/guides/enable-recaptcha.png) 
 
 6.  You have now successfully configured reCAPTCHA for the password
     recovery flow. Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
 
 7.  Click **Password**.
     
-    ![forgot-password](../../assets/img/guides/forgotten-password-option.png)
+    ![forgot-password]({{base_path}}/assets/img/guides/forgotten-password-option.png)
 
 8.  You are redirected to the **Recover Password** page where the reCAPTCHA is displayed.
 
-    ![recover-password](../../assets/img/guides/recover-password-with-recaptcha.png)
+    ![recover-password]({{base_path}}/assets/img/guides/recover-password-with-recaptcha.png)
 
 ---
 
@@ -88,14 +88,14 @@ password recovery with reCAPTCHA.
 
 3.  Click **Password**.
 
-    ![forgot-password](../../assets/img/guides/forgotten-password-option.png)
+    ![forgot-password]({{base_path}}/assets/img/guides/forgotten-password-option.png)
 
 4.  You are redirected to the **Recover Password** page where the reCAPTCHA is displayed.
 
-    ![recover-password-with-recaptcha](../../assets/img/guides/recover-password-with-recaptcha.png)
+    ![recover-password-with-recaptcha]({{base_path}}/assets/img/guides/recover-password-with-recaptcha.png)
 
 ---
 
 !!! info "Related topics"
-    - [Guide: Recover password via Email](../../../guides/password-mgt/recover-password)
-    - [Guide: Recover password via Challenge Questions](../../../guides/password-mgt/challenge-question)
+    - [Guide: Recover password via Email]({{base_path}}/guides/password-mgt/recover-password)
+    - [Guide: Recover password via Challenge Questions]({{base_path}}/guides/password-mgt/challenge-question)

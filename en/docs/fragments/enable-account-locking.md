@@ -24,7 +24,7 @@
 4.  Expand the **Login Attempts Security** tab.
 5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
 	
-	![login-policies](../../../assets/img/guides/login-policies.png) 
+	![login-policies]({{base_path}}/assets/img/guides/login-policies.png) 
 
 	!!! tip
 		If a user is assigned the **Internal/system** role, the user can
@@ -38,7 +38,7 @@
 			to a user depending on the set of permission a user needs to have.
 			For more information on roles and permission, see [Configuring Roles
 			and
-			Permissions](../../../guides/identity-lifecycles/manage-roles-overview/)
+			Permissions]({{base_path}}/guides/identity-lifecycles/manage-roles-overview/)
 
 			Although the **Internal/system** role is configured by default in
 			WSO2 Identity Server, you can delete the role if necessary. To allow

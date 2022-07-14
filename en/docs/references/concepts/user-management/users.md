@@ -2,7 +2,7 @@
 
 A user is the digital representation of a physical user who interacts with applications. A user can be a digital identity of a human or a machine. A user can be recognized by a number of attributes. These are called **user attributes**. User attributes are data that defines the user, i.e., anything the user is, owned by, or associated with.
 
-A unique **user account** is created for each user. Then they are assigned roles with a certain set of permissions. Roles and permissions will be discussed in the [next section](../../../references/concepts/user-management/roles-and-permissions.md). 
+A unique **user account** is created for each user. Then they are assigned roles with a certain set of permissions. Roles and permissions will be discussed in the [next section]({{base_path}}/references/concepts/user-management/roles-and-permissions.md). 
 
 In this section, let's look at the various ways users can be configured and managed. 
 
@@ -42,11 +42,11 @@ Employees leave an organization from time to time. When an employee leaves an or
 
 
 !!! info "Related topics" 
-    - [Guide: Add a User](../../../../guides/identity-lifecycles/admin-creation-workflow)
-    - [Guide: View and Update User Profiles](../../../../guides/identity-lifecycles/update-profile)
-    - [Guide: Import Users](../../../../guides/identity-lifecycles/import-users)
-    - [Guide: Search for Users](../../../../guides/identity-lifecycles/search-users)
-    - [Guide: Delete an Existing User](../../../../guides/identity-lifecycles/delete-users)
-    - [Concept: Roles and permissions](../roles-and-permissions)
-    - [Concept: Userstores](../userstores)
-    - [Concept: Realms](../realm)
+    - [Guide: Add a User]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow)
+    - [Guide: View and Update User Profiles]({{base_path}}/guides/identity-lifecycles/update-profile)
+    - [Guide: Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+    - [Guide: Search for Users]({{base_path}}/guides/identity-lifecycles/search-users)
+    - [Guide: Delete an Existing User]({{base_path}}/guides/identity-lifecycles/delete-users)
+    - [Concept: Roles and permissions]({{base_path}}/roles-and-permissions)
+    - [Concept: Userstores]({{base_path}}/userstores)
+    - [Concept: Realms]({{base_path}}/realm)

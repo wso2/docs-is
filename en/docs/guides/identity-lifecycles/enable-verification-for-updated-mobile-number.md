@@ -29,8 +29,8 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
                 <inline>{"api_key"="4c9374",
                     "api_secret"="FtqyPggE93",
                     "from"="NEXMO",
-                    "to"={{send-to}},
-                    "text"={{body}}
+                    "to"={{'{{send-to}}'}},
+                    "text"={{'{{body}}'}}
                     }</inline>
             </mapping>
             <to eventAdapterType="http">
@@ -54,7 +54,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
    
 2.  Select **Enable user mobile number verification on update**. Additionally, you can define the expiry time (in minutes) for the verification SMS OTP to match your requirement. 
     
-    ![Mobile verification on update configuration](../../assets/img/guides/mobile-verification-on-update-config.png)
+    ![Mobile verification on update configuration]({{base_path}}/assets/img/guides/mobile-verification-on-update-config.png)
 
 3.  Click **Update** to save the changes. 
 
@@ -148,7 +148,7 @@ Given below is a sample request and the relevant response to submit the received
     ---
     **Sample Request**
     ```curl
-    curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "123ABC","properties": []}'
+    curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "123{{base_path}}","properties": []}'
     "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
     ```
     ---
@@ -188,6 +188,6 @@ Given below is a sample request and the relevant response to request a new verif
 ---
 
 !!! info "Related topics"
-    See [SCIM 2.0 Rest APIs](../../../develop/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
+    See [SCIM 2.0 Rest APIs]({{base_path}}/develop/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
     
-    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](../../../develop/apis/use-the-self-sign-up-rest-apis/).
+    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs]({{base_path}}/develop/apis/use-the-self-sign-up-rest-apis/).

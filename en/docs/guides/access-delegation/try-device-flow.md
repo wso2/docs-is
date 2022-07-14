@@ -2,7 +2,7 @@
 
 The Device Authorization Grant is a grant type in the OAuth 2.0
 specification. For more information, see
-[Device Authorization Grant](../../references/device-flow-grant).
+[Device Authorization Grant]({{base_path}}/references/device-flow-grant).
 This section guides you on how to try out the Device Authorization grant type.
 
 ## Configure Device Authorization Grant properties during deployment
@@ -99,19 +99,19 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
 3. On the **Main** menu, click **Service Providers** > **Add**.
 
     <!--
-    ![register-service-provider](../assets/img/using-wso2-identity-server/register-service-provider.png)
+    ![register-service-provider]({{base_path}}/assets/img/using-wso2-identity-server/register-service-provider.png)
     -->
 
 4. Provide a name for your application and click **Register**.
     
     <!--
-    ![register-service-provider-name](../assets/img/using-wso2-identity-server/register-sp-name.jpg)
+    ![register-service-provider-name]({{base_path}}/assets/img/using-wso2-identity-server/register-sp-name.jpg)
     -->
 
 5. On the screen that follows, expand **Inbound Authentication Configuration**  > **OAuth/OpenID Connect Configuration** and click **Configure**.
 
     <!--
-    ![register-service-provider-oauth](../assets/img/using-wso2-identity-server/register-sp-oauth.jpg)
+    ![register-service-provider-oauth]({{base_path}}/assets/img/using-wso2-identity-server/register-sp-oauth.jpg)
     -->
 
 6. Select `urn:ietf:params:oauth:grant-type:device_code` to enable device flow grant type. 
@@ -126,7 +126,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
         When configuring with your device, use the client ID as your OAuth client-key.
 
 <!--
-![consumer-key-service-provider-oauth](../assets/img/using-wso2-identity-server/get-oauth-consumer-key.jpg)
+![consumer-key-service-provider-oauth]({{base_path}}/assets/img/using-wso2-identity-server/get-oauth-consumer-key.jpg)
 -->
 
 ## Try it out
@@ -170,18 +170,18 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
 
 2. From a device with no input constraints, access the <code>verification_uri</code> and enter the user code. You can alternatively access the <code>verification_uri_complete</code> link obtained in the response.
 
-    ![device-code-enter](../assets/img/using-wso2-identity-server/device-code-enter.jpg)
+    ![device-code-enter]({{base_path}}/assets/img/using-wso2-identity-server/device-code-enter.jpg)
 
 3. Click **Continue**. If the user code is correct, you will be prompted to enter your credentials.
  
-    ![device-username-password](../assets/img/using-wso2-identity-server/device-username-password.jpg)
+    ![device-username-password]({{base_path}}/assets/img/using-wso2-identity-server/device-username-password.jpg)
 
     !!! info
         A user code is for one time use only. If your code is expired or if you have entered a wrong user code, get a new user code by following the previous steps.
 
 4. Once you log in successfully, you will be redirected to the configured callback URL of the service provider.
 
-    ![device-scopes](../assets/img/using-wso2-identity-server/device-scopes.jpg)
+    ![device-scopes]({{base_path}}/assets/img/using-wso2-identity-server/device-scopes.jpg)
 
 5. The client, who has been polling the **/token** endpoint, receives the access token and the refresh token. To try this, open a terminal window and send the following token request to the authorization server.
     
@@ -218,4 +218,4 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
     </tbody>
     </table>
 
-6. To validate the token that you received, [use the introspection endpoint](../../learn/invoke-the-oauth-introspection-endpoint)
+6. To validate the token that you received, [use the introspection endpoint]({{base_path}}/learn/invoke-the-oauth-introspection-endpoint)

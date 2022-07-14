@@ -80,7 +80,7 @@ The following are some of the advantages you can have with SSO:
 -   User identities are managed at a central point. This is more secure,
     less complex and easily manageable.
 
-For more information on SSO, see [here](../../../references/concepts/single-sign-on).
+For more information on SSO, see [here]({{base_path}}/references/concepts/single-sign-on).
 
 WSO2 Identity Server supports the SAML 2.0
 web browser based SSO profile. WSO2 Identity Server can act as the
@@ -169,7 +169,7 @@ Specification](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.p
 
 The following diagram illustrates the scenario:
 
-![SAML 2.0 web browser-based SSO profile flow](../../assets/img/references/sso-profile.png)
+![SAML 2.0 web browser-based SSO profile flow]({{base_path}}/assets/img/references/sso-profile.png)
 
 ---
 

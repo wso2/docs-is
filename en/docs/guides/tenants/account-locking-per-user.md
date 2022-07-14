@@ -3,7 +3,7 @@
 An admin user can lock and unlock functionalities on a per-user basis. This allows for fine-grained control over functionalities that a particular user is allowed to use. This page guides you through configuring per-user functionality locking for the security-question-based password recovery functionality with WSO2 Identity Server using the OSGi service. 
 
 !!! tip
-    This can also be done using the [User Functionality Management REST APIs](../../develop/user-functionality-mgt-rest-api/). Using the REST API is the recommended approach. 
+    This can also be done using the [User Functionality Management REST APIs]({{base_path}}/develop/user-functionality-mgt-rest-api/). Using the REST API is the recommended approach. 
 
 ---
 
@@ -23,7 +23,7 @@ LockoutTime = 5
 TimeoutRatio = 2
 ```
 
-To store these configurations for per-user functionality locking, you must first define a resource type using the [Configuration Management REST APIs](../../develop/using-the-configuration-management-rest-apis). Sample requests and responses are given below. 
+To store these configurations for per-user functionality locking, you must first define a resource type using the [Configuration Management REST APIs]({{base_path}}/develop/using-the-configuration-management-rest-apis). Sample requests and responses are given below. 
 
 1. Create a new resource type called `functionalityLock` in the configuration store. 
 

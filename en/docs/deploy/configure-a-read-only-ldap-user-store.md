@@ -4,7 +4,7 @@ WSO2 identity server uses an embedded Read/Write LDAP as the primary userstore.
 This document will guide you to change that to a Read-Only LDAP userstore.
 
 !!! tip 
-    Refer [Configure userstores](../../../deploy/configure-user-stores) to get a high-level understanding of the userstores available in WSO2
+    Refer [Configure userstores]({{base_path}}/deploy/configure-user-stores) to get a high-level understanding of the userstores available in WSO2
     Identity Server (WSO2 IS).
 
 ---
@@ -59,10 +59,10 @@ Following are the minimum userstore properties that are required to configure th
 <br />
 If you are connecting over ldaps (secured LDAP).<br />
 you need to import the certificate of the userstore to <code><&ZeroWidthSpace;IS_HOME>/repository/resources/security/client-truststore.jks</code>. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see <br />
-<a href="../../../deploy/security/use-asymmetric-encryption">Use asymmetric encryption</a><br />
+<a href="{{base_path}}/deploy/security/use-asymmetric-encryption">Use asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see<br />
-<a href="../../../deploy/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling.</a></p></td>
+<a href="{{base_path}}/deploy/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling.</a></p></td>
 </tr>
 <tr class="odd">
 <td>ConnectionName</td>
@@ -139,7 +139,7 @@ read_groups = true
 <td><p>This is a uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
-Note: email address is considered as a special case in, if you want to set the email address as username, see <a href="../../../guides/identity-lifecycles/enable-email-as-username/">Enable using email address as the username.</a></p></td>
+Note: email address is considered as a special case in, if you want to set the email address as username, see <a href="{{base_path}}/guides/identity-lifecycles/enable-email-as-username/">Enable using email address as the username.</a></p></td>
 </tr>
 <tr class="odd">
 <td>UserIDAttribute</td>
@@ -455,12 +455,12 @@ create_admin_account = false
     primary userstore, the user that should have admin permissions is required to be stored in the userstore when you start the system for the first time. For example, say a valid username is AdminSOA.
     Update the `         username       ` section of your configuration as shown above. You do not have to update the password element as it is already set in the userstore.  
 
-For information about the system administrator user, see [Configure the System Administrator](../../../deploy/configure-the-system-administrator), and for
-information on how keystores are used in WSO2 Identity Server, see [Use Asymmetric Encryption](../../../deploy/security/use-asymmetric-encryption).  
+For information about the system administrator user, see [Configure the System Administrator]({{base_path}}/deploy/configure-the-system-administrator), and for
+information on how keystores are used in WSO2 Identity Server, see [Use Asymmetric Encryption]({{base_path}}/deploy/security/use-asymmetric-encryption).  
 
 !!! info "Related topics"
-    -   [Deploy: Configure the Primary Userstore](../../../deploy/configure-the-primary-user-store)
-    -   [Deploy: Configure Secondary Userstores](../../../deploy/configure-secondary-user-stores)
+    -   [Deploy: Configure the Primary Userstore]({{base_path}}/deploy/configure-the-primary-user-store)
+    -   [Deploy: Configure Secondary Userstores]({{base_path}}/deploy/configure-secondary-user-stores)
 
 
   

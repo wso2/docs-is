@@ -15,5 +15,5 @@
 3.	Click **Register**
 
 
-    ![simplesamlphp-sp.png](../../../assets/img/fragments/simplesamlphp-sp.png)
+    ![simplesamlphp-sp.png]({{base_path}}/assets/img/fragments/simplesamlphp-sp.png)
 

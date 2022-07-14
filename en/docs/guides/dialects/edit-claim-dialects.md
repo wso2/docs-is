@@ -9,14 +9,14 @@ You can edit existing dialects by clicking on any available dialect link. Follow
 1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 2.  Navigate to **Main** > **Identity** > **Claims** > **List**. 
 3.  Click on any available dialect links.  
-    ![dialect-links](../../../assets/img/guides/dialect-links.png)
+    ![dialect-links]({{base_path}}/assets/img/guides/dialect-links.png)
 4.  From the **Claim Dialect** view, you can view the claims defined for
     that particular dialect. If you need to edit a claim, click on the
     appropriate **Edit** link.  
-    ![edit-claim-link](../../../assets/img/guides/edit-claim-link.png)
+    ![edit-claim-link]({{base_path}}/assets/img/guides/edit-claim-link.png)
 5.  Enter the new claim information in the required fields and click on
     the **Update** button.  
-    ![update-local-claim](../../../assets/img/guides/update-local-claim.png) 
+    ![update-local-claim]({{base_path}}/assets/img/guides/update-local-claim.png) 
 
     | Attribute            | Description                                                                | Sample value                                                                                                                       |
     |----------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,5 +60,5 @@ dialect is given below.
     
 !!! info "Relqted Topics" 
 
-    - [Guides: Add Claim Dialects](../../../guides/dialects/add-claim-dialects)
-    - [Concepts: Claim Management](../../../references/concepts/claim-management)
+    - [Guides: Add Claim Dialects]({{base_path}}/guides/dialects/add-claim-dialects)
+    - [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management)

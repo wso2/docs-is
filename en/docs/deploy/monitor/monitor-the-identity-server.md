@@ -17,13 +17,13 @@ topics:
 -   Workflow Requests
 
 !!! info "Related topics" 
-    -   [Monitor Logs](../../../deploy/monitor/monitor-logs)
-    -   [System Statistics](../../../deploy/monitor/system-statistics)
-    -   [Monitor TCP-Based Messages](../../../deploy/monitor/monitor-tcp-based-messages)
-    -   [Monitor Server Health](../../../deploy/monitor/monitor-server-health)
-    -   [JMX-Based Monitoring](../../../deploy/monitor/jmx-based-monitoring)   
-    -   [Product observability](../../../deploy/monitor/work-with-product-observability/) 
-    -   [Troubleshooting guide](../../../deploy/monitor/troubleshoot-in-production-environments)   
-    <!---   For information on monitoring workflows, see [Monitoring Workflow Requests](../../../guides/workflows/monitoring-workflow-requests).-->
+    -   [Monitor Logs]({{base_path}}/deploy/monitor/monitor-logs)
+    -   [System Statistics]({{base_path}}/deploy/monitor/system-statistics)
+    -   [Monitor TCP-Based Messages]({{base_path}}/deploy/monitor/monitor-tcp-based-messages)
+    -   [Monitor Server Health]({{base_path}}/deploy/monitor/monitor-server-health)
+    -   [JMX-Based Monitoring]({{base_path}}/deploy/monitor/jmx-based-monitoring)   
+    -   [Product observability]({{base_path}}/deploy/monitor/work-with-product-observability/) 
+    -   [Troubleshooting guide]({{base_path}}/deploy/monitor/troubleshoot-in-production-environments)   
+    <!---   For information on monitoring workflows, see [Monitoring Workflow Requests]({{base_path}}/guides/workflows/monitoring-workflow-requests).-->
 
 

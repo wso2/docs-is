@@ -6,9 +6,9 @@ attacks.
 
 !!! Info 
     -   For more information on configuring single sign-on, see [Configuring
-    Single Sign-On](../../../guides/login/enable-single-sign-on/).
+    Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on/).
     -   For more information on brute force attacks, see [Mitigating Brute
-    Force Attacks](../../../deploy/mitigate-attacks/mitigate-brute-force-attacks/).
+    Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks/).
 
 {! fragments/configure-recaptcha-api-keys.md !}
 
@@ -22,8 +22,8 @@ attacks.
 {! fragments/configure-recaptcha-for-sso.md !}
 
 !!! Info
-     If the user exceeds the maximum allowed failed login attempts as well, be sure to [configure email notifications for account locking](../../../guides/tenants/email-account-locking).
+     If the user exceeds the maximum allowed failed login attempts as well, be sure to [configure email notifications for account locking]({{base_path}}/guides/tenants/email-account-locking).
     
 
 !!! info "Related topics"
-    - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
+    - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)

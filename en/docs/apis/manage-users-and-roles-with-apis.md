@@ -6,7 +6,7 @@
     WSO2 Identity Server and is recommended for user store management. For
     more information on using the SCIM 2.0 REST APIs instead of the SOAP
     service given below, see [SCIM 2.0 REST
-    APIs](../scim2-rest-apis/).
+    APIs]({{base_path}}/scim2-rest-apis/).
     
 
 This section guides you through invoking and working with the
@@ -36,7 +36,7 @@ default. Follow the steps below to view and invoke it:
     <https://localhost:9443/services/RemoteUserStoreManagerService?wsdl>
 
 For more information on WSO2 admin services and how to invoke an admin
-service using either SoapUI or any other client program, see [Call Admin Services](../../apis/call-admin-services).
+service using either SoapUI or any other client program, see [Call Admin Services]({{base_path}}/apis/call-admin-services).
 
 ---
 

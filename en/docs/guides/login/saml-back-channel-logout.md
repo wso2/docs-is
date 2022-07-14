@@ -1,6 +1,6 @@
 # Configure SAML 2.0 Back-Channel Logout
 
-This page guides you through [SAML 2.0 back-channel logout](../../../references/concepts/authentication/saml-back-channel/) for applications with WSO2 Identity Server. This will ensure that the user is logged out from all configured applications with a single logout request via one of the applications.
+This page guides you through [SAML 2.0 back-channel logout]({{base_path}}/references/concepts/authentication/saml-back-channel/) for applications with WSO2 Identity Server. This will ensure that the user is logged out from all configured applications with a single logout request via one of the applications.
 
 ---
 
@@ -42,7 +42,7 @@ You need to register the two sample applications as service providers in WSO2 Id
         -   **Enable Signature Validation in Authentication Requests and Logout Requests**
     
     !!! tip
-        For more information on the advanced configurations, see [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
+        For more information on the advanced configurations, see [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced/).
 
 5.  Click **Register** to save the changes.  
 
@@ -74,7 +74,7 @@ You need to register the two sample applications as service providers in WSO2 Id
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced).
+        refer, [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced).
 
 5.  Click **Register** to save the changes.
 
@@ -110,21 +110,21 @@ Once you have configured all your applications, access them on separate tabs in 
 
 2.  Log in using admin/admin credentials. 
 
-    ![Pickup Dispatch home page](../../assets/img/samples/pickup-dispatch.png)
+    ![Pickup Dispatch home page]({{base_path}}/assets/img/samples/pickup-dispatch.png)
 
 3.  Access the Pickup Manager application, `http://localhost.com:8080/saml2-web-app-pickup-manager.com/index.jsp`.
 
 4.  Log in using admin/admin credentials. 
 
-    ![Pickup Manager home page](../../assets/img/samples/pickup-manager.png)
+    ![Pickup Manager home page]({{base_path}}/assets/img/samples/pickup-manager.png)
 
 5.  Now log out of the Pickup Dispatch application. 
 
 6.  You can see that you have been logged out of the Pickup Manager application as well. 
 
-    ![Logout message](../../assets/img/samples/backchannel-logout.png) 
+    ![Logout message]({{base_path}}/assets/img/samples/backchannel-logout.png) 
 
 ---
 
 !!! info "Related topics"
-    -   [Concept: SAML 2.0 back-channel logout](../../../references/concepts/authentication/saml-back-channel/)
+    -   [Concept: SAML 2.0 back-channel logout]({{base_path}}/references/concepts/authentication/saml-back-channel/)

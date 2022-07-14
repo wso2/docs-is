@@ -29,7 +29,7 @@ The instructions given below guide you through creating a new LDAP database and 
 
 5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **userstore-Based**.  
 
-    ![Userstore based authentication template](../../assets/img/samples/user-store-based-template.png)
+    ![Userstore based authentication template]({{base_path}}/assets/img/samples/user-store-based-template.png)
 
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. 
@@ -45,10 +45,10 @@ The instructions given below guide you through creating a new LDAP database and 
         `fido` authenticators from Step 2 (the
         second authentication step).
         
-        ![Delete authenticators](../../assets/img/samples/delete-authenticators.png)
+        ![Delete authenticators]({{base_path}}/assets/img/samples/delete-authenticators.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![Add new authenticator](../../assets/img/samples/add-new-authenticator.png)
+        ![Add new authenticator]({{base_path}}/assets/img/samples/add-new-authenticator.png)
 
 8.  Click **Update**.
 
@@ -73,7 +73,7 @@ The instructions given below guide you through creating a new LDAP database and 
 
 3. Create a userstore named `EMPLOYEES`. 
 
-    ![Add a secondary userstore](../../assets/img/samples/add-secondary-user-store.png)
+    ![Add a secondary userstore]({{base_path}}/assets/img/samples/add-secondary-user-store.png)
 
 3. Configure the following userstore properties. 
 
@@ -87,13 +87,13 @@ The instructions given below guide you through creating a new LDAP database and 
     - **User ID Attribute:** uid
     - **User ID Search Filter:** (&(objectClass=person)(uid=?))
 
-    ![Userstore properties](../../assets/img/samples/configure-secondary-user-store.png)
+    ![Userstore properties]({{base_path}}/assets/img/samples/configure-secondary-user-store.png)
 
-    For more information, see [Userstore Configurations](../../deploy/configure-secondary-user-stores/).
+    For more information, see [Userstore Configurations]({{base_path}}/deploy/configure-secondary-user-stores/).
 
 4. Expand the **Optional** tab and enter `ou=groups,ou=system` as the **Group Search Base** property.
 	
-    ![Group search base property](../../assets/img/samples/group-search-base-property.png)
+    ![Group search base property]({{base_path}}/assets/img/samples/group-search-base-property.png)
 
 5. Click **Update** to save the configurations.
 
@@ -105,13 +105,13 @@ The instructions given below guide you through creating a new LDAP database and 
 
     Select `PRIMARY` as the **Domain** when creating the user.
 
-    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/).
+    For instructions, see [Add a User]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/).
 
 2.  Create another new user named "Kim" in the `EMPLOYEES ` userstore. 
 
     Select `EMPLOYEES` as the **Domain** when creating the user. 
 
-    ![Create a user in EMPLOYEES secondary userstore](../../assets/img/samples/creating-users.png)
+    ![Create a user in EMPLOYEES secondary userstore]({{base_path}}/assets/img/samples/creating-users.png)
 
 ----
 
@@ -131,12 +131,12 @@ The instructions given below guide you through creating a new LDAP database and 
  
 4. Enter the 4-digit key and click **Sign In**.  
     
-    ![hardware-key-authenticator](../../assets/img/samples/hardware-key-authenticator.png)  
+    ![hardware-key-authenticator]({{base_path}}/assets/img/samples/hardware-key-authenticator.png)  
     
 5. Provide consent and you will be successfully logged in to the
     application.  
     
-    ![user-store-pickup-homepage](../../assets/img/samples/user-store-pickup-homepage.png)
+    ![user-store-pickup-homepage]({{base_path}}/assets/img/samples/user-store-pickup-homepage.png)
 
     !!! tip
         Ensure that the LDAP server in Apache DS is running when attempting to log in as Kim.

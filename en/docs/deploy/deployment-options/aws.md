@@ -148,9 +148,9 @@ You can access the WSO2 Identity Server Management Console by clicking on the **
 
 !!! info "Related topics"
 
-    -  [Deploy: Working with different databases](../../../deploy/work-with-databases)
-    -  [Deploy: Configure Userstores](../../../deploy/configure-user-stores)
-    -  [Deploy: Configure the Realm](../../../deploy/configure-the-realm)
+    -  [Deploy: Working with different databases]({{base_path}}/deploy/work-with-databases)
+    -  [Deploy: Configure Userstores]({{base_path}}/deploy/configure-user-stores)
+    -  [Deploy: Configure the Realm]({{base_path}}/deploy/configure-the-realm)
 
 
 

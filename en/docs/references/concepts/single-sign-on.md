@@ -16,9 +16,9 @@ Within a single sign-on system, there are two main entities; the applications an
 
 The identity provider is responsible for authenticating the user and issuing an assertion or access token, which contains authentication data, authorization data, and attributes related to the user. The connected application trusts the assertion or access token issued by the identity provider and uses it to authenticate the user to the application. 
 
-<img name='sso-diagram' src='../../../assets/img/concepts/sso-diagram.png' class='img-zoomable' alt="SSO flow"/>
+<img name='sso-diagram' src='{{base_path}}/assets/img/concepts/sso-diagram.png' class='img-zoomable' alt="SSO flow"/>
 
-Authentication requests and information are passed using standard, secure protocols, such as [SAML](../authentication/intro-saml) or [OpenID Connect](../authentication/intro-oidc/). 
+Authentication requests and information are passed using standard, secure protocols, such as [SAML]({{base_path}}/authentication/intro-saml) or [OpenID Connect]({{base_path}}/authentication/intro-oidc/). 
 
 <!---
 !!! tip
@@ -49,16 +49,16 @@ For instance, you can set up Google as a federated authenticator and then set up
 
 !!! info
     <!--- - For a more detailed comparison of SSO and Federation, see [SSO vs. Federation](TODO:link-to-concept).
-    - --> For more information on Identity Federation on its own (without SSO), see [Identity Federation](../identity-federation).
+    - --> For more information on Identity Federation on its own (without SSO), see [Identity Federation]({{base_path}}/identity-federation).
 
 
 !!! info "Related topics"
-    - [Concept: Authentication](../authentication/intro-authentication)
-    - [Concept: SAML](../authentication/intro-saml)
-    - [Concept: OpenID Connect](../authentication/intro-oidc)
-    - [Guide: Single Sign-On](../../../guides/login/enable-single-sign-on)
-    - [Quick Start: SSO for OpenID Connect apps](../../../quick-starts/sso-for-oidc-apps/)
-    - [Quick Start: SSO for SAML apps](../../../quick-starts/sso-for-saml-apps/)
+    - [Concept: Authentication]({{base_path}}/authentication/intro-authentication)
+    - [Concept: SAML]({{base_path}}/authentication/intro-saml)
+    - [Concept: OpenID Connect]({{base_path}}/authentication/intro-oidc)
+    - [Guide: Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on)
+    - [Quick Start: SSO for OpenID Connect apps]({{base_path}}/quick-starts/sso-for-oidc-apps/)
+    - [Quick Start: SSO for SAML apps]({{base_path}}/quick-starts/sso-for-saml-apps/)
     <!--- - [Guide: Single Logout](TODO:link-to-guide) -->
 
 

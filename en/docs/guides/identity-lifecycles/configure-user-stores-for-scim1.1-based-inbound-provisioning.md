@@ -1,6 +1,6 @@
 # Configuring User Stores for SCIM 1.1 based inbound provisioning
 
-WSO2 Identity server supports inbound provisioning based on both SCIM 1.1 and SCIM 2.0. This document provides the additional steps that need to be followed if you are using SCIM 1.1 for inbound provisioning. If you need more information on SCIM 2.0 APIs, see [SCIM APIs](../../develop/scim-1.1-apis).
+WSO2 Identity server supports inbound provisioning based on both SCIM 1.1 and SCIM 2.0. This document provides the additional steps that need to be followed if you are using SCIM 1.1 for inbound provisioning. If you need more information on SCIM 2.0 APIs, see [SCIM APIs]({{base_path}}/develop/scim-1.1-apis).
 
 When a user or a group is created with SCIM, there is a set of mandatory
 SCIM  claim values that need to be saved along with the user or group.
@@ -17,7 +17,7 @@ comes with IS), you need to map how these values are stored in your user
 store. This mapping can be done using the claim mapping setup in the
 Identity Server. This mapping can be done in the claim mapping setup in
 the Identity Server. You can find Active directory specific claim
-configuration in [Configuring Active Directory User Stores for Inbound Provisioning](../../learn/configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning).
+configuration in [Configuring Active Directory User Stores for Inbound Provisioning]({{base_path}}/learn/configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning).
 
 Now let's assume you have an AD user store as the primary user store and
 you have done the claim mappings for the SCIM attributes. Then you need
@@ -28,22 +28,22 @@ the secondary user store. For this, you need to change the "Mapped
 Attribute" value as indicated below.
 
 1. Log in to the WSO2 Identity Server and access the [management
-    console](../../setup/getting-started-with-the-management-console).
+    console]({{base_path}}/setup/getting-started-with-the-management-console).
 2. In the **Main** menu of the management console, click **List** under
     **Claims**. For more information on configuring claims, see [Claim
-    Management](../../learn/claim-management). Click on **urn:scim:schemas:core:1.0** claim dialect and find the
+    Management]({{base_path}}/learn/claim-management). Click on **urn:scim:schemas:core:1.0** claim dialect and find the
     mapped local claim to the SCIM claim that you need to edit.
-    <!--![claim](../assets/img/learn/claim.png)-->
+    <!--![claim]({{base_path}}/assets/img/learn/claim.png)-->
 
-3. You can alternatively [Add a New Claim](../../learn/adding-claim-mapping) if the claim
+3. You can alternatively [Add a New Claim]({{base_path}}/learn/adding-claim-mapping) if the claim
     you wish to modify is not available.
-    <!--![add-claim](../assets/img/learn/add-claim.png)-->
-    <!--![available-claims](../assets/img/learn/available-claims.png)-->
+    <!--![add-claim]({{base_path}}/assets/img/learn/add-claim.png)-->
+    <!--![available-claims]({{base_path}}/assets/img/learn/available-claims.png)-->
 
 4. Once you find the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
 
 5. Click **Edit** and modify the Mapped Attribute field in the resulting page.  
-    <!--![update-local-claim](../assets/img/learn/update-local-claim.png)-->
+    <!--![update-local-claim]({{base_path}}/assets/img/learn/update-local-claim.png)-->
 
 Here we have configure a claim attribute mapping for primary user store,
 if you have a secondary user store you need to add another mapping for
@@ -52,7 +52,7 @@ values for user store domain name and mapped attribute.
 
 !!! info
     For information about Local Claim Dialect attributes, click
-    [here](../../learn/adding-claim-mapping).
+    [here]({{base_path}}/learn/adding-claim-mapping).
 
 Now you can perform SCIM operations, See the samples cURL commands used
 to secondary user store as below. Here, **demo** is the secondary user

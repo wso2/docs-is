@@ -15,6 +15,6 @@ Use the  `         <IS_HOME>/bin/chpasswd.sh        ` script.
 
 ## Log in with an email address
 
-You can configure WSO2 Identity Server to authenticate users using an email address instead of a username. Refer [Enable Using Email Address as the Username](../../../guides/identity-lifecycles/enable-email-as-username) for further information.
+You can configure WSO2 Identity Server to authenticate users using an email address instead of a username. Refer [Enable Using Email Address as the Username]({{base_path}}/guides/identity-lifecycles/enable-email-as-username) for further information.
 
 

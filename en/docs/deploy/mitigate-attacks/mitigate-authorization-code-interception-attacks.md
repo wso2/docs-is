@@ -3,7 +3,7 @@
 The following sections describe the impact of the code interception
 attack and the approaches you can use to mitigate it. You may need to
 mitigate these kind of attacks when creating an OAuth application that
-uses the [Authorization Code Grant](../../../guides/access-delegation/authorization-code/) type for
+uses the [Authorization Code Grant]({{base_path}}/guides/access-delegation/authorization-code/) type for
 authentication.
 
 ---
@@ -67,7 +67,7 @@ following diagram.
     and select the legitimate application. However, some operating systems
     (such as iOS) do not have any such scheme.
 
-![Authorization code grant type flow](../../../assets/img/deploy/authorization-code-grant-type-flow.png) 
+![Authorization code grant type flow]({{base_path}}/assets/img/deploy/authorization-code-grant-type-flow.png) 
 
 ---
 
@@ -125,10 +125,10 @@ steps below to do this.
     **Configure**.
 3.  Select the **PKCE Mandatory** checkbox and the **Support PKCE
     'Plain' Transform Algorithm** checkbox to enable PKCE.  
-    ![](../../../assets/img/deploy/register-a-new-application.png)
+    ![]({{base_path}}/assets/img/deploy/register-a-new-application.png)
 
 
 !!! info "Related topics" 
-    -   See [Try Authorization Code Grant](../../../quick-starts/auth-code-playground/)
+    -   See [Try Authorization Code Grant]({{base_path}}/quick-starts/auth-code-playground/)
         to try out PKCE with the authorization code grant type using the
         WSO2 Playground web application.

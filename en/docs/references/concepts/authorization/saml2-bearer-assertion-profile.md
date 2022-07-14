@@ -35,8 +35,8 @@ token to the authorization server and exchanging it directly to an OAuth
 2.0 access token.
 
 
-![SAML 2.0 flow](../../../assets/img/concepts/saml-2.0-flow.jpg)
+![SAML 2.0 flow]({{base_path}}/assets/img/concepts/saml-2.0-flow.jpg)
 
 !!! info "Related topics"
-        - [Guide: Set Up SAML2 Bearer Assertion Profile](../../../../guides/access-delegation/saml2-bearer-assertion-profile)
-        - [Quick Start: Set Up SAML2 Bearer Assertion Profile](../../../../quick-starts/saml2-bearer-assertion-profile)
+        - [Guide: Set Up SAML2 Bearer Assertion Profile]({{base_path}}/guides/access-delegation/saml2-bearer-assertion-profile)
+        - [Quick Start: Set Up SAML2 Bearer Assertion Profile]({{base_path}}/quick-starts/saml2-bearer-assertion-profile)

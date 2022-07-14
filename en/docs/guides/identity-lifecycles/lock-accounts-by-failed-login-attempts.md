@@ -110,7 +110,7 @@ tenants.
     by setting the <strong>Account Unlock Time</strong> period.
     
     If the lock time is set to 0, the account has to be unlocked by an admin
-    user. For more information about this, see [Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account/).
+    user. For more information about this, see [Lock and Unlock User Accounts]({{base_path}}/guides/identity-lifecycles/lock-account/).
 ---
 
 ## Send email notifications for account locking
@@ -129,7 +129,7 @@ failed login attempts. To configure this, follow the steps below.
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
         how to do this, see [Customize Automated
-        Emails](../../../guides/tenants/customize-automated-mails).
+        Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
 
 WSO2 Identity Server uses separate email templates for notifying,
@@ -137,7 +137,7 @@ WSO2 Identity Server uses separate email templates for notifying,
 - Account locking by exceeding `Maximum Failed Login Attempts`
 - Account unlocking by exceeding `Account Unlock Time`
 
-Add the following email templates by referring to the instructions in [Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
+Add the following email templates by referring to the instructions in [Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
 Following are the sample email templates.
 
@@ -169,10 +169,10 @@ Following are the sample email templates.
             <tr>
                <td style="text-align: left; padding: 0px 50px;" valign="top">
                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                     Hi {{user.claim.givenname}},
+                     Hi {{'{{user.claim.givenname}}'}},
                   </p>
                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                     Please note that the account registered with the user name <b>{{user-name}}</b> has been locked. Please try again later. <br>
+                     Please note that the account registered with the user name <b>{{'{{user-name}}'}}</b> has been locked. Please try again later. <br>
                   </p>
                </td>
             </tr>
@@ -228,10 +228,10 @@ Following are the sample email templates.
            <tr>
                <td style="text-align: left; padding: 0px 50px;" valign="top">
                    <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                       Hi {{user.claim.givenname}},
+                       Hi {{'{{user.claim.givenname}}'}},
                    </p>
                    <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                       Please note that the account registered with the user name <b>{{user-name}}</b> has been unlocked automatically as locked time exceeded.  <br>
+                       Please note that the account registered with the user name <b>{{'{{user-name}}'}}</b> has been unlocked automatically as locked time exceeded.  <br>
                    </p>
                </td>
            </tr>
@@ -284,7 +284,7 @@ First, you need to configure the WSO2 Identity Server for user account locking a
 
         !!! note
             Since `BackupCode = true` in the default configuration, configure the backup code claim. <!--according to 
-            [Configuring Backup Codes for SMSOTP](../../../guides/mfa/2fa-sms-otp/)-->
+            [Configuring Backup Codes for SMSOTP]({{base_path}}/guides/mfa/2fa-sms-otp/)-->
             Alternatively, you can disable the backup codes for SMS OTP by setting the property to **false**.
 
             ```
@@ -325,6 +325,6 @@ To check this via the user profile:
         3. Navigate to the relevant user's user profile and you will see that the attribute has been updated.
 
 !!! info "Related topics"
-    <!---   [Guides: Configure SMS OTP for 2-Factor Authentication](../../../guides/mfa/2fa-sms-otp/)-->
-    -   [Guides: Customize Automated Emails](../../../guides/tenants/customize-automated-mails)
-    -   [Guides: Lock and Unlock User Accounts](../../../guides/identity-lifecycles/lock-account)
+    <!---   [Guides: Configure SMS OTP for 2-Factor Authentication]({{base_path}}/guides/mfa/2fa-sms-otp/)-->
+    -   [Guides: Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails)
+    -   [Guides: Lock and Unlock User Accounts]({{base_path}}/guides/identity-lifecycles/lock-account)

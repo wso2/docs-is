@@ -19,7 +19,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "../restapis/claim-management.yaml",
+     url: "{{base_path}}/restapis/claim-management.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
