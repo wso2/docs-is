@@ -1,4 +1,4 @@
-# Introduction
+# Registering a service provider
 
 You can connect your application with Identity Server and control the way users login into your app. This guide provides instructions on how to add and configure a [service provider](../../get-started/architecture#service-provider-section) to Identity Server through the management console.
 

@@ -1,4 +1,4 @@
-# Introduction
+# Configuring inbound authentication for a service provider
 
 The inbound authenticator component of WSO2 Identity Server identifies
 and parses all the incoming authentication requests and builds the
