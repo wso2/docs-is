@@ -10,7 +10,7 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
+{!./includes/adaptive-auth-samples.md!}
 
 ----
 

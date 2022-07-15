@@ -56,11 +56,11 @@ To enable OIDC back-channel logout, the relying party/client application needs t
         
         ![oidc-logout-url]({{base_path}}/assets/img/guides/oidc-logout-url.png)
 
-- If you are using a different identity provider, use the [OpenID Connect discovery]({{base_path}}/oidc-discovery) endpoint to obtain the OpenID Provider's logout endpoint URL. The logout endpoint URL can be discovered using the `end_session_endpoint` parameter in the OIDC Discovery response.
+- If you are using a different identity provider, use the [OpenID Connect discovery]({{base_path}}/guides/login/oidc-discovery) endpoint to obtain the OpenID Provider's logout endpoint URL. The logout endpoint URL can be discovered using the `end_session_endpoint` parameter in the OIDC Discovery response.
 
 ## Configure back-channel single logout
 
-{!fragments/edit-oauth-oidc-configs.md!}
+{!./includes/edit-oauth-oidc-configs.md!}
 
 5. Select **Enable OIDC Backchannel Logout** and enter the Logout URL as `http://localhost:8080/playground2/bclogout`.
 

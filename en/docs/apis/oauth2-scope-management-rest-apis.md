@@ -25,7 +25,7 @@ see [OIDC Scope Management REST APIs]({{base_path}}/oidc-scope-management-rest-a
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/restapis/api.identity.oauth2.scope.endpoint.yaml",
+     url: "{{base_path}}/apis/restapis/api.identity.oauth2.scope.endpoint.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

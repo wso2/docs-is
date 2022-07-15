@@ -56,7 +56,7 @@ dialect is given below.
 
 !!! note
     
-    {! fragments/claim-config-note.md !}
+    {!./includes/claim-config-note.md !}
     
 !!! info "Relqted Topics" 
 

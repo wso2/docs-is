@@ -24,7 +24,7 @@ First, register two service providers in WSO2 Identity Server.
 
 ## Configure travelocity application
 
-{!fragments/travelocity.md!}
+{!./includes/travelocity.md!}
 
 ## Configure avis application
 

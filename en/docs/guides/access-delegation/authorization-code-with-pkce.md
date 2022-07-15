@@ -8,13 +8,13 @@ to configure authentication for native mobile applications.
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ---
 
 ## Configure the service provider
 
-{!fragments/oauth-app-pkce.md!}
+{!./includes/oauth-app-pkce.md!}
 
 ----
 
@@ -95,5 +95,5 @@ Make the following requests via your application to connect your application to 
     
 !!! info "Related topics"
     - [Deploy: Mitigate Authorization Code Interception Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)
-    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/login/oauth-app-config-advanced)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
     

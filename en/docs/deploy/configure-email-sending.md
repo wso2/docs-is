@@ -39,5 +39,5 @@ This document explains the steps to configure WSO2 Identity Server to send email
 3. Re-start the server once configurations are in place.
 
 !!! note 
-    {! fragments/google-two-factor.md !}
+    {!./includes/google-two-factor.md !}
     

@@ -155,8 +155,8 @@ You have successfully configured authentication for an OpenID Connect applicatio
 
 !!! info "Related topics"
     - [Concept: OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc)
-    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/login/oauth-app-config-advanced)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
     - [Guide: Authorization Code Grant]({{base_path}}/access-delegation/authorization-code/)
     - [Guide: Manage User Sessions]({{base_path}}/session-management-logout)
     - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/oidc-backchannel-logout)
-    - [Guide: OpenID Connect Discovery]({{base_path}}/oidc-discovery)
+    - [Guide: OpenID Connect Discovery]({{base_path}}/guides/login/oidc-discovery)

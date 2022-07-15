@@ -4,11 +4,11 @@ This page guides you through configuring [two-factor authentication]({{base_path
 
 ----
 
-{!fragments/connect-sms-provider.md!}
+{!./includes/connect-sms-provider.md!}
 
 ----
 
-{!fragments/register-an-identity-provider.md!}
+{!./includes/register-an-identity-provider.md!}
 
 ----
 
@@ -211,7 +211,7 @@ WSO2 IS.
 
 ## Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 4. Expand **Claim configuration**.
  

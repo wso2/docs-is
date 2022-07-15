@@ -1,7 +1,7 @@
 # User Information Recovery
 
 !!! warning
-    The functionalities enabled by this SOAP API are available with the [Account Recovery REST APIs]({{base_path}}/restapis/using-the-account-recovery-rest-apis/) 
+    The functionalities enabled by this SOAP API are available with the [Account Recovery REST APIs]({{base_path}}/apis/restapis/using-the-account-recovery-rest-apis/) 
     with better performance. Note that it is recommended to use REST APIs wherever possible.
 
 The **User Information Recovery API** enables recovering user information during user authentication through various features such as captcha and challenge questions.

@@ -51,7 +51,7 @@ behalf of the requesting party.
 
 ## Configure service provider to act as the resource server
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ### Basic OAuth/OpenID Connect configuration
 
@@ -79,13 +79,13 @@ behalf of the requesting party.
     
 ## Configure service provider to act as the client
     
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ### Basic OAuth/OpenID Connect configuration
 
-{!fragments/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+{!./includes/oauth-app-config-advanced-tip.md!}
 
 <!--- Note down the **Client ID** and **Client Secret** values. You need those
 values to obtain the Protection API Access Token (PAT). -->

@@ -12,19 +12,19 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ## Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
 ## Basic OAuth/OpenID Connect configuration
 
-{!fragments/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+{!./includes/oauth-app-config-advanced-tip.md!}
 
 ## Add the adaptive authentication script
 
-{!fragments/add-adaptive-acr-script-portal.md!}
+{!./includes/add-adaptive-acr-script-portal.md!}
 
 1.  Replace the authentication script added from the template with the following. 
 

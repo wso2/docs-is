@@ -4,7 +4,7 @@ This page provides instructions on how to get user claims of the authorized user
 
 You can configure this for all tenants by configuring the `deployment.toml` file or configure it tenant-wise using the management console. 
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 3.  Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
@@ -13,7 +13,7 @@ You can configure this for all tenants by configuring the `deployment.toml` file
 5. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations]({{base_path}}/login/oauth-app-config-advanced).
+        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
 6. Select **JWT** as the **Token Issuer**.
  

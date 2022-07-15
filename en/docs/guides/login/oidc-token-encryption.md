@@ -4,7 +4,7 @@ This page guides you through configuring token encryption for ID tokens.
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
@@ -39,7 +39,7 @@ Make the following changes to the created service provider.
 
 ----
 
-{!fragments/encrypt-id-tokens.md!}
+{!./includes/encrypt-id-tokens.md!}
 
 ----
 

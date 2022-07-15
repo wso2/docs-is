@@ -34,7 +34,7 @@ feature.
 
 ## Enable the ask password feature using the managaement console
 
-{! fragments/ask-password.md !}
+{!./includes/ask-password.md !}
 
 ---
 

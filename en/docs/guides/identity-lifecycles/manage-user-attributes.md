@@ -21,12 +21,12 @@ attributes of a user.
 
 ## Claim mapping when using multiple userstores 
 
-{! fragments/attribute-mapping.md !}
+{!./includes/attribute-mapping.md !}
 
 
 ### Attributes with multiple values
 
-{! fragments/attributes-with-multiple-values.md !}
+{!./includes/attributes-with-multiple-values.md !}
 
 
 ---

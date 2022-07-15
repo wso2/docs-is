@@ -6,7 +6,7 @@ This page guides you through configuring [two-factor authentication]({{base_path
 
 ## Configure the email adapter to send emails
 
-{!fragments/configure-email-sending.md!}
+{!./includes/configure-email-sending.md!}
 
 ## Configure the email OTP provider
 
@@ -63,7 +63,7 @@ This page guides you through configuring [two-factor authentication]({{base_path
 
 ----
 
-{!fragments/register-an-identity-provider.md!}
+{!./includes/register-an-identity-provider.md!}
 
 
 4. Expand **EMAILOTP Authenticator Configuration** under **Federated Authenticators**.
@@ -76,7 +76,7 @@ This page guides you through configuring [two-factor authentication]({{base_path
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ## Configure the service provider
 

@@ -42,7 +42,3 @@ When the user is authenticated to the application, attributes that are indicated
 configuration form will be displayed in the consent request UI to prompt for the user’s consent.
 If an attribute is indicated as a mandatory attribute, it will be indicated with a red asterix ( * ) when requesting for consent.
 The user will not be able to proceed with authentication without providing consent for the mandatory attributes.
-
-!!! info "Related topics"
-    - [Guide: Request Attributes for the Application]({{base_path}}/request-attributes)
-    - [Quick Start: Request Attributes for the Application](TODO:insert-link-to-sample)

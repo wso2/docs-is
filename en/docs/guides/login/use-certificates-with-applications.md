@@ -7,7 +7,7 @@ Follow the steps given below to configure your application to use a public certi
 
 ---
 
-{!fragments/encrypt-id-tokens.md!}
+{!./includes/encrypt-id-tokens.md!}
 
 ---
 

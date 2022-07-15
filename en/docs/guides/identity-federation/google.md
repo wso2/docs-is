@@ -40,7 +40,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ---
 
-{! fragments/register-an-identity-provider.md !}
+{!./includes/register-an-identity-provider.md !}
 
 4.  Expand **Federated Authenticators\>SAML2 Web SSO Configuration**.
 5.  Select **Enable SAML2 Web SSO** and enter "wso2is1" as the **Service
@@ -72,7 +72,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ## Register a service provider
 
-{! fragments/register-a-service-provider.md !}
+{!./includes/register-a-service-provider.md !}
 
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
     Web SSO Configuration**, and click **Configure**.
@@ -163,7 +163,7 @@ application.
 
 ### Configure CORS
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ### Deploy the sample app
 

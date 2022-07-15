@@ -16,7 +16,7 @@ Consider a business use case where a bank wants to prompt an additional authenti
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
+{!./includes/adaptive-auth-samples.md!}
 
 ----
 

@@ -6,7 +6,7 @@ This page guides you through using a sample Playground application to try out au
 
 ## Set up the sample application
 
-{! fragments/oauth-playground.md !}
+{!./includes/oauth-playground.md !}
 
 ----
 

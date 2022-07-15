@@ -660,7 +660,7 @@ nav:
                 - Introduction: references/concepts/authentication/intro-profiles.md
                 - Basic Client Profile: references/concepts/authentication/basic-client-profile.md
                 - Implicit Profile: references/concepts/authentication/implicit-client-profile.md
-                - Hybrid Profile: references/concepts/authentication/oidc-hybrid-flow.md
+                - Hybrid Profile: references/concepts/authentication/hybrid-client-profile.md
             - OIDC Tokens:
                 - Overview:  references/concepts/authentication/oidc-tokens.md
                 - ID Tokens:  references/concepts/authentication/id-token.md
@@ -750,6 +750,8 @@ markdown_extensions:
   - markdown.extensions.toc:
       permalink: true
       toc_depth: 3
+  - markdown_include.include:
+          base_path: docs
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
@@ -1416,7 +1418,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
-  base_path: https://is.docs.wso2.com/en/6.0.0
+  base_path: http://localhost:8000
 
   nav_list:
     - Home

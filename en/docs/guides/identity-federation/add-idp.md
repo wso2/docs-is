@@ -99,6 +99,6 @@ To add a new identity provider.
     See the following topics to configure different applications as service providers in Identity Server.
 
     -   [Configuring Shibboleth IdP as a Trusted Identity Provider]({{base_path}}/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider.md)
-    -   [Logging in to Salesforce with Facebook]({{base_path}}/login/log-into-salesforce-using-fb.md)
-    -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/login/log-into-salesforce-using-iwa.md)
+    -   [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb.md)
+    -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/guides/login/log-into-salesforce-using-iwa.md)
     -   [Logging in to your application via Identity Server using Facebook Credentials]({{base_path}}/identity-federation/facebook.md)

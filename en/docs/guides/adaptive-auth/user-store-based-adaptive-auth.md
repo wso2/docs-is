@@ -13,7 +13,7 @@ The instructions given below guide you through creating a new LDAP database and 
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
+{!./includes/adaptive-auth-samples.md!}
 
 ----
 
@@ -61,7 +61,7 @@ The instructions given below guide you through creating a new LDAP database and 
 
 ----
 
-{!fragments/create-ldap-server.md!}
+{!./includes/create-ldap-server.md!}
 
 ----
 

@@ -27,7 +27,7 @@ works to assess risk of the user.
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
+{!./includes/adaptive-auth-samples.md!}
 
 ----
 

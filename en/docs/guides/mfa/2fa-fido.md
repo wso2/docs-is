@@ -38,7 +38,7 @@ Follow the steps given below if you are using a reverse proxy enabled setup to c
 To associate a FIDO device with the user account, refer [Add security device]({{base_path}}/my-account/my-account.md#add-security-device).
 ## Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ## Configure FIDO as the second factor of authentication
 

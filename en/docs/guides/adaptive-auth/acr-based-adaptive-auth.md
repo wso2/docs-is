@@ -8,7 +8,7 @@ The instructions below guide you through specifying authentication steps based o
 
 ----
 
-{! fragments/oauth-playground.md !}
+{!./includes/oauth-playground.md !}
 
 ## Deploy sample authenticators
 

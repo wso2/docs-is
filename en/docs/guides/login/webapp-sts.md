@@ -10,23 +10,23 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!fragments/configure-resident-idp.md!}
+{!./includes/configure-resident-idp.md!}
 
 ----
 
-{!fragments/sts-idp-config-basic.md!}
+{!./includes/sts-idp-config-basic.md!}
 Next, configure the client application for WS-Trust STS.
 ----
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
-{!fragments/sts-app-config-basic.md!}
+{!./includes/sts-app-config-basic.md!}
 
 ----
 
-{!fragments/running-an-sts-client.md!}
+{!./includes/running-an-sts-client.md!}
 
 ----
 

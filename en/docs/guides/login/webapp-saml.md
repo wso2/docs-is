@@ -96,7 +96,7 @@ application.
 
 ### Configure CORS
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ### Deploy the sample
 

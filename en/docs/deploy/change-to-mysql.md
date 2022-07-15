@@ -8,7 +8,7 @@ you need to follow in order to use MySQL for this purpose.
 
 ## Datasource configurations
 
-{! fragments/datasource-config.md !}
+{!./includes/datasource-config.md !}
                        
 After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to that MySQL database by following the instructions given below.
@@ -23,7 +23,7 @@ You can configure the datasource by editing the default configurations in `<IS-H
 
 Following are the basic configurations and their descriptions. 
 
-{! fragments/db-basic-config.md !}  
+{!./includes/db-basic-config.md !}  
  
 A sample configuration is given below.
 
@@ -90,21 +90,21 @@ A sample configuration is given below.
 
 ### Advanced database configurations
 
-{! fragments/db-advanced-config.md !}
+{!./includes/db-advanced-config.md !}
 
 ---
   
 ## Configure the connection pool behavior on return 
 
-{! fragments/connection-pool-behavior.md !}
+{!./includes/connection-pool-behavior.md !}
 
 ### Configure the connection pool to commit pending transactions on connection return
         
-{! fragments/commit-pending.md !}
+{!./includes/commit-pending.md !}
 
 ### Configure the connection pool to rollback pending transactions on connection return
 
-{! fragments/rollback-pending.md !}
+{!./includes/rollback-pending.md !}
 
 
     

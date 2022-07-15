@@ -28,7 +28,7 @@ Follow the instructions below to edit a claim.
     to view the changed claims. 
     
     !!! tip 
-        {! fragments/claim-config-note.md !}
+        {!./includes/claim-config-note.md !}
     
 !!! info "Related topics"
 

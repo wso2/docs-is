@@ -11,7 +11,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 For more information about application-based attribute mappings, see [Attribute Mapping Configurations]({{base_path}}/sp-attributes-config).

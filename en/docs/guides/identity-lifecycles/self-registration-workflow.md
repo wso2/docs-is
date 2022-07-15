@@ -31,7 +31,7 @@ This page guides you through setting up self-registration for users to onboard t
 Follow the steps given below to register users for the super tenant, which is `         carbon.super        `.
 
 
-{! fragments/configure-email-sending.md !}
+{!./includes/configure-email-sending.md !}
 
     !!! tip
         Typically, the **AccountConfirmation** template is used to send email notifications.

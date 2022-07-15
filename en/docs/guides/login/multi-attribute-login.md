@@ -18,7 +18,7 @@ The following section explains how to configure WSO2 identity server for multi-a
 
 4.  Add claim URIs for claims that users are allowed to use as login identifiers.
 
-    ![adding-claims-for-multi-attribute-login]({{base_path}}/assets/img/learn/multi-attribute-login/adding-claims-for-multi-attribute-login.png)
+    ![adding-claims-for-multi-attribute-login]({{base_path}}/assets/img/guides/adding-claims-for-multi-attribute-login.png)
 
 5. Click **Update**
 
@@ -35,7 +35,7 @@ Some claims have regex defined by default. If you need to define regex for a cla
 4.  Enter the regex pattern under the **Regular Expression** field.
 5.  Click **Update** to save the changes.
 
-![adding-regex-pattern-to-claims]({{base_path}}/assets/img/learn/multi-attribute-login/adding-regex-pattern-to-claim.png)
+![adding-regex-pattern-to-claims]({{base_path}}/assets/img/guides/adding-regex-pattern-to-claim.png)
 
 Here are a few examples of regex patterns.
 
@@ -56,7 +56,7 @@ When multi-attribute login is configured in WSO2 IS, application users can use a
 2.  Go to the My Account URL: (`https://localhost:9443/myaccount`).
 3.  Enter mobile number as the login identifier and click **Continue**.
 
-    ![adding-regex-pattern-to-claims]({{base_path}}/assets/img/learn/multi-attribute-login/login-with-mobile-number.png)
+    ![adding-regex-pattern-to-claims]({{base_path}}/assets/img/guides/login-with-mobile-number.png)
 
 ### Supported flows
 This feature is supported by the following flows:

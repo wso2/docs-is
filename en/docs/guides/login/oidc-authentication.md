@@ -47,6 +47,6 @@ authorization request:
 See the following topics for more information on each OpenID Connect
 flow for authentication:
 
-- [OIDC Authorization Code Flow]({{base_path}}/openid-connect-basic-client-profile)
-- [OIDC Implicit Flow]({{base_path}}/openid-connect-implicit-client-profile)
-- [OIDC Hybrid Flow]({{base_path}}/openid-connect-hybrid-flow)
+- [OIDC Authorization Code Flow]({{base_path}}/guides/login/oidc-basic-client-profile)
+- [OIDC Implicit Flow]({{base_path}}/guides/login/oidc-implicit-client-profile)
+- [OIDC Hybrid Flow]({{base_path}}/guides/login/oidc-hybrid-flow)

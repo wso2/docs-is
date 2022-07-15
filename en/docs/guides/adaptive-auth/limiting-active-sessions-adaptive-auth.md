@@ -10,7 +10,7 @@ Consider a scenario where you want a user who has an administrator role that can
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
+{!./includes/adaptive-auth-samples.md!}
 
 ----
 

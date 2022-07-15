@@ -10,7 +10,7 @@ The instructions below guide you through specifying authentication steps based o
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
+{!./includes/adaptive-auth-samples.md!}
 
 ----
 

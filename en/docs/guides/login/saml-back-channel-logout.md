@@ -98,7 +98,7 @@ You are now ready to try out SAML SSO with the Pickup Dispatch and Pickup Manage
 
 ## Configure CORS
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ---
 

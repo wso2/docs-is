@@ -8,13 +8,13 @@ WSO2 Identity Server enables resetting user passwords by emailing a password res
 
 **Create a user**
 
-{!fragments/create-user-for-recovery-flows.md!}
+{!./includes/create-user-for-recovery-flows.md!}
 
 **Configure the email adapter to send emails**
 
 Enable the email sending configurations of the WSO2 Identity Server as explained here.
 
-{!fragments/configure-email-sending.md!}
+{!./includes/configure-email-sending.md!}
 
 ---
     

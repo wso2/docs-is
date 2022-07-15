@@ -396,9 +396,9 @@ provider as a federated identity provider.
 
 To configure the service provider, do the following.
 
-{! fragments/deploy-travelocity.md !}
+{!./includes/deploy-travelocity.md !}
 
-{! fragments/deploy-travelocity-sp.md !}
+{!./includes/deploy-travelocity-sp.md !}
 
 6.  Expand the **Local and Inbound Authentication** section and do one of the following configurations.
     1.  Configure Shibboleth as a **Federated Authentication** mechanism

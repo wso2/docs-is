@@ -7,7 +7,7 @@ to configure authentication for an OAuth/OpenID Connect application.
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 5. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 

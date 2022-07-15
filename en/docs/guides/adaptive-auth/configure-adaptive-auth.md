@@ -5,7 +5,7 @@ This page guides you through setting up [adaptive authentication]({{base_path}}/
 
 ## Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ---
 
@@ -13,7 +13,7 @@ This page guides you through setting up [adaptive authentication]({{base_path}}/
 
 Make the following changes to the created service provider.
 
-{!fragments/add-adaptive-script.md!} 
+{!./includes/add-adaptive-script.md!} 
 
     If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement, and then engage the script to the service provider’s authentication step configuration. 
 

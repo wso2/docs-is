@@ -180,4 +180,4 @@ The next step is to configure the service provider.
 
 !!! info "Related topics"
     - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)
-    - [Concept: WS-Federation]({{base_path}}/login/webapp-ws-federation.md)
+    - [Concept: WS-Federation]({{base_path}}/guides/login/webapp-ws-federation.md)

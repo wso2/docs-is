@@ -2,7 +2,7 @@
 
 ## Manage role-based permissions using the My Account
 
-{! fragments/role-based-permission.md !}
+{!./includes/role-based-permission.md !}
 
 ---
 

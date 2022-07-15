@@ -59,13 +59,13 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 
 -----
 
-{!fragments/enable-email-as-username.md!}
+{!./includes/enable-email-as-username.md!}
 
 -----
 
 ## Create the service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 -----
 
@@ -123,7 +123,7 @@ Now, you have successfully configured Google and WSO2 Identity Server.
     In this example, `alex@wso2support.com`
     is in the Google domain. Therefore, we need to create the same user in WSO2 Identity Server.
 
-    {!fragments/create-user-email-username.md!}
+    {!./includes/create-user-email-username.md!}
 
 2. Navigate to
     `https://google.com/a/<ENTER_YOUR_DOMAIN>/acs`

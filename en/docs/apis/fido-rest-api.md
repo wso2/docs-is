@@ -19,7 +19,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/restapis/fido.yaml",
+     url: "{{base_path}}/apis/restapis/fido.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,

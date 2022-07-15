@@ -9,7 +9,7 @@ This page guides you through configuring [two-factor authentication]({{base_path
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ## Configure the service provider
 
@@ -48,7 +48,7 @@ configure the email adapter for this purpose.
 
 ### Configure the email adapter to send emails
 
-{!fragments/configure-email-sending.md!}
+{!./includes/configure-email-sending.md!}
 
 !!! tip 
     The email template used to send this email notification is the **TOTP** template.

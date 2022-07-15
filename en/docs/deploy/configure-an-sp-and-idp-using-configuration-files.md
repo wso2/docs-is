@@ -429,7 +429,7 @@ service provider in the ` service provider IS ` via a file.
 
 ## Run the travelocity application
 
-{! fragments/travelocity-deploy.md !}
+{!./includes/travelocity-deploy.md !}
 
 !!! note
     Check whether you have enabled following configurations while adding the service provider 

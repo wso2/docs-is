@@ -2,15 +2,15 @@
 
 This page guides you through passing OpenID Connect authentication request parameters in a self contained JWT, instead of passing plain request parameters using a sample application. A JWT that contains a set of request parameters as its claims is known as a request object.
 
-{!fragments/oauth-playground.md!}
+{!./includes/oauth-playground.md!}
 
 ----
 
-{!fragments/encrypt-id-tokens.md!}
+{!./includes/encrypt-id-tokens.md!}
 
 ----
 
-{!fragments/oidc-custom-claims.md!}
+{!./includes/oidc-custom-claims.md!}
 
 -----
 
@@ -68,7 +68,7 @@ This page guides you through passing OpenID Connect authentication request param
 
 ## Try it out
 
-Try out both of the following flows and observe the responses. To try this out, use the [authorization code grant type with the playground application]({{base_path}}/auth-code-playground#try-authorization-code-grant).
+Try out both of the following flows and observe the responses.
 
 1. First, test the flow without a signed request object:
     
@@ -106,5 +106,4 @@ Request objects can either be signed or unsigned. Therefore, if you want to only
 ---- 
 
 !!! info "Related topics"
-    - [Pass OIDC Authentication Request Parameters in a Request Object]({{base_path}}/guides/login/oidc-request-object/)
     - [Use Advanced Parameters in Authentication Requests ]({{base_path}}/guides/login/oidc-parameters-in-auth-request/)

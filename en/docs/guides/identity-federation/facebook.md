@@ -60,11 +60,11 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 Now you have finished configuring Facebook as an Identity Provider.
 
-{! fragments/fb-review.md !}
+{!./includes/fb-review.md !}
 
 ---
 
-{! fragments/register-an-identity-provider.md !}
+{!./includes/register-an-identity-provider.md !}
     
 4.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
@@ -137,7 +137,7 @@ You have now added the identity provider.
 
 ## Configure the service provider 
 
-{! fragments/register-a-service-provider.md !}
+{!./includes/register-a-service-provider.md !}
     
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section and
@@ -306,7 +306,7 @@ application.
 
 ### Configure CORS
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ### Deploy the sample app
 

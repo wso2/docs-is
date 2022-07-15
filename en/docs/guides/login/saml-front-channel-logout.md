@@ -10,7 +10,7 @@ The user is required to log in to two different applications, `application1` and
 
 ## Register two applications in WSO2 Identity Server
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 1.   Expand **Inbound Authentication Configuration** > **SAML2 Web SSO Configuration** and click **Configure**.
 

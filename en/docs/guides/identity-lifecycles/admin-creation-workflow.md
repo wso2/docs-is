@@ -2,7 +2,7 @@
 
 ## Add a user using the management console
 
-{! fragments/add-new-user.md !}
+{!./includes/add-new-user.md !}
 
 3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
 

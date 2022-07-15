@@ -1,1 +1,1 @@
-{!fragments/enable-email-as-username.md!}
+{!./includes/enable-email-as-username.md!}

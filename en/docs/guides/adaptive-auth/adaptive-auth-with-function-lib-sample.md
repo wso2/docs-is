@@ -9,11 +9,11 @@ The instructions below guide you through adding an adaptive authentication funct
 ----
 ## Set up Pickup Dispatch sample
 
-{!fragments/pickup-dispatch-saml.md!}
+{!./includes/pickup-dispatch-saml.md!}
 
 ----
 
-{!fragments/add-function-library-lvl2.md!}
+{!./includes/add-function-library-lvl2.md!}
 
 Add a function library with the following properties.
     

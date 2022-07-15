@@ -77,7 +77,7 @@ To define custom claims and enable them for the service provider:
 ??? note "Custom claims for an OIDC service provider"
     When mapping custom claims for a service provider configured with OpenID Connect, map the custom claims in the SP configuration and add the custom claims to a scope value in the **oidc** file.
 
-    Learn about [mapping oidc scopes and claims]({{base_path}}/login/oidc-scopes-claims.md)
+    Learn about [mapping oidc scopes and claims]({{base_path}}/guides/login/oidc-scopes-claims.md)
 
 ??? note "Custom claims for a SAML2 service provider"
     When mapping custom claims for a SAML2 service provider, select both **Enable Attribute Profile** and **Include Attributes in the Response Always** from the SAML2 service provider configuration.
@@ -110,4 +110,4 @@ When a user attempts to log in to the service provider, they will be prompted fo
 The user will not be able to proceed with the authentication without providing consent. Learn more about [managing user consent]({{base_path}}/consent-mgt/manage-user-consent.md).
 
 !!! info "Related Topics"
-    See [Logging into Salesforce with Facebook]({{base_path}}/login/log-into-salesforce-using-fb.md) for a sample of claim mapping for a service provider.
+    See [Logging into Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb.md) for a sample of claim mapping for a service provider.

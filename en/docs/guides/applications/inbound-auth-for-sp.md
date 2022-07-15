@@ -35,16 +35,16 @@ To configure inbound authentication for the registered service provider:
 
     You can configure inbound authentication for the following protocols:
 
-    - [SAML2 Web SSO Configuration]({{base_path}}/login/saml-app-config-advanced.md)
-    - [OAuth/OpenID Connect Configuration]({{base_path}}/login/oauth-app-config-advanced.md)
+    - [SAML2 Web SSO Configuration]({{base_path}}/guides/login/saml-app-config-advanced.md)
+    - [OAuth/OpenID Connect Configuration]({{base_path}}/guides/login/oauth-app-config-advanced.md)
     - [OpenID Configuration]
     - [WS-Federation (Passive) Configuration]
     - [Kerberos KDC]
 
 !!! info "Related Topics"
 
-    See [Single Sign-On]({{base_path}}/login/enable-single-sign-on.md) for details on configuring single sign-on for service provider using inbound authentication. See the following topics for samples of configuring single sign-on:
+    See [Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on.md) for details on configuring single sign-on for service provider using inbound authentication. See the following topics for samples of configuring single sign-on:
 
-    - [Configuring Single Sign-On Using SAML]({{base_path}}/login/sso-for-saml.md)
-    - [Configuring Single Sign-On Using OpenID Connect]({{base_path}}/login/sso-for-oidc.md)
+    - [Configuring Single Sign-On Using SAML]({{base_path}}/guides/login/sso-for-saml.md)
+    - [Configuring Single Sign-On Using OpenID Connect]({{base_path}}/guides/login/sso-for-oidc.md)
     - [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server)

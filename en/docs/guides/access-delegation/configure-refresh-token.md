@@ -46,7 +46,7 @@ The refresh token is renewed when the refresh grant is used to get an access tok
 -----
 
 
-{!fragments/self-contained-access-tokens.md!}
+{!./includes/self-contained-access-tokens.md!}
 
 ----
 

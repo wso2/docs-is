@@ -7,7 +7,7 @@
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/restapis/api.identity.user.yaml",
+     url: "{{base_path}}/apis/restapis/api.identity.user.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

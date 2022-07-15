@@ -199,7 +199,7 @@ or Mac OS X.
 
 #### Install WSO2 Identity Server
 
-{! fragments/install-is.md !}
+{!./includes/install-is.md !}
 
     !!! warning
     
@@ -281,7 +281,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
 
 #### Set system properties
 
-{! fragments/set-system-properties.md !}
+{!./includes/set-system-properties.md !}
 
 ---
 
@@ -297,7 +297,7 @@ Follow the instructions below to install Identity Server on Solaris.
 
 #### Install WSO2 Identity Server
 
-{! fragments/install-is.md !}
+{!./includes/install-is.md !}
 
 #### Set up JAVA_HOME
 
@@ -343,7 +343,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
 
 #### Set system properties
 
-{! fragments/set-system-properties.md !}
+{!./includes/set-system-properties.md !}
 
 ----
 
@@ -364,7 +364,7 @@ Windows.
 
 #### Install WSO2 Identity Server
 
-{! fragments/install-is.md !}
+{!./includes/install-is.md !}
 
 3.  Set the `          CARBON_HOME         ` environment variable by
     pointing it to the directory where you download WSO2 Identity Server
@@ -473,7 +473,7 @@ want to restart it.
 
 #### Set system properties
 
-{! fragments/set-system-properties.md !}
+{!./includes/set-system-properties.md !}
 
 ---
 

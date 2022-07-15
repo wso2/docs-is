@@ -22,14 +22,14 @@ corresponding dialogs or error messages based on account status.
 
 **Create a user**
 
-{!fragments/create-user-for-recovery-flows.md!}
+{!./includes/create-user-for-recovery-flows.md!}
 
 **Configure the email adapter to send emails**
 
 !!! note
     This step is not required for [Offline Password Reset]({{base_path}}/guides/password-mgt/forced-password-reset/#offline-password-reset).
     
-{!fragments/configure-email-sending.md!}
+{!./includes/configure-email-sending.md!}
 
 !!! tip
     The email template used to send this email notification is

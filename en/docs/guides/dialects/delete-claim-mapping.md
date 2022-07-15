@@ -19,7 +19,7 @@ instructions.
     Alternatively, you also can do this by deleting claim mappings from the `claim-config.xml` located in the `<IS_HOME>/repository/conf/` folder.
 
     !!! tip 
-        {! fragments/claim-config-note.md !}
+        {!./includes/claim-config-note.md !}
     
 !!! info "Related topics"
     -   [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management/)
