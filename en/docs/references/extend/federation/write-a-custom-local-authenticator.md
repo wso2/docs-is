@@ -9,7 +9,7 @@ WSO2 identity server supports extensibility in local authentication, so that you
 You can implement custom authentication logic tailored to your requirement such as,
 
 1. Authenticating users only if they belong to a particular role.
-2. Authenticating based on any claim such as the user's telephone number or employee registration number.
+2. Authenticating based on any claim, such as the user's telephone number or employee registration number.
 3. Calling another API to authenticate the user.
 
 ---
