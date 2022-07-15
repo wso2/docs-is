@@ -1,6 +1,14 @@
-# Adaptive Authentication Scenarios
+# Prerquisites for adaptive authentication
 
-This section guides you through using pre-defined templates for common adaptive authentication use cases.
+This section guides provides you the prerequisites to try out the adaptive authentication scenarios configurable on Identity Server.
+
+----
+
+{!fragments/adaptive-auth-samples.md!}
+
+----
+
+## Adaptive authentication scenarios
 
    - [Role-Based](role-based-adaptive-auth.md)
    - [User-Age-Based](age-based-adaptive-auth.md)

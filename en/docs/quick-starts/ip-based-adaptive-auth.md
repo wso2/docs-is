@@ -10,9 +10,6 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
-
-----
 
 ## Configure IP-based authentication
 

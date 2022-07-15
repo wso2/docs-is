@@ -1,19 +1,19 @@
-# Configure Adaptive Authentication for an Application
+# Configure adaptive authentication for an application
 
-This page guides you through setting up [adaptive authentication](../../../references/concepts/authentication/adaptive-authentication) for an application. 
+This page guides you through setting up [adaptive authentication](../../../references/concepts/authentication/adaptive-authentication) for an application.
 
 
-## Create a service provider
+## Prerequisites
 
-{!fragments/register-a-service-provider.md!}
-
----
+You need to [register a service provider](../applications/register-sp.md) on the Management Console.
 
 ## Add an adaptive authentication script
 
 Make the following changes to the created service provider.
 
-{!fragments/add-adaptive-script.md!} 
+To add an authentication script to the service provider:
+
+{!fragments/add-adaptive-script.md!}
 
     If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement, and then engage the script to the service provider’s authentication step configuration. 
 

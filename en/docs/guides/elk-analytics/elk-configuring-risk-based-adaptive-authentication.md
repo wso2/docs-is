@@ -1,49 +1,41 @@
-# Configure Risk-Based Adaptive Authentication
+# Configure risk-based adaptive authentication
 
 This guide shows you how to use ELK Analytics to assess an end user's risk score and enable adaptive authentication.
 
 ## Scenario
-Consider a business use case where a bank wants to prompt an additional authentication step when a user attempts to log in to the system after having made transactions amounting to over $10,000 within five minutes.
+Consider a business use case where a bank wants to prompt an additional authentication step when a user attempts to log in to the system after making transactions amounting to over $10,000 within five minutes.
 
 
 The diagram below shows how the connection between the client applications, ELK Analytics, and WSO2 Identity Server
-works to assess risk of the user.
+works to assess the risk of the user.
 
 ![risk-based-adaptive-authentication](../../assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-1.png)
 
 1. The user performs bank transactions through different applications.
-2. Trnasaction data from all these applications are published to the ELK Analytics via the “transaction” index.
+2. Transaction data from all these applications are published to the ELK Analytics via the “transaction” index.
 3. The user attempts to access an application that uses WSO2 IS as the identity provider.
 4. The application sends an authentication request to WSO2 IS.
-5. The user is prompted to log in and WSO2 IS authenticates the user using basic authentication (username/password
-   credentials).
-6. WSO2 IS publishes an event to ELK, which computes the user's risk score based on the user's transaction history
-   using the data received in step 2.
- 
-      **i.e If the user has made transactions that total to over $10,000 within the last five minutes, the risk score is 1. Else, the risk score is 0.**
+5. The user is prompted to log in, and WSO2 IS authenticates the user using basic authentication (username/password credentials).
+6. WSO2 IS publishes an event to ELK, which computes the user's risk score based on the user's transaction history using the data received in step 2.
+    !!! info "For example"
+         If the user has made transactions that add up to over $10,000 within the last five minutes, the risk score is 1. Else, the risk score is 0.
 
-7. If the risk score is 1, WSO2 IS prompts an additional step of authentication for the user (i.e. entering a hardware
+7. If the risk score is 1, WSO2 IS prompts an additional step of authentication for the user (i.e., entering a hardware
    key number) before allowing the user to access the service provider application.
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
+## Prerequisites
 
-----
-
-## Configure ELK Analytics
-
-ELK has two duties to fulfill in this scenario. Capture the transaction data into an index and calculate the risk score.
-
-1. [Configure](../../deploy/using-elk-analytics-for-adaptive-authentication.md) ELK Analytics for Adaptive Authentication.
-2. Run the following command to create an index named `transaction` to store transaction data.
+- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [configure ELK analytics for adaptive authentication](../../deploy/using-elk-analytics-for-adaptive-authentication.md), and run the following command to create an index named `transaction` to store transaction data.
 
     !!! info
-        Replace {ELASTICSEARCH_HOST}, {ELASTICSEARCH_BASIC_AUTH_HEADER} to match your settings
+        Replace `{ELASTICSEARCH_HOST}` and `{ELASTICSEARCH_BASIC_AUTH_HEADER}` to match your settings.
 
     !!! abstract ""
         **Request Format**
-        ``` 
+        ```
         curl -L -X PUT 'https://{ELASTICSEARCH_HOST}/transaction' -H 'Authorization: Basic {ELASTICSEARCH_BASIC_AUTH_HEADER}'
         ```
         **Sample Request**
@@ -59,40 +51,39 @@ ELK has two duties to fulfill in this scenario. Capture the transaction data int
         }
         ```
 
-## Configure WSO2 Identity Server
+## Configure risk-based authentication
 
-Follow the steps below to configure WSO2 IS to communicate with ELK.
+To configure risk-based authentication:
 
-1. Login to the management console and create a new user called "Alex"
-   with login permission.
-2. Navigate to **Service Providers\>List** and click **Edit** on the
-   **saml2-web-app-pickup-dispatch.com** service provider.
-3. Expand the **Local and Outbound Configuration** section and under **Authentication Type** select
-   **Advanced Configuration**.
-4. Expand **Script Based Adaptive Authentication**.
-5. In the **Templates** tab, under **Analytics** click **ELK-Risk-Based**.
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
+
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
+
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
+
+4. You will be redirected to **Advanced Configuration**, expand **Script Based Conditional Authentication**.
+
+5. In the **Templates** section, click on the **`+`** corresponding to the **ELK-Risk-Based** template.
    ![template-for-risk-based-authentication](../../assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
 
-      The resulting authentication script defines a conditional step that executes if the `riskScore` is greater than 0.
+6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
+   
+    !!! info
+         - The resulting authentication script defines a conditional step that executes the second authentication step if the `riskScore` is greater than 0.
+         - By default, `totp` will be added as the second authentication step. You can update this with any authentication method.
 
-6. Click **Update** to save the service provider configurations.
+7. Click **Update** to save your configurations and restart WSO2 Identity Server.
 
 ## Try it out
 
-1. Start the Tomcat server and access the following sample PickUp
-   application URL:
-   <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> .
+1. Start the Tomcat server and access the following sample PickUp application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com` .
 
-2. Log in by giving username and password credentials. You are logged
-   in to the application.
+2. Log in to the application by giving your username and password.
 
-    !!! note 
-        The user is authenticated with basic authentication only.
+    !!! note
+         The user is authenticated with basic authentication only.
 
-3. Log out of the application.
-
-4. Execute the following cURL command. This command publishes an event
-   regarding a user bank transaction exceeding $10,000.
+3. Log out of the application, and execute the following cURL command. This command publishes an event regarding a user bank transaction exceeding $10,000.
 
     !!! abstract ""
         **Request**
@@ -128,16 +119,11 @@ Follow the steps below to configure WSO2 IS to communicate with ELK.
         }
         ```
 
-5. Log in to the sample PickUp application. You are prompted for the second factor authentication after the basic authentication step.
+5. Log in to the application again. You are now prompted for the `TOTP` after the basic authentication.
 
-    !!! info 
+
+    !!! info
         Before executing the cURL command given in step 4, the user had no
-        transaction history and the user's riskScore was 0. The
-        authentication script is programmed to prompt only basic
-        authentication if the risk score is 0.
+        transaction history, and the user's riskScore was 0. The authentication script is programmed to prompt only basic authentication if the risk score is 0.
 
-        After executing the command, a transaction event that indicates the
-        user spending more than $10,000 is published and recorded in the
-        Siddhi application. Therefore, when the user now attempts to log in
-        again, the user's riskScore is evaluated to 1 and the user is
-        prompted for an extra step of authentication.
+        After executing the command, a transaction event that indicates the user spending more than $10,000 is published and recorded in the Siddhi application. Therefore, when the user attempts to log in again, the user's riskScore is evaluated to 1, and the user is prompted for an extra authentication step.

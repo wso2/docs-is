@@ -1,4 +1,4 @@
-# Ensure Assurance with Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)
+# Ensure assurance with authentication context class reference (ACR) and authentication method reference (AMR)
 
 This page guides you through enforcing additional assurance in the user authentication flow using Authentication Context Class Reference (ACR) and Authentication Method Reference (AMR).
 

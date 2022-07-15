@@ -177,7 +177,7 @@ nav:
         - Adaptive Authentication:
           - Configure Adaptive Authentication: guides/adaptive-auth/configure-adaptive-auth.md
           - Adaptive Authentication Scenarios: 
-            - Scenarios: guides/adaptive-auth/adaptive-auth-overview.md
+            - Overview: guides/adaptive-auth/adaptive-auth-overview.md
             - Role-Based: guides/adaptive-auth/role-based-adaptive-auth.md
             - User Age-Based: guides/adaptive-auth/age-based-adaptive-auth.md
             - Tenant-Based: guides/adaptive-auth/tenant-based-adaptive-auth.md
@@ -186,7 +186,7 @@ nav:
             - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
             - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
             - ACR-Based: guides/adaptive-auth/acr-based-adaptive-auth.md
-            - Risk-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
+            - Risk-Based: guides/adaptive-auth/elk-configuring-risk-based-adaptive-authentication.md
             - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
             - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
           

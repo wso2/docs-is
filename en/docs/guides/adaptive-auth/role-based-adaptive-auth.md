@@ -1,90 +1,60 @@
 # Configure Role-Based Adaptive Authentication
 
-This page guides you through configuring role-based adaptive authentication for a sample web application using a sample hardware key authenticator. 
+This page guides you through configuring role-based adaptive authentication for a sample web application.
 
 ----
 
 ## Scenario
 
-Consider a scenario where you want a user who belongs to the 'admin' role to perform an additional level of authentication, while other users can access a resource by only providing their credentials (basic authentication).
+Consider a scenario with two user roles, `admin` and `manager`. For users assigned to these roles, the login flow in applications should be stepped up with TOTP as follows:  
 
-Role-based adaptive authentication can be used to trigger additional authentication steps for a particular role. 
-
-----
-
-{!fragments/adaptive-auth-samples.md!}
+1. Basic authentication (username and password)
+2. TOTP or FIDO
 
 ----
 
-## Add a user
+## Prerequisites
 
-
-1.  Start the server and log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-
-2.  Create a new user named 'Alex' with login permission. Do not assign any roles.
-    For instructions, see [Adding Users](../../guides/identity-lifecycles/admin-creation-workflow/).
+- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [add a user](../../guides/identity-lifecycles/admin-creation-workflow/) named `Alex` with login permissions. Do not assign any roles to this user.
 
 ----
 
 ## Configure role-based authentication
 
-1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.
+To configure role-based authentication:
 
-2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
-3.  Expand the **Local and Outbound Configuration** section and click **Advanced Authentication**.
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-4.  Expand **Script Based Conditional Authentication**.
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Role-Based**.  
+4. You will be redirected to **Advanced Configuration**, expand **Script Based Conditional Authentication**.
+
+5. In the **Templates** section, click on the **`+`** corresponding to **Role-Based** template.  
 
     ![Role based adaptive authentication template](../../assets/img/samples/role-based-template.png)
 
-6.  Click **Ok**. The authentication script and authentication steps
-    are configured. 
-    
-    The authentication script defines a conditional step
-    that executes the second authentication step (i.e., hardware key
-    authenticator) only if the user belongs to an 'admin' or 'manager'
-    role.
+6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
-7.  The authentication steps added are `totp` and `fido`. However, these are authentication steps that you would normally use in production. 
+    !!! info
+        By default, `totp` and `fido` will be added as the second authentication step. You can update this with any authentication method.
 
-    To try out sample authenticators with the sample application, delete the two
-    authenticators and add the following sample authenticators instead.
-
-    1.  Click **Delete** to remove the `            totp           ` and
-        `            fido           ` authenticators from Step 2 (the
-        second authentication step).
-        
-        ![Delete authenticators](../../assets/img/samples/delete-authenticators.png)
-        
-    2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![Add new authenticator](../../assets/img/samples/add-new-authenticator.png)
-
-8.  Click **Update**.
+7. Click **Update** to save your configurations.
 
 ----
 
-## Try it
+## Try it out
 
-1.  Access the following sample Pickup Dispatch application URL:
-    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
-    
-2.  Click **Login** and enter admin/admin credentials.  
-    You are prompted to use the hardware key after basic authentication according to the authentication step defined in the JavaScript above.  
-    
-    ![pickup sign in](../../assets/img/samples/pickup-sign-in.png)
-    
-3.  Enter the 4-digit key given on the screen and click **Sign In**. 
+1. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    ![hardware key authenticator](../../assets/img/samples/hardware-key-authenticator.png)
-    
-    
-4.  Next, log out of the application and log in again as 'Alex'. 
+2. Click **Login** and enter your admin account credentials.
 
-    Note that this user is not assigned to any role. You will see that
-    authentication is successful only after going through the basic
-    authentication step.  
+3. You will be prompted to enter your `TOTP` or `FIDO` code. Enter any code and click **Sign In**.
 
-    ![pickup homepage](../../assets/img/samples/pickup-homepage.png)
+    ![pickup sign in](../../assets/img/samples/pickup-step-two.png)
+
+4. Log out of the application and log in again as `Alex`.
+
+5. `Alex` will be able to log in to the application after the successful completion of basic authentication.

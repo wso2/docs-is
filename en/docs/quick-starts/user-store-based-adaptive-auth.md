@@ -13,10 +13,6 @@ The instructions given below guide you through creating a new LDAP database and 
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
-
-----
-
 ## Configure userstore-based authentication
 
 1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.
