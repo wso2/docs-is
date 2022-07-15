@@ -1,4 +1,4 @@
-# Write a Custom Local Authenticator
+# Write a custom local authenticator
 
 A local authenticator in WSO2 identity server authenticates users, who are stored in the local database, using a defined authentication logic.
 
