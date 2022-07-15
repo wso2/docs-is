@@ -9,7 +9,7 @@ Contributions can be made by following the procedure below.
    - Source code repository of the connector.
 3. Make sure your source code follows WSO2 coding standards and [secure development guidelines](https://wso2.com/technical-reports/wso2-secure-engineering-guidelines/).
 4. Our team will perform necessary functionality, security and usability testing on the connector and provide suggestions for improvements.
-5. If your code and the functionality is deemed to comply with the standards of WSO2, you will be able to get the connector hosted on our connector store and contribute the source code to WSO2.
+5. If your code and the functionality are deemed to comply with the standards of WSO2, you will be able to get the connector hosted on our connector store and contribute the source code to WSO2.
 6. You will be required to sign the [Contributor License Agreement](https://wso2.com/files/wso2-cla.pdf) once the connector is accepted.
 
 You can also contact us through our [slack channel](https://is-slack.wso2.com) if you need more information.
