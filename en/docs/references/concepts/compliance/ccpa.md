@@ -90,6 +90,6 @@ manage consents of their consumers and third-party applications. WSO2 Identity S
 -   Supports the Kantara consent receipt specification. For more information, see the 
 [Kantara Consent Receipt Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification).
 -   Any self-care user profile creation, user provisioning to other systems, sharing of user attributes through SSO, and identity federation is fully based on user consent.
--   Users can review, modify, and revoke previously given consent via the self-care user portal, **My Account** ,or RESTful Consent API.
+-   Users can review, modify, and revoke previously given consent via the self-care My Account, **My Account** ,or RESTful Consent API.
 -   Consent APIs can also be used to integrate WSO2 Identity Server’s consent management capabilities with existing applications.
 -   WSO2 Identity Server can be used to manage the consent of any third-party application via the RESTful Consent API.

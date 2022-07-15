@@ -1,6 +1,6 @@
 # Role-based Permissions
 
-## Manage role-based permissions using the user portal
+## Manage role-based permissions using the My Account
 
 {! fragments/role-based-permission.md !}
 

@@ -26,12 +26,12 @@ The following actions can be performed using this admin service.
 -   Switch between associated user accounts without re-authenticating to 
     the system
 
-## Using the user portal
+## Using the My Account
 
-The WSO2 Identity Server [user portal](TODO:insert-link) can be used to associate the
+The WSO2 Identity Server [My Account](TODO:insert-link) can be used to associate the
 accounts. You can associate a local user account or a federated user
 account. See [Linked Accounts](TODO:insert-link) under
-User Portal for details.
+My Account for details.
 
 ## Using SCIM
 

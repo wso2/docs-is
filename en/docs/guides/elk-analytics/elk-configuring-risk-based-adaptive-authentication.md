@@ -121,6 +121,7 @@ To configure risk-based authentication:
 
 5. Log in to the application again. You are now prompted for the `TOTP` after the basic authentication.
 
+
     !!! info
         Before executing the cURL command given in step 4, the user had no
         transaction history, and the user's riskScore was 0. The authentication script is programmed to prompt only basic authentication if the risk score is 0.

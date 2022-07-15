@@ -1,4 +1,4 @@
-# Introduction
+# Registering a service provider
 
 You can connect your application with Identity Server and control the way users login into your app. This guide provides instructions on how to add and configure a [service provider](../../get-started/architecture#service-provider-section) to Identity Server through the management console.
 
@@ -56,8 +56,8 @@ You can find the basic configurations of a service provider under **Service Prov
 | Discoverable Application  | Enable this to make the application discoverable to users. |
 | Access URL    | Access URL for the Service Provider.   |
 | Logo URL  | Add a link to the logo for your application here.   |
-| Logout Return URL or regex    | The URL that the users will be redirected to during a direct IdP logout   |
-| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated from the edit screen. |
+| Logout Return URL or regex    | The URL that the users will be redirected during a direct IdP logout   |
+| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated. WSO2 Identity Server exposes all the management capabilities as [REST APIs](../../../apis/rest-apis/). These APIs are protected by OAuth2 access tokens and other API authentication mechanisms. The applications that are marked as management applications can only be used to access these management APIs in the OAuth2 flow. This can only be configured when creating the application.|
 
 ### Public certificates for service providers
 A certificate is used to validate the signatures of the signed requests received from the application (service provider) to WSO2 IS.

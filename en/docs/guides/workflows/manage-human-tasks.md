@@ -13,7 +13,7 @@ Human tasks are the steps that require human interaction in order to allow the p
     
     ![workflow-pending-status](../../../assets/img/guides/workflows/console.png)  
 
-3.  [Sign in to the User Portal](../../../guides/my-account/my-account) as a manager. 
+3.  [Sign in to the My Account](../../../guides/my-account/my-account) as a manager. 
 
 4.  Choose **Operations** from the left panel. Select **Ready** tab in **Pending Approvals**.  
 

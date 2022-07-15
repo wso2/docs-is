@@ -1,4 +1,4 @@
-# Introduction
+# Configurng local and outbound authentication for a service provider
 
 Local authenticators use locally available credentials to authenticate users. Basic authentication using username and password, [IWA (Integrated Windows Authentication)](../../references/concepts/integrated-windows-authentication-overview.md) or [FIDO (Fast IDentity Online)](../mfa/2fa-fido.md) are examples of local authenticators.
 

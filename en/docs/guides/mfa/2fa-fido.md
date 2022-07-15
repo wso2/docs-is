@@ -15,7 +15,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 
 ## Prerequisites
 
-Follow the steps given below to define the set of origin URLs where the WSO2 Identity Server User Portal will be hosted (e.g., `https://localhost:9443`). 
+Follow the steps given below to define the set of origin URLs where the WSO2 Identity Server My Account will be hosted (e.g., `https://localhost:9443`). 
 
 1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 2. Add the following configuration.
