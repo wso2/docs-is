@@ -6,7 +6,7 @@ By default, the local authenticator in WSO2 identity server is the basic authent
 It authenticates end users stored in a connected user store using the provided username and password.
 
 WSO2 identity server supports extensibility in local authentication, so that you can implement a different authentication logic by writing a custom local authenticator.
-You can implement custom authentication logic tailored to your requirement such as,
+You can implement custom authentication logic tailored to your requirement, as follows:
 
 1. Authenticating users only if they belong to a particular role.
 2. Authenticating based on any claim, such as the user's telephone number or employee registration number.
