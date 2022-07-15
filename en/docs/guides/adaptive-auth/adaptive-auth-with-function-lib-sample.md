@@ -9,7 +9,7 @@ The instructions below guide you through adding an adaptive authentication funct
 ----
 ## Prerequisites
 
-- You need to [set up the sample]({{base_path}}/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 - You need to add a function library
     1. On the Management Console, go to **Manage** > **Function Libraries** >  **Add**.
     2. Enter the following values:

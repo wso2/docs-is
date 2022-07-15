@@ -12,7 +12,7 @@ prior to autenticating the user using the password.
     !!! info
         For more information on creating a service provider, see [Adding and
         Configuring a Service
-        Provider]({{base_path}}/learn/adding-and-configuring-a-service-provider).
+        Provider]({{base_path}}//adding-and-configuring-a-service-provider).
 
     1. Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider

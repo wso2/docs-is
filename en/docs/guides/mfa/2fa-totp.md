@@ -59,4 +59,4 @@ configure the email adapter for this purpose.
 
 !!! info "Related topics"
     - [Concept: Two-Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication/#two-factor-authentication)
-    - [Guide: Configure an Authentication Journey]({{base_path}}/configure-authentication-journey)
+    - [Guide: Configure an Authentication Journey]({{base_path}}/guides/mfa/configure-authentication-journey)

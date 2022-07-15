@@ -23,5 +23,5 @@ This section guides provides you the prerequisites to try out the adaptive authe
 !!! info "Related topics"
     - [Concept: Adaptive-Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication)
     - [Guide: Configure Adaptive Authentication for an Application]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth)
-    - [Guide: Adaptive Authentication Using Function Library]({{base_path}}/guides/adaptive-auth/adaptive-auth-with-function-lib)
-    - [Guide: Ensure Assurance with ACR/AMR]({{base_path}}/guides/adaptive-auth/work-with-acr-amr)
+    - [Guide: Adaptive Authentication Using Function Library]({{base_path}}/guides/adaptive-auth/adaptive-auth-with-function-lib-sample)
+    - [Guide: Ensure Assurance with ACR/AMR]({{base_path}}/guides/adaptive-auth/acr-based-adaptive-auth)

@@ -12,7 +12,7 @@ Consider a scenario where you want a user who successfully logs in after three f
 
 ## Prerequisites
 
-- You need to [set up the sample]({{base_path}}/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 - You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Alex` with login permissions. Do not assign any roles to this user.
 - You need to configure the maximum number of failed attempts allowed.
     1. On the management console, go to **Identity > Identity Providers > Resident**.

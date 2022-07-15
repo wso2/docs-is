@@ -12,7 +12,7 @@ Consider a scenario where users younger than 18 should be prevented from signing
 
 ## Prerequisites
 
-- You need to [set up the sample]({{base_path}}/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 - You need to [update claims]({{base_path}}/dialects/edit-claim-mapping.md) to support `BirthDate` by default.
     1. On the management console, go to **Claims > List**, select `http://wso2.org/claims`.
     2. Click on **Edit** corresponding to the **BirthDate** claim

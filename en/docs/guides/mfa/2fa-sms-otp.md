@@ -261,7 +261,7 @@ WSO2 IS.
             94778888888
             ```
 !!! tip
-    An end-user can also update their own mobile number using the My Account application of WSO2 Identity Server. For more information, see [Update Personal Details in My Account]({{base_path}}/guides/my-account/my-account/#update-personal-details).
+    An end-user can also update their own mobile number using the My Account application of WSO2 Identity Server. For more information, see [Update Personal Details in My Account]({{base_path}}/guides/my-account/my-account#update-personal-details).
 
 ----
 
@@ -345,5 +345,5 @@ You have successfully configured and logged in using 2-factor authentication.
 
 !!! info "Related topics"
     - [Concept: Two-Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication#single-factor-authentication)
-    - [Guide: Configure an Authentication Journey]({{base_path}}/configure-authentication-journey)
+    - [Guide: Configure an Authentication Journey]({{base_path}}/guides/mfa/configure-authentication-journey)
     <!--- - [Quick Start: Multi-Factor Authentication]({{base_path}}/quickstarts/mfa-sample) -->
