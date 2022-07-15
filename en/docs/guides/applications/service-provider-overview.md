@@ -1,4 +1,4 @@
-# Service Providers
+# Service providers
 
 The responsibility of the service provider configuration is to represent external service providers. The service provider configurations cover the following:
 
