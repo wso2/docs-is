@@ -1,10 +1,10 @@
-# Configure Userstore-Based Adaptive Authentication
+# Configure user store-based adaptive authentication
 
-This page guides you through configuring userstore-based adaptive authentication for a sample web application.
+This page guides you through configuring user store-based adaptive authentication for a sample web application.
 
-This is useful if you want to add security for users logging in from other userstore domains.
+This is useful if you want to add security for users logging in from other user store domains.
 
-Using the user store-based adaptive authentication template, you can allow certain userstore domains so that users from the allowed domains are prompted to perform an additional level of authentication, while users from any other userstore domain can simply provide their credentials (basic authentication) to access a resource.
+Using the user store-based adaptive authentication template, you can allow certain user store domains so that users from the allowed domains are prompted to perform an additional level of authentication, while users from any other user store domain can simply provide their credentials (basic authentication) to access a resource.
 
 ----
 
@@ -20,10 +20,10 @@ Consider a scenario where you want to step up authentication for users who belon
 ## Prerequisites
 
 - You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to set-up a database. For this scenario, we will use an LDAP server.
-- You need to configure a new userstore:
+- You need to set up a database. For this scenario, we will use an LDAP server.
+- You need to configure a new user store:
     1. On the management console, go to **Main > Identity > User Stores > Add**.
-    2. Create a user store named `EMPLOYEES`, and add the following values for the fields.
+    2. Create a user store named `EMPLOYEES` and add the following values for the fields.
 
         | Field name    | Value |
         |---------------|-------|
@@ -53,9 +53,9 @@ Consider a scenario where you want to step up authentication for users who belon
     2. Username: `Kim`; Domain: `EMPLOYEES`
 
 
-## Configure userstore-based authentication
+## Configure user store-based authentication
 
-To configure userstore-based authentication:
+To configure user store-based authentication:
 
 1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
@@ -65,14 +65,14 @@ To configure userstore-based authentication:
 
 4. You will be redirected to **Advanced Configuration**, expand **Script Based Conditional Authentication**.
 
-5. In the **Templates** section, click on the **`+`** corresponding to **Role-Based** template.
+5. In the **Templates** section, click on the **`+`** corresponding to the **Role-Based** template.
 
     ![Userstore based authentication template](../../assets/img/samples/user-store-based-template.png)
 
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
     !!! info
-        - The authentication script prompts the second step of authentication for users that belong to the userstores named `EMPLOYEES` and `CONTRACTORS`.
+        - The authentication script prompts the second step of authentication for users that belong to the user stores named `EMPLOYEES` and `CONTRACTORS`.
         - By default, `totp` will be added as the second authentication step. You can update this with any authentication method.
 
 7. Click **Update** to save your configurations.
@@ -92,10 +92,10 @@ To configure userstore-based authentication:
     !!! info
         Note that Alex is successfully logged in to the application after going through only the basic authentication step.
 
-3. Log out from the application and login using Kim's credentials. 
+3. Log out from the application and log in using Kim's credentials. 
 
     !!! info
-        Note that Kim is prompted for a second step of authentication (i.e., TOTP) since she belongs to the userstore domain `EMPLOYEES` which is within the list of user stores which should be stepped up.  
+        Note that Kim is prompted for the second step of authentication (i.e., TOTP) since she belongs to the user store domain `EMPLOYEES`, which is within the list of user stores that should be stepped up.  
 
 4. Enter the TOTP code and click **Sign In**.  
 

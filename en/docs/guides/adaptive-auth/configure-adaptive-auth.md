@@ -1,4 +1,4 @@
-# Configure Adaptive Authentication for an Application
+# Configure adaptive authentication for an application
 
 This page guides you through setting up [adaptive authentication](../../../references/concepts/authentication/adaptive-authentication) for an application.
 

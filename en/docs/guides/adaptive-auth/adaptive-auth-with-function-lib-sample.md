@@ -1,4 +1,4 @@
-# Adaptive Authentication Using Function Library
+# Adaptive authentication using function library
 
 This page guides you through configuring adaptive authentication using the function library for a sample web application.
 

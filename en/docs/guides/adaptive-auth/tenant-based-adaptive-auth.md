@@ -1,4 +1,4 @@
-# Configure Tenant-Based Adaptive Authentication
+# Configure tenant-based adaptive authentication
 
 This page guides you through configuring tenant-based adaptive authentication for a sample web application.
 

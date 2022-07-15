@@ -1,4 +1,4 @@
-# Configure Device-Based Adaptive Authentication
+# Configure device-based adaptive authentication
 
 This page guides you through configuring device-based adaptive authentication for a sample web application.
 

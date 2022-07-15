@@ -1,4 +1,4 @@
-# Configure IP-Based Adaptive Authentication
+# Configure IP-based adaptive authentication
 
 This page guides you through configuring IP-based adaptive authentication for a sample web application.
 

@@ -1,4 +1,4 @@
-# Configure Risk-Based Adaptive Authentication
+# Configure risk-based adaptive authentication
 
 This guide shows you how to use ELK Analytics to assess an end user's risk score and enable adaptive authentication.
 

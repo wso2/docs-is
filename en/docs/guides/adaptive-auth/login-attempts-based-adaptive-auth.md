@@ -1,4 +1,4 @@
-# Configure Login Attempts-Based Adaptive Authentication
+# Configure login attempts-based adaptive authentication
 
 This page guides you through configuring login attempts-based adaptive authentication for a sample web application.
 

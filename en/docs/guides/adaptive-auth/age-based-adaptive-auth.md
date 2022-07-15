@@ -1,4 +1,4 @@
-# Configure User Age-Based Adaptive Authentication
+# Configure user age-based adaptive authentication
 
 This page guides you through configuring user age-based adaptive authentication for a sample web application.
 
