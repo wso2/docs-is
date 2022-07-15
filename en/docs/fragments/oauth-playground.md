@@ -12,7 +12,7 @@
 
 {!fragments/register-playground-application-portal.md!}
 
-1.  Click **Update**.
+1. Click **Update** to save the configurations.
 
 
 

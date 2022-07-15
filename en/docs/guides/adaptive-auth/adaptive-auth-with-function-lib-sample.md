@@ -4,75 +4,75 @@ This page guides you through configuring adaptive authentication using the funct
 
 ## Scenario
 
-The instructions below guide you through adding an adaptive authentication function using the function library that specifies authentication based on the user's age. In this example, any user who is underage and below the specified age limit (i.e., under the age of 18 years) is restricted access and prevented from logging in to the application.
+The instructions below guide you through adding an adaptive authentication function using the function library that specifies authentication based on the user's age. In this example, any underage user below the specified age limit (i.e., under 18 years) is restricted access and prevented from logging in to the application.
 
 ----
-## Set up Pickup Dispatch sample
+## Prerequisites
 
-{!fragments/pickup-dispatch-saml.md!}
+- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to add a function library
+    1. On the Management Console, go to **Manage** > **Function Libraries** >  **Add**.
+    2. Enter the following values:
 
-----
-
-{!fragments/add-function-library-lvl2.md!}
-
-Add a function library with the following properties.
+        <table>
+            <tr>
+                <th>Field name</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Function Library Name</td>
+                <td>age_based</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>getAge of the user</td>
+            </tr>
+            <tr>
+                <td>Function Library Script</td>
+                <td>
+                    ```json
+                    function getAge(birthDate) {
+                        var today = new Date();
+                        var age = today.getFullYear() - birthDate.getFullYear();
+                        var m = today.getMonth() - birthDate.getMonth();
+                        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                        age--;
+                    }
+                    return age;
+                    }
+                    module.exports.getAge = getAge;
+                    ```
+                </td>
+            </tr>
+        </table>
     
-- **Function Library Name:** age_based
-- **Description:** getAge of the user 
-- **Function Library Script:** 
-    
-    ```javascript
-    function getAge(birthDate) {
-        var today = new Date();
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        return age;
-    }
-     module.exports.getAge = getAge;
-    ```
+    3. Click **Register** to add the function library.
+
+- You need to [update claims](../dialects/edit-claim-mapping.md) to support `BirthDate` by default.
+    1. On the management console, go to **Claims > List**, select `http://wso2.org/claims`.
+    2. Click on **Edit** corresponding to the **BirthDate** claim
+    3. Select the **Supported By Default** checkbox to enable the birthdate claim.
+- You need to [add two users](../identity-lifecycles/admin-creation-workflow/) with login permissions, and [update the age](../identity-lifecycles/update-profile.md) as specified:
+
+    1. Username: `Alex`; Age: `< 18 years`
+    2. Username: `Kim`; Age: `> 18 years`
 
 ----
-
-## Configure claims 
-
-2. Navigate to **Main** > **Identity** > **Claims** > **List**.
-
-2. Click `http://wso2.org/claims`. 
-
-3. Click the **Edit** link corresponding to the **BirthDate** claim.
-
-4. Select the **Supported By Default** checkbox to enable the birth date claim. 
-
-    ![Enable supported by default for dob claim](../../assets/img/samples/enable-dob-claim.png)
-
-5. Create a user called "Alex" and edit the user profile.
-
-    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/) and [Add a Role](../../guides/identity-lifecycles/add-user-roles/).
-
-6. Enter a birth date that specifies Alex as under 18 years of age. 
-
-    !!! note
-        Enter the birth date in the following format: `<yyyy-mm-dd>`.
-
-7. Create another user called "Kim" and edit the user profile. Enter a birth date that specifies Kim as over 18 years of age. 
-
------
 
 ## Configure authentication script
 
-1. Click **Service Providers > List** and click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
-2. Expand **Local and Outbound Authentication Configuration** and click **Advanced Configuration**.
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-3. Under script based adaptive authentication editor, enter the following script.
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-    ```javascript
+3. Add the following script under the script-based adaptive authentication editor:
+
+    ```
     var ageModule = require('age_based.js');
 
-    //This script provides access to application only if the user's age is greater than the configured value
+    //This script provides access to the application only if the user's age is greater than the configured value
 
     //The user will be redirected to an error page if the date of birth is not present or the user's age is below the configured value
     
@@ -83,7 +83,7 @@ Add a function library with the following properties.
     // null/empty value will redirect to the default error page
     var errorPage = '';
     
-    // Additional query params to be added to the above url.
+    // Additional query params to be added to the above URL.
     // Hint: Use i18n keys for error messages
     
     var errorPageParameters = {
@@ -115,28 +115,25 @@ Add a function library with the following properties.
         });
     }
     ```
-    The authentication script and authentication steps get configured. 
-    The authentication script grants access only to users who are 18 years or above 
-    and restricts underage users. Underage users are redirected to an error page. 
-    
+    !!! info
+        - The authentication script grants access only to users who are 18 years or above and restricts underage users. Underage users are redirected to an error page.
+
     !!! note
-        Add `var ageModule=require('age_based.js'); before ageModule.getAge(birthDate)` and `ageModule.validateDOB(dob) functions’` usage.
+        Add `var ageModule=require('age_based.js');` before `ageModule.getAge(birthDate)` and `ageModule.validateDOB(dob)` functions’ usage.
 
+4. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
-4. Click **Ok**, then **Update**.
+    !!! info
+        If you have two authentication steps configured, delete the second step as the above script does not specify a second authentication step.
 
-## Try it
+5. Click **Update** to save your configurations.
 
-1. Access the following sample Pickup Dispatch application URL: 
+## Try it out
 
-    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
+1. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-2. Click **Login** and enter Kim's credentials. 
+2. Click **Login** and enter Kim's credentials. You are successfully logged in to the application.
 
-    ![Sign-in as Kim](../../assets/img/samples/pickup-sign-in-kim.png)
-
-3. You are successfully logged in to the application.
-
-4. Log out and login as Alex. Note that you are now restricted from logging in because Alex is underage.  
+3. Log out and log in as Alex. Note that you are now restricted from logging in because Alex is underage.  
 
     ![Error message based on age validation](../../assets/img/samples/age-validation.png)
