@@ -1,4 +1,4 @@
-# Registering an Identity Provider
+# Registering an identity provider
 
 WSO2 Identity Server allows you to add identity providers (IdP) and specify various details that help you link the identity provider to the WSO2 Identity Server. To properly configure the IdPs, you must specify all information required to send the authentication requests and get a response back from the identity provider.
 
