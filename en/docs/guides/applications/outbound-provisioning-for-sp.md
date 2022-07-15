@@ -1,4 +1,4 @@
-# Introduction
+# Configurng outbound provisioning for a service provider
 
 You might want to outbound provision users that self-register to your
 applications to other entities, such as Google or Salesforce. This section guides you on configuring [outbound provisioning]({{base_path}}/learn/outbound-provisioning) for a service provider.

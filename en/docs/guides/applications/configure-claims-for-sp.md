@@ -1,4 +1,4 @@
-# Introduction
+# Configuring claims for a service provder
 
 A service provider may need access to specific user claims to be able to provide its services to users. You can allow this by enabling the required claims for your service provider configuration in WSO2 Identity Server.
 

@@ -177,7 +177,7 @@ nav:
         - Adaptive Authentication:
           - Configure Adaptive Authentication: guides/adaptive-auth/configure-adaptive-auth.md
           - Adaptive Authentication Scenarios: 
-            - Scenarios: guides/adaptive-auth/adaptive-auth-overview.md
+            - Overview: guides/adaptive-auth/adaptive-auth-overview.md
             - Role-Based: guides/adaptive-auth/role-based-adaptive-auth.md
             - User Age-Based: guides/adaptive-auth/age-based-adaptive-auth.md
             - Tenant-Based: guides/adaptive-auth/tenant-based-adaptive-auth.md

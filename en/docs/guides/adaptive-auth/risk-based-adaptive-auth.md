@@ -16,10 +16,6 @@ Consider a business use case where a bank wants to prompt an additional authenti
 
 ----
 
-{!./includes/adaptive-auth-samples.md!}
-
-----
-
 ## Create a Siddhi application
 
 First, create a Siddhi application as instructed below. The application has two endpoints; one to publish transactional data, and the other to get the user's risk score.

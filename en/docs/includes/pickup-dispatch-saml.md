@@ -1,23 +1,20 @@
 {!./includes/deploying-sample-apps.md!}
--   Download the sample from GitHub.
 
-    1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-
-    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
+- Download the [SAML pickup dispatch application](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) from the latest release assets.
 
 ---
 
 ### Deploy the sample web app
 
-Deploy this sample web app on a web container.
+To deploy the sample web app on a web container:
 
-1.  Copy the `saml2-web-app-pickup-dispatch.com.war` file into the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder. 
+1. Copy the downloaded `.war` file of the SAML application into the `webapps` directory of the Tomcat folder.
 
-2.  Start the Tomcat server.
-    
+2. Start the Tomcat server.
+
 ---
 
-### CORS configuration
+### Add CORS configuration
 
 {!./includes/cors-config.md!}
 
@@ -25,38 +22,30 @@ Deploy this sample web app on a web container.
 
 ### Register a service provider
 
-1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials. 
+1. In the Management Console, go to **Main** > **Identity** > **Service Providers** and click **Add**.
 
-2.  Navigate to **Main** > **Identity** > **Service Providers** and click **Add**.
+3. Enter `saml2-web-app-pickup-dispatch` as the **Service Provider Name**, and click **Register**.
 
-3.  Enter `saml2-web-app-pickup-dispatch` in the **Service Provider Name** text box,
-    and click **Register**.
+4. Expand the **Inbound Authentication Configuration > SAML2 Web SSO Configuration** section and, click **Configure**.
 
-4.  In the **Inbound Authentication Configuration** section, click
-    **Configure** under the **SAML2 Web SSO Configuration** section.
+5. Enter the following values in the fields mentioned.
 
-    1.  Now set the configuration as follows:
+    | Field name | Value |
+    |-----------|-------|
+    | **Issuer** | `saml2-web-app-pickup-dispatch.com`  |
+    | **Assertion Consumer URL**    | `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp`    |
 
-        1.  **Issuer** : `saml2-web-app-pickup-dispatch.com`
+    !!! info
+        Click **Yes** on the dialog that appears after you add the **Assertion Consumer URL**. This dialog appears when you add an `http` URL.
 
-        2.  **Assertion Consumer URL** :  ` http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp `                       
-        
-        Click **Yes**, in the message that appears.
+6. Enable the following by selecting the corresponding checkboxes:
+    - **Enable Response Signing**
+    - **Enable Signature Validation in Authentication Requests and Logout Requests**
+    - **Enable Single Logout**
+    - **Enable Attribute Profile**
+        - **Include Attributes in the Response Always**  
 
-    2.  Select the following check-boxes:
-        1.  **Enable Response Signing**
-
-        2.  **Enable Single Logout**
-
-        3.  **Enable Attribute Profile**
-
-        4.  **Include Attributes in the Response Always**  
-        
-        5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
-    
     !!! tip
         For more information on the advanced configurations, see [Advanced SAML Configurations](../../../../guides/login/saml-app-config-advanced/).
 
-5.  Click **Register** to save the changes.  
-
-
+7. Click **Register** to add the service provider and save the configurations.  
