@@ -1,5 +1,5 @@
 
-You are more than welcome to share your connectors to host it in our [connector store](https://store.wso2.com/store/assets/isconnector/list). As an organization that believes in the open source paradigm, we always encourage our community to make contributions so that our community around WSO2 Identity server can get the full benefit of using an open source product.
+You are welcome to share and host your connectors in our [connector store](https://store.wso2.com/store/assets/isconnector/list). As an organization that believes in the open source paradigm, we always encourage our community to make contributions so that our community around WSO2 Identity server can benefit from using an open source product.
 Contributions can be made by following the procedure below.
 
 1. Create an issue in the [product-is git repository](https://github.com/wso2/product-is/issues/new?assignees=&labels=feature&template=feature_request.md&title=).
