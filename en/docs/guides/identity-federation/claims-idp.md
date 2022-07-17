@@ -6,7 +6,7 @@ Therefore claim mapping is done so that the Identity Server can identify the use
 
 For example, Facebook IdP will return authenticated user email as `email`, and the identity server will map it to the `http://wso2.org/claims/emailaddress` using the IdP claim mapping.
 
-See the [Identity Server Architecture]({{base_path}}/references/architecture/architecture.md) topic for more information on how claim mapping fits into the identity provider scenario.
+See the [Identity Server Architecture]({{base_path}}/references/architecture/architecture) topic for more information on how claim mapping fits into the identity provider scenario.
 
 In the **Claim Configuration** form, there are two sub-forms as follows:
 
@@ -98,7 +98,7 @@ claim configurations done in the above steps.
     
     - Non-blocking mode: Provisioning happens in a different thread. 
     
-    This provisioning mode can be specified when [creating and configuring the service provider]({{base_path}}/applications/configure-sp.md).
+    This provisioning mode can be specified when [creating and configuring the service provider]({{base_path}}/guides/applications/configure-sp).
 
 To configure advanced claim configurations:
 
@@ -137,6 +137,6 @@ To map a newly added OIDC claim to an unused OIDC claim:
 See the following topics for samples of claim mapping for an identity
 provider.
 
-- [Logging in to your application via Identity Server using Facebook Credentials]({{base_path}}/identity-federation/facebook.md)
-- [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb.md)
+- [Logging in to your application via Identity Server using Facebook Credentials]({{base_path}}/guides/identity-federation/facebook)
+- [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb)
 - [Outbound Provisioning with Salesforce]({{base_path}}/learn/outbound-provisioning-with-salesforce)

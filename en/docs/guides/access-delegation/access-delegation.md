@@ -17,5 +17,3 @@ topics discuss the various features that are key to delegated access control.
 -   [SAML2 Bearer Assertion Profile]({{base_path}}/guides/access-delegation/saml2-bearer-assertion-profile)
 
 -   [Encrypt ID Tokens]({{base_path}}/guides/access-delegation/oidc-token-encryption-sample)
-
--   [Passing OIDC Parameters as a Request Object]({{base_path}}/guides/access-delegation/request-object)

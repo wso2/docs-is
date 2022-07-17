@@ -12,7 +12,7 @@ Therefore, only the user who creates the service provider can view or manage the
 
 ## Prerequisites
 
-You need to [register a service provider]({{base_path}}/applications/register-sp.md) on the Management Console.
+You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
 
 ## Configure roles and permissions for SP
 

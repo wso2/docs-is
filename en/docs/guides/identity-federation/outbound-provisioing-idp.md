@@ -2,11 +2,11 @@
 
 You can configure the WSO2 Identity Server to provision users to external applications.
 
-See the [Identity Server Architecture]({{base_path}}/references/architecture/architecture.md) for more information on how this process
+See the [Identity Server Architecture]({{base_path}}/references/architecture/architecture) for more information on how this process
 fits into the overall picture.
 
 ## Prerequisites
-You need to [register an identity provider]({{base_path}}/identity-federation/add-idp.md) on the Identity Server.
+You need to [register an identity provider]({{base_path}}/guides/identity-federation/add-idp) on the Identity Server.
 
 ## Configure Outbound Provisioning Connectors
 
@@ -119,7 +119,7 @@ provisioning requests to Salesforce.
           -   UserPermissionsMarketingUser
           -   UserPermissionsOfflineUser
 
-  See [Outbound Provisioning with Salesforce]({{base_path}}/identity-lifecycles/outbound-provisioning-with-salesforce.md) for more information on how this is configured from end to end.
+  See [Outbound Provisioning with Salesforce]({{base_path}}/identity-lifecycles/outbound-provisioning-with-salesforce) for more information on how this is configured from end to end.
 
 ### Configure SCIM provisioning
 
@@ -144,7 +144,7 @@ provisioning requests to an external application that supports SCIM.
 4. Select **Enable Connector** to enable identity provisioning from SCIM.
 5. Click **Update** to dave the configurations.
 
-See [Outbound Provisioning with SCIM]({{base_path}}/identity-lifecycles/outbound-provisioning-with-scim.md) for more information on how this works in a typical scenario.
+See [Outbound Provisioning with SCIM]({{base_path}}/identity-lifecycles/outbound-provisioning-with-scim) for more information on how this works in a typical scenario.
 
 <!-- ## Configure SPML provisioning
 
@@ -176,4 +176,4 @@ more information on how this works in a typical scenario.
 -->
 
 !!! info "Custom Connectors"
-    In addition to this, you can also create [custom connectors]({{base_path}}/references/extend/provisioning/write-an-outbound-provisioning-connector.md) that are added to the list of outbound provisioning connectors once created.
+    In addition to this, you can also create [custom connectors]({{base_path}}/references/extend/provisioning/write-an-outbound-provisioning-connector) that are added to the list of outbound provisioning connectors once created.

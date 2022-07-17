@@ -35,7 +35,7 @@ To add a new identity provider.
 
             keytool -export -alias wso2carbon -file wso2.crt -keystore wso2carbon.jks -storepass wso2carbon
             
-        See [Using Asymmetric Encryption]({{base_path}}/deploy/security/use-asymmetric-encryption.md) guide for more information about certificates.
+        See [Using Asymmetric Encryption]({{base_path}}/deploy/security/use-asymmetric-encryption) guide for more information about certificates.
 
     ??? note "Federation hub and the home realm identifier"
         A federation hub is a collection of multiple IdPs configured on WSO2 Identity Server.
@@ -80,11 +80,11 @@ To add a new identity provider.
 
         For more information about the other configurations, see the following documentation. 
         
-        - [Configure claims for an IdP]({{base_path}}/identity-federation/claims-idp.md)
-        - [Configure roles for an IdP]({{base_path}}/identity-federation/roles-idp.md)
-        - [Configure federated authenticators]({{base_path}}/identity-federation/configure-ad-fs-as-a-federated-authenticator.md)
-        - [Configure just-in-time provisioning]({{base_path}}/identity-federation/jit-workflow.md)
-        - [Configure outbound provisioning connectors]({{base_path}}/identity-federation/outbound-provisioing-idp.md)
+        - [Configure claims for an IdP]({{base_path}}/guides/identity-federation/claims-idp)
+        - [Configure roles for an IdP]({{base_path}}/guides/identity-federation/roles-idp)
+        - [Configure federated authenticators]({{base_path}}/guides/identity-federation/configure-ad-fs-as-a-federated-authenticator)
+        - [Configure just-in-time provisioning]({{base_path}}/guides/identity-federation/jit-workflow)
+        - [Configure outbound provisioning connectors]({{base_path}}/guides/identity-federation/outbound-provisioing-idp)
 
 4. Click **Register** to add the Identity Provider.
 
@@ -94,11 +94,11 @@ To add a new identity provider.
     See the following topics for information on configuring service
     providers using different specifications.
 
-    -   See [Identity Federation]({{base_path}}/identity-federation/basic-overview.md) for information on configuring federated authenticators.
+    -   See [Identity Federation]({{base_path}}/guides/identity-federation/basic-overview) for information on configuring federated authenticators.
 
     See the following topics to configure different applications as service providers in Identity Server.
 
-    -   [Configuring Shibboleth IdP as a Trusted Identity Provider]({{base_path}}/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider.md)
-    -   [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb.md)
-    -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/guides/login/log-into-salesforce-using-iwa.md)
-    -   [Logging in to your application via Identity Server using Facebook Credentials]({{base_path}}/identity-federation/facebook.md)
+    -   [Configuring Shibboleth IdP as a Trusted Identity Provider]({{base_path}}/guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider)
+    -   [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb)
+    -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/guides/login/log-into-salesforce-using-iwa)
+    -   [Logging in to your application via Identity Server using Facebook Credentials]({{base_path}}/guides/identity-federation/facebook)

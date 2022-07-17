@@ -3,7 +3,7 @@
 A service provider may need access to specific user claims to be able to provide its services to users. You can allow this by enabling the required claims for your service provider configuration in WSO2 Identity Server.
 
 !!! info
-    See the [Identity Server Architecture]({{base_path}}/references/architecture/architecture.md) for more information on how claim mapping fits into the overall scheme.
+    See the [Identity Server Architecture]({{base_path}}/references/architecture/architecture) for more information on how claim mapping fits into the overall scheme.
 
 Listed below are the types of claims you will set up for the service provider.
 
@@ -15,7 +15,7 @@ Listed below are the types of claims you will set up for the service provider.
 
 ## Prerequisites
 
-You need to [register a service provider]({{base_path}}/applications/register-sp.md) on the Management Console.
+You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
 
 ## Configure claims
 
@@ -77,7 +77,7 @@ To define custom claims and enable them for the service provider:
 ??? note "Custom claims for an OIDC service provider"
     When mapping custom claims for a service provider configured with OpenID Connect, map the custom claims in the SP configuration and add the custom claims to a scope value in the **oidc** file.
 
-    Learn about [mapping oidc scopes and claims]({{base_path}}/guides/login/oidc-scopes-claims.md)
+    Learn about [mapping oidc scopes and claims]({{base_path}}/guides/login/oidc-scopes-claims)
 
 ??? note "Custom claims for a SAML2 service provider"
     When mapping custom claims for a SAML2 service provider, select both **Enable Attribute Profile** and **Include Attributes in the Response Always** from the SAML2 service provider configuration.
@@ -107,7 +107,7 @@ Here, you need to specify values as follows:
 
 When a user attempts to log in to the service provider, they will be prompted for consent to share the claims configured for the service provider.
 
-The user will not be able to proceed with the authentication without providing consent. Learn more about [managing user consent]({{base_path}}/consent-mgt/manage-user-consent.md).
+The user will not be able to proceed with the authentication without providing consent. Learn more about [managing user consent]({{base_path}}/consent-mgt/manage-user-consent).
 
 !!! info "Related Topics"
-    See [Logging into Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb.md) for a sample of claim mapping for a service provider.
+    See [Logging into Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb) for a sample of claim mapping for a service provider.

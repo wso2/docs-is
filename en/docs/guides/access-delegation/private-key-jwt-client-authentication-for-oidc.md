@@ -169,7 +169,7 @@ artifacts.
         ```
 
         For information on how to get the authorization-code, check [Try
-        Authorization Code Grant]({{base_path}}/guides/access-delegation/authorization-code/#authorization-code-grant-type).
+        Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground).
 
       
     - For client credential grant type:

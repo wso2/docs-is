@@ -2,7 +2,7 @@
 
 You can connect your application with Identity Server and control the way users login into your app. This guide provides instructions on how to add and configure a [service provider]({{base_path}}/get-started/architecture#service-provider-section) to Identity Server through the management console.
 
-For more information on how the service provider fits into the WSO2 IS architecture, see [Architecture]({{base_path}}/references/architecture/architecture.md).
+For more information on how the service provider fits into the WSO2 IS architecture, see [Architecture]({{base_path}}/references/architecture/architecture).
 
 ## Register a service provider
 
@@ -66,8 +66,8 @@ A certificate is used to validate the signatures of the signed requests received
 
 The certificate is used in the following scenarios:
 
-- To validate the signature of the SAML2 authentication requests and the SAML2 logout requests sent by the service provider during [SAML SSO flows]({{base_path}}/guides/login/sso-for-saml.md).
-- When [passing OIDC authentication request parameters]({{base_path}}/guides/login/oidc-parameters-in-auth-request.md) the certificate is used to:
+- To validate the signature of the SAML2 authentication requests and the SAML2 logout requests sent by the service provider during [SAML SSO flows]({{base_path}}/guides/login/sso-for-saml).
+- When [passing OIDC authentication request parameters]({{base_path}}/guides/login/oidc-parameters-in-auth-request) the certificate is used to:
 
     - Encrypt the `id_token` sent to the service provider in the OIDC Authentication Response.
     - Validate the signed `Request` `Object` sent in the OAuth2/OIDC Authorization Request.
@@ -107,8 +107,8 @@ If the **Application Certificate** field is left blank, as WSO2 IS is backward c
 
     See the following topics to configure different applications as service providers in Identity Server.
 
-    -   [Logging in to SaaS applications using Identity Server]({{base_path}}/guides/login/log-into-simplesaml-using-is.md)
-    -   [Logging in to Salesforce using the Identity Server]({{base_path}}/guides/login/log-into-salesforce-using-is.md)
-    -   [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb.md)
-    -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/guides/login/log-into-salesforce-using-iwa.md)
+    -   [Logging in to SaaS applications using Identity Server]({{base_path}}/guides/login/log-into-simplesaml-using-is)
+    -   [Logging in to Salesforce using the Identity Server]({{base_path}}/guides/login/log-into-salesforce-using-is)
+    -   [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb)
+    -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/guides/login/log-into-salesforce-using-iwa)
     -   [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server)

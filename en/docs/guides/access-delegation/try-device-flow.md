@@ -2,7 +2,7 @@
 
 The Device Authorization Grant is a grant type in the OAuth 2.0
 specification. For more information, see
-[Device Authorization Grant]({{base_path}}/references/device-flow-grant).
+[Device Authorization Grant]({{base_path}}/references/concepts/authorization/device-flow-grant).
 This section guides you on how to try out the Device Authorization grant type.
 
 ## Configure Device Authorization Grant properties during deployment
@@ -94,7 +94,7 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
     wso2server.bat run
     ```
 
-2. Access the [WSO2 Identity Server Management Console](https://localhost:9443/carbon) and log in using your username and password.
+2. Access the WSO2 Identity Server Management Console and log in using your username and password.
 
 3. On the **Main** menu, click **Service Providers** > **Add**.
 
@@ -218,4 +218,4 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
     </tbody>
     </table>
 
-6. To validate the token that you received, [use the introspection endpoint]({{base_path}}/learn/invoke-the-oauth-introspection-endpoint)
+6. To validate the token that you received, [use the introspection endpoint]({{base_path}}/guides/access-delegation/invoke-oauth-introspection-endpoint)

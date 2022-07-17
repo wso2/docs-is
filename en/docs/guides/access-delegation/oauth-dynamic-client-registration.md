@@ -1,6 +1,6 @@
 # OAuth Dynamic Client Registration
 
-This page guides you through using [OAuth Dynamic Client Registration]({{base_path}}/references/concepts/authorization/dcr) registering and managing an OAuth application using REST APIs.
+This page guides you through using [OAuth Dynamic Client Registration]({{base_path}}/references/concepts/authentication/dcr) registering and managing an OAuth application using REST APIs.
 
 -----
 
@@ -162,4 +162,4 @@ Use the following curl command to delete an OAuth application using the client I
     ```
 
 !!! info "Related topics"
-    - To see the swagger definition of this REST API, see [OAuth Dynamic Client Registration APIs]({{base_path}}/develop/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/).
+    - To see the swagger definition of this REST API, see [OAuth Dynamic Client Registration APIs]({{base_path}}/apis/use-the-openid-connect-dynamic-client-registration-rest-apis).

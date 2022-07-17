@@ -52,7 +52,7 @@ The refresh token is renewed when the refresh grant is used to get an access tok
 
 ## Get access token
 
-A refresh token can be obtained when using one of the [OAuth 2.0 grant types](oauth-grant-types.md). 
+A refresh token can be obtained when using one of the OAuth 2.0 grant types. 
 
 Run the following cURL command to try out the refresh token grant and obtain an access token.
 

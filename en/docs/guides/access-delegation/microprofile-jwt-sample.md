@@ -137,5 +137,4 @@ If you invoke an endpoint with a token obtained for a user that has no access, y
 ---
 
 !!! info "Related topics"
-    - [Concept: Microprofile JWT 1.0]({{base_path}}/references/concepts/authentication/microprofile-jwt/)
-    - [Guide: Configure Microprofile JWT]({{base_path}}/guides/access-delegation/microprofile-jwt/)
+    [Concept: Microprofile JWT 1.0]({{base_path}}/references/concepts/authentication/microprofile-jwt/)

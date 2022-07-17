@@ -28,7 +28,7 @@ To configure a resident service provider:
         <tr>
             <th>Outbound Provisioning Configuration</th>
             <td>Identity Provider</td>
-            <td>Select the [outbound provisioning enabled IdP]({{base_path}}/identity-federation/outbound-provisioing-idp.md).</td>
+            <td>Select the [outbound provisioning enabled IdP]({{base_path}}/guides/identity-federation/outbound-provisioing-idp).</td>
         </tr>
     </table>
 

@@ -238,7 +238,7 @@ For example,
 
 7.  Since the Travelocity application has now exchanged the SAML assertion for a valid OAuth access token, you can use the received access token to access a protected resource in WSO2 Identity Server. 
 
-    Use the [SCIM User Endpoint]({{base_path}}/develop/apis/scim2-rest-apis/#/Users%20Endpoint) which is secured with OAuth to retrieve users. 
+    Use the [SCIM User Endpoint]({{base_path}}/apis/scim2-rest-apis) which is secured with OAuth to retrieve users. 
 
     **Request**
 

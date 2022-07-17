@@ -1,13 +1,10 @@
 # Configure WS-Federation
 
-For information on WS-Federation (Web Services Federation), see [Ws-Federation](TO-DO: concepts).
-
 To navigate to the federated authenticators configuration section, do
 the following.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management
-    Console]({{base_path}}/deploy/get-started/getting-started-with-the-management-console).
+    Management Console.
     
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.  
@@ -89,5 +86,5 @@ the following.
 		If the certificate is self-signed, import the service
 		provider's public key to the IS client trust store to ensure that the
 		SSL handshake in the SLO request is successful. For more information on
-		how to do this, see [Managing Keystores with the UI]({{base_path}}/deploy/security/managing-keystores-with-the-ui) in
+		how to do this, see [Managing Keystores with the UI]({{base_path}}/deploy/security/manage-keystores-with-the-ui) in
 		the WSO2 Product Administration Guide.

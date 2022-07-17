@@ -493,4 +493,4 @@ To configure through file upload:
 
 !!! info "Related topics"
 	-	[Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)
-	-   [Guides: Configure Shibboleth IdP as a Trusted Identity Provider]({{base_path}}/guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider)
+	-   [Guides: Configure Shibboleth IdP as a Trusted Identity Provider]({{base_path}}/guides/identity-federation/configure-shibboleth-idp)

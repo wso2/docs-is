@@ -4,7 +4,7 @@ This page guides you through setting up [adaptive authentication]({{base_path}}/
 
 ## Prerequisites
 
-You need to [register a service provider]({{base_path}}/applications/register-sp) on the Management Console.
+You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
 
 ## Add an adaptive authentication script
 

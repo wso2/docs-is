@@ -1,10 +1,10 @@
 # Configurng inbound provisioning for a service provider
 
-Inbound provisioning involves provisioning users or groups to the WSO2 Identity Server’s user store via an external application. For more information, see [inbound provisioning]({{base_path}}/references/concepts/provisioning-framework.md).
+Inbound provisioning involves provisioning users or groups to the WSO2 Identity Server’s user store via an external application. For more information, see [inbound provisioning]({{base_path}}/references/concepts/provisioning-framework).
 
 ## Prerequisites
 
-You need to [register a service provider]({{base_path}}/applications/register-sp.md) on the Management Console.
+You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
 
 ## Configure inbound provisioning
 
