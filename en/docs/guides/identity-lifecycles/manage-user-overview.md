@@ -2,20 +2,22 @@
 
 This section provides instructions on how to perform the following actions on a user in WSO2 Identity Server and manage the user profile. 
 
-- [List/Search Users]({{base_path}}/search-users)
+- [List/Search Users]({{base_path}}/guides/identity-lifecycles/search-users)
 
-- [Delete Users]({{base_path}}/delete-users)
+- [Delete Users]({{base_path}}/guides/identity-lifecycles/delete-users)
 
-- [View/Update User Profiles]({{base_path}}/update-profile)
+- [View/Update User Profiles]({{base_path}}/guides/identity-lifecycles/update-profile)
 
-- [Manage User Attributes]({{base_path}}/manage-user-attributes)
+- [Manage User Attributes]({{base_path}}/guides/identity-lifecycles/manage-user-attributes)
 
-- [Import Users]({{base_path}}/import-users)
+- [Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
 
-- [Recover Username]({{base_path}}/recover-username)
+- [Recover Username]({{base_path}}/guides/identity-lifecycles/recover-username)
 
-- [Reset Password]({{base_path}}/reset-password)
+- [Reset Password]({{base_path}}/guides/identity-lifecycles/reset-password)
 
-- [Set Email Address as the Username]({{base_path}}/enable-email-as-username)
+- [Customize User Profiles]({{base_path}}/guides/identity-lifecycles/customize-profiles)
 
-- [Track User Deletion]({{base_path}}/track-deletion)
+- [Set Email Address as the Username]({{base_path}}/guides/identity-lifecycles/enable-email-as-username)
+
+- [Track User Deletion]({{base_path}}/guides/identity-lifecycles/track-deletion)

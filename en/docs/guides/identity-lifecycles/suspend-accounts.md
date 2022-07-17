@@ -100,7 +100,7 @@ task that checks for idle accounts is common to all tenants.
         -   The template used to send an email when the account has been
             locked is the **AccountLock** template.
     
-        For more information on how to edit and customize the email templates, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-emails).
+        For more information on how to edit and customize the email templates, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
     
 
 ----

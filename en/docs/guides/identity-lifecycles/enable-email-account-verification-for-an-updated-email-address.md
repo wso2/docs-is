@@ -158,4 +158,4 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
     ```
 
 !!! info "Related topics"
-    See [SCIM 2.0 REST APIs]({{base_path}}/develop/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
+    See [SCIM 2.0 REST APIs]({{base_path}}/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.

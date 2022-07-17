@@ -108,7 +108,7 @@ of WSO2 Identity Server.
 
 !!! tip
     For information on the REST APIs for self-registration, see 
-    [Self-Registration Using REST APIs]({{base_path}}/develop/apis/use-the-self-sign-up-rest-apis/).
+    [Self-Registration Using REST APIs]({{base_path}}/apis/use-the-self-sign-up-rest-apis).
     
 
 ## Configure self-registration consent purposes
@@ -270,9 +270,8 @@ curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Con
 
 
 !!! info "Related topics"
-    - [REST API: Self Register]({{base_path}}/develop/apis/use-the-self-sign-up-rest-apis/)
-    - [Guide: Admin Creation Workflow]({{base_path}}/admin-creation-workflow) 
-    - [Guide: Invitation Workflow]({{base_path}}/invitation-workflow) 
-    - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/jit-workflow)
-    - [Guide: Bulk Import Users]({{base_path}}/import-users)
-    - [Guide: Outbound Provisioning]({{base_path}}/outbound-provisioning) 
+    - [REST API: Self Register]({{base_path}}/apis/use-the-self-sign-up-rest-apis)
+    - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
+    - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
+    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+    - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning) 

@@ -4,14 +4,14 @@ To enable users to log into the IS management console, you need to create user a
 
 This section guides you through different ways of onboarding users to WSO2 Identity Server and to external systems.  
 
-- [Admin Creation Workflow]({{base_path}}/admin-creation-workflow) 
+- [Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
 
-- [Invitation Workflow]({{base_path}}/invitation-workflow) 
+- [Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
 
-- [User Self-Registration Workflow]({{base_path}}/self-registration-workflow)
+- [User Self-Registration Workflow]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
 
-- [Just-in-Time User Provisioning Workflow]({{base_path}}/jit-workflow)
+- [Just-in-Time User Provisioning Workflow]({{base_path}}/guides/identity-lifecycles/jit-workflow)
 
-- [Bulk Import Users]({{base_path}}/import-users)
+- [Bulk Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
 
-- [Outbound Provisioning]({{base_path}}/outbound-provisioning)
+- [Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)

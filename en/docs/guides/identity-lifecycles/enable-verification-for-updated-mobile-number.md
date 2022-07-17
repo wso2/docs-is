@@ -42,9 +42,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         
         !!! note
             This publisher uses [NEXMO](https://www.nexmo.com/) as the SMS REST service provider. The 
-            `api_key` and `api_secret` needs to be replaced with the appropriate values copied from the NEXMO API Dashboard. 
-            For instructions on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
-            /display/DAS300/HTTP+Event+Publisher).
+            `api_key` and `api_secret` needs to be replaced with the appropriate values copied from the NEXMO API Dashboard.
 
 ----
 
@@ -188,6 +186,6 @@ Given below is a sample request and the relevant response to request a new verif
 ---
 
 !!! info "Related topics"
-    See [SCIM 2.0 Rest APIs]({{base_path}}/develop/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
+    See [SCIM 2.0 Rest APIs]({{base_path}}/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
     
-    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs]({{base_path}}/develop/apis/use-the-self-sign-up-rest-apis/).
+    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs]({{base_path}}/apis/use-the-self-sign-up-rest-apis).

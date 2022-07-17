@@ -15,7 +15,7 @@ attributes of a user.
 
 1.  By accessing the profile of the user and changing the attributes
     using the Management Console. 
-2.  You can use the REST API according to the SCIM 2.0 provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs]({{base_path}}/develop/apis/scim2-rest-apis/).
+2.  You can use the REST API according to the SCIM 2.0 provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs]({{base_path}}/apis/scim2-rest-apis/).
 
 ---
 

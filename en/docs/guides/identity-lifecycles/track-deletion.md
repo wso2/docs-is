@@ -14,7 +14,7 @@ time a user is deleted:
 You can use this log file as an input to the Identity Anonymization tool
 that is packaged with WSO2 Identity Server, to ensure that you [remove
 references to all deleted user
-identities]({{base_path}}/setup/removing-references-to-deleted-user-identities).
+identities]({{base_path}}/deploy/remove-references-to-deleted-user-identities).
 
 Follow the steps below to configure WSO2 Identity Server to log details
 related to user deletion each time you delete a user:

@@ -103,9 +103,8 @@ Apart from this, users can also be added by directly plugging userstores into WS
 
 !!! info "Related topics"
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
-    - [Guide: Admin Creation Workflow]({{base_path}}/admin-creation-workflow) 
-    - [Guide: User Self Registration Workflow]({{base_path}}/self-registration-workflow)
-    - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/jit-workflow)
-    - [Guide: Invitation Workflow]({{base_path}}/invitation-workflow) 
-    - [Guide: Outbound Provisioning]({{base_path}}/outbound-provisioning)
+    - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
+    - [Guide: User Self Registration Workflow]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
+    - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
+    - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
     

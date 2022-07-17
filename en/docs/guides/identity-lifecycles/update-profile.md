@@ -67,6 +67,6 @@ Below is a sample request and its corresponding response using SCIM 2.0.
 
 !!! info "Related topics"
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
-    - [Guide: Ways of User Onboarding]({{base_path}}/identity-lifecycles/onboard-overview)
-    - [Guide: Search/List Users]({{base_path}}/identity-lifecycles/search-users)
+    - [Guide: Ways of User Onboarding]({{base_path}}/guides/identity-lifecycles/onboard-overview)
+    - [Guide: Search/List Users]({{base_path}}/guides/identity-lifecycles/search-users)
 

@@ -34,4 +34,4 @@ be logged in as a super user.
     ![View a tenant]({{base_path}}/assets/img/guides/view-tenant.png) 
 
 !!! note
-    To try out the Tenant Management REST API, refer [here]({{base_path}}/develop/apis/tenant-management-rest-api).
+    To try out the Tenant Management REST API, refer [here]({{base_path}}/apis/tenant-management-rest-api/).

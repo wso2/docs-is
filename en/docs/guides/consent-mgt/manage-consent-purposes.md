@@ -33,7 +33,7 @@ management console.
     -   `/permission/admin/manage/identity/consentmgt/add`
     -   `/permission/admin/manage/identity/claimmgt/metadata/view`
 
-1.  Sign in to the [management console]({{base_path}}/setup/getting-started-with-the-management-console).
+1.  Sign in to the management console.
 
     !!! info
         To add a consent purpose within a specific tenant domain, log in using tenant credentials.
@@ -88,7 +88,7 @@ management console.
 
     -   `            /permission/admin/manage/identity/consentmgt/view                       `
 
-1. Sign in to the [management console]({{base_path}}/setup/getting-started-with-the-management-console).
+1. Sign in to the management console.
 2. On the **Main** menu, click **Manage > Consent Purposes > List**.  
     ![manage-consent-purposes]({{base_path}}/assets/img/guides/manage-consent-purposes.png) 
 
@@ -112,4 +112,4 @@ management console.
     ![manage-purpose]({{base_path}}/assets/img/guides/manage-purpose.png)
 
     !!! tip "Deleting PII Category"
-        To delete a specific PII cateogry, use the consent management [Delete PII Category REST API](https://docs.wso2.com/display/IS590/apidocs/Consent-management-apis/index.html#!/operations#PIICategory#consentsPiiCategoriesPiiCategoryIdDelete). Note that you can not delete a PII category that is already associated with a consent receipt.
+        To delete a specific PII cateogry, use the consent management [Delete PII Category REST API]({{base_path}}/apis/use-the-consent-management-rest-apis/). Note that you can not delete a PII category that is already associated with a consent receipt.

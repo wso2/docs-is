@@ -51,7 +51,7 @@ Various elements of the **My Account** application can be managed by the users t
 4. Update the new value in the profile and click **Save**.
 
 !!! tip
-    To add custom attributes to the user profile, see [Extend SCIM 2.0 User Schemas]({{base_path}}/develop/extend/provisioning/extend-scim2-user-schemas/)
+    To add custom attributes to the user profile, see [Extend SCIM 2.0 User Schemas]({{base_path}}/references/extend/provisioning/extend-scim2-user-schemas/)
 
 ### Add and update profile picture
 
@@ -319,6 +319,6 @@ Whenever a user gets created in the system, that task will appear under the **re
 ---
 
 !!! info "Related topics"
-    - To change the look and feel of the My Account UI, see [Customize the My Account UI]({{base_path}}/develop/extend/myaccount/customize-my-account-ui/).
-    - To set up My Account in a dev environment, see [Set Up My Account in a Development Environment]({{base_path}}/develop/extend/myaccount/set-up-my-account-in-a-dev-environment/).
-    - To configure the My Account application and customize features, theme, etc., see [Configure My Account Application]({{base_path}}/develop/extend/myaccount/configure-my-account/)
+    - To change the look and feel of the My Account UI, see [Customize the My Account UI]({{base_path}}/references/extend/myaccount/customize-my-account-ui/).
+    - To set up My Account in a dev environment, see [Set Up My Account in a Development Environment]({{base_path}}/references/extend/myaccount/set-up-my-account-in-a-dev-environment/).
+    - To configure the My Account application and customize features, theme, etc., see [Configure My Account Application]({{base_path}}/references/extend/myaccount/configure-my-account/)

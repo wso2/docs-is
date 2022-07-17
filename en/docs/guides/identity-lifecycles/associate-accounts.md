@@ -40,5 +40,5 @@ The following actions can be performed using above admin service.
 - Switch between associated user accounts without re-authenticate with the system
 
 ## Using the **My Account**
-The WSO2 Identity Server [**My Account**]({{base_path}}/learn/my-account.md) can be used to associate the accounts. You can associate a local user account or a federated user
-accounts. See [Linked Accounts]({{base_path}}/learn/my-account.md#linked-accounts) under **My Account** for details.
+The WSO2 Identity Server [**My Account**]({{base_path}}/guides/my-account/my-account) can be used to associate the accounts. You can associate a local user account or a federated user
+accounts. See [Linked Accounts]({{base_path}}/guides/my-account/my-account) under **My Account** for details.

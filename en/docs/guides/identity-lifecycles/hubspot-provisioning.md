@@ -18,16 +18,16 @@ in HubSpot and lead information updates in WSO2 Identity Server being updated in
     !!! Note 
         Once you sign in to your developer account, you can create an app or a test account.
 
-    <!-- ![hubspot-developer-home]({{base_path}}/assets/img/tutorials/hubspot-developer-home.png) >
+    <!-- ![hubspot-developer-home]({{base_path}}/assets/img/tutorials/hubspot-developer-home.png) -->
 
 2. Create a test account.
 3. Add a test account name and create an account. The created account appears with the corresponding details as shown below. 
-    <!--![hubspot-test-account]({{base_path}}/assets/img/tutorials/hubspot-test-account.png)>
+    <!--![hubspot-test-account]({{base_path}}/assets/img/tutorials/hubspot-test-account.png)-->
 
 4. Click on the application and navigate to **settings>Integration>API key**.
 5. Click the **Generate Key** button and copy the API key.
 
-    <!--![hubspot-generate-key]({{base_path}}/assets/img/tutorials/hubspot-generate-key.png)>
+    <!--![hubspot-generate-key]({{base_path}}/assets/img/tutorials/hubspot-generate-key.png)-->
 
 ## Configure WSO2 Micro Integrator
 
@@ -65,23 +65,20 @@ the file to configure the HubSpot API key as follows.
     Windows: wso2server.bat run
     ```
 
-3. Access the [WSO2 Identity Server Management Console](https://localhost:9443/carbon) using the admin credentials.
+3. Access the WSO2 Identity Server Management Console using the admin credentials.
 4. Click on **List** under **Claims** on the left pane and click **http://wso2.org/claims**.
 5. Click edit on &quot; **Telephone**&quot; and uncheck supported and required checkboxes.
 
-    <!--![telephone-claim]({{base_path}}/assets/img/tutorials/telephone-claim.png)>
+    <!--![telephone-claim]({{base_path}}/assets/img/tutorials/telephone-claim.png)-->
 
 6. Then click edit on &quot; **Phone Numbers**&quot; and select supported and required checkboxes.
 
-    <!--![phone-number-claim]({{base_path}}/assets/img/tutorials/phone-number-claim.png)>
+    <!--![phone-number-claim]({{base_path}}/assets/img/tutorials/phone-number-claim.png)-->
 
 ### Step 02: Configure HubSpot as the identity Provider
 
 1. On the Management Console, click **Add** under **Identity Providers**.
-2. In the form that appears, provide a name for your identity provider by filling in the **Identity Provider Name**. 
-You can use &quot;HubSpot.com&quot; as an example, but this can be any name you choose. See 
-[Configuring an Identity Provider](https://is.docs.wso2.com/en/latest/learn/adding-and-configuring-an-identity-provider/) 
-for information on registering and configuring an identity provider.
+2. In the form that appears, provide a name for your identity provider by filling in the **Identity Provider Name**. You can use &quot;HubSpot.com&quot; as an example, but this can be any name you choose.
 3. Expand the **Outbound Provisioning Connectors** section followed by the **SCIM Provisioning Configuration** section.
 
 4. Check the **Enable** Checkbox and give the **Username** and **Password** as given below.
@@ -93,7 +90,7 @@ for information on registering and configuring an identity provider.
     User Endpoint: https://localhost:8253/hubspot/contacts
     ```
 
-    <!--![scim-provisioning-conf]({{base_path}}/assets/img/tutorials/scim-provisioning-conf.png)>
+    <!--![scim-provisioning-conf]({{base_path}}/assets/img/tutorials/scim-provisioning-conf.png)-->
 
 1. Click **Update** and save the configuration
 
@@ -104,7 +101,7 @@ management operation done via the management console, SOAP API, or the SCIM API.
 provisioning identity providers against the resident service provider. So, based on the outbound provisioning, 
 users created in WSO2 Identity Server can also be provisioned to external systems like HubSpot or Google Apps.
 
-1. Log in to the [Management Console](https://localhost:9443/carbon/) using the username and password.
+1. Log in to the Management Console using the username and password.
 2. In the **Main** menu under the **Identity** section, click **Resident** under **Service Providers.**
 3. In the resulting screen, expand the **Outbound Provisioning Configuration** section.
 4. In the **Outbound Provisioning Configuration** section, do the following.
@@ -119,22 +116,22 @@ users created in WSO2 Identity Server can also be provisioned to external system
     XACML rules enabled.
     5. Click **Update** to save your configurations.
 
-    <!--![outbound-provisioning-conf]({{base_path}}/assets/img/tutorials/outbound-provisioning-conf.png)>
+    <!--![outbound-provisioning-conf]({{base_path}}/assets/img/tutorials/outbound-provisioning-conf.png)-->
 
 ## Try it out
 
-1. Access WSO2 Identity Server [**My Account**](https://localhost:9443/myaccount).
+1. Access WSO2 Identity Server **My Account**.
 2. Click **Create Account**.
 
-    <!--![sign-in]({{base_path}}/assets/img/tutorials/sign-in.png)>
+    <!--![sign-in]({{base_path}}/assets/img/tutorials/sign-in.png)-->
 
 3. Enter the user name and click **Proceed to Self Register**.
 
-    <!--![start-sign-in]({{base_path}}/assets/img/tutorials/start-sign-in.png)>
+    <!--![start-sign-in]({{base_path}}/assets/img/tutorials/start-sign-in.png)-->
 
 1. The **Create New Account** screen appears.
 
-    <!--![create-new-account]({{base_path}}/assets/img/tutorials/create-new-account.png)>
+    <!--![create-new-account]({{base_path}}/assets/img/tutorials/create-new-account.png)-->
 
 1. Enter the **First Name** and **LastName**.
 2. Enter a preferred password in the **Password** and **Confirm password** text boxes.
@@ -147,8 +144,8 @@ users created in WSO2 Identity Server can also be provisioned to external system
 HubSpot.
 9. Then try to edit user details through the **My Account** as follows.
 
-    <!-- ![personal-info]({{base_path}}/assets/img/tutorials/personal-info.png) >
+    <!-- ![personal-info]({{base_path}}/assets/img/tutorials/personal-info.png) -->
 
 10. You can see the edited user details in the HubSpot contacts as well.
 
-    <!-- ![hubspot-contacts]({{base_path}}/assets/img/tutorials/hubspot-contacts.png) >
+    <!-- ![hubspot-contacts]({{base_path}}/assets/img/tutorials/hubspot-contacts.png) -->

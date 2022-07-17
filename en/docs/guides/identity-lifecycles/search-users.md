@@ -70,5 +70,5 @@ Below is a sample request and its corresponding response to search for users usi
 
 !!! info "Related topics"
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
-    - [Guide: Ways of User Onboarding]({{base_path}}/onboard-overview)
-    - [Guide: Delete Users]({{base_path}}/delete-users)
+    - [Guide: Ways of User Onboarding]({{base_path}}/guides/identity-lifecycles/onboard-overview)
+    - [Guide: Delete Users]({{base_path}}/guides/identity-lifecycles/delete-users)

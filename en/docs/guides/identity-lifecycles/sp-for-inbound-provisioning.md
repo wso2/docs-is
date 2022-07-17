@@ -18,8 +18,7 @@ provisioning the user.
 
 The following steps provide instructions on how to configure this.
 
-1. Sign in to the WSO2 Identity Server [Management
-    Console]({{base_path}}/setup/getting-started-with-the-management-console).
+1. Sign in to the WSO2 Identity Server management console.
 2. On the **Main** menu, click **Identity \> Service Providers \>
     Resident**.  
     <!--![sp-resident]({{base_path}}/assets/img/using-wso2-identity-server/sp-resident.png)-->
@@ -69,9 +68,6 @@ To confirm that the provisioning works, do the following.
     ``` java
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"mervyn","givenName":"samuel"},"userName":"samuel","password":"samuel","emails":[{"primary":true,"value":"samuel@wso2.com"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
     ```
-
-    !!! info
-        Refer [SCIM 1.1 APIs]({{base_path}}/develop/scim-1.1-apis) page for more details on SCIM
 
 2. On the Management Console, click on **Users and Roles** in the
     **Identity** menu in **Main** tab.
@@ -173,9 +169,6 @@ To confirm that the provisioning works, do the following.
     ``` java
     curl -v -k --header "Authorization: Bearer 955fded39fc6cb08525b5f2a35b3e2e"  --data '{"schemas":[],"name":{"familyName":"fernando","givenName":"yohanna"},"userName":"yohanna","password":"yohanna","emails":[{"primary":true,"value":"yohanna@wso2.com"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
     ```
-
-    !!! info
-        Refer [SCIM 1.1 APIs]({{base_path}}/develop/scim-1.1-apis) page for more details on SCIM
 
 2. On the Management Console, click on **Users and Roles** in the
     **Identity** menu in **Main** tab.

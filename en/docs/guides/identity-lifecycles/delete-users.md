@@ -35,6 +35,6 @@ You receive a response with status `200 OK` and the user will be deleted from th
     
 !!! info "Related topics"
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
-    - [Guide: Ways of User Onboarding]({{base_path}}/identity-lifecycles/onboard-overview)
-    - [Guide: Search/List Users]({{base_path}}/identity-lifecycles/search-users)
-    - [Track user deletion on deleting a user]({{base_path}}/deploy/monitor/monitor-logs#track-user-deletion-on-deleting-a-user)
+    - [Guide: Ways of User Onboarding]({{base_path}}/guides/identity-lifecycles/onboard-overview)
+    - [Guide: Search/List Users]({{base_path}}/guides/identity-lifecycles/search-users)
+    - [Track user deletion on deleting a user]({{base_path}}/guides/identity-lifecycles/track-deletion)

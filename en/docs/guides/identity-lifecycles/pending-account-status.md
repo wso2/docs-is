@@ -3,8 +3,8 @@
 This feature places users in a pending status when the process of self registration, email verification or ask password has been initiated and the confirmation mail has been sent, but the email has not been verified yet. The status claim will be set depending on the flow.
 
 !!! Note
-    - For more details on self registration, see [Self-Registration and Account Confirmation]({{base_path}}/learn/self-registration-and-account-confirmation).
-    - For more details on ask password, see [Creating Users Using the Ask Password Option]({{base_path}}/learn/creating-users-using-the-ask-password-option).
+    - For more details on self registration, see [Self-Registration and Account Confirmation]({{base_path}}/guides/identity-lifecycles/self-registration-workflow).
+    - For more details on ask password, see [Creating Users Using the Ask Password Option]({{base_path}}/guides/identity-lifecycles/invitation-workflow).
 
 With this improvement, in all these three features, self-registration, email verification and ask password, once a confirmation email is sent, the users will be moved to a pending state. The status claim will be set depending on the flow.  
 
@@ -14,7 +14,7 @@ is introduced. This stores the users’ account states. This claim is added by d
 
 <!--![account-state-claim]({{base_path}}/assets/img/learn/account-pending-state.png)-->
 
-Refer this documentation on [how to add claim mapping with WSO2 Identity Server]({{base_path}}/learn/adding-claim-mapping).
+Refer this documentation on [how to add claim mapping with WSO2 Identity Server]({{base_path}}/guides/dialects/add-claim-mapping).
 
 AccountState should be a readOnly claim. It cannot be updated even by the admin user.
 In the older IS versions before IS5.7.0, Identity Server used to send two mails upon user self registration, ask password

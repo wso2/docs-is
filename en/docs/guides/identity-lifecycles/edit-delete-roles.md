@@ -13,7 +13,7 @@ This section guides you through editing or deleting a user role in WSO2 Identity
 ## Edit or delete a role using SCIM 2.0 REST API
 
 In SCIM 2.0, roles are considered as **groups.** You can edit or delete a
-group using SCIM 2.0. For more information, see [SCIM 2.0 Rest APIs]({{base_path}}/develop/apis/scim2-rest-apis).
+group using SCIM 2.0. For more information, see [SCIM 2.0 Rest APIs]({{base_path}}/apis/scim2-rest-apis).
 
 ----
 
@@ -71,6 +71,6 @@ some time.
 
 !!! info "Related topics"
     - [Concept: Roles and Permissions]({{base_path}}/references/concepts/user-management/roles-and-permissions)
-    - [Guide: Add Roles]({{base_path}}/add-user-roles)
-    - [Guide: Role Based Permissions]({{base_path}}/role-based-permissions/)
+    - [Guide: Add Roles]({{base_path}}/guides/identity-lifecycles/add-user-roles)
+    - [Guide: Role Based Permissions]({{base_path}}/guides/identity-lifecycles/role-based-permissions/)
 

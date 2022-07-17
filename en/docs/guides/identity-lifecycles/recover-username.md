@@ -29,11 +29,11 @@ Follow the instructions given below to configure username recovery with
 reCaptcha for a specific tenant.
 
 1. Set up reCaptcha with WSO2 Identity Server. For instructions on how
-    to do this, and for more information about reCaptcha, see [Setting Up ReCaptcha]({{base_path}}/learn/setting-up-recaptcha).
+    to do this, and for more information about reCaptcha, see [Setting Up ReCaptcha]({{base_path}}/guides/identity-lifecycles/configure-recaptcha-for-self-registration).
 2. Enable the **EnableMultiTenancy** context-parameter in the
     **accountreoceryendpoint web.xml** file.
-3. Start WSO2 Identity Server and log into the [management
-    console](https://localhost:9443/carbon/admin/login.jsp) as tenant
+3. Start WSO2 Identity Server and log into the management
+    console as tenant
     admin.
 4. On the **Main** tab, click on **Identity Provider** → **Resident
     Identity Provider**.
@@ -48,7 +48,7 @@ reCaptcha for a specific tenant.
 
 7. You have now successfully configured reCaptcha for the username
     recovery flow. Start the WSO2 Identity Server and log into the end
-    user [**My Account**](https://localhost:9443/myaccount).
+    user **My Account**.
 
     !!! tip
         If you have changed the port offset or modified the hostname change the port or hostname accordingly.
@@ -87,11 +87,11 @@ reCaptcha globally.
 
 2. Set up reCaptcha with WSO2 Identity Server. For instructions on how
     to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha]({{base_path}}/learn/setting-up-recaptcha).
+    ReCaptcha]({{base_path}}/guides/identity-lifecycles/configure-recaptcha-for-self-registration).
 
 3. You have now successfully configured reCaptcha for the username
     recovery flow. Start WSO2 Identity Server and log into the end user
-    [**My Account**](https://localhost:9443/myaccount).
+    **My Account**.
 
     !!! tip
     If you have changed the port offset or modified the hostname, change the port or hostname accordingly.
