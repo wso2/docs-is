@@ -18,7 +18,7 @@ This document explains the steps to configure WSO2 Identity Server to send email
     port= 587
     enable_start_tls= true
     enable_authentication= true
-    signature = "{{base_path}}.com"
+    signature = "ABC.com"
     ```
     
     |                    Property                       |                Description                     |
