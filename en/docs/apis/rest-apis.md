@@ -8,19 +8,19 @@ This section introduces REST APIs in WSO2 Identity Server that can be invoked by
 
 ## Getting authenticated with REST APIs
 
-Learn how to [authenticate and authorize to REST apis]({{base_path}}/apis/authenticate-and-authorize-rest-apis.md) in WSO2 Identity Serevr.
+Learn how to [authenticate and authorize to REST apis]({{base_path}}/apis/authenticate-and-authorize-rest-apis) in WSO2 Identity Serevr.
 
 ## Managing users
 
-Learn how to [use SCIM 2.0 apis]({{base_path}}/apis/scim2-rest-apis.md) to manage users, [account recovery apis]({{base_path}}/apis/use-the-account-recovery-rest-apis.md) to recover passwords and more under the **User Management** section. 
+Learn how to [use SCIM 2.0 apis]({{base_path}}/apis/scim2-rest-apis) to manage users, [account recovery apis]({{base_path}}/apis/use-the-account-recovery-rest-apis) to recover passwords and more under the **User Management** section. 
 
 ## Self-service for application users
 
-Learn how application users can manage [TOTP]({{base_path}}/apis/totp-rest-api.md), [export personal information]({{base_path}}/apis/use-the-personal-information-export-rest-apis.md) and many more under the **Self-service** section
+Learn how application users can manage [TOTP]({{base_path}}/apis/totp-rest-api), [export personal information]({{base_path}}/apis/use-the-personal-information-export-rest-apis) and many more under the **Self-service** section
 
 ## Managing applications 
 
-Learn how to [manage OAuth2 scopes](apis/oauth2-scope-management-rest-apis.md), and [manage consent for applications](apis/authorized-apps-v2-rest-api.md) and many more in the **Application Management** section.
+Learn how to [manage OAuth2 scopes]({{base_path}}/apis/oauth2-scope-management-rest-apis), and [manage consent for applications]({{base_path}}/apis/use-the-consent-management-rest-apis) and many more in the **Application Management** section.
 
 
 <!-- - [Account Recovery]({{base_path}}/apis/use-the-account-recovery-rest-apis)
