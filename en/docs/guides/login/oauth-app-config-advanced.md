@@ -60,7 +60,7 @@ This is the exact location in the service provider's application where an access
               <li><code>http://127.0.0.1:7500/callback</code></li>
       </ul>
       
-      When registering multiple callback URLs using a regex pattern, do not specify the port number for for the loopback callback URL either as a single port or as a capture group. An example regex pattern is as follows:<br />
+      When registering multiple callback URLs using a regex pattern, do not specify the port number for the loopback callback URL either as a single port or as a capture group. An example regex pattern is as follows:<br />
       ```
       regexp=(https://myapp.com/callback|https://127.0.0.1/callback)
       ```
