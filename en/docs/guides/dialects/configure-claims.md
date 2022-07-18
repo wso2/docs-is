@@ -1,7 +1,5 @@
 # Configure Claims
 
-For information on claims, see [Claim Management]({{base_path}}/references/concepts/claim-management)
-
 By default, identity claim values are stored in the JDBC datasource
 configured in the `         deployment.toml       ` file. If needed, you
 can configure WSO2 IS to store the claim values in the userstore as

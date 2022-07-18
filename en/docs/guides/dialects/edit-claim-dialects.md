@@ -39,7 +39,11 @@ Alternatively, you can also modify the claim dialects by editing the
 `         <IS_HOME>/repository/conf        ` folder. A sample claim
 dialect is given below.
 
-``` java
+!!! note
+    
+    {!./includes/claim-config-note.md !}
+
+```xml
 <Dialect dialectURI="http://wso2.org/SampleAppClaims">    
     <Claim>
         <ClaimURI>http://wso2.org/SampleAppClaims/givenname</ClaimURI>
@@ -53,12 +57,8 @@ dialect is given below.
     </Claim>
 </Dialect>
 ```
-
-!!! note
     
-    {!./includes/claim-config-note.md !}
-    
-!!! info "Relqted Topics" 
+!!! info "Relqted Topics"
 
     - [Guides: Add Claim Dialects]({{base_path}}/guides/dialects/add-claim-dialects)
     - [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management)

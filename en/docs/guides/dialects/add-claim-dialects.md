@@ -1,6 +1,6 @@
 # Add Claim Dialects
 
-A set of claims are identified as a dialect. Different dialects represent the same piece of information with different claim URIs. The following dialects are defined by default with the WSO2 Claim Management Feature.
+A set of claims are identified as a dialect. Different dialects represent the same piece of information with different claim URIs. The following dialects are defined by default with the [Claim Management]({{base_path}}/references/concepts/claim-management) Feature in WSO2 IS.
 
 - `http://schemas.xmlsoap.org/ws/2005/05/identity` - Default dialect for STS
 - `http://wso2.org/claims` - Default dialect for WSO2 Carbon
@@ -11,11 +11,9 @@ A set of claims are identified as a dialect. Different dialects represent the sa
 
 ---
 
-## Add a new dialect
-
 In WSO2 Identity Server, there are two ways you can add a new dialect.
 
-### Use the management console
+## Use the management console
 
 Follow the instructions below to add a new dialect using the management console. 
 
@@ -32,10 +30,13 @@ Follow the instructions below to add a new dialect using the management console.
 
     ![claim-dialect]({{base_path}}/assets/img/guides/claim-dialect.png)
 
-### Use the configuration file
+## Use the configuration file
 
-Follow the instructions below to add a new dialect through the configuration file. Note that you can only do this **before the first
-start up** of the WSO2 Identity Server instance.
+Follow the instructions below to add a new dialect through the configuration file.
+
+!!! note
+
+    {!./includes/claim-config-note.md !}
 
 1.  Open the `claim-config.xml` file found in the
     `<IS_HOME>/repository/conf/` folder.
@@ -45,7 +46,7 @@ start up** of the WSO2 Identity Server instance.
     For this example, the new dialect is named
     `SampleAppClaims` .
 
-    ``` xml
+    ```xml
     <Dialect dialectURI="http://wso2.org/SampleAppClaims">
         <Claim>
             <ClaimURI>http://wso2.org/SampleAppClaims/givenname</ClaimURI>
@@ -62,10 +63,6 @@ start up** of the WSO2 Identity Server instance.
 
 3.  Once you have edited the `claim-config.xml` file, start WSO2 Identity Server. The configurations will be applied
     and you can view the new dialect via the management console.
-
-    !!! note
-    
-        The dialects configured in the `<IS_HOME>/repository/conf/claim-config.xml` file get applied only when you start the product for the first time, or for any newly created tenants. With the first startup, dialects and claims will be loaded from the file and persisted in the database. Any consecutive updates to the file will not be picked up and dialects and claims will be loaded from the database.
     
 ----
 

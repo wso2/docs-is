@@ -1,5 +1,9 @@
 # Edit Claim Mapping
 
+There are two ways to edit a claim mapping.
+
+## Use the management console
+
 You can edit existing claims by clicking on any available claim link.
 Follow the instructions below to edit a claim.
 
@@ -22,13 +26,12 @@ Follow the instructions below to edit a claim.
         screen.  
         ![editing-external-claim]({{base_path}}/assets/img/guides/editing-external-claim.png)
 
-!!! note    
-    Alternatively, you can edit the file configuration in
-    `<IS\_HOME\>/repository/conf/claim-config.xml` and start the server
-    to view the changed claims. 
+## Use the configuration file
+
+Alternatively, you can edit the file configuration in `<IS\_HOME\>/repository/conf/claim-config.xml` and start the server to view the changed claims. 
     
-    !!! tip 
-        {!./includes/claim-config-note.md !}
+!!! note
+    {!./includes/claim-config-note.md !}
     
 !!! info "Related topics"
 

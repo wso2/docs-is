@@ -13,7 +13,11 @@ You can add new claim mapping to an existing claim dialect (see the
 
 ---
 
-## Add local claim
+## Use the management console
+
+Use the options given below to add claim mappings from the management console.
+
+### Add local claim
 
 1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 2.  Navigate to **Main** > **Identity** > **Claims** > **Add**.
@@ -95,7 +99,7 @@ You can add new claim mapping to an existing claim dialect (see the
 
 ----
 
-## Add external claim
+### Add external claim
 
 1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
 2.  Navigate to **Main** > **Identity** > **Claims** > **Add**.
@@ -116,29 +120,29 @@ You can add new claim mapping to an existing claim dialect (see the
         to the relevant attribute in the underlying userstore.
 5.  Click on the **Add** button.
 
+## Use the configuration file
+    
+Alternatively, you can also add a claim mapping using the configuration file instead of via the management console.
+
 !!! note
     
-    Alternatively, you can also add a claim mapping using the
-    configuration file instead of via the management console. To do this,
+    {!./includes/claim-config-note.md !}
     
-    1.  Open the `claim-config.xml` file found in the
-        `<IS_HOME>/repository/conf/` folder and add the
-        necessary claim mapping under the relevant claim dialect.
-    
-        **Sample claim mapping**
-    
-        ``` xml
-        <Claim>
-            <ClaimURI>country</ClaimURI>
-            <DisplayName>Country</DisplayName>
-            <AttributeID>country</AttributeID>
-            <Description>Country name component</Description>
-            <MappedLocalClaim>http://wso2.org/claims/country</MappedLocalClaim>
-        </Claim>
-        ```
-    
-    2.  Save the file and restart the server.
-    
-    !!! tip
-        The claims configured in the `<IS_HOME>/repository/conf/claim-config.xml` file get applied only when you start the product for the first time, or for any newly created tenants. With the first startup, claim dialects and claims will be loaded from the file and persisted in the database. Any consecutive updates to the file will not be picked up and claim dialects and claims will be loaded from the database.
+1.  Open the `claim-config.xml` file found in the
+    `<IS_HOME>/repository/conf/` folder and add the
+    necessary claim mapping under the relevant claim dialect.
+
+    **Sample claim mapping**
+
+    ``` xml
+    <Claim>
+        <ClaimURI>country</ClaimURI>
+        <DisplayName>Country</DisplayName>
+        <AttributeID>country</AttributeID>
+        <Description>Country name component</Description>
+        <MappedLocalClaim>http://wso2.org/claims/country</MappedLocalClaim>
+    </Claim>
+    ```
+
+2.  Save the file and restart the server.
             

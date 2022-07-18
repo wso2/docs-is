@@ -1,5 +1,9 @@
 # Delete Claim Mapping
 
+There are two ways to delete a claim mapping.
+
+## Use the management console
+
 If you want to remove a claim from your list, you can easily do so from
 the Management Console. Refer to the steps below for detailed
 instructions.
@@ -14,12 +18,13 @@ instructions.
 5.  Click the **Delete** link to remove the
     appropriate claim mapping.
 
-!!! note
+## Use the configuration file
     
-    Alternatively, you also can do this by deleting claim mappings from the `claim-config.xml` located in the `<IS_HOME>/repository/conf/` folder.
+Alternatively, you also can do this by deleting claim mappings from the `claim-config.xml` located in the `<IS_HOME>/repository/conf/` folder.
 
-    !!! tip 
-        {!./includes/claim-config-note.md !}
+!!! note
+
+    {!./includes/claim-config-note.md !}
     
 !!! info "Related topics"
     -   [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management/)

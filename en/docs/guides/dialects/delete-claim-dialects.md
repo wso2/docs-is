@@ -24,6 +24,10 @@ code block in the `         claim-config.xml        ` configuration file
 located in the `         <IS_HOME>/repository/conf        ` folder. A
 sample claim dialect is given below.
 
+!!! note
+    
+    {!./includes/claim-config-note.md !}  
+
 ``` java
 <Dialect dialectURI="http://wso2.org/SampleAppClaims">
     <Claim>
@@ -37,12 +41,8 @@ sample claim dialect is given below.
         <MappedLocalClaim>http://wso2.org/claims/nickname</MappedLocalClaim>
     </Claim>
 </Dialect>
-```
-
-!!! note
-    
-    {!./includes/claim-config-note.md !}    
+```  
     
 !!! info "Related topics"
 
-    -   [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management/)
+    [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management/)
