@@ -85,11 +85,11 @@ To configure the local configuration on the IS:
 
 3. Enter your user credentials for the first authentication step.
 
-    ![basic-authentication](../../assets/img/guides/basic-authentication-mfa.png)
+    ![basic-authentication]({{base-path}}/assets/img/guides/basic-authentication-mfa.png)
 
 4. On successful authentication, you will be prompted for the second authentication step. Enter the TOTP code and click **Continue**.
 
-    ![TOTP verification](../../assets/img/samples/totp-code-verification.png)
+    ![TOTP verification]({{base-path}}/assets/img/samples/totp-code-verification.png)
 
     !!! info
         If this is the first time you use the TOTP authentication method for the application, you need to scan the QR from an authenticator application of your choice.
