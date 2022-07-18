@@ -87,7 +87,7 @@ Now you have successfully registered a PIP attribute finder with WSO2 Identity S
 
 Use the following steps to check the PIP module.
 
-1.  Restart the WSO2 Identity Server and log in to the [management console](TODO:../../setup/getting-started-with-the-management-console).
+1.  Restart the WSO2 Identity Server and log in to the [management console](TODO:{{base_path}}/setup/getting-started-with-the-management-console).
 
 2.  Go to the **Main** menu of the management console and click **Extension** under **PDP**.
 
@@ -95,9 +95,9 @@ Use the following steps to check the PIP module.
 
 4.  To test this attribute finder, you can use [this](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/resources/Kmarket-Test-Policy.xml) policy and [this](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/resources/Test-Request.xml) request.
 
-5. [Upload the policy](TODO:../../learn/creating-a-xacml-policy) into the WSO2 Identity Server, then publish it to PDP and enable it.
+5. [Upload the policy](TODO:{{base_path}}/learn/creating-a-xacml-policy) into the WSO2 Identity Server, then publish it to PDP and enable it.
 
-6.  You can then [try out the policy with TryIt PEP](TODO:../../../administer/using-the-xacml-tryit-tool).
+6.  You can then [try out the policy with TryIt PEP](TODO:{{base_path}}/administer/using-the-xacml-tryit-tool).
 
     !!! info "About debugging the sample code"
         This sample code can be debugged by starting the WSO2 Identity

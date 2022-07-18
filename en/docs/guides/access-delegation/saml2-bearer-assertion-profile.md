@@ -1,23 +1,23 @@
 # Set Up SAML2 Bearer Assertion Profile
 
-This page guides you through using the [SAML2 Bearer grant](../../../references/concepts/authorization/saml2-bearer-assertion-profile) to exchange a SAML2 assertion for a valid OAuth access token.
+This page guides you through using the [SAML2 Bearer grant]({{base_path}}/references/concepts/authorization/saml2-bearer-assertion-profile) to exchange a SAML2 assertion for a valid OAuth access token.
 
 ## Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
 ## Basic OAuth/OpenID Connect configuration
 
-{!fragments/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
 !!! note
     -   Make sure the **SAML2** grant is enabled under **Allowed Grant Types** when configuring OAuth/OpenID Connect.
 
     -   You can provide any valid URL as the **Callback Url**. This URL value is not used for any other operations during this sample.
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+{!./includes/oauth-app-config-advanced-tip.md!}
 
 ----
 
@@ -50,10 +50,10 @@ This page guides you through using the [SAML2 Bearer grant](../../../references/
            2. **Enable Recipient Validation**
             - **Recipient**: `https://localhost:9443/oauth2/token`
 
-           ![enable-audience-restriction](../assets/img/samples/enable-audience-restriction.png) 
+           ![enable-audience-restriction]({{base_path}}/assets/img/samples/enable-audience-restriction.png) 
     
     !!! tip
-        For more information on other advanced configurations refer, [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/)
+        For more information on other advanced configurations refer, [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced/)
 
 5.  Click **Register** to save the changes.
 
@@ -91,7 +91,7 @@ This page guides you through using the [SAML2 Bearer grant](../../../references/
 
 ### Set up the sample application
 
-{!fragments/deploying-sample-apps.md!}
+{!./includes/deploying-sample-apps.md!}
 -   Download the `travelocity.com.war` file from the latest release assets.
 
 ### Deploy the sample
@@ -169,7 +169,7 @@ For example,
 
 ### CORS configuration
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ### Enable SAML2 grant in the sample
 
@@ -198,15 +198,15 @@ For example,
 
 3.  Enter the username and password and click **Continue**.  
 
-    ![login-page](../assets/img/samples/sign-in-sample.png) 
+    ![login-page]({{base_path}}/assets/img/samples/sign-in-sample.png) 
 
 4.  Click **Request OAuth2 Access Token** to receive the access token.  
 
-    ![request-oauth2-access-token](../assets/img/samples/request-oauth2-access-token.png)  
+    ![request-oauth2-access-token]({{base_path}}/assets/img/samples/request-oauth2-access-token.png)  
 
     You will receive an access token as shown below.
 
-    ![oauth2-token-details](../assets/img/samples/oauth2-token-details.png) 
+    ![oauth2-token-details]({{base_path}}/assets/img/samples/oauth2-token-details.png) 
 
 6.  Use the introspection endpoint of WSO2 Identity Server to get the token information.
 
@@ -238,7 +238,7 @@ For example,
 
 7.  Since the Travelocity application has now exchanged the SAML assertion for a valid OAuth access token, you can use the received access token to access a protected resource in WSO2 Identity Server. 
 
-    Use the [SCIM User Endpoint](../../develop/apis/scim2-rest-apis/#/Users%20Endpoint) which is secured with OAuth to retrieve users. 
+    Use the [SCIM User Endpoint]({{base_path}}/apis/scim2-rest-apis) which is secured with OAuth to retrieve users. 
 
     **Request**
 
@@ -273,4 +273,4 @@ For example,
 ----
 
 !!! info "Related topics"
-    -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0](../../../references/concepts/authorization/saml2-bearer-assertion-profile)
+    -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0]({{base_path}}/references/concepts/authorization/saml2-bearer-assertion-profile)

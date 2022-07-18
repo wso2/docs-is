@@ -1,8 +1,8 @@
-# Introduction
+# Registering a service provider
 
-You can connect your application with Identity Server and control the way users login into your app. This guide provides instructions on how to add and configure a [service provider](../../get-started/architecture#service-provider-section) to Identity Server through the management console.
+You can connect your application with Identity Server and control the way users login into your app. This guide provides instructions on how to add and configure a [service provider]({{base_path}}/get-started/architecture#service-provider-section) to Identity Server through the management console.
 
-For more information on how the service provider fits into the WSO2 IS architecture, see [Architecture](../../references/architecture/architecture.md).
+For more information on how the service provider fits into the WSO2 IS architecture, see [Architecture]({{base_path}}/references/architecture/architecture).
 
 ## Register a service provider
 
@@ -18,7 +18,7 @@ To add a new service provider on WSO2 Identity Server:
     | Description   | A short description of the service provider    |
     | Management Application    | Select this checkbox if the application is used to access the management APIs.    |
 
-    ![sp-details](../../assets/img/guides/register-a-sp.png)
+    ![sp-details]({{base_path}}/assets/img/guides/register-a-sp.png)
 
     ??? note "Modify validation for service provider name"
            The default javascript regex used to validate the service provider name is `^[a-zA-Z0-9\\s.+_-]*$`.
@@ -40,7 +40,7 @@ To import a service provider:
 
 1. On WSO2 IS Management Console, go to **Main > Identity > Service Providers > Add**.
 2. Select **File Configuration**, and upload the **.XML** file.
-    ![import-service-provider](../../assets/img/guides/import-a-sp.png)
+    ![import-service-provider]({{base_path}}/assets/img/guides/import-a-sp.png)
 3. Click **Import** to add the service provider using the XML file.
 
 ## Service provider configurations
@@ -56,8 +56,8 @@ You can find the basic configurations of a service provider under **Service Prov
 | Discoverable Application  | Enable this to make the application discoverable to users. |
 | Access URL    | Access URL for the Service Provider.   |
 | Logo URL  | Add a link to the logo for your application here.   |
-| Logout Return URL or regex    | The URL that the users will be redirected to during a direct IdP logout   |
-| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated from the edit screen. |
+| Logout Return URL or regex    | The URL that the users will be redirected during a direct IdP logout   |
+| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated. WSO2 Identity Server exposes all the management capabilities as [REST APIs]({{base_path}}/apis/rest-apis/). These APIs are protected by OAuth2 access tokens and other API authentication mechanisms. The applications that are marked as management applications can only be used to access these management APIs in the OAuth2 flow. This can only be configured when creating the application.|
 
 ### Public certificates for service providers
 A certificate is used to validate the signatures of the signed requests received from the application (service provider) to WSO2 IS.
@@ -66,8 +66,8 @@ A certificate is used to validate the signatures of the signed requests received
 
 The certificate is used in the following scenarios:
 
-- To validate the signature of the SAML2 authentication requests and the SAML2 logout requests sent by the service provider during [SAML SSO flows](../login/sso-for-saml.md).
-- When [passing OIDC authentication request parameters](../login/oidc-parameters-in-auth-request.md) the certificate is used to:
+- To validate the signature of the SAML2 authentication requests and the SAML2 logout requests sent by the service provider during [SAML SSO flows]({{base_path}}/guides/login/sso-for-saml).
+- When [passing OIDC authentication request parameters]({{base_path}}/guides/login/oidc-parameters-in-auth-request) the certificate is used to:
 
     - Encrypt the `id_token` sent to the service provider in the OIDC Authentication Response.
     - Validate the signed `Request` `Object` sent in the OAuth2/OIDC Authorization Request.
@@ -107,8 +107,8 @@ If the **Application Certificate** field is left blank, as WSO2 IS is backward c
 
     See the following topics to configure different applications as service providers in Identity Server.
 
-    -   [Logging in to SaaS applications using Identity Server](../login/log-into-simplesaml-using-is.md)
-    -   [Logging in to Salesforce using the Identity Server](../login/log-into-salesforce-using-is.md)
-    -   [Logging in to Salesforce with Facebook](../login/log-into-salesforce-using-fb.md)
-    -   [Logging in to Salesforce with Integrated Windows Authentication](../login/log-into-salesforce-using-iwa.md)
-    -   [Logging in to WSO2 Products via the Identity Server](../../learn/logging-in-to-wso2-products-via-the-identity-server)
+    -   [Logging in to SaaS applications using Identity Server]({{base_path}}/guides/login/log-into-simplesaml-using-is)
+    -   [Logging in to Salesforce using the Identity Server]({{base_path}}/guides/login/log-into-salesforce-using-is)
+    -   [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb)
+    -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/guides/login/log-into-salesforce-using-iwa)
+    -   [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server)

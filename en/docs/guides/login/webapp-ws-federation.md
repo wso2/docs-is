@@ -12,9 +12,9 @@ This page guides you through enabling login for a WS-Federation based web applic
 
 ## Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ---
 
-{!fragments/ws-fed-app-config.md!}
+{!./includes/ws-fed-app-config.md!}
 

@@ -1,13 +1,13 @@
 # Implicit Grant
 
-This page guides you through using [Implicit Grant](../../../references/concepts/authorization/implicit-grant/) 
+This page guides you through using [Implicit Grant]({{base_path}}/references/concepts/authorization/implicit-grant/) 
 to configure authentication for an OAuth/OpenID Connect application. 
 
 ----
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 5. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
@@ -33,7 +33,7 @@ to configure authentication for an OAuth/OpenID Connect application.
 Send the following request using a browser-based application to obtain the ID token. 
 
 !!! tip
-    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground).
+    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Implicit Grant with OAuth 2.0 Playground]({{base_path}}/quick-starts/implicit-playground).
 
 !!! abstract ""
     **Request Format**
@@ -59,6 +59,6 @@ http://wso2is.local:8080/playground2/oauth2client#access_token=317c19b3-73e3-390
 ```
 
 !!! info "Related topics"
-    - [Concept: Implicit Grant](../../../references/concepts/authorization/implicit-grant/)
-    - [Guide: Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced)
-    - [Quick Start: Implicit Grant with OAuth 2.0 Playground](../../../quick-starts/implicit-playground)
+    - [Concept: Implicit Grant]({{base_path}}/references/concepts/authorization/implicit-grant/)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
+    - [Quick Start: Implicit Grant with OAuth 2.0 Playground]({{base_path}}/quick-starts/implicit-playground)

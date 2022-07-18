@@ -1,12 +1,12 @@
 # Analyze Login Attempts
 
-You can view and analyze statistics related to login attempts made via the WSO2 Identity Server from the Auth Dashboard. Learn how to [configure the Auth Dashboard](../../../deploy/elk-analytics-installation-guide)
+You can view and analyze statistics related to login attempts made via the WSO2 Identity Server from the Auth Dashboard. Learn how to [configure the Auth Dashboard]({{base_path}}/deploy/elk-analytics-installation-guide)
 
 Auth Dashboard displays analytics for resident and federated authentication scenarios and statistics of overall authentication activities carried out by the WSO2 Identity Server.
 
 You can use the **Auth Type** filter to view analytics based on authentication type.
 
-<img src="../../../assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-7.png" alt="Auth Type" width="500">
+<img src="{{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-7.png" alt="Auth Type" width="500">
 
 ## Analyze Overall Login Attempts
 
@@ -44,7 +44,7 @@ You can leverage several widgets that Kibana offers to analyze authentication ac
 
 ### Login attempts over time
 
-<img src="../../../assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-3.png" alt="Login Attempts Over Time">
+<img src="{{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-3.png" alt="Login Attempts Over Time">
 
 This chart presents the total number of login attempts that are made during the selected time interval.
 
@@ -52,7 +52,7 @@ This chart presents the total number of login attempts that are made during the 
 
 ### Compact Summary of Login Attempts
 
-  <img src="../../../assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-2.png" alt="Compact Summary of Login Attempts" width="500">
+  <img src="{{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-2.png" alt="Compact Summary of Login Attempts" width="500">
 
 This chart presents a summary of the login attempts.
 
@@ -61,7 +61,7 @@ This chart presents a summary of the login attempts.
 
 ### Map View of Login Attempts
 
-<img src="../../../assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-1.png" alt="Map View of Login Attempts" width="500">
+<img src="{{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-1.png" alt="Map View of Login Attempts" width="500">
 
 This chart presents the login attempts in a map view based on the IP addresses.
 
@@ -74,7 +74,7 @@ This chart presents the login attempts in a map view based on the IP addresses.
 
 ### Details Of Login Attempts By Service Provider
 
-<img src="../../../assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-6.png" alt="Details Of Login Attempts By Service Provider" width="500">
+<img src="{{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-6.png" alt="Details Of Login Attempts By Service Provider" width="500">
 
 
 - This chart presents the successful and failed login attempts sorted by service provider.
@@ -84,7 +84,7 @@ This chart presents the login attempts in a map view based on the IP addresses.
 
 ### Details Of Login Attempts By User
 
-  <img src="../../../assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-5.png" alt="Details Of Login Attempts By User" width="500">
+  <img src="{{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-5.png" alt="Details Of Login Attempts By User" width="500">
 
 - This chart presents the successful and failed login attempts sorted by users.
 - Pagination is available if the statistics involve more than ten users.
@@ -95,7 +95,7 @@ This chart presents the login attempts in a map view based on the IP addresses.
 
 ### Full Details Of Each Login Attempt
 
-  <img src="../../../assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-4.png" alt="Details Of Login Attempts By User" width="500"> 
+  <img src="{{base_path}}/assets/img/elk-analytics/auth-dashboard/elk-auth-dashboard-4.png" alt="Details Of Login Attempts By User" width="500"> 
 
 - This widget presents details of each login attempt including the context ID, user name, service provider, subject
   step, roles, tenant domain, IP, region, whether the overall authentication was successful or not, and the time stamp.

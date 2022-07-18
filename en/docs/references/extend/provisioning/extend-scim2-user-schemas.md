@@ -3,7 +3,7 @@
 The System for Cross-domain Identity Management (SCIM) is a specification that is designed to manage user identities in cloud-based applications and services in a standardized way to enable interoperability, security, and scalability. It is an emerging open standard which provides RESTful APIs for easier, cheaper, and faster way for creating, provisioning, and maintaining identities. The latest version SCIM 2.0 was released as IETF RFC in September 2015.
 
 !!! Note 
-    SCIM 2.0 is supported by default in WSO2 Identity Server version 5.4.0 onwards. If you are using WSO2 Identity Server 5.4.0 or a later version, see [SCIM 2.0 REST API](../../apis/scim2-rest-apis.md) for instructions on how to use SCIM 2.0 OOTB.
+    SCIM 2.0 is supported by default in WSO2 Identity Server version 5.4.0 onwards. If you are using WSO2 Identity Server 5.4.0 or a later version, see [SCIM 2.0 REST API]({{base_path}}/apis/scim2-rest-apis.md) for instructions on how to use SCIM 2.0 OOTB.
 
 ---
     
@@ -75,7 +75,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
         - **Mapped Attribute**: customClaim
     - **Supported By Default**: True
 
-    ![add-scim-local-custom-claim](../../../assets/img/extend/add-scim-local-custom-claim.png)
+    ![add-scim-local-custom-claim]({{base_path}}/assets/img/extend/add-scim-local-custom-claim.png)
 
 4. Click **Add**. 
 
@@ -97,7 +97,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
     - **External Claim URI**: urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:customClaim
     - **Mapped Local Claim**: http://wso2.org/claims/customclaim
 
-    ![add-scim-external-claim](../../../assets/img/extend/add-scim-external-claim.png)
+    ![add-scim-external-claim]({{base_path}}/assets/img/extend/add-scim-external-claim.png)
 
 3. Click **Add**. 
 
@@ -209,4 +209,4 @@ You can also try out updating the custom claim value using the following SCIM co
     ```
 
 !!! info "Related topics" 
-    -  API: [SCIM 2.0](../../apis/scim2-rest-apis.md)
+    -  API: [SCIM 2.0]({{base_path}}/apis/scim2-rest-apis.md)

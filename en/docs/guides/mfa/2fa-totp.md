@@ -1,6 +1,6 @@
 # Configure TOTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using TOTP (Time-based One-Time Password) as the second factor. 
+This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using TOTP (Time-based One-Time Password) as the second factor. 
 
 !!! tip
     For more information, see the [TOTP specification](https://tools.ietf.org/html/rfc6238).
@@ -9,7 +9,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ## Configure the service provider
 
@@ -32,7 +32,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 
             Adding TOTP as a second step adds another layer of authentication and security.
     
-         <img name='totp-authentication-steps' src='../../../assets/img/guides/totp-authentication-steps.png' class='img-zoomable'/>
+         <img name='totp-authentication-steps' src='{{base_path}}/assets/img/guides/totp-authentication-steps.png' class='img-zoomable'/>
 
 4. Click **Update** to save the changes.
 
@@ -48,15 +48,15 @@ configure the email adapter for this purpose.
 
 ### Configure the email adapter to send emails
 
-{!fragments/configure-email-sending.md!}
+{!./includes/configure-email-sending.md!}
 
 !!! tip 
     The email template used to send this email notification is the **TOTP** template.
     You can edit and customize the email template. For more information on how to do this, 
-    see [Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
+    see [Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
     
 ----
 
 !!! info "Related topics"
-    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication/#two-factor-authentication)
-    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
+    - [Concept: Two-Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication/#two-factor-authentication)
+    - [Guide: Configure an Authentication Journey]({{base_path}}/guides/mfa/configure-authentication-journey)

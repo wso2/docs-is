@@ -12,8 +12,8 @@ Consider a scenario where you want a user who successfully logs in after three f
 
 ## Prerequisites
 
-- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to [add a user](../../guides/identity-lifecycles/admin-creation-workflow/) named `Alex` with login permissions. Do not assign any roles to this user.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Alex` with login permissions. Do not assign any roles to this user.
 - You need to configure the maximum number of failed attempts allowed.
     1. On the management console, go to **Identity > Identity Providers > Resident**.
     2. Expand the **Login Attempts Security > Account Lock** section.
@@ -41,7 +41,7 @@ To configure user-age-based authentication:
 
 5. In the **Templates** section, click on the **`+`** corresponding to the **Login-Attempts-Based** template.
 
-    ![Tenant based template](../../assets/img/samples/login-attempts-based-template.png)
+    ![Tenant based template]({{base_path}}/assets/img/samples/login-attempts-based-template.png)
 
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
@@ -70,7 +70,7 @@ To configure user-age-based authentication:
 
 5. You will be prompted to enter your `TOTP` code. Enter the code and click **Sign In**.
 
-    ![TOTP authenticator](../../assets/img/samples/totp-code-verification.png)
+    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png)
 
 !!! note
     The failed login attempts need not be made during a given time frame. Login attempts-based adaptive authentication is valid even if the user makes two login attempts now and the other in a few days before logging in with the correct credentials.

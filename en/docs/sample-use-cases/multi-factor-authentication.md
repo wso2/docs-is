@@ -62,17 +62,17 @@ A message appears to pick a scenario.
 
 1.  Enter `3` as the scenario number at the command prompt.
   
-    ![List of scenarios in QSG](../../assets/img/get-started/qsg-configure-sso.png)
+    ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png)
     
 2.  Enter `y` to confirm that you have already done the following steps.
 
-    ![QSG commandline continue](../../assets/img/get-started/qsg-configure-setup.png)
+    ![QSG commandline continue]({{base_path}}/assets/img/get-started/qsg-configure-setup.png)
     
 5.  Enter the `http://localhost:8080/saml2-web-app-pickup-dispatch.com` URL on a web browser to access the Pickup Dispatch application.
 
 6.  Click **Login**.
   
-    ![Pickup Dispatch application login](../../assets/img/get-started/qsg-sso-dispatch-login.png)
+    ![Pickup Dispatch application login]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-login.png)
     
 7.  Enter either of the following credentials to sign in to the
     application.
@@ -82,14 +82,14 @@ A message appears to pick a scenario.
     Employee --> Username: alex    | Password: alex123 
     ```
 
-    ![WSO2 Identity Server sign in page](../../assets/img/get-started/qsg-sso-login-credentials.png)
+    ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-sso-login-credentials.png)
 
     The HARDWARE KEY login page appears as HARDWARE KEY is the second
     authentication factor.
 
 8.  Enter the DEMO key that appears in the browser and click **Sign In**.
 
-    ![Enter the hardware key](../../assets/img/get-started/hardware-key.png)
+    ![Enter the hardware key]({{base_path}}/assets/img/get-started/hardware-key.png)
 
     After successful authentication, the **User Consents** form of the Pickup
     Dispatch application appears.
@@ -97,20 +97,20 @@ A message appears to pick a scenario.
 9.  Select the attributes that you want to share with Pickup Dispatch and click
     **Continue**.
 
-    ![Consent page](../../assets/img/get-started/qsg-sso-consent.png)      
+    ![Consent page]({{base_path}}/assets/img/get-started/qsg-sso-consent.png)      
 
     !!! note
     
         Obtaining user consent is one of the fundamental requirements of the
         GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 Identity Server
-        handles consent, see [Consent Management](../../references/concepts/consent-management/).
+        handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
 
 10. Note that the Pickup Dispatch home screen appears.
 
-    ![Pickup Dispatch home screen](../../assets/img/get-started/qsg-sso-dispatch-home.png)
+    ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
 11. To try out other scenarios, navigate back to where you ran the Quick
     Start sample on the command-line and enter `y` to clean the setup.
     
-    ![QSG cleanup](../../assets/img/get-started/qsg-sso-cleanup.png)
+    ![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)

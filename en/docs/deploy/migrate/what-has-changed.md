@@ -27,7 +27,7 @@ certificate_alias_enabled = true
 ```
 
 ### Common Changes
-The default token binding type of both the Console and MyAccount is changed from ```SSO-based binding``` to ```cookie-based binding```. Read more on [Access Token Binding Type](../../learn/configuring-oauth2-openid-connect-single-sign-on/).
+The default token binding type of both the Console and MyAccount is changed from ```SSO-based binding``` to ```cookie-based binding```. Read more on [Access Token Binding Type]({{base_path}}/learn/configuring-oauth2-openid-connect-single-sign-on/).
 
 With IS 6.0.0, the ```Post-Logout Redirect URL``` the Console and MyAccount are now tenant qualified by default. Hence, after migrating to IS 6.0.0, the Callback URLs of both the MyAccount and Console applications should be updated as follows:
 

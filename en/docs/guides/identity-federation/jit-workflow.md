@@ -1,11 +1,11 @@
 # Just-in-Time User Inbound Provisioning
 
-This page guides you through configuring [Just-in-Time (JIT) provisioning](../../../references/concepts/jit-provisioning) for users from external identity providers into WSO2 Identity Server during federated authentication.
+This page guides you through configuring [Just-in-Time (JIT) provisioning]({{base_path}}/references/concepts/jit-provisioning) for users from external identity providers into WSO2 Identity Server during federated authentication.
 
 -----
 
 ## Prerequisites
-You need to [add and configure an identity provider](../identity-federation/add-idp.md) on the Identity Server.
+You need to [add and configure an identity provider]({{base_path}}/guides/identity-federation/add-idp) on the Identity Server.
 
 ## Enable JIT provisioning
 
@@ -15,7 +15,7 @@ To enable JIT provisioning for an IdP:
 2. Click **List**, select the identity provider you want to enable JIT provisioning, and click on the corresponding **Edit** link.
 3. Expand the **Just-In-Time Provisioning** section and select the JIT provisioning options based on your requirement.
 
-    ![just-in-time-provisioning](../../../assets/img/guides/just-in-time-provisioning.png)
+    ![just-in-time-provisioning]({{base_path}}/assets/img/guides/just-in-time-provisioning.png)
 
 4. Select **Always provision to User Store Domain**, and select a required user store domain from the list of available user store domains.
 
@@ -32,7 +32,7 @@ To enable JIT provisioning for an IdP:
         -   If you specify the username as `user`, the user is provisioned to the domain.
         -   If you specify the username as `user1`, the user is provisioned to the PRIMARY user store domain.
 
-        Suppose you want to select a user store domain other than the default primary user store domain. In that case, you need to [configure a userstore](../../deploy/configure-the-primary-user-store.md) of your preference for it to appear in the list for you to select.
+        Suppose you want to select a user store domain other than the default primary user store domain. In that case, you need to [configure a userstore]({{base_path}}/deploy/configure-the-primary-user-store) of your preference for it to appear in the list for you to select.
 
 5. Select the provisioning options depending on how you want to prompt users for relevant credentials at the time of JIT provisioning. The provisioning options are as follows:
 
@@ -48,7 +48,7 @@ To enable JIT provisioning for an IdP:
 
 !!! note
     Provisioning claims should be compatible with the policies defined in the userstore manager configuration. For example
-    user name should match `UsernameJavaRegEx` and `RolenameJavaScriptRegEx` in the [userstore configuration](../../../deploy/configure-user-stores/).
+    user name should match `UsernameJavaRegEx` and `RolenameJavaScriptRegEx` in the [userstore configuration]({{base_path}}/deploy/configure-user-stores/).
 
 ## Disable JIT Provisioning
 
@@ -64,13 +64,13 @@ To disable JIT provisioning for an IdP:
 
 !!! info "Related topics"
 
-    - [JIT Provisioning Architecture](../../references/architecture/provisioning-architecture.md/#jit-provisioning).
+    - [JIT Provisioning Architecture]({{base_path}}/references/architecture/provisioning-architecture.md/#jit-provisioning).
 
-    - [Introduction to Just-in-Time Provisioning](../../../references/concepts/jit-provisioning)
+    - [Introduction to Just-in-Time Provisioning]({{base_path}}/references/concepts/jit-provisioning)
     
-    - [Configuring Just-In-Time Provisioning Consent Purposes](../identity-federation/jit-consent-purposes.md).
+    - [Configuring Just-In-Time Provisioning Consent Purposes]({{base_path}}/guides/identity-federation/jit-consent-purposes).
 
-    - [Customizing Just-In-Time Provisioning User Interfaces](../identity-federation/jit-user-interfaces.md).
+    - [Customizing Just-In-Time Provisioning User Interfaces]({{base_path}}/guides/identity-federation/jit-user-interfaces).
 
 <!-- [Guide: Outbound Just-in-Time Provisioning](TODO:link-to-guide) -->
 
@@ -109,4 +109,4 @@ password_provisioning_url= "/accountrecoveryendpoint/signup.do"
 - Update `password_provisioning_url` if you have selected **Prompt for password and consent** or **Prompt for consent** as the provisioning option.
 
 !!! note
-    Learn more about [configuring the provisioning methods](../identity-federation/jit-workflow.md).
+    Learn more about [configuring the provisioning methods]({{base_path}}/guides/identity-federation/jit-workflow).

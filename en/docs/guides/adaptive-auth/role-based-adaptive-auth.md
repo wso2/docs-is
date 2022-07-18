@@ -15,8 +15,8 @@ Consider a scenario with two user roles, `admin` and `manager`. For users assign
 
 ## Prerequisites
 
-- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to [add a user](../../guides/identity-lifecycles/admin-creation-workflow/) named `Alex` with login permissions. Do not assign any roles to this user.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Alex` with login permissions. Do not assign any roles to this user.
 
 ----
 
@@ -34,7 +34,7 @@ To configure role-based authentication:
 
 5. In the **Templates** section, click on the **`+`** corresponding to **Role-Based** template.  
 
-    ![Role based adaptive authentication template](../../assets/img/samples/role-based-template.png)
+    ![Role based adaptive authentication template]({{base_path}}/assets/img/samples/role-based-template.png)
 
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
@@ -53,7 +53,7 @@ To configure role-based authentication:
 
 3. You will be prompted to enter your `TOTP` or `FIDO` code. Enter any code and click **Sign In**.
 
-    ![pickup sign in](../../assets/img/samples/pickup-step-two.png)
+    ![pickup sign in]({{base_path}}/assets/img/samples/pickup-step-two.png)
 
 4. Log out of the application and log in again as `Alex`.
 

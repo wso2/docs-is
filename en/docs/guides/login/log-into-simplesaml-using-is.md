@@ -164,14 +164,14 @@ This page guides you through using WSO2 Identity Server to log in to SimpleSAMLp
 
 ## Configure the service provider in WSO2 IS
 
-{! fragments/register-a-service-provider.md !}
+{!./includes/register-a-service-provider.md !}
 
 
-{! fragments/simplesaml-config-sample.md !}
+{!./includes/simplesaml-config-sample.md !}
 
 ## Configure a resident identity provider in WSO2 IS
 
-{! fragments/resident-saml-sample.md !}
+{!./includes/resident-saml-sample.md !}
 
 -----
 
@@ -186,4 +186,4 @@ For more information on SimpleSAMLphp, click <https://simplesamlphp.org/docs/sta
 ----
 
 !!! info "Related topics"
-    - [Concept: Identity Federation](../../../references/concepts/identity-federation/)
+    - [Concept: Identity Federation]({{base_path}}/references/concepts/identity-federation/)

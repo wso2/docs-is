@@ -15,25 +15,25 @@ attributes of a user.
 
 1.  By accessing the profile of the user and changing the attributes
     using the Management Console. 
-2.  You can use the REST API according to the SCIM 2.0 provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs](../../../develop/apis/scim2-rest-apis/).
+2.  You can use the REST API according to the SCIM 2.0 provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs]({{base_path}}/apis/scim2-rest-apis/).
 
 ---
 
 ## Claim mapping when using multiple userstores 
 
-{! fragments/attribute-mapping.md !}
+{!./includes/attribute-mapping.md !}
 
 
 ### Attributes with multiple values
 
-{! fragments/attributes-with-multiple-values.md !}
+{!./includes/attributes-with-multiple-values.md !}
 
 
 ---
 
 ## Write custom attributes
 
-See [Writing a Custom Userstore Manager](../../../deploy/write-a-custom-user-store-manager/) for more information on
+See [Writing a Custom Userstore Manager]({{base_path}}/deploy/write-a-custom-user-store-manager/) for more information on
 this.
 
 ### Authentication using multiple attributes
@@ -63,7 +63,7 @@ LDAP.
 
 1.  Configure the LDAP user store-related configurations using the `deployment.toml` file found in the 
     `<IS_HOME>/repository/conf` directory. For more information on configuring userstores, see 
-    [Configuring the Realm](../../../deploy/configure-the-realm/).
+    [Configuring the Realm]({{base_path}}/deploy/configure-the-realm/).
     
     1.  Configure the `user_name_search_filter`
         property as shown below to search for the user object in the
@@ -84,7 +84,7 @@ LDAP.
 
     3.  The `mail` attribute has unique requirements. If you are using the
         `mail` attribute, add the following. For more information on email
-        authentication, see [Using Email Address as the Username](../../../guides/identity-lifecycles/enable-email-as-username/)
+        authentication, see [Using Email Address as the Username]({{base_path}}/guides/identity-lifecycles/enable-email-as-username/)
         .
 
         ``` toml
@@ -105,7 +105,7 @@ LDAP.
         ```
 
 3.  To test this, restart WSO2 IS and attempt to log in to the
-    user portal by providing either the `          mail         `
+    My Account by providing either the `          mail         `
     or `          uid         ` values with the same password.
 
 ---

@@ -1,7 +1,7 @@
-# Introduction
+# Configurng outbound provisioning for a service provider
 
 You might want to outbound provision users that self-register to your
-applications to other entities, such as Google or Salesforce. This section guides you on configuring [outbound provisioning](../../learn/outbound-provisioning) for a service provider.
+applications to other entities, such as Google or Salesforce. This section guides you on configuring [outbound provisioning]({{base_path}}/learn/outbound-provisioning) for a service provider.
 
 !!! info "Scenario"
 
@@ -11,8 +11,8 @@ applications to other entities, such as Google or Salesforce. This section guide
 
 ## Prerequisites
 
-- You need to [register a service provider](../applications/register-sp.md) on the Management Console.
-- You need to [add an identity provider](../identity-federation/add-idp.md) and [enable an outbound povisioning connector](../identity-federation/outbound-provisioing-idp.md).
+- You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
+- You need to [add an identity provider]({{base_path}}/guides/identity-federation/add-idp) and [enable an outbound povisioning connector]({{base_path}}/guides/identity-federation/outbound-provisioing-idp).
 
 ## Configure outbound provisioning
 
@@ -32,14 +32,14 @@ To configure outbound provisioning:
     | Option    | Definition    |
     |-----------|---------------|
     | Blocking  | Select this if you want to block the authentication flow during provisioning. In the default non-blocking mode, provisioning and authentication happen in two different threads. Enable this if you want to allow users to access your application only if the user is both authenticated and provisioned. |
-    | Enable Rules  | Select this to provision users based on a set of pre-defined XACML rules. For more information, see [rule based provisioning](../identity-lifecycles/rule-based-provisioning.md)    |
-    | JIT Outbound  | Select this to enable user provisioning during authentication. To enable this you need to [configure jit provisioning for your idp](../identity-federation/jit-workflow.md).  |
+    | Enable Rules  | Select this to provision users based on a set of pre-defined XACML rules. For more information, see [rule based provisioning]({{base_path}}/identity-lifecycles/rule-based-provisioning)    |
+    | JIT Outbound  | Select this to enable user provisioning during authentication. To enable this you need to [configure jit provisioning for your idp]({{base_path}}/guides/identity-federation/jit-workflow).  |
 
-    ![save-idp-config](../../assets/img/guides/save-idp-config.png)
+    ![save-idp-config]({{base_path}}/assets/img/guides/save-idp-config.png)
 
 6. Click **Update** to save your changes.  
 
 
 !!! info "Related Topics"
 
-    - See [Outbound Provisioning](../identity-lifecycles/outbound-provisioning.md) for more information on configuring user stores and service providers for outbound provisioning.
+    - See [Outbound Provisioning]({{base_path}}/identity-lifecycles/outbound-provisioning) for more information on configuring user stores and service providers for outbound provisioning.

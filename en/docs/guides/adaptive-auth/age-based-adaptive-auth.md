@@ -12,12 +12,12 @@ Consider a scenario where users younger than 18 should be prevented from signing
 
 ## Prerequisites
 
-- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to [update claims](../dialects/edit-claim-mapping.md) to support `BirthDate` by default.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [update claims]({{base_path}}/dialects/edit-claim-mapping.md) to support `BirthDate` by default.
     1. On the management console, go to **Claims > List**, select `http://wso2.org/claims`.
     2. Click on **Edit** corresponding to the **BirthDate** claim
     3. Select the **Supported By Default** checkbox to enable the birthdate claim.
-- You need to [add two users](../identity-lifecycles/admin-creation-workflow/) with login permissions, and [update the age](../identity-lifecycles/update-profile.md) as specified:
+- You need to [add two users]({{base_path}}/identity-lifecycles/admin-creation-workflow/) with login permissions, and [update the age]({{base_path}}/identity-lifecycles/update-profile.md) as specified:
 
     1. Username: `Alex`; Age: `< 18 years`
     2. Username: `Kim`; Age: `> 18 years`
@@ -37,7 +37,7 @@ To configure user-age-based authentication:
 4. You will be redirected to **Advanced Configuration**, expand **Script Based Conditional Authentication**.
 
 5. In the **Templates** section, click on the **`+`** corresponding to the **User-Age-Based** template.
-    ![User age based template](../../assets/img/samples/user-age-based-template.png)
+    ![User age based template]({{base_path}}/assets/img/samples/user-age-based-template.png)
 
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
@@ -57,6 +57,6 @@ To configure user-age-based authentication:
 
 3. Logout of the application and login as `Alex`.
 
-    ![Error message based on age validation](../../assets/img/samples/age-validation.png)
+    ![Error message based on age validation]({{base_path}}/assets/img/samples/age-validation.png)
 
     You will be restricted from logging in as Alex is underage.

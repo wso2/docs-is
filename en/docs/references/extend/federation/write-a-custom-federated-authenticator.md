@@ -4,7 +4,7 @@ A custom federated authenticator can be written to authenticate a user with an e
 The external system can be any identity provider such as Facebook, Twitter, Google, Yahoo, etc.
 You can use the extension points available in WSO2 Identity Server to create custom federated authenticators.
 
-![Federated authentication diagram](../../../assets/img/extend/federated-authentication-diagram.png)
+![Federated authentication diagram]({{base_path}}/assets/img/extend/federated-authentication-diagram.png)
 
 ---
 
@@ -167,11 +167,11 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 2. Navigate to **Main** > **Identity** > **Service Providers** > **Add**.
 
-    <img src="../../../../assets/img/fragments/add-service-provider.png" width="300" alt="Service provider option in Main menu" />
+    <img src="{{base_path}}/assets/img/fragments/add-service-provider.png" width="300" alt="Service provider option in Main menu" />
     
 3. Enter a **Service Provider Name**. Optionally, enter a **Description**.
 
-    <img src="../../../../assets/img/fragments/register-service-provider.png" width="600" alt="Add new service provider basic information" />
+    <img src="{{base_path}}/assets/img/fragments/register-service-provider.png" width="600" alt="Add new service provider basic information" />
     
 4. Click **Register**.    
    
@@ -182,7 +182,7 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 7. Click **Add**. Note the **OAuth Client Key** and **OAuth Client Secret** that appear. 
 
     !!! tip
-        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced). 
+        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced). 
 
 ### Create a user
 
@@ -202,11 +202,11 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 2. Navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
 
-    <img src="../../../../assets/img/fragments/add-identity-provider.png" width="300" alt="Add an identity provider option in Main menu" />
+    <img src="{{base_path}}/assets/img/fragments/add-identity-provider.png" width="300" alt="Add an identity provider option in Main menu" />
 
 3. Provide the **Identity Provider Name**  as `Partner-Identity-Server`.
 
-    ![Partner idp config](../../../assets/img/extend/partner-idp-config.png)
+    ![Partner idp config]({{base_path}}/assets/img/extend/partner-idp-config.png)
 
 4. Click **Federated Authenticators** and expand **Custom-federated-authenticator configurations**. 
    Configure it as follows.
@@ -218,7 +218,7 @@ After starting that partner identity server, it will run on [localhost:9444](htt
     - **Authorization Endpoint URL** - `https://localhost:9444/oauth2/authorize/`
     - **Token Endpoint URL** - `https://localhost:9444/oauth2/token/`
 
-    ![Federated Authenticator](../../../assets/img/extend/federated-authenticator.png)
+    ![Federated Authenticator]({{base_path}}/assets/img/extend/federated-authenticator.png)
 
 5. Click **Register**.
 
@@ -226,19 +226,19 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 ## Configure an application with the custom federated authenticator
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
-{!fragments/oauth-app-config-basic.md!} 
+{!./includes/oauth-app-config-basic.md!} 
 
     !!! tip
-        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced). 
+        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced). 
 
 
 5. Expand the **Local & Outbound Authentication Configuration** section. 
 
 6. Select **Federated Authentication** and select the configured federated authenticator.
 
-   ![Partner identity provider](../../../assets/img/extend/partner-identity-provider.png)
+   ![Partner identity provider]({{base_path}}/assets/img/extend/partner-identity-provider.png)
 
 7. Click **Update** to save the configurations.
 

@@ -24,7 +24,7 @@ First, register two service providers in WSO2 Identity Server.
 
 ## Configure travelocity application
 
-{!fragments/travelocity.md!}
+{!./includes/travelocity.md!}
 
 ## Configure avis application
 
@@ -52,19 +52,19 @@ Start the application server and access the following URLs to make sure both app
     URL:
     [http://wso2is.local:8080/travelocity.com/index.jsp](http://localhost:8080/travelocity.com/index.jsp)
 
-    ![Travelocity screen](../../../assets/img/samples/travelocity-screen.png) 
+    ![Travelocity screen]({{base_path}}/assets/img/samples/travelocity-screen.png) 
 
 - **avis.com**
 
     URL:
     [http://wso2is.local:8080/avis.com/index.jsp](http://localhost:8080/avis.com/index.jsp)
 
-    ![Avis screen](../../../assets/img/samples/avis-screen.png) 
+    ![Avis screen]({{base_path}}/assets/img/samples/avis-screen.png) 
 
 When attempting to log in with SAML from WSO2 Identity Server in **Travelocity.com** and **Avis.com** applications, you can see the following default
 page located at `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp`.
   
-![Identity Server sign in screen](../../../assets/img/samples/identity-server-sign-in-screen.png) 
+![Identity Server sign in screen]({{base_path}}/assets/img/samples/identity-server-sign-in-screen.png) 
 
 ---
 
@@ -105,7 +105,7 @@ external application, the full path should be given instead.
 
 The following is the structure of this web app.
 
-![authentication-web-app-folder-structure](../../../assets/img/extend/authentication-web-app-folder-structure.png)
+![authentication-web-app-folder-structure]({{base_path}}/assets/img/extend/authentication-web-app-folder-structure.png)
 
 The **authenticationendpoint** web application uses a carbon component
 called
@@ -159,7 +159,7 @@ When modifying the pages, ensure that the following is applied.
     POST.
 
     ``` xml
-    <form id="form" name="form" action="../../commonauth" method="POST"> 
+    <form id="form" name="form" action="{{base_path}}/commonauth" method="POST"> 
     ```
 
 2.  Make sure to send back the "sessionDataKey" with the form
@@ -204,6 +204,6 @@ When modifying the pages, ensure that the following is applied.
 
 4.  Log in to the travelocity.com web app
     again. You are presented with the re-branded page.  
-    ![Travelocity login screen](../../../assets/img/samples/travelocity-login-screen.png)   
+    ![Travelocity login screen]({{base_path}}/assets/img/samples/travelocity-login-screen.png)   
     If you access avis.com, it still displays the
     default login page.

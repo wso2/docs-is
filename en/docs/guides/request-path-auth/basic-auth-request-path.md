@@ -7,7 +7,7 @@ prompting the user with the login page during the authentication flow.
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
@@ -17,13 +17,13 @@ Now, let's configure the service provider you registered.
 
 ### Basic OAuth/OIDC
 
-{!fragments/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-<!--{!fragments/oauth-app-config-advanced-tip.md!}-->
+<!--{!./includes/oauth-app-config-advanced-tip.md!}-->
 
 ### Local & Outbound
 
-{!fragments/local-outbound-for-request-path.md!}
+{!./includes/local-outbound-for-request-path.md!}
 
 ----
 
@@ -57,7 +57,7 @@ Replace the ` <SEC_TOKEN>`, `<CLIENT_ID>`, `<IS_HOST>`, `<IS_PORT>` and `<CALLBA
     * You can skip prompting consent for a particular request by sending the `prompt=none` attribute in the authorization request
     * You can skip prompting consent for an application by enabling the **Skip Login Consent** option on the management console.
     
-	![skip consent](../../assets/img/guides/skip-consent.png)
+	![skip consent]({{base_path}}/assets/img/guides/skip-consent.png)
 
     * You can skip re-prompting consent by selecting the **Approve always** option for an application and user before sending the request.
     * You can add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to disable prompting

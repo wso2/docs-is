@@ -464,4 +464,4 @@ description of the values it contains.
 | SESSION_OBJECT | The session object               |
 | TIME_CREATED   | The time of the session creation |
 
-![Identity related tables](../../../assets/img/deploy/identity-related-tables.png)
+![Identity related tables]({{base_path}}/assets/img/deploy/identity-related-tables.png)

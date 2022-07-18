@@ -19,7 +19,7 @@ Consider a scenario where you want to step up authentication for users who belon
 
 ## Prerequisites
 
-- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 - You need to set up a database. For this scenario, we will use an LDAP server.
 - You need to configure a new user store:
     1. On the management console, go to **Main > Identity > User Stores > Add**.
@@ -47,7 +47,7 @@ Consider a scenario where you want to step up authentication for users who belon
 
     4. Click **Update** to save the configurations.
 
-- You need to [add two users](../identity-lifecycles/admin-creation-workflow/) with login permissions, and add their **Domain** as specified:
+- You need to [add two users]({{base_path}}/identity-lifecycles/admin-creation-workflow/) with login permissions, and add their **Domain** as specified:
 
     1. Username: `Alex`; Domain: `PRIMARY`
     2. Username: `Kim`; Domain: `EMPLOYEES`
@@ -67,7 +67,7 @@ To configure user store-based authentication:
 
 5. In the **Templates** section, click on the **`+`** corresponding to the **Role-Based** template.
 
-    ![Userstore based authentication template](../../assets/img/samples/user-store-based-template.png)
+    ![Userstore based authentication template]({{base_path}}/assets/img/samples/user-store-based-template.png)
 
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
@@ -79,7 +79,7 @@ To configure user store-based authentication:
 
 ----
 
-{!fragments/create-ldap-server.md!}
+{!./includes/create-ldap-server.md!}
 
 ----
 
@@ -99,7 +99,7 @@ To configure user store-based authentication:
 
 4. Enter the TOTP code and click **Sign In**.  
 
-    ![TOTP verification](../../assets/img/samples/totp-code-verification.png)  
+    ![TOTP verification]({{base_path}}/assets/img/samples/totp-code-verification.png)  
 
     !!! tip
         Ensure that the LDAP server in Apache DS is running when attempting to log in as Kim.

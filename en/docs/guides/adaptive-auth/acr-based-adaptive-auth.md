@@ -8,7 +8,7 @@ Consider a scenario where you want users to be authenticated into an application
 
 ----
 
-{! fragments/oauth-playground.md !}
+{!./includes/oauth-playground.md !}
 
 ----
 
@@ -26,7 +26,7 @@ To configure ACR-based authentication for an application:
 
 5. In the **Templates** section, click on the **`+`** corresponding to the **ACR-Based** template.
 
-    ![ACR-based template](../../assets/img/samples/acr-based-template.png)
+    ![ACR-based template]({{base_path}}/assets/img/samples/acr-based-template.png)
 
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
@@ -51,7 +51,7 @@ To configure ACR-based authentication for an application:
 
     Leave the rest of the configurations as they are.  
 
-    ![Authentication context class](../../assets/img/samples/authentication-context-class.png)
+    ![Authentication context class]({{base_path}}/assets/img/samples/authentication-context-class.png)
 
 4. You are now prompted for basic authentication followed by TOTP authentication. Step 1 and Step 2 are prompted as the ACR value entered was `acr2`.
 
@@ -59,9 +59,9 @@ To configure ACR-based authentication for an application:
         You can re-try this flow using the ACR value 'acr3'. Note that you
         are then prompted for steps 1 and 3 (basic authentication and FIDO authentication).
 
-    ![TOTP authenticator](../../assets/img/samples/totp-code-verification.png)
+    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png)
 
 6. Enter the TOTP code and click **Continue**.
-    ![ACR-based login successful](../../assets/img/samples/login-successful-acr-based.png)
+    ![ACR-based login successful]({{base_path}}/assets/img/samples/login-successful-acr-based.png)
 
 7. Logout from the application and try this flow with different ACR values.

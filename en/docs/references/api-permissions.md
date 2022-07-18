@@ -2660,4 +2660,4 @@ operations and specifies the permissions of each operation.
 </table>
 
 !!! info "Related topics"
-    - [API: SOAP APIs](../../develop/apis/soap-apis)
+    - [API: SOAP APIs]({{base_path}}/develop/apis/soap-apis)

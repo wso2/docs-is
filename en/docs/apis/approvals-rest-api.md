@@ -7,8 +7,8 @@ template: templates/swagger.html
 ??? note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
       
-      1. [Add a new workflow definition](../../../guides/workflows/adding-a-new-workflow-definition/) 
-      and [engage the workflow in an operation](../../guides/workflows/engaging-a-workflow-in-an-operation/)
+      1. [Add a new workflow definition]({{base_path}}/guides/workflows/adding-a-new-workflow-definition/) 
+      and [engage the workflow in an operation]({{base_path}}/guides/workflows/engaging-a-workflow-in-an-operation/)
       2. Perfom a few related operations to generate few human task approvals.
       3. Click on **Authorize** button and provide desired values for authentication.
       4. Expand the relevant API operation and click the **Try It Out** button.  
@@ -19,10 +19,10 @@ template: templates/swagger.html
 
 <div id="swagger-ui"></div>
 <script>
-window.onload = function() {
+
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../restapis/approvals.yaml",
+     url: "{{base_path}}/apis/restapis/approvals.yaml",
     name: "Download the yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
@@ -38,8 +38,7 @@ window.onload = function() {
   })
   // End Swagger UI call region
 
-  window.ui = ui
-}
+   window.ui = ui
 </script>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5756659f9134b101dd64)

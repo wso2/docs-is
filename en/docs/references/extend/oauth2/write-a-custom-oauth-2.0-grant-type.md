@@ -90,7 +90,7 @@ directly used as well.
 
 | Buildable source   | [custom-grant](https://github.com/wso2/samples-is/tree/master/oauth2/custom-grant) |
 |--------------------|------------------------------------------------------------------------------------|
-| Built jar file | [custom-grant-4.4.2.jar](../../../assets/attachments/custom-grant-4.4.2.jar)       |
+| Built jar file | [custom-grant-4.4.2.jar]({{base_path}}/assets/attachments/custom-grant-4.4.2.jar)       |
 
 !!! note
     To generate the .jar file from the buildable source, run the following Apache Maven
@@ -119,7 +119,7 @@ directly used as well.
 
 ###  Configure a service provider with the custom grant type
 
-{! fragments/register-a-service-provider.md !}
+{!./includes/register-a-service-provider.md !}
 
 1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 
@@ -133,7 +133,7 @@ directly used as well.
 3. Click **Add**. Note the **OAuth Client Key** and **OAuth Client Secret** that appear. 
 
     !!! tip
-        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).
+        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
 ### Obtain an access token
 
@@ -205,7 +205,7 @@ particular but any other grant type can be customized as well.
 
 ###  Configure a service provider with the customized password grant type
 
-{! fragments/register-a-service-provider.md !}
+{!./includes/register-a-service-provider.md !}
 
 1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 
@@ -219,7 +219,7 @@ particular but any other grant type can be customized as well.
 3. Click **Add**. Note the **OAuth Client Key** and **OAuth Client Secret** that appear. 
 
     !!! tip
-        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).
+        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
 ### Obtain an access token 
         
@@ -260,7 +260,7 @@ You will receive a response similar to the following JSON response with the acce
         See [here](#use-the-grant-type-sample) for instructions on how to implement and use the mobile grant
         sample before adding the custom error codes to it.
 
-    In the downloaded Maven [buildable source](../../assets/attachments/custom-grant.zip), add  the following code segment in the sample class
+    In the downloaded Maven [buildable source]({{base_path}}/assets/attachments/custom-grant.zip), add  the following code segment in the sample class
     `             org             .wso2.sample.identity.oauth2.grant.mobile.MobileGrant            `
     inside `             validateGrant()            ` method is the relevant
     code used for this mechanism.

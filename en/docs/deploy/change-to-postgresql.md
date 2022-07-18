@@ -8,7 +8,7 @@ you need to follow in order to use PostgreSQL for this purpose.
 
 ## Datasource configurations
 
-{! fragments/datasource-config.md !}
+{!./includes/datasource-config.md !}
                        
 After setting up the PostgreSQL database, you can point the `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to that PostgreSQL database by following the instructions given below.
@@ -21,7 +21,7 @@ After setting up the PostgreSQL database, you can point the `WSO2_IDENTITY_DB` o
  
 You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. Following are the basic configurations and their descriptions. 
 
-{! fragments/db-basic-config.md !} 
+{!./includes/db-basic-config.md !} 
  
 A sample configuration is given below.
 
@@ -65,7 +65,7 @@ A sample configuration is given below.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/postgresql.sql` file against the database created.
         
-3. If you have a requirement to use the workflow feature, see [Change the default database of BPS database](../../../deploy/change-datasource-bpsds).
+3. If you have a requirement to use the workflow feature, see [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds).
     
 4.  Download the Postgres JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
 
@@ -73,18 +73,18 @@ A sample configuration is given below.
 
 ### Advanced database configurations
 
-{! fragments/db-advanced-config.md !}
+{!./includes/db-advanced-config.md !}
 
 ---
   
 ## Configure the connection pool behavior on return 
 
-{! fragments/connection-pool-behavior.md !}
+{!./includes/connection-pool-behavior.md !}
 
 ### Configure the connection pool to commit pending transactions on connection return
         
-{! fragments/commit-pending.md !}
+{!./includes/commit-pending.md !}
 
 ### Configure the connection pool to rollback pending transactions on connection return
 
-{! fragments/rollback-pending.md !}
+{!./includes/rollback-pending.md !}

@@ -22,14 +22,14 @@ corresponding dialogs or error messages based on account status.
 
 **Create a user**
 
-{!fragments/create-user-for-recovery-flows.md!}
+{!./includes/create-user-for-recovery-flows.md!}
 
 **Configure the email adapter to send emails**
 
 !!! note
-    This step is not required for [Offline Password Reset](../../../guides/password-mgt/forced-password-reset/#offline-password-reset).
+    This step is not required for [Offline Password Reset]({{base_path}}/guides/password-mgt/forced-password-reset/#offline-password-reset).
     
-{!fragments/configure-email-sending.md!}
+{!./includes/configure-email-sending.md!}
 
 !!! tip
     The email template used to send this email notification is
@@ -38,7 +38,7 @@ corresponding dialogs or error messages based on account status.
     for password recovery via OTP (one-time password).
 
     You can edit and customize the email template. For more information
-    on how to do this, see see [Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
+    on how to do this, see see [Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
 ---
 
@@ -52,7 +52,7 @@ corresponding dialogs or error messages based on account status.
 
 8. Expand the **Password Reset** tab. You will see the following options for forced password reset:
 
-   ![forced-password-reset](../../assets/img/guides/forced-password-reset-options.png) 
+   ![forced-password-reset]({{base_path}}/assets/img/guides/forced-password-reset-options.png) 
     
 ---
 
@@ -204,5 +204,5 @@ POST https://<host>:<port>/scim2/Users/<users-scim-id>
 
 
 !!! info "Related topics"
-    See [Configuring Claims](../../../guides/dialects/configure-claims) for more
+    See [Configuring Claims]({{base_path}}/guides/dialects/configure-claims) for more
     information on how to store the claim values in the user store.

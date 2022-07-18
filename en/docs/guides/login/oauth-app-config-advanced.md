@@ -53,7 +53,7 @@ This is the exact location in the service provider's application where an access
 - **PKCE Mandatory**: Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. 
 
     !!! info
-        See [Mitigating Authorization Code Interception Attacks](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/) for more information.
+        See [Mitigating Authorization Code Interception Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/) for more information.
 
 - **Support PKCE 'Plain' Transform Algorithm**: Select this if you are using PKCE.
 
@@ -91,13 +91,13 @@ This is to define whether to only accept signed request objects in an authorizat
 
 ## Enable ID Token Encryption
 
-This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see [Test OIDC Encrypted ID Token with IS](../../../guides/login/oidc-token-encryption/).
+This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see [Test OIDC Encrypted ID Token with IS]({{base_path}}/guides/login/oidc-token-encryption/).
 
 ----
 
 ## Enable OIDC Back-Channel Logout
 
-This is to define whether OIDC back-channel logout should be enabled or not. For more information, see [Configure OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout/).
+This is to define whether OIDC back-channel logout should be enabled or not. For more information, see [Configure OpenID Connect Back-Channel Logout]({{base_path}}/guides/login/oidc-backchannel-logout/).
 
 ----
 

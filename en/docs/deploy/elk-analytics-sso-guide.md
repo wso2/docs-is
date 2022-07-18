@@ -2,8 +2,13 @@
  
  You can enable Single-sign-on for an ElasticSearch/Kibana deployment with WSO2 Identity Server via OpenID Connect. To set this up, follow the steps given below.
  
-!!! note "Prerequisite"
-          An Elasticsearch platinum subscription is required to enable SSO in ELK.
+## Prerequisites
+
+- An Elasticsearch platinum subscription is required to enable SSO in ELK.
+
+- [Configure ELK Analytics](./elk-analytics-installation-guide.md) in WSO2 Identity Server.
+
+    
 
 ## Configure a service provider at WSO2 Identity Server
  
@@ -13,22 +18,22 @@ To enable SSO with WSO2 Identity Server, a service provider needs to be created.
  
 2. In the **Main** tab, click **Add** under **Service Providers**.
 
-    ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-1.png)
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-1.png)
  
 3. Provide a name for the service provider (eg. kibana) and click **Regsiter**.
  
-    ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-2.png)
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-2.png)
  
 4. Once the service provider is created, expand its  **Claim Configuration** section. Configure the claims as shown in the image below and click **Update**.
  
-    ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-3.png)
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-3.png)
  
 5.  Expand the **Inbound Authentication Configuration** and under **OAuth/OpenID Connect Configuration** select **Configure**. Enter the following as the **Callback Url**.
     ```
     regexp=(https://localhost:5601/api/security/oidc/callback|https://localhost:5601/security/logged_out)
     ```
  
-    ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-4.png)
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-4.png)
  
 6. Click Update to save your changes.
  
@@ -73,26 +78,26 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
 1. Login to the WSO2 Identity Server management console via https://{IS_HOST}:{PORT}/carbon
 2. From the **Main** menu in the left panel, click **Add** under the **Users and Roles** section.
 
-      ![](../assets/img/elk-analytics/elk-create-role.png)
+      ![]({{base_path}}/assets/img/elk-analytics/elk-create-role.png)
 
 3. In **Add Users and Roles**, click **Add New Role**
 
-      ![](../assets/img/elk-analytics/elk-add-role.png)
+      ![]({{base_path}}/assets/img/elk-analytics/elk-add-role.png)
 
 
 4. Create a role (eg. `AnalyticsViewer`) and click **Finish**.
 
-      ![](../assets/img/elk-analytics/elk-new-role.png)
+      ![]({{base_path}}/assets/img/elk-analytics/elk-new-role.png)
 
 5. In **Add Users and Roles**, click **Add New User**.
 
 6. Create a new user and click **Next**.
 
-      ![](../assets/img/elk-analytics/elk-add-new-user.png)
+      ![]({{base_path}}/assets/img/elk-analytics/elk-add-new-user.png)
 
 7. Assign the role that you created in step 4 to the user and click **Finish**.
 
-      ![Assign role to user](../assets/img/elk-analytics/elk-assign-role.png)
+      ![Assign role to user]({{base_path}}/assets/img/elk-analytics/elk-assign-role.png)
 
 
 ### Configure role mapping in Kibana
@@ -105,20 +110,20 @@ Once the above steps are completed, role mapping needs to be configured in Kiban
  
 4. Select a role that has access to the particular dashboard from  **Roles**.
  
-    ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-6.png)
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-6.png)
  
 5. Click **Add Rules** under **Mapping rules**.
 
 6. Select **groups** as the user field and enter the name of the role that you created in the WSO2 Identity Server.
  
-    ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-7.png)
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-7.png)
  
  
 7. Logout from Kibana and re-login by selecting the **Log in with WSO2 option**.
  
-    ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-8.png)
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-8.png)
  
 8. This will navigate to the WSO2 Identity Server login page. Try logging in with the credentials of the user that you created.
  
-    ![]( ../assets/img/elk-analytics/elk-analytics-sso/elk-sso-9.png)
+    ![]( {{base_path}}/assets/img/elk-analytics/elk-analytics-sso/elk-sso-9.png)
  

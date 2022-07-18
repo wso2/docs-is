@@ -5,7 +5,7 @@ Office365 with WSO2 Identity Server (WSO2 IS) for authentication and provisionin
 
 Microsoft Office 365 requires users in on-premise user stores to be synced to Microsoft Azure Active Directory (Azure AD) in the cloud. WSO2 IS Office365 integration allows the users to be provisioned to the Azure AD without using any external tools or additional effort. WSO2 IS is integrated with Office365 using federated identity, which means the password or password hash is not synchronized to the Azure AD because the user authentication is provided by the on-premise WSO2 IS.
 
-<!-- ![log-in-to-office365](../assets/img/tutorials/log-in-to-office365.jpg) -->
+<!-- ![log-in-to-office365]({{base_path}}/assets/img/tutorials/log-in-to-office365.jpg) -->
 
 ## Group-based license management
 
@@ -19,7 +19,7 @@ In Azure AD, administrators can define licenses to security groups. Licenses are
 
 <!-- The diagram below demonstrates the flow.
 
-![group-based-license-management](../assets/img/tutorials/group-based-license-management.jpg) -->
+![group-based-license-management]({{base_path}}/assets/img/tutorials/group-based-license-management.jpg) -->
 
 ### Role-based provisioning
 
@@ -50,6 +50,6 @@ of provisioning users based on role:
         protocol you wish to use):
 
         -   [Configuring Office365 SAML2 with WSO2 Identity
-            Server](../../learn/configuring-office365-saml2-with-wso2-identity-server)
+            Server]({{base_path}}/learn/configuring-office365-saml2-with-wso2-identity-server)
         -   [Configuring Office365 WS-Federation with WSO2
-            IS](../../learn/configuring-office365-ws-federation-with-wso2-is)
+            IS]({{base_path}}/learn/configuring-office365-ws-federation-with-wso2-is)

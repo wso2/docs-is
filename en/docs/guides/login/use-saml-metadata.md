@@ -13,7 +13,7 @@ data and allows the user to use the same metadata XML file for multiple
 instances of entity configuration.
 
 1.  Select **Metadata File Configuration.**  
-    ![saml-metadata-upload](../../assets/img/guides/saml-metadata-upload.png)  
+    ![saml-metadata-upload]({{base_path}}/assets/img/guides/saml-metadata-upload.png)  
 
 2.  Click **Choose File**, and select the `.xml`
     file containing the metadata for the service provider SAML
@@ -68,5 +68,5 @@ instances of entity configuration.
 
 
 !!! info "Related topics"
-    - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)
-    - [Guide: Enable Login to a SAML Web Application](../webapp-saml)
+    - [Concept: SAML]({{base_path}}/references/concepts/authentication/intro-saml/)
+    - [Guide: Enable Login to a SAML Web Application]({{base_path}}/webapp-saml)

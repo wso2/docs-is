@@ -18,8 +18,8 @@ Consider a scenario where users who log in to an application from a new device o
 
 ## Prerequisites
 
-- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to [add a user](../../guides/identity-lifecycles/admin-creation-workflow/) named `Kim` with login permissions. Do not assign any roles to this user.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Kim` with login permissions. Do not assign any roles to this user.
 
 ## Configure device-based authentication
 
@@ -35,7 +35,7 @@ To configure device-based authentication for an application:
 
 5. In the **Templates** section, click on the **`+`** corresponding to the **New-Device-Based** template.
 
-    ![device-based-template](../../assets/img/samples/device-based-template.png)
+    ![device-based-template]({{base_path}}/assets/img/samples/device-based-template.png)
 
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
@@ -63,7 +63,7 @@ To configure device-based authentication for an application:
 
 3. You will be prompted to enter your `TOTP` code. Enter the code and click **Sign In**.
 
-    ![TOTP](../../assets/img/samples/totp-code-verification.png)
+    ![TOTP]({{base_path}}/assets/img/samples/totp-code-verification.png)
 
 4. Logout of the application and log in again using Kim's credentials on the same browser window. You will successfully log in to the application with only the basic authentication.
 

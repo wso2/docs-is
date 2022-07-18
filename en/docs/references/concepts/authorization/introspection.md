@@ -43,4 +43,4 @@ Token introspection allows a protected resource to query this information regard
                Access token could have been in ACTIVE or EXPIRED state while revoking.
 
 !!! info "Related topics"
-    - [Guide: Invoke the OAuth Introspection Endpoint](../../../../guides/access-delegation/invoke-oauth-introspection-endpoint)
+    - [Guide: Invoke the OAuth Introspection Endpoint]({{base_path}}/guides/access-delegation/invoke-oauth-introspection-endpoint)

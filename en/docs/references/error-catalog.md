@@ -135,7 +135,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>CQM-20054</td>
     <td>400</td>
     <td>Unable to set user challenge answer(s).</td>
-    <td>Invalid Locale value provided : {{locale}}.</td>
+    <td>Invalid Locale value provided : {{'{{locale}}'}}.</td>
   </tr>
   <tr>
     <td>CQM-20056</td>
@@ -236,37 +236,37 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>CMT-50001</a></td>
         <td>500</td>
         <td>Unable to add claim dialect</td>
-        <td>The server encountered an error while adding the claim dialect, {{claim dialect}}.</td>
+        <td>The server encountered an error while adding the claim dialect, {{'{{claim dialect}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50002</a></td>
         <td>500</td>
         <td>Unable to add external claim</td>
-        <td>The server encountered an error while adding the external claim, {{external claim}}.</td>
+        <td>The server encountered an error while adding the external claim, {{'{{external claim}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50003</a></td>
         <td>500</td>
         <td>Unable to add local claim</td>
-        <td>The server encountered an error while adding the local claim, {{local claim}}.</td>
+        <td>The server encountered an error while adding the local claim, {{'{{local claim}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50004</a></td>
         <td>500</td>
         <td>Unable to delete claim dialect</td>
-        <td>The server encountered an error while deleting the claim dialect for identifier, {{identifier}}.</td>
+        <td>The server encountered an error while deleting the claim dialect for identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50005</a></td>
         <td>500</td>
         <td>Unable to delete external claim.</td>
-        <td>The server encountered an error while deleting the external claim for identifier, {{identifier}} in dialect identifier, {{identifier}}.</td>
+        <td>The server encountered an error while deleting the external claim for identifier, {{'{{identifier}}'}} in dialect identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50006</a></td>
         <td>500</td>
         <td>Unable to delete local claim</td>
-        <td>The server encountered an error while deleting the local claim for identifier, {{identifier}}.</td>
+        <td>The server encountered an error while deleting the local claim for identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50007</a></td>
@@ -284,19 +284,19 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>CMT-50009</a></td>
         <td>500</td>
         <td>Unable to retrieve external claim</td>
-        <td>The server encountered an error while retrieving the external claim for identifier, {{identifier}} in dialect identifier, {{identifier}}.</td>
+        <td>The server encountered an error while retrieving the external claim for identifier, {{'{{identifier}}'}} in dialect identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50010</a></td>
         <td>500</td>
         <td>Unable to retrieve external claims</td>
-        <td>The server encountered an error while retrieving the external claims for dialect identifier, {{identifier}}.</td>
+        <td>The server encountered an error while retrieving the external claims for dialect identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50011</a></td>
         <td>500</td>
         <td>Unable to retrieve local claim</td>
-        <td>The server encountered an error while retrieving the local claim for identifier, {{identifier}}.</td>
+        <td>The server encountered an error while retrieving the local claim for identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50012</a></td>
@@ -308,55 +308,55 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>CMT-50013</a></td>
         <td>500</td>
         <td>Unable to update claim dialect</td>
-        <td>The server encountered an error while updating the claim dialect for identifier, {{identifier}}.</td>
+        <td>The server encountered an error while updating the claim dialect for identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50014</a></td>
         <td>500</td>
         <td>Unable to update external claim</td>
-        <td>The server encountered an error while updating the external claim for identifier, {{identifier}} in dialect identifier, {{identifier}}.</td>
+        <td>The server encountered an error while updating the external claim for identifier, {{'{{identifier}}'}} in dialect identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50015</a></td>
         <td>500</td>
         <td>Unable to update local claim</td>
-        <td>The server encountered an error while updating the local claim for identifier, {{identifier}}.</td>
+        <td>The server encountered an error while updating the local claim for identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50016</a></td>
         <td>404</td>
         <td>Resource not found</td>
-        <td>Unable to find a resource matching the provided claim dialect identifier, {{identifier}}.</td>
+        <td>Unable to find a resource matching the provided claim dialect identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50017</a></td>
         <td>404</td>
         <td>Resource not found</td>
-        <td>Unable to find any claims matching the provided claim dialect identifier, {{identifier}}</td>
+        <td>Unable to find any claims matching the provided claim dialect identifier, {{'{{identifier}}'}}</td>
       </tr>
       <tr>
         <td>CMT-50018</a></td>
         <td>404</td>
         <td>Resource not found</td>
-        <td>Unable to find a resource matching the provided external claim identifier, {{identifier}} in dialect identifier, {{identifier}}.</td>
+        <td>Unable to find a resource matching the provided external claim identifier, {{'{{identifier}}'}} in dialect identifier, {{'{{identifier}}'}}.</td>
       </tr>
       <tr>
         <td>CMT-50019</a></td>
         <td>404</td>
         <td>Resource not found</td>
-        <td>Unable to find a resource matching the provided local claim identifier, {{identifier}}</td>
+        <td>Unable to find a resource matching the provided local claim identifier, {{'{{identifier}}'}}</td>
       </tr>
       <tr>
         <td>CMT-50020</a></td>
         <td>409</td>
         <td>Unable to update external claim</td>
-        <td>The existing external claim uri, {{external claim}} in dialect identifier, {{identifier}} cannot be changed.</td>
+        <td>The existing external claim uri, {{'{{external claim}}'}} in dialect identifier, {{'{{identifier}}'}} cannot be changed.</td>
       </tr>
       <tr>
         <td>CMT-50021</a></td>
         <td>409</td>
         <td>Unable to update local claim</td>
-        <td>The existing local claim uri, {{local claim}} cannot be changed.</td>
+        <td>The existing local claim uri, {{'{{local claim}}'}} cannot be changed.</td>
       </tr>
       <tr>
         <td>CMT-50022</a></td>
@@ -386,13 +386,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>CMT-50026</a></td>
         <td>400</td>
         <td>Invalid attribute mapping</td>
-        <td>Invalid userstore, {{userstore}} provided in attribute mapping</td>
+        <td>Invalid userstore, {{'{{userstore}}'}} provided in attribute mapping</td>
       </tr>
       <tr>
         <td>CMT-50027</a></td>
         <td>400</td>
         <td>Invalid dialect identifier</td>
-        <td>The used dialect identifier, {{identifier}} does not exist.</td>
+        <td>The used dialect identifier, {{'{{identifier}}'}} does not exist.</td>
       </tr>
       <tr>
         <td>CMT-50028</a></td>
@@ -710,13 +710,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
       <td>IDG-50008</td>
       <td>400</td>
       <td>Resource not found</td>
-      <td>Unable to find any category with the provided identifier, {{category identifier}}.</td>
+      <td>Unable to find any category with the provided identifier, {{'{{category identifier}}'}}.</td>
     </tr>
     <tr>  
       <td>IDG-50009</td>
       <td>400</td>
       <td>Resource not found.</td>
-      <td>Unable to find any connector with the provided identifier, {{connector identifier}}.</td>
+      <td>Unable to find any connector with the provided identifier, {{'{{connector identifier}}'}}.</td>
     </tr>
   </tbody>
 </table>
@@ -745,61 +745,61 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>IDP-65002</a></td>
         <td>500</td>
         <td>An error occurred while adding the Identity Provider</td>
-        <td>The server encountered an error while adding the Identity Provider, {{identity-provider-name}}.</td>
+        <td>The server encountered an error while adding the Identity Provider, {{'{{identity-provider-name}}'}}.</td>
       </tr>      
       <tr>
         <td>IDP-60001</a></td>
         <td>409</td>
         <td>Identity Provider exists</td>
-        <td>Identity Provider with the name, {{identity-provider-name}} already exists.</td>
+        <td>Identity Provider with the name, {{'{{identity-provider-name}}'}} already exists.</td>
       </tr>
       <tr>
         <td>IDP-6500</a></td>
         <td>500</td>
         <td>An error occurred while getting the Identity Provider</td>
-        <td>The server encountered an error while getting the Identity Provider, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while getting the Identity Provider, {{'{{identity-provider-id}}'}}.</td>
       </tr>  
       <tr>
         <td>IDP-60002</a></td>
         <td>404</td>
         <td>Identity Provider does not exist</td>
-        <td>Identity Provider with resource ID, {{identity-provider-id}} does not exist.</td>
+        <td>Identity Provider with resource ID, {{'{{identity-provider-id}}'}} does not exist.</td>
       </tr>
       <tr>
         <td>IDP-65004</a></td>
         <td>500</td>
         <td>An error occurred while deleting Identity Provider</td>
-        <td>The server encountered an error while deleting Identity Provider, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while deleting Identity Provider, {{'{{identity-provider-id}}'}}.</td>
       </tr> 
       <tr>
         <td>IDP-65005</a></td>
         <td>500</td>
         <td>An error occurred while updating Identity Provider</td>
-        <td>The server encountered an error while updating Identity Provider, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while updating Identity Provider, {{'{{identity-provider-id}}'}}.</td>
       </tr> 
       <tr>
         <td>IDP-60003</a></td>
         <td>400</td>
         <td>Identity Provider add request validation failed</td>
-        <td>Identity Provider add request validation failed for the identitiy provider, {{identity-provider-name}}.</td>
+        <td>Identity Provider add request validation failed for the identitiy provider, {{'{{identity-provider-name}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-60004</a></td>
         <td>400</td>
         <td>Identity Provider get request validation failed</td>
-        <td>Identity Provider get request validation failed for the identity provider ID, {{identity-provider-id}}.</td>
+        <td>Identity Provider get request validation failed for the identity provider ID, {{'{{identity-provider-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-60005</a></td>
         <td>400</td>
         <td>Identity Provider delete request validation failed</td>
-        <td>Identity Provider delete request validation failed for the identity provider ID, {{identity-provider-id}}.</td>
+        <td>Identity Provider delete request validation failed for the identity provider ID, {{'{{identity-provider-id}}'}}.</td>
       </tr>                 
       <tr>
         <td>IDP-60007</a></td>
         <td>400</td>
         <td>Search request validation failed.</td>
-        <td>Search request validation failed since search filter, {{search-filter}} is invalid.</td>
+        <td>Search request validation failed since search filter, {{'{{search-filter}}'}} is invalid.</td>
       </tr> 
       <tr>
         <td>IDP-60021</a></td>
@@ -811,7 +811,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>IDP-65003</a></td>
         <td>500</td>
         <td>Unable to retrieve identity provider</td>
-        <td>The server encountered an error while retrieving the identity provider for identifier, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while retrieving the identity provider for identifier, {{'{{identity-provider-id}}'}}.</td>
       </tr> 
       <tr>
         <td>IDP-65021</a></td>
@@ -829,19 +829,19 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>IDP-65023</a></td>
         <td>500</td>
         <td>Unable to retrieve meta federated authenticator</td>
-        <td>The server encountered an error while retrieving the meta federated authenticator with identifier, {{federated-authenticator-identifier}}.</td>
+        <td>The server encountered an error while retrieving the meta federated authenticator with identifier, {{'{{federated-authenticator-identifier}}'}}.</td>
       </tr> 
       <tr>
         <td>IDP-65024</a></td>
         <td>500</td>
         <td>Unable to retrieve meta outbound connector</td>
-        <td>The server encountered an error while retrieving the meta outbound connector with identifier, {{outbound-connector-identifier}}.</td>
+        <td>The server encountered an error while retrieving the meta outbound connector with identifier, {{'{{outbound-connector-identifier}}'}}.</td>
       </tr> 
       <tr>
         <td>IDP-65025</a></td>
         <td>500</td>
         <td>Unable to retrieve identity provider's federated authenticator list</td>
-        <td>The server encountered an error while retrieving the federated authenticators of identity provider, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while retrieving the federated authenticators of identity provider, {{'{{identity-provider-id}}'}}.</td>
       </tr> 
       <tr>
         <td>IDP-65026</a></td>
@@ -853,13 +853,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>IDP-65027</a></td>
         <td>500</td>
         <td>Unable to retrieve identity provider's federated authenticator</td>
-        <td>The server encountered an error while retrieving the federated authenticator with identifier, {{federated-authenticator-id}}.</td>
+        <td>The server encountered an error while retrieving the federated authenticator with identifier, {{'{{federated-authenticator-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-65028</a></td>
         <td>500</td>
         <td>Unable to retrieve identity provider's outbound connector</td>
-        <td>The server encountered an error while retrieving the outbound connector with identifier, {{outbound-connector-id}}.</td>
+        <td>The server encountered an error while retrieving the outbound connector with identifier, {{'{{outbound-connector-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-65029</a></td>
@@ -871,61 +871,61 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>IDP-65030</a></td>
         <td>500</td>
         <td>Unable to retrieve identity provider claim config</td>
-        <td>The server encountered an error while retrieving the identity provider claim config for identifier, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while retrieving the identity provider claim config for identifier, {{'{{identity-provider-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-65031</a></td>
         <td>500</td>
         <td>Unable to retrieve identity provider role config</td>
-        <td>The server encountered an error while retrieving the identity provider role config for identifier, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while retrieving the identity provider role config for identifier, {{'{{identity-provider-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-65032</a></td>
         <td>500</td>
         <td>Unable to retrieve identity provider JIT config</td>
-        <td>The server encountered an error while retrieving the identity provider JIT config for identifier, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while retrieving the identity provider JIT config for identifier, {{'{{identity-provider-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-65033</a></td>
         <td>500</td>
         <td>Unable to update identity provider federated authenticator</td>
-        <td>The server encountered an error while updating the identity provider federated authenticator for identifier, {{federated-authenticator-id}}.</td>
+        <td>The server encountered an error while updating the identity provider federated authenticator for identifier, {{'{{federated-authenticator-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-65034</a></td>
         <td>500</td>
         <td>Unable to update identity provider outbound connector</td>
-        <td>The server encountered an error while updating the identity provider outbound connector for identifier, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while updating the identity provider outbound connector for identifier, {{'{{identity-provider-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-65035</a></td>
         <td>500</td>
         <td>Unable to update identity provider claims</td>
-        <td>The server encountered an error while updating the identity provider claim config for identifier, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while updating the identity provider claim config for identifier, {{'{{identity-provider-id}}'}}.</td>
       </tr>   
       <tr>
         <td>IDP-65036</a></td>
         <td>500</td>
         <td>Unable to update identity provider roles</td>
-        <td>The server encountered an error while updating the identity provider role config for identifier, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while updating the identity provider role config for identifier, {{'{{identity-provider-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-65037</a></td>
         <td>500</td>
         <td>Unable to update identity provider Just-In-Time provisioning</td>
-        <td>The server encountered an error while updating the identity provider Just-In-Time provisioning config for identifier, {{identity-provider-id}}.</td>
+        <td>The server encountered an error while updating the identity provider Just-In-Time provisioning config for identifier, {{'{{identity-provider-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-60022</a></td>
         <td>404</td>
         <td>Resource not found</td>
-        <td>Unable to find federated authenticator with identifier, {{federated-authenticator-id}}.</td>
+        <td>Unable to find federated authenticator with identifier, {{'{{federated-authenticator-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-60023</a></td>
         <td>404</td>
         <td>Resource not found</td>
-        <td>Unable to find outbound provisioning connector identifier, {{outbound-connector-id}}.</td>
+        <td>Unable to find outbound provisioning connector identifier, {{'{{outbound-connector-id}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-65041</a></td>
@@ -937,13 +937,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>IDP-60024</a></td>
         <td>400</td>
         <td>Invalid claim uri</td>
-        <td>Invalid claim uri, {{claim-uri}} provided in claim config.</td>
+        <td>Invalid claim uri, {{'{{claim-uri}}'}} provided in claim config.</td>
       </tr> 
       <tr>
         <td>IDP-60025</a></td>
         <td>400</td>
         <td>Invalid input</td>
-        <td>One of the given inputs is invalid. {{Optional Details, if any}}.</td>
+        <td>One of the given inputs is invalid. {{'{{Optional Details, if any}}'}}.</td>
       </tr>
       <tr>
         <td>IDP-60026</a></td>
@@ -991,7 +991,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>TMM_00006</a></td>
         <td>500</td>
         <td>Unable to update identity provider template</td>
-        <td>An error occurred while updating identity provider template with id, {{template-id}}.</td>
+        <td>An error occurred while updating identity provider template with id, {{'{{template-id}}'}}.</td>
       </tr>
       <tr>
         <td>TMM_00007</a></td>
@@ -1021,7 +1021,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>TMM_00014</a></td>
         <td>409</td>
         <td>Unable to add/update IdP template</td>
-        <td>A template with name, {{template-name}} already exists.</td>
+        <td>A template with name, {{'{{template-name}}'}} already exists.</td>
       </tr>
       <tr>
         <td>TMM_00017</a></td>
@@ -1045,13 +1045,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>TMM_00021</a></td>
         <td>404</td>
         <td>Template not found</td>
-        <td>Template with given id, {{template-id}} is not found.</td>
+        <td>Template with given id, {{'{{template-id}}'}} is not found.</td>
       </tr>
       <tr>
         <td>TMM_00022</a></td>
         <td>400</td>
         <td>Invalid template Id.</td>
-        <td>The provided template ID, {{template-id}} is not valid.</td>
+        <td>The provided template ID, {{'{{template-id}}'}} is not valid.</td>
       </tr>
   </tbody>
 </table>
@@ -1073,73 +1073,73 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <tr>  
       <td>KSS-60001</td>
       <td>400</td>
-      <td>Provided certificate already exists with the alias: {{alias}}.</td>
-      <td>An error while importing the certificate with alias, {{alias}} to the keystore.</td>
+      <td>Provided certificate already exists with the alias: {{'{{alias}}'}}.</td>
+      <td>An error while importing the certificate with alias, {{'{{alias}}'}} to the keystore.</td>
     </tr>
     <tr>  
       <td>KSS-60002</td>
       <td>400</td>
-      <td>Provided alias {{alias}} is already available in the keystore.</td>
-      <td>An error while importing the certificate with alias, {{alias}} to the keystore.</td>
+      <td>Provided alias {{'{{alias}}'}} is already available in the keystore.</td>
+      <td>An error while importing the certificate with alias, {{'{{alias}}'}} to the keystore.</td>
     </tr>
     <tr>  
       <td>KSS-60003</td>
       <td>400</td>
-      <td>Unsupported filter: {{filter}}.</td>
+      <td>Unsupported filter: {{'{{filter}}'}}.</td>
       <td>An error while retrieving the list of certificates from keystore.</td>
     </tr>
     <tr>  
       <td>KSS-60004</td>
       <td>400</td>
-      <td>Unsupported filter operation {{filter operation}}.</td>
+      <td>Unsupported filter operation {{'{{filter operation}}'}}.</td>
       <td>An error while retrieving the list of certificates from keystore.</td>
     </tr>
     <tr>  
       <td>KSS-60010</td>
       <td>400</td>
-      <td>There exists no certificate with alias: {{alias}}.</td>
-      <td>Couldn't find a certificate with alias, {{alias}} from the keystore.</td>
+      <td>There exists no certificate with alias: {{'{{alias}}'}}.</td>
+      <td>Couldn't find a certificate with alias, {{'{{alias}}'}} from the keystore.</td>
     </tr>
     <tr>  
       <td>KSS-65001</td>
       <td>500</td>
-      <td>Unable to retrieve the keystore for tenant: {{tenant domain}}.</td>
+      <td>Unable to retrieve the keystore for tenant: {{'{{tenant domain}}'}}.</td>
       <td>The server encountered an error while retrieving the keystore.</td>
     </tr>
     <tr>  
       <td>KSS-65002</td>
       <td>500</td>
-      <td>Unable to retrieve keystore information for keystore: {{keystore name}}.</td>
+      <td>Unable to retrieve keystore information for keystore: {{'{{keystore name}}'}}.</td>
       <td>The server encountered an error whie retrieving the keystore information.</td>
     </tr>
     <tr>  
       <td>KSS-65003</td>
       <td>500</td>
-      <td>Unable to retrieve client truststore for tenant: {{tenent domain}}.</td>
+      <td>Unable to retrieve client truststore for tenant: {{'{{tenent domain}}'}}.</td>
       <td>The server encountered an error while retrieving the client truststore.</td>
     </tr>
     <tr>  
       <td>KSS-65004</td>
       <td>500</td>
-      <td>Unable to retrieve the client truststore aliases for tenant: {{tenant domain}}.</td>
+      <td>Unable to retrieve the client truststore aliases for tenant: {{'{{tenant domain}}'}}.</td>
       <td>The server encountered an error while retrieving the aliases from client truststore.</td>
     </tr>
     <tr>  
       <td>KSS-65005</td>
       <td>500</td>
-      <td>Unable to retrive the client truststore certificate for alias: {{alias}}.</td>
+      <td>Unable to retrive the client truststore certificate for alias: {{'{{alias}}'}}.</td>
       <td>The server encountered an error while retriving the certificate from client truststore.</td>
     </tr>
     <tr>  
       <td>KSS-65006</td>
       <td>500</td>
-      <td>Unable to add certificate with alias: {{alias}}.</td>
+      <td>Unable to add certificate with alias: {{'{{alias}}'}}.</td>
       <td>The server encountered an error while adding a certificate.</td>
     </tr>
     <tr>  
       <td>KSS-65007</td>
       <td>500</td>
-      <td>Unable to delete certificate with alias: {{alias}}.</td>
+      <td>Unable to delete certificate with alias: {{'{{alias}}'}}.</td>
       <td>The server encountered an errorwhile removing a certificate.</td>
     </tr>  
     <tr>  
@@ -1151,13 +1151,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <tr>  
       <td>KSS-65010</td>
       <td>500</td>
-      <td>Unable to create file: {{filename}}.</td>
+      <td>Unable to create file: {{'{{filename}}'}}.</td>
       <td>The server encountered an error while creating a file to return the certificate.</td>
     </tr>
     <tr>  
       <td>KSS-65011</td>
       <td>500</td>
-      <td>Unable to encode the certificate with alias: {{alias}}.</td>
+      <td>Unable to encode the certificate with alias: {{'{{alias}}'}}.</td>
       <td>The server encountered an error while encoding the certificate.</td>
     </tr>
   </tbody>
@@ -1406,19 +1406,19 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>SCL-65002</a></td>
         <td>500</td>
         <td>Unable to add Script library</td>
-        <td>An error occurred while creating the script library, {{script-library-name}}.</td>
+        <td>An error occurred while creating the script library, {{'{{script-library-name}}'}}.</td>
       </tr>
       <tr>
          <td>SCL-65003</a></td>
          <td>500</td>
          <td>Unable to add Script library</td>
-         <td>An error occurred while processing content stream of script library script, {{script-library-name}}.</td>
+         <td>An error occurred while processing content stream of script library script, {{'{{script-library-name}}'}}.</td>
        </tr>      
       <tr>
         <td>SCL-65005</a></td>
         <td>500</td>
         <td>Unable to update Script library</td>
-        <td>An error occurred while getting the script library, {{script-library-name}}.</td>
+        <td>An error occurred while getting the script library, {{'{{script-library-name}}'}}.</td>
       </tr>
       <tr>
         <td>SCL-65006</a></td>
@@ -1430,32 +1430,32 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>SCL-65007</a></td>
         <td>500</td>
         <td>Unable to update script library</td>
-        <td>Failed to update Script library, {{script-library-name}}</td>
+        <td>Failed to update Script library, {{'{{script-library-name}}'}}</td>
       </tr>
       <tr>
         <td>SCL-65008</a></td>
         <td>500</td>
         <td>Unable to delete script library</td>
-        <td>An error occurred while deleting script library, {{script-library-name}}.</td>
+        <td>An error occurred while deleting script library, {{'{{script-library-name}}'}}.</td>
       </tr>      
       <tr>
         <td>SCL-60002</a></td>
         <td>400</td>
         <td>Unable to add Script library</td>
-        <td>The script library script of {{script-library-name}} contains errors.</td>
+        <td>The script library script of {{'{{script-library-name}}'}} contains errors.</td>
       </tr> 
       <tr>
         <td>SCL-60006</a></td>
         <td>400</td>
         <td>Script library not found</td>
-        <td>The script library cannot be found for the provided name, {{script-library-name}} in the tenantDomain, {tenat
+        <td>The script library cannot be found for the provided name, {{'{{script-library-name}}'}} in the tenantDomain, {tenat
         -domain}.</td>
       </tr>
       <tr>
         <td>SCL-60007</a></td>
         <td>409</td>
         <td>Script library already exist</td>
-        <td>The script library already exist for the provided name, {{script-library-name}} in the tenantDomain, {tenant
+        <td>The script library already exist for the provided name, {{'{{script-library-name}}'}} in the tenantDomain, {tenant
         -domain}. </td>
       </tr>  
       <tr>
@@ -1533,19 +1533,19 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-60007</td>
     <td>400</td>
     <td>Unable to add tenant</td>
-    <td>The tenant domain, {{tenant-domain}} contains one or more illegal characters. The valid characters are lowercase letters, numbers, '.', '-' and '_'.</td>
+    <td>The tenant domain, {{'{{tenant-domain}}'}} contains one or more illegal characters. The valid characters are lowercase letters, numbers, '.', '-' and '_'.</td>
   </tr>
   <tr>
     <td>TM-60008</td>
     <td>400</td>
     <td>Unable to add tenant</td>
-    <td>Username, {{username}} exists in the system. Please pick another username for tenant administrator.</td>
+    <td>Username, {{'{{username}}'}} exists in the system. Please pick another username for tenant administrator.</td>
   </tr>
   <tr>
     <td>TM-60009</td>
     <td>400</td>
     <td>Unable to add tenant</td>
-    <td>A tenant with same domain {{tenant-domain}} already exists. Please use a different domain name.</td>
+    <td>A tenant with same domain {{'{{tenant-domain}}'}} already exists. Please use a different domain name.</td>
   </tr>
   <tr>
     <td>TM-60010</td>
@@ -1569,19 +1569,19 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-60013</td>
     <td>400</td>
     <td>Invalid Request</td>
-    <td>Required parameter, {{required-parameter}} is not specified.</td>
+    <td>Required parameter, {{'{{required-parameter}}'}} is not specified.</td>
   </tr>
   <tr>
     <td>TM-60014</td>
     <td>400</td>
     <td>Unable to retrieve tenant</td>
-    <td>Tenant cannot be found for the provided id, {{tenant-unique-id}}.</td>
+    <td>Tenant cannot be found for the provided id, {{'{{tenant-unique-id}}'}}.</td>
   </tr>
   <tr>
     <td>TM-60015</td>
     <td>400</td>
     <td>Unable to retrieve tenant</td>
-    <td>Tenant cannot be found for the provided domain, {{tenant-domain}}.</td>
+    <td>Tenant cannot be found for the provided domain, {{'{{tenant-domain}}'}}.</td>
   </tr>
   <tr>
     <td>TM-60016</td>
@@ -1605,13 +1605,13 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-65003</td>
     <td>500</td>
     <td>Unable to retrieve tenant</td>
-    <td>The server encountered an error while retrieving the tenant for identifier, {{tenant-unique-id}}.</td>
+    <td>The server encountered an error while retrieving the tenant for identifier, {{'{{tenant-unique-id}}'}}.</td>
   </tr>
   <tr>
     <td>TM-65004</td>
     <td>500</td>
     <td>An error occurred while updating the tenant.</td>
-    <td>The server encountered an error while the tenant life cycle status activated: {{status-of-lifecycle}}.</td>
+    <td>The server encountered an error while the tenant life cycle status activated: {{'{{status-of-lifecycle}}'}}.</td>
   </tr>
   <tr>
     <td>TM-65005</td>
@@ -1641,7 +1641,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>TM-65009</td>
     <td>500</td>
     <td>An error occurred while deleting the tenant metadata.</td>
-    <td>The server encountered an error while deleting the tenant metadata identified by {{tenant-unique-id}}.</td>
+    <td>The server encountered an error while deleting the tenant metadata identified by {{'{{tenant-unique-id}}'}}.</td>
   </tr>
   </tbody>
 </table>
@@ -1742,7 +1742,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>UAA-8514</a></td>
         <td>500</td>
         <td>An error occurred while deleting user association</td>
-        <td>An error occurred while deleting user account association for user, {{user}}.</td>
+        <td>An error occurred while deleting user account association for user, {{'{{user}}'}}.</td>
       </tr>
       <tr>
         <td>UAA-8517</a></td>
@@ -1778,7 +1778,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>UAA-8528</a></td>
         <td>500</td>
         <td>An error occurred while deleting user association</td>
-        <td>An error occurred while deleting the user account associations for tenant id, {{tenant Id}}.</td>
+        <td>An error occurred while deleting the user account associations for tenant id, {{'{{tenant Id}}'}}.</td>
       </tr>
       <tr>
         <td>UAA-8533</a></td>
@@ -1790,32 +1790,32 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>UAA-8535</a></td>
         <td>500</td>
         <td>An error occurred while deleting user association</td>
-        <td>A database error occurred while deleting user association from the {{user store domain}} domain in the tenant, 
-         {{tenant}}.</td>
+        <td>A database error occurred while deleting user association from the {{'{{user store domain}}'}} domain in the tenant, 
+         {{'{{tenant}}'}}.</td>
       </tr>
       <tr>
         <td>UAA-8536</a></td>
         <td>500</td>
         <td>An error occurred while adding associations of user</td>
-        <td>An error occurred while updating a user domain of account associations with domain, {{user store domain}}.</td>
+        <td>An error occurred while updating a user domain of account associations with domain, {{'{{user store domain}}'}}.</td>
       </tr>
       <tr>
         <td>UAA-8537</a></td>
         <td>500</td>
         <td>An error occurred while deleting user association</td>
-        <td>An error occurred while deleting user account associations with domain, {{user store domain}}.</td>
+        <td>An error occurred while deleting user account associations with domain, {{'{{user store domain}}'}}.</td>
       </tr>
       <tr>
         <td>UAA-8538</a></td>
         <td>500</td>
         <td>An error occurred while getting associations of user</td>
-        <td>A database error occurred while retrieving account associations of user, {{user}}.</td>
+        <td>A database error occurred while retrieving account associations of user, {{'{{user}}'}}.</td>
       </tr> 
       <tr>
         <td>UAA-8539</a></td>
         <td>500</td>
         <td>An error occurred while getting/creating/deleting associations of user</td>
-        <td>An error occurred while retrieving the tenant ID of user, {{user}}.</td>
+        <td>An error occurred while retrieving the tenant ID of user, {{'{{user}}'}}.</td>
       </tr>                       
   </tbody>
 </table>

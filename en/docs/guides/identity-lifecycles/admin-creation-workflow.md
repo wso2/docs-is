@@ -2,7 +2,7 @@
 
 ## Add a user using the management console
 
-{! fragments/add-new-user.md !}
+{!./includes/add-new-user.md !}
 
 3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
 
@@ -11,7 +11,7 @@
     !!! note
         Note that by default, the password must be atleast 5 characters.
 
-    ![enter-user-details](../../../assets/img/guides/enter-user-details.png)
+    ![enter-user-details]({{base_path}}/assets/img/guides/enter-user-details.png)
 
 5. Click **Finish** or you can click **Next** to assign the user to a specific role. For more information about assigning a role, see the next section. 
 
@@ -71,10 +71,10 @@ Below is a sample request to create a user and its corresponding response using 
 
 
 !!! info "Related topics"
-    - [Guide: Invitation Workflow](../../../guides/identity-lifecycles/invitation-workflow) 
-    - [Guide: User Self Registration Workflow](../../../guides/identity-lifecycles/self-registration-workflow)
-    - [Guide: Just in Time User Provisioning Workflow](../../../guides/identity-lifecycles/jit-workflow/)
-    - [Guide: Bulk Import Users](../../../guides/identity-lifecycles/import-users)
-    - [Guide: Outbound Provisioning](../../../guides/identity-lifecycles/outbound-provisioning)
-    - [Concept: Users](../../../references/concepts/user-management/users)
+    - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
+    - [Guide: User Self Registration Workflow]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
+    - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/guides/identity-lifecycles/jit-workflow/)
+    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+    - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
+    - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
     <!--- [Guide: Email Templates](TODO:dev-portal-link)--->

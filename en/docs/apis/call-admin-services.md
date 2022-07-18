@@ -54,7 +54,7 @@ OSGi console.
 
 5.  The list of admin services of your product are listed. For
     example:  
-    ![Admin services list](../../assets/img/apis/admin-services-list.png) 
+    ![Admin services list]({{base_path}}/assets/img/apis/admin-services-list.png) 
 
     !!! info 
         The admin service's URL appears as follows in the list you discovered:
@@ -81,5 +81,5 @@ OSGi console.
     
     
 !!! info "Related topics"
-    -   [Reference: Permissions Required to Invoke Admin Services](../../../references/permissions-required-to-invoke-admin-services)
+    -   [Reference: Permissions Required to Invoke Admin Services]({{base_path}}/references/permissions-required-to-invoke-admin-services)
     -   The following article guides you through transforming existing SOAP-based services into REST services in WSO2 Identity Server: [Exposing WSO2 Identity Server Admin Services the REST Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).

@@ -1,7 +1,10 @@
 # Configure ELK Analytics for Adaptive Authentication
 
-ELK allows you to collect events, analyze them in real-time, identify patterns, map their impacts, and communicate the
-results within milliseconds.
+The following guide shows you how to prepare the WSO2 Identity server for adaptive authentication using ELK analytics.
+
+## Prerequisite
+
+[Configure ELK Analytics](./elk-analytics-installation-guide.md) in WSO2 Identity Server.
 
 ## Configure the analytics engine in WSO2 IS
 
@@ -11,7 +14,7 @@ Follow the steps below to configure the analytics engine in WSO2 Identity Server
 2. Under **Identity Providers** click **Resident**. 
 3. Expand **Other Settings** > **Analytics Engine Configuration** > **ELK Analytics**.
 3. Configure the following properties.
-   ![elk-analytics-engine-properties](../../assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-4.png)
+   ![elk-analytics-engine-properties]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-4.png)
    <table>
    <thead>
    <tr class="header">
@@ -69,13 +72,7 @@ To import the certificate, open a terminal window and run the following command.
 
 !!! info
       This example uses the default keystores and certificates. Replace {IS_HOME} and {ELASTICSEARCH_HOME} accordingly. The default keystore password is `wso2carbon`.
-    
 
-### What's Next?
+## What's Next?
 
-Now that you have successfully deployed a Siddhi application for risk
-based login, you can configure WSO2 Identity Server to receive data from
-this Siddhi application and set up rules for adaptive authentication.
-Follow the [Configuring Risk-Based Adaptive
-Authentication](../../guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication)
-tutorial to set this up.
+Now that you have prepared WSO2 Idenity server for adaptive authentication using ELK analytics, [try a scenario]({{base_path}}/guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md).

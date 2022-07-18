@@ -9,9 +9,9 @@ Server.
     understanding of XACML architecture, XACML language, and syntax before you start writing XACML policies. 
     
     -   [Why we need XACML and the XACML
-        architecture](../../get-started/access-control-and-entitlement-management#why-xacml)
+        architecture]({{base_path}}/get-started/access-control-and-entitlement-management#why-xacml)
     -   [XACML Policy language and
-        Syntax](../../get-started/access-control-and-entitlement-management#xacml-policy-language-structure-and-syntax)
+        Syntax]({{base_path}}/get-started/access-control-and-entitlement-management#xacml-policy-language-structure-and-syntax)
   
 
 A policy has an identifier, a rule-combining algorithm, a description, a
@@ -273,4 +273,4 @@ Now that you have a clearer idea of what a XACML request is and the
 elements of a XACML request, you can easily write a XACML policy
 using the policy editors available in WSO2 Identity Server. For instructions, see 
 [Creating a XACML
-Policy](../../learn/creating-a-xacml-policy).
+Policy]({{base_path}}/learn/creating-a-xacml-policy).

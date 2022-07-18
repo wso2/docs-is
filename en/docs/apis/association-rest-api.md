@@ -16,7 +16,7 @@ template: templates/swagger.html
          
     #### Before trying out the embedded postman collection with the "Run in Postman" option, make sure the following conditions are met.
     
-       1. A user named `john`, with the password `pass123`, exists in the tenant `carbon.super`. For instructions on creating a user, see [here](../../../guides/identity-lifecycles/admin-creation-workflow/).
+       1. A user named `john`, with the password `pass123`, exists in the tenant `carbon.super`. For instructions on creating a user, see [here]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/).
        2. The id value for the local user association `john` is used for some API calls, which is assumed as 
        `UFJJTUFSWS9qb2hu` 
        
@@ -25,7 +25,7 @@ template: templates/swagger.html
             `/{user-id}/association` API, once the association between `john` and `admin` users are created with the POST 
             request to the `/me/associations` API. 
             
-       3. An identity provider with the name `ExternalIdP`, exists in the tenant `carbon.super`. For instructions on creating a new identity provider, see [here](../../apis/idp-rest-api).
+       3. An identity provider with the name `ExternalIdP`, exists in the tenant `carbon.super`. For instructions on creating a new identity provider, see [here]({{base_path}}/apis/idp-rest-api).
        4. A federated association with a user in the above identity provider exists for the `admin` user. The id of this 
        association (which is equal to `2e053351-0d69-476e-81df-04a9cfdfb50e` in the provided postman samples) is used 
        for some API calls. This id can be retrieved by making a GET request to the `/me/federated-association` (or 
@@ -33,10 +33,10 @@ template: templates/swagger.html
      
 <div id="swagger-ui"></div>
 <script>
-window.onload = function() {
+
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../restapis/association.yaml",
+     url: "{{base_path}}/apis/restapis/association.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -51,8 +51,7 @@ window.onload = function() {
   })
   // End Swagger UI call region
 
-  window.ui = ui
-}
+   window.ui = ui
 </script>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ecd26c008975ebf4eafa)

@@ -584,7 +584,7 @@ Follow the instructions given below to deploy and configure the custom userstore
         This step provides instructions on configuring your custom userstore manager as a primary userstore. Alternatively, you can
         configure this as a secondary userstore if you already have a
         different primary userstore configured. For more information
-        configuring userstores in WSO2 Identity Server, see [Configure Userstores](../../../deploy/configure-user-stores).
+        configuring userstores in WSO2 Identity Server, see [Configure Userstores]({{base_path}}/deploy/configure-user-stores).
     
 
     You do not need to change anything else since you extend the
@@ -619,5 +619,5 @@ login. This ensures that all your configurations work as intended.
     Once you add the custom userstore manager to the Identity server, you have to configure it as a primary or a secondary userstore.
     
 !!! info "Related topics"
-    -   [Guide: Configure Userstores](../../../deploy/configure-user-stores)
-    -   [Guide: Manage User Attributes](../../../guides/identity-lifecycles/manage-user-attributes#writing-custom-attributes)
+    -   [Guide: Configure Userstores]({{base_path}}/deploy/configure-user-stores)
+    -   [Guide: Manage User Attributes]({{base_path}}/guides/identity-lifecycles/manage-user-attributes#writing-custom-attributes)

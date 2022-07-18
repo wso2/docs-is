@@ -10,7 +10,7 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ## Configure the service provider
 
@@ -21,7 +21,7 @@ Make the following changes to the created service provider.
 2. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced).
+        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
 3. Enter a logout URL along with the callback URL. 
 
@@ -52,7 +52,7 @@ Make the following changes to the created service provider.
         - If the aforementioned configuration is set to `sp`, the JWT is signed with the application tenant key.
         - If it is set to `user`, the tenant is decided by the subject of the id token, though the subject would not contain the tenant domain by default. 
         If the configured option is `user`, expand **Local & Outbound Authentication Configuration** on the management console service provider configuration and select **Use tenant domain in local subject identifier**. 
-        ![use-tenant-domain-in-subject.png](../../../assets/img/guides/use-tenant-domain-in-subject.png)
+        ![use-tenant-domain-in-subject.png]({{base_path}}/assets/img/guides/use-tenant-domain-in-subject.png)
 
 3. Restart the server.
 
@@ -178,9 +178,9 @@ For a description of the parameters included in the HTML form, see [logout reque
 </table>
 
 !!! info "Related topics"
-    - [Concept: Manage User Sessions and Logout](../../../references/concepts/authentication/session-management)
-    - [Concept: OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout)
-    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
-    - [Guide: OpenID Connect Session Management](../session-management-logout)
-    - [Quick Start: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
-    - [Quick Start: Manage User Sessions and Logout](../../../quick-starts/oidc-session-management)
+    - [Concept: Manage User Sessions and Logout]({{base_path}}/references/concepts/authentication/session-management)
+    - [Concept: OpenID Connect Back-Channel Logout]({{base_path}}/references/concepts/authentication/back-channel-logout)
+    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/oidc-backchannel-logout)
+    - [Guide: OpenID Connect Session Management]({{base_path}}/session-management-logout)
+    - [Quick Start: OpenID Connect Back-Channel Logout]({{base_path}}/quick-starts/oidc-backchannel-logout-sample)
+    - [Quick Start: Manage User Sessions and Logout]({{base_path}}/quick-starts/oidc-session-management)

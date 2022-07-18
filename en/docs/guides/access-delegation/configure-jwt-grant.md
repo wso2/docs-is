@@ -1,6 +1,6 @@
 # Configure JWT Grant
 
-This page guides you through the flow involved in exchanging a JWT assertion with an OAuth 2.0 access token in order to access protected resources on behalf of the resource owner. To learn more, see [JWT Grant](../../../references/concepts/authorization/jwt-bearer-grant-type).
+This page guides you through the flow involved in exchanging a JWT assertion with an OAuth 2.0 access token in order to access protected resources on behalf of the resource owner. To learn more, see [JWT Grant]({{base_path}}/references/concepts/authorization/jwt-bearer-grant-type).
 
 ----
 
@@ -9,7 +9,7 @@ This page guides you through the flow involved in exchanging a JWT assertion wit
 1.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Add**. 
 2.	Enter the following information.
 
-    ![add-new-identity-provider-screen](../../../assets/img/fragments/add-new-identity-provider-screen.png)
+    ![add-new-identity-provider-screen]({{base_path}}/assets/img/fragments/add-new-identity-provider-screen.png)
 	
 	<table>
 		<thead>
@@ -61,7 +61,7 @@ You have successfully added the identity provider. Next, configure the applicati
 
 ## Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
@@ -72,7 +72,7 @@ You have successfully added the identity provider. Next, configure the applicati
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced).
+        For more information on `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
         
 7.  Configure the following fields.
 
@@ -145,5 +145,5 @@ You have successfully added the identity provider. Next, configure the applicati
 
 
 !!! info "Related topics"
-    - [Concept: JWT Grant](../../../references/concepts/authorization/jwt-bearer-grant-type)
+    - [Concept: JWT Grant]({{base_path}}/references/concepts/authorization/jwt-bearer-grant-type)
     

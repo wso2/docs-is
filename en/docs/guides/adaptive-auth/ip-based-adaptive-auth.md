@@ -17,8 +17,8 @@ Users who log in from the internal network should be allowed to simply log in wi
 
 ## Prerequisites
 
-- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to [add a user](../../guides/identity-lifecycles/admin-creation-workflow/) named `Alex` with login permissions. Do not assign any roles to this user.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Alex` with login permissions. Do not assign any roles to this user.
 
 ## Configure IP-based authentication
 
@@ -32,7 +32,7 @@ Users who log in from the internal network should be allowed to simply log in wi
 
 5. In the **Templates** section, click on the **`+`** corresponding to the **IP-Based** template.
 
-    ![IP-based template](../../assets/img/samples/ip-based-template.png)
+    ![IP-based template]({{base_path}}/assets/img/samples/ip-based-template.png)
 
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
@@ -61,7 +61,7 @@ Users who log in from the internal network should be allowed to simply log in wi
 
 3. Log out of the application, and log in with a user not belonging to the configured IP address range. TOTP authentication is prompted.
 
-    ![TOTP authenticator](../../assets/img/samples/totp-code-verification.png)
+    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png)
 
     !!! tip
         You can also try this scenario with two different machines

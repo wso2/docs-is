@@ -8,7 +8,7 @@ configuring it via the Management Console.
 - Stop the server
         
 !!! note
-    For information on installation prerequisites, click [here](../../../deploy/get-started/install).
+    For information on installation prerequisites, click [here]({{base_path}}/deploy/get-started/install).
     
 ---
 
@@ -18,7 +18,7 @@ Follow the relevant instructions based on the operating system you use.
 
 !!! tip
     If you are running multiple WSO2 products on the same server, see
-    [Default Ports of WSO2 Products](../../../references/default-ports-of-wso2-products) for
+    [Default Ports of WSO2 Products]({{base_path}}/references/default-ports-of-wso2-products) for
     instructions on setting a port offset.
     
 ### Start on Windows/Linux/Mac OS
@@ -30,7 +30,7 @@ To start the server, run either
 
 which are located inside the
 `         <IS_HOME>/bin        ` folder. Alternatively, you can install and run
-the server [as a Windows service](../../../deploy/get-started/install#install-on-windows).
+the server [as a Windows service]({{base_path}}/deploy/get-started/install#install-on-windows).
 
 !!! note
     To start the server in the background mode of Linux, run the 
@@ -147,7 +147,7 @@ Example: `                   https://localhost:9443/carbon                 ` .
 
 !!! tip
 
-    If you wish to change the url of the management console, click [here.](../../../deploy/change-the-hostname/)
+    If you wish to change the url of the management console, click [here.]({{base_path}}/deploy/change-the-hostname/)
 
 !!! info 
     When the management console sign-in page appears, the web browser displays an "Insecure Connection" message, since the IS is 
@@ -186,7 +186,7 @@ will guide you through the procedure.
 ### Shut down and restart via the management console
 
 You can use the "Shutdown/Restart" feature to shut down and restart the
-server from the [management console UI](../../../deploy/get-started/get-started-with-the-management-console/). The server can be 
+server from the [management console UI]({{base_path}}/deploy/get-started/get-started-with-the-management-console/). The server can be 
 shut down and restarted 
 "gracefully" or "forcefully." Follow the instructions below to shut down and restart the
 server.
@@ -196,7 +196,7 @@ server.
 2.  Click on the shutdown or restart option as applicable. The available
     options are:  
     
-    ![Shut-Down and Restart screen](../../../assets/img/deploy/shutdown-restart.png)  
+    ![Shut-Down and Restart screen]({{base_path}}/assets/img/deploy/shutdown-restart.png)  
     
     -   **Graceful shutdown** - Stops accepting new requests, continues
         to process already received requests, and then shuts down the
@@ -228,8 +228,8 @@ To stop the server, press **Ctrl+C** in the command window.
     1. Navigate to `<IS_HOME>/bin` and start the server with the `sh wso2server.sh start` 
     command. **NOTE:** This will run the server without displaying the debug logs. 
     
-        If you wish to see the logs, use the `tail -f ../repository/logs/wso2carbon.log` command. **NOTE** 
-        the given path in the command, `../repository/logs/` is relative to the `bin` folder.
+        If you wish to see the logs, use the `tail -f {{base_path}}/repository/logs/wso2carbon.log` command. **NOTE** 
+        the given path in the command, `{{base_path}}/repository/logs/` is relative to the `bin` folder.
     
     2. To restart the server, use `sh wso2server.sh restart`. 
     

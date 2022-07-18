@@ -1,7 +1,7 @@
 # My Account
 
 !!! note 
-    The **User Portal** application has been renamed as **My Account**.
+    The **My Account** application has been renamed as **My Account**.
 
 ## Introduction
 
@@ -51,7 +51,7 @@ Various elements of the **My Account** application can be managed by the users t
 4. Update the new value in the profile and click **Save**.
 
 !!! tip
-    To add custom attributes to the user profile, see [Extend SCIM 2.0 User Schemas](../../../develop/extend/provisioning/extend-scim2-user-schemas/)
+    To add custom attributes to the user profile, see [Extend SCIM 2.0 User Schemas]({{base_path}}/references/extend/provisioning/extend-scim2-user-schemas/)
 
 ### Add and update profile picture
 
@@ -59,11 +59,11 @@ Various elements of the **My Account** application can be managed by the users t
 2. Click the **Personal info** tab on the side panel.
 3. Click on the camera icon.
 
-    ![profile-picture-hover](../../../assets/img/guides/my-account/user-profile/profile-picture-hover.png)
+    ![profile-picture-hover]({{base_path}}/assets/img/guides/my-account/user-profile/profile-picture-hover.png)
 
 4. In the pop-up that appears, you can choose a Gravatar image.
 
-    ![profile-picture-url](../../../assets/img/guides/my-account/user-profile/gravatar-img.png)
+    ![profile-picture-url]({{base_path}}/assets/img/guides/my-account/user-profile/gravatar-img.png)
 
 5. Click **Save**.
 
@@ -81,11 +81,11 @@ Users can link and manage local and federated accounts seamlessly using **My Acc
 2.  Click the **Personal info** tab on the side panel.
 3.  Under the linked account sub section, click **Add account**.
 
-    ![linked-account-add](../../../assets/img/guides/my-account/linked-account/linked-acount-add.png)
+    ![linked-account-add]({{base_path}}/assets/img/guides/my-account/linked-account/linked-acount-add.png)
 
 4.  Enter the username and the password of the account that needs to be linked and click **Save**.
 
-    ![linked-account-save](../../../assets/img/guides/my-account/linked-account/linked-account-save.png)
+    ![linked-account-save]({{base_path}}/assets/img/guides/my-account/linked-account/linked-account-save.png)
 
 ### Delete linked accounts
 
@@ -113,7 +113,7 @@ Using the **export user profile** feature in **My Account**, a JSON file can be 
         in WSO2 IS, log out, then log back in. Now approve the consent again. A new consent 
         receipt will be generated for that application consent).
 
-    2.  Use the [Consent Management REST APIs](../../../develop/apis/use-the-consent-management-rest-apis) to revoke the
+    2.  Use the [Consent Management REST APIs]({{base_path}}/develop/apis/use-the-consent-management-rest-apis) to revoke the
         existing consent and add a new consent.
 
 You can export your profile by following the instructions given below.
@@ -122,7 +122,7 @@ You can export your profile by following the instructions given below.
 2. Click the **Personal info** tab on the side panel.
 3. Under the **Export profile** sub section, click on the **Download as JSON** button. All the profile details will be downloaded to your local machine as a JSON file.
 
-    ![profile-export](../../../assets/img/guides/my-account/user-profile/profile-export.png)
+    ![profile-export]({{base_path}}/assets/img/guides/my-account/user-profile/profile-export.png)
 
 ---
 
@@ -205,7 +205,7 @@ The main part of account recovery is setting up security or challenge questions 
 
 ## Multi-factor authentication
 
-MFA creates a layered defense and makes it more difficult for an unauthorized person to access a target such as a physical location, computing device, web service, network, or database. If one factor is compromised or broken, the attacker still has at least one more barrier to breach before successfully breaking into the target. WSO2 Identity Server allows configuring multi-step authentication where you can define an authentication chain containing different authenticators in different steps. For more information on MFA, see [Multi-factor Authentication](../../../guides/mfa/configure-authentication-journey/).
+MFA creates a layered defense and makes it more difficult for an unauthorized person to access a target such as a physical location, computing device, web service, network, or database. If one factor is compromised or broken, the attacker still has at least one more barrier to breach before successfully breaking into the target. WSO2 Identity Server allows configuring multi-step authentication where you can define an authentication chain containing different authenticators in different steps. For more information on MFA, see [Multi-factor Authentication]({{base_path}}/guides/mfa/configure-authentication-journey/).
 
 Using the latest **My Account** application, users can update their mobile numbers through which they can authenticate themselves using the one-time verification code. Also, they can add inherence factors like FIDO devices and fingerprint sensors. The following section will provide instructions on how to configure MFA options in WSO2 IS using **My Account**. 
 
@@ -231,38 +231,38 @@ Using the latest **My Account** application, users can update their mobile numbe
 3. Under the **Multi-factor authentication** section, click on the add icon aligning with the **via security device** section.
 4. Select an option depending on whether to add a USB security key or a built-in sensor.
 
-    ![fido-options-list](../../../assets/img/guides/my-account/account-recovery/fido-options-list.png)
+    ![fido-options-list]({{base_path}}/assets/img/guides/my-account/account-recovery/fido-options-list.png)
 
 5. Click on **Continue**. Alternatively, click on the **Choose another option** dropdown to switch your option.
 
-    ![fido-option-confirm](../../../assets/img/guides/my-account/account-recovery/fido-option-confirm.png)
+    ![fido-option-confirm]({{base_path}}/assets/img/guides/my-account/account-recovery/fido-option-confirm.png)
  
 6. Click on **Continue**. Alternatively, click on the **Choose another option** dropdown to switch your option.
 
-    ![fido-option-allow](../../../assets/img/guides/my-account/account-recovery/fido-option-allow.png)
+    ![fido-option-allow]({{base_path}}/assets/img/guides/my-account/account-recovery/fido-option-allow.png)
     
 7. Add the preferred device name.
 
-    ![fido-option-device-name](../../../assets/img/guides/my-account/account-recovery/fido-option-device-name.png)
+    ![fido-option-device-name]({{base_path}}/assets/img/guides/my-account/account-recovery/fido-option-device-name.png)
 
 8. Once the device is successfully added, the registered device will be listed along with its name.
 
-    ![fido-devices-list](../../../assets/img/guides/my-account/account-recovery/fido-devices-list.png)
+    ![fido-devices-list]({{base_path}}/assets/img/guides/my-account/account-recovery/fido-devices-list.png)
     
 !!! info "Using an older FIDO device"
     If an older FIDO device is used when registering the device, an error message mentioning that the device cannot be used will be displayed. 
-    This means the device is not capable of performing passwordless authentication <!--(TO-DO:../learn/passwordless-authentication-using-fido2.md)--> and can only be used as a [second factor](../../../guides/mfa/2fa-fido/). The device will have to be added as an **"Older Device"**.
+    This means the device is not capable of performing passwordless authentication <!--(TO-DO:{{base_path}}/learn/passwordless-authentication-using-fido2.md)--> and can only be used as a [second factor]({{base_path}}/guides/mfa/2fa-fido/). The device will have to be added as an **"Older Device"**.
 
     Follow the steps given below to add the device as an older device.
     
     1. Click **close**.
     
-        ![fido-device-old](../../../assets/img/guides/my-account/account-recovery/fido-device-old.png)
+        ![fido-device-old]({{base_path}}/assets/img/guides/my-account/account-recovery/fido-device-old.png)
     
     
     2. Click **Try with an older Device**.
     
-        ![fido-device-old-error](../../../assets/img/guides/my-account/account-recovery/fido-device-old-error.png)
+        ![fido-device-old-error]({{base_path}}/assets/img/guides/my-account/account-recovery/fido-device-old-error.png)
     
     
     3. From this point onwards, the steps to register the device are the same as the steps given in [Add security device](#add-security-device).
@@ -273,7 +273,7 @@ Using the latest **My Account** application, users can update their mobile numbe
 
 Any security device registered under MFA can be simply removed by clicking the delete icon.
 
-![fido-device-delete](../../../assets/img/guides/my-account/account-recovery/fido-device-delete.png)
+![fido-device-delete]({{base_path}}/assets/img/guides/my-account/account-recovery/fido-device-delete.png)
 
 ---
 
@@ -287,7 +287,7 @@ Depending on the user’s preference, **My Account** allows the users either to 
 
 ## Consent management
 
-WSO2 IS provides a comprehensive consent management solution that can be used to manage consents related to Identity and Access Management (IAM), and also to manage consents that belong to third party applications. For more information, see [Consent Management](../../../references/concepts/consent-management).
+WSO2 IS provides a comprehensive consent management solution that can be used to manage consents related to Identity and Access Management (IAM), and also to manage consents that belong to third party applications. For more information, see [Consent Management]({{base_path}}/references/concepts/consent-management).
 **My Account** allows users to revoke or edit the consent given to applications registered in WSO2 IS. In order to edit or revoke application consents, refer to the instructions given below.
 
 ### Revoke consent
@@ -314,11 +314,11 @@ WSO2 IS enables more control over the tasks that are executed using workflows. T
 
 Whenever a user gets created in the system, that task will appear under the **ready** section waiting for approval. Whenever a task  is reviewed and claimed, that task will be listed under the **reserved** section of approvals. Once the task is approved or denied, it will appear under the **completed** section.
 
-![pending-approvals-all](../../../assets/img/guides/my-account/pending-approvals/pending-approvals-all.png)-->
+![pending-approvals-all]({{base_path}}/assets/img/guides/my-account/pending-approvals/pending-approvals-all.png)-->
 
 ---
 
 !!! info "Related topics"
-    - To change the look and feel of the My Account UI, see [Customize the My Account UI](../../../develop/extend/myaccount/customize-my-account-ui/).
-    - To set up My Account in a dev environment, see [Set Up My Account in a Development Environment](../../../develop/extend/myaccount/set-up-my-account-in-a-dev-environment/).
-    - To configure the My Account application and customize features, theme, etc., see [Configure My Account Application](../../../develop/extend/myaccount/configure-my-account/)
+    - To change the look and feel of the My Account UI, see [Customize the My Account UI]({{base_path}}/references/extend/myaccount/customize-my-account-ui/).
+    - To set up My Account in a dev environment, see [Set Up My Account in a Development Environment]({{base_path}}/references/extend/myaccount/set-up-my-account-in-a-dev-environment/).
+    - To configure the My Account application and customize features, theme, etc., see [Configure My Account Application]({{base_path}}/references/extend/myaccount/configure-my-account/)

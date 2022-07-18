@@ -1,19 +1,19 @@
 # Configure Kerberos Grant
 
-This page guides you through the flow involved in exchanging a Kerberos ticket for an OAuth2 token. To learn more, see [Kerberos grant](../../../references/concepts/authorization/kerberos-grant/).
+This page guides you through the flow involved in exchanging a Kerberos ticket for an OAuth2 token. To learn more, see [Kerberos grant]({{base_path}}/references/concepts/authorization/kerberos-grant/).
 
 ----
 
 ## Enable kerberos grant
 
-1.  Download the [kerberos grant.jar](../../assets/attachments/kerberos-grant-1.0.0.jar) file.
+1.  Download the [kerberos grant.jar]({{base_path}}/assets/attachments/kerberos-grant-1.0.0.jar) file.
 
 2.  Copy the JAR into the `<IS_HOME>/repository/components/lib` directory.
 
 3.  Add the following entry to the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
     ``` toml
-    [oauth.grant_type.kerberos_grant]
+    [oauth.grant_type.kerberos]
     enable = true
     ```
 
@@ -21,7 +21,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
 ## Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 3.  Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
@@ -32,7 +32,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on the `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced).
+        For more information on the `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
         
 7.  Click **Add**. 
 
@@ -48,7 +48,7 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
 2. On **Main** tab Click **Identity** > **Identity Providers** > **Add**.
 
-    ![add-identity-provider](../../../assets/img/fragments/add-identity-provider.png)
+    ![add-identity-provider]({{base_path}}/assets/img/fragments/add-identity-provider.png)
 
 3. Add a new Identity Provider (IdP). Enter the basic information as follows.
    
@@ -61,14 +61,14 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
    
         -   **Alias** : <https://192.168.53.12:9443/oauth/token>
    
-        ![add-new-idp-kerberos](../../assets/img/guides/add-new-idp-kerberos.png)
+        ![add-new-idp-kerberos]({{base_path}}/assets/img/guides/add-new-idp-kerberos.png)
 
 4. Expand the **Federated Authenticators** tab, and then the **IWA Kerberos Configuration** tab. Enter the required details as follows.  
        
     -   **Server Principal Name** : <HTTP/idp.example.com@EXAMPLE.COM>
     -   **Server Principal Password:** <password\>
 
-        ![configure-kerberos](../../assets/img/guides/configure-kerberos.png)
+        ![configure-kerberos]({{base_path}}/assets/img/guides/configure-kerberos.png)
 
 5. Click **Register**.
 
@@ -158,5 +158,5 @@ The Kerberos Grant then validates the received token with the provided Identity 
     ```
 
 !!! info "Related topics"
-    - [Concept: Kerberos grant](../../../references/concepts/authorization/kerberos-grant/)
+    - [Concept: Kerberos grant]({{base_path}}/references/concepts/authorization/kerberos-grant/)
     

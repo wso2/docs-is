@@ -187,7 +187,7 @@ nav:
             - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
             - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
             - ACR-Based: guides/adaptive-auth/acr-based-adaptive-auth.md
-            - Risk-Based: guides/adaptive-auth/elk-configuring-risk-based-adaptive-authentication.md
+            - Risk-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
             - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
             - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
           
@@ -245,6 +245,7 @@ nav:
           - Kerberos: guides/access-delegation/configure-kerberos-grant.md
           - Refresh Tokens: guides/access-delegation/configure-refresh-token.md
           - JWT Grant: guides/access-delegation/configure-jwt-grant.md
+          - Device Flow Grant: guides/access-delegation/try-device-flow.md
         - Invoke the OAuth 2.0 Introspection Endpoint: guides/access-delegation/invoke-oauth-introspection-endpoint.md
         - OAuth 2.0 Dynamic Client Registration: guides/access-delegation/oauth-dynamic-client-registration.md
         - OAuth 2.0 Client Authentication: guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
@@ -481,7 +482,7 @@ nav:
         - Monitor Logs:
           - Overview: deploy/monitor/monitor-logs.md
           - HTTP Access Logging: deploy/monitor/http-access-logging.md
-          - Mask Sensitive Information in Logs: deploy/monitor/mask-sensitive-information-in-logs.md
+          - Mask Sensitive Information in Logs: deploy/monitor/elk-mask-sensitive-information-in-logs.md
           - Log Claims in Audit Logs: deploy/monitor/log-claims-in-audit-logs.md
         - System Statistics: deploy/monitor/system-statistics.md
         - Monitor TCP-Based Messages:
@@ -660,7 +661,7 @@ nav:
                 - Introduction: references/concepts/authentication/intro-profiles.md
                 - Basic Client Profile: references/concepts/authentication/basic-client-profile.md
                 - Implicit Profile: references/concepts/authentication/implicit-client-profile.md
-                - Hybrid Profile: references/concepts/authentication/oidc-hybrid-flow.md
+                - Hybrid Profile: references/concepts/authentication/hybrid-client-profile.md
             - OIDC Tokens:
                 - Overview:  references/concepts/authentication/oidc-tokens.md
                 - ID Tokens:  references/concepts/authentication/id-token.md
@@ -750,6 +751,8 @@ markdown_extensions:
   - markdown.extensions.toc:
       permalink: true
       toc_depth: 3
+  - markdown_include.include:
+          base_path: docs
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
@@ -766,11 +769,10 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - markdown_include.include:
-      base_path: docs/
   - attr_list
 plugins:
     - search
+    - markdownextradata: {}
     - redirects:
           redirect_maps:
               'learn/tutorials.md': 'https://is.docs.wso2.com/en/6.0.0/'
@@ -1417,6 +1419,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
+  base_path: https://is.docs.wso2.com/en/6.0.0
 
   nav_list:
     - Home
