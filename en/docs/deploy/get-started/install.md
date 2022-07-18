@@ -8,22 +8,23 @@ development platforms before starting the installation.
 
 ### System requirements
 
+!!! Note
+
+    The above recommendations can change based on the expected concurrency & performance.
+
 <table>
 <tbody>
 <tr class="odd">
-<th><p>Memory</p></th>
-<td><ul>
-<li>4 vCPUs</li>
-<li>4 GB RAM</li>
-<li>10 GB Disk Space</li>
-</ul>
-<p>The above recommendations can change based on the expected concurrency & performance.</p></td>
+<th><p>CPU</p></th>
+<td><p>4 vCPUs</p></td>
 </tr>
 <tr class="even">
+<th><p>Memory</p></th>
+<td><p>4 GB RAM</p></td>
+</tr>
+<tr class="odd">
 <th><p>Disk</p></th>
-<td><ul>
-<li>~ 1 GB, excluding space allocated for log files and databases.</li>
-</ul></td>
+<td><p>~ 10 GB disk space, excluding space allocated for log files and databases.</p></td>
 </tr>
 </tbody>
 </table>
