@@ -10,7 +10,8 @@
 2. [Configure the server](#local-configurations-on-deploymenttoml)
 
 ## Prerequisites
-You need to [create a service provider]({{base_path}}/applications/register-sp.md).
+
+You need to [create a service provider]({{base_path}}/guides/applications/register-sp).
 
 ## Configure the service provider
 
