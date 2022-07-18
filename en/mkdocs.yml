@@ -163,6 +163,7 @@ nav:
           - Cross Protocol Logout: guides/login/cross-protocol-logout.md
         - Multi-Factor Authentication:
           - Configure an Authentication Journey: guides/mfa/configure-authentication-journey.md
+          - MFA for management console: guides/mfa/mfa-for-management-console.md
           - Username and Password: guides/mfa/username-and-password.md
           #- Password: guides/mfa/password.md
           - Email OTP: guides/mfa/2fa-email-otp.md
