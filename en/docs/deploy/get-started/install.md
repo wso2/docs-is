@@ -10,7 +10,7 @@ development platforms before starting the installation.
 
 !!! Note
 
-    The above recommendations can change based on the expected concurrency & performance.
+    The below recommendations can change based on the expected concurrency & performance.
 
 <table>
 <tbody>
