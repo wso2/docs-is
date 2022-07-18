@@ -2,7 +2,7 @@
 
 This section guides you through using the `         /search        `
 endpoint of the [Configuration Management REST
-API](../../apis/use-the-configuration-management-rest-apis) to search for
+API]({{base_path}}/apis/use-the-configuration-management-rest-apis) to search for
 tenant resources.  
 
 ---

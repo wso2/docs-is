@@ -15,21 +15,21 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
 
 1. On the Main menu, click **Manage > Email Template > Add**.
 
-<!--![manage-email-template](../assets/img/using-wso2-identity-server/manage-email-template.png) -->
+<!--![manage-email-template]({{base_path}}/assets/img/using-wso2-identity-server/manage-email-template.png) -->
 
 2. Click **Add Email Template**.
 
-<!--![email-template-management](../assets/img/using-wso2-identity-server/email-template-management.png) -->
+<!--![email-template-management]({{base_path}}/assets/img/using-wso2-identity-server/email-template-management.png) -->
 
 3. To create an email template for account registration through password request:
 
     1. Enter resendAskPassword  as the Template Type Display Name and click Add.
 
-        <!--![template-type](../assets/img/using-wso2-identity-server/template-type.png) -->
+        <!--![template-type]({{base_path}}/assets/img/using-wso2-identity-server/template-type.png) -->
 
         A success message about the email template creation and the Add a New Email Template screen appears.  
 
-        <!--![template-creation](../assets/img/using-wso2-identity-server/template-creation.png) -->
+        <!--![template-creation]({{base_path}}/assets/img/using-wso2-identity-server/template-creation.png) -->
 
     2. Enter the following values:
 
@@ -60,10 +60,10 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                     <tr>
                         <td style="text-align: left; padding: 0px 50px 20px 50px;" valign="top">
                             <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                                Hi {{user.claim.givenname}},
+                                Hi {{'{{user.claim.givenname}}'}},
                             </p>
                             <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                                We received a request to reset the password for the <b>{{user-name}}</b> account that is associated with this email address.<br>
+                                We received a request to reset the password for the <b>{{'{{user-name}}'}}</b> account that is associated with this email address.<br>
                                 If you made this request, please click the button below to securely reset your password.
                             </p>
                         </td>
@@ -73,7 +73,7 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                             <table align="left" cellpadding="0" cellspacing="0" border="0" style="border-radius: 4px; background-color: #ff5000;">
                                 <tr>
                                     <td style="border-radius: 6px;  padding: 14px 0px;">
-                                        <a href="{{carbon.product-url}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{confirmation-code}}&amp;userstoredomain={{userstore-domain}}&amp;username={{url:user-name}}&amp;tenantdomain={{tenant-domain}}&amp;callback={{callback}}"
+                                        <a href="{{'{{carbon.product-url}}'}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{'{{confirmation-code}}'}}&amp;userstoredomain={{'{{userstore-domain}}'}}&amp;username={{'{{url:user-name}}'}}&amp;tenantdomain={{'{{tenant-domain}}'}}&amp;callback={{'{{callback}}'}}"
                                         target="_blank" style="width: 230px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif;  font-size: 18px; line-height: 21px; font-weight: 600; color: #fff; text-decoration: none; background-color: #ff5000; text-align: center; display: inline-block; cursor: pointer;">Reset Password</a>
                                     </td>
                                 </tr>
@@ -85,12 +85,12 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                             <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
                                 If clicking the button doesn't seem to work, you can copy and paste the following link into your browser. <br/>
                                 <a style="word-break: break-all; color: #ff5000;font-size: 14px;" target="_blank"
-                                href="{{carbon.product-url}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{confirmation-code}}&amp;userstoredomain={{userstore-domain}}&amp;username={{url:user-name}}&amp;tenantdomain={{tenant-domain}}&amp;callback={{callback}}">
-                                    {{carbon.product-url}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{confirmation-code}}&amp;userstoredomain={{userstore-domain}}&amp;username={{url:user-name}}&amp;tenantdomain={{tenant-domain}}&amp;callback={{callback}}</a>
+                                href="{{'{{carbon.product-url}}'}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{'{{confirmation-code}}'}}&amp;userstoredomain={{'{{userstore-domain}}'}}&amp;username={{'{{url:user-name}}'}}&amp;tenantdomain={{'{{tenant-domain}}'}}&amp;callback={{'{{callback}}'}}">
+                                    {{'{{carbon.product-url}}'}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{'{{confirmation-code}}'}}&amp;userstoredomain={{'{{userstore-domain}}'}}&amp;username={{'{{url:user-name}}'}}&amp;tenantdomain={{'{{tenant-domain}}'}}&amp;callback={{'{{callback}}'}}</a>
                             </p>
                             <br>
                             <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                                If you did not request to have your {{user-name}} password reset, disregard this email and no changes to your account will be made.
+                                If you did not request to have your {{'{{user-name}}'}} password reset, disregard this email and no changes to your account will be made.
                             </p>
                         </td>
                     </tr>
@@ -146,10 +146,10 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                 <tr>
                     <td style="text-align: left; padding: 0px 50px 20px 50px;" valign="top">
                         <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                            Hi {{user.claim.givenname}},
+                            Hi {{'{{user.claim.givenname}}'}},
                         </p>
                         <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                            We received a request to reset the password for the <b>{{user-name}}</b> account that is associated with this email address.<br>
+                            We received a request to reset the password for the <b>{{'{{user-name}}'}}</b> account that is associated with this email address.<br>
                             If you made this request, please click the button below to securely reset your password.
                         </p>
                     </td>
@@ -159,7 +159,7 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                         <table align="left" cellpadding="0" cellspacing="0" border="0" style="border-radius: 4px; background-color: #ff5000;">
                             <tr>
                                 <td style="border-radius: 6px;  padding: 14px 0px;">
-                                    <a href="{{carbon.product-url}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{confirmation-code}}&amp;userstoredomain={{userstore-domain}}&amp;username={{url:user-name}}&amp;tenantdomain={{tenant-domain}}&amp;callback={{callback}}"
+                                    <a href="{{'{{carbon.product-url}}'}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{'{{confirmation-code}}'}}&amp;userstoredomain={{'{{userstore-domain}}'}}&amp;username={{'{{url:user-name}}'}}&amp;tenantdomain={{'{{tenant-domain}}'}}&amp;callback={{'{{callback}}'}}"
                                     target="_blank" style="width: 230px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif;  font-size: 18px; line-height: 21px; font-weight: 600; color: #fff; text-decoration: none; background-color: #ff5000; text-align: center; display: inline-block; cursor: pointer;">Reset Password</a>
                                 </td>
                             </tr>
@@ -171,12 +171,12 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                         <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
                             If clicking the button doesn't seem to work, you can copy and paste the following link into your browser. <br/>
                             <a style="word-break: break-all; color: #ff5000;font-size: 14px;" target="_blank"
-                            href="{{carbon.product-url}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{confirmation-code}}&amp;userstoredomain={{userstore-domain}}&amp;username={{url:user-name}}&amp;tenantdomain={{tenant-domain}}&amp;callback={{callback}}">
-                                {{carbon.product-url}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{confirmation-code}}&amp;userstoredomain={{userstore-domain}}&amp;username={{url:user-name}}&amp;tenantdomain={{tenant-domain}}&amp;callback={{callback}}</a>
+                            href="{{'{{carbon.product-url}}'}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{'{{confirmation-code}}'}}&amp;userstoredomain={{'{{userstore-domain}}'}}&amp;username={{'{{url:user-name}}'}}&amp;tenantdomain={{'{{tenant-domain}}'}}&amp;callback={{'{{callback}}'}}">
+                                {{'{{carbon.product-url}}'}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{'{{confirmation-code}}'}}&amp;userstoredomain={{'{{userstore-domain}}'}}&amp;username={{'{{url:user-name}}'}}&amp;tenantdomain={{'{{tenant-domain}}'}}&amp;callback={{'{{callback}}'}}</a>
                         </p>
                         <br>
                         <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                            If you did not request to have your {{user-name}} password reset, disregard this email and no changes to your account will be made.
+                            If you did not request to have your {{'{{user-name}}'}} password reset, disregard this email and no changes to your account will be made.
                         </p>
                     </td>
                 </tr>
@@ -233,10 +233,10 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                 <tr>
                     <td style="text-align: left; padding: 0px 50px 20px 50px;" valign="top">
                         <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                            Hi {{user.claim.givenname}},
+                            Hi {{'{{user.claim.givenname}}'}},
                         </p>
                         <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                            Please click the button below to reset your password for the account <b>{{user-name}}</b>.
+                            Please click the button below to reset your password for the account <b>{{'{{user-name}}'}}</b>.
                         </p>
                     </td>
                 </tr>
@@ -245,7 +245,7 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                         <table align="left" cellpadding="0" cellspacing="0" border="0" style="border-radius: 4px; background-color: #ff5000;">
                             <tr>
                                 <td style="border-radius: 6px;  padding: 14px 0px;">
-                                    <a href="{{carbon.product-url}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{confirmation-code}}&amp;userstoredomain={{userstore-domain}}&amp;username={{url:user-name}}&amp;tenantdomain={{tenant-domain}}"
+                                    <a href="{{'{{carbon.product-url}}'}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{'{{confirmation-code}}'}}&amp;userstoredomain={{'{{userstore-domain}}'}}&amp;username={{'{{url:user-name}}'}}&amp;tenantdomain={{'{{tenant-domain}}'}}"
                                     target="_blank" style="width: 230px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif;  font-size: 18px; line-height: 21px; font-weight: 600; color: #fff; text-decoration: none; background-color: #ff5000; text-align: center; display: inline-block;cursor: pointer;">Reset Password</a>
                                 </td>
                             </tr>
@@ -257,8 +257,8 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                         <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
                             If clicking the button doesn't seem to work, you can copy and paste the following link into your browser. <br/>
                             <a style="word-break: break-all; color: #ff5000; font-size: 14px" target="_blank"
-                            href="{{carbon.product-url}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{confirmation-code}}&amp;userstoredomain={{userstore-domain}}&amp;username={{url:user-name}}&amp;tenantdomain={{tenant-domain}}">
-                                {{carbon.product-url}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{confirmation-code}}&amp;userstoredomain={{userstore-domain}}&amp;username={{url:user-name}}&amp;tenantdomain={{tenant-domain}}
+                            href="{{'{{carbon.product-url}}'}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{'{{confirmation-code}}'}}&amp;userstoredomain={{'{{userstore-domain}}'}}&amp;username={{'{{url:user-name}}'}}&amp;tenantdomain={{'{{tenant-domain}}'}}">
+                                {{'{{carbon.product-url}}'}}/accountrecoveryendpoint/confirmrecovery.do?confirmation={{'{{confirmation-code}}'}}&amp;userstoredomain={{'{{userstore-domain}}'}}&amp;username={{'{{url:user-name}}'}}&amp;tenantdomain={{'{{tenant-domain}}'}}
                             </a>
                         </p>
                     </td>
@@ -315,12 +315,12 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
                 <tr>
                     <td style="text-align: left; padding: 0px 50px;" valign="top">
                         <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                            Hi {{user.claim.givenname}},
+                            Hi {{'{{user.claim.givenname}}'}},
                         </p>
                         <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
-                            We received a request to reset the password for the <b>{{user-name}}</b> account that is associated with this email address.<br>
+                            We received a request to reset the password for the <b>{{'{{user-name}}'}}</b> account that is associated with this email address.<br>
                             Please use below OTP as the password at next login and then reset your password.<br>
-                            OTP : <b>{{confirmation-code}}</b>
+                            OTP : <b>{{'{{confirmation-code}}'}}</b>
                         </p>
                     </td>
                 </tr>
@@ -348,4 +348,4 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
     6. **Email Footer** :  --
 
 !!! tip
-    For information on the REST API for resending confirmation code, see [Resend-Code Using REST API](https://docs.wso2.com/display/IS590/apidocs/self-registration/#!/operations#ResendConfirmation#resendCodePost).
+    For information on the REST API for resending confirmation code, see [Resend-Code Using REST API]({{base_path}}/apis/use-the-self-sign-up-rest-apis).

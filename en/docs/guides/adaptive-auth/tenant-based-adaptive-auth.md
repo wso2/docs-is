@@ -15,8 +15,8 @@ Consider a scenario with two tenant domains, `abc.com` and `123.com`. For users 
 
 ## Prerequisites
 
-- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to [add two new tenants](../../guides/tenants/add-new-tenants/) with the following specifications:
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [add two new tenants]({{base_path}}/guides/tenants/add-new-tenants/) with the following specifications:
 
     | Field name    | Tenant 1  | Tenant 2  |
     |---------------|-----------|-----------|
@@ -38,7 +38,7 @@ Consider a scenario with two tenant domains, `abc.com` and `123.com`. For users 
 
 3. Select **SaaS application** under **Basic Information**, to enable users from other tenant domains to log in to your application.
 
-    ![Enable servie provider as a SaaS application](../../assets/img/guides/enable-saas-app.png)
+    ![Enable servie provider as a SaaS application]({{base_path}}/assets/img/guides/enable-saas-app.png)
 
 4. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
@@ -46,7 +46,7 @@ Consider a scenario with two tenant domains, `abc.com` and `123.com`. For users 
 
 6. In the **Templates** section, click on the **`+`** corresponding to the **Tenant-Based** template.  
 
-    ![Tenant based template](../../assets/img/samples/tenant-based-template.png)
+    ![Tenant based template]({{base_path}}/assets/img/samples/tenant-based-template.png)
 
 7. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
@@ -62,7 +62,7 @@ Consider a scenario with two tenant domains, `abc.com` and `123.com`. For users 
 
 1. Log out of the management console and log in with the **abc.com** tenant admin's credentials (i.e., `alex@abc.com`).  
 
-2. [Create a new user](../../guides/identity-lifecycles/admin-creation-workflow/) in the `abc.com` tenant named `chris` with login permission.
+2. [Create a new user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) in the `abc.com` tenant named `chris` with login permission.
 
 3. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
@@ -70,7 +70,7 @@ Consider a scenario with two tenant domains, `abc.com` and `123.com`. For users 
 
 5. You will be prompted to enter your `TOTP` code, enter the code and click **Sign In**.  
 
-    ![TOTP authenticator](../../assets/img/samples/totp-code-verification.png)
+    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png)
 
 6. Logout from the application and log in with Kim's credentials. Kim is the admin of the **123.com** tenant domain, which is not in the tenant domains specified in the script.
 

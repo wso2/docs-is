@@ -5,7 +5,7 @@ sequences based on runtime parameters such as the user’s IP address,
 user role, etc. in the WSO2 Identity Server. This feature allows you to
 define a dynamic authentication sequence using authentication scripts
 written in JavaScript. For more information, see [Adaptive
-Authentication](../../../references/concepts/authentication/adaptive-authentication).  
+Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication).  
 
 Custom functions that expose any useful WSO2 Identity Server core
 functions and any utility functions can be added as OSGi services. A
@@ -27,7 +27,7 @@ functions for adaptive authentication.
     for any object classes (except number, string and boolean) and you may
     skip this if you can use an existing object. For more information on
     objects, see [object reference
-    documentation](../../../references/adaptive-authentication-js-api-reference#object-reference).  
+    documentation]({{base_path}}/references/adaptive-authentication-js-api-reference#object-reference).  
       
     The JavaScript function is as follows.
 
@@ -134,9 +134,9 @@ This custom `getUsernameFromContext()` function can be used to retrieve the user
 
 !!! info "Related topics"
 
-    - [Concept: Multi-Factor Authentication](../multi-factor-authentication)
-    - [Guide: Adaptive Authentication](../../../guides/adaptive-auth/configure-adaptive-auth)
-    - [Quick Start: Adaptive Authentication](../../../quick-starts/adaptive-auth-overview)
+    - [Concept: Multi-Factor Authentication]({{base_path}}/multi-factor-authentication)
+    - [Guide: Adaptive Authentication]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth)
+    - [Quick Start: Adaptive Authentication]({{base_path}}/quick-starts/adaptive-auth-overview)
 
   
 

@@ -11,6 +11,6 @@ The responsibility of the service provider configuration is to represent externa
     Suppose the service provider application receives a value called work email. In that case, it does not recognize it as it does not recognize it.
     Therefore, to ensure that the values sent by WSO2 IS are understood and recognized by the service provider application, you can use claim mapping.
     When the authentication framework hands over a set of claims (which it gets from the local user store or an external identity provider) to the response builder of the inbound authenticator, the framework talks to the service provider configuration component and finds the claim mapping, and do the claim conversion.
-    See [Configuring Inbound Authentication for a Service Provider](../applications/inbound-auth-for-sp.md) for more information about response builder. Now the response builder will receive the claims in a manner understood by the corresponding service provider. [Read more about claim management](../../references/concepts/claim-management.md).
+    See [Configuring Inbound Authentication for a Service Provider]({{base_path}}/guides/applications/inbound-auth-for-sp) for more information about response builder. Now the response builder will receive the claims in a manner understood by the corresponding service provider. [Read more about claim management]({{base_path}}/references/concepts/claim-management).
 
 

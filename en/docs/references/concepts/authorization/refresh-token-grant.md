@@ -17,7 +17,7 @@ with a renewed refresh token without having to go through any other additional s
 
 The diagram below illustrates the refresh token grant flow.
 
-![Refresh token grant flow](../../../assets/img/concepts/refresh-token-grant-flow.png)
+![Refresh token grant flow]({{base_path}}/assets/img/concepts/refresh-token-grant-flow.png)
 
 The following cURL commands can be used to try this grant type.
 
@@ -37,4 +37,4 @@ You will receive a response similar to the format below.
 ```
 
 !!! info "Related topics"
-        - [Guide: Configure Refresh Token Grant](../../../../guides/access-delegation/configure-refresh-token)
+        - [Guide: Configure Refresh Token Grant]({{base_path}}/guides/access-delegation/configure-refresh-token)

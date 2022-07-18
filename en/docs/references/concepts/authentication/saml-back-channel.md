@@ -1,6 +1,6 @@
 # SAML Back-Channel Logout
 
-{!fragments/saml-logout-concept.md!}
+{!./includes/saml-logout-concept.md!}
 
 ---
 
@@ -14,7 +14,7 @@ Back-channel logout has two different use cases:
 
 The following diagram illustrates the two flows.
 
-![SAML back-channel logout flow](../../../assets/img/concepts/saml-back-channel.png)
+![SAML back-channel logout flow]({{base_path}}/assets/img/concepts/saml-back-channel.png)
 
 **Case 1: User attempts to log out from SP 1 (SAML SSO authenticated session)**
 
@@ -35,9 +35,9 @@ The following diagram illustrates the two flows.
 - All service providers will invalidate their local session and SP2 will be redirected to the return URL specified in the logout request.
 
 !!! info "Related topics"
-    - [Concept: SAML 2.0](../intro-saml)
-    - [Concept: SAML Front-Channel Logout](../saml-front-channel)
-    - [Guide: SAML Back-Channel Logout](../../../../guides/login/saml-back-channel-logout)
-    - [Quick Start: SAML Back-Channel Logout](../../../../quick-starts/saml-back-channel-logout)
+    - [Concept: SAML 2.0]({{base_path}}/intro-saml)
+    - [Concept: SAML Front-Channel Logout]({{base_path}}/saml-front-channel)
+    - [Guide: SAML Back-Channel Logout]({{base_path}}/guides/login/saml-back-channel-logout)
+    - [Quick Start: SAML Back-Channel Logout]({{base_path}}/quick-starts/saml-back-channel-logout)
 
 

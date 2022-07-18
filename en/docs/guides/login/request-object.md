@@ -2,15 +2,15 @@
 
 This page guides you through passing OpenID Connect authentication request parameters in a self contained JWT, instead of passing plain request parameters using a sample application. A JWT that contains a set of request parameters as its claims is known as a request object.
 
-{!fragments/oauth-playground.md!}
+{!./includes/oauth-playground.md!}
 
 ----
 
-{!fragments/encrypt-id-tokens.md!}
+{!./includes/encrypt-id-tokens.md!}
 
 ----
 
-{!fragments/oidc-custom-claims.md!}
+{!./includes/oidc-custom-claims.md!}
 
 -----
 
@@ -18,10 +18,10 @@ This page guides you through passing OpenID Connect authentication request param
 
 1. Create a user called "Tom" with login permission.
 
-    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/) and [Add a Role](../../guides/identity-lifecycles/add-user-roles/).
+    For instructions, see [Add a User]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) and [Add a Role]({{base_path}}/guides/identity-lifecycles/add-user-roles/).
 
 2. Edit Tom's user profile and enter values for **email**, **country**, **challenge Question1**, and **challenge Question 2**. 
-    For instructions, see [Edit User Profile](../../guides/identity-lifecycles/update-profile/).
+    For instructions, see [Edit User Profile]({{base_path}}/guides/identity-lifecycles/update-profile/).
 
 3. Create a JWT with the following payload and sign(RSA256) it with the private key of the keystore you created above.
 
@@ -68,7 +68,7 @@ This page guides you through passing OpenID Connect authentication request param
 
 ## Try it out
 
-Try out both of the following flows and observe the responses. To try this out, use the [authorization code grant type with the playground application](../auth-code-playground#try-authorization-code-grant).
+Try out both of the following flows and observe the responses.
 
 1. First, test the flow without a signed request object:
     
@@ -101,10 +101,9 @@ Request objects can either be signed or unsigned. Therefore, if you want to only
 
     If signature validation is successfully enforced, the request should get rejected and you should see an error page.
 
-    ![Signature validation successful](../../assets/img/samples/signature-validation-successful.png)
+    ![Signature validation successful]({{base_path}}/assets/img/samples/signature-validation-successful.png)
 
 ---- 
 
 !!! info "Related topics"
-    - [Pass OIDC Authentication Request Parameters in a Request Object](../../guides/login/oidc-request-object/)
-    - [Use Advanced Parameters in Authentication Requests ](../../guides/login/oidc-parameters-in-auth-request/)
+    - [Use Advanced Parameters in Authentication Requests ]({{base_path}}/guides/login/oidc-parameters-in-auth-request/)

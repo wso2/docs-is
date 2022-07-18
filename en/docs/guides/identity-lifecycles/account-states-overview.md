@@ -5,10 +5,10 @@ A user account is the digital representation of a physical user who interacts wi
 There are certain operations that need to be performed on a specific user account based on certain situations. These activities are mostly performed to make sure the user account is safe and it is the user who is trying to access it.
 
 
-- [Lock/Unlock Accounts](../lock-account)
+- [Lock/Unlock Accounts]({{base_path}}/guides/identity-lifecycles/lock-account)
 
-- [Enable/Disable User Accounts](../enable-account)
+- [Enable/Disable User Accounts]({{base_path}}/guides/identity-lifecycles/enable-account)
 
-- [Suspend User Accounts](../suspend-accounts)
+- [Suspend User Accounts]({{base_path}}/guides/identity-lifecycles/suspend-accounts)
 
-- [Lock accounts by failed login attempts](../lock-accounts-by-failed-login-attempts)
+- [Lock accounts by failed login attempts]({{base_path}}/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts)

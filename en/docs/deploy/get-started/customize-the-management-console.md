@@ -94,7 +94,7 @@ framework instead of the default `global.css`stylesheet.
     ```java
     //Customization of UI theming per tenant
     String tenantDomain = null;
-    String globalCSS = "../admin/css/global.css";
+    String globalCSS = "{{base_path}}/admin/css/global.css";
     String mainCSS = "";
     ```
 
@@ -124,7 +124,7 @@ Follow the steps below to modify product specific styles and images.
     ``` java
     /* ---------------- header styles ------------------ */
     div#header-div {
-        background-image: url( ../images/newproduct-header-bg.png);
+        background-image: url( {{base_path}}/images/newproduct-header-bg.png);
         height:70px;
     }
     ```

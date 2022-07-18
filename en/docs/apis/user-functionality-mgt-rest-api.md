@@ -18,7 +18,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "../restapis/functionality.yaml",
+     url: "{{base_path}}/apis/restapis/functionality.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

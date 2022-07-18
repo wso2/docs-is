@@ -1,13 +1,13 @@
 # Account Recovery REST APIss
 
 <div id="swagger-ui"></div>
-<script src="../../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
-<script src="../../../assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
+<script src="{{base_path}}/assets/lib/swagger/swagger-ui-bundle.js"> </script>
+<script src="{{base_path}}/assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
 <script>
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "../restapis/api.identity.user.yaml",
+     url: "{{base_path}}/apis/restapis/api.identity.user.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

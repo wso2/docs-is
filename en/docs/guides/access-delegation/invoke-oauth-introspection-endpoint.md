@@ -6,21 +6,21 @@ The OAuth introspection endpoint is:
 https://<IS_HOST>:<IS_PORT>/oauth2/introspect
 ```
 
-This page guides you through invoking the [OAuth Introspection Endpoint](../../../references/concepts/authorization/introspection). 
+This page guides you through invoking the [OAuth Introspection Endpoint]({{base_path}}/references/concepts/authorization/introspection). 
 
 -----
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
 ## Configure the service provider
 
-{!fragments/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+{!./includes/oauth-app-config-advanced-tip.md!}
 
 !!! info
     If subject identifier in the token validation response needs to adhere to the " Use tenant domain in local subject identifier" and " Use user store domain in local subject identifier" configurations in service provider, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file .
@@ -469,4 +469,4 @@ The samples given above only demonstrate how to validate a token obtained for th
 ----
 
 !!! info "Related topics"
-    - [Concept: OAuth Introspection Endpoint](../../../references/concepts/authorization/introspection)
+    - [Concept: OAuth Introspection Endpoint]({{base_path}}/references/concepts/authorization/introspection)

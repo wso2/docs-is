@@ -13,30 +13,30 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 2. Click on **Create App**.
 
-	![Create app](../../assets/img/samples/create-app.png)
+	![Create app]({{base_path}}/assets/img/samples/create-app.png)
 
 3. Enter a **Display Name** and your **Contact Email**.
 
 4.  Click on **Create App ID**.
 
-	![Create app ID](../../assets/img/samples/register-app-fb.png)
+	![Create app ID]({{base_path}}/assets/img/samples/register-app-fb.png)
 
 5. Complete the security check and click **Submit**. 
 
 6. Click **Set up** under Facebook Login.
 
-	![Setup fb](../../assets/img/samples/facebook-login.png)
+	![Setup fb]({{base_path}}/assets/img/samples/facebook-login.png)
 
 7. Select **Website** as the platform for the app used in this sample.
 
 8. Enter `https://<IS_HOST>:<IS_PORT>/` as the **Site URL** and click **Save**.
 
-	![Enter site URL](../../assets/img/samples/enter-url.png)
+	![Enter site URL]({{base_path}}/assets/img/samples/enter-url.png)
 
 9.  You can configure the **Client OAuth Settings** on the window that
     appears.
       
-    ![Client OAuth settings](../../assets/img/samples/client-oauth-settings.png)
+    ![Client OAuth settings]({{base_path}}/assets/img/samples/client-oauth-settings.png)
 
     1.  Set **Client OAuth Login** to **Yes**.  
         
@@ -54,17 +54,17 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 13. Add the **App Domains** as shown below. 
 
-	![App basic details](../../assets/img/samples/details-basic.png)
+	![App basic details]({{base_path}}/assets/img/samples/details-basic.png)
 
 13. Click **Save Changes**.
 
 Now you have finished configuring Facebook as an Identity Provider.
 
-{! fragments/fb-review.md !}
+{!./includes/fb-review.md !}
 
 ---
 
-{! fragments/register-an-identity-provider.md !}
+{!./includes/register-an-identity-provider.md !}
     
 4.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
@@ -92,7 +92,7 @@ Now you have finished configuring Facebook as an Identity Provider.
     <li>Click on your app from the <strong>My Apps</strong> drop-down list.<br />
     You are navigated to the <strong>Dashboard</strong> of the application. Note down the App ID and the App secret.</li>
     </ol>
-    <p><img src="../../../assets/img/guides/fb-app-on-dashboard.png"/></p>.</p>
+    <p><img src="{{base_path}}/assets/img/guides/fb-app-on-dashboard.png"/></p>.</p>
     </div>    
     </td>
     <td><div class="content-wrapper">
@@ -124,7 +124,7 @@ Now you have finished configuring Facebook as an Identity Provider.
     </tbody>
     </table>
 
-    ![facebook-configuration](../../../assets/img/guides/facebook-configuration.png)
+    ![facebook-configuration]({{base_path}}/assets/img/guides/facebook-configuration.png)
 
 6.  Select both checkboxes to **Enable Facebook Authenticator** and make
     it the **Default**.
@@ -137,7 +137,7 @@ You have now added the identity provider.
 
 ## Configure the service provider 
 
-{! fragments/register-a-service-provider.md !}
+{!./includes/register-a-service-provider.md !}
     
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section and
@@ -155,7 +155,7 @@ You have now added the identity provider.
 
         4.	Include Attributes in the Response Always
 
-    ![configuring-sp-fields](../../../assets/img/guides/configuring-sp-fields.png)
+    ![configuring-sp-fields]({{base_path}}/assets/img/guides/configuring-sp-fields.png)
     
 5.  Click **Register**. Now you will be sent back to the **Service
     Providers** page.
@@ -166,7 +166,7 @@ You have now added the identity provider.
 7.  For **Authentication Type**, select the **Federated Authentication** radio button and select the
     Identity Provider you created from the dropdown list under
     **Federated Authentication**.  
-    ![identity-provider-in-federated-authentication](../../../assets/img/guides/identity-provider-in-federated-authentication.png)
+    ![identity-provider-in-federated-authentication]({{base_path}}/assets/img/guides/identity-provider-in-federated-authentication.png)
 
 8.  Click **Update** to save the changes.
 
@@ -180,7 +180,7 @@ You have now added and configured the service provider.
 
 !!! info "Related topics"
 
-	For more information on SSO, see [Single Sign-On](../../../guides/login/enable-single-sign-on/).
+	For more information on SSO, see [Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on/).
 
 ---
 
@@ -209,10 +209,10 @@ claims.
     
 5.  Click **Add Claim Mapping.** The following screen will be
     displayed.  
-    ![add-claim-mapping-for-facebook](../../../assets/img/guides/add-claim-mapping-for-facebook.png)
+    ![add-claim-mapping-for-facebook]({{base_path}}/assets/img/guides/add-claim-mapping-for-facebook.png)
     
 6.  Now add custom claim mappings as follows.  
-    ![custom-claim-mapping](../../../assets/img/guides/custom-claim-mapping.png)
+    ![custom-claim-mapping]({{base_path}}/assets/img/guides/custom-claim-mapping.png)
     
 7.  You can retrieve all the public information of the user and the
     email address. The following are some common attribute names.
@@ -262,7 +262,7 @@ For that follow the below steps:
 		authentication process, the SP can request those claims from IDP as
 		" **Requested Claims**".
 
-    ![Add requested claims](../../assets/img/fragments/add-requested-claims.png)
+    ![Add requested claims]({{base_path}}/assets/img/fragments/add-requested-claims.png)
 
 	!!! info 
 		Here, the claims which are marked as **mandatory** are requested by
@@ -306,7 +306,7 @@ application.
 
 ### Configure CORS
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ### Deploy the sample app
 
@@ -386,7 +386,7 @@ For example,
 
 1. To test the sample, go to the following URL: `http://<IS_HOST>:<IS_PORT>/travelocity.com`.
 
-	![Travelocity application](../../assets/img/samples/travelocity-fb.png)
+	![Travelocity application]({{base_path}}/assets/img/samples/travelocity-fb.png)
 
 2. Click the link to log in with SAML from WSO2 Identity Server.
 
@@ -395,4 +395,4 @@ For example,
 !!! info "Related topics"
 	-   See the following topics for samples of configuring Facebook for
 		federated authentication:
-		-   [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)
+		-   [Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)

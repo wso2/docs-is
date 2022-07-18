@@ -142,5 +142,5 @@ GetAllRolesOfUserEnabled = true
 ---
 
 ## Related Topics
-- [Deploy: Work with Databases](../../../deploy/work-with-databases)
-- [Deploy: Configure Userstores](../../../deploy/configure-user-stores)
+- [Deploy: Work with Databases]({{base_path}}/deploy/work-with-databases)
+- [Deploy: Configure Userstores]({{base_path}}/deploy/configure-user-stores)

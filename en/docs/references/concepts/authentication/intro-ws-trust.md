@@ -41,7 +41,7 @@ STS has the following three entities involved in the process.
 
 The following diagram explains how STS flow works.
 
-![Security Token Service work flow](../../../assets/img/concepts/sts-work-flow.png)
+![Security Token Service work flow]({{base_path}}/assets/img/concepts/sts-work-flow.png)
 
 ### Subject confirmation
 

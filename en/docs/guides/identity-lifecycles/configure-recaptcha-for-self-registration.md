@@ -12,17 +12,17 @@ brute force attacks.
 !!! info 
     -   For more information on setting up self registration, see
         [Self-Registration and Account
-        Confirmation](../../../guides/identity-lifecycles/self-registration-workflow).
+        Confirmation]({{base_path}}/guides/identity-lifecycles/self-registration-workflow).
     -   For more information on brute force attacks, see [Mitigating Brute
-        Force Attacks](../../../deploy/mitigate-attacks/mitigate-brute-force-attacks).
+        Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks).
 
 ---
 
-{! fragments/configure-recaptcha-api-keys.md !}
+{!./includes/configure-recaptcha-api-keys.md !}
 
 ---
 
-{! fragments/set-up-recaptcha.md !}
+{!./includes/set-up-recaptcha.md !}
 
 You can either configure the recaptcha for a tenant or configure it globally. 
 
@@ -33,16 +33,16 @@ You can either configure the recaptcha for a tenant or configure it globally.
 4.  Expand **User Onboarding** > **Self Registration**.
 5.  Enable **User self registration**.
 6.  Keep the remaining configurations as it is and click **Update**.
-    ![self-registration-enable-recaptcha](../../../assets/img/guides/self-registration-enable-recaptcha.png)
+    ![self-registration-enable-recaptcha]({{base_path}}/assets/img/guides/self-registration-enable-recaptcha.png)
 6.  You have now successfully configured reCaptcha for the self
     registration flow. Start the WSO2 Identity Server and log in to the
     My Account (`https://<HOST>:<PORT>/myaccount`) application.
     
 7.  Click the **Create Account** link.  
-    ![register-now](../../../assets/img/guides/register-now-option.png)
+    ![register-now]({{base_path}}/assets/img/guides/register-now-option.png)
 8.  At the end of the registration, the following reCaptcha window
     appears.  
-    ![recaptcha-window](../../../assets/img/guides/recaptcha-window.png) 
+    ![recaptcha-window]({{base_path}}/assets/img/guides/recaptcha-window.png) 
 
 ---
 
@@ -135,7 +135,7 @@ You can either configure the recaptcha for a tenant or configure it globally.
 4.  To configure sending a confirmation email for
     self-registration, enable the email sending configurations
     of the WSO2 Identity Server as explained
-    [here](../../../deploy/configure-email-sending).
+    [here]({{base_path}}/deploy/configure-email-sending).
     
 5.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see the [section](#configure-self-registration-with-recaptcha-for-a-specific-tenant) above. 
@@ -143,6 +143,6 @@ You can either configure the recaptcha for a tenant or configure it globally.
 6.  Start the WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
 
 7.  Click **Create Account**.  
-    ![register-now-link](../../../assets/img/guides/register-now-option.png)
+    ![register-now-link]({{base_path}}/assets/img/guides/register-now-option.png)
 8.  Enter the account creation details and note that a reCaptcha is available.  
-    ![account-creation-details](../../../assets/img/guides/account-creation-details.png)
+    ![account-creation-details]({{base_path}}/assets/img/guides/account-creation-details.png)

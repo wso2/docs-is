@@ -55,7 +55,7 @@ The following section provides the instructions to contruct requests for each no
         ```
             <configuration provider="Bulksms">
                 <body>
-                    [{ "from": $sender, "to": {{mobile}}, "body": {{body}}, "routingGroup": $body.routingGroup}]
+                    [{ "from": $sender, "to": {{'{{mobile}}'}}, "body": {{'{{body}}'}}, "routingGroup": $body.routingGroup}]
                 </body>
             </configuration>
         ```

@@ -1,12 +1,12 @@
 # Configure Email OTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using email OTP as the second factor. 
+This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using email OTP as the second factor. 
 
 ----
 
 ## Configure the email adapter to send emails
 
-{!fragments/configure-email-sending.md!}
+{!./includes/configure-email-sending.md!}
 
 ## Configure the email OTP provider
 
@@ -57,13 +57,13 @@ This page guides you through configuring [two-factor authentication](../../../re
     showEmailAddressInUI = true
     ```
     <!--!!! info
-        For information on each of these configurations, see [Email OTP Configurations](../email-otp-config-advanced)-->
+        For information on each of these configurations, see [Email OTP Configurations]({{base_path}}/email-otp-config-advanced)-->
 
 2. Restart the server once configurations are in place. 
 
 ----
 
-{!fragments/register-an-identity-provider.md!}
+{!./includes/register-an-identity-provider.md!}
 
 
 4. Expand **EMAILOTP Authenticator Configuration** under **Federated Authenticators**.
@@ -76,7 +76,7 @@ This page guides you through configuring [two-factor authentication](../../../re
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ## Configure the service provider
 
@@ -113,7 +113,7 @@ Configure the multiple factor authentication steps for the service provider:
 
             Adding EMAIL OTP as a second step adds another layer of authentication and security.
     
-        <img name='sms-otp-authentication-steps' src='../../../assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
+        <img name='sms-otp-authentication-steps' src='{{base_path}}/assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
 
 4. Click **Update** to save the changes.
 
@@ -143,7 +143,7 @@ Configure the multiple factor authentication steps for the service provider:
     - **Mapped Attribute (s)**: title
     - **Supported by Default**: checked
 
-    ![disable-emailotp-claim](../../assets/img/guides/disable-emailotp-claim.png)
+    ![disable-emailotp-claim]({{base_path}}/assets/img/guides/disable-emailotp-claim.png)
 
 ---
 
@@ -155,7 +155,7 @@ Configure the multiple factor authentication steps for the service provider:
 
 3. Next, you will receive a token to your email account. Enter the code to authenticate.  
 
-    ![sample-email-otp](../../assets/img/guides/sample-email-otp.png)
+    ![sample-email-otp]({{base_path}}/assets/img/guides/sample-email-otp.png)
 
 4. If the authentication is successful, you will be redirected to the home page of the service provider.
 
@@ -163,5 +163,5 @@ You have successfully configured and logged in using 2-factor authentication.
 
 
 !!! info "Related topics"
-    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication/#two-factor-authentication)
-    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
+    - [Concept: Two-Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication/#two-factor-authentication)
+    - [Guide: Configure an Authentication Journey]({{base_path}}/guides/mfs/configure-authentication-journey)

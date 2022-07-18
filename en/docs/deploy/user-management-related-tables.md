@@ -312,4 +312,4 @@ user. `UM_CREATED_TIME` is the date and time of the login.
 -   `UM_CREATED_TIME`
 -   `UM_TENANT_ID`
 
-![User management related tables](../../../assets/img/deploy/user-management-related-tables.png) 
+![User management related tables]({{base_path}}/assets/img/deploy/user-management-related-tables.png) 

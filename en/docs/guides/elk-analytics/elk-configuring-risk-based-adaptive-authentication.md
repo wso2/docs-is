@@ -9,7 +9,7 @@ Consider a business use case where a bank wants to prompt an additional authenti
 The diagram below shows how the connection between the client applications, ELK Analytics, and WSO2 Identity Server
 works to assess the risk of the user.
 
-![risk-based-adaptive-authentication](../../assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-1.png)
+![risk-based-adaptive-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-1.png)
 
 1. The user performs bank transactions through different applications.
 2. Transaction data from all these applications are published to the ELK Analytics via the “transaction” index.
@@ -27,8 +27,8 @@ works to assess the risk of the user.
 
 ## Prerequisites
 
-- You need to [set up the sample](../../adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to [configure ELK analytics for adaptive authentication](../../deploy/using-elk-analytics-for-adaptive-authentication.md), and run the following command to create an index named `transaction` to store transaction data.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [configure ELK analytics for adaptive authentication]({{base_path}}/deploy/using-elk-analytics-for-adaptive-authentication.md), and run the following command to create an index named `transaction` to store transaction data.
 
     !!! info
         Replace `{ELASTICSEARCH_HOST}` and `{ELASTICSEARCH_BASIC_AUTH_HEADER}` to match your settings.
@@ -64,7 +64,7 @@ To configure risk-based authentication:
 4. You will be redirected to **Advanced Configuration**, expand **Script Based Conditional Authentication**.
 
 5. In the **Templates** section, click on the **`+`** corresponding to the **ELK-Risk-Based** template.
-   ![template-for-risk-based-authentication](../../assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
+   ![template-for-risk-based-authentication]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-2.png)
 
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
    
@@ -97,7 +97,7 @@ To configure risk-based authentication:
         **Sample Request**
         ``` 
         curl -L -X POST 'https://localhost:9200/transaction/_doc' -H 'Authorization: Basic d3NvMnVzZXI6Y2hhbmdlbWU=' -H 'Content-Type: application/json' --data-raw '{
-        "@timestamp":"{{currenttimestamp}}",
+        "@timestamp":"{{'{{currenttimestamp}}'}}",
         "username":"Alex",
         "amount": 12000
         }'

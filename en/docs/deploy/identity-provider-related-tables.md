@@ -206,4 +206,4 @@ This table is not used in the latest version of WSO2 Identity Server.
 -   `IS_REQUESTED`  
       
       
-    ![Identity provider related tables](../../../assets/img/deploy/identity-provider-related-tables.png) 
+    ![Identity provider related tables]({{base_path}}/assets/img/deploy/identity-provider-related-tables.png) 

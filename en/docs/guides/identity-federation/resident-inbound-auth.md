@@ -8,7 +8,7 @@ This section of the guide walks you through how to configure inbound authenticat
 ## SAML2 configurations
 1. To configure SAML2 configurations:
     1. Click **SAML2 Web SSO Configuration**.  
-        ![saml2-sso-form]( ../../assets/img/guides/saml2-config-idp.png)
+        ![saml2-sso-form]( {{base_path}}/assets/img/guides/saml2-config-idp.png)
 
     2. Enter the required values and learn the fixed values as given below.
 
@@ -27,7 +27,7 @@ This section of the guide walks you through how to configure inbound authenticat
 ## OAuth2/OpenID Connect configurations
 1. To configure OAuth2 or OIDC:
     1. Click **OAuth2/OpenID Connect Configuration**.  
-        ![oauth2-oidc-config](../../assets/img/guides/oauth-oidc-config-idp.png)
+        ![oauth2-oidc-config]({{base_path}}/assets/img/guides/oauth-oidc-config-idp.png)
 
     2. Enter the required values and learn the fixed values as given below.
 
@@ -50,10 +50,10 @@ This section of the guide walks you through how to configure inbound authenticat
 
     <!-- 3. To secure the WS-Trust endpoint with a security policy, click
         **Security Token Service Configuration** section.  
-        ![ws-trust-endpoint-security]( ../assets/img/using-wso2-identity-server/ws-trust-endpoint-security.png)
+        ![ws-trust-endpoint-security]( {{base_path}}/assets/img/using-wso2-identity-server/ws-trust-endpoint-security.png)
         For more information on security token service (STS), see
         [Configuring WS-Trust Security Token
-        Service](../../learn/configuring-ws-trust-security-token-service). -->
+        Service]({{base_path}}/learn/configuring-ws-trust-security-token-service). -->
 
 ## Identity Server as a trusted IdP
 
@@ -73,4 +73,4 @@ To configure WSO2 Identity Server as a trusted identity provider in a service pr
 2. Click **Download SAML Metadata**, to download the `metadata.xml` file.
 3. Import the `metadata.xml` file to the relevant service provider.
 
-    <!-- ![import-sp]( ../assets/img/using-wso2-identity-server/import-sp.png) \ -->
+    <!-- ![import-sp]( {{base_path}}/assets/img/using-wso2-identity-server/import-sp.png) \ -->

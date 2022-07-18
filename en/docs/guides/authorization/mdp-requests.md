@@ -10,7 +10,7 @@ values.
 
 To handle such scenarios, WSO2 Identity Server supports [XACML Multiple
 Decision
-Profile](../../get-started/access-control-and-entitlement-management#mdp)
+Profile]({{base_path}}/get-started/access-control-and-entitlement-management#mdp)
 (MDP) requests.
 
 MDP allows you to group multiple decisions as a single response after
@@ -30,7 +30,7 @@ resources.
     tutorial that walks you through a scenario that requires sending a
     MDP request with repeated attribute categories, see [Working with
     MDP Requests by Repeating Attribute
-    Categories](../../learn/working-with-mdp-requests-by-repeating-attribute-categories)
+    Categories]({{base_path}}/learn/working-with-mdp-requests-by-repeating-attribute-categories)
     .
 -   If you have a scenario where you need to provide access control to a
     set of hierarchical resources stored in a repository, depending on
@@ -39,16 +39,16 @@ resources.
     walks you through an authorization scenario that requires sending a
     MDP request to authorize the hierarchical resources, see [Working
     with MDP Requests to Authorize Hierarchical
-    Resources](../../learn/working-with-mdp-requests-to-authorize-hierarchical-resources)
+    Resources]({{base_path}}/learn/working-with-mdp-requests-to-authorize-hierarchical-resources)
     .
 
 -   You can also work with XACML MDP requests and responses in JSON format
     using WSO2 Identity Server. For a tutorial that walks you through how to
     work with MDP requests and responses in JSON format using WSO2 Identity
     Server, see [Working with MDP Requests in JSON
-    Format](../../learn/working-with-mdp-requests-in-json-format).
+    Format]({{base_path}}/learn/working-with-mdp-requests-in-json-format).
 
 
-- [MDP requests with repeating attribute catergories](../authorization/mdp-repeating-attr.md)
-- [MDP requests to authorize hierachical resources](../authorization/mdp-authorize-resources.md)
-- [MDP requests and response - JSON format](../authorization/mdp-req-and-response.md)
+- [MDP requests with repeating attribute catergories]({{base_path}}/authorization/mdp-repeating-attr.md)
+- [MDP requests to authorize hierachical resources]({{base_path}}/authorization/mdp-authorize-resources.md)
+- [MDP requests and response - JSON format]({{base_path}}/authorization/mdp-req-and-response.md)

@@ -8,9 +8,9 @@ When WSO2 Identity Server is clustered, you need to regularly monitor the health
 
 
 !!! info
-	For information on WSO2 Identity Server monitoring options, see [Monitor WSO2 Identity Server](../../../deploy/monitor/monitor-the-identity-server).
+	For information on WSO2 Identity Server monitoring options, see [Monitor WSO2 Identity Server]({{base_path}}/deploy/monitor/monitor-the-identity-server).
 
-	<!--For information on configuring failover, [Deployment and Clustering Key Concepts](../../../deploy/set-up-separate-databases-for-clustering).-->
+	<!--For information on configuring failover, [Deployment and Clustering Key Concepts]({{base_path}}/deploy/set-up-separate-databases-for-clustering).-->
 
 ---
 
@@ -26,7 +26,7 @@ Periodically check for open ports using port scanning tools and make sure that o
 
 !!! info
 
-	For a full list of WSO2 Identity Server default ports, [Default Ports of WSO2 Identity Server](../../../references/default-ports-of-wso2-products). 
+	For a full list of WSO2 Identity Server default ports, [Default Ports of WSO2 Identity Server]({{base_path}}/references/default-ports-of-wso2-products). 
 
 ---
 

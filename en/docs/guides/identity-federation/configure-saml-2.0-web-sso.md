@@ -23,11 +23,11 @@ Follow the steps below to navigate to the federated authenticators configuration
 
 
 
-{! fragments/register-an-identity-provider.md !}
+{!./includes/register-an-identity-provider.md !}
 
 4.	Under the **Federated Authenticators** section, click **SAML2 Web SSO Configuration**.
 
-	<img src="../../../assets/img/guides/saml2-web-sso-configuration-option.png" alt="SAML2 Web SSO Configuration option" width="700" style="border:1px solid grey"> 
+	<img src="{{base_path}}/assets/img/guides/saml2-web-sso-configuration-option.png" alt="SAML2 Web SSO Configuration option" width="700" style="border:1px solid grey"> 
 
 5.	Enter the following values as given below.
 
@@ -75,7 +75,7 @@ To configure manually,
 
 2.	Enter the required values as given below. 
 
-	<img src="../../../assets/img/guides/saml2-web-sso-configuration-screen.png" alt="SAML2 Web SSO Configuration screen" width="700" style="border:1px solid grey"> 
+	<img src="{{base_path}}/assets/img/guides/saml2-web-sso-configuration-screen.png" alt="SAML2 Web SSO Configuration screen" width="700" style="border:1px solid grey"> 
 
 	<table>
 			<thead>
@@ -215,7 +215,7 @@ To configure manually,
 			</tr>
 			<tr class="odd">
 				<td>SAML2 Web SSO User Id Location</td>
-				<td>Select whether the User ID is found in 'Name Identifier' or if it is found among claims. If the user ID is found among the claims, it can override the <strong>User ID Claim URI</strong> configuration in the <a href="../../../guides/dialects/configure-claims">identity provider claim mapping section</a> .</td>
+				<td>Select whether the User ID is found in 'Name Identifier' or if it is found among claims. If the user ID is found among the claims, it can override the <strong>User ID Claim URI</strong> configuration in the <a href="{{base_path}}/guides/dialects/configure-claims">identity provider claim mapping section</a> .</td>
 				<td>User ID found among claims</td>
 			</tr>
 			<tr class="even">
@@ -331,7 +331,7 @@ To configure through file upload:
 
 2.	Enter the required values as given below. 
 
-	<img src="../../../assets/img/guides/saml2-web-sso-configuration-file-upload-screen.png" alt="SAML2 Web SSO File Upload Configuration screen" width="700" style="border:1px solid grey"> 
+	<img src="{{base_path}}/assets/img/guides/saml2-web-sso-configuration-file-upload-screen.png" alt="SAML2 Web SSO File Upload Configuration screen" width="700" style="border:1px solid grey"> 
 
 
 	<table>
@@ -487,10 +487,10 @@ To configure through file upload:
 	- If the certificate is self-signed, import the service
 	provider's public key to the IS client trust store to ensure that the
 	SSL handshake in the SLO request is successful. For more information on
-	how to do this, see [Managing Keystores with the UI](../../../deploy/security/manage-keystores-with-the-ui) in
+	how to do this, see [Managing Keystores with the UI]({{base_path}}/deploy/security/manage-keystores-with-the-ui) in
 	the WSO2 Product Administration Guide.
     
 
 !!! info "Related topics"
-	-	[Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)
-	-   [Guides: Configure Shibboleth IdP as a Trusted Identity Provider](../../../guides/identity-federation/configure-shibboleth-idp-as-a-trusted-identity-provider)
+	-	[Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)
+	-   [Guides: Configure Shibboleth IdP as a Trusted Identity Provider]({{base_path}}/guides/identity-federation/configure-shibboleth-idp)

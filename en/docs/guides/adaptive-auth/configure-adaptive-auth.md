@@ -1,11 +1,10 @@
 # Configure adaptive authentication for an application
 
-This page guides you through setting up [adaptive authentication](../../../references/concepts/authentication/adaptive-authentication) for an application.
-
+This page guides you through setting up [adaptive authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication) for an application.
 
 ## Prerequisites
 
-You need to [register a service provider](../applications/register-sp.md) on the Management Console.
+You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
 
 ## Add an adaptive authentication script
 
@@ -13,15 +12,15 @@ Make the following changes to the created service provider.
 
 To add an authentication script to the service provider:
 
-{!fragments/add-adaptive-script.md!}
+{!./includes/add-adaptive-script.md!}
 
     If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement, and then engage the script to the service provider’s authentication step configuration. 
 
     !!! note
     
-        - To learn about the functions and fields related to authentication scripts, see [Adaptive Authentication JS API Reference](../../../references/adaptive-authentication-js-api-reference).
+        - To learn about the functions and fields related to authentication scripts, see [Adaptive Authentication JS API Reference]({{base_path}}/references/adaptive-authentication-js-api-reference).
         
-        - To learn about the guidelines on writing custom functions for adaptive authentication, see [Write Custom Functions for Adaptive Authentication](../../../develop/extend/write-custom-functions-for-adaptive-authentication).
+        - To learn about the guidelines on writing custom functions for adaptive authentication, see [Write Custom Functions for Adaptive Authentication]({{base_path}}/develop/extend/write-custom-functions-for-adaptive-authentication).
 
     A sample authentication script is shown below. 
 
@@ -55,7 +54,6 @@ To add an authentication script to the service provider:
 3. Click **Update** to save changes.
 
 !!! info "Related topics"
-    - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
-    - [Guide: Ensure Assurance with ACR and AMR](../../adaptive-auth/work-with-acr-amr)
-    - [Guide: Adaptive Authentication Using Function Library](../../adaptive-auth/adaptive-auth-with-function-lib)
-    - [Quick Start: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)
+    - [Concept: Adaptive-Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication)
+    - [Guide: Ensure Assurance with ACR and AMR]({{base_path}}/guides/adaptive-auth/work-with-acr-amr)
+    - [Guide: Adaptive Authentication Using Function Library]({{base_path}}/guides/adaptive-auth/adaptive-auth-with-function-lib)

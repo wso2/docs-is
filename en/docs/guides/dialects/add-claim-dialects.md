@@ -26,11 +26,11 @@ Follow the instructions below to add a new dialect using the management console.
     !!! info 
         The Dialect URI is a unique URI identifying the dialect (for example, `http://schema.openid.net/2007/05/claims`).
 
-    ![unique-uri](../../../assets/img/guides/unique-uri.png)
+    ![unique-uri]({{base_path}}/assets/img/guides/unique-uri.png)
 
 4.  Click on the **Add** button. The claim dialect you added will appear on the list as follows.
 
-    ![claim-dialect](../../../assets/img/guides/claim-dialect.png)
+    ![claim-dialect]({{base_path}}/assets/img/guides/claim-dialect.png)
 
 ### Use the configuration file
 
@@ -71,5 +71,5 @@ start up** of the WSO2 Identity Server instance.
 
 !!! info "Related topics"
 
-    -   [Guides: Add Claim Mapping](../../../guides/dialects/add-claim-mapping)
-    -   [Concepts: Claim Management](../../../references/concepts/claim-management/)
+    -   [Guides: Add Claim Mapping]({{base_path}}/guides/dialects/add-claim-mapping)
+    -   [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management/)

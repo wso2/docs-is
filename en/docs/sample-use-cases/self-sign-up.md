@@ -14,7 +14,7 @@ Follow the steps below to configure self sign-up for Pickup Dispatch and
 Pickup Manager applications using WSO2 Identity Server.
 
 1.  Enable the email sending configurations of the WSO2 Identity Server
-    as explained [here](../../deploy/configure-email-sending/).
+    as explained [here]({{base_path}}/deploy/configure-email-sending/).
 
 2.  Restart WSO2 Identity Server.
 
@@ -34,7 +34,7 @@ Pickup Manager applications using WSO2 Identity Server.
 4.  <a name="qsg-step1"></a> Enter `5` as the scenario number at the
     command prompt.
 
-    ![List of scenarios in QSG](../../assets/img/get-started/qsg-configure-sso.png)
+    ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png)
 
     A prompt appears to choose the user sign-up approach.
 
@@ -50,26 +50,26 @@ Pickup Manager applications using WSO2 Identity Server.
         account by clicking on the account confirmation mail sent by
         WSO2 Identity Server.
 
-    <img src="../../assets/img/get-started/qsg-configure-self-sign-up.png" width="600" alt="Self sign-up approaches"/>
+    <img src="{{base_path}}/assets/img/get-started/qsg-configure-self-sign-up.png" width="600" alt="Self sign-up approaches"/>
     
 2.  Enter `number` that matches with the approach you would like to try.
 
-    <img src="../../assets/img/get-started/qsg-configure-self-sign-up-2.png" width="600" alt="QSG configure self sign-up"/>
+    <img src="{{base_path}}/assets/img/get-started/qsg-configure-self-sign-up-2.png" width="600" alt="QSG configure self sign-up"/>
 
 3.  Enter the `http://localhost.com:8080/pickup-dispatch` URL on a web browser to access the Pickup Dispatch application.
 
 4.  Click **Login**.
   
-    ![Pickup Dispatch application login](../../assets/img/get-started/qsg-sso-dispatch-login.png)
+    ![Pickup Dispatch application login]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-login.png)
     
 5.  Click **Create Account**.
 
-    ![QSG self sign-up register](../../assets/img/get-started/qsg-self-sign-up-register.png)
+    ![QSG self sign-up register]({{base_path}}/assets/img/get-started/qsg-self-sign-up-register.png)
 
 6.  Enter a `username` for your user
     account and click **Proceed to Self Register**.
 
-    ![QSG self sign-up username](../../assets/img/get-started/qsg-self-sign-up-username.png)
+    ![QSG self sign-up username]({{base_path}}/assets/img/get-started/qsg-self-sign-up-username.png)
     
     !!! note
     
@@ -80,11 +80,11 @@ Pickup Manager applications using WSO2 Identity Server.
 7.  Provide the user profile details,
     agree to the **Privacy Policy**, and click **Register**.
       
-    ![QSG self sign-up new account](../../assets/img/get-started/qsg-self-sign-up-new-account.png)
+    ![QSG self sign-up new account]({{base_path}}/assets/img/get-started/qsg-self-sign-up-new-account.png)
 
     A confirmation message appears.
 
-    ![QSG self-sign-up confirmation](../../assets/img/get-started/qsg-self-sign-up-confirmation.png)
+    ![QSG self-sign-up confirmation]({{base_path}}/assets/img/get-started/qsg-self-sign-up-confirmation.png)
 
 8.  Click **Close**.
 
@@ -106,11 +106,11 @@ Pickup Manager applications using WSO2 Identity Server.
         2.  Navigate back to the Pickup Dispatch application and sign in
             using the new user credentials.
 
-        ![WSO2 Identity Server sign in page](../../assets/img/get-started/qsg-sso-login-credentials.png)
+        ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-sso-login-credentials.png)
 
         Note that the Pickup Dispatch home screen appears.
 
-        ![Pickup Dispatch home screen](../../assets/img/get-started/qsg-sso-dispatch-home.png)
+        ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
         You have just self-signed up to a Pickup web
         application.
@@ -118,5 +118,5 @@ Pickup Manager applications using WSO2 Identity Server.
 9.  Next, in order to try out other scenarios, navigate back to the
     command prompt where you ran the Quick Start sample and enter `y` to clean the setup.
     
-    ![QSG cleanup](../../assets/img/get-started/qsg-sso-cleanup.png)
+    ![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)
 

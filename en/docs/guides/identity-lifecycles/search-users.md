@@ -9,7 +9,7 @@ the user by doing the following.
     **Users and Roles**.  
 2.  Click **Users**. This link is only visible to users with the Admin
     role. The following screen appears.  
-    ![search-users-in-console](../../../assets/img/guides/search-users-in-console.png) 
+    ![search-users-in-console]({{base_path}}/assets/img/guides/search-users-in-console.png) 
     
     You can search for users by doing one of the following. 
 
@@ -69,6 +69,6 @@ Below is a sample request and its corresponding response to search for users usi
 
 
 !!! info "Related topics"
-    - [Concept: Users](../../../references/concepts/user-management/users)
-    - [Guide: Ways of User Onboarding](../onboard-overview)
-    - [Guide: Delete Users](../delete-users)
+    - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
+    - [Guide: Ways of User Onboarding]({{base_path}}/guides/identity-lifecycles/onboard-overview)
+    - [Guide: Delete Users]({{base_path}}/guides/identity-lifecycles/delete-users)

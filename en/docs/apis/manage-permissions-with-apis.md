@@ -25,7 +25,7 @@ default. Follow the steps below to view and invoke it:
     <https://localhost:9443/services/RemoteAuthorizationManagerService?wsdl>
 
 For more information on WSO2 admin services and how to invoke an admin
-service using either SoapUI or any other client program, see [Call Admin Services](../../apis/call-admin-services).
+service using either SoapUI or any other client program, see [Call Admin Services]({{base_path}}/apis/call-admin-services).
 
 ---
 

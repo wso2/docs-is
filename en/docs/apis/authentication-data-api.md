@@ -92,7 +92,7 @@ The data can be accessible at
 ## Authenticate the API
 
 This API can be authenticated by following the steps given
-[here](../../apis/authenticate-and-authorize-rest-apis).
+[here]({{base_path}}/apis/authenticate-and-authorize-rest-apis).
 
 Following are the sample requests and responses using cURL.
 

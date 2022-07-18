@@ -2,7 +2,7 @@
 
 To view the inbound provisioning configs, expand **Inbound Provisioning Configuration** section.
 
-![inbound-porvisioning-configuration](../../assets/img/guides/inbound-provision-idp.png)
+![inbound-porvisioning-configuration]({{base_path}}/assets/img/guides/inbound-provision-idp.png)
 
 | Field                   | Description                                                                                                                                                    | Sample Value                                                                                              |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|

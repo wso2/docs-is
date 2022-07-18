@@ -239,4 +239,4 @@ authorization endpoint and other is from token endpoint, be sure to
 perform the validations based on the OpenID Connect, mentioned [above](#validations).
 
 !!! info "Related topics"
-    - [Guide: OpenID Connect Hybrid Flow](../../../../guides/access-delegation/oidc-hybrid-flow/)
+    - [Guide: OpenID Connect Hybrid Flow]({{base_path}}/guides/access-delegation/oidc-hybrid-flow/)

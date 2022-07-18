@@ -1,7 +1,7 @@
 # Identity Bus
 
 [Federation Silos and Spaghetti
-Identity](../../get-started/identity-anti-patterns-and-the-identity-bus) are two
+Identity]({{base_path}}/get-started/identity-anti-patterns-and-the-identity-bus) are two
 anti-patterns directly addressed by the Identity Bus pattern in the WSO2
 Identity Server. With Identity Bus, a given service provider is not
 coupled to a given identity provider and also not coupled to a given

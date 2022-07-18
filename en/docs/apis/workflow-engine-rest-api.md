@@ -19,7 +19,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "../restapis/workflow-engine.yaml",
+     url: "{{base_path}}/apis/restapis/workflow-engine.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

@@ -200,7 +200,7 @@ The APIs can be used to retrieve the above mentioned categories, connectors of t
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "../restapis/identity-governance.yaml",
+     url: "{{base_path}}/apis/restapis/identity-governance.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,

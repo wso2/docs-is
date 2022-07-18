@@ -14,19 +14,19 @@ This page guides you through configuring Google as a federated authenticator in 
 		If you do not see the Apps button on the home page, click **More
 		Controls** at the bottom of the page.
 
-	![more-controls-saml-apps](../../../assets/img/samples/saml-app.png)
+	![more-controls-saml-apps]({{base_path}}/assets/img/samples/saml-app.png)
 	
-5.  Click the ![more-controls-icon](../../../assets/img/samples/more-controls.png) icon found at
+5.  Click the ![more-controls-icon]({{base_path}}/assets/img/samples/more-controls.png) icon found at
     the bottom-right of the page.
 6.  Click **SETUP MY OWN CUSTOM APP**.
-    ![setup-my-own-custom-app](../../../assets/img/samples/set-up-my-own-app.png)
+    ![setup-my-own-custom-app]({{base_path}}/assets/img/samples/set-up-my-own-app.png)
     
 7.  Click **Download** next to the **IDP Metadata** field to download
     the Google identity provider metadata.
 
     A `GoogleIDPMetadata.xml` file is downloaded to your machine.  
     
-    ![idp-metadata](../../../assets/img/samples/download-idp-metadata.png)
+    ![idp-metadata]({{base_path}}/assets/img/samples/download-idp-metadata.png)
     
 8.  Click **Next** and enter an **Application Name** and **Description**
     for your application. This is the name and description that your
@@ -40,7 +40,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ---
 
-{! fragments/register-an-identity-provider.md !}
+{!./includes/register-an-identity-provider.md !}
 
 4.  Expand **Federated Authenticators\>SAML2 Web SSO Configuration**.
 5.  Select **Enable SAML2 Web SSO** and enter "wso2is1" as the **Service
@@ -52,7 +52,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 6.  Select **Metadata File Configuration** as the **Mode** and upload
     the `GoogleIDPMetadata.xml` file you downloaded earlier.  
-    ![metadata-file-config](../../../assets/img/guides/metadata-file-config.png)
+    ![metadata-file-config]({{base_path}}/assets/img/guides/metadata-file-config.png)
     
 7.  Click **Register** to save the identity provider configurations.
 
@@ -60,11 +60,11 @@ This page guides you through configuring Google as a federated authenticator in 
         Once the IdP is registered, it is listed under Identity Providers.
     
 8.  Click **Edit** and expand **Federated Authenticators\>SAML2 Web SSO Configuration**.  
-    ![idp-list](../../../assets/img/guides/idp-list.png)
+    ![idp-list]({{base_path}}/assets/img/guides/idp-list.png)
     
 9.  Select **Enable Logout** and enter `https://accounts.google.com/logout` as the Logout URL.
 
-    ![enter-the-logout-url](../../../assets/img/guides/enter-the-logout-url.png)
+    ![enter-the-logout-url]({{base_path}}/assets/img/guides/enter-the-logout-url.png)
     
 10. Click **Update** to save the changes.
 
@@ -72,7 +72,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ## Register a service provider
 
-{! fragments/register-a-service-provider.md !}
+{!./includes/register-a-service-provider.md !}
 
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
     Web SSO Configuration**, and click **Configure**.
@@ -80,7 +80,7 @@ This page guides you through configuring Google as a federated authenticator in 
     details required for single sign-on. 
     
     !!! info
-        For more details about attributes in the following configuration, refer [SAML2 Web SSO Configuration](../../../guides/login/webapp-saml/).  
+        For more details about attributes in the following configuration, refer [SAML2 Web SSO Configuration]({{base_path}}/guides/login/webapp-saml/).  
     
     See the following table for details.
 
@@ -163,7 +163,7 @@ application.
 
 ### Configure CORS
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ### Deploy the sample app
 
@@ -179,7 +179,7 @@ Deploy this sample web app on a web container.
     `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 2.  Click **Login**. You are redirected to the Google login page.
   
-    ![Google login page](../../assets/img/samples/sign-in-google.png)
+    ![Google login page]({{base_path}}/assets/img/samples/sign-in-google.png)
     
 3.  Sign in using your Google credentials. You are redirected to the
     Pickup sample homepage.
@@ -190,4 +190,4 @@ Deploy this sample web app on a web container.
     	You are automatically logged in to your Gmail using single sign-on (SSO).
 
 !!! info "Related topics" 
-    - [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)
+    - [Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)

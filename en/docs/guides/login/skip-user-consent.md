@@ -1,6 +1,6 @@
 # Skip User Consent
 
-The user's [consent](../../../references/concepts/consent-management/) is required by default for an application to access the attributes configured. For more details on configuring attributes, see [request attributes for the application](../request-attributes/). 
+The user's [consent]({{base_path}}/references/concepts/consent-management/) is required by default for an application to access the attributes configured. 
 
 !!! info "Important"
     As explained below, consent management can be disabled globally and per service provider. If consent management is disabled globally, the service provider configuration will be skipped.
@@ -11,7 +11,7 @@ The user's [consent](../../../references/concepts/consent-management/) is requir
 
 Configure service provider to skip user consent:
 
-{! fragments/skip-user-consent.md !}
+{!./includes/skip-user-consent.md !}
 
 ## Disable consent globally
   
@@ -26,5 +26,5 @@ prompt= false
 
 
 !!! info "Related topics"
-    - [Concept: Consent Management](../../../references/concepts/consent-management/)
-    - [Guide: Request Attributes for the Application](../request-attributes/)
+    - [Concept: Consent Management]({{base_path}}/references/concepts/consent-management/)
+    - [Guide: Request Attributes for the Application]({{base_path}}/request-attributes/)

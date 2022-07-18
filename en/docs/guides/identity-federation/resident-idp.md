@@ -8,7 +8,7 @@ In such cases, the Identity Server is known as the **resident identity provider*
     The resident identity provider configuration helps service providers
     to send authentication or provisioning requests to WSO2 Identity Server via SAML, OpenID Connect, SCIM, or WS-Trust.
 
-    For an example of how a resident identity provider is used to implement a security token service, see [Configuring WS-Trust Security Token Service](../../learn/configuring-ws-trust-security-token-service).
+    For an example of how a resident identity provider is used to implement a security token service, see [Configuring WS-Trust Security Token Service]({{base_path}}/learn/configuring-ws-trust-security-token-service).
     
     The Resident identity provider configuration is a one-time configuration for a given tenant. It shows WSO2 Identity Server's metadata, e.g., endpoints. The resident identity provider configurations can be used to secure the WS-Trust endpoint with a security policy.
 -->
@@ -18,7 +18,7 @@ To configure a resident identity provider:
 1. On the WSO2 Identity Server Management Console, go to **Main \> Identity \> Identity Providers \> Resident**.
 
 2. On the expanded **Resident Realm Configurations** tab enter the required values as given below.
-    ![resident-identity-provider](../../assets/img/guides/resident-realm-configurations.png)
+    ![resident-identity-provider]({{base_path}}/assets/img/guides/resident-realm-configurations.png)
 
     <table>
     <thead>

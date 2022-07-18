@@ -2,7 +2,7 @@
 
 The System for Cross-Domain Identity Management (SCIM)) specification defines a [fixed set of default attributes](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-11.2) for the user object. This set is defined to ensure the interoperability and it can cater to most of the industry's identity management requirements. Given below is a sample user object with the default attributes set.
 
-![Sample user object](../../../assets/img/extend/sample-user-object.png)
+![Sample user object]({{base_path}}/assets/img/extend/sample-user-object.png)
 
 The SCIM specification itself introduces the [Enterprise User Extension](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-11.3)
 to support extra attributes for the SCIM user object.
@@ -23,7 +23,7 @@ WSO2 Identity Server allows users to define their own user schema in a configura
 
 ## Map claims
 
-Log into WSO2 Identity Server and do the claim mapping for the following claim URIs (see [here](TODO:insert-link../../learn configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning) for more information on how to do claim mappings).
+Log into WSO2 Identity Server and do the claim mapping for the following claim URIs (see [here](TODO:insert-link{{base_path}}/learn configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning) for more information on how to do claim mappings).
 
 -   `urn:scim:schemas:extension:wso2:1.0:wso2Extension.costCenter`
 -   `urn:scim:schemas:extension:wso2:1.0:wso2Extension.department`
@@ -37,7 +37,7 @@ Once the server is up and running with the new extended user schema, the claim m
 
 Create a new user with the new schema. The following screen depicts the user to be added with the **wso2Extension** attributes.
 
-![New user attributes](../../../assets/img/extend/new-user-attributes.png)
+![New user attributes]({{base_path}}/assets/img/extend/new-user-attributes.png)
 
 ---
 
@@ -69,4 +69,4 @@ The above command provides the following result:
 
 The created SCIM user object can be viewed in the following screen:
 
-![Created SCIM user object](../../../assets/img/extend/created-scim-user-object.png)
+![Created SCIM user object]({{base_path}}/assets/img/extend/created-scim-user-object.png)

@@ -2,14 +2,14 @@
 
 ## What is FIDO?
 
-Fast IDentity Online (FIDO) is a set of protocols that supports authentication of any type including fingerprint, biometrics, and security tokens. FIDO specifications support [multi-factor authentication](../multi-factor-authentication) and make it simpler to authenticate users while also ensuring that security is enhanced. 
+Fast IDentity Online (FIDO) is a set of protocols that supports authentication of any type including fingerprint, biometrics, and security tokens. FIDO specifications support [multi-factor authentication]({{base_path}}/multi-factor-authentication) and make it simpler to authenticate users while also ensuring that security is enhanced. 
 
 FIDO protocols are based on public key cryptography and are strongly resistant to phishing. In order to address a wide range of use cases and deployment scenarios, FIDO provides two specifications that support two different user experience paths:
 
 - Universal Authentication Framework (UAF)
 - Universal Second Factor (U2F)
 
-![FIDO](../../../assets/img/concepts/fido.png)
+![FIDO]({{base_path}}/assets/img/concepts/fido.png)
 
 ---
 
@@ -46,7 +46,7 @@ The following are the two main operations that take place when using FIDO U2F.
 
 Both the registration and authentication operations consist of three **phases** as shown in the diagram below.
 
-![U2F protocol operations](../../../assets/img/concepts/u2f-protocol-operations.png)
+![U2F protocol operations]({{base_path}}/assets/img/concepts/u2f-protocol-operations.png)
 
 1.  **Setup**: In this phase, the FIDO client contacts the relying party and obtains a challenge. Using the challenge (and possibly other data obtained from the relying party and/or prepared by the FIDO client itself), the FIDO client prepares a request message for the U2F token.
 2.  **Processing**: In this phase, the FIDO client sends the request message to the token, and the token performs some cryptographic operations on the message, creating a response message. This response message is sent to the FIDO client. 
@@ -56,15 +56,15 @@ Both the registration and authentication operations consist of three **phases** 
 
 The following diagram depicts the FIDO U2F-based authentication process.
 
-![U2F process flow](../../../assets/img/concepts/u2f-process-flow.png) 
+![U2F process flow]({{base_path}}/assets/img/concepts/u2f-process-flow.png) 
 
 ---
 
 For more information about FIDO and how it works, see the official FIDO documentation: [What is FIDO?](https://fidoalliance.org/what-is-fido/). 
 
 !!! info "Related topics"
-    - [Concept: Multi-Factor Authentication](../multi-factor-authentication)
-    - [Guide: Configure Two-Factor Authentication with FIDO](../../../../guides/mfa/2fa-fido)
+    - [Concept: Multi-Factor Authentication]({{base_path}}/multi-factor-authentication)
+    - [Guide: Configure Two-Factor Authentication with FIDO]({{base_path}}/guides/mfa/2fa-fido)
 
 
 
