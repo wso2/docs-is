@@ -16,7 +16,7 @@ development platforms before starting the installation.
 <tbody>
 <tr class="odd">
 <th><p>CPU</p></th>
-<td><p>4 vCPUs</p></td>
+<td><p>4 vCPUs (x86_64 Architecture)</p></td>
 </tr>
 <tr class="even">
 <th><p>Memory</p></th>
