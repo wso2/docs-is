@@ -1,7 +1,7 @@
 # Configuring multi-factor authentication for the management console
 
 ## Prerequisites
-You need to [create a service provider](../applications/register-sp.md).
+You need to [create a service provider]({{base_path}}/guides/applications/register-sp).
 
 ## Configure MFA for the management console
 
