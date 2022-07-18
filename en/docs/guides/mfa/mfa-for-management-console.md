@@ -70,7 +70,7 @@ To configure the local configuration on the IS:
 
 2. Add the following configuration to the `deployment.toml` file:
 
-    ``` javascript
+    ``` toml
     [admin_console.authenticator.saml_sso_authenticator]
     enable=true
     priority="1"
