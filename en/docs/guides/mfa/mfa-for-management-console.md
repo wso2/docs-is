@@ -5,7 +5,7 @@
  MFA configuration for the management console contains two configuration sections as follows:
 
 1. [Configure the service provider](#configure-the-service-provider)
-    1. [Inbound authentications configurations](#inbound-authentications-configurations)
+    - [Inbound authentications configurations](#inbound-authentications-configurations)
     2. [Local and outbound Authentication configurations](#local-and-outbound-authentication-configurations)
 2. [Configure the server](#local-configurations-on-deploymenttoml)
 
