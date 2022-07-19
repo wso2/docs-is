@@ -64,13 +64,11 @@ To disable JIT provisioning for an IdP:
 
 !!! info "Related topics"
 
-    - [JIT Provisioning Architecture]({{base_path}}/references/architecture/provisioning-architecture.md/#jit-provisioning).
+    - [JIT Provisioning Architecture]({{base_path}}/references/architecture/provisioning-architecture/#jit-provisioning).
 
     - [Introduction to Just-in-Time Provisioning]({{base_path}}/references/concepts/jit-provisioning)
     
-    - [Configuring Just-In-Time Provisioning Consent Purposes]({{base_path}}/guides/identity-federation/jit-consent-purposes).
-
-    - [Customizing Just-In-Time Provisioning User Interfaces]({{base_path}}/guides/identity-federation/jit-user-interfaces).
+    - [Configuring Just-In-Time Provisioning Consent Purposes]({{base_path}}/guides/identity-federation/resident-jit-consent).
 
 <!-- [Guide: Outbound Just-in-Time Provisioning](TODO:link-to-guide) -->
 
@@ -78,7 +76,7 @@ To disable JIT provisioning for an IdP:
 
 Add the following configuration to deployment.toml in the `/conf` directory.
 
-```xml
+``` toml
 [authentication.jit_provisioning]
 enable_enhanced_feature = "true"
 ```

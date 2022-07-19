@@ -8,7 +8,7 @@ fits into the overall picture.
 ## Prerequisites
 You need to [register an identity provider]({{base_path}}/guides/identity-federation/add-idp) on the Identity Server.
 
-## Configure Outbound Provisioning Connectors
+## Configure outbound provisioning connectors
 
 To configure outbound provisioning connectors:
 
@@ -119,7 +119,7 @@ provisioning requests to Salesforce.
           -   UserPermissionsMarketingUser
           -   UserPermissionsOfflineUser
 
-  See [Outbound Provisioning with Salesforce]({{base_path}}/identity-lifecycles/outbound-provisioning-with-salesforce) for more information on how this is configured from end to end.
+  See [outbound provisioning with Salesforce]({{base_path}}/guides/identity-lifecycles/outbound-provisioning-with-salesforce) for more information on how this is configured from end to end.
 
 ### Configure SCIM provisioning
 
@@ -144,7 +144,7 @@ provisioning requests to an external application that supports SCIM.
 4. Select **Enable Connector** to enable identity provisioning from SCIM.
 5. Click **Update** to dave the configurations.
 
-See [Outbound Provisioning with SCIM]({{base_path}}/identity-lifecycles/outbound-provisioning-with-scim) for more information on how this works in a typical scenario.
+See [outbound provisioning with SCIM]({{base_path}}/guides/identity-lifecycles/outbound-provisioning-with-scim) for more information on how this works in a typical scenario.
 
 <!-- ## Configure SPML provisioning
 
