@@ -11,7 +11,7 @@ To configure the roles of the identity provider:
 4. Enter the **Identity Provider Role** and map it to the **Local Role** available in the Identity Server.
 
     !!! info
-        Read more on how to [create local roles]({{base_path}}/identity-lifecycles/add-user-roles) on Identity Server.
+        Read more on how to [create local roles]({{base_path}}/guides/identity-lifecycles/add-user-roles) on Identity Server.
 
 5. Enter the roles that you wish to provision on the **Identity Provider OutBound Provisioning Roles** field.
 

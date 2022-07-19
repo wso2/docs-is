@@ -1,6 +1,6 @@
 # Configuring Roles and Permissions for a Service Provider
 
-WSO2 Identity Server allows you to configure and manage roles  and permission for a service provider.
+WSO2 Identity Server allows you to configure and manage roles and permission for a service provider.
 
 When you create a service provider, a corresponding application role is created by default.
 
@@ -51,5 +51,4 @@ To configure roles and define custom permission for a service provider:
     return_only_mapped_local_roles = true
     ```
 
-Now that you have configured roles and permission for the service provider, you can assign the application role permission to any user. For information on assigning roles to a user, see [manage user roles]({{base_path}}/identity-lifecycles/manage-roles-overview/).
-
+Now that you have configured roles and permission for the service provider, you can assign the application role permission to any user. For information on assigning roles to a user, see [manage user roles]({{base_path}}/guides/identity-lifecycles/manage-roles-overview/).

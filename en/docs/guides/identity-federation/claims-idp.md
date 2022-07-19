@@ -98,7 +98,7 @@ claim configurations done in the above steps.
     
     - Non-blocking mode: Provisioning happens in a different thread. 
     
-    This provisioning mode can be specified when [creating and configuring the service provider]({{base_path}}/guides/applications/configure-sp).
+    This provisioning mode can be specified when [configuring the service provider]({{base_path}}/guides/applications/outbound-provisioning-for-sp).
 
 To configure advanced claim configurations:
 
@@ -139,4 +139,4 @@ provider.
 
 - [Logging in to your application via Identity Server using Facebook Credentials]({{base_path}}/guides/identity-federation/facebook)
 - [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb)
-- [Outbound Provisioning with Salesforce]({{base_path}}/learn/outbound-provisioning-with-salesforce)
+- [Outbound Provisioning with Salesforce]({{base_path}}/guides/identity-lifecycles/outbound-provisioning-with-salesforce/)

@@ -1,6 +1,6 @@
 # Registering a service provider
 
-You can connect your application with Identity Server and control the way users login into your app. This guide provides instructions on how to add and configure a [service provider]({{base_path}}/get-started/architecture#service-provider-section) to Identity Server through the management console.
+You can connect your application with Identity Server and control how users log into your app. This guide provides instructions on how to add and configure a [service provider]({{base_path}}/guides/applications/service-provider-overview) to Identity Server through the management console.
 
 For more information on how the service provider fits into the WSO2 IS architecture, see [Architecture]({{base_path}}/references/architecture/architecture).
 
@@ -56,7 +56,7 @@ You can find the basic configurations of a service provider under **Service Prov
 | Discoverable Application  | Enable this to make the application discoverable to users. |
 | Access URL    | Access URL for the Service Provider.   |
 | Logo URL  | Add a link to the logo for your application here.   |
-| Logout Return URL or regex    | The URL that the users will be redirected during a direct IdP logout   |
+| Logout Return URL or regex    | The URL that the users will be redirected to during a direct IdP logout   |
 | Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated. WSO2 Identity Server exposes all the management capabilities as [REST APIs]({{base_path}}/apis/rest-apis/). These APIs are protected by OAuth2 access tokens and other API authentication mechanisms. The applications that are marked as management applications can only be used to access these management APIs in the OAuth2 flow. This can only be configured when creating the application.|
 
 ### Public certificates for service providers
@@ -111,4 +111,4 @@ If the **Application Certificate** field is left blank, as WSO2 IS is backward c
     -   [Logging in to Salesforce using the Identity Server]({{base_path}}/guides/login/log-into-salesforce-using-is)
     -   [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb)
     -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/guides/login/log-into-salesforce-using-iwa)
-    -   [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server)
+<!--    -   [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server) -->

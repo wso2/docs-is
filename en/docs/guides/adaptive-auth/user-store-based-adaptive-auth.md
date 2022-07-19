@@ -47,7 +47,7 @@ Consider a scenario where you want to step up authentication for users who belon
 
     4. Click **Update** to save the configurations.
 
-- You need to [add two users]({{base_path}}/identity-lifecycles/admin-creation-workflow/) with login permissions, and add their **Domain** as specified:
+- You need to [add two users]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) with login permissions, and add their **Domain** as specified:
 
     1. Username: `Alex`; Domain: `PRIMARY`
     2. Username: `Kim`; Domain: `EMPLOYEES`

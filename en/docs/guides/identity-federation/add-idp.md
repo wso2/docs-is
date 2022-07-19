@@ -11,7 +11,7 @@ This guide walks you through adding and configuring identity providers based on 
 
 To add a new identity provider.
 
-1. On WSO2 Identity Server [Management Console]({{base_path}}/setup/getting-started-with-the-management-console), go to **Main > Identity > Identity Providers**
+1. On WSO2 Identity Server [Management Console]({{base_path}}/deploy/get-started/get-started-with-the-management-console), go to **Main > Identity > Identity Providers**
 
 2. Click **Add**, and enter the details in the **Basic Information** section.  
     ![basic-info]({{base_path}}/assets/img/guides/add-identity-provider-screen.png)
@@ -82,7 +82,7 @@ To add a new identity provider.
         
         - [Configure claims for an IdP]({{base_path}}/guides/identity-federation/claims-idp)
         - [Configure roles for an IdP]({{base_path}}/guides/identity-federation/roles-idp)
-        - [Configure federated authenticators]({{base_path}}/guides/identity-federation/configure-ad-fs-as-a-federated-authenticator)
+        - [Configure federated authenticators]({{base_path}}/guides/identity-federation/federated-authenticator)
         - [Configure just-in-time provisioning]({{base_path}}/guides/identity-federation/jit-workflow)
         - [Configure outbound provisioning connectors]({{base_path}}/guides/identity-federation/outbound-provisioing-idp)
 

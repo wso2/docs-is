@@ -10,6 +10,10 @@ Consider a scenario where you want a user with an administrator role that cannot
 
 ----
 
+## Prerequisites
+
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+
 ## Configure concurrent-session-based authentication
 
 To configure concurrent-session-based authentication:

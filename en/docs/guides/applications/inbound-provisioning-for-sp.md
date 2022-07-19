@@ -19,5 +19,5 @@ To configure inbound provisioning.
 
 !!! info "Related Topics"
 
-    -   See [Configuring User Stores]({{base_path}}/setup/configuring-user-stores) for more information.
-    -   See [Inbound Provisioning]({{base_path}}/learn/inbound-provisioning) for configuring user stores and service providers for inbound provisioning.
+    -   See [Configuring User Stores]({{base_path}}/deploy/configure-user-stores/) for more information.
+    -   See [Inbound Provisioning]({{base_path}}/references/concepts/provisioning-framework/) for configuring user stores and service providers for inbound provisioning.

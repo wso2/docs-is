@@ -37,9 +37,9 @@ To configure inbound authentication for the registered service provider:
 
     - [SAML2 Web SSO Configuration]({{base_path}}/guides/login/saml-app-config-advanced)
     - [OAuth/OpenID Connect Configuration]({{base_path}}/guides/login/oauth-app-config-advanced)
-    - [OpenID Configuration]
-    - [WS-Federation (Passive) Configuration]
-    - [Kerberos KDC]
+    - OpenID Configuration
+    - WS-Federation (Passive) Configuration
+    - Kerberos KDC
 
 !!! info "Related Topics"
 
@@ -47,4 +47,5 @@ To configure inbound authentication for the registered service provider:
 
     - [Configuring Single Sign-On Using SAML]({{base_path}}/guides/login/sso-for-saml)
     - [Configuring Single Sign-On Using OpenID Connect]({{base_path}}/guides/login/sso-for-oidc)
-    - [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server)
+
+<!-- - [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server) -->

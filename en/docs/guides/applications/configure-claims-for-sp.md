@@ -1,4 +1,4 @@
-# Configuring claims for a service provder
+# Configuring claims for a service provider
 
 A service provider may need access to specific user claims to be able to provide its services to users. You can allow this by enabling the required claims for your service provider configuration in WSO2 Identity Server.
 
@@ -70,7 +70,7 @@ To define custom claims and enable them for the service provider:
     !!! info
         This is the authenticated user identifier, which will return the authentication response to the service provider.
 
-6. Select the **Role Claim URI** from the list of claims that you mapped.
+6. Select the **Role Claim URI** from the list of claims you mapped.
 
 7. Click **Update** to save the configurations.
 
@@ -107,7 +107,7 @@ Here, you need to specify values as follows:
 
 When a user attempts to log in to the service provider, they will be prompted for consent to share the claims configured for the service provider.
 
-The user will not be able to proceed with the authentication without providing consent. Learn more about [managing user consent]({{base_path}}/consent-mgt/manage-user-consent).
+The user will not be able to proceed with the authentication without providing consent. Learn more about [managing user consent]({{base_path}}/guides/consent-mgt/manage-user-consent).
 
 !!! info "Related Topics"
     See [Logging into Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb) for a sample of claim mapping for a service provider.
