@@ -1,6 +1,6 @@
 # Configurng local and outbound authentication for a service provider
 
-Local authenticators use locally available credentials to authenticate users. Basic authentication using username and password, [IWA (Integrated Windows Authentication)]({{base_path}}/references/concepts/integrated-windows-authentication-overview) or [FIDO (Fast IDentity Online)]({{base_path}}/mfa/2fa-fido) are examples of local authenticators.
+Local authenticators use locally available credentials to authenticate users. Basic authentication using username and password, [IWA (Integrated Windows Authentication)]({{base_path}}/references/concepts/integrated-windows-authentication-overview) or [FIDO (Fast IDentity Online)]({{base_path}}/guides/mfa/2fa-fido) are examples of local authenticators.
 
 See [Architecture]({{base_path}}/references/architecture/architecture) for more information on local authenticators fit into the WSO2 IS architecture.
 
@@ -103,10 +103,10 @@ Once authentication is complete subject id will be taken from the Facebook claim
 
 A request path authenticator will get executed only if the initial
 authentication request brings the applicable set of credentials with it.
-See [Request Path Authentication]({{base_path}}/request-path-auth/request-paths-overview) for more details.
+See [Request Path Authentication]({{base_path}}/guides/request-path-auth/request-paths-overview) for more details.
 
 !!! info "Related Topics"
-    -   See [Multi-factor Authentication using FIDO]({{base_path}}/mfa/2fa-fido)) for more information on configuring multi-step and multi-option authentication using FIDO.
+    -   See [Multi-factor Authentication using FIDO]({{base_path}}/guides/mfa/2fa-fido) for more information on configuring multi-step and multi-option authentication using FIDO.
     -   See [Integrated Windows Authentication]({{base_path}}/references/concepts/integrated-windows-authentication-overview) for more information on configuring the IWA authenticator with WSO2 Identity Server.
-    -   See [Request Path Authentication]({{base_path}}/request-path-auth/request-paths-overview) for information on a local authenticator that is executed if the initial authentication request brings a set of credentials with it.
+    -   See [Request Path Authentication]({{base_path}}/guides/request-path-auth/request-paths-overview) for information on a local authenticator that is executed if the initial authentication request brings a set of credentials with it.
 <!--    -   See [Try Request Path Authentication]({{base_path}}/guides/request-path-auth/) or more information on how the request path authenticator works using the WSO2 playground sample . -->

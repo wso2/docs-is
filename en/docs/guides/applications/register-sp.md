@@ -1,6 +1,6 @@
 # Registering a service provider
 
-You can connect your application with Identity Server and control the way users login into your app. This guide provides instructions on how to add and configure a [service provider]({{base_path}}/get-started/architecture#service-provider-section) to Identity Server through the management console.
+You can connect your application with Identity Server and control the way users login into your app. This guide provides instructions on how to add and configure a [service provider]({{base_path}}/guides/applications/service-provider-overview) to Identity Server through the management console.
 
 For more information on how the service provider fits into the WSO2 IS architecture, see [Architecture]({{base_path}}/references/architecture/architecture).
 
@@ -111,4 +111,4 @@ If the **Application Certificate** field is left blank, as WSO2 IS is backward c
     -   [Logging in to Salesforce using the Identity Server]({{base_path}}/guides/login/log-into-salesforce-using-is)
     -   [Logging in to Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb)
     -   [Logging in to Salesforce with Integrated Windows Authentication]({{base_path}}/guides/login/log-into-salesforce-using-iwa)
-    -   [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server)
+<!--    -   [Logging in to WSO2 Products via the Identity Server]({{base_path}}/learn/logging-in-to-wso2-products-via-the-identity-server) -->

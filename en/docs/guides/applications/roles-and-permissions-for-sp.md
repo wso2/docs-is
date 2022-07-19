@@ -51,5 +51,5 @@ To configure roles and define custom permission for a service provider:
     return_only_mapped_local_roles = true
     ```
 
-Now that you have configured roles and permission for the service provider, you can assign the application role permission to any user. For information on assigning roles to a user, see [manage user roles]({{base_path}}/identity-lifecycles/manage-roles-overview/).
+Now that you have configured roles and permission for the service provider, you can assign the application role permission to any user. For information on assigning roles to a user, see [manage user roles]({{base_path}}/guides/identity-lifecycles/manage-roles-overview/).
 

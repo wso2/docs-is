@@ -107,7 +107,7 @@ Here, you need to specify values as follows:
 
 When a user attempts to log in to the service provider, they will be prompted for consent to share the claims configured for the service provider.
 
-The user will not be able to proceed with the authentication without providing consent. Learn more about [managing user consent]({{base_path}}/consent-mgt/manage-user-consent).
+The user will not be able to proceed with the authentication without providing consent. Learn more about [managing user consent]({{base_path}}/guides/consent-mgt/manage-user-consent).
 
 !!! info "Related Topics"
     See [Logging into Salesforce with Facebook]({{base_path}}/guides/login/log-into-salesforce-using-fb) for a sample of claim mapping for a service provider.

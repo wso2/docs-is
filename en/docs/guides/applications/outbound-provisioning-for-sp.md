@@ -32,7 +32,7 @@ To configure outbound provisioning:
     | Option    | Definition    |
     |-----------|---------------|
     | Blocking  | Select this if you want to block the authentication flow during provisioning. In the default non-blocking mode, provisioning and authentication happen in two different threads. Enable this if you want to allow users to access your application only if the user is both authenticated and provisioned. |
-    | Enable Rules  | Select this to provision users based on a set of pre-defined XACML rules. For more information, see [rule based provisioning]({{base_path}}/identity-lifecycles/rule-based-provisioning)    |
+    | Enable Rules  | Select this to provision users based on a set of pre-defined XACML rules. For more information, see [rule based provisioning]({{base_path}}/guides/identity-lifecycles/rule-based-provisioning)    |
     | JIT Outbound  | Select this to enable user provisioning during authentication. To enable this you need to [configure jit provisioning for your idp]({{base_path}}/guides/identity-federation/jit-workflow).  |
 
     ![save-idp-config]({{base_path}}/assets/img/guides/save-idp-config.png)
@@ -42,4 +42,4 @@ To configure outbound provisioning:
 
 !!! info "Related Topics"
 
-    - See [Outbound Provisioning]({{base_path}}/identity-lifecycles/outbound-provisioning) for more information on configuring user stores and service providers for outbound provisioning.
+    - See [outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning) for more information on configuring user stores and service providers for outbound provisioning.
