@@ -46,6 +46,6 @@ To deploy the sample web app on a web container:
         - **Include Attributes in the Response Always**  
 
     !!! tip
-        For more information on the advanced configurations, see [Advanced SAML Configurations](../../../../guides/login/saml-app-config-advanced/).
+        For more information on the advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced).
 
 7. Click **Register** to add the service provider and save the configurations.  

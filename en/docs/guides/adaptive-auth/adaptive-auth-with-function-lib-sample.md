@@ -48,11 +48,11 @@ The instructions below guide you through adding an adaptive authentication funct
     
     3. Click **Register** to add the function library.
 
-- You need to [update claims]({{base_path}}/dialects/edit-claim-mapping.md) to support `BirthDate` by default.
+- You need to [update claims]({{base_path}}/guides/dialects/edit-claim-mapping) to support `BirthDate` by default.
     1. On the management console, go to **Claims > List**, select `http://wso2.org/claims`.
     2. Click on **Edit** corresponding to the **BirthDate** claim
     3. Select the **Supported By Default** checkbox to enable the birthdate claim.
-- You need to [add two users]({{base_path}}/identity-lifecycles/admin-creation-workflow/) with login permissions, and [update the age]({{base_path}}/identity-lifecycles/update-profile.md) as specified:
+- You need to [add two users]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) with login permissions, and [update the age]({{base_path}}/guides/identity-lifecycles/update-profile) as specified:
 
     1. Username: `Alex`; Age: `< 18 years`
     2. Username: `Kim`; Age: `> 18 years`
@@ -69,7 +69,7 @@ The instructions below guide you through adding an adaptive authentication funct
 
 3. Add the following script under the script-based adaptive authentication editor:
 
-    ```
+    ```js
     var ageModule = require('age_based.js');
 
     //This script provides access to the application only if the user's age is greater than the configured value
