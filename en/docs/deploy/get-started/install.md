@@ -802,7 +802,7 @@ Carbon-based product as a Windows service.
 
 #### Work with the WSO2CARBON service
 
-To install the Carbon-based product as a Windows service, execute the
+To install the Carbon-based product as a Windows service, open a console with administrative privileges and execute the
 following command in the `         <YAJSW_HOME>/bat/        ` directory:
 
 ``` java
@@ -815,7 +815,7 @@ the WSO2CARBON service has been installed.
 ![Service installation confirmation]({{base_path}}/assets/img/deploy/service-installation-confirmation.png)
 
 To start the service, execute the following command in the same console
-window:
+window (with administrative privileges):
 
 ``` java
 startService.bat
@@ -827,7 +827,7 @@ the WSO2CARBON service has been started.
 ![Service startup message]({{base_path}}/assets/img/deploy/service-startup-message.png)
 
 To stop the service, execute the following command in the same console
-window:
+window (with administrative privileges):
 
 ``` java
 stopService.bat
@@ -839,7 +839,7 @@ the WSO2CARBON service has been stopped.
 ![Service stop message]({{base_path}}/assets/img/deploy/service-stop-message.png)
 
 To uninstall the service, execute the following command in the same
-console window:
+console window (with administrative privileges):
 
 ``` java
 uninstallService.bat
