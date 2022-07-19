@@ -3,7 +3,7 @@
 WSO2 Identity Server usually displays a default login page for all service provider applications that send authentication requests to it. WSO2 IS supports re-branding this login page according to your requirements for SAML2 SSO, OAuth, or OpenID Connect.
 
 The login pages and other pages, such as error and notification screens,
-of SAML SSO, OAuth, OpenID Connect, and Passive STS is located in the
+of SAML SSO, OAuth, OpenID Connect, and Passive STS are located in the
 **authenticationendpoint** webapp file, which is found in the
 `<IS_HOME>/repository/deployment/server/webapps` directory.
 
