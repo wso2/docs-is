@@ -256,10 +256,10 @@ nav:
         - Overview: guides/identity-lifecycles/user-management.md
         - Onboard Users:
           - Overview: guides/identity-lifecycles/onboard-overview.md
-          - Admin Creation Workflow: guides/identity-lifecycles/admin-creation-workflow.md
-          - Invitation Workflow: guides/identity-lifecycles/invitation-workflow.md
-          - User Self-Registration Workflow: guides/identity-lifecycles/self-registration-workflow.md
-          - Lite User Registration Workflow: guides/identity-lifecycles/lite-user-registration.md
+          - Create User: guides/identity-lifecycles/admin-creation-workflow.md
+          - Invite User: guides/identity-lifecycles/invitation-workflow.md
+          - User Self-Registration: guides/identity-lifecycles/self-registration-workflow.md
+          - Lite User Registration: guides/identity-lifecycles/lite-user-registration.md
           - reCAPTCHA for Self-Registration: guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
           - Bulk Import Users: guides/identity-lifecycles/bulk-import-users.md
         - Manage Users:

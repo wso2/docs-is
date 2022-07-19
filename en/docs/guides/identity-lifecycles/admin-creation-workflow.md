@@ -1,6 +1,8 @@
-# Add a User
+# Create new user
 
-## Add a user using the management console
+Administrators can add new users in a tenant by manually registering the user details from the management console.
+
+## Use the management console
 
 {!./includes/add-new-user.md !}
 
@@ -18,7 +20,7 @@
 
 ---
 
-## Add a user using SCIM 2.0 REST API
+## Use the SCIM 2.0 REST API
 
 You can create a new user using a SCIM 2.0 request as shown below. 
 
