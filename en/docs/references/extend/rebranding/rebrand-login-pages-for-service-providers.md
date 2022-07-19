@@ -196,7 +196,7 @@ When modifying the pages, ensure that the following is applied.
     `           relyingParty          ` parameter.
 
 3.  Get the 'travelocity\_login.jsp' from
-    [here](https://github.com/wso2/samples-is/blob/master/re-branding-the-default-login-page/authenticationendpoint/travelocity_loin.jsp)
+    [here](https://github.com/wso2/samples-is/blob/master/re-branding-the-default-login-page/authenticationendpoint/travelocity_login.jsp)
     and place it at the same level as 'login.jsp'. Also, download the
     contents of the 'css' and 'images' folders from this [link](https://github.com/wso2/samples-is/tree/master/re-branding-the-default-login-page/authenticationendpoint)
     and put them inside the respective folders in the authenticationendpoint.
