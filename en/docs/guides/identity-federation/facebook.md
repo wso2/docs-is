@@ -144,7 +144,6 @@ You have now added the identity provider.
     set the configurations as required.
 
     1.  Enter the values for **Issuer** and **Assertion Consumer URL**.
-
     2.  Select the following check-boxes:
 
         1.	Enable Response Signing
@@ -347,10 +346,9 @@ Deploy this sample web app on a web container.
     and configure the following property with the hostname ( `
     wso2is.local ` ) that you configured above.
 
-    ``` text
-    #The URL of the SAML 2.0 Assertion Consumer
-    SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
-    ```
+        ```
+        SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
+        ```
     
 4.  Restart the Tomcat server.
 
