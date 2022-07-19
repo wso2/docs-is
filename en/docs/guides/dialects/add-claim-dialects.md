@@ -18,15 +18,15 @@ In WSO2 Identity Server, there are two ways you can add a new dialect.
 Follow the instructions below to add a new dialect using the management console. 
 
 1.  Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-2.  Navigate to **Main** > **Identity** > **Claims** > **Add**.
-3.  Click **Add Claim Dialect**. Enter the **Dialect URI.**
+2.  Go to **Main** > **Identity** > **Claims** and click **Add**.
+3.  Click **Add Claim Dialect** and enter a value for the **Dialect URI**.
 
     !!! info 
         The Dialect URI is a unique URI identifying the dialect (for example, `http://schema.openid.net/2007/05/claims`).
 
     ![unique-uri]({{base_path}}/assets/img/guides/unique-uri.png)
 
-4.  Click on the **Add** button. The claim dialect you added will appear on the list as follows.
+4.  Click **Add** and the claim dialect will appear on the list as follows.
 
     ![claim-dialect]({{base_path}}/assets/img/guides/claim-dialect.png)
 
@@ -41,10 +41,8 @@ Follow the instructions below to add a new dialect through the configuration fil
 1.  Open the `claim-config.xml` file found in the
     `<IS_HOME>/repository/conf/` folder.
 
-2.  To add a new dialect, add the following configuration to the
+2.  Add the following configuration to the
     file along with the new claims you want to add under the dialect.
-    For this example, the new dialect is named
-    `SampleAppClaims` .
 
     ```xml
     <Dialect dialectURI="http://wso2.org/SampleAppClaims">
@@ -61,8 +59,9 @@ Follow the instructions below to add a new dialect through the configuration fil
     </Dialect>
     ```
 
-3.  Once you have edited the `claim-config.xml` file, start WSO2 Identity Server. The configurations will be applied
-    and you can view the new dialect via the management console.
+3.  Once you have edited the `claim-config.xml` file, start WSO2 Identity Server. 
+
+You can now view the new dialect via the management console.
     
 ----
 
