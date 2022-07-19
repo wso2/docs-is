@@ -1,4 +1,4 @@
-# Configuring claims for a service provder
+# Configuring claims for a service provider
 
 A service provider may need access to specific user claims to be able to provide its services to users. You can allow this by enabling the required claims for your service provider configuration in WSO2 Identity Server.
 
@@ -70,7 +70,7 @@ To define custom claims and enable them for the service provider:
     !!! info
         This is the authenticated user identifier, which will return the authentication response to the service provider.
 
-6. Select the **Role Claim URI** from the list of claims that you mapped.
+6. Select the **Role Claim URI** from the list of claims you mapped.
 
 7. Click **Update** to save the configurations.
 
