@@ -50,7 +50,7 @@ This is the exact location in the service provider's application where an access
 
 ??? note "Click for information on configuring loopback callback URLs"
      From IS 6.0.0 onwards, to comply with [RFC 8252 section 7.3](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), the callback URL in the authorization request does not need to have an exact port match to the callback URL registered here if it is a loopback callback IP address.
-     Only loopback IP addresses (`127.0.0.1` and `[::1]`) are supported for this feature. 
+     Exact port matches are not required if you use loopback IP addresses (`127.0.0.1` and `[::1]`) only. 
 
 
       For example, if you register a loopback callback URL `http://127.0.0.1:8090/callback` the following callback URLs in the authorization requests would also be valid:
