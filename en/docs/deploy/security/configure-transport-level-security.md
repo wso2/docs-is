@@ -5,18 +5,18 @@ are required for WSO2 Identity Server.
 
 ---
 
-## Enable SSL protocols in WSO2 IS
+## Enabling SSL protocols in the WSO2 IS
 
 Follow the instructions given below to enable SSL protocols in the WSO2 Identity Server.
 
 1. Add the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
      ```toml
-    [transport.https.sslHostConfig.properties]
-    protocols="TLSv1, TLSv1.1, TLSv1.2"
-    ```
+     [transport.https.sslHostConfig.properties]
+     protocols="TLSv1, TLSv1.1, TLSv1.2"
+     ```
 
-    If you wish to remove `TLSv1` or`TLSv1.1`, you can do so by removing them as values from the `protocols`property.
+    If you wish to remove `TLSv1` or`TLSv1.1`, you can do so by removing them as values from the `protocols` property.
 
 
 2. Restart the server.
