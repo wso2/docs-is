@@ -269,5 +269,5 @@ curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Con
     - [REST API: Self Register]({{base_path}}/apis/use-the-self-sign-up-rest-apis)
     - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
     - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
-    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
     - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning) 

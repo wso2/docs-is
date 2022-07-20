@@ -1,6 +1,8 @@
 # View and Update User Profiles
 
-## View and update a user using the Management Console
+You can update the information on a user's profile as explained
+
+## Use the Management Console
 
 Follow the instructions given below to update a user using management console.
 
@@ -18,9 +20,7 @@ Follow the instructions given below to update a user using management console.
 Other than updating user profile details, you can also change the
 password of the user and assign more roles to the user.
 
----
-
-## View and update a user using SCIM 2.0 REST API
+## Use the SCIM 2.0 REST API
 
 You can update a user profile using a SCIM 2.0 request as shown below. 
 

@@ -164,7 +164,7 @@ Follow the steps below to test the account creation using the password option.
     - [Guide: Admin Creation Workflow]({{base_path}}/admin-creation-workflow) 
     - [Guide: User Self Registration Workflow]({{base_path}}/self-registration-workflow)
     - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/jit-workflow)
-    - [Guide: Bulk Import Users]({{base_path}}/import-users)
+    - [Guide: Bulk Import Users]({{base_path}}/bulk-import-users)
     - [Guide: Outbound Provisioning]({{base_path}}/outbound-provisioning)
     <!--- [Concept: Ask Password and Email Verification](TODO:insert-link-to-concept) --->
 

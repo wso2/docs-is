@@ -1,12 +1,48 @@
-# Recover Username
+# Configure Account Recovery
 
-## Enable username recovery in the Management Console
+## Enable account recovery
 
-{!./includes/recover-username.md !}
+### Use the Management Console
 
----
+Follow the steps below to configure WSO2 Identity Server to enable username recovery.
 
-## Recover username using the REST API
+!!! info "Before you begin"
+    -   Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and see that the following listener configs are in place:
+
+    ``` toml
+    [event.default_listener.identity_mgt]
+    priority= "50"
+    enable = false
+    [event.default_listener.governance_identity_mgt]
+    priority= "95"
+    enable = true
+    ```
+
+    -   [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
+
+        !!! tip
+            The email template used to send this email notification is
+            the **AccountIdRecovery** template.
+        
+            You can edit and customize the email template. For more information
+            on how to do this, see [Customizing Automated
+            Emails](../../learn/customizing-automated-emails).
+
+1.	On the **Main** > **Identity** menu of the Management Console, click **Identity Providers** > **Resident**.
+
+	<img src="../../../../assets/img/fragments/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
+
+2.	Under the **Account Management** section, click **Account Recovery**.	
+
+3.	Select the following checkboxes:
+	-	**Username Recovery**
+	-	**Manage notifications sending internally**
+
+	<img src="../../../../assets/img/fragments/user-name-recovery-options.png" alt="User Name Recover options" width="600" style="border:1px solid grey">  	
+
+4.	Click **Update**. 
+
+### Use the REST API
 
 You can use the following CURL command to recover a username using REST API.
 
@@ -23,59 +59,31 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
     **Sample Response**
     ```"HTTP/1.1 202 Accepted"```
 
-## Configuring username recovery with reCaptcha for a tenant
+## Configure reCaptcha for account recovery
 
-Follow the instructions given below to configure username recovery with
-reCaptcha for a specific tenant.
+!!! tip
+    If you have changed the port offset or modified the hostname, change the port or hostname accordingly.
 
-1. Set up reCaptcha with WSO2 Identity Server. For instructions on how
-    to do this, and for more information about reCaptcha, see [Setting Up ReCaptcha]({{base_path}}/guides/identity-lifecycles/configure-recaptcha-for-self-registration).
-2. Enable the **EnableMultiTenancy** context-parameter in the
-    **accountreoceryendpoint web.xml** file.
-3. Start WSO2 Identity Server and log into the management
-    console as tenant
-    admin.
-4. On the **Main** tab, click on **Identity Provider** → **Resident
-    Identity Provider**.
+### Tenant configuration
 
-5. Expand the **Account Management Policies** tab, then click on
-    **Account Recovery.**
+Follow the instructions given below to configure reCaptcha per tenant for account recovery. 
 
-6. Select the **Enable reCaptcha for Username Recovery** checkbox to
-    enable reCaptcha for the username recovery flow.
+1. [Setting Up ReCaptcha]({{base_path}}/guides/identity-lifecycles/configure-recaptcha-for-self-registration) with WSO2 Identity Server.
+2. Enable the **EnableMultiTenancy** context-parameter in the **accountreoceryendpoint web.xml** file.
+3. Start WSO2 Identity Server and log in to the management console as tenant admin.
+4. On the **Main** tab, click **Identity Provider** → **Resident Identity Provider**.
+5. Expand **Account Management Policies** and then click **Account Recovery.**
+6. Select **Enable reCaptcha for Username Recovery** checkbox to enable reCaptcha for the username recovery flow.
 
-    <!--![enable-recaptcha]({{base_path}}/assets/img/using-wso2-identity-server/enable-recaptcha.png)-->
+    ![enable-recaptcha](../../../../assets/img/using-wso2-identity-server/enable-recaptcha.png)
 
-7. You have now successfully configured reCaptcha for the username
-    recovery flow. Start the WSO2 Identity Server and log into the end
-    user **My Account**.
+You have now successfully configured reCaptcha for the username recovery flow.
 
-    !!! tip
-        If you have changed the port offset or modified the hostname change the port or hostname accordingly.
+### Global configuration
 
-8. Click on **Forgot Username**.
+Follow the instructions given below to configure reCaptcha globally for username recovery.  
 
-<!--![forgot-username]({{base_path}}/assets/img/using-wso2-identity-server/register-now-option.png)-->
-
-Enter the domain name in the page that appears next.
-
-<!--![tenant-domain-name]({{base_path}}/assets/img/using-wso2-identity-server/tenant-domain-name.png)-->
-
-  
-
-Clicking on **Forgot Username** redirects you to the
-following page where you can select the recaptcha option for username
-recovery.
-
-
-<!--![proceed-to-username-recovery]({{base_path}}/assets/img/using-wso2-identity-server/recaptcha-for-username-recovery.png)-->
-
-## Configuring username recovery with reCaptcha globally
-
-Follow the instructions given below to configure username recovery with
-reCaptcha globally.  
-
-1. Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to enable username recovery with reCaptcha.
+1. Open the `deployment.toml` file in the `IS_HOME/repository/conf` folder and add the following configuration:
 
     !!! tip
         To avoid any configuration issues, perform **Step-1** before starting the WSO2 Identity Server product instance.
@@ -85,26 +93,26 @@ reCaptcha globally.
     enable_recaptcha= true
     ```
 
-2. Set up reCaptcha with WSO2 Identity Server. For instructions on how
-    to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha]({{base_path}}/guides/identity-lifecycles/configure-recaptcha-for-self-registration).
+2. [Set up ReCaptcha]({{base_path}}/guides/identity-lifecycles/configure-recaptcha-for-self-registration) for WSO2 IS.
 
-3. You have now successfully configured reCaptcha for the username
-    recovery flow. Start WSO2 Identity Server and log into the end user
-    **My Account**.
+You have now successfully configured reCaptcha for the username recovery flow.
 
-    !!! tip
-    If you have changed the port offset or modified the hostname, change the port or hostname accordingly.
-4. Click the Forgot Username link.
+## Try it
 
-<!--![forgot-username-link]({{base_path}}/assets/img/using-wso2-identity-server/register-now-option.png)-->
+Start the WSO2 Identity Server, go to the **My Account** portal, and click **Forgot Username**.
 
-Clicking on **Forgot Username** redirects you to the following page
-where you can select the recaptcha option for username recovery.
+![forgot-username](../../../../assets/img/using-wso2-identity-server/register-now-option.png)
 
-<!--![recaptcha-for-username-recovery]({{base_path}}/assets/img/using-wso2-identity-server/recaptcha-for-username-recovery.png)-->
+Enter the domain name in the page that appears next.
+
+![tenant-domain-name](../../../../assets/img/using-wso2-identity-server/tenant-domain-name.png)
+
+Clicking **Forgot Username**, which redirects you to the following page where you can select the recaptcha option for username
+recovery.
+
+![proceed-to-username-recovery](../../../../assets/img/using-wso2-identity-server/recaptcha-for-username-recovery.png)
 
 !!! info "Related topics"
-    -   [Concept: Users]({{base_path}}/references/concepts/user-management/users/)
+    [Concept: Users]({{base_path}}/references/concepts/user-management/users/)
 
 

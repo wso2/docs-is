@@ -76,7 +76,7 @@ Below is a sample request to create a user and its corresponding response using 
     - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
     - [Guide: User Self Registration Workflow]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
     - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/guides/identity-lifecycles/jit-workflow/)
-    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
     - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
     <!--- [Guide: Email Templates](TODO:dev-portal-link)--->

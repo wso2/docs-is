@@ -4,15 +4,15 @@ This section guides you through the ways of adding a user role to WSO2 Identity 
 
 ---
 
-## Add a user role using the Management Console
+## Use the Management Console
 
 {!./includes/add-user-role.md !}
 
 ---
 
-## Add a user role using SCIM 2.0 REST API
+## Use SCIM 2.0 REST API
 
-In SCIM 2.0, creating a role is the same as creating a **group.** 
+In SCIM 2.0, creating a role is the same as creating a **group**.
 
 !!! note
     To create a group with users, the relevant users should already exist in the user store.
