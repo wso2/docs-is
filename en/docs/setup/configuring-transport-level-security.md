@@ -4,39 +4,21 @@ Given below are the various transport-level security configurations that
 are required for WSO2 Identity Server. See the following topics for
 instructions.
 
+### Enabling SSL protocols in the WSO2 IS
 
-### Enabling SSL protocols and ciphers in ThriftAuthenticationService
+Follow the instructions given below to enable SSL protocols in the WSO2 Identity Server.
 
-Do the following to enable SSL protocols and ciphers in the
-`         ThriftAuthenticationService.        `
+1. Add the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-1.  Add the following configurations in the
-    `           <CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml          `
-    file as sub-elements of the root `           <Server>          `
-    element.
+     ```toml
+     [transport.https.sslHostConfig.properties]
+     protocols="TLSv1, TLSv1.1, TLSv1.2"
+     ```
 
-    ``` java
-        <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols
-        <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
-    ```
-
-    !!! tip
-    
-        **Tip:** You can also add the following additional cipher suites to
-        the `           <Ciphers>          ` property if JCE Unlimited
-        Strength Jurisdiction Policy is enabled in Java.
-    
-        ``` java
-            TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
-        ```
-
-    If you wish to remove `           TLSv1          ` or
-    `           TLSv1.1          `, you can do so by removing them as
-    values from the `           <SSLEnabledProtocols>          `
-    property.
+    If you wish to remove `TLSv1` or`TLSv1.1`, you can do so by removing them as values from the `protocols` property.
 
 
-2.  Restart the server.
+2. Restart the server.
 
 
 ### Disabling weak ciphers
@@ -125,7 +107,41 @@ vulnerable to attacks if the hacker has enough computing resources.
     ciphers in [WSO2 Identity
     Server](https://is.docs.wso2.com/en/5.9.0/)
 
+
+### Enabling SSL protocols and ciphers in ThriftAuthenticationService
+
+Do the following to enable SSL protocols and ciphers in the
+`         ThriftAuthenticationService.        `
+
+1.  Add the following configurations in the
+    `           <CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml          `
+    file as sub-elements of the root `           <Server>          `
+    element.
+
+    ``` java
+        <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols
+        <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+    ```
+
+    !!! tip
+
+        **Tip:** You can also add the following additional cipher suites to
+        the `           <Ciphers>          ` property if JCE Unlimited
+        Strength Jurisdiction Policy is enabled in Java.
+
+        ``` java
+            TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
+        ```
+
+    If you wish to remove `           TLSv1          ` or
+    `           TLSv1.1          `, you can do so by removing them as
+    values from the `           <SSLEnabledProtocols>          `
+    property.
+
+
+2.  Restart the server.
   
+
 ### Changing the server name in HTTP response headers
 
 By default, WSO2 Identity Server pass "WSO2 Carbon Server" as the server
