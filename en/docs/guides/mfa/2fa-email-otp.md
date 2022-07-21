@@ -66,9 +66,9 @@ To configure the email OTP provider on the IS:
 
 4. Save the configurations and restart the server.
 
-## Enable email OTP for an application
+## Enable email OTP for a SP
 
-To enable Email OTP for MFA, you need to configure the email OTP as an authenticator and add Email OTP in the authentication flow of the application.
+To enable email OTP for MFA, you need to configure the email OTP as an authenticator and add it to the authentication flow of the application.
 
 ### Prerequisites
 - You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application
