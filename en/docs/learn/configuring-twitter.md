@@ -8,8 +8,7 @@ authenticate users using their Twitter login credentials:
     
     1.  Go to <https://twitter.com/> , create an account, and [register an
         application on
-        Twitter](http://docs.inboundnow.com/guide/create-twitter-application/)
-        .
+        Twitter](https://developer.twitter.com/en/docs/apps/overview).
     2.  Sign in to the WSO2 Identity Server [Management
         Console](../../setup/getting-started-with-the-management-console)
         at `          https://<Server Host>:9443/carbon         ` using your
@@ -29,7 +28,7 @@ In the WSO2 Identity Server management console,
     .
     ![twitter-config-federated-auth.png](../assets/img/tutorials/twitter-config-federated-auth.png)
     Fill in the following fields details according to the application
-    [registered in the Twitter](http://docs.inboundnow.com/guide/create-twitter-application/):
+    [registered in the Twitter](https://developer.twitter.com/en/docs/apps/app-management):
 
     <table>
     <thead>
