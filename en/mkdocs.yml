@@ -369,6 +369,7 @@ nav:
         - Management Console:
           - Overview: deploy/get-started/get-started-with-the-management-console.md
           - Customize: deploy/get-started/customize-the-management-console.md 
+          - MFA for management console: guides/mfa/mfa-for-management-console.md
       - Configure:
         - User Stores:
           - Overview: deploy/configure-the-realm.md
