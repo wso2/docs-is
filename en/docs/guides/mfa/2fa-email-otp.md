@@ -96,7 +96,7 @@ To configure the email OTP authenticator:
 
 5. Click **Update** to save the configurations.
 
-### Configure email OTP as the second authentication factor
+### Configure email OTP as the second factor
 
 To configure email OTP as the second authentication factor:
 

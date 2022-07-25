@@ -1,60 +1,74 @@
 # Configure TOTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using TOTP (Time-based One-Time Password) as the second factor. 
+This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using TOTP (Time-based One-Time Password) as the second factor.
 
-!!! tip
+!!! info
     For more information, see the [TOTP specification](https://tools.ietf.org/html/rfc6238).
 
 ----
 
-## Register a service provider
+## Prerequisites
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 
-{!./includes/register-a-service-provider.md!}
+## Configure TOTP as the second factor
 
-## Configure the service provider
+To configure TOTP as the second authentication factor:
 
-1. Expand **Local and Outbound Authentication Configuration**.
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
-2. Click the **Advanced Configuration** radio button. 
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-3. Add the following authentication steps. 
-    - **Step 1**
-        1. Click **Add Authentication Step**.
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-        2. Select `basic` under **Local Authenticators** and click **Add Authenticator** to add the basic authentication as the first step.
+4. Click **+ Add Authentication Step** twice to add two authentication steps.
 
-            Adding basic authentication as a first step ensures that the first step of authentication will be done using the user's credentials that are configured with the WSO2 Identity Server.
+5. Select the following authentication methods from the relevant dropdowns and click **+ Add Authenticator**.
 
-    - **Step 2**
-        1. Click **Add Authentication Step**.
+    | Authentication step   | Local Authenticator   |
+    |-----------------------|-----------------------|
+    | First step    | `basic`   |
+    | Second step   | `TOTP`|
 
-        2. Select `totp` under **Local Authenticators** and click **Add Authenticator** to add TOTP authentication as the second step.
+6. Click **Update** to save the configurations.
 
-            Adding TOTP as a second step adds another layer of authentication and security.
-    
-         <img name='totp-authentication-steps' src='{{base_path}}/assets/img/guides/totp-authentication-steps.png' class='img-zoomable'/>
+You have successfully configured TOTP as the second factor of authentication.
 
-4. Click **Update** to save the changes.
+## Try it out
 
-You have successfully configured TOTP as the second factor of authentication. 
-You can use an application such as the [Google Authenticator Mobile Application](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en) to generate one time passwords (tokens).
+1. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
+
+2. Click **Login** and enter admin's credentials.
+
+3. Scan the QR code using an authenticator application (Example: [Google Authenticator Mobile Application](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en)), and click **Continue**
+
+    !!! info
+        The QR code will be displayed only at the first attempt. After you click **Continue**, the QR code will no longer be shown.
+
+4. You will now be prompted to enter the TOTP code. The TOTP will be displayed on the authenticator application that you used to scan the QR.
+
+    ![TOTP code]({{base_path}}/assets/img/samples/totp-code-verification.png)
+
+
+5. Enter the TOTP and click **Continue**.
+
+You will now be logged into the application successfully.
 
 ----
 
-## Send emails with TOTP
+## Additional configurations
 
-Optionally, you can set up the users to receive the TOTP code via an email during the authentication flow. You need to 
-configure the email adapter for this purpose.
+You can also add the following configurations to enhance your TOTP configurations.
 
-### Configure the email adapter to send emails
+### Send emails with TOTP
+
+Optionally, you can set up the users to receive the TOTP code via an email during the authentication flow. You need to configure the email adapter for this purpose.
 
 {!./includes/configure-email-sending.md!}
 
-!!! tip 
+!!! tip
     The email template used to send this email notification is the **TOTP** template.
-    You can edit and customize the email template. For more information on how to do this, 
-    see [Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
-    
+    You can edit and customize the email template. For more information on how to do this, see [Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
+
 ----
 
 !!! info "Related topics"
