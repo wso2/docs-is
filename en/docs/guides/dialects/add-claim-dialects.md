@@ -59,7 +59,7 @@ Follow the instructions below to add a new dialect through the configuration fil
     </Dialect>
     ```
 
-3.  Once you have edited the `claim-config.xml` file, start WSO2 Identity Server. 
+3.  Once you have edited the `claim-config.xml` file, restart WSO2 Identity Server. 
 
 You can now view the new dialect via the management console.
     
