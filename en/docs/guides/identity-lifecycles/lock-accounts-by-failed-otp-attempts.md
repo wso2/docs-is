@@ -1,22 +1,80 @@
-# Lock accounts by failed login attempts
+# Lock accounts by failed OTP attempts
 
-WSO2 Identity Server can be configured to lock a user account when a
-number of consecutive failed login attempts are exceeded. First, you
-need to configure WSO2 Identity Server for user account locking and
-disabling. The following section explain how to configure this.
+WSO2 Identity Server can be configured to lock a user account when the number of consecutive failed OTP attempts is exceeded.
 
 If you want to configure different settings for another tenant, log out
 and follow the same steps to configure these properties for the other
 tenants.
 
 !!! note
-    - A user account locked by failed login attempts can be unlocked 
+    -   A user account locked by failed login attempts can be unlocked 
     by setting the <strong>Account Unlock Time</strong> period.
-    - If the lock time is set to 0, the account has to be unlocked by an admin
+    -   If the lock time is set to 0, the account has to be unlocked by an admin
     user. For more information about this, see [Lock and Unlock User Accounts]({{base_path}}/guides/identity-lifecycles/lock-account/).
-		- If a user is assigned the **Internal/system** role, the user can
+    -   If a user is assigned the **Internal/system** role, the user can
 		bypass account locking even if the user exceeds the specified number
 		of **Maximum failed login attempts**.
+
+## Configure the WSO2 IS server
+
+Add the following configurations into `<IS_HOME>/repository/conf/deployment.toml` file to enable account locking for each type of OTP attempts and restart the server.
+
+- For Email OTP:
+
+    ```
+    [authentication.authenticator.email_otp.parameters]
+    EnableAccountLockingForFailedAttempts = true
+    ```
+
+- For SMS OTP:
+
+    ```
+    [authentication.authenticator.sms_otp.parameters]
+    EnableAccountLockingForFailedAttempts = true
+    ```
+
+    !!! note
+        Since `BackupCode = true` in the default configuration, configure the backup code claim. <!--according to 
+        [Configuring Backup Codes for SMSOTP]({{base_path}}/guides/mfa/2fa-sms-otp/)-->
+        Alternatively, you can disable the backup codes for SMS OTP by setting the property to **false**.
+
+        ```
+        [authentication.authenticator.sms_otp.parameters]
+        BackupCode = false
+        ```
+        
+- For TOTP:
+
+    ```
+    [authentication.authenticator.totp.parameters]
+    EnableAccountLockingForFailedAttempts = true
+    ```
+
+## Enable claims
+
+1. Navigate to **Main** > **Identity** > **Claims** > **Add** > **Add Local Claim**.
+2. Click **http://wso2.org/claims**.
+3. Once the user account gets locked, the **Account Locked** attribute will be updated to **true**.
+To check this via the user profile:
+    1. Click **Edit** under the **Account Locked** claim.
+    2. Select **Supported by Default** and click **Update**.
+    3. Navigate to the relevant user's user profile and you will see that the attribute has been updated.
+  
+4. **Failed Email OTP Attempts**, **Failed SMS Attempts**, and **Failed TOTP Attempts** attribute values will be incremented for the wrong attempt of Email OTP, SMS OTP, and TOTP attempt respectively. To check this via the user profile.
+    - For Email OTP:
+        1. Click **Edit** under the **Failed Email OTP Attempts** claim.
+        2. Select **Supported by Default** and click **Update**.
+        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated.
+
+    - For SMS OTP:
+        1. Click **Edit** under the **Failed SMS Attempts** claim.
+        2. Select **Supported by Default** and click **Update**.
+        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated.
+
+    - For TOTP:
+        1. Click **Edit** under the **Failed TOTP Attempts** claim.
+        2. Select **Supported by Default** and click **Update**.
+        3. Navigate to the relevant user's user profile and you will see that the attribute has been updated.
 
 ## Enable account locking
 
@@ -114,25 +172,6 @@ Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/de
 ## Configure the email sender
 
 [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
-
-## Try it out
-To mimic account locking:
-
-1.	Access the WSO2 Identity Server My Account at `https://localhost:9443/myaccount/`.  
-
-    <img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey">
-
-2.	To mimic three consecutive erroneous login attempts, log in with Alex's user name and the following as passwords sequentially:
-
-    -	`test123`
-    -	`test234`
-    -	`test345`
-
-3.	An email that informs about the account locking is sent to the given email address.		
-
-    <img src="../../assets/img/learn/account-locked-email.png" alt="Account Locked email" width="500" style="border:1px solid grey">  
-
-4.	Wait for 15 minutes and try to log in again with the correct credentials. The WSO2 Identity Server User Portal home screen appears.  
 
 !!! info "Related topics"
     <!---   [Guides: Configure SMS OTP for 2-Factor Authentication]({{base_path}}/guides/mfa/2fa-sms-otp/)-->
