@@ -1,6 +1,6 @@
 # WSO2 Identity Server Documentation
 
-End-user apps in WSO2 Identity Server
+This repository contains the documentation website code and Markdown source files for [is.docs.wso2.com](https://is.docs.wso2.com).
 
 |  Branch | Build Status |
 | :------------ |:------------- 
