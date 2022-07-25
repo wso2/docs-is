@@ -205,7 +205,7 @@ POST https://<host>:<port>/scim2/Users/<users-scim-id>
 ## Change password
 
 If you are a user with admin privileges, you can change your own
-password or reset another user's password using the the management
+password or reset another user's password using the management
 console as explained below.
 
 To change a user's password:
