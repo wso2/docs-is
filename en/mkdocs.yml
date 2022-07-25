@@ -367,6 +367,7 @@ nav:
         - Management Console:
           - Overview: deploy/get-started/get-started-with-the-management-console.md
           - Customize: deploy/get-started/customize-the-management-console.md 
+          - MFA for management console: guides/mfa/mfa-for-management-console.md
       - Configure:
         - User Stores:
           - Overview: deploy/configure-the-realm.md
@@ -1373,19 +1374,12 @@ plugins:
               'compliance/general-data-protection-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'compliance/electronic-identification-authentication-and-trust-services-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'compliance/california-consumer-privacy-act.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'references/default-ports-of-wso2-products.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'references/new-configuration-model.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/error-catalog.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'references/product-startup-options.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/supported-cipher-suites.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'references/directory-structure-of-wso2-products.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/wso2-patch-application-process.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'references/evolution-of-identity-federation-standards.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'references/adaptive-authentication-js-api-reference.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/scopes-corresponding-to-api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'references/usernames-in-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'get-started/overview.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'get-started/architecture.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'get-started/provisioning-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/'

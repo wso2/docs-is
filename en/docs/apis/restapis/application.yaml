@@ -2153,8 +2153,9 @@ components:
       name: attributes
       required: false
       description: |
-        Specifies the required parameters in the response
-        _This parameter is not supported yet_
+        Specifies the required parameters in the response.
+        _This parameter accepts only the values 'advancedConfigurations' & 'templateId' with this version of 
+        API_
       schema:
         type: string
     exportSecretsQueryParam:
@@ -2257,6 +2258,11 @@ components:
         self:
           type: string
           example: "/t/wso2.com/api/server/v1/applications/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
+        advancedConfigurations:
+          $ref: '#/components/schemas/AdvancedApplicationConfiguration'
+        templateId:
+          type: string
+          example: "980b8tester24c64a8a09a0d80abf8c337bd2555"
 
     ApplicationModel:
       type: object
@@ -2445,6 +2451,28 @@ components:
           type: boolean
           description: Decides whether authorization policies needs to be engaged during authentication flows.
           example: true
+        additionalSpProperties:
+          $ref: '#/components/schemas/AdditionalProperties'
+    AdditionalProperties:
+      type: array
+      description: Denotes additional properties of the application. It is only supported by getApplication and getAllApplications request.
+      items:
+        $ref: "#/components/schemas/AdditionalSpProperty"
+    AdditionalSpProperty:
+      type: object
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          example: "isInternalApp"
+        value:
+          type: string
+          example: "true"
+        displayName:
+          type: string
+          example: "Internal Application"
     Certificate:
       type: object
       properties:
