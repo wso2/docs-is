@@ -1,11 +1,10 @@
-If your userstore supports having multiple values for attributes, the
-WSO2 Identity Server can view, add, update or delete them (normally
+If your user store supports multiple values for attributes, the
+WSO2 Identity Server can view, add, update, or delete them (normally
 LDAP/AD offer support for this). The following are the different ways
 you can do this.
 
 1.  In WSO2 Identity Server Management Console, multiple attribute values are separated by commas. If you want to update two email addresses
-    using the user profile UI, you must provide it as follows.
-
+    using the user profile UI, you must provide it as follows:
 
     ``` java
     asela@soasecurity.com,aselapathberiya@soasecurity.com
@@ -15,8 +14,7 @@ you can do this.
     interface of the Identity Server Management Console.  
     ![is-user-interface](../../../../assets/img/fragments/is-user-interface.png)
 
-2.  When using the `           RemoteUserStoreManagerService          `
-    API, call it as follows.
+2.  When using the `RemoteUserStoreManagerService` API, call it as follows.
 
     ``` java
     setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "asela@soasecurity.org,aselapathberiya@gmail.com", null)

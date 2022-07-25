@@ -1,5 +1,3 @@
-## Configure Email Address as the Username
-
 !!! warning
     Configuring the email address as the username in an **already running
     Identity Server** is not the production recommended way. Therefore,
@@ -119,12 +117,7 @@
         - With these configuration users can log in to super tenant with both
         email username (**`alex@gmail.com`**) or
         non-email usernames (`larry`). However, for tenants, only email usernames are allowed. (**`tod@gmail.com@wso2.com`**). 
-
-        - You can configure email username without enabling
-       the  **`enable_email_domain`** property (step 5). Then
-        users can log in to both the super tenant and the tenant using email and
-        non-email usernames. However, super tenant users should always use
+        - You can configure email username without enabling the **`enable_email_domain`** property (step 5). Then users can log in to both the super tenant and the tenant using email and non-email usernames. However, super tenant users should always use
         ***@carbon.super*** at the end of usernames.
-    
 
 7.  Restart the server.

@@ -44,7 +44,7 @@ Employees leave an organization from time to time. When an employee leaves an or
 !!! info "Related topics" 
     - [Guide: Add a User]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow)
     - [Guide: View and Update User Profiles]({{base_path}}/guides/identity-lifecycles/update-profile)
-    - [Guide: Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+    - [Guide: Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
     - [Guide: Search for Users]({{base_path}}/guides/identity-lifecycles/search-users)
     - [Guide: Delete an Existing User]({{base_path}}/guides/identity-lifecycles/delete-users)
     - [Concept: Roles and permissions]({{base_path}}/roles-and-permissions)

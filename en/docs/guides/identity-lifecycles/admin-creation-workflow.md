@@ -1,6 +1,8 @@
-# Add a User
+# Create new user
 
-## Add a user using the management console
+Administrators can add new users in a tenant by manually registering the user details from the management console.
+
+## Use the management console
 
 {!./includes/add-new-user.md !}
 
@@ -18,7 +20,7 @@
 
 ---
 
-## Add a user using SCIM 2.0 REST API
+## Use the SCIM 2.0 REST API
 
 You can create a new user using a SCIM 2.0 request as shown below. 
 
@@ -74,7 +76,7 @@ Below is a sample request to create a user and its corresponding response using 
     - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
     - [Guide: User Self Registration Workflow]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
     - [Guide: Just in Time User Provisioning Workflow]({{base_path}}/guides/identity-lifecycles/jit-workflow/)
-    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
     - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
     - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
     <!--- [Guide: Email Templates](TODO:dev-portal-link)--->

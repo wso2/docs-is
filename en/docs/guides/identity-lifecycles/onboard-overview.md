@@ -12,6 +12,6 @@ This section guides you through different ways of onboarding users to WSO2 Ident
 
 - [Just-in-Time User Provisioning Workflow]({{base_path}}/guides/identity-lifecycles/jit-workflow)
 
-- [Bulk Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+- [Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
 
 - [Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)

@@ -1,9 +1,9 @@
 # Search for Users
 
-## Search for users using the Management Console
-
 Once you have added a user in the Identity Server, you can search for
 the user by doing the following.
+
+## Use the management console
 
 1.  On the **Main** > **Identity** tab in the Management Console, click **List** under
     **Users and Roles**.  
@@ -30,9 +30,8 @@ the user by doing the following.
             dropdown and enter the claim value in the user name field.
         2.  Click on **Search Users**.
 
----
 
-## Search for users using SCIM 2.0 REST API
+## Use the SCIM 2.0 REST API
 
 You can search for users using a SCIM 2.0 REST API request as shown below. 
 

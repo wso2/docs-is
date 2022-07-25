@@ -10,11 +10,9 @@ This section provides instructions on how to perform the following actions on a 
 
 - [Manage User Attributes]({{base_path}}/guides/identity-lifecycles/manage-user-attributes)
 
-- [Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+- [Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
 
 - [Recover Username]({{base_path}}/guides/identity-lifecycles/recover-username)
-
-- [Reset Password]({{base_path}}/guides/identity-lifecycles/reset-password)
 
 - [Customize User Profiles]({{base_path}}/guides/identity-lifecycles/customize-profiles)
 
