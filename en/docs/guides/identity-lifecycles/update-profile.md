@@ -1,6 +1,6 @@
 # View and Update User Profiles
 
-You can update the information on a user's profile as explained
+You can update the information on a user's profile as explained.
 
 ## Use the Management Console
 
