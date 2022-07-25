@@ -101,10 +101,14 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
  
 ## Configure ELK Analytics Dashboards
  
-1. Navigate to Kibana installation folder and run the following command to install [Kibana Enhanced Table](https://github.com/fbaligand/kibana-enhanced-table) plugin. Replace A,B,C with the plugin version and X,Y,Z with the Kibana version you have installed.
+1. Navigate to Kibana installation folder and run the following command to install the [Kibana Enhanced Table](https://github.com/fbaligand/kibana-enhanced-table) plugin. 
     ```
     ./bin/kibana-plugin install https://github.com/fbaligand/kibana-enhanced-table/releases/download/vA.B.C/enhanced-table-A.B.C_X.Y.Z.zip
     ```
+   
+    !!! info
+        Replace A,B,C with the plugin version and X,Y,Z with the Kibana version you have installed.
+   
 2. Restart Kibana service and log in to Kibana.
 3. Navigate to **Stack Management** > **Index Management** and select the **Index Templates** tab.
 4. Under the **Index patterns** column, if you have any index patterns created under the following names, delete them before moving to the next step.
