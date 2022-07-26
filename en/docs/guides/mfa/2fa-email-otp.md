@@ -55,7 +55,7 @@ You can use any of the following methods to configure the email OTP provider:
         **Create a Gmail project**
 
         1. Log in to your Gmail account and go to [Google's developer console](https://console.developers.google.com).
-        2. On the developer console, search for **Gmail API**and select **Gmail API** from the search result.
+        2. On the developer console, search for **Gmail API** and select **Gmail API** from the search result.
         3. Click **Enable**. Once enabled, you will be redirected to the developer console's API/Service details page.
         4. Go to the project list and click a **NEW PROJECT** to create a new project.
             ![project list]({{base_path}}/assets/img/guides/project-selection-gmail.png)
@@ -64,22 +64,30 @@ You can use any of the following methods to configure the email OTP provider:
         6. Go to **Credentials**, click **+ CREATE CREDENTIALS**, and select **OAuth client ID**.
         7. Select **Web Application** as the application type
         8. Add `https://localhost:9443/commonauth` as the **Authorized redirect URIs** and click **CREATE**.
-            ![oauth client id and secret]({{base_path}}/assets/img/guides/gmail-otp-client-details.png)
+        
+        On successful creation, the **Client ID** and the **Client Secret** of the application will be displayed.
+
+        !!! info
+            Note down the client ID and the client secret of your application as it will be used in the next section.
+
+        ![oauth client id and secret]({{base_path}}/assets/img/guides/gmail-otp-client-details.png)
+        
+        
 
         **Obtain the access token**
 
-        1. Access the following URL by replacing the <CLIENT_ID> with the client ID of your Gmail application.
+        1. Add **SAML Tracer** extension to your browser and open it.
+            - [SAML Tracer for Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en)
+            - [SAML Tracer for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)
+        2. Access the following URL using a web browser. Replace the `<CLIENT_ID>` with the client ID of your Gmail application.
         ```http
         https://accounts.google.com/o/oauth2/auth?redirect_uri=https%3A%2F%2Flocalhost%3A9443%2Fcommonauth&response_type=code&client_id=<CLIENT_ID>&scope=http%3A%2F%2Fmail.google.com&approval_prompt=force&access_type=offline
         ```
-        2. Select the Gmail account you wish to proceed with, and click **Continue**.
-        3. Add **SAML Tracer** extension to your browser and open it.
-            - [SAML Tracer for Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en)
-            - [SAML Tracer for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)
+        3. Select the Gmail account you wish to proceed with, and click **Continue**.
         4. Click **Continue** on the consent page while the SAML tracer application is running.
         5. Get the authorization code from SAML tracer.
             ![SAML tracer]({{base_path}}/assets/img/guides/saml-tracer-auth-code.png)
-        6. Use the following `cURL` command to obtain the access token and the refresh token. Replace the <CLIENT-ID>, <CLIENT_SECRET> and the <AUTHORIZATION_CODE> with values obtained in earlier steps. 
+        6. Use the following `cURL` command to obtain the access token and the refresh token. Replace the `<CLIENT-ID>`, `<CLIENT_SECRET>` and the `<AUTHORIZATION_CODE>` with values obtained in earlier steps. 
             ```curl
             curl -v -X POST --basic -u <CLIENT-ID>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<AUTHORIZATION_CODE>&redirect_uri=https://localhost:9443/commonauth" https://www.googleapis.com/oauth2/v3/token
             ```
@@ -157,7 +165,7 @@ To configure the email OTP authenticator:
     ![enable email otp configuration]({{base_path}}/assets/img/guides/enable-email-otp-config.png)
 
     !!! info
-        - If you have configured an external email OTP provider, enter the provider's name in the **Email API**.
+        - If you have configured an external email OTP provider, enter the provider's name in the **Email API**. Example: `Gmail` or `SendGrid`.
         - If you have used IS as the email OTP provider, you can leave this field blank.
 
 5. Click **Update** to save the configurations.
