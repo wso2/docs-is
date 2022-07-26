@@ -103,9 +103,6 @@ application.
     1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
     2. Download the `pickup-dispatch.war` file from the latest release assets.
 
-### Configure CORS
-
-{!./includes/cors-config.md!}
 
 ### Deploy the sample app
 
