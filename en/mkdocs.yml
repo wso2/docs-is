@@ -256,10 +256,10 @@ nav:
         - Overview: guides/identity-lifecycles/user-management.md
         - Onboard Users:
           - Overview: guides/identity-lifecycles/onboard-overview.md
-          - Admin Creation Workflow: guides/identity-lifecycles/admin-creation-workflow.md
-          - Invitation Workflow: guides/identity-lifecycles/invitation-workflow.md
-          - User Self-Registration Workflow: guides/identity-lifecycles/self-registration-workflow.md
-          - Lite User Registration Workflow: guides/identity-lifecycles/lite-user-registration.md
+          - Create User: guides/identity-lifecycles/admin-creation-workflow.md
+          - Invite User: guides/identity-lifecycles/invitation-workflow.md
+          - User Self-Registration: guides/identity-lifecycles/self-registration-workflow.md
+          - Lite User Registration: guides/identity-lifecycles/lite-user-registration.md
           - reCAPTCHA for Self-Registration: guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
           - Bulk Import Users: guides/identity-lifecycles/bulk-import-users.md
         - Manage Users:
@@ -267,12 +267,8 @@ nav:
           - List/Search Users: guides/identity-lifecycles/search-users.md
           - Delete Users: guides/identity-lifecycles/delete-users.md
           - View/Update User Profiles: guides/identity-lifecycles/update-profile.md
+          - Add Multiple User Profiles: guides/identity-lifecycles/customize-profiles.md
           - Manage User Attributes: guides/identity-lifecycles/manage-user-attributes.md
-          - Import Users: guides/identity-lifecycles/import-users.md
-          - Recover Username: guides/identity-lifecycles/recover-username.md
-          - Reset Password: guides/identity-lifecycles/reset-password.md
-          - Customize User Profiles: guides/identity-lifecycles/customize-profiles.md
-          - Set Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
           - Track User Deletion: guides/identity-lifecycles/track-deletion.md
         - Manage Roles: 
           - Overview: guides/identity-lifecycles/manage-roles-overview.md
@@ -287,6 +283,7 @@ nav:
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
           - Disable Accounts: guides/identity-lifecycles/enable-account.md
           - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
+          - Configure Account Recovery: guides/identity-lifecycles/recover-username.md
           - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
         - Manage Passwords:
           - Overview: guides/password-mgt/password-mgt-overview.md
@@ -338,6 +335,7 @@ nav:
         - Edit Claim Mapping: guides/dialects/edit-claim-mapping.md
         - Delete Claim Mapping: guides/dialects/delete-claim-mapping.md
         - Configure unique claims: guides/dialects/configure-unique-claims.md
+        - Configure Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
         #- Use a Custom Attribute Dialect: guides/attribute-dialects/custom-dialect.md
         #- Map Attributes: guides/attribute-dialects/map-attributes.md
         #- Configure Attribute Metadata: guides/attribute-dialects/metadata.md
@@ -369,6 +367,7 @@ nav:
         - Management Console:
           - Overview: deploy/get-started/get-started-with-the-management-console.md
           - Customize: deploy/get-started/customize-the-management-console.md 
+          - MFA for management console: guides/mfa/mfa-for-management-console.md
       - Configure:
         - User Stores:
           - Overview: deploy/configure-the-realm.md

@@ -2,51 +2,48 @@
 
 This page guides you through setting up self-registration for users to onboard themselves to WSO2 Identity Server.
 
-----
-
-## Self register using My Account
-
-??? Warning "Click to see instructions specific for a migrated deployment" 
-    If you have migrated from a previous WSO2 Identity Server version, ensure that the `event.default_listener.identity_mgt` with the
-    `         priority=50        ` is set to **false** and that the Identity
-    Listeners with `         priority=95        ` and
-    `         priority=97        ` are set to **true** in the
-    `         <IS_HOME>/repository/conf/deployment.toml        ` file.
-   
-    !!! Note 
-        If the following configurations are not present in the `deployment.toml ` file already, you do not have to add it. 
-    
-    ``` java
-    [event.default_listener.identity_mgt]
-    priority= "50"
-    enable = false
-    [event.default_listener.governance_identity_mgt]
-    priority= "95"
-    enable = true
-    [event.default_listener.governance_identity_store]
-    priority= "97"
-    enable = true
-    ```
-
 Follow the steps given below to register users for the super tenant, which is `         carbon.super        `.
 
+## Prerequisites
 
-{!./includes/configure-email-sending.md !}
-
-    !!! tip
-        Typically, the **AccountConfirmation** template is used to send email notifications.
+If you have migrated from a previous IS version, ensure that
+the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
+**false** and that the Identity Listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
     
-        You can edit and customize the email template. For more information
-        on how to do this, see [Customizing Automated
-        Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
+!!! Note 
+    If there are no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
     
+``` toml
+[event.default_listener.identity_mgt]
+priority= "50"
+enable = false
+[event.default_listener.governance_identity_mgt]
+priority= "95"
+enable = true
+[event.default_listener.governance_identity_store]
+priority= "97"
+enable = true
+```
 
-2.  Log in to the Management Console (`https://<IS_HOST>:<IS_PORT>/carbon`)  
+## Configure the email sender
+
+[Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
+
+!!! tip
+    Typically, the **AccountConfirmation** template is used to send email notifications.
+
+    You can edit and customize the email template. For more information
+    on how to do this, see [Customizing Automated
+    Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
+
+## Enable self-registration
+
+1.  Log in to the Management Console (`https://<IS_HOST>:<IS_PORT>/carbon`)  
     **NOTE:** If your IS is already running, make sure to stop and start to apply configurations. 
     
-3.  Navigate to **Main** > **Identity**. 
+2.  Navigate to **Main** > **Identity**. 
 
-4.  Select the **Identity Providers** -> **Resident** -> **User Onboarding** section.
+3.  Select the **Identity Providers** -> **Resident** -> **User Onboarding** section.
     
 4.  Expand the **Self Registration** section and configure the
     following properties.
@@ -111,7 +108,7 @@ of WSO2 Identity Server.
     [Self-Registration Using REST APIs]({{base_path}}/apis/use-the-self-sign-up-rest-apis).
     
 
-## Configure self-registration consent purposes
+## Configure consent purposes
 
 Follow the instructions below to configure self-registration consent
 purposes and appropriate user attributes:
@@ -141,7 +138,7 @@ the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purp
 6.  If you want consent on a specific user attribute to be mandatory,
     select the **Mandatory** check box for that attribute.
 
-    !!! tip    
+    !!! tip
         -   When you configure consent purposes for self-registration, the
             attributes that you specify for a particular purposes are the
             only attributes for which users are prompted to provide consent.
@@ -151,9 +148,8 @@ the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purp
         -   If a user does not provide consent for any of the non-mandatory
             attributes, WSO2 Identity Server will not store those
             attributes.
-    
 
-7.  Click **Finish**. 
+7.  Click **Finish**.
 
 8.  Depending on your requirement, you can either add another new
     purpose and related user attributes, or click **Finish** if you have
@@ -166,10 +162,12 @@ attributes for which you require user consent.
 
 Next, you can try out self-registration.
 
-### Try out self-registration
+## Try out self-registration
+
+### Use the My Account portal
 
 1.  Access the WSO2 Identity Server My Account (`https://<IS_HOST>:<PORT>/myaccount/`).
-2.  Click the **Create Account** link and then enter the new user's
+2.  Click **Create Account** and then enter the new user's
     username.
 
     !!! info "Register Users for a Tenant"
@@ -245,11 +243,9 @@ Next, you can try out self-registration.
 
 ---
 
-## Self register using REST APIs
+### Use the REST API
 
 The following CURL command can be used to self register.  
-
-### Register user
 
 **Request**
 
@@ -273,5 +269,5 @@ curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Con
     - [REST API: Self Register]({{base_path}}/apis/use-the-self-sign-up-rest-apis)
     - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
     - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
-    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/import-users)
+    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
     - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning) 

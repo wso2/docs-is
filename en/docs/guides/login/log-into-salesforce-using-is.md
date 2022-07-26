@@ -164,6 +164,8 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
 
 ----
 
+## Configure Email Address as the Username
+
 {!./includes/enable-email-as-username.md!}
 
 -----
