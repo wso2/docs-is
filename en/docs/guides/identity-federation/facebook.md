@@ -275,7 +275,7 @@ You have successfully configured facebook as your federated authenticator. Now, 
 ### Set up the sample app
 
 - Download Apache Tomcat 9.x from
-[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+[here](https://tomcat.apache.org/download-90.cgi) and install. Tomcat
 server installation location will be referred as `<TOMCAT_HOME>` later
 in this guide.      
 
@@ -338,7 +338,8 @@ Deploy this sample web app on a web container.
 
 ### Log in
 
-1. To test the sample, go to the following URL: `http://<IS_HOST>:<IS_PORT>/pickup-dispatch`.
+1. To test the sample, go to the following URL: `http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch`.<br/>
+   For example. `http://localhost.com:8080/pickup-dispatch`
 
 	![Pickup-dispatch application]({{base_path}}/assets/img/samples/pickup-dispatch-login.png)
 
