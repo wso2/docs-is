@@ -162,7 +162,7 @@ nav:
             - Back-Channel Logout: guides/login/saml-back-channel-logout.md
           - Cross Protocol Logout: guides/login/cross-protocol-logout.md
         - Multi-Factor Authentication:
-          - Configure an Authentication Journey: guides/mfa/configure-authentication-journey.md
+          - Overview: guides/mfa/mfa-overview.md
           - Username and Password: guides/mfa/username-and-password.md
           #- Password: guides/mfa/password.md
           - Email OTP: guides/mfa/2fa-email-otp.md
