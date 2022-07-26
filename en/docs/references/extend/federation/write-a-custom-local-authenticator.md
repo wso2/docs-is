@@ -2,7 +2,7 @@
 
 A local authenticator in WSO2 identity server authenticates users, who are stored in the local database, using a defined authentication logic.
 
-By default, the local authenticator in WSO2 identity server is the basic authenticator.
+The default local authenticator in WSO2 identity server is the basic authenticator.
 It authenticates end users stored in a connected user store using the provided username and password.
 
 WSO2 identity server supports extensibility in local authentication so that you can implement a different authentication logic by writing a custom local authenticator.
