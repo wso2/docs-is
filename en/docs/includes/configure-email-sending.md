@@ -9,9 +9,20 @@
     port= 587
     ```
 
+    !!! info "Using a Gmail account"
+        If you use a Gmail account as the email OTP sender, you must create an [App Password](https://support.google.com/accounts/answer/185833?visit_id=637943607149528455-3801902236&p=InvalidSecondFactor&rd=1).
+        After you get an **App Password** from Google, update the `password`.
+
+    !!! info
+        If your password contains special characters (example: `<`, `>`, `&`), you will run into errors when running the server. To avoid errors, update the `password` parameter as follows:
+
+        ```toml
+        password= "<![CDATA[xxxx]]>"
+        ```
+
 2. Update the sample values with your email adapter configurations.
 
     !!! info
         Refer [configure email sending module](../../../deploy/configure-email-sending) for the complete list of email adapter configurations.
 
-2. Save the configurations and restart the server.
+3. Save the configurations and restart the server.
