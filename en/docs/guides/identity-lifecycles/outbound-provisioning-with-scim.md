@@ -18,6 +18,8 @@ extension for that as described
 provisioning configurations can be found under identity provider
 configuration user interface of WSO2 Identity Server.
 
+WSO2 Identity Server supports outbound provisioning with both SCIM 1.1 and SCIM 2.0 standards. This topic provides instructions  on how to configure SCIM 1.1 or SCIM 2.0 connectors to provision users from the WSO2 IS. 
+
 ---
 
 ## Configure an identity provider
@@ -49,8 +51,8 @@ identity provider in the Identity Server.
         used as an identifier.
     -   The **Alias** is the equivalent location specified in the
         identity provider.
-4.  Expand the **Outbound Provisioning Connectors** section followed by
-    the **SCIM Provisioning Configuration** section.
+4.  Expand the **Outbound Provisioning Connectors** section and select **SCIM 1.1 Provisioning Configuration** 
+    or **SCIM 2.0 Provisioning Configuration** based on the requirement.
 5.  Fill out the details in the form.  
     ![scim-config-form]({{base_path}}/assets/img/guides/scim-config-form.png)   
     <!-- Do the configurations as described in [Configuring SCIM
@@ -64,10 +66,16 @@ identity provider in the Identity Server.
 
     -   Select the **User Endpoint** and **Group Endpoint**, which are
         SCIM endpoints.
-        
-            User Endpoint : https://localhost:9443/wso2/scim/Users
-            Group Endpoint : https://localhost:9443/wso2/scim/Groups
-
+        - For SCIM 1.1
+              ```
+              User Endpoint : https://localhost:9443/wso2/scim/Users
+              Group Endpoint : https://localhost:9443/wso2/scim/Groups
+              ```
+        - For SCIM 2.0
+              ```
+              User Endpoint : https://localhost:9443/scim2/Users
+              Group Endpoint : https://localhost:9443/scim2/Groups
+              ```
     -   **User Store Domain** is the user store that you need to
         provision users to.
 
@@ -109,8 +117,8 @@ like Salesforce and Google Apps.
         ![config-outbound-provisioning]({{base_path}}/assets/img/guides/config-outbound-provisioning.png) 
         
     2.  Once added, the identity provider is displayed as an entry in a
-        list. Select **scim** from the drop-down to ensure that the SCIM
-        operation is used for provisioning.
+        list. Select **scim** for SCIM 1.1 and **SCIM2** for SCIM 2.0 from the drop-down to ensure that the required 
+        SCIM operation is used for provisioning.
     3.  The option **Blocking,** if enabled, it means that the outbound
         provisioning request must be blocked until the response is
         received. By default, the request would be non-blocking.
@@ -142,8 +150,8 @@ provider if your application supports OAuth.
         ![expand-outbound-provisioning]({{base_path}}/assets/img/guides/expand-outbound-provisioning.png)
         
     2.  Once added, the identity provider is displayed as an entry in a
-        list. Select **scim** from the drop-down to ensure that the SCIM
-        operation is used for provisioning.
+        list. Select **scim** for SCIM 1.1 and **SCIM2** for SCIM 2.0 from the drop-down to ensure that the required
+        SCIM operation is used for provisioning.
     3.  There is another option called **Blocking**. If enabled, it
         means that the outbound provisioning request must be blocked
         until the response is received. By default, the request would be

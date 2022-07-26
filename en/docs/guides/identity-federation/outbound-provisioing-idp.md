@@ -18,7 +18,8 @@ To configure outbound provisioning connectors:
 
     1. [Google outbound provisioining connector](#configure-google-provisioning)
     2. [Salesforce outbound provisioining connector](#configure-salesforce-provisioning)
-    3. [SCIM outbound provisioining connector](#configure-scim-provisioning)
+    3. [SCIM 1.1 outbound provisioining connector](#configure-scim-provisioning)
+    4. [SCIM 2.0 outbound provisioning connector](#configure-scim-provisioning)
 
 ### Configure Google provisioning
 
@@ -124,19 +125,19 @@ provisioning requests to Salesforce.
 ### Configure SCIM provisioning
 
 This configuration involves setting up the Identity Server to send
-provisioning requests to an external application that supports SCIM.
+provisioning requests to an external application that supports SCIM 1.1 or SCIM 2.0.
 
-1. Expand **SCIM Provisioning Configuration** section.
+1. Expand **SCIM 1.1 Provisioning Configuration** section or **SCIM 2.0 Provisioning Configuration** section as required.
     ![scim-provisioning]({{base_path}}/assets/img/guides/scim-provisioning.png)
-2. Enter the required fields. The table contains all the configurations that can be done for SCIM outbound provisioning.
+2. Enter the required fields. The table contains all the configurations that can be done for both SCIM 1.1 and SCIM 2.0 outbound provisioning.
 
     | Field                        | Description                                                                                                                                                                                                                                                                                               | Sample value                            |
     |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Enable Connector             | Selecting this enables identity provisioning through SCIM.                                                                                                                                                                                                                                                | Selected                                |
     | Username                     | This is the username of the SCIM application.                                                                                                                                                                                                                                                             | `Admin`                                   |
     | Password                     | This is the password of the SCIM application.                                                                                                                                                                                                                                                             | `\<password\>`                            |
-    | User Endpoint                | This is the SCIM endpoint of the users.                                                                                                                                                                                                                                                                   | `https://localhost:9443/wso2/scim/Users`  |
-    | Group Endpoint               | This is the SCIM endpoint of the groups.                                                                                                                                                                                                                                                                  | `https://localhost:9443/wso2/scim/Groups` |
+    | User Endpoint                | This is the SCIM endpoint of the users.                                                                                                                                                                                                                                                                   | For SCIM 1.1: `https://localhost:9443/wso2/scim/Users` </br> For SCIM 2.0: `https://localhost:9443/scim2/Users`  |
+    | Group Endpoint               | This is the SCIM endpoint of the groups.                                                                                                                                                                                                                                                                  | For SCIM 1.1: `https://localhost:9443/wso2/scim/Groups` </br> For SCIM 2.0: `https://localhost:9443/scim2/Groups`  |
     | User Store Domain            | This is the user store that users are created. You can specify any user store connected to your identity provider.                                                                                                                                                                                        | Domain                                  |
     | Enable Password Provisioning | This is to specify whether to send a default password or the password sent in the SCIM request, to the server where it gets provisioned. In a scenario where the Identity Server is used as a proxy, and sending the password to some other server is not appropriate, the default password can be sent. | Selected                                |
     | Default Password             | The default password that must be sent.                                                                                                                                                                                                                                                                   | `\<password\>`                            |
