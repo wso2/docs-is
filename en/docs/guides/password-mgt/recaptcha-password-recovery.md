@@ -23,7 +23,7 @@ There are two ways to configure this feature.
 
 ---
 
-### Enable password recovery with reCAPTCHA for a tenant
+## Enable password recovery with reCAPTCHA
 
 Follow the instructions given below to configure password recovery with
 reCAPTCHA for a specific tenant.
@@ -42,59 +42,42 @@ reCAPTCHA for a specific tenant.
 2.  Start WSO2 Identity Server and log in to the management console (`https://<IS_HOST>:<PORT>/carbon`) as a tenant
     admin.
 
-3.  On the **Main** tab, click **Identity** > **Identity Provider** > **Resident
-    Identity Provider**.
-    
-4.  Expand the **Account Management** tab, then click on
-    **Account Recovery.**
+3.  Go to **Main** > **Identity Provider** > **Resident Identity Provider** and expand **Account Management**.
 
-5.  Select **Enable reCaptcha for password recovery**.
+4.  Expand **Account Recovery** and select **Enable reCaptcha for password recovery** along with the account recovery methods.
 
     ![enable-recaptcha]({{base_path}}/assets/img/guides/enable-recaptcha.png) 
 
-6.  You have now successfully configured reCAPTCHA for the password
-    recovery flow. Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
+You have now successfully configured reCAPTCHA for the password recovery flow.
 
-7.  Click **Password**.
-    
-    ![forgot-password]({{base_path}}/assets/img/guides/forgotten-password-option.png)
+## Enable password recovery with reCAPTCHA globally
 
-8.  You are redirected to the **Recover Password** page where the reCAPTCHA is displayed.
+Alternatively, you can configure password recovery with reCAPTCHA globally.  
 
-    ![recover-password]({{base_path}}/assets/img/guides/recover-password-with-recaptcha.png)
+Open the `deployment.toml` file (stored in the `IS_HOME/repository/conf` folder) and enter the following configurations:
 
----
+<!--
+!!! tip
+    To avoid any configuration issues, perform **step-1** before
+    starting the WSO2 Identity Server product instance.
+-->
 
-### Enable password recovery with reCAPTCHA globally
+``` toml    
+[identity_mgt.password_reset_email] 
+enable_recaptcha= true
+```
 
-Alternatively, follow the instructions given below to configure password recovery with
-reCAPTCHA globally.  
+You have now successfully configured reCAPTCHA for the password recovery flow. 
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to enable 
-password recovery with reCAPTCHA.
+## Try it out
 
-    !!! tip
-    
-        To avoid any configuration issues, perform **step-1** before
-        starting the WSO2 Identity Server product instance.
-    
-    ``` toml    
-    [identity_mgt.password_reset_email] 
-    enable_recaptcha= true
-    ```
+Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application and click **Password**.
 
-2.  You have now successfully configured reCAPTCHA for the password
-    recovery flow. Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
+![forgot-password]({{base_path}}/assets/img/guides/forgotten-password-option.png)
 
-3.  Click **Password**.
+You are redirected to the **Recover Password** page where the reCAPTCHA is displayed.
 
-    ![forgot-password]({{base_path}}/assets/img/guides/forgotten-password-option.png)
-
-4.  You are redirected to the **Recover Password** page where the reCAPTCHA is displayed.
-
-    ![recover-password-with-recaptcha]({{base_path}}/assets/img/guides/recover-password-with-recaptcha.png)
-
----
+![recover-password-with-recaptcha]({{base_path}}/assets/img/guides/recover-password-with-recaptcha.png)
 
 !!! info "Related topics"
     - [Guide: Recover password via Email]({{base_path}}/guides/password-mgt/recover-password)

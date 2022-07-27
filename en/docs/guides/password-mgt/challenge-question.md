@@ -2,45 +2,44 @@
 
 WSO2 Identity Server enables resetting user passwords by correctly responding to predefined challenge questions (also known as security questions).
 
-## Prerequisites
-
-**Create a user**
-
-1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
-    
-2. Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
-    
-3. Click **Add New User** and create a new user by providing username and password.
-    
-4. Click **Finish**.
-
 ## Enable password reset via Challenge Questions
 
 Follow the steps below to configure WSO2 Identity Server to enable password reset by answering a challenge question.  
 
-1.  Sign in to the WSO2 Identity Server Management Console (`https://<HOST>:<PORT>/carbon`) as an administrator. 	  
+1.  Sign in to the WSO2 Identity Server Management Console as an administrator. 	  
 
-2.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
-
-	![resident-idp]({{base_path}}/assets/img/fragments/resident-idp.png)  
-
-3.	Under the **Account Management** section, click **Account Recovery**.
+2.	Go to **Main** > **Identity Providers** > **Resident** and expand **Account Management**.
 
 	![account-recovery-option]({{base_path}}/assets/img/fragments/account-recovery-option.png)  	
 
-4.	Enter the required values as given below:
-
-	-	**Security question based password recovery**: Selected
-
-	-	**Number of questions required for password recovery**: `2` 
+4.	Expand **Account Recovery** and enter the required values as given below:
 	
 	![security-question-based-password-recovery-option]({{base_path}}/assets/img/guides/security-question-based-password-recovery-option.png)
 
-5.	Click **Update**. 
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Security question based password recovery</td>
+            <td>
+                Select this checkbox to enable password recovery using security questions.
+            </td>
+        </tr>
+        <tr>
+            <td>Number of questions required for password recovery</td>
+            <td>
+                Specify the number of questions that a user should be prompted with for verification.
+            </td>
+        </tr>
+    </table>
 
-----
+5.	Click **Update** to save the changes.
 
 ## Configure the challenge questions
+
+The user must have challenge questions configured for one's user account.
 
 1. Access the WSO2 Identity Server My Account (`https://<HOST>:<PORT>/myaccount`) application.		
 
@@ -48,58 +47,54 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	![myaccount-login]({{base_path}}/assets/img/fragments/myaccount-login.png)
  
-3. Select the **Security** tab.
-
-    ![myaccount-security-tab]({{base_path}}/assets/img/fragments/myaccount-security-tab.png)
-
-3.	Under **Account Recovery**, click **+** to add or update security questions.
+3. Go to **Security** > **Account Recovery** and click **+** to add or update security questions.
 
 	![myaccount-recovery-section]({{base_path}}/assets/img/fragments/myaccount-recovery-section.png)
 
-4.	Configure the challenge questions as given below:
-
-	-	**Challenge Question 1**: `Name of your first pet?`
-	-	**Your Answer**: `Tommy`
-	-	**Challenge Question 2**: `Favourite food?`
-	-	**Your Answer**: `Pizza`
+4.	Configure the challenge questions as shown below.
 
     ![myaccount-security-questions-form]({{base_path}}/assets/img/guides/my-account/account-recovery/security-questions-form.png)
     
-5. Click **Save**.
+5. Click **Save** and sign out. 
 
-6. Sign out.  
+## Try it out
 
----
+Follow the steps below to configure WSO2 Identity Server to enable password reset via challenge questions. 
 
-## Recover password using the My Account application
-
-1. Access the WSO2 Identity Server My Account (`https://<HOST>:<PORT>/myaccount`) application.
-
-2.	Click **Password**.
+1. Access the WSO2 Identity Server My Account application and click **Password**.
 
     ![forgotten-password-option]({{base_path}}/assets/img/guides/forgotten-password-option.png)
 
-3.	Enter the user name of the newly created user and if multiple recovery options are displayed, select the **Recover with Security Questions** option.
+2.	Enter the user name of the newly created user.
+
+    !!! info
+        If multiple recovery options are displayed, select the **Recover with Security Questions** option.
 
     ![recover-password-security-question-option]({{base_path}}/assets/img/guides/recover-password-security-question-option.png)
     
-4.	Click **Submit**. 
+4.	Click **Submit** to initiate the challenge questions.
 
-5.	Enter the first challenge question answer as `Tommy` and click **Submit**.
+5.  Enter the values you configured for the challenge questions and click **Submit**.
 
-    ![security-question-pet]({{base_path}}/assets/img/guides/security-question-pet.png)
+    For example:
 
-6.	Enter the second challenge question answer as `Pizza` and click **Submit**.
+    -   Enter the first challenge question answer as `Tommy` and click **Submit**.
 
-	![security-question-food]({{base_path}}/assets/img/guides/security-question-food.png)  
+        ![security-question-pet]({{base_path}}/assets/img/guides/security-question-pet.png)
 
-7.	Enter the new password and click **Proceed**.
+    -   Enter the second challenge question answer as `Pizza` and click **Submit**.
+
+	    ![security-question-food]({{base_path}}/assets/img/guides/security-question-food.png)  
+
+6.	Enter the new password and click **Proceed**.
 
     ![password-reset-form]({{base_path}}/assets/img/guides/password-reset-form.png) 
 
-8.	Enter the username and new password and click **Sign In**. The My Account home screen appears. 
+7.	Enter the username and new password and click **Sign In**. 
 
----
+You are now signed in to My Account.
+
+<!--
 
 ## Recover password using the REST API
 
@@ -200,7 +195,7 @@ This API is used to reset user password using the confirmation key received thro
     "HTTP/1.1 200 OK"        
     ```
 
----
+-->
 
 <!--- 
 ## Manage challenge questions using SOAP APIs
@@ -381,11 +376,11 @@ This is used to validate the responses given by the user against the existing va
     </tbody>    
 </table>
 
--->
-
 ## Manage challenge questions using REST APIs
 
 There are a number of operations related to challenge questions that you can perform using REST APIs. To manage the challenge questions and answers of a user using REST APIs, see [Manage Challenge Questions]({{base_path}}/apis/challenge-rest-api).
+
+-->
 
 !!! info "Related topics"
     - [Guide: Recover Password via Email]({{base_path}}/guides/password-mgt/recover-password)

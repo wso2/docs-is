@@ -1,28 +1,14 @@
 # Recover Password via Email
 
 WSO2 Identity Server enables resetting user passwords by emailing a password reset link to the user’s registered email Id.
-
----
-
-## Prerequisites
-
-**Create a user**
-
-{!./includes/create-user-for-recovery-flows.md!}
-
-**Configure the email adapter to send emails**
-
-Enable the email sending configurations of the WSO2 Identity Server as explained here.
-
-{!./includes/configure-email-sending.md!}
-
----
     
-## Enable password reset via email
+## Set up notifications
 
 Follow the steps below to configure WSO2 Identity Server to enable password reset via email notifications.  
 
-1.	Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and check whether the following listener 
+-   [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
+
+-   Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and check whether the following listener 
     configs are in place.
     
     ```
@@ -40,45 +26,48 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 	!!! info 
         This is already configured this way by default. You can skip this step if you have not changed this configuration previously.
 
-3.	Sign in to the WSO2 Identity Server Management Console (`https://<HOST>:<PORT>/carbon`) as an administrator. 	 
+## Enable password recovery
 
-4.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
+Follow the steps given below to enable password recovery using email.
 
-	![resident-idp]({{base_path}}/assets/img/fragments/resident-idp.png) 
+1.	Sign in to the WSO2 Identity Server Management Console as an administrator.
 
-5.	Under the **Account Management** section, click **Account Recovery**.
+2.	Go to **Main** > **Identity Providers** > **Resident** and expand **Account Management**. 
 
-    ![account-recovery-option]({{base_path}}/assets/img/fragments/account-recovery-option.png) 
-
-6.	Select **Notification based password recovery**.
+3.  Expand **Account Recovery** and elect **Notification based password recovery**.
 
     ![notification-based-password-recovery-option]({{base_path}}/assets/img/guides/notification-based-password-recovery-option.png)
 
-7.	Click **Update**. 
+4.	Click **Update** to save the changes.
 
----
        
-## Recover password using the My Account application 
+## Try it out
 
-1. Access the WSO2 Identity Server My Account (`https://<HOST>:<PORT>/myaccount`) application.
+Follow the steps given below to try out password reset using email verification.
 
-2.	Click **Password**.
+1. Access the WSO2 Identity Server My Account application and click **Password**.
 
     ![forgotten-password-option]({{base_path}}/assets/img/guides/forgotten-password-option.png)
 
-3.	Enter the user name of the newly created user. If multiple recovery options are displayed, select the **Recover with Mail** option.
+2.  Enter the username of the newly created user.
+
+    !! info
+        If multiple recovery options are displayed, select the **Recover with Mail** option.
 
     ![recover-password-email-option.png]({{base_path}}/assets/img/guides/recover-password-email-option.png)
     
-4.	Click **Submit**. 
+3.	Click **Submit** to initiate password recovery
 
-5.  Log in to the email account you provided in the user profile of the user you created above. You will see a new email with a password reset request.
+4.  Log in to the email account you provided in the user profile. 
     
-6.  Follow the link provided in the email to reset the password. You can
-    now log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application
-    successfully as the user you created above using the new password.
+    !!! info
+        You will see a new email with a password reset request.
+    
+4.  Follow the link provided in the email to reset the password. 
 
----
+You can now log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application successfully as the user you created above using the new password.
+
+<!--
 
 ## Recover password using the REST API
 
@@ -145,6 +134,7 @@ This API is used to reset user password using the confirmation key received thro
     ```curl
     HTTP/1.1 201 Created
     ```
+-->
 
 !!! info "Related topics"
     - [Guide: Recover password via Challenge Questions]({{base_path}}/guides/password-mgt/challenge-question)

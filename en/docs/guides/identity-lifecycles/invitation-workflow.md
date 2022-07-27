@@ -1,18 +1,15 @@
 # Invite new users
 
-This section is about the user on-boarding flows initiated by
-administrators from an invitation to the user's email which allow respective end users to decide their own
-passwords or verify the accounts created by administrators.
-
-----
+Administrators can invite new users to join a tenant. The invitation is sent to the user's email. This allows the user to set a password and to verify the account details created by the administrator.
 
 ## Set up notifications
 
--   [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
+WSO2 Identity Server should first be configured to send email notifications to users. Apply the following configurations:
+
+-   [Configure the email sender]({{base_path}}/deploy/configure-email-sending) of WSO2 Identity Server.
 
     !!! tip 
-        The email template used to send this email notification is
-        the **AskPassword** template.
+        The email template used to send this email notification is the **AskPassword** template.
 
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
@@ -38,7 +35,9 @@ the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
 
 ## Enable the invitation flow
 
-### Use the management console
+You can enable user registration by invitation in WSO2 Identity Server in several ways.
+
+### Use the Management Console
 
 !!! info "Before you begin"
     If you are adding users via the management console, to
@@ -51,25 +50,34 @@ the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
     ask_password_from_user= true
     ```
 
-1.  Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`).
+1.  Sign in to the Management Console.
+2.  Go to **Identity Providers** > **Resident** and expand **User Onboarding**.
+3.  Expand **Ask Password** and configure the following values:
 
-2.  Click **Resident** under **Identity Providers** on **Main** > **Identity** and expand the **User Onboarding** tab.
-
-3.  Expand **Ask Password** and configure the **Ask password code expiry time** field. 
-
-4.  Also, select **Enable User Email Verification**. Click **Update** to save changes.
-                
     ![Resident idp ask password]({{base_path}}/assets/img/fragments/resident-idp-ask-password-configs.png)
+
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Enable User Email Verification</td>
+            <td>If selected, a verification notification will be triggered during user creation.</td>
+        </tr>
+        <tr>
+            <td>Ask password code expiry time</td>
+            <td>
+                The time duration for which the invitation email will be valid in minutes. For infinite validity, set the value to <code>-1</code>.
+            </td>
+        </tr>
+    </table>
 
 ### Use the configuration file
     
-You can also configure the above configurations via the configuration files.
+You can also enable the invitation flow via the server configuration file.
 
-Make sure the following configuration is added
-to the `<IS_HOME>/repository/conf/deployment.toml` file to set the
-confirmation URL valid time period in **minutes**.  
-The confirmation link that is provided to the user to set the
-password is invalid after the time specified here has elapsed.
+Add the following configurations to the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` folder).
 
 ``` toml
 [identity_mgt.user_onboarding]
@@ -88,7 +96,7 @@ password_generator = "org.wso2.carbon.user.mgt.common.DefaultPasswordGenerator"
     adding the corresponding configuration to the `
     <IS_HOME>/repository/conf/deployment.toml` file as explained in the previous section. 
         
-    Optionally, you can log in to the Management Console as a tenant
+    Optionally, you can sign in to the Management Console as a tenant
     admin and change the **Resident IDP** configurations accordingly to enable this feature for a specific tenant.
 
 ### Use the SCIM2 API
@@ -129,33 +137,56 @@ true in the SCIM2 user create request.
         curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Peter"},"userName":"Peter","password":"password","emails":[{"primary":true,"value":"peter@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}'}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
         ```
 
-## Try it out
+## Send invitation to user
 
-Follow the steps below to test the account creation using the password option.
+Follow the steps below to invite a user.
 
-{!./includes/add-new-user.md !}
+1.  Log in to the WSO2 Identity Server Management Console using administrator credentials (`admin:admin`).
 
-4.  Fill in the form:
+2.  Go to **Main** > **Identity** > **Users and Roles** and click **Add** to open the **Add Users and Roles** page.
 
-    1.  Select the userstore where you want to create this user account
-        from the drop-down as the **Domain**.  
-        This includes the list of userstores you configured. See
-        [Configuring userstores]({{base_path}}/deploy/configure-user-stores/) for more
-        information.
-    2.  Enter a unique **User Name** that is used by the user to log in.
+3.  Click **Add New User** and specify the required details as explained below.
 
-    3.  Allow users to enter their own password by selecting the **Ask
-        password from user** option.
+    ![add-a-new-user]({{base_path}}/assets/img/fragments/add-a-new-user.png)
 
-    4.  Enter a valid **Email Address** and click **Finish**.
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Domain</td>
+            <td>
+                <p>The user store in which the user details should be created. You can select an exisitng user store from the list.</p>
+                <b>Default Value</b>: PRIMARY
+                <p>Learn more about <a href="{{base_path}}/deploy/configure-user-stores/">user stores in WSO2 IS</a>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>
+                The username that should be used to sign in.
+            </td>
+        </tr>
+        <tr>
+            <td>Ask password from user</td>
+            <td>
+               This options allows you to specify the email address to which you want the invitation to be emails.
+            </td>
+        </tr>
+        <tr>
+            <td>Email Address</td>
+            <td>
+               <p>The email address of the user to which the invitation should be sent.</p>
+               <p>This field is only available when <b>Ask password from user</b> is selected.</p>
+               <p><b>Note</b>: If you are using special characters such as <code>$</code> in your email address, see <a href="{{base_path}}/guides/tenants/add-email-special-characters">Configuring Emails with Special Characters</a>.</p>
+            </td>
+        </tr>
+    </table>
 
-        !!! tip "Using special characters in the email address"
+5.  Click **Finish** to send the email.  
 
-                If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters]({{base_path}}/guides/tenants/add-email-special-characters). 
-
-5.  The Identity Server sends an email to the email address provided.
-    The email contains a redirect URL that directs the users to a screen
-    where they must provide their own password.
+WSO2 IS sends an email to the email address provided. The email contains a redirect URL that directs the user to a screen to provide their own password.
 
 !!! info "Related topics"
     - [Guide: Email Templates]({{base_path}}/guides/tenants/customize-automated-mails/)

@@ -1,24 +1,48 @@
 # Create new user
 
-Administrators can add new users in a tenant by manually registering the user details from the management console.
+Administrators can add new users in a tenant by manually registering the user details from the Management Console.
 
-## Use the management console
+## Use the Management Console
 
-{!./includes/add-new-user.md !}
+Follow the steps given below to add users fromt he Management Console.
 
-3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
+1. Sign in to the WSO2 Identity Server Management Console using administrator credentials (`admin:admin`).
 
-4. Enter a unique username and password. These are the credentials that the user will use to log in. 
+2. Go to **Main** > **Identity** > **Users and Roles** and click **Add** to open the **Add Users and Roles** page.
 
-    !!! note
-        Note that by default, the password must be atleast 5 characters.
+3. Click **Add New User** and specify the required details as explained below.
 
     ![enter-user-details]({{base_path}}/assets/img/guides/enter-user-details.png)
 
-5. Click **Finish** or you can click **Next** to assign the user to a specific role. For more information about assigning a role, see the next section. 
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Domain</td>
+            <td>
+                <p>The user store in which the user details should be created. You can select an exisitng user store from the list.</p>
+                <b>Default Value</b>: PRIMARY
+                <p>Learn more about <a href="{{base_path}}/deploy/configure-user-stores/">user stores in WSO2 IS</a>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>
+                The username that should be used to sign in.
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+               <p> The password of the user. The administrator is setting the password for the user. The user will be able to reset the password later from the My Account portal.</p>
+               <p><b>Note</b>: By default, the password must be atleast 5 characters.</p>
+            </td>
+        </tr>
+    </table>
 
-
----
+5. Click **Finish** to complete the user registration.
 
 ## Use the SCIM 2.0 REST API
 
