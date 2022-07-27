@@ -70,7 +70,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         enable_verification_by_privileged_user = true
         ```
 
-    4. Add the following properties to the `deployment.toml` file to restrict resending verification codes only by privileged users.
+    4. Add the following properties to the `deployment.toml` file to allow only privileged users to resend verification codes.
         ```toml
         [[resource.access_control]]
         context = "(.*)/api/identity/user/v1.0/resend-code(.*)"
