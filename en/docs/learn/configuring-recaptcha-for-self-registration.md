@@ -33,7 +33,7 @@ You can either configure the recaptcha for a tenant, or configure it globally.
     ![self-registration-enable-recaptcha](../assets/img/using-wso2-identity-server/self-registration-enable-recaptcha.png)
 7.  You have now successfully configured reCaptcha for the self
     registration flow. Start the WSO2 Identity Server and log in to the
-    My Account using the following link:
+    My Account portal using the following link:
     <https://localhost:9443/myaccount>
 
     !!! tip
