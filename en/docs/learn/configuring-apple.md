@@ -124,6 +124,9 @@ To configure WSO2 Identity Server as an identity provider that uses Apple for fe
 
 You have successfully added the identity provider. 
 
+!!! Note
+    Apple expires the client secret after 6 months, see [Apple Documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens) for more information.
+
 
 ### Configuring the service provider
 To configure the client application as a service provider in WSO2 Identity Server:
