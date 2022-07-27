@@ -21,7 +21,7 @@ Alternatively, you can do this by deleting claim mappings from the `claim-config
 
 !!! note
 
-    {!includes/claim-config-note.md!}
+    {!./includes/claim-config-note.md !}
 
 A sample claim mapping is given below.
 

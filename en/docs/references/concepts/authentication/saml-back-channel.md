@@ -1,6 +1,6 @@
 # SAML Back-Channel Logout
 
-{!includes/saml-logout-concept.md!}
+{!./includes/saml-logout-concept.md!}
 
 ---
 

@@ -119,7 +119,7 @@ directly used as well.
 
 ###  Configure a service provider with the custom grant type
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md !}
 
 1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 
@@ -205,7 +205,7 @@ particular but any other grant type can be customized as well.
 
 ###  Configure a service provider with the customized password grant type
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md !}
 
 1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 

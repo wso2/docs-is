@@ -24,15 +24,15 @@ renew_access_token_per_request = true
     
 ----
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
 ## Basic OAuth/OpenID Connect configuration
 
-{!includes/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-{!includes/oauth-app-config-advanced-tip.md!}
+{!./includes/oauth-app-config-advanced-tip.md!}
 
 ---
 

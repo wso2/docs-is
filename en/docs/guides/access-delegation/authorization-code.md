@@ -1,1 +1,1 @@
-{!includes/authorization-code-grant.md!}
+{!./includes/authorization-code-grant.md!}

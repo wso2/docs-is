@@ -12,7 +12,7 @@ you can do this.
 
     See the following screen for how this will look in the user
     interface of the Identity Server Management Console.  
-    ![is-user-interface](/assets/img/fragments/is-user-interface.png)
+    ![is-user-interface](../../../../assets/img/fragments/is-user-interface.png)
 
 2.  When using the `RemoteUserStoreManagerService` API, call it as follows.
 
@@ -28,4 +28,4 @@ you can do this.
     ```
 
     The following screen shows how this looks in the LDAP.  
-    ![ldap-interface](/assets/img/fragments/ldap-interface.png) 
+    ![ldap-interface](../../../../assets/img/fragments/ldap-interface.png) 

@@ -1,5 +1,5 @@
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 Modify the stuff using dev portal
 

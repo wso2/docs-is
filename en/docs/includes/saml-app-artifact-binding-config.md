@@ -19,5 +19,5 @@
 6. Click **Register**.
     
 !!! tip
-     To configure more advanced configurations, see [Advanced SAML Configurations](/guides/login/saml-app-config-advanced). 
+     To configure more advanced configurations, see [Advanced SAML Configurations](../../../../guides/login/saml-app-config-advanced). 
 

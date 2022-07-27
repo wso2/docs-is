@@ -13,7 +13,7 @@
     - Mapped Local Claim: `http://wso2.org/oidc/claims/challengeQuestion2`
 
     !!! info
-        Here, **customClaim1** and **customClaim2** are selected as claim URIs because they are not configured as requested claims in the OIDC scope. For the purpose of testing, these claims are mapped to existing local claims `http://wso2.org/claims/challengeQuestion1` and `http://wso2.org/claims/challengeQuestion2`. If necessary, you can [create two new local claims](/guides/dialects/add-claim-mapping/#add-local-claim) for this purpose.
+        Here, **customClaim1** and **customClaim2** are selected as claim URIs because they are not configured as requested claims in the OIDC scope. For the purpose of testing, these claims are mapped to existing local claims `http://wso2.org/claims/challengeQuestion1` and `http://wso2.org/claims/challengeQuestion2`. If necessary, you can [create two new local claims](../../../../guides/dialects/add-claim-mapping/#add-local-claim) for this purpose.
 
 2. Make sure you select **Supported by default** for the mapped local claims to ensure that the claims will be prompted during user registration.
 
@@ -31,6 +31,6 @@
 
     -   Mark the claims given above as **Mandatory Claims**. This will ensure that the user will be prompted once again to provide consent for the newly added/changed claims.
 
-    -   Log in to the My Account and revoke the consent receipt for the application.  When you attempt to log in to the application again, you will be prompted to provide consent for all requested claims, including the newly added/changed claims. For more information on revoking/accepting user consent, see [Consent management](/references/concepts/consent-management/).
+    -   Log in to the My Account and revoke the consent receipt for the application.  When you attempt to log in to the application again, you will be prompted to provide consent for all requested claims, including the newly added/changed claims. For more information on revoking/accepting user consent, see [Consent management](../../../../references/concepts/consent-management/).
 
 7. Click **Update**.

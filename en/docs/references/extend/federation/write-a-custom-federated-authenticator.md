@@ -226,9 +226,9 @@ After starting that partner identity server, it will run on [localhost:9444](htt
 
 ## Configure an application with the custom federated authenticator
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
-{!includes/oauth-app-config-basic.md!} 
+{!./includes/oauth-app-config-basic.md!} 
 
     !!! tip
         To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced). 

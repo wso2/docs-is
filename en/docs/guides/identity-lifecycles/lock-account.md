@@ -9,7 +9,7 @@ Account locking and account disabling are security features in WSO2 Identity Ser
 If you have not already configured WSO2 identity Server (WSO2 IS) for
 account locking, follow the instructions given below.
 
-{!includes/enable-account-locking.md!}
+{!./includes/enable-account-locking.md !}
     
 ---
 

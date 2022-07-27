@@ -50,7 +50,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ## Register a service provider
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md !}
 
 5. In the **Inbound Authentication Configuration** section, click
    **Configure** under the **OAuth/OpenIDConnect Configuration** section and
@@ -102,6 +102,7 @@ application.
 - Download the sample from GitHub.
     1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
     2. Download the `pickup-dispatch.war` file from the latest release assets.
+
 
 ### Deploy the sample app
 
