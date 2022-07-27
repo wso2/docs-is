@@ -7,7 +7,7 @@ you need to follow in order to use MariaDB.
 
 ## Datasource configurations
 
-{!./includes/datasource-config.md !}
+{!includes/datasource-config.md!}
                        
 After setting up the MariaDB database, you can point `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to the MariaDB database by following the instructions given below.

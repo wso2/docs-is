@@ -125,18 +125,18 @@ A sample configuration is given below.
 
 ### Advanced database configurations
 
-{!./includes/db-advanced-config.md !}
+{!includes/db-advanced-config.md!}
 
 ---
   
 ## Configure the connection pool behavior on return 
 
-{!./includes/connection-pool-behavior.md !}
+{!includes/connection-pool-behavior.md!}
 
 ### Configure the connection pool to commit pending transactions on connection return
         
-{!./includes/commit-pending.md !}
+{!includes/commit-pending.md!}
 
 ### Configure the connection pool to rollback pending transactions on connection return
 
-{!./includes/rollback-pending.md !}
+{!includes/rollback-pending.md!}

@@ -79,7 +79,7 @@ To configure user store-based authentication:
 
 ----
 
-{!./includes/create-ldap-server.md!}
+{!includes/create-ldap-server.md!}
 
 ----
 

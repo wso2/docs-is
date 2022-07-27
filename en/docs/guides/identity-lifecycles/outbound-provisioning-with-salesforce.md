@@ -172,7 +172,7 @@ new users.
 
 When you log into Salesforce, you normally use an email address. So, to integrate this with the Identity Server, you need to configure WSO2 IS to enable users to log in using their email addresses. In order to do that, follow the steps given below.
 
-{!./includes/enable-email-as-username.md !}
+{!includes/enable-email-as-username.md!}
 
 ---
 
@@ -426,7 +426,7 @@ When you log into Salesforce, you normally use an email address. So, to integrat
 
 ## Configure WSO2 IS as the resident Service Provider
 
-{!./includes/resident-sp.md !}
+{!includes/resident-sp.md!}
 
 ---
 

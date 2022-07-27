@@ -16,7 +16,7 @@ authenticate users using their Yahoo user accounts.
    
     ![yahoo-configuration]({{base_path}}/assets/img/guides/yahoo-configuration.png)
 
-{!./includes/register-an-identity-provider.md !}
+{!includes/register-an-identity-provider.md!}
 3. Expand the **OAuth2/OpenID Connect Configuration** section and specify the following values:
 
     <table>

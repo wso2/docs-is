@@ -2,7 +2,7 @@
 
 ## Resend confirmation Email using the admin portal 
 
-{!insert-fragment!} 
+{insert-fragment} 
 
 ---
 

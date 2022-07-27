@@ -107,7 +107,7 @@ application.
 
 ### Configure CORS
 
-{!./includes/cors-config.md!}
+{!includes/cors-config.md!}
 
 ### Deploy the sample
 
@@ -185,7 +185,7 @@ For example,
 
 ### Query SAML2 assertions
 
-{!./includes/saml-query-assertion-client-app.md!}
+{!includes/saml-query-assertion-client-app.md!}
 
 1. Access the Travelocity application via `http://wso2is.local:8080/travelocity.com/index.jsp`
 

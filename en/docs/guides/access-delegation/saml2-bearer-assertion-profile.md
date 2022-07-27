@@ -4,20 +4,20 @@ This page guides you through using the [SAML2 Bearer grant]({{base_path}}/refere
 
 ## Create a service provider
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 ----
 
 ## Basic OAuth/OpenID Connect configuration
 
-{!./includes/oauth-app-config-basic.md!}
+{!includes/oauth-app-config-basic.md!}
 
 !!! note
     -   Make sure the **SAML2** grant is enabled under **Allowed Grant Types** when configuring OAuth/OpenID Connect.
 
     -   You can provide any valid URL as the **Callback Url**. This URL value is not used for any other operations during this sample.
 
-{!./includes/oauth-app-config-advanced-tip.md!}
+{!includes/oauth-app-config-advanced-tip.md!}
 
 ----
 
@@ -91,7 +91,7 @@ This page guides you through using the [SAML2 Bearer grant]({{base_path}}/refere
 
 ### Set up the sample application
 
-{!./includes/deploying-sample-apps.md!}
+{!includes/deploying-sample-apps.md!}
 -   Download the `travelocity.com.war` file from the latest release assets.
 
 ### Deploy the sample
@@ -169,7 +169,7 @@ For example,
 
 ### CORS configuration
 
-{!./includes/cors-config.md!}
+{!includes/cors-config.md!}
 
 ### Enable SAML2 grant in the sample
 

@@ -43,7 +43,7 @@ Alternatively, you can modify the claim dialects by editing the
 
 !!! note
     
-    {!./includes/claim-config-note.md !}
+    {!includes/claim-config-note.md!}
 
 A sample claim dialect is given below.
 

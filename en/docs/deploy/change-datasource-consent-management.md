@@ -162,7 +162,7 @@ pool_options.validationInterval="30000"
 pool_options.defaultAutoCommit=false
 ```
 
-{!./includes/db-config-table.md !}
+{!includes/db-config-table.md!}
 
 
 Once when we separate out the consent database from `WSO2IdentityDB`, we need to add the 

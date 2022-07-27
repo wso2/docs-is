@@ -6,4 +6,4 @@ To enable users from other tenants to access your application too, follow the in
 
 Configure service provider to enable SaaS:
 
-{!./includes/saas-application.md !}
+{!includes/saas-application.md!}
