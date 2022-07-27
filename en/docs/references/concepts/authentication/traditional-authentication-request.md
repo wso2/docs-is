@@ -21,7 +21,7 @@ The parameter passed from the application to the identity provider to maintain a
 ----
 ###nonce parameter
 
-{!./includes/nonce.md!}
+{!includes/nonce.md!}
 
 ----
 

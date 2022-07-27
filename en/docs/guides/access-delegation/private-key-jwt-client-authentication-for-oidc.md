@@ -83,11 +83,11 @@ artifacts.
 
 ## Create a service provider
 
-{!./includes/register-a-service-provider.md !}
+{!includes/register-a-service-provider.md !}
 
-{!./includes/oauth-app-config-basic.md !}
+{!includes/oauth-app-config-basic.md !}
 
-{!./includes/oauth-app-config-advanced-tip.md!}
+{!includes/oauth-app-config-advanced-tip.md!}
 
 ---
 

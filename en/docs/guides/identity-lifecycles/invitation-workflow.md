@@ -135,7 +135,7 @@ true in the SCIM2 user create request.
 
 Follow the steps below to test the account creation using the password option.
 
-{!./includes/add-new-user.md !}
+{!includes/add-new-user.md !}
 
 4.  Fill in the form:
 

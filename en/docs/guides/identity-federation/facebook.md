@@ -53,11 +53,11 @@ Follow the steps given below to configure WSO2 Identity Server to authenticate u
 
 Now you have finished configuring Facebook as an Identity Provider.
 
-{!./includes/fb-review.md !}
+{!includes/fb-review.md !}
 
 ---
 
-{!./includes/register-an-identity-provider.md !}
+{!includes/register-an-identity-provider.md !}
     
 4.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
@@ -130,7 +130,7 @@ You have now added the identity provider.
 
 ## Configure the service provider 
 
-{!./includes/register-a-service-provider.md !}
+{!includes/register-a-service-provider.md !}
     
 4. In the **Inbound Authentication Configuration** section, click
     **Configure** under the **OAuth/OpenIDConnect Configuration** section and

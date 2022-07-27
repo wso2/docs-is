@@ -164,14 +164,14 @@ This page guides you through using WSO2 Identity Server to log in to SimpleSAMLp
 
 ## Configure the service provider in WSO2 IS
 
-{!./includes/register-a-service-provider.md !}
+{!includes/register-a-service-provider.md !}
 
 
-{!./includes/simplesaml-config-sample.md !}
+{!includes/simplesaml-config-sample.md !}
 
 ## Configure a resident identity provider in WSO2 IS
 
-{!./includes/resident-saml-sample.md !}
+{!includes/resident-saml-sample.md !}
 
 -----
 

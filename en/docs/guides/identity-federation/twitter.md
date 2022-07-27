@@ -44,7 +44,7 @@ This page guides you through configuring Twitter as a federated authenticator in
 
 ---
 
-{!./includes/register-an-identity-provider.md !}
+{!includes/register-an-identity-provider.md !}
 
 4.  Expand **Twitter Configuration** under **Federated Authenticators**
     .
@@ -99,7 +99,7 @@ This page guides you through configuring Twitter as a federated authenticator in
 
 ## Configure the service provider
 
-{!./includes/register-a-service-provider.md !}
+{!includes/register-a-service-provider.md !}
 
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
     Web SSO Configuration**, and click **Configure**.
@@ -188,7 +188,7 @@ application.
 
 ### Configure CORS
 
-{!./includes/cors-config.md!}
+{!includes/cors-config.md!}
 
 ### Deploy the sample app
 

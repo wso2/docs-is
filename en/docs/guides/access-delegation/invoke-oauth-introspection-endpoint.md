@@ -12,15 +12,15 @@ This page guides you through invoking the [OAuth Introspection Endpoint]({{base_
 
 ## Register a service provider
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 ----
 
 ## Configure the service provider
 
-{!./includes/oauth-app-config-basic.md!}
+{!includes/oauth-app-config-basic.md!}
 
-{!./includes/oauth-app-config-advanced-tip.md!}
+{!includes/oauth-app-config-advanced-tip.md!}
 
 !!! info
     If subject identifier in the token validation response needs to adhere to the " Use tenant domain in local subject identifier" and " Use user store domain in local subject identifier" configurations in service provider, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file .

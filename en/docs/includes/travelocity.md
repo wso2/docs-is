@@ -1,5 +1,5 @@
 
-{!./includes/deploying-sample-apps.md!}
+{!includes/deploying-sample-apps.md!}
 
 ---
 
@@ -44,7 +44,7 @@ Now you are sent back to the Service Providers page.
 
 ### CORS configuration
 
-{!./includes/cors-config.md!}
+{!includes/cors-config.md!}
 
 ---
 

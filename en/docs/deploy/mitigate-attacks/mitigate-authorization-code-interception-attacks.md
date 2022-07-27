@@ -116,7 +116,7 @@ steps below to do this.
 
 ## Configure a new service provider
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 ## Configure PKCE
 

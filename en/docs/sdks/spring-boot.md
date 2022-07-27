@@ -9,7 +9,7 @@ This page guides you through integrating your spring-boot application with WSO2 
 
 ## Register application
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 5. Expand **Inbound Authentication Configuration**. 
 

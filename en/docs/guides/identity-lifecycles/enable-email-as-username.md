@@ -1,3 +1,3 @@
 ## Configure Email Address as the Username
 
-{!./includes/enable-email-as-username.md!}
+{!includes/enable-email-as-username.md!}

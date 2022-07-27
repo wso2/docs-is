@@ -21,7 +21,7 @@ Copy the custom inbound authenticator to the ```<IS_HOME>/repository/components/
 
 ## Create a service provider
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 4. Expand **Inbound Authentication Configuration** and select the relevant configurations according to the custom inbound authenticator you deployed.
 

@@ -22,10 +22,10 @@ them with Facebook.
     
 5.  Click **Add Claim Mapping.** The following screen will be
     displayed.  
-    ![Add claim mapping for Facebook](../../../../assets/img/fragments/add-claim-mapping-for-facebook.png)
+    ![Add claim mapping for Facebook](/assets/img/fragments/add-claim-mapping-for-facebook.png)
     
 6.  Now add custom claim mappings as follows.  
-    ![Custom claim mapping](../../../../assets/img/fragments/custom-claim-mapping.png)
+    ![Custom claim mapping](/assets/img/fragments/custom-claim-mapping.png)
 
     !!! note 
     
@@ -77,7 +77,7 @@ For that follow the below steps:
 		authentication process, the SP can request those claims from IDP as
 		" **Requested Claims**".
 
-    ![Add requested claims](../../../../assets/img/fragments/add-requested-claims.png)
+    ![Add requested claims](/assets/img/fragments/add-requested-claims.png)
 
 	!!! info 
 		Here, the claims which are marked as **mandatory** are requested by

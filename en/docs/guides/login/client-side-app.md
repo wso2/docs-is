@@ -8,13 +8,13 @@ grant type with PKCE for client side applications (e.g.,mobile application , sin
 
 ## Register a service provider
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 ----
 
 ## Configure the service provider
 
-{!./includes/oauth-app-pkce.md!}
+{!includes/oauth-app-pkce.md!}
 
 ----
 

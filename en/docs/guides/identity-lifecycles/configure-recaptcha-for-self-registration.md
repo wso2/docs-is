@@ -18,11 +18,11 @@ brute force attacks.
 
 ---
 
-{!./includes/configure-recaptcha-api-keys.md !}
+{!includes/configure-recaptcha-api-keys.md !}
 
 ---
 
-{!./includes/set-up-recaptcha.md !}
+{!includes/set-up-recaptcha.md !}
 
 You can either configure the recaptcha for a tenant or configure it globally. 
 
