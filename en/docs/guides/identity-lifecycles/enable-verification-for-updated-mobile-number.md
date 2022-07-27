@@ -10,7 +10,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
     -   Sending the SMS OTP verification is skipped in the following instances:
         1. The `verifyMobile` claim is not set to true in the SCIM 2.0 request.
-        2. The claim update is invoked by a user other than the claim owner or a non privileged user.
+        2. The claim update is invoked by a user other than the claim owner or a non-privileged user.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
 ---
