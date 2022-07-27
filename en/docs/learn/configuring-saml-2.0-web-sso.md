@@ -262,7 +262,7 @@ To configure manually,
 				</div>
 				<div class="admonition info">
 				<p class="admonition-title">Info</p>
-				Resolving query parameters from adaptive scripts is available as an update in WSO2 IS 5.10.0 from 2022-06-28 onwards (WUM model) and from update level 154 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
+				Resolving query parameters from adaptive scripts is available as an update in WSO2 IS 5.10.0 from 2022-06-28 onwards (WUM model) and from update level 154 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on <a href="https://updates.docs.wso2.com/en/latest/updates/overview/">updating WSO2 products</a>.
 				</div>
 				</div>
 				</div></td>
