@@ -55,8 +55,7 @@ nav:
           - Single Sign-On: sample-use-cases/single-sign-on.md
           - Multi-factor authentication: sample-use-cases/multi-factor-authentication.md
           - Federated authentication: sample-use-cases/federated-authentication.md
-          - Self sign-up: sample-use-cases/self-sign-up.md
-  
+          - Self sign-up: sample-use-cases/self-sign-up.md  
   - Guides:
       - Overview: guides/before-you-start.md
       - Applications:
@@ -736,7 +735,6 @@ nav:
       - Integrations: 
         - Master Data Management: references/concepts/integrations/master-data-mgt.md
   - '': page-not-found.md
-
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
@@ -750,7 +748,7 @@ markdown_extensions:
       permalink: true
       toc_depth: 3
   - markdown_include.include:
-          base_path: docs
+       base_path: docs
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
@@ -1410,8 +1408,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
-  base_path: https://is.docs.wso2.com/en/6.0.0
-
+  base_path: http://localhost:8000
   nav_list:
     - Home
     - Get Started

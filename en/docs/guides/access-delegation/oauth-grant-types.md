@@ -4,7 +4,7 @@ This page guides you through using one of the [OAuth Grant Types]({{base_path}}/
 
 ----
 
-{!./includes/oauth-oidc-grants.md!}
+{!includes/oauth-oidc-grants.md!}
 
 ----
 
@@ -54,7 +54,7 @@ You will receive the following response with the access token.
 
 ----
 
-{!./includes/self-contained-access-tokens.md!}
+{!includes/self-contained-access-tokens.md!}
 
 
 

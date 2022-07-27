@@ -48,7 +48,7 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
         
             You can edit and customize the email template. For more information
             on how to do this, see [Customizing Automated
-            Emails](../../learn/customizing-automated-emails).
+            Emails]({{base_path}}/learn/customizing-automated-emails).
 
 1.	On the **Main** > **Identity** menu of the Management Console, click **Identity Providers** > **Resident**.
 

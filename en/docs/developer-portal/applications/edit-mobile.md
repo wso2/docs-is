@@ -1,7 +1,7 @@
 # Edit a OIDC Mobile Application
 
 ## General
-{!quick-starts/android.md!}
+{!developer-portal/applications/samples/android.md!}
 
 ## Access
 Application type specific configuration

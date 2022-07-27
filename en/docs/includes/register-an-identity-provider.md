@@ -4,8 +4,8 @@
     
 2. Navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
     <!-- Commenting out the image as there is an issue with the path when this fragment is referred in docs in different levels (eg: develop/extend) -->
-    <!--<img src="../../../../assets/img/fragments/add-identity-provider.png" width="300" alt="Add an identity provider option in Main menu" />-->
+    <!--<img src="/assets/img/fragments/add-identity-provider.png" width="300" alt="Add an identity provider option in Main menu" />-->
 
 3. Enter an **Identity Provider Name**, **Display Name**, and **Description**.
     <!-- Commenting out the image as there is an issue with the path when this fragment is referred in docs in different levels (eg: develop/extend) -->
-    <!--![Identity provider basic information](../../../../assets/img/fragments/register-identity-provider.png)-->
+    <!--![Identity provider basic information](/assets/img/fragments/register-identity-provider.png)-->

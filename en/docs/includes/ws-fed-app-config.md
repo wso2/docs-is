@@ -12,7 +12,7 @@
         are configuring WS-Federation for.  This endpoint URL will
         handle the token response.
         
-        ![ws-federation-passive.png](../../../../assets/img/guides/ws-federation-passive.png)
+        ![ws-federation-passive.png](/assets/img/guides/ws-federation-passive.png)
 
         !!! tip
         
@@ -29,7 +29,7 @@
             Here, the expiration time should be specified in milliseconds.
 
 2.  Expand the **Claim Configuration** section and map the relevant claims. 
-    <!--See [Request Attributes for the Application](../../../../guides/login/request-attributes/) for more information.-->
+    <!--See [Request Attributes for the Application](/guides/login/request-attributes/) for more information.-->
     
 3.  Click **Update** to save changes.
 

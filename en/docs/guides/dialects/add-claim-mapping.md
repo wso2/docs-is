@@ -141,7 +141,7 @@ Alternatively, you can also add a claim mapping using the configuration file.
 
 !!! note
     
-    {!./includes/claim-config-note.md !}
+    {!includes/claim-config-note.md!}
     
     !!! tip
         The claims configured in the `<IS_HOME>/repository/conf/claim-config.xml` file get applied only when you start the product for the first time, or for any newly created tenants. With the first startup, claim dialects and claims will be loaded from the file and persisted in the database. Any consecutive updates to the file will not be picked up and claim dialects and claims will be loaded from the database.

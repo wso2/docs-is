@@ -8,11 +8,11 @@ This topic guides you through configuring reCAPTCHA for secret questions in the 
 
 ---
 
-{!./includes/configure-recaptcha-api-keys.md !}
+{!includes/configure-recaptcha-api-keys.md!}
 
 ---
 
-{!./includes/set-up-recaptcha.md!}
+{!includes/set-up-recaptcha.md!}
 
 1.  Log in to the management console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
 

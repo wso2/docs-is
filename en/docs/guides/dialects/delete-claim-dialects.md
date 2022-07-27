@@ -26,7 +26,7 @@ Alternatively, you can delete the claim dialect by deleting the relevant claim c
 
 !!! note
     
-    {!./includes/claim-config-note.md !}  
+    {!includes/claim-config-note.md!}  
 
 A sample claim dialect is given below.
 

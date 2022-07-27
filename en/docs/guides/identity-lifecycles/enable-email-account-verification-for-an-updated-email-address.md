@@ -14,7 +14,7 @@ When users update their email addresses in the user profile, an email verificati
 
 ## Step 01 - Configure the email adapter to send emails
 
-{!./includes/configure-email-sending.md!}
+{!includes/configure-email-sending.md!}
 
 ---
 ## Step 02 - Enable the feature in the management console

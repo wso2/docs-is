@@ -7,7 +7,7 @@ configuring an Identity Provider.
 
 A federated authenticator is used to authenticate a user through an
 external system (e.g. Yahoo, MSN, OpenIDConnect). To write your own
-custom federated authenticator, see [Write a Custom Federated Authenticator]({{base_path}}/extend/federation/write-a-custom-federated-authenticator).
+custom federated authenticator, see [Write a Custom Federated Authenticator](/{{base_path}}/extend/federation/write-a-custom-federated-authenticator).
 
 !!! warning
     The `         <federatedAuthenticatorConfigs>        ` and

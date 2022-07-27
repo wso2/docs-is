@@ -1,7 +1,7 @@
 # Edit a Windows Desktop Application
 
 ## General
-{!quick-starts/windows.md!}
+{!developer-portal/applications/sdks/windows.md!}
 
 ## Access
 Application type specific configuration

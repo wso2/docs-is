@@ -39,7 +39,7 @@ To associate a FIDO device with the user account, refer [Add security device]({{
 
 ## Create a service provider
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 ## Configure FIDO as the second factor of authentication
 

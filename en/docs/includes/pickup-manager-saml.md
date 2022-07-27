@@ -1,8 +1,8 @@
-{!./includes/deploying-sample-apps.md!}
+{!includes/deploying-sample-apps.md!}
 
 ### CORS configuration
 
-{!./includes/cors-config.md!}
+{!includes/cors-config.md!}
 
 ### Register a service provider
 
@@ -40,7 +40,7 @@
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Advanced SAML Configurations](../../../../guides/login/saml-app-config-advanced).
+        refer, [Advanced SAML Configurations](/guides/login/saml-app-config-advanced).
 
 5.  Click **Register** to save the changes.  
 
