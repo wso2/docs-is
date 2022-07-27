@@ -155,6 +155,7 @@ nav:
           - OpenID Connect:
             - Overview: guides/login/slo-for-oidc.md
             - Back-Channel Logout: guides/login/oidc-backchannel-logout.md
+            - Federated IdP-Initiated Logout: guides/login/oidc-federated-idp-initiated-logout.md
             - Session Management and Logout: guides/login/session-management-logout.md
             - Logout URL Redirection: guides/login/oidc-logout-url-redirection.md
           - SAML:
