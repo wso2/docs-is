@@ -205,3 +205,24 @@ From IS 5.9.0 onwards, WebAuthn API is being used instead of U2F API. If you hav
     [fido.webauthn]
     enable = false
     ```
+## H2 Database for WSO2_CARBON_DB datasource
+
+From IS 5.9.0 onwards, the WSO2_CARBON_DB datasource will use the embedded H2 Database and it is not configurable.The default WSO2_CARBON_DB datasource is only used in the local registry mount of the server hence in every IS version, its recommended to use to embedded H2 DB even in the production deployment.This recommendation is enforced with the new configuration model from IS 5.9.0 onwards. So you don't need to change WSO2_CARBON_DB datasource in IS 5.9.0 and its not even showing in the deployment.toml file by default.
+
+There are two configurable datasources available in the default deployment.toml file as follows,
+```toml
+[database.identity_db]
+type = "h2"
+url = "jdbc:h2:./repository/database/WSO2IDENTITY_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
+username = "wso2carbon"
+password = "wso2carbon"
+
+[database.shared_db]
+type = "h2"
+url = "jdbc:h2:./repository/database/WSO2SHARED_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
+username = "wso2carbon"
+password = "wso2carbon"
+```
+It is sufficient to change these two datasources without considering WSO2_CARBON_DB even for production deployments due to the reasons mentioned originally.
+
+Refer:   [Working with Databases](../../setup/working-with-databases) for exact details on changing datasource configurations.
