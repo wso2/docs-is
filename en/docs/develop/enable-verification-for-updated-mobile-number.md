@@ -55,6 +55,9 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
 
 !!! note 
     To enable this feature server-wide, follow the instructions given below. 
+
+    !!! info
+        Mobile number verification by a privileged user is available as an update in WSO2 IS 5.11.0 from update level 150 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
     
     1.  Shut down the server if it is running.
     2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature and to configure the verification OTP expiry time.
@@ -79,8 +82,6 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         permissions=["/permission/admin/manage/identity/identitymgt"]
         scopes=["internal_identity_mgt_view","internal_identity_mgt_update","internal_identity_mgt_create","internal_identity_mgt_delete"]
         ```
-
-        The mobile number verification by a privileged user is available as an update in WSO2 IS 5.11.0 from update level 150 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
 
     5. Restart the server.
 
@@ -207,7 +208,10 @@ curl -X POST -H "Authorization: Basic Ym9iMTIzOnBhc3MxMjM=" -H "Content-Type: ap
 "HTTP/1.1 201 Created"
 ```
 
-Additionally can send the following curl command to resend a new SMS OTP code by a privileged user.
+Additionally, you can use the following curl command to resend a new SMS OTP code by a privileged user.
+
+!!! Note
+    Resending SMS OTP code by a privileged user is available as an update in WSO2 IS 5.11.0 from update level 159 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
 
 **Sample**
 
@@ -233,9 +237,6 @@ Additionally can send the following curl command to resend a new SMS OTP code by
     ```
     "HTTP/1.1 201 Created"
     ```
-
-!!! Note
-    Resending SMS OTP code by a privileged user is available as an update in WSO2 IS 5.11.0 from update level 159 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
 
 !!! info "Related Topics"
     See [SCIM 2.0 Rest APIs](../../develop/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
