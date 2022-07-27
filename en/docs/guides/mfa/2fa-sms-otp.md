@@ -16,6 +16,7 @@ This page guides you through configuring [two-factor authentication]({{base_path
     4. Click **Update** to save the configurations.
 - You need to [update the User Profile]({{base_path}}/guides/identity-lifecycles/update-profile) of the users with a mobile number to which the user will receive the OTP.
 - You need to [register an Identity Provider]({{base_path}}/guides/identity-federation/add-idp/) named `smsOTP`.
+- Set up the SMS OTP provider (example: Vonage, Clickatell, Plivo, Bulksms, Twillio).
 
 ### Configure the SMS OTP authenticator
 To configure the email OTP authenticator:
@@ -24,14 +25,128 @@ To configure the email OTP authenticator:
 2. Click on **Edit** corresponding to the `smsOTP` identity provider.
 3. Expand **Federated Authenticators > SMS OTP Configuration**.
 4. Enable the email OTP authenticator by selecting the **Enable** option provided.
-5. Enter **SMS URL**, **HTTP Method** (e.g., GET or POST), **HTTP Headers** and **HTTP Payload** information.
+5. Enter **SMS URL**, **HTTP Method**, **HTTP Headers** and **HTTP Payload** according to the SMS service provider you are using.
 
     !!! info
         - The above parameters depend on the service provider that you use.
 
         - If the text message and the phone number are passed as parameters in any field, include them as $ctx.num and $ctx.msg respectively.
 
-        - Optionally, enter the HTTP response code the SMS service provider sends when the API is successfully called. Nexmo API and  Bulksms API send `200` as the code, while Clickatell and Plivo send 202. If this value is unknown, leave it blank, and the connector checks if the response is `200`, `201`, or `202`.
+        - Optionally, enter the **HTTP Response Code** the SMS service provider sends when the API is successfully called. If this value is unknown, leave it blank, and the connector checks if the response is `200`, `201`, or `202`.
+
+    ??? "Configure Vonage"
+        If you have configured [Vonage](https://dashboard.nexmo.com/sign-up) as your SMS provider, add the following details when configuring the SMS provider on IS.
+
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://rest.nexmo.com/sms/json?api_key=<API_KEY>&api_secret=<API_SECRET>&from=NEXMO&to=$ctx.num&text=$ctx.msg`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>`200`</td>
+            </tr>
+        </table>
+
+    ??? "Configure Clickatell"
+        If you have configured  [Clickatell](https://www.clickatell.com/sign-up/) as your SMS provider, add the following details when configuring the SMS provider on IS.
+
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://api.clickatell.com/rest/message`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Header</strong></td>
+                <td>`X-Version: 1,Authorization: bearer ,Accept: application/json,Content-Type: application/json`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Payload</strong></td>
+                <td>`{"text":" $ctx.msg ","to":[" $ctx.num "]}`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>`202`</td>
+            </tr>
+        </table>
+
+    ??? "Configure Plivo"
+        If you have configured  [Plivo](https://manage.plivo.com/accounts/register/?utm_source=send%bulk%20sms&utm_medium=sms-docs&utm_campaign=internal) as your SMS provider, add the following details when configuring the SMS provider on IS.
+
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://api.plivo.com/v1/Account/{auth_id}/Message/`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Header</strong></td>
+                <td>`Authorization: Basic ********,Content-Type: application/json`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Payload</strong></td>
+                <td>`{"src":"+94*********","dst":"ctx.num","text":"ctx.msg"}`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>`202`</td>
+            </tr>
+        </table>
+
+    ??? "Configure Bulksms"
+        If you have configured  [Bulksms](https://www2.bulksms.com/login.mc) as your SMS provider, add the following details when configuring the SMS provider on IS.
+
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0?username=<username>&password=<password>&message=$ctx.msg&msisdn=$ctx.num`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Header</strong></td>
+                <td>`Content-Type: application/x-www-form-urlencoded`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>`200`</td>
+            </tr>
+        </table>
+
+    ??? "Configure Twillio"
+        If you have configured  [Twillio](https://www.twilio.com/try-twilio) as your SMS provider, add the following details when configuring the SMS provider on IS.
+
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://api.twilio.com/2010-04-01/Accounts/<AccountSID>/SMS/Messages.json`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Header</strong></td>
+                <td>`Authorization: Basic base64{AccountSID:AuthToken}`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Payload</strong></td>
+                <td>`Body=$ctx.msg&To=$ctx.num&From=urlencode{FROM_NUM}`</td>
+            </tr>
+        </table>
 
 6. Click **Update** to save the configurations.
 
@@ -100,15 +215,15 @@ To configure backup SMS OTP codes:
 
 2. Click **Add Local Claim**, and enter the following details:
 
-	| Field name	| Value	|
-	|---------------|-------|
-	| Claim URI	| `http://wso2.org/claims/otpbackupcodes`	|
-	| Display Name	| `backupotp`	|
-	| Description	| Backup codes for SMS OTP	|
-	| Mapped Attribute	| `postalcode`	|
-	| Supported by Default	| Selected	|
+    | Field name    | Value |
+    |---------------|-------|
+    | Claim URI | `http://wso2.org/claims/otpbackupcodes`   |
+    | Display Name  | `backupotp`   |
+    | Description   | Backup codes for SMS OTP  |
+    | Mapped Attribute  | `postalcode`  |
+    | Supported by Default  | Selected  |
 
-	<img name='allow-to-use-back-up-codes' src='{{base_path}}/assets/img/guides/allow-to-use-back-up-codes.png' class='img-zoomable'/>
+    <img name='allow-to-use-back-up-codes' src='{{base_path}}/assets/img/guides/allow-to-use-back-up-codes.png' class='img-zoomable'/>
 
 3. Click **Add** to add the new local claim.
 
@@ -118,7 +233,6 @@ A backup code can have any number of digits, and you can define many backup code
 
 1. On the Management Console, go to **Identity > Users and Roles > List > Users**.
 
-2. Select the user you want to add backup codes for, and click **User Profile**.
+2. Select the user you want to add backup codes for and click **User Profile**.
 
 3. Add the backup codes so that the user can disable SMS OTP by selecting **Disable SMS OTP** if required.
-
