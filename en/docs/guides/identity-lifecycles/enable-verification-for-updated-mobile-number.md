@@ -10,7 +10,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
     -   Sending the SMS OTP verification is skipped in the following instances:
         1. The `verifyMobile` claim is not set to true in the SCIM 2.0 request.
-        2. The claim update is invoked by a user other than the claim owner.
+        2. The claim update is invoked by a user other than the claim owner or a non-privileged user.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
 ---
@@ -67,7 +67,14 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         enable_verification = true
         verification_sms_otp_validity = "5"
         ```
-    3. Restart the server.
+
+    3. By default, mobile number verification is not allowed for privileged users. Add the following property to the above `deployment.toml` config to enable this server wide.
+        ```toml
+        [identity_mgt.user_claim_update.mobile]
+        enable_verification_by_privileged_user = true
+        ```
+
+    4. Restart the server.
 ---
 
 ## Try it out 
@@ -184,6 +191,33 @@ Given below is a sample request and the relevant response to request a new verif
     ```
 
 ---
+
+Additionally, you can use the following curl command to resend a new SMS OTP code by a privileged user.
+
+**Sample**
+
+!!! abstract ""
+    **Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user":{},"properties": []}'
+    "https://localhost:9443/api/identity/user/v1.0/resend-code"
+    ```
+
+    The user and the verification scenario should be specified in the request body as follows :
+    ```
+    "user": {"username": "", "realm": ""}
+    "properties": [{"key":"RecoveryScenario", "value":"MOBILE_VERIFICATION_ON_UPDATE"}]}
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"MOBILE_VERIFICATION_ON_UPDATE"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
+    ```
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
 
 !!! info "Related topics"
     See [SCIM 2.0 Rest APIs]({{base_path}}/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
