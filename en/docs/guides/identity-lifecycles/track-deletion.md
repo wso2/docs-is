@@ -67,7 +67,7 @@ By default all logs related to user deletion are written in CSV format
     functionality to write the details to a text file, database, or any
     other file depending on your requirement.
 
-Follow the steps below If you want to extend the functionality of the
+Follow the steps below if you want to extend the functionality of the
     event recorder:
     
 1.  Implement the UserDeletionEventRecorder interface.

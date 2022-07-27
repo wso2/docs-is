@@ -101,9 +101,17 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
  
 ## Configure ELK Analytics Dashboards
  
-1. Log in to Kibana.
-2. Navigate to **Stack Management** > **Index Management** and select the **Index Templates** tab.
-3. Under the **Index patterns** column, if you have any index patterns created under the following names, delete them before moving to the next step.
+1. Navigate to Kibana installation folder and run the following command to install the [Kibana Enhanced Table](https://github.com/fbaligand/kibana-enhanced-table) plugin. 
+    ```
+    ./bin/kibana-plugin install https://github.com/fbaligand/kibana-enhanced-table/releases/download/vA.B.C/enhanced-table-A.B.C_X.Y.Z.zip
+    ```
+   
+    !!! info
+        Replace A,B,C with the plugin version and X,Y,Z with the Kibana version you have installed.
+   
+2. Restart Kibana service and log in to Kibana.
+3. Navigate to **Stack Management** > **Index Management** and select the **Index Templates** tab.
+4. Under the **Index patterns** column, if you have any index patterns created under the following names, delete them before moving to the next step.
  
      - wso2-iam-alert-auth*
      - wso2-iam-alert-session*
@@ -111,8 +119,8 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
      - wso2-iam-session-raw*
      - wso2-iam-session-time-series*
  
-4. Download the artifact file [here]({{base_path}}/assets/img/elk-analytics/kibana-8-x-auth-and-session.ndjson).
-5. Navigate to **Stack Management** > **Saved Objects**.
-6. Click **Import**, add the downloaded artifact file as an import object, and import. 
-7. Login to [MyAccount](https://localhost:9443/myaccount) of Identity Server using default admin credentials.
-8. Navigate to the **Dashboard** section of Kibana to view the created **Auth** and **Session** dashboards.
+5. Download the artifact file [here]({{base_path}}/assets/img/elk-analytics/kibana-8-x-auth-and-session.ndjson).
+6. Navigate to **Stack Management** > **Saved Objects**.
+7. Click **Import**, add the downloaded artifact file as an import object, and import. 
+8. Login to [MyAccount](https://localhost:9443/myaccount) of Identity Server using default admin credentials.
+9. Navigate to the **Dashboard** section of Kibana to view the created **Auth** and **Session** dashboards.
