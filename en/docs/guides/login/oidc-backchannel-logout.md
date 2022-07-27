@@ -60,7 +60,7 @@ To enable OIDC back-channel logout, the relying party/client application needs t
 
 ## Configure back-channel single logout
 
-{!includes/edit-oauth-oidc-configs.md!}
+{!./includes/edit-oauth-oidc-configs.md!}
 
 5. Select **Enable OIDC Backchannel Logout** and enter the Logout URL as `http://localhost:8080/playground2/bclogout`.
 

@@ -1,4 +1,4 @@
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 

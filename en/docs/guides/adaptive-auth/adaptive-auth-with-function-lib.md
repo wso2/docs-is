@@ -18,7 +18,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!includes/add-function-library-lvl3.md!}
+{!./includes/add-function-library-lvl3.md!}
 
 ----
 
@@ -171,7 +171,7 @@ Follow the instructions below to delete a function library.
 
 ### Create a service provider
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ### Include function libraries in adaptive authentication scripts
 

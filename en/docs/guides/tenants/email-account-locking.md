@@ -7,7 +7,7 @@ below.
 
 Enable the email sending configurations of the WSO2 Identity Server as explained below.
 
-{!includes/configure-email-sending.md !}
+{!./includes/configure-email-sending.md !}
 
 !!! tip
     The email template used to send the email notification for

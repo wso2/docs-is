@@ -36,7 +36,7 @@ Follow the instructions below to add a new dialect through the configuration fil
 
 !!! note
 
-    {!includes/claim-config-note.md !}
+    {!./includes/claim-config-note.md !}
 
 1.  Open the `claim-config.xml` file found in the
     `<IS_HOME>/repository/conf/` folder.

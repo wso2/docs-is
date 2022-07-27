@@ -4,7 +4,7 @@ Administrators can add new users in a tenant by manually registering the user de
 
 ## Use the management console
 
-{!includes/add-new-user.md !}
+{!./includes/add-new-user.md !}
 
 3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
 

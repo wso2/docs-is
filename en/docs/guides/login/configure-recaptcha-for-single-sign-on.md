@@ -10,16 +10,16 @@ attacks.
     -   For more information on brute force attacks, see [Mitigating Brute
     Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks/).
 
-{!includes/configure-recaptcha-api-keys.md !}
+{!./includes/configure-recaptcha-api-keys.md !}
 
 
 ---
 
-{!includes/set-up-recaptcha.md !}
+{!./includes/set-up-recaptcha.md !}
 
 ## Configure reCAPTCHA for SSO
 
-{!includes/configure-recaptcha-for-sso.md !}
+{!./includes/configure-recaptcha-for-sso.md !}
 
 !!! Info
      If the user exceeds the maximum allowed failed login attempts as well, be sure to [configure email notifications for account locking]({{base_path}}/guides/tenants/email-account-locking).

@@ -23,7 +23,7 @@ Follow the steps below to navigate to the federated authenticators configuration
 
 
 
-{!includes/register-an-identity-provider.md !}
+{!./includes/register-an-identity-provider.md !}
 
 4.	Under the **Federated Authenticators** section, click **SAML2 Web SSO Configuration**.
 

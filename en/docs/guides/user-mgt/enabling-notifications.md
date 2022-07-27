@@ -4,7 +4,7 @@ The primary objective of this is to send a notification to an external endpoint 
 
 The configuration differs based on the type of notifications you may want to send to the external endpoint. The following instructions provide information on how to send an email when a user operation takes place.
 
-{!includes/configure-email-sending.md!}
+{!./includes/configure-email-sending.md!}
 
 ---
 

@@ -1,4 +1,4 @@
-{!includes/register-playground-application-portal.md!}
+{!./includes/register-playground-application-portal.md!}
 
 13. Expand **Request Path Authentication**.
 
