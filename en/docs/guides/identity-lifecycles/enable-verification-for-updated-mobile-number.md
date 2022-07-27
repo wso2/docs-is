@@ -194,7 +194,7 @@ Given below is a sample request and the relevant response to request a new verif
 
 ---
 
-Additionally can send the following curl command to resend a new SMS OTP code by a privileged user.
+Additionally, you can use the following curl command to resend a new SMS OTP code by a privileged user.
 
 **Sample**
 
