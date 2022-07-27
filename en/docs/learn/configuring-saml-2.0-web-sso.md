@@ -251,7 +251,7 @@ To configure manually,
 				<td><div class="content-wrapper">
 				<p>This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here. These will be sent along with the SAML request.</p>
 				<div class="admonition note">
-				<p>If you want to send query parameters that need to be updated dynamically with each SAML request, the value needs to be defined within parenthesis.This value should be the key of the query parameter sent in the SAML request URL.</p>
+				<p>If you want to send query parameters that need to be updated dynamically with each SAML request, the value needs to be defined within parenthesis. This value should be the key of the query parameter sent in the SAML request URL.</p>
 				<strong>Example:</strong> <code>locale={lang}</code>
 				<br/><br/>
 				<p>Multiple parameters can be defined by separation of query parameters using the <code> &amp;</code> character.</p>
