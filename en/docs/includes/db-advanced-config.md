@@ -26,4 +26,4 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 	defaultAutoCommit=false
 	```
 
-{!./includes/db-config-table.md !}
+{!includes/db-config-table.md !}

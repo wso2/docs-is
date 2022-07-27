@@ -8,13 +8,13 @@ to configure authentication for native mobile applications.
 
 ## Register a service provider
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 ---
 
 ## Configure the service provider
 
-{!./includes/oauth-app-pkce.md!}
+{!includes/oauth-app-pkce.md!}
 
 ----
 

@@ -4,7 +4,7 @@ This page provides instructions on how to get user claims of the authorized user
 
 You can configure this for all tenants by configuring the `deployment.toml` file or configure it tenant-wise using the management console. 
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 3.  Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 

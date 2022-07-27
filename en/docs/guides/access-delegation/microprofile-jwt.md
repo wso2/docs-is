@@ -18,7 +18,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ## Configure the service provider
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
 4. Expand **Claim Configuration** section.
 
@@ -32,9 +32,9 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ## Basic OAuth/OpenID Connect configuration
 
-{!./includes/oauth-app-config-basic.md!}
+{!includes/oauth-app-config-basic.md!}
 
-{!./includes/oauth-app-config-advanced-tip.md!}
+{!includes/oauth-app-config-advanced-tip.md!}
 
 Now the generated ID token using this client is compatible with the MP-JWT specification.
 

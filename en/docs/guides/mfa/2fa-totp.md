@@ -63,7 +63,7 @@ You can also add the following configurations to enhance your TOTP configuration
 
 Optionally, you can set up the users to receive the TOTP code via an email during the authentication flow. You need to configure the email adapter for this purpose.
 
-{!./includes/configure-email-sending.md!}
+{!includes/configure-email-sending.md!}
 
 !!! tip
     The email template used to send this email notification is the **TOTP** template.

@@ -3,7 +3,7 @@
 This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using SMS OTP as the second factor.
 
 ## Set up SMS OTP provider
-{!./includes/connect-sms-provider.md!}
+{!includes/connect-sms-provider.md!}
 
 ## Enable SMS OTP for an SP
 

@@ -8,7 +8,7 @@ you need to follow in order to use Oracle RAC for this purpose.
 
 ## Datasource configurations
 
-{!./includes/datasource-config.md !}
+{!includes/datasource-config.md !}
                        
 After setting up the Oracle RAC database, you can point the `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to that Oracle RAC database by following the instructions given below.
@@ -23,7 +23,7 @@ You can configure the datasource by editing the default configurations in `<IS-H
 
 Following are the basic configurations and their descriptions. 
 
-{!./includes/db-basic-config.md !}    
+{!includes/db-basic-config.md !}    
  
 A sample configuration is given below.
 
@@ -95,6 +95,6 @@ A sample configuration is given below.
 
 ### Advanced database configurations
 
-{!./includes/db-advanced-config.md !}
+{!includes/db-advanced-config.md !}
     
     

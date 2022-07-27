@@ -42,7 +42,7 @@ Generally, SAML authentication requests and assertion data is sent through the b
 
 ---
 
-{!./includes/artifact-binding-settings.md!}
+{!includes/artifact-binding-settings.md!}
 
 ----
 
@@ -68,7 +68,7 @@ application.
 
 ### Configure CORS
 
-{!./includes/cors-config.md!}
+{!includes/cors-config.md!}
 
 ### Deploy the sample
 

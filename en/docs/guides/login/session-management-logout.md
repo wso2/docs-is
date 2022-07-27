@@ -4,11 +4,11 @@ This page guides you through [managing user sessions and logout]({{base_path}}/r
 
 ## Register a service provider
 
-{!./includes/register-a-service-provider.md!}
+{!includes/register-a-service-provider.md!}
 
-{!./includes/oauth-app-config-basic.md!}
+{!includes/oauth-app-config-basic.md!}
 
-{!./includes/local-outbound-tenant-domain-in-sub-lvl3.md!}
+{!includes/local-outbound-tenant-domain-in-sub-lvl3.md!}
 
 !!! note
         **Alternatively,** to sign the ID token with the service provider's

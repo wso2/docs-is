@@ -3,7 +3,7 @@ correctly by [adding a claim mapping](../../../../guides/dialects/add-claim-mapp
 
 Under “Mapped Attribute(s)”, you need to follow the pattern.
 
-![mapped-attributes](../../../../assets/img/fragments/mapped-attributes.png)
+![mapped-attributes](/assets/img/fragments/mapped-attributes.png)
 
 However, for the default user store, you do not need to provide the
 domain name. As an example, if you have two user stores, one is the

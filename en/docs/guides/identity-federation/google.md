@@ -33,7 +33,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ---
 
-{!./includes/register-an-identity-provider.md !}
+{!includes/register-an-identity-provider.md !}
 
 4.  Go to **Google Configuration** under **Federated Authenticators**.
 5.  Select the checkbox **Enable**.
@@ -50,7 +50,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ## Register a service provider
 
-{!./includes/register-a-service-provider.md !}
+{!includes/register-a-service-provider.md !}
 
 5. In the **Inbound Authentication Configuration** section, click
    **Configure** under the **OAuth/OpenIDConnect Configuration** section and

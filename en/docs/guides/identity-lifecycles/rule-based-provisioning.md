@@ -8,7 +8,7 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 
 -----
 
-{!./includes/register-an-identity-provider.md !}
+{!includes/register-an-identity-provider.md !}
 
 1.	Expand the **Outbound Provisioning Connectors** section and select
     [Google]({{base_path}}/guides/identity-lifecycles/outbound-provisioning-with-google),
@@ -19,7 +19,7 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 
 ## Configure a service provider 
 
-{!./includes/register-a-service-provider.md !}
+{!includes/register-a-service-provider.md !}
 
 1.	Expand the **Outbound Provisioning Configuration** section and select the provisioning connector you configured in the previous section.
 
@@ -31,7 +31,7 @@ Follow the steps given below to configure rule-based provisioning in WSO2 Identi
 
 ## Configure outbound provisioning
 
-{!./includes/configure-outbound-provisioning.md !}
+{!includes/configure-outbound-provisioning.md !}
 
 1.	Select **Enable Rules**.
 

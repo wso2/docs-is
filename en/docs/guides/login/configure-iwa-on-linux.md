@@ -225,7 +225,7 @@ authenticator.
 
 Set up IWA as a local authenticator or as a federated authenticator by following the steps above.
 
-{!./includes/travelocity.md !}
+{!includes/travelocity.md !}
 
 3.  Edit the service provider you created for the Travelocity sample,
     and expand the **Local and Outbound Authentication** section.
