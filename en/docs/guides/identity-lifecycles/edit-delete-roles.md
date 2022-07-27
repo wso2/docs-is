@@ -6,7 +6,7 @@ This section guides you through editing or deleting a user role in WSO2 Identity
 
 ## Use the Management Console
 
-{!includes/edit-delete-role.md!}
+{!./includes/edit-delete-role.md !}
 
 ---
 

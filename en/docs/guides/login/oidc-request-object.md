@@ -5,11 +5,11 @@ If you want to pass any sensitive parameter with the authentication request whic
 
 ## Register a service provider
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
-{!includes/encrypt-id-tokens.md!}
+{!./includes/encrypt-id-tokens.md!}
 
 ## Configure claims
 

@@ -8,7 +8,7 @@ you need to follow in order to use Oracle for this purpose.
 
 ## Datasource configurations
 
-{!includes/datasource-config.md!}
+{!./includes/datasource-config.md !}
                        
 After setting up the Oracle database, you can point the `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to that Oracle database by following the instructions given below.
@@ -23,7 +23,7 @@ You can configure the datasource by editing the default configurations in `<IS-H
 
 Following are the basic configurations and their descriptions. 
 
-{!includes/db-basic-config.md!}  
+{!./includes/db-basic-config.md !}  
  
 A sample configuration is given below.
 
@@ -78,19 +78,19 @@ A sample configuration is given below.
             
 ### Advanced database configurations
 
-{!includes/db-advanced-config.md!}
+{!./includes/db-advanced-config.md !}
 
 ---
   
 ## Configure the connection pool behavior on return 
 
-{!includes/connection-pool-behavior.md!}
+{!./includes/connection-pool-behavior.md !}
 
 ### Configure the connection pool to commit pending transactions on connection return
         
-{!includes/commit-pending.md!}
+{!./includes/commit-pending.md !}
 
 ### Configure the connection pool to rollback pending transactions on connection return
 
-{!includes/rollback-pending.md!}
+{!./includes/rollback-pending.md !}
 

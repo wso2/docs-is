@@ -1,4 +1,4 @@
-{!includes/deploying-sample-apps.md!}
+{!./includes/deploying-sample-apps.md!}
 -   Download the sample from GitHub.
 
     1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
@@ -13,7 +13,7 @@ Next, deploy the sample web app on a web container.
 
 2. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
 
-    ![Configurations of Pickup Dispatch application](/assets/img/fragments/pickup-key-secret.png)
+    ![Configurations of Pickup Dispatch application](../../../../assets/img/fragments/pickup-key-secret.png)
 
 3. Next, copy the extracted and modified `pickup-dispatch` folder to the `<TOMCAT_HOME>/webapps` folder.
 
@@ -37,7 +37,7 @@ Next, deploy the sample web app on a web container.
     
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
-        refer, [Advanced OpenID Connect Configurations](/guides/login/oauth-app-config-advanced)
+        refer, [Advanced OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced)
         
 9.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 

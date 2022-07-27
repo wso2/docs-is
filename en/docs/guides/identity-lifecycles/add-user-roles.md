@@ -6,7 +6,7 @@ This section guides you through the ways of adding a user role to WSO2 Identity 
 
 ## Use the Management Console
 
-{!includes/add-user-role.md!}
+{!./includes/add-user-role.md !}
 
 ---
 

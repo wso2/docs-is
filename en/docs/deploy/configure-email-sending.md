@@ -48,4 +48,3 @@ This document explains the steps to configure WSO2 Identity Server to send email
 
 <!-- !!! note
     {!./includes/google-two-factor.md !}-->
-

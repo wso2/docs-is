@@ -8,7 +8,7 @@ Consider a scenario where you want users to be authenticated into an application
 
 ----
 
-{!includes/oauth-playground.md!}
+{!./includes/oauth-playground.md !}
 
 ----
 

@@ -12,7 +12,7 @@ Make the following changes to the created service provider.
 
 To add an authentication script to the service provider:
 
-{!includes/add-adaptive-script.md!}
+{!./includes/add-adaptive-script.md!}
 
     If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement, and then engage the script to the service provider’s authentication step configuration. 
 

@@ -1,6 +1,6 @@
 ## Configure back-channel single logout
 
-{!includes/edit-oauth-oidc-configs.md!}
+{!./includes/edit-oauth-oidc-configs.md!}
 
 5. Select **Enable OIDC Backchannel Logout** and enter the Logout URL.
 

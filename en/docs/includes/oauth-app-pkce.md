@@ -12,7 +12,7 @@ Make the following changes to the created service provider.
 
 4. Select **PKCE Mandatory** in order to enable PKCE. 
 
-    ![http://localhost:8000/](/assets/img/guides/enable-pkce.png)
+    ![enable-pkce](../../../../assets/img/guides/enable-pkce.png)
            
 5. Click **Add**. 
 
@@ -20,4 +20,4 @@ Make the following changes to the created service provider.
         - Note the generated **OAuth Client Key** and **OAuth Client Secret**. You will need these values later on when sending 
         the requesting the code and the access token.
         
-        - To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](/guides/login/oauth-app-config-advanced).
+        - To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).

@@ -119,7 +119,7 @@ authenticator.
 
 Let's configure WSO2 IS with IWA as a local or federated authenticator.
 
-{!includes/register-an-identity-provider.md!}
+{!./includes/register-an-identity-provider.md !}
 4. Expand the **Federated Authenticators** section, expand **IWA Federated Configuration**, and fill in the following values:
 
     <table>

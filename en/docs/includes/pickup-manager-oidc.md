@@ -1,5 +1,5 @@
 
-{!includes/deploying-sample-apps.md!}
+{!./includes/deploying-sample-apps.md!}
 -   Download the sample from GitHub.
 
     1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
@@ -14,7 +14,7 @@ Next, deploy the sample web app on a web container.
 
 2. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
 
-    ![pickup-key-secret-2](/assets/img/fragments/pickup-key-secret-2.png)
+    ![pickup-key-secret-2](../../../../assets/img/fragments/pickup-key-secret-2.png)
 
 3. Next, copy the extracted and modified `pickup-manager` folder to the `<TOMCAT_HOME>/webapps` folder.
 
@@ -39,6 +39,6 @@ Next, deploy the sample web app on a web container.
 
     !!! Tip
         For more information on the advanced configurations
-        refer, [Advanced OAuth/OpenID Connect Configurations](/guides/login/oauth-app-config-advanced).
+        refer, [Advanced OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).
 
 5.  Click **Register** to save the changes.

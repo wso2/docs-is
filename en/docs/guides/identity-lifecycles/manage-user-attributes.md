@@ -11,12 +11,12 @@ There two main ways to view, add, edit, and delete attributes of a user.
 
 ## Claim mapping when using multiple user stores
 
-{!includes/attribute-mapping.md!}
+{!./includes/attribute-mapping.md !}
 
 
 ### Attributes with multiple values
 
-{!includes/attributes-with-multiple-values.md!}
+{!./includes/attributes-with-multiple-values.md !}
 
 ## Write custom attributes
 

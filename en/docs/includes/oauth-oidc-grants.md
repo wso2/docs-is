@@ -1,4 +1,4 @@
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
@@ -9,7 +9,7 @@
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](/guides/login/oauth-app-config-advanced).
+        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).
         
 7.  Click **Add**. 
 
@@ -24,7 +24,7 @@
 1. Send the following request using a browser-based application to obtain the authorization code. 
 
     !!! tip
-        You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Authorization Code Grant with OAuth 2.0 Playground](/quick-starts/auth-code-playground).
+        You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Authorization Code Grant with OAuth 2.0 Playground](../../../../quick-starts/auth-code-playground).
 
     !!! abstract ""
         **Request format**
@@ -83,7 +83,7 @@
 Send the following request using a browser-based application to obtain the ID token. 
 
 !!! tip
-    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Implicit Grant with OAuth 2.0 Playground](/quick-starts/implicit-playground).
+    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Implicit Grant with OAuth 2.0 Playground](../../../../quick-starts/implicit-playground).
 
 !!! abstract ""
     **Request format**
