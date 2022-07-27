@@ -64,7 +64,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         enable_verification = true
         verification_sms_otp_validity = “5”
         ```
-    3. By default mobile number verification is not allowed for privileged users. Add the following property to the above `deployment.toml` config to enable this server wide.
+    3. By default, mobile number verification is not allowed for privileged users. Add the following property to the above `deployment.toml` file to enable this server wide.
         ```toml
         [identity_mgt.user_claim_update.mobile]
         enable_verification_by_privileged_user = true
