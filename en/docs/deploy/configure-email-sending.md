@@ -36,13 +36,10 @@ This document explains the steps to configure WSO2 Identity Server to send email
         For information about the SMTP, see
         [here](https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html).
 
-    !!! info "Using a Gmail account"
-        If you use a Gmail account as the **from_address**, you must create an [App Password](https://support.google.com/accounts/answer/185833?visit_id=637943607149528455-3801902236&p=InvalidSecondFactor&rd=1).
-        After you get an **App Password** from Google, update the `password`.
-
     !!! info
-        If your password contains special characters (example: `<`, `>`, `&`), you will run into errors when running the server. To avoid errors, update the `password` parameter as follows:
-
+        - If you use a Gmail account as the **from_address**, you must create an [App Password](https://support.google.com/accounts/answer/185833?visit_id=637943607149528455-3801902236&p=InvalidSecondFactor&rd=1).
+        After you get an **App Password** from Google, update the `password`.
+        - If your password contains special characters (example: `<`, `>`, `&`), you will run into errors when running the server. To avoid errors, update the `password` parameter as follows:
         ```toml
         password= "<![CDATA[xxxx]]>"
         ```
