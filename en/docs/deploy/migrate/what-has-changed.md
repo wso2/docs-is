@@ -594,7 +594,7 @@ Applications can configured as management applications in the following methods:
     This will affect only new applications. All applications that existed prior to the migration will still be able to access the Server's Management APIs.
 
 ### Resend Code API Restrictions
-From Identity Server 6.0.0 onwards, only users with identity management permission are able to invoke resend-code API.
+From Identity Server 6.0.0 onwards, only users with identity management permission are able to invoke the resend-code API.
 
 ## Database
 This section covers the updates related to database configurations on Identity Server 6.0.0.
