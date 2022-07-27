@@ -140,7 +140,7 @@ You can either configure the recaptcha for a tenant, or configure it globally.
 4.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha](../../learn/setting-up-recaptcha).
-5.  Start the WSO2 Identity Server and log in to the My Account
+5.  Start the WSO2 Identity Server and log in to the My Account portal
     using the following link: `<https://localhost:9443/myaccount>`
 
     !!! tip
