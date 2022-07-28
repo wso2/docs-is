@@ -508,6 +508,7 @@ nav:
           - Authentication: apis/use-the-authentication-rest-apis.md
           - Authentication data: apis/authentication-data-api.md
           - Session management: apis/session-mgt-rest-api.md
+          - Extending IdP session: apis/idp-session-extender-endpoint.md
       - Authorization:
           - Entitlement: apis/entitlement-with-rest-apis.md
       - User management:
