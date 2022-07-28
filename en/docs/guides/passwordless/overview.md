@@ -1,6 +1,6 @@
 # Add passwordless login
 
-This sections provides instructions on how to add passwordless login to your SPAs or web applications.
+This section provides instructions on how to add passwordless login to your SPAs or web applications.
 
 ## FIDO2 security key/biometrics login
 FIDO2 lets users use FIDO2-supported hardware security keys or built-in authenticators on their devices to log in.
