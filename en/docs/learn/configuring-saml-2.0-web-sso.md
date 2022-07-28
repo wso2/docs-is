@@ -250,17 +250,23 @@ To configure manually,
 				<td>Additional Query Parameters</td>
 				<td><div class="content-wrapper">
 				<p>This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here. These will be sent along with the SAML request.</p>
+				<div class="admonition note">
+				<p>If you want to send query parameters that need to be updated dynamically with each SAML request, the value needs to be defined within parenthesis. This value should be the key of the query parameter sent in the SAML request URL.</p>
+				<strong>Example:</strong> <code>locale={lang}</code>
+				<br/><br/>
+				<p>Multiple parameters can be defined by separation of query parameters using the <code> &amp;</code> character.</p>
+				<strong>Example:</strong> <code>locale={lang}&amp;scope=email profile</code>
+				<br/><br/>
+				<p>Alternatively, use the following format to send query parameters that are resolved using an adaptive authentication script.</p>
+				<strong>Example:</strong> <code>login_hint=$authparam{paramName} </code>
+				</div>
 				<div class="admonition info">
 				<p class="admonition-title">Info</p>
-				<p>If you want to send query parameters that need to be updated dynamically with each SAML request, the value needs to be defined within parenthesis.This value should be the key of the query parameter sent in the SAML request URL.<br />
-				Example: <code>                locale={lang}               </code></p>
-				<p>Multiple parameters can be defined by separation of query parameters using the <code>                &amp;               </code> character.</p>
-				<div>
-				Example: <code>                locale={lang}&amp;scope=openid email profile               </code>
+				Resolving query parameters from adaptive scripts is available as an update in WSO2 IS 5.10.0 from 2022-06-28 onwards (WUM model) and from update level 154 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on <a href="https://updates.docs.wso2.com/en/latest/updates/overview/">updating WSO2 products</a>.
 				</div>
 				</div>
 				</div></td>
-				<td><code>             paramName1=value1            </code></td>
+				<td><code>paramName1=value1</code></td>
 			</tr>
 		</tbody>
 	</table> 
