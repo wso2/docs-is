@@ -10,7 +10,7 @@ However, there can be instances where you cannot use a GET request as the OIDC l
 
 ## Register a service provider
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ## Configure the service provider
 

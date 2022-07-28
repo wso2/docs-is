@@ -4,7 +4,7 @@ This section guides provides you the prerequisites to try out the adaptive authe
 
 ----
 
-{!includes/adaptive-auth-samples.md!}
+{!./includes/adaptive-auth-samples.md!}
 
 ----
 

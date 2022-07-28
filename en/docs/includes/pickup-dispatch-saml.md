@@ -1,4 +1,4 @@
-{!includes/deploying-sample-apps.md!}
+{!./includes/deploying-sample-apps.md!}
 
 - Download the [SAML pickup dispatch application](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) from the latest release assets.
 
@@ -16,7 +16,7 @@ To deploy the sample web app on a web container:
 
 ### Add CORS configuration
 
-{!includes/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ---
 

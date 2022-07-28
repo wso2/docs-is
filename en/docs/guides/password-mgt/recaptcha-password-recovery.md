@@ -13,11 +13,11 @@ By configuring reCAPTCHA, you can mitigate or block brute force attacks.
 
 ---
 
-{!includes/configure-recaptcha-api-keys.md!}
+{!./includes/configure-recaptcha-api-keys.md!}
 
 ---
 
-{!includes/set-up-recaptcha.md !}
+{!./includes/set-up-recaptcha.md !}
 
 There are two ways to configure this feature.
 

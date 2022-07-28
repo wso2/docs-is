@@ -14,7 +14,7 @@ authenticate users with their Microsoft Live user accounts.
     !!! Info
         See [Configuring your app](https://msdn.microsoft.com/en-us/library/hh826541.aspx) for instructions.
 
-{!includes/register-an-identity-provider.md !}
+{!./includes/register-an-identity-provider.md !}
 4.  Expand the **Microsoft (Hotmail, MSN, Live) Configuration** section and specify the following values:  
    
     ![microsoft-configuration]({{base_path}}/assets/img/guides/microsoft-configuration.png)

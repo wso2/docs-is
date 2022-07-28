@@ -7,7 +7,7 @@ prompting the user with the login page during the authentication flow.
 
 ## Register a service provider
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
@@ -17,13 +17,13 @@ Now, let's configure the service provider you registered.
 
 ### Basic OAuth/OIDC
 
-{!includes/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-<!--{!includes/oauth-app-config-advanced-tip.md!}-->
+<!--{!./includes/oauth-app-config-advanced-tip.md!}-->
 
 ### Local & Outbound
 
-{!includes/local-outbound-for-request-path.md!}
+{!./includes/local-outbound-for-request-path.md!}
 
 ----
 

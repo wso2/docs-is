@@ -84,7 +84,7 @@ can also configure the WSO2 IS to send an email to the user's email
 address when the user account is disabled. To configure this, follow the
 steps below.  
 
-{!includes/configure-email-sending.md !}
+{!./includes/configure-email-sending.md !}
 
     !!! info
         The email template used to send the email notification for

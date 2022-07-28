@@ -48,7 +48,7 @@ template.
       
     !!! tip "Placeholders and Custom Claim Dialects"
         
-        {!includes/placeholders.md !}
+        {!./includes/placeholders.md !}
     
 
 5.  Click **Add** to add a new email template.
@@ -87,7 +87,7 @@ template.
 
     !!! tip "Placeholders and Custom Claim Dialects"
 
-        {!includes/placeholders.md !}
+        {!./includes/placeholders.md !}
 
 4.  Click **Save** to update.
 

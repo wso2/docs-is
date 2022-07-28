@@ -9,7 +9,7 @@ disabling. The following section explain how to configure this.
 
 ## Configure WSO2 IS for account locking
 
-{!includes/enable-account-locking.md !}
+{!./includes/enable-account-locking.md !}
 
 The following table describes the configuration properties and
 descriptions you need to configure:
@@ -120,7 +120,7 @@ failed login attempts, you can also configure the WSO2 IS to send an
 email to the user's email address when the user account is locked due to
 failed login attempts. To configure this, follow the steps below.
 
-{!includes/configure-email-sending.md !}
+{!./includes/configure-email-sending.md !}
 
     !!! tip
     

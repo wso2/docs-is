@@ -4,7 +4,7 @@ This page guides you through configuring token encryption for ID tokens using th
 
 ## Set up the sample application
 
-{!includes/oauth-playground.md!}
+{!./includes/oauth-playground.md!}
 
 ----
 
@@ -31,7 +31,7 @@ This page guides you through configuring token encryption for ID tokens using th
 
 -----
 
-{!includes/encrypt-id-tokens.md!}
+{!./includes/encrypt-id-tokens.md!}
 
 ----
 

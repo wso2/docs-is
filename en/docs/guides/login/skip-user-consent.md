@@ -11,7 +11,7 @@ The user's [consent]({{base_path}}/references/concepts/consent-management/) is r
 
 Configure service provider to skip user consent:
 
-{!includes/skip-user-consent.md !}
+{!./includes/skip-user-consent.md !}
 
 ## Disable consent globally
   

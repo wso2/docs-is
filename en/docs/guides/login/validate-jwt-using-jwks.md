@@ -31,9 +31,9 @@ Follow the below steps to configure JWKS based JWT Validator.
 ----
 
 
-{!includes/register-an-identity-provider.md!}
+{!./includes/register-an-identity-provider.md!}
 
-{!includes/jwks-uri-in-idp.md!}
+{!./includes/jwks-uri-in-idp.md!}
 
 ----
 

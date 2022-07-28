@@ -1,11 +1,11 @@
 
-{!includes/deploying-sample-apps.md!}
+{!./includes/deploying-sample-apps.md!}
 
 ---
 
 ### CORS configuration
 
-{!includes/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ---
 

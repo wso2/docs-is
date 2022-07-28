@@ -269,7 +269,7 @@ Provider.
 
 ## Configure WSO2 IS as the resident service provider
 
-{!includes/resident-sp.md !}
+{!./includes/resident-sp.md !}
 
 ---
 

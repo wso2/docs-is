@@ -5,7 +5,7 @@ The OAuth Request Path Authenticator is engaged when an access token is sent alo
 
 ## Register a service provider
 
-{!includes/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
@@ -15,13 +15,13 @@ Now, let's configure the service provider you registered.
 
 ### Basic OAuth/OIDC
 
-{!includes/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-<!--{!includes/oauth-app-config-advanced-tip.md!}-->
+<!--{!./includes/oauth-app-config-advanced-tip.md!}-->
 
 ### Local & Outbound
 
-{!includes/local-outbound-for-request-path-oauth.md!}
+{!./includes/local-outbound-for-request-path-oauth.md!}
 
 ----
 

@@ -28,7 +28,7 @@ Follow the steps given below to edit a claim mapping.
 Alternatively, you can do this by editing claim mappings from the `claim-config.xml` file (located in the `<IS_HOME>/repository/conf/` folder).
     
 !!! note
-    {!includes/claim-config-note.md !}
+    {!./includes/claim-config-note.md !}
 
 A sample claim mapping is given below.
 

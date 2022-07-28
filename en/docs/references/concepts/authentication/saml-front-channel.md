@@ -1,6 +1,6 @@
 # SAML Front-Channel Logout
 
-{!includes/saml-logout-concept.md!}
+{!./includes/saml-logout-concept.md!}
 
 The SAML 2.0 specification specifies three types of asynchronous (front-channel) bindings to send a request to the identity provider through the user agent.
 
