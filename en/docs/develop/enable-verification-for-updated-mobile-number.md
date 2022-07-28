@@ -10,7 +10,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
     -   Sending the SMS OTP verification is skipped in the following instances:
         1. The `verifyMobile` claim is not set to true in the SCIM 2.0 request.
-        2. The claim update is invoked by a user other than the claim owner.
+        2. The claim update is invoked by a user other than the claim owner or a non privileged user.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
 ## Step 01 - Add an event publisher to send SMS
@@ -55,6 +55,9 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
 
 !!! note 
     To enable this feature server-wide, follow the instructions given below. 
+
+    !!! info
+        Mobile number verification by a privileged user is available as an update in WSO2 IS 5.11.0 from update level 150 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
     
     1.  Shut down the server if it is running.
     2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature and to configure the verification OTP expiry time.
@@ -64,6 +67,23 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         enable_verification = true
         verification_sms_otp_validity = “5”
         ```
+    3. By default, mobile number verification is not allowed for privileged users. Add the following property to the above `deployment.toml` file to enable this server wide.
+        ```toml
+        [identity_mgt.user_claim_update.mobile]
+        enable_verification_by_privileged_user = true
+        ```
+
+    4. Add the following properties to the `deployment.toml` file to allow only privileged users to resend verification codes.
+        ```toml
+        [[resource.access_control]]
+        context = "(.*)/api/identity/user/v1.0/resend-code(.*)"
+        secure = "true"
+        http_method = "all"
+        permissions=["/permission/admin/manage/identity/identitymgt"]
+        scopes=["internal_identity_mgt_view","internal_identity_mgt_update","internal_identity_mgt_create","internal_identity_mgt_delete"]
+        ```
+
+    5. Restart the server.
 
 ## Try it out 
 
@@ -188,6 +208,35 @@ curl -X POST -H "Authorization: Basic Ym9iMTIzOnBhc3MxMjM=" -H "Content-Type: ap
 "HTTP/1.1 201 Created"
 ```
 
+Additionally, you can use the following curl command to resend a new SMS OTP code by a privileged user.
+
+!!! Note
+    Resending SMS OTP code by a privileged user is available as an update in WSO2 IS 5.11.0 from update level 159 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
+
+**Sample**
+
+!!! abstract ""
+    **Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user":{},"properties": []}'
+    "https://localhost:9443/api/identity/user/v1.0/resend-code"
+    ```
+
+    The user and the verification scenario should be specified in the request body as follows :
+    ```
+    "user": {"username": "", "realm": ""}
+    "properties": [{"key":"RecoveryScenario", "value":"MOBILE_VERIFICATION_ON_UPDATE"}]}
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"MOBILE_VERIFICATION_ON_UPDATE"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
+    ```
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
 
 !!! info "Related Topics"
     See [SCIM 2.0 Rest APIs](../../develop/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
