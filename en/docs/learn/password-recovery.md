@@ -106,8 +106,8 @@ redirect URL that the user needs to be redirected to.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given.
-3.  Access the WSO2 Identity Server user portal using the following link:
-    `          https://localhost:<port_number>/user-portal         `.
+3.  Access the WSO2 Identity Server My Account portal using the following link:
+    `          https://localhost:<port_number>/myaccount         `.
 4.  Click the **Forgot Password** link.
 5.  Enter the user's username and select **Recover with Mail**. Click
     **Submit**.  
@@ -188,9 +188,9 @@ To try this out, first create a user in the Identity Server.
     ![add-new-user](../assets/img/using-wso2-identity-server/add-new-user.png) 
 
 4.  Log out of the Identity Server.
-5.  The URL for accessing user portal is the following if the hostname is
+5.  The URL for accessing the My Account portal is the following if the hostname is
     localhost and the Identity Server is running on port 9443:
-    <https://localhost:9443/user-portal/>. Click this link to access the
+    <https://localhost:9443/myaccount/>. Click this link to access the
     user portal and log in using the credentials of the user you just
     created.  
     ![enter-using-credentials](../assets/img/using-wso2-identity-server/enter-using-credentials.png)   
