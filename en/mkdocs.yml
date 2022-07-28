@@ -161,6 +161,10 @@ nav:
             - Front-Channel Logout: guides/login/saml-front-channel-logout.md
             - Back-Channel Logout: guides/login/saml-back-channel-logout.md
           - Cross Protocol Logout: guides/login/cross-protocol-logout.md
+        - Passwordless Authentication:
+          - Overview: guides/passwordless/overview.md
+          - FIDO: guides/passwordless/fido.md
+          - Magic Link: guides/passwordless/magic-link.md
         - Multi-Factor Authentication:
           - Overview: guides/mfa/mfa-overview.md
           - Username and Password: guides/mfa/username-and-password.md

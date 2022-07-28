@@ -2,13 +2,16 @@
 This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO]({{base_path}}/references/concepts/authentication/mfa-with-fido) as the second factor.
 
 !!! info
-    - WSO2 Identity Server uses the WebAuthn API to enable FIDO-based authentication for browsers which no longer supports u2f extension.
+    - WSO2 Identity Server uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.
     - The following browser versions support the WebAuthn API by default:
         - Chrome 67 and above
         - Firefox 60 and above
         - Edge 17723 and above
-    - FIDO2 passwordless login with platform authenticators will NOT work on the Firefox browser in macOS Catalina, Big Sur and Monterey due to browser limitations.
+    - FIDO2 passwordless login with platform authenticators will NOT work on the Firefox browser in macOS Catalina, Big Sur, and Monterey due to browser limitations.
     - FIDO2 passwordless login with roaming authenticators will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
+
+??? "Does your browser support your FIDO devices?"
+    You can use the https://demo.yubico.com/webauthn-technical/registration site to check the browser support for FIDO devices.
 
 ## Set up Identity Server to use FIDO
 
