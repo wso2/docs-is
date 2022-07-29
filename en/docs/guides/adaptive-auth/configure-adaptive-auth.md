@@ -18,6 +18,7 @@ You need to [register a service provider]({{base_path}}/guides/applications/regi
     3.   Restart the server
 
     To disable adaptive authentication please proceed following instructions.
+
     1.   Stop the server if running
     2.   Run adaptive.sh (adaptive.bat for Windows) with DISABLE parameter (eg: `sh adaptive.sh DISABLE`)
     3.   Restart the server
