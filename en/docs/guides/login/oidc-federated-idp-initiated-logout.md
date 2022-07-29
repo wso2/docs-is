@@ -76,12 +76,12 @@ The federated IdP (WSO2 IS 2) should first be registered in the primary identity
 2. Sign in to the Management Console using admin credentials.
 3. Go to **Main** > **Identity** > **Identity Providers** and click **Add**.
 4. Enter `Federated IdP` as the name of the identity provider.
-5. Choose the federated IdPs certificate type using one of the following options:
+5. Specify the federated IdPs certificate type using one of the following options:
 
     !!! info
         The signature of the logout token is validated using either the registered JWKS uri or the certificate uploaded to the relevant identity provider.
    
-    - Under the **Basic Information** section, select **Use IDP JWKS endpoint** and add `https://localhost.com:9444/oauth2/jwks` as the JWKS uri of the federated IdPs JWKS endpoint.
+    - Select **Use IDP JWKS endpoint** and add `https://localhost.com:9444/oauth2/jwks` as the JWKS uri of the federated IdPs JWKS endpoint.
 
         ![oidc-primary-idp-jwks-uri-config]({{base_path}}/assets/img/guides/oidc-primary-idp-jwks-uri-config.png)
 
@@ -89,12 +89,22 @@ The federated IdP (WSO2 IS 2) should first be registered in the primary identity
 
         ![oidc-primary-idp-certificate-config]({{base_path}}/assets/img/guides/oidc-primary-idp-certificate-config.png)
 
-6. Go to **Federated Authenticators**, expand **OAuth2/OpenID Connect Configuration** and enter the following values:
+6. Add `https://localhost:9444/oauth2/token` as the **Identity Provider's Issuer Name**.
+
+    ![oidc-backchannel-logout-issuer-name]({{base_path}}/assets/img/guides/oidc-backchannel-logout-issuer-name.png)
+   
+    !!! note
+        The issuer name of the identity provider registered in the primary identity server should be same as the **Identity Provider Entity ID** of the resident IdP in the federated IdP (WSO2 IS 2). Go to **Identity Providers > Resident > Inbound Authentication Configuration > OAuth2/OpenID Connect Configuration** in the federated IdP to find this value.
+7. Go to **Federated Authenticators**, expand **OAuth2/OpenID Connect Configuration** and enter the following values:
 
     <table>
       <tr>
          <th>Parameter</th>
          <th>Value</th>
+      </tr>
+      <tr>
+         <td>Enable OAuth2/OpenIDConnect</td>
+         <td>Select this checkbox to specify whether OAuth2/OpenID Connect is enabled for this identity provider</td>
       </tr>
       <tr>
          <td>Client Id</td>
@@ -132,31 +142,23 @@ The federated IdP (WSO2 IS 2) should first be registered in the primary identity
 
     ![oidc-fed-idp-config-in-primary-idp]({{base_path}}/assets/img/guides/oidc-fed-idp-config-in-primary-idp.png)
 
-7. Add `https://localhost:9444/oauth2/token` as the **Identity Provider's Issuer Name**.
-
-    ![oidc-backchannel-logout-issuer-name]({{base_path}}/assets/img/guides/oidc-backchannel-logout-issuer-name.png)
-   
-    !!! note
-        The issuer name of the identity provider registered in the primary identity server should be same as the **Identity Provider Entity ID** of the resident IdP in the federated IdP (WSO2 IS 2). Go to **Identity Providers > Resident > Inbound Authentication Configuration > OAuth2/OpenID Connect Configuration** in the federated IdP to find this value.
-
 8. Click **Register** to complete the IdP registration.
 
 ### Register a service provider for WSO2 IS
 
 Let's register an application as a service provider in the primary identity server (WSO2 IS 1).
 
-1. Start the primary identity server (WSO2 IS 1).
-2. Log in to the Management Console using admin credentials.
-3. Go to **Main** > **Identity** > **Service Providers** and click **Add**.
-4. Enter `Pickup-Dispatch` as the service provider name and click **Register**.
-5. Expand **Inbound Authentication Configuration** > **OAuth2/OpenID Connect Configuration** and click **Configure**.
-6. Enter the following value as the Callback URL:
+1. Sign in to the Management Console of the primary identity server using admin credentials.
+2. Go to **Main** > **Identity** > **Service Providers** and click **Add**.
+3. Enter `Pickup-Dispatch` as the service provider name and click **Register**.
+4. Expand **Inbound Authentication Configuration** > **OAuth2/OpenID Connect Configuration** and click **Configure**.
+5. Enter the following value as the Callback URL:
    
     ``` bash
     http://wso2is.local:8080/pickup-dispatch/oauth2client
     ```
 
-7. Click **Add** to save the service provider.
+6. Click **Add** to save the service provider.
 
     !!! info
         Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later when deploying the sample application.
@@ -174,18 +176,17 @@ Once the service provider is registered, let's onboard the federated IdP (WSO2 I
 
 Now, let's register an application as a service provider in the federated IdP (WSO2 IS 2).
 
-1. Start the federated IdP (WSO2 IS) on port 9444.
-2. Log in to the Management Console using admin credentials.
-3. Go to **Main** > **Identity** > **Service Providers** and click **Add**.
-4. Enter `Pickup-Manager` as the service provider name and click **Register**.
-5. Expand **Inbound Authentication Configuration** > **OAuth2/OpenID Connect Configuration** and click **Configure**.
-6. Enter the following value as the Callback URL:
+1. Log in to the Management Console of the federated IdP using admin credentials.
+2. Go to **Main** > **Identity** > **Service Providers** and click **Add**.
+3. Enter `Pickup-Manager` as the service provider name and click **Register**.
+4. Expand **Inbound Authentication Configuration** > **OAuth2/OpenID Connect Configuration** and click **Configure**.
+5. Enter the following value as the Callback URL:
    
     ``` bash
     http://localhost.com:8080/pickup-manager/oauth2client
     ```
 
-7. Click **Add** to save the service provider.
+6. Click **Add** to save the service provider.
 
     !!! info
         Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later when deploying the sample application.
@@ -283,7 +284,7 @@ Once you have completed configuring WSO2 IS as instructed in the above sections,
     -  Pickup-Dispatch: [http://localhost.com:8080/pickup-dispatch/](http://localhost.com:8080/pickup-dispatch/)
     -  Pickup-Manager: [http://localhost.com:8080/pickup-manager/](http://localhost.com:8080/pickup-manager/)
 
-2. Login to the `Pickup-Dispatch` application.
+2. Log in to the `Pickup-Dispatch` application.
 
     !!! info
         You are redirected to the login page provided by the federated IdP (WSO2 IS 2).
