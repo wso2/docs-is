@@ -502,18 +502,13 @@ nav:
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
 
   - APIs:
-      - Overview: 
-          - Introduction: apis/rest-apis.md
-          - Authentication: apis/authenticate-and-authorize-rest-apis.md
-      - Authentication:
-          - Authentication: apis/use-the-authentication-rest-apis.md
-          - Authentication data: apis/authentication-data-api.md
-          - Session management: apis/session-mgt-rest-api.md
-      - Authorization:
-          - Entitlement: apis/entitlement-with-rest-apis.md
-      - User management:
-          - SCIM 1.1: apis/scim-1.1-apis.md
-          - SCIM 2.0: 
+      - Overview: apis/overview.md
+      - Authentication API: apis/use-the-authentication-rest-apis.md
+      - Session management API: apis/session-mgt-rest-api.md
+      - Entitlement management API: apis/entitlement-with-rest-apis.md
+      - User management API:
+          - SCIM 1.1 API: apis/scim-1.1-apis.md
+          - SCIM 2.0 API: 
             - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
             - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
             - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
@@ -527,8 +522,7 @@ nav:
           - Personal information export: apis/use-the-personal-information-export-rest-apis.md
           - TOTP: apis/totp-rest-api.md
           - User Discoverable Application Management: apis/user-discoverable-applications.md
-      - Workflow management: 
-          - Approvals: apis/approvals-rest-api.md
+      - Approvals: apis/approvals-rest-api.md
       - Application management:
           - Application Management: apis/application-rest-api.md
           - Authorized Apps:
@@ -538,8 +532,7 @@ nav:
           - OpenID Connect Scope Management: apis/oidc-scope-management-rest-apis.md
           - OIDC Dynamic Client Registration: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
           - Script Libraries: apis/script-library-rest-api.md
-      - Attribute management:
-          - Claim management: apis/claim-management-rest-api.md
+      - Claim management: apis/claim-management-rest-api.md
       - Server management:
           - Configuration Management:
               - Configuration Management: apis/use-the-configuration-management-rest-apis.md

@@ -19,7 +19,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "../restapis/scim2.yaml",
+     url: "../restapis/account-recovery.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,

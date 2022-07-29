@@ -12,8 +12,8 @@ template: templates/swagger.html
         You will receive a sample curl command with the sample values you filled in.
     4.  Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS.
 
-<div id="swagger-ui"></div>
 
+  <div id="swagger-ui"></div>
 <script>
 
   // Begin Swagger UI call region
@@ -21,6 +21,7 @@ template: templates/swagger.html
      url: "../restapis/idp.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
+    validatorUrl: null,
     presets: [
       SwaggerUIBundle.presets.apis,
       SwaggerUIStandalonePreset
@@ -28,11 +29,10 @@ template: templates/swagger.html
     plugins: [
       SwaggerUIBundle.plugins.DownloadUrl
     ],
-    layout: "StandaloneLayout"
+    layout: "StandaloneLayout",
   })
   // End Swagger UI call region
-
-   window.ui = ui
+  window.ui = ui
 </script>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/88672dbc6afe81e8c5d2)
