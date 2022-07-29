@@ -4,7 +4,7 @@ This is the main userstore that is shared among all the tenants in the
 system. Only one userstore can be configured as the primary userstore.
 This documentation explains the process of setting up a primary user
 store. If you need more information on WSO2 Carbon userstores, see
-[Configure userstores](../../../deploy/configure-user-stores).
+[Configure userstores]({{base_path}}/deploy/configure-user-stores).
 
 !!! info 
     WSO2 Identity Server has an embedded LDAP as its primary userstore.
@@ -60,7 +60,7 @@ There are two steps involved in setting up the primary userstore:
     </tbody>
     </table>
 
-    You can configure your own custom userstore manager. For more information, see [Write a custom userstore manager](../../../deploy/write-a-custom-user-store-manager)
+    You can configure your own custom userstore manager. For more information, see [Write a custom userstore manager]({{base_path}}/deploy/write-a-custom-user-store-manager)
 
     !!! tip
         From WSO2 IS 5.10.0 onwards, all userstore managers have `UniqueID` included as part of the userstore manager name (e.g.,`UniqueIDJDBCUserStoreManager`). Use one of these when selecting the userstore manager. 
@@ -73,10 +73,10 @@ There are two steps involved in setting up the primary userstore:
     It provides the additional steps and recommendations specific to
     each userstore manager.  
 
-    -   [Configure a JDBC userstore](../../../deploy/configure-a-jdbc-user-store)
-    -   [Configure a Read-Only LDAP userstore](../../../deploy/configure-a-read-only-ldap-user-store)
-    -   [Configure a Read-Write Active Directory userstore](../../../deploy/configure-a-read-write-active-directory-user-store)
-    -   [Configure a Read-Write LDAP userstore](../../../deploy/configure-a-read-write-ldap-user-store)
+    -   [Configure a JDBC userstore]({{base_path}}/deploy/configure-a-jdbc-user-store)
+    -   [Configure a Read-Only LDAP userstore]({{base_path}}/deploy/configure-a-read-only-ldap-user-store)
+    -   [Configure a Read-Write Active Directory userstore]({{base_path}}/deploy/configure-a-read-write-active-directory-user-store)
+    -   [Configure a Read-Write LDAP userstore]({{base_path}}/deploy/configure-a-read-write-ldap-user-store)
 
     In the `deployment.toml` file, you can configure userstore managers by adding the relevant properties.
     However, it is important to read each userstore configuration
@@ -86,7 +86,7 @@ There are two steps involved in setting up the primary userstore:
     !!! warning
         Server system administrator who is capable of all the actions in the
         system is configured within the `deployment.toml` file. If you have not
-        configured the system administrator yet, see [Configure the System Administrator](../../../deploy/configure-the-system-administrator).
+        configured the system administrator yet, see [Configure the System Administrator]({{base_path}}/deploy/configure-the-system-administrator).
     
 
 3.  Restart the server.

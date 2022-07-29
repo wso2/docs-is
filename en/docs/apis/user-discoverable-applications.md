@@ -18,7 +18,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "../restapis/discoverable-application.yaml",
+     url: "{{base_path}}/apis/restapis/discoverable-application.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

@@ -1,6 +1,6 @@
 # Use SAML 2.0 Artifact Binding
 
-This page guides you through enabling [SAML2 artifact binding](../../../references/concepts/authentication/saml2-artifact-binding/) with WSO2 Identity Server. 
+This page guides you through enabling [SAML2 artifact binding]({{base_path}}/references/concepts/authentication/saml2-artifact-binding/) with WSO2 Identity Server. 
 
 Generally, SAML authentication requests and assertion data is sent through the browser using POST or Http Redirect binding. If you do not want to expose the entire message to the browser, you can use artifact binding instead. 
 
@@ -38,11 +38,11 @@ Generally, SAML authentication requests and assertion data is sent through the b
 5.  Click **Register** to save the changes.
 
 !!! tip
-     To configure more advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced). 
+     To configure more advanced configurations, see [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced). 
 
 ---
 
-{!fragments/artifact-binding-settings.md!}
+{!./includes/artifact-binding-settings.md!}
 
 ----
 
@@ -68,7 +68,7 @@ application.
 
 ### Configure CORS
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ### Deploy the sample
 
@@ -100,6 +100,6 @@ You have successfully set up SAML artifact binding. See the sections below for m
 -----
 
 !!! info "Related topics"
-    - [Concept: SAML2 Artifact Binding](../../../references/concepts/authentication/saml2-artifact-binding/)
-    - [Guide: Enable Login for a SAML Application](../webapp-saml)
+    - [Concept: SAML2 Artifact Binding]({{base_path}}/references/concepts/authentication/saml2-artifact-binding/)
+    - [Guide: Enable Login for a SAML Application]({{base_path}}/webapp-saml)
 

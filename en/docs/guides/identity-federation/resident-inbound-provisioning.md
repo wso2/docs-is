@@ -2,7 +2,7 @@
 
 To view the inbound provisioning configs, expand **Inbound Provisioning Configuration** section.
 
-![inbound-porvisioning-configuration](../../assets/img/guides/inbound-provision-idp.png)
+![inbound-porvisioning-configuration]({{base_path}}/assets/img/guides/inbound-provision-idp.png)
 
 | Field                   | Description                                                                                                                                                    | Sample Value                                                                                              |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -12,14 +12,14 @@ To view the inbound provisioning configs, expand **Inbound Provisioning Configur
 ??? note "Modify the hostname"
     To modify the hostname of the URLs mentioned above, add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-        ``` xml
-        [server]
-        hostname = "localhost"
-        ```
+    ```toml
+    [server]
+    hostname = "localhost"
+    ```
     
-        ``` xml
-        [sts.endpoint] 
-        idp="https://localhost:9443/samlsso"
-        ```
+    ```toml
+    [sts.endpoint] 
+    idp="https://localhost:9443/samlsso"
+    ```
     
     To ensure the client application communicates with the correct identity provider, WSO2 Identity Server compares the destination value in the SAML request with the URL in the above configuration.

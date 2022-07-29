@@ -5,8 +5,8 @@ This document guides you through the migration process from earlier versions of 
 
 Make sure you have met the following prerequisites before proceeding with the instructions to migrate to 6.0.0.
 
-1. Before you begin the migration process make sure that you satisfy the prerequisites in the [Before you begin](../../setup/migration-guide) guide.
-2. [Prepare for the migration](../../setup/migrating-preparing-for-migration) by carrying out the pre processing steps.
+1. Before you begin the migration process make sure that you satisfy the prerequisites in the [Before you begin]({{base_path}}/setup/migration-guide) guide.
+2. [Prepare for the migration]({{base_path}}/setup/migrating-preparing-for-migration) by carrying out the pre processing steps.
 
 !!! note
     In this section, `<OLD_IS_HOME>` is the directory that the current Identity Server resides in, and `<NEW_IS_HOME>` is the directory that WSO2 Identity Server 6.0.0 resides in.
@@ -84,7 +84,7 @@ Once all the above prerequisites have been met, follow the instructions given be
 1. If you have manually added any custom OSGI bundles to the `<OLD_IS_HOME>/repository/components/dropins` directory, copy those OSGI bundles to the `<NEW_IS_HOME>/repository/components/dropins` directory.
 
     !!! warning "Important"
-        You may need to update the custom components to work with WSO2 Identity Server 6.0.0. Refer [Migrating custom components](../../setup/migrating-preparing-for-migration/#migrating-custom-components).
+        You may need to update the custom components to work with WSO2 Identity Server 6.0.0. Refer [Migrating custom components]({{base_path}}/setup/migrating-preparing-for-migration/#migrating-custom-components).
 
 2. If you have manually added any JAR files to the `<OLD_IS_HOME>/repository/components/lib` directory, copy and paste those JARs in the `<NEW_IS_HOME>/repository/components/lib` directory.
 
@@ -117,9 +117,9 @@ Once all the above prerequisites have been met, follow the instructions given be
 
 5. If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` directory to the `<NEW_IS_HOME>/repository/deployment/server/userstores` directory.
 
-6. If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with IS 6.0.0 and copy the webapps to `<NEW_IS_HOME>/repository/deployment/server/webapps` directory. See [What Has Changed](../../setup/migrating-what-has-changed) to learn about the changes, if any, need to be made to the webapps.
+6. If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with IS 6.0.0 and copy the webapps to `<NEW_IS_HOME>/repository/deployment/server/webapps` directory. See [What Has Changed]({{base_path}}/setup/migrating-what-has-changed) to learn about the changes, if any, need to be made to the webapps.
 
-7. Ensure that you have migrated the configurations into the new version as advised in [preparing for migration section.](../../setup/migrating-preparing-for-migration/#migrating-the-configurations)
+7. Ensure that you have migrated the configurations into the new version as advised in [preparing for migration section.]({{base_path}}/setup/migrating-preparing-for-migration/#migrating-the-configurations)
 
 8. Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
 
@@ -187,7 +187,7 @@ Once all the above prerequisites have been met, follow the instructions given be
         transformToSymmetric: "true"
         ```
 
-    Under each migrator's parameters, find the property value of **currentEncryptionAlgrithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
+    Under each migrator's parameters, find the property value of **currentEncryptionAlgorithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
 
 12. Start the WSO2 Identity Server 6.0.0 with the following command to execute the migration client.
 
@@ -210,7 +210,7 @@ Once all the above prerequisites have been met, follow the instructions given be
 ## Executing the sync tool
 
 !!! warning
-    Proceed with this step only if you have opted in for [Zero down time migration](../../setup/migrating-preparing-for-migration/#zero-down-time-migration).
+    Proceed with this step only if you have opted in for [Zero down time migration]({{base_path}}/setup/migrating-preparing-for-migration/#zero-down-time-migration).
     If not, your migration task is complete now. You can omit the following steps.
 
 1. Start the data sync tool with the following command pointing to the `sync.properties` file.
@@ -248,4 +248,4 @@ After the migration is complete, proceed to the following verification steps.
     If you see any problems in the migrated system, revert the traffic back to the previous setup and investigate the problem.
 
 !!! tip
-    If the id token validation for the **Console** and **My Account** applications are failing, see [Validation of issuer in .well-known endpoint URL](../../setup/migrating-what-has-changed/#validation-of-issuer-in-well-known-endpoint-url).
+    If the id token validation for the **Console** and **My Account** applications are failing, see [Validation of issuer in .well-known endpoint URL]({{base_path}}/setup/migrating-what-has-changed/#validation-of-issuer-in-well-known-endpoint-url).

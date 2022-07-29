@@ -28,7 +28,7 @@ Follow the steps below to view and invoke it:
 
 For more information on WSO2 admin services and how to invoke an admin
 service using either SoapUI or any other client program, see [Call
-Admin Services](../../../develop/apis/call-admin-services).
+Admin Services]({{base_path}}/develop/apis/call-admin-services).
 
 ---
 

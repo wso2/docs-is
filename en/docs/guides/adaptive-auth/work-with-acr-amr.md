@@ -1,4 +1,4 @@
-# Ensure Assurance with Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)
+# Ensure assurance with authentication context class reference (ACR) and authentication method reference (AMR)
 
 This page guides you through enforcing additional assurance in the user authentication flow using Authentication Context Class Reference (ACR) and Authentication Method Reference (AMR).
 
@@ -6,25 +6,25 @@ This page guides you through enforcing additional assurance in the user authenti
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/acr-based-adaptive-auth" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="{{base_path}}/quick-starts/acr-based-adaptive-auth" rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
 ## Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
 ## Basic OAuth/OpenID Connect configuration
 
-{!fragments/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+{!./includes/oauth-app-config-advanced-tip.md!}
 
 ## Add the adaptive authentication script
 
-{!fragments/add-adaptive-acr-script-portal.md!}
+{!./includes/add-adaptive-acr-script-portal.md!}
 
 1.  Replace the authentication script added from the template with the following. 
 
@@ -207,7 +207,7 @@ Send the following requests via your application to connect your application to 
   	
 
 !!! info "Related topics"
-    - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
-    - [Guide: Configure Adaptive Authentication for an Application](../configure-adaptive-auth)
-    - [Guide: Adaptive Authentication Using Function Library](../adaptive-auth-with-function-lib)
-    - [Quick Start: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)
+    - [Concept: Adaptive-Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication)
+    - [Guide: Configure Adaptive Authentication for an Application]({{base_path}}/configure-adaptive-auth)
+    - [Guide: Adaptive Authentication Using Function Library]({{base_path}}/adaptive-auth-with-function-lib)
+    - [Quick Start: Adaptive Authentication Scenarios]({{base_path}}/quick-starts/adaptive-auth-overview)

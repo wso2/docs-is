@@ -8,7 +8,7 @@ Let's get started!
 
 !!! tip "Before you begin!"
     Create the `users.csv` file by following the instructions in 
-    [Exporting User Data From WSO2 Identity Server](../sync-account-overview).
+    [Exporting User Data From WSO2 Identity Server]({{base_path}}/sync-account-overview).
 
 ##Try it Out
 
@@ -16,19 +16,19 @@ Let's get started!
 
 2. Go to **Setup -> Platform tools > Integration > Data Import Wizard**. 
    
-    <!--![setup-in-salesforce](../assets/img/tutorials/setup-in-salesforce.png) -->
+    <!--![setup-in-salesforce]({{base_path}}/assets/img/tutorials/setup-in-salesforce.png) -->
    
-    <!--![data-import-wizard-in-sales-force](../assets/img/tutorials/data-import-wizard-in-salesforce.png) -->
+    <!--![data-import-wizard-in-sales-force]({{base_path}}/assets/img/tutorials/data-import-wizard-in-salesforce.png) -->
 
 3. Click on **Launch Wizard**.
-    <!--![launch-wizard-in-salesforce](../assets/img/tutorials/launch-wizard-in-salesforce.png)-->
+    <!--![launch-wizard-in-salesforce]({{base_path}}/assets/img/tutorials/launch-wizard-in-salesforce.png)-->
    
 4. Configure the import and upload the created `users.csv` file and click **Next**.
-    <!--![upload-csv-in-salesforce](../assets/img/tutorials/upload-csv-in-salesforce.png)-->
+    <!--![upload-csv-in-salesforce]({{base_path}}/assets/img/tutorials/upload-csv-in-salesforce.png)-->
    
 5. You will be redirected to the **Edit Field Mapping** page where you can map the CSV file columns to the Salesforce 
 data fields.
-    <!--![edit-field-mapping-in-salesforce](../assets/img/tutorials/edit-field-mapping-in-salesforce.png)-->
+    <!--![edit-field-mapping-in-salesforce]({{base_path}}/assets/img/tutorials/edit-field-mapping-in-salesforce.png)-->
    
 6. After verifying the **Review** page information, click on **Start Import**.
 

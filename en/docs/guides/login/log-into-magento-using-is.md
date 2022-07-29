@@ -41,7 +41,7 @@ Let's get started!
 
 After the installation is successful, you should see the plugin listed in the Magento admin panel.
 
-<!--![magento-saml-sso-installed-plugin](../assets/img/tutorials/magento-saml-sso-installed-plugin.png)-->
+<!--![magento-saml-sso-installed-plugin]({{base_path}}/assets/img/tutorials/magento-saml-sso-installed-plugin.png)-->
 
 ## Setting up WSO2 Identity Server
 
@@ -52,7 +52,7 @@ After the installation is successful, you should see the plugin listed in the Ma
 3. You’ll be redirected to the edit page of the newly created service provider. Expand the **Inbound Authentication Configuration** section and then **SAML2 Web SSO Configuration** and click on **Configure** to add the SAML related settings.
 
 4. We can extract the values to be filled in this section from the MiniOrange SAML SSO plugin itself. Log in to your Magento admin page and click on the **Service Provider Metadata** section of the SAML plugin. You should see the configuration values such as issues and ACS URL there.
-	<!--![magento-saml-sso-sp-metadata](../assets/img/tutorials/magento-saml-sso-sp-metadata.png)-->
+	<!--![magento-saml-sso-sp-metadata]({{base_path}}/assets/img/tutorials/magento-saml-sso-sp-metadata.png)-->
 
 5. Now go back to Identity Server SP settings and add the following values, which were extracted from the above page.
     1. Issuer
@@ -60,7 +60,7 @@ After the installation is successful, you should see the plugin listed in the Ma
     3. Untick **Enable Signature Validation in Authentication Requests and Logout Requests** for the moment.
 
 6. Once completed, the settings page should look similar to this.
-<!--![magento-saml-sso-sp-configurations](../assets/img/tutorials/magento-saml-sso-sp-configurations.png)-->
+<!--![magento-saml-sso-sp-configurations]({{base_path}}/assets/img/tutorials/magento-saml-sso-sp-configurations.png)-->
 
 7. Click on the **Download IDP Metadata** button to download the metadata XML file, which we will need when configuring the SAML SSO plugin.
 
@@ -82,10 +82,10 @@ Login to the Magento admin portal and click on the **Service Provider Setup** op
 	- You can extract the certificate from the metadata XML file we downloaded earlier. Make sure to paste the certificate content in between **—–BEGIN CERTIFICATE—–** and **—–END CERTIFICATE—–** tags, as instructed.
 
 Once completed, the settings page should look like this.
-<!-- ![magento-saml-sso-magent-sp-settings](../assets/img/tutorials/magento-saml-sso-magent-sp-settings.png)-->
+<!-- ![magento-saml-sso-magent-sp-settings]({{base_path}}/assets/img/tutorials/magento-saml-sso-magent-sp-settings.png)-->
 
 Click on the **Test configuration** button. This will load the SAML authentication on a new browser window and you should see the WSO2 Login page as a result. Once login there, you’ll be redirected back to Magento and a **Test Successful** screen should appear.
-<!-- ![magento-saml-sso-test-success](../assets/img/tutorials/magento-saml-sso-test-success.png) -->
+<!-- ![magento-saml-sso-test-success]({{base_path}}/assets/img/tutorials/magento-saml-sso-test-success.png) -->
 
 Now Save the configurations added and click on the **Sign in Settings** tab. Tick the checkbox **Show the Login Link on the default customer login page** so that the SSO option would be displayed on your Magento login page. Save the configurations and we’re done.
 
@@ -99,11 +99,11 @@ Click on the **User Profile** link on the **Users** page and add an email addres
 
 Now access your Magento store and once clicked on **Sign in**, the Login with WSO2 button should appear as shown below.
 
-<!-- ![magento-saml-sso-login-page](../assets/img/tutorials/magento-saml-sso-login-page.png)-->
+<!-- ![magento-saml-sso-login-page]({{base_path}}/assets/img/tutorials/magento-saml-sso-login-page.png)-->
 
 Once clicked on that button, you’ll be redirected to the WSO2 Identity Server login page and you can log in using the credentials of the newly created user.
 
-<!-- ![magento-saml-sso-testing](../assets/img/tutorials/magento-saml-sso-testing.gif)-->
+<!-- ![magento-saml-sso-testing]({{base_path}}/assets/img/tutorials/magento-saml-sso-testing.gif)-->
 
 ## Troubleshooting
 

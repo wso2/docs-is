@@ -13,7 +13,7 @@ two approaches and how to configure them.
 
 ## Synchronous token persistence
 
-![synchronous-token-persistence](../../../assets/img/deploy/token-persistence.png) 
+![synchronous-token-persistence]({{base_path}}/assets/img/deploy/token-persistence.png) 
 
 The flow of synchronous token persistence is as follows:
 
@@ -42,7 +42,7 @@ The flow of synchronous token persistence is as follows:
     
     !!! Tip
         To know more about new configurations, 
-        see [New Configuration Model](../../../references/new-configuration-model).
+        see [New Configuration Model]({{base_path}}/references/new-configuration-model).
 
 ---
 

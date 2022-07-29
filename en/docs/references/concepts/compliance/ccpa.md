@@ -20,7 +20,7 @@ The California Consumer Privacy Act (CCPA) is a bill passed by the California St
 
     In order to facilitate this, WSO2 Identity Server published an API that can be used to download profile details of consumers 
     stored in the server, in a well structured and machine-readable JSON format. Consumers can download their profiles by logging into the self-care portal called **My Account**. Any organization can integrate this capability into existing applications and portals with the help of the RESTful personal data export 
-    API exposed by WSO2 Identity Server. For more information, refer [Personal Information Export REST APIs](../../../../develop/apis/use-the-personal-information-export-rest-apis).
+    API exposed by WSO2 Identity Server. For more information, refer [Personal Information Export REST APIs]({{base_path}}/develop/apis/use-the-personal-information-export-rest-apis).
 
 2.  **The right to have PI deleted**
     The customers have the right to request the business to delete their personal information available with the business. 
@@ -46,7 +46,7 @@ The California Consumer Privacy Act (CCPA) is a bill passed by the California St
          -  Password history information
 
     Additionally, WSO2 Privacy Toolkit can be extended to clear personal data in any relational database or any textual log file. 
-    For further information on the WSO2 privacy toolkit, refer [Remove References to Deleted User Identities](../../../../deploy/remove-references-to-deleted-user-identities).
+    For further information on the WSO2 privacy toolkit, refer [Remove References to Deleted User Identities]({{base_path}}/deploy/remove-references-to-deleted-user-identities).
 
 3.  **The right of disclosure**
     Companies collecting consumers’ personal information for commercial purposes (sell or disclose to a third party) should 
@@ -85,7 +85,7 @@ An IAM provider who supports such open standards will provide leverage over prop
 WSO2 Identity Server comes with an extensive consent management solution that enables users to conveniently 
 manage consents of their consumers and third-party applications. WSO2 Identity Server’s consent management module consists of the following key features.
 
--   Has RESTful consent APIs to manage consents remotely. For more information on consent management, refer [Consent Management](../../consent-management/).
+-   Has RESTful consent APIs to manage consents remotely. For more information on consent management, refer [Consent Management]({{base_path}}/consent-management/).
 -   Provides an admin portal support for organizations to define and manage consent, data processing purposes, and user attributes per consent.
 -   Supports the Kantara consent receipt specification. For more information, see the 
 [Kantara Consent Receipt Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification).

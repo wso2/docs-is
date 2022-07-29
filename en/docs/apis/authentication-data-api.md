@@ -78,6 +78,7 @@ To configure the Authentication Data API:
 The authentication data is accessible at: <br/>
 **https://{IS_HOST}:{PORT}/api/identity/auth/v1.1/data/{Type}/{Key}**
 
+<<<<<<< HEAD
 -   **{Type}** - One of the following key types.
     <table>
         <tr>
@@ -91,6 +92,10 @@ The authentication data is accessible at: <br/>
     </table>
     
 -   **{Key}** - The correlation key which is either the **sessionDataKey** or **sessionDataKeyConsent**.
+=======
+This API can be authenticated by following the steps given
+[here]({{base_path}}/apis/authenticate-and-authorize-rest-apis).
+>>>>>>> 2ecd1d48c530278e70b66e5dad6ce980a49d7919
 
 Following are the sample requests and responses of the API using cURL.
 !!! info

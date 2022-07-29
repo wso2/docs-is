@@ -7,8 +7,8 @@ The WSO2 Identity Server Management Console enables viewing keystore details suc
     Make sure to create and store all the required keystore files in the `<IS_HOME>/repository/resources/security` directory.      
 
 !!! info 
-    -   For instructions on creating new keystore files, see [Create New Keystores](../../../deploy/security/create-new-keystores).
-    -   For instructions on updating configuration files with the keystore information, see [Configure Keystores](../../../deploy/security/configure-keystores-in-wso2-products).
+    -   For instructions on creating new keystore files, see [Create New Keystores]({{base_path}}/deploy/security/create-new-keystores).
+    -   For instructions on updating configuration files with the keystore information, see [Configure Keystores]({{base_path}}/deploy/security/configure-keystores-in-wso2-products).
 
 !!! warning 
     Do not delete the default `wso2carbon.jks`.
@@ -22,9 +22,9 @@ Follow the instructions below to upload a keystore file via the WSO2 Identity Se
 <ol>
     <li>
         <p>In the <b>Main</b> menu of the WSO2 Identity Server Management Console (<code>https://&lt;IS_HOST&gt;:&lt;PORT&gt;/carbon</code>), click <b>Manage > Keystores > Add</b>.</p>
-        <p><img src="../../../assets/img/deploy/security/add-key-store-menu-item.png" width="200;"></p>
+        <p><img src="{{base_path}}/assets/img/deploy/security/add-key-store-menu-item.png" width="200;"></p>
         <p>The <b>Add Key Store</b> page appears.</p>
-        <p><img src="../../../assets/img/deploy/security/add-new-keystore-screen.png" width="600;"></p>
+        <p><img src="{{base_path}}/assets/img/deploy/security/add-new-keystore-screen.png" width="600;"></p>
     </li>
     <li>
         <p>Provide the required information:</p>
@@ -75,11 +75,11 @@ Follow the instructions below to view the details of the keystore that you uploa
             <ul>
                 <li>
                     <p></p><b>Private key certificates</b></p> 
-                    <p><img src="../../../assets/img/deploy/security/private-key.png"></p>
+                    <p><img src="{{base_path}}/assets/img/deploy/security/private-key.png"></p>
                 </li>
                 <li>
                     <p><b>Available certificates</b></p>
-                    <p><img src="../../../assets/img/deploy/security/available-certificates.png"></p>
+                    <p><img src="{{base_path}}/assets/img/deploy/security/available-certificates.png"></p>
                 </li>
             </ul> 
         </p>  

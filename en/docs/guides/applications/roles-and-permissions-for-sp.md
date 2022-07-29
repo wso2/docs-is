@@ -1,6 +1,6 @@
 # Configuring Roles and Permissions for a Service Provider
 
-WSO2 Identity Server allows you to configure and manage roles  and permission for a service provider.
+WSO2 Identity Server allows you to configure and manage roles and permission for a service provider.
 
 When you create a service provider, a corresponding application role is created by default.
 
@@ -12,7 +12,7 @@ Therefore, only the user who creates the service provider can view or manage the
 
 ## Prerequisites
 
-You need to [register a service provider](../applications/register-sp.md) on the Management Console.
+You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
 
 ## Configure roles and permissions for SP
 
@@ -22,7 +22,7 @@ To configure roles and define custom permission for a service provider:
 2. Click **List**, select the service provider you want to configure, and click on the corresponding **Edit** link.
 3. Expand the **Role/Permission Configuration** section, and then expand the **Permissions** and the **Role Mapping** sections.
 
-    ![role-mapping](../../assets/img/guides/role-mapping.png)
+    ![role-mapping]({{base_path}}/assets/img/guides/role-mapping.png)
 
 4. Click **Add Permission** and specify the service provider specific permission you want to add.
 
@@ -51,5 +51,4 @@ To configure roles and define custom permission for a service provider:
     return_only_mapped_local_roles = true
     ```
 
-Now that you have configured roles and permission for the service provider, you can assign the application role permission to any user. For information on assigning roles to a user, see [manage user roles](../identity-lifecycles/manage-roles-overview/).
-
+Now that you have configured roles and permission for the service provider, you can assign the application role permission to any user. For information on assigning roles to a user, see [manage user roles]({{base_path}}/guides/identity-lifecycles/manage-roles-overview/).

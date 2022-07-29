@@ -35,7 +35,7 @@ Due to some reason if you can not pass a SAML Assertion to the backend, then you
         5.  **Include Attributes in the Response Always**
     
     !!! tip
-        For more information on other advanced configurations, refer [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
+        For more information on other advanced configurations, refer [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced/).
 
 5.  Click **Register** to save the changes.  
 
@@ -62,7 +62,7 @@ Now you are sent back to the Service Providers page.
 5. Click **Register**.
     
 !!! tip
-     To configure more advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced). 
+     To configure more advanced configurations, see [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced). 
 
 
 ## Persist assertions to the database
@@ -107,7 +107,7 @@ application.
 
 ### Configure CORS
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ### Deploy the sample
 
@@ -185,7 +185,7 @@ For example,
 
 ### Query SAML2 assertions
 
-{!fragments/saml-query-assertion-client-app.md!}
+{!./includes/saml-query-assertion-client-app.md!}
 
 1. Access the Travelocity application via `http://wso2is.local:8080/travelocity.com/index.jsp`
 
@@ -317,4 +317,4 @@ You have successfully queried an assertion with an `AssertionIDRequest` using th
 -----
 
 !!! info "Related topics"
-    - [Concept: SAML](../../../references/concepts/authentication/intro-saml/)    
+    - [Concept: SAML]({{base_path}}/references/concepts/authentication/intro-saml/)    

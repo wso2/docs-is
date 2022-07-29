@@ -14,11 +14,11 @@ added, deleted, edited, imported, and exported via the WSO2 Identity Server Mana
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../../quick-starts/adaptive-auth-with-function-lib-sample"   rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="{{base_path}}/quick-starts/adaptive-auth-with-function-lib-sample"   rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
-{!fragments/add-function-library-lvl3.md!}
+{!./includes/add-function-library-lvl3.md!}
 
 ----
 
@@ -124,7 +124,7 @@ Follow the instructions below to view the list of function libraries added in th
 
     Note that the list of function libraries you added appears.
 
-    ![list function libraries](../../assets/img/guides/list-function-libraries.png)
+    ![list function libraries]({{base_path}}/assets/img/guides/list-function-libraries.png)
 
 
 ### Edit function libraries
@@ -139,11 +139,11 @@ Follow the instructions below to edit a function library's details.
 
 3.  Locate the function library you want to edit and click on the corresponding **Edit** link.
 
-    ![edit function libraries](../../assets/img/guides/edit-function-libraries.png)
+    ![edit function libraries]({{base_path}}/assets/img/guides/edit-function-libraries.png)
 
 4. The edit screen appears. The function library name, description, and script can be edited.
 
-    ![edit function library](../../assets/img/guides/edit-function-library.png)
+    ![edit function library]({{base_path}}/assets/img/guides/edit-function-library.png)
 
 5. Click **Update**.
 
@@ -162,7 +162,7 @@ Follow the instructions below to delete a function library.
 
     Locate the function library you want to delete and click on the corresponding **Delete** link.
 
-    ![delete-function-libraries](../../assets/img/guides/delete-function-libraries.png)
+    ![delete-function-libraries]({{base_path}}/assets/img/guides/delete-function-libraries.png)
 
 4. To confirm your request, click **Yes**.
 
@@ -171,7 +171,7 @@ Follow the instructions below to delete a function library.
 
 ### Create a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ### Include function libraries in adaptive authentication scripts
 
@@ -204,8 +204,8 @@ Follow the instructions below to delete a function library.
         ```
     
 !!! info "Related topics"
-    - [Concept: Adaptive-Authentication](../../../references/concepts/authentication/adaptive-authentication)
-    - [Guide: Configure Adaptive Authentication for an Application](../../../guides/adaptive-auth/configure-adaptive-auth)
-    - [Guide: Ensure Assurance with ACR and AMR](../../../guides/adaptive-auth/work-with-acr-amr)
-    - [Quick Start: Adaptive Authentication Scenarios](../../../quick-starts/adaptive-auth-overview)
+    - [Concept: Adaptive-Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication)
+    - [Guide: Configure Adaptive Authentication for an Application]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth)
+    - [Guide: Ensure Assurance with ACR and AMR]({{base_path}}/guides/adaptive-auth/work-with-acr-amr)
+    - [Quick Start: Adaptive Authentication Scenarios]({{base_path}}/quick-starts/adaptive-auth-overview)
 

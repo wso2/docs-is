@@ -12,7 +12,7 @@ Instead of redirecting the user to the authorization server, the client itself w
 owner's username and password. The client will then send these credentials to the authorization server along with the
 client’s own credentials.
 
-![Password grant flow](../../../assets/img/concepts/password-grant-flow.png)
+![Password grant flow]({{base_path}}/assets/img/concepts/password-grant-flow.png)
 
 One of the following cURL commands can be used to try this grant type.
 
@@ -41,8 +41,8 @@ One of the following cURL commands can be used to try this grant type.
     ```
 
 !!! info "Support for refresh token grant"
-	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../refresh-token-grant).
+	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/refresh-token-grant).
 
 !!! info "Related topics"
-        - [Guide: Password Grant](../../../../guides/access-delegation/password-grant)
-        - [Quick Start: Password Grant](../../../../quick-starts/password-playground)
+        - [Guide: Password Grant]({{base_path}}/guides/access-delegation/password-grant)
+        - [Quick Start: Password Grant]({{base_path}}/quick-starts/password-playground)

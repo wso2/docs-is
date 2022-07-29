@@ -10,7 +10,7 @@ To configure the **Session Timeout** and **Remember Me period** tenant-wise, fol
 
 2. Enter the following details under **Resident Realm Configuration** section.  
 
-    ![session-time-out](../../assets/img/guides/session-time-out-config.png)
+    ![session-time-out]({{base_path}}/assets/img/guides/session-time-out-config.png)
 
     <table>
         <tr>
@@ -75,5 +75,5 @@ extend_remember_me_session_timeout_on_auth=false
 ---
 
 !!! info "Related topics"
-    - [Guide: Enable Single Sign-On for a SAML Application](../sso-for-saml)
-    - [Guide: Enable Single Sign-On for an OpenID Connect Application](../sso-for-oidc)
+    - [Guide: Enable Single Sign-On for a SAML Application]({{base_path}}/sso-for-saml)
+    - [Guide: Enable Single Sign-On for an OpenID Connect Application]({{base_path}}/sso-for-oidc)

@@ -97,7 +97,7 @@ Once WSO2 Identity Server has started, you can start the `JConsole` tool as foll
 2.  Execute the `jconsole         ` command to open the
     log-in screen of the **Java Monitoring & Management Console** as
     shown below.  
-    ![Java monitoring and management console](../../../assets/img/deploy/monitor/jm-mc.png) 
+    ![Java monitoring and management console]({{base_path}}/assets/img/deploy/monitor/jm-mc.png) 
 
 3.  Enter the connection details in the above screen as follows:
     1.  Enter the **JMX server URL** in the **Remote Process** field.
@@ -134,7 +134,7 @@ Once WSO2 Identity Server has started, you can start the `JConsole` tool as foll
         !!! note
             Make sure that the user ID you are using for JMX monitoring is
             assigned a role that has the **Server Admin** permission. See
-            [Configuring Roles](../../../guides/identity-lifecycles/manage-roles-overview/) for further information
+            [Configuring Roles]({{base_path}}/guides/identity-lifecycles/manage-roles-overview/) for further information
             about configuring roles assigned to users. Any user assigned to
             the **admin** role can log in to JMX.
 
@@ -142,26 +142,26 @@ Once WSO2 Identity Server has started, you can start the `JConsole` tool as foll
 
     - **Overview**: 
 
-        ![Jconsole overview tab](../../../assets/img/deploy/monitor/oracle-overview.png) 
+        ![Jconsole overview tab]({{base_path}}/assets/img/deploy/monitor/oracle-overview.png) 
 
     -   **Memory**:
 
-        ![Jconsole memory tab](../../../assets/img/deploy/monitor/memory.png) 
+        ![Jconsole memory tab]({{base_path}}/assets/img/deploy/monitor/memory.png) 
 
     -   **Threads**: 
 
-        ![Jconsole threads tab](../../../assets/img/deploy/monitor/threads.png) 
+        ![Jconsole threads tab]({{base_path}}/assets/img/deploy/monitor/threads.png) 
 
     -   **Classes**: 
 
-        ![Jconsole classes tab](../../../assets/img/deploy/monitor/classes.png) 
+        ![Jconsole classes tab]({{base_path}}/assets/img/deploy/monitor/classes.png) 
 
     -   **VM**: 
-        ![Jconsole VM tab](../../../assets/img/deploy/monitor/vm.png) 
+        ![Jconsole VM tab]({{base_path}}/assets/img/deploy/monitor/vm.png) 
 
     -   **MBeans**: 
 
-        ![Jconsole mbeans tab](../../../assets/img/deploy/monitor/mbeans.png) 
+        ![Jconsole mbeans tab]({{base_path}}/assets/img/deploy/monitor/mbeans.png) 
 
 
 ### Use the ServerAdmin MBean
@@ -170,7 +170,7 @@ When you go to the **MBeans** tab in the JConsole, the **ServerAdmin**
 MBean will be listed under the **&org.wso2.carbon** domain as shown
 below.  
 
-![Mbeans tab](../../../assets/img/deploy/monitor/admin-mbean.png) 
+![Mbeans tab]({{base_path}}/assets/img/deploy/monitor/admin-mbean.png) 
 
 The **ServerAdmin** MBean is used for administering the WSO2 Identity Server
 instance. There are several server attributes such as **ServerStatus**,
@@ -185,7 +185,7 @@ The **ServerStatus** attribute can take any of the following values.
     <li><code>IN_MAINTENANCE</code></li>
 </ul>
 
-![ServerStatus](../../../assets/img/deploy/monitor/server-mbean.png) 
+![ServerStatus]({{base_path}}/assets/img/deploy/monitor/server-mbean.png) 
 
 The **ServerAdmin** MBean has the following operations:
 
@@ -199,7 +199,7 @@ The **ServerAdmin** MBean has the following operations:
 | `endMaintenance`     | Switch the server to normal mode if it was switched to maintenance mode earlier.                            |
 
   
-![ServerAdmin](../../../assets/img/deploy/monitor/server-admin.png) 
+![ServerAdmin]({{base_path}}/assets/img/deploy/monitor/server-admin.png) 
 
 ### Use the ServiceAdmin MBean
 
@@ -212,7 +212,7 @@ Its attributes are as follows:
 | `NumberOfInactiveServices` | The number of services which have been disabled by an administrator |
 | `NumberOfFaultyServices`   | The number of services which are faulty                             |
 
-![ServiceAdmin MBean attributes](../../../assets/img/deploy/monitor/use-serviceadmin.png) 
+![ServiceAdmin MBean attributes]({{base_path}}/assets/img/deploy/monitor/use-serviceadmin.png) 
 
 The operations available in the ServiceAdmin MBean:
 
@@ -221,7 +221,7 @@ The operations available in the ServiceAdmin MBean:
 | **startService** [p1:string] | The p1 parameter is the service name. You can activate a service using this operation.           |
 | **stopService** [p1:string] | The p1 parameter is the service name. You can deactivate/disable a service using this operation. |
 
-![ServiceAdmin MBean operations](../../../assets/img/deploy/monitor/serviceadmin-mbean.png) 
+![ServiceAdmin MBean operations]({{base_path}}/assets/img/deploy/monitor/serviceadmin-mbean.png) 
 
 ### Use the StatisticsAdmin MBean
 
@@ -236,7 +236,7 @@ This MBean is used for monitoring system and server statistics. Its attributes a
 | `SystemRequestCount`    | The total number of requests that has been served by the system since the server was started                                                    |
 | `SystemResponseCount`   | The total number of responses that have been sent by the system since the server was started                                                      |
 
-![StatisticsAdmin attributes](../../../assets/img/deploy/monitor/statisticsadmin.png) 
+![StatisticsAdmin attributes]({{base_path}}/assets/img/deploy/monitor/statisticsadmin.png) 
 
 Operations available in the **Statistics** MBean:
 
@@ -255,7 +255,7 @@ Operations available in the **Statistics** MBean:
 | `getMinOperationResponseTime` (p1:string, p2:string) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
 | `getAvgOperationResponseTime` (p1:string, p2:string) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
 
-![Statistics Mbean operations](../../../assets/img/deploy/monitor/statistics-mbean.png) 
+![Statistics Mbean operations]({{base_path}}/assets/img/deploy/monitor/statistics-mbean.png) 
 
 ### Use the DataSource MBean
 
@@ -263,17 +263,17 @@ If you have [JMX enabled for a datasource connected to the
 WSO2 IS instance](#enable-jmx-for-a-datasource), you can
 monitor the performance of the datasource using this MBean. The
 **DataSource** MBean will be listed as shown below.  
-![Datasource Mbean](../../../assets/img/deploy/monitor/datasource-mbean.png) 
+![Datasource Mbean]({{base_path}}/assets/img/deploy/monitor/datasource-mbean.png) 
 
 For example, if you have JMX enabled for the default Carbon datasources
 in the ` deployement.toml ` file, the [JDBC connection pool
 parameters](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html) that
 are configured for the Carbon datasource will be listed as attributes as
 shown below. See the
-[performance tuning guide](../../../deploy/performance/performance-tuning-recommendations/#jdbc-pool-configuration)
+[performance tuning guide]({{base_path}}/deploy/performance/performance-tuning-recommendations/#jdbc-pool-configuration)
 for instructions on how these parameters are configured for a
 datasource.  
-![Datasource performance tuning](../../../assets/img/deploy/monitor/tuning.png)
+![Datasource performance tuning]({{base_path}}/assets/img/deploy/monitor/tuning.png)
 
 ---
 

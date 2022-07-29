@@ -27,14 +27,14 @@ This claim mapping can be done through the WSO2 Identity Server Claim Management
 1.  Navigate to **Main** > **Identity** > **Claims** > **List**.
 2.  Select `http://wso2.org/claims` from the list.
 3.  Choose the Location claim and click on **Edit**.
-    ![location-claim-scim2](../../../assets/img/guides/location-claim-scim2.png)
+    ![location-claim-scim2]({{base_path}}/assets/img/guides/location-claim-scim2.png)
 
 4.  Change the Mapped Attribute value to `homePostalAddress` and click **Update**.
-    ![mapped-attribute-scim2](../../../assets/img/guides/mapped-attribute-scim2.png)
+    ![mapped-attribute-scim2]({{base_path}}/assets/img/guides/mapped-attribute-scim2.png)
 
 5.  Edit the other four claims in the same way.
 
-Now the basic claim mapping is done. You can now add a user using the curl commands [here](../../../develop/apis/scim2-rest-apis/).
+Now the basic claim mapping is done. You can now add a user using the curl commands [here]({{base_path}}/apis/scim2-rest-apis).
 
 In RestClient, the following header parameters must be added and the double quotations must be removed from the message body.
 
@@ -49,5 +49,5 @@ Message body
     You need to do the claim mapping for every SCIM claim you are using with user operations.
 
 !!! info "Related topics" 
-    -   [Concepts: Provisioning Framework](../../../references/concepts/provisioning-framework/#inbound-provisioning)
+    -   [Concepts: Provisioning Framework]({{base_path}}/references/concepts/provisioning-framework/#inbound-provisioning)
     

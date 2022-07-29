@@ -2,7 +2,7 @@
 Follow the steps given below to authenticate users to a sample react service provider with OpenID Connect.
 
 ## Prerequisites
-Only customer users can log in to applications. [Create a user account](../../guides/identity-lifecycles/onboard-overview) if you don't already have one.
+Only customer users can log in to applications. [Create a user account]({{base_path}}/guides/identity-lifecycles/onboard-overview) if you don't already have one.
 
 ## Configure a service provider
 

@@ -22,14 +22,14 @@ corresponding dialogs or error messages based on account status.
 
 **Create a user**
 
-{!fragments/create-user-for-recovery-flows.md!}
+{!./includes/create-user-for-recovery-flows.md!}
 
 **Configure the email adapter to send emails**
 
 !!! note
-    This step is not required for [Offline Password Reset](../../../guides/password-mgt/forced-password-reset/#offline-password-reset).
+    This step is not required for [Offline Password Reset]({{base_path}}/guides/password-mgt/forced-password-reset/#offline-password-reset).
     
-{!fragments/configure-email-sending.md!}
+{!./includes/configure-email-sending.md!}
 
 !!! tip
     The email template used to send this email notification is
@@ -38,7 +38,7 @@ corresponding dialogs or error messages based on account status.
     for password recovery via OTP (one-time password).
 
     You can edit and customize the email template. For more information
-    on how to do this, see see [Customize Automated Emails](../../../guides/tenants/customize-automated-mails).
+    on how to do this, see see [Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
 ---
 
@@ -52,7 +52,7 @@ corresponding dialogs or error messages based on account status.
 
 8. Expand the **Password Reset** tab. You will see the following options for forced password reset:
 
-   ![forced-password-reset](../../assets/img/guides/forced-password-reset-options.png) 
+   ![forced-password-reset]({{base_path}}/assets/img/guides/forced-password-reset-options.png) 
     
 ---
 
@@ -202,7 +202,29 @@ POST https://<host>:<port>/scim2/Users/<users-scim-id>
     In order to force a user to change the password after a specific time
     period, refer [Configuring Password Policy Authenticator](TODO:insert-link). -->
 
+## Change password
+
+If you are a user with admin privileges, you can change your own
+password or reset another user's password using the management
+console as explained below.
+
+To change a user's password:
+
+1.  Log in to the management console of your product.
+2.  On the **Main** tab, click **List** under **Users and Roles**. 
+3.  To change your own password, click **Change My Password**, enter
+    your current password and new password, and click **Change**. 
+4.  If you are an admin user and need to  change another user's password
+    (such as if they have forgotten their current password and need you
+    to reset it), do the following:
+    1.  Click **Users**.
+    2.  Find the user's account on the **Users** screen and click
+        **Change Password** in the **Actions** column.
+    3.  Enter a new temporary password and click **Change**.
+    4.  Inform the user of their new temporary password and instruct
+        them to log in and change it as soon as possible.
+
 
 !!! info "Related topics"
-    See [Configuring Claims](../../../guides/dialects/configure-claims) for more
+    See [Configuring Claims]({{base_path}}/guides/dialects/configure-claims) for more
     information on how to store the claim values in the user store.

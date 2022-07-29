@@ -1,122 +1,77 @@
-# Configure Tenant-Based Adaptive Authentication
+# Configure tenant-based adaptive authentication
 
-This page guides you through configuring tenant-based adaptive authentication for a sample web application using a sample hardware key authenticator. 
+This page guides you through configuring tenant-based adaptive authentication for a sample web application.
 
 ----
 
 ## Scenario
 
-Consider a scenario where you wish to add security for users logging in from external tenant domains. Using the tenant-based adaptive authentication template, you can whitelist certain tenant domains so that users from the whitelisted domains are prompted to perform an additional level of authentication, while users from any other tenant domain can simply provide their credentials (basic authentication) to access a resource.
+Consider a scenario with two tenant domains, `abc.com` and `123.com`. For users logging into the application through `abc.com`, the login flow in applications should be stepped up with TOTP as follows:  
+
+1. Basic authentication (username and password)
+2. TOTP
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
+## Prerequisites
 
-----
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [add two new tenants]({{base_path}}/guides/tenants/add-new-tenants/) with the following specifications:
 
-## Set up tenant
-
-1. Start the server and log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-
-2. Click on the **Configure** tab and then click **Multitenancy** > **Add New Tenant**.
-
-3. Enter tenant details as shown below to register a new tenant for the domain " **abc.com** ".
-
-    - **Domain:** abc.com
-    - **Usage Plan for Tenant:** Demo
-    - **Tenant Admin:** 
-
-         - **First Name:** Alex
-         -  **Last Name:** Doe
-         - **Admin Username:** alex
-         - **Admin Password:** alex321
-
-    - **Email:** alex_d@gmail.com 
-
-    ![Register a new tenant](../../assets/img/guides/register-new-tenant.png)
-
-5. Similarly, register a new tenant for the domain "123.com" with a
-    different tenant admin.  
-
-    ![Register a new tenant](../../assets/img/samples/register-new-tenant-2.png)
+    | Field name    | Tenant 1  | Tenant 2  |
+    |---------------|-----------|-----------|
+    | **Domain**    | abc.com    | 123.com   |
+    | **Usage Plan for Tenant** | Demo   | Demo |
+    | **First Name**    | Alex  | Kim   |
+    | **Last Name** | Doe   | Doe   |
+    | **Admin Username**    | alex  | kim   |
+    | **Admin Password**    | alex321   | kim321    |
+    | **Email** | alex_d@gmail.com  | kim_d@gmail.com  |
 
 ----
 
 ## Configure tenant-based authentication
 
-1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
-2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-3.  Select **SaaS application**. This enables users from other tenant domains such as **abc.com** or **123.com** to log in to the application. 
+3. Select **SaaS application** under **Basic Information**, to enable users from other tenant domains to log in to your application.
 
-    ![Enable servie provider as a SaaS application](../../assets/img/guides/enable-saas-app.png)
+    ![Enable servie provider as a SaaS application]({{base_path}}/assets/img/guides/enable-saas-app.png)
 
-4.  Expand the **Local and Outbound Configuration** section and click **Advanced Authentication**.
+4. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-5.  Expand **Script Based Conditional Authentication**.
+5. You will be redirected to **Advanced Configuration**, expand **Script Based Conditional Authentication**.
 
-6.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **Tenant-Based**. 
+6. In the **Templates** section, click on the **`+`** corresponding to the **Tenant-Based** template.  
 
-    ![Tenant based template](../../assets/img/samples/tenant-based-template.png)
+    ![Tenant based template]({{base_path}}/assets/img/samples/tenant-based-template.png)
 
-7.  Click **Ok**. The authentication script and authentication steps
-    are configured. 
-    
-    The authentication script prompts the second step of authentication for users that belong to the tenant domains named `abc.com` and `xyz.com`.  
+7. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
-8.  The authentication steps added are `totp` and `fido`. However, these are authentication steps that you would normally use in production. 
+    !!! info
+        - The authentication script prompts the second step of authentication for users that belong to the tenant domains named `abc.com` and `xyz.com`.
+        - By default, `totp` will be added as the second authentication step.
 
-    To try out sample authenticators with the sample application, delete the two
-    authenticators and add the following sample authenticators instead.
-
-    1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
-        second authentication step).
-        
-        ![Delete local authenticator](../../assets/img/samples/delete-authenticator-1.png)
-        
-    2.  Select **Demo Hardware Key Authenticator** and click **Add**.
-      
-        ![Add new local authenticator](../../assets/img/samples/add-new-authenticator.png)
-
-9. Click **Update**.
+8. Click **Update** to save the configurations.
 
 ----
 
-## Try it
+## Try it out
 
-1. Log out of the management console and log in with the **abc.com** tenant admin's credentials (alex@abc.com).  
-    
-    ![Log in to tenant abc.com](../../assets/img/samples/mgt-console-login-alex.png)
+1. Log out of the management console and log in with the **abc.com** tenant admin's credentials (i.e., `alex@abc.com`).  
 
-2.  Create a new user in the abc.com tenant named "chris" with login permission.
+2. [Create a new user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) in the `abc.com` tenant named `chris` with login permission.
 
-    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/).
+3. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-3.  Access the following sample Pickup Dispatch application URL:
+4. Click **Login** and enter Chris's credentials. The username should be appended with the domain to which Chris belongs, i.e., `chris@abc.com`.
 
-    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
+5. You will be prompted to enter your `TOTP` code, enter the code and click **Sign In**.  
 
-4.  Click **Login** and enter Chris's credentials. 
-    
-    Enter the username with the appended tenant domain (i.e., chris@abc.com).  
-    
-    ![Sign in to Pickup Dispatch application as Chris from abc.com tenant](../../assets/img/samples/pickup-sign-in-chris.png)  
+    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png)
 
-    Note that you are prompted for hardware key authentication because
-    **abc.com** is a whitelisted tenant domain.
+6. Logout from the application and log in with Kim's credentials. Kim is the admin of the **123.com** tenant domain, which is not in the tenant domains specified in the script.
 
-5.  Enter the 4-digit key and click **Sign In**. You are successfully
-    logged in to the application.  
-
-    ![Hardware key authenticator](../../assets/img/samples/hardware-key-authenticator.png)
-
-6.  Log out and log in with Kim's credentials. Kim is the admin of the
-    **123.com** tenant domain, which is not one of the whitelisted
-    domains.  
-
-    ![Sign in to Pickup Dispatch application as Kim from 123.com tenant](../../assets/img/samples/pickup-sign-in-kim.png)
-
-7.  Provide consent.  
-    Note that you are successfully logged in to the application after
-    going through the basic authentication step only.
+Note that you are successfully logged in to the application after only going through the basic authentication step.

@@ -1,1 +1,3 @@
-{!fragments/enable-email-as-username.md!}
+## Configure Email Address as the Username
+
+{!./includes/enable-email-as-username.md!}

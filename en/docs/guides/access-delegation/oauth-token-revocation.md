@@ -33,7 +33,7 @@ The SOAP endpoint is exposed at `/services/OAuthAdminService` with the `revokeAu
 The SOAP endpoint is for the resource owners to directly interact with the Authorization server and revoke authorization grants for applications they previously granted access to - without the OAuth 2.0 application/client being an intermediary in the process. The use of this SOAP endpoint is demonstrated by the WSO2 Identity Server’s My Account where resource owners can login and revoke the application authorization.
 
 
-1. Access the [My Account](https://localhost:9443/user-portal).
+1. Access the My Account.
 
 2.Click the **Security** tab on the side panel.
 

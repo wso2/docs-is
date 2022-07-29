@@ -1,10 +1,8 @@
 # Configure Claims
 
-For information on claims, see [Claim Management](../../../references/concepts/claim-management)
-
 By default, identity claim values are stored in the JDBC datasource
 configured in the `         deployment.toml       ` file. If needed, you
-can configure WSO2 IS to store the claim values in the userstore as
+can configure WSO2 IS to store the claim values in another user store as
 well.
 
 1.  Open the
@@ -23,27 +21,26 @@ well.
     data_store = "org.wso2.carbon.identity.governance.store.UserStoreBasedIdentityDataStore"
     ```
 
-2.  The identity claims mentioned below should be mapped correctly to
-    the attributes in the underlying userstore. For more information on
-    how to do this, see [Adding Claim Mapping](../../../guides/dialects/add-claim-mapping).
+2.  Map the identity claims mentioned below to attributes in the underlying user store. 
 
-    -   `http://wso2.org/claims/identity/accountLocked` - This claim is
+    !!! info
+        Learn more about [adding claim mapping]({{base_path}}/guides/dialects/add-claim-mapping).
+
+    -   `http://wso2.org/claims/identity/accountLocked`: This claim is
         used to store the status of the user's account, i.e., if it is
         locked or not.
 
-    -   `http://wso2.org/claims/identity/unlockTime` - This is used to
+    -   `http://wso2.org/claims/identity/unlockTime`: This is used to
         store the timestamp that the user's account is unlocked.
 
-    -   `http://wso2.org/claims/identity/failedLoginAttempts` - This is
+    -   `http://wso2.org/claims/identity/failedLoginAttempts`: This is
         used to track the number of consecutive failed login attempts.
         It is based on this that the account is locked.
 
         
 !!! info "Related topics"
 
-    - [Guides: Add Claim Mapping](../../../guides/dialects/add-claim-mapping)
-    - [Guides: Edit Claim Mapping](../../../guides/dialects/edit-claim-mapping)
-    - [Guides: Delete Claim Mapping](../../../guides/dialects/delete-claim-mapping)
-    - [Concepts: Claim Management](../../../references/concepts/claim-management)
-
-  
+    - [Guides: Add Claim Mapping]({{base_path}}/guides/dialects/add-claim-mapping)
+    - [Guides: Edit Claim Mapping]({{base_path}}/guides/dialects/edit-claim-mapping)
+    - [Guides: Delete Claim Mapping]({{base_path}}/guides/dialects/delete-claim-mapping)
+    - [Concepts: Claim Management]({{base_path}}/references/concepts/claim-management)

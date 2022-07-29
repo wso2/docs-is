@@ -6,7 +6,7 @@ This section provides the list of product-level security guidelines that are rec
 
 ## Security updates
 
-Apply all the security patches relevant to your WSO2 Identity Server version. For more information, see [here](../../../deploy/get-started/get-wso2-updates/)
+Apply all the security patches relevant to your WSO2 Identity Server version. For more information, see [here]({{base_path}}/deploy/get-started/get-wso2-updates/)
 
 <!--If your WSO2 Identity Server is listed as a WUM-supported product <a href="http://wso2.com/update/">here</a>, follow the instructions in <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a>.</li>-->
         
@@ -33,20 +33,20 @@ Change the default keystores and create new keys for all the cryptographic opera
 
 !!! info
 
-    For more information, see [Recommendations for using keystores](../../../deploy/security/use-asymmetric-encryption##recommendations-for-setting-up-keystores) and [Create New Keystores](../../../deploy/security/create-new-keystores).
+    For more information, see [Recommendations for using keystores]({{base_path}}/deploy/security/use-asymmetric-encryption##recommendations-for-setting-up-keystores) and [Create New Keystores]({{base_path}}/deploy/security/create-new-keystores).
 
 
 ---
 
 ## Passwords in config files
 
-WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Encrypt Passwords with the Cipher Tool](../../../deploy/security/encrypt-passwords-with-cipher-tool).
+WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Encrypt Passwords with the Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 
 ---
 
 ## Default ports
 
-All the default ports that are used by WSO2 Identity Server are listed in <a href="../../../references/default-ports-of-wso2-products">Default Ports of WSO2 Identity Server</a>, e.g., the default HTTPS port is 9443 and the HTTP port is 9763. For instructions on changing default ports, see <a href="../../../references/default-ports-of-wso2-products#change-the-offset-for-default-ports">Change the default port offset</a>.
+All the default ports that are used by WSO2 Identity Server are listed in <a href="{{base_path}}/references/default-ports-of-wso2-products">Default Ports of WSO2 Identity Server</a>, e.g., the default HTTPS port is 9443 and the HTTP port is 9763. For instructions on changing default ports, see <a href="{{base_path}}/references/default-ports-of-wso2-products#change-the-offset-for-default-ports">Change the default port offset</a>.
 
 ---
 
@@ -54,7 +54,7 @@ All the default ports that are used by WSO2 Identity Server are listed in <a hre
 
 ### Read-only access
 
-If your WSO2 Identity Server is connecting to an external userstore, such as Microsoft Active Directory, for the purpose of reading and retrieving user information, make sure to enable read-only access to that userstore. For instructions, see <a href="../../../deploy/configure-user-stores">Configure Userstores</a>.
+If your WSO2 Identity Server is connecting to an external userstore, such as Microsoft Active Directory, for the purpose of reading and retrieving user information, make sure to enable read-only access to that userstore. For instructions, see <a href="{{base_path}}/deploy/configure-user-stores">Configure Userstores</a>.
 
 ### TLS
 
@@ -74,7 +74,7 @@ When connecting WSO2 Identity Server to external databases or userstores (LDAP),
 
 To have strong transport-level security, use TLS 1.2 and disable SSL, TLS 1.0, and 1.1. 
 
-The TLS protocol and ciphers are configured for an HTTP connector using the `SSLEnabled` element in the `<IS_HOME>/repository/conf/deployment.toml` file. For instructions, see <a href="../../../deploy/security/configure-transport-level-security">Configure Transport-Level Security</a>. 
+The TLS protocol and ciphers are configured for an HTTP connector using the `SSLEnabled` element in the `<IS_HOME>/repository/conf/deployment.toml` file. For instructions, see <a href="{{base_path}}/deploy/security/configure-transport-level-security">Configure Transport-Level Security</a>. 
 
 !!! note 
     <ul>
@@ -98,7 +98,7 @@ The TLS protocol and ciphers are configured for an HTTP connector using the `SSL
 
 When sending HTTP responses, by default, WSO2 Identity Server passes `WSO2 Carbon Server` as the **server value** in HTTP headers. This means that information about WSO2 Identity Server stack will be exposed through HTTP responses. 
 
-It is recommended to change this by configuring the server name in the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory. For instructions, see <a href="../../../deploy/security/configure-transport-level-security">Configure Transport Level Security</a>.
+It is recommended to change this by configuring the server name in the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory. For instructions, see <a href="{{base_path}}/deploy/security/configure-transport-level-security">Configure Transport Level Security</a>.
 
 ---
 
@@ -106,7 +106,7 @@ It is recommended to change this by configuring the server name in the `deployme
 
 For products based on Carbon 4.4.11 or later versions, HTTP Strict Transport Security (HSTS) is disabled for the applications with which WSO2 Identity Server is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.
 
-Make sure to enable HSTS for all the applications that are deployed in WSO2 Identity Server. This includes the WSO2 Identity Server Management Console and any other web applications. For instructions, see <a href="../../../deploy/security/enable-hsts">Enable HTTP Strict Transport Security (HSTS) Headers</a>.
+Make sure to enable HSTS for all the applications that are deployed in WSO2 Identity Server. This includes the WSO2 Identity Server Management Console and any other web applications. For instructions, see <a href="{{base_path}}/deploy/security/enable-hsts">Enable HTTP Strict Transport Security (HSTS) Headers</a>.
 
 ---
 
@@ -116,7 +116,7 @@ If there are dynamic pages in your application with sensitive information, you n
 
 !!! tip 
 
-    By default, cache prevention headers are enabled for the applications with which the product is shipped by default. Therefore, you need to manually enable cache prevention headers only for all the new applications that you deploy in your server. For instructions, see <a href="../../../deploy/security/prevent-browser-caching">Prevent browser caching</a>. 
+    By default, cache prevention headers are enabled for the applications with which the product is shipped by default. Therefore, you need to manually enable cache prevention headers only for all the new applications that you deploy in your server. For instructions, see <a href="{{base_path}}/deploy/security/prevent-browser-caching">Prevent browser caching</a>. 
 
 ---
 
@@ -194,7 +194,7 @@ To enable hostname verification,
 
 !!! info 
 
-    For more information, see <a href="../../../deploy/enable-hostname-verification">Enable HostName Verification</a>.
+    For more information, see <a href="{{base_path}}/deploy/enable-hostname-verification">Enable HostName Verification</a>.
 
 ---
 
@@ -230,7 +230,7 @@ Follow the instructions given below to change the administrator credentials.
 
 !!! info
 
-    For more information, see <a href="../../../guides/password-mgt/forced-password-reset/">Forced Password Reset</a>.
+    For more information, see <a href="{{base_path}}/guides/password-mgt/forced-password-reset/">Forced Password Reset</a>.
 
 ---
 
@@ -239,7 +239,7 @@ Follow the instructions given below to change the administrator credentials.
 
 Majority of the users only need to sign in to the connected service providers via WSO2 Identity Server. Such users should not have permissions to sign in to the WSO2 Identity Server Management Console.
 
-Make sure that the permission for signing in to the WSO2 Identity Server Management Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../../guides/identity-lifecycles/manage-roles-overview/">Manage User Roles</a>.
+Make sure that the permission for signing in to the WSO2 Identity Server Management Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="{{base_path}}/guides/identity-lifecycles/manage-roles-overview/">Manage User Roles</a>.
 
 ---
 
@@ -258,7 +258,7 @@ appender.CARBON_LOGFILE.strategy.max = 20
 
 !!! info 
 
-    For information on configuring logging details, see <a href="../../../deploy/monitor/monitor-logs/">Monitor Logs</a>.
+    For information on configuring logging details, see <a href="{{base_path}}/deploy/monitor/monitor-logs/">Monitor Logs</a>.
 
 ---
 
@@ -268,13 +268,13 @@ Log forging can be prevented by appending a UUID to the log message.
 
 !!! info
 
-    For more information on configuring the `log4j2.properties` file, see <a href="../../../deploy/monitor/monitor-logs/">Monitor Logs</a>.
+    For more information on configuring the `log4j2.properties` file, see <a href="{{base_path}}/deploy/monitor/monitor-logs/">Monitor Logs</a>.
 
 ---
 
 ## JVM parameters
 
-- The recommended JDK versions are JDK 1.8 and 11. For more information, see <a href="../../../deploy/get-started/install/#prerequisites">Prerequisites</a>. 
+- The recommended JDK versions are JDK 1.8 and 11. For more information, see <a href="{{base_path}}/deploy/get-started/install/#prerequisites">Prerequisites</a>. 
 
     ```java
     -Xms512m -Xmx2048m 
@@ -285,9 +285,9 @@ Log forging can be prevented by appending a UUID to the log message.
 
 ## Mutual SSL
 
-If mutual SSL is enabled, [enable intermediate certificate validation](../../../develop/apis/authenticate-and-authorize-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
+If mutual SSL is enabled, [enable intermediate certificate validation]({{base_path}}/develop/apis/authenticate-and-authorize-rest-apis/#configure-intermediate-certificate-validation) as well to make sure that only certificates signed by the issuers mentioned in the **IntermediateCertValidation** configuration are allowed to be used during mutual SSL authentication.
 
-If mutual SSL authentication capabilities are not required, you can disable it <!--(TODO:../../administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is)-->.
+If mutual SSL authentication capabilities are not required, you can disable it <!--(TODO:{{base_path}}/administer/enabling-mutual-ssl/#enabling-mutual-ssl-in-the-wso2-is)-->.
 
 ---
 

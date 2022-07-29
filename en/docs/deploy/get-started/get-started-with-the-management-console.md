@@ -10,7 +10,7 @@ management console.
 !!! Info 
     You can access the management console of the WSO2 Identity
     server at `https://<server-host>:<server-port>/carbon`. When the server
-    is [running](../../../deploy/get-started/run-the-product) in your local setup:
+    is [running]({{base_path}}/deploy/get-started/run-the-product) in your local setup:
             
     ```
     https://localhost:9443/carbon
@@ -26,7 +26,7 @@ management console.
 
 The following screen depicts the home screen of the management console.
 
-![Management Console Home Screen](../../../assets/img/deploy/server_home_management_console.png)
+![Management Console Home Screen]({{base_path}}/assets/img/deploy/server_home_management_console.png)
 
 The main menu items of the console appear in the left hand side of the 
 home screen. Each of these menus carry a list of sub menus. These menus and subsections will 
@@ -58,50 +58,50 @@ divided into different sections.
 
 ### Identity section
 
-![identity-section-mgt-console](../../../assets/img/deploy/identity-section-mgt-console.png)
+![identity-section-mgt-console]({{base_path}}/assets/img/deploy/identity-section-mgt-console.png)
 
 !!! info "Related topics"
     Refer to the following topics for instructions to use sub menu items.
     
-    -   [Guide: Manage User Operations](../../../guides/identity-lifecycles/manage-user-overview/) 
+    -   [Guide: Manage User Operations]({{base_path}}/guides/identity-lifecycles/manage-user-overview/) 
         for configuring users and roles. 
-    -   [Guide: Manage User Roles](../../../guides/identity-lifecycles/manage-roles-overview/)
-    -   [Deploy: Configure the Realm](../../../deploy/configure-the-realm) for configuring user stores.
-    -   [Guide: Manage User Attributes](../../../guides/identity-lifecycles/manage-user-attributes/) for configuring claims.
+    -   [Guide: Manage User Roles]({{base_path}}/guides/identity-lifecycles/manage-roles-overview/)
+    -   [Deploy: Configure the Realm]({{base_path}}/deploy/configure-the-realm) for configuring user stores.
+    -   [Guide: Manage User Attributes]({{base_path}}/guides/identity-lifecycles/manage-user-attributes/) for configuring claims.
 
 ---
 
 ### Entitlement section
 
-![entitlement-section-mgt-console](../../../assets/img/deploy/entitlement-section-mgt-console.png)
+![entitlement-section-mgt-console]({{base_path}}/assets/img/deploy/entitlement-section-mgt-console.png)
 
 <!--!!! info "Related topics"
     Refer to the following topics for instructions to use sub menu items.
     
-    -   See [Configuring the Policy Administration Point](TO-DO:../../learn/configuring-the-policy-administration-point) 
+    -   See [Configuring the Policy Administration Point](TO-DO:{{base_path}}/learn/configuring-the-policy-administration-point) 
         for configuring the policy administration point.
-    -   See [Configuring the Policy Decision Point](TO-DO:../../learn/configuring-the-policy-decision-point) 
+    -   See [Configuring the Policy Decision Point](TO-DO:{{base_path}}/learn/configuring-the-policy-decision-point) 
         for configuring the policy decision point.-->
 
 ---
 
 ### Manage section
 
-![manage-section-mgt-console](../../../assets/img/deploy/manage-section-mgt-console.png)
+![manage-section-mgt-console]({{base_path}}/assets/img/deploy/manage-section-mgt-console.png)
 
 !!! info "Related topics"  
     Refer to the following topics for instructions to use sub menu items.
 
-    <!---   See [Workflow Management](../../../guides/workflows/adding-a-workflow-engine/) for information on
+    <!---   See [Workflow Management]({{base_path}}/guides/workflows/adding-a-workflow-engine/) for information on
         working with workflows.-->
-    -   [Guide: Manage Challenge Questions](../../../guides/password-mgt/challenge-question/)
-        for information on configuring challenge questions. Also see [Account Recovery](../../../guides/my-account/my-account#account-recovery) for
+    -   [Guide: Manage Challenge Questions]({{base_path}}/guides/password-mgt/challenge-question/)
+        for information on configuring challenge questions. Also see [Account Recovery]({{base_path}}/guides/my-account/my-account#account-recovery) for
         information on challenge questions.
-    -   [Guide: Email Templates](../../../guides/tenants/customize-automated-mails/) for configuring email
-        templates. Also see [Customizing Automated Emails](../../../guides/tenants/customize-automated-mails/)
+    -   [Guide: Email Templates]({{base_path}}/guides/tenants/customize-automated-mails/) for configuring email
+        templates. Also see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails/)
         for information on how to customize these templates.
     -   [Deploy: Create New Keystores in the WSO2 Administration
-        Guide](../../../deploy/security/create-new-keystores)
+        Guide]({{base_path}}/deploy/security/create-new-keystores)
         for configuring keystores.
 
 ---
@@ -111,10 +111,10 @@ divided into different sections.
 The monitor menu includes a list of features focused on providing logs
 and statistics related to the Identity Server. For more
 information on these features and their usage, see the topics on
-[monitoring the Identity Server](../../../deploy/monitor/monitor-the-identity-server).
+[monitoring the Identity Server]({{base_path}}/deploy/monitor/monitor-the-identity-server).
 
 
-![monitor-section-mgt-console](../../../assets/img/deploy/monitor-section-mgt-console.png)
+![monitor-section-mgt-console]({{base_path}}/assets/img/deploy/monitor-section-mgt-console.png)
 
 ---
 
@@ -124,16 +124,16 @@ The configure menu is mainly a list of administration features which can
 help you customize and configure the Identity Server to suit your
 specific requirements.
 
-![configure-section-mgt-console](../../../assets/img/deploy/configure-section-mgt-console.png)
+![configure-section-mgt-console]({{base_path}}/assets/img/deploy/configure-section-mgt-console.png)
 
 !!! info "Related topics"
     Refer to the following topics for instructions to use sub menu items.
 
-    -   See [Creating and Managing Tenants](../../../guides/tenants/add-new-tenants/)
+    -   See [Creating and Managing Tenants]({{base_path}}/guides/tenants/add-new-tenants/)
         for information on multitenancy.
 
     <!---   See [Using Workflows with User
-        Management](../../../guides/workflows/using-workflows-with-user-management) for information
+        Management]({{base_path}}/guides/workflows/using-workflows-with-user-management) for information
         on Workflow Engine Profiles.-->
     
 
@@ -147,4 +147,4 @@ specific requirements.
 The tools menu includes SAML and XACML tools.
 
 
-![tools-section-mgt-console](../../../assets/img/deploy/tools-section-mgt-console.png)
+![tools-section-mgt-console]({{base_path}}/assets/img/deploy/tools-section-mgt-console.png)

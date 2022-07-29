@@ -10,7 +10,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     -   An SMS OTP verification is not triggered if the mobile number to be updated is the same as the previously verified mobile number of the user.
     -   Sending the SMS OTP verification is skipped in the following instances:
         1. The `verifyMobile` claim is not set to true in the SCIM 2.0 request.
-        2. The claim update is invoked by a user other than the claim owner.
+        2. The claim update is invoked by a user other than the claim owner or a non-privileged user.
     -   This feature only manages the verification flow internally. External verification capability is not offered.
 
 ---
@@ -29,8 +29,8 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
                 <inline>{"api_key"="4c9374",
                     "api_secret"="FtqyPggE93",
                     "from"="NEXMO",
-                    "to"={{send-to}},
-                    "text"={{body}}
+                    "to"={{'{{send-to}}'}},
+                    "text"={{'{{body}}'}}
                     }</inline>
             </mapping>
             <to eventAdapterType="http">
@@ -42,9 +42,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         
         !!! note
             This publisher uses [NEXMO](https://www.nexmo.com/) as the SMS REST service provider. The 
-            `api_key` and `api_secret` needs to be replaced with the appropriate values copied from the NEXMO API Dashboard. 
-            For instructions on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
-            /display/DAS300/HTTP+Event+Publisher).
+            `api_key` and `api_secret` needs to be replaced with the appropriate values copied from the NEXMO API Dashboard.
 
 ----
 
@@ -54,7 +52,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
    
 2.  Select **Enable user mobile number verification on update**. Additionally, you can define the expiry time (in minutes) for the verification SMS OTP to match your requirement. 
     
-    ![Mobile verification on update configuration](../../assets/img/guides/mobile-verification-on-update-config.png)
+    ![Mobile verification on update configuration]({{base_path}}/assets/img/guides/mobile-verification-on-update-config.png)
 
 3.  Click **Update** to save the changes. 
 
@@ -69,7 +67,14 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         enable_verification = true
         verification_sms_otp_validity = "5"
         ```
-    3. Restart the server.
+
+    3. By default, mobile number verification is not allowed for privileged users. Add the following property to the above `deployment.toml` config to enable this server wide.
+        ```toml
+        [identity_mgt.user_claim_update.mobile]
+        enable_verification_by_privileged_user = true
+        ```
+
+    4. Restart the server.
 ---
 
 ## Try it out 
@@ -148,7 +153,7 @@ Given below is a sample request and the relevant response to submit the received
     ---
     **Sample Request**
     ```curl
-    curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "123ABC","properties": []}'
+    curl -k -v -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{ "code": "123{{base_path}}","properties": []}'
     "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
     ```
     ---
@@ -187,7 +192,34 @@ Given below is a sample request and the relevant response to request a new verif
 
 ---
 
+Additionally, you can use the following curl command to resend a new SMS OTP code by a privileged user.
+
+**Sample**
+
+!!! abstract ""
+    **Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user":{},"properties": []}'
+    "https://localhost:9443/api/identity/user/v1.0/resend-code"
+    ```
+
+    The user and the verification scenario should be specified in the request body as follows :
+    ```
+    "user": {"username": "", "realm": ""}
+    "properties": [{"key":"RecoveryScenario", "value":"MOBILE_VERIFICATION_ON_UPDATE"}]}
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user":{"username": "admin","realm": "PRIMARY"},"properties": [{"key":"RecoveryScenario","value":"MOBILE_VERIFICATION_ON_UPDATE"}]}' "https://localhost:9443/api/identity/user/v1.0/resend-code" -k -v
+    ```
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+
 !!! info "Related topics"
-    See [SCIM 2.0 Rest APIs](../../../develop/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
+    See [SCIM 2.0 Rest APIs]({{base_path}}/apis/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
     
-    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](../../../develop/apis/use-the-self-sign-up-rest-apis/).
+    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs]({{base_path}}/apis/use-the-self-sign-up-rest-apis).

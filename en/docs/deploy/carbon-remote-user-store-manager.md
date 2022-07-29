@@ -4,7 +4,7 @@ Carbon Remote Userstore Manager enables using a userstore that is already config
 
 Consider a scenario where two instances of WSO2 Identity Server are configured. The first instance (IS1) has a `ReadOnlyLDAPUserStoreManager` configured on OpenLDAP and the second instance (IS2) has `JDBCUserStoreManager` configured on OracleDB. To expose the users in IS2 to IS1 through the `UserStoreManager` API, you can call the `UserStoreManager` admin service operations. WSO2 IS has a standard implementation which uses the admin services. The diagram below illustrates this scenario.
 
-![Carbon remote user store manager scenario](../assets/img/guides/carbon-remote-user-store-manager.png)
+![Carbon remote user store manager scenario]({{base_path}}/assets/img/guides/carbon-remote-user-store-manager.png)
 
 ---
 
@@ -25,7 +25,7 @@ To configure a carbon remote userstore manager, you can follow the following ste
         Make sure that you enter the same credentials used to invoke the admin services in the remote server and the same remote services URL.
         
 
-    ![Add new userstore](../../assets/img/extend/add-new-user-store.png) 
+    ![Add new userstore]({{base_path}}/assets/img/extend/add-new-user-store.png) 
 
 3.  Update the other fields as required and click **Add**.
 

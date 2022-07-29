@@ -1,24 +1,24 @@
 # Pass OIDC Authentication Request Parameters in a Request Object
 
-This page guides you through passing a set of request parameters as its claims using a JWT in a [request object](../../../references/concepts/authentication/request-object). 
+This page guides you through passing a set of request parameters as its claims using a JWT in a [request object]({{base_path}}/references/concepts/authentication/request-object). 
 If you want to pass any sensitive parameter with the authentication request which needs additional security you can pass it as a request object.
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
-{!fragments/encrypt-id-tokens.md!}
+{!./includes/encrypt-id-tokens.md!}
 
 ## Configure claims
 
 1. Add two new external claims as follows for the `http://wso2.org/oidc/claim` dialect. For detailed instructions on how 
-   to add a new claim mapping to a claim dialect, see [Adding Claim Mapping](../../../guides/dialects/add-claim-mapping). 
+   to add a new claim mapping to a claim dialect, see [Adding Claim Mapping]({{base_path}}/guides/dialects/add-claim-mapping). 
              
-    ![external claim 1](../../assets/img/guides/oidc-external-claim-1.png)
+    ![external claim 1]({{base_path}}/assets/img/guides/oidc-external-claim-1.png)
    
-    ![external claim 2](../../assets/img/guides/oidc-external-claim-2.png)
+    ![external claim 2]({{base_path}}/assets/img/guides/oidc-external-claim-2.png)
    
     !!! note
         Here, `customClaim1` and`customClaim2` are selected as claim
@@ -58,7 +58,7 @@ If you want to pass any sensitive parameter with the authentication request whic
         		application again. Now you will be prompted to provide
         		consent for all requested claims, including the newly
         		added/changed claims. For more information on
-        		revoking/accepting user consent, see [Consent management](../../../guides/my-account/my-account/#consent-management).
+        		revoking/accepting user consent, see [Consent management]({{base_path}}/guides/my-account/my-account/#consent-management).
             </li>
             </ul>
             
@@ -69,7 +69,7 @@ If you want to pass any sensitive parameter with the authentication request whic
     
     !!! note
         For detailed instructions on creating a user and customizing a user's profile,
-        see [Add Users](../../../guides/identity-lifecycles/admin-creation-workflow/) and [Update User Profiles](../../../guides/identity-lifecycles/update-profile).
+        see [Add Users]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) and [Update User Profiles]({{base_path}}/guides/identity-lifecycles/update-profile).
 
 ---
 
@@ -150,6 +150,6 @@ authorization code flow with a signed request object.
 
 
 !!! info "Related topics"
-    - [Concept: Request Object](../../../references/concepts/authentication/request-object)
-    - [Quick Start: OpenID Connect Request Object](../../../quick-starts/request-object)
-    - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)
+    - [Concept: Request Object]({{base_path}}/references/concepts/authentication/request-object)
+    - [Quick Start: OpenID Connect Request Object]({{base_path}}/quick-starts/request-object)
+    - [Guide: Use Advanced Parameters in Authentication Requests]({{base_path}}/oidc-parameters-in-auth-request)

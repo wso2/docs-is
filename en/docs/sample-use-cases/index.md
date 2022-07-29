@@ -24,4 +24,4 @@ You are **Cameron** and you are tasked with the following.
 
 - With the expansion of **Pickup**, Rowan is having a hard time creating accounts for each and every employee joining the organization. Let new employees create their own accounts to speed up the process using <a href="self-sign-up">**Self Sign-up**</a>
 
-![QSG overall scenario](/../assets/img/get-started/qsg-overall-scenario.png)
+![QSG overall scenario](/{{base_path}}/assets/img/get-started/qsg-overall-scenario.png)

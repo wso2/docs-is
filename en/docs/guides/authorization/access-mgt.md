@@ -16,7 +16,7 @@ A XACML policy has a clearly identifiable life cycle inside a PAP.
 The following illustration shows the life cycle of a policy within WSO2
 Identity Server.
 
-![policy-life-cycle](../assets/img/tutorials/policy-life-cycle.png)
+![policy-life-cycle]({{base_path}}/assets/img/tutorials/policy-life-cycle.png)
 
 1.  We can create XACML policies using the provided editors.
 2.  Once we are satisfied with the policy we have written, we can
@@ -32,7 +32,7 @@ Identity Server.
 
 !!! info
 	For more information on XACML, see [Access Control and Entitlement
-	Management](../../get-started/access-control-and-entitlement-management).
+	Management]({{base_path}}/get-started/access-control-and-entitlement-management).
 
 The following topics provide instructions on how to configure the PAP.
 
@@ -42,20 +42,20 @@ The Policy Decision Point (PDP) is the system entity that evaluates an
 applicable policy and returns an authorization decision. The following
 diagram shows the components in the PDP. For more details about PDP
 archtecture, [Read
-this](../../get-started/access-control-and-entitlement-management)
+this]({{base_path}}/get-started/access-control-and-entitlement-management)
 .
 
-![policy-decision-point](../assets/img/tutorials/policy-decision-point.png)
+![policy-decision-point]({{base_path}}/assets/img/tutorials/policy-decision-point.png)
 
 All PDP configurations have been exposed via this API as a Web service.
 The following topics provide instructions on how to configure the PDP,
 once the policy is published to PDP by the user.
 
 Related guides:
-- [Create a policy](../authorization/create-a-policy.md)
-- [Edit a policy](../authorization/edit-a-policy.md)
-- [Policy version controlling](../authorization/version-control.md)
-- [Publish a policy](../authorization/publish-a-policy.md)
-- [View status of a policy](../authorization/view-status.md)
-- [Enable and Disable a policy](../authorization/enable-disable-policy.md)
-- [Clear cache](../authorization/clear-cache.md)
+- [Create a policy]({{base_path}}/authorization/create-a-policy.md)
+- [Edit a policy]({{base_path}}/authorization/edit-a-policy.md)
+- [Policy version controlling]({{base_path}}/authorization/version-control.md)
+- [Publish a policy]({{base_path}}/authorization/publish-a-policy.md)
+- [View status of a policy]({{base_path}}/authorization/view-status.md)
+- [Enable and Disable a policy]({{base_path}}/authorization/enable-disable-policy.md)
+- [Clear cache]({{base_path}}/authorization/clear-cache.md)

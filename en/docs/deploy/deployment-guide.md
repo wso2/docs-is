@@ -13,7 +13,7 @@ seamlessly handle the requests.
 2. Balancing traffic handling: Multiple nodes can handle the traffic together so that cluster throughput is higher 
 than the throughput of a single node.
 
-<!--For complete information on clustering concepts, see [Clustering Overview](../../../deploy/clustering-overview). -->
+<!--For complete information on clustering concepts, see [Clustering Overview]({{base_path}}/deploy/clustering-overview). -->
 The following sections guide you through setting up the deployment pattern, which is an HA Clustered Deployment 
 of two WSO2 Identity Server nodes. 
 
@@ -47,7 +47,7 @@ necessary system requirements and a compatible environment.
 The above recommendations can change based on the expected concurrency and performance.
 
 !!! note
-    For more information on prerequisites, see [Installation Prerequisites](../../../deploy/get-started/install).
+    For more information on prerequisites, see [Installation Prerequisites]({{base_path}}/deploy/get-started/install).
 
 ---
 
@@ -57,12 +57,12 @@ The above recommendations can change based on the expected concurrency and perfo
 <tbody>
 <tr class="odd">
 <th>Operating systems</th>
-<td><p>For information on tested operating systems, see <a href="../../../deploy/environment-compatibility/#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a> 
+<td><p>For information on tested operating systems, see <a href="{{base_path}}/deploy/environment-compatibility/#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a> 
 .</p></td>
 </tr>
 <tr class="even">
 <th>RDBMS</th>
-<td><p>For information on tested DBMSs, see <a href="../../../deploy/environment-compatibility/#tested-dbmss">Tested DBMSs</a> .</p></td>
+<td><p>For information on tested DBMSs, see <a href="{{base_path}}/deploy/environment-compatibility/#tested-dbmss">Tested DBMSs</a> .</p></td>
 </tr>
 <tr class="odd">
 <th>Directory services</th>
@@ -71,7 +71,7 @@ The above recommendations can change based on the expected concurrency and perfo
 <li>LDAP v2</li>
 <li>LDAP v3</li>
 </ul>
-<p>For information on tested LDAPs, see <a href="../../../deploy/environment-compatibility/#tested-ldaps">Tested LDAPs</a> .</p></td>
+<p>For information on tested LDAPs, see <a href="{{base_path}}/deploy/environment-compatibility/#tested-ldaps">Tested LDAPs</a> .</p></td>
 </tr>
 <tr class="even">
 <th>Java</th>
@@ -79,11 +79,11 @@ The above recommendations can change based on the expected concurrency and perfo
 </tr>
 <tr class="odd">
 <th>Web browsers</th>
-<td><p>For more information on tested web browsers, see <a href="../../../deploy/environment-compatibility/#tested-web-browsers">Tested Web Browsers</a> .</p></td>
+<td><p>For more information on tested web browsers, see <a href="{{base_path}}/deploy/environment-compatibility/#tested-web-browsers">Tested Web Browsers</a> .</p></td>
 </tr>
 <!--<tr class="even">
 <th>Load balancers</th>
-<td><p>For more information about load balancers, see <a href="../../../deploy/load-balancing/#types-of-load-balancers">Configuring the load balancer</a> .</p></td>
+<td><p>For more information about load balancers, see <a href="{{base_path}}/deploy/load-balancing/#types-of-load-balancers">Configuring the load balancer</a> .</p></td>
 </tr>-->
 </tbody>
 </table>
@@ -102,7 +102,7 @@ database (**UM_DB**).
     This will not make a difference in performance and is not mandatory. Separating databases logically may 
     sometimes help to have a different backup and scaling strategy when the deployment is large and complex.
     If you do wish to separate the data logically into separate databases, 
-    see [Set Up Separate Databases for Clustering](../../../deploy/set-up-separate-databases-for-clustering).
+    see [Set Up Separate Databases for Clustering]({{base_path}}/deploy/set-up-separate-databases-for-clustering).
 
 !!! tip
     If you have configured the shared database correctly, the `deployment.toml` file in 
@@ -131,12 +131,12 @@ database (**UM_DB**).
 The following diagram is a high-level component diagram showing how the system would look like when two databases 
 are used.
 
-![Component diagram](../../assets/img/deploy/component-diagram.png)
+![Component diagram]({{base_path}}/assets/img/deploy/component-diagram.png)
 
 !!! note
     For instructions on how to configure the data sources for other databases and 
     more information related to databases, 
-    see [Work with Databases](../../../deploy/work-with-databases)
+    see [Work with Databases]({{base_path}}/deploy/work-with-databases)
 
 ---
 
@@ -154,7 +154,7 @@ includes services, service descriptions, endpoints, or data sources.
 
 <!--!!! info
     For more information about the registry, 
-    see [Work with the Registry](TO-DO:../../guides/working-with-the-registry).-->
+    see [Work with the Registry](TO-DO:{{base_path}}/guides/working-with-the-registry).-->
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually, and the 
 governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server, config and governance registries are mounted by default.
@@ -173,7 +173,7 @@ To make sure the configurations were applied correctly,
     <li>Log in to the WSO2 Identity Server Management Console (<code>https://&lt;IS_HOST&gt;:&lt;PORT&gt;/carbon</code>).</li>
     <li>
         <p>Navigate to <b>Home > Registry > Browse</b>.</p>
-        <p><img src="../../assets/img/deploy/registry-browser-2.png" alt="Registry browser"></p>
+        <p><img src="{{base_path}}/assets/img/deploy/registry-browser-2.png" alt="Registry browser"></p>
         <p>Note that the governance collection is shown with the symlink icon.</p>
     </li>    
 </ol>
@@ -199,7 +199,7 @@ them.
 
     !!! info
         The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are 
-        deployed on machines having static IP addresses. <!--For more information, see [About Membership Schemes](../../../deploy/clustering-overview/#about-membership-schemes).-->
+        deployed on machines having static IP addresses. <!--For more information, see [About Membership Schemes]({{base_path}}/deploy/clustering-overview/#about-membership-schemes).-->
         Configurations for each membership scheme are listed below.
         
         ??? tip "Click to see the instructions for WKA scheme"            
@@ -360,7 +360,7 @@ them.
                             timeout is 15 minutes), there is a security risk in this method. To reduce 
                             the risk, reduce the default cache timeout period. To learn how to reduce the 
                             default cache timeout period, 
-                            see [Configuring Cache Layers - timeout](../../../deploy/performance/configure-cache-layers#timeout).</li>
+                            see [Configuring Cache Layers - timeout]({{base_path}}/deploy/performance/configure-cache-layers#timeout).</li>
                         </ul>
                     </td>
                 </tr>
@@ -480,7 +480,7 @@ You can use any load balancer that is available to your system.
 
 !!! info
     To learn how to front the 2 node cluster with an Nginx load balance, 
-    see [Set up WSO2 clusters with Nginx](../../../deploy/front-with-the-nginx-load-balancer). 
+    see [Set up WSO2 clusters with Nginx]({{base_path}}/deploy/front-with-the-nginx-load-balancer). 
     If you’ve changed the hostnames of nodes, make sure to keep that in mind when you’re configuring your 
     load balancer.
 
