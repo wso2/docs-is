@@ -30,10 +30,10 @@ To deploy the sample web app on a web container:
 
 5. Enter the following values in the fields mentioned.
 
-    | Field name | Value |
-    |-----------|-------|
-    | **Issuer** | `saml2-web-app-pickup-dispatch.com`  |
-    | **Assertion Consumer URL**    | `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp`    |
+    | Field name | Value | Description  |
+    |------------|-------|--------------|
+    | **Issuer** | `saml2-web-app-pickup-dispatch.com`  | This is the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. |
+    | **Assertion Consumer URL**    | `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp`    | The URL of the page to which the browser is redirected to after successful authentication. |
 
     !!! info
         Click **Yes** on the dialog that appears after you add the **Assertion Consumer URL**. This dialog appears when you add an `http` URL.
