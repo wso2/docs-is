@@ -1,28 +1,121 @@
 # Preparing for migration
 
-!!! note
-    Before you follow this section, see [Before you begin]({{base_path}}/setup/migration-guide) to read on prerequisites.
+Before you start the migration, see the instructions given here.
 
 !!! note
     In this section, `<OLD_IS_HOME>` is the directory that current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
     directory that WSO2 Identity Server 6.0.0 resides in.
+    
+## Prerequisites
 
-!!! info "Important"
-    Before proceeding with the migration, change the following property to `false` in the `<IS_HOME>/repository/conf/deployment.toml` file.
+1. Review what has been changed in this release. For a detailed list of changes from 5.11.0 to 6.0.0, see [What Has Changed]({{base_path}}/setup/migrating-what-has-changed).
+
+2. Before you migrate, refer to [Migration Process]({{base_path}}/setup/migration-process/) to get an understanding on the migration process.
+
+3. You can use the [Update Management Tool](https://updates.docs.wso2.com/en/latest/) (UMT) to get any
+    fixes or latest updates for this release.
+
+4. Take a backup of the existing database used by the current WSO2 Identity Server. This backup is necessary in case the migration causes any issues in the existing database.
+
+5. Download WSO2 Identity Server 6.0.0 and unzip it in the `<NEW_IS_HOME>` directory.
+
+6. Before proceeding with the migration, change the following property to `false` in the `<NEW_IS_HOME>/repository/conf/deployment.toml` file.
 
     ```toml
     [super_admin]
     create_admin_account = false 
     ```
 
-## Groups and Roles Migration
+## Prepare for Groups and Roles separation
 
-With WSO2 Identity Server 5.11.0, groups and roles are separated. For more information, see [What Has Changed in 5.11.0]({{base_path}}/5.11.0/setup/migrating-what-has-changed#group-and-role-separation).
+With WSO2 Identity Server 5.11.0, groups and roles are separated. For more information, see [What Has Changed in 5.11.0](https://is.docs.wso2.com/en/5.11.0/setup/migrating-what-has-changed#group-and-role-separation). 
 
-## Groups and Roles Improvements Migration
+However, you may or may not have opted not to use the new groups and roles feature in your WSO2 IS 5.11.0 deployment. When you migrate from WSO2 IS 5.11.0 to WSO2 IS 6.0.0, you can choose whether to continue with the old functionality or to switch to the new groups and roles functionality.
 
-With WSO2 Identity Server 6.0.0, groups and roles improvements are introduced. For more information, see [Group and role separation]({{base_path}}/5.11.0/setup/migrating-what-has-changed/#group-and-role-separation).
+!!! info "Backward compatibility"
+
+    Groups and roles separation improvements brings enhanced clarity, and improved performance to the product. All of these improvements and behavioural changes are introduced in a way that existing deployments can adapt to the new state as easily as possible.
+
+    However, it’s inevitable to bring all the goodness with zero compromises. Therefore, if you opt to use this, some applications, customizations, and integration flows might need some changes to fully adapt to these improvements. Alternatively, you can choose to disable this functionality in WSO2 IS 6.0.0 and continue to use the old way of working.
+
+### Overview
+
+Following changes have been made to the product claims.
+
+<table>
+    <tr>
+        <th>Claim</th>
+        <th>Change</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>wso2.role</td>
+        <td>Modified</td>
+        <td>
+            <ul>
+                <li>Removed <b>supported by default</b>.</li>
+                <li>Updated display name to <b>Roles and groups</b>.</li>
+                <li>Updated description to <b>Include both userstore groups and internal roles</b>.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>wso2.roles</td>
+        <td>New</td>
+        <td>
+            <ul>
+                <li>Display name: <b>Roles</b>.</li>
+                <li>AttributionID <b>Roles</b>.</li>
+                <li>Description <b>Roles</b>.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>wso2.roles</td>
+        <td>New</td>
+        <td>
+            <ul>
+                <li>Display name: <b>Roles</b>.</li>
+                <li>AttributionID <b>Roles</b>.</li>
+                <li>Description <b>Roles</b>.</li>
+                <li><b>Supported by default</b> configured as <code>true</code>.</li>
+                <li><b>read-only</b> configured as <code>true</code>.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>wso2.groups</td>
+        <td>Modified</td>
+        <td>
+            <ul>
+                <li><b>Supported by default</b> configured as <code>true</code>.</li>
+                <li><b>read-only</b> configured as <code>true</code>.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>OIDC group</td>
+        <td>Modified</td>
+        <td>
+            Mapped local claim to the <code>wso2.groups</code> claim.
+        </td>
+    </tr>
+    <tr>
+        <td>OIDC roles</td>
+        <td>New</td>
+        <td>
+            Mapped to the <code>wso2.roles</code> local claim.
+        </td>
+    </tr>
+    <tr>
+        <td>SCIM2 roles.default</td>
+        <td>Modified</td>
+        <td>
+            Mapped to the <code>wso2.roles</code> local claim.
+        </td>
+    </tr>
+</table>
 
 Please note that following abbreviations are used in the sections below.
 
@@ -30,112 +123,65 @@ Please note that following abbreviations are used in the sections below.
 * wso2.roles claim = http://wso2.org/claims/roles
 * wso2.groups claim = http://wso2.org/claims/groups
 
-Please refer to the below sections related to this improvement.
+### Enable Groups and Roles separation
 
-### Claim configuration changes
+If you want to use the new groups and roles functionality in WSO2 IS 6.0.0, be mindful of the following recommendations
 
-Following changes have been made to the product claims.
-
-* wso2.role claim - Modified
-  * Removed `supported by default`
-  * Updated display name to `Roles and groups`
-  * Updated description to `Include both userstore groups and internal roles`
-* wso2.roles claim - New
-  * Display name : Roles
-  * AttributeID:  roles
-  * Description: Roles
-  * `Supported by default` configured as true
-  * `read-only` configured as true
-* wso2.groups claim - Modified
-  * `supported by default` configured as true
-  * `read-only` configured as true
-* OIDC group claim - Modified
-  * Updated mapped local claim to wso2.groups claim
-* OIDC roles claim - New
-  * Mapped to the local claim wso2.roles
-* SCIM2 roles.default claim - Modified
-  * Updated mapped local claim to wso2.roles claim
-
-#### Migration preparation for claim changes
-* All claim configurations are already configured OOTB in the fresh pack, and will be done via the migration client for migrating deployments. No need to configure these manually.
-* Any custom external claim mapped to the wso2.role claim should be mapped to either wso2.roles or wso2.groups claim as per the requirement of the custom use case.
-* Our recommendation is to fix any consuming client to become compatible with these changes. But if somehow the above configs need to be reverted (possibly in a migrated deployment), it can be done via the Identity Server [Claim Management REST APIs]({{base_path}}/develop/claim-management-rest-api.md).
+!!! Note
+    * All claim configurations are already configured OOTB in the fresh pack, and will be done via the migration client for migrating deployments. No need to configure these manually.
+    * Any custom external claim mapped to the wso2.role claim should be mapped to either wso2.roles or wso2.groups claim as per the requirement of the custom use case.
+    * Our recommendation is to fix any consuming client to become compatible with these changes. But if somehow the above configs need to be reverted (possibly in a migrated deployment), it can be done via the Identity Server [Claim Management REST APIs]({{base_path}}/develop/claim-management-rest-api.md).
   
-### Utilizing carbon kernel level support
+-   **Utilizing carbon kernel level support**
 
-The following abstract userstore manager APIs: `getUserClaimValues()`, `getUsersClaimValues()`, 
-`getUserClaimValuesWithID()`, `getUsersClaimValuesWithID()` now support both ```wso2.roles``` and ```wso2.groups``` claims properly. We recommend modifying custom extensions to request wso2.roles or wso2.groups via above APIs rather depending on wso2.role claim.
+    The following abstract userstore manager APIs: `getUserClaimValues()`, `getUsersClaimValues()`, 
+    `getUserClaimValuesWithID()`, `getUsersClaimValuesWithID()` now support both ```wso2.roles``` and ```wso2.groups``` claims properly. We recommend modifying custom extensions to request wso2.roles or wso2.groups via above APIs rather depending on wso2.role claim.
 
-### Service provider role mapping and identity provider role mapping restrictions
+-   **Service provider role mapping and identity provider role mapping restrictions**
 
-We recommend removing existing SP and IdP role mappings which use groups, and utilize roles to achieve the same functionality.
+     We recommend removing existing SP and IdP role mappings which use groups, and utilize roles to achieve the same functionality.
 
-### OIDC group claim return groups
+-   **OIDC group claim return groups**
 
-OIDC group claim does not return internal roles anymore. We recommend modifying applications and custom extensions to utilize this behaviour. If roles are required, utilize the OIDC roles claim.
+     OIDC group claim does not return internal roles anymore. We recommend modifying applications and custom extensions to utilize this behaviour. If roles are required, utilize the OIDC roles claim.
 
-### Obtaining roles via the SAML assertion
+-   **Obtaining roles via the SAML assertion**
 
-We recommend applications and custom extensions to switch from wso2.role to the wso2.roles claim in the SAML assertion.
+     We recommend applications and custom extensions to switch from wso2.role to the wso2.roles claim in the SAML assertion.
 
-### SCIM2 roles.default claim returns roles and groups claim return groups
+-   **SCIM2 roles.default claim returns roles and groups claim return groups**
 
-Previously, the ```roles.default``` claim in SCIM2 returned both groups and roles as it was mapped to the wso2.roles claim. Going forward, it is mapped to the ```wso2.roles``` claim, where only roles are returned. In order to get groups, `urn:ietf:params:scim:schemas:core:2.0:User:groups` claim should be used instead since with this improvement it is returning groups as intended.
+     Previously, the ```roles.default``` claim in SCIM2 returned both groups and roles as it was mapped to the wso2.roles claim. Going forward, it is mapped to the ```wso2.roles``` claim, where only roles are returned. In order to get groups, `urn:ietf:params:scim:schemas:core:2.0:User:groups` claim should be used instead since with this improvement it is returning groups as intended.
 
-### Groups and roles in SCIM2 user response
+-   **Groups and roles in SCIM2 user response**
 
-Previously users and roles in the SCIM2 user response returned as a single comma-separated entity. However, that has been changed, and now they return as separate complex entities. We recommend modifying clients that consume this response.
+     Previously users and roles in the SCIM2 user response returned as a single comma-separated entity. However, that has been changed, and now they return as separate complex entities. We recommend modifying clients that consume this response.
 
-### Backward compatibility
+### Disable Groups and Roles separation
 
-Groups and roles separation improvements brings enhanced clarity, and improved performance to the product. However, it’s inevitable to bring all the goodness with zero compromises. Therefore, as mentioned above, some applications, customizations, and integration flows might need some changes to fully adapt to these improvements.
+If it's mandatory to preserve previous behaviour and avoid enabling the improvements mentioned above, follow the steps given below.
 
-Nevertheless, all of the above improvements and the behavioural changes are introduced in a way that existing deployments can adapt to the new state as easily as possible. However, if it's 
-mandatory to preserve previous behaviour and avoid enabling the improvements mentioned above, the following configuration option(enabled by default) can be used in the `<IS-Home>/repository/conf/deployment.toml` file.
+1.  Add the following configuration (enabled by default) to the `<IS-Home>/repository/conf/deployment.toml` file.
 
-```java
-[authorization_manager.properties]
-group_and_role_separation_improvements_enabled = false
-```
+    ```java
+    [authorization_manager.properties]
+    group_and_role_separation_improvements_enabled = false
+    ```
 
-But this configuration option only ensures that the code level logic is reverted to the previous behaviour.
-If the improvements are already applied(fresh IS server pack and a migrated pack with group-role migration step completed), these
-claim configuration changes needs to be reverted manually in both tenants and super-tenant prior setting the above config to false. To do this, please refer to the claim changes introduced with this effort and revert them manually or via a script.
+    !!! Note
+        But this configuration option only ensures that the code-level logic is reverted to the previous behaviour. If the improvements are already applied (fresh IS server pack and a migrated pack with group-role migration step completed), these claim configuration changes needs to be reverted manually in both tenants and super-tenant prior setting the above config to false. To do this, please refer to the claim changes introduced with this effort and revert them manually or via a script.
 
-In order to stop claim data migration related to the groups vs roles improvements during the migration, open migration-configs.yaml file and remove the 5th step from 6.0.0 migration section prior to the migration.
+2.  To stop claim data migration related to the groups vs roles improvements during the migration, open migration-configs.yaml file and remove the 5th step from 6.0.0 migration section prior to the migration.
 
-```java
-  - name: "ClaimDataMigrator"
-     order: 5
-     parameters:
-       overrideExistingClaims: "true"
-       useOwnDataFile: "true"
-```
+    ```java
+    - name: "ClaimDataMigrator"
+        order: 5
+        parameters:
+        overrideExistingClaims: "true"
+        useOwnDataFile: "true"
+    ```
 
-## Migrating custom components
-
-In WSO2 Identity Server 6.0.0, a major upgrade has been made to the kernel and the main components. Any custom OSGI bundles which are added manually should be recompiled with new dependency versions that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the `<OLD_IS_HOME>/repository/components/dropins` directory.
-
-1. Get the source codes of the custom OSGI components located in the `dropins` directory.
-
-2. Change the dependency versions in the relevant POM files according to the WSO2 IS version that you are upgrading to, and compile them. The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0-rc1/pom.xml).
-
-3. If you come across any compile time errors, refer to the WSO2 IS code base and make the necessary changes related to that particular component version.
-
-4. Add the compiled JAR files to the `<NEW_IS_HOME>/repository/components/dropins` directory.
-
-5. If there were any custom OSGI components in `<OLD_IS_HOME>/repository/components/lib` directory, add newly compiled versions of those components to the `<NEW_IS_HOME>/repository/components/lib`  directory.
-
-## Migrating the configurations
-
-Refer to the relevant feature documents and
-[What Has Changed]({{base_path}}/setup/migrating-what-has-changed) to do the configuration migration.
-
-!!! info
-    If you have a WSO2 Subscription, it is highly recommended to reach [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa)
-    before attempting to proceed with the configuration migration.
-
-## Zero down time migration
+## Prepare for Zero down time
 
 !!! info
     If you do not require a zero down time migration, then you can directly proceed to the

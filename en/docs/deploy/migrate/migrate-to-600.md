@@ -1,15 +1,44 @@
 # Migrating to 6.0.0
 This document guides you through the migration process from earlier versions of WSO2 Identity Server to Identity Server 6.0.0.
 
-## Prerequisites
+## Before you begin
 
-Make sure you have met the following prerequisites before proceeding with the instructions to migrate to 6.0.0.
+See the [preparing for migration]({{base_path}}/setup/migrating-preparing-for-migration) section.
 
-1. Before you begin the migration process make sure that you satisfy the prerequisites in the [Before you begin]({{base_path}}/setup/migration-guide) guide.
-2. [Prepare for the migration]({{base_path}}/setup/migrating-preparing-for-migration) by carrying out the pre processing steps.
+### Step 1: Upgrade the databases
 
-!!! note
-    In this section, `<OLD_IS_HOME>` is the directory that the current Identity Server resides in, and `<NEW_IS_HOME>` is the directory that WSO2 Identity Server 6.0.0 resides in.
+Follow the steps given below to perform database updates:
+
+1. To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**. Unzip it to a local directory.
+
+    !!! Note
+        - **x.x.x** of `wso2is-migration-x.x.x.zip` denotes the
+        version number of the most recently-released migration resources.
+        - The directory where the `wso2is-migration-x.x.x.zip` is unziped will be referred to as ` <IS_MIGRATION_TOOL_HOME> `.
+
+2. Copy the ` org.wso2.carbon.is.migration-x.x.x.jar ` file in the `<IS_MIGRATION_TOOL_HOME>/dropins` directory into the ` <NEW_IS_HOME>/repository/components/dropins ` directory.
+
+3. Copy migration-resources directory to the `<NEW_IS_HOME>` root directory.
+
+4. Ensure that the property values are as follows in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file.
+
+    ``` java
+    migrationEnable: "true"
+
+    currentVersion: "5.7.0"
+
+    migrateVersion: "6.0.0"
+    ```
+
+    !!! note
+        Here, the `currentVersion` is the current WSO2 Identity Server version that you are using.
+
+??? note "If you are using PostgreSQL"
+    During the migration, "uuid-ossp" extension is created in the database. In order to create this extension, the database user should have the '**Superuser**' permission.
+    If the user is not already a superuser, assign the permission before starting the migration.
+
+        ALTER USER <user> WITH SUPERUSER;
+
 
 ??? info "If you are using DB2"
     Verify that the indexes are in the TS32K tablespace. If not, move indexes to the TS32K tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN`  and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes. `SQLADM` or `DBADM` authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You
@@ -75,88 +104,82 @@ Make sure you have met the following prerequisites before proceeding with the in
       EXTENTSIZE 4;
     ```
 
----
+## Step 2: Migrate artifacts and configs
 
-## Steps to migrate to 6.0.0
+!!! note
+    Note that `<OLD_IS_HOME>` is the directory that the current Identity Server resides in, and `<NEW_IS_HOME>` is the directory that WSO2 Identity Server 6.0.0 resides in.
 
 Once all the above prerequisites have been met, follow the instructions given below to migrate to the latest version.
 
-1. If you have manually added any custom OSGI bundles to the `<OLD_IS_HOME>/repository/components/dropins` directory, copy those OSGI bundles to the `<NEW_IS_HOME>/repository/components/dropins` directory.
+### Components
 
-    !!! warning "Important"
-        You may need to update the custom components to work with WSO2 Identity Server 6.0.0. Refer [Migrating custom components]({{base_path}}/setup/migrating-preparing-for-migration/#migrating-custom-components).
+-  If you have manually added any JAR files to the `<OLD_IS_HOME>/repository/components/lib` directory, copy and paste those JARs in the `<NEW_IS_HOME>/repository/components/lib` directory.
 
-2. If you have manually added any JAR files to the `<OLD_IS_HOME>/repository/components/lib` directory, copy and paste those JARs in the `<NEW_IS_HOME>/repository/components/lib` directory.
+-  If you have manually added any custom OSGI bundles to the `<OLD_IS_HOME>/repository/components/dropins` directory, copy those OSGI bundles to the `<NEW_IS_HOME>/repository/components/dropins` directory.
 
-3. Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` directory and paste them in the `<NEW_IS_HOME>/repository/resources/security` directory.
+-  **Custom components**
+    
+    In WSO2 Identity Server 6.0.0, a major upgrade has been made to the kernel and the main components. Any custom OSGI bundles which are added manually should be recompiled with new dependency versions that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the `<OLD_IS_HOME>/repository/components/dropins` directory.
 
-    !!! note
-        From WSO2 Identity Server 5.11.0 onwards, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` to configure internal and primary keystores. 
+    1. Get the source codes of the custom OSGI components located in the `dropins` directory.
 
-        ```toml
-        [keystore.primary]
-        file_name = "primary.jks"
-        type = "JKS"
-        password = "wso2carbon"
-        alias = "wso2carbon"
-        key_password = "wso2carbon"
+    2. Change the dependency versions in the relevant POM files according to the WSO2 IS version that you are upgrading to, and compile them. The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0-rc1/pom.xml).
 
-        [keystore.internal]
-        file_name = "internal.jks"
-        type = "JKS"
-        password = "wso2carbon"
-        alias = "wso2carbon"
-        key_password = "wso2carbon"
-        ```
+    3. If you come across any compile time errors, refer to the WSO2 IS code base and make the necessary changes related to that particular component version.
 
-        Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
+    4. Add the compiled JAR files to the `<NEW_IS_HOME>/repository/components/dropins` directory.
 
-4. If you have created tenants in the previous WSO2 Identity Server
-    version that contain resources, copy the content from `<OLD_IS_HOME>/repository/tenants` directory,
-    to the `<NEW_IS_HOME>/repository/tenants` directory.
+    5. If there were any custom OSGI components in `<OLD_IS_HOME>/repository/components/lib` directory, add newly compiled versions of those components to the `<NEW_IS_HOME>/repository/components/lib`  directory.
 
-5. If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` directory to the `<NEW_IS_HOME>/repository/deployment/server/userstores` directory.
+### Resources
 
-6. If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with IS 6.0.0 and copy the webapps to `<NEW_IS_HOME>/repository/deployment/server/webapps` directory. See [What Has Changed]({{base_path}}/setup/migrating-what-has-changed) to learn about the changes, if any, need to be made to the webapps.
+!!! info
+    If you have a WSO2 Subscription, it is highly recommended to reach [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) before attempting to proceed with the configuration migration.
 
-7. Ensure that you have migrated the configurations into the new version as advised in [preparing for migration section.]({{base_path}}/setup/migrating-preparing-for-migration/#migrating-the-configurations)
+Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` directory and paste them in the `<NEW_IS_HOME>/repository/resources/security` directory.
 
-8. Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
+!!! note
+    From WSO2 Identity Server 5.11.0 onwards, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` to configure internal and primary keystores. 
 
-9. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with `<OLD_IS_HOME>/repository/conf/email/email-admin-config.xml`.
+    ```toml
+    [keystore.primary]
+    file_name = "primary.jks"
+    type = "JKS"
+    password = "wso2carbon"
+    alias = "wso2carbon"
+    key_password = "wso2carbon"
 
-10. Follow the steps given below to perform database updates:
-     1. To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**. Unzip it to a local directory.
+    [keystore.internal]
+    file_name = "internal.jks"
+    type = "JKS"
+    password = "wso2carbon"
+    alias = "wso2carbon"
+    key_password = "wso2carbon"
+    ```
 
-         !!! Note
-             - **x.x.x** of `wso2is-migration-x.x.x.zip` denotes the
-             version number of the most recently-released migration resources.
-             - The directory where the `wso2is-migration-x.x.x.zip` is unziped will be referred to as ` <IS_MIGRATION_TOOL_HOME> `.
+    Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
 
-     2. Copy the ` org.wso2.carbon.is.migration-x.x.x.jar ` file in the `<IS_MIGRATION_TOOL_HOME>/dropins` directory into the ` <NEW_IS_HOME>/repository/components/dropins ` directory.
+### Renants
 
-     3. Copy migration-resources directory to the `<NEW_IS_HOME>` root directory.
+If you have created tenants in the previous WSO2 Identity Server version that contain resources, copy the content from `<OLD_IS_HOME>/repository/tenants` directory, to the `<NEW_IS_HOME>/repository/tenants` directory.
 
-     4. Ensure that the property values are as follows in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file.
+### User stores
 
-         ``` java
-         migrationEnable: "true"
+If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` directory to the `<NEW_IS_HOME>/repository/deployment/server/userstores` directory.
 
-         currentVersion: "5.7.0"
+### Webapps
 
-         migrateVersion: "6.0.0"
-         ```
+If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with IS 6.0.0 and copy the webapps to `<NEW_IS_HOME>/repository/deployment/server/webapps` directory. See [What Has Changed]({{base_path}}/setup/migrating-what-has-changed) to learn about the changes, if any, need to be made to the webapps.
 
-         !!! note
-             Here, the `currentVersion` is the current WSO2 Identity Server version that you are using.
+### Configurations
 
-     ??? note "If you are using PostgreSQL"
-         During the migration, "uuid-ossp" extension is created in the database. In order to create this extension, the database user should have the '**Superuser**' permission.
-         If the user is not already a superuser, assign the permission before starting the migration.
+1. Ensure that you have migrated the configurations into the new version as advised in [preparing for migration section.]({{base_path}}/setup/migrating-preparing-for-migration/#migrating-the-configurations)
 
-             ALTER USER <user> WITH SUPERUSER;
+2. Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
 
-11. If you're migrating from a version prior to 5.11.0, configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
+3. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with `<OLD_IS_HOME>/repository/conf/email/email-admin-config.xml`.
+
+4. If you're migrating from a version prior to 5.11.0, configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
 
     1. Generate your own secret key using a tool like OpenSSL.
 
@@ -189,25 +212,25 @@ Once all the above prerequisites have been met, follow the instructions given be
 
     Under each migrator's parameters, find the property value of **currentEncryptionAlgorithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
 
-12. Start the WSO2 Identity Server 6.0.0 with the following command to execute the migration client.
+## Step 3: Run the migration client
 
-13. Linux/Unix:
+1. Start the WSO2 Identity Server 6.0.0 with the following command to execute the migration client.
 
-     ```bash 
-     sh wso2server.sh -Dmigrate -Dcomponent=identity
-     ```
+    -   Linux/Unix:
 
-14. Windows:
+        ```bash 
+        sh wso2server.sh -Dmigrate -Dcomponent=identity
+        ```
 
-     ```bash
-     wso2server.bat -Dmigrate -Dcomponent=identity
-     ```
+    -   Windows:
 
-15. Stop the server once the migration client execution is complete.
+        ```bash
+        wso2server.bat -Dmigrate -Dcomponent=identity
+        ```
 
----
+2. Stop the server once the migration client execution is complete.
 
-## Executing the sync tool
+## Step 4: (Optional) Sync DBs for Zerro down time
 
 !!! warning
     Proceed with this step only if you have opted in for [Zero down time migration]({{base_path}}/setup/migrating-preparing-for-migration/#zero-down-time-migration).
@@ -233,16 +256,13 @@ to the new WSO2 Identity Server database.
 
 4. Allow the sync client to run for some time to sync the entries that were not synced before switching the deployments. When the number of entries synced by the sync tool becomes zero, stop the sync client.
 
----
-
-## Verifying the migration
+## Step 5: Verify the migration
 
 After the migration is complete, proceed to the following verification steps.
 
 + Monitor the system health (CPU, memory usage etc).
 + Monitor the WSO2 logs to see if there are errors logged in the log files.
 + Run functional tests against the migrated deployment to verify that all the functionalities are working as expected.
-
 
 !!! note
     If you see any problems in the migrated system, revert the traffic back to the previous setup and investigate the problem.
