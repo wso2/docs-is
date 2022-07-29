@@ -6,6 +6,22 @@ This page guides you through setting up [adaptive authentication]({{base_path}}/
 
 You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
 
+!!! Warning "Before you proceed"
+
+    Adaptive Authentication is disabled by default.
+    You need to run **adaptive.sh** (**adaptive.bat** for Windows) in `[IS-HOME]/bin`
+
+    To enable adaptive authentication please proceed following instructions.
+
+    1.   Stop the server if running
+    2.   Run adaptive.sh (adaptive.bat for Windows) (eg: `sh adaptive.sh`)
+    3.   Restart the server
+
+    To disable adaptive authentication please proceed following instructions.
+    1.   Stop the server if running
+    2.   Run adaptive.sh (adaptive.bat for Windows) with DISABLE parameter (eg: `sh adaptive.sh DISABLE`)
+    3.   Restart the server
+
 ## Add an adaptive authentication script
 
 Make the following changes to the created service provider.
