@@ -22,13 +22,13 @@ To deploy the sample web app on a web container:
 
 ### Register a service provider
 
-1. In the Management Console, go to **Main** > **Identity** > **Service Providers** and click **Add**.
+1. On the Management Console, go to **Main** > **Identity** > **Service Providers** and click **Add**.
 
-3. Enter `saml2-web-app-pickup-dispatch` as the **Service Provider Name**, and click **Register**.
+2. Enter `saml2-web-app-pickup-dispatch` as the **Service Provider Name**, and click **Register**.
 
-4. Expand the **Inbound Authentication Configuration > SAML2 Web SSO Configuration** section and, click **Configure**.
+3. Expand the **Inbound Authentication Configuration > SAML2 Web SSO Configuration** section and, click **Configure**.
 
-5. Enter the following values in the fields mentioned.
+4. Enter the following values in the fields mentioned.
 
     | Field name | Value | Description  |
     |------------|-------|--------------|
@@ -38,7 +38,7 @@ To deploy the sample web app on a web container:
     !!! info
         Click **Yes** on the dialog that appears after you add the **Assertion Consumer URL**. This dialog appears when you add an `http` URL.
 
-6. Enable the following by selecting the corresponding checkboxes:
+5. Enable the following by selecting the corresponding checkboxes:
     - **Enable Response Signing**
     - **Enable Signature Validation in Authentication Requests and Logout Requests**
     - **Enable Single Logout**
@@ -48,4 +48,4 @@ To deploy the sample web app on a web container:
     !!! tip
         For more information on the advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced).
 
-7. Click **Register** to add the service provider and save the configurations.  
+6. Click **Register** to add the service provider and save the configurations.  

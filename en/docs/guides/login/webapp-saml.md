@@ -6,6 +6,8 @@ This page guides you through enabling login for a [SAML]({{base_path}}/reference
 
 ## Try it out
 
+Now, let's log in to the application.
+
 1. Start the Tomcat server and access the following URL on your browser: `http://localhost:8080/saml2-web-app-pickup-dispatch.com`.
 
 2. Click **Login** and enter your user credentials.
