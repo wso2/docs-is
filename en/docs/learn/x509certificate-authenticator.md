@@ -265,19 +265,19 @@ For more information on CRL and OCSP certificate validation, see
     3. `name` : This attribute identifies the authenticator that is configured as the second authentication step. 
     4. `enable`: This attribute, when set to true makes the authenticator capable of being involved in the authentication process. 
 
-    ``` toml
-    [authentication.authenticator.x509_certificate.parameters]
-    name ="x509CertificateAuthenticator"
-    enable=true
-    AuthenticationEndpoint="https://localhost:8443/x509-certificate-servlet"
-    username= "CN"
-    ```
+        ``` toml
+        [authentication.authenticator.x509_certificate.parameters]
+        name ="x509CertificateAuthenticator"
+        enable=true
+        AuthenticationEndpoint="https://localhost:8443/x509-certificate-servlet"
+        username= "CN"
+        ```
     
-    Please note: if you are going to access from a user from a secondary userstore, you will have to add this property:
+    5.  If users from a secondary user store should be given access, add the following property under `[authentication.authenticator.x509_certificate.parameters]`:
    
-    ``` toml
-    SearchAllUserStores = true
-    ```
+        ``` toml
+        SearchAllUserStores = true
+        ```
 
     !!! note
         When X509 authentication is configured as the second authentication
