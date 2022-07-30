@@ -19,6 +19,17 @@ In the **Claim Configuration** form, there are two sub forms.
 -   Advanced claim configuration - This involves more advanced mapping, where the mapped claims can
     have specific default values.
 
+!!! Note
+
+    To define a custom claim dialect, the configuration given below is required in the 
+    `<IS_HOME>/repository/conf/deployment.toml` file of your WSO2 Identity Server. Otherwise the protocol-specific claim 
+    dialect such as the OIDC dialect is always used.
+
+    ```toml
+    [authentication.endpoint]
+    enable_custom_claim_mappings = true
+    ```
+
 Let's get started!
 
 To view the claim configuration section, expand the **Claim
