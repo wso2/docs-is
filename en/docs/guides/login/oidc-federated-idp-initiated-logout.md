@@ -1,7 +1,7 @@
 # Configure OIDC Federated IdP-Initiated Logout
 
-WSO2 Identity Server (WSO2 IS) handles logout requests from OIDC federated identity providers. When an OIDC
-back-channel logout request is received from the OIDC federated identity provider to the back-channel logout endpoint of WSO2 IS (`https://<hostname>:<port>/identity/oidc/slo`), WSO2 IS processes the request, terminates the sessions of the particular user, and then responds to the identity provider.
+WSO2 Identity Server (WSO2 IS) handles logout requests from OIDC federated IdPs. When an OIDC
+back-channel logout request is received from the OIDC federated IdP to the back-channel logout endpoint of WSO2 IS (`https://<hostname>:<port>/identity/oidc/slo`), WSO2 IS processes the request, terminates the sessions of the particular user, and then responds to the identity provider.
 
 Learn more about [OpenID Connect back-channel logout]({{base_path}}/references/concepts/authentication/back-channel-logout).
 
@@ -16,9 +16,9 @@ The flow is as follows:
 1. User initiates the logout from **Application2**.
 2. The logout request is sent to the federated **OIDC provider**.
 3. The federated **OIDC provider** handles the request and propagates the logout request to **WSO2 IS**.
-4. After receiving the logout request from the federated identity provider, **WSO2 IS** processes the request and terminates the session. 
+4. After receiving the logout request from the federated IdP, **WSO2 IS** processes the request and terminates the session. 
 5. WSO2 IS then sends back a logout response to the OIDC provider.
-6. Since the session is terminated on WSO2 IS, the logout request is propogated to all the connected relying parties (RPs).
+6. Since the session is terminated on WSO2 IS, the logout request is propagated to all the connected relying parties (RPs).
 7. User is logged out from **Application1**.
 
 !!! note
@@ -27,26 +27,28 @@ The flow is as follows:
 
 ## Set up
 
-To try this out, let's configure two WSO2 Identity Servers as the primary identity server (WSO2 IS 1) and the federated identity provider (WSO2 IS 2). Let's configure two web applications, **Pickup-Dispatch** and **Pickup-Manager** as service providers in the primary identity server and the federated identity provider respectively.
+To try this out, let's configure two WSO2 Identity Servers as the primary IdP (WSO2 IS 1) and the federated IdP (WSO2 IS 2). Let's configure two web applications, **Pickup-Dispatch** and **Pickup-Manager** as service providers in the primary IdP and the federated IdP respectively.
 
 ### Prerequisites
 
-1. Set up two instance of WSO2 Identity Server.
-2. Set a port offset for WSO2 IS 2 so that the two server can run on the same computer. 
+1. Set up two instances of WSO2 Identity Server.
+2. Set a port offset for WSO2 IS 2 so that the two servers can run on the same computer. 
 
     !!! info
-        Let's have the primary identity serer (WSO2 IS 1) on port 9443 and the federated IdP (WSO2 IS 2) on port 9444.
+        Let's have the primary identity server (WSO2 IS 1) on port 9443 and the federated IdP (WSO2 IS 2) on port 9444.
 
 3. Since there can be issues with cookies when the same hostname is configured for both WSO2 identity servers (primary and federated), you need to configure different hostnames for both servers.
 
     !!! info
-        [Change the hostname]({{base_path}}/deploy/change-the-hostname) of the federated IdP (WSO2 IS 2). In this guide, the hostname of the Secondary IS is configured as `localhost.com`.
+        [Change the hostname]({{base_path}}/deploy/change-the-hostname) of the federated IdP (WSO2 IS 2). In this guide, the hostname of the federated IdP is configured as `localhost.com`.
 
-### Register WSO2 IS in the federated IdP
+Let's get started!
+
+### Register the primary IdP in the federated IdP
 
 The primary identity provider (WSO2 IS 1) should first be registered in the federated IdP (WSO2 IS 2) as a service provider.
 
-1. Start the federated IdP (WSO2 IS).
+1. Start the federated IdP (WSO2 IS 2).
 2. Sign in to the Management Console using admin credentials.
 3. Go to **Main** > **Identity** > **Service Providers** and click **Add**.
 4. Enter `Primary IS` as the service provider name and click **Register**.
@@ -66,22 +68,22 @@ The primary identity provider (WSO2 IS 1) should first be registered in the fede
 9. Click **Add** to complete the registration.
 
     !!! info
-        Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later when you onboard WSO2 IS as the IdP in the primary identity server (WSO2 IS 1).
+        Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later when you onboard WSO2 IS 2 as a federated IdP in the primary IdP (WSO2 IS 1).
 
-### Configure the federated IdP in WSO2 IS
+### Configure the federated IdP in the primary IdP
 
-The federated IdP (WSO2 IS 2) should first be registered in the primary identity server (WSO2 IS 1) as an identity provider.
+The federated IdP (WSO2 IS 2) should now be registered in the primary IdP (WSO2 IS 1) as an identity provider.
 
-1. Start the primary identity server (WSO2 IS 1).
+1. Start the primary IdP (WSO2 IS 1).
 2. Sign in to the Management Console using admin credentials.
 3. Go to **Main** > **Identity** > **Identity Providers** and click **Add**.
 4. Enter `Federated IdP` as the name of the identity provider.
-5. Specify the federated IdPs certificate type using one of the following options:
+5. Specify the federated IdP's certificate type using one of the following options:
 
     !!! info
-        The signature of the logout token is validated using either the registered JWKS uri or the certificate uploaded to the relevant identity provider.
+        The signature of the logout token is validated using either the registered JWKS URI or the certificate uploaded to the relevant identity provider.
    
-    - Select **Use IDP JWKS endpoint** and add `https://localhost.com:9444/oauth2/jwks` as the JWKS uri of the federated IdPs JWKS endpoint.
+    - Select **Use IDP JWKS endpoint** and add `https://localhost.com:9444/oauth2/jwks` as the JWKS uri of the federated IdP's JWKS endpoint.
 
         ![oidc-primary-idp-jwks-uri-config]({{base_path}}/assets/img/guides/oidc-primary-idp-jwks-uri-config.png)
 
@@ -94,8 +96,9 @@ The federated IdP (WSO2 IS 2) should first be registered in the primary identity
     ![oidc-backchannel-logout-issuer-name]({{base_path}}/assets/img/guides/oidc-backchannel-logout-issuer-name.png)
    
     !!! note
-        The issuer name of the identity provider registered in the primary identity server should be same as the **Identity Provider Entity ID** of the resident IdP in the federated IdP (WSO2 IS 2). Go to **Identity Providers > Resident > Inbound Authentication Configuration > OAuth2/OpenID Connect Configuration** in the federated IdP to find this value.
-7. Go to **Federated Authenticators**, expand **OAuth2/OpenID Connect Configuration** and enter the following values:
+        The issuer name of the identity provider registered in the primary IdP should be the same as the **Identity Provider Entity ID** of the resident IdP configuration in the federated IdP (WSO2 IS 2). Go to **Identity Providers > Resident > Inbound Authentication Configuration > OAuth2/OpenID Connect Configuration** in the federated IdP to find this value.
+
+7. Go to **Federated Authenticators**, expand **OAuth2/OpenID Connect Configuration**, and enter the following values:
 
     <table>
       <tr>
@@ -104,15 +107,15 @@ The federated IdP (WSO2 IS 2) should first be registered in the primary identity
       </tr>
       <tr>
          <td>Enable OAuth2/OpenIDConnect</td>
-         <td>Select this checkbox to specify whether OAuth2/OpenID Connect is enabled for this identity provider</td>
+         <td>Select this checkbox to specify that OAuth2/OpenID Connect is enabled for this identity provider</td>
       </tr>
       <tr>
          <td>Client Id</td>
-         <td>The client ID generated when the primary identity server (WSO2 IS 1) was registered in the federated IdP.</td>
+         <td>The client ID generated when the primary IdP (WSO2 IS 1) was registered in the federated IdP.</td>
       </tr>
       <tr>
          <td>Client Secret</td>
-         <td>The client secret generated when the primary identity server (WSO2 IS 1) was registered in the federated IdP.</td>
+         <td>The client secret generated when the primary IdP (WSO2 IS 1) was registered in the federated IdP.</td>
       </tr>
       <tr>
          <td>Authorization Endpoint URL</td>
@@ -144,11 +147,11 @@ The federated IdP (WSO2 IS 2) should first be registered in the primary identity
 
 8. Click **Register** to complete the IdP registration.
 
-### Register a service provider for WSO2 IS
+### Register a service provider for the primary IdP
 
-Let's register an application as a service provider in the primary identity server (WSO2 IS 1).
+Let's register an application as a service provider in the primary IdP (WSO2 IS 1).
 
-1. Sign in to the Management Console of the primary identity server using admin credentials.
+1. Sign in to the Management Console of the primary IdP using admin credentials.
 2. Go to **Main** > **Identity** > **Service Providers** and click **Add**.
 3. Enter `Pickup-Dispatch` as the service provider name and click **Register**.
 4. Expand **Inbound Authentication Configuration** > **OAuth2/OpenID Connect Configuration** and click **Configure**.
@@ -161,12 +164,12 @@ Let's register an application as a service provider in the primary identity serv
 6. Click **Add** to save the service provider.
 
     !!! info
-        Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later when deploying the sample application.
+        Note the **OAuth Client Key** and **Client Secret** that are displayed. You will need these values later when deploying the sample application.
 
-Once the service provider is registered, let's onboard the federated IdP (WSO2 IS 2) to the service provider's sign-in flow. This allows the app users with an account in the federated IdP to log in using the same account.
+Once the service provider is registered, let's add the federated IdP (WSO2 IS 2) as the service provider's sign-in method.
 
 1. Expand **Local & Outbound Authentication Configuration** and select **Federated Authentication**.
-2. Select **Federated IdP** from the list.
+2. Select **Federated IdP** as the authentication type from the list.
 
       <!--![oidc-service-provider-federated-authentication]({{base_path}}/assets/img/guides/oidc-service-provider-federated-authentication.png)-->
 
@@ -189,54 +192,7 @@ Now, let's register an application as a service provider in the federated IdP (W
 6. Click **Add** to save the service provider.
 
     !!! info
-        Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later when deploying the sample application.
-
-### Validate the OIDC back-channel logout token
-
-The following is an example OIDC back-channel logout token.
-
-``` json
-{
-"iss": "https://localhost.com:9444/oauth2/token",
-"sub": "admin",
-"aud": "w_Hwp05dFRwcRs_WFHv9SNwpflAa",
-"iat": 1609911868,
-"exp": 1609911988,
-"jti": "16159e3e-c5fc-42de-b93f-b0782ab33d58",
-"sid": "15043ffc-877d-4205-af41-9b107f7da38c",
-"events": {
-   "http://schemas.openid.net/event/backchannel-logout": {}
-   }
-}  
-```
-
-Logout token validation is done according to the [OIDC back-channel logout specification](https://openid.net/specs/openid-connect-backchannel-1_0.html#Validation) for the token signature and the `iss`, `aud`, `iat`, `sub`, `sid`, `events`, and `nonce` claims.
-
--  **Configure “iat” claim validation**
-
-      By default, `iat` claim validation is enabled and `iatValidityPeriod` is set as 300 seconds. To update these configurations, follow the steps given below.
-
-      1. Open the `deployment.toml` file (stored in the  `<PRIMARY_IS_HOME>/repository/conf/` folder).
-      2. Update the configurations given below.
-
-         - The `iatValidityPeriod` configuration should be in seconds.
-         - If `iat` claim validation is enabled in the primary identity server (WSO2 IS 1), the token shouldn’t be issued before the specified time.
-
-         ``` toml
-         [authentication.authenticator.oidc.parameters] 
-         iatValidityPeriod = "150" 
-
-         [authentication.authenticator.oidc.parameters]
-         enableIatValidation = false
-         ```
-
-      3. Restart the primary identity server (WSO2 IS 1).
-
--  **Identifying the session (using `sub` or `sid` claims)**
-
-      - Logout token should contain a `sub` claim, a `sid` claim, or both.
-      - If the logout token contains a `sid` claim, the primary identity server (WSO2 IS 1) will terminate the particular session of the user with the `sid` claim. The `sid` claim in the logout token should match the `sid` claim in the ID token received for the current session.
-      - If the logout token only contains a `sub` claim, the primary identity server (WSO2 IS 1) will terminate all the session for that `sub` claim.
+        Note the **OAuth Client Key** and **Client Secret** that are displayed. You will need these values later when deploying the sample application.
 
 ## Try it out
 
@@ -244,7 +200,7 @@ Let's set up the sample applications and try out back-channel logout initiated b
 
 ### Set up Pickup Dispatch
 
-Follow the steps given below to set up the `Pickup-Dispatch` application that is registered as a service provider for the primary identity server (WSO2 IS 1).
+Follow the steps given below to set up the `Pickup-Dispatch` application that is registered as a service provider for the primary IdP (WSO2 IS 1).
 
 1. Download the [pickup-dispatch.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/pickup-dispatch.war) sample.
 
@@ -254,7 +210,7 @@ Follow the steps given below to set up the `Pickup-Dispatch` application that is
 
 ### Set up Pickup Manager
 
-Follow the steps given below to set up the `Pickup-Manager` application that is registered as a service provider for the primary identity server (WSO2 IS 1).
+Follow the steps given below to set up the `Pickup-Manager` application that is registered as a service provider for the federated IdP (WSO2 IS 2).
 
 1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/pickup-manager.war) sample.
 
@@ -297,8 +253,7 @@ Once you have completed configuring WSO2 IS as instructed in the above sections,
 4. Log in to the `Pickup-Manager` application.
 
     !!! info
-        You are automatically logged in and redirected to the **Pickup Manager** application's
-   home page.
+        You are automatically logged in and redirected to the **Pickup Manager** application's home page.
 
 5. Log out of the **Pickup Manager** application. 
 
@@ -309,3 +264,50 @@ Once you have completed configuring WSO2 IS as instructed in the above sections,
 
     !!! info
         Note that you are already logged out of this application as well.
+
+## Validate the OIDC back-channel logout token
+
+The following is an example OIDC back-channel logout token.
+
+``` json
+{
+"iss": "https://localhost.com:9444/oauth2/token",
+"sub": "admin",
+"aud": "w_Hwp05dFRwcRs_WFHv9SNwpflAa",
+"iat": 1609911868,
+"exp": 1609911988,
+"jti": "16159e3e-c5fc-42de-b93f-b0782ab33d58",
+"sid": "15043ffc-877d-4205-af41-9b107f7da38c",
+"events": {
+   "http://schemas.openid.net/event/backchannel-logout": {}
+   }
+}  
+```
+
+Logout token validation is done according to the [OIDC back-channel logout specification](https://openid.net/specs/openid-connect-backchannel-1_0.html#Validation) for the token signature and the `iss`, `aud`, `iat`, `sub`, `sid`, `events`, and `nonce` claims.
+
+-  **Configure “iat” claim validation**
+
+      By default, `iat` claim validation is enabled and `iatValidityPeriod` is set as 300 seconds. To update these configurations, follow the steps given below.
+
+      1. Open the `deployment.toml` file (stored in the  `<PRIMARY_IS_HOME>/repository/conf/` folder).
+      2. Update the configurations given below.
+
+         - The `iatValidityPeriod` configuration should be in seconds.
+         - If `iat` claim validation is enabled in the primary IdP (WSO2 IS 1), the token shouldn’t be issued before the specified time.
+
+         ``` toml
+         [authentication.authenticator.oidc.parameters] 
+         iatValidityPeriod = "150" 
+
+         [authentication.authenticator.oidc.parameters]
+         enableIatValidation = false
+         ```
+
+      3. Restart the primary IdP (WSO2 IS 1).
+
+-  **Identifying the session (using `sub` or `sid` claims)**
+
+      - Logout token should contain a `sub` claim, a `sid` claim, or both.
+      - If the logout token contains a `sid` claim, the primary IdP (WSO2 IS 1) will terminate the particular session of the user with the `sid` claim. The `sid` claim in the logout token should match the `sid` claim in the ID token received for the current session.
+      - If the logout token only contains a `sub` claim, the primary IdP (WSO2 IS 1) will terminate all the sessions for that `sub` claim.
