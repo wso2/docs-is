@@ -21,9 +21,9 @@ In the **Claim Configuration** form, there are two sub forms.
 
 !!! Note
 
-    If your considering to define a custom claim dialect, the following configuration should be added to the 
-    `<IS_HOME>/repository/conf/deployment.toml` file for that to take effect, otherwise the protocol specific claim 
-    dialect such as the OIDC dialect is always picked.
+    To define a custom claim dialect, the configuration given below is required in the 
+    `<IS_HOME>/repository/conf/deployment.toml` file of your WSO2 Identity Server. Otherwise the protocol-specific claim 
+    dialect such as the OIDC dialect is always used.
 
     ```toml
     [authentication.endpoint]
