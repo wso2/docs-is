@@ -27,7 +27,7 @@ In the **Claim Configuration** form, there are two sub forms.
 
     ```toml
     [authentication.endpoint]
-    enable
+    enable_custom_claim_mappings = true
     ```
 
 Let's get started!
