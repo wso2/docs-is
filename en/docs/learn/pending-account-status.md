@@ -48,6 +48,6 @@ Find the description of the status
 | PENDING_AP            | Ask password email is sent and the email is not verified          | 
 | PENDING_EV            | Email Verification email is sent and the email is not verified    | 
 | PENDING_SR            | Self registration email is sent and the email is not verified yet |
-| PENDING_LR            | Lite User registration email is sent and the email is not verified yet|
+| PENDING_LR            | Lite user registration email is sent and the email is not verified yet|
 | DISABLED              | Account is disabled                                               | 
 | UNLOCKED              | Account is neither disabled nor locked                            |
