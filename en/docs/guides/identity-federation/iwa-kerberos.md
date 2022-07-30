@@ -7,9 +7,9 @@ servers.
 It uses Negotiate/Kerberos or NTLM to authenticate users based
 on an encrypted ticket/message passed between a browser and a server.
 
-![iwa-wso2](../../assets/img/guides/iwa-wso2.png)
+![iwa-wso2]({{base_path}}/assets/img/guides/iwa-wso2.png)
 
-![iwa-with-kerberos](../../assets/img/guides/iwa-with-kerberos.png)
+![iwa-with-kerberos]({{base_path}}/assets/img/guides/iwa-with-kerberos.png)
 
 ??? info "IWA authenticator version"
     This IWA authenticator is provided OOTB and was implemented
@@ -20,7 +20,7 @@ on an encrypted ticket/message passed between a browser and a server.
     
     If you still want to use the previous IWA authenticator that
     was based on NTLM, it is [available as an extension](https://github.com/wso2-extensions/identity-local-auth-iwa-ntlm). For more information on how to setup the NTLM-based IWA authenticator,
-    see [Configuring IWA Single-Sign-On](../../learn/configuring-iwa-single-sign-on).
+    see [Configuring IWA Single-Sign-On]({{base_path}}/learn/configuring-iwa-single-sign-on).
     
     The benefits of using the authenticator based on Kerberos vs the
     authenticator based on NTLM are as follows:
@@ -33,11 +33,11 @@ on an encrypted ticket/message passed between a browser and a server.
 !!! info "Related Links"
 
 	-   For more information about IWA, see [Integrated Windows
-		Authentication](../../learn/integrated-windows-authentication-overview)
+		Authentication]({{base_path}}/learn/integrated-windows-authentication-overview)
     
 	-   To configure Active Directory as a user store, see [Configuring a
 		Read-write Active Directory User
-		Store](../../setup/configuring-a-read-write-active-directory-user-store). 
+		Store]({{base_path}}/setup/configuring-a-read-write-active-directory-user-store). 
 
 Follow the instructions in the sections below to configure IWA for local
 or federated authentication in WSO2 Identity Server (IS).
@@ -119,7 +119,7 @@ authenticator.
 
 Let's configure WSO2 IS with IWA as a local or federated authenticator.
 
-{! fragments/register-an-identity-provider.md !}
+{!./includes/register-an-identity-provider.md !}
 4. Expand the **Federated Authenticators** section, expand **IWA Federated Configuration**, and fill in the following values:
 
     <table>
@@ -175,10 +175,10 @@ Let's configure WSO2 IS with IWA as a local or federated authenticator.
     </table>
 
     -   IWA as a Local Authenticator
-        ![iwa-as-a-local-authenticator](../../assets/img/guides/iwa-as-a-local-authenticator.png)
+        ![iwa-as-a-local-authenticator]({{base_path}}/assets/img/guides/iwa-as-a-local-authenticator.png)
     
     -   IWA as a Federated Authenticator
-        ![iwa-as-a-federated-authenticator](../../assets/img/guides/iwa-as-a-federated-authenticator.png)
+        ![iwa-as-a-federated-authenticator]({{base_path}}/assets/img/guides/iwa-as-a-federated-authenticator.png)
 
 6.  Configure your browser to support Kerberos and NTLM.
 
@@ -188,21 +188,21 @@ Let's configure WSO2 IS with IWA as a local or federated authenticator.
         settings of Firefox.
         2. In the search bar, search for the key `network.negotiate-auth.trusted-uris.`
         
-           ![configuring-firefox-for-kerberos](../../assets/img/guides/configuring-firefox-for-kerberos.png)
+           ![configuring-firefox-for-kerberos]({{base_path}}/assets/img/guides/configuring-firefox-for-kerberos.png)
 
         3. Add the WSO2 Identity Server URL and click **OK**.
 
-           ![adding-wso2-is-url](../assets/img/tutorials/adding-wso2-is-url.png)
+           ![adding-wso2-is-url]({{base_path}}/assets/img/tutorials/adding-wso2-is-url.png)
 
 	??? note "Internet Explorer/Chrome"
         1. Go to **Tools ->Internet Options**.
         2. Go to the “security” tab and select local intranet.
 
-           ![configuring-internet-explorer-chrome](../../assets/img/guides/configuring-internet-explorer-chrome.png)
+           ![configuring-internet-explorer-chrome]({{base_path}}/assets/img/guides/configuring-internet-explorer-chrome.png)
 
         3. Click **Sites** and add the URL of WSO2 Identity Server.
 
-           ![adding-wso2-is-url-ie-chrome](../../assets/img/guides/adding-wso2-is-url-ie-chrome.png)
+           ![adding-wso2-is-url-ie-chrome]({{base_path}}/assets/img/guides/adding-wso2-is-url-ie-chrome.png)
 
         Chrome simply inherits the settings from Internet Explorer. Therefore, you
         don’t have to configure anything additional.  
@@ -213,7 +213,7 @@ Let's configure WSO2 IS with IWA as a local or federated authenticator.
 3.  Edit the service provider you created for the Travelocity sample, and expand the **Local and Outbound Authentication** section.
 4.  Select **Federated Authentication** as the **Authentication Type** and select the identity provider you created above.  
 
-    ![](../../assets/img/guides/federated-authentication.png)
+    ![]({{base_path}}/assets/img/guides/federated-authentication.png)
     
 5.  Restart the Apache Tomcat server and run the Travelocity sample application from a Windows machine.  
 

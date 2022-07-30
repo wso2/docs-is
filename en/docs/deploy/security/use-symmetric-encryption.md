@@ -1,6 +1,6 @@
 # Configurations Related to Symmetric Key Encryption
 
-This section explains the configurations related to [symmetric key encryption](../../../deploy/security/symmetric-overview). This version of WSO2 Identity Server uses symmetric encryption by default. You can switch to [asymmetric key encryption](../../../deploy/security/use-asymmetric-encryption) if required.
+This section explains the configurations related to [symmetric key encryption]({{base_path}}/deploy/security/symmetric-overview). This version of WSO2 Identity Server uses symmetric encryption by default. You can switch to [asymmetric key encryption]({{base_path}}/deploy/security/use-asymmetric-encryption) if required.
 
 ---
 
@@ -64,4 +64,4 @@ However, with symmetric key encryption, keystore references are not required. So
 
 ## Encrypting symmetric encryption key with cipher tool
 
-It is adviced to encrypt the symmetric encryption key with cipher tool as mentioned [here](../../../deploy/security/encrypt-passwords-with-cipher-tool).
+It is adviced to encrypt the symmetric encryption key with cipher tool as mentioned [here]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).

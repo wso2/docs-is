@@ -4,137 +4,79 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ## Set up a Google app
 
-1.  Access the Google Admin console by navigating to this URL:
-    <https://admin.google.com/>.
-2.  Log in using your administrator account.
-3.  Click **Admin Console**.
-4.  Click **Apps** > **SAML apps** from the left hand panel.
-	
-	!!! info 
-		If you do not see the Apps button on the home page, click **More
-		Controls** at the bottom of the page.
+1. Go to the [Google Developer console](https://console.developers.google.com/apis/credentials), create a new project or select an existing project.
 
-	![more-controls-saml-apps](../../../assets/img/samples/saml-app.png)
-	
-5.  Click the ![more-controls-icon](../../../assets/img/samples/more-controls.png) icon found at
-    the bottom-right of the page.
-6.  Click **SETUP MY OWN CUSTOM APP**.
-    ![setup-my-own-custom-app](../../../assets/img/samples/set-up-my-own-app.png)
-    
-7.  Click **Download** next to the **IDP Metadata** field to download
-    the Google identity provider metadata.
+2. If the **APIs & services** page isn't already open, do the following:
 
-    A `GoogleIDPMetadata.xml` file is downloaded to your machine.  
-    
-    ![idp-metadata](../../../assets/img/samples/download-idp-metadata.png)
-    
-8.  Click **Next** and enter an **Application Name** and **Description**
-    for your application. This is the name and description that your
-    users will see.  
-    You can also upload an image of your logo.
-9.  Click **Next** and enter the app details
-10. Click **Next** and then click **Finish**.
-11. Once the application is configured, click **Edit Service** and
-    change the **Service Status** to **ON**. You can turn on the
-    service for everyone or for some users only.
+    1. Open the navigation menu and click **View all products**.
+       ![View all products on the Google console]({{base_path}}/assets/img/samples/google-view-all-products.png)
+
+    2. Under **Management**, click **APIs & Services**.
+       ![Select APIs & Services]({{base_path}}/assets/img/samples/google-apis-and-services.png)
+
+3. Go to the **Credentials** page, click **Create Credentials**, and select **Oauth client ID**.
+
+    ![Select APIs & Services]({{base_path}}/assets/img/samples/google-oauth-client-id.png)
+
+4. Configure your consent screen by clicking **Configure Consent Screen** and return to **Create OAuth client ID** screen once you are done.
+
+
+    !!! info
+        - For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
+
+5. Select the **Web application** as the application type.
+6. Provide a name for your app and the following URL as the **Authorized Redirect URI** of the application: <br/>
+    ```
+    https://<IS_HOST>:<IS_PORT>//commonauth
+    ```
+7. Take note of the **client ID** and **client secret** generated for the application.
 
 ---
 
-{! fragments/register-an-identity-provider.md !}
+{!./includes/register-an-identity-provider.md !}
 
-4.  Expand **Federated Authenticators\>SAML2 Web SSO Configuration**.
-5.  Select **Enable SAML2 Web SSO** and enter "wso2is1" as the **Service
-    Provider Entity ID**.
+4.  Go to **Google Configuration** under **Federated Authenticators**.
+5.  Select the checkbox **Enable**.
 
-    !!! info 
-		The **Service Provider Entity ID** value should be equal to the
-		value you entered as the Entity ID when configuring Google.
-
-6.  Select **Metadata File Configuration** as the **Mode** and upload
-    the `GoogleIDPMetadata.xml` file you downloaded earlier.  
-    ![metadata-file-config](../../../assets/img/guides/metadata-file-config.png)
+6.  Configure the **Client ID** and **Client Secret** that were received after creating the Google application client.
     
-7.  Click **Register** to save the identity provider configurations.
+7.  Configure the **Callback URL** as `https://<IS_HOST>:<IS_PORT>//commonauth`
+    
+8.  Click on **Register** to add the Google IdP.
 
-    !!! Info
-        Once the IdP is registered, it is listed under Identity Providers.
-    
-8.  Click **Edit** and expand **Federated Authenticators\>SAML2 Web SSO Configuration**.  
-    ![idp-list](../../../assets/img/guides/idp-list.png)
-    
-9.  Select **Enable Logout** and enter `https://accounts.google.com/logout` as the Logout URL.
-
-    ![enter-the-logout-url](../../../assets/img/guides/enter-the-logout-url.png)
-    
-10. Click **Update** to save the changes.
+    ![Google-IdP]({{base_path}}/assets/img/samples/google-idp.png)
 
 ---
 
 ## Register a service provider
 
-{! fragments/register-a-service-provider.md !}
+{!./includes/register-a-service-provider.md !}
 
-5.  Expand the **Inbound Authentication Configuration** and the **SAML2
-    Web SSO Configuration**, and click **Configure**.
-6.  In the form that appears, fill out the following configuration
-    details required for single sign-on. 
-    
-    !!! info
-        For more details about attributes in the following configuration, refer [SAML2 Web SSO Configuration](../../../guides/login/webapp-saml/).  
-    
-    See the following table for details.
+5. In the **Inbound Authentication Configuration** section, click
+   **Configure** under the **OAuth/OpenIDConnect Configuration** section and
+   set the configurations as required.
 
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Field</th>
-    <th>Value</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Issuer</td>
-    <td><div class="content-wrapper">
-    <p><code>                 google.com                </code></p>
-    </div></td>
-    <td>This is the <code>               &lt;saml:Issuer&gt;              </code> element that contains the unique identifier of the service provider.</td>
-    </tr>
-    <tr class="even">
-    <td>Assertion Consumer URL</td>
-    <td><pre><code>https://google.com/a/&lt;ENTER_YOUR_DOMAIN&gt;/acs</code></pre>
-    <code>              </code></td>
-    <td>This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request.</td>
-    </tr>
-    <tr class="odd">
-    <td>NameID Format</td>
-    <td>The default value can be used here.</td>
-    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that it is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
-    </tr>
-    <tr class="even">
-    <td>Certificate Alias</td>
-    <td>wso2carbon</td>
-    <td>Select the <strong>Certificate Alias</strong> from the drop-down. This is used to validate the signature of SAML2 requests and is used to generate encryption. Basically, the service provider’s certificate must be selected here. Note that this can also be the Identity Server tenant's public certificate in a scenario where you are doing a tenant-specific configuration.</td>
-    </tr>
-    <tr class="odd">
-    <td>Enable Response Signing</td>
-    <td>Selected</td>
-    <td><p>Select <strong>Enable Response Signing</strong> to sign the SAML2 responses returned after the authentication process.</p></td>
-    </tr>
-    <tr class="even">
-    <td>Enable Attribute Profile</td>
-    <td>Selected</td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes aof the attribute statement.</td>
-    </tr>
-    <tr class="odd">
-    <td>Include Attributes in the Response Always</td>
-    <td>Selected</td>
-    <td>Once you select the checkbox to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
-    </tr>
-    </tbody>
-    </table>
+6. Configure the Callback URL of the sample application (**http://localhost.com:8080/pickup-dispatch/oauth2client**).
 
-7.  Click **Register** to save your configurations.
+    ![configuring-OAuth-Callback-URL]({{base_path}}/assets/img/guides/oauth-callback-url.png)
+
+7. Keep the other configurations as default and click on **Add**
+
+8. Click **Register**. Now you will be sent back to the **Service Providers** page.
+9. Take a copy of the **OAuth Client Key** and the **OAuth Client Secret** for later usages
+
+    ![OAuth-id-secret]({{base_path}}/assets/img/guides/oauth-id-secret.png)
+
+
+9. Go to the **Local and Outbound Authentication Configuration**
+   section.
+
+10. For **Authentication Type**, select the **Federated Authentication** radio button and select the
+    Identity Provider you created from the dropdown list under
+    **Federated Authentication**.  
+    ![identity-provider-in-federated-authentication]({{base_path}}/assets/img/guides/identity-provider-in-federated-authentication.png)
+
+11. Click **Update** to save the changes.
 
 ---
 
@@ -144,8 +86,8 @@ You have successfully configured Google as your federated authenticator. Now, wh
 
 ### Set up the sample app
 
-- Download Apache Tomcat 8.x from
-[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+- Download Apache Tomcat 9.x from
+[here](https://tomcat.apache.org/download-90.cgi) and install. Tomcat
 server installation location will be referred as `<TOMCAT_HOME>` later
 in this guide.      
 
@@ -159,35 +101,63 @@ application.
 
 - Download the sample from GitHub.
     1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
+    2. Download the `pickup-dispatch.war` file from the latest release assets.
 
-### Configure CORS
-
-{!fragments/cors-config.md!}
 
 ### Deploy the sample app
 
 Deploy this sample web app on a web container.
 
-1.  Copy the `saml2-web-app-pickup-dispatch.com.war` file into the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder. 
+1. Copy the `pickup-dispatch.war`file into the `webapps` folder. For
+   example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
 
-2.  Start the Tomcat server.
+2. Open a terminal window and add the following entry to the
+   `/etc/hosts` file of your machine to configure
+   the hostname.
+
+    ``` bash
+    127.0.0.1   wso2is.local
+    127.0.0.1   localhost.com
+    ```
+
+    !!!info "Why is this step needed?"
+        Some browsers do not allow you to create cookies for a naked
+        hostname, such as `            localhost           `. Cookies are
+        required when working with SSO . Therefore, to ensure that the SSO
+        capabilities work as expected in this tutorial, you need to
+        configure the `            etc/host           ` file as explained in
+        this step.
+
+        The `            etc/host           ` file is a read-only file.
+        Therefore, you won't be able to edit it by opening the file via a
+        text editor. Instead, edit the file using the terminal commands.  
+        For example, use the following command if you are working on a
+        Mac/Linux environment.
+
+        ``` java
+        sudo nano /etc/hosts
+        ```
+
+4. Open the `dispatch.properties` file found in the `
+   <TOMCAT_HOME>/webapps/pickup-dispatch/WEB-INF/classes ` directory
+   and edit the **consumerKey** and **consumerSecret** with the values obtained from the **OAuth configuration**.
+
+5. Restart the Tomcat server.
 
 ### Log in
 
-1.  Access the Pickup sample application URL:
-    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
-2.  Click **Login**. You are redirected to the Google login page.
-  
-    ![Google login page](../../assets/img/samples/sign-in-google.png)
-    
-3.  Sign in using your Google credentials. You are redirected to the
-    Pickup sample homepage.
-4.  On a new tab on your browser, access the following URL:
-    <https://mail.google.com>.
+1. To test the sample, go to the following URL: `http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch`.<br/>
+For example. `http://localhost.com:8080/pickup-dispatch`
 
-    !!! info 
-    	You are automatically logged in to your Gmail using single sign-on (SSO).
+    ![Pickup-dispatch application]({{base_path}}/assets/img/samples/pickup-dispatch-login.png)
+
+
+2. Click **Login**. You are redirected to the Google login page.
+  
+    ![Google login page]({{base_path}}/assets/img/samples/sign-in-google.png)
+    
+3. Sign in using your Google credentials. You are redirected to the
+    Pickup sample homepage.
 
 !!! info "Related topics" 
-    - [Concepts: Introduction to Identity Federation](../../../references/concepts/identity-federation/)
+    - [Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)

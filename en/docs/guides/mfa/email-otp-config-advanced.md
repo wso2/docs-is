@@ -22,6 +22,7 @@ CaptureAndUpdateEmailAddress = true
 showEmailAddressInUI = true
 useEventHandlerBasedEmailSender = true
 emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
+tokenExpirationTime = 300000
 ```
 
 The parameter values given above show the **default** configurations in WSO2 Identity Server. 
@@ -73,7 +74,7 @@ This parameter defines how the email ID will be retrieved. You can configure the
 
 - **local**: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.
 
-- **assocication**: The federated username must be associated with the local account in advance in the WSO2 Identity Server User Portal. The local username is retrieved from the association. For information on creating an association, see the [user portal help](insertlink).
+- **assocication**: The federated username must be associated with the local account in advance in the WSO2 Identity Server My Account. The local username is retrieved from the association. For information on creating an association, see the [My Account help](insertlink).
 
 - **subjectUri**: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the EmailOTP authenticator.
 
@@ -187,3 +188,9 @@ When `showEmailAddressInUI` is enabled, it provides the capability to define the
 
 -   `(?<=.{1}).(?=.@)  :  t***@mail.com`
 -   `(?<=.)^@|(?:(?<=@.)|(?!)\G(?=[@]$)).(?=.*\.)  :  t***@m***.com`
+
+----
+
+#### tokenExpirationTime
+
+This parameter helps to define a custom Email OTP expiry time. The default expiration time is 300000 milliseconds.

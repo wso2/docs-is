@@ -1,7 +1,7 @@
 # Configuring WS-Trust Security Token Service
 
 WSO2 Identity Server uses the security token service (STS) as the
-[WS-Trust](../../learn/ws-trust) implementation. The STS is capable of issuing
+[WS-Trust]({{base_path}}/learn/ws-trust) implementation. The STS is capable of issuing
 SAML 1.1 and 2.0 security tokens and has a SOAP/XML API for token
 issuance. This API can be secured with the
 `         UserNameToken        ` or with any other WS-Security mechanism
@@ -23,15 +23,15 @@ Therefore, the STS service needs to be secured.
 
 STS is configured under the **Resident Identity Provider** section of
 the WSO2 Identity Server [Management
-Console](../../setup/getting-started-with-the-management-console).
+Console]({{base_path}}/setup/getting-started-with-the-management-console).
 
 To secure the Security Token Service:
 
 1.  On the **Main** tab, click **Identity \> Identity Providers \>
     Resident**.  
-    ![main-tab-resident](../assets/img/tutorials/main-tab-resident.png)  
+    ![main-tab-resident]({{base_path}}/assets/img/tutorials/main-tab-resident.png)  
     The Resident Identity Provider page appears.  
-    ![resident-identity-provider](../assets/img/tutorials/resident-identity-provider.png)
+    ![resident-identity-provider]({{base_path}}/assets/img/tutorials/resident-identity-provider.png)
 
 2.  Enter the required values as given below.
 
@@ -68,19 +68,19 @@ To secure the Security Token Service:
 3.  Under the **Inbound Authentication Configuration** section, click
     **Security Token Service Configuration \> Apply Security Policy**
     .  
-    ![security-token-service-config](../assets/img/tutorials/security-token-service-config.png)
+    ![security-token-service-config]({{base_path}}/assets/img/tutorials/security-token-service-config.png)
 4.  Select **Yes** in the **Enable Security?** drop down and  select a
     pre-configured security scenario according to your requirements. For
     this tutorial, use **UsernameToken** under the **Basic Scenarios**
     section.  
-    ![enable-security](../assets/img/tutorials/enable-security.png)
+    ![enable-security]({{base_path}}/assets/img/tutorials/enable-security.png)
 
     !!! note
     
         You can find further details about security policy scenarios from
         the **view scenario** option **.**
     
-        ![security-policy-scenarios](../assets/img/tutorials/security-policy-scenarios.png)
+        ![security-policy-scenarios]({{base_path}}/assets/img/tutorials/security-policy-scenarios.png)
     
 
 5.  Click **Next**. The user domain and user group selection appears.
@@ -101,7 +101,7 @@ To secure the Security Token Service:
                 **User Groups** can vary depending on the domain selected.
         
 
-    	![select-domain](../assets/img/tutorials/select-domain.png)
+    	![select-domain]({{base_path}}/assets/img/tutorials/select-domain.png)
 
 7.  Click **Finish**.
 8.  Click **Ok** on the confirmation dialog window that appears.
@@ -117,7 +117,7 @@ The next step is to add a service provider to consume the STS.
 Do the following steps if you are using a Holder of Key **subject
 confirmation method**. For more information, see [Configuring STS for
 Obtaining Tokens with Holder-Of-Key Subject
-Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation).
+Confirmation]({{base_path}}/learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation).
 
 !!! info
 	The **Subject confirmation methods** define how a relying party (RP),
@@ -129,7 +129,7 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-ke
 	
 !!! Tip "Before you begin"	
     You must first
-    [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
+    [register a service provider]({{base_path}}/learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
     To register a service provider:
 	 
 	 1. Sign in to WSO2 Identity Server Management Console as an admin.
@@ -140,7 +140,7 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-ke
 1.  Under the **Inbound Authentication Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
     **Configure**. The STS Configuration page appears.  
-    ![sts-config](../assets/img/tutorials/sts-config.png)
+    ![sts-config]({{base_path}}/assets/img/tutorials/sts-config.png)
 2.  Enter the required details as given below.
  	
 	<table>
@@ -176,11 +176,11 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-ke
 	   </tbody>
 	</table>
     
-	![add-new-trusted-service](../assets/img/tutorials/add-new-trusted-service.png)
+	![add-new-trusted-service]({{base_path}}/assets/img/tutorials/add-new-trusted-service.png)
 
 3. Click **Update** to save the changes made to the service provider.
 
     !!! info "Related Topics"
-        Run the STS client after configuring the service provider. For instructions on trying out a sample STS client, see [Running an STS Client](../../learn/running-an-sts-client).
+        Run the STS client after configuring the service provider. For instructions on trying out a sample STS client, see [Running an STS Client]({{base_path}}/learn/running-an-sts-client).
 
   

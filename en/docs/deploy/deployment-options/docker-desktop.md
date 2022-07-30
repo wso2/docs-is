@@ -13,11 +13,11 @@ Install the following applications if you do not have them installed already. Ma
 4.  Set up a [kubernetes cluster](https://www.docker.com/products/docker-desktop) on docker desktop, if you do not have one set up already. 
 
 	!!! important ""
-		1.	Click on the Docker desktop icon, ![docker](../../../assets/img/deploy/deploy-wso2-using/docker-desktop.png) on your notification panel. 
+		1.	Click on the Docker desktop icon, ![docker]({{base_path}}/assets/img/deploy/deploy-wso2-using/docker-desktop.png) on your notification panel. 
 		Next, click **Preferences > Kubernetes > Enable Kubernetes**.  
 
 		2.	Set the resources in such a way that you do not face any space related issues while testing the deployment. 
-			a. For this, click on the Docker desktop icon, ![docker](../../../assets/img/deploy/deploy-wso2-using/docker-desktop.png) on your notification panel. 
+			a. For this, click on the Docker desktop icon, ![docker]({{base_path}}/assets/img/deploy/deploy-wso2-using/docker-desktop.png) on your notification panel. 
 			b. Next, click **Preferences > Resources**. Set the CPUs to 4 and memory to 4.00 GB.  
 		
 
@@ -91,7 +91,7 @@ To access the console in the environment,
 
 ## Try it out 
 
-You can now test the functionalities of WSO2 Identity Server with your app. You can alternatively choose a sample app from [here](../../../quick-starts/overview) and follow the steps given to deploy the chosen application. 
+You can now test the functionalities of WSO2 Identity Server with your app. You can alternatively choose a sample app from [here]({{base_path}}/quick-starts/overview) and follow the steps given to deploy the chosen application. 
 
 Make sure you add the proxy port configuration to `<KUBERNETES_HOME>/advanced/is-pattern-1/values.yaml`. 
 
@@ -109,7 +109,7 @@ proxyPort = 443
 
 !!! info "Related topics"
 
-    -  [Working with different databases](../../../deploy/work-with-databases)
-    -  [Working with different userstores](../../../deploy/configure-user-stores)
-    -  [Configuring the User Realm](../../../deploy/configure-the-realm)
+    -  [Working with different databases]({{base_path}}/deploy/work-with-databases)
+    -  [Working with different userstores]({{base_path}}/deploy/configure-user-stores)
+    -  [Configuring the User Realm]({{base_path}}/deploy/configure-the-realm)
 

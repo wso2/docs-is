@@ -20,7 +20,7 @@ You can use either the management console to create secondary userstores or you 
 
 2.  From the **Userstore Manager Class** drop-down, select the userstore manager class that suits your userstore.
     
-    ![add a secondary userstore](../../../assets/img/deploy/add-secondary-user-store.png)
+    ![add a secondary userstore]({{base_path}}/assets/img/deploy/add-secondary-user-store.png)
 
     The following table lists the available userstore manager
     implementations and their usage:
@@ -79,18 +79,18 @@ You can use either the management console to create secondary userstores or you 
     properties that you need to configure for different userstore manager types and recommendations specific to
     each userstore manager.  
       
-    -   [Properties for a JDBC userstore](../../../deploy/configure-a-jdbc-user-store#properties-used-in-jdbc-user-store-manager)
+    -   [Properties for a JDBC userstore]({{base_path}}/deploy/configure-a-jdbc-user-store#properties-used-in-jdbc-user-store-manager)
 
-    -   [Properties for a read-only LDAP userstore](../../../deploy/configure-a-read-only-ldap-user-store#properties-used-in-read-only-ldap-user-store-manager)
+    -   [Properties for a read-only LDAP userstore]({{base_path}}/deploy/configure-a-read-only-ldap-user-store#properties-used-in-read-only-ldap-user-store-manager)
 
-    -   [Properties for a read-write Active Directory userstore](../../../deploy/configure-a-read-write-active-directory-user-store#properties-used-in-read-write-active-directory-userstore-manager)
+    -   [Properties for a read-write Active Directory userstore]({{base_path}}/deploy/configure-a-read-write-active-directory-user-store#properties-used-in-read-write-active-directory-userstore-manager)
         
-    -   [Properties for a read-write LDAP userstore](../../../deploy/configure-a-read-write-ldap-user-store#properties-used-in-read-write-ldap-user-store-manager)
+    -   [Properties for a read-write LDAP userstore]({{base_path}}/deploy/configure-a-read-write-ldap-user-store#properties-used-in-read-write-ldap-user-store-manager)
 
 5.  Make sure that all the mandatory fields are filled and a valid
     domain name is given, and click **Add**. A message appears saying
     that the userstores are being added.  
-    ![configure-userstores](../../../assets/img/deploy/configure-userstores.png)
+    ![configure-userstores]({{base_path}}/assets/img/deploy/configure-userstores.png)
 
     !!! note
         The above message does not imply that the userstore is added

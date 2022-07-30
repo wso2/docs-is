@@ -18,11 +18,11 @@ This page guides you through using WSO2 Identity Server to log in to Google.
     !!! info
         Can't see the Security section? Click the **MORE CONTROLS** bar at the bottom and you can see the Security section.
 
-    ![more-controls](../../assets/img/guides/security-google.png)
+    ![more-controls]({{base_path}}/assets/img/guides/security-google.png)
 
 3. Click **Set up single sign-on (SSO) with a third party IdP**.
 
-    ![third-party-idp](../../assets/img/guides/setup-sso-google.png)
+    ![third-party-idp]({{base_path}}/assets/img/guides/setup-sso-google.png)
 
 4. Enter the following URLs to your third-party Identity Provider
     (IdP).
@@ -33,7 +33,7 @@ This page guides you through using WSO2 Identity Server to log in to Google.
     - **Sign-out page URL:**
         `https://<IS_HOSTNAME>:<IS_POST>/samlsso`
 
-    ![sso-fill-google.png](../../assets/img/guides/sso-fill-google.png)
+    ![sso-fill-google.png]({{base_path}}/assets/img/guides/sso-fill-google.png)
 
 5. Upload the Identity Server certificate:  
     The certificate file must contain the public key for Google to
@@ -59,13 +59,15 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 
 -----
 
-{!fragments/enable-email-as-username.md!}
+## Configure Email Address as the Username
+
+{!./includes/enable-email-as-username.md!}
 
 -----
 
 ## Create the service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 -----
 
@@ -95,7 +97,7 @@ Make the following changes to the created service provider.
     </tr>
     <tr class="even">
     <td>Assertion Consumer URL</td>
-    <td><pre><code>https://google.com/a/&lt;ENTER_YOUR_DOMAIN&gt;/acs</code></pre>
+    <td><pre><code>https://www.google.com/a/&lt;ENTER_YOUR_DOMAIN&gt;/acs</code></pre>
     <code>              </code></td>
     <td>This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request.</td>
     </tr>
@@ -123,7 +125,7 @@ Now, you have successfully configured Google and WSO2 Identity Server.
     In this example, `alex@wso2support.com`
     is in the Google domain. Therefore, we need to create the same user in WSO2 Identity Server.
 
-    {!fragments/create-user-email-username.md!}
+    {!./includes/create-user-email-username.md!}
 
 2. Navigate to
     `https://google.com/a/<ENTER_YOUR_DOMAIN>/acs`
@@ -142,4 +144,4 @@ Now, you have successfully configured Google and WSO2 Identity Server.
     Server sign in screen, and you are navigated to the user's mail account.
 
 !!! info "Related topics"
-    - [Concept: Identity Federation](../../../references/concepts/identity-federation/)
+    - [Concept: Identity Federation]({{base_path}}/references/concepts/identity-federation/)

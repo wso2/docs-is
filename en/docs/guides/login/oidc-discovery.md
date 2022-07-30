@@ -1,6 +1,6 @@
 # Discover OpenID Connect Provider
 
-This page guides you through using [OpenID Connect Discovery](../../../references/concepts/authentication/discovery) to discover an end user's OpenID provider, and to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. 
+This page guides you through using [OpenID Connect Discovery]({{base_path}}/references/concepts/authentication/discovery) to discover an end user's OpenID provider, and to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. 
 
 You can use this OIDC Discovery document to automatically configure applications. The OpenID Connect discovery endpoint is as follows:
 
@@ -35,7 +35,7 @@ In WSO2 Identity Server, the resident IdP Entity ID for OpenID Connect can be co
 
 4.  Enter a valid OpenID Provider issuer location as the **Identity Provider Entity Id** value.  
 
-    ![idp-entity-id]( ../../assets/img/guides/idp-entity-id.png) 
+    ![idp-entity-id]( {{base_path}}/assets/img/guides/idp-entity-id.png) 
 
     !!! Tip
         A valid OpenID Provider Issuer location in WSO2 Identity Server has the following format.
@@ -274,6 +274,6 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
 
 
 !!! info "Related topics"
-    - [Concept: OpenID Connect Discovery](../../../references/concepts/authentication/discovery)
-    - [Guide: Authorization Code Grant](../../access-delegation/authorization-code/))
-    - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)
+    - [Concept: OpenID Connect Discovery]({{base_path}}/references/concepts/authentication/discovery)
+    - [Guide: Authorization Code Grant]({{base_path}}/access-delegation/authorization-code/))
+    - [Guide: Enable Login for an OpenID Connect Web Application]({{base_path}}/webapp-oidc)

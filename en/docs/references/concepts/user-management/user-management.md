@@ -27,16 +27,16 @@ User management enables:
 
 To understand user management, we need to first understand certain terminologies that are elaborated further in this section. 
 
-- [Users](../users)
+- [Users]({{base_path}}/users)
 
-- [Roles and Permissions](../roles-and-permissions)
+- [Roles and Permissions]({{base_path}}/roles-and-permissions)
 
-- [Userstores](../userstores)
+- [Userstores]({{base_path}}/userstores)
 
-- [Realms](../realm)
+- [Realms]({{base_path}}/realm)
 
 !!! info "Related topics"
-    - [Guide: Onboard Users](../../../../guides/identity-lifecycles/onboard-overview/)
-    - [Guide: Manage Users](../../../../guides/identity-lifecycles/manage-user-overview/)
-    - [Guide: Manage Roles](../../../../guides/identity-lifecycles/manage-roles-overview/)
+    - [Guide: Onboard Users]({{base_path}}/guides/identity-lifecycles/onboard-overview/)
+    - [Guide: Manage Users]({{base_path}}/guides/identity-lifecycles/manage-user-overview/)
+    - [Guide: Manage Roles]({{base_path}}/guides/identity-lifecycles/manage-roles-overview/)
     

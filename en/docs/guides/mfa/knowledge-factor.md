@@ -3,6 +3,6 @@
 Knowledge factor is the most commonly used identity authentication mechanism. It requires the user to demonstrate 
 knowledge of a secret for successful authentication.
 
--   [Password-based Authentication](../password) 
+-   [Password-based Authentication]({{base_path}}/password) 
 
--   [IWA](../iwa/)
+-   [IWA]({{base_path}}/iwa/)

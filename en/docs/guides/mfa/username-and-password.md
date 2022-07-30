@@ -1,75 +1,70 @@
 # Configuring Multi-factor Authentication with Username and Password
 
 This scenario involves obtaining the username first and validating that
-prior to autenticating the user using the password.
+before authenticating the user using the password.
 
-1. Log in to the [Management
-    Console](../../setup/getting-started-with-the-management-console).
-2. Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers**.
-3. Create a new Service Provider:
+## Scenario
+
+Consider a scenario where you want to log in users' to your application by validating the username and authenticating the user using the password that the user enters.
+
+## Prerequisites
+
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+
+## Configure username validation
+
+To configure MFA using username and password:
+
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
+
+2. Click **Edit** on the service provider you have created.
+
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
     !!! info
-        For more information on creating a service provider, see [Adding and
-        Configuring a Service
-        Provider](../../learn/adding-and-configuring-a-service-provider).
+        see [Configuring Local and Outbound Authentication for a Service Provider]({{base_path}}/learn/configuring-local-and-outbound-authentication-for-a-service-provider) for more information.
 
-    1. Fill in the **Service Provider Name** and provide a brief
-        **Description** of the service provider. Only **Service Provider
-        Name** is a required field.
-    2. Click **Register** to add the new service provider.
+6. Click **Add Authentication Step** twice to add two authentication steps for the application.
 
-4. Access the service provider you just created and expand **Local &
-    Outbound Authentication Configuration**.
+7. Select the following authenticators from the **Local Authenticators** dropdown.
 
-    !!! info
-        For more information on configuring the local and outbound
-        authentication configuration, see [Configuring Local and Outbound
-        Authentication for a Service
-        Provider](../../learn/configuring-local-and-outbound-authentication-for-a-service-provider)
-        .
-
-    ![configure-local-outbound](../assets/img/using-wso2-identity-server/configure-local-outbound.png)
-
-
-5. Select **Advanced Configuration** to configure multi-factor
-    authentication.
-6. Click **Add Authentication Step**. Then add a local authenticator
-    from **Local Authenticators** section. Select **identifier** from
-    the dropdown. This is used to identify the user.
+    | Authentication step   | Local authenticator   |
+    |-----------------------|-----------------------|
+    | First step    | `identifier-first`    |
+    | Second step   | `basic`   |
 
     !!! note
-        The identifier is not an authenticator, so having only
-        the identifier in the authentication flow will fail the
-        authentication. If there are no authenticators configured other than identifier, an error occurs when updating the service provider.
+        The `identifier-first` is not an authenticator, so having only the identifier in the authentication flow will fail the authentication. If there are no authenticators configured other than identifier, an error occurs when updating the service provider.
 
+8. Click **Update** to save your configurations.
 
-7. Click **Add** **Authentication** **step** and add the **basic**
-    authenticator from **Local Authenticators** section.  This will
-    enable the password as the 2nd step authenticator.  
-    ![second-step-authenticator](../assets/img/using-wso2-identity-server/second-step-authenticator.png)
-8. Click the **Update** button. This navigates you to the previous
-    screen with your newly configured authentication steps.
+## Configure the server
 
-    !!! tip
-        However, by default, the username is not validated and WSO2 Identity Server does not check whether it exists in the userstore. This can be configured by setting the following parameter in the
-        `<IS_HOME>/repository/conf/deployment.toml` file as shown below.
+By default, the username is not validated, and WSO2 Identity Server does not check whether it exists in the user store.
 
-        ``` xml
-        [authentication.authenticator.user_identifier] 
-        name ="IdentifierExecutor"
-        enable=true
-        [authentication.authenticator.user_identifier.parameters]
-        validate_username= false
-        ```
+To enable username validation for applications:
+1. Add the following code segment to `<IS_HOME>/repository/conf/deployment.toml` file to start validating the username.
+
+``` toml
+[authentication.authenticator.user_identifier]
+name = "IdentifierExecutor"
+enable = true
+
+[authentication.authenticator.user_identifier.parameters]
+validate_username = true
+```
+
+2. Restart the Identity Server.
 
 ## Try it out
 
-1. Access the following sample PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
-2. Enter the username and click **NEXT**.  
-    ![enter-username](../assets/img/using-wso2-identity-server/enter-username.png)
-3. Enter the password and click **SIGN IN**.  
-    ![enter-password](../assets/img/using-wso2-identity-server/enter-password.png)
+1. Access the following sample PickUp application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
+2. Click **Login**, and enter admin's username.  
+3. On the next screen, enter admin's password and click **Continue**.
+4. You will be successfully logged in to the application. Logout of the application.
+5. Click **Login** again, and enter a username that is not registered on the IS.
+6. Click **Continue**.
 
-  
+    You will get an error message a user with the username you entered is not registered on the IS.
+
+    ![username validation error]({{base_path}}/assets/img/guides/mfa-username-validation-error.png)

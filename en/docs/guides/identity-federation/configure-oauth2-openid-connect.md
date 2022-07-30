@@ -17,7 +17,7 @@ the users with an authorization server-based authentication.
 
 ## Configure the identity provider
 
-You need to configure an oauth application in the federated authorization server and get the application information such as client ID and secret. For example, see [configure OAuth2-OpenID Connect single sign-on](../../../guides/login/webapp-oidc/).
+You need to configure an oauth application in the federated authorization server and get the application information such as client ID and secret. For example, see [configure OAuth2-OpenID Connect single sign-on]({{base_path}}/guides/login/webapp-oidc/).
 
 !!! tip
     By default, the **Client Id** and **Client Secret** are stored as
@@ -41,7 +41,7 @@ You need to configure an oauth application in the federated authorization server
 <!--For information on
 possible values that you can specify based on your
 requirement, see [Supported token persistence
-processors](TO-DO:../../learn/extension-points-for-oauth#token-persistence-processor).-->
+processors](TO-DO:{{base_path}}/learn/extension-points-for-oauth#token-persistence-processor).-->
 
 ## Register the identity provider
 
@@ -54,7 +54,7 @@ processors](TO-DO:../../learn/extension-points-for-oauth#token-persistence-proce
 
 4.  Expand the **Federated Authenticators** section and then the
     **OAuth2/OpenID Connect Configuration** form.  
-    ![oauth2-openid-connect-configuration](../../../assets/img/guides/oauth2-openid-connect-configuration.png)
+    ![oauth2-openid-connect-configuration]({{base_path}}/assets/img/guides/oauth2-openid-connect-configuration.png)
         
     !!! note
         WSO2 Identity Server supports RP-initiated logout requests to OpenID Connect identity providers.
@@ -137,11 +137,11 @@ processors](TO-DO:../../learn/extension-points-for-oauth#token-persistence-proce
     </table></div>
 
 !!! info "Related topics"
-    - [Guides: Enable Single Sign-On for an OIDC Web Application](../../../guides/login/sso-for-oidc)
-    - [Concepts: Introduction to OpenID Connect](../../../references/concepts/authentication/intro-oidc)
+    - [Guides: Enable Single Sign-On for an OIDC Web Application]({{base_path}}/guides/login/sso-for-oidc)
+    - [Concepts: Introduction to OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc)
     
 
 <!--	-   See [Log into Identity Server using another Identity Server -
-		OAuth2](TO-DO:../../learn/login-to-identity-server-using-another-identity-server-oauth2)
+		OAuth2](TO-DO:{{base_path}}/learn/login-to-identity-server-using-another-identity-server-oauth2)
 		for a sample of using OAuth2/OpenIDConnect for federated
 		authentication.-->

@@ -20,5 +20,5 @@ The framework will then decide no more authentication is needed and hand over th
 The following types of request path authenticators can be used to
 achieve this.
 
--   [Basic Auth Request Path Authentication](basic-auth-request-path-authentication.md)
--   [OAuth Request Path Authentication](oauth-request-path-authentication.md)
+-   [Basic Auth Request Path Authentication]({{base_path}}/guides/request-path-auth/basic-auth-request-path)
+-   [OAuth Request Path Authentication]({{base_path}}/guides/request-path-auth/oauth-request-path)

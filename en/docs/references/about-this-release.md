@@ -8,26 +8,26 @@ WSO2 Identity Server 5.11.0 is the **latest** WSO2 Identity Server (WSO2 IS) rel
 
 WSO2 IS 5.11.0 contains the following new features and enhancements:
 
-- Enhanced **My Account** application (known as "User Portal" in 5.10.0) for users to manage their account-related preferences. For more information, see [My Account](../../learn/my-account).
+- Enhanced **My Account** application (known as "User Portal" in 5.10.0) for users to manage their account-related preferences. For more information, see [My Account]({{base_path}}/learn/my-account).
 
-- Switched to symmetric key encryption as the default encryption method for data protection. For more information, see [Symmetric Key Encryption Overview](../../administer/symmetric-overview).
+- Switched to symmetric key encryption as the default encryption method for data protection. For more information, see [Symmetric Key Encryption Overview]({{base_path}}/administer/symmetric-overview).
 
-- Separated 'user groups' and 'roles', and introduced new role management APIs. For more information, see [SCIM 2.0 REST APIs](../../develop/scim2-rest-apis) and [What Has Changed: Group and role separation](../../setup/migrating-what-has-changed/#group-and-role-separation).
+- Separated 'user groups' and 'roles', and introduced new role management APIs. For more information, see [SCIM 2.0 REST APIs]({{base_path}}/develop/scim2-rest-apis) and [What Has Changed: Group and role separation]({{base_path}}/setup/migrating-what-has-changed/#group-and-role-separation).
 
-- Introduced CORS management APIs. For more information, see [CORS management APIs](../../develop/cors-rest-api).
+- Introduced CORS management APIs. For more information, see [CORS management APIs]({{base_path}}/develop/cors-rest-api).
 
 - Upgraded to OpenSAML 3
 
-- Introduced Software Development Kits (SDKs) for Java, .Net, and Android for simple and quick integration with simple configurations. For more information, see [Using SDKs](../../develop/sdk-overview).
+- Introduced Software Development Kits (SDKs) for Java, .Net, and Android for simple and quick integration with simple configurations. For more information, see [Using SDKs]({{base_path}}/develop/sdk-overview).
 
 - Integrated with HashiCorp Vault to protect and govern secrets such as database passwords, key store passwords etc.
 
 - Improvements to CIAM (Customer Identity and Access Management) functionality:
-    - [Trigger email validation upon email address change](../../develop/enable-email-account-verification-for-an-updated-email-address)
-    - [Trigger SMS-based verification upon mobile number change](../../develop/enable-verification-for-updated-mobile-number)
+    - [Trigger email validation upon email address change]({{base_path}}/develop/enable-email-account-verification-for-an-updated-email-address)
+    - [Trigger SMS-based verification upon mobile number change]({{base_path}}/develop/enable-verification-for-updated-mobile-number)
     - Enforcing uniqueness and regex validation for challenge question answers to avoid risks due to weaker answers 
     - Auto log in the user upon successful password recovery
-    - [Revoke session-bounded tokens upon logout and session expiry events](../../setup/migrating-what-has-changed/#revoke-access-tokens-on-logoutsession-expiry)
+    - [Revoke session-bounded tokens upon logout and session expiry events]({{base_path}}/setup/migrating-what-has-changed/#revoke-access-tokens-on-logoutsession-expiry)
 
 ### Beta features
 
@@ -45,7 +45,7 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
 - /identity/connect/register API
 - OAuth 1.0
 
-For more information, see [What Has Changed:Deprecated Features](../../setup/migrating-what-has-changed/#deprecated-features) and [WSO2 Identity Server Feature Deprecation](../../setup/wso2-identity-server-feature-deprecation/).
+For more information, see [What Has Changed:Deprecated Features]({{base_path}}/setup/migrating-what-has-changed/#deprecated-features) and [WSO2 Identity Server Feature Deprecation]({{base_path}}/setup/wso2-identity-server-feature-deprecation/).
 
 ## Fixed issues
 

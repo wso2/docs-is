@@ -7,19 +7,19 @@ them to the Azure Active Directory at the point of authentication.
 
 ## Prerequisites
 
--   [Configure SAML2 authentication for Office365 with WSO2 IS](TO-DO:../../learn/configuring-office365-saml2-with-wso2-identity-server).
+-   [Configure SAML2 authentication for Office365 with WSO2 IS](TO-DO:{{base_path}}/learn/configuring-office365-saml2-with-wso2-identity-server).
 
     !!! tip
         The tutorial linked above uses SAML2 for identity
         federation.  
         To configure Office365 with WSO2 IS using **WS-Federation** instead,
         see [Configuring Office365 WS-Federation with WSO2
-        IS](TO-DO:../../learn/configuring-office365-ws-federation-with-wso2-is).
+        IS](TO-DO:{{base_path}}/learn/configuring-office365-ws-federation-with-wso2-is).
     
 
 -   [Configure a WSO2 IS instance with the Office 365 Outbound
     provisioning
-    Connector](TO-DO:../../develop/microsoft-azure-ad-outbound-provisioning-connector).
+    Connector](TO-DO:{{base_path}}/develop/microsoft-azure-ad-outbound-provisioning-connector).
 
 -   If you are using the default H2 database in WSO2 Identity Server and
     not an Active Directory user store, expand the section below and
@@ -52,7 +52,7 @@ them to the Azure Active Directory at the point of authentication.
 4.  Click **List** under **Service Providers** and edit the service
     provider named "Office365" which you created previously as
     instructed in the [Configuring the service
-    provider](TBD:../../learn/configuring-office365-saml2-with-wso2-identity-server#configuring-the-service-provider)
+    provider](TBD:{{base_path}}/learn/configuring-office365-saml2-with-wso2-identity-server#configuring-the-service-provider)
     section.
 5.  Expand **Local and Outbound Configuration** and click **Advanced
     Configuration**.
@@ -86,20 +86,20 @@ them to the Azure Active Directory at the point of authentication.
     **Next**. Replace the `          <Your_Federated_Domain>         `
     placeholder with the domain which is configured as federated in
     Azure AD.  
-    ![try-out-ondemand-provisioning](../../../assets/img/guides/try-out-ondemand-provisioning.jpg)
+    ![try-out-ondemand-provisioning]({{base_path}}/assets/img/guides/try-out-ondemand-provisioning.jpg)
 3.  The browser is redirected to the WSO2 IS login page. Enter
     credentials for the user Alex and click **Sign in**.  
-    ![enter-credentials-wso2is](../../../assets/img/guides/enter-credentials-wso2is.jpg)
+    ![enter-credentials-wso2is]({{base_path}}/assets/img/guides/enter-credentials-wso2is.jpg)
 4.  You are prompted to provide user consent. Click **Select All** and
     then **Approve.**
 
-    ![approve-user-consent](../../../assets/img/guides/approve-user-consent.jpg)
+    ![approve-user-consent]({{base_path}}/assets/img/guides/approve-user-consent.jpg)
 
 5.  Click **Yes** to enable single sign-on on the next page. If this
     page does not appear, wait a few minutes until the user " Alex" is
     provisioned in Azure AD and repeat step 10 and 11.  
-    ![enable-sso](../../../assets/img/guides/enable-sso.png)
+    ![enable-sso]({{base_path}}/assets/img/guides/enable-sso.png)
 6.  You are now successfully logged in to the Office 365. The user
     "Alex" has been provisioned to the Azure AD after successful
     authentication.  
-    ![azure-ad-successful-authentication](../../../assets/img/guides/azure-ad-successful-authentication.png)
+    ![azure-ad-successful-authentication]({{base_path}}/assets/img/guides/azure-ad-successful-authentication.png)

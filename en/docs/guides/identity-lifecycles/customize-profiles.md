@@ -1,13 +1,7 @@
-# Customizing a user's profile
-
-Each individual user has a profile that can be updated to include
-various details. To do this, click **User Profile** on the **Users**
-screen. Make the changes required and click **Update**.
-
-## Add multiple profiles for a user
+# Add multiple user profiles
 
 You can also add multiple profiles for a user. [Claim
-Management](../../dialects/add-claim-mapping/) can be used to update the details that are shown in the User Profile page.
+Management]({{base_path}}/guides/dialects/add-claim-mapping) can be used to update the details that are shown in the User Profile page.
 
 !!! note
     

@@ -180,11 +180,11 @@ tag_requests = false
 
 The CORS functionality of the WSO2 Identity Server is managed by three different REST APIs.
 
-### [Server Configuration API](../../develop/configs-rest-api)
+### [Server Configuration API]({{base_path}}/develop/configs-rest-api)
 <p>The Server Configuration API is able to manage all the CORS configurations of a tenant except allowed CORS origins. These configurations cannot be set at the application level.</p>
 
-### [Application Management API](../../develop/application-rest-api)
+### [Application Management API]({{base_path}}/develop/application-rest-api)
 <p>Even if the enforcement happens at the tenant level, the developers are able to configure `Allowed CORS origins` for their applications individually through the Application Management REST API. Any CORS origin that will be made allowed through this API will be automatically allowed for other applications under the tenant as the CORS can only be enforced at the tenant level under the tenant-url mode.</p>
 
-### [CORS API](../../develop/cors-rest-api)
+### [CORS API]({{base_path}}/develop/cors-rest-api)
 <p>CORS API allows the developers to view all the CORS origins configured per tenant. In addition, this API facilitates viewing the applications that are associated with a single CORS origin.</p>

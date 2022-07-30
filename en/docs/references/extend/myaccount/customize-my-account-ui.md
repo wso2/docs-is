@@ -8,7 +8,7 @@ This section explains how we can customize the theming of **My Account** applica
 
 A customized version of the [default theme](https://github.com/Semantic-Org/Semantic-UI-LESS/tree/master/themes/default) in the Semantic UI LESS package has been used to achieve the look and feel of the **My Account**.
 
-![default-my-account-theme](../../../assets/img/extend/default-my-account-theme.png)
+![default-my-account-theme]({{base_path}}/assets/img/extend/default-my-account-theme.png)
 
 For information on the Semantic UI theming, see [Semantic UI documentation](https://semantic-ui.com/usage/theming.html).
 
@@ -18,7 +18,7 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 1. Check out the corresponding identity apps source code from the [identity-apps](https://github.com/wso2/identity-apps) repository. 
 
-2. Set it up in the [development environment](../../../extend/myaccount/set-up-my-account-in-a-dev-environment). 
+2. Set it up in the [development environment]({{base_path}}/extend/myaccount/set-up-my-account-in-a-dev-environment). 
 
 3. Check out the latest tag of the identity-apps. The v1.0.72 tag is used in the sample mentioned below. 
 
@@ -87,7 +87,7 @@ lighter shade. Add a new variable under the brand colors. It is called `globalBa
     ```
     The response should be similar to the screenshot given below. 
 
-    ![custom-theme-1](../../../assets/img/extend/customize-theme1.png)
+    ![custom-theme-1]({{base_path}}/assets/img/extend/customize-theme1.png)
     
     As seen in the image above, the background color of the header, footer, side navigation, and content cards can be changed.
 
@@ -119,7 +119,7 @@ lighter shade. Add a new variable under the brand colors. It is called `globalBa
     ```
 The status can be checked by rebuilding the theme module. The changes should be reflected on the running dev server in no time. A sample screen of the new theme is shown below.
 
-![custom-theme-2](../../../assets/img/extend/customize-theme2.png)
+![custom-theme-2]({{base_path}}/assets/img/extend/customize-theme2.png)
 
 ## Step 2: Change the branding
 
@@ -165,7 +165,7 @@ Now that the styling is complete, the following steps explain how the product br
 2. Open the `modules/theme/src/index.js` file and replace `Logo` with the path to the new icon.
 
     ```java
-    export const Logo = require("../lib/assets/images/owl.svg");
+    export const Logo = require("{{base_path}}/lib/assets/images/owl.svg");
     ```
 3.  Build **my-account** artifacts.
 
@@ -218,10 +218,10 @@ the changes performed in the previous steps.
 
 The final theme should look similar to following.
 
-![final-theme1](../../../assets/img/extend/customize-theme-final1.png)
+![final-theme1]({{base_path}}/assets/img/extend/customize-theme-final1.png)
 
-![final-theme2](../../../assets/img/extend/customize-theme-final2.png)
+![final-theme2]({{base_path}}/assets/img/extend/customize-theme-final2.png)
 
-![final-theme3](../../../assets/img/extend/customize-theme-final3.png)
+![final-theme3]({{base_path}}/assets/img/extend/customize-theme-final3.png)
 
-![final-theme4](../../../assets/img/extend/customize-theme-final4.png)
+![final-theme4]({{base_path}}/assets/img/extend/customize-theme-final4.png)

@@ -1,39 +1,26 @@
 # Manage User Attributes
 
 When using the WSO2 Identity Server (WSO2 IS) for user and role management, it is
-important to understand how to manage the attributes of users within it.
-The claim management functionality helps to map each user attribute to a relevant claim and thereafter manage it.
+important to understand how to manage the attributes of users within it. The claim management functionality helps to map each user attribute to a relevant claim and thereafter manage it.
 
-The following topics provide instructions on how to manage user attributes in WSO2 IS.
+There two main ways to view, add, edit, and delete attributes of a user.
 
----
+- By accessing the profile of the user and changing the attributes using the Management Console. 
+- You can use the REST API according to the SCIM 2.0 provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs]({{base_path}}/apis/scim2-rest-apis/).
 
-## Manage the attributes of a user
 
-The following are the two main ways to view, add, edit, and delete
-attributes of a user.
+## Claim mapping when using multiple user stores
 
-1.  By accessing the profile of the user and changing the attributes
-    using the Management Console. 
-2.  You can use the REST API according to the SCIM 2.0 provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs](../../../develop/apis/scim2-rest-apis/).
-
----
-
-## Claim mapping when using multiple userstores 
-
-{! fragments/attribute-mapping.md !}
+{!./includes/attribute-mapping.md !}
 
 
 ### Attributes with multiple values
 
-{! fragments/attributes-with-multiple-values.md !}
-
-
----
+{!./includes/attributes-with-multiple-values.md !}
 
 ## Write custom attributes
 
-See [Writing a Custom Userstore Manager](../../../deploy/write-a-custom-user-store-manager/) for more information on
+See [Writing a Custom Userstore Manager]({{base_path}}/deploy/write-a-custom-user-store-manager/) for more information on
 this.
 
 ### Authentication using multiple attributes
@@ -44,26 +31,20 @@ this.
 
 -   Once you connect your LDAP with an application, generally, the
     application uses one of the unique attributes in LDAP by default, to authenticate the user.
--   This is done by specifying the attribute
-    in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory. For
-    example, you can specify either the `uid` or `mail` attribute to authenticate the user.
+-   This is done by specifying the attribute in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory. For example, you can specify either the `uid` or `mail` attribute to authenticate the user.
 
     ``` toml
     [user_store]
     user_name_attribute  =  "uid"
     ```
 
-    In this case, the `           uid          ` value is used as the
-    username to authenticate the user in that application.
+    In this case, the `uid` value is used as the username to authenticate the user in that application.
 
-It is also possible for the application to choose amongst **many** attributes to
-authenticate. For example, assume that users are given the flexibility to
-authenticate using either their **uid** and **mail** attributes in the
-LDAP.
+It is also possible for the application to choose from **many** attributes to authenticate. For example, assume that users are given the flexibility to authenticate using either their **uid** and **mail** attributes in the LDAP.
 
 1.  Configure the LDAP user store-related configurations using the `deployment.toml` file found in the 
     `<IS_HOME>/repository/conf` directory. For more information on configuring userstores, see 
-    [Configuring the Realm](../../../deploy/configure-the-realm/).
+    [Configuring the Realm]({{base_path}}/deploy/configure-the-realm/).
     
     1.  Configure the `user_name_search_filter`
         property as shown below to search for the user object in the
@@ -84,8 +65,7 @@ LDAP.
 
     3.  The `mail` attribute has unique requirements. If you are using the
         `mail` attribute, add the following. For more information on email
-        authentication, see [Using Email Address as the Username](../../../guides/identity-lifecycles/enable-email-as-username/)
-        .
+        authentication, see [Using Email Address as the Username]({{base_path}}/guides/identity-lifecycles/enable-email-as-username/).
 
         ``` toml
         [tenant_mgt]
@@ -105,7 +85,7 @@ LDAP.
         ```
 
 3.  To test this, restart WSO2 IS and attempt to log in to the
-    user portal by providing either the `          mail         `
+    My Account by providing either the `          mail         `
     or `          uid         ` values with the same password.
 
 ---

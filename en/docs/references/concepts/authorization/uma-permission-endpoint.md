@@ -1,6 +1,6 @@
 # Permission Endpoint
  
-This document describes the purpose, parameters, and flow of the permission endpoint of the protection API in [UMA 2.0](../user-managed-access). 
+This document describes the purpose, parameters, and flow of the permission endpoint of the protection API in [UMA 2.0]({{base_path}}/user-managed-access). 
 
 ----
 
@@ -15,7 +15,7 @@ The resource server interprets the request made to the client and maps it to the
 
 Note that in a single instance, the resource server can only request permission to access the resources of a single resource owner that is protected by a single authorization server. The resource server decides whether to request zero or more scopes that correspond to a resource identifier. As the response, the resource server receives a permission ticket which represents the same permissions that the resource server requested. 
 
-![UMA 2.0 permission endpoint](../../../../assets/img/concepts/uma-permission-endpoint.png)
+![UMA 2.0 permission endpoint]({{base_path}}/assets/img/concepts/uma-permission-endpoint.png)
 
 ----
 

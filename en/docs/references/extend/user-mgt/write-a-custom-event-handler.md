@@ -96,7 +96,27 @@ name= "customEventHandler"
 subscriptions =["CUSTOM_EVENT"]
 ```
 
-When you want to execute an operation related to an event, publish the event. Then, the handler that is subscribed for the relevant events will be used to execute those events. In the sample configuration given above, the `customEventHandler` handler is subscribed to the `CUSTOM_EVENT` operation.
+## Try out the sample application
+
+1. Build the custom event handler sample application [here](https://github.com/wso2/samples-is/tree/master/event-handler/custom-identity-event-handler).
+    - Navigate to event-handler/custom-event-handler directory (`cd event-handler/custom-event-handler`).
+    - Run the `mvn clean install` command.
+2. Copy the generated org.wso2.carbon.identity.customhandler-1.0.0.jar file in the target folder into <IS_HOME>/repository/components/dropins/ folder.
+3. Add following configurations to <IS_HOME>/repository/conf/deployement.toml file
+    ```
+    [[event_handler]]
+    name="customUserRegistration"
+    subscriptions=["PRE_ADD_USER","POST_ADD_USER"]
+    ```
+   `name`: The name of the event handler (Name that return from the `getName()` method).
+   `subscriptions`: A list of events that the handler will be subscribed to. In this sample application, we are subscribing to the `PRE_ADD_USER` and `POST_ADD_USER` events.
+4. Restart the server.
+
+!!! note "Note"
+    In this sample application, the event handler just prints the event properties in the console (Username & tenant-domain). But you can customize the event handler to do whatever you want (Ex: Send an email after adding a user).
+
+When you want to execute an operation related to an event, publish the event. Then, the handler that is subscribed for the relevant events will be used to execute those events. In the sample configuration given above, the `customUserRegistration` handler is subscribed to the `PRE_ADD_USER, POST_ADD_USER` operations.
+
 
 !!! info
     The following sample event handlers are available with WSO2 Identity Server.

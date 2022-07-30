@@ -8,7 +8,7 @@ you need to follow in order to use Oracle RAC for this purpose.
 
 ## Datasource configurations
 
-{! fragments/datasource-config.md !}
+{!./includes/datasource-config.md !}
                        
 After setting up the Oracle RAC database, you can point the `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to that Oracle RAC database by following the instructions given below.
@@ -23,7 +23,7 @@ You can configure the datasource by editing the default configurations in `<IS-H
 
 Following are the basic configurations and their descriptions. 
 
-{! fragments/db-basic-config.md !}    
+{!./includes/db-basic-config.md !}    
  
 A sample configuration is given below.
 
@@ -86,7 +86,7 @@ A sample configuration is given below.
         Execute the scripts in the `<IS-HOME>/dbscripts/oracle_rac.sql` file against the database created.
         
 3. If you have a requirement in using workflow feature follow, 
-    [Change the default database of BPS database](../../../deploy/change-datasource-bpsds)
+    [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds)
     
 4.  Download the Oracle RAC JDBC driver for the version, you are using and
         copy it to the `<IS_HOME>/repository/components/lib` folder   
@@ -95,6 +95,6 @@ A sample configuration is given below.
 
 ### Advanced database configurations
 
-{! fragments/db-advanced-config.md !}
+{!./includes/db-advanced-config.md !}
     
     

@@ -19,7 +19,7 @@ Do not use the root/administrator user of your OS as the root/administrator is g
 
 Minimize software to avoid vulnerability—make sure that you only install the software/packages that are relevant to your WSO2 Identity Server's deployment. Also, continuously monitor the software that you install.
 
-To identify the minimum software requirements, see <a href="../../../deploy/get-started/install/#prerequisites">installation pre-requisites</a>. 
+To identify the minimum software requirements, see <a href="{{base_path}}/deploy/get-started/install/#prerequisites">installation pre-requisites</a>. 
 
 ---
 
@@ -71,7 +71,7 @@ clean_expired_session_data_in_chunks_of = "8192"
 
 <!--!!! info 
 	
-	For more information on configuring sessions in production, see <a href="TBD:../../learn/authentication-session-persistence">Authentication Session Persistence</a> in the WSO2 Identity Server documentation.-->
+	For more information on configuring sessions in production, see <a href="TBD:{{base_path}}/learn/authentication-session-persistence">Authentication Session Persistence</a> in the WSO2 Identity Server documentation.-->
 
 ---
 
@@ -81,4 +81,4 @@ Make sure to backup important files and archive them continuously.
 
 !!! info
 
-	For more information, see <a href="../../../deploy/backup-and-recovery-recommendations/">Backup and Recovery Recommendations</a>.
+	For more information, see <a href="{{base_path}}/deploy/backup-and-recovery-recommendations/">Backup and Recovery Recommendations</a>.

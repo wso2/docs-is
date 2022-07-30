@@ -328,7 +328,7 @@ such scenarios.
 For a set of tutorials that demonstrate how to work with XACML MDP
 requests in WSO2 Identity Server, see [Working with XACML Multiple
 Decision Profile
-Requests](../../learn/working-with-xacml-multiple-decision-profile-requests)
+Requests]({{base_path}}/learn/working-with-xacml-multiple-decision-profile-requests)
 .
 
 #### XACML 3.0 JSON Profile
@@ -346,7 +346,7 @@ default XML format with regard to XACML 3.0 requests and responses.
     
     WSO2 Identity Server also supports [working with XACML MDP requests and
     responses in JSON
-    format](../../learn/working-with-mdp-requests-in-json-format)
+    format]({{base_path}}/learn/working-with-mdp-requests-in-json-format)
     .
     
 
@@ -572,7 +572,7 @@ above request:
 For a tutorial that demonstrate how WSO2 IS supports fine-grained
 authorization using XACML requests in JSON format, see [Fine-grained
 Authorization using XACML Requests in JSON
-Format](../../learn/fine-grained-authorization-using-xacml-requests-in-json-format).
+Format]({{base_path}}/learn/fine-grained-authorization-using-xacml-requests-in-json-format).
 
 #### Administrative Delegation Profile
 

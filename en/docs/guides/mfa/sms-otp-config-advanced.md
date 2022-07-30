@@ -9,9 +9,9 @@ The following code snippet shows a sample SMSOTP configuration in the `<IS_HOME>
 enable=true
 
 [authentication.authenticator.sms_otp.parameters]
-SMSOTPAuthenticationEndpointURL= "smsotpauthenticationendpoint/smsotp.jsp"
-SMSOTPAuthenticationEndpointErrorPage= "smsotpauthenticationendpoint/smsotpError.jsp"
-MobileNumberRegPage = "smsotpauthenticationendpoint/mobile.jsp"
+SMSOTPAuthenticationEndpointURL= "/smsotpauthenticationendpoint/smsotp.jsp"
+SMSOTPAuthenticationEndpointErrorPage= "/smsotpauthenticationendpoint/smsotpError.jsp"
+MobileNumberRegPage = "/smsotpauthenticationendpoint/mobile.jsp"
 RetryEnable = true
 ResendEnable = true
 BackupCode = true
@@ -102,5 +102,11 @@ When SMSOTPMandatory is set to *true* and the user does not exist in the user st
 #### redirectToMultiOptionPageOnFailure 
 
 During a failed attempt enable redirect to the Multi Option Page where the user can select the authentication mechanism.
+
+----
+
+#### TokenExpiryTime
+
+SMS OTP does not have a default validity period hence you will have to explicitly configure it by adding the <code>TokenExpiryTime</code> parameter. The value provided for the parameter is considered as seconds.
 
 ----

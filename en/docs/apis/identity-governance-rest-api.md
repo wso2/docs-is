@@ -197,10 +197,10 @@ The APIs can be used to retrieve the above mentioned categories, connectors of t
     
 <div id="swagger-ui"></div>
 <script>
-window.onload = function() {
+
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../restapis/identity-governance.yaml",
+     url: "{{base_path}}/apis/restapis/identity-governance.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -215,8 +215,7 @@ window.onload = function() {
   })
   // End Swagger UI call region
 
-  window.ui = ui
-}
+   window.ui = ui
 </script>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/13f70a73e4231606b363).

@@ -1,102 +1,83 @@
-# Configure FIDO for 2-Factor Authentication
-
-This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO](../../../references/concepts/authentication/mfa-with-fido) as the second factor. 
+# Configure FIDO for two-factor authentication
+This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO]({{base_path}}/references/concepts/authentication/mfa-with-fido) as the second factor.
 
 !!! info
-    Certain changes made to the chrome u2f extension are causing the FIDO device to not register properly as an authentication factor. Additionally, Firefox no longer supports the u2f extension. WSO2 Identity Server resolves this by using the WebAuthn API to enable FIDO-based authentication. The WebAuthn API is already supported by the following browser versions:
+    - WSO2 Identity Server uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.
+    - The following browser versions support the WebAuthn API by default:
+        - Chrome 67 and above
+        - Firefox 60 and above
+        - Edge 17723 and above
+    - FIDO2 passwordless login with platform authenticators will NOT work on the Firefox browser in macOS Catalina, Big Sur, and Monterey due to browser limitations.
+    - FIDO2 passwordless login with roaming authenticators will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
 
-    -   Chrome(CHROME 67) 
-    -   Firefox (FIREFOX 60)
-    -   Edge (EDGE 17723)
-    
-    The <https://demo.yubico.com/webauthn-technical/registration> site can be used to check the browser support for FIDO devices. 
+??? "Does your browser support your FIDO devices?"
+    You can use the https://demo.yubico.com/webauthn-technical/registration site to check the browser support for FIDO devices.
 
-----
+## Set up Identity Server to use FIDO
 
-## Prerequisites
+Add the following configurations to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-Follow the steps given below to define the set of origin URLs where the WSO2 Identity Server User Portal will be hosted (e.g., `https://localhost:9443`). 
+- To define the origin URLs where the WSO2 Identity Server My Account will be hosted (e.g., `https://localhost:9443`).
 
-1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
-2. Add the following configuration.
     ```toml
     [fido.trusted]
     origins=["https://localhost:9443"]
-    ``` 
+    ```
 
-Follow the steps given below if you are using a reverse proxy enabled setup to configure the relevant server URL as the AppID.
+- To configure the relevant server URL as the AppID if you are using a reverse proxy enabled setup.
 
-1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
-2. Add the following configuration.
     ```toml
     [authentication.authenticator.fido.parameters]
     app_id="https://hostname"
     ```
 
-----
-### Setting up an account for MFA
-To associate a FIDO device with the user account, refer [Add security device](../my-account/my-account.md#add-security-device).
-## Create a service provider
+Save the configurations and restart the server.
 
-{!fragments/register-a-service-provider.md!}
+## Enable FIDO for an SP
 
-## Configure FIDO as the second factor of authentication
+This section guides you on adding FIDO as a service provider's second authentication step.
 
-4. Expand the **Local & Outbound Authentication Configuration** section.
+### Prerequisites
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to have a FIDO2 security key registered in IS. Learn how to [register your FIDO security key]({{base_path}}/guides/my-account/my-account#add-security-device).
 
-5. Click the **Advanced Configuration** radio button. 
+### Configure FIDO as the second factor
 
-6. Add the following authentication steps. 
-    - **Step 1**
-        1. Click **Add Authentication Step**.
+To configure FIDO as the second authentication factor:
 
-        2. Select `basic` under **Local Authenticators** and click **Add Authenticator** to add the basic authentication as the first step.
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
-            Adding basic authentication as a first step ensures that the first step of authentication will be done using the user's credentials that are configured with the WSO2 Identity Server.
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-    - **Step 2**
-        1. Click **Add Authentication Step**.
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-        2. Select `fido` under **Local Authenticators** and click **Add Authenticator** to add FIDO authentication as the second step.
+4. Click **+ Add Authentication Step** twice to add two authentication steps.
 
-            Adding FIDO as a second step adds another layer of authentication and security.
-    
-        <img name='fido-authentication-steps' src='../../../assets/img/guides/fido-authentication-steps.png' class='img-zoomable'/>
-    
-    !!! warning
-        The FIDO authenticator can be configured only after a local authenticator is configured in one of the previous steps. It cannot be configured as the first step and cannot be configured if a federated authenticator is set as the subject identifier.
+5. Select the following authentication methods from the relevant dropdowns and click **+ Add Authenticator**.
 
-7. Click **Update** to save the changes.
+    | Authentication step   | Local Authenticator   |
+    |-----------------------|-----------------------|
+    | First step    | `basic`   |
+    | Second step   | `fido`|
+
+6. Click **Update** to save the configurations.
 
 You have successfully configured FIDO as the second factor of authentication.
 
-----
 
-## Disable FIDO authenticator
+## Try it out
 
-The SMS OTP authenticator is enabled by default.
+1. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-You can disable the FIDO authenticator by adding the following configuration to the `deployment.toml` file in the
-`<IS_HOME>/repository/conf` folder.
+2. Click **Login** and enter admin's credentials.
 
-```toml
-[authentication.authenticator.fido]
-enable=false
-```
+3. Depending on the FIDO biometric method configured, you will be prompted to enter a code, use the security key or use your fingerprint scanner.
 
-----
+4. Add your security key or biometrics and click **Continue**.
 
-## Customize the FIDO login page
-
-Optionally, you can customize the FIDO authentication page and configure WSO2 Identity Server to redirect to your own login page. To do this,  add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
-
-```toml
-[authentication.authenticator.fido.parameters]
-authentication_page_url= "/authenticationendpoint/fido-auth.jsp"
-```
-
+You will now be logged into the application successfully.
 
 !!! info "Related topics"
-    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
-    - [Concept: FIDO](../../../references/concepts/authentication/mfa-with-fido)
-    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
+    - [Concept: Two-Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication#single-factor-authentication)
+    - [Concept: FIDO]({{base_path}}/references/concepts/authentication/mfa-with-fido)
+    - [Guide: Configure an Authentication Journey]({{base_path}}/guides/mfa/configure-authentication-journey)

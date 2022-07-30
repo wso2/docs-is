@@ -16,10 +16,10 @@ template: templates/swagger.html
     
 <div id="swagger-ui"></div>
 <script>
-window.onload = function() {
+
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../restapis/claim-management.yaml",
+     url: "{{base_path}}/apis/restapis/claim-management.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -34,8 +34,7 @@ window.onload = function() {
   })
   // End Swagger UI call region
 
-  window.ui = ui
-}
+   window.ui = ui
 </script>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4bc7377da85b9dcd0516).

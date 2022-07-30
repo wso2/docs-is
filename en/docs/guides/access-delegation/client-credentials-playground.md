@@ -1,12 +1,12 @@
 # Client Credentials Grant with OAuth 2.0 Playground
 
-This page guides you through using a sample Playground application to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Client Credentials](../../references/concepts/authorization/client-credential-grant/) grant type.
+This page guides you through using a sample Playground application to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Client Credentials]({{base_path}}/references/concepts/authorization/client-credential-grant/) grant type.
 
 ----
 
 ## Set up the sample application
 
-{! fragments/oauth-playground.md !}
+{!./includes/oauth-playground.md !}
 
 ----
 
@@ -22,7 +22,7 @@ This page guides you through using a sample Playground application to try out au
 
 	- **Access Token Endpoint**: `https://<IS_HOST>:<IS_PORT>/oauth2/token`
 
-		![Client credentials grant with Playground](../../assets/img/samples/client-credentials-with-playground.png)
+		![Client credentials grant with Playground]({{base_path}}/assets/img/samples/client-credentials-with-playground.png)
     
 2. Click **Authorize**. 
 
@@ -59,7 +59,7 @@ This page guides you through using a sample Playground application to try out au
 5. Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
 
-	![Access token information](../../assets/img/samples/access-token-info.png)
+	![Access token information]({{base_path}}/assets/img/samples/access-token-info.png)
 
 !!! note
     

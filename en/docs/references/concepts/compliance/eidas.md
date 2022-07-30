@@ -19,7 +19,7 @@ service or eIDAS middleware service).
 Following is an example eIDAS network with proxy to proxy connection
 between two "member states" (MS).
 
-![eIDAS diagram](../../../assets/img/concepts/eidas-diagram.png)
+![eIDAS diagram]({{base_path}}/assets/img/concepts/eidas-diagram.png)
 
 Following is what happens in the illustration given above.   
 

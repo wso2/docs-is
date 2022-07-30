@@ -15,7 +15,7 @@ agents, this flow is more secure and allows to refresh tokens<!--[refresh tokens
 
 The following diagram shows how authentication happens using this client profile.
 
-![basic client profile](../../../assets/img/concepts/basic-oidc-profile.png)
+![basic client profile]({{base_path}}/assets/img/concepts/basic-oidc-profile.png)
 
 
 1. The client prepares an authentication request containing the desired request parameters and sends the 
@@ -29,4 +29,4 @@ request to the authorization server.
 7. The resource server serves the client with the requested information based on the access token validity. 
 
 !!! info "Related topics"
-    - [Guide: OpenID Connect Basic Client Profile](../../../../guides/access-delegation/oidc-basic-client-profile/)
+    - [Guide: OpenID Connect Basic Client Profile]({{base_path}}/guides/access-delegation/oidc-basic-client-profile/)

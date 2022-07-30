@@ -1,41 +1,33 @@
-swagger: '2.0'
+openapi: 3.0.1
 info:
-  description: >
-    This is the RESTful API for a user to manage his/her pending approvals in WSO2 Identity Server. This API can be used to
-    retrieve pending approvals and update the status of the approval tasks for the authenticated user.
-  version: "v1"
   title: WSO2 Identity Server - Workflow Approval API Definition
+  description: |
+    This is the RESTful API for a user to manage his/her pending approvals in WSO2 Identity Server. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
   contact:
-    name: "WSO2 Identity Server"
-    url: "https://wso2.com/identity-and-access-management/"
-    email: "architecture@wso2.org"
+    name: WSO2 Identity Server
+    url: https://wso2.com/identity-and-access-management/
+    email: architecture@wso2.org
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-
-schemes:
- - https
-
-# Tags are used for organizing operations.
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1
+servers:
+- url: https://localhost:9443/t/{tenant-domain}/api/users/v1
+security:
+- OAuth2: []
+- BasicAuth: []
 tags:
 - name: default
   description: Operations for the authenticated user.
 - name: me
   description: Operations for the authenticated user.
-
-# Applicable authentication mechanisms.
-security:
-  - OAuth2: []
-  - BasicAuth: []
-
 paths:
   /me/approval-tasks:
     get:
       tags:
-        - me
+      - me
       summary: Retrieves available approvals for the authenticated user
-      operationId: listApprovalTasksForLoggedInUser
-      description: >
+      description: |
         Retrieve the available approval tasks in the system for the authenticated user. This API returns the following types of approvals:
           * READY - Tasks that are _claimable_ by the user. If a particular task is in the READY state, the user is eligible to assign the task to themself and complete it.
           * RESERVED -  Tasks that are _assigned_ to the user and to be approved by this user.
@@ -47,136 +39,175 @@ paths:
             * internal_humantask_view
 
          A user can also invoke the endpoint with the following query parameters.
+      operationId: listApprovalTasksForLoggedInUser
       parameters:
-        - $ref: '#/parameters/limitQueryParam'
-        - $ref: '#/parameters/offsetQueryParam'
-        - $ref: '#/parameters/statusQueryParam'
+      - name: limit
+        in: query
+        description: Maximum number of records to return
+        schema:
+          minimum: 0
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination
+        schema:
+          minimum: 0
+          type: integer
+          format: int32
+      - name: status
+        in: query
+        description: |
+          Approval task's status to filter tasks by their status:
+           * **RESERVED** - Tasks that are **assigned to** the authenticated user.
+           * **READY** - Tasks that **can be assigned to** and **can be approved by** the authenticated user.
+           * **COMPLETED** - Tasks that are **completed by** the user
+           * \<empty\> - **All** the viewable tasks will be retrieved if this parameter is not specified.
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: object
       responses:
         200:
           description: Array of approval tasks matching the search criteria
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/TaskSummary'
-          examples:
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskSummary'
             application/json:
-              [
-                {
-                    "id": "453",
-                    "name": "{http://ht.bpel.mgt.workflow.identity.carbon.wso2.org}testTask",
-                    "presentationSubject": "Update Claims",
-                    "presentationName": "SampleWorkflowTask",
-                    "taskType": "TASK",
-                    "status": "RESERVED",
-                    "priority": 0,
-                    "createdTimeInMillis": "1565597712157"
-                },
-                {
-                    "id": "452",
-                    "name": "{http://ht.bpel.mgt.workflow.identity.carbon.wso2.org}testTask",
-                    "presentationSubject": "Update Claims",
-                    "presentationName": "SampleWorkflowTask",
-                    "taskType": "TASK",
-                    "status": "COMPLETED",
-                    "priority": 0,
-                    "createdTimeInMillis": "1565597675414"
-                },
-                {
-                    "id": "451",
-                    "name": "{http://ht.bpel.mgt.workflow.identity.carbon.wso2.org}testTask",
-                    "presentationSubject": "Update Claims",
-                    "presentationName": "SampleWorkflowTask",
-                    "taskType": "TASK",
-                    "status": "READY",
-                    "priority": 0,
-                    "createdTimeInMillis": "1565597569021"
-                }
-            ]
+              example:
+              - id: "453"
+                name: '{http://ht.bpel.mgt.workflow.identity.carbon.wso2.org}testTask'
+                presentationSubject: Update Claims
+                presentationName: SampleWorkflowTask
+                taskType: TASK
+                status: RESERVED
+                priority: 0
+                createdTimeInMillis: "1565597712157"
+              - id: "452"
+                name: '{http://ht.bpel.mgt.workflow.identity.carbon.wso2.org}testTask'
+                presentationSubject: Update Claims
+                presentationName: SampleWorkflowTask
+                taskType: TASK
+                status: COMPLETED
+                priority: 0
+                createdTimeInMillis: "1565597675414"
+              - id: "451"
+                name: '{http://ht.bpel.mgt.workflow.identity.carbon.wso2.org}testTask'
+                presentationSubject: Update Claims
+                presentationName: SampleWorkflowTask
+                taskType: TASK
+                status: READY
+                priority: 0
+                createdTimeInMillis: "1565597569021"
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden
+          content: {}
         500:
-          $ref: '#/responses/ServerError'
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
   /me/approval-tasks/{task-id}:
     get:
       tags:
-        - me
-      summary: "Retrieves an approval task by the task-id"
-      operationId: getApprovalTaskInfo
-      description: >
-        Retrieves information of a specific approval task identified by the task-id
-        <br/>
-
+      - me
+      summary: Retrieves an approval task by the task-id
+      description: |
+        Retrieves information of a specific approval task identified by the task-id <br/>
         <b>Permission required:</b>
             * /permission/admin/manage/humantask/viewtasks
         <b>Scope required:</b>
             * internal_humantask_view
+      operationId: getApprovalTaskInfo
       parameters:
-        - $ref: '#/parameters/taskIdPathParam'
+      - name: task-id
+        in: path
+        description: Task ID
+        required: true
+        schema:
+          type: string
       responses:
         200:
-          description: Detailed information of the approval task identified by the task-id
-          schema:
-            $ref: '#/definitions/TaskData'
-          examples:
+          description: Detailed information of the approval task identified by the
+            task-id
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TaskData'
             application/json:
-              {
-                "id": "452",
-                "subject": "Update Claims",
-                "description": "You have a request to approve claim update action of a user.",
-                "priority": 0,
-                "initiator": "admin",
-                "approvalStatus": "APPROVE",
-                "assignees": [
-                    {
-                        "key": "group",
-                        "value": "admin"
-                    }
-                ],
-                "properties": [
-                    {
-                        "key": "REQUEST ID",
-                        "value": "34172334-fccb-4ef4-9830-08c3caeaab9e,"
-                    },
-                    {
-                        "key": "Username",
-                        "value": "aysh234,"
-                    },
-                    {
-                        "key": "User Store Domain",
-                        "value": "PRIMARY,"
-                    },
-                    {
-                        "key": "Profile",
-                        "value": "default,"
-                    },
-                    {
-                        "key": "Claims",
-                        "value": "http://wso2.org/claims/organization:,http://wso2.org/claims/telephone:,http://wso2.org/claims/im:,http://wso2.org/claims/country:Sri Lanka,http://wso2.org/claims/mobile:,http://wso2.org/claims/emailaddress:ayesha@wso2.com,profileConfiguration:default,http://wso2.org/claims/lastname:Dissanayaka,http://wso2.org/claims/url:,http://wso2.org/claims/givenname:Ayesha,"
-                    }
-                ]
-              }
+              example:
+                id: "452"
+                subject: Update Claims
+                description: You have a request to approve claim update action of
+                  a user.
+                priority: 0
+                initiator: admin
+                approvalStatus: APPROVE
+                assignees:
+                - key: group
+                  value: admin
+                properties:
+                - key: REQUEST ID
+                  value: 34172334-fccb-4ef4-9830-08c3caeaab9e,
+                - key: Username
+                  value: aysh234,
+                - key: User Store Domain
+                  value: PRIMARY,
+                - key: Profile
+                  value: default,
+                - key: Claims
+                  value: http://wso2.org/claims/organization:,http://wso2.org/claims/telephone:,http://wso2.org/claims/im:,http://wso2.org/claims/country:Sri
+                    Lanka,http://wso2.org/claims/mobile:,http://wso2.org/claims/emailaddress:ayesha@wso2.com,profileConfiguration:default,http://wso2.org/claims/lastname:Dissanayaka,http://wso2.org/claims/url:,http://wso2.org/claims/givenname:Ayesha,
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden
+          content: {}
         404:
-          $ref: '#/responses/NotFound'
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         409:
-          $ref: '#/responses/Conflict'
+          description: Element Already Exists
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         500:
-          $ref: '#/responses/ServerError'
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
   /me/approval-tasks/{task-id}/state:
     put:
       tags:
-        - me
-      summary: "Changes the state of an approval task"
-      operationId: updateStateOfTask
+      - me
+      summary: Changes the state of an approval task
       description: |
         Update the approval task status by defining one of the following actions:
          * CLAIM - Reserve the task for the user. Status of the task will be changed from READY to RESERVED.
@@ -189,225 +220,259 @@ paths:
             * /permission/admin/manage/humantask/viewtasks
         <b>Scope required:</b>
             * internal_humantask_view
+      operationId: updateStateOfTask
       parameters:
-        - $ref: '#/parameters/taskIdPathParam'
-        - in: body
-          name: next-state
-          description: To which state the task should be changed.
-          schema:
-            $ref: '#/definitions/State'
+      - name: task-id
+        in: path
+        description: Task ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: To which state the task should be changed.
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/State'
+        required: false
       responses:
         200:
-          $ref: '#/responses/OK'
+          description: OK
+          content: {}
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden
+          content: {}
         404:
-          $ref: '#/responses/NotFound'
+          description: The specified resource is not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         500:
-          $ref: '#/responses/ServerError'
-parameters:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: next-state
+components:
+  schemas:
+    TaskSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique ID to represent an Approval Task
+          example: "451"
+        name:
+          type: string
+          description: Unique name for the Approval Task
+          example: s367:testTask
+        presentationSubject:
+          type: string
+          description: Display value for Approval Operation
+          example: Add new Role
+        presentationName:
+          type: string
+          description: Display value for Approval Task
+          example: sampleTask
+        taskType:
+          type: string
+          description: Type of the Approval
+          example: TASK
+        status:
+          type: string
+          description: State of the Approval task
+          example: READY
+          enum:
+          - READY
+          - RESERVED
+          - COMPLETED
+        priority:
+          type: integer
+          description: Priority of the Approval task
+          example: 0
+        createdTimeInMillis:
+          type: string
+          description: The time that the operation for approval initiated
+          example: "1565597569021"
+    TaskData:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique ID to represent a approval task
+          example: "451"
+        subject:
+          type: string
+          description: Subject of the Approval
+          example: Add new Role
+        description:
+          type: string
+          description: Description on the Approval task
+          example: Addes a new role to the system
+        priority:
+          type: integer
+          description: Priority of the Approval task
+          example: 0
+        initiator:
+          type: string
+          description: The user who initiated the task
+          example: some-user-name
+        approvalStatus:
+          type: string
+          description: |
+            Available only for the completed Tasks, APPROVED or REJECTED if the task has been completed, PENDING otherwise
+          example: APPROVE
+          enum:
+          - PENDING
+          - APPROVED
+          - REJECTED
+        assignees:
+          type: array
+          description: |
+            To whom the task is assigned:
+              * user - username(s) if the task is reserved for specific user(s).
+              * group - role name(s) if the task is assignable for group(s).
+          items:
+            $ref: '#/components/schemas/Property'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    State:
+      type: object
+      properties:
+        action:
+          type: string
+          description: Action to perform on the task.
+          example: APPROVE
+          enum:
+          - CLAIM
+          - RELEASE
+          - APPROVE
+          - REJECT
+    Error:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: some_error_code
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: Some Correlation for Error Instance
+  responses:
+    Conflict:
+      description: Element Already Exists
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Created:
+      description: Item Created
+      content: {}
+    Deleted:
+      description: Item Deleted
+      content: {}
+    Forbidden:
+      description: Resource Forbidden
+      content: {}
+    InvalidInput:
+      description: Invalid input request
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The specified resource is not found
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    OK:
+      description: OK
+      content: {}
+    ServerError:
+      description: Internal Server Error
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+      content: {}
+  parameters:
     taskIdPathParam:
-      in: path
       name: task-id
-      required: true
-      type: string
+      in: path
       description: Task ID
+      required: true
+      schema:
+        type: string
     offsetQueryParam:
-      in: query
       name: offset
+      in: query
       description: Number of records to skip for pagination
-      type: integer
-      format: int32
-      minimum: 0
+      schema:
+        minimum: 0
+        type: integer
+        format: int32
     limitQueryParam:
-      in: query
       name: limit
-      description: Maximum number of records to return
-      type: integer
-      format: int32
-      minimum: 0
-    statusQueryParam:
       in: query
+      description: Maximum number of records to return
+      schema:
+        minimum: 0
+        type: integer
+        format: int32
+    statusQueryParam:
       name: status
-      type: array
-      items:
-        enum: [READY, RESERVED, COMPLETED]
-      description: >
+      in: query
+      description: |
         Approval task's status to filter tasks by their status:
          * **RESERVED** - Tasks that are **assigned to** the authenticated user.
          * **READY** - Tasks that **can be assigned to** and **can be approved by** the authenticated user.
          * **COMPLETED** - Tasks that are **completed by** the user
          * \<empty\> - **All** the viewable tasks will be retrieved if this parameter is not specified.
-definitions:
-  TaskSummary:
-    type: object
-    properties:
-      id:
-        type: string
-        example: "451"
-        description: Unique ID to represent an Approval Task
-      name:
-        type: string
-        example: "s367:testTask"
-        description: Unique name for the Approval Task
-      presentationSubject:
-        type: string
-        example: "Add new Role"
-        description: Display value for Approval Operation
-      presentationName:
-        type: string
-        example: "sampleTask"
-        description: Display value for Approval Task
-      taskType:
-        type: string
-        example: "TASK"
-        description: Type of the Approval
-      status:
-        type: string
-        example: "READY"
-        enum: [READY, RESERVED, COMPLETED]
-        description: State of the Approval task
-      priority:
-        type: integer
-        example: 0
-        description: Priority of the Approval task
-      createdTimeInMillis:
-        type: string
-        example: '1565597569021'
-        description: The time that the operation for approval initiated
-
-  #-----------------------------------------------------
-  # The Task Data Oject
-  #-----------------------------------------------------
-  TaskData:
-    type: object
-    properties:
-      id:
-        type: string
-        example: "451"
-        description: Unique ID to represent a approval task
-      subject:
-        type: string
-        example: "Add new Role"
-        description: Subject of the Approval
-      description:
-        type: string
-        example: "Addes a new role to the system"
-        description: Description on the Approval task
-      priority:
-        type: integer
-        example: 0
-        description: Priority of the Approval task
-      initiator:
-        type: string
-        example: "some-user-name"
-        description: The user who initiated the task
-      approvalStatus:
-        type: string
-        example: "APPROVE"
-        description: >
-            Available only for the completed Tasks, APPROVED or REJECTED if the task has been completed,
-            PENDING otherwise
-        enum: [PENDING, APPROVED, REJECTED]
-      assignees:
+      style: form
+      explode: false
+      schema:
         type: array
         items:
-          $ref: '#/definitions/Property'
-        description: >
-          To whom the task is assigned:
-            * user - username(s) if the task is reserved for specific user(s).
-            * group - role name(s) if the task is assignable for group(s).
-      properties:
-        type: array
-        items:
-          $ref: '#/definitions/Property'
-
-  #-----------------------------------------------------
-  # The Property  object
-  #-----------------------------------------------------
-  Property:
-    type: object
-    properties:
-      key:
-        type: string
-      value:
-        type: string
-  #-----------------------------------------------------
-  # The Task State  object
-  #-----------------------------------------------------
-  State:
-    type: object
-    properties:
-      action:
-        type: string
-        example: "APPROVE"
-        description: Action to perform on the task.
-        enum: [CLAIM, RELEASE, APPROVE, REJECT]
-
-  #-----------------------------------------------------
-  # The Error Response  object
-  #-----------------------------------------------------
-  Error:
-    type: object
-    required:
-      - code
-      - message
-    properties:
-      code:
-        type: string
-        example: "some_error_code"
-      message:
-        type: string
-        example: "Some Error Message"
-      description:
-        type: string
-        example: "Some Error Description"
-      traceId:
-        type: string
-        example: "Some Correlation for Error Instance"
-securityDefinitions:
-  BasicAuth:
-    type: basic
-  OAuth2:
-    type: oauth2
-    flow: accessCode
-    authorizationUrl: https://localhost:9443/oauth2/authorize
-    tokenUrl: https://localhost:9443/oauth2/token
-
-#-----------------------------------------------------
-# Descriptions of common responses
-#-----------------------------------------------------
-responses:
-  NotFound:
-    description: The specified resource is not found
-    schema:
-      $ref: '#/definitions/Error'
-  Unauthorized:
-    description: Unauthorized
-  ServerError:
-    description: Internal Server Error
-    schema:
-      $ref: '#/definitions/Error'
-  InvalidInput:
-    description: Invalid input request
-    schema:
-      $ref: '#/definitions/Error'
-  Conflict:
-    description: Element Already Exists
-    schema:
-      $ref: '#/definitions/Error'
-  Created:
-    description: Item Created
-  OK:
-    description: OK
-  Deleted:
-    description: Item Deleted
-  Forbidden:
-      description: Resource Forbidden
-
-host: localhost:9443
-basePath: /t/{tenant-domain}/api/users/v1
+          type: object
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}

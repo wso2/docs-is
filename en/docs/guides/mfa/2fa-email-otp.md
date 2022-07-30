@@ -1,167 +1,207 @@
-# Configure Email OTP for 2-Factor Authentication
+# Configure email OTP for 2-Factor authentication
 
-This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using email OTP as the second factor. 
+This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using email OTP as the second factor.
 
-----
+## Set up email OTP
 
-## Configure the email adapter to send emails
+Email OTP is not set up on the Identity Server by default. If required, you can set up the email OTP by configuring the email OTP adaptor and the email OTP provider.
 
-{!fragments/configure-email-sending.md!}
+This guide section helps you set up email OTP on the identity server.
 
-## Configure the email OTP provider
+Setting up email OTP required the following two configurations to be made on the Identity Server:
 
-2. Add the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder to avoid syntax errors.
-
-    ```toml
-    [server]
-    disable_addressing = true
-    ```
-
-3. Add the following email template to the `email-admin-config.xml` file found in the `<IS_HOME>/repository/conf/email` folder. 
-
-    ```xml
-    <configuration type="EmailOTP" display="EmailOTP" locale="en_US" emailContentType="text/html">
-        <targetEpr></targetEpr>
-        <subject>WSO2 IS Email OTP</subject>
-        <body>
-            Hi,
-            Please use this one time password {OTPCode} to sign-in to your application.
-        </body>
-        <footer>
-            Best Regards,
-            WSO2 Identity Server Team
-            http://www.wso2.com
-        </footer>
-        <redirectPath></redirectPath>
-    </configuration>
-    ```
-
-4. Add the following configurations to the `deployment.toml` file to configure Email OTP. 
-
-    ```toml
-    [authentication.authenticator.email_otp]
-    name ="EmailOTP"
-    enable=true
-
-    [authentication.authenticator.email_otp.parameters]
-    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
-    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
-    EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
-    usecase = "local"
-    secondaryUserstore = "primary"
-    EMAILOTPMandatory = false
-    sendOTPToFederatedEmailAttribute = false
-    federatedEmailAttributeKey = "email"
-    EmailOTPEnableByUserClaim = true
-    CaptureAndUpdateEmailAddress = true
-    showEmailAddressInUI = true
-    ```
-    <!--!!! info
-        For information on each of these configurations, see [Email OTP Configurations](../email-otp-config-advanced)-->
-
-2. Restart the server once configurations are in place. 
-
-----
-
-{!fragments/register-an-identity-provider.md!}
-
-
-4. Expand **EMAILOTP Authenticator Configuration** under **Federated Authenticators**.
-
-5. Select the **Enable** and **Default** check boxes(If you are using Gmail or Sendgrid as the email OTP provider, provide values for Email API and Email fields as well).
-
-6. Click **Register**.
-
-----
-
-## Register a service provider
-
-{!fragments/register-a-service-provider.md!}
-
-## Configure the service provider
-
-You need to register the application as a service provider in WSO2 Identity Server.
-
-### Claims
-
-Configure claims for the service provider:
-
-1. Expand **Claim configuration**.
- 
-2. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**.
-
-### Authentication steps
-
-Configure the multiple factor authentication steps for the service provider:
-
-1. Expand **Local and Outbound Authentication Configuration**.
-
-2. Click the **Advanced Configuration** radio button. 
-
-3. Add the following authentication steps. 
-    - **Step 1**
-        1. Click **Add Authentication Step**.
-
-        2. Select `basic` under **Local Authenticators** and click **Add Authenticator** to add the basic authentication as the first step.
-
-            Adding basic authentication as a first step ensures that the first step of authentication will be done using the user's credentials that are configured with the WSO2 Identity Server.
-
-    - **Step 2**
-        1. Click **Add Authentication Step**.
-
-        2. Select `emailotp` under **Federated Authenticators** and click **Add Authenticator** to add EMAIL OTP authentication as the second step.
-
-            Adding EMAIL OTP as a second step adds another layer of authentication and security.
+- [**Configure email sending module**](../../../deploy/configure-email-sending)
+- **Configure the email OTP provider**
     
-        <img name='sms-otp-authentication-steps' src='../../../assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
+    You can use any of the following methods to configure the email OTP provider:
 
-4. Click **Update** to save the changes.
+    - Identity Server as the email OTP provider
 
-----
+        ??? "Configure Identity Server as the email OTP provider"
+            To configure the email OTP provider on the IS:
 
-## Add/update a user's email address
+            1. Add the following codes to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder:
+                1. To avoid syntax errors.
+                    ```toml
+                    [server]
+                    disable_addressing = true
+                    ```
+                2. To configure Email OTP:
+                    ```toml
+                    [authentication.authenticator.email_otp]
+                    name ="EmailOTP"
+                    enable=true
 
-1. Click **Main** > **Identity** > **Users and Roles**.
- 
-2. Click **List** > **Users** to view existing users.
+                    [authentication.authenticator.email_otp.parameters]
+                    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/authenticationendpoint/email_otp.do"
+                    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/authenticationendpoint/email_otp_error.do"
+                    EmailAddressRequestPage = "https://localhost:9443/authenticationendpoint/email_capture.do"
+                    usecase = "local"
+                    secondaryUserstore = "primary"
+                    EMAILOTPMandatory = false
+                    sendOTPToFederatedEmailAttribute = false
+                    federatedEmailAttributeKey = "email"
+                    EmailOTPEnableByUserClaim = true
+                    CaptureAndUpdateEmailAddress = true
+                    showEmailAddressInUI = true
+                    ```
 
-3. Click **User Profile** of the user you want to edit and update the email address.
+            4. Save the configurations.
 
-----
+    - Gmail as the email OTP provider
 
-## Allow users to disable Email OTP
+        ??? "Configure Gmail as the email OTP provider"
+            **Create a Gmail project**
 
-1. Click **Main** > **Identity** > **Claims** > **Add**.
+            1. Log in to your Gmail account and go to [Google's developer console](https://console.developers.google.com).
+            2. On the developer console, search for **Gmail API** and select **Gmail API** from the search result.
+            3. Click **Enable**. Once enabled, you will be redirected to the developer console's API/Service details page.
+            4. Go to the project list and click a **NEW PROJECT** to create a new project.
+                ![project list]({{base_path}}/assets/img/guides/project-selection-gmail.png)
 
-2. Click **Add Local Claim**.
+            5. Enter a **Project name** and click **Create**.
+            6. Go to **Credentials**, click **+ CREATE CREDENTIALS**, and select **OAuth client ID**.
+            7. Select **Web Application** as the application type
+            8. Add `https://localhost:9443/commonauth` as the **Authorized redirect URIs** and click **CREATE**.
+            
+            On successful creation, the application's **Client ID** and the **Client Secret** will be displayed.
 
-3. Enter the following values.
+            !!! info
+                Note down the application's client ID and the client secret you will need in the next section.
 
-    - **Claim URI**: http://wso2.org/claims/identity/emailotp_disabled
-    - **Display Name** : DisableEmailOTP
-    - **Description:** DisableEmailOTP
-    - **Mapped Attribute (s)**: title
-    - **Supported by Default**: checked
+            ![oauth client id and secret]({{base_path}}/assets/img/guides/gmail-otp-client-details.png)
+            
+            
 
-    ![disable-emailotp-claim](../../assets/img/guides/disable-emailotp-claim.png)
+            **Obtain the access token**
 
----
+            1. Add **SAML Tracer** extension to your browser and open it.
+                - [SAML Tracer for Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en)
+                - [SAML Tracer for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)
+            2. Access the following URL using a web browser. Replace the `<CLIENT_ID>` with the client ID of your Gmail application.
+            ```http
+            https://accounts.google.com/o/oauth2/auth?redirect_uri=https%3A%2F%2Flocalhost%3A9443%2Fcommonauth&response_type=code&client_id=<CLIENT_ID>&scope=http%3A%2F%2Fmail.google.com&approval_prompt=force&access_type=offline
+            ```
+            3. Select the Gmail account you wish to proceed with, and click **Continue**.
+            4. Click **Continue** on the consent page while the SAML tracer application is running.
+            5. Get the authorization code from SAML tracer.
+                ![SAML tracer]({{base_path}}/assets/img/guides/saml-tracer-auth-code.png)
+            6. Use the following `cURL` command to obtain the access token and the refresh token. Replace the `<CLIENT-ID>`, `<CLIENT_SECRET>` and the `<AUTHORIZATION_CODE>` with values obtained in earlier steps. 
+                ```curl
+                curl -v -X POST --basic -u <CLIENT-ID>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<AUTHORIZATION_CODE>&redirect_uri=https://localhost:9443/commonauth" https://www.googleapis.com/oauth2/v3/token
+                ```
+            7. Take note of the access token and the refresh token.
+
+            **Update IS configurations**
+
+            1. Add the following codes to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder, and update the `<gmail_client_id>`, `<gmail_client_secret>`, `<refresh_token>` and `<mail_address>`.
+                ```toml
+                [authentication.authenticator.email_otp]
+                name = "EmailOTP"
+                enable= true
+
+                [authentication.authenticator.email_otp.parameters]
+                GmailClientId = "<gmail_client_id>"
+                GmailClientSecret = "<gmail_client_secret>"
+                GmailRefreshToken = "<refresh_token>"
+                GmailEmailEndpoint = "https://www.googleapis.com/gmail/v1/users/<mail_address>/messages/send"
+                accessTokenRequiredAPIs = "Gmail"
+                GmailAuthTokenType = "Bearer"
+                GmailTokenEndpoint = "https://www.googleapis.com/oauth2/v3/token"
+                ```
+
+            2. Save the configurations and restart the server.
+
+- **Add the email template**
+
+    After configuring the email OTP provider of your choice, you need to add an email template for email OTP.
+
+    To configure the email template:
+
+    1. Add the following email template to the `email-admin-config.xml` file found in the `<IS_HOME>/repository/conf/email`.
+        ```xml
+        <configuration type="EmailOTP" display="EmailOTP" locale="en_US" emailContentType="text/html">
+            <targetEpr></targetEpr>
+            <subject>WSO2 IS Email OTP</subject>
+            <body>
+                Hi,
+                Please use this one-time password {OTPCode} to sign in to your application.
+            </body>
+            <footer>
+                Best Regards,
+                WSO2 Identity Server Team
+                http://www.wso2.com
+            </footer>
+            <redirectPath></redirectPath>
+        </configuration>
+        ```
+
+    2. Save the configurations and restart the server.
+
+## Enable email OTP for an SP
+
+To enable email OTP for MFA, you need to configure the email OTP as an authenticator and add it to the authentication flow of the application.
+
+### Prerequisites
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application
+- You need to [configure local claims]({{base_path}}/guides/applications/configure-claims-for-sp/#use-local-claim-dialect) for the application:
+    1. On the management console, go to the application you created and click **Edit**
+    2. Expand **Claim configuration**.
+    3. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**.
+    4. Click **Update** to save the configurations.
+- You need to [update the User Profile]({{base_path}}/guides/identity-lifecycles/update-profile) of the users with an email address to which the user will receive the OTP.
+- You need to [register an Identity Provider]({{base_path}}/guides/identity-federation/add-idp/) named `emailOTP`.
+
+### Configure the email OTP authenticator
+
+To configure the email OTP authenticator:
+
+1. On the management console, go to **Identity Providers > List**.
+2. Click on **Edit** corresponding to the `emailOTP` identity provider.
+3. Expand **Federated Authenticators > Email OTP Configuration**.
+4. Enable the email OTP authenticator by selecting the **Enable** option provided.
+
+    ![enable email otp configuration]({{base_path}}/assets/img/guides/enable-email-otp-config.png)
+
+    !!! info
+        - If you have configured an external email OTP provider, enter the provider's name in the **Email API**. Example: `Gmail` or `SendGrid`.
+        - If you have used IS as the email OTP provider, you can leave this field blank.
+
+5. Click **Update** to save the configurations.
+
+### Configure email OTP as the second factor
+
+To configure email OTP as the second authentication factor:
+
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
+
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
+
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
+
+4. You will be redirected to **Advanced Configuration**.
+
+5. Click **+ Add Authentication Step** twice to add two authentication steps.
+
+6. Select the following authentication methods from the relevant dropdowns and click **+ Add Authenticator**.
+
+    | Authentication step   | Local Authenticator   | Federated Authenticator   |
+    |-----------------------|-----------------------|----------------------|
+    | First step    | `basic`   | N/A   |
+    | Second step   | N/A   | `emailOTP`  |
+
+7. Click **Update** to save the configurations.
 
 ## Try it out
 
-1. Log in to the configured service provider.
+1. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-2. You will be redirected to the login page of WSO2 Identity Server. Enter user's credentials.
+2. Click **Login** and enter admin's credentials.
 
-3. Next, you will receive a token to your email account. Enter the code to authenticate.  
+3. You will now be prompted to enter an email OTP code. The email OTP will be sent to the email address configured on the user's profile.
 
-    ![sample-email-otp](../../assets/img/guides/sample-email-otp.png)
+    ![email otp]({{base_path}}/assets/img/guides/email-otp.png)
 
-4. If the authentication is successful, you will be redirected to the home page of the service provider.
+4. Enter the email OTP received, and click **Continue**.
 
-You have successfully configured and logged in using 2-factor authentication.
-
-
-!!! info "Related topics"
-    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication/#two-factor-authentication)
-    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
+You will now be logged into the application successfully.

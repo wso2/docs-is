@@ -4,15 +4,15 @@ This section guides you through the ways of adding a user role to WSO2 Identity 
 
 ---
 
-## Add a user role using the Management Console
+## Use the Management Console
 
-{! fragments/add-user-role.md !}
+{!./includes/add-user-role.md !}
 
 ---
 
-## Add a user role using SCIM 2.0 REST API
+## Use SCIM 2.0 REST API
 
-In SCIM 2.0, creating a role is the same as creating a **group.** 
+In SCIM 2.0, creating a role is the same as creating a **group**.
 
 !!! note
     To create a group with users, the relevant users should already exist in the user store.
@@ -25,7 +25,7 @@ The sample request given below adds a group named "engineer" with the user "Mark
 **Request**
 
 ``` curl
-curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": {GROUP_NAME},"members": {MEMBERS_OF_THE_GROUP}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim2/Groups
+curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": {GROUP_NAME},"members": {MEMBERS_OF_THE_GROUP}}'}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim2/Groups
 ```
 
 !!! abstract ""
@@ -56,9 +56,9 @@ response status `           201 CREATED          `.
 
 
 !!! info "Related topics"
-    - [Concept: Roles and Permissions](../../../references/concepts/user-management/roles-and-permissions)
-    - [Guide: Edit/Delete Roles](../../identity-lifecycles/edit-delete-roles)
-    - [Guide: Role Based Permissions](../../identity-lifecycles/role-based-permissions/)
+    - [Concept: Roles and Permissions]({{base_path}}/references/concepts/user-management/roles-and-permissions)
+    - [Guide: Edit/Delete Roles]({{base_path}}/guides/identity-lifecycles/edit-delete-roles)
+    - [Guide: Role Based Permissions]({{base_path}}/guides/identity-lifecycles/role-based-permissions/)
 
 
 

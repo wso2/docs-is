@@ -24,7 +24,7 @@ First, register two service providers in WSO2 Identity Server.
 
 ## Configure travelocity application
 
-{!fragments/travelocity.md!}
+{!./includes/travelocity.md!}
 
 ## Configure avis application
 
@@ -52,19 +52,19 @@ Start the application server and access the following URLs to make sure both app
     URL:
     [http://wso2is.local:8080/travelocity.com/index.jsp](http://localhost:8080/travelocity.com/index.jsp)
 
-    ![Travelocity screen](../../../assets/img/samples/travelocity-screen.png) 
+    ![Travelocity screen]({{base_path}}/assets/img/samples/travelocity-screen.png) 
 
 - **avis.com**
 
     URL:
     [http://wso2is.local:8080/avis.com/index.jsp](http://localhost:8080/avis.com/index.jsp)
 
-    ![Avis screen](../../../assets/img/samples/avis-screen.png) 
+    ![Avis screen]({{base_path}}/assets/img/samples/avis-screen.png) 
 
 When attempting to log in with SAML from WSO2 Identity Server in **Travelocity.com** and **Avis.com** applications, you can see the following default
 page located at `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp`.
   
-![Identity Server sign in screen](../../../assets/img/samples/identity-server-sign-in-screen.png) 
+![Identity Server sign in screen]({{base_path}}/assets/img/samples/identity-server-sign-in-screen.png) 
 
 ---
 
@@ -105,7 +105,7 @@ external application, the full path should be given instead.
 
 The following is the structure of this web app.
 
-![authentication-web-app-folder-structure](../../../assets/img/extend/authentication-web-app-folder-structure.png)
+![authentication-web-app-folder-structure]({{base_path}}/assets/img/extend/authentication-web-app-folder-structure.png)
 
 The **authenticationendpoint** web application uses a carbon component
 called
@@ -159,7 +159,7 @@ When modifying the pages, ensure that the following is applied.
     POST.
 
     ``` xml
-    <form id="form" name="form" action="../../commonauth" method="POST"> 
+    <form id="form" name="form" action="{{base_path}}/commonauth" method="POST"> 
     ```
 
 2.  Make sure to send back the "sessionDataKey" with the form
@@ -188,7 +188,7 @@ When modifying the pages, ensure that the following is applied.
         RequestDispatcher dispatcher = request.getRequestDispatcher("default_login.jsp");
         dispatcher.forward(request, response);
     } 
-        %>
+    %>
     ```
 
     What this code basically does is it forwards the request to a
@@ -196,14 +196,13 @@ When modifying the pages, ensure that the following is applied.
     `           relyingParty          ` parameter.
 
 3.  Get the 'travelocity\_login.jsp' from
-    [here](https://svn.wso2.org/repos/wso2/people/malithim/samples/is-510/authenticationendpoint-customize-login-per-sp/)
+    [here](https://github.com/wso2/samples-is/blob/master/re-branding-the-default-login-page/authenticationendpoint/travelocity_login.jsp)
     and place it at the same level as 'login.jsp'. Also, download the
-    contents of the 'css' and 'images' folders from that same link and
-    put them inside the respective folders in the
-    authenticationendpoint.
+    contents of the 'css' and 'images' folders from this [link](https://github.com/wso2/samples-is/tree/master/re-branding-the-default-login-page/authenticationendpoint)
+    and put them inside the respective folders in the authenticationendpoint.
 
 4.  Log in to the travelocity.com web app
     again. You are presented with the re-branded page.  
-    ![Travelocity login screen](../../../assets/img/samples/travelocity-login-screen.png)   
+    ![Travelocity login screen]({{base_path}}/assets/img/samples/travelocity-login-screen.png)   
     If you access avis.com, it still displays the
     default login page.

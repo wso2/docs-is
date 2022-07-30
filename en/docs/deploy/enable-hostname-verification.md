@@ -11,7 +11,7 @@ process.
     Be sure to enable hostname verification for your production environment.
     This is necessary to avoid security issues in production. See the full
     list of [security recommendations for
-    production](../../../deploy/security/security-guidelines-for-production-deployment)
+    production]({{base_path}}/deploy/security/security-guidelines-for-production-deployment)
     environments.
 
 ---

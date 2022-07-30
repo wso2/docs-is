@@ -1,12 +1,12 @@
 # Implicit Grant with OAuth 2.0 Playground
 
-This page guides you through using a sample Playground application to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Implicit](../../references/concepts/authorization/implicit-grant/) grant type.
+This page guides you through using a sample Playground application to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Implicit]({{base_path}}/references/concepts/authorization/implicit-grant/) grant type.
 
 ----
 
 ## Set up the sample application
 
-{! fragments/oauth-playground.md !}
+{!./includes/oauth-playground.md !}
 
 ----
 
@@ -22,7 +22,7 @@ This page guides you through using a sample Playground application to try out au
 
 	- **Authorize Endpoint**: `https://<IS_HOST>:<IS_PORT>/oauth2/authorize`
     
-    ![Implicit grant with Playground](../../assets/img/samples/implicit-with-playground.png)
+    ![Implicit grant with Playground]({{base_path}}/assets/img/samples/implicit-with-playground.png)
 	
 2. Click **Authorize**. 
 
@@ -50,7 +50,7 @@ This page guides you through using a sample Playground application to try out au
 
 3. Log in with user credentials (e.g., admin/admin). At this point, the application receives the ID token. 
 
-	<img name='implicit-id-token' src='../../assets/img/samples/implicit-id-token.png' class='img-zoomable' alt='Obtaining an ID token in Playground'/>
+	<img name='implicit-id-token' src='{{base_path}}/assets/img/samples/implicit-id-token.png' class='img-zoomable' alt='Obtaining an ID token in Playground'/>
 	
 
 

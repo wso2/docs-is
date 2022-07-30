@@ -1,9 +1,9 @@
 # Configure OpenID Connect Back-Channel Logout
 
-This page guides you through configuring [OpenID Connect back-channel logout](../../../references/concepts/authentication/back-channel-logout) between OpenID Connect Relying Parties (RP) or client applications.
+This page guides you through configuring [OpenID Connect back-channel logout]({{base_path}}/references/concepts/authentication/back-channel-logout) between OpenID Connect Relying Parties (RP) or client applications.
 
 !!! Note
-    When a session is terminated via the [Session Management REST API](../../../apis/session-mgt-rest-api), 
+    When a session is terminated via the [Session Management REST API]({{base_path}}/apis/session-mgt-rest-api), 
     WSO2 Identity Server will send a back-channel logout notification.
 
 ## Register a service provider
@@ -14,7 +14,7 @@ This page guides you through configuring [OpenID Connect back-channel logout](..
 
 3. Enter `playground2` in the **Service Provider Name** text box, and click **Register**.
 
-    ![Add new service provider](../../assets/img/fragments/register-sp-playground.png)
+    ![Add new service provider]({{base_path}}/assets/img/fragments/register-sp-playground.png)
 
 4. Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click **Configure**.
     
@@ -26,21 +26,21 @@ This page guides you through configuring [OpenID Connect back-channel logout](..
         of the `oauth.custom_grant_type` in the `deployment.toml` file when
         creating the custom grant type is the value that will appear on the
         UI. For more information on writing a custom grant type, see
-        [Write a Custom OAuth 2.0 Grant Type](../../develop/extend/oauth2/write-a-custom-oauth-2.0-grant-type).
+        [Write a Custom OAuth 2.0 Grant Type]({{base_path}}/develop/extend/oauth2/write-a-custom-oauth-2.0-grant-type).
         
 6. Fill the **Callback Url** field. 
 
     Example : `http://wso2is.local:8080/playground2/oauth2client`
     
-    ![Configure OAuth OIDC](../../assets/img/fragments/configure-oauth-oidc.png)
+    ![Configure OAuth OIDC]({{base_path}}/assets/img/fragments/configure-oauth-oidc.png)
 
     !!! tip
         For more information on other advanced configurations
-        refer, [Advanced OpenID Connect](../../guides/login/oidc-parameters-in-auth-request/).
+        refer, [Advanced OpenID Connect]({{base_path}}/guides/login/oidc-parameters-in-auth-request/).
 
 7. Click **Add**. Note that `client key` and `client secret` get generated.
   
-    ![Generated OAuth client key and secret](../../assets/img/fragments/generated-key-secret.png) 
+    ![Generated OAuth client key and secret]({{base_path}}/assets/img/fragments/generated-key-secret.png) 
 
 ## Discover the logout endpoint
 
@@ -54,13 +54,13 @@ To enable OIDC back-channel logout, the relying party/client application needs t
 
         Note the listed identity provider's **Logout Endpoint URL**. 
         
-        ![oidc-logout-url](../../../assets/img/guides/oidc-logout-url.png)
+        ![oidc-logout-url]({{base_path}}/assets/img/guides/oidc-logout-url.png)
 
-- If you are using a different identity provider, use the [OpenID Connect discovery](../oidc-discovery) endpoint to obtain the OpenID Provider's logout endpoint URL. The logout endpoint URL can be discovered using the `end_session_endpoint` parameter in the OIDC Discovery response.
+- If you are using a different identity provider, use the [OpenID Connect discovery]({{base_path}}/guides/login/oidc-discovery) endpoint to obtain the OpenID Provider's logout endpoint URL. The logout endpoint URL can be discovered using the `end_session_endpoint` parameter in the OIDC Discovery response.
 
 ## Configure back-channel single logout
 
-{!fragments/edit-oauth-oidc-configs.md!}
+{!./includes/edit-oauth-oidc-configs.md!}
 
 5. Select **Enable OIDC Backchannel Logout** and enter the Logout URL as `http://localhost:8080/playground2/bclogout`.
 
@@ -171,7 +171,7 @@ Deploy this sample web app on a web container.
 You are directed to the landing page of the sample application. Click on **Import Photos** and the following
 page appears.  
 
-<img name='playground-app' src='../../assets/img/samples/play-ground-with-check-session.png' class='img-zoomable'/>
+<img name='playground-app' src='{{base_path}}/assets/img/samples/play-ground-with-check-session.png' class='img-zoomable'/>
 
 !!! tip "Troubleshooting tip"
 
@@ -197,13 +197,13 @@ page appears.
 
 	- **Authorize Endpoint:** `https://localhost:9443/oauth2/authorize`
     
-    <img name='implicit-with-playground' src='../../assets/img/samples/implicit-with-playground.png' class='img-zoomable' alt='Implicit flow with Playground'/>
+    <img name='implicit-with-playground' src='{{base_path}}/assets/img/samples/implicit-with-playground.png' class='img-zoomable' alt='Implicit flow with Playground'/>
 	
 3. Click **Authorize**. 
 
 4. Log in with user credentials (e.g., admin/admin). At this point, the application receives the ID token. 
 
-	<img name='implicit-id-token' src='../../assets/img/samples/implicit-id-token.png' class='img-zoomable' alt='ID token'/>
+	<img name='implicit-id-token' src='{{base_path}}/assets/img/samples/implicit-id-token.png' class='img-zoomable' alt='ID token'/>
 
 5. Now, access the following URL on a browser window to access "playground3": `http://wso2is.local:8080/playground3/`
 
@@ -220,6 +220,6 @@ You have successfully configured and tried out OIDC back-channel logout. You can
 ----
 
 !!! info "Related topics"
-    - [Concept: OpenID Connect Back-Channel Logout](../../../references/concepts/authentication/back-channel-logout)
-    - [Quick Start: OpenID Connect Back-Channel Logout](../../../quick-starts/oidc-backchannel-logout-sample)
+    - [Concept: OpenID Connect Back-Channel Logout]({{base_path}}/references/concepts/authentication/back-channel-logout)
+    - [Quick Start: OpenID Connect Back-Channel Logout]({{base_path}}/quick-starts/oidc-backchannel-logout-sample)
 

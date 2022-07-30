@@ -4,18 +4,16 @@ With delegated access control mechanisms, the owner of a set of resources can de
 to a designated client application, without enabling the client application to impersonate the user. The following 
 topics discuss the various features that are key to delegated access control.
 
--   [Authorization Code Grant](../auth-code-playground) 
+-   [Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground) 
 
--   [Implicit Grant](../implicit-playground/)
+-   [Implicit Grant]({{base_path}}/guides/access-delegation/implicit-playground/)
 
--   [Client Credentials Grant](../client-credentials-playground)
+-   [Client Credentials Grant]({{base_path}}/guides/access-delegation/client-credentials-playground)
 
--   [Password Grant](../password-playground)
+-   [Password Grant]({{base_path}}/guides/access-delegation/password-playground)
 
--   [Microprofile JWT](../microprofile-jwt-sample)
+-   [Microprofile JWT]({{base_path}}/guides/access-delegation/microprofile-jwt-sample)
 
--   [SAML2 Bearer Assertion Profile](../saml2-bearer-assertion-profile)
+-   [SAML2 Bearer Assertion Profile]({{base_path}}/guides/access-delegation/saml2-bearer-assertion-profile)
 
--   [Encrypt ID Tokens](../oidc-token-encryption-sample)
-
--   [Passing OIDC Parameters as a Request Object](../request-object)
+-   [Encrypt ID Tokens]({{base_path}}/guides/access-delegation/oidc-token-encryption-sample)
