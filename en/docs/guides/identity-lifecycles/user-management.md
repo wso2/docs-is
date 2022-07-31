@@ -1,4 +1,4 @@
-# User Management
+# User Management - Overview
 
 The users are the digital representations of the identities of physical users who interact with your applications. Administrators can easily manage the identity lifecycle of each of these users.
 

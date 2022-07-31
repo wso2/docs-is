@@ -1,4 +1,4 @@
-# Configure adaptive authentication for an application
+# Adaptive Authentication - Overview
 
 This page guides you through setting up [adaptive authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication) for an application.
 

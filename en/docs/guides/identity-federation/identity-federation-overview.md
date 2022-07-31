@@ -1,4 +1,4 @@
-# Overview
+# Identity Federation - Overview
 
 You can define connections to external identity providers (IdPs) and use them to authenticate users who log in to your applications. This process of authenticating users with external IdPs is known as identity federation.
 

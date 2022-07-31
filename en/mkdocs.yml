@@ -87,7 +87,9 @@ nav:
           - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
           - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
       - Authentication:
+        - Overview: guides/authentication-overview.md
         - Login:
+          - Overview: guides/login/login-overview.md
           - Web Application:
             - OIDC: guides/login/webapp-oidc.md
             - SAML: guides/login/webapp-saml.md
@@ -152,6 +154,7 @@ nav:
           - WS-Federation Applications: guides/login/configure-ws-federation-single-sign-on.md
           - reCAPTCHA for SSO: guides/login/configure-recaptcha-for-single-sign-on.md
         - Single Logout:
+          - Overview: guides/login/single-logout-overview.md
           - OpenID Connect:
             - Overview: guides/login/slo-for-oidc.md
             - Back-Channel Logout: guides/login/oidc-backchannel-logout.md
@@ -179,7 +182,7 @@ nav:
             - TOTP configs: guides/mfa/totp-config-advanced.md
             - SMS OTP configs: guides/mfa/sms-otp-config-advanced.md
         - Adaptive Authentication:
-          - Configure Adaptive Authentication: guides/adaptive-auth/configure-adaptive-auth.md
+          - Overview: guides/adaptive-auth/configure-adaptive-auth.md
           - Adaptive Authentication Scenarios: 
             - Overview: guides/adaptive-auth/adaptive-auth-overview.md
             - Role-Based: guides/adaptive-auth/role-based-adaptive-auth.md
@@ -215,7 +218,7 @@ nav:
           - Log in with Yahoo: guides/identity-federation/yahoo.md
           - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
-      - Authorization:
+      - Access Control:
         - Overview: guides/authorization/overview.md
         - Access Management: 
           - Intro: guides/authorization/access-mgt.md
@@ -256,7 +259,7 @@ nav:
         - OAuth Token Hashing: guides/access-delegation/oauth-token-hashing.md
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
-      - User management:
+      - User Management:
         - Overview: guides/identity-lifecycles/user-management.md
         - Onboard Users:
           - Overview: guides/identity-lifecycles/onboard-overview.md
@@ -331,6 +334,7 @@ nav:
           - Sendgrid: guides/identity-lifecycles/sync-with-sendgrid.md
           - Zoho CRM: guides/identity-lifecycles/sync-with-zoho.md
       - Claim Management:
+        - Overview: guides/dialects/dialects-overview.md
         - Add Claim Dialects: guides/dialects/add-claim-dialects.md
         - Edit Claim Dialects: guides/dialects/edit-claim-dialects.md
         - Delete Claim Dialects: guides/dialects/delete-claim-dialects.md
