@@ -1,6 +1,6 @@
 # Manage Tenant-Wise Email Sender Configurations 
 
-When handling notifications such as the ones given below, the email-sender configuration needs to be changed in `<IS-HOME>/repository/conf/deployment.toml`. 
+When handling notifications such as the ones given below, the email-sender configuration needs to be changed in `<IS-HOME>/repository/conf/deployment.toml`.
 
 - [EmailOTP]({{base_path}}/guides/mfa/2fa-email-otp/)
 - [Password Recovery]({{base_path}}/guides/password-mgt/recover-password/)
