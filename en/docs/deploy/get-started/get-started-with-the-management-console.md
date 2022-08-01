@@ -129,7 +129,7 @@ specific requirements.
 !!! info "Related topics"
     Refer to the following topics for instructions to use sub menu items.
 
-    -   See [Creating and Managing Tenants]({{base_path}}/guides/tenants/add-new-tenants/)
+    -   See [Creating and Managing Tenants]({{base_path}}/guides/tenants/tenant-mgt/)
         for information on multitenancy.
 
     <!---   See [Using Workflows with User

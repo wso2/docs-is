@@ -1,4 +1,4 @@
-# Access Delegation
+# Access Delegation - Overview
 
 With delegated access control mechanisms, the owner of a set of resources can delegate access to some of those resources 
 to a designated client application, without enabling the client application to impersonate the user. The following 
