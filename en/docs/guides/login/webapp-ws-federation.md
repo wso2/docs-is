@@ -11,7 +11,7 @@ This page guides you through enabling login for a WS-Federation-based web applic
 
 - Download the [PassiveSTSSample application](https://github.com/wso2/samples-is/releases/download/v4.3.0/PassiveSTSSampleApp.war) from the latest release assets.
 
-### Deploy the PassiveSTSSampleApp webapp
+### Deploy the sample app
 
 To deploy the sample web app on a web container:
 
@@ -58,7 +58,7 @@ To configure additional properties for the sample application:
 
 2. Restart the tomcat server.
 
-## Add and configure the service provider
+## Configure the service provider
 
 1. On the Management Console, go to **Main** > **Identity** > **Service Providers** and click **Add**.
 
@@ -96,11 +96,11 @@ To configure additional properties for the sample application:
 !!! info
     When redirecting your users to WSO2 IS Passive STS endpoint, the following (optional) parameters are sent in the request from the sample application.
 
-    - **wa=wsignin1.0**: specifies whether WSO2 IS should issue a token for the relying party (this is the default action).
+	- **wa=wsignin1.0**: specifies whether WSO2 IS should issue a token for the relying party (this is the default action).
     - **wa=wsignout1.0**: specifies whether WSO2 IS should log the user out.
     - **wreply={replyUrl}**: specifies where the response should be sent.
 
-    Using a Network tracer such as a SAML tracer is recommended to analyze the HTTP request and responses in this scenario. With a tracer, you will be able to view the parameters mentioned above and also see the SAML token that is issued from WSO2 IS. 
+	Using a Network tracer such as a SAML tracer is recommended to analyze the HTTP request and responses in this scenario. With a tracer, you will be able to view the parameters mentioned above and also see the SAML token that is issued from WSO2 IS.
 
 1. Access one of the following links on your browser and click **Login**.
     - To get a SAML 1.1 token: <http://localhost:8080/PassiveSTSSampleApp/index.jsp>
