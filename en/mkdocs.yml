@@ -56,36 +56,8 @@ nav:
           - Multi-factor authentication: sample-use-cases/multi-factor-authentication.md
           - Federated authentication: sample-use-cases/federated-authentication.md
           - Self sign-up: sample-use-cases/self-sign-up.md
-  
   - Guides:
       - Overview: guides/before-you-start.md
-      - Applications:
-        - Overview: guides/applications/service-provider-overview.md
-        - Register a Service Provider: guides/applications/register-sp.md
-        - Configure a Service Provider:
-          - Claims: guides/applications/configure-claims-for-sp.md
-          - Roles and Permissions: guides/applications/roles-and-permissions-for-sp.md
-          - Inbound Authentication: guides/applications/inbound-auth-for-sp.md
-          - Local and Outbound Authentication: guides/applications/local-outbound-auth-for-sp.md
-          - Inbound Provisioning: guides/applications/inbound-provisioning-for-sp.md
-          - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
-        - Manage a Service Provider: guides/applications/manage-sp.md
-        - Set up a Resident Service Provider: guides/applications/resident-sp.md
-      - Identity Providers:
-        - Overview: guides/identity-federation/basic-overview.md
-        - Register an IdP: guides/identity-federation/add-idp.md
-        - Configure an IdP:
-          - Roles of an IdP: guides/identity-federation/roles-idp.md
-          - Claims of an IdP: guides/identity-federation/claims-idp.md
-          - Federated Authenticators: guides/identity-federation/federated-authenticator.md
-          - JIT Provisioning: guides/identity-federation/jit-workflow.md
-          - Outbound Provisioning Connectors: guides/identity-federation/outbound-provisioing-idp.md
-        - Manage an IdP: guides/identity-federation/manage-idp.md
-        - Resident IdP: 
-          - Set up a Resident IdP: guides/identity-federation/resident-idp.md
-          - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
-          - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
-          - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
       - Authentication:
         - Overview: guides/authentication-overview.md
         - Login:
@@ -563,22 +535,49 @@ nav:
       
   - References:
     - Overview: references/references-overview.md
-    - About WSO2 Identity Server: 
-      - Architecture:
-        - Architecture: references/architecture/architecture.md
-        - Provisioning Architecture: references/architecture/provisioning-architecture.md
-        - User Management Architecture: references/architecture/user-management-architecture.md
-      - About this Release: references/about-this-release.md
-      - Contribute: references/community.md
-    - Default Ports of WSO2 Products: references/default-ports-of-wso2-products.md
-    - New Configuration Model: references/new-configuration-model.md
-    - Product Startup Options: references/product-startup-options.md
-    - Directory Structure of WSO2 Products: references/directory-structure-of-wso2-products.md
-    - Evolution of Identity Federation Standards: references/evolution-of-identity-federation-standards.md
-    - Adaptive Authentication JS API Reference: references/adaptive-authentication-js-api-reference.md
-    - Scopes Corresponding to Permissions Required to Invoke REST API Calls: references/scopes-corresponding-to-rest-api-permissions.md
-    - Usernames in WSO2 Identity Server: references/usernames-in-identity-server.md
-    - Extend:
+    - About this Release: references/about-this-release.md
+    - WSO2 IS Architecture:
+      - Architecture: references/architecture/architecture.md
+      - Provisioning Architecture: references/architecture/provisioning-architecture.md
+      - User Management Architecture: references/architecture/user-management-architecture.md
+    - WSO2 IS Concepts:
+      - Users, Roles, Permissions:
+        - Overview: references/concepts/user-management/user-management.md
+        - Users: references/concepts/user-management/users.md
+        - Roles and Permissions: references/concepts/user-management/roles-and-permissions.md
+      - User stores: 
+        - User stores: references/concepts/user-management/userstores.md
+        - Realms: references/concepts/user-management/realm.md
+      - Claims: references/concepts/claim-management.md
+      - Service Providers:
+        - Overview: guides/applications/service-provider-overview.md
+        - Register a Service Provider: guides/applications/register-sp.md
+        - Configure a Service Provider:
+          - Claims: guides/applications/configure-claims-for-sp.md
+          - Roles and Permissions: guides/applications/roles-and-permissions-for-sp.md
+          - Inbound Authentication: guides/applications/inbound-auth-for-sp.md
+          - Local and Outbound Authentication: guides/applications/local-outbound-auth-for-sp.md
+          - Inbound Provisioning: guides/applications/inbound-provisioning-for-sp.md
+          - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
+        - Manage a Service Provider: guides/applications/manage-sp.md
+        - Set up a Resident Service Provider: guides/applications/resident-sp.md
+      - Identity Providers:
+        - Overview: guides/identity-federation/basic-overview.md
+        - Register an IdP: guides/identity-federation/add-idp.md
+        - Configure an IdP:
+          - Roles of an IdP: guides/identity-federation/roles-idp.md
+          - Claims of an IdP: guides/identity-federation/claims-idp.md
+          - Federated Authenticators: guides/identity-federation/federated-authenticator.md
+          - JIT Provisioning: guides/identity-federation/jit-workflow.md
+          - Outbound Provisioning Connectors: guides/identity-federation/outbound-provisioing-idp.md
+        - Manage an IdP: guides/identity-federation/manage-idp.md
+        - Resident IdP: 
+          - Set up a Resident IdP: guides/identity-federation/resident-idp.md
+          - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
+          - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
+          - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
+      - Tenants: references/concepts/introduction-to-multitenancy.md
+    - WSO2 IS Extensions:
       - Work with the Source Code: references/extend/work-with-the-source-code.md
       - Authenticator: references/extend/authenticator-x509.md
       - User management:
@@ -637,16 +636,21 @@ nav:
       - Host authentication endpoint on a different server: references/extend/host-authentication-endpoint-on-a-different-server.md
       - Error messages: references/extend/errors/customize-authentication-error-messages.md
       - Error Pages: references/extend/errors/customize-error-pages.md
-    - Error catalog:
+    - WSO2 IS Configurations:
+      - Configuration Model: references/new-configuration-model.md
+      - Default Ports of WSO2 Products: references/default-ports-of-wso2-products.md
+      - Product Startup Options: references/product-startup-options.md
+      - Directory Structure of WSO2 Products: references/directory-structure-of-wso2-products.md
+    - WSO2 IS Best Practices:
+      - Usernames in WSO2 Identity Server: references/usernames-in-identity-server.md
+    - WSO2 IS Troubleshooting:
       - Error Codes and Descriptions: references/extend/errors/error-codes-and-descriptions.md
       - REST API error catalog: references/error-catalog.md
-    - Concepts:
-      - User Management: 
-        - Overview: references/concepts/user-management/user-management.md
-        - Users: references/concepts/user-management/users.md
-        - Roles and Permissions: references/concepts/user-management/roles-and-permissions.md
-        - Userstores: references/concepts/user-management/userstores.md
-        - Realms: references/concepts/user-management/realm.md
+    - WSO2 API Settings:
+      - Adaptive Authentication JS API: references/adaptive-authentication-js-api-reference.md
+      - Scopes for REST APIs: references/scopes-corresponding-to-rest-api-permissions.md
+    - IAM Topics:
+      - Evolution of Identity Federation Standards: references/evolution-of-identity-federation-standards.md
       - Authentication:
         - Introduction: references/concepts/authentication/intro-authentication.md
         - Authentication Protocols:
@@ -674,14 +678,14 @@ nav:
             - Back-Channel Logout: references/concepts/authentication/back-channel-logout.md
             - Microprofile JWT 1.0: references/concepts/authentication/microprofile-jwt.md
           - SAML:
-                  - Introduction: references/concepts/authentication/intro-saml.md
-                  - SAML2 Artifact Binding: references/concepts/authentication/saml2-artifact-binding.md
-                  - SAML Front-Channel Logout: references/concepts/authentication/saml-front-channel.md
-                  - SAML Back-Channel Logout: references/concepts/authentication/saml-back-channel.md
+            - Introduction: references/concepts/authentication/intro-saml.md
+            - SAML2 Artifact Binding: references/concepts/authentication/saml2-artifact-binding.md
+            - SAML Front-Channel Logout: references/concepts/authentication/saml-front-channel.md
+            - SAML Back-Channel Logout: references/concepts/authentication/saml-back-channel.md
           - WS-Federation:
-                  - Introduction: references/concepts/authentication/intro-ws-federation.md
+            - Introduction: references/concepts/authentication/intro-ws-federation.md
           - WS-Trust:
-                  - Introduction: references/concepts/authentication/intro-ws-trust.md
+            - Introduction: references/concepts/authentication/intro-ws-trust.md
           #- NTLM:
                   # - Introduction: references/concepts/authentication/ntlm.md
           #- Kerberos:
@@ -690,30 +694,29 @@ nav:
         - Multi Factor Authentication: references/concepts/authentication/multi-factor-authentication.md
         - FIDO: references/concepts/authentication/mfa-with-fido.md
       - Authorization:
-          - Authorization Protocols:
-                        - OAuth2:
-                                    - Introduction: references/concepts/authorization/intro-oauth2.md
-                                    - OAuth 2.0 Client Types: references/concepts/authorization/client-types.md
-                                    - Grant Types:
-                                          - Overview: references/concepts/authorization/grant-types.md
-                                          - Authorization Code Grant Type: references/concepts/authorization/authorization-code-grant.md
-                                          - Implicit Grant Type: references/concepts/authorization/implicit-grant.md
-                                          - Resource Owner Password Credentials Grant Type: references/concepts/authorization/resource-owner-grant.md
-                                          - Client Credentials Grant Type: references/concepts/authorization/client-credential-grant.md
-                                          - Refresh Token Grant Type: references/concepts/authorization/refresh-token-grant.md
-                                          - Device Flow Grant Type: references/concepts/authorization/device-flow-grant.md
-                                          - JWT Bearer Grant Type: references/concepts/authorization/jwt-bearer-grant-type.md
-                                          - SAML2 Bearer Assertion Profile: references/concepts/authorization/saml2-bearer-assertion-profile.md
-                                          - Kerberos Grant Type: references/concepts/authorization/kerberos-grant.md
-                                    - Tokens:
-                                          - Access Tokens: references/concepts/authorization/access-token.md
-                                          - Refresh Tokens: references/concepts/authorization/refresh-token.md
-                                    - Client Authentication: references/concepts/authorization/client-authentication.md
-                                    - Token Introspection: references/concepts/authorization/introspection.md
-                        - User Managed Access (UMA):
-                                    - Introduction to UMA: references/concepts/authorization/user-managed-access.md
-                                    - Resource Registration Endpoint: references/concepts/authorization/uma-resource-registration.md
-                                    - Permission Endpoint: references/concepts/authorization/uma-permission-endpoint.md
+        - OAuth2:
+          - Introduction: references/concepts/authorization/intro-oauth2.md
+          - OAuth 2.0 Client Types: references/concepts/authorization/client-types.md
+          - Grant Types:
+            - Overview: references/concepts/authorization/grant-types.md
+            - Authorization Code Grant Type: references/concepts/authorization/authorization-code-grant.md
+            - Implicit Grant Type: references/concepts/authorization/implicit-grant.md
+            - Resource Owner Password Credentials Grant Type: references/concepts/authorization/resource-owner-grant.md
+            - Client Credentials Grant Type: references/concepts/authorization/client-credential-grant.md
+            - Refresh Token Grant Type: references/concepts/authorization/refresh-token-grant.md
+            - Device Flow Grant Type: references/concepts/authorization/device-flow-grant.md
+            - JWT Bearer Grant Type: references/concepts/authorization/jwt-bearer-grant-type.md
+            - SAML2 Bearer Assertion Profile: references/concepts/authorization/saml2-bearer-assertion-profile.md
+            - Kerberos Grant Type: references/concepts/authorization/kerberos-grant.md
+          - Tokens:
+            - Access Tokens: references/concepts/authorization/access-token.md
+            - Refresh Tokens: references/concepts/authorization/refresh-token.md
+          - Client Authentication: references/concepts/authorization/client-authentication.md
+          - Token Introspection: references/concepts/authorization/introspection.md
+        - User Managed Access (UMA):
+          - Introduction to UMA: references/concepts/authorization/user-managed-access.md
+          - Resource Registration Endpoint: references/concepts/authorization/uma-resource-registration.md
+          - Permission Endpoint: references/concepts/authorization/uma-permission-endpoint.md
       - Single Sign On: references/concepts/single-sign-on.md
       - Identity Bus: references/concepts/identity-bus.md
       - Identity Federation: references/concepts/identity-federation.md
@@ -723,16 +726,14 @@ nav:
           - JIT Provisioning: references/concepts/jit-provisioning.md
       - Consent Management: references/concepts/consent-management.md
       - Identity Anti-Patterns and the Identity Bus: references/concepts/identity-anti-patterns-and-the-identity-bus.md
-      - Claim Management: references/concepts/claim-management.md
       - Integrated Windows Authentication: references/concepts/integrated-windows-authentication-overview.md
-      - Multitenancy: references/concepts/introduction-to-multitenancy.md
-      - Compliance:
-        - Overview: references/concepts/compliance/compliance.md
-        - GDPR: references/concepts/compliance/gdpr.md
-        - eIDAS: references/concepts/compliance/eidas.md
-        - CCPA: references/concepts/compliance/ccpa.md
-      - Integrations: 
-        - Master Data Management: references/concepts/integrations/master-data-mgt.md
+      - Master Data Management: references/concepts/integrations/master-data-mgt.md
+    - IAM Compliance:
+      - Overview: references/concepts/compliance/compliance.md
+      - GDPR: references/concepts/compliance/gdpr.md
+      - eIDAS: references/concepts/compliance/eidas.md
+      - CCPA: references/concepts/compliance/ccpa.md
+
   - '': page-not-found.md
 
 # Extensions
