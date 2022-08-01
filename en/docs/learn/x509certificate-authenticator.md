@@ -41,7 +41,8 @@ To create a sample certificate and create your own Certificate Authority to sign
     - Organization Name (eg, company) [Internet Widgits Pty Ltd]: WSO2
     - Organizational Unit Name (eg, section) [ ]: QA
     - Common Name (e.g. serverFQDN or YOUR name) [ ]: wso2is.com 
-        (Please pay special attention to the CN field, as the **CN** has to be the same as the **username** of the user that is trying to log in in the future)
+        !!! note
+            Note that the **CN** value has to be the same as the **user name** of the user that will try to log in in the future.
     - Email Address [ ]: kim@wso2.com
 
 4.  An OpenSSL CA requires new files and supporting directories. Therefore, create a new directory.
