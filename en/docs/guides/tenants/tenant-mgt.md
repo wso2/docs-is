@@ -30,7 +30,7 @@ Follow the steps given below to add a new tenant from the Management Console.
     | **Admin Password (Repeat)**      | Repeat the password to confirm.                                                                                                                                                                                                                                                                   |
     | **Email**                        | The email address of the admin.                                                                                                                                                                                                                                                                   |
 
-Once a new tenant is created, the tenant details appears in the **Tenants List** as shown below.
+Once a new tenant is created, the tenant details appear in the **Tenants List** as shown below.
 
 ![View a tenant]({{base_path}}/assets/img/guides/view-tenant.png)
 
