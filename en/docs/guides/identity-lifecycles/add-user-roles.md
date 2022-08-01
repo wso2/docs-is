@@ -2,13 +2,23 @@
 
 This section guides you through the ways of adding a user role to WSO2 Identity Server.
 
----
-
 ## Use the Management Console
 
-{!./includes/add-user-role.md !}
+Follow the steps given below to define a new user role using the Management Console.
 
----
+1. Go to **Main** > **Identity** > **Users and Roles**, and click  **Add**. 
+
+    ![add-users-roles]({{base_path}}/assets/img/fragments/add-users-roles.png)
+
+2. Click **Add New Role** to start defining a new role.
+
+    ![add-new-role]({{base_path}}/assets/img/fragments/add-new-role.png)
+
+3. In the **Domain** list, select the user store in which you want to create this role (e.g., "Primary") and enter the **Role Name** (e.g., "Manager").
+
+    ![enter-role-details]({{base_path}}/assets/img/fragments/enter-role-details.png)
+    
+4. Click **Finish** or click **Next** to specify permissions for the role.
 
 ## Use SCIM 2.0 REST API
 

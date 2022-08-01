@@ -1,4 +1,4 @@
-
+<!--
 ## Add a function library
 
 Follow the steps below to add a function library using the WSO2 Identity Server Management Console.
@@ -14,3 +14,4 @@ Follow the steps below to add a function library using the WSO2 Identity Server 
     ![Add new function library](../../../../assets/img/guides/add-new-function-library.png)
 
 4. Click **Register** to add the new function library.
+-->

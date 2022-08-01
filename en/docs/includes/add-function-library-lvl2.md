@@ -1,4 +1,5 @@
 
+<!--
 ## Add a function library
 
 To add a function library:
@@ -10,3 +11,4 @@ To add a function library:
     ![Add new function library](../../../../assets/img/guides/add-new-function-library.png)
 
 3. Click **Register** to add the new function library.
+-->

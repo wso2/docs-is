@@ -1,3 +1,4 @@
+<!--
 If your user store supports multiple values for attributes, the
 WSO2 Identity Server can view, add, update, or delete them (normally
 LDAP/AD offer support for this). The following are the different ways
@@ -28,4 +29,5 @@ you can do this.
     ```
 
     The following screen shows how this looks in the LDAP.  
-    ![ldap-interface](../../../../assets/img/fragments/ldap-interface.png) 
+    ![ldap-interface](../../../../assets/img/fragments/ldap-interface.png)
+-->

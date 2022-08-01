@@ -1,3 +1,4 @@
+<!--
 ## Register a service provider
 
 1. On WSO2 Identity Server Management Console, go to **Main** > **Identity** > **Service Providers** and click **Add**.
@@ -17,3 +18,4 @@
         For more information on other advanced configurations refer, [Advanced OpenID Connect](../../../guides/login/oidc-parameters-in-auth-request/).
 
 7. Click **Add**. Note that `client key` and `client secret` are generated.
+-->

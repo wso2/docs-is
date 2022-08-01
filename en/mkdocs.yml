@@ -23,7 +23,7 @@ site_url: https://wso2.com/identity-and-access-management/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/new_restructure/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -266,7 +266,6 @@ nav:
           - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
           - Configure Account Recovery: guides/identity-lifecycles/recover-username.md
           - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
-          - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
           - Send Notifications per User Operation: guides/tenants/user-operation-notifications.md
         - Manage Passwords:
           - Overview: guides/password-mgt/password-mgt-overview.md
@@ -321,6 +320,7 @@ nav:
         - Delete Claim Mapping: guides/dialects/delete-claim-mapping.md
         - Configure unique claims: guides/dialects/configure-unique-claims.md
         - Configure Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
+        - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
         #- Use a Custom Attribute Dialect: guides/attribute-dialects/custom-dialect.md
         #- Map Attributes: guides/attribute-dialects/map-attributes.md
         #- Configure Attribute Metadata: guides/attribute-dialects/metadata.md
@@ -1410,7 +1410,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
-  base_path: http://localhost:8000
+  base_path: https://is.docs.wso2.com/en/6.0.0
 
   nav_list:
     - Home

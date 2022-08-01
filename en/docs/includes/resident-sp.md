@@ -1,3 +1,4 @@
+<!--
 1.  In the **Main** menu under the **Identity** section, click
     **Resident** under **Service Providers**.
 2.  Expand the **Outbound Provisioning Configuration** on the screen
@@ -17,3 +18,4 @@
         Provisioning](../../../../guides/identity-lifecycles/rule-based-provisioning/)
 
 4.  Click **Update**.
+-->
