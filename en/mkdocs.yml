@@ -285,6 +285,7 @@ nav:
         - Manage Accounts:
           - Overview: guides/identity-lifecycles/account-states-overview.md
           - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
+          - Lock/Unlock Accounts per User: guides/tenants/account-locking-per-user.md
           - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
           - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
@@ -292,6 +293,8 @@ nav:
           - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
           - Configure Account Recovery: guides/identity-lifecycles/recover-username.md
           - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
+          - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
+          - Send Notifications per User Operation: guides/tenants/user-operation-notifications.md
         - Manage Passwords:
           - Overview: guides/password-mgt/password-mgt-overview.md
           - Password Policies: guides/password-mgt/password-policies.md
@@ -350,16 +353,7 @@ nav:
       - Consent Management:
         - Manage user consent: guides/consent-mgt/manage-user-consent.md
         - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md
-      - Tenant Management:
-        - Set Up a Tenant Loading Policy: guides/tenants/configure-the-tenant-loading-policy.md
-        - Add New Tenants: guides/tenants/add-new-tenants.md
-        - Email:
-          - Tenant-wise Email Sender Configuration: guides/tenants/tenant-wise-config.md
-          - Customize Automated Emails: guides/tenants/customize-automated-mails.md
-          - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
-          - Configure Email Notifications for Account Locking: guides/tenants/email-account-locking.md
-        - User-wise Account Locking: guides/tenants/account-locking-per-user.md
-        - User operation notifications: guides/tenants/user-operation-notifications.md
+      - Tenant Management: guides/tenants/tenant-mgt.md
       - User Self-Service: guides/my-account/my-account.md
       - Analytics:
         - Overview: guides/elk-analytics/elk-analytics.md
@@ -423,6 +417,10 @@ nav:
           - Configure ELK Alerts: deploy/elk-configuring-alerts.md
           - Configure ELK for Adaptive Authentication: deploy/using-elk-analytics-for-adaptive-authentication.md
           - Configure an SP and IdP Using Configuration Files: deploy/configure-an-sp-and-idp-using-configuration-files.md
+        - Email Notifications:
+          - Configure Email Sender: deploy/configure-email-sending.md
+          - Customize Email Templates: guides/tenants/customize-automated-mails.md
+        - Tenant Loading Policy: guides/tenants/configure-the-tenant-loading-policy.md
         - CORS : deploy/configure-cors.md
       - Secure:
         - Mitigate Attacks:
@@ -438,7 +436,6 @@ nav:
           - Remove Unused Tokens from the Database: deploy/remove-unused-tokens-from-the-database.md
           - Enable Assertions In Access Tokens: deploy/enable-assertions-in-access-tokens.md
         #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
-        - Configure the Email Sending Module: deploy/configure-email-sending.md
         - Enable HostName Verification: deploy/enable-hostname-verification.md
         - Configure TLS Termination: deploy/configure-tls-termination.md
         - Maintain Logins and Passwords: deploy/security/maintain-logins-and-passwords.md
