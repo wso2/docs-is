@@ -1,3 +1,4 @@
+<!--
 If you need to make modifications to a role, use the links in the
 **Actions** column on the **Roles** screen as follows:
 
@@ -13,3 +14,4 @@ If you need to make modifications to a role, use the links in the
     If the role is in an external userstore to which you are connected in
     read-only mode, you will be able to view the existing roles but not edit
     or delete them. However, you can still create new editable roles.
+-->

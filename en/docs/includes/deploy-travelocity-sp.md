@@ -1,3 +1,4 @@
+<!--
 ### Configure the service provider
 
 !!! note "Important"
@@ -66,3 +67,4 @@ The next step is to configure the service provider.
 
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
+-->

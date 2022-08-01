@@ -156,6 +156,3 @@ Follow the steps given below to enable the email sender per tenant.
     
 5.	Since these configurations will be applicable during the tenant loading process, [configure tenant loading and 
 unloading for your tenant]({{base_path}}/guides/tenants/configure-the-tenant-loading-policy).
-
-<!-- !!! note
-    {!./includes/google-two-factor.md !}-->

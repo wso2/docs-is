@@ -1,3 +1,4 @@
+<!--
 1.	Expand **Inbound Authentication Configuration > SAML Configuration** and click **Configure**.
 
 2.	Enter the following details and keep the values of the rest of the fields as it is. 
@@ -16,4 +17,5 @@
 
 
     ![simplesamlphp-sp.png](../../../../assets/img/fragments/simplesamlphp-sp.png)
+-->
 

@@ -1,3 +1,4 @@
+<!--
 1. Navigate **Main** > **Identity** and click **Users and Roles > Add**. 
 
     ![add-users-roles](../../../../assets/img/fragments/add-users-roles.png)
@@ -10,4 +11,5 @@
 
     ![enter-role-details](../../../../assets/img/fragments/enter-role-details.png)
 
-4. Click **Finish** or you can click **Next** to specify permissions for the role. 
+4. Click **Finish** or you can click **Next** to specify permissions for the role.
+-->

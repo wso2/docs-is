@@ -1,4 +1,5 @@
 
+<!--
 1. Download the certificate of the SMS provider.
 
     !!! example
@@ -14,3 +15,4 @@
     ```
 
 3. You are prompted to enter the keystore password. The default `client-truststore.jks` password is `wso2carbon`.
+-->

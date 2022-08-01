@@ -1,3 +1,4 @@
+<!--
 ## Configure the resident IdP
 
 1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
@@ -15,3 +16,4 @@
     - **Remember Me Period**: This is the duration in weeks for which WSO2 Identity Server should remember an SSO session given that the **Remember Me** option is selected in the WSO2 Identity Server login screen.
 
         <img name='configure-resident-idp' src='../../../../assets/img/fragments/configure-resident-idp.png' class='img-zoomable'/>
+-->

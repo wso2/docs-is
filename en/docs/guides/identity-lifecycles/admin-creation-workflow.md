@@ -4,7 +4,13 @@ Administrators can add new users in a tenant by manually registering the user de
 
 ## Use the management console
 
-{!./includes/add-new-user.md !}
+1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
+
+2. Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
+
+3.  Click **Add New User**.
+
+    ![add-a-new-user]({{base_path}}/assets/img/fragments/add-a-new-user.png)
 
 3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
 
