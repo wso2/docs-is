@@ -80,7 +80,7 @@ Follow the steps given below to enable the email sender per tenant.
     "Content-Type: multipart/form-data" -H 'Authorization: Basic YWRtaW46YWRtaW4=' -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "fileName=EmailPublisher"
     ```
     
-5.  Open the `EmailPublisher.xml` file and configurable the parameters given below.
+5.  Open the `EmailPublisher.xml` file and configure the parameters given below.
 
     !!! note
         -   Only one `EmailPublisher.xml` file with the name `EmailPublisher` should be added for a tenant.
