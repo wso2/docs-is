@@ -1,8 +1,10 @@
+<!--
 ## Work with certificates
 
-X509 authentication requires the client to possess a Public Key Certificate (PKC). <!--- To know more about Public Key Certificate (PKC) and Certificate Authority (CA), refer [Working with certificates](TO DO: Concepts) -->
+X509 authentication requires the client to possess a Public Key Certificate (PKC). 
+<!--- To know more about Public Key Certificate (PKC) and Certificate Authority (CA), refer [Working with certificates](TO DO: Concepts) -->
 
-
+<!--
 To create a sample certificate and create your own Certificate Authority to sign the certificates, follow the following steps:
 
 1.  The first step is to create the private RSA key:
@@ -230,7 +232,7 @@ Follow the steps below to disable certificate validation if WSO2 Identity Server
 <!--- For more information on CRL and OCSP certificate validation, see
 [Configuring Certificate Revocation Validation](https://docs.wso2.com/display/ISCONNECTORS/Configuring+Certificate+Revocation+Validation). -->
 
-
+<!--
 ---
 
 ## Configure the Authentication Endpoint
@@ -327,3 +329,5 @@ your use case:
     Pack](#disable-certificate-validation-in-an-unstarted-wso2-is-pack)
 -   [Disabling Certificate Validation in an Already-started WSO2 IS
     Pack](#disable-certificate-validation-in-an-already-started-wso2-is-pack)
+-->
+

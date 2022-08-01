@@ -1,3 +1,4 @@
+<!--
 1.	Start WSO2 IS.
 2.	Access the Management Console (https://<IS_HOST\>:<PORT\>/carbon) to create a service provider.
 	![Management Console](../../../../assets/img/fragments/android-sp.png)
@@ -18,5 +19,6 @@
 8.	Once the service provider is registered, you will be redirected to the **Service Provider Details** page. Here, expand the **Inbound Authentication Configuration** section and click the **OAuth/OpenID Connect Configuration** section. Copy the value of `OAuth Client Key` shown here.
 	
 	![android-client-id](../../../../assets/img/fragments/android-client-id.png)
+-->
 
 

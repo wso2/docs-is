@@ -1,3 +1,4 @@
+<!--
 !!!	info "About accessing the app"
 	The app is not available to the general public yet. To make the app available
 	to every Facebook user, you have to submit the app for review. After a
@@ -13,3 +14,4 @@
 	as Developers or Testers.
 	
 	![submit-fb-app-for-review](../../../../assets/img/samples/add-app-roles.png)
+-->

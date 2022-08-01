@@ -1,3 +1,4 @@
+<!--
 ## Configure WS-Federation
 
 1.  Expand **Inbound Authentication Configuration** followed by the
@@ -30,7 +31,7 @@
 
 2.  Expand the **Claim Configuration** section and map the relevant claims. 
     <!--See [Request Attributes for the Application](../../../../guides/login/request-attributes/) for more information.-->
-    
+<!--
 3.  Click **Update** to save changes.
 
 !!! tip
@@ -43,3 +44,4 @@
     signature_algorithm = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
     digest_algorithm = "http://www.w3.org/2001/04/xmlenc#sha256"
     ```
+-->

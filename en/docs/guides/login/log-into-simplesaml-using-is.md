@@ -166,14 +166,33 @@ This page guides you through using WSO2 Identity Server to log in to SimpleSAMLp
 
 {!./includes/register-a-service-provider.md !}
 
+1.	Expand **Inbound Authentication Configuration > SAML Configuration** and click **Configure**.
 
-{!./includes/simplesaml-config-sample.md !}
+2.	Enter the following details and keep the values of the rest of the fields as it is. 
+
+	-	**Issuer**:simplesaml
+
+    -	**Assertion Consumer URL**:
+    	http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/wso2-sp
+
+    -	**Enable Single Logout**: True
+
+    -	**SLO Response URL**:
+    	http://localhost/simplesamlphp/www/module.php/saml/sp/saml2-logout.php/wso2-sp
+
+3.	Click **Register**
+
+    ![simplesamlphp-sp.png]({{base_path}}/assets/img/fragments/simplesamlphp-sp.png)
 
 ## Configure a resident identity provider in WSO2 IS
 
-{!./includes/resident-saml-sample.md !}
+1.	In the **Main** menu of the Management Console (`https://<IS_HOST>:<PORT>/carbon`), click **Resident** under **Identity Providers**.
 
------
+2.	On the page that appears, open the **SAML2 Web SSO Configuration** section under **Inbound Authentication Configuration**.
+    
+3.	Make the value of the **Identity Provider Entity ID** field as same as the SAML endpoint of WSO2 Identity Server: `https://{yourhost}:{port}/samlsso`		
+	
+	![simeplesamlphp-resident]({{base_path}}/assets/img/fragments/simplesamlphp-resident.png)
 
 ### Test SimpleSAMLphp
 
