@@ -1,6 +1,6 @@
 # Tenant Management
 
-By default, WSO2 Identity Server is configured with a single tenant named `carbon.super`. If you have the required permissions, you can configure multiple tenant domains to allow multiple user bases to log in and use a single server/cluster at the same time in anisolated manner. 
+By default, WSO2 Identity Server is configured with a single tenant named `carbon.super`. If you have the required permissions, you can configure more tenant domains and maintain multiple isolated user bases on a single server/cluster at the same time.
 
 !!! Info
     Learn more about [multi-tenancy]({{base_path}}/references/concepts/introduction-to-multitenancy/).
