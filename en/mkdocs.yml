@@ -646,9 +646,8 @@ nav:
     - WSO2 IS Troubleshooting:
       - Error Codes and Descriptions: references/extend/errors/error-codes-and-descriptions.md
       - REST API error catalog: references/error-catalog.md
-    - WSO2 API Settings:
-      - Adaptive Authentication JS API: references/adaptive-authentication-js-api-reference.md
-      - Scopes for REST APIs: references/scopes-corresponding-to-rest-api-permissions.md
+    - Adaptive Authentication JS API: references/adaptive-authentication-js-api-reference.md
+    - Scopes for REST APIs: references/scopes-corresponding-to-rest-api-permissions.md
     - IAM Topics:
       - Evolution of Identity Federation Standards: references/evolution-of-identity-federation-standards.md
       - Authentication:
