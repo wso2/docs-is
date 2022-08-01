@@ -83,7 +83,7 @@ Follow the steps given below to enable the email sender per tenant.
 5.  Open the `EmailPublisher.xml` file and configure the parameters given below.
 
     !!! note
-        -   Only one `EmailPublisher.xml` file with the name `EmailPublisher` should be added for a tenant.
+        -   Only one `EmailPublisher.xml` file with the name `EmailPublisher` should be added to a tenant.
         -   You do not need to configure all the configurable parameters. If a parameter has not been configured in the `EmailPublisher.xml` file, configurations in the `output-event-adapters.xml` will be used instead.
     
     <table>
