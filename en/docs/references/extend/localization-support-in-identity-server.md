@@ -67,3 +67,12 @@ applying the same above steps 2 through 6 in the previous section
 starting with the following location.
 
 `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes/org/wso2/carbon/identity/mgt/recovery/endpoint/i18n/`
+
+## Configuring Localization for My Account and Console
+
+We maintain the i18n (localization) resources for My Account and Console in a separate module inside the
+[identity-apps](https://github.com/wso2/identity-apps/tree/v1.0.558) repository hence the localization configurations
+should be applied according to the instructions provided in the
+[README.md](https://github.com/wso2/identity-apps/blob/v1.0.558/modules/i18n/README.md) file of the same repository.
+For further reference, you can check out the GitHub [pull request](https://github.com/wso2/identity-apps/pull/1225)
+where the French language was introduced to the applications.
