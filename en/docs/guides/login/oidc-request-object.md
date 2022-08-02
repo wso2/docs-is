@@ -123,7 +123,7 @@ The following steps describe how to configure a service provider public certific
         		application again. Now you will be prompted to provide
         		consent for all requested claims, including the newly
         		added/changed claims. For more information on
-        		revoking/accepting user consent, see [Consent management]({{base_path}}/guides/my-account/my-account/#consent-management).
+        		revoking/accepting user consent, see [Consent management]({{base_path}}/guides/my-account/manage-consent-my-account).
             </li>
             </ul>
             
