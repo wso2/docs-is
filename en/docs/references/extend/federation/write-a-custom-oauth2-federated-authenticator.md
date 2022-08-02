@@ -42,7 +42,7 @@ The important methods in the `OAuth2GenericAuthenticator` class are listed as fo
 
 ---
 
-## Configure custom federated authenticator
+## Configure custom OAuth2 federated authenticator
 
 1. To configure the custom authenticator, click the Add button under Identity Providers and add an IDP name to register the new IDP.
 2. Click Federated Authenticators and expand `OAuth2 Custom Authenticator Configuration`. Configure it as follows.
