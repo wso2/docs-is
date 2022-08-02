@@ -31,7 +31,7 @@ The important methods in the `OAuth2GenericAuthenticator` class are listed as fo
 
 ---
 
-## Deploy the custom federated authenticator in WSO2 IS
+## Deploy the custom OAuth2 federated authenticator in WSO2 IS
 
 1. Once the implementation is done, navigate to the root of your project and run the following command to compile the
    service.
