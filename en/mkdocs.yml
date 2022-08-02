@@ -97,7 +97,7 @@ nav:
             - SaaS Applications: guides/login/saas-application.md
             - Use Certificates with Applications: guides/login/use-certificates-with-applications.md
             - Session Timeout: guides/login/session-timeout.md
-            - Multi-attribute login: guides/login/multi-attribute-login.md
+            - Multi-Attribute Login: guides/login/multi-attribute-login.md
         - OpenID Connect:
           - Overview: guides/login/oidc-authentication.md 
           - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 

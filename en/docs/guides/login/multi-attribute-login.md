@@ -17,7 +17,7 @@ The following section explains how to configure WSO2 identity server for multi-a
 
 ## Enable multi-attribute login
 
-Follow the steps given below to enable multi-attribute login.
+Follow the steps given below to enable multi-attribute login from the Management Console.
 
 1.  Sign in to the Management Console using your tenant credentials.
 
