@@ -1,104 +1,75 @@
-# Quick setup
+# Quick Setup
 
-Follow the steps given below to set up and install WSO2 Identity Server.
+Follow the steps given below to set up and install WSO2 Identity Server (WSO2 IS) on your computer in quick time. 
 
-1. Download and install Oracle Java SE Development Kit (JDK) version version 1.8 or 11).
-2. Install WSO2 Identity Server by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
-   The WSO2 Identity Server installation location varies according to the OS as given below.
+!!! info
+    For detailed instructions on other installations options and deployments, see the [installation guide]({{base_path}}/deploy/get-started/install/).
 
-    |OS     |Home Directory                                |
-    |:------|:---------------------------------------------|
-    |Mac OS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
-    |Windows| `C:\Program Files\WSO2\IdentityServer\<IS_HOME>` |
-    |Ubuntu | `/usr/lib/wso2/IdentityServer/<IS_HOME>`         |
-    |CentOS | `/usr/lib64/IdentityServer/<IS_HOME>`           |
+## Install WSO2 IS
 
-    In this guide, the installation location of WSO2 Identity Server is referred to as `<IS_HOME>`.
+Follow the steps given below.
 
-3. [Download](https://curl.haxx.se/download.html) and install curl. Make
-      sure you install the binary type file of the version you choose.
+1. Download and install Oracle Java SE Development Kit (JDK) version version 11 or 17).
+2. Install WSO2 Identity Server by downloading the [installer](https://wso2.com/identity-and-access-management/install/).
 
-4. Open the `/etc/hosts` file and add the following entry.
+    !!! info
+        The installation location of WSO2 Identity Server is referred to as `<IS_HOME>`.
+
+The WSO2 Identity Server installation location varies according to the operating system as given below.
+
+|OS     |Home Directory                                |
+|:------|:---------------------------------------------|
+|Mac OS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
+|Windows| `C:\Program Files\WSO2\IdentityServer\<IS_HOME>` |
+|Ubuntu | `/usr/lib/wso2/IdentityServer/<IS_HOME>`         |
+|CentOS | `/usr/lib64/IdentityServer/<IS_HOME>`           |
+
+## Configure the server
+
+Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` folder) and add the following configuration to enable CORS.
+
+``` toml
+[cors]
+allow_generic_http_requests = true
+allow_any_origin = true
+supported_methods = [
+    "POST",
+    "HEAD",
+    "OPTIONS"
+]
+supports_credentials = false
+max_age = 3600
+tag_requests = false
+``` 
+
+## Start WSO2 IS
+
+To start WSO2 IS, open a terminal, navigate to the `<IS_HOME>/bin` folder, and execute one of the following commands:
+
+-   On Linux/MacOS
+
+    ``` bash
+    sh wso2server.sh
+    ```
+
+-   On Windows
     
-        127.0.0.1        localhost.com    
-
-    !!! note "Notes"
-        * If you are planning to use single sign-on (SSO), do not use `localhost` as it will cause the Tomcat naked host issue. Use `localhost.com` instead. If you are using Windows, `localhost.com` is considered as `127.0.0.1`.<br/>
-        * Make sure that this is the only such entry available for this IP address in the `/etc/hosts` file to avoid any conflicts.
-
-5. [Start]({{base_path}}/deploy/get-started/run-the-product/) WSO2 Identity Server. You
-   are now ready to deploy the sample.
-
-### Steps to configure and run the samples
-
-1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/download/v4.3.0/is-samples-distribution.zip) and unzip.
-
-    ``` java
-    unzip is-samples-distribution.zip
+    ``` bash
+    wso2server.bat
     ```
 
-    !!! note
+Note that the following appears in the command prompt after the server start.
     
-        From this point onwards:
+![QSG start server]({{base_path}}/assets/img/get-started/qsg-start-server.png)
+
+!!! tip "Shutting down the server"
+    To shutdown the server, press `Ctrl + C`.
+    Note that following log appears in the command prompt after the server shutdown.
     
-        -   `<IS_HOME>` is the directory in which the WSO2 Identity Server is installed.
-        -   `<IS_SAMPLE_DISTR>` is the directory where downloaded `is-samples-distribution.zip` archive is extracted.
-    
+    ![QSG stop server]({{base_path}}/assets/img/get-started/qsg-stop-server.png)
 
-2.  Open the server.properties file in `<IS_SAMPLE_DISTR>/IS-QSG/conf/` and make sure that `wso2is.host.domain` and `wso2is.host.port` are configured as shown below.             
-    ```
-    #localhost.com is used to resolve naked hostname validation issue
-    wso2is.host.domain=localhost.com
-    wso2is.host.port=9443
-    server.host.domain=localhost.com
-    server.host.port=8080
-    ```
+## What's next?
 
-3.  Add the following configurations to the deployment.toml file in `<IS_HOME>/repository/conf` directory to make the CORS configurations applicable.
+Try out the [sample IAM scenarios]({{base_path}}/sample-use-cases/sample-scenario) to get familliar with WSO2 IS and its capabilities.
 
-    ``` toml
-    [cors]
-    allow_generic_http_requests = true
-    allow_any_origin = true
-    supported_methods = [
-        "POST",
-        "HEAD",
-        "OPTIONS"
-    ]
-    supports_credentials = false
-    max_age = 3600
-    tag_requests = false
-    ```
 
-4.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
-
-    ``` java
-    Linux   --> sh wso2server.sh
-    Windows --> wso2server.bat
-    ```
-    Note that the following appears in the command prompt after the server start.
-    
-    ![QSG start server]({{base_path}}/assets/img/get-started/qsg-start-server.png)
-
-    !!! tip "Shutting down the server"
-        To shutdown the server, press `Ctrl + C`.
-        Note that following log appears in the command prompt after the server shutdown.
-        
-        ![QSG stop server]({{base_path}}/assets/img/get-started/qsg-stop-server.png)
-
-5.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute either of the following commands to start the sample application. 
-       
-    ``` java
-    Linux   --> sh app-server.sh
-    Windows --> app-server.bat
-    ```
-
-6.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute the following commands to start the Quick Start samples accordingly.
-
-    ``` java
-    Linux   --> sh qsg.sh 
-    Windows --> qsg.bat 
-    ```
-
-7.  When prompted, confirm the configurations.
-8. Note that a message appears to pick a scenario, which indicates that the samples are deployed and WSO2 Identity Server is up and running.
