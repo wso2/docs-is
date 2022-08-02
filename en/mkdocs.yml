@@ -66,7 +66,6 @@ nav:
             - OIDC: guides/login/webapp-oidc.md
             - SAML: guides/login/webapp-saml.md
             - WS-Federation: guides/login/webapp-ws-federation.md
-          - Client-Side Application: guides/login/client-side-app.md
           - SaaS Applications:
             - Google: guides/login/log-into-google-using-is.md
             - WordPress: guides/login/log-into-wordpress-using-is.md
@@ -102,6 +101,7 @@ nav:
         - OpenID Connect:
           - Overview: guides/login/oidc-authentication.md 
           - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 
+          - OIDC Auth Code Flow with PKCE: guides/login/oidc-auth-code-pkce.md
           - OIDC Implicit Flow: guides/login/oidc-implicit-client-profile.md 
           - OIDC Hybrid Flow: guides/login/oidc-hybrid-flow.md 
           - Advanced Configurations: guides/login/oauth-app-config-advanced.md
@@ -123,7 +123,6 @@ nav:
           - Enable Single Sign On: guides/login/enable-single-sign-on.md
           - OIDC Applications: guides/login/sso-for-oidc.md
           - SAML Applications: guides/login/sso-for-saml.md
-          - WS-Federation Applications: guides/login/configure-ws-federation-single-sign-on.md
           - reCAPTCHA for SSO: guides/login/configure-recaptcha-for-single-sign-on.md
         - Single Logout:
           - Overview: guides/login/single-logout-overview.md
