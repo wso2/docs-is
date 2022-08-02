@@ -95,7 +95,7 @@ divided into different sections.
     <!---   See [Workflow Management]({{base_path}}/guides/workflows/adding-a-workflow-engine/) for information on
         working with workflows.-->
     -   [Guide: Manage Challenge Questions]({{base_path}}/guides/password-mgt/challenge-question/)
-        for information on configuring challenge questions. Also see [Account Recovery]({{base_path}}/guides/my-account/my-account#account-recovery) for
+        for information on configuring challenge questions. Also see [Account Recovery]({{base_path}}/guides/my-account/recover-user-account) for
         information on challenge questions.
     -   [Guide: Email Templates]({{base_path}}/guides/tenants/customize-automated-mails/) for configuring email
         templates. Also see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails/)
@@ -129,7 +129,7 @@ specific requirements.
 !!! info "Related topics"
     Refer to the following topics for instructions to use sub menu items.
 
-    -   See [Creating and Managing Tenants]({{base_path}}/guides/tenants/add-new-tenants/)
+    -   See [Creating and Managing Tenants]({{base_path}}/guides/tenants/tenant-mgt/)
         for information on multitenancy.
 
     <!---   See [Using Workflows with User

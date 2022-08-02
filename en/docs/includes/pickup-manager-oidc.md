@@ -1,4 +1,5 @@
 
+<!--
 {!./includes/deploying-sample-apps.md!}
 -   Download the sample from GitHub.
 
@@ -42,3 +43,4 @@ Next, deploy the sample web app on a web container.
         refer, [Advanced OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).
 
 5.  Click **Register** to save the changes.
+-->

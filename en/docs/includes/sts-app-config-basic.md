@@ -1,3 +1,4 @@
+<!--
 ## Configure STS for the client app
 
 1. Expand **Inbound Authentication Configuration > WS-Trust Security Token Service Configuration** and click **Configure**.
@@ -10,4 +11,5 @@
 
         ![configure-sts](../../../../assets/img/fragments/configure-sts.png)
 
-3. Click **Update** to save the changes. 
+3. Click **Update** to save the changes.
+-->

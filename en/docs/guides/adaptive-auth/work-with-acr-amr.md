@@ -24,9 +24,14 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ## Add the adaptive authentication script
 
-{!./includes/add-adaptive-acr-script-portal.md!}
+1.	**Edit** the same service provider you created previously to configure the **ACR-Based** authentication flow.
+    
+2.	Expand **Local and Outbound Configuration** and click **Advanced Configuration**.
+   
+3.	Click on **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **ACR-Based**.  
+    ![acr-based-template-config]({{base_path}}/assets/img/fragments/acr-based-template-config.png)
 
-1.  Replace the authentication script added from the template with the following. 
+4.  Replace the authentication script added from the template with the following. 
 
     ```
     var supportedAcrValues = ['LOA1', 'LOA2', 'LOA3'];

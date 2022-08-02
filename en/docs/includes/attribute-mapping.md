@@ -1,3 +1,4 @@
+<!--
 When you are using more than one user store, you must map the attributes
 correctly by [adding a claim mapping](../../../../guides/dialects/add-claim-mapping/.
 
@@ -13,4 +14,5 @@ follows for `http://wso2.org/claims/emailaddress`.
 ``` java
 DEMO/mail
 ```
+-->
 

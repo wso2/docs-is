@@ -1,4 +1,4 @@
-Make the following changes to the created service provider.
+<!--Make the following changes to the created service provider.
 
 1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
 
@@ -21,3 +21,5 @@ Make the following changes to the created service provider.
         the requesting the code and the access token.
         
         - To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced).
+
+-->

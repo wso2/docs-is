@@ -8,7 +8,13 @@ This page guides you through [managing user sessions and logout]({{base_path}}/r
 
 {!./includes/oauth-app-config-basic.md!}
 
-{!./includes/local-outbound-tenant-domain-in-sub-lvl3.md!}
+## Configure to sign the ID token with the user's tenant domain
+
+1. Expand the **Local & Outbound Authentication Configuration** section and select **Use tenant domain in local subject identifier** to sign the ID token with the user's tenant domain.
+    
+    ![use-tenant-domain-in-subject.png]({{base_path}}/assets/img/guides/use-tenant-domain-in-subject.png)
+    
+2. Click **Update** to save the changes.
 
 !!! note
         **Alternatively,** to sign the ID token with the service provider's

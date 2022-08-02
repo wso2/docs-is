@@ -462,7 +462,7 @@ service provider in the ` service provider IS ` via a file.
 
 Now you can test if the configurations you have done work in a tenant scenario.
 
-1.  [Create new tenants]({{base_path}}/guides/tenants/add-new-tenants/) in the `            service provider IS           `.
+1.  [Create new tenants]({{base_path}}/guides/tenants/tenant-mgt/) in the `            service provider IS           `.
 
     !!! note
         You cannot provide access to the service provider and
