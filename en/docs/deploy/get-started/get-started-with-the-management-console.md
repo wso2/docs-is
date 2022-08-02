@@ -95,7 +95,7 @@ divided into different sections.
     <!---   See [Workflow Management]({{base_path}}/guides/workflows/adding-a-workflow-engine/) for information on
         working with workflows.-->
     -   [Guide: Manage Challenge Questions]({{base_path}}/guides/password-mgt/challenge-question/)
-        for information on configuring challenge questions. Also see [Account Recovery]({{base_path}}/guides/my-account/my-account#account-recovery) for
+        for information on configuring challenge questions. Also see [Account Recovery]({{base_path}}/guides/my-account/recover-user-account) for
         information on challenge questions.
     -   [Guide: Email Templates]({{base_path}}/guides/tenants/customize-automated-mails/) for configuring email
         templates. Also see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails/)
