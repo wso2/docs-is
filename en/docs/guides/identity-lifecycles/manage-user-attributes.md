@@ -8,11 +8,11 @@ There two main ways to view, add, edit, and delete attributes of a user.
 - By accessing the profile of the user and changing the attributes using the Management Console. 
 - You can use the REST API according to the SCIM 2.0 provisioning specification. For more information on this, see [Use the SCIM 2.0 REST APIs]({{base_path}}/apis/scim2-rest-apis/).
 
-
+<!--
 ## Claim mapping when using multiple user stores
 
 When you are using more than one user store, you must map the attributes
-correctly by [adding a claim mapping](../../../../guides/dialects/add-claim-mapping/.
+correctly by [adding a claim mapping]({{base_path}}/guides/dialects/add-claim-mapping/).
 
 Under “Mapped Attribute(s)”, you need to follow the pattern.
 
@@ -26,40 +26,6 @@ follows for `http://wso2.org/claims/emailaddress`.
 ``` java
 DEMO/mail
 ```
-
-### Attributes with multiple values
-
-If your user store supports multiple values for attributes, the
-WSO2 Identity Server can view, add, update, or delete them (normally
-LDAP/AD offer support for this). The following are the different ways
-you can do this.
-
-1.  In WSO2 Identity Server Management Console, multiple attribute values are separated by commas. If you want to update two email addresses
-    using the user profile UI, you must provide it as follows:
-
-    ``` java
-    asela@soasecurity.com,aselapathberiya@soasecurity.com
-    ```
-
-    See the following screen for how this will look in the user
-    interface of the Identity Server Management Console.  
-    ![is-user-interface]({{base_path}}/assets/img/fragments/is-user-interface.png)
-
-2.  When using the `RemoteUserStoreManagerService` API, call it as follows.
-
-    ``` java
-    setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "asela@soasecurity.org,aselapathberiya@gmail.com", null)
-    ```
-
-    The GET results are returned in the form of comma separated values
-    for the attribute.
-
-    ``` java
-    "asela@soasecurity.org,aselapathberiya@gmail.com"
-    ```
-
-    The following screen shows how this looks in the LDAP.  
-    ![ldap-interface]({{base_path}}/assets/img/fragments/ldap-interface.png)
 
 ## Write custom attributes
 
@@ -151,6 +117,7 @@ UserNameAttributeClaimUri = "http://wso2.org/claims/emailaddress"
 This will return the email address of the authenticated user. It can be
 configured to return any attribute by changing the
 `         UserNameAttributeClaimUri        `  parameter.
+-->
 
 
 

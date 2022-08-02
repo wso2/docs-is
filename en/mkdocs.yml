@@ -247,7 +247,6 @@ nav:
           - Delete Users: guides/identity-lifecycles/delete-users.md
           - View/Update User Profiles: guides/identity-lifecycles/update-profile.md
           - Add Multiple User Profiles: guides/identity-lifecycles/customize-profiles.md
-          - Manage User Attributes: guides/identity-lifecycles/manage-user-attributes.md
           - Track User Deletion: guides/identity-lifecycles/track-deletion.md
         - Manage Roles: 
           - Overview: guides/identity-lifecycles/manage-roles-overview.md

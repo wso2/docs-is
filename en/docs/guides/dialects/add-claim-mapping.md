@@ -5,8 +5,6 @@ You can add new claim mappings to an existing [claim dialects]({{base_path}}/gui
 -   [Add Local Claim](#add-local-claim)
 -   [Add External Claim](#add-external-claim)
 
----
-
 ## Use the management console
 
 Use the options given below to add claim mappings from the management console.

@@ -619,5 +619,5 @@ login. This ensures that all your configurations work as intended.
     Once you add the custom userstore manager to the Identity server, you have to configure it as a primary or a secondary userstore.
     
 !!! info "Related topics"
-    -   [Guide: Configure Userstores]({{base_path}}/deploy/configure-user-stores)
-    -   [Guide: Manage User Attributes]({{base_path}}/guides/identity-lifecycles/manage-user-attributes#writing-custom-attributes)
+    [Guide: Configure Userstores]({{base_path}}/deploy/configure-user-stores)
+

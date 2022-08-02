@@ -67,7 +67,6 @@ divided into different sections.
         for configuring users and roles. 
     -   [Guide: Manage User Roles]({{base_path}}/guides/identity-lifecycles/manage-roles-overview/)
     -   [Deploy: Configure the Realm]({{base_path}}/deploy/configure-the-realm) for configuring user stores.
-    -   [Guide: Manage User Attributes]({{base_path}}/guides/identity-lifecycles/manage-user-attributes/) for configuring claims.
 
 ---
 
