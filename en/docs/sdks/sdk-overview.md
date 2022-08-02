@@ -1,12 +1,8 @@
----
-template: templates/2-column.html
----
-
 # SDKs - Overview
 
 This section lists all the SDKs related to WSO2 Identity Server (WSO2 IS) written using various technologies. 
 
-## Guides
+## Integrations
 
 Try integrating one of the sample applications.
 
