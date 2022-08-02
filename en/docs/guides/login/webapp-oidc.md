@@ -23,7 +23,7 @@ To configure the service provider:
 
     !!! tip
         - Note down the **OAuth Client Key** and **Client Secret**. You will need them when deploying the sample application.
-        - For more information on `Callback URL` field and other advanced configurations refer, [Advanced OpenID Connect Configurations](../../../../guides/login/oauth-app-config-advanced)
+        - For more information on `Callback URL` field and other advanced configurations refer, [Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
 
 7. Click **Register** to add the service provider and save the configurations.
 
@@ -37,7 +37,7 @@ To deploy the sample web app on a web container:
 
 2. Replace the `consumerKey` and `consumerSecret` values with the **OAuth Client Key** and **Client Secret** obtained when configuring the service provider.
 
-    ![Configurations of pickup dispatch application](../assets/img/samples/pickup-key-secret.png)
+    ![Configurations of pickup dispatch application]({{base_path}}/assets/img/samples/pickup-key-secret.png)
 
 3. Copy the modified `pickup-dispatch` into the `webapps` directory of the Tomcat folder.
 

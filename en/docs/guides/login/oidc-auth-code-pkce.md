@@ -27,7 +27,7 @@ Make the following changes to the created service provider.
 
 4. Select **PKCE Mandatory** to enable PKCE for your application.
 
-    ![enable-pkce](../../../../assets/img/guides/enable-pkce.png)
+    ![enable-pkce]({{base_path}}/assets/img/guides/enable-pkce.png)
 
 5. Click **Update** to save your configurations.
 
