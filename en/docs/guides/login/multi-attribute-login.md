@@ -2,17 +2,30 @@
 
 WSO2 Identity Server lets you configure multiple attributes as the login identifier. While username is the default login identifier, users can have the option to enter a mobile number, email address or any attribute of their choice.
 
+!!! info "Supported flows"
+
+    Multi-attribute login is supported in the following flows:
+
+    -   Identifier first authenticator
+    -   Basic Authenticator
+    -   Request path authenticator
+    -   Authentication REST APIs
+    -   Oauth Password grant
+    -   Password recovery flow
+
 The following section explains how to configure WSO2 identity server for multi-attribute login.
 
-## Configuring WSO2 IS for Multi-Attribute Login
+## Enable multi-attribute login
 
-1.  Log in to the [WSO2 Identity Server Management Console](`https://<IS_HOST>:<PORT>/carbon`) using your tenant credentials.
+Follow the steps given below to enable multi-attribute login.
+
+1.  Sign in to the Management Console using your tenant credentials.
 
     !!! info
         - The **admin** is the default administrative user in WSO2 Identity Server.
         - If you use multiple tenant domains, you need to configure multi-attribute login for each tenent.
 
-2.  Click **Main** > **Identity Providers** > **Resident** and expand the **Account Management** section.
+2.  Go to **Main** > **Identity Providers** > **Resident** and expand **Account Management**.
 
 3.  Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
 
@@ -20,17 +33,16 @@ The following section explains how to configure WSO2 identity server for multi-a
 
     ![adding-claims-for-multi-attribute-login]({{base_path}}/assets/img/guides/adding-claims-for-multi-attribute-login.png)
 
-5. Click **Update**
+5. Click **Update** to save the changes.
 
-### Add Regular Expressions for Allowed Claims
+## Add regular expressions for allowed claims
 
-Once you have configured WSO2 Identity Server for multi-attribute login, you need to provide regular expressions 
-for the allowed claims.
+Once you have configured WSO2 Identity Server for multi-attribute login, you need to provide regular expressions for the allowed claims. Some claims have regex defined by default. 
 
-Some claims have regex defined by default. If you need to define regex for a claim, follow the steps below.
+If you need to define regex for a claim, follow the steps below.
 
-1.  Open the WSO2 Identity Server management console. 
-2.  In the **Main** menu, under **Claims**, click **List**.
+1.  Open the Management Console. 
+2.  Go to **Main** > **Claims** and click **List**.
 3.  Select the claim you want to provide the regular expression for and click **Edit**.
 4.  Enter the regex pattern under the **Regular Expression** field.
 5.  Click **Update** to save the changes.
@@ -47,36 +59,24 @@ Here are a few examples of regex patterns.
 
 You have now successfully set up WSO2 Identity Server to allow multi-attribute login.
 
-## Using Multi-Attribute login
+## Try it out
+
 When multi-attribute login is configured in WSO2 IS, application users can use any of the configured attributes to login. 
 
-### Example: Allow users to use mobile number as a login identifier
+In this example scenario, let's allow users to use the mobile number as a login identifier:
 
 1.  Configure multi-attribute login for the claim `http://wso2.org/claims/mobile`.
-2.  Go to the My Account URL: (`https://localhost:9443/myaccount`).
+2.  Go to the My Account: `https://localhost:9443/myaccount`.
 3.  Enter mobile number as the login identifier and click **Continue**.
 
     ![adding-regex-pattern-to-claims]({{base_path}}/assets/img/guides/login-with-mobile-number.png)
 
-### Supported flows
-This feature is supported by the following flows:
-
-1.  Identifier first authenticator
-2.  Basic Authenticator
-3.  Request path authenticator
-4.  Authentication REST APIs
-5.  Oauth Password grant
-6.  Password recovery flow
-
 !!! Tip
     - **What happens if two users use the same value for a claim?** 
 
-        Multi-attribute login will not work for these users. Retaining uniqueness for claim values avoids this conflict.
+        Multi-attribute login will not work for these users. Retaining uniqueness for claim values avoids this conflict. Learn about [configuring the uniqueness of claims]({{base_path}}/learn/configuring-uniqueness-of-claims).
 
     - **Using email address as login attribute for super tenant users**
 
         Super tenant users need to append the tenant domain 
-        to the email address (Ex: `john@wso2.com@caron.super`) when logging into a SaaS application.
-
-!!! info "Related Topics"
-    See the [Configuring Uniqueness of Claims]({{base_path}}/learn/configuring-uniqueness-of-claims) topic for more information.
+        to the email address (Ex: `john@wso2.com@caron.super`) when logging into a SaaS application.   

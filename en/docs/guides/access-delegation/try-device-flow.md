@@ -5,9 +5,19 @@ specification. For more information, see
 [Device Authorization Grant]({{base_path}}/references/concepts/authorization/device-flow-grant).
 This section guides you on how to try out the Device Authorization grant type.
 
-## Configure Device Authorization Grant properties during deployment
+## Set up WSO2 Identity Server
 
-The following are the configurable properties of the device authorization grant.
+Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` folder) and add the following configurations:
+
+```toml
+[oauth.grant_type.device_code]
+key_length = 7
+expiry_time = "10m"
+polling_interval = "5s"
+key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
+```
+
+The parameters in this configuration are explained below.
 
 <table>
     <thead>
@@ -72,58 +82,39 @@ The following are the configurable properties of the device authorization grant.
     </tbody>
 </table>
 
-All the above parameters can be configured at the server level from the `deployment.toml` file. A sample configuration is shown below.
+## Enable the Device Authorization grant
 
-```toml
-[oauth.grant_type.device_code]
-key_length = 7
-expiry_time = "10m"
-polling_interval = "5s"
-key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
-```
+Follow the steps given below to enable the Device Authorization grant for your application (service provider).
 
-## Configure Device Authorization Grant for an application
-    
-1. Start the WSO2 Identity server by executing the following command in the  <IS_HOME>/bin folder.
+1. Sign in to the Management Console.
 
-    ``` java tab="Linux/MacOS"
-    sh wso2server.sh
-    ```
-    
-    ``` java tab="Windows"
-    wso2server.bat run
-    ```
-
-2. Access the WSO2 Identity Server Management Console and log in using your username and password.
-
-3. On the **Main** menu, click **Service Providers** > **Add**.
+2. Go to **Main** > **Service Providers** and click **Add** register a new service provider.
 
     <!--
     ![register-service-provider]({{base_path}}/assets/img/using-wso2-identity-server/register-service-provider.png)
     -->
 
-4. Provide a name for your application and click **Register**.
+3. Give a name for your service provider and click **Register**.
     
     <!--
     ![register-service-provider-name]({{base_path}}/assets/img/using-wso2-identity-server/register-sp-name.jpg)
     -->
 
-5. On the screen that follows, expand **Inbound Authentication Configuration**  > **OAuth/OpenID Connect Configuration** and click **Configure**.
+4. On the screen that follows, expand **Inbound Authentication Configuration**  > **OAuth/OpenID Connect Configuration** and click **Configure**.
 
     <!--
     ![register-service-provider-oauth]({{base_path}}/assets/img/using-wso2-identity-server/register-sp-oauth.jpg)
     -->
 
-6. Select `urn:ietf:params:oauth:grant-type:device_code` to enable device flow grant type. 
+5. Select `urn:ietf:params:oauth:grant-type:device_code` to enable the device flow grant type. 
 
     !!! info
-        Since these are public clients, ensure that the **Allow authentication without the client secret** option is checked.
+        Since these are public clients, ensure that **Allow authentication without the client secret** is checked.
 
-7. Click **Add** to save the service provider configurations. Take note of the generated OAuth client key and client
- secret.
+6. Click **Add** to save the service provider configurations. 
 
-    !!! tip
-        When configuring with your device, use the client ID as your OAuth client-key.
+    !!! info
+        Note of the generated OAuth client key and client secret. When configuring your device, use the client ID as your OAuth client-key.
 
 <!--
 ![consumer-key-service-provider-oauth]({{base_path}}/assets/img/using-wso2-identity-server/get-oauth-consumer-key.jpg)
@@ -131,7 +122,12 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
 
 ## Try it out
 
-1. Open a terminal window and run the following command to send a request to the `device_authorize` endpoint. 
+Let's try out the device flow.
+
+1. Open a terminal and run the following command to send a request to the `device_authorize` endpoint.
+
+    !!! info
+        The client (the device) initiates this request to the authorization server. In the response, the client receives a **device code**, a **user code**, and a **verification URI**. The client starts polling the **/token** endpoint of the authorization server using the **device_code** at an interval as specified in the response.
 
     <table>
     <tbody>
@@ -166,24 +162,28 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
     </tbody>
     </table>
 
-    The client (the device) initiates this request to the authorization server. In the response, the client receives a **device code**, a **user code**, and a **verification URI**. The client starts polling the **/token** endpoint of the authorization server using the **decice_code** at an interval as specified in the response.
+2. From a device with no input constraints, access the <code>verification_uri</code> and enter the user code. 
 
-2. From a device with no input constraints, access the <code>verification_uri</code> and enter the user code. You can alternatively access the <code>verification_uri_complete</code> link obtained in the response.
+    !!! info
+        You can alternatively access the <code>verification_uri_complete</code> link obtained in the response.
 
     ![device-code-enter]({{base_path}}/assets/img/using-wso2-identity-server/device-code-enter.jpg)
 
-3. Click **Continue**. If the user code is correct, you will be prompted to enter your credentials.
+3. Click **Continue** to proceed. 
+
+    !!! info
+        -   If the user code is correct, you are prompted to enter your credentials.
+        -   Note that the user code is for one-time use only. If your code is expired or if you have entered a wrong user code, get a new user code by following the previous steps.
  
     ![device-username-password]({{base_path}}/assets/img/using-wso2-identity-server/device-username-password.jpg)
 
-    !!! info
-        A user code is for one time use only. If your code is expired or if you have entered a wrong user code, get a new user code by following the previous steps.
-
-4. Once you log in successfully, you will be redirected to the configured callback URL of the service provider.
+4. Once you log in successfully, you are redirected to the configured callback URL of the service provider.
 
     ![device-scopes]({{base_path}}/assets/img/using-wso2-identity-server/device-scopes.jpg)
 
-5. The client, who has been polling the **/token** endpoint, receives the access token and the refresh token. To try this, open a terminal window and send the following token request to the authorization server.
+    The client, who has been polling the **/token** endpoint, receives the access token and the refresh token.
+
+5.  Open a terminal window and send the following token request to the authorization server.
     
     <table>
     <tbody>
@@ -218,4 +218,4 @@ key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
     </tbody>
     </table>
 
-6. To validate the token that you received, [use the introspection endpoint]({{base_path}}/guides/access-delegation/invoke-oauth-introspection-endpoint)
+6. To validate the token that you received, [use the introspection endpoint]({{base_path}}/guides/access-delegation/invoke-oauth-introspection-endpoint).
