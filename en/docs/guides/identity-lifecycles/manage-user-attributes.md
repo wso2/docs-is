@@ -11,12 +11,55 @@ There two main ways to view, add, edit, and delete attributes of a user.
 
 ## Claim mapping when using multiple user stores
 
-{!./includes/attribute-mapping.md !}
+When you are using more than one user store, you must map the attributes
+correctly by [adding a claim mapping](../../../../guides/dialects/add-claim-mapping/.
 
+Under “Mapped Attribute(s)”, you need to follow the pattern.
+
+![mapped-attributes]({{base_path}}/assets/img/fragments/mapped-attributes.png)
+
+However, for the default user store, you do not need to provide the
+domain name. As an example, if you have two user stores, one is the
+default and another one with domain “DEMO” then the pattern would be as
+follows for `http://wso2.org/claims/emailaddress`.
+
+``` java
+DEMO/mail
+```
 
 ### Attributes with multiple values
 
-{!./includes/attributes-with-multiple-values.md !}
+If your user store supports multiple values for attributes, the
+WSO2 Identity Server can view, add, update, or delete them (normally
+LDAP/AD offer support for this). The following are the different ways
+you can do this.
+
+1.  In WSO2 Identity Server Management Console, multiple attribute values are separated by commas. If you want to update two email addresses
+    using the user profile UI, you must provide it as follows:
+
+    ``` java
+    asela@soasecurity.com,aselapathberiya@soasecurity.com
+    ```
+
+    See the following screen for how this will look in the user
+    interface of the Identity Server Management Console.  
+    ![is-user-interface]({{base_path}}/assets/img/fragments/is-user-interface.png)
+
+2.  When using the `RemoteUserStoreManagerService` API, call it as follows.
+
+    ``` java
+    setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "asela@soasecurity.org,aselapathberiya@gmail.com", null)
+    ```
+
+    The GET results are returned in the form of comma separated values
+    for the attribute.
+
+    ``` java
+    "asela@soasecurity.org,aselapathberiya@gmail.com"
+    ```
+
+    The following screen shows how this looks in the LDAP.  
+    ![ldap-interface]({{base_path}}/assets/img/fragments/ldap-interface.png)
 
 ## Write custom attributes
 

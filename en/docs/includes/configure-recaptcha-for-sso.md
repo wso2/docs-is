@@ -1,4 +1,5 @@
 
+<!--
 1. Log in to the management console  (`https://<IS_HOST>:<IS_PORT>/carbon`).
 
 2. Click **Main** > **Identity** > **Identity Providers** > **Resident**.
@@ -32,5 +33,6 @@
     configured value, the following reCAPTCHA window appears.  
 
     ![captcha-login-failed](../../../../assets/img/guides/captcha-login-failed.png)
+-->
        
     

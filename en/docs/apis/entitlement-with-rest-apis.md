@@ -1,15 +1,12 @@
 # Entitlement with REST APIs
 
 Entitlement management is the process that grants, resolves, enforces,
-revokes and administers fine-grained access privileges. The WSO2
-Identity Server supports REST APIs for entitlement management via the
-`         https://{IS_IP}:{IS_PORT}/api/identity/entitlement/decision/        `
-endpoint
+revokes and administers fine-grained access privileges.
 
--   If your WSO2 Identity Server is running on localhost (127.0.0.1) and
-    on the default port (without offset), the entitlement endpoint is as
-    follows:
+The WSO2 Identity Server supports REST APIs for entitlement management via the
+`https://{IS_IP}:{IS_PORT}/api/identity/entitlement/decision/` endpoint.
 
+If your WSO2 Identity Server is running on localhost (127.0.0.1) and on the default port, the entitlement endpoint is:
     ``` java
     https://localhost:9443/api/identity/entitlement/decision/
     ```
@@ -17,15 +14,11 @@ endpoint
 !!! note
     The REST APIs are secured with basic authentication. Follow
     the steps below to add a basic auth header when calling these methods.
-    
-    1.  Build a string of the form username:password.
-    2.  [Encode the string](https://www.base64encode.org/) you created
-        above using Base64.
-    3.  Define an authorization header with the term 
-        `Basic`, followed by the encoded
-        string. For example, the basic auth authorization header using
-        `admin` as both username and password (`admin:admin`) is as
-        follows.
+
+    1.  Build a string of the form **username:password** and encode it using **Base64**.
+    2.  Define an authorization header with the term `Basic`, followed by the encoded
+        string. 
+    For example, the basic authorization header for `admin` user with password `admin` is:
 
         ``` java
         Authorization: Basic YWRtaW46YWRtaW4=
@@ -536,7 +529,7 @@ A sample request and response is as follows:
 </tr>
 <tr class="odd">
 <td>body</td>
-<td>bosy</td>
+<td>body</td>
 <td>Decision Request Model</td>
 <td>Yes</td>
 <td><pre style="margin-left: 30.0px;"><code>DecisionRequestModel {

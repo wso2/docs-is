@@ -7,24 +7,20 @@ services.
 These parameters may not be passed in the redirect URL due to one or
 many of the following reasons.
 
--   Sensitivity of the values passed.
--   Complexity of the values passed.
--   Length of the parameters exceeding, or has the possibility of
-    exceeding the allowed limits.
--   Compliance to certain business policies.
+- Sensitivity of the values passed.
+- Complexity of the values passed.
+- Length of the parameters exceeding, or has the possibility to exceed the allowed limits.
+- Compliance to certain business policies.
 
----
+These parameters will be made available via the Authentication Data API.
 
 ## Configure Authentication Data API
 
-To make these parameters available via the Authentication Data API, we
-need to configure the Identity Server as follows.
+To configure the Authentication Data API:
 
-1.  Configure the following parameters in the
-    `                       deployment.toml                      `
-    file in
-    `                       <IS_HOME>/repository/conf                    `
-    as per the descriptions provided below.
+1. Open the **deployment.toml** file found in the **IS_HOME/repository/conf** directory.
+
+2. Add the following configurations.
 
     ```toml
     [authentication.endpoint.redirect_params] 
@@ -43,11 +39,11 @@ need to configure the Identity Server as follows.
         <tbody>
             <tr>
                 <td>filter_policy</td>
-                <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates an allowlist value, whereas an <b>exclude</b> indicates a denylist value.</td>
+                <td>The value is either <b>include</b> or <b>exclude</b>. An include indicates an allowlist value, whereas an <b>exclude</b> indicates a denylist value.</td>
             </tr>
             <tr>
                 <td>remove_on_consume_from_api</td>
-                <td>The decides whether to remove the parameters on a read. If set to true, parameters are deleted upon read and won’t be available for subsequent API requests, unless they are repopulated at the backend.</td>
+                <td>This decides whether to remove the parameters on a read. If set to true, parameters are deleted upon read and won’t be available for subsequent API requests, unless they are repopulated in the backend.</td>
             </tr>
             <tr>
                 <td>parameters</td>
@@ -56,45 +52,54 @@ need to configure the Identity Server as follows.
             <tr>
                 <td>sessionDataKey</td>
                 <td>
-                    <p>This is an identifier used by the Identity Server to maintain state information related to this particular request by the service provider.</p>
+                    <p>This is an identifier used by the Identity Server to maintain state information about this particular request from the service provider.</p>
                     <p>
                         <div class="admonition note">
                         <p class="admonition-title">Note</p>
-                        <p>The 'sessionDataKey' query parameter is used to coordinate the request state across components participating in the request flow. It does not correlate with the user session. Furthermore, the request state maintained against the 'sessionDataKey' parameter value is cleared by each participating component at the end of request flow. This means that even if an external party grabs the 'sessionDataKey' they will not be able to get into the authentication sequence, as the user session is not associated with that key.</p>
-                        </div> 
+                        <p>The <b>sessionDataKey</b> query parameter is used to coordinate the request state across components participating in the request flow. <br />
+                        <br/>
+                        The <b>sessionDataKey</b> does not correlate with the user session and at the end of the request flow, the request state maintained against it is cleared by each participating component.
+                        <br/>
+                        <br/>
+                        This means that even if an external party grabs the <b>sessionDataKey</b> they will not be able to get into the authentication sequence.
+                        </div>
                     </p>
                 </td>
             </tr>
         </tbody>
     </table>
 
-2.  Restart the server.
+2. Restart the server.
 
 ---
 
 ## Use the API
 
-The data can be accessible at
-`                 https://<IS_HOST>:<PORT>/api/identity/auth/v1.1/data/<Type>/<Key>.                `
+The authentication data is accessible at: <br/>
+**https://{IS_HOST}:{PORT}/api/identity/auth/v1.1/data/{Type}/{Key}**
 
--   <Type\> - This refers to the key type that should be used. The
-    value is **AuthRequestKey** for pages which directly communicate
-    with the authentication framework using
-    `                  sessionDataKey,                 ` and
-    **OauthConsentKey** for the Oauth consent page which uses
-    `                  sessionDataKeyConsent                 ` as the
-    correlation key.
--   <Key\> - The correlation key whose value is either
-    **sessionDataKey** or **sessionDataKeyConsent**.
-
----
-
-## Authenticate the API
-
+<<<<<<< HEAD
+-   **{Type}** - One of the following key types.
+    <table>
+        <tr>
+            <td><b>AuthRequestKey</b></td>
+            <td>For pages which directly communicate with the authentication framework using `sessionDataKey`</td>
+        </tr>
+        <tr>
+            <td><b>OauthConsentKey</b></td>
+            <td>For Oauth consent pages which use `sessionDataKeyConsent` as the correlation key</td>
+        </tr>
+    </table>
+    
+-   **{Key}** - The correlation key which is either the **sessionDataKey** or **sessionDataKeyConsent**.
+=======
 This API can be authenticated by following the steps given
 [here]({{base_path}}/apis/authenticate-and-authorize-rest-apis).
+>>>>>>> 2ecd1d48c530278e70b66e5dad6ce980a49d7919
 
-Following are the sample requests and responses using cURL.
+Following are the sample requests and responses of the API using cURL.
+!!! info
+    To authenticate to the API, pass the Authorization header as **Basic Base64(username:password)**
 
 !!! abstract ""
     **Request**

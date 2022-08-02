@@ -1,11 +1,10 @@
 # Configure unique claims
 
-WSO2 Identity Server can be configured to retain the uniqueness of user claims.
-After enabling this feature, you can keep a user claim value as a unique value within all userstores.
+WSO2 Identity Server can be configured to retain the uniqueness of user claims. This allows you to keep a user claim value as a unique value within all user stores.
 
 Follow the steps below to configure WSO2 Identity Server.
 
-1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and add the following configuration.
+1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder and add the following configurations.
 
     ``` toml
     [[event_listener]]
@@ -22,11 +21,11 @@ Follow the steps below to configure WSO2 Identity Server.
 
     ![select-claim-from-list]({{base_path}}/assets/img/guides/select-claim-from-list.png)
 
-4.  Open the claim edit window by clicking the `Edit` button.
+4.  Click **Edit** to open the claim edit page.
 
     ![claim-edite-window]({{base_path}}/assets/img/guides/claim-edite-window.png)
 
-5.  By clicking `Add Claim Property`, add an additional claim property as follows.
+5.  Click `Add Claim Property` and add an additional claim property as follows.
     
     <table>
         <thead>
@@ -45,6 +44,6 @@ Follow the steps below to configure WSO2 Identity Server.
 
     ![additional-claim-properties]({{base_path}}/assets/img/guides/additional-claim-properties.png)
 
-6.  Finally, click the `Update` button to save the additional claim property.
+6.  Finally, click `Update` to save the additional claim property.
 
 Now you can check and verify the functionality by adding users with an existing claim value or updating the user claim value of an existing claim.

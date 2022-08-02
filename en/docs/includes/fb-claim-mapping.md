@@ -1,3 +1,4 @@
+<!--
 All the basic information of a user/application is stored in the form of
 claims. However, for the same information, different Identity Providers(IdP)
 have different claims. Therefore, there should be a proper mechanism to
@@ -94,3 +95,4 @@ For that follow the below steps:
 6.  Click **Update** to save changes.
 
 Now you have configured the Identity Server.
+-->

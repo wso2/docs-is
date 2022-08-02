@@ -16,7 +16,7 @@ Consider a scenario with two tenant domains, `abc.com` and `123.com`. For users 
 ## Prerequisites
 
 - You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to [add two new tenants]({{base_path}}/guides/tenants/add-new-tenants/) with the following specifications:
+- You need to [add two new tenants]({{base_path}}/guides/tenants/tenant-mgt/) with the following specifications:
 
     | Field name    | Tenant 1  | Tenant 2  |
     |---------------|-----------|-----------|
