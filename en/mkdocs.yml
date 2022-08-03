@@ -116,7 +116,7 @@ nav:
             - SaaS Applications: guides/login/saas-application.md
             - Use Certificates with Applications: guides/login/use-certificates-with-applications.md
             - Session Timeout: guides/login/session-timeout.md
-            - Multi-attribute login: guides/login/multi-attribute-login.md
+            - Multi-Attribute Login: guides/login/multi-attribute-login.md
         - Single Sign On: 
           - Enable Single Sign On: guides/login/enable-single-sign-on.md
           - OIDC Applications: guides/login/sso-for-oidc.md
@@ -127,6 +127,7 @@ nav:
           - OIDC Flows:
             - Overview: guides/login/slo-for-oidc.md
             - Back-Channel Logout: guides/login/oidc-backchannel-logout.md
+            - Federated IdP-Initiated Logout: guides/login/oidc-federated-idp-initiated-logout.md
             - Session Management and Logout: guides/login/session-management-logout.md
             - Logout URL Redirection: guides/login/oidc-logout-url-redirection.md
           - SAML Flows:
