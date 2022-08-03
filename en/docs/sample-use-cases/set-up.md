@@ -3,19 +3,19 @@
 Follow the steps given below to set up and install WSO2 Identity Server (WSO2 IS) on your computer in quick time. 
 
 !!! info
-    For detailed instructions on other installations options and deployments, see the [installation guide]({{base_path}}/deploy/get-started/install/).
+    For detailed instructions on other installation options and deployments, see the [installation guide]({{base_path}}/deploy/get-started/install/).
 
 ## Install WSO2 IS
 
 Follow the steps given below.
 
-1. Download and install Oracle Java SE Development Kit (JDK) version version 11 or 17).
+1. Download and install Oracle Java SE Development Kit (JDK) version 11 or 17.
 2. Install WSO2 Identity Server by downloading the [installer](https://wso2.com/identity-and-access-management/install/).
 
     !!! info
         The installation location of WSO2 Identity Server is referred to as `<IS_HOME>`.
 
-The WSO2 Identity Server installation location varies according to the operating system as given below.
+The WSO2 Identity Server installation location can vary depending on the operating system as given below:
 
 |OS     |Home Directory                                |
 |:------|:---------------------------------------------|
@@ -26,7 +26,7 @@ The WSO2 Identity Server installation location varies according to the operating
 
 ## Configure the server
 
-Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` folder) and add the following configuration to enable CORS.
+Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` folder) and add the following configuration to enable CORS:
 
 ``` toml
 [cors]
@@ -58,18 +58,18 @@ To start WSO2 IS, open a terminal, navigate to the `<IS_HOME>/bin` folder, and e
     wso2server.bat
     ```
 
-Note that the following appears in the command prompt after the server start.
+Note that the following log appears in the command prompt when the server starts:
     
 ![QSG start server]({{base_path}}/assets/img/get-started/qsg-start-server.png)
 
 !!! tip "Shutting down the server"
     To shutdown the server, press `Ctrl + C`.
-    Note that following log appears in the command prompt after the server shutdown.
+    Note that the following log appears in the command prompt on server shutdown.
     
     ![QSG stop server]({{base_path}}/assets/img/get-started/qsg-stop-server.png)
 
 ## What's next?
 
-Try out the [sample IAM scenarios]({{base_path}}/sample-use-cases/sample-scenario) to get familliar with WSO2 IS and its capabilities.
+Try out the [sample IAM scenarios]({{base_path}}/sample-use-cases/sample-scenario) to get familiar with WSO2 IS and its capabilities.
 
 
