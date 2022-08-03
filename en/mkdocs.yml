@@ -589,26 +589,20 @@ nav:
           - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
       - Tenants: references/concepts/introduction-to-multitenancy.md
     - WSO2 IS Extensions:
-      - Work with the Source Code: references/extend/work-with-the-source-code.md
-      - Authenticator: references/extend/authenticator-x509.md
-      - User management:
-        #- Write a Custom Password Validator: references/extend/user-mgt/write-a-custom-password-validator.md
-        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-custom-global-scope-validator.md
-        - Write a Custom Claim Handler: references/extend/user-mgt/write-a-custom-claim-handler.md
-        - Write a Custom Event Handler: references/extend/user-mgt/write-a-custom-event-handler.md
-        - Userstore Listeners: references/extend/user-mgt/user-store-listeners.md
-        - Write a Post-Authentication Handler: references/extend/user-mgt/write-a-post-authentication-handler.md
-        - User Management Errors Event Listener: references/extend/user-mgt/user-management-errors-event-listener.md
-      - OAuth 2.0:
-        - Write a Custom OAuth 2.0 Grant Type: references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
-      - User provisioning:
-        - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
-        - Write an Outbound Provisioning Connector: references/extend/provisioning/write-an-outbound-provisioning-connector.md
-        #- Extensible SCIM User Schemas With WSO2 Identity Server: references/extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
-      - Identity federation:
+      #- Work with the Source Code: references/extend/work-with-the-source-code.md
+      - Authentication:
+        - OAuth2:
+          - Write a Custom OAuth2 Grant Type: references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
+        - X509 Authenticator: references/extend/authenticator-x509.md
+        - Adaptive authentication:
+          - Write Custom Functions for Adaptive Authentication: references/extend/write-custom-functions-for-adaptive-authentication.md
+        - Authentication endpoint: references/extend/customize-the-authentication-endpoint.md
+        - Localization: references/extend/localization-support-in-identity-server.md
+        - Host authentication endpoint on a different server: references/extend/host-authentication-endpoint-on-a-different-server.md
+      - Identity Federation:
         - Write a Custom Federated Authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
         - Write a Custom Local Authenticator: references/extend/federation/write-a-custom-local-authenticator.md
-      - Access Control for Developers:
+      - Access Control:
         #- Write a Custom Policy Info Point: references/extend/access-control/write-a-custom-policy-info-point.md
         - XACML policy writing:
           - XACML policy language structure and syntax: references/extend/access-control/xacml-structure-and-syntax.md
@@ -628,25 +622,33 @@ nav:
             - XACML 3 sample policy 4: references/extend/access-control/xacml3-sample4.md
             - XACML 3 sample policy 5: references/extend/access-control/xacml3-sample5.md
             - XACML 3 sample policy 6: references/extend/access-control/xacml3-sample6.md
-            - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md
-      - Adaptive authentication:
-        - Write Custom Functions for Adaptive Authentication: references/extend/write-custom-functions-for-adaptive-authentication.md
-      #- Workflow Management for Developers:
-        #- Extend the Workflow Event Handler: references/extend/workflows/extend-the-workflow-event-handler.md
-        #- Write a Custom Workflow Template: references/extend/workflows/write-a-custom-workflow-template.md
-      - My Account:
+            - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md      
+      - User Management:
+        #- Write a Custom Password Validator: references/extend/user-mgt/write-a-custom-password-validator.md
+        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-custom-global-scope-validator.md
+        - Write a Custom Claim Handler: references/extend/user-mgt/write-a-custom-claim-handler.md
+        - Write a Custom Event Handler: references/extend/user-mgt/write-a-custom-event-handler.md
+        - Userstore Listeners: references/extend/user-mgt/user-store-listeners.md
+        - Write a Post-Authentication Handler: references/extend/user-mgt/write-a-post-authentication-handler.md
+        - User Management Errors Event Listener: references/extend/user-mgt/user-management-errors-event-listener.md
+        - User provisioning:
+          - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
+          - Write an Outbound Provisioning Connector: references/extend/provisioning/write-an-outbound-provisioning-connector.md
+          #- Extensible SCIM User Schemas With WSO2 Identity Server: references/extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
+      - User self-service:
         - Set up in a Development Environment: references/extend/myaccount/set-up-my-account-in-a-dev-environment.md
         - Customize the UI: references/extend/myaccount/customize-my-account-ui.md
         - Configure the Application: references/extend/myaccount/configure-my-account.md
+      #- Workflow Management for Developers:
+        #- Extend the Workflow Event Handler: references/extend/workflows/extend-the-workflow-event-handler.md
+        #- Write a Custom Workflow Template: references/extend/workflows/write-a-custom-workflow-template.md
       - User interfaces (Rebrand):
         - Re-brand WSO2 Identity Server UIs: references/extend/rebranding/rebrand-identity-server-uis.md
         #- Re-brand the Default Login Page for Your Application: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
         - Re-brand the SSO Redirection Page: references/extend/rebranding/rebrand-the-sso-redirection-page.md
-      - Authentication endpoint: references/extend/customize-the-authentication-endpoint.md
-      - Localization: references/extend/localization-support-in-identity-server.md
-      - Host authentication endpoint on a different server: references/extend/host-authentication-endpoint-on-a-different-server.md
-      - Error messages: references/extend/errors/customize-authentication-error-messages.md
-      - Error Pages: references/extend/errors/customize-error-pages.md
+      - Errors:
+        - Error messages: references/extend/errors/customize-authentication-error-messages.md
+        - Error Pages: references/extend/errors/customize-error-pages.md
     - WSO2 IS Configurations:
       - Configuration Model: references/new-configuration-model.md
       - Default Ports of WSO2 Products: references/default-ports-of-wso2-products.md
