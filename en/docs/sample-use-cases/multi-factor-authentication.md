@@ -1,13 +1,13 @@
-# Multi-factor authentication
+# Multi-Factor Authentication
 
-Follow the instructions given here to to try out multi-factor authentication.
+Follow the instructions given here to try out multi-factor authentication.
 
 ## Problem scenario
 
-**Pickup** wants to enhance the security standards by introducing a second level of authentication when users log in to applications. Multi-factor Authentication (MFA) is enabled in WSO2 Identity Server using the following factors:
+**Pickup** wants to enhance the security standards by introducing a second level of authentication when users sign in to applications. Multi-factor authentication (MFA) is enabled in WSO2 Identity Server using the following factors:
     
-- **First factor** : username/password
-- **Second factor** : HARDWARE KEY
+- **First factor**: username/password
+- **Second factor**: HARDWARE KEY
 
 Let's use the command-line to check the MFA functionality.
 
@@ -33,7 +33,7 @@ Before you begin, do the following:
         http_method = "all" 
         ```
        
-3.  Start WSO2 Idenity Server.
+3.  Start WSO2 Identity Server.
 
 ## Run the sample scenario
 
@@ -54,16 +54,16 @@ Let's run the sample applications **Pickup-Dispatch** and **Pickup-Manager**.
 
 ## Try it out
 
-Let's access the **Pickup-Dispatch** application and try login.
+Let's access the **Pickup-Dispatch** application and proceed to sign in.
     
-1.  Copy the `http://localhost:8080/saml2-web-app-pickup-dispatch.com` URL to your web browser to access the Pickup Dispatch application.
+1.  Copy the `http://localhost:8080/saml2-web-app-pickup-dispatch.com` URL to your web browser to access the **Pickup-Dispatch** application.
 
-2.  Click **Log in** to access the first authentication step proided by WSO2 Identity Server.
+2.  Click **Log in** to access the first authentication step provided by WSO2 Identity Server.
   
     ![Pickup Dispatch application login]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-login.png)
     
 3.  Enter either of the following credentials to sign in to the
-    application.
+    application:
 
     ``` bash
     Manager  --> Username: cameron | Password: cameron123
@@ -81,26 +81,23 @@ Let's access the **Pickup-Dispatch** application and try login.
     ![Enter the hardware key]({{base_path}}/assets/img/get-started/hardware-key.png)
 
     !!! info
-        After successful authentication, the **User Consents** page of the Pickup
-    Dispatch application appears.
+        After successful authentication, the **User Consent** page of the **Pickup-Dispatch** application appears.
 
-5.  Select the attributes that you want to share with Pickup Dispatch and click
+5.  Select the attributes that you want to share with the **Pickup-Dispatch** application and click
     **Continue**.
 
     ![Consent page]({{base_path}}/assets/img/get-started/qsg-sso-consent.png)      
 
     !!! note
-        Obtaining user consent is one of the fundamental requirements of
-        GDPR regulations. WSO2 Identity Server facilitates this through its **Consent
-        Management** features. To know more about GDPR and how WSO2 Identity Server
+        Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. To know more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
 
-Note that the **Pickup Dispatch** home screen appears.
+Note that the **Pickup-Dispatch** application home screen appears.
 
 ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
 ## What's next?
 
-To try out other scenarios, navigate back to where you ran the quickstart sample on the command-line and enter `y` to clean the setup.
+To try out other scenarios, navigate back to the command-line where you ran the quickstart sample and enter `y` to clean the setup.
     
 ![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)
