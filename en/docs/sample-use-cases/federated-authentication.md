@@ -115,7 +115,7 @@ You have just signed in to the **Pickup-Dispatch** application as an external co
 
 ## What's next?
 
-To try out other scenarios, navigate back to the command line where you ran the quickstart sample and enter `y` to clean the setup.
+To try out other scenarios, navigate back to the command-line where you ran the quickstart sample and enter `y` to clean the setup.
     
 ![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)
 
