@@ -167,7 +167,7 @@ Use the `prompt=login` parameter with the authentication request to force authen
 !!! abstract ""
     **Sample Request**
     ```
-    https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=none&scope=openid
+    https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=login&scope=openid
     ```
 
 If the user is successfully re-authenticated with WSO2 Identity Server, you will receive a successful response as follows.
