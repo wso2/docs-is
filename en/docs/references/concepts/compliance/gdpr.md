@@ -35,11 +35,11 @@ IS.
 
 Following are the encryption features supported for personal data.
 
--   OAuth2 access token
+-   OAuth 2.0 access token
 
--   OAuth2 refresh token
+-   OAuth 2.0 refresh token
 
--   OAuth2 authorization
+-   OAuth 2.0 authorization
 
 -   ID tokens
 

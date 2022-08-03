@@ -1,6 +1,6 @@
 # Configure the Email Sending Module
 
-This document explains the steps to configure WSO2 Identity Server to send emails during multiple email-related identity and access management tasks such as [email OTP]({{base_path}}/guides/mfa/2fa-email-otp/), email notifications, and account recovery.
+This document explains the steps to configure WSO2 Identity Server to send emails during multiple email-related customer identity and access management tasks such as [email OTP]({{base_path}}/guides/mfa/2fa-email-otp/), email notifications, and account recovery.
 
 ## Configure the email sender (globally)
 

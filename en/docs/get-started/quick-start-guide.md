@@ -2,7 +2,7 @@
 
 Are you new to **WSO2 Identity Server**? Let's get to know what we are all about! 
 
-**WSO2 Identity Server (WSO2 IS)** simplifies the Identity and Access Management (IAM) needs of your organization. The product ensures easy integration with a variety of applications to facilitate single sign-on (SSO), social login, identity federation, API security, strong authentication, account management, privacy compliance, and so much more. 
+**WSO2 Identity Server (WSO2 IS)** simplifies the Customer Identity and Access Management (CIAM) needs of your organization. The product ensures easy integration with a variety of applications to facilitate single sign-on (SSO), social login, identity federation, API security, strong authentication, account management, privacy compliance, and so much more. 
 
 <iframe width="800" height="250" src="https://www.youtube.com/embed/QUlcGOOdXU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

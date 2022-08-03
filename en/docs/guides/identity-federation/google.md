@@ -22,10 +22,11 @@ This page guides you through configuring Google as a federated authenticator in 
 
 
     !!! info
-        - For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
+        For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
 
 5. Select the **Web application** as the application type.
-6. Provide a name for your app and the following URL as the **Authorized Redirect URI** of the application: <br/>
+6. Provide a name for your app and the following URL as the **Authorized Redirect URI** of the application: 
+
     ```
     https://<IS_HOST>:<IS_PORT>//commonauth
     ```

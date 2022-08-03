@@ -87,38 +87,36 @@ nav:
             - Microsoft Sharepoint: guides/login/log-into-sharepoint-using-is.md
             - Magento: guides/login/log-into-magento-using-is.md
             - Microsoft Dynamics CRM with WS Federation: guides/login/log-into-dynamic-crm-with-wsfederation.md
-          - Request Path Authentication:
-            - Overview: guides/request-path-auth/request-paths-overview.md
-            - Basic Auth Request Path Authentication: guides/request-path-auth/basic-auth-request-path.md
-            - OAuth Request Path Authentication: guides/request-path-auth/oauth-request-path.md
           - Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
-          - Advanced settings:
+          - OIDC Flows:
+            - Overview: guides/login/oidc-authentication.md 
+            - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 
+            - OIDC Auth Code Flow with PKCE: guides/login/oidc-auth-code-pkce.md
+            - OIDC Implicit Flow: guides/login/oidc-implicit-client-profile.md 
+            - OIDC Hybrid Flow: guides/login/oidc-hybrid-flow.md 
+            - Pass Parameters as a Request Object: guides/login/request-object.md
+            - Manage Scopes and Claims: guides/login/oidc-scopes-claims.md
+            - Encrypt ID Tokens: guides/login/oidc-token-encryption.md
+            - Decrypt ID Tokens: guides/login/oidc-token-decryption.md
+            - Discover OpenID Connect Provider: guides/login/oidc-discovery.md
+            - Obtain Key Set Using JWKS: guides/login/using-jwks.md
+            - Validate JWT based on JWKS: guides/login/validate-jwt-using-jwks.md
+          - SAML Flows:
+            - Use SAML Artifact Binding: guides/login/use-artifact-binding.md
+            - Query SAML Assertions: guides/login/query-saml-assertions.md
+            - Use SAML Metadata: guides/login/use-saml-metadata.md
+          - Advanced Settings:
+            - OIDC Advanced:
+              - Advanced Configurations: guides/login/oauth-app-config-advanced.md
+              - Use Advanced Parameters in the Authentication Request: guides/login/oidc-parameters-in-auth-request.md
+            - SAML Advanced:
+              - Advanced Configurations: guides/login/saml-app-config-advanced.md
+              - Use Advanced Parameters in the Authentication Request: guides/login/saml-parameters-in-auth-request.md
             - Skip User Consent: guides/login/skip-user-consent.md
             - SaaS Applications: guides/login/saas-application.md
             - Use Certificates with Applications: guides/login/use-certificates-with-applications.md
             - Session Timeout: guides/login/session-timeout.md
             - Multi-Attribute Login: guides/login/multi-attribute-login.md
-        - OpenID Connect:
-          - Overview: guides/login/oidc-authentication.md 
-          - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 
-          - OIDC Auth Code Flow with PKCE: guides/login/oidc-auth-code-pkce.md
-          - OIDC Implicit Flow: guides/login/oidc-implicit-client-profile.md 
-          - OIDC Hybrid Flow: guides/login/oidc-hybrid-flow.md 
-          - Advanced Configurations: guides/login/oauth-app-config-advanced.md
-          - Use Advanced Parameters in the Authentication Request: guides/login/oidc-parameters-in-auth-request.md
-          - Pass Parameters as a Request Object: guides/login/request-object.md
-          - Manage Scopes and Claims: guides/login/oidc-scopes-claims.md
-          - Encrypt ID Tokens: guides/login/oidc-token-encryption.md
-          - Decrypt ID Tokens: guides/login/oidc-token-decryption.md
-          - Discover OpenID Connect Provider: guides/login/oidc-discovery.md
-          - Obtain Key Set Using JWKS: guides/login/using-jwks.md
-          - Validate JWT based on JWKS: guides/login/validate-jwt-using-jwks.md
-        - SAML:
-          - Advanced Configurations: guides/login/saml-app-config-advanced.md
-          - Use Advanced Parameters in the Authentication Request: guides/login/saml-parameters-in-auth-request.md
-          - Use SAML Artifact Binding: guides/login/use-artifact-binding.md
-          - Query SAML Assertions: guides/login/query-saml-assertions.md
-          - Use SAML Metadata: guides/login/use-saml-metadata.md
         - Single Sign On: 
           - Enable Single Sign On: guides/login/enable-single-sign-on.md
           - OIDC Applications: guides/login/sso-for-oidc.md
@@ -126,16 +124,20 @@ nav:
           - reCAPTCHA for SSO: guides/login/configure-recaptcha-for-single-sign-on.md
         - Single Logout:
           - Overview: guides/login/single-logout-overview.md
-          - OpenID Connect:
+          - OIDC Flows:
             - Overview: guides/login/slo-for-oidc.md
             - Back-Channel Logout: guides/login/oidc-backchannel-logout.md
             - Federated IdP-Initiated Logout: guides/login/oidc-federated-idp-initiated-logout.md
             - Session Management and Logout: guides/login/session-management-logout.md
             - Logout URL Redirection: guides/login/oidc-logout-url-redirection.md
-          - SAML:
+          - SAML Flows:
             - Front-Channel Logout: guides/login/saml-front-channel-logout.md
             - Back-Channel Logout: guides/login/saml-back-channel-logout.md
           - Cross Protocol Logout: guides/login/cross-protocol-logout.md
+        - Request Path Authentication:
+          - Overview: guides/request-path-auth/request-paths-overview.md
+          - Basic Auth Request Path Authentication: guides/request-path-auth/basic-auth-request-path.md
+          - OAuth Request Path Authentication: guides/request-path-auth/oauth-request-path.md
         - Passwordless Authentication:
           - Overview: guides/passwordless/overview.md
           - FIDO: guides/passwordless/fido.md
@@ -212,23 +214,23 @@ nav:
           - MDP requests and responses: guides/authorization/mdp-req-and-response.md
       - Access Delegation:
         - Overview: guides/access-delegation/access-delegation.md
-        - Authorization code flows:
+        - OAuth 2.0 Grant Types:
           - Authorization Code Grant: guides/access-delegation/auth-code-playground.md
-          - Implicit Grant: guides/access-delegation/implicit-playground.md
           - Client Credentials Grant: guides/access-delegation/client-credentials-playground.md
-          - Password Grant: guides/access-delegation/password-playground.md
-          - Microprofile JWT: guides/access-delegation/microprofile-jwt-sample.md
-          - SAML2 Bearer Assertion Profile: guides/access-delegation/saml2-bearer-assertion-profile.md
-          - Encrypt ID Tokens: guides/access-delegation/oidc-token-encryption-sample.md
-          - Kerberos: guides/access-delegation/configure-kerberos-grant.md
-          - Refresh Tokens: guides/access-delegation/configure-refresh-token.md
-          - JWT Grant: guides/access-delegation/configure-jwt-grant.md
           - Device Flow Grant: guides/access-delegation/try-device-flow.md
-        - Invoke the OAuth 2.0 Introspection Endpoint: guides/access-delegation/invoke-oauth-introspection-endpoint.md
+          - Refresh Tokens: guides/access-delegation/configure-refresh-token.md
+          - Implicit Grant: guides/access-delegation/implicit-playground.md
+          - Password Grant: guides/access-delegation/password-playground.md
+        - Microprofile JWT: guides/access-delegation/microprofile-jwt-sample.md
+        - SAML2 Bearer Assertion Profile: guides/access-delegation/saml2-bearer-assertion-profile.md
+        #- Encrypt ID Tokens: guides/access-delegation/oidc-token-encryption-sample.md
+        - Kerberos: guides/access-delegation/configure-kerberos-grant.md
+        - JWT Grant: guides/access-delegation/configure-jwt-grant.md
+        - OAuth 2.0 Introspection: guides/access-delegation/invoke-oauth-introspection-endpoint.md
         - OAuth 2.0 Dynamic Client Registration: guides/access-delegation/oauth-dynamic-client-registration.md
         - OAuth 2.0 Client Authentication: guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md
-        - OAuth Transaction Logs: guides/access-delegation/oauth-transaction-logs.md
-        - OAuth Token Hashing: guides/access-delegation/oauth-token-hashing.md
+        - OAuth 2.0 Transaction Logs: guides/access-delegation/oauth-transaction-logs.md
+        - OAuth 2.0 Token Hashing: guides/access-delegation/oauth-token-hashing.md
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
       - User Management:
@@ -513,7 +515,7 @@ nav:
           - Authorized Apps:
               - Authorized Apps V1: apis/authorized-apps-rest-api.md
               - Authorized Apps V2: apis/authorized-apps-v2-rest-api.md
-          - OAuth2 Scope Management: apis/oauth2-scope-management-rest-apis.md
+          - OAuth 2.0 Scope Management: apis/oauth2-scope-management-rest-apis.md
           - OpenID Connect Scope Management: apis/oidc-scope-management-rest-apis.md
           - OIDC Dynamic Client Registration: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
           - Script Libraries: apis/script-library-rest-api.md
@@ -597,8 +599,8 @@ nav:
         - Userstore Listeners: references/extend/user-mgt/user-store-listeners.md
         - Write a Post-Authentication Handler: references/extend/user-mgt/write-a-post-authentication-handler.md
         - User Management Errors Event Listener: references/extend/user-mgt/user-management-errors-event-listener.md
-      - OAuth2:
-        - Write a Custom OAuth2 Grant Type: references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
+      - OAuth 2.0:
+        - Write a Custom OAuth 2.0 Grant Type: references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md
       - User provisioning:
         - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
         - Write an Outbound Provisioning Connector: references/extend/provisioning/write-an-outbound-provisioning-connector.md
@@ -702,7 +704,7 @@ nav:
         - Multi Factor Authentication: references/concepts/authentication/multi-factor-authentication.md
         - FIDO: references/concepts/authentication/mfa-with-fido.md
       - Authorization:
-        - OAuth2:
+        - OAuth 2.0:
           - Introduction: references/concepts/authorization/intro-oauth2.md
           - OAuth 2.0 Client Types: references/concepts/authorization/client-types.md
           - Grant Types:
