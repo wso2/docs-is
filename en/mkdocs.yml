@@ -504,6 +504,7 @@ nav:
           - Challenge question: apis/challenge-rest-api.md
           - Self Sign-Up: apis/use-the-self-sign-up-rest-apis.md
       - Identity providers: apis/idp-rest-api.md
+      - Identity provider sessions: apis/idp-session-extender-endpoint.md
       - Self-service:
           - FIDO: apis/fido-rest-api.md
           - Personal information export: apis/use-the-personal-information-export-rest-apis.md
