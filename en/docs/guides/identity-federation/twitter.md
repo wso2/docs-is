@@ -9,7 +9,7 @@ This page guides you through configuring Twitter as a federated authenticator in
 
 1. Log in to <https://developer.twitter.com/> using your Twitter credentials. 
 
-2. Click on **Create  project** and set up your project.
+2. Click **Create  project** and set up your project.
     
     ![Create Twittter project]({{base_path}}/assets/img/samples/twitter-dashboard.png)
 
