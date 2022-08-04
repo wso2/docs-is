@@ -105,7 +105,7 @@ You have now set up your Twitter application.
    **Configure** under the **OAuth/OpenIDConnect Configuration** section and
    set the configurations as required.
 
-5. Configure the Callback URL of the sample application (**http://localhost.com:8080/pickup-dispatch/oauth2client**).
+5. Configure the Callback URL of the sample application (`http://localhost.com:8080/pickup-dispatch/oauth2client`).
 
    ![configuring-OAuth-Callback-URL]({{base_path}}/assets/img/guides/oauth-callback-url.png)
 
