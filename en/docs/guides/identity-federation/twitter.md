@@ -7,7 +7,7 @@ This page guides you through configuring Twitter as a federated authenticator in
 !!! note 
 	You can skip this section if you have already registered your application on Twitter. 
 
-1. Login to <https://developer.twitter.com/> using your Twitter credentials. 
+1. Log in to <https://developer.twitter.com/> using your Twitter credentials. 
 
 2. Click on **Create  project** and set up your project.
     
