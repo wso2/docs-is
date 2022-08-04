@@ -1,6 +1,6 @@
 # Configure SAML 2.0 Front-Channel Logout
 
-This page guides you through configuring [SAML 2.0 front-channel logout](../../../references/concepts/authentication/saml-front-channel/) for applications with WSO2 Identity Server. This will ensure that the user is logged out from all configured applications with a single logout request via one of the applications.
+This page guides you through configuring [SAML 2.0 front-channel logout]({{base_path}}/references/concepts/authentication/saml-front-channel/) for applications with WSO2 Identity Server. This will ensure that the user is logged out from all configured applications with a single logout request via one of the applications.
 
 ## Scenario
 
@@ -10,7 +10,7 @@ The user is required to log in to two different applications, `application1` and
 
 ## Register two applications in WSO2 Identity Server
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 1.   Expand **Inbound Authentication Configuration** > **SAML2 Web SSO Configuration** and click **Configure**.
 
@@ -27,7 +27,7 @@ The user is required to log in to two different applications, `application1` and
      -    Select **Enable Attribute Profile**.
      -    Select **Include Attributes in the Response Always**.
 
-     ![SAML service provider configurations](../../assets/img/samples/spring-security.png)
+     ![SAML service provider configurations]({{base_path}}/assets/img/samples/spring-security.png)
 
 3.  Follow the same steps and change the values for sample2 and register another service provider.
 
@@ -55,7 +55,7 @@ Make the following changes to the created service provider.
 6. Click **Register**.
 
 !!! tip
-     To configure more advanced configurations, see [Advanced SAML Configurations](../../../guides/login/saml-app-config-advanced). 
+     To configure more advanced configurations, see [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced). 
 
 ## Download the SAML metadata file
 
@@ -67,7 +67,7 @@ Make the following changes to the created service provider.
 
 4. Select **SAML2 Web SSO Configuration** and **Download SAML Metadata**.
 
-    ![Download SAML metadata](../../assets/img/samples/download-saml-metadata.png)
+    ![Download SAML metadata]({{base_path}}/assets/img/samples/download-saml-metadata.png)
 
 ## Try it
 
@@ -123,26 +123,26 @@ Once you have configured all your applications, access them in separate tabs in 
 
 2.  Select **localhost** and click on **Start single sign-on**.
 
-    ![IdP selection page](../../assets/img/samples/choose-localhost.png)
+    ![IdP selection page]({{base_path}}/assets/img/samples/choose-localhost.png)
 
 3.  Log in as the admin. You will be directed to the page with authenticated user information. 
 
-    <img src="../../assets/img/samples/sample1-1.png" alt="Authenticated user information" width="600" class="center">
+    <img src="{{base_path}}/assets/img/samples/sample1-1.png" alt="Authenticated user information" width="600" class="center">
 
-    <img src="../../assets/img/samples/sample1-2.png" alt="Authenticated user information" width="600" class="center">
+    <img src="{{base_path}}/assets/img/samples/sample1-2.png" alt="Authenticated user information" width="600" class="center">
 
 4.  Open a new tab on the browser and log into the second application, `http://localhost:8080/spring-security-saml2-sample2`.
 
 5.  Similar to the first application, select **localhost**, click on **Start single sign-on**, and sign in as the admin. 
 
-    ![WSO2 Identity Server sign in page](../../assets/img/samples/sign-in-sample.png)
+    ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/samples/sign-in-sample.png)
 
 6.  On any one of the applications click **Global Logout**.
 
 7.  You will be successfully logged out of both the applications.
     
-    <img src="../../assets/img/samples/spring-logout.png" alt="Spring SAML sample application logout" width="500" class="center">
+    <img src="{{base_path}}/assets/img/samples/spring-logout.png" alt="Spring SAML sample application logout" width="500" class="center">
 
 !!! info "Related topics"
-    -   [Concept: SAML 2.0 Front-Channel Logout](../../../references/concepts/authentication/saml-front-channel/)
-    -   [Quick Start: Configure SAML 2.0 Front-Channel Logout](../../../quick-starts/saml-front-channel-logout)
+    -   [Concept: SAML 2.0 Front-Channel Logout]({{base_path}}/references/concepts/authentication/saml-front-channel/)
+    -   [Quick Start: Configure SAML 2.0 Front-Channel Logout]({{base_path}}/quick-starts/saml-front-channel-logout)

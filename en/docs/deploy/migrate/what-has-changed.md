@@ -27,7 +27,7 @@ certificate_alias_enabled = true
 ```
 
 ### Common Changes
-The default token binding type of both the Console and MyAccount is changed from ```SSO-based binding``` to ```cookie-based binding```. Read more on [Access Token Binding Type](../../learn/configuring-oauth2-openid-connect-single-sign-on/).
+The default token binding type of both the Console and MyAccount is changed from ```SSO-based binding``` to ```cookie-based binding```. Read more on [Access Token Binding Type]({{base_path}}/learn/configuring-oauth2-openid-connect-single-sign-on/).
 
 With IS 6.0.0, the ```Post-Logout Redirect URL``` the Console and MyAccount are now tenant qualified by default. Hence, after migrating to IS 6.0.0, the Callback URLs of both the MyAccount and Console applications should be updated as follows:
 
@@ -500,6 +500,36 @@ If this behavior is not required, it can be disabled using the following configu
 [scim2]
 remove_duplicate_users_in_users_response = true 
 ```
+
+#### Data type change for boolean attributes from the Schemas endpoint
+
+In previous versions of WSO2 Identity Server, the `scim2/Schemas` endpoint returned the attribute type of boolean attributes as `string`.
+```
+caseExact: false
+description: "Status of the account"
+displayName: "Active"
+displayOrder: "20"
+multiValued: false
+mutability: "READ_WRITE"
+name: "active"
+required: false
+returned: "DEFAULT"
+type: "STRING"
+```
+In Identity Server 6.0.0, the attribute type returned for boolean attributes from the `scim2/Schemas` endpoint is `boolean`.
+```
+caseExact: false
+description: "Status of the account"
+displayName: "Active"
+displayOrder: "20"
+multiValued: false
+mutability: "READ_WRITE"
+name: "active"
+required: false
+returned: "DEFAULT"
+type: "BOOLEAN"
+```
+
 ### OAuth DCR Endpoint Response
 With WSO2 Identity Server 6.0.0, the response model of an application ```GET/PUT``` response from the OAuth DCR endpoint has been updated.
 The data type of the ```client_secret_expires_at``` property of an OAuth2 Application object has been changed from ```string``` to ```long```.
@@ -592,6 +622,9 @@ Applications can configured as management applications in the following methods:
 
 !!! Note
     This will affect only new applications. All applications that existed prior to the migration will still be able to access the Server's Management APIs.
+
+### Resend Code API Restrictions
+From Identity Server 6.0.0 onwards, only users with identity management permission are able to invoke the resend-code API.
 
 ## Database
 This section covers the updates related to database configurations on Identity Server 6.0.0.

@@ -4,7 +4,7 @@ This page guides you through configuring token encryption for ID tokens.
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ----
 
@@ -35,19 +35,84 @@ Make the following changes to the created service provider.
 4. Click **Add**
 
 !!! tip
-     To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../../guides/login/oauth-app-config-advanced). 
+     To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced). 
 
 ----
 
-{!fragments/encrypt-id-tokens.md!}
+## Configure the public certificate
+
+The following steps describe how to configure a service provider public certificate.
+
+1.  Create a new keystore.
+
+    ``` java
+    keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore testkeystore.jks -dname "CN=*.test.com,OU=test,O=test,L=MPL,ST=MPL,C=FR" -storepass wso2carbon -keypass wso2carbon -validity 10950
+    ```
+
+2.  Create a file and name it as the client ID of the OAuth application service provider. Export the public key of the new keystore to the file you created.
+
+    ``` java
+    keytool -export -alias wso2carbon -file <client-id> -keystore testkeystore.jks
+    ```
+
+3.  Get the cert in X509 format.
+
+    ``` java
+    keytool -printcert -rfc -file <client-id>
+    ```
+
+    You will see the public certificate in X509 format in the console.
+    
+4. Copy the content of the certificate. A sample output is shown below. 
+
+    ``` java
+	-----BEGIN CERTIFICATE-----
+	MIIDVzCCAj+gAwIBAgIETCZA8zANBgkqhkiG9w0BAQsFADBcMQswCQYDVQQGEwJG
+	UjEMMAoGA1UECBMDTVBMMQwwCgYDVQQHEwNNUEwxDTALBgNVBAoTBHRlc3QxDTAL
+	BgNVBAsTBHRlc3QxEzARBgNVBAMMCioudGVzdC5jb20wHhcNMTgwMjE0MDYzNjE3
+	WhcNNDgwMjA3MDYzNjE3WjBcMQswCQYDVQQGEwJGUjEMMAoGA1UECBMDTVBMMQww
+	CgYDVQQHEwNNUEwxDTALBgNVBAoTBHRlc3QxDTALBgNVBAsTBHRlc3QxEzARBgNV
+	BAMMCioudGVzdC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCz
+	Gc/BcXCiIagLhXs1g90H+PbfZyXLzwFJ+YmsKMikcffhyopDD+fnFjHb1+XXSnUh
+	4XzQlFba6m2vIOK8uquMhZKMv/E7Vxkl/ADTuw/BgpZRut4p88Fn8OWZlrJfoi3o
+	hvgfxSMratvxLMp1Qe0BzjwoBDB9r+h9pj8kCpHC824eUGIR0FZsW9lnoJP2LegL
+	nAcOJuNBoeWC0wwNu0sgIJwjsKp3G3glm8B4GdZvbF8aW1QRAk36sh8+0GXrRnAz
+	aGcRAqt7CjeZmt5Dsuy0lfp5i1xf5myPOH7MwKHqQQ56Wu9O479NdDVLkJ0xne2r
+	ZTCwMeGhQQH5hI+SYlxjAgMBAAGjITAfMB0GA1UdDgQWBBTzS+bja//25xb+4wcP
+	gMN6cJZwoDANBgkqhkiG9w0BAQsFAAOCAQEAdhZ8romzQQKF9c8tJdIhUS4i7iJh
+	oSjBzN+Ex9+OJcW6ubcLb8pai/J3hcvMadAybR1A17FkETLFmG9HkuEN9o2jfU7c
+	9Yz5d0pqO8qNKXSqHky5c+zA4vzLZGsgKyDZ5a0p9Qpsat3wnA3UGZPRoVGV5153
+	Mb0J1n1uubxGobEEzR2BXaKO9YEWAMQwGRdQCGBaIeGUOpqSUJMLYirDXL03je3g
+	mYzWclLTEHpIYy+a66tmF9uTGgyys33LPm2pQ+kWd8FikWolKKBqp+IPU5QdUQi1
+	DdFHsyNqrnms6EOQAY57Vnf91RyS7lnO1T/lVR6SDk9+/KDBEL1b1cy7Dg==
+	-----END CERTIFICATE-----
+    ```
+
+4.  Click **Service Providers > List** and **Edit** the service provider you created. 
+
+5. Select **Upload SP Certificate** under  **Select SP Certificate Type**.
+
+6. Paste the certificate content copied in step 4 as the **Application Certificate**.
+
+    ![Upload SP certificate]({{base_path}}/assets/img/guides/upload-sp-cert.png)
+    
+    !!! note
+
+		Instead of uploading the service provider certificate as shown
+		above, you can choose to use the JWKS enpoint as shown below and
+		add the relevant JWKS URI.
+
+		![JWKS URI]({{base_path}}/assets/img/guides/jwks-uri.png)
+
+7. Click **Update**.
 
 ----
 
 ## Try it
 
-This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token](../../../guides/login/oidc-token-decryption).
+This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token]({{base_path}}/guides/login/oidc-token-decryption).
 
-1. See [OAuth Grant Types](../../access-delegation/authorization-code) and try out one of the grant types with the `openid` scope to obtain an access token.
+1. See [OAuth Grant Types]({{base_path}}/access-delegation/authorization-code) and try out one of the grant types with the `openid` scope to obtain an access token.
 
 2. You will recieve an access token and an encrypted ID token. 
 
@@ -69,7 +134,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
 
     4.  Copy only the key string as shown in the sample below.
 
-        ![sample-key-string](../../assets/img/guides/sample-key-string.png)
+        ![sample-key-string]({{base_path}}/assets/img/guides/sample-key-string.png)
 
 4. The following sample JAVA program can be used to decrypt the ID token using the default `wso2carbon.jks` keystore. 
 
@@ -126,8 +191,8 @@ This section guides you through obtaining an encrypted ID token and decrypting i
     
 
 !!! info "Related topics"
-    - [Concept: ID Token](../../../references/concepts/authentication/id-token)
-    - [Quick Start: OpenID Connect Token Encryption](../../../quick-starts/oidc-token-encryption-sample)
-    - [Guide: Enable Login for an OpenID Connect Web Application](../webapp-oidc)
-    - [Guide: Use Advanced Parameters in Authentication Requests](../oidc-parameters-in-auth-request)
+    - [Concept: ID Token]({{base_path}}/references/concepts/authentication/id-token)
+    - [Quick Start: OpenID Connect Token Encryption]({{base_path}}/quick-starts/oidc-token-encryption-sample)
+    - [Guide: Enable Login for an OpenID Connect Web Application]({{base_path}}/webapp-oidc)
+    - [Guide: Use Advanced Parameters in Authentication Requests]({{base_path}}/oidc-parameters-in-auth-request)
 

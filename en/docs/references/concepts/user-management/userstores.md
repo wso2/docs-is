@@ -1,6 +1,6 @@
 # Introduction to Userstores
 
-Userstores are used to store [users](../users) and [roles](../roles-and-permissions). WSO2 Identity Server (WSO2 IS) supports JDBC, LDAP, and Active Directory userstores by default with the capability of configuring custom userstores. There are different userstore adapters called *userstore managers*, which are used to connect
+Userstores are used to store [users]({{base_path}}/users) and [roles]({{base_path}}/roles-and-permissions). WSO2 Identity Server (WSO2 IS) supports JDBC, LDAP, and Active Directory userstores by default with the capability of configuring custom userstores. There are different userstore adapters called *userstore managers*, which are used to connect
 with these userstore types.
 
 There are two types of userstores.
@@ -14,7 +14,7 @@ All the supported userstores can be categorized under these two types.
 
 ## Primary userstore (mandatory)
 
-This is the main userstore that is shared among all the [tenants](../../introduction-to-multitenancy/) in the system. Only one userstore should be configured as the primary userstore. By default, WSO2 Identity Server uses an embedded Read/Write LDAP as the primary userstore. It is recommended to change this default configuration in the production system. See [here](../../../../deploy/configure-the-primary-user-store/) for more information on configuring the primary userstore. The primary userstore can be changed from the embedded LDAP to any of the following userstores based on user requirement. Alternatively, a custom userstore manager can be configured as well. 
+This is the main userstore that is shared among all the [tenants]({{base_path}}/introduction-to-multitenancy/) in the system. Only one userstore should be configured as the primary userstore. By default, WSO2 Identity Server uses an embedded Read/Write LDAP as the primary userstore. It is recommended to change this default configuration in the production system. See [here]({{base_path}}/deploy/configure-the-primary-user-store/) for more information on configuring the primary userstore. The primary userstore can be changed from the embedded LDAP to any of the following userstores based on user requirement. Alternatively, a custom userstore manager can be configured as well. 
 
 <table>
     <colgroup>
@@ -66,10 +66,10 @@ not shared among multiple tenants. A user can access and work with multiple seco
 ## Userstore Manager
 
 Adapters used to connect with different userstores are called *userstore managers*. By default, there are userstore managers for JDBC,
-LDAP, and Active Directory userstores. If you need to add a new userstore implementation, see [Write a Custom Userstore Manager](../../../../deploy/write-a-custom-user-store-manager).
+LDAP, and Active Directory userstores. If you need to add a new userstore implementation, see [Write a Custom Userstore Manager]({{base_path}}/deploy/write-a-custom-user-store-manager).
 
 
 !!! info "Related topics"
-    - [Deploy: Configure Userstores](../../../../deploy/configure-user-stores/)
-    - [Deploy: Configure Primary Userstore](../../../../deploy/configure-the-primary-user-store/)
-    - [Deploy: Configure Secondary Userstores](../../../../deploy/configure-secondary-user-stores/)
+    - [Deploy: Configure Userstores]({{base_path}}/deploy/configure-user-stores/)
+    - [Deploy: Configure Primary Userstore]({{base_path}}/deploy/configure-the-primary-user-store/)
+    - [Deploy: Configure Secondary Userstores]({{base_path}}/deploy/configure-secondary-user-stores/)

@@ -4,10 +4,10 @@
 
 <div class="content"> 
     <!-- begin card -->
-    <a class="card" href="../../applications/add/spa">
+    <a class="card" href="{{base_path}}/guides/applications/add/spa">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../../../assets/img/icons/application/spa.png">
+            <img src="{{base_path}}/assets/img/icons/application/spa.png">
         </i>
       </div>
       <div class="card-content" >
@@ -17,10 +17,10 @@
     </a>
     <!-- end card -->
     <!-- begin card -->
-    <a class="card" href="../../applications/add/oidc">
+    <a class="card" href="{{base_path}}/guides/applications/add/oidc">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../../../assets/img/icons/application/web.png">
+            <img src="{{base_path}}/assets/img/icons/application/web.png">
         </i>
       </div>
       <div class="card-content" >
@@ -30,10 +30,10 @@
     </a>
     <!-- end card -->    
     <!-- begin card -->
-    <a class="card" href="../../applications/add/saml">
+    <a class="card" href="{{base_path}}/guides/applications/add/saml">
       <div class="icon">
         <i class="material-icons md-24">
-            <img src="../../../../assets/img/icons/application/web.png">
+            <img src="{{base_path}}/assets/img/icons/application/web.png">
         </i>
       </div>
       <div class="card-content" >

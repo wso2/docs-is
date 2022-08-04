@@ -10,7 +10,7 @@ datasource to any database type that is supported by WSO2 Identity Server.
 
 !!! note
     For more information about databases, see 
-    [Work with Databases](../../../deploy/work-with-databases) and [Set Up Separate Databases for Clustering](../../../deploy/set-up-separate-databases-for-clustering).
+    [Work with Databases]({{base_path}}/deploy/work-with-databases) and [Set Up Separate Databases for Clustering]({{base_path}}/deploy/set-up-separate-databases-for-clustering).
 
 Following are the sample configuration for each database type.
 
@@ -162,7 +162,7 @@ pool_options.validationInterval="30000"
 pool_options.defaultAutoCommit=false
 ```
 
-{! fragments/db-config-table.md !}
+{!./includes/db-config-table.md !}
 
 
 Once when we separate out the consent database from `WSO2IdentityDB`, we need to add the 

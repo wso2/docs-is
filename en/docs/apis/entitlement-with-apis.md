@@ -29,7 +29,7 @@ Entitlement Management APIs.
     
     For more information on WSO2 admin services and how to invoke an admin
     service using either SoapUI or any other client program, see [Call
-    Admin Services](../../apis/call-admin-services).
+    Admin Services]({{base_path}}/apis/call-admin-services).
     
 
 The following section guides you on entitlement management in two
@@ -1384,7 +1384,7 @@ be available with each of the operation.
 
 !!! info "REST API"
     WSO2 Identity Server provides a REST API and a REST endpoint for the
-    policy evaluation. Please read more about this REST API from [here](../../apis/entitlement-with-rest-apis).
+    policy evaluation. Please read more about this REST API from [here]({{base_path}}/apis/entitlement-with-rest-apis).
 
   
 

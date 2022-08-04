@@ -1,12 +1,12 @@
 # Enable Single Sign-On for an OIDC Web Application
 
-This page guides you through configuring [single sign-on authentication](../../../references/concepts/single-sign-on) between two OIDC web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager.
+This page guides you through configuring [single sign-on authentication]({{base_path}}/references/concepts/single-sign-on) between two OIDC web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager.
 
 ## Scenario
 
 Pickup is a cab company that has two OIDC web applications called pickup-dispatch and pickup-manager. Both applications use WSO2 Identity Server (IS) as the identity provider. When SSO is configured for both these applications, a user is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
-![OIDC SSO scenario](../../assets/img/samples/oidc-sso-scenario-diagram.png)
+![OIDC SSO scenario]({{base_path}}/assets/img/samples/oidc-sso-scenario-diagram.png)
 
 Follow the steps below to deploy the sample applications and see how this works. 
 
@@ -35,7 +35,7 @@ You need to register the two sample applications as service providers in WSO2 Id
     
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
-        refer, [Advanced OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced)
+        refer, [Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
         
 9.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 
@@ -62,7 +62,7 @@ You need to register the two sample applications as service providers in WSO2 Id
 
     !!! Tip
         For more information on the advanced configurations
-        refer, [Advanced OAuth/OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
+        refer, [Advanced OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
 5.  Click **Update** to save the changes.
 
@@ -81,7 +81,7 @@ Let's set up and configure the sample applications:
 
 4. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
 
-    ![Configurations of Pickup Dispatch application](../../assets/img/fragments/pickup-key-secret.png)
+    ![Configurations of Pickup Dispatch application]({{base_path}}/assets/img/fragments/pickup-key-secret.png)
 
 ### Pickup Manager
 
@@ -91,7 +91,7 @@ Let's set up and configure the sample applications:
 
 3. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
 
-    ![pickup-key-secret-2](../../../assets/img/fragments/pickup-key-secret-2.png)
+    ![pickup-key-secret-2]({{base_path}}/assets/img/fragments/pickup-key-secret-2.png)
 
 ## Deploy the samples
 
@@ -115,7 +115,7 @@ Let's try SSO with the two application.
 
 1. Navigate to `http://wso2is.local:8080/pickup-dispatch` on your browser and click **Login**.
 
-    ![Pickup Dispatch login](../../assets/img/samples/dispatch-login.png)
+    ![Pickup Dispatch login]({{base_path}}/assets/img/samples/dispatch-login.png)
 
 2. You will be redirected to the login page of WSO2 IS. Log in using your WSO2 IS credentials (admin/admin). Provide the required consent.
 You will be redirected to the Pickup Dispatch application home page.
@@ -127,6 +127,6 @@ You have successfully configured OpenID Connect single sign-on for two web appli
 ----
 
 !!! info "Related topics"
-    - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
-    - [Guide: Manage User Sessions](../session-management-logout)
-    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
+    - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)
+    - [Guide: Manage User Sessions]({{base_path}}/session-management-logout)
+    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/oidc-backchannel-logout)

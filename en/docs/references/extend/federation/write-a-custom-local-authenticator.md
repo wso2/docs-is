@@ -1,24 +1,35 @@
-# Write a Custom Local Authenticator
+# Write a custom local authenticator
 
-The default WSO2 Identity Server authenticator is the basic authenticator. It is a local authenticator that authenticates the end users using a connected user store and the provided user name and password. When a user needs to be authenticated with the user store and authorized based on the assigned user role, you can write a custom local authenticator. Let's try out a sample scenario on this.
+A local authenticator in WSO2 identity server authenticates users, who are stored in the local database, using a defined authentication logic.
+
+The default local authenticator in WSO2 identity server is the basic authenticator.
+It authenticates end users stored in a connected user store using the provided username and password.
+
+WSO2 identity server supports extensibility in local authentication so that you can implement a different authentication logic by writing a custom local authenticator.
+You can implement custom authentication logic tailored to your requirement, as follows:
+
+1. Authenticating users only if they belong to a particular role.
+2. Authenticating based on any claim, such as the user's telephone number or employee registration number.
+3. Calling another API to authenticate the user.
 
 ---
 
 ## Scenario
 
-You have an app called playground that is used for importing/exporting photos. The playground uses OpenID Connect to let the users log into it. The playground only allows the users who are assigned with the photoSharingRole user role to log in to it. (The users with other user roles are not allowed to log in to the playground application)
+Let’s consider a scenario where an application called `Playground` is used to import/export photos. You need to authenticate the app users by their username and password and allow login only if they belong to a role called `photoSharingRole`. You can write a custom local authenticator to implement this logic.
 
-This requirement can be easily achieved through WSO2 Identity Server extension points that have the ability to plug custom local authenticators. 
+First, let’s identify the primary difference between the basic authenticator and the local authenticator we are going to implement. In the basic authenticator, we are using the claim username with the claim URI  `http://wso2.org/claims/username` in order to uniquely identify the user.
+But in the custom local authenticator, we are going to implement, we will go a bit ahead and also check whether the user belongs to the role `photoSharingRole` and allow login only if he/she does.
 
 ---
 
 ## Write a custom local authenticator
 
-The following steps explain how you can write a custom local authenticator by extending the **AbstractApplicationAuthenticator** class and implementing the **LocalApplicationAuthenticator** class and how this custom local authenticator can be plugged into these extension points.
+You can implement the custom local authenticator by extending the abstract class [abstractApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/AbstractApplicationAuthenticator.java) and implementing the interface [LocalApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/LocalApplicationAuthenticator.java). This requires you to implement several methods in the custom local authenticator. Please refer to this [table](https://is.docs.wso2.com/en/latest/develop/writing-a-custom-local-authenticator/#reference) to understand the generic purpose of the method and the usage of it in our implementation.
 
-Let's begin.    
+Let's begin the implementation. 
 
-1.  Create a maven project to write the custom authenticator.
+1.   Create a maven project using the following pom.xml  to write the custom authenticator.
 
     ??? example "Click to view the sample pom.xml"
         ``` xml
@@ -146,7 +157,7 @@ Let's begin.
 2.  Write a custom local authenticator.
 
     !!! note    
-        The `BasicCustomAuthenticatorConstants.java` file that is referred in the below example is available [here](../../../assets/attachments/BasicCustomAuthenticatorConstants.java).
+        The `BasicCustomAuthenticatorConstants.java` file that is referred in the below example is available [here]({{base_path}}/assets/attachments/BasicCustomAuthenticatorConstants.java).
     
     ??? example "Click to view the sample custom authenticator class"
         ```
@@ -384,7 +395,7 @@ Let's begin.
             }
         ```
 
-4.  Build the project using maven. (Click to see the sample project [here](../../assets/attachments/org.wso2.custom.authenticator.local.zip)).
+4.  Build the project using maven. (Click to see the sample project [here]({{base_path}}/assets/attachments/org.wso2.custom.authenticator.local.zip)).
 
 5.  Copy the .jar file `org.wso2.custom.authenticator.local-1.0.0.jar` inside `<IS_HOME>/repository/components/dropins` folder.
 
@@ -400,25 +411,29 @@ Let's begin.
 
 11. In the service provider configuration, under **Inbound Authentication Configuration** section, click **OAuth/OpenID Connect Configuration > Configure**. 
 
-    ![OAuth/OpenID Connect Configuration option](../../../assets/img/guides/oauth-openid-connect-configuration-option.png) 
+    ![OAuth/OpenID Connect Configuration option]({{base_path}}/assets/img/guides/oauth-openid-connect-configuration-option.png) 
 
-12. Provide the `callback URL` and register it as an OAuth2 client app.
+12. Provide the `callback URL` and register it as an OAuth 2.0 client app.
 
-    ![Callback url](../../../assets/img/guides/playground-callback-url.jpeg) 
+    ![Callback url]({{base_path}}/assets/img/guides/playground-callback-url.jpeg) 
 
 13. Under **Local & Outbound Authentication Configuration**, select **Local authentication**.
-    ![Local authentication check box](../../../assets/img/guides/local-authentication-check-box.jpeg) 
+    ![Local authentication check box]({{base_path}}/assets/img/guides/local-authentication-check-box.jpeg) 
 
     !!! note
         On the corresponding drop-down list, you can see, `BasicCustom` which is the display name of the custom authenticator that was written. From the above step, you can make sure your custom authenticator is there and ready for use.    
 
 14. Visit the playground app and provide **Client ID** of the registered playground app and give the **Scope** as `openid` to make sure it is in the OpenID Connect flow. Click **Authorize**.  
 
-    ![Playground app](../../../assets/img/guides/playground-app.jpeg)
+    ![Playground app]({{base_path}}/assets/img/guides/playground-app.jpeg)
     
     Note that you will be directed to WSO2 Identity Server login page.
 
 15. Provide the username and password of the user `Larry` who is in the `photoSharingRole`. You are prompted to approve the app and logged in.
+
+For additional reference, You can find a completed version of a custom local authenticator that authenticates users based on their telephone number and password [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.local.authenticator).
+
+## Reference
 
 The following is a set of methods related to writing a custom local authenticator.
 
@@ -436,17 +451,18 @@ The following is a set of methods related to writing a custom local authenticato
 <tbody>
 <tr class="odd">
 <td>canHandle()</td>
-<td><p>This method checks whether the authentication request is valid, according to the custom authenticator’s requirements. The user will be authenticated if the method returns 'true'. This method also c hecks whether the authentication or logout request can be handled by the authenticator.</p>
-<p>For example, you can check if the username and password is 'not null' in the <strong>canHandle</strong> method. if that succeeds, the authentication flow will continue (to have the user authenticated).</p></td>
+<td><p>This method checks whether the authentication request is valid, according to the custom authenticator’s requirements. The user will be authenticated if the method returns 'true'. This method also checks whether the authentication or logout request can be handled by the authenticator.</p>
+<p>In our sample project, we used this method to check if the username and password is 'not null' in the authentication request. If that succeeds, the authentication flow will continue.</p></td>
 </tr>
 <tr class="even">
 <td>process()</td>
-<td><p>This method is used to process or carry out the user authentication process. It calls the <strong>super.process()</strong>, so that the super class will handle the authentication process, and it calls <strong>processAuthenticationResponse()</strong> method in the custom authenticator class to execute the custom authentication logic.</p></td>
+<td><p>This method is used to process or carry out the user authentication process. It calls the processAuthenticationResponse() method in the custom authenticator class to execute the custom authentication logic.</p>
+<p>In the sample project, we call the super.process(), so that the super class process method will handle the authentication process, instead of implementing our own process method.</p></td>
 </tr>
 <tr class="odd">
 <td>processAuthenticationResponse()</td>
-<td><p>Implementation of custom authentication logic happens inside this method. For example, you can call any API that can do authentication and authenticate the user or you can authenticate the user against the underlying user store. Then you can also do any other custom logic after authenticating the user.</p>
-<p>For example, you can check if a user belongs to a particular role and allow authentication accordingly.</p></td>
+<td><p>Implementation of custom authentication logic happens inside this method. For example, you can call any API that can do authentication and authenticate the user or you can authenticate the user against the underlying user store. Then you can also do any other custom logic after authenticating the user such as, you can check if a user belongs to a particular role and allow authentication accordingly.</p>
+<p>In the sample project, we used this method to authenticate the user with the username and password,  then we check whether the user is assigned with the role `photoSharingRole` and if he/she does, make the authentication successful.</p></td>
 </tr>
 <tr class="even">
 <td>initiateAuthenticationrequest()</td>
@@ -463,11 +479,17 @@ The following is a set of methods related to writing a custom local authenticato
 </tr>
 <tr class="odd">
 <td>getFriendlyName()</td>
-<td><p>This method returns the name you want to display for your custom authenticator. This name will be displayed in the local authenticators drop down.</p></td>
+<td><p>This method returns the name you want to display for your custom authenticator. This name will be displayed in the local authenticators drop down.</p>
+<p>In the sample project, We have returned the name BasicCustom.</p></td>
 </tr>
 <tr class="even">
 <td>getname()</td>
-<td><p>This method is used to get the name of the authenticator.</p></td>
+<td><p>This method is used to get the name of the authenticator.</p>
+<p>In the sample project, We have used this method to return the name BasicCustomAuthenticator.</p></td>
 </tr>
 </tbody>
 </table>
+
+## Contributing your connectors
+
+{! fragments/contributing-connectors.md !}

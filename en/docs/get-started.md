@@ -19,10 +19,10 @@ template: templates/2-column.html
         </header></div>
         <div class="content"> 
             <!-- begin card -->
-            <div class="card" onclick="location.href='../../deploy/minikube';">
+            <div class="card" onclick="location.href='{{base_path}}/deploy/minikube';">
 	              <div class="line"></div>
          	      <div class="icon">
-		                 <img src="../../assets/img/deploy/minikube.png">
+		                 <img src="{{base_path}}/assets/img/deploy/minikube.png">
 	              </div>
                 <div class="card-content" >
               	    <p class="title">Minikube</p>
@@ -31,10 +31,10 @@ template: templates/2-column.html
             </div>
             <!-- end card -->
             <!-- begin card -->
-            <div class="card" onclick="location.href='../../deploy/docker-desktop';">
+            <div class="card" onclick="location.href='{{base_path}}/deploy/docker-desktop';">
                 <div class="line"></div>
                 <div class="icon">
-                    <img src="../../assets/img/deploy/free.png">
+                    <img src="{{base_path}}/assets/img/deploy/free.png">
                 </div>
                 <div class="card-content">
                     <p class="title">Docker Desktop</p>
@@ -48,10 +48,10 @@ template: templates/2-column.html
         </header></div>
         <div class="content"> 
             <!-- begin card -->
-            <div class="card" onclick="location.href='../../deploy/eks';">
+            <div class="card" onclick="location.href='{{base_path}}/deploy/eks';">
 	              <div class="line"></div>
          	      <div class="icon">
-		                 <img src="../../assets/img/deploy/amazon-eks.png">
+		                 <img src="{{base_path}}/assets/img/deploy/amazon-eks.png">
 	              </div>
                 <div class="card-content" >
               	    <p class="title">EKS</p>
@@ -84,5 +84,5 @@ template: templates/2-column.html
             </div></div>
 
 <div style="display:flex;justify-content:center;">
-   <a style="color:orange;" href="../../deploy/deploying-wso2-identity-server"><u>Go Back</u></a>
+   <a style="color:orange;" href="{{base_path}}/deploy/deploying-wso2-identity-server"><u>Go Back</u></a>
 </div>

@@ -1,6 +1,6 @@
 # Configure Refresh Token Grant
 
-This page guides you through configuring and obtaining refresh tokens using the [refresh token grant](../../../references/concepts/authorization/refresh-token-grant).
+This page guides you through configuring and obtaining refresh tokens using the [refresh token grant]({{base_path}}/references/concepts/authorization/refresh-token-grant).
 
 ----
 
@@ -46,13 +46,13 @@ The refresh token is renewed when the refresh grant is used to get an access tok
 -----
 
 
-{!fragments/self-contained-access-tokens.md!}
+{!./includes/self-contained-access-tokens.md!}
 
 ----
 
 ## Get access token
 
-A refresh token can be obtained when using one of the [OAuth 2.0 grant types](oauth-grant-types.md). 
+A refresh token can be obtained when using one of the OAuth 2.0 grant types. 
 
 Run the following cURL command to try out the refresh token grant and obtain an access token.
 
@@ -79,5 +79,5 @@ You will receive an access token with the response.
 ```
 
 !!! info "Related topics"
-    - [Concept: Refresh token grant](../../../references/concepts/authorization/refresh-token-grant)
+    - [Concept: Refresh token grant]({{base_path}}/references/concepts/authorization/refresh-token-grant)
     

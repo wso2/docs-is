@@ -3,7 +3,7 @@
 WSO2 identity server uses an embedded Read/Write LDAP as the primary userstore. This document will guide you to change that to a Read-Only LDAP userstore.
 
 !!! tip 
-    Please read the topic [Configuring userstores](../../../deploy/configure-user-stores) to get a high-level understanding of the userstores available in WSO2 Identity Server (WSO2 IS).
+    Please read the topic [Configuring userstores]({{base_path}}/deploy/configure-user-stores) to get a high-level understanding of the userstores available in WSO2 Identity Server (WSO2 IS).
 
 ---
 
@@ -57,10 +57,10 @@ Following are the minimum userstore properties that are needed to be provided to
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of userstore to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-<a href="../../../deploy/security/use-asymmetric-encryption">Using asymmetric encryption</a><br />
+<a href="{{base_path}}/deploy/security/use-asymmetric-encryption">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="../../../deploy/performance/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
+<a href="{{base_path}}/deploy/performance/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
 </tr>
 <tr class="odd">
 <td>ConnectionName</td>
@@ -137,7 +137,7 @@ Default: identityPerson( Is a custom object class defined in WSO2 Identity Serve
 <td><p>A uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="TBD:../../learn/using-email-address-as-the-username">Using email address as the username</a></p></td>
+Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="TBD:{{base_path}}/learn/using-email-address-as-the-username">Using email address as the username</a></p></td>
 </tr>
 <tr class="odd">
 <td>UserIDAttribute</td>
@@ -151,7 +151,7 @@ Note: email address is considered as a special case in WSO2 products, if you wan
 <td>user_name_search_filter</td>
 <td>User Search Filter</td>
 <td>Filtering criteria used to search for a particular user entry.<br />
-Default : (&amp;amp;(objectClass=person)(uid=?))</td>
+Default : (&amp;amp;(objectClass=identityPerson)(uid=?))</td>
 </tr>
 <tr class="odd">
 <td>UserNameListFilter</td>
@@ -159,7 +159,7 @@ Default : (&amp;amp;(objectClass=person)(uid=?))</td>
 <td>User List Filter</td>
 <td>Filtering criteria for searching user entries in the userstore. This query or filter is used when doing search operations on users with different search attributes.<br />
 <br />
-Default: (objectClass=person)<br />
+Default: (objectClass=identityPerson)<br />
 In this case, the search operation only provides the objects created from the person object class.</td>
 </tr>
 <tr class="even">
@@ -440,7 +440,7 @@ to, you have the option of creating a new admin user in the userstore
 when you start the system for the first time. Alternatively, you can
 also use a user ID that already exists in the LDAP. For information
 about the system administrator user, see [Configuring the System
-Administrator](../../../deploy/configure-the-system-administrator).
+Administrator]({{base_path}}/deploy/configure-the-system-administrator).
 
 These two alternative configurations can be done as explained below.
 

@@ -6,7 +6,7 @@ a protected resource, there is no way to get a new access token without forcing 
 The solution is to use a **refresh token** which can be used to renew the token without prompting the user again.
  
 
-![The flow to obtain a refresh token](../../../assets/img/concepts/refresh-token.png)
+![The flow to obtain a refresh token]({{base_path}}/assets/img/concepts/refresh-token.png)
 
 1. The client sends a request to the authorization server requesting an access token by passing the refresh token.
 2. The authorization server validates the refresh token and grants a new access token to the client.

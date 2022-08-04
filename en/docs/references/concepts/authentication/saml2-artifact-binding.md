@@ -33,11 +33,11 @@ to tampering and forgery, uniqueness, and compactness.
 
 The format of a SAML artifact is shown below:
 
-![saml-artifact-format](../../../assets/img/concepts/saml-artifact-format.png)
+![saml-artifact-format]({{base_path}}/assets/img/concepts/saml-artifact-format.png)
 
 The diagram below shows the process of SAML Artifact Binding.
 
-![saml-artifact-binding](../../../assets/img/concepts/saml-artifact-binding.png) 
+![saml-artifact-binding]({{base_path}}/assets/img/concepts/saml-artifact-binding.png) 
 
 1.  The user wants to access a resource in the service and goes to the service using the browser. 
 
@@ -54,6 +54,6 @@ The diagram below shows the process of SAML Artifact Binding.
 
 !!! info "Related topics"
 
-    [Quick Start: Use SAML Artifact Binding](../../../../quick-starts/use-artifact-binding-sample)
+    [Quick Start: Use SAML Artifact Binding]({{base_path}}/quick-starts/use-artifact-binding-sample)
 
-    [Guides: Use SAML2 Artifact Binding](../../../../guides/login/use-artifact-binding/)
+    [Guides: Use SAML2 Artifact Binding]({{base_path}}/guides/login/use-artifact-binding/)

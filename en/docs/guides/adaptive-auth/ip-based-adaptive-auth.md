@@ -1,107 +1,68 @@
-# Configure IP-Based Adaptive Authentication
+# Configure IP-based adaptive authentication
 
-This page guides you through configuring IP-based adaptive authentication for a sample web application using a sample hardware key authenticator. 
+This page guides you through configuring IP-based adaptive authentication for a sample web application.
 
 ----
 
 ## Scenario
 
-Consider a scenario where you wish to add security for users logging in from external networks or other geographic locations. Using the IP-based adaptive authentication template, you can specify network ranges using the ip address so that users logging in from an external network that is not listed in the authentication script are prompted to perform an additional level of authentication. Users logging in from the internally configured network specified on the script, can simply provide their credentials (basic authentication) to access a resource.
+Consider a scenario where the internal IPs of an organization are as follows: `192.168.1.0/24`, `10.100.0.0/16`. The login flow should be stepped up with TOTP when users log in from outside this IP range as follows:
+
+1. Username and password
+2. TOTP
+
+Users who log in from the internal network should be allowed to simply log in with their username and password.
 
 ----
 
-{!fragments/adaptive-auth-samples.md!}
+## Prerequisites
 
-----
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Alex` with login permissions. Do not assign any roles to this user.
 
 ## Configure IP-based authentication
 
-1.  Navigate to **Main** > **Identity** > **Service Providers** > **List**.
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
-2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-3.  Expand the **Local and Outbound Configuration** section and click **Advanced Authentication**.
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-4.  Expand **Script Based Conditional Authentication**.
+4. You will be redirected to **Advanced Configuration**, expand **Script Based Conditional Authentication**.
 
-5.  Click **Templates** on the right side of the **Script Based Conditional Authentication** field and then click **IP-Based**. 
+5. In the **Templates** section, click on the **`+`** corresponding to the **IP-Based** template.
 
-    ![IP-based template](../../assets/img/samples/ip-based-template.png)
+    ![IP-based template]({{base_path}}/assets/img/samples/ip-based-template.png)
 
-6.  Click **Ok**. The authentication script and authentication steps are configured. 
-    
-    The authentication script prompts the second step of authentication for users who log in from an IP address that is not included within the network range configured in the script. 
-    
-7. To try out this scenario, run the following command on a terminal window to enter the IP address of your machine to define it as an internal network.
+6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
-    ``` java
-    var corpNetwork = ['192.168.1.0/24', '10.100.0.0/16'];
-    ```
+    !!! info
+        - The authentication script prompts the second step of authentication for users who log in from an IP address that is not included within the network range configured in the script.
+        - By default, `totp` will be added as the second authentication step.
 
-8. The authentication steps added are `totp` and `fido`. However, these are authentication steps that you would normally use in production. 
-
-    To try out sample authenticators with the sample application, delete the two
-    authenticators and add the following sample authenticators instead.
-
-    1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
-        second authentication step).
-        
-        ![Delete authenticator](../../assets/img/samples/delete-authenticator-1.png)
-        
-    2.  Select **Demo Hardware Key Authenticator** and click **Add**.
-      
-        ![Add new authenticator](../../assets/img/samples/add-new-authenticator.png)
-
-9.  Click **Update**.
-
-----
-
-## Add a user
-
-
-1.  Start the server and log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`).
-
-2.  Create a new user named 'Alex' with login permission. Do not assign any roles.
-
-    For instructions, see [Add a User](../../guides/identity-lifecycles/admin-creation-workflow/).
-
-----
-
-## Try it
-
-1.  Access the following sample Pickup Dispatch application URL:
-
-    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
-
-2.  Click **Login** and enter Alex's credentials. 
-
-    Note that you are successfully logged in after only the basic authentication step because you are logging in from an IP address that is within the configured network.
-
-3.  Log out of the Pickup application.
-
-4. On the management console, navigate to **Main** > **Identity** > **Service Providers** > **List**.
-
-5.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
-
-6.  Edit the authentication script in the **Script Based Conditional Authentication** field and enter an IP address that is outside your
-    network range.
+7. Update the `corpNetwork` variable; two-factor authentication should apply when users log in from outside this range.
 
     ``` java
     var corpNetwork = ['192.168.1.0/24', '10.100.0.0/16'];
     ```
 
-7.  Click **Update**.
+8. Click **Update** to save your configurations.
 
-8.  Access the following sample PickUp application URL:
+----
 
-    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
+## Try it out
 
-9. Click **Login** and enter Alex's credentials. 
+1. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-    Note that you are now prompted to provide hardware key authentication because you are logging in from an IP address that is external to the configured network.
+2. Click **Login** and enter Alex's credentials.
 
-    ![Hardware key authenticator](../../assets/img/samples/hardware-key-authenticator.png)
+    !!! info
+        Note that you are successfully logged in after only the basic authentication step because you are logging in from an IP address that is within the configured network.
+
+3. Log out of the application, and log in with a user not belonging to the configured IP address range. TOTP authentication is prompted.
+
+    ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png)
 
     !!! tip
         You can also try this scenario with two different machines
-        in different networks to simulate a real world scenario.
+        in different networks to simulate a real-world scenario.

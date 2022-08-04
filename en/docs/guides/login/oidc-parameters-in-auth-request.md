@@ -1,12 +1,12 @@
 # Use Advanced Parameters in Authentication Requests
 
-This page guides you through some special request parameters used with [OpenID Connect](../../../references/concepts/authentication/intro-oidc) authentication requests.
+This page guides you through some special request parameters used with [OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc) authentication requests.
 
  ----
  
 ## State parameter
 
-Use the [state parameter](../../../references/concepts/authentication/traditional-authentication-request#state-parameter) to maintain a correlation between the request and the response.
+Use the [state parameter]({{base_path}}/references/concepts/authentication/traditional-authentication-request#state-parameter) to maintain a correlation between the request and the response.
 
 !!! abstract ""
     **Request Format**
@@ -52,7 +52,7 @@ You will receive a response similar to the one shown below.
  
 ## Nonce Parameter
 
-Use the [nonce parameter](../../../references/concepts/authentication/traditional-authentication-request/#nonce-parameter) to validate an ID token issued by WSO2 Identity Server.
+Use the [nonce parameter]({{base_path}}/references/concepts/authentication/traditional-authentication-request/#nonce-parameter) to validate an ID token issued by WSO2 Identity Server.
 
 The `nonce` claim embedded in the ID token must contain the exact value that was sent in the request. 
 If not, authentication should be rejected by the application.
@@ -109,7 +109,7 @@ The decoded ID token is as follows.
  
 ## Prompt Parameter
 
-The [prompt parameter](../../../references/concepts/authentication/traditional-authentication-request/#prompt-parameter) which can be sent with the authentication requests, can have the following three values.
+The [prompt parameter]({{base_path}}/references/concepts/authentication/traditional-authentication-request/#prompt-parameter) which can be sent with the authentication requests, can have the following three values.
     
 -   none         
 -   login         
@@ -167,7 +167,7 @@ Use the `prompt=login` parameter with the authentication request to force authen
 !!! abstract ""
     **Sample Request**
     ```
-    https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=none&scope=openid
+    https://<host>:9443/oauth2/authorize?response_type=token&client_id=NgTICXFPYnt7ETUm6Fc8NMU8K38a&redirect_uri=http://localhost:8080/playground2/oauth2client&prompt=login&scope=openid
     ```
 
 If the user is successfully re-authenticated with WSO2 Identity Server, you will receive a successful response as follows.
@@ -237,7 +237,7 @@ session_state==...
 
      
 !!! info "Related topics"
-    - [Concept: OpenID Connect](../../../references/concepts/authentication/intro-oidc)
-    - [Concept: OpenID Connect Authentication Parameters](../../../references/concepts/authentication/traditional-authentication-request)
-    - [Guide: Enable Login for a OpenID Connect Web Application](../webapp-oidc)
-    - [Guide: Authorization Code Grant](../../access-delegation/authorization-code/)
+    - [Concept: OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc)
+    - [Concept: OpenID Connect Authentication Parameters]({{base_path}}/references/concepts/authentication/traditional-authentication-request)
+    - [Guide: Enable Login for a OpenID Connect Web Application]({{base_path}}/webapp-oidc)
+    - [Guide: Authorization Code Grant]({{base_path}}/access-delegation/authorization-code/)

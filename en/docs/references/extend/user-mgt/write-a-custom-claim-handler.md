@@ -6,8 +6,7 @@ enterprise system, it is through the SAML response that the relying party gets t
 or not. At this point, the relying party application is not aware of the attributes of an authenticated user, which 
 would be required for certain business and authorization purposes. You can use WSO2 IS to provide these attribute 
 details to the relying party application, by configuring WSO2 IS to send user claims in a SAML response using the 
-service provider claim configuration. For information on how to configure WSO2 IS to send user claims in a SAML 
-response, see [Request Attributes for the Application](../../../guides/login/request-attributes/).
+service provider claim configuration.
 
 The claims that you can send using the service provider claim configuration are default user claims, which can be read 
 from the underlying userstore. However, there can be scenarios where you want to send claims that need to be read from 

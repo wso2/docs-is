@@ -2,12 +2,10 @@
 
 This section guides you through deleting an exisiting user in WSO2 Identity Server.
 
-----
-
 !!! warning 
 	Deleting a user cannot be undone.
 
-## Delete a user using the Management Console 
+## Use the Management Console 
 
 1.  On the **Main** > **Identity** tab in the Management Console, click **List** under
     **Users and Roles**.  
@@ -16,9 +14,7 @@ This section guides you through deleting an exisiting user in WSO2 Identity Serv
 3.  In the **Users** list, click **Delete** next to the user you want to
     delete, and then click **Yes** to confirm the operation.
 
----
-
-## Delete a user using SCIM 2.0 REST API
+## Use the SCIM 2.0 REST API
 
 !!! abstract ""
     **Request**
@@ -34,7 +30,7 @@ This section guides you through deleting an exisiting user in WSO2 Identity Serv
 You receive a response with status `200 OK` and the user will be deleted from the userstore.
     
 !!! info "Related topics"
-    - [Concept: Users](../../../references/concepts/user-management/users)
-    - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
-    - [Guide: Search/List Users](../../identity-lifecycles/search-users)
-    - [Track user deletion on deleting a user](../../../deploy/monitor/monitor-logs#track-user-deletion-on-deleting-a-user)
+    - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
+    - [Guide: Ways of User Onboarding]({{base_path}}/guides/identity-lifecycles/onboard-overview)
+    - [Guide: Search/List Users]({{base_path}}/guides/identity-lifecycles/search-users)
+    - [Track user deletion on deleting a user]({{base_path}}/guides/identity-lifecycles/track-deletion)

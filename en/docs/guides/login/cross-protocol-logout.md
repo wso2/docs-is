@@ -36,7 +36,7 @@ Follow the steps given below to register a SAML application as a service provide
         -   **Enable Signature Validation in Authentication Requests and Logout Requests**
     
     !!! tip
-        For more information on the advanced configurations, see [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
+        For more information on the advanced configurations, see [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced/).
 
 5.  Click **Register** to save the changes.
 
@@ -63,7 +63,7 @@ Follow the steps given below to register an OIDC application as a service provid
 
     !!! Tip
         For more information on the advanced configurations
-        refer, [Advanced OAuth/OpenID Connect Configurations](../../guides/login/oauth-app-config-advanced).
+        refer, [Advanced OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
 5.  Click **Register** to save the changes.
 
@@ -71,13 +71,13 @@ Follow the steps given below to register an OIDC application as a service provid
 
 Let's configure the Pickup Manager (OIDC) application to connect with WSO2 IS.
 
-1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) sample.
+1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/pickup-manager.war) sample.
 
 2. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
 
 3. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
 
-    ![pickup-key-secret-2](../../../assets/img/fragments/pickup-key-secret-2.png)
+    ![pickup-key-secret-2]({{base_path}}/assets/img/fragments/pickup-key-secret-2.png)
 
 ## Deploy the samples
 
@@ -95,7 +95,7 @@ in this guide.
 
     1.  Copy the extracted and modified OIDC `pickup-manager` application folder to the `<TOMCAT_HOME>/webapps` folder.
 
-    2.  Download the [saml2-web-app-pickup-dispatch.com.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) sample and copy it to the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder.
+    2.  Download the [saml2-web-app-pickup-dispatch.com.war](https://github.com/wso2/samples-is/releases/download/v4.4.1/saml2-web-app-pickup-dispatch.com.war) sample and copy it to the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder.
 
 ----
 
@@ -118,9 +118,9 @@ You have successfully tried out cross-protocol logout between a SAML application
 ----
 
 !!! info "Related topics"
-    - [Guide: Single Sign-On](../enable-single-sign-on)
-    - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)
-    - [Guide: SAML Back-Channel Logout](../saml-back-channel-logout)
-    - [Guide: OpenID Connect Back-Channel Logout](../oidc-backchannel-logout)
-    - [Guide: OpenID Connect Logout URL Redirection](../oidc-logout-url-redirection)
+    - [Guide: Single Sign-On]({{base_path}}/enable-single-sign-on)
+    - [Guide: SAML Front-Channel Logout]({{base_path}}/saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout]({{base_path}}/saml-back-channel-logout)
+    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/oidc-backchannel-logout)
+    - [Guide: OpenID Connect Logout URL Redirection]({{base_path}}/oidc-logout-url-redirection)
     <!--- - [Concept: Cross-Protocol Logout](TODO:insert-link-to-concept)-->

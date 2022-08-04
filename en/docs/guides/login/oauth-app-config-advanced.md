@@ -48,12 +48,31 @@ This is the exact location in the service provider's application where an access
 
 ---
 
+??? note "Click for information on configuring loopback callback URLs"
+     From IS 6.0.0 onwards, to comply with [RFC 8252 section 7.3](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), the callback URL in the authorization request does not need to have an exact port match to the callback URL registered here if it is a loopback callback IP address.
+     Exact port matches are not required if you use loopback IP addresses (`127.0.0.1` and `[::1]`) only. 
+
+
+      For example, if you register a loopback callback URL `http://127.0.0.1:8090/callback` the following callback URLs in the authorization requests would also be valid:
+      <ul>
+              <li><code>http://127.0.0.1:8090/callback</code></li>
+              <li><code>http://127.0.0.1:16000/callback</code></li>
+              <li><code>http://127.0.0.1:7500/callback</code></li>
+      </ul>
+      
+      When registering multiple callback URLs using a regex pattern, do not specify the port number for the loopback callback URL either as a single port or as a capture group. An example regex pattern is as follows:<br />
+      ```
+      regexp=(https://myapp.com/callback|https://127.0.0.1/callback)
+      ```
+    
+---
+
 ## PKCE Configurations
 
 - **PKCE Mandatory**: Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. 
 
     !!! info
-        See [Mitigating Authorization Code Interception Attacks](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/) for more information.
+        See [Mitigating Authorization Code Interception Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/) for more information.
 
 - **Support PKCE 'Plain' Transform Algorithm**: Select this if you are using PKCE.
 
@@ -91,13 +110,13 @@ This is to define whether to only accept signed request objects in an authorizat
 
 ## Enable ID Token Encryption
 
-This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see [Test OIDC Encrypted ID Token with IS](../../../guides/login/oidc-token-encryption/).
+This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see [Test OIDC Encrypted ID Token with IS]({{base_path}}/guides/login/oidc-token-encryption/).
 
 ----
 
 ## Enable OIDC Back-Channel Logout
 
-This is to define whether OIDC back-channel logout should be enabled or not. For more information, see [Configure OpenID Connect Back-Channel Logout](../../../guides/login/oidc-backchannel-logout/).
+This is to define whether OIDC back-channel logout should be enabled or not. For more information, see [Configure OpenID Connect Back-Channel Logout]({{base_path}}/guides/login/oidc-backchannel-logout/).
 
 ----
 

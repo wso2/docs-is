@@ -35,7 +35,7 @@ enterprise user store can access the web application.
 	configured for federation or single sign-on to manage access, and can
 	also be configured with the underlying enterprise user store.
 
-	![managing-enterprise-customers-in-wso2-is](../../../assets/img/guides/managing-enterprise-customers-in-wso2-is.png)
+	![managing-enterprise-customers-in-wso2-is]({{base_path}}/assets/img/guides/managing-enterprise-customers-in-wso2-is.png)
 
 Consider a scenario where the web application must also be accessed by
 the users from some other partner organization in addition to the users
@@ -64,7 +64,7 @@ Shibboleth IdP.
     configuration for latest Shibboleth version refer
     <https://wiki.shibboleth.net/confluence/display/IDP30/Home>.
 
-![authenticating-using-enterprise-userstore-and-shibolethidp](../../../assets/img/guides/authenticating-using-enterprise-userstore-and-shibolethidp.png)
+![authenticating-using-enterprise-userstore-and-shibolethidp]({{base_path}}/assets/img/guides/authenticating-using-enterprise-userstore-and-shibolethidp.png)
 
 The following sections provide instructions on how to configure this
 scenario.
@@ -284,13 +284,13 @@ You must configure Shibboleth as a SAML2 SSO federated identity provider
 in the Identity Server.
 
 1.  [Download](http://wso2.com/products/identity-server/) and
-    [install](../../../deploy/get-started/install/)
+    [install]({{base_path}}/deploy/get-started/install/)
     the WSO2 Identity Server.
     
-2.  [Start WSO2 Identity Server](../../../deploy/get-started/run-the-product).
+2.  [Start WSO2 Identity Server]({{base_path}}/deploy/get-started/run-the-product).
 
 3.  Log in to WSO2 Identity Server [management
-    console](../../../deploy/get-started/get-started-with-the-management-console).
+    console]({{base_path}}/deploy/get-started/get-started-with-the-management-console).
     
 4.  Register new federated identity provider in the Identity Server.
 
@@ -298,11 +298,11 @@ in the Identity Server.
 
     2. Click **Identity Providers >Add**.
 
-    ![add-identity-provider](../../../assets/img/fragments/add-identity-provider.png)
+    ![add-identity-provider]({{base_path}}/assets/img/fragments/add-identity-provider.png)
 
     3. Enter an **Identity Provider Name**, **Display Name**, and **Description**.
 
-    ![registering-new-federated-idp](../../../assets/img/guides/registering-new-federated-idp.png)  
+    ![registering-new-federated-idp]({{base_path}}/assets/img/guides/registering-new-federated-idp.png)  
    
     Note the following when configuring this.
     -   You need provide a name for identity provider configuration. We
@@ -314,7 +314,7 @@ in the Identity Server.
         
 5.  Expand the **Federated Authenticators** section and the **SAML2 Web
     SSO Configuration** section.  
-    ![federated-authenticators-in-saml2-sso-config](../../../assets/img/guides/federated-authenticators-in-saml2-sso-config.png) 
+    ![federated-authenticators-in-saml2-sso-config]({{base_path}}/assets/img/guides/federated-authenticators-in-saml2-sso-config.png) 
     Note the following when configuring this.
 
     <table>
@@ -396,22 +396,89 @@ provider as a federated identity provider.
 
 To configure the service provider, do the following.
 
-{! fragments/deploy-travelocity.md !}
+{!./includes/deploy-travelocity.md !}
 
-{! fragments/deploy-travelocity-sp.md !}
+### Configure the service provider
+
+!!! note "Important"
+
+    SAML2 POST Binding requires CORS configurations. Before configuring the service provider, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow HTTP POST requests. 
+
+    ```toml
+    [cors]
+    allow_generic_http_requests = true
+    allow_any_origin = false
+    allowed_origins = [
+        "http://localhost:8080"
+    ]
+    allow_subdomains = false
+    supported_methods = [
+        "GET",
+        "POST",
+        "HEAD",
+        "OPTIONS"
+    ]
+    support_any_header = true
+    supported_headers = []
+    exposed_headers = []
+    supports_credentials = true
+    max_age = 3600
+    tag_requests = false
+    ```
+
+The next step is to configure the service provider.
+
+1.  Return to the WSO2 IS management console.
+
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
+
+3.  Enter **travelocity.com** in the **Service Provider Name** text box,
+    and click **Register**.
+
+4.  In the **Inbound Authentication Configuration** section, click
+    **Configure** under the **SAML2 Web SSO Configuration** section.
+
+    1.  Now set the configurations as follows:
+
+        1.  **Issuer** : `               travelocity.com              `
+
+        2.  **Assertion Consumer URL** :
+            `                               http://wso2is.local:8080/travelocity.com/home.jsp                        `  
+            Click Yes, in the message that appears.
+
+    2.  Select the following check-boxes:
+        1.  **Enable Response Signing**
+
+        2.  **Enable Single Logout**
+
+        3.  **Enable Attribute Profile**
+
+        4.  **Include Attributes in the Response Always**  
+        
+        5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
+            
+
+    ![edit-service-provider]({{base_path}}/assets/img/fragments/edit-service-provider-configs.png)
+    
+    !!! tip
+        For more information on the advanced configurations
+        see, [Configuring SAML2 WEB Single-Sign-On]({{base_path}}/guides/identity-federation/configure-saml-2.0-web-sso).
+
+5.  Click **Register** to save the changes.  
+    Now you are sent back to the Service Providers page.
 
 6.  Expand the **Local and Inbound Authentication** section and do one of the following configurations.
     1.  Configure Shibboleth as a **Federated Authentication** mechanism
         by selecting the identity provider you configured from the
         dropdown.  
-        ![configure-shibboleth-as-a-federated-authenticator](../../../assets/img/guides/configure-shibboleth-as-a-federated-authenticator.png)
+        ![configure-shibboleth-as-a-federated-authenticator]({{base_path}}/assets/img/guides/configure-shibboleth-as-a-federated-authenticator.png)
         
     2.  Select **Advanced Configuration** and configure multiple options
         for authentication within the same authentication step. Select
         **basic** under **Local Authenticators** for authenticating
         users against the enterprise user store and select
         **Shibboleth-IDP** under **Federated Authenticators**.  
-        ![multiple-options-for-authentication](../../../assets/img/guides/multiple-options-for-authentication.png)
+        ![multiple-options-for-authentication]({{base_path}}/assets/img/guides/multiple-options-for-authentication.png)
         
 7.  Click **Update** to update the details for your service provider.
 
@@ -424,4 +491,4 @@ To configure the service provider, do the following.
     
 2.  You should see the following login page if you configured
     multi-option authentication.  
-    ![login-page-with-multioption-authentication](../../../assets/img/guides/login-page-with-multioption-authentication.png)
+    ![login-page-with-multioption-authentication]({{base_path}}/assets/img/guides/login-page-with-multioption-authentication.png)

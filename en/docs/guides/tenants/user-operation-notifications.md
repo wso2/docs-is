@@ -11,7 +11,7 @@ send to the external endpoint. The following instructions provide
 information on how to send an email when a user operation takes place.
 
 1.  Enable the email sending configurations of the WSO2 Identity Server
-    as explained [here](../../setup/configuring-email-sending)
+    as explained [here]({{base_path}}/deploy/configure-email-sending/)
     
 2.  Configure the
     `           <IS_HOME>/repository/conf/identity/msg-mgt.properties          `

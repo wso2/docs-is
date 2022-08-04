@@ -6,7 +6,7 @@ user role, etc. WSO2 Identity Server allows you to define a dynamic
 authentication sequence using authentication scripts written in
 JavaScript.
 
-For more information on adaptive authentication, see [Adaptive Authentication](../concepts/authentication/adaptive-authentication/).
+For more information on adaptive authentication, see [Adaptive Authentication]({{base_path}}/concepts/authentication/adaptive-authentication/).
 
 The following sections present the core API reference for the
 JavaScript-based conditional authentication functions and fields.
@@ -97,6 +97,9 @@ The API can be called in either of the following ways:
             local: {
                 SessionExecutor: {
                     MaxSessionCount: '1'
+                }
+                totp: {
+                enableRetryFromAuthenticator: 'true'
                 }
             }
         }

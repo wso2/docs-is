@@ -1,6 +1,6 @@
 # User Managed Access with WSO2 Identity Server
 
-WSO2 Identity Server (WSO2 IS) supports the [UMA 2.0](../../../references/concepts/authorization/user-managed-access) protocol, which
+WSO2 Identity Server (WSO2 IS) supports the [UMA 2.0]({{base_path}}/references/concepts/authorization/user-managed-access) protocol, which
 allows a resource owner to easily share resources with other requesting
 parties. This tutorial demonstrates how you can use WSO2 IS as the
 authorization server to try out UMA for a sample scenario.
@@ -51,7 +51,7 @@ behalf of the requesting party.
 
 ## Configure service provider to act as the resource server
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ### Basic OAuth/OpenID Connect configuration
 
@@ -61,7 +61,7 @@ behalf of the requesting party.
 
 7. Make sure **urn:ietf:params:oauth:grant-type:uma-ticket** is selected from the **Allowed Grant Types** list.
 
-    ![uma-grant-type](../../assets/img/guides/uma-grant-type.png)
+    ![uma-grant-type]({{base_path}}/assets/img/guides/uma-grant-type.png)
         
 8. Enter the **Callback Url**.
 
@@ -79,13 +79,13 @@ behalf of the requesting party.
     
 ## Configure service provider to act as the client
     
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ### Basic OAuth/OpenID Connect configuration
 
-{!fragments/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+{!./includes/oauth-app-config-advanced-tip.md!}
 
 <!--- Note down the **Client ID** and **Client Secret** values. You need those
 values to obtain the Protection API Access Token (PAT). -->
@@ -246,7 +246,7 @@ Follow the steps given below to create, register and publish a policy:
 5.  **Save** the policy. You will see the new policy that you created
     listed in the **Policy Administration** page.  
     
-    ![add-uma-policy](../../assets/img/guides/add-uma-policy.png) 
+    ![add-uma-policy]({{base_path}}/assets/img/guides/add-uma-policy.png) 
 
 6.  Select the policy and click **Publish To My PDP**. This displays
     the **Publish Policy** page.
@@ -256,7 +256,7 @@ Follow the steps given below to create, register and publish a policy:
 8.  Click **Yes**. This publishes the policy. If you want to view the
     published policy, click **Policy View** under **PDP**. 
      
-    ![view-uma-policy](../../assets/img/guides/view-uma-policy.png) 
+    ![view-uma-policy]({{base_path}}/assets/img/guides/view-uma-policy.png) 
 
 
 Now that the resource owner has put their resource under the authorization server protection, 
@@ -471,5 +471,5 @@ This is how UMA works.
     
 
 !!! info "Related topics"
-    - [Concept: UMA 2.0](../../../references/concepts/authorization/user-managed-access)
-    - [Concept: UMA 2.0 Resource registration endpoint](../../../references/concepts/authorization/uma-resource-registration/)
+    - [Concept: UMA 2.0]({{base_path}}/references/concepts/authorization/user-managed-access)
+    - [Concept: UMA 2.0 Resource registration endpoint]({{base_path}}/references/concepts/authorization/uma-resource-registration/)

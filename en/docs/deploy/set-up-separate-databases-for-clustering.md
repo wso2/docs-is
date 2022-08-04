@@ -19,14 +19,14 @@ can do when clustering WSO2 Identity Server.
         Creating separate databases as shown below is not mandatory. Instead, 
         you can point all the following datasources according to the default data structure. 
         This will not make a difference in performance. For more information on default 
-        database structure, see [Working with Databases](../../../deploy/work-with-databases).
+        database structure, see [Working with Databases]({{base_path}}/deploy/work-with-databases).
 
 The following image shows the default database structure and a recommended 
 database structure for a logical separation of data.
 
 <div>
     <center>
-        <img src="../../assets/img/deploy/separate-databases-for-clustering.png"
+        <img src="{{base_path}}/assets/img/deploy/separate-databases-for-clustering.png"
          alt="separate-databases-for-clustering ">
     </center>
 </div>
@@ -46,7 +46,7 @@ database structure for a logical separation of data.
 <li>Contains authorization manager configurations, internal permissions, and roles</li>
 <li>In the default database configuration, user data and registry data are located inside <code>SHARED_DB</code>.
 .</li>
-<li>For more information, see <a href="../../../deploy/configure-user-stores">Configure Userstores</a>.</li>
+<li>For more information, see <a href="{{base_path}}/deploy/configure-user-stores">Configure Userstores</a>.</li>
 </td>
 </tr>
 <tr class="even">
@@ -57,14 +57,14 @@ database structure for a logical separation of data.
 in the <code>IDENTITY_DB</code>.
  In a deployment, both identity and UMA can be configured in a single database while consent data is configured to a seperate
   database `CONSENT_MGT`</li>.
-<li>For more information, see <a href="../../../deploy/work-with-databases">Working with Databases</a>.</li>
+<li>For more information, see <a href="{{base_path}}/deploy/work-with-databases">Working with Databases</a>.</li>
 </td>
 </tr>
 <tr class="even">
 <td><code>             BPS_DB            </code></td>
 <td>
 <li>This is used to create, drop, and truncate data pertaining to the workflow feature.</li>
-<li>For more information, see <a href="../../../deploy/change-datasource-bpsds">Change the Default Datasource 
+<li>For more information, see <a href="{{base_path}}/deploy/change-datasource-bpsds">Change the Default Datasource 
 for BPS</a>.</li>
 </td>
 </tr>
@@ -77,7 +77,7 @@ keystores.</li>
 During a deployment, user data can be configured to a different database, <code>USERSTORE_DB</code> while registry
  data remains in the <code>SHARED_DB</code>
 .</li>
-<li>For more information, see <a href="../../../deploy/work-with-databases">Working with Databases</a>.</li>
+<li>For more information, see <a href="{{base_path}}/deploy/work-with-databases">Working with Databases</a>.</li>
 </td>
 </tr>
 <tr class="even">
@@ -87,7 +87,7 @@ During a deployment, user data can be configured to a different database, <code>
 <li>In the default database configuration, UMA, consent, and identity data are located <code>IDENTITY_DB</code>. 
 In a deployment, both identity and UMA can be configured in a single database while consent data is configured to a seperate 
 database.</li>
-<li>For more information, see <a href="../../../deploy/change-datasource-consent-management">Change the Default Datasource for 
+<li>For more information, see <a href="{{base_path}}/deploy/change-datasource-consent-management">Change the Default Datasource for 
 Consent Management</a>.</li>
 </td>
 </tr>
@@ -95,4 +95,4 @@ Consent Management</a>.</li>
 </table>
 
 !!! note
-    For more information on `SHARED_DB` and `IDENTITY_DB`, see [Working with Databases](../../../deploy/work-with-databases/).
+    For more information on `SHARED_DB` and `IDENTITY_DB`, see [Working with Databases]({{base_path}}/deploy/work-with-databases/).

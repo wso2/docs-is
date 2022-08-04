@@ -1,6 +1,8 @@
 # View and Update User Profiles
 
-## View and update a user using the Management Console
+You can update the information on a user's profile as explained.
+
+## Use the Management Console
 
 Follow the instructions given below to update a user using management console.
 
@@ -11,16 +13,14 @@ Follow the instructions given below to update a user using management console.
 3.  You will see the list of users that are available and you can click
     **Update Profile** if you want to update the profile of a particular
     user.  
-    ![update-profile-in-console](../../../assets/img/guides/update-profile-in-console.png) 
+    ![update-profile-in-console]({{base_path}}/assets/img/guides/update-profile-in-console.png) 
 4.  There you can update the details of the user and click **Update**.  
-    ![update-userdetails](../../../assets/img/guides/update-userdetails.png) 
+    ![update-userdetails]({{base_path}}/assets/img/guides/update-userdetails.png) 
 
 Other than updating user profile details, you can also change the
 password of the user and assign more roles to the user.
 
----
-
-## View and update a user using SCIM 2.0 REST API
+## Use the SCIM 2.0 REST API
 
 You can update a user profile using a SCIM 2.0 request as shown below. 
 
@@ -66,7 +66,7 @@ Below is a sample request and its corresponding response using SCIM 2.0.
     ```
 
 !!! info "Related topics"
-    - [Concept: Users](../../../references/concepts/user-management/users)
-    - [Guide: Ways of User Onboarding](../../identity-lifecycles/onboard-overview)
-    - [Guide: Search/List Users](../../identity-lifecycles/search-users)
+    - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
+    - [Guide: Ways of User Onboarding]({{base_path}}/guides/identity-lifecycles/onboard-overview)
+    - [Guide: Search/List Users]({{base_path}}/guides/identity-lifecycles/search-users)
 

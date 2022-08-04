@@ -1,7 +1,7 @@
 # Preparing for migration
 
 !!! note
-    Before you follow this section, see [Before you begin](../../setup/migration-guide) to read on prerequisites.
+    Before you follow this section, see [Before you begin]({{base_path}}/setup/migration-guide) to read on prerequisites.
 
 !!! note
     In this section, `<OLD_IS_HOME>` is the directory that current Identity
@@ -18,11 +18,11 @@
 
 ## Groups and Roles Migration
 
-With WSO2 Identity Server 5.11.0, groups and roles are separated. For more information, see [What Has Changed in 5.11.0](../../../5.11.0/setup/migrating-what-has-changed#group-and-role-separation).
+With WSO2 Identity Server 5.11.0, groups and roles are separated. For more information, see [What Has Changed in 5.11.0]({{base_path}}/5.11.0/setup/migrating-what-has-changed#group-and-role-separation).
 
 ## Groups and Roles Improvements Migration
 
-With WSO2 Identity Server 6.0.0, groups and roles improvements are introduced. For more information, see [Group and role separation](../../../5.11.0/setup/migrating-what-has-changed/#group-and-role-separation).
+With WSO2 Identity Server 6.0.0, groups and roles improvements are introduced. For more information, see [Group and role separation]({{base_path}}/5.11.0/setup/migrating-what-has-changed/#group-and-role-separation).
 
 Please note that following abbreviations are used in the sections below.
 
@@ -59,7 +59,7 @@ Following changes have been made to the product claims.
 #### Migration preparation for claim changes
 * All claim configurations are already configured OOTB in the fresh pack, and will be done via the migration client for migrating deployments. No need to configure these manually.
 * Any custom external claim mapped to the wso2.role claim should be mapped to either wso2.roles or wso2.groups claim as per the requirement of the custom use case.
-* Our recommendation is to fix any consuming client to become compatible with these changes. But if somehow the above configs need to be reverted (possibly in a migrated deployment), it can be done via the Identity Server [Claim Management REST APIs](../develop/claim-management-rest-api.md).
+* Our recommendation is to fix any consuming client to become compatible with these changes. But if somehow the above configs need to be reverted (possibly in a migrated deployment), it can be done via the Identity Server [Claim Management REST APIs]({{base_path}}/develop/claim-management-rest-api.md).
   
 ### Utilizing carbon kernel level support
 
@@ -129,7 +129,7 @@ In WSO2 Identity Server 6.0.0, a major upgrade has been made to the kernel and t
 ## Migrating the configurations
 
 Refer to the relevant feature documents and
-[What Has Changed](../../setup/migrating-what-has-changed) to do the configuration migration.
+[What Has Changed]({{base_path}}/setup/migrating-what-has-changed) to do the configuration migration.
 
 !!! info
     If you have a WSO2 Subscription, it is highly recommended to reach [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa)
@@ -139,12 +139,12 @@ Refer to the relevant feature documents and
 
 !!! info
     If you do not require a zero down time migration, then you can directly proceed to the
-    next section, [Migrating to 6.0.0](../../setup/migrating-to-600).
+    next section, [Migrating to 6.0.0]({{base_path}}/setup/migrating-to-600).
 
 A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, usually when there’s a patch, or critical security upgrade for products used in the solution, or an upgrade to a newer version. To address this situation while avoiding downtime, system admins and DevOps follow blue-green deployments to roll out updates.
 
 ??? Info "Blue-Green Migration"
-    ![blue-green-migration](../assets/img/setup/blue-green-wso2-identity-server.png)
+    ![blue-green-migration]({{base_path}}/assets/img/setup/blue-green-wso2-identity-server.png)
 
     A blue-green deployment is a change management strategy for releasing software. 
     Blue-green deployments require two identical hardware environments that are 
@@ -174,7 +174,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 1. Create a new databases for the new WSO2 Identity Server version (6.0.0) that you are migrating to.
 2. Unzip a WSO2 Identity Server 6.0.0 distribution (use a WUM updated distribution if available). This will be used as the data sync tool between the Identity Server versions. We will refer to WSO2 Identity Server distribution as “**data sync tool**” and location as `<SYNC-TOOL-HOME>`.
 3. Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.134/org.wso2.is.data.sync.client-1.0.134.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
-4. Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory which will contain the sync tool related logs.
+4. Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` with the log4j2.properties file from [here]({{base_path}}/assets/attachments/migration/log4j2.properties). This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory which will contain the sync tool related logs.
 5. Add the data sources used in **source** and **target** WSO2 Identity Server deployments involved in the migration 
     to `deployment.toml` file located `<SYNC-TOOL-HOME>/repository/conf/deployment.toml`.
 
@@ -235,7 +235,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         | IDN_OAUTH2_AUTHORIZATION_CODE | OAuth 2.0 authorization codes                           | Need to sync if the authorization codes created during the migration period need to be valid after migration. Not generally required since the validity period is small. |
 
     !!! tip
-            A sample `sync.properties` file can be found [here](../assets/attachments/migration/sync.properties).
+            A sample `sync.properties` file can be found [here]({{base_path}}/assets/attachments/migration/sync.properties).
 
 
 7. Disable the endpoints in the WSO2 Identity Server that are not mission-critical for the maintenance window.
@@ -312,4 +312,4 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
 9. Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) and restore in the new databases created.
 
-10. Proceed to the next section [Migrating to 6.0.0](../../setup/migrating-to-600).
+10. Proceed to the next section [Migrating to 6.0.0]({{base_path}}/setup/migrating-to-600).

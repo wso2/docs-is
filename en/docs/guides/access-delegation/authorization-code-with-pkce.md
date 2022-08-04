@@ -1,22 +1,42 @@
 # Authorization Code Grant With PKCE
 
-PKCE is a recommended security measure used to mitigate a [code interception attack](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/). 
-This page guides you through using [Authorization Code Grant](../../../references/concepts/authorization/authorization-code-grant/) with PKCE 
+PKCE is a recommended security measure used to mitigate a [code interception attack]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/). 
+This page guides you through using [Authorization Code Grant]({{base_path}}/references/concepts/authorization/authorization-code-grant/) with PKCE 
 to configure authentication for native mobile applications.
 
 ----
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 ---
 
 ## Configure the service provider
 
-{!fragments/oauth-app-pkce.md!}
+Make the following changes to the created service provider.
 
-----
+1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
+
+2. Make sure **Code** is selected from the **Allowed Grant Types** list.
+        
+3. Enter the **Callback Url**.
+
+    !!! tip
+        The **Callback Url** is the exact location in the service provider's application to which an access token will 
+        be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
+
+4. Select **PKCE Mandatory** in order to enable PKCE. 
+
+    ![enable-pkce]({{base_path}}/assets/img/guides/enable-pkce.png)
+           
+5. Click **Add**. 
+
+    !!! note
+        - Note the generated **OAuth Client Key** and **OAuth Client Secret**. You will need these values later on when sending 
+        the requesting the code and the access token.
+        
+        - To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
 ## Authorization code grant type
 
@@ -94,6 +114,6 @@ Make the following requests via your application to connect your application to 
     ```
     
 !!! info "Related topics"
-    - [Deploy: Mitigate Authorization Code Interception Attacks](../../../deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)
-    - [Guide: Advanced OpenID Connect Configurations](../../login/oauth-app-config-advanced)
+    - [Deploy: Mitigate Authorization Code Interception Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/)
+    - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
     

@@ -8,7 +8,7 @@ tokens are not allowed and do not guarantee long-lived access tokens.
 
 The following diagram shows how authentication happens using this client profile.
 
-![implicit client profile](../../../assets/img/concepts/implicit-client-profile.png)
+![implicit client profile]({{base_path}}/assets/img/concepts/implicit-client-profile.png)
 
 
 1. The client prepares an authentication request containing the desired request parameters and the client sends the 
@@ -19,4 +19,4 @@ request to the authorization server.
 5. The resource server serves the client with the requested information based on the access token validity. 
 
 !!! info "Related topics"
-    - [Guide: OpenID Connect Implicit Client Profile](../../../../guides/access-delegation/oidc-implicit-client-profile/)
+    - [Guide: OpenID Connect Implicit Client Profile]({{base_path}}/guides/access-delegation/oidc-implicit-client-profile/)

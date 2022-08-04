@@ -8,22 +8,23 @@ development platforms before starting the installation.
 
 ### System requirements
 
+!!! Note
+
+    The below recommendations can change based on the expected concurrency & performance.
+
 <table>
 <tbody>
 <tr class="odd">
-<th><p>Memory</p></th>
-<td><ul>
-<li>4 vCPUs</li>
-<li>4 GB RAM</li>
-<li>10 GB Disk Space</li>
-</ul>
-<p>The above recommendations can change based on the expected concurrency & performance.</p></td>
+<th><p>CPU</p></th>
+<td><p>4 vCPUs (x86_64 Architecture)</p></td>
 </tr>
 <tr class="even">
+<th><p>Memory</p></th>
+<td><p>4 GB RAM</p></td>
+</tr>
+<tr class="odd">
 <th><p>Disk</p></th>
-<td><ul>
-<li>~ 1 GB, excluding space allocated for log files and databases.</li>
-</ul></td>
+<td><p>~ 10 GB disk space, excluding space allocated for log files and databases.</p></td>
 </tr>
 </tbody>
 </table>
@@ -41,13 +42,13 @@ development platforms before starting the installation.
 <td><div class="content-wrapper">
 <ul>
 <li>WSO2 Identity Server requires an Oracle JDK 11 or JDK 8 compliant JDK. This will run on most common platforms that <strong>support Java 11 or Java 8.</strong> .</li>
-<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../../deploy/work-with-databases">Work with Databases</a>.</li>
+<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="{{base_path}}/deploy/work-with-databases">Work with Databases</a>.</li>
 <li>WSO2 Identity Server supports using any of the following as a userstore :
 <ul>
 <li>RDBMS</li>
 <li>An LDAP such as OpenLDAP</li>
 <li>Active Directory</li>
-<li><a href="../../../deploy/configure-user-stores">Custom Userstores</a></li>
+<li><a href="{{base_path}}/deploy/configure-user-stores">Custom Userstores</a></li>
 </ul></li>
 </ul>
 <div class="admonition note">
@@ -60,7 +61,7 @@ development platforms before starting the installation.
 </p>
 </div>
 <ul> 
-<li>For environments that WSO2 products are tested with, see <a href="../../../deploy/environment-compatibility">Environment Compatibility</a> .</li>
+<li>For environments that WSO2 products are tested with, see <a href="{{base_path}}/deploy/environment-compatibility">Environment Compatibility</a> .</li>
 <li>If you have difficulty setting up any WSO2 product in a specific platform or database, <a href="https://wso2.com/contact/">contact WSO2</a>.</li>
 </ul>
 </div></td>
@@ -127,7 +128,7 @@ binary files for both MS Windows, and Linux-based operating systems.
 <td><p><strong>Web Browser*</strong></p></td>
 <td><div class="content-wrapper">
 <ul>
-<li>To access the product's <a href="../../../deploy/get-started/run-the-product">Management Console</a>. The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
+<li>To access the product's <a href="{{base_path}}/deploy/get-started/run-the-product">Management Console</a>. The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
 </ul>
 <div class="admonition note">
 <p><strong>Note:</strong> On Windows Server 2003, you must not go below the medium security level in Internet Explorer 6.x.</p>
@@ -199,7 +200,7 @@ or Mac OS X.
 
 #### Install WSO2 Identity Server
 
-{! fragments/install-is.md !}
+{!./includes/install-is.md !}
 
     !!! warning
     
@@ -281,7 +282,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
 
 #### Set system properties
 
-{! fragments/set-system-properties.md !}
+{!./includes/set-system-properties.md !}
 
 ---
 
@@ -297,7 +298,7 @@ Follow the instructions below to install Identity Server on Solaris.
 
 #### Install WSO2 Identity Server
 
-{! fragments/install-is.md !}
+{!./includes/install-is.md !}
 
 #### Set up JAVA_HOME
 
@@ -337,13 +338,13 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     echo $JAVA_HOME
     ```
 
-    ![Echo command](../../assets/img/deploy/echo-command.png)
+    ![Echo command]({{base_path}}/assets/img/deploy/echo-command.png)
 
 5.  The system returns the JDK installation path.
 
 #### Set system properties
 
-{! fragments/set-system-properties.md !}
+{!./includes/set-system-properties.md !}
 
 ----
 
@@ -364,7 +365,7 @@ Windows.
 
 #### Install WSO2 Identity Server
 
-{! fragments/install-is.md !}
+{!./includes/install-is.md !}
 
 3.  Set the `          CARBON_HOME         ` environment variable by
     pointing it to the directory where you download WSO2 Identity Server
@@ -398,18 +399,18 @@ prompt](#java-home).
 1.  Right-click the **My Computer** icon on the desktop and choose
     **Properties**.  
 
-    ![Properties option](../../assets/img/deploy/properties-option.png) 
+    ![Properties option]({{base_path}}/assets/img/deploy/properties-option.png) 
 
 2.  In the System Properties window, click the **Advanced** tab, and
     then click the **Environment Variables** button.  
 
-    ![Advanced tab](../../assets/img/deploy/advanced-tab.png) 
+    ![Advanced tab]({{base_path}}/assets/img/deploy/advanced-tab.png) 
 
 3.  Click the **New** button under **System variables** (for all users) or
     under **User variables** (just for the user who is currently logged
     in).  
 
-    ![New button](../../assets/img/deploy/new-button.png) 
+    ![New button]({{base_path}}/assets/img/deploy/new-button.png) 
 
 4.  Enter the following information:  
     -   In the **Variable name** field, enter:
@@ -434,7 +435,7 @@ set JAVA_HOME
 ```
 
 The system returns the JDK installation path. You are now ready to [run
-the product.](../../../deploy/get-started/run-the-product)
+the product.]({{base_path}}/deploy/get-started/run-the-product)
 
 <a name="java-home"></a>
 
@@ -473,7 +474,7 @@ want to restart it.
 
 #### Set system properties
 
-{! fragments/set-system-properties.md !}
+{!./includes/set-system-properties.md !}
 
 ---
 
@@ -627,7 +628,7 @@ Follow the instructions in the sections below to set it up.
 -   Download and install a service wrapper library for running
     WSO2 Identity Server as a Windows service. WSO2 recommends _Yet Another
     Java Service Wrapper_ (
-    [YAJSW](http://sourceforge.net/projects/yajsw/) ) version 12.14, and
+    [YAJSW](http://sourceforge.net/projects/yajsw/) ) version 13.03, and
     several WSO2 products provide a default
     `          wrapper.conf         ` file in their
     `          <PRODUCT_HOME>/bin/yajsw/         ` directory. The
@@ -650,7 +651,7 @@ configuration for running a WSO2 product as a Windows Service.
         If you wish to set additional properties from an external registry
         at runtime, store sensitive information like usernames and passwords
         for connecting to the registry in a properties file, and secure it
-        with the [cipher tool](../../../deploy/security/encrypt-passwords-with-cipher-tool).
+        with the [cipher tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 
     ??? note "Click to view a sample"
 
@@ -738,32 +739,31 @@ configuration for running a WSO2 product as a Windows Service.
         wrapper.java.additional.1 = -Xbootclasspath/a:${carbon_home}/lib/xboot/*.jar
         wrapper.java.additional.2 = -Xms256m
         wrapper.java.additional.3 = -Xmx1024m
-        wrapper.java.additional.4 = -XX:MaxPermSize=256m
-        wrapper.java.additional.5 = -XX:+HeapDumpOnOutOfMemoryError
-        wrapper.java.additional.6 = -XX:HeapDumpPath=${carbon_home}/repository/logs/heap-dump.hprof
-        wrapper.java.additional.7 = -Dcom.sun.management.jmxremote
-        wrapper.java.additional.8 = -Dcarbon.registry.root=\/
-        wrapper.java.additional.9 = -Dcarbon.home=${carbon_home}
-        wrapper.java.additional.10 = -Dwso2.server.standalone=true
-        wrapper.java.additional.11 = -Djava.command=${java_home}/bin/java
-        wrapper.java.additional.12 = -Djava.io.tmpdir=${carbon_home}/tmp
-        wrapper.java.additional.13 = -Dcatalina.base=${carbon_home}/lib/tomcat
-        wrapper.java.additional.14 = -Djava.util.logging.config.file=${carbon_home}/repository/conf/etc/logging-bridge.properties
-        wrapper.java.additional.15 = -Dcarbon.config.dir.path=${carbon_home}/repository/conf
-        wrapper.java.additional.16 = -Dcarbon.logs.path=${carbon_home}/repository/logs
-        wrapper.java.additional.17 = -Dcomponents.repo=${carbon_home}/repository/components/plugins
-        wrapper.java.additional.18 = -Dconf.location=${carbon_home}/repository/conf
-        wrapper.java.additional.19 = -Dcom.atomikos.icatch.file=${carbon_home}/lib/transactions.properties
-        wrapper.java.additional.20 = -Dcom.atomikos.icatch.hide_init_file_path=true
-        wrapper.java.additional.21 = -Dorg.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER=true
-        wrapper.java.additional.22 = -Dcom.sun.jndi.ldap.connect.pool.authentication=simple
-        wrapper.java.additional.23 = -Dcom.sun.jndi.ldap.connect.pool.timeout=3000
-        wrapper.java.additional.24 = -Dorg.terracotta.quartz.skipUpdateCheck=true
-        wrapper.java.additional.25 = -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false
-        wrapper.java.additional.26 = -Dfile.encoding=UTF8
-        wrapper.java.additional.27 = -DworkerNode=false
-        wrapper.java.additional.28 = -Dhttpclient.hostnameVerifier=DefaultAndLocalhost
-        wrapper.java.additional.29 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
+        wrapper.java.additional.4 = -XX:+HeapDumpOnOutOfMemoryError
+        wrapper.java.additional.5 = -XX:HeapDumpPath=${carbon_home}/repository/logs/heap-dump.hprof
+        wrapper.java.additional.6 = -Dcom.sun.management.jmxremote
+        wrapper.java.additional.7 = -Dcarbon.registry.root=\/
+        wrapper.java.additional.8 = -Dcarbon.home=${carbon_home}
+        wrapper.java.additional.9 = -Dwso2.server.standalone=true
+        wrapper.java.additional.10 = -Djava.command=${java_home}/bin/java
+        wrapper.java.additional.11 = -Djava.io.tmpdir=${carbon_home}/tmp
+        wrapper.java.additional.12 = -Dcatalina.base=${carbon_home}/lib/tomcat
+        wrapper.java.additional.13 = -Djava.util.logging.config.file=${carbon_home}/repository/conf/etc/logging-bridge.properties
+        wrapper.java.additional.14 = -Dcarbon.config.dir.path=${carbon_home}/repository/conf
+        wrapper.java.additional.15 = -Dcarbon.logs.path=${carbon_home}/repository/logs
+        wrapper.java.additional.16 = -Dcomponents.repo=${carbon_home}/repository/components/plugins
+        wrapper.java.additional.17 = -Dconf.location=${carbon_home}/repository/conf
+        wrapper.java.additional.18 = -Dcom.atomikos.icatch.file=${carbon_home}/lib/transactions.properties
+        wrapper.java.additional.19 = -Dcom.atomikos.icatch.hide_init_file_path=true
+        wrapper.java.additional.20 = -Dorg.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER=true
+        wrapper.java.additional.21 = -Dcom.sun.jndi.ldap.connect.pool.authentication=simple
+        wrapper.java.additional.22 = -Dcom.sun.jndi.ldap.connect.pool.timeout=3000
+        wrapper.java.additional.23 = -Dorg.terracotta.quartz.skipUpdateCheck=true
+        wrapper.java.additional.24 = -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false
+        wrapper.java.additional.25 = -Dfile.encoding=UTF8
+        wrapper.java.additional.26 = -DworkerNode=false
+        wrapper.java.additional.27 = -Dhttpclient.hostnameVerifier=DefaultAndLocalhost
+        wrapper.java.additional.28 = -Dcarbon.new.config.dir.path=${carbon_home}/repository/resources/conf
         ```
 
 #### Set up carbon_home
@@ -774,7 +774,7 @@ to the extracted product directory location. For example, if you want to
 run WSO2 IS 5.11.0 as a Windows service, you would set ` carbon_home ` to the
 extracted ` wso2is-5.11.0 ` directory.
 
-![Edit System Variable window](../../assets/img/deploy/add-carbon-home-system-variable-window.png)
+![Edit System Variable window]({{base_path}}/assets/img/deploy/add-carbon-home-system-variable-window.png)
 
 #### Run the product in console mode
 
@@ -798,11 +798,11 @@ Carbon-based product as a Windows service.
     output similar to the following. Now you can access the WSO2 management
     console from your web browser via <https://localhost:9443/carbon>.
 
-    ![Console output](../../assets/img/deploy/console-output.png)
+    ![Console output]({{base_path}}/assets/img/deploy/console-output.png)
 
 #### Work with the WSO2CARBON service
 
-To install the Carbon-based product as a Windows service, execute the
+To install the Carbon-based product as a Windows service, open a console with administrative privileges and execute the
 following command in the `         <YAJSW_HOME>/bat/        ` directory:
 
 ``` java
@@ -812,10 +812,10 @@ installService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been installed.
 
-![Service installation confirmation](../../assets/img/deploy/service-installation-confirmation.png)
+![Service installation confirmation]({{base_path}}/assets/img/deploy/service-installation-confirmation.png)
 
 To start the service, execute the following command in the same console
-window:
+window (with administrative privileges):
 
 ``` java
 startService.bat
@@ -824,10 +824,10 @@ startService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been started.
 
-![Service startup message](../../assets/img/deploy/service-startup-message.png)
+![Service startup message]({{base_path}}/assets/img/deploy/service-startup-message.png)
 
 To stop the service, execute the following command in the same console
-window:
+window (with administrative privileges):
 
 ``` java
 stopService.bat
@@ -836,10 +836,10 @@ stopService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been stopped.
 
-![Service stop message](../../assets/img/deploy/service-stop-message.png)
+![Service stop message]({{base_path}}/assets/img/deploy/service-stop-message.png)
 
 To uninstall the service, execute the following command in the same
-console window:
+console window (with administrative privileges):
 
 ``` java
 uninstallService.bat
@@ -848,7 +848,7 @@ uninstallService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been removed.
 
-![Service removal message](../../assets/img/deploy/service-removal-message.png)
+![Service removal message]({{base_path}}/assets/img/deploy/service-removal-message.png)
 
 ---
 

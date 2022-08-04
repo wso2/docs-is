@@ -1,877 +1,1137 @@
-swagger: '2.0'
+openapi: 3.0.1
 info:
-  description: This is the RESTful API for claims management related operations in WSO2 Identity Server. This API allows	
-    adding, retrieving, updating, and deleting local/external claims and claim dialects.
-  version: "v1"
   title: WSO2 Identity Server - Claim Admin API
+  description: This is the RESTful API for claims management related operations in
+    WSO2 Identity Server. This API allows adding, retrieving, updating, and deleting
+    local/external claims and claim dialects.
   contact:
-    name: "WSO2 Identity Server"
-    url: "https://wso2.com/identity-and-access-management"
-    email: "architecture@wso2.org"
+    name: WSO2 Identity Server
+    url: https://wso2.com/identity-and-access-management
+    email: architecture@wso2.org
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-
-schemes:
-- https
-
-# tags are used for organizing operations
-tags:
-- name: management
-  description: Secured Admin-only calls
-
-# applicable authentication mechanisms
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1
+servers:
+- url: https://is.wso2.com/t/{tenant-domain}/api/server/v1
 security:
 - OAuth2: []
 - BasicAuth: []
-
+tags:
+- name: management
+  description: Secured Admin-only calls
 paths:
   /claim-dialects/local/claims:
-    post:
-      tags:
-      - management
-      summary: Add a local claim.
-      operationId: addLocalClaim
-      description: Add a new claim. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/create <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_create
-      consumes:
-      - application/json
-      parameters:
-      - in: body
-        name: localClaim
-        description: Local claim to be added.
-        schema:
-          $ref: '#/definitions/LocalClaimReq'
-      x-wso2-curl: |
-      responses:
-        201:
-          $ref: '#/responses/Created'
-        400:
-          $ref: '#/responses/InvalidInput'
-        401:
-          $ref: '#/responses/Unauthorized'
-        403:
-          $ref: '#/responses/Forbidden'
-        409:
-          $ref: '#/responses/Conflict'
-        500:
-          $ref: '#/responses/ServerError'
-
     get:
       tags:
       - management
       summary: Retrieve local claims.
+      description: Retrieve local claims. <br> <b>Permission required:</b> <br> *
+        /permission/admin/manage/identity/claimmgt/metadata/view <br> <b>Scope required:</b>
+        <br> * internal_claim_meta_view
       operationId: getLocalClaims
-      description: Retrieve local claims. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/view <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_view
-      produces:
-      - application/json
       parameters:
-      - $ref : '#/parameters/attributesQueryParam'
-      - $ref : '#/parameters/limitQueryParam'
-      - $ref : '#/parameters/offsetQueryParam'
-      - $ref : '#/parameters/filterQueryParam'
-      - $ref : '#/parameters/sortQueryParam'
-      x-wso2-curl: |
+      - name: attributes
+        in: query
+        description: Define only the required attributes to be sent in the response
+          object.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of records to return.
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination.
+        schema:
+          type: integer
+          format: int32
+      - name: filter
+        in: query
+        description: Condition to filter the retrieval of records.
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: Define the order by which the retrieved records should be sorted.
+        schema:
+          type: string
       responses:
         200:
           description: Local claims.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/LocalClaimRes'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LocalClaimRes'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         500:
-          $ref: '#/responses/ServerError'
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         501:
-          $ref: '#/responses/NotImplemented'
-
+          description: Not Implemented.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+    post:
+      tags:
+      - management
+      summary: Add a local claim.
+      description: Add a new claim. <br> <b>Permission required:</b> <br> * /permission/admin/manage/identity/claimmgt/metadata/create
+        <br> <b>Scope required:</b> <br> * internal_claim_meta_create
+      operationId: addLocalClaim
+      requestBody:
+        description: Local claim to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocalClaimReq'
+        required: false
+      responses:
+        201:
+          description: Item Created.
+          headers:
+            Location:
+              description: URI of the created resource.
+              schema:
+                type: string
+          content: {}
+        400:
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized.
+          content: {}
+        403:
+          description: Resource Forbidden.
+          content: {}
+        409:
+          description: Element Already Exists.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+      x-codegen-request-body-name: localClaim
   /claim-dialects/local/claims/{claim-id}:
     get:
       tags:
       - management
       summary: Retrieve local claim.
+      description: Retrieve a local claim matching the given claim ID. <br> <b>Permission
+        required:</b> <br> * /permission/admin/manage/identity/claimmgt/metadata/view
+        <br> <b>Scope required:</b> <br> * internal_claim_meta_view
       operationId: getLocalClaim
-      description: Retrieve a local claim matching the given claim ID. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/view <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_view
-      produces:
-      - application/json
       parameters:
-      - $ref : '#/parameters/claimIdPathParam'
-      x-wso2-curl: |
+      - name: claim-id
+        in: path
+        description: Id of the claim.
+        required: true
+        schema:
+          type: string
       responses:
         200:
           description: Requested claim.
-          schema:
-            $ref: '#/definitions/LocalClaimRes'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocalClaimRes'
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden.
+          content: {}
         404:
-          $ref: '#/responses/NotFound'
+          description: The specified resource is not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         500:
-          $ref: '#/responses/ServerError'
-
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
     put:
       tags:
       - management
       summary: Update a local claim.
+      description: Update a local claim. <br> <b>Permission required:</b> <br> * /permission/admin/manage/identity/claimmgt/metadata/update
+        <br> <b>Scope required:</b> <br> * internal_claim_meta_update
       operationId: updateLocalClaim
-      description: Update a local claim. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/update <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_update
-      consumes:
-      - application/json
       parameters:
-      - $ref : '#/parameters/claimIdPathParam'
-      - in: body
-        name: localClaim
-        description: Updated local claim.
+      - name: claim-id
+        in: path
+        description: Id of the claim.
+        required: true
         schema:
-          $ref: '#/definitions/LocalClaimReq'
-      x-wso2-curl: |
+          type: string
+      requestBody:
+        description: Updated local claim.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocalClaimReq'
+        required: false
       responses:
         200:
-          $ref: '#/responses/OK'
+          description: OK.
+          content: {}
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden.
+          content: {}
         409:
-          $ref: '#/responses/Conflict'
+          description: Element Already Exists.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         500:
-          $ref: '#/responses/ServerError'
-
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+      x-codegen-request-body-name: localClaim
     delete:
       tags:
       - management
       summary: Delete a local claim.
+      description: Delete a claim by claim ID. <br> <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/claimmgt/metadata/delete <br> <b>Scope
+        required:</b> <br> * internal_claim_meta_delete
       operationId: deleteLocalClaim
-      description: Delete a claim by claim ID. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/delete <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_delete
       parameters:
-      - $ref : '#/parameters/claimIdPathParam'
-      x-wso2-curl: |
+      - name: claim-id
+        in: path
+        description: Id of the claim.
+        required: true
+        schema:
+          type: string
       responses:
         204:
-          $ref: '#/responses/NoContent'
+          description: No Content.
+          content: {}
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden.
+          content: {}
         500:
-          $ref: '#/responses/ServerError'
-
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
   /claim-dialects:
-    post:
-      tags:
-      - management
-      summary: Add a claim dialect.
-      operationId: addClaimDialect
-      description: Add a new claim dialect. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/create <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_create
-      consumes:
-      - application/json
-      parameters:
-      - in: body
-        name: claimDialect
-        description: claim dialect to add.
-        schema:
-          $ref: '#/definitions/ClaimDialectReq'
-      x-wso2-curl: |
-      responses:
-        201:
-          $ref: '#/responses/Created'
-        400:
-          $ref: '#/responses/InvalidInput'
-        401:
-          $ref: '#/responses/Unauthorized'
-        403:
-          $ref: '#/responses/Forbidden'
-        409:
-          $ref: '#/responses/Conflict'
-        500:
-          $ref: '#/responses/ServerError'
-
     get:
       tags:
       - management
       summary: Retrieve claim dialects.
+      description: Retrieve claim dialects. <br> <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/claimmgt/metadata/view <br> <b>Scope required:</b>
+        <br> * internal_claim_meta_view
       operationId: getClaimDialects
-      description: Retrieve claim dialects. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/view <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_view
-      produces:
-      - application/json
       parameters:
-      - $ref : '#/parameters/limitQueryParam'
-      - $ref : '#/parameters/offsetQueryParam'
-      - $ref : '#/parameters/filterQueryParam'
-      - $ref : '#/parameters/sortQueryParam'
-      x-wso2-curl: |
+      - name: limit
+        in: query
+        description: Maximum number of records to return.
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination.
+        schema:
+          type: integer
+          format: int32
+      - name: filter
+        in: query
+        description: Condition to filter the retrieval of records.
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: Define the order by which the retrieved records should be sorted.
+        schema:
+          type: string
       responses:
         200:
           description: Claim dialects.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/ClaimDialectRes'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClaimDialectRes'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         500:
-          $ref: '#/responses/ServerError'
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         501:
-          $ref: '#/responses/NotImplemented'
-
+          description: Not Implemented.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+    post:
+      tags:
+      - management
+      summary: Add a claim dialect.
+      description: Add a new claim dialect. <br> <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/claimmgt/metadata/create <br> <b>Scope
+        required:</b> <br> * internal_claim_meta_create
+      operationId: addClaimDialect
+      requestBody:
+        description: claim dialect to add.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClaimDialectReq'
+        required: false
+      responses:
+        201:
+          description: Item Created.
+          headers:
+            Location:
+              description: URI of the created resource.
+              schema:
+                type: string
+          content: {}
+        400:
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized.
+          content: {}
+        403:
+          description: Resource Forbidden.
+          content: {}
+        409:
+          description: Element Already Exists.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+      x-codegen-request-body-name: claimDialect
   /claim-dialects/{dialect-id}:
     get:
       tags:
       - management
       summary: Retrieve claim dialect.
+      description: Retrieve a claim dialect matching the given dialect id. <br> <b>Permission
+        required:</b> <br> * /permission/admin/manage/identity/claimmgt/metadata/view
+        <br> <b>Scope required:</b> <br> * internal_claim_meta_view <br>
       operationId: getClaimDialect
-      description: Retrieve a claim dialect matching the given dialect id. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/view <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_view <br>
-      produces:
-      - application/json
       parameters:
-      - $ref : '#/parameters/dialectIdPathParam'
-      x-wso2-curl: |
+      - name: dialect-id
+        in: path
+        description: Id of the claim dialect.
+        required: true
+        schema:
+          type: string
       responses:
         200:
           description: Requested claim dialect.
-          schema:
-            $ref: '#/definitions/ClaimDialectRes'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClaimDialectRes'
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden.
+          content: {}
         404:
-          $ref: '#/responses/NotFound'
+          description: The specified resource is not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         500:
-          $ref: '#/responses/ServerError'
-
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
     put:
       tags:
       - management
       summary: Update a claim dialect.
+      description: Update a claim dialect. <br> <b>Permission required:</b> <br> *
+        /permission/admin/manage/identity/claimmgt/metadata/update <br> <b>Scope required:</b>
+        <br> * internal_claim_meta_update
       operationId: updateClaimDialect
-      description: Update a claim dialect. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/update <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_update
-      consumes:
-      - application/json
       parameters:
-      - $ref : '#/parameters/dialectIdPathParam'
-      - in: body
-        name: claimDialect
-        description: Updated claim dialect.
+      - name: dialect-id
+        in: path
+        description: Id of the claim dialect.
+        required: true
         schema:
-          $ref: '#/definitions/ClaimDialectReq'
-      x-wso2-curl: |
+          type: string
+      requestBody:
+        description: Updated claim dialect.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClaimDialectReq'
+        required: false
       responses:
         200:
-          $ref: '#/responses/OK'
+          description: OK.
+          content: {}
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden.
+          content: {}
         500:
-          $ref: '#/responses/ServerError'
-
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+      x-codegen-request-body-name: claimDialect
     delete:
       tags:
       - management
       summary: Delete a claim dialect.
+      description: Delete a claim dialect by claim ID. <br> <b>Permission required:</b>
+        <br> * /permission/admin/manage/identity/claimmgt/metadata/delete <br> <b>Scope
+        required:</b> <br> * internal_claim_meta_delete
       operationId: deleteClaimDialect
-      description: Delete a claim dialect by claim ID. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/delete <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_delete
       parameters:
-      - $ref : '#/parameters/dialectIdPathParam'
-      x-wso2-curl: |
+      - name: dialect-id
+        in: path
+        description: Id of the claim dialect.
+        required: true
+        schema:
+          type: string
       responses:
         204:
-          $ref: '#/responses/NoContent'
+          description: No Content.
+          content: {}
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden.
+          content: {}
         500:
-          $ref: '#/responses/ServerError'
-
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
   /claim-dialects/{dialect-id}/claims:
-    post:
-      tags:
-      - management
-      summary: Add an external claim.
-      operationId: addExternalClaim
-      description: Add a new external claim. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/create <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_create
-      consumes:
-      - application/json
-      parameters:
-      - $ref : '#/parameters/dialectIdPathParam'
-      - in: body
-        name: externalClaim
-        description: External claim to add.
-        schema:
-          $ref: '#/definitions/ExternalClaimReq'
-      x-wso2-curl: |
-      responses:
-        201:
-          $ref: '#/responses/Created'
-        400:
-          $ref: '#/responses/InvalidInput'
-        401:
-          $ref: '#/responses/Unauthorized'
-        403:
-          $ref: '#/responses/Forbidden'
-        404:
-          $ref: '#/responses/NotFound'
-        409:
-          $ref: '#/responses/Conflict'
-        500:
-          $ref: '#/responses/ServerError'
-
     get:
       tags:
       - management
       summary: Retrieve external claims.
+      description: Retrieve External claims. <br> <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/claimmgt/metadata/view <br> <b>Scope required:</b>
+        <br> * internal_claim_meta_view
       operationId: getExternalClaims
-      description: Retrieve External claims. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/view <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_view
-      produces:
-      - application/json
       parameters:
-      - $ref : '#/parameters/dialectIdPathParam'
-      - $ref : '#/parameters/limitQueryParam'
-      - $ref : '#/parameters/offsetQueryParam'
-      - $ref : '#/parameters/filterQueryParam'
-      - $ref : '#/parameters/sortQueryParam'
-      x-wso2-curl: |
+      - name: dialect-id
+        in: path
+        description: Id of the claim dialect.
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of records to return.
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination.
+        schema:
+          type: integer
+          format: int32
+      - name: filter
+        in: query
+        description: Condition to filter the retrieval of records.
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: Define the order by which the retrieved records should be sorted.
+        schema:
+          type: string
       responses:
         200:
           description: External claims.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/ExternalClaimRes'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExternalClaimRes'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         404:
-          $ref: '#/responses/NotFound'
+          description: The specified resource is not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         500:
-          $ref: '#/responses/ServerError'
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         501:
-          $ref: '#/responses/NotImplemented'
-
+          description: Not Implemented.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+    post:
+      tags:
+      - management
+      summary: Add an external claim.
+      description: Add a new external claim. <br> <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/claimmgt/metadata/create <br> <b>Scope
+        required:</b> <br> * internal_claim_meta_create
+      operationId: addExternalClaim
+      parameters:
+      - name: dialect-id
+        in: path
+        description: Id of the claim dialect.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: External claim to add.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalClaimReq'
+        required: false
+      responses:
+        201:
+          description: Item Created.
+          headers:
+            Location:
+              description: URI of the created resource.
+              schema:
+                type: string
+          content: {}
+        400:
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized.
+          content: {}
+        403:
+          description: Resource Forbidden.
+          content: {}
+        404:
+          description: The specified resource is not found.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        409:
+          description: Element Already Exists.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+      x-codegen-request-body-name: externalClaim
   /claim-dialects/{dialect-id}/claims/{claim-id}:
     get:
       tags:
       - management
       summary: Retrieve external claim.
+      description: Retrieve an external claim matching the given dialect ID and claim
+        ID. <br> <b>Permission required:</b> <br> * /permission/admin/manage/identity/claimmgt/metadata/view
+        <br> <b>Scope required:</b> <br> * internal_claim_meta_view
       operationId: getExternalClaim
-      description: Retrieve an external claim matching the given dialect ID and claim ID. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/view <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_view
-      produces:
-      - application/json
       parameters:
-      - $ref : '#/parameters/dialectIdPathParam'
-      - $ref : '#/parameters/claimIdPathParam'
-      x-wso2-curl: |
+      - name: dialect-id
+        in: path
+        description: Id of the claim dialect.
+        required: true
+        schema:
+          type: string
+      - name: claim-id
+        in: path
+        description: Id of the claim.
+        required: true
+        schema:
+          type: string
       responses:
         200:
           description: Requested claim.
-          schema:
-            $ref: '#/definitions/ExternalClaimRes'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalClaimRes'
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden.
+          content: {}
         404:
-          $ref: '#/responses/NotFound'
+          description: The specified resource is not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         500:
-          $ref: '#/responses/ServerError'
-
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
     put:
       tags:
       - management
       summary: Update an external claim.
+      description: Update an external claim. <br> <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/claimmgt/metadata/update <br> <b>Scope
+        required:</b> <br> * internal_claim_meta_update
       operationId: updateExternalClaim
-      description: Update an external claim. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/update <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_update
-      consumes:
-      - application/json
       parameters:
-      - $ref : '#/parameters/dialectIdPathParam'
-      - $ref : '#/parameters/claimIdPathParam'
-      - in: body
-        name: externalClaim
-        description: Updated external claim.
+      - name: dialect-id
+        in: path
+        description: Id of the claim dialect.
+        required: true
         schema:
-          $ref: '#/definitions/ExternalClaimReq'
-      x-wso2-curl: |
+          type: string
+      - name: claim-id
+        in: path
+        description: Id of the claim.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Updated external claim.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalClaimReq'
+        required: false
       responses:
         200:
-          $ref: '#/responses/OK'
+          description: OK.
+          content: {}
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden.
+          content: {}
         409:
-          $ref: '#/responses/Conflict'
+          description: Element Already Exists.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         500:
-          $ref: '#/responses/ServerError'
-
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+      x-codegen-request-body-name: externalClaim
     delete:
       tags:
       - management
       summary: Delete an external claim.
+      description: Delete a claim by dialect ID and claim ID. <br> <b>Permission required:</b>
+        <br> * /permission/admin/manage/identity/claimmgt/metadata/delete <br> <b>Scope
+        required:</b> <br> * internal_claim_meta_delete
       operationId: deleteExternalClaim
-      description: Delete a claim by dialect ID and claim ID. <br>	
-        <b>Permission required:</b> <br>	
-              * /permission/admin/manage/identity/claimmgt/metadata/delete <br>	
-        <b>Scope required:</b> <br>	
-              * internal_claim_meta_delete
       parameters:
-      - $ref : '#/parameters/dialectIdPathParam'
-      - $ref : '#/parameters/claimIdPathParam'
-      x-wso2-curl: |
+      - name: dialect-id
+        in: path
+        description: Id of the claim dialect.
+        required: true
+        schema:
+          type: string
+      - name: claim-id
+        in: path
+        description: Id of the claim.
+        required: true
+        schema:
+          type: string
       responses:
         204:
-          $ref: '#/responses/NoContent'
+          description: No Content.
+          content: {}
         400:
-          $ref: '#/responses/InvalidInput'
+          description: Invalid input request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
         401:
-          $ref: '#/responses/Unauthorized'
+          description: Unauthorized.
+          content: {}
         403:
-          $ref: '#/responses/Forbidden'
+          description: Resource Forbidden.
+          content: {}
         500:
-          $ref: '#/responses/ServerError'
-
-#-----------------------------------------------------
-# Parameters
-#-----------------------------------------------------
-parameters:
-  limitQueryParam:
-    in: query
-    name: limit
-    required: false
-    description: Maximum number of records to return.
-    type: integer
-    format: int32
-  offsetQueryParam:
-    in: query
-    name: offset
-    required: false
-    description: Number of records to skip for pagination.
-    type: integer
-    format: int32
-  filterQueryParam:
-    in: query
-    name: filter
-    required: false
-    description: Condition to filter the retrieval of records.
-    type: string
-  sortQueryParam:
-    in: query
-    name: sort
-    required: false
-    description: Define the order by which the retrieved records should be sorted.
-    type: string
-  attributesQueryParam:
-    in: query
-    name: attributes
-    required: false
-    description: Define only the required attributes to be sent in the response object.
-    type: string
-  dialectIdPathParam:
-    in: path
-    name: dialect-id
-    required: true
-    type: string
-    description: Id of the claim dialect.
-  claimIdPathParam:
-    in: path
-    name: claim-id
-    required: true
-    type: string
-    description: Id of the claim.
-
-#-----------------------------------------------------
-# Definitions
-#-----------------------------------------------------
-definitions:
-  #-----------------------------------------------------
-  # The Local Claim Request object
-  #-----------------------------------------------------
-  LocalClaimReq:
-    type: object
-    required:
-    - claimURI
-    - description
-    - displayName
-    - attributeMapping
-    description: Local claim request.
-    properties:
-      claimURI:
-        type: string
-        description: A unique URI specific to the claim.
-        example: "http://wso2.org/claims/username"
-      description:
-        type: string
-        description: Description of the claim.
-        example: "Some description about the claim."
-      displayOrder:
-        type: integer
-        description: The order in which the claim is displayed among other claims under the same dialect.
-        example: 10
-      displayName:
-        type: string
-        description: Name of the claim to be displayed in the UI.
-        example: "Username"
-      readOnly:
-        type: boolean
-        description: Specifies if the claim is read-only.
-        example: true
-      regEx:
-        type: string
-        description: Regular expression used to validate inputs.
-        example: "^([a-zA-Z)$"
+          description: Internal Server Error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-wso2-curl: ""
+components:
+  schemas:
+    LocalClaimReq:
       required:
-        type: boolean
-        description: Specifies if the claim is required for user registration.
-        example: true
-      supportedByDefault:
-        type: boolean
-        description: Specifies if the claim will be prompted during user registration and displayed on the user profile.
-        example: true
-      attributeMapping:
-        type: array
-        description: Userstore attribute mappings.
-        items:
-          $ref: '#/definitions/AttributeMapping'
+      - attributeMapping
+      - claimURI
+      - description
+      - displayName
+      type: object
       properties:
-        type: array
-        description: Define any additional properties if required.
-        items:
-          $ref: '#/definitions/Property'
-
-  #-----------------------------------------------------
-  # The Local Claim Response object
-  #-----------------------------------------------------
-  LocalClaimRes:
-    type: object
-    description: Local claim response.
-    properties:
-      id:
-        type: string
-        description: claim ID.
-        example: "394b8adcce24c64a8a09a8d80abf8c337bd253de"
-      claimURI:
-        type: string
-        description: A unique URI specific to the claim.
-        example: "http://wso2.org/claims/username"
-      dialectURI:
-        type: string
-        description: URI of the claim dialect.
-        example: "http://wso2.org/claims"
-      description:
-        type: string
-        description: Description of the claim.
-        example: "Some description about the claim."
-      displayOrder:
-        type: integer
-        description: The order in which the claim is displayed among other claims under the same dialect.
-        example: 10
-      displayName:
-        type: string
-        description: Name of the claim to be displayed in the UI.
-        example: "Username"
-      readOnly:
-        type: boolean
-        description: Specifies if the claim is read-only.
-        example: true
-      regEx:
-        type: string
-        description: Regular expression used to validate inputs.
-        example: "^([a-zA-Z)$"
+        claimURI:
+          type: string
+          description: A unique URI specific to the claim.
+          example: http://wso2.org/claims/username
+        description:
+          type: string
+          description: Description of the claim.
+          example: Some description about the claim.
+        displayOrder:
+          type: integer
+          description: The order in which the claim is displayed among other claims
+            under the same dialect.
+          example: 10
+        displayName:
+          type: string
+          description: Name of the claim to be displayed in the UI.
+          example: Username
+        readOnly:
+          type: boolean
+          description: Specifies if the claim is read-only.
+          example: true
+        regEx:
+          type: string
+          description: Regular expression used to validate inputs.
+          example: ^([a-zA-Z)$
+        required:
+          type: boolean
+          description: Specifies if the claim is required for user registration.
+          example: true
+        supportedByDefault:
+          type: boolean
+          description: Specifies if the claim will be prompted during user registration
+            and displayed on the user profile.
+          example: true
+        attributeMapping:
+          type: array
+          description: Userstore attribute mappings.
+          items:
+            $ref: '#/components/schemas/AttributeMapping'
+        properties:
+          type: array
+          description: Define any additional properties if required.
+          items:
+            $ref: '#/components/schemas/Property'
+      description: Local claim request.
+    LocalClaimRes:
+      type: object
+      properties:
+        id:
+          type: string
+          description: claim ID.
+          example: 394b8adcce24c64a8a09a8d80abf8c337bd253de
+        claimURI:
+          type: string
+          description: A unique URI specific to the claim.
+          example: http://wso2.org/claims/username
+        dialectURI:
+          type: string
+          description: URI of the claim dialect.
+          example: http://wso2.org/claims
+        description:
+          type: string
+          description: Description of the claim.
+          example: Some description about the claim.
+        displayOrder:
+          type: integer
+          description: The order in which the claim is displayed among other claims
+            under the same dialect.
+          example: 10
+        displayName:
+          type: string
+          description: Name of the claim to be displayed in the UI.
+          example: Username
+        readOnly:
+          type: boolean
+          description: Specifies if the claim is read-only.
+          example: true
+        regEx:
+          type: string
+          description: Regular expression used to validate inputs.
+          example: ^([a-zA-Z)$
+        required:
+          type: boolean
+          description: Specifies if the claim is required for user registration.
+          example: true
+        supportedByDefault:
+          type: boolean
+          description: Specifies if the claim will be prompted during user registration
+            and displayed on the user profile.
+          example: true
+        attributeMapping:
+          type: array
+          description: Userstore attribute mappings.
+          items:
+            $ref: '#/components/schemas/AttributeMapping'
+        properties:
+          type: array
+          description: Define any additional properties if required.
+          items:
+            $ref: '#/components/schemas/Property'
+      description: Local claim response.
+    AttributeMapping:
       required:
-        type: boolean
-        description: Specifies if the claim is required for user registration.
-        example: true
-      supportedByDefault:
-        type: boolean
-        description: Specifies if the claim will be prompted during user registration and displayed on the user profile.
-        example: true
-      attributeMapping:
-        type: array
-        description: Userstore attribute mappings.
-        items:
-          $ref: '#/definitions/AttributeMapping'
+      - mappedAttribute
+      - userstore
+      type: object
       properties:
-        type: array
-        description: Define any additional properties if required.
-        items:
-          $ref: '#/definitions/Property'
-
-  #-----------------------------------------------------
-  # The Additional Attribute Mapping object
-  #-----------------------------------------------------
-  AttributeMapping:
-    type: object
-    required:
-    - mappedAttribute
-    - userstore
-    description: Claim userstore attribute mapping.
-    properties:
-      mappedAttribute:
+        mappedAttribute:
+          type: string
+          description: Userstore attribute to be mapped to.
+          example: username
+        userstore:
+          type: string
+          description: Userstore domain name.
+          example: SECONDARY
+      description: Claim userstore attribute mapping.
+    ClaimDialectReq:
+      required:
+      - dialectURI
+      type: object
+      properties:
+        dialectURI:
+          type: string
+          description: URI of the claim dialect.
+          example: urn:ietf:params:scim:schemas:core:2.0:User
+      description: Claim dialect request.
+    ClaimDialectRes:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Dialect id.
+          example: 394b8adcce24c64a8a09a0d80abf8c337bd253de
+        dialectURI:
+          type: string
+          description: URI of the claim dialect.
+          example: urn:ietf:params:scim:schemas:core:2.0:User
+        link:
+          $ref: '#/components/schemas/Link'
+      description: Claim dialect response.
+    ExternalClaimReq:
+      required:
+      - claimURI
+      - mappedLocalClaimURI
+      type: object
+      properties:
+        claimURI:
+          type: string
+          description: Claim URI of the external claim.
+          example: urn:ietf:params:scim:schemas:core:2.0:User:userName
+        mappedLocalClaimURI:
+          type: string
+          description: The local claim URI to map with the external claim.
+          example: http://wso2.org/claims/username
+      description: External claim request.
+    ExternalClaimRes:
+      type: object
+      properties:
+        id:
+          type: string
+          description: External claim ID.
+          example: 394b8adcce24c64a8a09a0d80abf8c337dd255de
+        claimURI:
+          type: string
+          description: Claim URI of the external claim.
+          example: '  urn:ietf:params:scim:schemas:core:2.0:User:userName'
+        claimDialectURI:
+          type: string
+          description: Dialect URI of the external claim.
+          example: urn:ietf:params:scim:schemas:core:2.0:User
+        mappedLocalClaimURI:
+          type: string
+          description: The local claim URI to map with the external claim.
+          example: http://wso2.org/claims/username
+      description: External claim response.
+    Property:
+      required:
+      - key
+      - value
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          description: Relative path to the target resource.
+          example: 394b8adcce24c64a8a09a8d80abf8c337bd253de/claims
+        rel:
+          type: string
+          description: Describes how the current context is related to the target
+            resource.
+          example: claims
+    Error:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+  responses:
+    Conflict:
+      description: Element Already Exists.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Created:
+      description: Item Created.
+      headers:
+        Location:
+          description: URI of the created resource.
+          schema:
+            type: string
+      content: {}
+    Forbidden:
+      description: Resource Forbidden.
+      content: {}
+    InvalidInput:
+      description: Invalid input request.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NoContent:
+      description: No Content.
+      content: {}
+    NotFound:
+      description: The specified resource is not found.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    OK:
+      description: OK.
+      content: {}
+    ServerError:
+      description: Internal Server Error.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized.
+      content: {}
+  parameters:
+    limitQueryParam:
+      name: limit
+      in: query
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+        format: int32
+    offsetQueryParam:
+      name: offset
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+        format: int32
+    filterQueryParam:
+      name: filter
+      in: query
+      description: Condition to filter the retrieval of records.
+      schema:
         type: string
-        description: Userstore attribute to be mapped to.
-        example: "username"
-      userstore:
+    sortQueryParam:
+      name: sort
+      in: query
+      description: Define the order by which the retrieved records should be sorted.
+      schema:
         type: string
-        description: Userstore domain name.
-        example: "SECONDARY"
-
-  #-----------------------------------------------------
-  # The Claim Dialect Request object
-  #-----------------------------------------------------
-  ClaimDialectReq:
-    type: object
-    required:
-    - dialectURI
-    description: Claim dialect request.
-    properties:
-      dialectURI:
+    attributesQueryParam:
+      name: attributes
+      in: query
+      description: Define only the required attributes to be sent in the response
+        object.
+      schema:
         type: string
-        description: URI of the claim dialect.
-        example: "urn:ietf:params:scim:schemas:core:2.0:User"
-
-  #-----------------------------------------------------
-  # The Claim Dialect Response object
-  #-----------------------------------------------------
-  ClaimDialectRes:
-    type: object
-    description: Claim dialect response.
-    properties:
-      id:
+    dialectIdPathParam:
+      name: dialect-id
+      in: path
+      description: Id of the claim dialect.
+      required: true
+      schema:
         type: string
-        description: Dialect id.
-        example: "394b8adcce24c64a8a09a0d80abf8c337bd253de"
-      dialectURI:
+    claimIdPathParam:
+      name: claim-id
+      in: path
+      description: Id of the claim.
+      required: true
+      schema:
         type: string
-        description: URI of the claim dialect.
-        example: "urn:ietf:params:scim:schemas:core:2.0:User"
-      link:
-        $ref: '#/definitions/Link'
-
-  #-----------------------------------------------------
-  # The External Claim Request object
-  #-----------------------------------------------------
-  ExternalClaimReq:
-    type: object
-    required:
-    - claimURI
-    - mappedLocalClaimURI
-    description: External claim request.
-    properties:
-      claimURI:
-        type: string
-        description: Claim URI of the external claim.
-        example: "urn:ietf:params:scim:schemas:core:2.0:User:userName"
-      mappedLocalClaimURI:
-        type: string
-        description: The local claim URI to map with the external claim.
-        example: "http://wso2.org/claims/username"
-
-  #-----------------------------------------------------
-  # The External Claim Response object
-  #-----------------------------------------------------
-  ExternalClaimRes:
-    type: object
-    description: External claim response.
-    properties:
-      id:
-        type: string
-        description: External claim ID.
-        example: "394b8adcce24c64a8a09a0d80abf8c337dd255de"
-      claimURI:
-        type: string
-        description: Claim URI of the external claim.
-        example: "  urn:ietf:params:scim:schemas:core:2.0:User:userName"
-      claimDialectURI:
-        type: string
-        description: Dialect URI of the external claim.
-        example: "urn:ietf:params:scim:schemas:core:2.0:User"
-      mappedLocalClaimURI:
-        type: string
-        description: The local claim URI to map with the external claim.
-        example: "http://wso2.org/claims/username"
-
-  #-----------------------------------------------------
-  # Property Object
-  #-----------------------------------------------------
-  Property:
-    type: object
-    required:
-    - key
-    - value
-    properties:
-      key:
-        type: string
-      value:
-        type: string
-
-  #-----------------------------------------------------
-  # Link object
-  #-----------------------------------------------------
-  Link:
-    type: object
-    properties:
-      href:
-        type: string
-        description: Relative path to the target resource.
-        example: "394b8adcce24c64a8a09a8d80abf8c337bd253de/claims"
-      rel:
-        type: string
-        description: Describes how the current context is related to the target resource.
-        example: "claims"
-
-  #-----------------------------------------------------
-  # The Error  object
-  #-----------------------------------------------------
-  Error:
-    type: object
-    required:
-    - code
-    - message
-    properties:
-      code:
-        type: string
-        example: "AAA-00000"
-      message:
-        type: string
-        example: "Some Error Message"
-      description:
-        type: string
-        example: "Some Error Description"
-      traceId:
-        type: string
-        example: "e0fbcfeb-3617-43c4-8dd0-7b7d38e13047"
-
-#-----------------------------------------------------
-# Security Definitions
-#-----------------------------------------------------
-securityDefinitions:
-  BasicAuth:
-    type: basic
-  # ClientCertificate:
-  #   type: custom
-  OAuth2:
-    type: oauth2
-    flow: accessCode
-    authorizationUrl: https://localhost:9443/oauth/authorize
-    tokenUrl: https://localhost:9443/oauth/token
-    scopes:
-      read: Grants read access
-      write: Grants write access
-      admin: Grants read and write access to administrative information
-
-#-----------------------------------------------------
-# Descriptions of common responses
-#-----------------------------------------------------
-responses:
-  NotFound:
-    description: The specified resource is not found.
-    schema:
-      $ref: '#/definitions/Error'
-  Unauthorized:
-    description: Unauthorized.
-  ServerError:
-    description: Internal Server Error.
-    schema:
-      $ref: '#/definitions/Error'
-  NotImplemented:
-    description: Not Implemented.
-    schema:
-      $ref: '#/definitions/Error'
-  InvalidInput:
-    description: Invalid input request.
-    schema:
-      $ref: '#/definitions/Error'
-  Conflict:
-    description: Element Already Exists.
-    schema:
-      $ref: '#/definitions/Error'
-  Created:
-    description: Item Created.
-    headers:
-      Location:
-        type: string
-        description: URI of the created resource.
-  OK:
-    description: OK.
-  NoContent:
-    description: No Content.
-  Forbidden:
-    description: Resource Forbidden.
-
-host: is.wso2.com
-basePath: /t/{tenant-domain}/api/server/v1
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth/authorize
+          tokenUrl: https://localhost:9443/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information

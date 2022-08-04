@@ -17,7 +17,7 @@ enable = true
 
 ## Enable Lite User Registration 
 
-1.	Sign in to the WSO2 Identity Server [Management Console](../../../deploy/get-started/get-started-with-the-management-console).
+1.	Sign in to the WSO2 Identity Server [Management Console]({{base_path}}/deploy/get-started/get-started-with-the-management-console).
 
 2.	On the **Main** menu, click **Identity > Identity Providers > Resident**. 
 
@@ -27,7 +27,7 @@ enable = true
 
 5.	Select **Lite user registration** to allow users to register without a password. 
 
-	![resident-idp](../../assets/img/guides/resident-idp.png)
+	![resident-idp]({{base_path}}/assets/img/guides/resident-idp.png)
 
 6. Click **Update**. 
 
@@ -43,7 +43,7 @@ enable = true
 
 4.	Change the value of **Mapped Attribute** to `title`. 
 
-	![mapped-attribute-change](../../assets/img/guides/mapped-attribute-change.png)
+	![mapped-attribute-change]({{base_path}}/assets/img/guides/mapped-attribute-change.png)
 
 	!!! note 
 		This step needs to be performed since the `isLiteUser` attribute has not been introduced yet in the product. 

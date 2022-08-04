@@ -3,7 +3,7 @@
 You can perform data purging by clearing the session data using the script given below. WSO2 Identity Server stores session data for authentication purposes. As the volume of the data stored grows over time, the authentication operations may also eventually consume more time. It is highly recommended to perform data purging on production servers to mitigate this.
 
 <!--!!! info 
-    For more information about session persistence, see [Authentication Session Persistence](TBD:../../learn/authentication-session-persistence).-->
+    For more information about session persistence, see [Authentication Session Persistence](TBD:{{base_path}}/learn/authentication-session-persistence).-->
 
 !!! tip
     It is recommended to run these steps at the time where server traffic is low. Especially, if you are running this in the production environment for the first time, since the data volume to be purged may be higher. However, consider this as a housekeeping task that needs to be run at regular intervals. 

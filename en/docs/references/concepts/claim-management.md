@@ -9,7 +9,7 @@ information. It provides a consistent approach for all applications by
 hiding the lower level implementation. Claims are also used in identity
 propagation which is the replication of authenticated identities,
 by packaging the claims into one or more tokens (such as SAML). These
-tokens are then issued by an issuer (eg., [security token service](../authentication/intro-ws-trust)).
+tokens are then issued by an issuer (eg., [security token service]({{base_path}}/authentication/intro-ws-trust)).
 
 A user claim is a claim that is related to a user. It can be used to
 specify information that is directly related to the user, such as claims
@@ -27,7 +27,7 @@ The Claim Management component of WSO2 Carbon
 allows you to map a set of attributes from the underlying userstore to
 a set of defined claims. The underlying userstore can either be an
 internal or external JDBC userstore, Active Directory, or LDAP user
-store. You can [configure the primary userstore](../../../deploy/configure-the-primary-user-store#set-up-the-primary-userstore) 
+store. You can [configure the primary userstore]({{base_path}}/deploy/configure-the-primary-user-store#set-up-the-primary-userstore) 
 using the `deployment.toml` file. 
 Each claim can be uniquely identified within the claim dialect by the
 Claim URI. Claim URIs are independent of the userstore and each claim
@@ -42,9 +42,9 @@ application as it is hidden by the claim management.
     configurations are read directly from the
     the `<IS_HOME>/repository/conf/claim-config.xml` file. So
     claims mapped for SCIM in the super tenant's [management
-    console](../../../deploy/get-started/get-started-with-the-management-console) are not seen by
+    console]({{base_path}}/deploy/get-started/get-started-with-the-management-console) are not seen by
     a newly created tenant as the [User
-    Realm](../../../deploy/configure-the-system-administrator) is always built using the
+    Realm]({{base_path}}/deploy/configure-the-system-administrator) is always built using the
     configuration found in the `claim-config.xml` file. So the recommended
     approach is to do the claim mapping in the
     `<IS_HOME>/repository/conf/claim-config.xml` file.
@@ -53,7 +53,7 @@ application as it is hidden by the claim management.
     file after the first startup would not have any effect.
 
     For more information on SCIM, click
-    [here](../../../references/concepts/identity-provisioning-intro/).
+    [here]({{base_path}}/references/concepts/identity-provisioning-intro/).
 
 A set of claims is identified as a dialect. Different dialects represent
 the same piece of information with different claim URIs.

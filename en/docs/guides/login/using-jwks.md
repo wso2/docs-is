@@ -1,6 +1,6 @@
 # Obtain Key Set Using JSON Web Key Set
 
-The JSON Web Key Set (JWKS) endpoint is a read-only endpoint that returns the Identity Server's public key set in the [JWKS](../../../references/concepts/authentication/jwks) format. 
+The JSON Web Key Set (JWKS) endpoint is a read-only endpoint that returns the Identity Server's public key set in the [JWKS]({{base_path}}/references/concepts/authentication/jwks) format. 
 
 You can follow this guide when your relying party (RP) application needs to validate JWT Token signatures issued by WSO2 Identity Server.
 
@@ -135,5 +135,5 @@ For more information, see the [JWKS specification](https://tools.ietf.org/html/r
 
 
 !!! info "Related topics"
-    - [Concept: JSON Web Key Set](../../../references/concepts/authentication/jwks)
-    - [Guide: Validate a JWT Based on JWKS](../validate-jwt-using-jwks)
+    - [Concept: JSON Web Key Set]({{base_path}}/references/concepts/authentication/jwks)
+    - [Guide: Validate a JWT Based on JWKS]({{base_path}}/validate-jwt-using-jwks)
