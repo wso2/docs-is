@@ -108,7 +108,7 @@ keytool -import -alias certalias -file <certificate>.pem -keystore client-trusts
     `wso2carbon` is the keystore password of the default client-truststore.jks file of WSO2 Identity Server.
 
 Furthermore, please make sure to follow the steps mentioned in [Configure Active Directory Userstores for SCIM 2.0 based Inbound Provisioning](../guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md) 
-since SCIM enabled by default from the WSO2 Identity Server 5.10.0 onwards.
+since SCIM is enabled by default from the WSO2 Identity Server 5.10.0 onwards.
 
 
 !!! note
