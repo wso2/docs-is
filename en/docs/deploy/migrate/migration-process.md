@@ -18,25 +18,23 @@ your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
     environment and the new environment will be running until all the traffic is routed to the new 
     environment.
 
----
-
-## Before migrating to a production environment
-
-### Do you have a custom requirement?
+##  Do you have a custom requirement?
     
 If your customizations are already available in the latest version, you can remove the 
-customization after migration. You can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) for assistance. 
-However, if a custom requirement is not available in the latest version, follow the steps given below to migrate the customizations.
+customization after migration. You can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) for assistance. However, if a custom requirement is not available in the latest version, follow the steps given below to migrate the customizations.
 
-- First update the dependency version of the 
-dependant WSO2 components and re-build the customized component.
-- As a practice, WSO2 does not make API changes in minor releases of the dependency jars. However, if 
-there are API changes, update the custom code and re-build.
--  For more information about migrating customizations, see [Migrate Custom Components]({{base_path}}/deploy/migrate/prepare-for-migration/#migrate-custom-components).
+- First update the dependency version of the dependant WSO2 components and re-build the customized component.
+- As a practice, WSO2 does not make API changes in minor releases of the dependency jars. However, if there are API changes, update the custom code and re-build.
+-  For more information about migrating customizations, see [Migrate to WSO2 IS 6.0.0]({{base_path}}/deploy/migrate/migrate-to-600/).
                         
-###  Step-by-step instructions 
+##  Step-by-step instructions 
 
-Follow the steps given below once you have followed the steps above to migrate customizations **OR** if you do not have any custom requirements. 
+Follow the steps given below once you have followed the steps above to migrate customizations **OR** if you do not have any custom requirements.
+
+!!! note "Recommendation"
+    When you follow the above steps, you can get a rough estimate of the time for the final 
+    production update and you can allocate time slots as per the above analysis. WSO2 recommends performing the 
+    migration while the system is under minimum traffic.
 
 1.  List down the functional and nonfunctional use cases in your deployment and create test cases for them. 
     
@@ -68,21 +66,14 @@ ideal if the pre-prod environment is similar to the production environment.
     +   If possible, restore a database dump of the production environment to the pre-prod environment and 
     perform the pilot migration.
     +   If the production database dump cannot be used, at least ensure that you have a sufficient amount 
-    of data in the database to mimic the production environment.
+    of data in the database to mimic the production environment. 
     
-!!! note "Recommendation"
-    When you follow the above steps, you can get a rough estimate of the time for the final 
-    production update and you can allocate time slots as per the above analysis. WSO2 recommends performing the 
-    migration while the system is under minimum traffic. 
-    
-Once you are satisfied with the above steps, proceed with production migration. After the migration is complete, 
-verify it using the following steps.
-    
-+  Monitor the system health (CPU, memory usage etc).
-+  Monitor the WSO2 logs for errors.
+9.  Once you are satisfied with the above steps, proceed with production migration. 
 
-!!! note ""
+10. After the migration is complete, verify it using the following steps:
+    
+    +  Monitor the system health (CPU, memory usage etc).
+    +  Monitor the WSO2 logs for errors.
+
+!!! note
     If you see any problems in the migrated system, revert the traffic back to the previous setup and investigate the problem.
-
-
-

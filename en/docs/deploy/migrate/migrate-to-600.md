@@ -3,44 +3,46 @@ This document guides you through the migration process from earlier versions of 
 
 ## Before you begin
 
-See the instructions on [preparing for migration]({{base_path}}/setup/migrating-preparing-for-migration) section.
+See the instructions on [preparing for migration]({{base_path}}/deploy/migrate/prepare-for-migration).
 
 ## Step 1: Migrate artifacts and configs
 
 !!! note
-    Note that `<OLD_IS_HOME>` is the directory that the current Identity Server resides in, and `<NEW_IS_HOME>` is the directory that WSO2 Identity Server 6.0.0 resides in.
+    Note that `<OLD_IS_HOME>` is the folder that the current Identity Server resides in, and `<NEW_IS_HOME>` is the folder that WSO2 Identity Server 6.0.0 resides in.
 
-Once all the above prerequisites have been met, follow the instructions given below to migrate to the latest version.
+Once all the rerequisites are met, follow the instructions given below to migrate to WSO2 IS 6.0.0.
 
 ### Components
 
--  If you have manually added any JAR files to the `<OLD_IS_HOME>/repository/components/lib` directory, copy and paste those JARs in the `<NEW_IS_HOME>/repository/components/lib` directory.
+Follow the instructions given below to migrate any component artifacts.
 
--  If you have manually added any custom OSGI bundles to the `<OLD_IS_HOME>/repository/components/dropins` directory, copy those OSGI bundles to the `<NEW_IS_HOME>/repository/components/dropins` directory.
+-  If you have manually added any JAR files to the `<OLD_IS_HOME>/repository/components/lib` folder, copy those JARs to the `<NEW_IS_HOME>/repository/components/lib` folder.
+
+-  If you have manually added any custom OSGI bundles to the `<OLD_IS_HOME>/repository/components/dropins` folder, copy those OSGI bundles to the `<NEW_IS_HOME>/repository/components/dropins` folder.
 
 -  **Custom components**
     
-    In WSO2 Identity Server 6.0.0, a major upgrade has been made to the kernel and the main components. Any custom OSGI bundles which are added manually should be recompiled with new dependency versions that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the `<OLD_IS_HOME>/repository/components/dropins` directory.
+    In WSO2 Identity Server 6.0.0, a major upgrade has been made to the kernel and the main components. Any custom OSGI bundles which are added manually should be recompiled with new dependency versions that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the `<OLD_IS_HOME>/repository/components/dropins` folder.
 
-    1. Get the source codes of the custom OSGI components located in the `dropins` directory.
+    1. Get the source codes of the custom OSGI components located in the `dropins` folder.
 
-    2. Change the dependency versions in the relevant POM files according to the WSO2 IS version that you are upgrading to, and compile them. The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0-rc1/pom.xml).
+    2. Change the dependency versions in the relevant POM files according to the WSO2 IS version that you are upgrading to (WSO2 IS 6.0.0) and compile them. 
+    
+        !!! info
+            The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0-rc1/pom.xml).
 
     3. If you come across any compile time errors, refer to the WSO2 IS code base and make the necessary changes related to that particular component version.
 
-    4. Add the compiled JAR files to the `<NEW_IS_HOME>/repository/components/dropins` directory.
+    4. Add the compiled JAR files to the `<NEW_IS_HOME>/repository/components/dropins` folder.
 
-    5. If there were any custom OSGI components in `<OLD_IS_HOME>/repository/components/lib` directory, add newly compiled versions of those components to the `<NEW_IS_HOME>/repository/components/lib`  directory.
+    5. If there were any custom OSGI components in `<OLD_IS_HOME>/repository/components/lib` folder, add newly compiled versions of those components to the `<NEW_IS_HOME>/repository/components/lib` folder.
 
 ### Resources
 
-!!! info
-    If you have a WSO2 Subscription, it is highly recommended to reach [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) before attempting to proceed with the configuration migration.
-
-Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` directory and paste them in the `<NEW_IS_HOME>/repository/resources/security` directory.
+Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` folder to the `<NEW_IS_HOME>/repository/resources/security` folder.
 
 !!! note
-    From WSO2 Identity Server 5.11.0 onwards, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` to configure internal and primary keystores. 
+    From WSO2 Identity Server 5.11.0 onwards, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous WSO2 IS version, add the following configuration to the `<NEW_IS_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. 
 
     ```toml
     [keystore.primary]
@@ -62,25 +64,29 @@ Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` dir
 
 ### Tenants
 
-If you have created tenants in the previous WSO2 Identity Server version that contain resources, copy the content from `<OLD_IS_HOME>/repository/tenants` directory, to the `<NEW_IS_HOME>/repository/tenants` directory.
+If you have created tenants in the previous WSO2 Identity Server version that contain resources, copy the content from the `<OLD_IS_HOME>/repository/tenants` folder to the `<NEW_IS_HOME>/repository/tenants` folder.
 
 ### User stores
 
-If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` directory to the `<NEW_IS_HOME>/repository/deployment/server/userstores` directory.
+If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` folder to the `<NEW_IS_HOME>/repository/deployment/server/userstores` folder.
 
 ### Webapps
 
-If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with IS 6.0.0 and copy the webapps to `<NEW_IS_HOME>/repository/deployment/server/webapps` directory. See [What Has Changed]({{base_path}}/setup/migrating-what-has-changed) to learn about the changes, if any, need to be made to the webapps.
+If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with WSO2 IS 6.0.0 and copy the webapps to the `<NEW_IS_HOME>/repository/deployment/server/webapps` folder. 
+
+!!! info
+    See [What Has Changed]({{base_path}}/setup/migrating-what-has-changed) to learn about the changes (if any) that need to be made to the webapps.
 
 ### Configurations
 
-1. Ensure that you have migrated the configurations into the new version as advised in [preparing for migration section.]({{base_path}}/setup/migrating-preparing-for-migration/#migrating-the-configurations)
+!!! info
+    If you have a WSO2 Subscription, it is highly recommended to reach [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) before attempting to proceed with the configuration migration.
 
-2. Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
+1. Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
 
-3. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with `<OLD_IS_HOME>/repository/conf/email/email-admin-config.xml`.
+2. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with `<OLD_IS_HOME>/repository/conf/email/email-admin-config.xml`.
 
-4. If you're migrating from a version prior to 5.11.0, configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
+3. If you're migrating from a version prior to WSO2 IS 5.11.0, configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
 
     1. Generate your own secret key using a tool like OpenSSL.
 
@@ -95,11 +101,12 @@ If you have deployed custom webapps in the previous WSO2 Identity Server, update
         key = "<provide-your-key-here>"
         ```
 
-    3. Open the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file. The following two migrators are configured under **migratorConfigs** for 5.11.0.
+    3. Open the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file and note that the following two migrators are configured under **migratorConfigs** for 5.11.0:
+
         - EncryptionAdminFlowMigrator
         - EncryptionUserFlowMigrator
 
-    4. Open the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file. Change the value of `transformToSymmetric` to `true` as shown below.
+    4. Open the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file and change the value of `transformToSymmetric` to `true` as shown below.
 
         ```yaml 
         name: "KeyStorePasswordMigrator"
@@ -111,36 +118,44 @@ If you have deployed custom webapps in the previous WSO2 Identity Server, update
         transformToSymmetric: "true"
         ```
 
-    Under each migrator's parameters, find the property value of **currentEncryptionAlgorithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
+    5.  Under each migrator's parameters, find the property value of **currentEncryptionAlgorithm** and ensure that it matches the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
 
 ## Step 2: Run the migration client
 
-To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**. Unzip it to a local directory.
+To download the **migration resources**:
 
-!!! Note
-    - **x.x.x** of `wso2is-migration-x.x.x.zip` denotes the
-    version number of the most recently-released migration resources.
-    - The directory where the `wso2is-migration-x.x.x.zip` is unziped will be referred to as ` <IS_MIGRATION_TOOL_HOME> `.
+1.  Go to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under **Assets**. 
+2.  Unzip it to a local folder.
+
+    !!! Note
+        - **x.x.x** of `wso2is-migration-x.x.x.zip` denotes the version number of the most recently-released migration resources.
+        - The folder of the `wso2is-migration-x.x.x.zip` will be referred to as `<IS_MIGRATION_TOOL_HOME>`.
+
+3. Copy the ` org.wso2.carbon.is.migration-x.x.x.jar ` file in the `<IS_MIGRATION_TOOL_HOME>/dropins` folder into the ` <NEW_IS_HOME>/repository/components/dropins ` folder.
+
+4. Copy the **migration-resources** folder to the `<NEW_IS_HOME>` root folder.
 
 ### Dry run
 
 Before doing the actual migration, it is recommended to do a dry run and analyze the generated report for any recommendations related to the migration. 
 
-Dry-run capability in the userstore migrator will allow the migration utility to validate the system for the userstore configurations and generate a report regarding the migration compatibility. In the generated migration report, 
-if there are any warnings in the generated migration report, it is recommended to contact the WSO2 support to identify the best migration strategy.
+Dry-run capability of the migrator allows you to validate the system for the user store configurations and to generate a report regarding the migration compatibility. If there are any warnings in the migration report, it is recommended to contact WSO2 support to identify the best migration strategy.
 
-Follow the steps given below.
+Follow the steps given below to perform the dry run.
 
-1.  Configure the migration report path using the value of `reportPath`, `<IS_HOME>/migration-resources/migration-config.yaml` in the `migration-config.yaml`. 
-This path should be an absolute path. 
+1.  Configure the migration report path using the `reportPath` value in the `<IS_HOME>/migration-resources/migration-config.yaml` file. 
 
-2.  Run the migration utility with system property, `dryRun`. Following is a sample command. 
+    !!! info
+        This path should be an absolute path.
+
+2.  Run the migration utility with the `dryRun` system property:
 
     -   On Linux/MacOS
 
         ``` bash 
         sh wso2server.sh -Dmigrate -Dcomponent=identity -DdryRun
         ```
+
     -   On Windows
 
         ``` bash
@@ -151,18 +166,21 @@ Once this is executed, you can analyze the generated report that resides in the 
 
 ### Set up the databases
 
-??? note "If you are using PostgreSQL"
-    During the migration, "uuid-ossp" extension is created in the database. In order to create this extension, the database user should have the '**Superuser**' permission.
-    If the user is not already a superuser, assign the permission before starting the migration.
+Note the following database requirements before running the migration tool.
 
-        ALTER USER <user> WITH SUPERUSER;
+-   **If you are using PostgreSQL**
+  
+    During the migration, the "uuid-ossp" extension is created in the database. To create this extension, the database user should have the '**Superuser**' permission. If the user is not already a super user, assign the permission before starting the migration.
 
+    ```
+    ALTER USER <user> WITH SUPERUSER;
+    ```
 
-??? info "If you are using DB2"
-    Verify that the indexes are in the TS32K tablespace. If not, move indexes to the TS32K tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN`  and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes. `SQLADM` or `DBADM` authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You
-    must also have the appropriate object creation authorities,
-    including authorities to issue the **SELECT** statement on the source
-    table, and to issue the **INSERT** statement on the target table.
+-   **If you are using DB2**
+
+    Verify that the indexes are in the TS32K tablespace. If not, move indexes to the TS32K tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN`  and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes. 
+    
+    The `SQLADM` or `DBADM` authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the **SELECT** statement on the source table and to issue the **INSERT** statement on the target table.
 
     ??? info "Click here to see the stored procedure" 
     
@@ -209,7 +227,8 @@ Once this is executed, you can analyze the generated report that resides in the 
         'MOVE');
         ```
 
-    If you recieve an error due to missing `SYSTOOLSPACE` or `SYSTOOLSTMPSPACE` tablespaces, create those tablespaces manually using the following script prior to executing the stored procedure given above. 
+    If you recieve an error due to missing `SYSTOOLSPACE` or `SYSTOOLSTMPSPACE` tablespaces, create those tablespaces manually using the following script prior to executing the stored procedure given above: 
+    
     For more information, see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html) in the IBM documentation.
 
     ``` sql
@@ -224,52 +243,54 @@ Once this is executed, you can analyze the generated report that resides in the 
 
 ### Set up the client
 
-1. Copy the ` org.wso2.carbon.is.migration-x.x.x.jar ` file in the `<IS_MIGRATION_TOOL_HOME>/dropins` directory into the ` <NEW_IS_HOME>/repository/components/dropins ` directory.
+To set up the migration client for execution, apply the following configurations to the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file:
 
-2. Copy migration-resources directory to the `<NEW_IS_HOME>` root directory.
+!!! note
+    The `currentVersion` is the current WSO2 Identity Server version that you are using.
 
-3. Ensure that the property values are as follows in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file.
+``` bash
+migrationEnable: "true"
 
-    !!! note
-        The `currentVersion` is the current WSO2 Identity Server version that you are using.
+currentVersion: "5.11.0"
 
-    ``` bash
-    migrationEnable: "true"
+migrateVersion: "6.0.0"
+```
 
-    currentVersion: "5.7.0"
+-   If you have multiple tenants and multiple user stores and you only need to migrate a few of them, use the configurations given below.
 
-    migrateVersion: "6.0.0"
+    | Property Name | Description |
+    | ------------- | ----------- |
+    | migrateAll | Migrate all the tenants and all the user store domains in it. This is set to `true` by default. |
+
+-   If you are only migrating a few tenants, apply the configurations given below. 
+
+    !!! info
+        Note that `Tenant-param` is a place holder to represent a unique tenant, e.g., tenant1.
+
+    ``` bash  
+    -
+    name: "UserIDMigrator"
+    order: 7
+    parameters:
+        <tenant-param>:
     ```
 
-    -   If you have multiple tenants and multiple userstores and you only need to migrate a few of them, refer to the configuration section below. If you need to migrate all of them, use the `migrateAll` property (This is set to `true` by default).  
+    Given below are the parameters you can use in the above configuration:
 
-        | Property Name | Description |
-        | ------------- | ----------- |
-        | migrateAll | Migrate all the tenants and all the userstore domains in it. |
-        | reportPath | Absolute path for the dry report. This is required in the dry run mode. |
+    | Property Name | Description |
+    | ------------- | ----------- |
+    | tenantDomain | (Mandatory) Domain name of the tenant. |
+    | increment | (Optional) Number of users to be updated in each iteration. |
+    | startingPoint | (Optional) This denotes from where the migration should start (Offset). This is useful if the migration stopped in the middle and needs to restart. |
+    | scimEnabled | (Optional) Specifies whether SCIM is enabled for user stores in this tenant. |
+    | migratingDomains | (Optional) List of comma-separated domain names that should be migrated to this domain. |
+    | forceUpdateUserId | (Optional) Marks whether user IDs should be updated if there is an existing ID. |
 
-    -   The following configurations are only needed to migrate a few tenants. The format should be similar to the one mentioned below. `Tenant-param` is a place holder name to represent each tenant uniquely, e.g., tenant1.
-
-        ``` bash  
-        -
-        name: "UserIDMigrator"
-        order: 7
-        parameters:
-            <tenant-param>:
-        ```
-
-        | Property Name | Description |
-        | ------------- | ----------- |
-        | tenantDomain | Domain name of the tenant (Mandatory) |
-        | increment | Number of users to be updated in each iteration (Optional) |
-        | startingPoint | This denotes where the migration should start from (Offset). This is useful if the migration stopped in the middle and needs to restart. (Optional) |
-        | scimEnabled | Whether SCIM is enabled for userstores in this tenant. (Optional) |
-        | migratingDomains | List of comma-separated domain names that should be migrated to this domain (Optional) |
-        | forceUpdateUserId | Marks whether user IDs should be updated in case there is an existing ID. (Optional) |
-
-    -   If the userstore is an LDAP userstore and SCIM is enabled for that userstore, migrating that userstore is not required. As SCIM will create a user ID for the users in that userstore, the SCIM ID can be used as the unique user ID. To do that, change `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/repository/conf/deployment.toml` file.
+-   If the user store is an LDAP and SCIM is enabled for that userstore, migrating that userstore is not required. As SCIM creates a user ID for the users in that user store, the SCIM ID can be used as the unique user ID. To do that, change `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ### Run the client
+
+Now, let's run the migration client to upgrade the databases.
 
 1. Start the WSO2 Identity Server 6.0.0 with the following command to execute the migration client.
 
@@ -289,9 +310,12 @@ Once this is executed, you can analyze the generated report that resides in the 
 
 ## Step 3: (Optional) Migrate secondary user stores
 
-These steps should be carried out for the old database before the migration. A backup of UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps the backup database should be migrated to the next version.
+These steps should be carried out for the old database before the migration. A backup of the UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps, the backup database should be migrated to the next version:
 
-1.  If you have JDBC secondary userstores with SCIM disabled, execute the following queries on the UM database. This will add a `UM_USER_ID` column to the `UM_USER` table with a random `UUID` as the default value for `UM_USER_ID`.
+1.  If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the UM database: 
+
+    !!! info
+        This adds a `UM_USER_ID` column to the `UM_USER` table with a random `UUID` as the default value for `UM_USER_ID`.
 
     ```sql tab="Postgresql"
     /* User should have the Superuser permission */
@@ -370,7 +394,7 @@ These steps should be carried out for the old database before the migration. A b
     /
     ```
 
-2.  If you have JDBC secondary userstores with SCIM enabled, execute the following queries on the UM database.
+2.  If you have JDBC secondary user stores with SCIM enabled, execute the following queries on the UM database.
 
     ```sql tab="PostgreSQL"
     SELECT DISTINCT t.ATTRIBUTE_NAME
@@ -417,411 +441,422 @@ These steps should be carried out for the old database before the migration. A b
     );
     ```
 
-3.  If the result of the above query is `scimId`, then follow this step. Otherwise, skip this and move on to step-4.  
+3.  Based on the result of the above query, follow the relevant instructions given below.  
 
-    If the result of the above query is `scimId`, it means the default mapped attribute(scimId) of `http://wso2.org/claims/userid` or the default local claim (`http://wso2.org/claims/userid`) mapped to the `urn:ietf:params:scim:schemas:core:2.0:id` claim is not updated in the WSO2 IS server. 
-    Hence, the following queries are used to update `UM_USER_ID` of `UM_USER` with a SCIM Id based on the mapped attribute `scimId`.
+    -   If the result of the above query is `scimId`, execute the following queries to update `UM_USER_ID` of `UM_USER` with a SCIM Id based on the mapped attribute `scimId`:
 
-    ```sql tab="PostgreSQL"
-    CREATE OR REPLACE FUNCTION update_um_user_id()	returns int 
-	  LANGUAGE plpgsql
-    AS $$
-    DECLARE 
-    count_rows int;
-    cur_um_attr cursor for select T2.um_attr_value, T1.um_id
-              from um_user_attribute  T2
-                join um_user T1
-                on T1.um_Id = T2.um_user_id 
-                where T2.um_attr_name ='scimId';
+        !!! info
+            If the result of the above query is `scimId`, it means that the default mapped attribute (scimId) of `http://wso2.org/claims/userid` or the default local claim (`http://wso2.org/claims/userid`) mapped to the `urn:ietf:params:scim:schemas:core:2.0:id` claim is not updated in your WSO2 IS.  
+
+        ```sql tab="PostgreSQL"
+        CREATE OR REPLACE FUNCTION update_um_user_id()	returns int 
+        LANGUAGE plpgsql
+        AS $$
+        DECLARE 
+        count_rows int;
+        cur_um_attr cursor for select T2.um_attr_value, T1.um_id
+                  from um_user_attribute  T2
+                    join um_user T1
+                    on T1.um_Id = T2.um_user_id 
+                    where T2.um_attr_name ='scimId';
+                  
+        rec_um_attr RECORD;		
+        BEGIN
+          count_rows = 0;	
+          open cur_um_attr;
+            LOOP
+                  fetch cur_um_attr into rec_um_attr;
+              exit when not found;
+          
+                update um_user
+                set um_user_id=rec_um_attr.um_attr_value
+                where um_id = rec_um_attr.um_id;	
               
-    rec_um_attr RECORD;		
-    BEGIN
-      count_rows = 0;	
-      open cur_um_attr;
-        LOOP
-              fetch cur_um_attr into rec_um_attr;
-          exit when not found;
-      
-            update um_user
-            set um_user_id=rec_um_attr.um_attr_value
-            where um_id = rec_um_attr.um_id;	
-          
-        count_rows = count_rows + 1;
-        END LOOP;			
-      close cur_um_attr;
-    return count_rows;		
-    END;
-    $$;
-    select update_um_user_id();
-    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-    update um_user set um_user_id=uuid_generate_v4() where um_user_id = 'N';
-    ```
+            count_rows = count_rows + 1;
+            END LOOP;			
+          close cur_um_attr;
+        return count_rows;		
+        END;
+        $$;
+        select update_um_user_id();
+        CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+        update um_user set um_user_id=uuid_generate_v4() where um_user_id = 'N';
+        ```
 
-    ```sql tab="Oracle"
-    DECLARE
-    v_um_attr_value varchar2(100);
-    v_um_id number;
-    CURSOR cur_um_attr IS
-          select T2.um_attr_value, T1.um_id
-            from um_user_attribute  T2
-              join um_user T1
-              on T1.um_Id = T2.um_user_id 
-              where T2.um_attr_name ='scimId';    
-    BEGIN	
+        ```sql tab="Oracle"
+        DECLARE
+        v_um_attr_value varchar2(100);
+        v_um_id number;
+        CURSOR cur_um_attr IS
+              select T2.um_attr_value, T1.um_id
+                from um_user_attribute  T2
+                  join um_user T1
+                  on T1.um_Id = T2.um_user_id 
+                  where T2.um_attr_name ='scimId';    
+        BEGIN	
 
-      OPEN cur_um_attr;
-      LOOP
-        FETCH cur_um_attr INTO v_um_attr_value, v_um_id;
-          IF cur_um_attr%NOTFOUND THEN
-                  EXIT;
-                END If;
+          OPEN cur_um_attr;
+          LOOP
+            FETCH cur_um_attr INTO v_um_attr_value, v_um_id;
+              IF cur_um_attr%NOTFOUND THEN
+                      EXIT;
+                    END If;
+                  
+                  update um_user
+              set um_user_id = v_um_attr_value
+              where um_id =  v_um_id;		
               
-              update um_user
-          set um_user_id = v_um_attr_value
-          where um_id =  v_um_id;		
+          END LOOP;
+          CLOSE cur_um_attr; 
           
-      END LOOP;
-      CLOSE cur_um_attr; 
-      
-    END;
-    /
-    ```
+        END;
+        /
+        ```
 
-    ```sql tab="My SQL"
-    ALTER TABLE UM_USER ADD COLUMN UM_USER_ID CHAR(36) NOT NULL DEFAULT 'NONE';
-    ALTER TABLE UM_USER ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
-    DELIMITER $$
-    CREATE FUNCTION update_um_user_id() RETURNS int
-    DETERMINISTIC 
-    BEGIN
-      DECLARE count_rows int;
-      DECLARE um_usr_attr_value varchar(100);
-      DECLARE um_id int;
-      DECLARE done INT DEFAULT FALSE;
-      DECLARE cur_um_attr CURSOR FOR 
-    SELECT
-      T2.UM_ATTR_VALUE,
-      T1.UM_ID 
-    FROM
-      UM_USER_ATTRIBUTE T2 
-      JOIN
-          UM_USER T1 
-          ON T1.UM_ID = T2.UM_USER_ID 
-    WHERE
-      T2.UM_ATTR_NAME = 'scimId';
-    DECLARE CONTINUE HANDLER FOR NOT FOUND 
-    SET
-      done = TRUE;
-    SET
-      count_rows = 0;
-    OPEN cur_um_attr;
-    read_loop: loop FETCH cur_um_attr INTO um_usr_attr_value,
-    um_id;
-    IF done 
-    THEN
-      LEAVE read_loop;
-    END
-    IF;
-    UPDATE
-      UM_USER 
-    SET
-      UM_USER_ID = um_usr_attr_value 
-    WHERE
-      UM_ID = um_id;
-    SET
-      count_rows = count_rows + 1;
-    END
-    loop;
-    CLOSE cur_um_attr;
-    RETURN count_rows;
-    END
-    $$ DELIMITER ;
-    SELECT
-      update_um_user_id();
-    UPDATE
-      UM_USER 
-    SET
-      UM_USER_ID = UUID() 
-    WHERE
-      UM_USER_ID IS NULL;
-    ```
+        ```sql tab="My SQL"
+        ALTER TABLE UM_USER ADD COLUMN UM_USER_ID CHAR(36) NOT NULL DEFAULT 'NONE';
+        ALTER TABLE UM_USER ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
+        DELIMITER $$
+        CREATE FUNCTION update_um_user_id() RETURNS int
+        DETERMINISTIC 
+        BEGIN
+          DECLARE count_rows int;
+          DECLARE um_usr_attr_value varchar(100);
+          DECLARE um_id int;
+          DECLARE done INT DEFAULT FALSE;
+          DECLARE cur_um_attr CURSOR FOR 
+        SELECT
+          T2.UM_ATTR_VALUE,
+          T1.UM_ID 
+        FROM
+          UM_USER_ATTRIBUTE T2 
+          JOIN
+              UM_USER T1 
+              ON T1.UM_ID = T2.UM_USER_ID 
+        WHERE
+          T2.UM_ATTR_NAME = 'scimId';
+        DECLARE CONTINUE HANDLER FOR NOT FOUND 
+        SET
+          done = TRUE;
+        SET
+          count_rows = 0;
+        OPEN cur_um_attr;
+        read_loop: loop FETCH cur_um_attr INTO um_usr_attr_value,
+        um_id;
+        IF done 
+        THEN
+          LEAVE read_loop;
+        END
+        IF;
+        UPDATE
+          UM_USER 
+        SET
+          UM_USER_ID = um_usr_attr_value 
+        WHERE
+          UM_ID = um_id;
+        SET
+          count_rows = count_rows + 1;
+        END
+        loop;
+        CLOSE cur_um_attr;
+        RETURN count_rows;
+        END
+        $$ DELIMITER ;
+        SELECT
+          update_um_user_id();
+        UPDATE
+          UM_USER 
+        SET
+          UM_USER_ID = UUID() 
+        WHERE
+          UM_USER_ID IS NULL;
+        ```
 
-    ```sql tab="MS SQL" 
-    IF NOT EXISTS(SELECT * FROM sys.columns WHERE Name = 'UM_USER_ID' 
-              AND object_id = OBJECT_ID('UM_USER'))
-    BEGIN
-    ALTER TABLE UM_USER ADD UM_USER_ID CHAR(36) DEFAULT 'N' 
-    END
-    BEGIN
-      DECLARE @count_rows int
-      DECLARE @um_attr_value varchar(100)
-      DECLARE @um_id int
+        ```sql tab="MS SQL" 
+        IF NOT EXISTS(SELECT * FROM sys.columns WHERE Name = 'UM_USER_ID' 
+                  AND object_id = OBJECT_ID('UM_USER'))
+        BEGIN
+        ALTER TABLE UM_USER ADD UM_USER_ID CHAR(36) DEFAULT 'N' 
+        END
+        BEGIN
+          DECLARE @count_rows int
+          DECLARE @um_attr_value varchar(100)
+          DECLARE @um_id int
 
-        DECLARE cur_um_attr CURSOR LOCAL FOR select T2.UM_ATTR_VALUE, T1.UM_ID
-              from UM_USER_ATTRIBUTE T2
-                join UM_USER T1
-                on T1.UM_ID = T2.UM_USER_ID 
-                where T2.um_attr_name ='scimId'      	
+            DECLARE cur_um_attr CURSOR LOCAL FOR select T2.UM_ATTR_VALUE, T1.UM_ID
+                  from UM_USER_ATTRIBUTE T2
+                    join UM_USER T1
+                    on T1.UM_ID = T2.UM_USER_ID 
+                    where T2.um_attr_name ='scimId'      	
 
-      SET @count_rows = 0
+          SET @count_rows = 0
 
-      OPEN cur_um_attr	
-      -- loop through a cursor
-      FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
-        WHILE @@FETCH_STATUS = 0
-            BEGIN 	
-            update UM_USER 
-            set UM_USER_ID = @um_attr_value
-            where UM_ID =  @um_id	
-          
-          SET @count_rows = @count_rows + 1
+          OPEN cur_um_attr	
+          -- loop through a cursor
           FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
-        END 	
-        
-      CLOSE cur_um_attr
-    END;
-
-    update UM_USER set UM_USER_ID =LOWER(NEWID())  where UM_USER_ID='N' ;
-    ```
-
-4.  If the result of the above query is something different from `scimId`, it means the local claim mapped to the `urn:ietf:params:scim:schemas:core:2.0:id`  claim is different from `http://wso2.org/claims/userid` or the mapped attribute for the local claim `http://wso2.org/claims/userid` is different from `scimId`. Hence the following queries are used to update `UM_USER_ID` of `UM_USER` with a SCIM Id based on the updated mapped attribute.
-
-    ```sql tab="PostgreSQL"
-    CREATE OR REPLACE FUNCTION update_um_user_id()	returns int 
-    LANGUAGE plpgsql
-    AS $$
-    DECLARE 
-    count_rows int;
-    cur_um_attr CURSOR FOR SELECT T2.um_attr_value, T1.um_id 
-      FROM   um_user_attribute T2 
-      JOIN   um_user T1 
-      ON     T1.um_id = T2.um_user_id 
-      WHERE  T2.um_attr_name IN 
-            ( 
-                    SELECT T.attribute_name 
-                    FROM   idn_claim_mapped_attribute AS T 
-                    WHERE  T.local_claim_id IN 
-                          (      SELECT T3.mapped_local_claim_id 
-                                  FROM   idn_claim_mapping AS T3 
-                                  JOIN   idn_claim         AS T4 
-                                  ON     T4.id = T3.ext_claim_id 
-                                  WHERE  T4.claim_uri = 'urn:ietf:params:scim:schemas:core:2.0:id') );
+            WHILE @@FETCH_STATUS = 0
+                BEGIN 	
+                update UM_USER 
+                set UM_USER_ID = @um_attr_value
+                where UM_ID =  @um_id	
               
-    rec_um_attr RECORD;		
-    BEGIN
-      count_rows = 0;	
-      open cur_um_attr;
-        LOOP
-              fetch cur_um_attr into rec_um_attr;
-          exit when not found;
-      
-            update um_user
-            set um_user_id=rec_um_attr.um_attr_value
-            where um_id = rec_um_attr.um_id;	
-          
-        count_rows = count_rows + 1;
-        END LOOP;			
-      close cur_um_attr;
-    return count_rows;		
-    END;
-    $$;
-    select update_um_user_id();
-    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-    update um_user set um_user_id=uuid_generate_v4() where um_user_id = 'N';
-    ```
+              SET @count_rows = @count_rows + 1
+              FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
+            END 	
+            
+          CLOSE cur_um_attr
+        END;
 
-    ```sql tab="Oracle"
-    DECLARE
-    v_um_attr_value varchar2(100);
-    v_um_id number;
-    CURSOR cur_um_attr IS
-            select DISTINCT t.ATTRIBUTE_NAME
-            FROM IDN_CLAIM_MAPPED_ATTRIBUTE t
-              WHERE t.LOCAL_CLAIM_ID IN ( SELECT t2.MAPPED_LOCAL_CLAIM_ID
-              FROM IDN_CLAIM_MAPPING t2
-              JOIN IDN_CLAIM t1
-              ON t1.ID = t2.EXT_CLAIM_ID
-              WHERE t1.CLAIM_URI = 'urn:ietf:params:scim:schemas:core:2.0:id'   
-    )
-        
-    BEGIN	
+        update UM_USER set UM_USER_ID =LOWER(NEWID())  where UM_USER_ID='N' ;
+        ```
 
-      OPEN cur_um_attr;
-      LOOP
-        FETCH cur_um_attr INTO v_um_attr_value, v_um_id;
-          IF cur_um_attr%NOTFOUND THEN
-                  EXIT;
-                END If;
-              
-              update um_user
-          set um_user_id = v_um_attr_value
-          where um_id =  v_um_id;		
-          
-      END LOOP;
-      CLOSE cur_um_attr; 
-      
-    END;
-    /
-    ```
+    -   If the result of the above query is something different from `scimId`, execute the following queries to update `UM_USER_ID` of `UM_USER` with a SCIM Id based on the updated mapped attribute. 
 
-    ```sql tab="My SQL" 
-    ALTER TABLE UM_USER ADD COLUMN UM_USER_ID CHAR(36) NOT NULL DEFAULT 'NONE';
-    ALTER TABLE UM_USER ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
-    DELIMITER $$ CREATE FUNCTION update_um_user_id() RETURNS int DETERMINISTIC 
-    BEGIN
-      DECLARE count_rows int;
-      DECLARE um_usr_attr_value varchar(100);
-      DECLARE um_id int;
-      DECLARE done INT DEFAULT FALSE;
-      DECLARE cur_um_attr CURSOR FOR 
-    SELECT
-      T2.UM_ATTR_VALUE,
-      T1.UM_ID 
-    FROM
-      UM_USER_ATTRIBUTE T2 
-      join
-          UM_USER T1 
-          on T1.UM_ID = T2.UM_USER_ID 
-    WHERE
-      T2.UM_ATTR_NAME in 
-      (
-          SELECT
-            T.ATTRIBUTE_NAME 
-          FROM
-            IDN_CLAIM_MAPPED_ATTRIBUTE as T 
-          WHERE
-            T.LOCAL_CLAIM_ID in 
-            (
-                SELECT
-                  T3.MAPPED_LOCAL_CLAIM_ID 
-                FROM
-                  IDN_CLAIM_MAPPING as T3 
-                  JOIN
-                      IDN_CLAIM as T4 
-                      on T4.ID = T3.EXT_CLAIM_ID 
-                WHERE
-                  T4.CLAIM_URI = 'urn:ietf:params:scim:schemas:core:2.0:id' 
-            )
-      )
-    ;
-    DECLARE CONTINUE HANDLER FOR NOT FOUND 
-    SET
-      done = TRUE;
-    SET
-      count_rows = 0;
-    OPEN cur_um_attr;
-    read_loop: loop FETCH cur_um_attr INTO um_usr_attr_value,
-    um_id;
-    IF done 
-    THEN
-      LEAVE read_loop;
-    END
-    IF;
-    UPDATE
-      UM_USER 
-    SET
-      UM_USER_ID = um_usr_attr_value 
-    WHERE
-      UM_ID = um_id;
-    SET
-      count_rows = count_rows + 1;
-    END
-    loop;
-    CLOSE cur_um_attr;
-    RETURN count_rows;
-    END
-    $$ DELIMITER ;
-    SELECT
-      update_um_user_id();
-    UPDATE
-      UM_USER 
-    SET
-      UM_USER_ID = UUID() 
-    WHERE
-      UM_USER_ID IS NULL;
-    ```
+        !!! info
+            This means that the local claim mapped to the `urn:ietf:params:scim:schemas:core:2.0:id` claim is different from `http://wso2.org/claims/userid` or the mapped attribute for the local claim `http://wso2.org/claims/userid` is different from `scimId`.
 
-    ```sql tab="MS SQL" 
-    IF NOT EXISTS(SELECT * FROM sys.columns WHERE Name = 'UM_USER_ID' 
-              AND object_id = OBJECT_ID('UM_USER'))
-    BEGIN
-    ALTER TABLE UM_USER ADD UM_USER_ID CHAR(36) DEFAULT 'N' 
-    END
-    BEGIN
-      DECLARE @count_rows int
-      DECLARE @um_attr_value varchar(100)
-      DECLARE @um_id int
-
-        DECLARE cur_um_attr CURSOR LOCAL FOR SELECT T2.um_attr_value, T1.um_id 
-          FROM um_user_attribute T2 
-          JOIN um_user T1 
-          ON T1.um_id = T2.um_user_id 
-          WHERE  T2.um_attr_name 
-              IN (SELECT T.attribute_name 
-                              FROM   idn_claim_mapped_attribute AS T 
-                              WHERE  T.local_claim_id IN 
-                                      (SELECT T3.mapped_local_claim_id 
+        ```sql tab="PostgreSQL"
+        CREATE OR REPLACE FUNCTION update_um_user_id()	returns int 
+        LANGUAGE plpgsql
+        AS $$
+        DECLARE 
+        count_rows int;
+        cur_um_attr CURSOR FOR SELECT T2.um_attr_value, T1.um_id 
+          FROM   um_user_attribute T2 
+          JOIN   um_user T1 
+          ON     T1.um_id = T2.um_user_id 
+          WHERE  T2.um_attr_name IN 
+                ( 
+                        SELECT T.attribute_name 
+                        FROM   idn_claim_mapped_attribute AS T 
+                        WHERE  T.local_claim_id IN 
+                              (      SELECT T3.mapped_local_claim_id 
                                       FROM   idn_claim_mapping AS T3 
-                                      JOIN idn_claim AS T4 
-                                      ON T4.id = T3.ext_claim_id 
-                                      WHERE T4.claim_uri = 'urn:ietf:params:scim:schemas:core:2.0:id'))       	
-
-      SET @count_rows = 0
-            OPEN cur_um_attr	
-      -- loop through a cursor
-      FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
-        WHILE @@FETCH_STATUS = 0
-            BEGIN 	
-            UPDATE UM_USER 
-        SET UM_USER_ID = @um_attr_value
-        where UM_ID =  @um_id	
+                                      JOIN   idn_claim         AS T4 
+                                      ON     T4.id = T3.ext_claim_id 
+                                      WHERE  T4.claim_uri = 'urn:ietf:params:scim:schemas:core:2.0:id') );
+                  
+        rec_um_attr RECORD;		
+        BEGIN
+          count_rows = 0;	
+          open cur_um_attr;
+            LOOP
+                  fetch cur_um_attr into rec_um_attr;
+              exit when not found;
           
-        SET @count_rows = @count_rows + 1
-        FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
-          END 	
-        
-      CLOSE cur_um_attr
-    END;
+                update um_user
+                set um_user_id=rec_um_attr.um_attr_value
+                where um_id = rec_um_attr.um_id;	
+              
+            count_rows = count_rows + 1;
+            END LOOP;			
+          close cur_um_attr;
+        return count_rows;		
+        END;
+        $$;
+        select update_um_user_id();
+        CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+        update um_user set um_user_id=uuid_generate_v4() where um_user_id = 'N';
+        ```
 
-    UPDATE UM_USER SET UM_USER_ID =LOWER(NEWID())  WHERE UM_USER_ID='N' ;
-    ```
+        ```sql tab="Oracle"
+        DECLARE
+        v_um_attr_value varchar2(100);
+        v_um_id number;
+        CURSOR cur_um_attr IS
+                select DISTINCT t.ATTRIBUTE_NAME
+                FROM IDN_CLAIM_MAPPED_ATTRIBUTE t
+                  WHERE t.LOCAL_CLAIM_ID IN ( SELECT t2.MAPPED_LOCAL_CLAIM_ID
+                  FROM IDN_CLAIM_MAPPING t2
+                  JOIN IDN_CLAIM t1
+                  ON t1.ID = t2.EXT_CLAIM_ID
+                  WHERE t1.CLAIM_URI = 'urn:ietf:params:scim:schemas:core:2.0:id'   
+        )
+            
+        BEGIN	
+
+          OPEN cur_um_attr;
+          LOOP
+            FETCH cur_um_attr INTO v_um_attr_value, v_um_id;
+              IF cur_um_attr%NOTFOUND THEN
+                      EXIT;
+                    END If;
+                  
+                  update um_user
+              set um_user_id = v_um_attr_value
+              where um_id =  v_um_id;		
+              
+          END LOOP;
+          CLOSE cur_um_attr; 
+          
+        END;
+        /
+        ```
+
+        ```sql tab="My SQL" 
+        ALTER TABLE UM_USER ADD COLUMN UM_USER_ID CHAR(36) NOT NULL DEFAULT 'NONE';
+        ALTER TABLE UM_USER ADD UNIQUE(UM_USER_ID, UM_TENANT_ID);
+        DELIMITER $$ CREATE FUNCTION update_um_user_id() RETURNS int DETERMINISTIC 
+        BEGIN
+          DECLARE count_rows int;
+          DECLARE um_usr_attr_value varchar(100);
+          DECLARE um_id int;
+          DECLARE done INT DEFAULT FALSE;
+          DECLARE cur_um_attr CURSOR FOR 
+        SELECT
+          T2.UM_ATTR_VALUE,
+          T1.UM_ID 
+        FROM
+          UM_USER_ATTRIBUTE T2 
+          join
+              UM_USER T1 
+              on T1.UM_ID = T2.UM_USER_ID 
+        WHERE
+          T2.UM_ATTR_NAME in 
+          (
+              SELECT
+                T.ATTRIBUTE_NAME 
+              FROM
+                IDN_CLAIM_MAPPED_ATTRIBUTE as T 
+              WHERE
+                T.LOCAL_CLAIM_ID in 
+                (
+                    SELECT
+                      T3.MAPPED_LOCAL_CLAIM_ID 
+                    FROM
+                      IDN_CLAIM_MAPPING as T3 
+                      JOIN
+                          IDN_CLAIM as T4 
+                          on T4.ID = T3.EXT_CLAIM_ID 
+                    WHERE
+                      T4.CLAIM_URI = 'urn:ietf:params:scim:schemas:core:2.0:id' 
+                )
+          )
+        ;
+        DECLARE CONTINUE HANDLER FOR NOT FOUND 
+        SET
+          done = TRUE;
+        SET
+          count_rows = 0;
+        OPEN cur_um_attr;
+        read_loop: loop FETCH cur_um_attr INTO um_usr_attr_value,
+        um_id;
+        IF done 
+        THEN
+          LEAVE read_loop;
+        END
+        IF;
+        UPDATE
+          UM_USER 
+        SET
+          UM_USER_ID = um_usr_attr_value 
+        WHERE
+          UM_ID = um_id;
+        SET
+          count_rows = count_rows + 1;
+        END
+        loop;
+        CLOSE cur_um_attr;
+        RETURN count_rows;
+        END
+        $$ DELIMITER ;
+        SELECT
+          update_um_user_id();
+        UPDATE
+          UM_USER 
+        SET
+          UM_USER_ID = UUID() 
+        WHERE
+          UM_USER_ID IS NULL;
+        ```
+
+        ```sql tab="MS SQL" 
+        IF NOT EXISTS(SELECT * FROM sys.columns WHERE Name = 'UM_USER_ID' 
+                  AND object_id = OBJECT_ID('UM_USER'))
+        BEGIN
+        ALTER TABLE UM_USER ADD UM_USER_ID CHAR(36) DEFAULT 'N' 
+        END
+        BEGIN
+          DECLARE @count_rows int
+          DECLARE @um_attr_value varchar(100)
+          DECLARE @um_id int
+
+            DECLARE cur_um_attr CURSOR LOCAL FOR SELECT T2.um_attr_value, T1.um_id 
+              FROM um_user_attribute T2 
+              JOIN um_user T1 
+              ON T1.um_id = T2.um_user_id 
+              WHERE  T2.um_attr_name 
+                  IN (SELECT T.attribute_name 
+                                  FROM   idn_claim_mapped_attribute AS T 
+                                  WHERE  T.local_claim_id IN 
+                                          (SELECT T3.mapped_local_claim_id 
+                                          FROM   idn_claim_mapping AS T3 
+                                          JOIN idn_claim AS T4 
+                                          ON T4.id = T3.ext_claim_id 
+                                          WHERE T4.claim_uri = 'urn:ietf:params:scim:schemas:core:2.0:id'))       	
+
+          SET @count_rows = 0
+                OPEN cur_um_attr	
+          -- loop through a cursor
+          FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
+            WHILE @@FETCH_STATUS = 0
+                BEGIN 	
+                UPDATE UM_USER 
+            SET UM_USER_ID = @um_attr_value
+            where UM_ID =  @um_id	
+              
+            SET @count_rows = @count_rows + 1
+            FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
+              END 	
+            
+          CLOSE cur_um_attr
+        END;
+
+        UPDATE UM_USER SET UM_USER_ID =LOWER(NEWID())  WHERE UM_USER_ID='N' ;
+        ```
 
 ## Step 4: (Optional) Sync DBs for Zerro down time
 
 !!! warning
-    Proceed with this step only if you have opted in for [Zero down time migration]({{base_path}}/setup/migrating-preparing-for-migration/#zero-down-time-migration).
-    If not, your migration task is complete now. You can omit the following steps.
+    Proceed with this step only if you have opted for [Zero down time migration]({{base_path}}/setup/migrating-preparing-for-migration/#zero-down-time-migration). 
+    
+    If not, your migration task is complete by now and you can omit the following steps.
 
-1. Start the data sync tool with the following command pointing to the `sync.properties` file.
-This will start syncing data created in the old WSO2 Identity Server database after taking the database dump 
-to the new WSO2 Identity Server database.
+1. Start the data sync tool pointing to the `sync.properties` file:
+
+    !!! info
+        This starts syncing data created in the old WSO2 Identity Server database after taking the database dump to the new WSO2 Identity Server database.
+
     ```bash
     sh wso2server.sh -DsyncData -DconfigFile=<path to sync.properties file>/sync.properties
     ```
 
-2. Monitor the logs in the sync tool to see how many entries are synced at a given time and to keep track of the progress in the data sync process. The following line will be printed in the logs in each table you have specified, that has no data to be synced.
+2. Monitor the logs in the sync tool to see how many entries are synced at a given time and to keep track of the progress in the data sync process: 
+
+    !!! info
+        The following line will be printed in the logs of each table you have specified that has no data to be synced.
 
     ```tab="Sample"
     [2019-02-27 17:26:32,388]  INFO {org.wso2.is.data.sync.system.pipeline.process.BatchProcessor} -  No data to sync for: <TABLE_NAME>
     ```
 
     !!! info
-        If you have some traffic to the old version of the WSO2 Identity Server, the number of entries to be synced might not become zero at any time. In that case, observe the logs to decide on a point where the number of entries that are synced is low.
+        If you have some traffic to the old version of WSO2 Identity Server, the number of entries to be synced might not become zero at any time. In that case, observe the logs to decide on a point where the number of entries that are synced is low.
 
 3. When the data sync is complete, switch the traffic from the old setup to the new setup.
 
-4. Allow the sync client to run for some time to sync the entries that were not synced before switching the deployments. When the number of entries synced by the sync tool becomes zero, stop the sync client.
+4. Allow the sync client to run for some time to sync the entries that were not synced before switching the deployments. 
+
+When the number of entries synced by the sync tool becomes zero, stop the sync client.
 
 ## Step 5: Verify the migration
 
-After the migration is complete, proceed to the following verification steps.
+After the migration is complete, proceed to the following verification steps:
 
-+ Monitor the system health (CPU, memory usage etc).
-+ Monitor the WSO2 logs to see if there are errors logged in the log files.
-+ Run functional tests against the migrated deployment to verify that all the functionalities are working as expected.
+- Monitor the system health (CPU, memory usage etc).
+- Monitor the WSO2 logs to see if there are errors logged in the log files.
+- Run functional tests against the migrated deployment to verify that all the functionalities are working as expected.
 
 !!! note
-    If you see any problems in the migrated system, revert the traffic back to the previous setup and investigate the problem.
-
-!!! tip
-    If the id token validation for the **Console** and **My Account** applications are failing, see [Validation of issuer in .well-known endpoint URL]({{base_path}}/setup/migrating-what-has-changed/#validation-of-issuer-in-well-known-endpoint-url).
+    - If you see any problems in the migrated system, revert the traffic to the previous setup and investigate the problem.
+    - If the id token validation for the **Console** and **My Account** applications are failing, see [Validation of issuer in .well-known endpoint URL]({{base_path}}/setup/migrating-what-has-changed/#validation-of-issuer-in-well-known-endpoint-url).
