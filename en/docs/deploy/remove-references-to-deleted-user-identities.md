@@ -174,7 +174,7 @@ for references of the deleted user from the following file paths. You need to ch
 -   **Log file name regex** : `          ^(wso2carbon(.)*\\.log|audit(.)*\\.log)$         `
 
 <!--For information on changing these configurations, see [Configuring the
-config.json file](TBD:../../setup/removing-references-to-deleted-user-identities-in-wso2-products#configuring-the-master-configuration-file)
+config.json file](TBD:{{base_path}}/setup/removing-references-to-deleted-user-identities-in-wso2-products#configuring-the-master-configuration-file)
 in the Product Administration Guide.-->
 
 ---
@@ -224,7 +224,7 @@ This tool has independent runtime. From IS 6.0.0 onwards, this tool is externali
         command line options to run the identity anonymization tool to
         remove references to a specific deleted user.  
         For information on how to enable tracking deleted users, see
-        [Delete an Existing User](../../../guides/identity-lifecycles/delete-users/#track-user-deletion-on-deleting-a-user-optional).
+        [Delete an Existing User]({{base_path}}/guides/identity-lifecycles/delete-users/#track-user-deletion-on-deleting-a-user-optional).
           
 
     !!! Note
@@ -270,7 +270,7 @@ This tool has independent runtime. From IS 6.0.0 onwards, this tool is externali
     <tr class="odd">
     <td>T</td>
     <td><div class="content-wrapper">
-    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code>. For information on working with tenants in WSO2 Identity Server, see <a href="../../../../references/concepts/introduction-to-multitenancy"> Introduction to Multitenancy</a>.</p>
+    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code>. For information on working with tenants in WSO2 Identity Server, see <a href="{{base_path}}/references/concepts/introduction-to-multitenancy"> Introduction to Multitenancy</a>.</p>
     <p>
     <div class="admonition note">
     <p class="admonition-title">Note</p>
@@ -389,5 +389,5 @@ to run the tool on.
 
 For information on how to build, configure and run the standalone
 version of the Identity Anonymization tool to run on multiple WSO2
-products, see [Remove References to Deleted User Identities](../../../deploy/remove-references-to-deleted-user-identities)
+products, see [Remove References to Deleted User Identities]({{base_path}}/deploy/remove-references-to-deleted-user-identities)
 in the WSO2 Administration Guide.

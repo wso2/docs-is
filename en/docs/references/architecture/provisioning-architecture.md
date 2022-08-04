@@ -101,7 +101,7 @@ and group resources in a RESTful way.
 
 Charon library comprises of four main components. 
 
-![Components of the Charon library](../../assets/img/get-started/charon.png)
+![Components of the Charon library]({{base_path}}/assets/img/get-started/charon.png)
 
 ### Charon — Core
 
@@ -162,7 +162,7 @@ This contains samples illustrating the SCIM use cases. Samples mainly contain th
 
 WSO2 Identity Server allows users to define their own user schema in addition to the core user schema. These configured schema are then used while creating or validating user objects. This means that custom user attributes can be passed using SCIM for identity management requirements. Follow the steps given below to add a custom attribute.
 
-For information on Extending SCIM 2.0 User Schemas, see [here](../../develop/extend/provisioning/extend-scim2-user-schemas/)
+For information on Extending SCIM 2.0 User Schemas, see [here]({{base_path}}/develop/extend/provisioning/extend-scim2-user-schemas/)
 
 ---
 
@@ -198,11 +198,11 @@ The above command provides the following results:
 -   **Secondary Userstore Output**
 
 ``` java
-{"id":"2e89cac0-17f3-40e7-8a07-ff1047a70cf1","schemas":["urn:scim:schemas:core:2.0"],"userName":"mysql/kim","meta":{"lastModified":"2021-03-24T14:31:30","location":"https://localhost:9443/wso2/scim2/Users/2e89cac0-17f3-40e7-8a07-ff1047a70cf1","created":"2021-03-24T14:31:30"}}
+{"id":"2e89cac0-17f3-40e7-8a07-ff1047a70cf1","schemas":["urn:scim:schemas:core:2.0"],"userName":"mysql/kim","meta":{"lastModified":"2021-03-24T14:31:30","location":"https://localhost:9443/wso2/scim2/Users/2e89cac0-17f3-40e7-8a07-ff1047a70cf1","created":"2021-03-24T14:31:30"}}'}}
 ```
 
 !!! info "Related topics"
-    See [SCIM 2.0 APIs](../../develop/apis/scim2-rest-apis) for more cURL commands that can be used to do various functions using the SCIM endpoints available.
+    See [SCIM 2.0 APIs]({{base_path}}/develop/apis/scim2-rest-apis) for more cURL commands that can be used to do various functions using the SCIM endpoints available.
 
 
 

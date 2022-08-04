@@ -7,25 +7,25 @@ Let's get started!
 
 !!! tip "Before you begin!"
     Create the `users.csv` file by following the instructions in 
-    [Exporting User Data From WSO2 Identity Server](../sync-account-overview).
+    [Exporting User Data From WSO2 Identity Server]({{base_path}}/sync-account-overview).
     
 ##Try it Out
 
 1. Login to [Pipedrive](http://www.pipedrive.com/).
 2. Click **Contacts > People**.
    
-    <!--![contacts-in-pipedrive](../assets/img/tutorials/contacts-in-pipedrive.png)-->
+    <!--![contacts-in-pipedrive]({{base_path}}/assets/img/tutorials/contacts-in-pipedrive.png)-->
     
 3. Click on **Data Import**.
    
-    <!--![data-import-in-pipedrive](../assets/img/tutorials/data-import-in-pipedrive.png)-->
+    <!--![data-import-in-pipedrive]({{base_path}}/assets/img/tutorials/data-import-in-pipedrive.png)-->
 
 4. Click **From a spreadsheet** and upload the created `users.csv` file with the exported data.
     
-    <!--![import-from-spread-sheet-pipedrive](../assets/img/tutorials/import-from-spread-sheet-pipedrive.png)-->
+    <!--![import-from-spread-sheet-pipedrive]({{base_path}}/assets/img/tutorials/import-from-spread-sheet-pipedrive.png)-->
 
 5. Map **data fields in the CSV** with **Pipedrive data fields**.
-    <!--![map-import-fields-to-pipedrive](../assets/img/tutorials/map-import-fields-to-pipedrive.png)-->
+    <!--![map-import-fields-to-pipedrive]({{base_path}}/assets/img/tutorials/map-import-fields-to-pipedrive.png)-->
 
 6. Click **Next** and validate the data in **Import Preview**.
 7. Click on **Start Import**.

@@ -2,6 +2,6 @@
 
 Inherence factors are almost 100% unique to the user, often comprising of biometric data.
 
--   [MePIN](../mepin) 
+-   [MePIN]({{base_path}}/mepin) 
 
--   [Biometrics](../3fa-basic-fido-biometrics/)
+-   [Biometrics]({{base_path}}/3fa-basic-fido-biometrics/)

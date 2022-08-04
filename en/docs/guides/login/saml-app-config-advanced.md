@@ -211,13 +211,13 @@ Select the **Enable IdP Initiated SLO** checkbox to enable this functionality. Y
 
 ## Enable Assertion Query Request Profile
 
-Select the **Enable Assertion Query Request Profile** checkbox to query assertions that are persisted to the database when you log in to the service provider application. For more information, see [Query SAML 2.0 Assertions](../../../guides/login/query-saml-assertions).
+Select the **Enable Assertion Query Request Profile** checkbox to query assertions that are persisted to the database when you log in to the service provider application. For more information, see [Query SAML 2.0 Assertions]({{base_path}}/guides/login/query-saml-assertions).
 
 ----
 
 ## Enable SAML2 Artifact Binding
 
-This is to define whether SAML2 artifact binding is enabled or not so that WSO2 Identity Server responds to each SAML SSO authentication request with an artifact. For more information, see [Use SAML 2.0 Artifact Binding](../../../guides/login/use-artifact-binding).
+This is to define whether SAML2 artifact binding is enabled or not so that WSO2 Identity Server responds to each SAML SSO authentication request with an artifact. For more information, see [Use SAML 2.0 Artifact Binding]({{base_path}}/guides/login/use-artifact-binding).
 
 ----
 

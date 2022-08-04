@@ -4,10 +4,10 @@ WSO2 identity server uses an embedded Read/Write LDAP as the primary userstore.
 This document will guide you to change that to a Read Write Active Directory userstore.
 
 !!! tip 
-    Refer [Configure userstores](../../../deploy/configure-user-stores) to get a high-level understanding of the userstores available in WSO2 Identity Server (WSO2 IS).
+    Refer [Configure userstores]({{base_path}}/deploy/configure-user-stores) to get a high-level understanding of the userstores available in WSO2 Identity Server (WSO2 IS).
     
 !!! tip    
-    For Read-only Active Directory userstore manager configuration, use [Read-only LDAP userstore manager configuration properties](../../../deploy/configure-a-read-only-ldap-user-store).
+    For Read-only Active Directory userstore manager configuration, use [Read-only LDAP userstore manager configuration properties]({{base_path}}/deploy/configure-a-read-only-ldap-user-store).
 
 ---
 
@@ -60,10 +60,10 @@ Following are the minimum userstore properties that need to be provided to confi
 <br />
 If you are connecting over ldaps (secured LDAP),<br />
 you need to import the certificate of userstore to <code><&ZeroWidthSpace;IS_HOME>/repository/resources/security/client-truststore.jks</code>. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see<br />
-<a href="../../../deploy/security/use-asymmetric-encryption">Use asymmetric encryption.</a><br />
+<a href="{{base_path}}/deploy/security/use-asymmetric-encryption">Use asymmetric encryption.</a><br />
 <br />
 If LDAP connection pooling is used, see <br />
-<a href="../../../deploy/performance/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling.</a></p></td>
+<a href="{{base_path}}/deploy/performance/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling.</a></p></td>
 </tr>
 <tr class="odd">
 <td>ConnectionName</td>
@@ -89,7 +89,7 @@ Replace the default `user_store` configuration in the `         <IS_HOME>/reposi
 ```toml
 [user_store]
 type = "active_directory_unique_id"
-base_dn = "cn=Users,dc=wso2,dc=org"
+base_dn = "dc=wso2,dc=org"
 connection_url = "ldaps://10.100.1.102:639"
 connection_name = "cn=admin,ou=system"
 connection_password = "admin"
@@ -109,6 +109,12 @@ keytool -import -alias certalias -file <certificate>.pem -keystore client-trusts
 
 Furthermore, please make sure to follow the steps mentioned in [Configure Active Directory Userstores for SCIM 2.0 based Inbound Provisioning](../guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md) 
 since SCIM enabled by default from the WSO2 Identity Server 5.10.0 onwards.
+
+
+!!! note
+    It is required to edit the claim mappings in WSO2 IS according to the user claims of the Active Directory version you have configured.<br />
+    Before starting the server, edit the `<IS_HOME>/repository/conf/claim-config.xml` configuration file and change the `AttributeID` of the `Created Time` and `Last Modified Time` claims to `whenCreated` and `whenChanged` respectively.
+    Start the server and edit the rest of the required claim mappings through the management console as explained in [edit claim mapping]({{base_path}}/guides/dialects/edit-claim-mapping.md).
 
 ---
 
@@ -162,7 +168,7 @@ Default: identityPerson (a custom object class defined in WSO2 Identity Server)<
 <td><p>This is a uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 Identity Server, if you want to set the email address as username, see <a href="../../../guides/identity-lifecycles/enable-email-as-username">Enable using email address as the username.</a></p>
+Note: email address is considered as a special case in WSO2 Identity Server, if you want to set the email address as username, see <a href="{{base_path}}/guides/identity-lifecycles/enable-email-as-username">Enable using email address as the username.</a></p>
 <br/>
 sample values: sAMAccountName</td>
 </tr>
@@ -178,7 +184,7 @@ sample values: sAMAccountName</td>
 <td>user_name_search_filter</td>
 <td>User Search Filter</td>
 <td>Filtering criteria used to search for a particular user entry<br />
-Default : (&amp;(objectClass=person)(uid=?))</td>
+Default : (&amp;(objectClass=user)(uid=?))</td>
 </tr>
 <tr class="odd">
 <td>UserNameListFilter</td>
@@ -186,7 +192,7 @@ Default : (&amp;(objectClass=person)(uid=?))</td>
 <td>User List Filter</td>
 <td>This denotes the filtering criteria for searching user entries in the userstore. This query or filter is used when doing search operations on users with different search attributes.<br />
 <br />
-Default: (objectClass=person)<br />
+Default: (objectClass=user)<br />
 In this case, the search operation only provides the objects created from the person object class.</td>
 </tr>
 <tr class="even">
@@ -473,5 +479,5 @@ conversion when reading from/writing to a userstore.
 
 
 !!! info "Related topics"
-    -   [Deploy: Configure the Primary Userstore](../../../deploy/configure-the-primary-user-store)
-    -   [Deploy: Configure Secondary Userstores](../../../deploy/configure-secondary-user-stores)
+    -   [Deploy: Configure the Primary Userstore]({{base_path}}/deploy/configure-the-primary-user-store)
+    -   [Deploy: Configure Secondary Userstores]({{base_path}}/deploy/configure-secondary-user-stores)

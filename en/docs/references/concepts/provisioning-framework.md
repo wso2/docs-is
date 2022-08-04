@@ -6,7 +6,7 @@ The identity provisioning framework is the main component that handles user/role
 - **Outbound provisioning**: responsible for provisioning users from WSO2 Identity Server to external applications
 - **Userstore management**: used to persist users within the system
 
-<img name='sso-diagram' src='../../../assets/img/concepts/provisioning-framework.png' class='img-zoomable'/>
+<img name='sso-diagram' src='{{base_path}}/assets/img/concepts/provisioning-framework.png' class='img-zoomable'/>
 
 ---
 
@@ -40,6 +40,6 @@ To set up outbound provisioning, one or more outbound provisioning connectors ne
 The provisioning request comes into the outbound provisioning component from the provisioning framework. This request will then go to the relevant connector.
 
 !!! info "Related topics"
-    - [Concept: Provisioning](../identity-provisioning-intro)
-    - [Guide: Inbound Provisioning](../../../guides/identity-lifecycles/inbound-provisioning)
-    - [Guide: Outbound Provisioning](../../../guides/identity-lifecycles/outbound-provisioning)
+    - [Concept: Provisioning]({{base_path}}/identity-provisioning-intro)
+    - [Guide: Inbound Provisioning]({{base_path}}/guides/identity-lifecycles/inbound-provisioning)
+    - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)

@@ -4,7 +4,7 @@ You can view the current status of a XACML policy using the
 instructions in this topic.
 
 1.  Sign in. Enter your username and password to log in to the
-    [Management Console](../../setup/getting-started-with-the-management-console).
+    [Management Console]({{base_path}}/setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**.
 3.  The policies that you created are listed in the **Available

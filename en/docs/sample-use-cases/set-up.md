@@ -26,7 +26,7 @@ Follow the steps given below to set up and install WSO2 Identity Server.
         * If you are planning to use single sign-on (SSO), do not use `localhost` as it will cause the Tomcat naked host issue. Use `localhost.com` instead. If you are using Windows, `localhost.com` is considered as `127.0.0.1`.<br/>
         * Make sure that this is the only such entry available for this IP address in the `/etc/hosts` file to avoid any conflicts.
 
-5. [Start](../../deploy/get-started/run-the-product/) WSO2 Identity Server. You
+5. [Start]({{base_path}}/deploy/get-started/run-the-product/) WSO2 Identity Server. You
    are now ready to deploy the sample.
 
 ### Steps to configure and run the samples
@@ -78,13 +78,13 @@ Follow the steps given below to set up and install WSO2 Identity Server.
     ```
     Note that the following appears in the command prompt after the server start.
     
-    ![QSG start server](../../assets/img/get-started/qsg-start-server.png)
+    ![QSG start server]({{base_path}}/assets/img/get-started/qsg-start-server.png)
 
     !!! tip "Shutting down the server"
         To shutdown the server, press `Ctrl + C`.
         Note that following log appears in the command prompt after the server shutdown.
         
-        ![QSG stop server](../../assets/img/get-started/qsg-stop-server.png)
+        ![QSG stop server]({{base_path}}/assets/img/get-started/qsg-stop-server.png)
 
 5.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute either of the following commands to start the sample application. 
        

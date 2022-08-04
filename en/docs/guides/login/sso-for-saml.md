@@ -1,12 +1,12 @@
 # Enable Single Sign-On for a SAML Web Application
 
-This page guides you through configuring [single sign-on authentication](../../references/concepts/single-sign-on) between two SAML web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager.
+This page guides you through configuring [single sign-on authentication]({{base_path}}/references/concepts/single-sign-on) between two SAML web applications. This is demonstrated using two sample applications called Pickup Dispatch and Pickup Manager.
 
 ## Scenario
 
 Pickup is a cab company that has two SAML web applications called pickup-dispatch and pickup-manager. Both applications use WSO2 Identity Server (IS) as the identity provider. When SSO is configured for both these applications, an employee is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
-![SAML SSO scenario](../../assets/img/samples/saml-sso-scenario-diagram.png)
+![SAML SSO scenario]({{base_path}}/assets/img/samples/saml-sso-scenario-diagram.png)
 
 Follow the steps below to deploy two sample applications and see how this works. 
 
@@ -44,7 +44,7 @@ You need to register the two sample applications as service providers in WSO2 Id
         -   **Enable Signature Validation in Authentication Requests and Logout Requests**
     
     !!! tip
-        For more information on the advanced configurations, see [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced/).
+        For more information on the advanced configurations, see [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced/).
 
 5.  Click **Register** to save the changes.  
 
@@ -78,7 +78,7 @@ You need to register the two sample applications as service providers in WSO2 Id
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Advanced SAML Configurations](../../guides/login/saml-app-config-advanced).
+        refer, [Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced).
 
 5.  Click **Register** to save the changes. 
 
@@ -98,7 +98,7 @@ Additionally, you can also configure claims for the service providers.
 
 5. Select `http://wso2.org/claims/fullname` as the **Subject claim URI** and click **Update** to save the service provider configurations. 
 
-    ![Service provider claim configurations](../../assets/img/samples/dispatch-configure-claims.png)
+    ![Service provider claim configurations]({{base_path}}/assets/img/samples/dispatch-configure-claims.png)
 
 6. Now, logout of the **Pickup Dispatch** and **Pickup Manager** applications.
 
@@ -106,7 +106,7 @@ Additionally, you can also configure claims for the service providers.
 
 8. Note that the user is now prompted for consent to share the **Email Address** claim value with the sample application.  
 
-    ![Pickup Dispatch email consent](../../assets/img/samples/dispatch-email-consent.png)
+    ![Pickup Dispatch email consent]({{base_path}}/assets/img/samples/dispatch-email-consent.png)
 
 Now you have successfully configured additional claims for your service provider.
 
@@ -131,13 +131,13 @@ You are now ready to try out SAML SSO with the Pickup Dispatch and Pickup Manage
 
 ## Configure CORS
 
-{!fragments/cors-config.md!}
+{!./includes/cors-config.md!}
 
 ## Try it
 
 1. Navigate to `http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com` on your browser and click **Login**.
 
-    ![Pickup Dispatch login](../../assets/img/samples/dispatch-login.png)
+    ![Pickup Dispatch login]({{base_path}}/assets/img/samples/dispatch-login.png)
 
 2. You will be redirected to the login page of WSO2 IS. Log in using your WSO2 IS credentials (admin/admin). Provide the required consent.
 You will be redirected to the Pickup Dispatch application home page.
@@ -149,6 +149,6 @@ You have successfully configured SAML single sign-on for two web applications us
 ----
 
 !!! info "Related topics"
-    - [Concept: Single Sign-On](../../../references/concepts/single-sign-on)
-    - [Guide: SAML Front-Channel Logout](../saml-front-channel-logout)
-    - [Guide: SAML Back-Channel Logout](../saml-back-channel-logout)
+    - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)
+    - [Guide: SAML Front-Channel Logout]({{base_path}}/saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout]({{base_path}}/saml-back-channel-logout)

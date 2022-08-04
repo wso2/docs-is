@@ -152,7 +152,7 @@ you can use the same public and private key pair to generate a new CSR
 with the updated CN (subject). This can be done by adding the `-dname`
 option when `-certreq` is executed. Once the CA certificate is obtained,
 follow the instructions given in the [importing certificates to the
-keystore](../../../deploy/security/create-new-keystores/#step-2-import-certificates-to-the-keystore) topic to import it correctly. By doing that, you do
+keystore]({{base_path}}/deploy/security/create-new-keystores/#step-2-import-certificates-to-the-keystore) topic to import it correctly. By doing that, you do
 not need to touch the key-pair, and any other operations performed using
 the same key pair such as encryption, will not get affected.
 
@@ -160,7 +160,7 @@ the same key pair such as encryption, will not get affected.
 
 Create a new keystore with the instructions for the new hostname and then use that keystore for
 SSL/TLS by changing Tomcat connector configuration as described in the
-[Configure Keystores](../../../deploy/security/configure-keystores-in-wso2-products/) topic. This approach
+[Configure Keystores]({{base_path}}/deploy/security/configure-keystores-in-wso2-products/) topic. This approach
 separates the keystores. The secondary keystore with the new hostname
 will only be used for Tomcat SSL/TLS communication, while the primary
 one is used for all other operations (encryption, etc.). By doing this,

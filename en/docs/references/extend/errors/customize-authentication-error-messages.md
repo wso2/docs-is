@@ -1,7 +1,7 @@
 # Customize Authentication Error Messages
 
 WSO2 Identity Server has standard error messages for different authentication errors that are encountered. See [Error Codes and
-Descriptions](../../../develop/extend/errors/error-codes-and-descriptions) for more information on the standard error codes and descriptions of
+Descriptions]({{base_path}}/develop/extend/errors/error-codes-and-descriptions) for more information on the standard error codes and descriptions of
 those errors. There are three types of custom errors handled here:
 
 -   Invalid credentials
@@ -9,7 +9,7 @@ those errors. There are three types of custom errors handled here:
 -   Account lock
 
 !!! note
-    Account lock errors are returned only when account locking is enabled on the server. Refer [User Account Locking](../../../guides/identity-lifecycles/lock-account/) document to enable account locking.
+    Account lock errors are returned only when account locking is enabled on the server. Refer [User Account Locking]({{base_path}}/guides/identity-lifecycles/lock-account/) document to enable account locking.
     
 
 Add the following properties to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder to enable the authenticator to be able to customize error messages.

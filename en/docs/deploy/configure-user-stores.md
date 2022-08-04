@@ -10,14 +10,14 @@ There are two types of userstores - Primary Userstore (Mandatory) and
 Secondary userstores (Optional). All the supported userstores can be
 configured under these two types.
 
-![user-store-types](../../../assets/img/deploy/user-store-types.png) 
+![user-store-types]({{base_path}}/assets/img/deploy/user-store-types.png) 
 
 ---
 
 ## Primary userstore (Mandatory)
 
 This is the main user store that is shared among all the
-[tenants](TBD:../../administer/introduction-to-multitenancy)
+[tenants](TBD:{{base_path}}/administer/introduction-to-multitenancy)
 in the system. Only one userstore should be configured as the primary
 userstore and it is configured in the
 `         <IS_HOME>/repository/conf/deployment.toml       ` file. By default,
@@ -25,7 +25,7 @@ WSO2 identity server uses an embedded Read/Write LDAP as the primary userstore.
 It is recommended to change this default configuration in the production
 system.
 
-see, [Configure the Primary Userstore](../../../deploy/configure-the-primary-user-store)
+see, [Configure the Primary Userstore]({{base_path}}/deploy/configure-the-primary-user-store)
 
 ---
 
@@ -38,7 +38,7 @@ You can use the management console to create secondary userstores or
 you can create them manually. These will be stored in an xml file with the
 configurations corresponding to the secondary userstore.
 
-see, [Configure a Secondary Userstore](../../../deploy/configure-secondary-user-stores)
+see, [Configure a Secondary Userstore]({{base_path}}/deploy/configure-secondary-user-stores)
 
 ---
 
@@ -46,7 +46,7 @@ see, [Configure a Secondary Userstore](../../../deploy/configure-secondary-user-
 
 Adapters used to connect with different userstores are called *Userstore Managers*. By default, there are userstore managers for JDBC,
 LDAP and Active Directory userstores. If you need to add a new userstore implementation, see [Write a Custom Userstore
-Manager](../../../deploy/write-a-custom-user-store-manager). When you configure the
+Manager]({{base_path}}/deploy/write-a-custom-user-store-manager). When you configure the
 userstore, you have to set the userstore manager class name.
 
 !!! info 
@@ -54,4 +54,4 @@ userstore, you have to set the userstore manager class name.
     the default configurations, permissions are stored in the embedded H2
     database. For information on how to set up a RDBMS repository for
     storing permission, see [Configure the Authorization
-    Manager](../../../deploy/configure-the-authorization-manager)
+    Manager]({{base_path}}/deploy/configure-the-authorization-manager)

@@ -15,7 +15,7 @@ port number, for example:
 `https://localhost:9443/services/IdentityProviderMgtService?wsdl`
   
 !!! note
-    Prior to calling any of these admin services, you need to make them discoverable. See [Call Admin Services](../../apis/call-admin-services) for information on how to do this.
+    Prior to calling any of these admin services, you need to make them discoverable. See [Call Admin Services]({{base_path}}/apis/call-admin-services) for information on how to do this.
     
 ---
 
@@ -235,13 +235,13 @@ request body.
 
 The `          <federatedAuthenticatorConfigs>         ` parameter can
 be used to configure zero or more federated authenticators. For sample
-federated authenticator configurations, see [Federated Authenticator Configuration Samples](../../apis/identity-provider-configurations-used-with-apis#federated-authenticator-configuration-samples).
+federated authenticator configurations, see [Federated Authenticator Configuration Samples]({{base_path}}/apis/identity-provider-configurations-used-with-apis#federated-authenticator-configuration-samples).
 
 **Outbound provisioning connectors**
 
 The `         <provisioningConnectorConfigs>        ` parameter can be
 used to configure zero or more outbound provisioning connectors. For
-sample outbound provisioning connector configurations, see [Outbound Provisioning Connectors Configuration Samples.](../../apis/identity-provider-configurations-used-with-apis#outbound-provisioning-connector-configuration-samples)
+sample outbound provisioning connector configurations, see [Outbound Provisioning Connectors Configuration Samples.]({{base_path}}/apis/identity-provider-configurations-used-with-apis#outbound-provisioning-connector-configuration-samples)
 
 <table>
 <thead>

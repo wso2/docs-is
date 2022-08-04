@@ -60,7 +60,7 @@ and permissions for those users to access resources. Thus, a tenant is
 restricted by the users and permissions of the domain assigned to it.
 The artifact repositories of the tenants are separated from each other.
 
-![Tenant diagram](../../assets/img/concepts/tenant-diagram.png)
+![Tenant diagram]({{base_path}}/assets/img/concepts/tenant-diagram.png)
 
 An individual tenant can carry out the following activities within the
 boundaries of its own configuration and context module:
@@ -114,7 +114,7 @@ required tenant loading policy by enabling either **Lazy Loading** or
 the loading policy for web applications and axis2 services deployed in
 your tenants using the **GhostDeployment** setting.
 
-See [Configure the Tenant Loading Policy](../../../guides/tenants/configure-the-tenant-loading-policy) for more information.
+See [Configure the Tenant Loading Policy]({{base_path}}/guides/tenants/configure-the-tenant-loading-policy) for more information.
 
 ---
 
@@ -194,5 +194,5 @@ with multiple multi-tenant nodes, you need load balancing. The load
 balancer you use also needs to be tenant-aware.
 
 !!! info Related topics 
-    - [Guide: Add New Tenants](../../../guides/tenants/add-new-tenants/)
-    - [Guide: Configure the Tenant Loading Policy](../../../guides/tenants/configure-the-tenant-loading-policy/)
+    - [Guide: Add New Tenants]({{base_path}}/guides/tenants/tenant-mgt/)
+    - [Guide: Configure the Tenant Loading Policy]({{base_path}}/guides/tenants/configure-the-tenant-loading-policy/)

@@ -128,6 +128,6 @@ For Encryption Method, currently WSO2 IS supports the following algorithms.
     In a production environment, we recommend that you change these values.
     
 !!! info "Related topics"
-    - [Concept: ID Token](../../../references/concepts/authentication/id-token)
-    - [Guide: OpenID Connect Token Encryption](../../../guides/login/oidc-token-encryption/)
+    - [Concept: ID Token]({{base_path}}/references/concepts/authentication/id-token)
+    - [Guide: OpenID Connect Token Encryption]({{base_path}}/guides/login/oidc-token-encryption/)
     

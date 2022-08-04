@@ -42,7 +42,7 @@ the `          <IS_HOME>/repository/logs         ` directory.
 !!! note  
     WSO2 Identity Server generates other log 
     files in addition to the Carbon logs, Audit logs, HTTP access logs,
-    Patch logs, and Service/Event logs. For more information, see [Monitor WSO2 Identity Server](../../../deploy/monitor/monitor-the-identity-server).
+    Patch logs, and Service/Event logs. For more information, see [Monitor WSO2 Identity Server]({{base_path}}/deploy/monitor/monitor-the-identity-server).
 ---
 
 ## Configure WSO2 Identity Server for log monitoring
@@ -63,7 +63,7 @@ appender.CARBON_LOGFILE.name = CARBON_LOGFILE
 appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
 appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
 appender.CARBON_LOGFILE.layout.type = PatternLayout
-appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] [%X{Correlation-ID}] %5p {%c} - %mm%ex%n
+appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] [%X{Correlation-ID}] %5p {% raw %}{%c}{% endraw %} - %mm%ex%n
 appender.CARBON_LOGFILE.policies.type = Policies
 appender.CARBON_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
 appender.CARBON_LOGFILE.policies.time.interval = 1
@@ -120,7 +120,7 @@ appender.AUDIT_LOGFILE.name = AUDIT_LOGFILE
 appender.AUDIT_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/audit.log
 appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}.log
 appender.AUDIT_LOGFILE.layout.type = PatternLayout
-appender.AUDIT_LOGFILE.layout.pattern = TID: [%tenantId] [%d] [%X{Correlation-ID}] %5p {%c} - %mm%ex%n
+appender.AUDIT_LOGFILE.layout.pattern = TID: [%tenantId] [%d] [%X{Correlation-ID}] %5p {% raw %}{%c}{% endraw %} - %mm%ex%n
 appender.AUDIT_LOGFILE.policies.type = Policies
 appender.AUDIT_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
 appender.AUDIT_LOGFILE.policies.time.interval = 1
@@ -138,7 +138,7 @@ can be configured are [listed below](#set-the-log4j-log-level).
 
 ### Configure HTTP access logs
 
-See [HTTP Access Logging](../../../deploy/monitor/http-access-logging) for instructions on
+See [HTTP Access Logging]({{base_path}}/deploy/monitor/http-access-logging) for instructions on
 how to configure and use HTTP access logs.
 
 ---
@@ -146,7 +146,7 @@ how to configure and use HTTP access logs.
 ### Configure product observability
 
 WSO2 Identity Server supports logging capabilities for tracking down latencies due to database calls.
-See [Work with Product Observability](../../../deploy/monitor/work-with-product-observability) for instructions on
+See [Work with Product Observability]({{base_path}}/deploy/monitor/work-with-product-observability) for instructions on
 how to configure and use this capability.
 
 ---
@@ -300,7 +300,7 @@ time a user is deleted:
 -   The timestamp that the user was deleted.
 
 You can use this log file as an input to the Identity Anonymization tool
-that is packaged with WSO2 Identity Server, to ensure that you [remove references to all deleted user identities](../../../deploy/remove-references-to-deleted-user-identities/).
+that is packaged with WSO2 Identity Server, to ensure that you [remove references to all deleted user identities]({{base_path}}/deploy/remove-references-to-deleted-user-identities/).
 
 Follow the steps below to configure WSO2 Identity Server to log details
 related to user deletion each time you delete a user.

@@ -1,334 +1,253 @@
-# Configure SMS OTP for 2-Factor Authentication
+# Configure SMS OTP for two-factor authentication
 
-This page guides you through configuring [two-factor authentication](../../../references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using SMS OTP as the second factor. 
+This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using SMS OTP as the second factor.
 
-----
+## Set up SMS OTP provider
 
-{!fragments/connect-sms-provider.md!}
+1. Download the certificate of the SMS provider.
 
-----
+    !!! example
+        If you wish to have NEXMO as your SMS provider:
 
-{!fragments/register-an-identity-provider.md!}
+        1. Go to the SMS provider's website, [https://www.nexmo.com](https://www.nexmo.com/).
+        2. Click on the security padlock next to the URL, and export the certificate.
 
-----
+2. Navigate to the `<IS_HOME>/repository/resources/security` directory and import the downloaded certificate into the WSO2 IS client keystore.
 
-## Configure SMS OTP
+    ``` java
+    keytool -importcert -file <CERTIFICATE_FILE_PATH> -keystore client-truststore.jks -alias "Nexmo" 
+    ```
 
-1.  Expand **SMS OTP Configuration** under **Federated Authenticators**.
+3. You are prompted to enter the keystore password. The default `client-truststore.jks` password is `wso2carbon`.
 
-2.  Select **Enable** check-box.
+## Enable SMS OTP for an SP
 
-3.  Enter **SMS URL**, **HTTP Method** (e.g., GET or POST), **HTTP Headers** and **HTTP Payload** information.
+### Prerequisites
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+- You need to [configure local claims]({{base_path}}/guides/applications/configure-claims-for-sp/#use-local-claim-dialect) for the application:
+    1. On the management console, go to the application you created and click **Edit**
+    2. Expand **Claim configuration**.
+    3. Select `http://wso2.org/claims/mobile` as the **Subject Claim URI**.
+    4. Click **Update** to save the configurations.
+- You need to [update the User Profile]({{base_path}}/guides/identity-lifecycles/update-profile) of the users with a mobile number to which the user will receive the OTP.
+- You need to [register an Identity Provider]({{base_path}}/guides/identity-federation/add-idp/) named `smsOTP`.
+- Set up the SMS OTP provider (example: Vonage, Clickatell, Plivo, Bulksms, Twillio).
+
+### Configure the SMS OTP authenticator
+To configure the email OTP authenticator:
+
+1. On the management console, go to **Identity Providers > List**.
+2. Click on **Edit** corresponding to the `smsOTP` identity provider.
+3. Expand **Federated Authenticators > SMS OTP Configuration**.
+4. Enable the email OTP authenticator by selecting the **Enable** option provided.
+5. Enter **SMS URL**, **HTTP Method**, **HTTP Headers** and **HTTP Payload** according to the SMS service provider you are using.
 
     !!! info
+        - The above parameters depend on the service provider that you use.
+
         - If the text message and the phone number are passed as parameters in any field, include them as $ctx.num and $ctx.msg respectively.
 
-        - Optionally, enter the HTTP response code the SMS service provider sends when the API is successfully called. Nexmo API and  Bulksms API sends 200 as the code, while Clickatell and Plivo send 202. If this value is unknown, leave it blank and the connector checks if the response is 200, 201 or 202.
+        - Optionally, enter the **HTTP Response Code** the SMS service provider sends when the API is successfully called. If this value is unknown, leave it blank, and the connector checks if the response is `200`, `201`, or `202`.
 
-    ??? Note "Click here to configure Nexmo as the service provider."
+    ??? "Configure Vonage"
+        If you have configured [Vonage](https://dashboard.nexmo.com/sign-up) as your SMS provider, add the following details when configuring the SMS provider on IS.
 
-		Follow the steps given below if **Nexmo** is used as the SMS provider:
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://rest.nexmo.com/sms/json?api_key=<API_KEY>&api_secret=<API_SECRET>&from=NEXMO&to=$ctx.num&text=$ctx.msg`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>`200`</td>
+            </tr>
+        </table>
 
-		1.  Go to <https://dashboard.nexmo.com/sign-up> and sign up.
-		2.  Once you successfully register, the API **key** and **secret**
-			are displayed. Copy and save them as you need them for the next
-			step.  
-			Example:  
-			![nexmo-config](../../../assets/img/guides/nexmo-config.png)
-		3.  The Nexmo API requires the parameters to be encoded in the URL,
-			so the SMS URL would be as follows.
-			<html><table>
-			<tbody>
-			<tr class="odd">
-			<td><strong>SMS URL</strong></td>
-			<td><code> https://rest.nexmo.com/sms/json?api_key=&api_secret=&from=NEXMO&to=\$ctx.num&text=\$ctx.msg </code></td>
-			</tr>
-			<tr class="even">
-			<td><strong>HTTP Method</strong></td>
-			<td><code>              POST              </code></td>
-			</tbody>
-			</table></html>
-			
-    ??? Note "Click here to configure Clickatell as the service provider."
+    ??? "Configure Clickatell"
+        If you have configured  [Clickatell](https://www.clickatell.com/sign-up/) as your SMS provider, add the following details when configuring the SMS provider on IS.
 
-		Follow the steps given below if **Clickatell** is used as the SMS
-		provider:
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://api.clickatell.com/rest/message`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Header</strong></td>
+                <td>`X-Version: 1,Authorization: bearer ,Accept: application/json,Content-Type: application/json`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Payload</strong></td>
+                <td>`{"text":" $ctx.msg ","to":[" $ctx.num "]}`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>`202`</td>
+            </tr>
+        </table>
 
-		1.  Go to <https://www.clickatell.com/sign-up/> and create
-			an account.
-		2.  The Auth token is provided when you register with Clickatell.
+    ??? "Configure Plivo"
+        If you have configured  [Plivo](https://manage.plivo.com/accounts/register/?utm_source=send%bulk%20sms&utm_medium=sms-docs&utm_campaign=internal) as your SMS provider, add the following details when configuring the SMS provider on IS.
 
-		3.  Clickatell uses a POST method with headers and the text message
-			and phone number are sent as the payload. So the fields would be
-			as follows.
-			<html><table>
-			<tbody>
-			<tr class="odd">
-			<td><strong>SMS URL</strong></td>
-			<td><code> https://api.clickatell.com/rest/message  </code></td>
-			</tr>
-			<tr class="even">
-			<td><strong>HTTP Method</strong></td>
-			<td><code>              POST              </code></td>
-			</tr>
-			<tr class="odd">
-			<td><strong>HTTP Headers</strong></td>
-			<td><code> X-Version: 1,Authorization: bearer <ENTER_AUTH_TOKEN>,Accept: application/json,Content-Type: application/json  </code></td>
-			</tr>
-			<tr class="even">
-			<td><strong>HTTP Payload</strong></td>
-			<td><code> {"text":" $ctx.msg ","to":[" $ctx.num "]} </code></td>
-			</tr>
-			</tbody>
-			</table></html>
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://api.plivo.com/v1/Account/{auth_id}/Message/`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Header</strong></td>
+                <td>`Authorization: Basic ********,Content-Type: application/json`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Payload</strong></td>
+                <td>`{"src":"+94*********","dst":"ctx.num","text":"ctx.msg"}`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>`202`</td>
+            </tr>
+        </table>
 
-    ??? Note "Click here to configure Plivo as the service provider."
+    ??? "Configure Bulksms"
+        If you have configured  [Bulksms](https://www2.bulksms.com/login.mc) as your SMS provider, add the following details when configuring the SMS provider on IS.
 
-		Follow the steps given below if **Plivo** is used as the SMS provider:
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0?username=<username>&password=<password>&message=$ctx.msg&msisdn=$ctx.num`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Header</strong></td>
+                <td>`Content-Type: application/x-www-form-urlencoded`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>`200`</td>
+            </tr>
+        </table>
 
-		1.  Sign up for a free [Plivo trial
-			account](https://manage.plivo.com/accounts/register/?utm_source=send%bulk%20sms&utm_medium=sms-docs&utm_campaign=internal)
-			.
-		2.  Phone numbers must be verified at the [Sandbox
-			Numbers](https://manage.plivo.com/sandbox-numbers/) page (add at
-			least two numbers and verify them).
+    ??? "Configure Twillio"
+        If you have configured  [Twillio](https://www.twilio.com/try-twilio) as your SMS provider, add the following details when configuring the SMS provider on IS.
 
-		3.  The Plivo API is authenticated with Basic Auth using your
-			`                AUTH ID               ` and
-			`                AUTH TOKEN               ` , Your Plivo
-			`                AUTH ID               ` and
-			`                AUTH TOKEN               ` can be found when
-			you log in to your
-			[dashboard.](https://manage.plivo.com/dashboard/)
-		4.  Plivo uses a POST method with headers, and the text message and
-			phone number are sent as the payload. So the fields would be as
-			follows.
-			<html><table>
-			<tbody>
-			<tr class="odd">
-			<td><strong>SMS URL</strong></td>
-			<td><code> https://api.plivo.com/v1/Account/{auth_id}/Message/  </code></td>
-			</tr>
-			<tr class="even">
-			<td><strong>HTTP Method</strong></td>
-			<td><code>              POST              </code></td>
-			</tr>
-			<tr class="odd">
-			<td><strong>HTTP Headers</strong></td>
-			<td><code> Authorization: Basic ********,Content-Type: application/json </code></td>
-			</tr>
-			<tr class="even">
-			<td><strong>HTTP Payload</strong></td>
-			<td><code> {"src":"+94*********","dst":"$ctx.num","text":"$ctx.msg"} </code></td>
-			</tr>
-			</tbody>
-			</table></html>
+        <table>
+            <tr>
+                <td><strong>SMS URL</strong></td>
+                <td>`https://api.twilio.com/2010-04-01/Accounts/<AccountSID>/SMS/Messages.json`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Method</strong></td>
+                <td>`POST`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Header</strong></td>
+                <td>`Authorization: Basic base64{AccountSID:AuthToken}`</td>
+            </tr>
+            <tr>
+                <td><strong>HTTP Payload</strong></td>
+                <td>`Body=$ctx.msg&To=$ctx.num&From=urlencode{FROM_NUM}`</td>
+            </tr>
+        </table>
 
-    ??? Note "Click here to configure Bulksms as the service provider."
+6. Click **Update** to save the configurations.
 
-		Follow the steps given below if **Bulksms** is used as the SMS provider:
+### Configure SMS OTP as the second factor
 
-		1.  Go to <https://www2.bulksms.com/login.mc> and create an account.
-		2.  While registering the account, verify your mobile number and
-			click **Claim** to get free credit.  
-			![mobile-number-claim](../../../assets/img/guides/mobile-number-claim.png)
+To configure SMS OTP as the second authentication factor:
 
-			Bulksms API authentication is performed by providing the
-			username and password request parameters.
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
-		3.  Bulksms uses the POST method and the required parameters are to
-			be encoded in the URL. So the fields would be as follows.
-			<html><table>
-			<tbody>
-			<tr class="odd">
-			<td><strong>SMS URL</strong></td>
-			<td><code> https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0?username=&password=&message=\$ctx.msg&msisdn=\$ctx.num  </code></td>
-			</tr>
-			<tr class="even">
-			<td><strong>HTTP Method</strong></td>
-			<td><code>              POST              </code></td>
-			</tr>
-			<tr class="odd">
-			<td><strong>HTTP Headers</strong></td>
-			<td><code> Content-Type: application/x-www-form-urlencoded </code></td>
-			</tr>
-			</tbody>
-			</table></html>
-			
-    ??? Note "Click here to configure Twilio as the service provider."
-        
-        You will need a Twilio-enabled phone number (a phone number purchased through Twilio) to send SMS using Twilio.
+2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-		Follow the steps given below if **Twilio** is used as the SMS provider:
+3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-		1.  Go to <https://www.twilio.com/try-twilio> and create an account.
-		2.  While registering the account, verify your mobile number and
-			click on console home <https://www.twilio.com/console> to get
-			free credit (Account SID and Auth Token).
+4. You will be redirected to **Advanced Configuration**.
 
-		3.  Twilio uses the POST method with headers, and the text message
-			and phone number are sent as the payload. The fields would be as
-			follows.
-			<html><table>
-			<tbody>
-			<tr class="odd">
-			<td><strong>SMS URL</strong></td>
-			<td><code> https://api.twilio.com/2010-04-01/Accounts/{AccountSID}/SMS/Messages.json </code></td>
-			</tr>
-			<tr class="even">
-			<td><strong>HTTP Method</strong></td>
-			<td><code>              POST              </code></td>
-			</tr>
-			<tr class="odd">
-			<td><strong>HTTP Headers</strong></td>
-			<td><code> Authorization: Basic base64{AccountSID:AuthToken} </code></td>
-			</tr>
-			<tr class="even">
-			<td><strong>HTTP Payload</strong></td>
-			<td><code> Body=\$ctx.msg&To=\$ctx.num&From=urlencode{FROM_NUM} </code></td>
-			</tr>
-			</tbody>
-			</table></html>
+5. Click **+ Add Authentication Step** twice to add two authentication steps.
 
-4. Click **Register** to save the details.
+6. Select the following authentication methods from the relevant dropdowns and click **+ Add Authenticator**.
 
-----
+    | Authentication step   | Local Authenticator   | Federated Authenticator   |
+    |-----------------------|-----------------------|----------------------|
+    | First step    | `basic`   | N/A   |
+    | Second step   | N/A   | `smsOTP`  |
 
-## Create a service provider
-
-{!fragments/register-a-service-provider.md!}
-
-4. Expand **Claim configuration**.
- 
-5. Select `http://wso2.org/claims/mobile` as the **Subject Claim URI**.
-
-6. Expand **Local and Outbound Authentication Configuration**.
-
-7. Click the **Advanced Configuration** radio button. 
-
-8. Add the following authentication steps. 
-    - **Step 1**
-        1. Click **Add Authentication Step**.
-
-        2. Select `basic` under **Local Authenticators** and click **Add Authenticator** to add the basic authentication as the first step.
-
-            Adding basic authentication as a first step ensures that the first step of authentication will be done using the user's credentials that are configured with the WSO2 Identity Server.
-
-    - **Step 2**
-        1. Click **Add Authentication Step**.
-
-        2. Select `smsotp` under **Federated Authenticators** and click **Add Authenticator** to add SMS OTP authentication as the second step.
-
-            Adding SMS OTP as a second step adds another layer of authentication and security.
-    
-        <img name='sms-otp-authentication-steps' src='../../../assets/img/guides/sms-otp-authentication-steps.png' class='img-zoomable'/>
-
-9. Click **Update** to save the changes.
-
-----
-
-## Add/update a user's mobile number
-
-1. Click **Main** > **Identity** > **Users and Roles**.
- 
-2. Click **List** > **Users** to view existing users.
-
-3. Click **User Profile** of the user you want to edit and update the
-    mobile number.  
-    
-    !!! info
-        - Make sure the number is registered with an SMS provider in order to
-        send the SMS. 
-
-        - The mobile number needs to be in the following format. If the format is wrong you will not receive the text message.
-            ```
-            Example:
-            94778888888
-            ```
-!!! tip
-    An end-user can also update their own mobile number using the My Account application of WSO2 Identity Server. For more information, see [Update Personal Details in My Account](../../../guides/my-account/my-account/#update-personal-details).
-
-----
-
-## Allow users to disable SMS OTP
-
-1. Click **Main** > **Identity** > **Claims** > **List**.
-
-2. Click `http://wso2.org/claims`. 
-
-3. Find the **Disable SMSOTP** claim and click **Edit**.
-
-4. Select the **Supported by Default** option and click **Update**.
-
-    ![supported-by-default](../../../assets/img/guides/supported-by-default.png)
-
-
-
-5. To verify whether the option is available for the users, navigate to a user 
-    profile of a user and check whether the **Disable SMSOTP** option is available.
-    
-    ![user-disable-smsotp](../../../assets/img/guides/user-disable-smsotp.png)
-
-6. To disable SMS OTP in the user profile, enter **True** in the **Disable SMSOTP** field and click **Update**.	
-   
-
-----
-
-## Configuring backup codes for SMS OTP
-
-Optionally , you can configure backup codes to be used when SMS OTP is disabled. To configure 
-backup codes, follow the steps given below.
-
-1.  Click **Main** > **Identity** > **Claims** > **Add**.
-
-2. Click **Add Local Claim**.
-
-3.  Enter `http://wso2.org/claims/otpbackupcodes`
-    as the value for **Claim Uri**.
-    
-4.  Add a **Display Name** and **Description**. For example, `Backup Code`.
-    
-5.  Enter `postalcode ` as the value for **Mapped Attribute**.
-    
-6.  Select **Supported by Default**.
-
-7.  Click **Add**.
-
-    <img name='allow-to-use-back-up-codes' src='../../../assets/img/guides/allow-to-use-back-up-codes.png' class='img-zoomable'/>
-
-**Add backup codes for users**
-
-A backup code can have any number of digits, and you can define many backup codes as comma separated values.
-    
-1.  Click **Main** > **Identity** > **Users and Roles**.
-
-2. Click **List** under **Users**.
-
-3.  Click **User Profile** of a preferred user and update
-    the backup codes so that the user can disable SMS OTP by selecting
-    **Disable SMS OTP** if required.		
-
-    ![define-backup-codes](../../../assets/img/guides/define-backup-codes.png)
-	
-----
+7. Click **Update** to save the configurations.
 
 ## Try it out
 
-1. Log in to the configured service provider.
+1. Access the following sample Pickup Dispatch application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 
-2. You will be redirected to the login page of WSO2 Identity Server. Enter user's credentials. 
+2. Click **Login** and enter admin's credentials.
 
-3. Enter the SMS OTP code. 
+3. You will now be prompted to enter an SMS OTP code. The SMS OTP will be sent to the mobile number configured on the user's profile.
 
-    ![authenticate-with-smsotp](../../assets/img/guides/authenticating-with-smsotp.png)
+    ![email otp]({{base_path}}/assets/img/guides/email-otp.png)
 
-4. If the authentication is successful, you will be redirected to the home page of the service provider.
+4. Enter the SMS OTP received and click **Continue**.
 
-You have successfully configured and logged in using 2-factor authentication.
+You will now be logged into the application successfully.
 
-----
+## Additional configurations
 
-!!! info "Related topics"
-    - [Concept: Two-Factor Authentication](../../../references/concepts/authentication/intro-authentication#single-factor-authentication)
-    - [Guide: Configure an Authentication Journey](../configure-authentication-journey)
-    <!--- - [Quick Start: Multi-Factor Authentication](../../../quickstarts/mfa-sample) -->
+### Allow users to disable SMS OTP
+
+To allow users to disable SMS OTP:
+
+1. On the management console, go to **Claims > List**and select `http://wso2.org/claims`.
+2. Click on **Edit** corresponding to the **Disable SMSOTP** claim
+3. Select the **Supported By Default** checkbox to enable the Disable SMSOTP claim.
+4. Click **Update** to save your changes.
+
+!!! note "Verify if Disable SMSOTP is enabled for users"
+    To verify whether the option is available for the users
+
+    1. Go to the user profile of any user and check whether the **Disable SMSOTP** option is available.
+
+    2. To disable SMS OTP in the user profile, enter **True** in the **Disable SMSOTP** field and click **Update**.
+
+### Configure backup codes
+
+Optionally, you can configure backup codes to be used when SMS OTP is disabled.
+
+To configure backup SMS OTP codes:
+
+1. On the management console, go to **Main > Identity > Claims > Add**.
+
+2. Click **Add Local Claim**, and enter the following details:
+
+    | Field name    | Value |
+    |---------------|-------|
+    | Claim URI | `http://wso2.org/claims/otpbackupcodes`   |
+    | Display Name  | `backupotp`   |
+    | Description   | Backup codes for SMS OTP  |
+    | Mapped Attribute  | `postalcode`  |
+    | Supported by Default  | Selected  |
+
+    <img name='allow-to-use-back-up-codes' src='{{base_path}}/assets/img/guides/allow-to-use-back-up-codes.png' class='img-zoomable'/>
+
+3. Click **Add** to add the new local claim.
+
+#### Add backup codes for users
+
+A backup code can have any number of digits, and you can define many backup codes as comma-separated values. For Example, `10300,21390`
+
+1. On the Management Console, go to **Identity > Users and Roles > List > Users**.
+
+2. Select the user you want to add backup codes for and click **User Profile**.
+
+3. Add the backup codes so that the user can disable SMS OTP by selecting **Disable SMS OTP** if required.

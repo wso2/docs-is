@@ -81,7 +81,7 @@ Create a new group named **engineer** with the user 'Mark' as a member. The attr
 **Request**
 
 ``` curl
-curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": {GROUP_NAME},"members": {MEMBERS_OF_THE_GROUP}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim2/Groups
+curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": {GROUP_NAME},"members": {MEMBERS_OF_THE_GROUP}}'}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim2/Groups
 ```
 
 ``` tab="Sample Request"
@@ -89,7 +89,7 @@ curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"v
 ```
 
 ``` tab="Sample Response"
-{"id":"7bac6a86-1f21-4937-9fb1-5be4a93ef469","schemas":["urn:ietf:params:scim:schemas:core:2.0:Group"],"displayName":"PRIMARY/engineer","members":[{"value":"008bba85-451d-414b-87de-c03b5a1f4217","display":"Mark"}],"meta":{"lastModified":"2020-04-26T18:31:57","created":"2020-04-26T18:31:57","location":"https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469"}}
+{"id":"7bac6a86-1f21-4937-9fb1-5be4a93ef469","schemas":["urn:ietf:params:scim:schemas:core:2.0:Group"],"displayName":"PRIMARY/engineer","members":[{"value":"008bba85-451d-414b-87de-c03b5a1f4217","display":"Mark"}],"meta":{"lastModified":"2020-04-26T18:31:57","created":"2020-04-26T18:31:57","location":"https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469"}}'}}
 ```
 
 You receive a response with the payload as indicated above and a

@@ -23,7 +23,7 @@ Explained below are the default databases that you will find in the
 Following image shows the default databases and the data that are stored in each database.
 <div>
     <center>
-        <img src="../../../assets/img/deploy/default-database-structure.png">
+        <img src="{{base_path}}/assets/img/deploy/default-database-structure.png">
     </center>
 </div>
 
@@ -46,11 +46,11 @@ updating the relevant configuration files, and create the required
 tables using the scripts provided in the product pack. See the following
 topics for instructions:
 
--   [Change to MySQL](../../../deploy/change-to-mysql)
--   [Change to Oracle](../../../deploy/change-to-oracle)
--   [Change to MSSQL](../../../deploy/change-to-mssql)
--   [Change to Oracle RAC](../../../deploy/change-to-oracle-rac)
--   [Change to PostgreSQL](../../../deploy/change-to-postgresql)
--   [Change to IBM DB2](../../../deploy/change-to-ibm-db2)
--   [Change to MariaDB](../../../deploy/change-to-mariadb)
--   [Change to Remote H2](../../../deploy/change-to-remote-h2)
+-   [Change to MySQL]({{base_path}}/deploy/change-to-mysql)
+-   [Change to Oracle]({{base_path}}/deploy/change-to-oracle)
+-   [Change to MSSQL]({{base_path}}/deploy/change-to-mssql)
+-   [Change to Oracle RAC]({{base_path}}/deploy/change-to-oracle-rac)
+-   [Change to PostgreSQL]({{base_path}}/deploy/change-to-postgresql)
+-   [Change to IBM DB2]({{base_path}}/deploy/change-to-ibm-db2)
+-   [Change to MariaDB]({{base_path}}/deploy/change-to-mariadb)
+-   [Change to Remote H2]({{base_path}}/deploy/change-to-remote-h2)

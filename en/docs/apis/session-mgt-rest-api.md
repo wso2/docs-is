@@ -5,10 +5,10 @@ template: templates/swagger.html
 # User's Session Management API Definition - v1
 
 ??? Note "Click for instructions"
-    Before invoking the session management REST APIs, create some sessions for the user. You can create active 
+    Before invoking the session management REST APIs, create some sessions for the user. You can create active
     sessions for the users as follows.
     
-       1. Register a service provider in the WSO2 Identity Server so that the authentication for the application will
+       1. [Register a service provider](../guides/applications/register-sp.md) in the WSO2 Identity Server so that the authentication for the application will
         be handled by the Identity Server.
        2. Login to the application with valid credentials.
        
@@ -25,18 +25,18 @@ template: templates/swagger.html
 
     - From WSO2 IS 6.0.0 onwards, access tokens that are mapped with the session via REST API can be revoked. 
       This is applicable for authorization code grant, implicit flow, refresh token grant, and hybrid flow. 
-    - If one session is terminated via the API and the same access token is used by multiple sessions,
-      the other sessions may then lose their tokens. Therefore, it is recommended to use sso-session binding if 
+    - If a session is terminated via the API and the same access token is used by multiple sessions,
+      the other sessions will then lose their tokens. Therefore, it is recommended to use sso-session binding if 
       you wish to retain the capability to revoke the access token when the session is terminated via REST API.
     - WSO2 Identity Server sends SAML/OIDC back-channel logouts also when session is terminated via API. To support 
       this, the application should be configured to enable back-channel logout.
 
 <div id="swagger-ui"></div>
 <script>
-window.onload = function() {
+
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../restapis/session.yaml",
+     url: "{{base_path}}/apis/restapis/session.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -47,11 +47,10 @@ window.onload = function() {
     plugins: [
       SwaggerUIBundle.plugins.DownloadUrl
     ],
-    layout: "StandaloneLayout"
+    layout: "StandaloneLayout",
   })
   // End Swagger UI call region
   window.ui = ui
-}
 </script>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fc9461875e367a944219)

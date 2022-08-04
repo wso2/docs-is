@@ -2,7 +2,7 @@
 
 WSO2 Identity Server can act both as a SCIM Provider and as a SCIM
 consumer at the same time. You can test the WSO2 Identity Server's SCIM
-Provider API as described [here](../../develop/scim-1.1-apis). The WSO2 Identity
+Provider API as described [here]({{base_path}}/develop/scim-1.1-apis). The WSO2 Identity
 Server build includes the ApacheDS embedded LDAP server. The LDAP
 server's schema is customized to have the mandatory SCIM attributes,
 therefore SCIM implementation works by default with the WSO2 Identity
@@ -48,10 +48,10 @@ When a user or a group is created with SCIM, there are a set of mandatory SCIM  
     **List** under **Claims**.
 3. Select `http://wso2.org/claims` from the list.
 4. Choose the **Id** claim and click on **Edit**.  
-    <!--![id-claim](../assets/img/using-wso2-identity-server/id-claim.png)-->
+    <!--![id-claim]({{base_path}}/assets/img/using-wso2-identity-server/id-claim.png)-->
 5. Change the **Mapped Attribute** value to **homePostalAddress** and
     click **Update**.  
-    <!--![update-mapped-attribute](../assets/img/using-wso2-identity-server/update-mapped-attribute.png)-->
+    <!--![update-mapped-attribute]({{base_path}}/assets/img/using-wso2-identity-server/update-mapped-attribute.png)-->
 6. Edit the other four claims in the same way.
 7. Now the basic claim mapping is done. You can now add a user using
     the following curl command.

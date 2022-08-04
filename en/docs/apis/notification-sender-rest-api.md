@@ -55,7 +55,7 @@ The following section provides the instructions to contruct requests for each no
         ```
             <configuration provider="Bulksms">
                 <body>
-                    [{ "from": $sender, "to": {{mobile}}, "body": {{body}}, "routingGroup": $body.routingGroup}]
+                    [{ "from": $sender, "to": {{'{{mobile}}'}}, "body": {{'{{body}}'}}, "routingGroup": $body.routingGroup}]
                 </body>
             </configuration>
         ```
@@ -79,7 +79,7 @@ The following section provides the instructions to contruct requests for each no
     
 <div id="swagger-ui"></div>
 <script>
-window.onload = function() {
+
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
     url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.notification.sender/org.wso2.carbon.identity.api.server.notification.sender.v1/src/main/resources/notification-sender.yaml",
@@ -97,8 +97,7 @@ window.onload = function() {
   })
   // End Swagger UI call region
 
-  window.ui = ui
-}
+   window.ui = ui
 </script>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7bc59cc3e9c958bffaf4)

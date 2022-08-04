@@ -1,6 +1,6 @@
 # Configure Hazelcast
 
-WSO2 Identity Server uses Hazelcast <!--(../../../deploy/set-up-separate-databases-for-clustering/)--> as
+WSO2 Identity Server uses Hazelcast <!--({{base_path}}/deploy/set-up-separate-databases-for-clustering/)--> as
 its default clustering engine. The following configuration must be
 placed in the ` <IS_HOME>/repository/conf/deployment.toml ` file to
 enable advanced cases.
@@ -25,7 +25,7 @@ enable advanced cases.
 Once you enable advanced logs for hazelcast as explained above, change the
 `logger.com-hazelcast.level` configuration in the `
 <IS_HOME>/repository/conf/log4j2.properties ` file. For more information
-on logging, see [Monitor Logs](../../../deploy/monitor/monitor-logs).
+on logging, see [Monitor Logs]({{base_path}}/deploy/monitor/monitor-logs).
 
 ```toml
 logger.com-hazelcast.name = com.hazelcast

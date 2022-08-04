@@ -34,6 +34,6 @@ This topic provides instructions on how to configure WSO2 Identity Server when y
         `ldap://localhost:10511`.
     
     !!! note
-            To know more about new configurations, see [New Configuration Model](../../references/new-configuration-model).
+            To know more about new configurations, see [New Configuration Model]({{base_path}}/references/new-configuration-model).
    
     

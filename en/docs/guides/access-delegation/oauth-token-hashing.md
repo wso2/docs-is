@@ -63,15 +63,15 @@ authorization codes.
 
 ## Register a service provider
 
-{!fragments/register-a-service-provider.md!}
+{!./includes/register-a-service-provider.md!}
 
 -----
 
 ## Configure the service provider
 
-{!fragments/oauth-app-config-basic.md!}
+{!./includes/oauth-app-config-basic.md!}
 
-{!fragments/oauth-app-config-advanced-tip.md!}
+{!./includes/oauth-app-config-advanced-tip.md!}
 
 !!! tip
     The **Consumer Secret** value is displayed in plain text only once. Therefore, be sure to copy and save it for later use.

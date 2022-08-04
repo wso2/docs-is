@@ -5,7 +5,7 @@ sequences based on runtime parameters such as the user’s IP address,
 user role, etc. in the WSO2 Identity Server. This feature allows you to
 define a dynamic authentication sequence using authentication scripts
 written in JavaScript. For more information, see [Adaptive
-Authentication](../../../references/concepts/authentication/adaptive-authentication).  
+Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication).  
 
 Custom functions that expose any useful WSO2 Identity Server core
 functions and any utility functions can be added as OSGi services. A
@@ -27,7 +27,7 @@ functions for adaptive authentication.
     for any object classes (except number, string and boolean) and you may
     skip this if you can use an existing object. For more information on
     objects, see [object reference
-    documentation](../../../references/adaptive-authentication-js-api-reference#object-reference).  
+    documentation]({{base_path}}/references/adaptive-authentication-js-api-reference#object-reference).  
       
     The JavaScript function is as follows.
 
@@ -112,9 +112,31 @@ functions for adaptive authentication.
         jsFunctionRegistry.register(JsFunctionRegistry.Subsystem.SEQUENCE_HANDLER, "barMethod", (FooFunction)fooFunctionImpl::barMethod);
     ```
 
-      
+## Try out the sample adaptive authentication function
 
-  
+1. Build [this](https://github.com/wso2/samples-is/tree/master/adaptive-authentication/org.wso2.custom.auth.functions) sample using maven `mvn clean install`
+2. Copy the `org.wso2.custom.auth.functions-1.0.0` binary file from `target` directory into  `<IS_HOME>/repository/components/dropins` directory
+3. Restart WSO2 IS
+4. Register a service provider and add the following script as the  adaptive authentication script:
+    ``` js
+    var onLoginRequest = function(context) {
+        executeStep(1, {
+            onSuccess: function (context) {
+                var userName = getUsernameFromContext(context, 1);
+                Log.info("Username: " + userName);
+            } 
+        });
+    };
+    ```
+
+This custom `getUsernameFromContext()` function can be used to retrieve the username from the authentication context.
+
+
+!!! info "Related topics"
+
+    - [Concept: Multi-Factor Authentication]({{base_path}}/multi-factor-authentication)
+    - [Guide: Adaptive Authentication]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth)
+    - [Quick Start: Adaptive Authentication]({{base_path}}/quick-starts/adaptive-auth-overview)
 
   
 

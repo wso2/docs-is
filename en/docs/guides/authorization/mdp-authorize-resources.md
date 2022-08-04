@@ -20,7 +20,7 @@ actions that are permitted in the response and allow them to the user.
 -   [Download](https://wso2.com/identity-and-access-management) and run
     WSO2 Identity Server. For detailed instruction on how to install
     WSO2 Identity Server, see [Installing the
-    Product](../../setup/installing-the-product).
+    Product]({{base_path}}/setup/installing-the-product).
 -   Go to the Chrome Web Store and add the
     [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
     app.
@@ -30,9 +30,9 @@ actions that are permitted in the response and allow them to the user.
 Upload and publish the following sample policies to the XACML PDP in
 WSO2 Identity Server as enabled policies:
 
--   [web-filter-policy-for-resource-1.xml](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/web-filter/resources/hierarchical/web-filter-policy-for-resource-1.xml)
--   [web-filter-policy-for-resource-2.xml](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/web-filter/resources/hierarchical/web-filter-policy-for-resource-2.xml)
--   [web-filter-policy-for-resource-3.xml](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/web-filter/resources/hierarchical/web-filter-policy-for-resource-3.xml)
+-   [web-filter-policy-for-resource-1.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/hierarchical_resources/web-filter-policy-for-resource-1.xml)
+-   [web-filter-policy-for-resource-2.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/hierarchical_resources/web-filter-policy-for-resource-2.xml)
+-   [web-filter-policy-for-resource-3.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/hierarchical_resources/web-filter-policy-for-resource-3.xml)
 
 Follow the steps below to publish a sample policy to the PDP in WSO2
 Identity Server:
@@ -53,7 +53,7 @@ Identity Server:
 
 6.  Click **Publish to My PDP** applicable to the sample policy that you
     added. This takes you to the **Publish Policy** screen.  
-    ![publish-policy-to-pdp](../assets/img/tutorials/publish-policy-to-pdp.png)
+    ![publish-policy-to-pdp]({{base_path}}/assets/img/tutorials/publish-policy-to-pdp.png)
 7.  Click **Publish**. This displays a confirmation message asking
     whether you want to continue publishing to PDP.
 8.  Click **Yes**. This publishes the policy to the PDP.
