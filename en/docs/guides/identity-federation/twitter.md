@@ -13,7 +13,7 @@ This page guides you through configuring Twitter as a federated authenticator in
     
     ![Create Twittter project]({{base_path}}/assets/img/samples/twitter-dashboard.png)
 
-3. In the **App Set Up**.
+3. In **App Set Up**, follow the steps given below.
 
     1. Select your preferred **App Environment**.
        ![Set Twittter app_env]({{base_path}}/assets/img/samples/twitter-app-env.png) 
