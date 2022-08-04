@@ -26,7 +26,7 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 -   **Device flow support** 
 
-    This expands the range of devices an organization can use within their overall solution by including devices with limited user input capabilities (such as smart TVs which do not have keyboards). With device flow support, users can leverage other devices, such as smartphones, to complete login on the limited input device.
+    This expands the range of devices an organization can use within their overall solution by including devices with limited user input capabilities (such as smart TVs which do not have keyboards). With device flow support, users can leverage other devices, such as smartphones, to complete login on a device with limited input.
 
     [Learn more]({{base_path}}/guides/access-delegation/try-device-flow/)
 
