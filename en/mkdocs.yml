@@ -192,26 +192,6 @@ nav:
           - Log in with Yahoo: guides/identity-federation/yahoo.md
           - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
-      - Access Control:
-        - Overview: guides/authorization/overview.md
-        - Access Management: 
-          - Intro: guides/authorization/access-mgt.md
-          - Create a policy: guides/authorization/create-a-policy.md
-          - Edit a policy: guides/authorization/edit-a-policy.md
-          - Verson control: guides/authorization/version-control.md
-          - Publish a policy: guides/authorization/publish-a-policy.md
-          - View status of a policy: guides/authorization/view-status.md
-          - Enable and Disable a policy: guides/authorization/enable-disable-policy.md
-          - Clear cache: guides/authorization/clear-cache.md
-        - Configure XACML Engine: guides/authorization/xacml-engine.md
-        - Fine-Grained Authorization: 
-          - Using XACML: guides/authorization/fine-grained-auth-xacml.md
-          - Using JSON: guides/authorization/fine-grained-auth-json.md
-        - Multiple Decision Point: 
-          - Introduction: guides/authorization/mdp-requests.md
-          - MDP to authorize hierarchical resources: guides/authorization/mdp-authorize-resources.md
-          - MDP with repeating attributes: guides/authorization/mdp-repeating-attr.md
-          - MDP requests and responses: guides/authorization/mdp-req-and-response.md
       - Access Delegation:
         - Overview: guides/access-delegation/access-delegation.md
         - OAuth 2.0 Grant Types:
@@ -233,6 +213,9 @@ nav:
         - OAuth 2.0 Token Hashing: guides/access-delegation/oauth-token-hashing.md
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
+      - Consent Management:
+        - Manage user consent: guides/consent-mgt/manage-user-consent.md
+        - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md
       - User Management:
         - Overview: guides/identity-lifecycles/user-management.md
         - Onboard Users:
@@ -310,24 +293,6 @@ nav:
           - Salesforce: guides/identity-lifecycles/sync-with-salesforce.md
           - Sendgrid: guides/identity-lifecycles/sync-with-sendgrid.md
           - Zoho CRM: guides/identity-lifecycles/sync-with-zoho.md
-      - Claim Management:
-        - Overview: guides/dialects/dialects-overview.md
-        - Add Claim Dialects: guides/dialects/add-claim-dialects.md
-        - Edit Claim Dialects: guides/dialects/edit-claim-dialects.md
-        - Delete Claim Dialects: guides/dialects/delete-claim-dialects.md
-        - Configure Claims: guides/dialects/configure-claims.md
-        - Add Claim Mapping: guides/dialects/add-claim-mapping.md
-        - Edit Claim Mapping: guides/dialects/edit-claim-mapping.md
-        - Delete Claim Mapping: guides/dialects/delete-claim-mapping.md
-        - Configure unique claims: guides/dialects/configure-unique-claims.md
-        - Configure Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
-        #- Use a Custom Attribute Dialect: guides/attribute-dialects/custom-dialect.md
-        #- Map Attributes: guides/attribute-dialects/map-attributes.md
-        #- Configure Attribute Metadata: guides/attribute-dialects/metadata.md
-      - Consent Management:
-        - Manage user consent: guides/consent-mgt/manage-user-consent.md
-        - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md
-      - Tenant Management: guides/tenants/tenant-mgt.md
       - User Self-Service: 
         - Overview: guides/my-account/my-account.md
         - Manage Own Profile: guides/my-account/manage-own-profile.md
@@ -344,6 +309,41 @@ nav:
         - Analyze Logins using Auth Dashboard: guides/elk-analytics/elk-analyzing-login-attempts.md
         - Analyze Sessions using Session Dashboard: guides/elk-analytics/elk-analyzing-session-statistics.md
         - ELK Alerts: guides/elk-analytics/elk-alert-types.md
+      - Tenant Management: guides/tenants/tenant-mgt.md
+      - Claim Management:
+        - Overview: guides/dialects/dialects-overview.md
+        - Add Claim Dialects: guides/dialects/add-claim-dialects.md
+        - Edit Claim Dialects: guides/dialects/edit-claim-dialects.md
+        - Delete Claim Dialects: guides/dialects/delete-claim-dialects.md
+        - Configure Claims: guides/dialects/configure-claims.md
+        - Add Claim Mapping: guides/dialects/add-claim-mapping.md
+        - Edit Claim Mapping: guides/dialects/edit-claim-mapping.md
+        - Delete Claim Mapping: guides/dialects/delete-claim-mapping.md
+        - Configure unique claims: guides/dialects/configure-unique-claims.md
+        - Configure Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
+        #- Use a Custom Attribute Dialect: guides/attribute-dialects/custom-dialect.md
+        #- Map Attributes: guides/attribute-dialects/map-attributes.md
+        #- Configure Attribute Metadata: guides/attribute-dialects/metadata.md
+      - Access Control:
+        - Overview: guides/authorization/overview.md
+        - Access Management: 
+          - Intro: guides/authorization/access-mgt.md
+          - Create a policy: guides/authorization/create-a-policy.md
+          - Edit a policy: guides/authorization/edit-a-policy.md
+          - Verson control: guides/authorization/version-control.md
+          - Publish a policy: guides/authorization/publish-a-policy.md
+          - View status of a policy: guides/authorization/view-status.md
+          - Enable and Disable a policy: guides/authorization/enable-disable-policy.md
+          - Clear cache: guides/authorization/clear-cache.md
+        - Configure XACML Engine: guides/authorization/xacml-engine.md
+        - Fine-Grained Authorization: 
+          - Using XACML: guides/authorization/fine-grained-auth-xacml.md
+          - Using JSON: guides/authorization/fine-grained-auth-json.md
+        - Multiple Decision Point: 
+          - Introduction: guides/authorization/mdp-requests.md
+          - MDP to authorize hierarchical resources: guides/authorization/mdp-authorize-resources.md
+          - MDP with repeating attributes: guides/authorization/mdp-repeating-attr.md
+          - MDP requests and responses: guides/authorization/mdp-req-and-response.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
