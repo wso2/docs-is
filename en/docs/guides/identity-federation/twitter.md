@@ -109,7 +109,7 @@ You have now set up your Twitter application.
 
    ![configuring-OAuth-Callback-URL]({{base_path}}/assets/img/guides/oauth-callback-url.png)
 
-6. Keep the other configurations as default and click on **Add**
+6. Keep the other configurations as default and click **Add**
 
 7. Click **Register**. Now you will be sent back to the **Service Providers** page.
 8. Take a copy of the **OAuth Client Key** and the **OAuth Client Secret** for later usages
