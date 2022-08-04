@@ -75,7 +75,7 @@ Let's run the sample applications **Pickup-Dispatch** and **Pickup-Manager**.
 
     <img src="{{base_path}}/assets/img/get-started/qsg-configure-federated-auth.png" width="600" alt="QSG configure federated authentication"/>
 
-4.  Enter the `client-id` and the `secret` of the Google application when prompted.
+4.  Enter the `client-id` and `secret` of the Google application when prompted.
 
     !!! info
         Note that a message with the user and application details appears.
@@ -100,14 +100,14 @@ Let's access the **Pickup-Dispatch** application and proceed to sign in.
     !!! info
         After successful authentication, the **User Consent** form of the **Pickup-Dispatch** application appears.
 
-4.  Select the attributes that you opt to share with the **Pickup-Dispatch** application and click **Continue**.
+4.  Select the attributes you agree to share with the **Pickup-Dispatch** application and click **Continue**.
 
     ![Consent page]({{base_path}}/assets/img/get-started/qsg-sso-consent.png)
 
     !!! note
-        Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. To know more about GDPR and how WSO2 Identity Server handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
+        Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. To learn more about GDPR and how WSO2 Identity Server handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
 
-Note that the **Pickup-Dispatch** home screen appears.
+Note that the **Pickup-Dispatch** application home screen appears.
 
 ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
     
