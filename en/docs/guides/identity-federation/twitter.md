@@ -120,7 +120,7 @@ You have now set up your Twitter application.
 9. Go to the **Local and Outbound Authentication Configuration**
    section.
 
-10. For **Authentication Type**, select the **Federated Authentication** radio button and select the
+10. For **Authentication Type**, select **Federated Authentication**  and select the
     Identity Provider you created from the dropdown list under
     **Federated Authentication**.  
     ![identity-provider-in-federated-authentication]({{base_path}}/assets/img/guides/identity-provider-in-federated-authentication.png)
