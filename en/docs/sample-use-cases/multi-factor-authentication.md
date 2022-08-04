@@ -83,13 +83,13 @@ Let's access the **Pickup-Dispatch** application and proceed to sign in.
     !!! info
         After successful authentication, the **User Consent** page of the **Pickup-Dispatch** application appears.
 
-5.  Select the attributes that you want to share with the **Pickup-Dispatch** application and click
+5.  Select the attributes you agree to share with the **Pickup-Dispatch** application and click
     **Continue**.
 
     ![Consent page]({{base_path}}/assets/img/get-started/qsg-sso-consent.png)      
 
     !!! note
-        Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. To know more about GDPR and how WSO2 Identity Server
+        Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. To learn more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
 
 Note that the **Pickup-Dispatch** application home screen appears.
