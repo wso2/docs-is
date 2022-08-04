@@ -36,7 +36,7 @@ This page guides you through integrating a spring-boot application with WSO2 Ide
     | --------------------- | ------------------------------      | -------------------------------------------                  |
     | Service Provider Name | your-application-name               | sample-app                                                   |
     | Description           | This is a spring-boot application   | This is a spring-boot application                            |
-    | CallBack Url          | {baseUrl}/login/oauth2/code/wso2    | http://localhost:8080/sprinb-boot-app/login/oauth2/code/wso2 |
+    | CallBack Url          | {baseUrl}/login/oauth2/code/wso2    | http://localhost:8080/spring-boot-app/login/oauth2/code/wso2 |
     | Logout Url            | {baseUrl}/login                     | http://localhost:8080/spring-boot-app                        |
                         
 
@@ -325,7 +325,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                         this.clientRegistrationRepository);
 
         oidcLogoutSuccessHandler.setPostLogoutRedirectUri(
-                URI.create("http://localhost:8080/sprinb-boot-app"));
+                URI.create("http://localhost:8080/spring-boot-app"));
 
         return oidcLogoutSuccessHandler;
     }
