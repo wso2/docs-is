@@ -413,7 +413,7 @@ Let's begin the implementation.
 
     ![OAuth/OpenID Connect Configuration option]({{base_path}}/assets/img/guides/oauth-openid-connect-configuration-option.png) 
 
-12. Provide the `callback URL` and register it as an OAuth2 client app.
+12. Provide the `callback URL` and register it as an OAuth 2.0 client app.
 
     ![Callback url]({{base_path}}/assets/img/guides/playground-callback-url.jpeg) 
 

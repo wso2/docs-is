@@ -95,6 +95,22 @@ connection_name = "cn=admin,ou=system"
 connection_password = "admin"
 ```
 
+In addition to the above, please make sure that you import the Active Directory user store public certificate to the 
+WSO2 Identity Server’s client trust store. To perform this, you need to navigate to the 
+`<IS_HOME>repository/resources/security` directory and execute the following command to import the certificate to 
+client-truststore of WSO2 Identity Server.
+
+```
+keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.jks -storepass wso2carbon
+```
+
+!!! note
+    `wso2carbon` is the keystore password of the default client-truststore.jks file of WSO2 Identity Server.
+
+Furthermore, please make sure to follow the steps mentioned in [Configure Active Directory Userstores for SCIM 2.0 based Inbound Provisioning](../guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md) 
+since SCIM enabled by default from the WSO2 Identity Server 5.10.0 onwards.
+
+
 !!! note
     It is required to edit the claim mappings in WSO2 IS according to the user claims of the Active Directory version you have configured.<br />
     Before starting the server, edit the `<IS_HOME>/repository/conf/claim-config.xml` configuration file and change the `AttributeID` of the `Created Time` and `Last Modified Time` claims to `whenCreated` and `whenChanged` respectively.
@@ -465,6 +481,3 @@ conversion when reading from/writing to a userstore.
 !!! info "Related topics"
     -   [Deploy: Configure the Primary Userstore]({{base_path}}/deploy/configure-the-primary-user-store)
     -   [Deploy: Configure Secondary Userstores]({{base_path}}/deploy/configure-secondary-user-stores)
-
-
-  
