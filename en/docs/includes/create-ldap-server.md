@@ -1,3 +1,4 @@
+<!--
 ## Create an LDAP Server
 
 1.  Open Apache Directory Studio.
@@ -25,3 +26,4 @@
 7.  Right-click on the server and click **Run** to start the server.
 
     ![run-ldap-server](../../../../assets/img/fragments/run-ldap-server.png) 
+-->

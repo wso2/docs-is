@@ -1,3 +1,4 @@
+<!--
 {!./includes/deploying-sample-apps.md!}
 -   Download the sample from GitHub.
 
@@ -42,3 +43,4 @@ Next, deploy the sample web app on a web container.
 9.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 
 10.  Click the **Register** button to finish creating the service provider.
+-->

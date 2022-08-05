@@ -1,3 +1,4 @@
+<!--
 1.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
 2.  Enter the following values in the form that appears:
@@ -64,3 +65,4 @@
 4.  Click **Register**.
 
 You have now added the identity provider.
+-->

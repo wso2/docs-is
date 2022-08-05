@@ -61,9 +61,17 @@ You can also add the following configurations to enhance your TOTP configuration
 
 ### Send emails with TOTP
 
-Optionally, you can set up the users to receive the TOTP code via an email during the authentication flow. You need to configure the email adapter for this purpose.
+Optionally, you can set up the users to receive the TOTP code via email during the authentication flow.
 
-{!./includes/configure-email-sending.md!}
+To allow sending TOTP in an email:
+1. Initially, [**configure email sending module**](../../../deploy/configure-email-sending).
+2. Add the following configuration to the `deployment.toml` file.
+    ```toml
+    [authentication.authenticator.totp.parameters]
+    allow_sending_verification_code_by_email=true
+    ```
+3. Save the configurations and restart the server.
+
 
 !!! tip
     The email template used to send this email notification is the **TOTP** template.

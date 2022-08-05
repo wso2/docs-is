@@ -64,7 +64,7 @@ The main points extracted from this definition are:
 ## Consent management with WSO2 Identity Server
 
 WSO2 IS provides a comprehensive consent management solution that can be
-used to manage consents related to Identity and Access Management (IAM)
+used to manage consents related to Customer Identity and Access Management (CIAM)
 and also to manage consents that belong to third party applications.
 The WSO2 IS consent management module consists of the following key
 features.
@@ -73,7 +73,7 @@ features.
     information, see [Consent Management REST
     APIs]({{base_path}}/develop/apis/use-the-consent-management-rest-apis/).
 -   Consent portal for individuals to review, modify, and revoke already
-    given consents. For more information, see [Consent management]({{base_path}}/guides/my-account/my-account#consent-management).
+    given consents. For more information, see [Consent management]({{base_path}}/guides/my-account/manage-consent-my-account).
 -   Support for organizations to define and manage consent,
     data processing purposes, and user attributes per consent. <!-- For more
     information, see [Managing Consent

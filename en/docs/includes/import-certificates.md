@@ -1,3 +1,4 @@
+<!--
 ## Import certificate
 
 -   **Chrome**
@@ -23,3 +24,4 @@
     4.  Select the **localhost.p12** file, and then click **Open**. Note
         that you may have to enter the password that you used to generate
         the p12 file, (browserpwd) to open it.
+-->

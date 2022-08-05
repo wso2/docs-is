@@ -1,3 +1,4 @@
+<!--
 # Configure a certificate to the service provider
 
 
@@ -18,6 +19,7 @@ Follow the steps below to configure a public certificate for the application:
         ![jwks-uri](../../../../assets/img/guides/jwks-uri.png)
 
 3.  Click **Update**.
+-->
 
 
 

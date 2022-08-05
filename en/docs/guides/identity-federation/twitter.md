@@ -7,40 +7,41 @@ This page guides you through configuring Twitter as a federated authenticator in
 !!! note 
 	You can skip this section if you have already registered your application on Twitter. 
 
-1. Login to <https://developer.twitter.com/> using your Twitter credentials. 
+1. Log in to <https://developer.twitter.com/> using your Twitter credentials. 
 
-2. Click on the downwards arrow adjecent to your profile icon and select **Apps**.
-
-3. Click on **Create an app**.
+2. Click **Create  project** and set up your project.
     
-    ![Create Twittter app]({{base_path}}/assets/img/samples/create-app-twitter.png)
+    ![Create Twittter project]({{base_path}}/assets/img/samples/twitter-dashboard.png)
 
-4. Fill in the application details with the following values. 
+3. In **App Set Up**, follow the steps given below.
 
-    - App name - Pickup-Dispatch-Application
-    - Application description - A sample app which can be accessed via twitter
-    - Website URL - `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp`
-    - Select **Enable sign in with Twitter**
-    - Callback URLs - `https://localhost:9443/commonauth`
-    - Tell us how this app will be used - This is a test app used to verify logging into a sample application, using Twitter as a federated authenticator
+    1. Select your preferred **App Environment**.
+       ![Set Twittter app_env]({{base_path}}/assets/img/samples/twitter-app-env.png) 
 
-5. Click  **Create**.
+    2. Set an **App Name**.
+       ![Set Twittter app_name]({{base_path}}/assets/img/samples/twitter-app-name.png) 
 
-    ![App details]({{base_path}}/assets/img/samples/app-created-twitter.png)
+    3. Take note of the **client ID** and **client secret** of the application.
+       ![Set Twittter app_name]({{base_path}}/assets/img/samples/twitter-key-token.png)
 
-6. Move to the next tab, **keys and tokens**. 
+4. Click **App Settings** at the bottom of the page.
 
-7. Click on the **Generate** button adjacent to **Access token & access token secret**. 
+5. Click **Set up** under **User Authentication Settings**.
 
-    ![Create access token]({{base_path}}/assets/img/samples/create-access-token.png)
+    ![Setup_user_authentication]({{base_path}}/assets/img/samples/twitter-user-auth-setup.png)
 
-8. Make note of the Access token and Access token secret that appears next. 
+    1. Fill in the user authentication details with the following values.
 
-    ![Access token and access token secret]({{base_path}}/assets/img/samples/note-tokens.png)
+         - Enabled **OAuth 2.0**
+         - Type of app - **Web app**
+         - Callback URI / Redirect URL - `https://localhost:9443/commonauth`
+         - Website URL - `http://localhost.com:8080/pickup-dispatch/home.jsp`
+         ![Setup_user_authentication]({{base_path}}/assets/img/samples/twitter-auth-config.png)
 
-9. Move to the next tab, **Permissions**. 
+    2. Click **Save**.
+    3. The OAuth client key and secret presented by Twitter **is not** required in this flow. 
 
-10. Select **Read and write** as the Access Permission.
+You have now set up your Twitter application.
 
 ---
 
@@ -49,8 +50,7 @@ This page guides you through configuring Twitter as a federated authenticator in
 4.  Expand **Twitter Configuration** under **Federated Authenticators**
     .
     ![twitter-config-federated-auth.png]({{base_path}}/assets/img/guides/twitter-config-federated-auth.png)
-    Fill in the following fields details according to the application
-    [registered in the Twitter](https://developer.twitter.com/en/apps):
+    Fill in the following fields details according to the application created above.
 
     <table>
     <thead>
@@ -101,117 +101,113 @@ This page guides you through configuring Twitter as a federated authenticator in
 
 {!./includes/register-a-service-provider.md !}
 
-5.  Expand the **Inbound Authentication Configuration** and the **SAML2
-    Web SSO Configuration**, and click **Configure**.
-6.  In the form that appears, fill out the following configuration
-    details required for single sign-on. For more details about
-    attributes in the following configuration refer [SAML2 Web SSO Configuration]({{base_path}}/guides/login/webapp-saml/)
-   .  
-    See the following table for details.
+4. In the **Inbound Authentication Configuration** section, click
+   **Configure** under the **OAuth/OpenIDConnect Configuration** section and
+   set the configurations as required.
 
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Field</th>
-    <th>Value</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Issuer</td>
-    <td><div class="content-wrapper">
-    <p><code>                 developer.twitter.com                </code></p>
-    </div></td>
-    <td>This is the <code>               &lt;saml:Issuer&gt;              </code> element that contains the unique identifier of the service provider.</td>
-    </tr>
-    <tr class="even">
-    <td>Assertion Consumer URL</td>
-    <td><pre><code>https://developer.twitter.com/a/&lt;ENTER_YOUR_DOMAIN&gt;/acs</code></pre>
-    <code>              </code></td>
-    <td>This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request.</td>
-    </tr>
-    <tr class="odd">
-    <td>NameID Format</td>
-    <td>The default value can be used here.</td>
-    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that it is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
-    </tr>
-    <tr class="even">
-    <td>Certificate Alias</td>
-    <td>wso2carbon</td>
-    <td>Select the <strong>Certificate Alias</strong> from the drop-down. This is used to validate the signature of SAML2 requests and is used to generate encryption. Basically, the service provider’s certificate must be selected here. Note that this can also be the Identity Server tenant's public certificate in a scenario where you are doing a tenant-specific configuration.</td>
-    </tr>
-    <tr class="odd">
-    <td>Enable Response Signing</td>
-    <td>Selected</td>
-    <td><p>Select <strong>Enable Response Signing</strong> to sign the SAML2 Responses returned after the authentication process.</p></td>
-    </tr>
-    <tr class="even">
-    <td>Enable Attribute Profile</td>
-    <td>Selected</td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement.</td>
-    </tr>
-    <tr class="odd">
-    <td>Include Attributes in the Response Always</td>
-    <td>Selected</td>
-    <td>Once you select the checkbox to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
-    </tr>
-    </tbody>
-    </table>
+5. Configure the Callback URL of the sample application (`http://localhost.com:8080/pickup-dispatch/oauth2client`).
 
-7.  Click **Register** to save your configurations.
+   ![configuring-OAuth-Callback-URL]({{base_path}}/assets/img/guides/oauth-callback-url.png)
+
+6. Keep the other configurations as default and click **Add**
+
+7. Click **Register**. Now you will be sent back to the **Service Providers** page.
+8. Take a copy of the **OAuth Client Key** and the **OAuth Client Secret** for later usages
+
+   ![OAuth-id-secret]({{base_path}}/assets/img/guides/oauth-id-secret.png)
+
+
+9. Go to the **Local and Outbound Authentication Configuration**
+   section.
+
+10. For **Authentication Type**, select **Federated Authentication**  and select the
+    Identity Provider you created from the dropdown list under
+    **Federated Authentication**.  
+    ![identity-provider-in-federated-authentication]({{base_path}}/assets/img/guides/identity-provider-in-federated-authentication.png)
+
+11. Click **Update** to save the changes.
+
+You have now added and configured the service provider.
 
 ---
 
-## Try it out
+## Try it
 
-You have successfully configured Twitter as your federated authenticator. Now, when you try to login to your application, it should redirect to the Twitter login page. On successful authentication with your Twitter credentials, you will be able to access your application. 
+You have successfully configured Twitter as your federated authenticator. Now, when you try to log in to your application, it should redirect to the Twitter login page. On successful authentication with your Twitter credentials, you will be able to access your application.
 
 ### Set up the sample app
 
-- Download Apache Tomcat 8.x from
-[here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
-server installation location will be referred as `<TOMCAT_HOME>` later
-in this guide.      
+- Download Apache Tomcat 9.x from
+  [here](https://tomcat.apache.org/download-90.cgi) and install. Tomcat
+  server installation location will be referred as `<TOMCAT_HOME>` later
+  in this guide.
 
 - It is recommended that you use a hostname that is not
-`          localhost         ` to avoid browser errors. Modify the
-`          /etc/hosts         ` entry in your machine to reflect this.
-Note that `          wso2is.local         ` is used in
-this documentation as an example, but you must modify this when
-configuring the authenticators or connectors with this sample
-application.
+  `          localhost         ` to avoid browser errors. Modify the
+  `          /etc/hosts         ` entry in your machine to reflect this.
+  Note that `          wso2is.local         ` is used in
+  this documentation as an example, but you must modify this when
+  configuring the authenticators or connectors with this sample
+  application.
 
 - Download the sample from GitHub.
+
     1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
-
-### Configure CORS
-
-{!./includes/cors-config.md!}
+    2. Download the `pickup-dispatch.war` file from the latest release assets.
 
 ### Deploy the sample app
 
 Deploy this sample web app on a web container.
 
-1.  Copy the `saml2-web-app-pickup-dispatch.com.war` file into the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder. 
+1. Copy the `pickup-dispatch.war`file into the `webapps` folder. For
+   example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
 
-2.  Start the Tomcat server.
+2. Open a terminal window and add the following entry to the
+   `/etc/hosts` file of your machine to configure
+   the hostname.
+
+    ``` bash
+    127.0.0.1   wso2is.local
+    127.0.0.1   localhost.com
+    ```
+   
+    !!!info "Why is this step needed?"
+    
+        Some browsers do not allow you to create cookies for a naked
+        hostname, such as `            localhost           `. Cookies are
+        required when working with SSO . Therefore, to ensure that the SSO
+        capabilities work as expected in this tutorial, you need to
+        configure the `            etc/host           ` file as explained in
+        this step.
+
+        The `            etc/host           ` file is a read-only file.
+        Therefore, you won't be able to edit it by opening the file via a
+        text editor. Instead, edit the file using the terminal commands.  
+        For example, use the following command if you are working on a
+        Mac/Linux environment.
+
+        ``` java
+        sudo nano /etc/hosts
+        ```
+
+3. Open the `dispatch.properties` file found in the `
+   <TOMCAT_HOME>/webapps/pickup-dispatch/WEB-INF/classes ` directory
+   and edit the **consumerKey** and **consumerSecret** with the values obtained from the **OAuth configuration**.
+
+4. Restart the Tomcat server.
 
 ### Log in
 
-1.  Access the Pickup sample application URL:
-    `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
-2.  Click **Login**. You are redirected to the Twitter login page.
-  
-    ![Twitter login page]({{base_path}}/assets/img/samples/consent-twitter.png)
-    
-3.  Click **Continue**. 
-4.  On a new tab on your browser, access the following URL:
-    <https://twitter.com/home>.
+1. To test the sample, go to the following URL: `http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch`.<br/>
+   For example. `http://localhost.com:8080/pickup-dispatch`
 
-    !!! info 
-    	You are automatically logged in to your Gmail using single sign-on (SSO).
+   ![Pickup-dispatch application]({{base_path}}/assets/img/samples/pickup-dispatch-login.png)
+
+2. Click the **LOGIN** button.
+
+3. You are redirected to the Twitter Login page. Enter your Twitter credentials and you will be taken to the home page of the pickup-dispatch app.
+
 
 !!! info "Related topics" 
+
     - [Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)

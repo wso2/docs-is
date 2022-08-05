@@ -1,3 +1,4 @@
+<!--
 1.	Select **Main** > **Identity** > **Service Providers** > **List** and select the Service Provider you created in the first step.
 
 2.	Click **Edit**.
@@ -9,3 +10,4 @@
 5.	Click **Add Claim URI** and add the following claims.
     
     ![claim-mapping-saml](../../../../assets/img/fragments/claim-mapping-saml.png)
+-->

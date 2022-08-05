@@ -1,3 +1,4 @@
+<!--
 ## Configure the public certificate
 
 The following steps describe how to configure a service provider public certificate.
@@ -63,6 +64,7 @@ The following steps describe how to configure a service provider public certific
 
 		![JWKS URI](../../../../assets/img/guides/jwks-uri.png)
 
-7. Click **Update**. 
+7. Click **Update**.
+-->
 
 

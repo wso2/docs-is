@@ -194,5 +194,5 @@ with multiple multi-tenant nodes, you need load balancing. The load
 balancer you use also needs to be tenant-aware.
 
 !!! info Related topics 
-    - [Guide: Add New Tenants]({{base_path}}/guides/tenants/add-new-tenants/)
+    - [Guide: Add New Tenants]({{base_path}}/guides/tenants/tenant-mgt/)
     - [Guide: Configure the Tenant Loading Policy]({{base_path}}/guides/tenants/configure-the-tenant-loading-policy/)

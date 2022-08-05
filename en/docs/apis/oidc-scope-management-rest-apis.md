@@ -11,7 +11,7 @@ see [OAuth2 Scope Management REST APIs]({{base_path}}/oauth2-scope-management-re
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 IS.
     To try some APIs, a tenant needs to be created with the domain name as 'wso2.com'. 
-    See [here]({{base_path}}/guides/tenants/add-new-tenants) for more details on this.
+    See [here]({{base_path}}/guides/tenants/tenant-mgt) for more details on this.
     
     1.  Expand the relevant API operation and click **Try It Out**.  
     2.  Fill in the relevant sample values for the input parameters and click **Execute**. 
