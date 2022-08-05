@@ -1,3 +1,4 @@
+<!--
 ### Configure SAML artifact binding
 
 1.  Expand the **Inbound Authentication configuration** > **SAML2 Web SSO
@@ -17,3 +18,4 @@
 
 4.  Leave the rest of the default configurations as it is and click
     **Register**.
+-->

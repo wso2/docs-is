@@ -28,7 +28,14 @@ Make the following changes to the created service provider.
 
 To add an authentication script to the service provider:
 
-{!./includes/add-adaptive-script.md!}
+1. On the Management Console, go to **Main > Identity > Service Providers**.
+2. Click **List**, select the service provider you want to configure, and click on the corresponding **Edit** link.
+3. Expand **Local and Outbound Authentication Configuration** and click
+    **Advanced Configuration**.  
+    ![Advanced Authentication Configuration](../../../../assets/img/fragments/advanced-authentication.png)
+
+4. You can add authentication steps or use a template to configure
+    adaptive authentication depending on your requirement.
 
     If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement, and then engage the script to the service provider’s authentication step configuration. 
 
@@ -67,7 +74,7 @@ To add an authentication script to the service provider:
     }
     ```
 
-3. Click **Update** to save changes.
+5. Click **Update** to save changes.
 
 !!! info "Related topics"
     - [Concept: Adaptive-Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication)

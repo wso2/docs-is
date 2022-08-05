@@ -40,7 +40,7 @@ You can configure FIDO2 passwordless login for your apps using two methods:
     origins=["https://localhost:9443"]
     ```
 - You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to have a FIDO2 security key registered in IS. Learn how to [register your FIDO security key]({{base_path}}/guides/my-account/my-account#add-security-device).
+- You need to have a FIDO2 security key registered in IS. Learn how to [register your FIDO security key]({{base_path}}/guides/my-account/enable-mfa-my-account).
 
 ## Configure FIDO as an authenticator
 

@@ -39,7 +39,7 @@ This section guides you on adding FIDO as a service provider's second authentica
 
 ### Prerequisites
 - You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
-- You need to have a FIDO2 security key registered in IS. Learn how to [register your FIDO security key]({{base_path}}/guides/my-account/my-account#add-security-device).
+- You need to have a FIDO2 security key registered in IS. Learn how to [register your FIDO security key]({{base_path}}/guides/my-account/enable-mfa-my-account).
 
 ### Configure FIDO as the second factor
 

@@ -5,35 +5,21 @@ are required for WSO2 Identity Server.
 
 ---
 
-## Enable SSL protocols and ciphers in ThriftAuthenticationService
+## Enabling SSL protocols in the WSO2 IS
 
-Folow the instructions given below to enable SSL protocols and ciphers in `         ThriftAuthenticationService.        `
+Follow the instructions given below to enable SSL protocols in the WSO2 Identity Server.
 
-1.  Add the following configurations in the
-    `           <CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml          `
-    file as sub-elements of the root `           <Server>          ` element.
+1. Add the following configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    ``` java
-    <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>
-    <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF</Ciphers>
-    ```
+     ```toml
+     [transport.https.sslHostConfig.properties]
+     protocols="TLSv1, TLSv1.1, TLSv1.2"
+     ```
 
-    !!! tip
-        You can also add the following additional cipher suites to
-        the `           <Ciphers>          ` property if JCE Unlimited
-        Strength Jurisdiction Policy is enabled in Java.
-    
-        ``` java
-        TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
-        ```
-
-    If you wish to remove `           TLSv1          ` or
-    `           TLSv1.1          `, you can do so by removing them as
-    values from the `           <SSLEnabledProtocols>          `
-    property.
+    If you wish to remove `TLSv1` or`TLSv1.1`, you can do so by removing them as values from the `protocols` property.
 
 
-2.  Restart the server.
+2. Restart the server.
 
 ---
 
@@ -116,6 +102,38 @@ vulnerable to attacks if the hacker has enough computing resources.
     
     !!! note
         This tip is not applicable when you are disabling weak ciphers in WSO2 Identity Server.
+
+---
+
+## Enable SSL protocols and ciphers in ThriftAuthenticationService
+
+Follow the instructions given below to enable SSL protocols and ciphers in `         ThriftAuthenticationService.        `
+
+1.  Add the following configurations in the
+    `           <CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml          `
+    file as sub-elements of the root `           <Server>          ` element.
+
+    ``` java
+    <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>
+    <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF</Ciphers>
+    ```
+
+    !!! tip
+    You can also add the following additional cipher suites to
+    the `           <Ciphers>          ` property if JCE Unlimited
+    Strength Jurisdiction Policy is enabled in Java.
+
+        ``` java
+        TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
+        ```
+
+    If you wish to remove `           TLSv1          ` or
+    `           TLSv1.1          `, you can do so by removing them as
+    values from the `           <SSLEnabledProtocols>          `
+    property.
+
+
+2.  Restart the server.
 
 ---
   

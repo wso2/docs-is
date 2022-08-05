@@ -1,3 +1,4 @@
+<!--
 ## Configure STS for the IdP
 
 1. Expand **Inbound Authentication Configuration > Security Token Service Configuration** and click **Apply Security Policy**.
@@ -12,4 +13,5 @@
 
 4. The next step depends on the selected security scenario. Follow the wizard and click **Finish**. 
 
-You have successfully configured and secured the Security Token Service. 
+You have successfully configured and secured the Security Token Service.
+-->
