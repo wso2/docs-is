@@ -13,7 +13,12 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0
   version: 1.0.0
 servers:
-- url: /t/{tenant-domain}/scim2
+- url: https://{serverUrl}/t/{tenantDomain}/scim2
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
 security:
 - OAuth2: []
 - BasicAuth: []
