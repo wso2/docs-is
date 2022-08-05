@@ -638,7 +638,6 @@ Therefore, it is mandatory to migrate the existing H2 databases to the newer ver
 
     If you are migrating from IS 5.11.0 which is using the embedded H2 database and has been updated to update level 111 or higher, the H2 database migration need not be done as the database has already been migrated with update 111.
 
-To find the changes introduced in the previous versions, you can refer to the following documentation:
 To migrate the H2 databases to the newer versions, follow the instructions given below.
 1. Download the [migration.sh script](https://github.com/wso2/samples-is/blob/master/h2-migration-tool/migration.sh) and run it using the command ```sh migration.sh``.
 
