@@ -70,6 +70,18 @@ Execute the following command from inside the `<Lang folder>`.
 $ cd en && mkdocs serve
 ```
 
+## Troubleshooting
+
+- If the sidebar overlaps the main content and the styles seem to be broken,
+  - `cd` to the project root.
+  - Run the following commands one by one.  
+  
+    ```shell
+    pip3 install --upgrade mkdocs-material==4.2.0
+    pip3 install --upgrade pymdown-extensions==5.0.0
+    ```
+  - Restart the local development server.
+
 ## License
 
 Licenses this source under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
