@@ -36,25 +36,11 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/identity-federation/identity-federation-overview/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
+                        <i class="material-icons md-36">cloud_download</i>
                     </div>
                     <div class="card-content">
                         <p class="title">Identity Federation</p>
                         <p class="hint">Enable login using federated identity providers</p>
-                    </div>
-                </div>
-            </div>
-            <!-- end card -->
-            <!-- start card -->
-            <div class="card-wrapper">
-                <div class="card" onclick="location.href='guides/authorization/overview/';">
-                    <div class="line"></div>
-                    <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
-                    </div>
-                    <div class="card-content">
-                        <p class="title">Access Control</p>
-                        <p class="hint">Use fine-grained access control when an app accesses user resources</p>
                     </div>
                 </div>
             </div>
@@ -69,6 +55,20 @@ template: templates/single-column.html
                     <div class="card-content">
                         <p class="title">Access Delegation</p>
                         <p class="hint">Enable secure access delegation to third-party clients using OAuth</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <!-- begin card -->
+            <div class="card-wrapper">
+                <div class="card" onclick="location.href='guides/consent-mgt/manage-user-consent/';">
+                    <div class="line"></div>
+                    <div class="icon">
+                        <i class="material-icons md-36">how_to_reg</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="title">Consent Management</p>
+                        <p class="hint">Manage user consent when accessing a user’s resources</p>
                     </div>
                 </div>
             </div>
@@ -89,52 +89,6 @@ template: templates/single-column.html
                 </div>
             </div>
             <!-- end card -->
-            <!-- begin card -->
-            <div class="card-wrapper">
-                <div class="card" onclick="location.href='guides/dialects/dialects-overview/';">
-                    <div class="line"></div>
-                    <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
-                    </div>
-                    <div class="card-content">
-                        <p class="title">Claim Management</p>
-                        <p class="hint">Manage claims and map them to user attributes</p>
-                    </div>
-                </div>
-            </div>
-            <!-- end card -->
-            <!-- begin card -->
-            <div class="card-wrapper">
-                <div class="card" onclick="location.href='guides/consent-mgt/manage-user-consent/';">
-                    <div class="line"></div>
-                    <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
-                    </div>
-                    <div class="card-content">
-                        <p class="title">Consent Management</p>
-                        <p class="hint">- Manage user consent when accessing a user’s resources</p>
-                    </div>
-                </div>
-            </div>
-            <!-- end card -->
-            <!-- begin card -->
-            <div class="card-wrapper">
-                <div class="card" onclick="location.href='guides/tenants/tenant-mgt/';">
-                    <div class="line"></div>
-                    <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
-                    </div>
-                    <div class="card-content">
-                        <p class="title">Tenant Management</p>
-                        <p class="hint">Configure multi-tenancy to optimise resource sharing among users</p>
-                    </div>
-                </div>
-            </div>
-            <!-- end card -->
-            <!-- card for connectors -->
-            <!-- end card -->
-        </div>
-        <div class="content flex-wrap">
             <!-- begin card -->
             <div class="card-wrapper">
                 <div class="card" onclick="location.href='guides/my-account/my-account/';">
@@ -159,6 +113,52 @@ template: templates/single-column.html
                     <div class="card-content">
                         <p class="title">Analytics</p>
                         <p class="hint">Use ELK-based analytics to monitor authentication and user sessions</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <!-- begin card -->
+            <div class="card-wrapper">
+                <div class="card" onclick="location.href='guides/tenants/tenant-mgt/';">
+                    <div class="line"></div>
+                    <div class="icon">
+                        <i class="material-icons md-36">how_to_reg</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="title">Tenant Management</p>
+                        <p class="hint">Configure multi-tenancy to optimise resource sharing among users</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <!-- card for connectors -->
+            <!-- end card -->
+        </div>
+        <div class="content flex-wrap">
+            <!-- begin card -->
+            <div class="card-wrapper">
+                <div class="card" onclick="location.href='guides/dialects/dialects-overview/';">
+                    <div class="line"></div>
+                    <div class="icon">
+                        <i class="material-icons md-36">how_to_reg</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="title">Claim Management</p>
+                        <p class="hint">Manage claims and map them to user attributes</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <!-- start card -->
+            <div class="card-wrapper">
+                <div class="card" onclick="location.href='guides/authorization/overview/';">
+                    <div class="line"></div>
+                    <div class="icon">
+                        <i class="material-icons md-36">security</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="title">Access Control</p>
+                        <p class="hint">Use fine-grained access control when an app accesses user resources</p>
                     </div>
                 </div>
             </div>
