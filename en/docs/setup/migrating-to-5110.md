@@ -228,7 +228,7 @@ Once all the above prerequisites have been met, follow the instructions given be
         transformToSymmetric: "true"
         ```
     
-    Under each migrator's parameters, find the property value of **currentEncryptionAlgrithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
+    Under each migrator's parameters, find the property value of **currentEncryptionAlgorithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
             
 11.  Start the WSO2 Identity Server 5.11.0 with the following command to
     execute the migration client.
