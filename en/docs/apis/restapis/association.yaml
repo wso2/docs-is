@@ -2,8 +2,7 @@ openapi: 3.0.1
 info:
   title: WSO2 Identity Server - User Account Associations API Definition
   description: |
-    This document specifies a **RESTful API** for WSO2 **Identity Server** .
-    It is written with [swagger 2](http://swagger.io/). The APIs provide the
+    This document specifies a **RESTful API** for WSO2 **Identity Server**. The APIs provide the
     capability to add/retrieve/delete associated local/federated accounts of an authenticated user.
     In addition, APIs are available for privileged users to be invoked on behalf of another user
     to retrieve/delete associated local/federated accounts.
@@ -16,7 +15,12 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: v1
 servers:
-- url: https://localhost:9443/t/{tenant-domain}/api/users/v1
+- url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
 security:
 - OAuth2: []
 - BasicAuth: []
@@ -68,7 +72,7 @@ paths:
       summary: |
         Associate a user to the authenticated user
       description: |
-        This API is used to associate a user to the authenticated user. For example, if it is required to associate my
+        This API is used to associate a user to the authenticated user. For example, if it is required to associate your
         user account to the user account of 'john', this endpoint can be used. The userId and the password are required to associate the accounts.<br>
         <b>Permission required:</b>
             * None
