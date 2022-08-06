@@ -500,11 +500,9 @@ nav:
       - Migrate:
         - Migration Process: deploy/migrate/migration-process.md
         - What has Changed: deploy/migrate/what-has-changed.md
-        - Migration Guide:
-          - Before you Begin: deploy/migrate/migration-guide.md
-          - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-          - Migrate to 6.0.0: deploy/migrate/migrate-to-600.md
-          - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
+        - Prepare for Migration: deploy/migrate/prepare-for-migration.md
+        - Migrate to WSO2 IS 6.0.0: deploy/migrate/migrate-to-600.md
+        #- Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
 
   - APIs:
