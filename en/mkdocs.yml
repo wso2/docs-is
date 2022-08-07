@@ -1444,7 +1444,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
-  base_path: http://localhost:8000/identity-and-access-management
+  base_path: https://is.docs.wso2.com/en/6.0.0
 
   nav_list:
     - Home
