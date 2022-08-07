@@ -725,7 +725,7 @@ A message appears to pick a scenario.
 
 7.  Enter the
     [http://localhost:9443/myaccount](http://localhost:9443/myaccount)
-    URL on a web browser to access **WSO2 My Account Portal**.  
+    URL on a web browser to access the **WSO2 My Account Portal**.  
     ![qsg-sso-login-credentials](../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 8.  Enter the following credentials to sign in as Alex and click **Sign
