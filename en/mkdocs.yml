@@ -370,7 +370,6 @@ nav:
             - Configure Secondary Userstores: deploy/configure-secondary-user-stores.md
             #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
             - Work with Properties of Userstores: deploy/work-with-properties-of-user-stores.md
-            - Write a Custom Userstore Manager: deploy/write-a-custom-user-store-manager.md
             - Secure a JDBC userstore with PBKDF2 hashing: deploy/secure-userstore-using-pbkdf2.md
         - Data Stores:
           - Databases:
@@ -642,6 +641,8 @@ nav:
       #- Workflow Management for Developers:
         #- Extend the Workflow Event Handler: references/extend/workflows/extend-the-workflow-event-handler.md
         #- Write a Custom Workflow Template: references/extend/workflows/write-a-custom-workflow-template.md
+      - User Stores:
+        - Write a Custom User Store Manager: references/extend/write-a-custom-user-store-manager.md
       - User interfaces (Rebrand):
         - Re-brand WSO2 Identity Server UIs: references/extend/rebranding/rebrand-identity-server-uis.md
         #- Re-brand the Default Login Page for Your Application: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
