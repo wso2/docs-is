@@ -13,7 +13,7 @@
     ```
 
     !!! note
-        If you want to set a custom `threshold` value for reCAPTCHA v3 score, you need to add a value between 0 and 1. The default value is 0.5.
+        If you are using reCAPTCHA v3, you can set a custom `threshold` value for  score. It should be value between 0 and 1. The default value is 0.5.
 
         ``` toml
         threshold="0.5"

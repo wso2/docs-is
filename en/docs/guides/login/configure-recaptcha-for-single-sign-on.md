@@ -18,7 +18,7 @@ First, you need to register and create an API key pair for the required domain. 
 
 !!! Info
     -   The invisible reCAPTCHA v2 is invoked when the user clicks on an existing button. Only the most suspicious traffic will be prompted to solve a captcha.
-    -   The reCAPTCHA v3 does not require user interaction, and the user's actions are rated by the Google API by a score (between 0 and 1). 
+    -   The reCAPTCHA v3 does not require user interaction, and the user's actions are rated by the Google API by a score. 
 
 !!! Note  
     -   For reCAPTCHA v3, you need to determine a threshold value for the score by looking at the traffic at [reCAPTCHA admin console](https://www.google.com/recaptcha/admin).
