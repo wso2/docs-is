@@ -625,11 +625,11 @@ nav:
             - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md      
       - User Management:
         #- Write a Custom Password Validator: references/extend/user-mgt/write-a-custom-password-validator.md
-        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-custom-global-scope-validator.md
         - Write a Custom Claim Handler: references/extend/user-mgt/write-a-custom-claim-handler.md
         - Write a Custom Event Handler: references/extend/user-mgt/write-a-custom-event-handler.md
         - Userstore Listeners: references/extend/user-mgt/user-store-listeners.md
         - Write a Post-Authentication Handler: references/extend/user-mgt/write-a-post-authentication-handler.md
+        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-global-scope-validator.md
         - User Management Errors Event Listener: references/extend/user-mgt/user-management-errors-event-listener.md
         - User provisioning:
           - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
