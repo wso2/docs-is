@@ -423,6 +423,7 @@ nav:
           - Configure ELK for Adaptive Authentication: deploy/using-elk-analytics-for-adaptive-authentication.md
           - Configure an SP and IdP Using Configuration Files: deploy/configure-an-sp-and-idp-using-configuration-files.md
         - CORS : deploy/configure-cors.md
+        - reCAPTCHA: deploy/configure-recaptcha.md
       - Secure:
         - Mitigate Attacks:
           - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
