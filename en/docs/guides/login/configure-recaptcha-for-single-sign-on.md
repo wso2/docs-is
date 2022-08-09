@@ -10,13 +10,9 @@ attacks.
     -   For more information on brute force attacks, see [Mitigating Brute
     Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks/).
 
----
+## Prerequisites
 
-{!./includes/configure-recaptcha-api-keys.md !}
-
----
-
-{!./includes/set-up-recaptcha.md !}
+[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha.md) with WSO2 Identity Server.
 
 ## Configure reCAPTCHA for SSO
 

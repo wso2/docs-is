@@ -16,17 +16,14 @@ brute force attacks.
     -   For more information on brute force attacks, see [Mitigating Brute
         Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks).
 
----
-
-{!./includes/configure-recaptcha-api-keys.md !}
-
----
-
-{!./includes/set-up-recaptcha.md !}
-
 You can either configure the reCAPTCHA for a tenant or configure it globally. 
 
-### Configure self-registration with reCAPTCHA for a specific tenant
+## Prerequisites
+
+[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha.md) with WSO2 Identity Server.
+
+
+## Configure self-registration with reCAPTCHA for a specific tenant
 
 1.  Start the WSO2 Identity Server and log in to the management console.
 2.  On the **Main** tab, click **Identity** > **Identity Provider** > **Resident Identity Provider**.
@@ -44,9 +41,8 @@ You can either configure the reCAPTCHA for a tenant or configure it globally.
     appears at the bottom right of the screen.  
     ![recaptcha-window]({{base_path}}/assets/img/guides/recaptcha-window.png) 
 
----
 
-### Configure self-registration with reCAPTCHA globally
+## Configure self-registration with reCAPTCHA globally
 
 1.  Navigate to the
     `           <IS_HOME>/repository/conf/deployment.toml          `
