@@ -124,7 +124,7 @@ To write the federated authenticator:
 [FederatedApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/FederatedApplicationAuthenticator.java) class.
 
 !!! info
-    You can find a custom federated authenticator [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator) for your reference.
+    See the sample [custom federated authenticator](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator) for your reference.
 
 ??? "Methods in `AbstractApplicationAuthenticator` class and `FederatedApplicationAuthenticator` interface"
     | Method    | Description   |
