@@ -17,7 +17,7 @@ First deploy the sample authenticator dependency and web application in
     WSO2 Identity Server.
 
 1.  Stop the Identity Server if already running.
-2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/sample-auth.war) file 
+2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/sample-auth.war) file 
 and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.  
 
     This `.war` file contains the WEB UI for the sample authenticators used in this tutorial.
