@@ -158,7 +158,7 @@ In this guide, the partner identity server acts as the external system.
 Therefore, it is required to run a second WSO2 Identity Server instance as the partner identity server.
 
 ### Set up partner IS
-Add the following config to the `<PARTNER_IS_HOME>/repository/conf/deployment.toml` file to eun the partner identity server  on the same machine in a different port.
+Add the following config to the `<PARTNER_IS_HOME>/repository/conf/deployment.toml` file to be able to run the partner identity server  on the same machine in a different port.
 
 ``` toml
 [server]
