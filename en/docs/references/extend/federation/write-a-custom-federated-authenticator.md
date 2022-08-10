@@ -174,7 +174,7 @@ To register and configure the service provider on the partner IS:
 
 1. On the management console (`https://<PARTNER_IS_HOST>:<PARTNER_IS_PORT>/carbon`) of the partner identity server, go to **Main** > **Identity** > **Service Providers** > **Add**.
 
-2. Enter `pickup-dispatch` as the **Service Provider Name**, and click **Register**.
+2. Enter `pickup-dispatch` as the **Service Provider Name** and click **Register**.
 
 3. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and, click **Configure**.
 
