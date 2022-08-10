@@ -10,12 +10,12 @@ Only customer users can log in to applications. [Create a user account]({{base_p
 2. Click **Add** and enter a **Service Provider Name**.
 3. Click **Register** to complete the registration.
 4. Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration** and click **Configure**.
-5. Enter the **Callback URL** as `https://localhost:5000`.
+5. Enter the **Callback URL** as `https://localhost:3000`.
 
     !!! note
         The **Callback URL** is the exact location in the service provider's application to which an access token will be sent. This URL should be the landing page to which the user is redirected after successful authentication.
 
-6. Click **Add** to complete the configuration. 
+6. Click **Add** to complete the configuration.
 
     !!! note
         Make a note of the **OAuth Client Key** and **OAuth Client Secret** that appear, as it will be used to configure the sample application.
@@ -31,20 +31,20 @@ Change the `config.json` file found in the `asgardeo-react-app/src` sample folde
 - **serverOrigin** - `https://localhost:9443`
 
 - **scope** - The list of OIDC scopes that are used for requesting user information. The ``openid`` and the ``profile`` scopes are mandatory to get the ID token. You can add other OIDC scopes such as ``email``.
-    
+
 ``` 
     {
         "clientID": "<client ID>",
-        "serverOrigin": "https://localhost:9443",
-        "signInRedirectURL": "https://localhost:5000",
-        "signOutRedirectURL": "https://localhost:5000",
+        "baseUrl": "https://localhost:9443",
+        "signInRedirectURL": "https://localhost:3000",
+        "signOutRedirectURL": "https://localhost:3000",
         "scope": [ "openid", "profile" ]
     }
-``` 
+```
 
 ## Run the sample
 
-Run the following command at the root of the project to start up the sample application. The app will be accessible at `https://localhost:5000`.
+Run the following command at the root of the project to start up the sample application. The app will be accessible at `https://localhost:3000`.
 
 ```
 npm install && npm start

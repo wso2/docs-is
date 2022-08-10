@@ -10,7 +10,7 @@ Only customer users can log in to applications. [Create a user account]({{base_p
 2. Click **Add** and enter a **Service Provider Name**.
 3. Click **Register** to complete the registration.
 4. Expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration** and click **Configure**.
-5. Enter the **Callback URL** as `https://localhost:5000`.
+5. Enter the **Callback URL** as `https://localhost:3000`.
 
     !!! note
         The **Callback URL** is the exact location in the service provider's application to which an access token will be sent. This URL should be the landing page to which the user is redirected after successful authentication.
@@ -33,18 +33,17 @@ Download the latest release of the [sample JavaScript application](https://githu
     - **scope** - The list of OIDC scopes that are used for requesting user information. The ``openid`` and the ``profile`` scopes are mandatory to get the ID token. You can add other OIDC scopes such as ``email``.
 
     ``` 
-        {
-            "clientID": "<client ID>",
-            "serverOrigin": "https://localhost:9443",
-            "signInRedirectURL": "https://localhost:5000",
-            "signOutRedirectURL": "https://localhost:5000",
-            "scope": [ "openid", "profile" ]
-        }
+        const authConfig = {
+            clientID: <client_ID>,
+            signInRedirectURL: "https://localhost:3000", 
+            baseUrl: "https://localhost:9443",
+            scope: [ "profile" ]
+        };
     ``` 
 
 ## Run the sample
 
-Run the following command at the root of the project to start up the sample application. The app will be accessible at `https://localhost:5000`. 
+Run the following command at the root of the project to start up the sample application. The app will be accessible at `https://localhost:3000`.
 
 ```
 npm install && npm start
