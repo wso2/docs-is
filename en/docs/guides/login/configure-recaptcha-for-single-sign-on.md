@@ -1,20 +1,17 @@
 # Configure reCAPTCHA for Single Sign-On
 
-This topic guides you through configuring reCAPTCHA for the single sign
-on flow. By configuring reCAPTCHA, you can mitigate or block brute force
-attacks.
+This topic guides you through configuring reCAPTCHA for the single sign on flow. By configuring reCAPTCHA, you can mitigate or block brute force attacks.
 
 !!! Info 
-    -   For more information on configuring single sign-on, see [Configuring
-    Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on/).
-    -   For more information on brute force attacks, see [Mitigating Brute
-    Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks/).
+    For more information on configuring single sign-on, see [Configuring Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on/).
+
+    For more information on brute force attacks, see [Mitigating Brute Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks/).
 
 ## Prerequisites
 
 [Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha.md) with WSO2 Identity Server.
 
-## Configure reCAPTCHA for SSO
+## Configure single sign-on with reCAPTCHA for a specific tenant
 
 1. Log in to the management console  (`https://<IS_HOST>:<IS_PORT>/carbon`).
 
@@ -44,9 +41,7 @@ attacks.
     
           ![configure-account-locking]({{base_path}}/assets/img/guides/configure-account-locking.png)
     
-5.  You have now successfully configured reCAPTCHA for the single sign
-    on flow. If the number of failed attempts reaches the maximum
-    configured value, the reCAPTCHA logo appears at the bottom right of the screen.  
+5.  You have now successfully configured reCAPTCHA for the single sign on flow. If the number of failed attempts reaches the maximum configured value, the reCAPTCHA logo appears at the bottom right of the screen.  
 
     ![captcha-login-failed]({{base_path}}/assets/img/guides/captcha-login-failed.png)
 

@@ -273,7 +273,8 @@ nav:
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
           - Disable Accounts: guides/identity-lifecycles/enable-account.md
           - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
-          - Configure Account Recovery: guides/identity-lifecycles/recover-username.md
+          - Account Recovery: guides/identity-lifecycles/recover-username.md
+          - Configure reCAPTCHA for Account Recovery: guides/identity-lifecycles/recaptcha-username-recovery.md
           - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
         - Manage Passwords:
           - Overview: guides/password-mgt/password-mgt-overview.md

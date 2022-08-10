@@ -1,29 +1,19 @@
 # Configure reCAPTCHA for Self-Registration
 
-Self-registration is an important feature when it comes to commercial
-applications. This feature gives the users the privilege of being a
-part of your community without you having to go through the hassle of
-adding them.
+Self-registration is an important feature when it comes to commercial applications. This feature gives the users the privilege of being a part of your community without you having to go through the hassle of adding them.
 
-This topic guides you through configuring reCAPTCHA for the self
-registration flow. By configuring reCAPTCHA, you can mitigate or block
-brute force attacks.
+This topic guides you through configuring reCAPTCHA for the self registration flow. By configuring reCAPTCHA, you can mitigate or block brute force attacks.
 
 !!! info 
-    -   For more information on setting up self registration, see
-        [Self-Registration and Account
-        Confirmation]({{base_path}}/guides/identity-lifecycles/self-registration-workflow).
-    -   For more information on brute force attacks, see [Mitigating Brute
-        Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks).
+    For more information on setting up self registration, see [Self-Registration and Account Confirmation]({{base_path}}/guides/identity-lifecycles/self-registration-workflow).
+
+    For more information on brute force attacks, see [Mitigating Brute Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks).
 
 You can either configure the reCAPTCHA for a tenant or configure it globally. 
 
 ## Prerequisites
 
 [Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha.md) with WSO2 Identity Server.
-
-To configure sending a confirmation email for self-registration, enable the email sending configurations of the WSO2 Identity Server as explained [here]({{base_path}}/deploy/configure-email-sending).
-
 
 ## Configure self-registration with reCAPTCHA for a specific tenant
 
@@ -39,9 +29,7 @@ To configure sending a confirmation email for self-registration, enable the emai
 
 ## Configure self-registration with reCAPTCHA globally
 
-1.  Navigate to the
-    `           <IS_HOME>/repository/conf/deployment.toml          `
-    file and add the following configurations.
+1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
 
     !!! tip
         To avoid any configuration issues, do this before starting
@@ -53,14 +41,14 @@ To configure sending a confirmation email for self-registration, enable the emai
     allow_self_registration=true
     lock_on_creation=true
     enable_recaptcha=true
-    verification_email_validity=1440
-    callback_url="${carbon.protocol}://${carbon.host}:${carbon.management.port}/authenticationendpoint/login.do"
+    verification_email_validity="1440m"
+    callback_url="[${carbon.protocol}://${carbon.host}:${carbon.management.port}].*[/authenticationendpoint/login.do]*"
+
     [identity_mgt.user_self_registration.notification]
     manage_internally=true    
     ```
     
-    The following table lists out more information pertaining to these
-    configurations.
+    The following table lists out more information pertaining to these configurations.
 
     <table>
     <colgroup>
@@ -111,14 +99,16 @@ To configure sending a confirmation email for self-registration, enable the emai
 
     ```toml
     [event.default_listener.identity_mgt]
-    priority= "50"
-    enable = false
+    priority="50"
+    enable=false
+
     [event.default_listener.governance_identity_store]
-    priority= "97"
-    enable = true
+    priority="97"
+    enable=true
+
     [event.default_listener.scim]
-    priority= "90"
-    enable = true
+    priority="90"
+    enable=true
     ```
 
 3.  Save the configuration changes and restart the server.

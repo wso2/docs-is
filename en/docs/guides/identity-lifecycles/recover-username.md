@@ -1,19 +1,8 @@
 # Configure Account Recovery
 
-The user account recovery feature implemented in the WSO2 Identity
-Server (WSO2 IS) helps to recover the username of the account if the user has
-forgotten it. This recovery process is also secured with
-captcha verification.
+The user account recovery feature implemented in the WSO2 Identity Server (WSO2 IS) helps to recover the username of the account if the user has forgotten it. This recovery process is also secured with captcha verification.
 
-The service caller can define any number of claims that should be used
-in the user details verification. The first claim can be the email
-address and others can be the required attributes in the user
-registration such as first name or last name. This is helpful to search
-for a user if the system accepts multiple accounts with the same email
-address. Upon the successful verification of the user details, the user
-account ID is sent to the user by email.For this to be possible, the
-user needs to fill the details in their respective user profile such as
-email, first name, last name and any other required attributes.
+The service caller can define any number of claims that should be used in the user details verification. The first claim can be the email address and others can be the required attributes in the user registration such as first name or last name. This is helpful to search for a user if the system accepts multiple accounts with the same email address. Upon the successful verification of the user details, the user account ID is sent to the user by email.For this to be possible, the user needs to fill the details in their respective user profile such as email, first name, last name and any other required attributes.
 
 !!! note
 	WSO2 IS validates whether the user account is locked or disabled prior to account recovery. In addition, if any customization prior to account recovery such as checking the eligibility of the user for account recovery by validating certain conditions/ user claims is needed, WSO2 Identity Server provides an extension for that.
@@ -81,57 +70,7 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
     **Sample Response**
     ```"HTTP/1.1 202 Accepted"```
 
-## Configure reCAPTCHA for account recovery
-
-!!! tip
-    If you have changed the port offset or modified the hostname, change the port or hostname accordingly.
-
-### Prerequisites
-
-[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha.md) with WSO2 Identity Server.
-### Enable password recovery with reCAPTCHA for a tenant
-
-Follow the instructions given below to configure reCAPTCHA per tenant for account recovery. 
-
-1. Start WSO2 Identity Server and log in to the management console as tenant admin.
-2. On the **Main** tab, click **Identity Provider** > **Resident Identity Provider**.
-3. Expand **Account Management** and then click **Account Recovery.**
-4. Select **Enable reCaptcha for Username Recovery** checkbox to enable reCAPTCHA for the username recovery flow.
-
-    ![enable-recaptcha]({{base_path}}/assets/img/using-wso2-identity-server/enable-recaptcha.png)
-
-You have now successfully configured reCAPTCHA for the username recovery flow.
-
-### Enable password recovery with reCAPTCHA for a globally
-
-Follow the instructions given below to configure reCAPTCHA globally for username recovery.  
-
-1. Open the `deployment.toml` file in the `IS_HOME/repository/conf` folder and add the following configuration:
-
-    !!! tip
-        To avoid any configuration issues, perform **Step-1** before starting the WSO2 Identity Server product instance.
-
-    ``` toml
-    [identity_mgt.username_recovery.email] 
-    enable_recaptcha= true
-    ```
-
-You have now successfully configured reCAPTCHA for the username recovery flow.
-
-## Try it
-
-Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
-
-!!! tip
-    If you have changed the port offset or modified the hostname, change the port or hostname accordingly.
-
-Click **Username**.
-
-![forgot-username]({{base_path}}/assets/img/using-wso2-identity-server/register-now-option.png)
-
-It will redirect you to the following page where you can see the reCAPTCHA logo on the bottom right of your screen.
-
-![proceed-to-username-recovery]({{base_path}}/assets/img/using-wso2-identity-server/recaptcha-for-username-recovery.png)
+---
 
 !!! info "Related topics"
     [Concept: Users]({{base_path}}/references/concepts/user-management/users/)
