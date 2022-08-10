@@ -20,40 +20,20 @@ By configuring reCAPTCHA, you can mitigate or block brute force attacks.
 Follow the instructions given below to configure password recovery with
 reCAPTCHA for a specific tenant.
 
-1.  Enable the **EnableMultiTenancy** context-parameter in the
-    **web.xml** file of accountrecoveryendpoint available in 
-    `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF` directory.
-    
-    ```
-    <context-param>
-        <param-name>EnableMultiTenancy</param-name>
-        <param-value>false</param-value>
-    </context-param>
-    ```
+1. Start WSO2 Identity Server and log in to the management console as tenant admin.
 
-2.  Start WSO2 Identity Server and log in to the management console (`https://<IS_HOST>:<PORT>/carbon`) as a tenant
-    admin.
-
-3.  On the **Main** tab, click **Identity** > **Identity Provider** > **Resident
-    Identity Provider**.
+2. On the **Main** tab, click **Identity Provider** > **Resident Identity Provider**.
     
-4.  Expand the **Account Management** tab, then click on
+3.  Expand the **Account Management** tab, then click on
     **Account Recovery.**
 
-5.  Select **Enable reCaptcha for password recovery**.
+4.  Select **Enable reCaptcha for password recovery**.
 
     ![enable-recaptcha]({{base_path}}/assets/img/guides/enable-recaptcha.png) 
 
-6.  You have now successfully configured reCAPTCHA for the password
-    recovery flow. Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
+5.  You have now successfully configured reCAPTCHA for the password
+    recovery flow. 
 
-7.  Click **Password**.
-    
-    ![forgot-password]({{base_path}}/assets/img/guides/forgotten-password-option.png)
-
-8.  You are redirected to the **Recover Password** page where the reCAPTCHA is displayed.
-
-    ![recover-password]({{base_path}}/assets/img/guides/recover-password-with-recaptcha.png)
 
 
 ## Enable password recovery with reCAPTCHA globally
@@ -75,15 +55,22 @@ password recovery with reCAPTCHA.
     ```
 
 2.  You have now successfully configured reCAPTCHA for the password
-    recovery flow. Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
+    recovery flow.
 
-3.  Click **Password**.
+## Try it
 
-    ![forgot-password]({{base_path}}/assets/img/guides/forgotten-password-option.png)
+Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
 
-4.  You are redirected to the **Recover Password** page where the reCAPTCHA logo on the bottom right of your screen.
+!!! tip
+    If you have changed the port offset or modified the hostname, change the port or hostname accordingly.
 
-    ![recover-password-with-recaptcha]({{base_path}}/assets/img/guides/recover-password-with-recaptcha.png)
+Click **Password**.
+    
+![forgot-password]({{base_path}}/assets/img/guides/forgotten-password-option.png)
+
+You are redirected to the **Recover Password** page where the reCAPTCHA is displayed.
+
+![recover-password]({{base_path}}/assets/img/guides/recover-password-with-recaptcha.png)
 
 ---
 
