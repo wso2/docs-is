@@ -192,26 +192,6 @@ nav:
           - Log in with Yahoo: guides/identity-federation/yahoo.md
           - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
-      - Access Control:
-        - Overview: guides/authorization/overview.md
-        - Access Management: 
-          - Intro: guides/authorization/access-mgt.md
-          - Create a policy: guides/authorization/create-a-policy.md
-          - Edit a policy: guides/authorization/edit-a-policy.md
-          - Verson control: guides/authorization/version-control.md
-          - Publish a policy: guides/authorization/publish-a-policy.md
-          - View status of a policy: guides/authorization/view-status.md
-          - Enable and Disable a policy: guides/authorization/enable-disable-policy.md
-          - Clear cache: guides/authorization/clear-cache.md
-        - Configure XACML Engine: guides/authorization/xacml-engine.md
-        - Fine-Grained Authorization: 
-          - Using XACML: guides/authorization/fine-grained-auth-xacml.md
-          - Using JSON: guides/authorization/fine-grained-auth-json.md
-        - Multiple Decision Point: 
-          - Introduction: guides/authorization/mdp-requests.md
-          - MDP to authorize hierarchical resources: guides/authorization/mdp-authorize-resources.md
-          - MDP with repeating attributes: guides/authorization/mdp-repeating-attr.md
-          - MDP requests and responses: guides/authorization/mdp-req-and-response.md
       - Access Delegation:
         - Overview: guides/access-delegation/access-delegation.md
         - OAuth 2.0 Grant Types:
@@ -233,6 +213,9 @@ nav:
         - OAuth 2.0 Token Hashing: guides/access-delegation/oauth-token-hashing.md
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
+      - Consent Management:
+        - Manage user consent: guides/consent-mgt/manage-user-consent.md
+        - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md
       - User Management:
         - Overview: guides/identity-lifecycles/user-management.md
         - Onboard Users:
@@ -310,24 +293,6 @@ nav:
           - Salesforce: guides/identity-lifecycles/sync-with-salesforce.md
           - Sendgrid: guides/identity-lifecycles/sync-with-sendgrid.md
           - Zoho CRM: guides/identity-lifecycles/sync-with-zoho.md
-      - Claim Management:
-        - Overview: guides/dialects/dialects-overview.md
-        - Add Claim Dialects: guides/dialects/add-claim-dialects.md
-        - Edit Claim Dialects: guides/dialects/edit-claim-dialects.md
-        - Delete Claim Dialects: guides/dialects/delete-claim-dialects.md
-        - Configure Claims: guides/dialects/configure-claims.md
-        - Add Claim Mapping: guides/dialects/add-claim-mapping.md
-        - Edit Claim Mapping: guides/dialects/edit-claim-mapping.md
-        - Delete Claim Mapping: guides/dialects/delete-claim-mapping.md
-        - Configure unique claims: guides/dialects/configure-unique-claims.md
-        - Configure Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
-        #- Use a Custom Attribute Dialect: guides/attribute-dialects/custom-dialect.md
-        #- Map Attributes: guides/attribute-dialects/map-attributes.md
-        #- Configure Attribute Metadata: guides/attribute-dialects/metadata.md
-      - Consent Management:
-        - Manage user consent: guides/consent-mgt/manage-user-consent.md
-        - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md
-      - Tenant Management: guides/tenants/tenant-mgt.md
       - User Self-Service: 
         - Overview: guides/my-account/my-account.md
         - Manage Own Profile: guides/my-account/manage-own-profile.md
@@ -344,6 +309,41 @@ nav:
         - Analyze Logins using Auth Dashboard: guides/elk-analytics/elk-analyzing-login-attempts.md
         - Analyze Sessions using Session Dashboard: guides/elk-analytics/elk-analyzing-session-statistics.md
         - ELK Alerts: guides/elk-analytics/elk-alert-types.md
+      - Tenant Management: guides/tenants/tenant-mgt.md
+      - Claim Management:
+        - Overview: guides/dialects/dialects-overview.md
+        - Add Claim Dialects: guides/dialects/add-claim-dialects.md
+        - Edit Claim Dialects: guides/dialects/edit-claim-dialects.md
+        - Delete Claim Dialects: guides/dialects/delete-claim-dialects.md
+        - Configure Claims: guides/dialects/configure-claims.md
+        - Add Claim Mapping: guides/dialects/add-claim-mapping.md
+        - Edit Claim Mapping: guides/dialects/edit-claim-mapping.md
+        - Delete Claim Mapping: guides/dialects/delete-claim-mapping.md
+        - Configure unique claims: guides/dialects/configure-unique-claims.md
+        - Configure Email Address as the Username: guides/identity-lifecycles/enable-email-as-username.md
+        #- Use a Custom Attribute Dialect: guides/attribute-dialects/custom-dialect.md
+        #- Map Attributes: guides/attribute-dialects/map-attributes.md
+        #- Configure Attribute Metadata: guides/attribute-dialects/metadata.md
+      - Access Control:
+        - Overview: guides/authorization/overview.md
+        - Access Management: 
+          - Intro: guides/authorization/access-mgt.md
+          - Create a policy: guides/authorization/create-a-policy.md
+          - Edit a policy: guides/authorization/edit-a-policy.md
+          - Verson control: guides/authorization/version-control.md
+          - Publish a policy: guides/authorization/publish-a-policy.md
+          - View status of a policy: guides/authorization/view-status.md
+          - Enable and Disable a policy: guides/authorization/enable-disable-policy.md
+          - Clear cache: guides/authorization/clear-cache.md
+        - Configure XACML Engine: guides/authorization/xacml-engine.md
+        - Fine-Grained Authorization: 
+          - Using XACML: guides/authorization/fine-grained-auth-xacml.md
+          - Using JSON: guides/authorization/fine-grained-auth-json.md
+        - Multiple Decision Point: 
+          - Introduction: guides/authorization/mdp-requests.md
+          - MDP to authorize hierarchical resources: guides/authorization/mdp-authorize-resources.md
+          - MDP with repeating attributes: guides/authorization/mdp-repeating-attr.md
+          - MDP requests and responses: guides/authorization/mdp-req-and-response.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
@@ -370,6 +370,7 @@ nav:
             - Configure Secondary Userstores: deploy/configure-secondary-user-stores.md
             #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
             - Work with Properties of Userstores: deploy/work-with-properties-of-user-stores.md
+            - Write a Custom Userstore Manager: deploy/write-a-custom-user-store-manager.md
             - Secure a JDBC userstore with PBKDF2 hashing: deploy/secure-userstore-using-pbkdf2.md
         - Data Stores:
           - Databases:
@@ -498,11 +499,12 @@ nav:
             - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
             - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
             - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
-          - Account recovery API: apis/use-the-account-recovery-rest-apis.md
-          - Associated accounts API: apis/association-rest-api.md
-          - Challenge question API: apis/challenge-rest-api.md
-          - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
-      - Identity provider API: apis/idp-rest-api.md
+          - Account recovery: apis/use-the-account-recovery-rest-apis.md
+          - Associations: apis/association-rest-api.md
+          - Challenge question: apis/challenge-rest-api.md
+          - Self Sign-Up: apis/use-the-self-sign-up-rest-apis.md
+      - Identity providers: apis/idp-rest-api.md
+      - Identity provider sessions: apis/idp-session-extender-endpoint.md
       - Self-service:
           - FIDO: apis/fido-rest-api.md
           - Personal information export: apis/use-the-personal-information-export-rest-apis.md
@@ -624,11 +626,11 @@ nav:
             - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md      
       - User Management:
         #- Write a Custom Password Validator: references/extend/user-mgt/write-a-custom-password-validator.md
+        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-custom-global-scope-validator.md
         - Write a Custom Claim Handler: references/extend/user-mgt/write-a-custom-claim-handler.md
         - Write a Custom Event Handler: references/extend/user-mgt/write-a-custom-event-handler.md
         - Userstore Listeners: references/extend/user-mgt/user-store-listeners.md
         - Write a Post-Authentication Handler: references/extend/user-mgt/write-a-post-authentication-handler.md
-        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-global-scope-validator.md
         - User Management Errors Event Listener: references/extend/user-mgt/user-management-errors-event-listener.md
         - User provisioning:
           - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
@@ -641,13 +643,10 @@ nav:
       #- Workflow Management for Developers:
         #- Extend the Workflow Event Handler: references/extend/workflows/extend-the-workflow-event-handler.md
         #- Write a Custom Workflow Template: references/extend/workflows/write-a-custom-workflow-template.md
-      - User Stores:
-        - Write a Custom User Store Manager: references/extend/write-a-custom-user-store-manager.md
       - User interfaces (Rebrand):
         - Re-brand WSO2 Identity Server UIs: references/extend/rebranding/rebrand-identity-server-uis.md
         #- Re-brand the Default Login Page for Your Application: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
         - Re-brand the SSO Redirection Page: references/extend/rebranding/rebrand-the-sso-redirection-page.md
-        #- Customize Login page: references/extend/rebranding/customizable-login-portal.md
       - Errors:
         - Error messages: references/extend/errors/customize-authentication-error-messages.md
         - Error Pages: references/extend/errors/customize-error-pages.md
