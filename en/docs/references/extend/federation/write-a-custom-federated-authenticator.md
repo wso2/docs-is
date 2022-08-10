@@ -178,7 +178,7 @@ To register and configure the service provider on the partner IS:
 
 3. Expand the **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** section and, click **Configure**.
 
-4. Enter the **Callback Url** as `https://localhost:9443/commonauth`.
+4. Enter `https://localhost:9443/commonauth` as the **Callback Url**.
 
 5. Click **Add**. Note that the `client key` and `client secret` are generated.
 
