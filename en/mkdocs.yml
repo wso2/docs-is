@@ -56,38 +56,12 @@ nav:
           - Multi-factor authentication: sample-use-cases/multi-factor-authentication.md
           - Federated authentication: sample-use-cases/federated-authentication.md
           - Self sign-up: sample-use-cases/self-sign-up.md
-  
   - Guides:
       - Overview: guides/before-you-start.md
-      - Applications:
-        - Overview: guides/applications/service-provider-overview.md
-        - Register a Service Provider: guides/applications/register-sp.md
-        - Configure a Service Provider:
-          - Claims: guides/applications/configure-claims-for-sp.md
-          - Roles and Permissions: guides/applications/roles-and-permissions-for-sp.md
-          - Inbound Authentication: guides/applications/inbound-auth-for-sp.md
-          - Local and Outbound Authentication: guides/applications/local-outbound-auth-for-sp.md
-          - Inbound Provisioning: guides/applications/inbound-provisioning-for-sp.md
-          - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
-        - Manage a Service Provider: guides/applications/manage-sp.md
-        - Set up a Resident Service Provider: guides/applications/resident-sp.md
-      - Identity Providers:
-        - Overview: guides/identity-federation/basic-overview.md
-        - Register an IdP: guides/identity-federation/add-idp.md
-        - Configure an IdP:
-          - Roles of an IdP: guides/identity-federation/roles-idp.md
-          - Claims of an IdP: guides/identity-federation/claims-idp.md
-          - Federated Authenticators: guides/identity-federation/federated-authenticator.md
-          - JIT Provisioning: guides/identity-federation/jit-workflow.md
-          - Outbound Provisioning Connectors: guides/identity-federation/outbound-provisioing-idp.md
-        - Manage an IdP: guides/identity-federation/manage-idp.md
-        - Resident IdP: 
-          - Set up a Resident IdP: guides/identity-federation/resident-idp.md
-          - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
-          - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
-          - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
       - Authentication:
+        - Overview: guides/authentication-overview.md
         - Login:
+          - Overview: guides/login/login-overview.md
           - Web Application:
             - OIDC: guides/login/webapp-oidc.md
             - SAML: guides/login/webapp-saml.md
@@ -182,7 +156,7 @@ nav:
             - TOTP configs: guides/mfa/totp-config-advanced.md
             - SMS OTP configs: guides/mfa/sms-otp-config-advanced.md
         - Adaptive Authentication:
-          - Configure Adaptive Authentication: guides/adaptive-auth/configure-adaptive-auth.md
+          - Overview: guides/adaptive-auth/configure-adaptive-auth.md
           - Adaptive Authentication Scenarios: 
             - Overview: guides/adaptive-auth/adaptive-auth-overview.md
             - Role-Based: guides/adaptive-auth/role-based-adaptive-auth.md
@@ -268,6 +242,7 @@ nav:
         - Manage Accounts:
           - Overview: guides/identity-lifecycles/account-states-overview.md
           - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
+          - Lock/Unlock Accounts per User: guides/tenants/account-locking-per-user.md
           - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
           - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
@@ -275,6 +250,8 @@ nav:
           - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
           - Configure Account Recovery: guides/identity-lifecycles/recover-username.md
           - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
+          - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
+          - Send Notifications per User Operation: guides/tenants/user-operation-notifications.md
         - Manage Passwords:
           - Overview: guides/password-mgt/password-mgt-overview.md
           - Password Policies: guides/password-mgt/password-policies.md
@@ -334,6 +311,7 @@ nav:
         - ELK Alerts: guides/elk-analytics/elk-alert-types.md
       - Tenant Management: guides/tenants/tenant-mgt.md
       - Claim Management:
+        - Overview: guides/dialects/dialects-overview.md
         - Add Claim Dialects: guides/dialects/add-claim-dialects.md
         - Edit Claim Dialects: guides/dialects/edit-claim-dialects.md
         - Delete Claim Dialects: guides/dialects/delete-claim-dialects.md
@@ -422,6 +400,10 @@ nav:
           - Configure ELK Alerts: deploy/elk-configuring-alerts.md
           - Configure ELK for Adaptive Authentication: deploy/using-elk-analytics-for-adaptive-authentication.md
           - Configure an SP and IdP Using Configuration Files: deploy/configure-an-sp-and-idp-using-configuration-files.md
+        - Email Notifications:
+          - Configure Email Sender: deploy/configure-email-sending.md
+          - Customize Email Templates: guides/tenants/customize-automated-mails.md
+        - Tenant Loading Policy: guides/tenants/configure-the-tenant-loading-policy.md
         - CORS : deploy/configure-cors.md
       - Secure:
         - Mitigate Attacks:
@@ -437,7 +419,6 @@ nav:
           - Remove Unused Tokens from the Database: deploy/remove-unused-tokens-from-the-database.md
           - Enable Assertions In Access Tokens: deploy/enable-assertions-in-access-tokens.md
         #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
-        - Configure the Email Sending Module: deploy/configure-email-sending.md
         - Enable HostName Verification: deploy/enable-hostname-verification.md
         - Configure TLS Termination: deploy/configure-tls-termination.md
         - Maintain Logins and Passwords: deploy/security/maintain-logins-and-passwords.md
@@ -500,9 +481,11 @@ nav:
       - Migrate:
         - Migration Process: deploy/migrate/migration-process.md
         - What has Changed: deploy/migrate/what-has-changed.md
-        - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-        - Migrate to WSO2 IS 6.0.0: deploy/migrate/migrate-to-600.md
-        #- Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
+        - Migration Guide:
+          - Before you Begin: deploy/migrate/migration-guide.md
+          - Prepare for Migration: deploy/migrate/prepare-for-migration.md
+          - Migrate to 6.0.0: deploy/migrate/migrate-to-600.md
+          - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
 
   - APIs:
@@ -677,13 +660,10 @@ nav:
     - WSO2 IS Troubleshooting:
       - Error Codes and Descriptions: references/extend/errors/error-codes-and-descriptions.md
       - REST API error catalog: references/error-catalog.md
-    - Concepts:
-      - User Management: 
-        - Overview: references/concepts/user-management/user-management.md
-        - Users: references/concepts/user-management/users.md
-        - Roles and Permissions: references/concepts/user-management/roles-and-permissions.md
-        - Userstores: references/concepts/user-management/userstores.md
-        - Realms: references/concepts/user-management/realm.md
+    - Adaptive Authentication JS API: references/adaptive-authentication-js-api-reference.md
+    - Scopes for REST APIs: references/scopes-corresponding-to-rest-api-permissions.md
+    - IAM Topics:
+      - Evolution of Identity Federation Standards: references/evolution-of-identity-federation-standards.md
       - Authentication:
         - Introduction: references/concepts/authentication/intro-authentication.md
         - Authentication Protocols:
@@ -711,14 +691,14 @@ nav:
             - Back-Channel Logout: references/concepts/authentication/back-channel-logout.md
             - Microprofile JWT 1.0: references/concepts/authentication/microprofile-jwt.md
           - SAML:
-                  - Introduction: references/concepts/authentication/intro-saml.md
-                  - SAML2 Artifact Binding: references/concepts/authentication/saml2-artifact-binding.md
-                  - SAML Front-Channel Logout: references/concepts/authentication/saml-front-channel.md
-                  - SAML Back-Channel Logout: references/concepts/authentication/saml-back-channel.md
+            - Introduction: references/concepts/authentication/intro-saml.md
+            - SAML2 Artifact Binding: references/concepts/authentication/saml2-artifact-binding.md
+            - SAML Front-Channel Logout: references/concepts/authentication/saml-front-channel.md
+            - SAML Back-Channel Logout: references/concepts/authentication/saml-back-channel.md
           - WS-Federation:
-                  - Introduction: references/concepts/authentication/intro-ws-federation.md
+            - Introduction: references/concepts/authentication/intro-ws-federation.md
           - WS-Trust:
-                  - Introduction: references/concepts/authentication/intro-ws-trust.md
+            - Introduction: references/concepts/authentication/intro-ws-trust.md
           #- NTLM:
                   # - Introduction: references/concepts/authentication/ntlm.md
           #- Kerberos:
@@ -759,16 +739,14 @@ nav:
           - JIT Provisioning: references/concepts/jit-provisioning.md
       - Consent Management: references/concepts/consent-management.md
       - Identity Anti-Patterns and the Identity Bus: references/concepts/identity-anti-patterns-and-the-identity-bus.md
-      - Claim Management: references/concepts/claim-management.md
       - Integrated Windows Authentication: references/concepts/integrated-windows-authentication-overview.md
-      - Multitenancy: references/concepts/introduction-to-multitenancy.md
-      - Compliance:
-        - Overview: references/concepts/compliance/compliance.md
-        - GDPR: references/concepts/compliance/gdpr.md
-        - eIDAS: references/concepts/compliance/eidas.md
-        - CCPA: references/concepts/compliance/ccpa.md
-      - Integrations: 
-        - Master Data Management: references/concepts/integrations/master-data-mgt.md
+      - Master Data Management: references/concepts/integrations/master-data-mgt.md
+    - IAM Compliance:
+      - Overview: references/concepts/compliance/compliance.md
+      - GDPR: references/concepts/compliance/gdpr.md
+      - eIDAS: references/concepts/compliance/eidas.md
+      - CCPA: references/concepts/compliance/ccpa.md
+
   - '': page-not-found.md
 
 # Extensions
