@@ -186,7 +186,7 @@ To register and configure the service provider on the partner IS:
 
 !!! info "Download and deploy the application"
     On the Partner Identity Server:
-    - Download the [OIDC pickup-dispatch sample](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-dispatch.war) application
+    - Download the [OIDC pickup-dispatch sample](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-dispatch.war) application.
     - [Deploy the sample pickup-dispatch]({{base_path}}/guides/login/webapp-oidc/#deploy-the-sample-web-app) application on the partner identity server.
 
 ### Add a new user
