@@ -114,7 +114,7 @@ this documentation as an example, but you must modify this when
 configuring the authenticators or connectors with this sample
 application.
 
--   [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/playground2.war)
+-   [Download](https://github.com/wso2/samples-is/releases/download/v4.5.0/playground2.war)
    the `playground2.war` file from the latest release assets.
 
 ### Deploy the sample

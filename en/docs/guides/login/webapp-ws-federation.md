@@ -9,7 +9,7 @@ This page guides you through enabling login for a WS-Federation-based web applic
 
 {!./includes/deploying-sample-apps.md!}
 
-- Download the [PassiveSTSSample application](https://github.com/wso2/samples-is/releases/download/v4.3.0/PassiveSTSSampleApp.war) from the latest release assets.
+- Download the [PassiveSTSSample application](https://github.com/wso2/samples-is/releases/download/v4.5.0/PassiveSTSSampleApp.war) from the latest release assets.
 
 ### Deploy the sample app
 
