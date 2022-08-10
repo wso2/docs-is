@@ -176,7 +176,7 @@ To register and configure the service provider on the partner IS:
 
 2. Enter `pickup-dispatch` as the **Service Provider Name**, and click **Register**.
 
-3. Expand the **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** section and, click **Configure**.
+3. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and, click **Configure**.
 
 4. Enter `https://localhost:9443/commonauth` as the **Callback Url**.
 
