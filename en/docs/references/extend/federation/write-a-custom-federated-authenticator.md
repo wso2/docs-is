@@ -142,7 +142,7 @@ To write the federated authenticator:
 
 To deploy the custom federated authenticator:
 
-1. Navigate to the root of your project and compile the service by running the following command.
+1. Open a terminal, navigate to the root of your project, and compile the service by running the following command:
 
     ``` xml
     mvn clean install
