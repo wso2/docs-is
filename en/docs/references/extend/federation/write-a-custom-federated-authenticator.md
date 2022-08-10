@@ -180,7 +180,7 @@ To register and configure the service provider on the partner IS:
 
 4. Enter the **Callback Url** as `https://localhost:9443/commonauth`.
 
-5. Click **Add**. Note that `client key` and `client secret` are generated.
+5. Click **Add**. Note that the `client key` and `client secret` are generated.
 
 6. Click **Update** to save the configurations.
 
