@@ -24,7 +24,7 @@ Consider a scenario where you want to prompt an additional authentication step i
 
 ## Set up TypingDNA in WSO2 IS
 
-Follow the guide below to set up typingDNA in the WSO2 IS server
+Follow the steps given below to set up typingDNA in the WSO2 IS server.
 
 1. Open the **deployment.toml** file found in the **{IS-Home}/repository/conf/** directory and add the following configuration.
 	```
