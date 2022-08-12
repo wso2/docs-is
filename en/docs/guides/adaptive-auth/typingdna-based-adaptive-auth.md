@@ -65,7 +65,7 @@ Follow the steps given below to configure TypingDNA in your application.
     
     ![TypingDNA configure two authentication steps]({{base_path}}/assets/img/samples/typingdna-two-steps.png)
 
-4. Expand **Script Based Adaptive Authentication** and add the following script.
+4. Expand **Script Based Adaptive Authentication** and add the following script:
 
     ``` js
     // This script will step up 2FA authentication if the user's typing behaviour does not match with the enrolled behaviour.
