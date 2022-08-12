@@ -49,13 +49,13 @@ nav:
   - Home: index.md
   - Get Started:
       - Introduction: get-started/quick-start-guide.md
-      - Quick setup: sample-use-cases/set-up.md
-      - Try a use case:
-          - Sample scenario: sample-use-cases/index.md
+      - Quick Setup: sample-use-cases/set-up.md
+      - Try a Use Case:
+          - Sample Scenario: sample-use-cases/sample-scenario.md
           - Single Sign-On: sample-use-cases/single-sign-on.md
-          - Multi-factor authentication: sample-use-cases/multi-factor-authentication.md
-          - Federated authentication: sample-use-cases/federated-authentication.md
-          - Self sign-up: sample-use-cases/self-sign-up.md
+          - Multi-Factor Authentication: sample-use-cases/multi-factor-authentication.md
+          - Federated Authentication: sample-use-cases/federated-authentication.md
+          - Self Sign-Up: sample-use-cases/self-sign-up.md
   - Guides:
       - Overview: guides/before-you-start.md
       - Authentication:
