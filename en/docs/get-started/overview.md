@@ -6,7 +6,7 @@ template: templates/2-column.html
 
 Are you new to WSO2 Identity Server? Let's get to know about what we are all about! 
 
-WSO2 Identity Server (WSO2 IS) is all about simplifying the Identity and Access Management (IAM) needs of your organization. It is based on open standards and is fully open source. It is released under the [Apache Software License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+WSO2 Identity Server (WSO2 IS) is all about simplifying the Customer Identity and Access Management (CIAM) needs of your organization. It is based on open standards and is fully open source. It is released under the [Apache Software License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 The product ensures easy integration with a variety of applications to facilitate single sign-on (SSO) using industry-wide accepted standards, social login, identity federation, API security, strong authentication, account management, privacy compliance, and more. 
 

@@ -3,8 +3,6 @@ info:
   title: WSO2 Identity Server Rest API - User
   description: |
     This document specifies a **RESTful API** for WSO2 **Identity Server** .
-
-    It is written with [swagger 2](http://swagger.io/).
   contact:
     name: WSO2
     url: http://wso2.com/products/identity-server/
@@ -14,7 +12,15 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
-- url: https://apis.is.com/t/{tenant-domain}/api/identity/user/v1.0
+- url: https://{serverUrl}/t/{tenantDomain}/api/identity/user/v1.0
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
+security:
+- OAuth2: []
+- BasicAuth: []
 paths:
   /me:
     get:
@@ -875,3 +881,17 @@ components:
         newUsername:
           type: string
           description: Expected new username of the User.
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth/authorize
+          tokenUrl: https://localhost:9443/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information

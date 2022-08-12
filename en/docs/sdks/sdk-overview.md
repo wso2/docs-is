@@ -1,12 +1,6 @@
----
-template: templates/2-column.html
----
-
 # SDKs - Overview
 
 This section lists all the SDKs related to WSO2 Identity Server (WSO2 IS) written using various technologies. 
-
-## Guides
 
 Try integrating one of the sample applications.
 
@@ -16,8 +10,6 @@ Try integrating one of the sample applications.
 
 - [Integrate a sample JavaScript application]({{base_path}}/sdks/start-integrating-apps/integrate-a-js-app)
 
-
-## Github repositories
 
 Apart from the above guides provided, you can use the following Github repository links to view the source code, download samples, and test out how the SDKs work with WSO2 IS.
 

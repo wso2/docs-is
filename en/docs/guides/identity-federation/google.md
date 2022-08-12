@@ -22,12 +22,13 @@ This page guides you through configuring Google as a federated authenticator in 
 
 
     !!! info
-        - For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
+        For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
 
 5. Select the **Web application** as the application type.
-6. Provide a name for your app and the following URL as the **Authorized Redirect URI** of the application: <br/>
+6. Provide a name for your app and the following URL as the **Authorized Redirect URI** of the application: 
+
     ```
-    https://<IS_HOST>:<IS_PORT>//commonauth
+    https://<IS_HOST>:<IS_PORT>/commonauth
     ```
 7. Take note of the **client ID** and **client secret** generated for the application.
 
@@ -40,7 +41,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 6.  Configure the **Client ID** and **Client Secret** that were received after creating the Google application client.
     
-7.  Configure the **Callback URL** as `https://<IS_HOST>:<IS_PORT>//commonauth`
+7.  Configure the **Callback URL** as `https://<IS_HOST>:<IS_PORT>/commonauth`
     
 8.  Click on **Register** to add the Google IdP.
 

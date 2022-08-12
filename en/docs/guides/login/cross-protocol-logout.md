@@ -71,7 +71,7 @@ Follow the steps given below to register an OIDC application as a service provid
 
 Let's configure the Pickup Manager (OIDC) application to connect with WSO2 IS.
 
-1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) sample.
+1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/pickup-manager.war) sample.
 
 2. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
 
@@ -95,7 +95,7 @@ in this guide.
 
     1.  Copy the extracted and modified OIDC `pickup-manager` application folder to the `<TOMCAT_HOME>/webapps` folder.
 
-    2.  Download the [saml2-web-app-pickup-dispatch.com.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) sample and copy it to the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder.
+    2.  Download the [saml2-web-app-pickup-dispatch.com.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/saml2-web-app-pickup-dispatch.com.war) sample and copy it to the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder.
 
 ----
 

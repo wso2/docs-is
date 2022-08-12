@@ -1,4 +1,4 @@
-# Overview
+# APIs - Overview
 
 REST APIs in WSO2 Identity Server can be used by administrators to manage their organizations and by application users to manage their own logins and profiles.
 

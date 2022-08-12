@@ -42,54 +42,29 @@ This page guides you through using a sample Playground application to try out au
 
 ## Try Client Credentials grant 
 
-1.  Enter the following details.
+The following cURL command can be used to try this grant type.
 
-    - **Authorization Grant Type**: Client Credentials
-    
-    - **Client ID**: The OAuth Client Key received when registering the service provider.
+!!! abstract ""
+    **Request Format**
+    ```curl
+    curl -v -X POST --basic -u <oauth_client_key>:<oauth_client_secret> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=client_credentials" <token_endpoint>
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -v -X POST --basic -u 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=client_credentials" https://localhost:9443/oauth2/token
+    ```
 
-	- **Client Secret**: The Client Secret received when registering the service provider.
+You will receive the following response with the access token.
 
-	- **Access Token Endpoint**: `https://<IS_HOST>:<IS_PORT>/oauth2/token`
+```
+{
+    "access_token":"16ab408c-0f31-3321-8bed-313e836df373",
+    "token_type":"Bearer",
+    "expires_in":2986
+}
+```
 
-		![Client credentials grant with Playground]({{base_path}}/assets/img/samples/client-credentials-with-playground.png)
-    
-2. Click **Authorize**. 
-
-	The playground application will send an
-	[authorization request](https://tools.ietf.org/html/rfc6749#section-4.1.1)
-	to the **authorize** endpoint of the WSO2 Identity Server using the
-	following format.
-	
-	!!! abstract ""
-        **Request Format**
-		```java
-		POST
-		https://<host>:<port>/oauth2/token
-		Authorization: Basic [Base64encode(Client-ID>:<ClientSecret>)]
-		Content-Type: application/x-www-form-urlencoded
-
-		grant_type=client_credentials
-		```
-		---
-        **Sample Request**
-		```java
-		POST
-		https://localhost:9443/oauth2/token
-		Authorization: Basic Q3g0TEtGTk9iZXVYb2N4N3hnT3B6NXZmekZvYTogVWRUNm5XbnFXWkdnNDFHWnI5TXBTWGs5eU04YQ==
-		Content-Type: application/x-www-form-urlencoded
-
-		grant_type=client_credentials
-		```
-
-3. Log in with user credentials (e.g., `admin`/`admin`). At this point, the application receives the access token. 
-
-4. Enter the **Introspection Endpoint** (i.e, `https://<IS_HOST>:<IS_PORT>/oauth2/introspect`) and click **Get TokenInfo** to get the token   information. 
-
-5. Now you should be able to see the access token information as seen
-    below, as long as the provided access token is valid.  
-
-	![Access token information]({{base_path}}/assets/img/samples/access-token-info.png)
 
 !!! note
     
