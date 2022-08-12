@@ -1,11 +1,11 @@
-# Self Sign-up
+# Self Sign-Up
 
-Follow the instructions given here to to try out user self sign-up.
+Follow the instructions given here to try out user self sign-up.
 
 ## Problem Scenario
 
 Cameron realizes that allowing the new employees to self sign-up to Pickup web applications will speed up
-the onboarding process. As a result Cameron sets self sign-up up for Pickup HR
+the onboarding process. As a result, Cameron sets self sign-up for Pickup HR
 using WSO2 Identity Server.
 
 ## Prerequisites
@@ -18,7 +18,7 @@ Before you begin, do the following:
 
 ## Run the sample scenario
 
-First, let's set up and run the sample applictions.
+First, let's set up and run the sample applications.
 
 1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-scenario/#set-up-the-sample-apps).
 
@@ -43,7 +43,7 @@ First, let's set up and run the sample applictions.
         <tr>
             <th>**Enable account lock on creation**</th>
             <td>
-                This locks the user account during user registration. The user can only sign in to the application after clicking the verification link sent to the user-provided email address. A confirmation mail is sent to the user but user account is locked until the user confirms the account by clicking on the account confirmation mail sent by WSO2 Identity Server.
+                This locks the user account during user registration. The user can only sign in to the application after clicking the verification link sent to the user-provided email address. A confirmation mail is sent to the user but the user account is locked until the user confirms the account by clicking on the account confirmation mail sent by WSO2 Identity Server.
             </td>
         </tr>
     </table>
@@ -95,7 +95,7 @@ Let's access the **Pickup-Dispatch** application and self-register as a new user
 To try login with your new user account, follow the instructions given below as applicable.
 
 -   If you selected **Enable User Registration (without any
-    config)** during [sample setup](#Run the sample scenario), go back to the Pickup Dispatch application and sign in using the new user credentials.
+    config)** during [sample setup](#Run the sample scenario), go back to the **Pickup-Dispatch** application and sign in using the new user credentials.
 
 -   If you selected **Account Lock on Creation** during [sample setup](#Run the sample scenario), access your email  account to view the account registration confirmation mail.
 
@@ -105,19 +105,19 @@ To try login with your new user account, follow the instructions given below as 
         !!! info
             The account gets unlocked and an email is sent.
 
-    2.  Go back to the Pickup Dispatch application and sign in using the new user credentials.
+    2.  Go back to the **Pickup-Dispatch** application and sign in using the new user credentials.
 
         ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-sso-login-credentials.png)
 
-Note that the Pickup Dispatch home screen appears.
+Note that the **Pickup-Dispatch** application home screen appears.
 
 ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
-You have just self-signed up to a **Pickup-Dispatch** web application.
+You have just self-signed up to the **Pickup-Dispatch** web application.
 
 ## What's next?
 
-To try out other scenarios, navigate back to where you ran the quickstart sample on the command-line and enter `y` to clean the setup.
+To try out other scenarios, navigate back to the command-line where you ran the quickstart sample and enter `y` to clean the setup.
     
 ![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)
 
