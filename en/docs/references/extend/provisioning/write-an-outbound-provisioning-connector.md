@@ -227,7 +227,7 @@ In addition to Google, Salesforce, SCIM and SPML, it is possible to create custo
         }
         ```
 
-2.  The Google provisioning connector that uses the API given above can be found [here](https://github.com/wso2-extensions/identity-outbound-provisioning-google/blob/v5.1.9/components/org.wso2.carbon.identity.provisioning.connector.google/src/main/java/org/wso2/carbon/identity/provisioning/connector/google/GoogleProvisioningConnector.java). Using this as an example, you can customize this code according to your requirements.
+2.  Refer to the source code of the [sample outbound connector](https://github.com/wso2/samples-is/tree/master/sample-outbound-connector), to get an understanding about the structure of the connector. The Google provisioning connector that uses the API given above can be found [here](https://github.com/wso2-extensions/identity-outbound-provisioning-google/blob/v5.1.9/components/org.wso2.carbon.identity.provisioning.connector.google/src/main/java/org/wso2/carbon/identity/provisioning/connector/google/GoogleProvisioningConnector.java). Using these connectors as examples, you can customize this code according to your requirements.
 
     !!! note 
         To ensure that the connector works, check whether the following configurations are added in the **pom.xml** file (found in the above connector API link) inside the `<project>` tags.
