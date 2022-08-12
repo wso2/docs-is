@@ -53,7 +53,7 @@ Follow the steps given below to set up typingDNA in the WSO2 IS server.
 
 ## Configure TypingDNA in applications
 
-Follow the steps below to configure TypingDNA in your application.
+Follow the steps given below to configure TypingDNA in your application.
 
 1. Navigate to **Service Providers -> List** and click **Edit** on the service provider that you want to configure TypingDNA in.
 
