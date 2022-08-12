@@ -540,8 +540,8 @@ nav:
           
   - SDKs:
       - Overview: sdks/sdk-overview.md
-      - Integrate a react app: sdks/start-integrating-apps/integrate-a-react-app.md
-      - Integrate an angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
+      - Integrate a React app: sdks/start-integrating-apps/integrate-a-react-app.md
+      - Integrate an Angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
       - Integrate a JS app: sdks/start-integrating-apps/integrate-a-js-app.md
       - Integrate your Spring Boot app: sdks/spring-boot.md
       
