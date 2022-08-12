@@ -20,7 +20,7 @@ Consider a scenario where you want to prompt an additional authentication step i
 3. Create a typingDNA account. Learn how to create one [here](https://github.com/wso2-extensions/identity-conditional-auth-typingdna/blob/main/docs/files/Account%20Creation.pdf).
 
     !!! info
-        Once you sign up for a typingDNA account, go to the dashboard and under API settings, enable **Auto-enroll**   and **Force initial enrollments**.
+        Once you sign up for a typingDNA account, go to the dashboard and under API settings, enable **Auto-enroll**,   and **Force initial enrollments**.
 
 ## Set up TypingDNA in WSO2 IS
 
