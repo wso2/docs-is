@@ -2,7 +2,7 @@ SAML2 POST Binding requires CORS configurations to be set up.
 
 Before configuring the service provider, add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to allow `HTTP POST` requests.
 
-```toml
+``` toml
 [cors]
 allow_generic_http_requests = true
 allow_any_origin = false
