@@ -36,7 +36,7 @@ Follow the steps given below to set up typingDNA in the WSO2 IS server.
 
 3. Copy the Authenticator file (`org.wso2.carbon.identity.conditional.auth.typingdna.functions-x.x.x.jar`) to the `<IS-Home>/repository/components/dropins` directory.
 
-4. Unzip the Artifacts archive, copy the `api#identity#typingdna#v_.war` file and paste it in the **{IS-Home}/repository/deployment/server/webapps** directory.
+4. Unzip the Artifacts archive, copy the `api#identity#typingdna#v_.war` file to the `<IS-Home>/repository/deployment/server/webapps` directory.
 
 5. Restart the WSO2 IS.
 
