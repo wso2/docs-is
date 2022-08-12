@@ -141,6 +141,7 @@ nav:
         - Passwordless Authentication:
           - Overview: guides/passwordless/overview.md
           - FIDO: guides/passwordless/fido.md
+          - FIDO Attestation: guides/passwordless/fido-attestation.md
           - Magic Link: guides/passwordless/magic-link.md
         - Multi-Factor Authentication:
           - Overview: guides/mfa/mfa-overview.md
