@@ -4,7 +4,7 @@ Follow the instructions given here to try out user self sign-up.
 
 ## Problem Scenario
 
-Cameron realizes that allowing the new employees to self sign-up to Pickup web applications will speed up
+Cameron realizes that allowing new employees to self sign-up to the Pickup web applications can speed up
 the onboarding process. As a result, Cameron sets self sign-up for Pickup HR
 using WSO2 Identity Server.
 
@@ -68,7 +68,7 @@ Let's access the **Pickup-Dispatch** application and self-register as a new user
   
     ![Pickup Dispatch application login]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-login.png)
     
-3.  Click **Create Account** to start the self sign-up process
+3.  Click **Create Account** to start the self sign-up process.
 
     ![QSG self sign-up register]({{base_path}}/assets/img/get-started/qsg-self-sign-up-register.png)
 
@@ -113,7 +113,7 @@ Note that the **Pickup-Dispatch** application home screen appears.
 
 ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
-You have just self-signed up to the **Pickup-Dispatch** web application.
+You have successfully self-signed up to the **Pickup-Dispatch** web application.
 
 ## What's next?
 
