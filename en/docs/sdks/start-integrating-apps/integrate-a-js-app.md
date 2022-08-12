@@ -4,6 +4,35 @@ Follow the steps given below to authenticate users to a sample JavaScript servic
 ## Prerequisites
 Only customer users can log in to applications. [Create a user account]({{base_path}}/guides/identity-lifecycles/onboard-overview) if you don't already have one.
 
+## Add CORS configurations
+
+To add CORS configurations:
+
+1. Open the `deployment.toml` file found in the `<IS-Home>/repository/conf/` directory, and add the following configuration.
+
+    ``` toml
+    [cors]
+    allowed_origins = [
+    "https://localhost:3000"
+    ]
+    supported_methods = [
+    "GET",
+    "POST",
+    "HEAD",
+    "OPTIONS",
+    "PUT",
+    "PATCH",
+    "HEAD",
+    "DELETE",
+    "PATCH"
+    ]
+    ```
+
+2. Restart the WSO2 IS to make the changes effective.
+
+!!! info
+    For more information on CORS configurations, refer [how to configure CORS during deployment]({{base_path}}/deploy/configure-cors/#configuring-cors-during-deployment).
+
 ## Configure a service provider
 
 1. On the WSO2 Identity Server management console (`https://<IS_HOST>:<PORT>/carbon`) go to **Main** > **Identity** > **Service Providers**.
@@ -18,7 +47,7 @@ Only customer users can log in to applications. [Create a user account]({{base_p
 6. Click **Add** to complete the configuration. 
 
     !!! note
-        Make a note of the **OAuth Client Key** and **OAuth Client Secret** that appear, as it will be used to configure the sample application.
+        Make a note of the **OAuth Client Key** and **OAuth Client Secret** that appear, as they will be used to configure the sample application.
 
 ## Download the sample
 Download the latest release of the [sample JavaScript application](https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip).
@@ -39,7 +68,7 @@ Download the latest release of the [sample JavaScript application](https://githu
             baseUrl: "https://localhost:9443",
             scope: [ "profile" ]
         };
-    ``` 
+    ```
 
 ## Run the sample
 
@@ -49,4 +78,4 @@ Run the following command at the root of the project to start up the sample appl
 npm install && npm start
 ```
 
-Log in to Identity Server management console using your user account credentials.
+Log in to WSO2 Identity Server management console using your user account credentials.
