@@ -40,7 +40,7 @@ Follow the steps given below to set up typingDNA in the WSO2 IS server.
 
 5. Restart the WSO2 IS.
 
-6. Navigate to **Identity Providers -> Resident -> Other Settings -> TypingDNA Configuration** and make the following changes.
+6. Go to **Identity Providers -> Resident -> Other Settings -> TypingDNA Configuration** and make the following changes.
 
     - Enable TypingDNA
     - Configure the typingDNA API key and API secret retrieved from the typingDNA [dashboard](https://www.typingdna.com/clients/).
