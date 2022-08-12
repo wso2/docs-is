@@ -5,7 +5,7 @@ You can easily try out the identity and access management (IAM) capabilities in 
 ## About the sample scenario
 
 **Pickup** is a cab company that has many employees who use different
-credentials to sign in to different internal enterprise applications. **Pickup** will register their users and applications in WSO2 Identity Server to fulfill its IAM [requirements](#requirements).
+credentials to sign in to different internal enterprise applications. **Pickup** will register its users and applications in WSO2 Identity Server to fulfill its IAM [requirements](#requirements).
 
 ![qsg-overall-scenario]({{base_path}}/assets/img/get-started/qsg-overall-scenario.png)
 
@@ -27,7 +27,7 @@ Following are three users in the company:
 <table>
     <tr>
         <th>Rowan</th>
-        <td>The HR manager in the company who defines the access requirements in the company.</td>
+        <td>The company HR manager who would define the access requirements of the company.</td>
     </tr>
     <tr>
         <th>Cameron</th>
@@ -41,23 +41,23 @@ Following are three users in the company:
 
 ### Requirements
 
-Listed below are the organizational requirement's that are addressed by WSO2 Identity Server.
+Listed below are the organizational requirements that are addressed by WSO2 Identity Server.
 
-- Employees need to remember multiple credentials when logging in to the many applications of **Pickup**. It is required to unify logins for employees with **Single Sign-on** so that employees will only have to remember a single password.
+- Employees need to remember multiple credentials when logging in to the many applications of **Pickup**. It is required to unify logins for employees with **Single sign-on** so that employees will only have to remember a single password.
 
-    Try out <a href="single-sign-on">Single Sign-on</a>.
+    Try out <a href="single-sign-on">Single sign-on</a>.
 
-- Employee logins should be secured by making it difficult for unauthorized sources to access the applications. Therefore, it is required to apply an additional layer of of security using **Multi-Factor Authentication**.
+- Employee logins should be secured by making it difficult for unauthorized sources to access the applications. Therefore, it is required to apply an additional layer of security using **Multi-factor authentication**.
 
-    Try out <a href="multi-factor-authentication">Multi-Factor Authentication</a>.
+    Try out <a href="multi-factor-authentication">Multi-factor authentication</a>.
 
-- External consultants have to work on **Pickup** apps on a temporary basis. It is a hassle to create and delete accounts for them in the database. Therefore, it is required to log them in with their accounts in an external identity provider using <a href="federated-authentication">**Federated authentication**</a>.
+- External consultants have to work on **Pickup** apps temporarily. It is a hassle to create and delete accounts for them in the database. Therefore, it is required to log them in with their accounts in an external identity provider using <a href="federated-authentication">**Federated authentication**</a>.
 
     Try out <a href="federated-authentication">Federated authentication</a>.
 
-- With the expansion of **Pickup**, Rowan is having a hard time creating accounts for each and every employee joining the organization. Let new employees create their own accounts to speed up the process using <a href="self-sign-up">**Self Sign-up**</a>.
+- With the expansion of **Pickup**, Rowan is having a hard time creating accounts for every employee joining the organization. Let new employees create their own accounts to speed up the process using <a href="self-sign-up">**Self sign-up**</a>.
 
-    Try out <a href="self-sign-up">Self Sign-up</a>.
+    Try out <a href="self-sign-up">Self sign-up</a>.
 
 ## Set up the sample apps
 
@@ -86,7 +86,7 @@ Follow the steps given below.
     !!! info
         The root folder of the samples distribution is referred to as `<IS_SAMPLE_DISTR>`.
 
-2.  Open the `server.properties` file in `<IS_SAMPLE_DISTR>/IS-QSG/conf/` and make sure that `wso2is.host.domain` and `wso2is.host.port` are configured as shown below.
+2.  Open the `server.properties` file in the `<IS_SAMPLE_DISTR>/IS-QSG/conf/` folder and configure `wso2is.host.domain` and `wso2is.host.port` as follows:
 
     ``` bash
     #localhost.com is used to resolve naked hostname validation issue
@@ -96,9 +96,9 @@ Follow the steps given below.
     server.host.port=8080
     ```
 
-3.  To configure and run the sample applications, open a terminal, navigate to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` folder, and follow the steps given below. 
+3.  To configure and run the sample applications, open a terminal, navigate to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` folder, and follow the steps given below: 
 
-    1.  Execute one of the following command to start the sample application:
+    1.  Execute one of the following commands to start the sample application:
 
         -   On Linux/MacOS
 
@@ -136,7 +136,7 @@ Once you complete setting up the samples, you are presented with the following l
 
 See the topics given below to try out each of the scenarios.
 
-- [SSO]({{base_path}}/sample-use-cases/single-sign-on/)
-- [Multi-Factor Authentication]({{base_path}}/sample-use-cases/multi-factor-authentication/)
-- [Federated Authentication]({{base_path}}/sample-use-cases/federated-authentication/)
-- [Self Sign-Up]({{base_path}}/sample-use-cases/self-sign-up/)
+- [Single sign-on]({{base_path}}/sample-use-cases/single-sign-on/)
+- [Multi-factor authentication]({{base_path}}/sample-use-cases/multi-factor-authentication/)
+- [Federated authentication]({{base_path}}/sample-use-cases/federated-authentication/)
+- [Self sign-up]({{base_path}}/sample-use-cases/self-sign-up/)
