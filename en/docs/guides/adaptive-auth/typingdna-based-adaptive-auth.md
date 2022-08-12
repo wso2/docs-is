@@ -61,7 +61,7 @@ Follow the steps given below to configure TypingDNA in your application.
 3. Configure two Authentication steps.
 
     !!! info
-        In this scenario we will configure **Username and Password** and **TOTP**.
+        In this scenario, we will configure **Username and Password** and **TOTP**.
     
     ![TypingDNA configure two authentication steps]({{base_path}}/assets/img/samples/typingdna-two-steps.png)
 
