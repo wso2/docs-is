@@ -7,7 +7,7 @@ You can integrate typingDNA with WSO2 Identity Server to provide risk-based adap
 ----
 
 ## Scenario
-Consider a scenario where you want to prompt an additional authentication step if the typing pattern of the user trying to log in does not match the typing pattern registered to the user's account. Then the log in flow of the user should be stepped up as follows:
+Consider a scenario where you want to prompt an additional authentication step if the typing pattern of the user trying to log in does not match the typing pattern registered in the user's account. Then the log in flow of the user should be stepped up as follows:
 
 1. Basic authentication (username and password)
 2. TOTP
