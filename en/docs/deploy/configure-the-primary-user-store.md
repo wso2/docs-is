@@ -6,10 +6,6 @@ This documentation explains the process of setting up a primary user
 store. If you need more information on WSO2 Carbon userstores, see
 [Configure userstores]({{base_path}}/deploy/configure-user-stores).
 
-!!! info 
-    WSO2 Identity Server has an embedded LDAP as its primary userstore.
-    It is recommended to change this default configuration in the production system.
-
 ---
 
 ## Set up the primary userstore

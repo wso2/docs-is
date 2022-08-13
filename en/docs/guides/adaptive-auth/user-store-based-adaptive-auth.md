@@ -95,15 +95,11 @@ To configure user store-based authentication:
 
     ![ldap-server-config]({{base_path}}/assets/img/fragments/ldap-server-config.png)
 
-5.  Port offset the LDAP and LDAP server ports by changing the LDAP port to 10390 and the LDAP server port to 10637. This ensures that the embedded LDAP server running in the prior installation of WSO2 IS does not conflict with the current installation.
-
-    ![ldap-port-offset]({{base_path}}/assets/img/fragments/ldap-port-offset.png)
-
-6.  Right-click on the new server and click **Create a Connection**.  
+5.  Right-click on the new server and click **Create a Connection**.  
 
     ![create-an-ldap-connection]({{base_path}}/assets/img/fragments/create-ldap-connection.png)
 
-7.  Right-click on the server and click **Run** to start the server.
+6.  Right-click on the server and click **Run** to start the server.
 
     ![run-ldap-server]({{base_path}}/assets/img/fragments/run-ldap-server.png) 
 

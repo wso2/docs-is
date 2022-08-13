@@ -1,8 +1,6 @@
 # Configure a JDBC Userstore
 
-WSO2 identity server uses an embedded LDAP as the primary userstore.
-This document will guide to you to change that to a JDBC userstore.
-By default, the WSO2 Identity Server embedded H2 
+By default, the WSO2 Identity Server's embedded H2 
 database contains userstore tables. When you configure an RDBMS (JDBC) userstore, you can
 use internal H2 userstore tables or you can use an external database as a
 userstore. If you're going to use default userstore tables for the external JDBC userstore, see [User

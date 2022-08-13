@@ -67,7 +67,6 @@
     </pre>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
-    <p>If you are trying with the default embedded LDAP userstore, this configuration change is not needed.</p>
     </div> 
     </div>
     </div>
