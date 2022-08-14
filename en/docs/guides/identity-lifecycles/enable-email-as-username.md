@@ -1,4 +1,4 @@
-## Configure Email Address as the Username
+# Configure Email Address as the Username
 
 !!! warning
     Configuring the email address as the username in an **already running

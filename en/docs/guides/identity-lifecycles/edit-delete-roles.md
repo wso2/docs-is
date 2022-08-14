@@ -69,7 +69,6 @@ some time.
 
 
 !!! info "Related topics"
-    - [Concept: Roles and Permissions]({{base_path}}/references/concepts/user-management/roles-and-permissions)
-    - [Guide: Add Roles]({{base_path}}/guides/identity-lifecycles/add-user-roles)
-    - [Guide: Role Based Permissions]({{base_path}}/guides/identity-lifecycles/role-based-permissions/)
+    - [Guide: Add user roles]({{base_path}}/guides/identity-lifecycles/add-user-roles)
+    - [Role-based permissions]({{base_path}}/guides/identity-lifecycles/role-based-permissions)
 

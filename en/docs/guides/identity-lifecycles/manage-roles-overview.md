@@ -1,22 +1,21 @@
 # Manage User Roles
 
-WSO2 Identity Server supports the role-based authentication model where
+WSO2 Identity Server (WSO2 IS) supports role-based authentication model where the
 privileges of a user are based on roles attached.
 
 A user is associated with one or more roles (generally specified upon
-user creation), and each role is associated with zero or more
-permissions (also generally specified upon role creation). Therefore,
-the set of permissions owned by a user is determined by the roles
-assigned to that user. If a user has several assigned roles, their
+user creation) and each role is associated with zero or more
+permissions (also generally specified upon role creation). 
+
+Therefore, the set of permissions owned by a user is determined by the roles
+assigned to that user. If a user has several roles assigned, their
 permissions are added together.
 
-This section guides you through the operations that can be carried out on user roles. 
+You can manage user roles with the following tasks: 
 
-- [Add User Roles]({{base_path}}/guides/identity-lifecycles/add-user-roles)
-
+- [Add user roles]({{base_path}}/guides/identity-lifecycles/add-user-roles)
 - [Edit/Delete Roles]({{base_path}}/guides/identity-lifecycles/edit-delete-roles)
-
-- [Role-based Permissions]({{base_path}}/guides/identity-lifecycles/role-based-permissions)
+- [Role-based permissions]({{base_path}}/guides/identity-lifecycles/role-based-permissions)
 
 !!! note "Before you begin"
 
@@ -47,29 +46,18 @@ This section guides you through the operations that can be carried out on user r
         that does not conform to the `            RegEx           `
         configurations, the system throws an exception. You can either
         change the `            RegEx           ` configuration or enter
-        values that conform to the `            RegEx           ` . If you
-        [change the default user
-        store]({{base_path}}/deploy/configure-the-primary-user-store) or [set up a secondary
-        user store]({{base_path}}/deploy/configure-secondary-user-stores), configure the
-        `            RegEx           ` accordingly under the user store
-        manager configurations in the
-        `            <IS_HOME>/repository/conf/deployment.toml          `
-        file.  
-        
+        values that conform to the `RegEx` . If you [change the default user
+        store]({{base_path}}/deploy/configure-the-primary-user-store) or [set up a secondary user store]({{base_path}}/deploy/configure-secondary-user-stores), configure the `RegEx` accordingly under the user store manager configurations in the `<IS_HOME>/repository/conf/deployment.toml` file.  
 
     -   The permission model of WSO2 Identity Server is hierarchical.
         Permissions can be assigned to a role in a fine-grained or a
         coarse-grained manner.
 
         **Coarse-grained permissions** define large sub components such as
-        'Application Management'. Using coarse-grained permissions you can
+        'Application Management'. Using coarse-grained permission you can
         assign permissions to roles based on these large sub components.
 
         **Fine-grained permissions** control access to smaller sub
         components or sub tasks of the component such as 'create
-        application', 'delete application' etc.
-
-        WSO2 Carbon maintains roles and permissions in the Carbon database,
-        but it can also read users/roles from the configured User Store.
-
+        application', 'delete application', etc.
 

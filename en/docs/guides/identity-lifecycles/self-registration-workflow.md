@@ -1,6 +1,6 @@
-# Self Registration
+# User Self-Registration
 
-You can configure WSO2 Identity Server to allow user self-registration to a tenant. When this option is enabled, users can self-register from the My Account portal or any of the applications registered with the tenant.
+You can configure WSO2 Identity Server (WSO2 IS) to allow user self-registration. When this option is enabled, users can self-register from the My Account portal or any of the applications registered with WSO2 IS.
 
 ## Set up notifications
 
@@ -15,12 +15,12 @@ WSO2 Identity Server should first be configured to send email notifications to u
         on how to do this, see [Customizing Automated
         Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
 
--   If you have migrated from a previous IS version, ensure that
+-   If you have migrated from a previous WSO2 IS version, ensure that
 the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
-**false** and that the Identity Listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
+**false** and that the identity listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
     
     !!! Note 
-        If there are no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
+        If there are no such entries for `event.default_listener.xxx` in the `deployment.toml` file, you can skip this configuration.
     
     ``` toml
     [event.default_listener.identity_mgt]
@@ -36,13 +36,13 @@ the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
 
 ## Enable self-registration
 
-Follow the steps given below to enable self-registration for your tenant:
+Follow the steps given below to enable self-registration:
 
-1.  Sign in to the Management Console.    
+1.  Sign in to the Management Console.
 2.  Go to **Main** > **Identity Providers** -> **Resident** and expand **User Onboarding**.
 3.  Expand **Self Registration** and configure the following values:
     
-    ![user-self-registration]({{base_path}}/assets/img/guides/user-self-registration.png)
+    <!--![user-self-registration]({{base_path}}/assets/img/guides/user-self-registration.png)-->
     
     <table>
     <thead>
@@ -64,14 +64,14 @@ Follow the steps given below to enable self-registration for your tenant:
     <td>Manage notifications sending internally</td>
     <td>
     <p>
-    Select to configure Identity server to send confirmation emails to the user.
-    If the client application handles notification sending already, unselect it. 
+    Select to configure WSO2 identity server to send confirmation emails to the user.
+    If the client application handles notification sending already, clear it. 
     </p>
     </td>
     </tr>
     <tr class="even">
     <td>Prompt reCaptcha</td>
-    <td>Select to enable reCaptcha for self-registration. See <a href="{{base_path}}/guides/password-mgt/recaptcha-challenge-question-attempts/">Configuring Google reCaptcha for Security-Question Based Password Recovery</a> for more information.</td>
+    <td>Select to enable reCAPTCHA for self-registration. See <a href="{{base_path}}/guides/password-mgt/recaptcha-challenge-question-attempts/">Configuring Google reCAPTCHA for Security-Question Based Password Recovery</a> for more information.</td>
     </tr>
     <tr class="odd">
     <td>User self registration verification link expiry time</td>
@@ -111,30 +111,27 @@ configure self-registration consent purposes.
 Follow the instructions below to configure self-registration consent
 purposes and appropriate user attributes:
 
-1.  Access the management console. (https://<IS_HOST>:<IS_PORT>/carbon).
+1.  Sign in to the Management Console.
 
-2.  Navigate to **Main** -> **Identity** -> **Identity Providers** -> **Resident** ->**User Onboarding** -> **Self Registration** section. 
+2.  Go to **Main** -> **Identity** -> **Identity Providers** -> **Resident** -> **User Onboarding** -> **Self Registration** section. 
 
-3.  Select `Click here` to configure self-registration consent purposes. This displays 
-the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purposes.
+3.  Select `Click here` to configure self-registration consent purposes. 
+
+    !!! info
+        This displays the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purposes.
 
     ![self-registration]({{base_path}}/assets/img/guides/account-policies.png)   
-    
 
-4.  Click **Add New Purpose**.  
+4.  Click **Add New Purpose** and specify appropriate values for the **Purpose** and **Description**. 
 
-5.  Specify appropriate values for the **Purpose** and **Description**
-    fields, and then click **Add PII Category** to add user attributes
-    requires to obtain user consent.
+5.  Then, click **Add PII Category** to add the user attributes required for obtaining user consent.
 
     !!! tip
-        You can add one or more user attributes to obtain consent for a
-        particular purpose.
+        You can add one or more user attributes to obtain consent for a particular purpose.
     
     ![user-attributes-for-consent]({{base_path}}/assets/img/guides/user-attributes-for-consent.png) 
 
-6.  If you want consent on a specific user attribute to be mandatory,
-    select the **Mandatory** check box for that attribute.
+6.  If you want consent on a specific user attribute to be mandatory, select the **Mandatory** check box for that attribute.
 
     !!! tip
         -   When you configure consent purposes for self-registration, the
@@ -147,13 +144,7 @@ the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purp
             attributes, WSO2 Identity Server will not store those
             attributes.
 
-7.  Click **Finish**.
-
-8.  Depending on your requirement, you can either add another new
-    purpose and related user attributes, or click **Finish** if you have
-    added all the purposes you want.
-
-9.  Click **Update**.
+7.  Click **Finish** to complete the registration.
 
 Now you have configured required self-registration purposes and user
 attributes for which you require user consent.
@@ -162,11 +153,14 @@ Next, you can try out self-registration.
 
 ## Try it out
 
+Let's try out self-registration. You can use either the My Account portal or the REST API.
+
+### Use the My Account portal
+
 Let's try to self-register using the My Account portal.
 
-1.  Access the WSO2 Identity Server My Account.
-2.  Click **Create Account** and then enter the new user's
-    username.
+1.  Access the WSO2 Identity Server's [My Account portal]({{base_path}}/guides/my-account/my-account).
+2.  Click **Create Account** and then enter the new user's username.
 
     !!! info "Register Users for a Tenant"
         If you want to self-register to a specific tenant, you need to
@@ -180,10 +174,10 @@ Let's try to self-register using the My Account portal.
     ![register-users-for-tenant]({{base_path}}/assets/img/guides/register-users-for-tenant.png) 
 
 3.  Fill in the user details, provide consent to share the requested
-    information, and then click **Register**.
+    information and then click **Register**.
 
     !!! Info
-        The attributes that show up on the self sign up page are WSO2 [local dialect claims]({{base_path}}/guides/dialects/add-claim-mapping/) claims that have the **Supported by Default** configuration enabled. The claims that have the **Mandatory** configuration enabled are indicated as mandatory on the self-signup screen as shown above.
+        The attributes that show up on the self-sign-up page are WSO2 [local dialect claims]({{base_path}}/guides/dialects/add-claim-mapping/) claims that have the **Supported by Default** configuration enabled. The claims that have the **Mandatory** configuration enabled are indicated as mandatory on the self-sign-up screen as shown above.
 
         <!--![self-signup-required-claim-config]({{base_path}}/assets/img/guides/self-signup-required-claim-config.png)-->
     
@@ -208,11 +202,9 @@ As per the configuration you enabled on WSO2 IS, once you confirm the account, t
     You can edit and customize the email template. For more information on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 -->
 
-<!--
-
 ### Use the REST API
 
-The following CURL command can be used to self register.  
+Let's try to self-register using the Self-Register API. See the [Self-Registration API documentation]({{base_path}}/apis/use-the-self-sign-up-rest-apis) for details on using this API.
 
 **Request**
 
@@ -230,12 +222,12 @@ curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Con
     ```curl
     "HTTP/1.1 201 Created"
     ```
--->
 
 
 !!! info "Related topics"
-    - [REST API: Self Register]({{base_path}}/apis/use-the-self-sign-up-rest-apis)
-    - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
-    - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
-    - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
-    - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning) 
+    - [Guide: Create new user from the Management Console]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
+    - [Guide: Invite users to join]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
+    - [Guide: User self-registration]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
+    - [Guide: Lite user registrtion]({{base_path}}/guides/identity-lifecycles/lite-user-registration)
+    - [Guide: Bulk import users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
+    - [Guide: Configure reCAPTCHA for user registration]({{base_path}}/guides/identity-lifecycles/configure-recaptcha-for-self-registration)

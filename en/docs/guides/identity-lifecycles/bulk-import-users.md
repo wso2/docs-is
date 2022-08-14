@@ -1,6 +1,6 @@
 # Bulk Import Users
 
-This page guides you through importing users in bulk using the WSO2 Identity Server admin portal, SCIM, SOAP, a .csv file, or directly plugging in an existing userstore. 
+You can import users in bulk using the WSO2 Identity Server's Management Console, the SCIM 2.0 API, a CSV file, or by directly plugging in an existing user store.
 
 ## Prerequisites
 
@@ -9,13 +9,14 @@ This page guides you through importing users in bulk using the WSO2 Identity Ser
     the JDBC user store configured in the
     `            deployment.toml           ` file (stored in the
     `            <IS_HOME>/repository/conf           ` directory).
-    Please see the [User Store management]({{base_path}}/deploy/configure-the-primary-user-store) section for more
-    information.
+    
+    !!! info
+        See the instructions on [managing user stores]({{base_path}}/deploy/configure-the-primary-user-store) for more information.
 
-    ```toml
-    [user_store.properties]
-    is_bulk_import_supported  =  true
-    ```
+        ```toml
+        [user_store.properties]
+        is_bulk_import_supported  =  true
+        ```
 
 -   It is recommended to upload a maximum of 500,000 users at a time. If
     you need to upload more users, you can upload them in separate
@@ -30,8 +31,9 @@ This page guides you through importing users in bulk using the WSO2 Identity Ser
     file_size_limit = "100"
     ```
 
-## Use the SCIM2 API
-You can create users in bulk using a SCIM request as shown below. 
+## Use the SCIM 2.0 API
+
+You can create users in bulk using a SCIM 2.0 request as shown below. See the [SCIM 2.0 API documentation]({{base_path}}/apis/scim2-rest-apis) for details on using this API.
 
 **Request**
 
@@ -46,9 +48,10 @@ Below is a sample request and its corresponding response using SCIM 2.0.
     ```
     curl -v -k --user admin:admin --data '{"failOnErrors":1,"schemas":["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],"Operations":[{"method": "POST","path": "/Users","bulkId": "qwerty","data":{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],"userName": "Kris","password":"krispass"}},{"method": "POST","path": "/Users","bulkId":"ytrewq","data":{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],"userName":"Jesse","password":"jessepass","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber": "11250","manager": {"value": "bulkId:qwerty"}}}}]}' --header "Content-Type:application/scim+json" https://localhost:9443/scim2/Bulk
     ```
-    ---
+
     **Sample Response**
-    ```
+
+    ``` json
     {
         "schemas":["urn:ietf:params:scim:api:messages:2.0:BulkResponse"],
         "Operations":[
@@ -97,11 +100,9 @@ etc. in addition to the **username** and **password**.
 -   http://wso2.org/claims/telephone
 -   http://wso2.org/claims/url
 
-The username, password and other attributes (claim URls) that you import
-should be given in a CSV file as shown below. Note that the first line
-of the file will not be imported considering that it is not a username.
+The username, password and other attributes (claim URls) that you import should be given in a CSV file as shown below. Note that the first line of the file will not be imported considering that it is not a username.
 
-``` java
+``` bash
 UserName,Password,Claims
 name1,Password1,http://wso2.org/claims/emailaddress=name1@gmail.com,http://wso2.org/claims/country=France
 name2,Password2,http://wso2.org/claims/emailaddress=name2@gmail.com,http://wso2.org/claims/country=France
@@ -121,33 +122,29 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
 
 To import users in bulk:
 
-1.  Log in to the management console.
-2.  Click **Add** under **Users and Roles** in the **Main** menu.
-3.  In the **Add Users** and **Roles** screen, click **Bulk Import
-    Users**.
-4.  The user stores configured for your product will be listed in the
-    **Domain** field. Select the user store to which you want to import
-    the users from the list.
+1.  Sign in to the Management Console.
+2.  Go to **Main** -> **Users and Roles** and click **Add**.
+3.  On the **Add Users and Roles** page, click **Bulk Import Users**.
+4.  Select the user store to which you want to import the users from the list.
+
+    !!! info
+        The user stores configured for your product will be listed in the **Domain** field.
+
 5.  Click **Choose File** to give the path to the CSV/Excel file that
     contains the users that you want to import.
 6.  Click **Finish** to start importing.
 
 !!! info
-      The default password of the imported users is valid only for 24 hours.
-      As the system administrator, you can resolve issues of expired passwords
-      by logging in as the Admin and changing the user's password from the
-      **User Management -\>** **Users** page. The 'Everyone' role will be
-      assigned to the users by default.
-----
+    The default password of the imported users is valid only for 24 hours. As the system administrator, you can resolve issues of expired passwords by signing in to the Management Console and changing the user's password from the **User Management -> Users** page. The 'Everyone' role is assigned to the users by default.
 
 ## Plug in a user store
 
-Apart from this, users can also be added by directly plugging userstores into WSO2 Identity Server. For more information on this, see [Secondary User Stores]({{base_path}}/deploy/configure-secondary-user-stores/).
+Apart from this, users can also be added by directly plugging user stores to WSO2 Identity Server. For more information, see [Secondary User Stores]({{base_path}}/deploy/configure-secondary-user-stores/).
 
 !!! info "Related topics"
-    - [Concept: Users]({{base_path}}/references/concepts/user-management/users)
-    - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
-    - [Guide: User Self Registration Workflow]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
-    - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
-    - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
+    - [Guide: Create new user from the Management Console]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
+    - [Guide: Invite users to join]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
+    - [Guide: User self-registration]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
+    - [Guide: Lite user registrtion]({{base_path}}/guides/identity-lifecycles/lite-user-registration)
+    - [Guide: Configure reCAPTCHA for user registration]({{base_path}}/guides/identity-lifecycles/configure-recaptcha-for-self-registration)
     

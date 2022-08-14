@@ -1,4 +1,4 @@
-# Configure reCaptcha for Self-Registration
+# Configure reCAPTCHA for Self-Registration
 
 Self-registration is an important feature when it comes to commercial
 applications. This feature gives the users the privilege of being a
@@ -9,7 +9,7 @@ This topic guides you through configuring reCaptcha for the self
 registration flow. By configuring reCaptcha, you can mitigate or block
 brute force attacks.
 
-!!! info 
+!!! info
     -   For more information on setting up self registration, see
         [Self-Registration and Account
         Confirmation]({{base_path}}/guides/identity-lifecycles/self-registration-workflow).

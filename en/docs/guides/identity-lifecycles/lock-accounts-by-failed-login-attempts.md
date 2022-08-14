@@ -170,7 +170,7 @@ To mimic account locking:
 
 1.	Access the WSO2 Identity Server My Account at `https://localhost:9443/myaccount/`.  
 
-    <img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey">
+    <!--<img src="{{base_path}}/assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey">-->
 
 2.	To mimic three consecutive erroneous login attempts, log in with Alex's user name and the following as passwords sequentially:
 
@@ -180,7 +180,7 @@ To mimic account locking:
 
 3.	An email that informs about the account locking is sent to the given email address.		
 
-    <img src="../../assets/img/learn/account-locked-email.png" alt="Account Locked email" width="500" style="border:1px solid grey">  
+    <!--<img src="../../assets/img/learn/account-locked-email.png" alt="Account Locked email" width="500" style="border:1px solid grey">--> 
 
 4.	Wait for 15 minutes and try to log in again with the correct credentials. The WSO2 Identity Server User Portal home screen appears.  
 

@@ -1,17 +1,17 @@
 # Onboard Users 
 
-To enable users to log into the IS management console, you need to create user accounts. You can add individual users or import users in bulk. 
+Users can be onboarded to WSO2 Identity Server (WSO2 IS) using one of the following methods:
 
-This section guides you through different ways of onboarding users to WSO2 Identity Server and to external systems.  
+- [Create new user from the Management Console]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
 
-- [Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
+- [Invite users to join]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
 
-- [Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
+- [User self-registration]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
 
-- [User Self-Registration Workflow]({{base_path}}/guides/identity-lifecycles/self-registration-workflow)
+- [Lite user registrtion]({{base_path}}/guides/identity-lifecycles/lite-user-registration)
 
-- [Just-in-Time User Provisioning Workflow]({{base_path}}/guides/identity-lifecycles/jit-workflow)
+- [Bulk import users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
 
-- [Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
+You can also enable the following configurations to secure user onboarding:
 
-- [Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
+- [Configure reCAPTCHA for user registration]({{base_path}}/guides/identity-lifecycles/configure-recaptcha-for-self-registration)

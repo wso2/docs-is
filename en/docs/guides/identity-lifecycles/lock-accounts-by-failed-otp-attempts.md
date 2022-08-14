@@ -78,7 +78,36 @@ To check this via the user profile:
 
 ## Enable account locking
 
-{!./includes/enable-account-locking.md !}
+1. 	Ensure that the identity listener with the
+   `              priority=50             ` is set to **false** and
+   the identity listener with the `              priority=95             ` is set to
+   **true**  by adding the following configuration to the
+   `              <IS_HOME>/repository/conf/deployment.toml             ` file.  
+
+	!!! note
+		If you haven't changed these configurations previously, you can skip this step since these are the default values. 
+
+		``` xml
+		[event.default_listener.identity_mgt]
+		priority= "50"
+		enable = false
+		[event.default_listener.governance_identity_mgt]
+		priority= "95"
+		enable = true
+		```
+
+2.  <a name="lockingaspecificuseraccount"></a>Start the Identity Server and log into the management console (`https://<IS_HOST>:<PORT>/carbon`) using
+   your tenant credentials.
+      
+3.  Click **Main** > **Identity** > **Identity Providers** > **Resident**.
+4.  Expand the **Login Attempts Security** tab.
+5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
+	
+	![login-policies]({{base_path}}/assets/img/guides/login-policies.png) 
+         
+         
+6.  To enable account locking for other tenants, log out and repeat the
+   steps given above.
 
 The following table describes the configuration properties and
 descriptions you need to configure:
@@ -173,7 +202,7 @@ Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/de
 
 [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
 
+
 !!! info "Related topics"
-    <!---   [Guides: Configure SMS OTP for 2-Factor Authentication]({{base_path}}/guides/mfa/2fa-sms-otp/)-->
-    -   [Guides: Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails)
-    -   [Guides: Lock and Unlock User Accounts]({{base_path}}/guides/identity-lifecycles/lock-account)
+    -   [Guide: Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails)
+    -   [Guide: Lock and Unlock User Accounts]({{base_path}}/guides/identity-lifecycles/lock-account)

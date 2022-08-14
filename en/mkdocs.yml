@@ -222,8 +222,8 @@ nav:
         - Overview: guides/identity-lifecycles/user-management.md
         - Onboard Users:
           - Overview: guides/identity-lifecycles/onboard-overview.md
-          - Create User: guides/identity-lifecycles/admin-creation-workflow.md
-          - Invite User: guides/identity-lifecycles/invitation-workflow.md
+          - Create Users: guides/identity-lifecycles/admin-creation-workflow.md
+          - Invite Users: guides/identity-lifecycles/invitation-workflow.md
           - User Self-Registration: guides/identity-lifecycles/self-registration-workflow.md
           - Lite User Registration: guides/identity-lifecycles/lite-user-registration.md
           - reCAPTCHA for Self-Registration: guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
@@ -242,26 +242,17 @@ nav:
           - Role-Based Permissions: guides/identity-lifecycles/role-based-permissions.md
         - Manage Accounts:
           - Overview: guides/identity-lifecycles/account-states-overview.md
-<<<<<<< HEAD
           - Admin-initiated Account Locking: guides/identity-lifecycles/lock-account.md
           - Lock Accounts by Failed Login Attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
           - Lock Accounts by Failed OTP Attempts: guides/identity-lifecycles/lock-accounts-by-failed-otp-attempts.md
           - Lock Accounts per User: guides/tenants/account-locking-per-user.md
-=======
-          - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
-          - Lock/Unlock Accounts per User: guides/tenants/account-locking-per-user.md
-          - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
->>>>>>> dfc72d9d90cbd96cae450bd8236baa47b292ebba
           - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
           - Disable Accounts: guides/identity-lifecycles/enable-account.md
           - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
           - Configure Account Recovery: guides/identity-lifecycles/recover-username.md
           - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
-<<<<<<< HEAD
-=======
           - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
->>>>>>> dfc72d9d90cbd96cae450bd8236baa47b292ebba
           - Send Notifications per User Operation: guides/tenants/user-operation-notifications.md
         - Manage Passwords:
           - Overview: guides/password-mgt/password-mgt-overview.md
@@ -512,11 +503,9 @@ nav:
       - Migrate:
         - Migration Process: deploy/migrate/migration-process.md
         - What has Changed: deploy/migrate/what-has-changed.md
-        - Migration Guide:
-          - Before you Begin: deploy/migrate/migration-guide.md
-          - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-          - Migrate to 6.0.0: deploy/migrate/migrate-to-600.md
-          - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
+        - Prepare for Migration: deploy/migrate/prepare-for-migration.md
+        - Migrate to WSO2 IS 6.0.0: deploy/migrate/migrate-to-600.md
+        #- Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
 
   - APIs:

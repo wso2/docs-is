@@ -1,12 +1,12 @@
-# Invite new users
+# Invite Users
 
-Administrators can invite new users to join a tenant. The invitation is sent to the user's email. This allows the user to set a password and to verify the account details created by the administrator.
+Administrators can invite new users by sending an invitation to the user's email. This allows the user to set a password and to verify the account details created by the administrator.
 
 ## Set up notifications
 
-WSO2 Identity Server should first be configured to send email notifications to users. Apply the following configurations:
+WSO2 IS should first be configured to send email notifications to users. Apply the following configurations:
 
--   [Configure the email sender]({{base_path}}/deploy/configure-email-sending) of WSO2 Identity Server.
+-   [Configure the email sender]({{base_path}}/deploy/configure-email-sending) of WSO2 IS.
 
     !!! tip 
         The email template used to send this email notification is the **AskPassword** template.
@@ -14,12 +14,12 @@ WSO2 Identity Server should first be configured to send email notifications to u
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
--   If you have migrated from a previous IS version, ensure that
+-   If you have migrated from a previous WSO2 IS version, ensure that
 the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
 **false** and that the Identity Listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
     
     !!! Note 
-        If there are no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
+        If there are no such entries for the `event.default_listener.xxx` in the `deployment.toml` file, you can skip this configuration.
     
     ``` toml
     [event.default_listener.identity_mgt]
@@ -35,14 +35,14 @@ the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
 
 ## Enable the invitation flow
 
-You can enable user registration by invitation in WSO2 Identity Server in several ways.
+You can enable user registration by invitation in WSO2 IS using the following methods:
 
 ### Use the Management Console
 
 !!! info "Before you begin"
-    If you are adding users via the management console, to
+    If you are adding users via the Management Console, to
     enable "Ask password" option in the
-    Management Console the following property needs to be added to the `
+    Management Console, the following property needs to be added to the `
     <IS_HOME>/repository/conf/deployment-toml` file.
 
     ``` toml
@@ -90,23 +90,22 @@ email_sender= "internal"
 ask_password_email_validity = "1440"
 password_generator = "org.wso2.carbon.user.mgt.common.DefaultPasswordGenerator"
 ```
-    
-!!! info "Configure Ask Password Feature for tenants" 
+
+!!! info "Configure Ask Password for tenants" 
     These properties can be enabled for each tenant at tenant creation by
-    adding the corresponding configuration to the `
-    <IS_HOME>/repository/conf/deployment.toml` file as explained in the previous section. 
-        
+    adding the corresponding configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
     Optionally, you can sign in to the Management Console as a tenant
     admin and change the **Resident IDP** configurations accordingly to enable this feature for a specific tenant.
 
 ### Use the SCIM2 API
 
-You can use both the **Ask Password** and **Verify Email** features when creating a user using SCIM 2.0.
+You can use both the **Ask Password** and **Verify Email** features when creating a user using SCIM 2.0. See the [SCIM 2.0 API documentation]({{base_path}}/apis/scim2-rest-apis) for details on using this API.
 
 !!! info "Before you begin"
-    If you are adding users via the SCIM2 REST API, note that WSO2 Identity Server sets a   random value for the password if the `askPassword` claim is present in the request.
+    If you are adding users via the SCIM 2.0 REST API, note that WSO2 IS sets a random value for the password if the `askPassword` claim is present in the request.
 
-    If you want to disable setting a random value and instead keep the `password` that is sent in the request, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+    If you want to disable setting a random value and instead keep the `password` that is sent in the request, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ``` toml
     [identity_mgt.user_onboarding]
@@ -115,7 +114,7 @@ You can use both the **Ask Password** and **Verify Email** features when creatin
     
 -   Set the **askPassword** attribute under the`
 urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` schema to
-true in the SCIM2 user create request. 
+true in the SCIM 2.0 user create request. 
 
     ```java
     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{askPassword:"true"}
@@ -186,7 +185,7 @@ Follow the steps below to invite a user.
 
 5.  Click **Finish** to send the email.  
 
-WSO2 IS sends an email to the email address provided. The email contains a redirect URL that directs the user to a screen to provide their own password.
+WSO2 IS sends an email to the provided email address. The email contains a redirect URL that directs the user to a screen to provide their own password.
 
 !!! info "Related topics"
     - [Guide: Email Templates]({{base_path}}/guides/tenants/customize-automated-mails/)

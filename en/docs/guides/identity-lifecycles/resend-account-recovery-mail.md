@@ -15,11 +15,11 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
 
 1. On the Main menu, click **Manage > Email Template > Add**.
 
-<!--![manage-email-template]({{base_path}}/assets/img/using-wso2-identity-server/manage-email-template.png) -->
+    <!--![manage-email-template]({{base_path}}/assets/img/using-wso2-identity-server/manage-email-template.png) -->
 
 2. Click **Add Email Template**.
 
-<!--![email-template-management]({{base_path}}/assets/img/using-wso2-identity-server/email-template-management.png) -->
+    <!--![email-template-management]({{base_path}}/assets/img/using-wso2-identity-server/email-template-management.png) -->
 
 3. To create an email template for account registration through password request:
 
