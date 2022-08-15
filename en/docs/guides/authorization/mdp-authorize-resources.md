@@ -53,7 +53,7 @@ Identity Server:
 
 6.  Click **Publish to My PDP** applicable to the sample policy that you
     added. This takes you to the **Publish Policy** screen.  
-    ![publish-policy-to-pdp]({{base_path}}/assets/img/tutorials/publish-policy-to-pdp.png)
+    ![publish-policy-to-pdp]({{base_path}}/assets/img/guides/publish-policy-to-pdp.png)
 7.  Click **Publish**. This displays a confirmation message asking
     whether you want to continue publishing to PDP.
 8.  Click **Yes**. This publishes the policy to the PDP.
@@ -66,29 +66,29 @@ attribute to see how the policies evaluate the request.
 
 1.  Create a XACML MDP request similar to the following:
 
-    ``` java
+    ``` xml
     <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
-    <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
-    <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
-    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
-    </Attribute>
-    </Attributes>
-    <Attributes Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject">
-    <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id" IncludeInResult="false">
-    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">asela</AttributeValue>
-    </Attribute>
-    </Attributes>
-    <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource">
-    <Attribute AttributeId="urn:oasis:names:tc:xacml:2.0:resource:scope" IncludeInResult="false">
-    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Children</AttributeValue>
-    </Attribute>
-    <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" IncludeInResult="true">
-    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">index.jsp</AttributeValue>
-    </Attribute>
-    <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:resource:root-resource-id" IncludeInResult="false">
-    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">index.jsp</AttributeValue>
-    </Attribute>
-    </Attributes>
+        <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+            </Attribute>
+        </Attributes>
+        <Attributes Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id" IncludeInResult="false">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">asela</AttributeValue>
+            </Attribute>
+        </Attributes>
+        <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:2.0:resource:scope" IncludeInResult="false">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Children</AttributeValue>
+            </Attribute>
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" IncludeInResult="true">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">index.jsp</AttributeValue>
+            </Attribute>
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:resource:root-resource-id" IncludeInResult="false">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">index.jsp</AttributeValue>
+            </Attribute>
+        </Attributes>
     </Request>
     ```
 
@@ -120,8 +120,8 @@ attribute to see how the policies evaluate the request.
             resource finder implementation.
     
         -   This request sends the root resource name as a different
-            attribute (i.e., Attribute id is different. In general, a
-            ttribute id can be any id depending on the policy. Here, it is
+            attribute (i.e., Attribute id is different. In general, 
+            attribute id can be any id depending on the policy. Here, it is
             `             urn:oasis:names:tc:xacml:1.0:resource:root-resource-id            `
             ) because the polices are written that way, and the PDP expects
             it to be that way for evaluation.
@@ -132,9 +132,8 @@ attribute to see how the policies evaluate the request.
             response would contain all child/descendant resources.
     
 
-2.  Use either the PEP TryIt  tool invoke the PDP, or invoke the
-    `           getDecision          ` method of the PDP API using SOAP
-    UI.
+2.  Use either the PEP TryIt tool to invoke the PDP, or invoke the
+    `           getDecision          ` method of the PDP API using [SOAP UI](https://www.soapui.org/downloads/latest-release.html).
 
 ### Analyzing the response
 
@@ -142,63 +141,63 @@ You will see a response that contains authorization decisions for all
 actions that the user Sam is allowed to perform. It will be similar to
 the following:
 
-``` java
+``` xml
 <Response>
-<Result>
-<Decision>Permit</Decision>
-<Status>
-<StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
-</Status>
-<Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
-<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
-<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">view-welcome</AttributeValue>
-</Attribute>
-</Attributes>
-</Result>
-<Result>
-<Decision>Deny</Decision>
-<Status>
-<StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
-</Status>
-<Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
-<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
-<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">modify-summary</AttributeValue>
-</Attribute>
-</Attributes>
-</Result>
-<Result>
-<Decision>Permit</Decision>
-<Status>
-<StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
-</Status>
-<Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
-<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
-<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">view-summary</AttributeValue>
-</Attribute>
-</Attributes>
-</Result>
-<Result>
-<Decision>Permit</Decision>
-<Status>
-<StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
-</Status>
-<Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
-<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
-<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">view-status</AttributeValue>
-</Attribute>
-</Attributes>
-</Result>
-<Result>
-<Decision>Deny</Decision>
-<Status>
-<StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
-</Status>
-<Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
-<Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
-<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">modify-welcome</AttributeValue>
-</Attribute>
-</Attributes>
-</Result>
+    <Result>
+        <Decision>Permit</Decision>
+        <Status>
+            <StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
+        </Status>
+        <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">view-welcome</AttributeValue>
+            </Attribute>
+        </Attributes>
+    </Result>
+    <Result>
+        <Decision>Deny</Decision>
+        <Status>
+            <StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
+        </Status>
+        <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">modify-summary</AttributeValue>
+            </Attribute>
+        </Attributes>
+    </Result>
+    <Result>
+        <Decision>Permit</Decision>
+        <Status>
+            <StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
+        </Status>
+        <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">view-summary</AttributeValue>
+            </Attribute>
+        </Attributes>
+    </Result>
+    <Result>
+        <Decision>Permit</Decision>
+        <Status>
+            <StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
+        </Status>
+        <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">view-status</AttributeValue>
+            </Attribute>
+        </Attributes>
+    </Result>
+    <Result>
+        <Decision>Deny</Decision>
+        <Status>
+            <StatusCode Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
+        </Status>
+        <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="true">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">modify-welcome</AttributeValue>
+            </Attribute>
+        </Attributes>
+    </Result>
 </Response>
 ```
 
