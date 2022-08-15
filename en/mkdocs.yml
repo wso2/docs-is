@@ -302,12 +302,12 @@ nav:
         - Overview: guides/my-account/my-account.md
         - Manage Own Profile: guides/my-account/manage-own-profile.md
         - Export User Profile: guides/my-account/export-my-user-profile.md
-        - Link Accounts: guides/my-account/link-own-accounts.md
+        - Link User Accounts: guides/my-account/link-own-accounts.md
         - Reset Password: guides/my-account/reset-own-password.md
         - Recover User Account: guides/my-account/recover-user-account.md
-        - Enable MFA: guides/my-account/enable-mfa-my-account.md
+        - Enroll MFA: guides/my-account/enable-mfa-my-account.md
         - Manage Active Sessions: guides/my-account/manage-active-sessions.md
-        - Manage consent: guides/my-account/manage-consent-my-account.md
+        - Manage Consent: guides/my-account/manage-consent-my-account.md
       - Analytics:
         - Overview: guides/elk-analytics/elk-analytics.md
         - Access the Analytics Dashboard: guides/elk-analytics/elk-accessing-the-analytics-dashboard.md
