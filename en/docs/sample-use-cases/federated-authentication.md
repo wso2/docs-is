@@ -12,7 +12,7 @@ their existing Google account credentials to sign in to **Pickup** applications.
 
 ## Prerequisites
 
-[Install WSO2 Identity Server]({{base_Path}}/sample-use-cases/set-up/) and start the server.
+[Install WSO2 Identity Server]({{base_path}}/sample-use-cases/set-up/) and start the server.
 
 ## Set up a Google OAuth 2.0 application
 
@@ -62,7 +62,7 @@ Follow these instructions to register an OAuth 2.0 application in Google.
 
 Let's run the sample applications **Pickup-Dispatch** and **Pickup-Manager**.
 
-1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-scenario/#set-up-the-sample-apps).
+1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-use-cases/sample-scenario/#set-up-the-sample-apps).
 
     !!! info
         A message appears to pick a scenario.
@@ -107,11 +107,11 @@ Let's access the **Pickup-Dispatch** application and proceed to sign in.
     !!! note
         Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. To learn more about GDPR and how WSO2 Identity Server handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
 
-Note that the **Pickup-Dispatch** application home screen appears.
+     Note that the **Pickup-Dispatch** application home screen appears.
 
-![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
+     ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
     
-You have just signed in to the **Pickup-Dispatch** application as an external consultant using your Google credentials.
+You have successfully signed in to the **Pickup-Dispatch** application as an external consultant using your Google credentials.
 
 ## What's next?
 
