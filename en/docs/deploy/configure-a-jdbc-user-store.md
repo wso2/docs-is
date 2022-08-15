@@ -1,6 +1,6 @@
 # Configure a JDBC Userstore
 
-WSO2 identity server uses embedded H2 database as the primary userstore.
+WSO2 identity server uses the embedded H2 database as the primary user store.
 This document will guide to you to change that to an external JDBC userstore.
 By default, the WSO2 Identity Server embedded H2 
 database contains userstore tables. When you configure an RDBMS (JDBC) userstore, you can
@@ -15,7 +15,7 @@ Management Related Tables]({{base_path}}/deploy/user-management-related-tables) 
 
 ##Configure the internal database as JDBC userstore. 
 
-You can use the default configuration in `<IS-HOME>/repository/conf/deployment.toml`.
+You can use the default configurations in the `<IS-HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store]

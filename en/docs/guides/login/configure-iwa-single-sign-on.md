@@ -31,7 +31,7 @@ Windows Authentication]({{base_path}}/references/concepts/authentication/integra
 1.  Download the WSO2 Identity Server from the [product
     page](http://wso2.com/products/identity-server).
 2.  Extract the ZIP file in the file system.
-3.  Configure WSO2 IS to use your Active Directory as the user store.
+3.  Configure WSO2 IS to use Active Directory as the user store.
     See [Configuring Primary User Stores]({{base_path}}/deploy/configure-the-primary-user-store) on how to configure a primary user
     store and then go to Active Directory user store configuration
     section to get Active Directory specific configurations.

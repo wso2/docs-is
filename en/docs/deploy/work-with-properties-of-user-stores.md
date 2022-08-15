@@ -20,7 +20,7 @@ to configure primary userstores.
 <tr class="even">
 <td><code>             Connection<br>URL            </code></td>
 <td><code>             connection<br>_url           </code></td>
-<td><p>This is the connection URL to the userstore server.</p></td>
+<td><p>This is the connection URL to the user store server.</p></td>
 </tr>
 <tr class="odd">
 <td><code>             Connection<br>Name            </code></td>
