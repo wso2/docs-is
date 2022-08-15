@@ -7,6 +7,8 @@ This topic guides you through configuring reCAPTCHA for the single sign on flow.
 
     For more information on brute force attacks, see [Mitigating Brute Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks/).
 
+You can either configure the reCAPTCHA for a tenant or configure it globally. 
+
 ## Prerequisites
 
 [Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha.md) with WSO2 Identity Server.
@@ -45,9 +47,33 @@ This topic guides you through configuring reCAPTCHA for the single sign on flow.
 
     ![captcha-login-failed]({{base_path}}/assets/img/guides/captcha-login-failed.png)
 
+## Configure self-registration with reCAPTCHA globally
+
+1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
+
+    !!! tip
+        To avoid any configuration issues, do this before starting
+        the WSO2 Identity Server product instance.
+
+    ```toml
+    [sso_login.recaptcha]
+    enabled=true
+    enable_always=false
+    max_attempts="3"
+    ```
+## Try it
+
+Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
+
+If the number of failed attempts reaches the maximum configured value, the reCAPTCHA logo appears at the bottom right of the screen. 
+
+![captcha-login-failed]({{base_path}}/assets/img/guides/captcha-login-failed.png)
+
+
 !!! Info
      If the user exceeds the maximum allowed failed login attempts as well, be sure to [configure email notifications for account locking]({{base_path}}/guides/tenants/email-account-locking).
     
+---
 
 !!! info "Related topics"
     - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)
