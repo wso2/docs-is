@@ -77,7 +77,7 @@ To try out the sample identity and access management scenarios on your WSO2 IS i
 
 Follow the steps given below.
 
-1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/download/v4.3.0/is-samples-distribution.zip) and unzip.
+1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/download/v4.5.0/is-samples-distribution.zip) and unzip.
 
     ``` java
     unzip is-samples-distribution.zip
