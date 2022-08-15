@@ -12,7 +12,7 @@ using WSO2 Identity Server.
 
 Before you begin, do the following:
 
-1.  [Install WSO2 Identity Server]({{base_Path}}/sample-use-cases/set-up/).
+1.  [Install WSO2 Identity Server]({{base_path}}/sample-use-cases/set-up/).
 2.  [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of WSO2 IS.
 3.  Restart the WSO2 IS.
 
@@ -20,7 +20,7 @@ Before you begin, do the following:
 
 First, let's set up and run the sample applications.
 
-1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-scenario/#set-up-the-sample-apps).
+1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-use-cases/sample-scenario/#set-up-the-sample-apps).
 
     !!! info
         A message appears to pick a scenario.
@@ -28,8 +28,6 @@ First, let's set up and run the sample applications.
     ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png)
 
 2.  Enter `5` as the scenario number at the command prompt.
-
-    ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png)
 
     A prompt appears to choose the user sign-up approach.
 
@@ -95,9 +93,9 @@ Let's access the **Pickup-Dispatch** application and self-register as a new user
 To try login with your new user account, follow the instructions given below as applicable.
 
 -   If you selected **Enable User Registration (without any
-    config)** during [sample setup](#Run the sample scenario), go back to the **Pickup-Dispatch** application and sign in using the new user credentials.
+    config)** during sample setup, go back to the **Pickup-Dispatch** application and sign in using the new user credentials.
 
--   If you selected **Account Lock on Creation** during [sample setup](#Run the sample scenario), access your email  account to view the account registration confirmation mail.
+-   If you selected **Account Lock on Creation** during sample setup, access your email  account to view the account registration confirmation mail.
 
     1.  Access your email and click **Confirm Registration** in the email or copy the link
         in the email to your browser and confirm the account creation.
@@ -109,9 +107,9 @@ To try login with your new user account, follow the instructions given below as 
 
         ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-sso-login-credentials.png)
 
-Note that the **Pickup-Dispatch** application home screen appears.
+        Note that the **Pickup-Dispatch** application home screen appears.
 
-![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
+        ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
 You have successfully self-signed up to the **Pickup-Dispatch** web application.
 
