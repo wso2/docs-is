@@ -15,11 +15,11 @@ Let's use the command-line to check the MFA functionality.
 
 Before you begin, do the following:
 
-1.  [Install WSO2 Identity Server]({{base_Path}}/sample-use-cases/set-up/).
+1.  [Install WSO2 Identity Server]({{base_path}}/sample-use-cases/set-up/).
 2.  Deploy the sample authenticator dependency and its web application in WSO2 Identity Server.
 
     1.  Stop the Identity Server if already running.
-    2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/sample-auth.war) file and copy it to the `<IS_HOME>/repository/deployment/server/webapps` folder.  
+    2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/sample-auth.war) file and copy it to the `<IS_HOME>/repository/deployment/server/webapps` folder.  
 
         !!! info
             This `.war` file contains the WEB UI for the sample authenticators used in this tutorial.
@@ -39,7 +39,7 @@ Before you begin, do the following:
 
 Let's run the sample applications **Pickup-Dispatch** and **Pickup-Manager**.
 
-1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-scenario/#set-up-the-sample-apps).
+1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-use-cases/sample-scenario/#set-up-the-sample-apps).
 
     !!! info
         A message appears to pick a scenario.
@@ -73,8 +73,7 @@ Let's access the **Pickup-Dispatch** application and proceed to sign in.
     ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-sso-login-credentials.png)
 
     !!! info
-        The HARDWARE KEY login page appears as HARDWARE KEY is the second
-    authentication factor.
+        The HARDWARE KEY login page appears as HARDWARE KEY is the second authentication factor.
 
 4.  Enter the DEMO key that appears in the browser and click **Sign In**.
 
@@ -92,9 +91,9 @@ Let's access the **Pickup-Dispatch** application and proceed to sign in.
         Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. To learn more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
 
-Note that the **Pickup-Dispatch** application home screen appears.
+     Note that the **Pickup-Dispatch** application home screen appears.
 
-![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
+     ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
 ## What's next?
 
