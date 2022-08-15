@@ -60,10 +60,9 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
     FIDO attestation validations allow you to further validate the FIDO2 authenticator data during the security key registration.
 
-    Learn more
+    [Learn more]({{base_path}}/guides/passwordless/fido-attestation/)
 
 -   **Federated IDP Initiated OIDC Back-Channel Logout**
-
 
     When it comes to the OIDC identity federation in Identity Server, WSO2 IS acts as a Relying Party (RP) to the federated identity provider. However, currently, there is no mechanism to terminate the sessions and revoke tokens in WSO2 IS (RP), whenever there is a session update on the federated IDP (OP) side. 
     
@@ -122,6 +121,7 @@ The following features are removed from WSO2 Identity Server 6.0.0.
 -   H2 Console
 -   Embedded LDAP user store
 -   Carbon metrics
+-   Yahoo authenticator
 
 ## Deprecated features
 
@@ -145,16 +145,16 @@ The following capabilities are deprecated in WSO2 Identity Server 6.0.0, which m
 
 ## Announcements
 
-The following features that are currently available out-of-the-box in WSO2 Identity Server will be changed to connectors in the next release. These connectors will be available on demand.
+The following features currently available out-of-the-box in WSO2 Identity Server will be made available as connectors in the next release. These connectors will be available on demand.
 -   Workflow engine 
--   User Managed Access (UMA)
+-   User managed access (UMA)
 
-The on-prem WSO2 Identity Server Analytics solution (based on WSO2 Streaming Processor) will be deprecated with the next immediate WSO2 Identity Server release. In WSO2 IS 6.0.0, we have introduced ELK-based analytics as the alternative.
+The on-prem WSO2 Identity Server Analytics solution (based on WSO2 Streaming Processor) will be deprecated with the next immediate WSO2 Identity Server release. In WSO2 IS 6.0.0, ELK-based analytics is introduced as the alternative analytics solution.
 
 ## Fixed issues
 
-For a complete list of open issues related to the WSO2 Identity Server runtime, see <WSO2 IS Runtime - Fixed Issues>.
-
+For a complete list of fixed issues related to this release, see [WSO2 IS Runtime - Fixed Issues](https://github.com/wso2/product-is/milestone/229?closed=1).
+	
 ## Known issues
 
 For a complete list of open issues related to the WSO2 Identity Server runtime, see [WSO2 IS Runtime - Open Issues](https://github.com/wso2/product-is/issues).
