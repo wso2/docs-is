@@ -47,7 +47,7 @@ You can either configure the reCAPTCHA for a tenant or configure it globally.
 
     ![captcha-login-failed]({{base_path}}/assets/img/guides/captcha-login-failed.png)
 
-## Configure self-registration with reCAPTCHA globally
+## Configure single sign-on with reCAPTCHA globally
 
 1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
 
