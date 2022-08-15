@@ -5,7 +5,7 @@ template: templates/single-column.html
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <div>
     <header>
-        <h1>Welcome to the WSO2 Identity Server Documentation!!</h1>
+        <h1>Welcome to the WSO2 Identity Server Documentation!</h1>
     </header>
     <div class="md-main .md-content" style="float:left; width: 45%;  text-align:justify; max-height:100%; ">
         <p>WSO2 Identity Server is an API-driven open source identity and access management (IAM) product designed to help you build effective customer IAM (CIAM) solutions. It is based on open standards such as SAML, OAuth, and OIDC with on-premise, cloud, and hybrid deployment options. It supports complex IAM requirements given its high extensibility.</p>
@@ -21,7 +21,7 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/authentication-overview/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
+                        <img src="assets/img/home/authentication.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">Authentication</p>
@@ -36,7 +36,7 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/identity-federation/identity-federation-overview/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">cloud_download</i>
+                        <img src="assets/img/home/identity-federation.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">Identity Federation</p>
@@ -50,7 +50,7 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/access-delegation/access-delegation/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
+                        <img src="assets/img/home/access-delegation.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">Access Delegation</p>
@@ -64,7 +64,7 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/consent-mgt/manage-user-consent/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
+                        <img src="assets/img/home/consent-management.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">Consent Management</p>
@@ -80,7 +80,7 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/identity-lifecycles/user-management/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
+                        <img src="assets/img/home/user-management.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">User Management</p>
@@ -94,7 +94,7 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/my-account/my-account/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
+                        <img src="assets/img/home/user-self-service.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">User Self-Service</p>
@@ -108,7 +108,7 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/elk-analytics/elk-analytics/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
+                        <img src="assets/img/home/analytics.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">Analytics</p>
@@ -122,11 +122,11 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/tenants/tenant-mgt/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
+                        <img src="assets/img/home/tenant-management.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">Tenant Management</p>
-                        <p class="hint">Configure multi-tenancy to optimise resource sharing among users</p>
+                        <p class="hint">Configure multi-tenancy to optimize resource sharing among users</p>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/dialects/dialects-overview/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">how_to_reg</i>
+                        <img src="assets/img/home/claim-management.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">Claim Management</p>
@@ -154,7 +154,7 @@ template: templates/single-column.html
                 <div class="card" onclick="location.href='guides/authorization/overview/';">
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="material-icons md-36">security</i>
+                        <img src="assets/img/home/access-control.svg">
                     </div>
                     <div class="card-content">
                         <p class="title">Access Control</p>
