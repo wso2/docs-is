@@ -15,7 +15,7 @@ Let's use the command-line to check the MFA functionality.
 
 Before you begin, do the following:
 
-1.  [Install WSO2 Identity Server]({{base_Path}}/sample-use-cases/set-up/).
+1.  [Install WSO2 Identity Server]({{base_path}}/sample-use-cases/set-up/).
 2.  Deploy the sample authenticator dependency and its web application in WSO2 Identity Server.
 
     1.  Stop the Identity Server if already running.
