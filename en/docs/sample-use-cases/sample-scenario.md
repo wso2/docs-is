@@ -43,21 +43,21 @@ Following are three users in the company:
 
 Listed below are the organizational requirements that are addressed by WSO2 Identity Server.
 
-- Employees need to remember multiple credentials when logging in to the many applications of **Pickup**. It is required to unify logins for employees with **Single sign-on** so that employees will only have to remember a single password.
+- Employees need to remember multiple credentials when logging in to the many applications of **Pickup**. It is required to unify logins for employees with **single sign-on** so that employees will only have to remember a single password.
 
-    Try out <a href="single-sign-on">Single sign-on</a>.
+    Try out [single sign-on]({{base_path}}/sample-use-cases/single-sign-on/).
 
-- Employee logins should be secured by making it difficult for unauthorized sources to access the applications. Therefore, it is required to apply an additional layer of security using **Multi-factor authentication**.
+- Employee logins should be secured by making it difficult for unauthorized sources to access the applications. Therefore, it is required to apply an additional layer of security using **multi-factor authentication**.
 
-    Try out <a href="multi-factor-authentication">Multi-factor authentication</a>.
+    Try out [multi-factor authentication]({{base_path}}/sample-use-cases/multi-factor-authentication/).
 
-- External consultants have to work on **Pickup** apps temporarily. It is a hassle to create and delete accounts for them in the database. Therefore, it is required to log them in with their accounts in an external identity provider using <a href="federated-authentication">**Federated authentication**</a>.
+- External consultants have to work on **Pickup** apps temporarily. It is a hassle to create and delete accounts for them in the database. Therefore, it is required to log them in with their accounts in an external identity provider using **federated authentication**.
 
-    Try out <a href="federated-authentication">Federated authentication</a>.
+    Try out [federated authentication]({{base_path}}/sample-use-cases/federated-authentication/).
 
-- With the expansion of **Pickup**, Rowan is having a hard time creating accounts for every employee joining the organization. Let new employees create their own accounts to speed up the process using <a href="self-sign-up">**Self sign-up**</a>.
+- With the expansion of **Pickup**, Rowan is having a hard time creating accounts for every employee joining the organization. Let new employees create their own accounts to speed up the process using the **self sign-up** capability.
 
-    Try out <a href="self-sign-up">Self sign-up</a>.
+    Try out [self sign-up]({{base_path}}/sample-use-cases/self-sign-up/).
 
 ## Set up the sample apps
 
