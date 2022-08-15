@@ -111,148 +111,163 @@ authenticator.
 
 ---
 
-## Writing a custom federated authenticator
+## Write the federated authenticator
 
-1. First, create a maven project for the custom federated authenticator. Refer the [pom.xml](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/pom.xml) 
-   file used for the sample custom federated authenticator.
-2. Refer the [service component class](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/internal/CustomFederatedAuthenticatorServiceComponent.java) 
-   as well since the authenticator is written as an OSGI service to deploy in WSO2 Identity Server and register 
-   it as a federated authenticator.
-3. The [custom federated authenticator](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java) 
-   should be written by extending the [AbstractApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/AbstractApplicationAuthenticator.java) class. 
-   and implementing the [FederatedApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/FederatedApplicationAuthenticator.java) class.
-4. You can find a custom federated authenticator [here](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator) for your reference.
+To write the federated authenticator:
 
-The important methods in the `AbstractApplicationAuthenticator` class, and the `FederatedApplicationAuthenticator` interface are listed as follows.
+1. Create a `maven` project for the custom federated authenticator. Refer the following files:
+    - The [pom.xml](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/pom.xml) file used for the sample custom federated authenticator.
+    - The [service component class](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/internal/CustomFederatedAuthenticatorServiceComponent.java) file to deploy in WSO2 Identity Server and register it as a federated authenticator.
 
-| Method                                       | Description                                                                                                                                                                                                                                                       |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
-|[public String getName()](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L73-L77)|Return the name of the authenticator.|                                                                                                          
-|[public String getFriendlyName()](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L67-L71)|Returns the display name for the custom federated authenticator. In this sample we are using custom-federated-authenticator.|
-|[public String getContextIdentifier(HttpServletRequest request)](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L215-L224)|Returns a unique identifier that will map the authentication request and the response. The value returned by the invocation of authentication request and the response should be the same.|
-|[public boolean canHandle(HttpServletRequest request)](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L60-L65)|Specifies whether this authenticator can handle the authentication response.|
-|[protected void initiateAuthenticationRequest(HttpServletRequest request,HttpServletResponse response, AuthenticationContext context)](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L138-L139)|Redirects the user to the login page in order to authenticate and in this sample, the user is redirected to the login page of the application which is configured in the partner identity server which acts as the external service.|
-|[protected void processAuthenticationResponse(HttpServletRequest request,HttpServletResponse response, AuthenticationContext context)](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L169-L171)|Implements the logic of the custom federated authenticator.|
+2. Write the [custom federated authenticator](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java) by extending the
+[AbstractApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/AbstractApplicationAuthenticator.java) class and implementing the
+[FederatedApplicationAuthenticator](https://github.com/wso2/carbon-identity-framework/blob/v5.18.187/components/authentication-framework/org.wso2.carbon.identity.application.authentication.framework/src/main/java/org/wso2/carbon/identity/application/authentication/framework/FederatedApplicationAuthenticator.java) class.
+
+!!! info
+    See the sample [custom federated authenticator](https://github.com/wso2/samples-is/tree/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator) for your reference.
+
+??? "Methods in `AbstractApplicationAuthenticator` class and `FederatedApplicationAuthenticator` interface"
+    | Method    | Description   |
+    |-----------|---------------|
+    |[**public String getName()**](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L73-L77)    | Return the name of the authenticator. |
+    |[**public String getFriendlyName()**](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L67-L71) | Returns the display name for the custom federated authenticator. In this sample, we are using a custom-federated-authenticator.    |
+    | [**public String getContextIdentifier(HttpServletRequest request**)](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L215-L224)   | Returns a unique identifier that will map the authentication request and the response. The value returned by the invocation of the authentication request and the response should be the same.    |
+    | [public boolean canHandle(HttpServletRequest request)](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L60-L65)|Specifies whether this authenticator can handle the authentication response.  |
+    | [protected void initiateAuthenticationRequest(HttpServletRequest request,HttpServletResponse response, AuthenticationContext context)](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L138-L139) | Redirects the user to the login page to authenticate and in this sample, the user is redirected to the login page of the application which is configured in the partner identity server which acts as the external service. |
+    | [protected void processAuthenticationResponse(HttpServletRequest request,HttpServletResponse response, AuthenticationContext context)](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.federated.authenticator/src/main/java/org/wso2/carbon/identity/custom/federated/authenticator/CustomFederatedAuthenticator.java#L169-L171) | Implements the logic of the custom federated authenticator.    |
 
 ---
 
-## Deploy the custom federated authenticator in WSO2 IS
+## Deploy the authenticator
 
-1. Once the implementation is done, navigate to the root of your project and run the following command to compile the service.
+To deploy the custom federated authenticator:
+
+1. Open a terminal, navigate to the root of your project, and compile the service by running the following command:
+
     ``` xml
     mvn clean install
     ```
-2. Navigate to the generated `<Custom-federated-authenticator>/target` folder.
-3. Copy the **org.wso2.carbon.identity.custom.federated.authenticator-1.0.0.jar** file to the `<IS_HOME>/repository/components/dropins` folder.
+
+2. Copy the generated `org.wso2.carbon.identity.custom.federated.authenticator-1.0.0.jar` file from `<Custom-federated-authenticator>/target` folder to the `<IS_HOME>/repository/components/dropins` folder.
 
 ---
 
 ## Configure the partner identity server
 
 In this guide, the partner identity server acts as the external system. 
-Therefore, it is required to run a second identity server instance as the partner identity server. 
-The partner identity server will be running on the same machine in a different port 
-by adding the following config to the `<PARTNER_IS_HOME>/repository/conf/deployment.toml` file.
+Therefore, it is required to run a second WSO2 Identity Server instance as the partner identity server.
 
-```
+### Set up partner IS
+Add the following config to the `<PARTNER_IS_HOME>/repository/conf/deployment.toml` file to be able to run the partner identity server  on the same machine in a different port.
+
+``` toml
 [server]
 offset=1
 ```
 
 After starting that partner identity server, it will run on [localhost:9444](https://localhost:9444/carbon).
 
+
 ### Register a service provider
 
-1. Access the management console (`https://<PARTNER_IS_HOST>:<PARTNER_IS_PORT>/carbon`) of the partner identity server.
+To register and configure the service provider on the partner IS:
 
-2. Navigate to **Main** > **Identity** > **Service Providers** > **Add**.
+1. On the management console (`https://<PARTNER_IS_HOST>:<PARTNER_IS_PORT>/carbon`) of the partner identity server, go to **Main** > **Identity** > **Service Providers** > **Add**.
 
-    <img src="{{base_path}}/assets/img/fragments/add-service-provider.png" width="300" alt="Service provider option in Main menu" />
-    
-3. Enter a **Service Provider Name**. Optionally, enter a **Description**.
+2. Enter `pickup-dispatch` as the **Service Provider Name** and click **Register**.
 
-    <img src="{{base_path}}/assets/img/fragments/register-service-provider.png" width="600" alt="Add new service provider basic information" />
-    
-4. Click **Register**.    
-   
-5. In the next view, expand **Inbound Authentication Configuration** > **OAuth/OpenID Connect Configuration** and click **Configure**.
+3. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and, click **Configure**.
 
-6. Enter the **Callback Url** as `https://localhost:9443/commonauth`. 
+4. Enter `https://localhost:9443/commonauth` as the **Callback Url**.
 
-7. Click **Add**. Note the **OAuth Client Key** and **OAuth Client Secret** that appear. 
+5. Click **Add**. Note that the `client key` and `client secret` are generated.
 
-    !!! tip
-        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced). 
+6. Click **Update** to save the configurations.
 
-### Create a user
+!!! info "Download and deploy the application"
+    On the partner identity server:
+    - Download the [OIDC pickup-dispatch sample](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-dispatch.war) application.
+    - [Deploy the sample pickup-dispatch]({{base_path}}/guides/login/webapp-oidc/#deploy-the-sample-web-app) application on the partner identity server.
 
-1. Access the management console (`https://<PARTNER_IS_HOST>:<PARTNER_IS_PORT>/carbon`) of the partner identity server.
+### Add a new user
 
-2. Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
+To add a new user:
+1. On the management console (`https://<PARTNER_IS_HOST>:<PARTNER_IS_PORT>/carbon`) of the partner identity server, go to **Users and Roles** > **Add**.
 
-3. Click **Add New User** and create a new user by providing a username and password.
+2. Click **Add New User**.
 
-4. Click **Finish**.
+3. Enter a **Username** and **Password** for the new user.
+
+4. Click **Finish** to add the new user.
 
 ---
 
-## Configure federated authenticator
+## Configure the Identity Server
 
-1. Access the management console (`https://<IS_HOST>:<IS_PORT>/carbon`) of the identity server.
+This section guides you on how to configure the identity server to use the custom federated authenticator.
 
-2. Navigate to **Main** > **Identity** > **Identity Providers** > **Add**.
+### Prerequisites
+- You need to [set up the sample]({{base_path}}/guides/login/webapp-oidc/) application.
+- You need to [register an Identity Provider]({{base_path}}/guides/identity-federation/add-idp/) named `Partner-Identity-Server`.
 
-    <img src="{{base_path}}/assets/img/fragments/add-identity-provider.png" width="300" alt="Add an identity provider option in Main menu" />
+### Configure federated authenticator
 
-3. Provide the **Identity Provider Name**  as `Partner-Identity-Server`.
+To configure the custom fedrated authenticator:
 
-    ![Partner idp config]({{base_path}}/assets/img/extend/partner-idp-config.png)
+1. On the management console, go to **Identity Providers > List**.
+2. Click on **Edit** corresponding to the `Partner-Identity-Server` identity provider.
+3. Expand **Federated Authenticators > Custom-federated-authenticator configurations**.
+4. Enter the following details
 
-4. Click **Federated Authenticators** and expand **Custom-federated-authenticator configurations**. 
-   Configure it as follows.
-
-    - Select the **Enable** and **Default** check boxes.
-    - **Client Id** - The Client Id value generated by the external service provider of the partner identity server.
-    - **Client Secret** - The Client Secret value generated by the external service provider of the partner identity server.
-    - **Callback URL** - `https://localhost:9443/commonauth` (this is the callback URL provided when creating the external service provider of the partner identity server)
-    - **Authorization Endpoint URL** - `https://localhost:9444/oauth2/authorize/`
-    - **Token Endpoint URL** - `https://localhost:9444/oauth2/token/`
+    | Field name    | Value |
+    |---------------|-------|
+    | **Enable**    | Selected  |
+    | **Default**   | Selected  |
+    | **Client Id** | The Client Id value generated by the external service provider of the partner identity server.    |
+    | **Client Secret** | The Client Secret value generated by the external service provider of the partner identity server.    |
+    | **Callback URL**  | `https://localhost:9443/commonauth`   |
+    | **Authorization Endpoint URL**    | `https://localhost:9444/oauth2/authorize/`    |
+    | **Token Endpoint URL**    | `https://localhost:9444/oauth2/token/`    |
 
     ![Federated Authenticator]({{base_path}}/assets/img/extend/federated-authenticator.png)
 
-5. Click **Register**.
+5. Click **Update** to save the configurations.
 
----
+### Configure the SP with the custom federated authenticator
 
-## Configure an application with the custom federated authenticator
+To configure the custom federated authenticator for the SP:
 
-{!./includes/register-a-service-provider.md!}
+1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
-{!./includes/oauth-app-config-basic.md!} 
+2. Click **Edit** on the `pickup-dispatch` service provider.
+
+3. Expand the **Local and Outbound Authentication Configuration** and select `Partner-Identity-Server` from the **Federated Authentication** list.
+    ![Partner identity provider]({{base_path}}/assets/img/extend/partner-identity-provider.png)
+
+4. Click **Update** to save the configurations.
 
     !!! tip
-        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced). 
+        To configure more advanced configurations, see [OAuth/OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced).
 
 
-5. Expand the **Local & Outbound Authentication Configuration** section. 
+5. Expand the **Local & Outbound Authentication Configuration** section.
 
 6. Select **Federated Authentication** and select the configured federated authenticator.
-
-   ![Partner identity provider]({{base_path}}/assets/img/extend/partner-identity-provider.png)
+    ![Partner identity provider]({{base_path}}/assets/img/extend/partner-identity-provider.png)
 
 7. Click **Update** to save the configurations.
 
 ---
 
-## Try out the scenario
+## Try it out
 
-1. Access application URL of the [service provider](#configure-an-application-with-the-custom-federated-authenticator) created in the identity server and attempt to log in.
-   
-2. This will redirect to the login page of the application which is configured in the partner identity server which acts as the external service. 
-   
-3. Enter the credentials of the [user](#create-a-user) created in the partner identity server. 
-   
-4. Now the user is authenticated by the partner Identity Server.
+1. Access the application URL of the service provider: `http://localhost:8080/pickup-dispatch/home.js`
+
+2. Click **Login** and enter the credentials of the the new user created in the partner identity server.
+
+3. Provide the required consent. You will be redirected to the Pickup Dispatch application home page.
+
+The user is successfully authenticated by the partner Identity Server.
 
 Similarly, you can write a federated authenticator to authenticate the users using an external system.
 
