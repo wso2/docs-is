@@ -1,4 +1,4 @@
-# Enable Multi-Factor Authentication
+# Enroll Multi-Factor Authentication
 
 MFA creates a layered defense and makes it more difficult for an unauthorized person to access a target such as a physical location, computing device, web service, network, or database. If one factor is compromised or broken, the attacker still has at least one more barrier to breach before successfully breaking into the target. WSO2 Identity Server allows configuring multi-step authentication where you can define an authentication chain containing different authenticators in different steps. For more information on MFA, see [Multi-factor Authentication]({{base_path}}/guides/mfa/configure-authentication-journey/).
 
