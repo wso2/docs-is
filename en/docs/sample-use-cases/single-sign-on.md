@@ -18,7 +18,7 @@ the need to maintain multiple credentials.
 
 ## Prerequisites
 
-[Install WSO2 Identity Server]({{base_Path}}/sample-use-cases/set-up/) and start the server.
+Follow the [quick setup]({{base_Path}}/sample-use-cases/set-up/) instructions to install and start the WSO2 Identity Server.
 
 ## Try SSO with SAML 2.0
 
@@ -29,7 +29,7 @@ protocol, follow the steps below.
 
 First, let's set up and run the sample applications.
 
-1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-scenario/#set-up-the-sample-apps).
+1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-use-cases/sample-scenario/#set-up-the-sample-apps).
 
     !!! info
         A message appears to pick a scenario.
@@ -38,8 +38,6 @@ First, let's set up and run the sample applications.
 
 
 2.  Enter `1` as the scenario number at the command prompt.
-          
-    ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png)
 
     !!! info
     
@@ -50,9 +48,9 @@ First, let's set up and run the sample applications.
         3.  Creates service providers for Pickup Dispatch and Pickup Manager.
         4.  Configures SAML2 web SSO for **Pickup-Dispatch** and **Pickup-Manager** applications.
         
-Note that a message with the user and web application details appears.
+    Note that a message with the user and web application details appears.
           
-![User and web application details]({{base_path}}/assets/img/get-started/qsg-sso-configure-saml-2.png)
+    ![User and web application details]({{base_path}}/assets/img/get-started/qsg-sso-configure-saml-2.png)
     
 ### Try it out
 
@@ -105,7 +103,7 @@ protocol:
 
 First, let's set up and run the sample applications.
 
-1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-scenario/#set-up-the-sample-apps).
+1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-use-cases/sample-scenario/#set-up-the-sample-apps).
 
     !!! info
         A message appears to pick a scenario.
@@ -156,8 +154,7 @@ Let's access both **Pickup-Dispatch** and **Pickup-Manager** applications and pr
     to a browser to access the **Pickup Manager** application. 
     
     !!! info
-        Notice that the **Pickup-Manager** application opens without having to enter the
-    user credentials.  
+        Notice that the **Pickup-Manager** application opens without having to enter the user credentials.  
       
     ![Pickup Manager home screen]({{base_path}}/assets/img/get-started/qsg-sso-manager-home.png)
      
