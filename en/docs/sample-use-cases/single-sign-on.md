@@ -18,7 +18,7 @@ the need to maintain multiple credentials.
 
 ## Prerequisites
 
-Follow the [quick setup]({{base_Path}}/sample-use-cases/set-up/) instructions to install and start the WSO2 Identity Server.
+Follow the [quick setup]({{base_path}}/sample-use-cases/set-up/) instructions to install and start the WSO2 Identity Server.
 
 ## Try SSO with SAML 2.0
 
