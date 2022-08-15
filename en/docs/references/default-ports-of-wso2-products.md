@@ -40,20 +40,6 @@ servlet transport ports:
 
 ---
 
-## LDAP server ports
-
-Provided by default in the WSO2 Carbon platform.
-
--   10389 - Used in WSO2 products that provide an embedded LDAP server
-
----
-
-## KDC ports
-
--   8000 - Used to expose the Kerberos key distribution center server
-
----
-
 ## JMX monitoring ports
 
 WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance

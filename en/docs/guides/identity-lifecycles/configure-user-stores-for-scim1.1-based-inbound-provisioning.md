@@ -12,8 +12,8 @@ Some of these values are as follows.
 - `urn:scim:schemas:core:1.0:meta.lastModified`
 - `urn:scim:schemas:core:1.0:id`
 
-Unless your user store is a JDBC user store or the embedded LDAP (that
-comes with IS), you need to map how these values are stored in your user
+Unless your user store is a JDBC user store
+, you need to map how these values are stored in your user
 store. This mapping can be done using the claim mapping setup in the
 Identity Server. This mapping can be done in the claim mapping setup in
 the Identity Server. You can find Active directory specific claim
