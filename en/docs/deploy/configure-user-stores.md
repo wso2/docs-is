@@ -21,7 +21,7 @@ This is the main user store that is shared among all the
 in the system. Only one userstore should be configured as the primary
 userstore and it is configured in the
 `         <IS_HOME>/repository/conf/deployment.toml       ` file. By default,
-WSO2 identity server uses an embedded Read/Write LDAP as the primary userstore.
+WSO2 Identity Server uses the embedded H2 database as the primary user store.
 It is recommended to change this default configuration in the production
 system.
 
