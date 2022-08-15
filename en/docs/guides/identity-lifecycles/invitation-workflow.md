@@ -6,37 +6,35 @@ passwords or verify the accounts created by administrators.
 
 ----
 
-## Prerequisites
+## Set up notifications
 
-If you have migrated from a previous IS version, ensure that
+-   [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
+
+    !!! tip 
+        The email template used to send this email notification is
+        the **AskPassword** template.
+
+        You can edit and customize the email template. For more information
+        on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
+
+-   If you have migrated from a previous IS version, ensure that
 the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
 **false** and that the Identity Listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
     
-!!! Note 
-    If there are no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
+    !!! Note 
+        If there are no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
     
-``` toml
-[event.default_listener.identity_mgt]
-priority= "50"
-enable = false
-[event.default_listener.governance_identity_mgt]
-priority= "95"
-enable = true
-[event.default_listener.governance_identity_store]
-priority= "97"
-enable = true
-```
-
-## Configure the email sender
-
-[Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
-
-!!! tip 
-    The email template used to send this email notification is
-    the **AskPassword** template.
-
-    You can edit and customize the email template. For more information
-    on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
+    ``` toml
+    [event.default_listener.identity_mgt]
+    priority= "50"
+    enable = false
+    [event.default_listener.governance_identity_mgt]
+    priority= "95"
+    enable = true
+    [event.default_listener.governance_identity_store]
+    priority= "97"
+    enable = true
+    ```
 
 ## Enable the invitation flow
 
@@ -131,7 +129,7 @@ true in the SCIM2 user create request.
         curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Peter"},"userName":"Peter","password":"password","emails":[{"primary":true,"value":"peter@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}'}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
         ```
 
-## Send invitation
+## Try it out
 
 Follow the steps below to test the account creation using the password option.
 

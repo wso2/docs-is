@@ -168,7 +168,9 @@ nav:
             - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
             - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
             - ACR-Based: guides/adaptive-auth/acr-based-adaptive-auth.md
-            - Risk-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
+            - Risk-Based Scenarios: 
+              - Elk analytics-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
+              - TypingDNA-Based: guides/adaptive-auth/typingdna-based-adaptive-auth.md
             - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
             - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
           
@@ -242,9 +244,10 @@ nav:
           - Role-Based Permissions: guides/identity-lifecycles/role-based-permissions.md
         - Manage Accounts:
           - Overview: guides/identity-lifecycles/account-states-overview.md
-          - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
-          - Lock/Unlock Accounts per User: guides/tenants/account-locking-per-user.md
-          - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
+          - Admin-initiated Account Locking: guides/identity-lifecycles/lock-account.md
+          - Lock Accounts by Failed Login Attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
+          - Lock Accounts by Failed OTP Attempts: guides/identity-lifecycles/lock-accounts-by-failed-otp-attempts.md
+          - Lock Accounts per User: guides/tenants/account-locking-per-user.md
           - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
           - Disable Accounts: guides/identity-lifecycles/enable-account.md
@@ -482,11 +485,9 @@ nav:
       - Migrate:
         - Migration Process: deploy/migrate/migration-process.md
         - What has Changed: deploy/migrate/what-has-changed.md
-        - Migration Guide:
-          - Before you Begin: deploy/migrate/migration-guide.md
-          - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-          - Migrate to 6.0.0: deploy/migrate/migrate-to-600.md
-          - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
+        - Prepare for Migration: deploy/migrate/prepare-for-migration.md
+        - Migrate to WSO2 IS 6.0.0: deploy/migrate/migrate-to-600.md
+        #- Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
 
   - APIs:

@@ -4,37 +4,35 @@ This page guides you through setting up self-registration for users to onboard t
 
 Follow the steps given below to register users for the super tenant, which is `         carbon.super        `.
 
-## Prerequisites
+## Set up notifications
 
-If you have migrated from a previous IS version, ensure that
+-   If you have migrated from a previous IS version, ensure that
 the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
 **false** and that the Identity Listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
     
-!!! Note 
-    If there are no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
-    
-``` toml
-[event.default_listener.identity_mgt]
-priority= "50"
-enable = false
-[event.default_listener.governance_identity_mgt]
-priority= "95"
-enable = true
-[event.default_listener.governance_identity_store]
-priority= "97"
-enable = true
-```
+    !!! Note 
+        If there are no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
+        
+    ``` toml
+    [event.default_listener.identity_mgt]
+    priority= "50"
+    enable = false
+    [event.default_listener.governance_identity_mgt]
+    priority= "95"
+    enable = true
+    [event.default_listener.governance_identity_store]
+    priority= "97"
+    enable = true
+    ```
 
-## Configure the email sender
+-   [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
 
-[Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
+    !!! tip
+        Typically, the **AccountConfirmation** template is used to send email notifications.
 
-!!! tip
-    Typically, the **AccountConfirmation** template is used to send email notifications.
-
-    You can edit and customize the email template. For more information
-    on how to do this, see [Customizing Automated
-    Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
+        You can edit and customize the email template. For more information
+        on how to do this, see [Customizing Automated
+        Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
 
 ## Enable self-registration
 
@@ -162,7 +160,7 @@ attributes for which you require user consent.
 
 Next, you can try out self-registration.
 
-## Try out self-registration
+## Try it out
 
 ### Use the My Account portal
 
