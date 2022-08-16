@@ -16,7 +16,7 @@ which, the accounts will be suspended.
     
 --- 
 
-## Set up account suspension notifications
+## Set up notifications
 
 The notification module is a scheduled task that runs daily. It fetches
 users from the userstore that are idle and eligible to receive a
@@ -76,22 +76,9 @@ task that checks for idle accounts is common to all tenants.
     notification_receivers_retrieval_class = "org.wso2.carbon.identity.account.suspension.notification.task.jdbc.JDBCNotificationReceiversRetrieval"
     ```
 
-4.  Optionally, you can configure the following email properties to
-    receive email notifications in `<IS_HOME>/repository/conf/deployment.toml`
-
-    ``` toml
-    [output_adapter]
-    email.from_address = "abcd@gmail.com"
-    email.username = "abcd"
-    email.password = "xxxx"
-    email.hostname = "smtp.gmail.com"
-    email.port = 587
-    email.enable_start_tls = true
-    email.enable_authentication = true
-    ```
+4.  [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
 
     !!! tip
-    
         You can customize the emails that are sent to the user by editing
         the pre-configured email templates.
     
@@ -101,11 +88,9 @@ task that checks for idle accounts is common to all tenants.
             locked is the **AccountLock** template.
     
         For more information on how to edit and customize the email templates, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
-    
-
 ----
 
-## Configure account suspension settings
+## Enable account suspension
 
 1.  Start the WSO2 IS and log into the management console (`https://<IS_HOST>:<PORT>/carbon`) using your
     tenant credentials.

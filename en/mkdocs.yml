@@ -49,13 +49,13 @@ nav:
   - Home: index.md
   - Get Started:
       - Introduction: get-started/quick-start-guide.md
-      - Quick setup: sample-use-cases/set-up.md
-      - Try a use case:
-          - Sample scenario: sample-use-cases/index.md
+      - Quick Setup: sample-use-cases/set-up.md
+      - Try a Use Case:
+          - Sample Scenario: sample-use-cases/sample-scenario.md
           - Single Sign-On: sample-use-cases/single-sign-on.md
-          - Multi-factor authentication: sample-use-cases/multi-factor-authentication.md
-          - Federated authentication: sample-use-cases/federated-authentication.md
-          - Self sign-up: sample-use-cases/self-sign-up.md
+          - Multi-Factor Authentication: sample-use-cases/multi-factor-authentication.md
+          - Federated Authentication: sample-use-cases/federated-authentication.md
+          - Self Sign-Up: sample-use-cases/self-sign-up.md
   - Guides:
       - Overview: guides/before-you-start.md
       - Authentication:
@@ -140,7 +140,9 @@ nav:
           - OAuth Request Path Authentication: guides/request-path-auth/oauth-request-path.md
         - Passwordless Authentication:
           - Overview: guides/passwordless/overview.md
-          - FIDO: guides/passwordless/fido.md
+          - FIDO:
+            - FIDO Passwordless Authentication: guides/passwordless/fido.md
+            - FIDO Attestation: guides/passwordless/fido-attestation.md
           - Magic Link: guides/passwordless/magic-link.md
         - Multi-Factor Authentication:
           - Overview: guides/mfa/mfa-overview.md
@@ -167,7 +169,9 @@ nav:
             - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
             - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
             - ACR-Based: guides/adaptive-auth/acr-based-adaptive-auth.md
-            - Risk-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
+            - Risk-Based Scenarios: 
+              - Elk analytics-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
+              - TypingDNA-Based: guides/adaptive-auth/typingdna-based-adaptive-auth.md
             - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
             - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
           
@@ -189,7 +193,6 @@ nav:
           - Log in with Facebook: guides/identity-federation/facebook.md
           - Log in with Google: guides/identity-federation/google.md
           - Log in with Twitter: guides/identity-federation/twitter.md
-          - Log in with Yahoo: guides/identity-federation/yahoo.md
           - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
       - Access Delegation:
@@ -241,9 +244,10 @@ nav:
           - Role-Based Permissions: guides/identity-lifecycles/role-based-permissions.md
         - Manage Accounts:
           - Overview: guides/identity-lifecycles/account-states-overview.md
-          - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
-          - Lock/Unlock Accounts per User: guides/tenants/account-locking-per-user.md
-          - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
+          - Admin-initiated Account Locking: guides/identity-lifecycles/lock-account.md
+          - Lock Accounts by Failed Login Attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
+          - Lock Accounts by Failed OTP Attempts: guides/identity-lifecycles/lock-accounts-by-failed-otp-attempts.md
+          - Lock Accounts per User: guides/tenants/account-locking-per-user.md
           - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
           - Disable Accounts: guides/identity-lifecycles/enable-account.md
@@ -297,12 +301,12 @@ nav:
         - Overview: guides/my-account/my-account.md
         - Manage Own Profile: guides/my-account/manage-own-profile.md
         - Export User Profile: guides/my-account/export-my-user-profile.md
-        - Link Accounts: guides/my-account/link-own-accounts.md
+        - Link User Accounts: guides/my-account/link-own-accounts.md
         - Reset Password: guides/my-account/reset-own-password.md
         - Recover User Account: guides/my-account/recover-user-account.md
-        - Enable MFA: guides/my-account/enable-mfa-my-account.md
+        - Enroll MFA: guides/my-account/enable-mfa-my-account.md
         - Manage Active Sessions: guides/my-account/manage-active-sessions.md
-        - Manage consent: guides/my-account/manage-consent-my-account.md
+        - Manage Consent: guides/my-account/manage-consent-my-account.md
       - Analytics:
         - Overview: guides/elk-analytics/elk-analytics.md
         - Access the Analytics Dashboard: guides/elk-analytics/elk-accessing-the-analytics-dashboard.md
@@ -372,6 +376,7 @@ nav:
             - Work with Properties of User stores: deploy/work-with-properties-of-user-stores.md
             - Write a Custom User store Manager: deploy/write-a-custom-user-store-manager.md
             - Secure a JDBC user store with PBKDF2 hashing: deploy/secure-userstore-using-pbkdf2.md
+
         - Data Stores:
           - Databases:
             - Overview: deploy/work-with-databases.md
@@ -481,11 +486,9 @@ nav:
       - Migrate:
         - Migration Process: deploy/migrate/migration-process.md
         - What has Changed: deploy/migrate/what-has-changed.md
-        - Migration Guide:
-          - Before you Begin: deploy/migrate/migration-guide.md
-          - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-          - Migrate to 6.0.0: deploy/migrate/migrate-to-600.md
-          - Migrate User store Managers: deploy/migrate/migrate-userstore-managers.md
+        - Prepare for Migration: deploy/migrate/prepare-for-migration.md
+        - Migrate to WSO2 IS 6.0.0: deploy/migrate/migrate-to-600.md
+        #- Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
 
   - APIs:
@@ -540,8 +543,8 @@ nav:
           
   - SDKs:
       - Overview: sdks/sdk-overview.md
-      - Integrate a react app: sdks/start-integrating-apps/integrate-a-react-app.md
-      - Integrate an angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
+      - Integrate a React app: sdks/start-integrating-apps/integrate-a-react-app.md
+      - Integrate an Angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
       - Integrate a JS app: sdks/start-integrating-apps/integrate-a-js-app.md
       - Integrate your Spring Boot app: sdks/spring-boot.md
       
@@ -626,11 +629,11 @@ nav:
             - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md      
       - User Management:
         #- Write a Custom Password Validator: references/extend/user-mgt/write-a-custom-password-validator.md
-        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-custom-global-scope-validator.md
         - Write a Custom Claim Handler: references/extend/user-mgt/write-a-custom-claim-handler.md
         - Write a Custom Event Handler: references/extend/user-mgt/write-a-custom-event-handler.md
         - User store Listeners: references/extend/user-mgt/user-store-listeners.md
         - Write a Post-Authentication Handler: references/extend/user-mgt/write-a-post-authentication-handler.md
+        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-global-scope-validator.md
         - User Management Errors Event Listener: references/extend/user-mgt/user-management-errors-event-listener.md
         - User provisioning:
           - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
@@ -643,10 +646,13 @@ nav:
       #- Workflow Management for Developers:
         #- Extend the Workflow Event Handler: references/extend/workflows/extend-the-workflow-event-handler.md
         #- Write a Custom Workflow Template: references/extend/workflows/write-a-custom-workflow-template.md
+      - User Stores:
+        - Write a Custom User Store Manager: references/extend/write-a-custom-user-store-manager.md
       - User interfaces (Rebrand):
         - Re-brand WSO2 Identity Server UIs: references/extend/rebranding/rebrand-identity-server-uis.md
         - Re-brand the Default Login Page: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
         - Re-brand the SSO Redirection Page: references/extend/rebranding/rebrand-the-sso-redirection-page.md
+        #- Customize Login page: references/extend/rebranding/customizable-login-portal.md
       - Errors:
         - Error messages: references/extend/errors/customize-authentication-error-messages.md
         - Error Pages: references/extend/errors/customize-error-pages.md

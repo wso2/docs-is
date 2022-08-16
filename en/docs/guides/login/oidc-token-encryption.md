@@ -110,84 +110,36 @@ The following steps describe how to configure a service provider public certific
 
 ## Try it
 
-This section guides you through obtaining an encrypted ID token and decrypting it using a simple java program. Alternatively, you can use the WSO2 IS playground sample application to decrypt the token. For instructions, see [Decrypt the ID token]({{base_path}}/guides/login/oidc-token-decryption).
+This section guides you through obtaining an encrypted ID token and decrypting it using the WSO2 IS playground sample application. Alternatively, you can use a simple java program to decrypt the token. For instructions, see [Decrypt the ID token]({{base_path}}/guides/login/oidc-token-decryption).
 
-1. See [OAuth Grant Types]({{base_path}}/access-delegation/authorization-code) and try out one of the grant types with the `openid` scope to obtain an access token.
+1. See [OAuth Grant Types]({{base_path}}/guides/access-delegation/authorization-code) and try out one of the grant types with the `openid` scope to obtain an access token.
 
 2. You will recieve an access token and an encrypted ID token. 
 
 3. To decrypt the ID token, provide the private key of the client. 
 
-    1.  Import JKS into a PKCS12 formatted store.
+    1. Import JKS into a PKCS12 formatted store.
 
         ``` java
         keytool -importkeystore -srckeystore testkeystore.jks -destkeystore testkeystore.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass wso2carbon -deststorepass wso2carbon -srcalias wso2carbon -destalias wso2carbon -srckeypass wso2carbon -destkeypass wso2carbon
         ```
 
-    2.  Extract the private key into a file named `key.pem`.
+    2. Extract the private key into a file named `key.pem`.
 
         ``` java
         openssl pkcs12 -in testkeystore.p12 -out key.pem -passin pass:wso2carbon -passout pass:wso2carbon -nodes -nocerts
         ```
 
-    3.  Open the created `key.pem` file using a text editor and you will see the extracted private key.
+    3. Open the created `key.pem` file using a text editor and you will see the extracted private key.
 
-    4.  Copy only the key string as shown in the sample below.
+    4. Copy only the key string as shown in the sample below.
 
         ![sample-key-string]({{base_path}}/assets/img/guides/sample-key-string.png)
+   
+    5. Paste the copied private key in the Client Private Key text area.
+   
+    6. Click **Decrypt** and the details of the decrypted ID Token will be displayed.
 
-4. The following sample JAVA program can be used to decrypt the ID token using the default `wso2carbon.jks` keystore. 
-
-    ```java
-    package org.wso2.sample;
- 
-    import com.nimbusds.jose.crypto.RSADecrypter;
-    import com.nimbusds.jwt.EncryptedJWT;
-    
-    import java.io.InputStream;
-    import java.security.KeyStore;
-    import java.security.interfaces.RSAPrivateKey;
-    
-    public class DecryptIDToken {
-        public static void main(String[] args) throws Exception {
-    
-            // Get keystore as a resource.
-            InputStream file = ClassLoader.getSystemResourceAsStream("wso2carbon.jks");
-            KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
-            keystore.load(file, "wso2carbon".toCharArray());
-    
-            String alias = "wso2carbon";
-    
-            // Get the private key. Password for the key store is 'wso2carbon'.
-            RSAPrivateKey privateKey = (RSAPrivateKey) keystore.getKey(alias, "wso2carbon".toCharArray());
-    
-            // Enter encrypted JWT String here.
-            String encryptedJWTString = "eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZp" +
-                    "TVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJlbmMiOiJ" +
-                    "BMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.Zwp2xDvYER9lAo43QrYrcaKz-tPLFPYZb2s4RontDDVyvdo-seYl6II2C1Wb4cQhXd" +
-                    "ipcB_Qj093xvLrJyZXWxeavqYhryeuHi2jgcs59MfV1U9hMaKqqjVN1pcZYSrxDzn5leBF5bw7_YKaD_R6cFY8VtpVv5j_U8Woh" +
-                    "tyIjM7_n2CsZ55vY8MUHCAYxzXK9_s75e6Ug8L4MEqpgeoJGQzYCxFrBFgGyDMv1jadLwNl4Y3yLhv4RLtQMU5AM6nODI601UfY" +
-                    "drapObF3mpl_74H_YdRqT28LepGMtkEXbjeRgB-FiFGLvYlrK4wygczLBKrcviVyzyhrIrqz3TYV3g.Lf5lECzAdyAGgP8t.SHB" +
-                    "UZoWkqwW_7u0GElrUqX1tewqRaUMWdGPHxpLRPmpVuc7FwQ27-kdsQ6O1_twhZ7uzjzZaEkatNhMxy9k10733-r4GT1lTGVqidK" +
-                    "iBZq3mRQu7qJpcz7JWUroNFRLxhSoqpLpC8_tAhkohzG-mE42xdEh4tNDy3pBtAG0fe42WrLtWTuyg5lpmOYSppOc2Gb6LcDr4M" +
-                    "mxFNPgoatF0edJSgO-CpFJQTcXn-22lU2g7o22x3RcBx9_KZH0At3g9y9uTuBncExOoBRK_ZweKOl0q76TaLiv5faXINW15xz9h" +
-                    "ILA.RGYIL7FaQqAIMPAiQdkOig";
-    
-            EncryptedJWT jwt = EncryptedJWT.parse(encryptedJWTString);
-    
-            // Create a decrypter with the specified private RSA key.
-            RSADecrypter decrypter = new RSADecrypter(privateKey);
-    
-            jwt.decrypt(decrypter);
-    
-            // Printing decrypted id token header.
-            System.out.println("ID token header: " + jwt.getHeader().toJSONObject());
-    
-            // Printing decrypted id token header.
-            System.out.println("ID token claims: " + jwt.getJWTClaimsSet().toJSONObject());
-        }
-    }
-    ```
     
 
 !!! info "Related topics"
