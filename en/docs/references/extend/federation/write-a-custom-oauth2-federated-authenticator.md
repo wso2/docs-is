@@ -62,13 +62,12 @@ To configure the OAuth2 custom authenticator:
 
 ## Configure an application with the custom federated authenticator
 
-1. Start the server and log in to the WSO2 IS Management Console.
-2. Navigate to `Main > Identity > Service Providers > Add`.
-3. Add a Service Provider name and optionally, add a description.
-4. Click `Register`. (Let’s use the playground app and refer this to configure the playground app.
-5. List the Service Providers and edit the service provider as follows by navigating to the `OAuth/OpenID Configuration` section under `Inbound Authentication Configuration` as explained above.
-6. Click Configure and add `http://localhost:8080/playground2/oauth2client` as the call back URL. Click Update.
-7. Navigate to `Local & Outbound Authentication Configuration` and you can find the Authentication Type. Select `Federated Authentication` and select the configured authenticator and update to save the changed configurations.
+1. On the WSO2 IS Management Console, go to **Main > Identity > Service Providers > Add**.
+2. Enter a Service Provider name and click **Register** to add the new service provider.
+3. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure** 
+4. Enter `http://localhost:8080/playground2/oauth2client` as the **Callback URI**, and click **Update**.
+5. Expand to **Local & Outbound Authentication Configuration** and select the configured authenticator from the **Federated Authentication** list.
+6. Click **Update** to save the configurations.
 
 ---
 
