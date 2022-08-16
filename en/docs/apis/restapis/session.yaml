@@ -220,7 +220,7 @@ paths:
           type: string
       responses:
         200:
-          description: Successfully retrieved session information. idpName will only be returned for federated authentication sessions.
+          description: Successfully retrieved session information. The idpName will only be returned for federated authentication sessions.
           content:
             application/json:
               schema:
