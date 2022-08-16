@@ -64,7 +64,7 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 -   **Federated IDP Initiated OIDC Back-Channel Logout**
 
-    When it comes to the OIDC identity federation in Identity Server, WSO2 IS acts as a Relying Party (RP) to the federated identity provider. However, currently, there is no mechanism to terminate the sessions and revoke tokens in WSO2 IS (RP), whenever there is a session update on the federated IDP (OP) side. 
+    When it comes to OIDC identity federation in identity server, WSO2 IS acts as a Relying Party (RP) to the federated identity provider. However, currently, there is no mechanism to terminate the sessions and revoke tokens in WSO2 IS (RP) whenever there is a session update on the federated IDP (OP) side. 
     
     The OIDC Back Channel Logout v1.0 spec defines a mechanism for communicating logout requests to all RPs that have established sessions with an OP. This mechanism relies upon direct communication of such requests between OP and RPs bypassing the User-Agent. It imposes new requirements that RPs have a logout endpoint that is reachable by the OP. This feature will enable that capability in WSO2 Identity Server.
 
