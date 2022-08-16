@@ -252,7 +252,8 @@ nav:
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
           - Disable Accounts: guides/identity-lifecycles/enable-account.md
           - Pending Account Status: guides/identity-lifecycles/pending-account-status.md
-          - Configure Account Recovery: guides/identity-lifecycles/recover-username.md
+          - Account Recovery: guides/identity-lifecycles/recover-username.md
+          - Configure reCAPTCHA for Account Recovery: guides/identity-lifecycles/recaptcha-username-recovery.md
           - Resend Account Recovery Mail: guides/identity-lifecycles/resend-account-recovery-mail.md
           - Configure Emails with Special Characters: guides/tenants/add-email-special-characters.md
           - Send Notifications per User Operation: guides/tenants/user-operation-notifications.md
@@ -410,6 +411,7 @@ nav:
           - Customize Email Templates: guides/tenants/customize-automated-mails.md
         - Tenant Loading Policy: guides/tenants/configure-the-tenant-loading-policy.md
         - CORS : deploy/configure-cors.md
+        - reCAPTCHA: deploy/configure-recaptcha.md
       - Secure:
         - Mitigate Attacks:
           - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
