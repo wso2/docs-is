@@ -34,7 +34,7 @@ the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
         on how to do this, see [Customizing Automated
         Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
 
-## Enable self-registration
+## Enable self-registration for a specific tenant
 
 1.  Log in to the Management Console (`https://<IS_HOST>:<IS_PORT>/carbon`)  
     **NOTE:** If your IS is already running, make sure to stop and start to apply configurations. 
@@ -75,22 +75,13 @@ the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
     </tr>
     <tr class="even">
     <td>Prompt reCaptcha</td>
-    <td>Select to enable reCaptcha for self-registration. See <a href="{{base_path}}/guides/password-mgt/recaptcha-challenge-question-attempts/">Configuring Google reCaptcha for Security-Question Based Password Recovery</a> for more information.</td>
+    <td>Select to enable reCaptcha for self-registration. See <a href="{{base_path}}/deploy/configure-recaptcha">Setting Up reCAPTCHA</a> for more information.</td>
     </tr>
     <tr class="odd">
     <td>User self registration verification link expiry time</td>
     <td><div class="content-wrapper">
     <p>Number of minutes that the confirmation link would be valid. The confirmation link will expire 
     after the specified time has elapsed.</p>
-    <div class="admonition note">
-    <p class="admonition-title">Note</p>
-    <p>Alternatively, you can configure the expiry time from the <code>deployment.toml</code>  file.</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">[identity_mgt.user_self_registration]</a>
-    <a class="sourceLine" id="cb1-2" title="2">allow_self_registration= true </a>
-    <a class="sourceLine" id="cb1-3" title="3">expiry_time="1440"</a></code></pre></div> 
-    </div>
     </div></div> 
     </div></td>
     </tr>
@@ -106,16 +97,107 @@ of WSO2 Identity Server.
     [Self-Registration Using REST APIs]({{base_path}}/apis/use-the-self-sign-up-rest-apis).
     
 
+## Enable self-registration globally
+
+1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
+
+    !!! tip
+        To avoid any configuration issues, do this before starting
+        the WSO2 Identity Server product instance.
+    
+
+    ```toml
+    [identity_mgt.user_self_registration]
+    allow_self_registration=true
+    lock_on_creation=true
+    enable_recaptcha=true
+    verification_email_validity="1440"
+    callback_url="[${carbon.protocol}://${carbon.host}:${carbon.management.port}].*[/authenticationendpoint/login.do]*"
+    enable_resend_confirmation_recaptcha=true
+
+    [identity_mgt.user_self_registration.notification]
+    manage_internally=true    
+    ```
+    
+    The following table lists out more information pertaining to these configurations.
+
+    <table>
+    <colgroup>
+    <col style="width: 50%" />
+    <col style="width: 50%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th>Configuration</th>
+    <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><pre><code>allow_self_registration</code></pre></td>
+    <td>Set this to <code>               true              </code> to enable this configuration at a global level.</td>
+    </tr>
+    <tr class="even">
+    <td><pre><code>lock_on_creation</code></pre></td>
+    <td>Setting this to true ensures that the user's account is locked on creation.</td>
+    </tr>
+    <tr class="odd">
+    <td><pre><code>manage_internally</code></pre></td>
+    <td>Setting this value to <code>               true              </code> ensures the internal email sending module is enabled. However, setting this to <code>               false              </code> ensures that the email sending data is available to the application via a web service. The application can send the email using its own email sender.</td>
+    </tr>
+    <tr class="even">
+    <td><pre><code>enable_recaptcha</code></pre></td>
+    <td>Set this to <code> true </code> to enable reCAPTCHA for self-registration globally. See <a href="{{base_path}}/deploy/configure-recaptcha">Setting Up reCAPTCHA</a> for more information.</td>
+    </tr>
+    <tr class="odd">
+    <td><pre><code>verification_email_validity</code></pre></td>
+    <td>The validity period of the email in minutes.
+    </tr>
+    <tr class="even">
+    <td><pre><code>callback_url</code></pre></td>
+    <td>RegEx pattern to validate the callback URL sent in the email.</td>
+    </tr>
+    <tr class="odd">
+    <td><pre><code>enable_resend_confirmation_recaptcha</code></pre></td>
+    <td>Set this to <code> true </code> to enable reCAPTCHA for resending confirmation email.
+    </tr>
+    </tbody>
+    </table>
+
+2.  Some listeners must be enabled in order for this to work when the
+    operations are invoked.
+
+    !!! tip
+        These are usually set by default in the product unless you
+        have made any changes.
+    
+
+    ```toml
+    [event.default_listener.identity_mgt]
+    priority="50"
+    enable=false
+
+    [event.default_listener.governance_identity_store]
+    priority="97"
+    enable=true
+
+    [event.default_listener.scim]
+    priority="90"
+    enable=true
+    ```
+
+3.  Save the configuration changes and restart the server.
+
 ## Configure consent purposes
 
 Follow the instructions below to configure self-registration consent
 purposes and appropriate user attributes:
 
-1.  Access the management console. (https://<IS_HOST>:<IS_PORT>/carbon).
+1.  Access the management console. (`https://<IS_HOST>:<IS_PORT>/carbon`).
 
 2.  Navigate to **Main** -> **Identity** -> **Identity Providers** -> **Resident** ->**User Onboarding** -> **Self Registration** section. 
 
-3.  Select `Click here` to configure self-registration consent purposes. This displays 
+3.  Select **Click here** to configure self-registration consent purposes. This displays 
 the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purposes.
 
     ![self-registration]({{base_path}}/assets/img/guides/account-policies.png)   
@@ -165,17 +247,16 @@ Next, you can try out self-registration.
 ### Use the My Account portal
 
 1.  Access the WSO2 Identity Server My Account (`https://<IS_HOST>:<PORT>/myaccount/`).
+
+    ![register-now]({{base_path}}/assets/img/guides/register-now-option.png)
+
 2.  Click **Create Account** and then enter the new user's
     username.
 
     !!! info "Register Users for a Tenant"
-        If you want to self-register to a specific tenant, you need to
-        provide the **Username** in the following format:
-        `            <USERNAME>@<TENAND_DOMAIN>           `
+        If you want to self-register to a specific tenant, you need to provide the **Username** in the following format: ` <USERNAME>@<TENAND_DOMAIN> `
 
-        For example, if you have a tenant domain as
-        `           foo.com          `, the username needs to be
-        `           kim@foo.com          `
+        For example, if you have a tenant domain as ` foo.com `, the username needs to be ` kim@foo.com `
 
     ![register-users-for-tenant]({{base_path}}/assets/img/guides/register-users-for-tenant.png) 
 
