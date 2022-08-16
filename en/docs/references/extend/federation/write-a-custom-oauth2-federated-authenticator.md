@@ -4,7 +4,7 @@ A custom OAuth2 authenticator can be written to authenticate a user with an exte
 any Identity provider supporting OAuth2 including Facebook, Kakao, Naver, etc. You can use the `OAuth2GenericAuthenticator`
 available in WSO2 Identity Server to create custom OAuth2 authenticators.
 
-## Steps to write a custom OAuth2 authenticator
+## Write a custom OAuth2 federated authenticator
 
 1. First create a maven project for the custom OAuth2 authenticator. Refer to
    the [pom.xml](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.oauth2.federated.authenticator/pom.xml)
