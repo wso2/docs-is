@@ -1,7 +1,7 @@
 # Write a Custom OAuth2 Federated Authenticator
 
 A custom OAuth2 authenticator can be written to authenticate a user with an external system. The external system can be
-any Identity provider supporting OAuth2 including Facebook, Kakao, Naver etc. You can use the OAuth2GenericAuthenticator
+any Identity provider supporting OAuth2 including Facebook, Kakao, Naver, etc. You can use the `OAuth2GenericAuthenticator`
 available in WSO2 Identity Server to create custom OAuth2 authenticators.
 
 ## Steps to write a custom OAuth2 authenticator
