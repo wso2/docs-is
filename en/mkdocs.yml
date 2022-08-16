@@ -140,7 +140,9 @@ nav:
           - OAuth Request Path Authentication: guides/request-path-auth/oauth-request-path.md
         - Passwordless Authentication:
           - Overview: guides/passwordless/overview.md
-          - FIDO: guides/passwordless/fido.md
+          - FIDO:
+            - FIDO Passwordless Authentication: guides/passwordless/fido.md
+            - FIDO Attestation: guides/passwordless/fido-attestation.md
           - Magic Link: guides/passwordless/magic-link.md
         - Multi-Factor Authentication:
           - Overview: guides/mfa/mfa-overview.md
@@ -162,7 +164,7 @@ nav:
             - Role-Based: guides/adaptive-auth/role-based-adaptive-auth.md
             - User Age-Based: guides/adaptive-auth/age-based-adaptive-auth.md
             - Tenant-Based: guides/adaptive-auth/tenant-based-adaptive-auth.md
-            - Userstore-Based: guides/adaptive-auth/user-store-based-adaptive-auth.md
+            - User store-Based: guides/adaptive-auth/user-store-based-adaptive-auth.md
             - IP-Based: guides/adaptive-auth/ip-based-adaptive-auth.md
             - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
             - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
@@ -191,7 +193,6 @@ nav:
           - Log in with Facebook: guides/identity-federation/facebook.md
           - Log in with Google: guides/identity-federation/google.md
           - Log in with Twitter: guides/identity-federation/twitter.md
-          - Log in with Yahoo: guides/identity-federation/yahoo.md
           - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
       - Access Delegation:
@@ -243,9 +244,10 @@ nav:
           - Role-Based Permissions: guides/identity-lifecycles/role-based-permissions.md
         - Manage Accounts:
           - Overview: guides/identity-lifecycles/account-states-overview.md
-          - Lock/Unlock Accounts: guides/identity-lifecycles/lock-account.md
-          - Lock/Unlock Accounts per User: guides/tenants/account-locking-per-user.md
-          - Lock accounts by failed login attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
+          - Admin-initiated Account Locking: guides/identity-lifecycles/lock-account.md
+          - Lock Accounts by Failed Login Attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
+          - Lock Accounts by Failed OTP Attempts: guides/identity-lifecycles/lock-accounts-by-failed-otp-attempts.md
+          - Lock Accounts per User: guides/tenants/account-locking-per-user.md
           - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
           - Disable Accounts: guides/identity-lifecycles/enable-account.md
@@ -278,10 +280,10 @@ nav:
             - Hubspot: guides/identity-lifecycles/hubspot-provisioning.md
           - Inbound Provision Users:
             - Overview: guides/identity-lifecycles/inbound-provisioning.md
-            - Configure Userstores for SCIM 1.1: guides/identity-lifecycles/configure-user-stores-for-scim1.1-based-inbound-provisioning.md
-            - Configure Userstores for SCIM 2.0: guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
-            - Configure Active Directory Userstores for SCIM 1.1: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
-            - Configure Active Directory Userstores for SCIM 2.0: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
+            - Configure User stores for SCIM 1.1: guides/identity-lifecycles/configure-user-stores-for-scim1.1-based-inbound-provisioning.md
+            - Configure User stores for SCIM 2.0: guides/identity-lifecycles/configure-user-stores-for-scim2-based-inbound-provisioning.md
+            - Configure Active Directory User stores for SCIM 1.1: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
+            - Configure Active Directory User stores for SCIM 2.0: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
             - Setup Service Provider for Inbound Provisioning: guides/identity-lifecycles/sp-for-inbound-provisioning.md
         - Enable Verification for Updated User Attributes:
           - Enable Email Account Verification for an Updated Email Address : guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md
@@ -299,12 +301,12 @@ nav:
         - Overview: guides/my-account/my-account.md
         - Manage Own Profile: guides/my-account/manage-own-profile.md
         - Export User Profile: guides/my-account/export-my-user-profile.md
-        - Link Accounts: guides/my-account/link-own-accounts.md
+        - Link User Accounts: guides/my-account/link-own-accounts.md
         - Reset Password: guides/my-account/reset-own-password.md
         - Recover User Account: guides/my-account/recover-user-account.md
-        - Enable MFA: guides/my-account/enable-mfa-my-account.md
+        - Enroll MFA: guides/my-account/enable-mfa-my-account.md
         - Manage Active Sessions: guides/my-account/manage-active-sessions.md
-        - Manage consent: guides/my-account/manage-consent-my-account.md
+        - Manage Consent: guides/my-account/manage-consent-my-account.md
       - Analytics:
         - Overview: guides/elk-analytics/elk-analytics.md
         - Access the Analytics Dashboard: guides/elk-analytics/elk-accessing-the-analytics-dashboard.md
@@ -360,20 +362,21 @@ nav:
           - Overview: deploy/configure-the-realm.md
           - Configure the Authorization Manager: deploy/configure-the-authorization-manager.md
           - Configure the System Administrator: deploy/configure-the-system-administrator.md
-          - Configure Userstores:
+          - Configure User Stores:
             - Overview: deploy/configure-user-stores.md
-            - Configure the Primary Userstore: 
+            - Configure the Primary User store: 
               - Overview: deploy/configure-the-primary-user-store.md
-              - Configure a JDBC Userstore: deploy/configure-a-jdbc-user-store.md
-              - Configure a Read-only LDAP Userstore: deploy/configure-a-read-only-ldap-user-store.md
-              - Configure a Read-write Active Directory Userstore: deploy/configure-a-read-write-active-directory-user-store.md
-              - Configure a Read-write LDAP Userstore: deploy/configure-a-read-write-ldap-user-store.md
+              - Configure a JDBC User store: deploy/configure-a-jdbc-user-store.md
+              - Configure a Read-only LDAP User store: deploy/configure-a-read-only-ldap-user-store.md
+              - Configure a Read-write Active Directory User store: deploy/configure-a-read-write-active-directory-user-store.md
+              - Configure a Read-write LDAP User store: deploy/configure-a-read-write-ldap-user-store.md
             - Add High Availability for LDAP: deploy/add-high-availability-for-ldap.md
-            - Configure Secondary Userstores: deploy/configure-secondary-user-stores.md
+            - Configure Secondary User stores: deploy/configure-secondary-user-stores.md
             #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
-            - Work with Properties of Userstores: deploy/work-with-properties-of-user-stores.md
-            - Write a Custom Userstore Manager: deploy/write-a-custom-user-store-manager.md
-            - Secure a JDBC userstore with PBKDF2 hashing: deploy/secure-userstore-using-pbkdf2.md
+            - Work with Properties of User stores: deploy/work-with-properties-of-user-stores.md
+            - Write a Custom User store Manager: deploy/write-a-custom-user-store-manager.md
+            - Secure a JDBC user store with PBKDF2 hashing: deploy/secure-userstore-using-pbkdf2.md
+
         - Data Stores:
           - Databases:
             - Overview: deploy/work-with-databases.md
@@ -483,11 +486,9 @@ nav:
       - Migrate:
         - Migration Process: deploy/migrate/migration-process.md
         - What has Changed: deploy/migrate/what-has-changed.md
-        - Migration Guide:
-          - Before you Begin: deploy/migrate/migration-guide.md
-          - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-          - Migrate to 6.0.0: deploy/migrate/migrate-to-600.md
-          - Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
+        - Prepare for Migration: deploy/migrate/prepare-for-migration.md
+        - Migrate to WSO2 IS 6.0.0: deploy/migrate/migrate-to-600.md
+        #- Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
         - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
 
   - APIs:
@@ -529,7 +530,7 @@ nav:
               - Retrieve Tenant Resources Based on Search Parameters: apis/retrieve-tenant-resources-based-on-search-parameters.md
           - Identity governance: apis/identity-governance-rest-api.md
           - Keystore Management: apis/keystore-rest-api.md
-          - Userstore Management: apis/userstore-rest-api.md
+          - User store Management: apis/userstore-rest-api.md
           - Tenant Management: apis/tenant-management-rest-api.md
           - CORS: apis/cors-rest-api.md
           - Consent Management: apis/use-the-consent-management-rest-apis.md
@@ -628,11 +629,11 @@ nav:
             - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md      
       - User Management:
         #- Write a Custom Password Validator: references/extend/user-mgt/write-a-custom-password-validator.md
-        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-custom-global-scope-validator.md
         - Write a Custom Claim Handler: references/extend/user-mgt/write-a-custom-claim-handler.md
         - Write a Custom Event Handler: references/extend/user-mgt/write-a-custom-event-handler.md
-        - Userstore Listeners: references/extend/user-mgt/user-store-listeners.md
+        - User store Listeners: references/extend/user-mgt/user-store-listeners.md
         - Write a Post-Authentication Handler: references/extend/user-mgt/write-a-post-authentication-handler.md
+        - Write a Custom Global Scope Validator: references/extend/user-mgt/write-a-global-scope-validator.md
         - User Management Errors Event Listener: references/extend/user-mgt/user-management-errors-event-listener.md
         - User provisioning:
           - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
@@ -645,10 +646,13 @@ nav:
       #- Workflow Management for Developers:
         #- Extend the Workflow Event Handler: references/extend/workflows/extend-the-workflow-event-handler.md
         #- Write a Custom Workflow Template: references/extend/workflows/write-a-custom-workflow-template.md
+      - User Stores:
+        - Write a Custom User Store Manager: references/extend/write-a-custom-user-store-manager.md
       - User interfaces (Rebrand):
         - Re-brand WSO2 Identity Server UIs: references/extend/rebranding/rebrand-identity-server-uis.md
-        #- Re-brand the Default Login Page for Your Application: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
+        - Re-brand the Default Login Page: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
         - Re-brand the SSO Redirection Page: references/extend/rebranding/rebrand-the-sso-redirection-page.md
+        #- Customize Login page: references/extend/rebranding/customizable-login-portal.md
       - Errors:
         - Error messages: references/extend/errors/customize-authentication-error-messages.md
         - Error Pages: references/extend/errors/customize-error-pages.md

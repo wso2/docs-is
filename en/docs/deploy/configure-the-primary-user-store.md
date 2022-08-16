@@ -7,7 +7,7 @@ store. If you need more information on WSO2 Carbon userstores, see
 [Configure userstores]({{base_path}}/deploy/configure-user-stores).
 
 !!! info 
-    WSO2 Identity Server has an embedded LDAP as its primary userstore.
+    WSO2 Identity Server uses the embedded H2 database as its primary user store.
     It is recommended to change this default configuration in the production system.
 
 ---
@@ -40,12 +40,12 @@ There are two steps involved in setting up the primary userstore:
     <tr class="odd">
     <td><p>LDAP ActiveDirectory</p></td>
     <td><code>               org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager              </code></td>
-    <td>Used to do read-only operations for external LDAP or ActiveDirectory userstores</td>
+    <td>Used to do read-only operations for LDAP or ActiveDirectory userstores</td>
     </tr>
     <tr class="even">
     <td>LDAP</td>
     <td><code>               org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager              </code></td>
-    <td>Used for external LDAP userstores to do both read and write operations. This is the default primary userstore configuration in the deployment.toml file for WSO2 Identity Server</td>
+    <td>Used for LDAP user stores to do both read and write operations. This is the default primary user store configuration in the <code>deployment.toml</code> file for WSO2 Identity Server.</td>
     </tr>
     <tr class="odd">
     <td>ActiveDirectory</td>

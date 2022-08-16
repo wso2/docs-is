@@ -127,10 +127,6 @@ This page guides you through using WSO2 Identity Server to log in to Google.
     <div class="codeContent panelContent pdl">
     <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> In LDAP,<code>[user_store]<br>user_name_list_filter = `"(&amp;(objectClass=person)(!(sn=Service)))"`</code> <br> In Active Directory, <code>[user_store]<br>user_name_list_filter = `"(&amp;(objectClass=user)(!(sn=Service)))"`</code>
     </pre>
-    <div class="admonition tip">
-    <p class="admonition-title">Tip</p>
-    <p>If you are trying with the default embedded LDAP userstore, this configuration change is not needed.</p>
-    </div> 
     </div>
     </div>
     </div></td>

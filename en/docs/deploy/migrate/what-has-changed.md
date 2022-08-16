@@ -27,19 +27,29 @@ certificate_alias_enabled = true
 ```
 
 ### Common Changes
-The default token binding type of both the Console and MyAccount is changed from ```SSO-based binding``` to ```cookie-based binding```. Read more on [Access Token Binding Type]({{base_path}}/learn/configuring-oauth2-openid-connect-single-sign-on/).
+- The default token binding type of both the Console and MyAccount is changed from ```SSO-based binding``` to ```cookie-based binding```. Read more on [Access Token Binding Type]({{base_path}}/learn/configuring-oauth2-openid-connect-single-sign-on/).
 
-With IS 6.0.0, the ```Post-Logout Redirect URL``` the Console and MyAccount are now tenant qualified by default. Hence, after migrating to IS 6.0.0, the Callback URLs of both the MyAccount and Console applications should be updated as follows:
+- With IS 6.0.0, the ```Callback URL``` and ```Post-Logout Redirect URL``` of the Console and MyAccount are now tenant qualified by default. Hence, after migrating to IS 6.0.0, the Callback URLs of both the MyAccount and Console applications should be updated as follows:
 
-- Console
-    ``` js
-    regexp=(https://<hostname>/console/login|https://<hostname>/t/(.*)/console/login)
+  - Console
+      ``` js
+      regexp=(https://<hostname>/console|https://<hostname>/t/(.*)/console)
+      ```
+
+  - MyAccount
+      ``` js
+      regexp=(https://<hostname>/myaccount|https://<hostname>/t/(.*)/myaccount)
+      ```
+    
+  This change will be propagated to the migrated IS 6.0.0 via the migration client according to the following configuration in the migration-config.yaml.
+    ```toml
+    - name: "SystemAppRedirectURLMigrator"
+      order: 15
+      parameters:
+        consoleRedirectUrl: "regexp=(https://localhost:9443/console|https://localhost:9443/t/(.*)/console)"
+        myaccountRedirectUrl: "regexp=(https://localhost:9443/myaccount|https://localhost:9443/t/(.*)/myaccount)"
     ```
-
-- MyAccount
-    ``` js
-    regexp=(https://<hostname>/myaccount/login|https://<hostname>/t/(.*)/myaccount/login)
-    ```
+  Before running the migration, make sure to update the URLs in the regular expressions with the server domain or hostname, if they are different from the default values.
 
 ## User Management
 This section contains the changes of the User Management functionalities of IS 6.0.0.
@@ -221,6 +231,19 @@ enable_role_validation = true
 
     When setting this configuration value to true, make sure that application roles have been created for all the applications and assigned to the relevant application owners. If not, create and assign the roles.
 
+### Application Requested Claims
+During federated login flows in IS 6.0.0, if requested claims are not configured for an application, none of the user claims sent from the external IDP will be sent to the application through the ID token.
+
+For the same scenario in IS versions 5.11.0 and below, all the claims sent from the external IDP will be sent to the application regardless of the requested claim configuration. 
+If the previous behavior is required in IS 6.0.0, add the following configuration to the ```deployment.toml``` file.
+```toml
+[authentication]
+allow_sp_requested_fed_claims_only =false
+
+[oauth.oidc.claims]
+enable_oidc_dialect=false
+```
+
 ## OIDC Protocol
 According to the OIDC specification, the OIDC claim ```locality``` should be used to store the city of an address. In the earlier versions of the Identity Server, the ```locality``` claim was mapped to the local claim ```http://wso2.org/claims/locality```, which is used to store a localization code used mainly in email templates.
 
@@ -392,6 +415,22 @@ JWTClaimsSet claims = jwt.getPayload().toSignedJWT().getJWTClaimsSet();
 !!! Important
     This behavior cannot be reversed.
 
+### ID Token Address Claim
+In IS 6.0.0, the address claim that is returned with the ID token when the address scope is requested has been updated to comply with the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#AddressClaim). 
+```Country```, ```postal_code```, ```locality```, ```region``` and ```street_address``` child claims will now be returned within the address claim as shown in the example below. 
+Any client application that is consuming the ID token claims should be updated to properly parse this claim value.
+```json
+{
+   "address": {
+     "street_address": "1234 Hollywood Blvd.",
+     "locality": "Los Angeles",
+     "region": "CA",
+     "postal_code": "90210",
+     "country": "US"
+   }
+}
+```
+
 ## Claims
 This section covers the updates related to claims on Identity Server 6.0.0.
 ### Regex Pattern Validation for User Claim Input Values
@@ -473,6 +512,13 @@ To disable this and revert to the previous behavior, add the following configura
 enable_oidc_dialect = false
 ```
 
+### External Dialect Claim Mapping Updates
+In Identity Server 6.0.0, the claim mapping of the ```meta.version``` claim of the external claim dialect ```urn:ietf:params:scim:schemas:core:2.0``` has been changed from the local claim ```http://wso2.org/claims/im``` to the newly added local claim ```http://wso2.org/claims/metadata.version```. 
+This has been done to address an issue that affected updating the value of the IM attribute which is used for other purposes.
+
+Although this new claim mapping is available in a fresh Identity Server 6.0.0, this change will **not** be propagated from the older versions to a migrated IS 6.0.0 as it would create inconsistencies if ```urn:ietf:params:scim:schemas:core:2.0:meta.version``` values have been utilized following the older mapping. 
+If the ```IM``` attribute and ```meta.version``` attribute values are required separately, it is recommended to manually update the claim mapping via the Console once the migration is complete.
+
 ## API Endpoints
 This section covers the updates related to APIs and API endpoints on Identity Server 6.0.0.
 
@@ -529,6 +575,20 @@ required: false
 returned: "DEFAULT"
 type: "BOOLEAN"
 ```
+### Token Introspection Endpoint
+#### Disabling Cross Tenant Token Introspection
+The ability to introspect tokens across tenants will be disabled by default in IS 6.0.0. With this change, cross tenant endpoints will not be accessible using a tenanted access token.
+For example, using an access token obtained for tenant A to access the user info endpoint of tenant B will result in an "Access token validation failed" error response. 
+The tenanted user info endpoint can only be used with an access token that was issued for that particular tenant. 
+Hence, the URLs of the introspection (user info) endpoints used in client applications will have to be updated to tenanted endpoints if tenanted access tokens are used. Eg: /userinfo -> /t/tenantdomin/userinfo.
+
+If a user needs to enable cross-tenant token introspection, the following config should be added to the ```deployment.toml``` file.
+``` toml
+[oauth.introspect]
+allow_cross_tenant = true
+```
+### Certificate Configuration via Application Management REST API
+With IS 6.0.0, it is no longer possible to add expired certificates to applications or update existing certificates of applications with expired certificates using the Application Management REST API.
 
 ### OAuth DCR Endpoint Response
 With WSO2 Identity Server 6.0.0, the response model of an application ```GET/PUT``` response from the OAuth DCR endpoint has been updated.
@@ -603,6 +663,10 @@ With WSO2 Identity Server 6.0.0, more fine-grained permissions are supported for
     </tr>
 </table>
 
+### CORS Configuration Management API Permissions
+Up until WSO2 Identity Server 5.11.0, ```manage``` level permissions were required to access the CORS Configuration Management APIs.
+With IS 6.0.0, more fine-grained permissions have been introduced for this API. 
+The permission ```/permission/admin/manage/identity/cors/origins/view``` is now sufficient to access the ```/api/server/v1/cors/origins``` API endpoint.
 
 ### Remote Server Shutdown/Restart via SOAP API
 With Identity Server 6.0.0, the capability of the SOAP APIs to initiate server shutdowns or restarts has been disabled by default. If these features are required, add the following configurations to the ```deployment.toml``` file to enable the features.
@@ -625,6 +689,17 @@ Applications can configured as management applications in the following methods:
 
 ### Resend Code API Restrictions
 From Identity Server 6.0.0 onwards, only users with identity management permission are able to invoke the resend-code API.
+
+### Legacy DCR Endpoint Deprecation
+With IS 6.0.0, the legacy DCR endpoint which was accessible via ```/identity/register``` has been deprecated. 
+The recommended API for DCR should be OAuth2.0 DCR endpoint (```/identity/oauth2/dcr/v1.1```).
+
+If the deprecated legacy DCR endpoint needs to be enabled, use the following config in ```deployment.toml``` file.
+```toml
+[[legacy_feature]]
+id = "identity/register"
+enable = true
+```
 
 ## Database
 This section covers the updates related to database configurations on Identity Server 6.0.0.

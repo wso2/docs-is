@@ -420,7 +420,7 @@ For more information about windows-based authentication, see <a href="{{base_pat
 <td>userstore manager</td>
 <td><div class="content-wrapper">
 <p><img src="{{base_path}}/assets/img/get-started/user-store-manager.png" title="userstore manager" alt="userstore manager"></p>
-<p>WSO2 Identity Server implements flexible userstore via built-in LDAP (powered by ApacheDS), external LDAP, Microsoft Active Directory or any JDBC database. It provides an API for integrating identity management to any application. WSO2 Identity Server allows tenants/organizations to configure their userstores through the admin console. WSO2 Identity Server supports multiple profiles per user using its flexible profile management feature.</p>
+<p>WSO2 Identity Server implements flexible user stores via external LDAP, Microsoft Active Directory, or any JDBC database. It provides an API for integrating identity management to any application. WSO2 Identity Server allows tenants/organizations to configure their user stores through the admin console. WSO2 Identity Server supports multiple profiles per user with its flexible profile management feature.</p>
 <div class="admonition info">
 <p class="admonition-title">Related topics</p>
 <ul>

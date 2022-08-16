@@ -1,4 +1,4 @@
-# Manage own profile
+# Manage Own Profile
 
 Various elements of the **My Account** application can be managed by the users themselves by following the instructions given below.
 

@@ -1,9 +1,4 @@
-# My Account
-
-!!! note 
-    The **My Account** application has been renamed as **My Account**.
-
-## Introduction
+# My Account - Overview
 
 The new **WSO2 Identity Server**(WSO2 IS) **My Account** application is packed with a number of new
 components through which users can manage their user account-related
