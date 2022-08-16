@@ -1,7 +1,7 @@
 ---
 template: templates/swagger.html
 ---
-# Application Management Rest API Definition - v1
+# Application Management Rest API Definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server (WSO2 IS).
@@ -35,4 +35,3 @@ template: templates/swagger.html
    window.ui = ui
 </script>
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/51139ad1cff6875115a1)

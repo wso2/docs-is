@@ -1,12 +1,7 @@
 ---
 template: templates/swagger.html
 ---
-# OpenID Connect Scope Management Rest API Definition - v1
-
-The OIDC scope API in WSO2 Identity Server(IS) can be used to manage OIDC scopes and map claims.
-Since OIDC scope is a sub category of OAuth2 scopes, these end points cannot have the same scope names in WSO2 IS. 
-For more information about the OAuth2 scope endpoint,  
-see [OAuth2 Scope Management REST APIs]({{base_path}}/oauth2-scope-management-rest-apis).
+# OpenID Connect Scope Management Rest API Definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 IS.
@@ -40,5 +35,3 @@ see [OAuth2 Scope Management REST APIs]({{base_path}}/oauth2-scope-management-re
 
    window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fb712a9e2a2f92c54d8f)

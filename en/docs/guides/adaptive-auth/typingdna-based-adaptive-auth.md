@@ -58,7 +58,7 @@ Follow the steps given below to configure TypingDNA in your application.
 1. Go to **Service Providers -> List** and click **Edit** on the service provider that you want to configure TypingDNA in.
 
 2. Expand **Local and Outbound Authentication Configuration** and click **Advanced Configuration**.
-3. Configure two Authentication steps.
+3. Configure two authentication steps.
 
     !!! info
         In this scenario, we will configure **Username and Password** and **TOTP**.

@@ -4,9 +4,9 @@ info:
   description: |
     This is the RESTful API for managing OAuth2 Authorized Apps.
 
-    Through this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
+    With this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on **Approve Always** during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
 
-    Additionally, privileged user can view and revoke other users' authorized apps using the API.
+    Additionally, privileged users can view and revoke authorized apps of other users using this API.
   contact:
     name: WSO2 Identity Server
     url: https://wso2.com/identity-and-access-management/
@@ -16,7 +16,12 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: v2
 servers:
-- url: https://localhost:9443/t/{tenant-domain}/api/users/v2
+- url: https://{serverUrl}/t/{tenantDomain}/api/users/v2
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
 security:
 - OAuth2: []
 - BasicAuth: []
