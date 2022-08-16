@@ -86,7 +86,7 @@ The next step is to configure the service provider.
             down as the second step.  
             ![creating-the-second-authentication-step-totp](../assets/img/tutorials/creating-the-second-authentication-step-totp.png)
             
-Now `totp' is a second step that adds another layer of authentication
+Now `totp` is a second step that adds another layer of authentication
 and security during the authentication for this application.
               
 ## Configuring the user profile
@@ -117,6 +117,7 @@ and security during the authentication for this application.
     password to log in.      
 4.  Enter the verification code from your Google Authenticator Mobile
     Application to authenticate.
+    
     ![](../assets/img/tutorials/enter-totp.png)
      
     !!! Tip 
