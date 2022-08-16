@@ -37,7 +37,9 @@ To deploy the custom OAuth2 federated authenticator:
 2. Copy the compiled `jar` file inside `/target` folder and paste it to the `<IS_HOME>/repository/components/dropins`.
 
 ---
+## Configure the Identity Server
 
+This section guides you on how to configure the identity server to use the custom OAuth2 federated authenticator.
 ### Configure custom OAuth2 federated authenticator
 
 To configure the OAuth2 custom authenticator: 
