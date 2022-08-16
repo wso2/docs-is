@@ -12,8 +12,8 @@
         "notes": "6.0.0/references/about-this-release"
     },
     "5.11.0": {
-      "doc": "5.11.0",
-      "notes": "5.11.0/get-started/about-this-release"
+      "doc": "https://is.docs.wso2.com/en/5.11.0",
+      "notes": "https://is.docs.wso2.com/en/5.11.0/get-started/about-this-release"
     },
     "5.10.0": {
       "doc": "https://is.docs.wso2.com/en/5.10.0",
