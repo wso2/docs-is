@@ -787,7 +787,7 @@ plugins:
     - redirects:
           redirect_maps:
               'learn/tutorials.md': 'https://is.docs.wso2.com/en/6.0.0/guides/before-you-start/'
-              'learn/adding-users-and-roles.md': 'https://https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/user-management/'
+              'learn/adding-users-and-roles.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/user-management/'
               'learn/managing-user-accounts.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/account-states-overview/'
               'learn/user-registration.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/onboard-overview/'
               'learn/user-registration-with-password-entry.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/invitation-workflow/'
