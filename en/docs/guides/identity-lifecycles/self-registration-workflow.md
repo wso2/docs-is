@@ -6,9 +6,7 @@ Follow the steps given below to register users for the super tenant, which is ` 
 
 ## Set up notifications
 
--   If you have migrated from a previous IS version, ensure that
-the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
-**false** and that the Identity Listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
+-   If you have migrated from a previous IS version, ensure that the `IdentityMgtEventListener` with the ` orderId=50 ` is set to **false** and that the Identity Listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
     
     !!! Note 
         If there are no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
@@ -30,9 +28,7 @@ the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
     !!! tip
         Typically, the **AccountConfirmation** template is used to send email notifications.
 
-        You can edit and customize the email template. For more information
-        on how to do this, see [Customizing Automated
-        Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
+        You can edit and customize the email template. For more information on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
 
 ## Enable self-registration for a specific tenant
 
@@ -88,9 +84,7 @@ the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
     </tbody>
     </table>
 
-Now you have set up self registration. Next let's see how you can
-configure self-registration consent purposes via the management console
-of WSO2 Identity Server.
+Now you have set up self registration. Next let's see how you can configure self-registration consent purposes via the management console of WSO2 Identity Server.
 
 !!! tip
     For information on the REST APIs for self-registration, see 
@@ -190,8 +184,7 @@ of WSO2 Identity Server.
 
 ## Configure consent purposes
 
-Follow the instructions below to configure self-registration consent
-purposes and appropriate user attributes:
+Follow the instructions below to configure self-registration consent purposes and appropriate user attributes:
 
 1.  Access the management console. (`https://<IS_HOST>:<IS_PORT>/carbon`).
 
@@ -205,40 +198,27 @@ the **Consent Purposes: SELF-SIGNUP** screen that allows you to add consent purp
 
 4.  Click **Add New Purpose**.  
 
-5.  Specify appropriate values for the **Purpose** and **Description**
-    fields, and then click **Add PII Category** to add user attributes
-    requires to obtain user consent.
+5.  Specify appropriate values for the **Purpose** and **Description** fields, and then click **Add PII Category** to add user attributes requires to obtain user consent.
 
     !!! tip
-        You can add one or more user attributes to obtain consent for a
-        particular purpose.
+        You can add one or more user attributes to obtain consent for a particular purpose.
     
     ![user-attributes-for-consent]({{base_path}}/assets/img/guides/user-attributes-for-consent.png) 
 
-6.  If you want consent on a specific user attribute to be mandatory,
-    select the **Mandatory** check box for that attribute.
+6.  If you want consent on a specific user attribute to be mandatory, select the **Mandatory** check box for that attribute.
 
     !!! tip
-        -   When you configure consent purposes for self-registration, the
-            attributes that you specify for a particular purposes are the
-            only attributes for which users are prompted to provide consent.
-        -   If a user attribute is set as **Mandatory**, a user has to
-            provide consent for that attribute to proceed with
-            self-registration.
-        -   If a user does not provide consent for any of the non-mandatory
-            attributes, WSO2 Identity Server will not store those
-            attributes.
+        -   When you configure consent purposes for self-registration, the attributes that you specify for a particular purposes are the only attributes for which users are prompted to provide consent.
+        -   If a user attribute is set as **Mandatory**, a user has to provide consent for that attribute to proceed with self-registration.
+        -   If a user does not provide consent for any of the non-mandatory attributes, WSO2 Identity Server will not store those attributes.
 
 7.  Click **Finish**.
 
-8.  Depending on your requirement, you can either add another new
-    purpose and related user attributes, or click **Finish** if you have
-    added all the purposes you want.
+8.  Depending on your requirement, you can either add another new purpose and related user attributes, or click **Finish** if you have added all the purposes you want.
 
 9.  Click **Update**.
 
-Now you have configured required self-registration purposes and user
-attributes for which you require user consent.
+Now you have configured required self-registration purposes and user attributes for which you require user consent.
 
 Next, you can try out self-registration.
 
@@ -270,53 +250,38 @@ Next, you can try out self-registration.
         -   The attributes that show up on the self sign up page are WSO2 [local dialect]({{base_path}}/guides/dialects/add-claim-mapping/) claims that have the Supported by Default configuration enabled.
         - Access the Management Console (`https://<IS_HOST>:<PORT>/carbon`) and navigate to **Main** > **Identity**.
         -   Click **List** under **Claims** and select the **http://wso2.org/claims** dialect. Expand any claim to view the configuration. 
-        -   Mandatory attributes of
-        the self sign-up page are the claims have the **Required**
-        configuration enabled. 
-        -   For example see below configurations of the
-        department claim.
+        -   Mandatory attributes of the self sign-up page are the claims have the **Required** configuration enabled. 
+        -   For example see below configurations of the department claim.
         ![self-signup-required-claim-config]({{base_path}}/assets/img/guides/self-signup-required-claim-config.png)
 
     
 4.  Once the user has registered, they will receive a confirmation mail.
 
-5.  Click **Confirm Registration** in the email or copy the link in the
-    email to your browser to confirm the account.  
-    Once you confirm the account, the account will be unlocked.
+5.  Click **Confirm Registration** in the email or copy the link in the email to your browser to confirm the account.   Once you confirm the account, the account will be unlocked.
 
 !!! info "Want to resend the confirmation email?"
 
     Follow the steps given below to resend the confirmation email.
 
-    1.  Access the WSO2 Identity Server
-        My Account (`https://<IS_HOST>:<PORT>/myaccount/`) and try to login with
-        the user you just registered.  
-        The user account should not be activated for the user, which means
-        you should not have confirmed the account.
+    1.  Access the WSO2 Identity Server My Account (`https://<IS_HOST>:<PORT>/myaccount/`) and try to login with the user you just registered.   The user account should not be activated for the user, which means you should not have confirmed the account.
 
     2.  Click on the **Re-Send** link to resend the email.  
         ![resend-link]({{base_path}}/assets/img/guides/resend-link.png) 
 
     !!! tip
-        The email template used to resend the confirmation email
-        notification is the **ResendAccountConfirmation** template.
+        The email template used to resend the confirmation email notification is the **ResendAccountConfirmation** template.
         
-        You can edit and customize the email template. For more information on
-        how to do this, see [Customizing Automated
-        Emails]({{base_path}}/guides/tenants/customize-automated-mails).
+        You can edit and customize the email template. For more information on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
 !!! Note
-    If you wish to send a account unlocked email upon account confirmation, do the following 
-    configurations.
+    If you wish to send a account unlocked email upon account confirmation, do the following configurations.
     
     1. Navigate to **Main** > **Identity** > **Identity Providers** > **Resident**.
     
     2. Expand the **Login Attempts Security** -> **Account Lock** and select **Lock user accounts**.  
-        Once the user activates the account via the confirmation email, an **Account Unlocked** email 
-        will be sent by the Identity server.
+        Once the user activates the account via the confirmation email, an **Account Unlocked** email  will be sent by the Identity server.
         
-        For more information about account locking, see [Account
-        Locking]({{base_path}}/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts/).
+        For more information about account locking, see [Account Locking]({{base_path}}/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts/).
     
         ![account-locking]({{base_path}}/assets/img/guides/account-locking.png)
 
