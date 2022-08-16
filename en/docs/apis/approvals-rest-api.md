@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Workflow Approval API Definition - v1 
+# Workflow Approval API Definition
 
 ??? note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
@@ -40,5 +40,3 @@ template: templates/swagger.html
 
    window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5756659f9134b101dd64)

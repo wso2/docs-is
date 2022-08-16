@@ -3,7 +3,6 @@ info:
   title: SCIM 2.0 Endpoint Swagger Definition
   description: |
     SCIM 2.0 endpoints
-    It is written with [swagger 2](http://swagger.io/).
   contact:
     name: WSO2 Identity Server Team
     url: http://wso2.com

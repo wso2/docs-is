@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Userstore Management API Definition - v1
+# User store Management API Definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server.
@@ -19,7 +19,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/apis/restapis/userstore.yaml",
+     url: "{{base_path}}/apis/restapis/user-store.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
@@ -35,5 +35,3 @@ template: templates/swagger.html
 
    window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/60b25b1a87ea8779fc69)

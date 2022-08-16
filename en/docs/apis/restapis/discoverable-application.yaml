@@ -12,11 +12,12 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
-  - url: 'https://localhost:9443/t/{tenant-domain}/api/users/v1'
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/users/v1'
     variables:
-      tenant-domain:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
         default: carbon.super
-        description: Tenant domain in which the API is invoked
 security:
   - OAuth2: []
   - BasicAuth: []

@@ -69,16 +69,6 @@ Add the following configuration to the `<IS_HOME>/repository/conf/deployment.tom
     information (PII) on behalf of and in accordance with the
     instructions of a PII controller.
 
----
-
-## APIs and supported operations
-
-!!! info
-    
-    For information on the REST APIs, supported operations and sample requests/responses, see [Consent Management APIs Swagger Documentation](https://docs.wso2.com/display/IS511/apidocs/Consent-management-apis/).
-    
----
-
 ## Extension points
 
 You can customize the REST APIs using the following extension points:

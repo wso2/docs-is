@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: WSO2 Identity Server - Workflow Approval API Definition
   description: |
-    This is the RESTful API for a user to manage his/her pending approvals in WSO2 Identity Server. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
+    This is the RESTful API for a user to manage pending approvals in WSO2 Identity Server. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
   contact:
     name: WSO2 Identity Server
     url: https://wso2.com/identity-and-access-management/
@@ -12,13 +12,16 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: v1
 servers:
-- url: https://localhost:9443/t/{tenant-domain}/api/users/v1
+- url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
 security:
 - OAuth2: []
 - BasicAuth: []
 tags:
-- name: default
-  description: Operations for the authenticated user.
 - name: me
   description: Operations for the authenticated user.
 paths:

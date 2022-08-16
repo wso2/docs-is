@@ -49,13 +49,13 @@ nav:
   - Home: index.md
   - Get Started:
       - Introduction: get-started/quick-start-guide.md
-      - Quick Setup: sample-use-cases/set-up.md
-      - Try a Use Case:
-          - Sample Scenario: sample-use-cases/sample-scenario.md
+      - Quick setup: sample-use-cases/set-up.md
+      - Try a use case:
+          - Sample scenario: sample-use-cases/index.md
           - Single Sign-On: sample-use-cases/single-sign-on.md
-          - Multi-Factor Authentication: sample-use-cases/multi-factor-authentication.md
-          - Federated Authentication: sample-use-cases/federated-authentication.md
-          - Self Sign-Up: sample-use-cases/self-sign-up.md
+          - Multi-factor authentication: sample-use-cases/multi-factor-authentication.md
+          - Federated authentication: sample-use-cases/federated-authentication.md
+          - Self sign-up: sample-use-cases/self-sign-up.md
   - Guides:
       - Overview: guides/before-you-start.md
       - Authentication:
@@ -169,9 +169,7 @@ nav:
             - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
             - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
             - ACR-Based: guides/adaptive-auth/acr-based-adaptive-auth.md
-            - Risk-Based Scenarios: 
-              - Elk analytics-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
-              - TypingDNA-Based: guides/adaptive-auth/typingdna-based-adaptive-auth.md
+            - Risk-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
             - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
             - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
           
@@ -498,7 +496,7 @@ nav:
       - Authentication API: apis/use-the-authentication-rest-apis.md
       - Session management API: apis/session-mgt-rest-api.md
       - Entitlement management API: apis/entitlement-with-rest-apis.md
-      - User management API:
+      - User management:
           - SCIM 1.1 API: apis/scim-1.1-apis.md
           - SCIM 2.0 API: 
             - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
@@ -509,44 +507,45 @@ nav:
           - Challenge question API: apis/challenge-rest-api.md
           - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
       - Identity provider API: apis/idp-rest-api.md
-      - Identity provider sessions: apis/idp-session-extender-endpoint.md
+      - IdP session extension API: apis/idp-session-extender-endpoint.md
       - Self-service:
-          - FIDO: apis/fido-rest-api.md
-          - Personal information export: apis/use-the-personal-information-export-rest-apis.md
-          - TOTP: apis/totp-rest-api.md
-          - User Discoverable Application Management: apis/user-discoverable-applications.md
-      - Approvals: apis/approvals-rest-api.md
+          - FIDO API: apis/fido-rest-api.md
+          - TOTP API: apis/totp-rest-api.md
+          - User discoverable application API: apis/user-discoverable-applications.md
+          - Approvals management API: apis/approvals-rest-api.md
       - Application management:
-          - Application Management: apis/application-rest-api.md
-          - Authorized Apps:
-              - Authorized Apps V1: apis/authorized-apps-rest-api.md
-              - Authorized Apps V2: apis/authorized-apps-v2-rest-api.md
-          - OAuth 2.0 Scope Management: apis/oauth2-scope-management-rest-apis.md
-          - OpenID Connect Scope Management: apis/oidc-scope-management-rest-apis.md
-          - OIDC Dynamic Client Registration: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
-          - Script Libraries: apis/script-library-rest-api.md
-      - Claim management: apis/claim-management-rest-api.md
+          - Application management API: apis/application-rest-api.md
+          - Authorized apps:
+              - Authorized apps API V1: apis/authorized-apps-rest-api.md
+              - Authorized apps API V2: apis/authorized-apps-v2-rest-api.md
+          - OAuth 2.0 scope management API: apis/oauth2-scope-management-rest-apis.md
+          - OpenID Connect scope management API: apis/oidc-scope-management-rest-apis.md
+          - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+          - Script Library management API: apis/script-library-rest-api.md
+      - Claim management API: apis/claim-management-rest-api.md
       - Server management:
-          - Configuration Management:
-              - Configuration Management: apis/use-the-configuration-management-rest-apis.md
+          - Configuration management:
+              - Configuration management API: apis/use-the-configuration-management-rest-apis.md
               - Retrieve Tenant Resources Based on Search Parameters: apis/retrieve-tenant-resources-based-on-search-parameters.md
-          - Identity governance: apis/identity-governance-rest-api.md
-          - Keystore Management: apis/keystore-rest-api.md
-          - User store Management: apis/userstore-rest-api.md
-          - Tenant Management: apis/tenant-management-rest-api.md
-          - CORS: apis/cors-rest-api.md
-          - Consent Management: apis/use-the-consent-management-rest-apis.md
-          - Email Templates: apis/email-templates-rest-api.md
-          - Workflow Engine Management: apis/workflow-engine-rest-api.md
-      - Notification Senders: apis/notification-sender-rest-api.md
-      - Server Configurations: apis/configs-rest-api.md
-      - Permission Management : apis/permission-management-rest-api.md
-      - User Functionality Management REST APIs: apis/user-functionality-mgt-rest-api.md
+          - Identity governance API: apis/identity-governance-rest-api.md
+          - Keystore management API: apis/keystore-rest-api.md
+          - User store management API: apis/user-store-rest-api.md
+          - Tenant management API: apis/tenant-management-rest-api.md
+          - CORS API: apis/cors-rest-api.md
+          - Consent management:
+            - Overview: apis/use-the-consent-management-rest-apis.md
+            - Consent management API: apis/consent-management-api-definition.md
+          - Email templates API: apis/email-templates-rest-api.md
+          - Workflow engine management API: apis/workflow-engine-rest-api.md
+      - Notification sender management API: apis/notification-sender-rest-api.md
+      - Server configuration API: apis/configs-rest-api.md
+      - Permission management API : apis/permission-management-rest-api.md
+      - User Functionality management API: apis/user-functionality-mgt-rest-api.md
           
   - SDKs:
       - Overview: sdks/sdk-overview.md
-      - Integrate a React app: sdks/start-integrating-apps/integrate-a-react-app.md
-      - Integrate an Angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
+      - Integrate a react app: sdks/start-integrating-apps/integrate-a-react-app.md
+      - Integrate an angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
       - Integrate a JS app: sdks/start-integrating-apps/integrate-a-js-app.md
       - Integrate your Spring Boot app: sdks/spring-boot.md
       

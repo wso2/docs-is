@@ -1,7 +1,7 @@
 ---
 template: templates/swagger.html
 ---
-# User-Functionality Management API definition - v1
+# User-Functionality Management API definition
 
 ??? Note "Click for instructions" 
     Follow the steps giiven below to try out the REST APIs with your local instance of WSO2 Identity Server.
@@ -34,5 +34,3 @@ template: templates/swagger.html
 
    window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/0375e453223080935e79)

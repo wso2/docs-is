@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# User's Session Management API Definition - v1
+# User's Session Management API Definition
 
 ??? Note "Click for instructions"
     Before invoking the session management REST APIs, create some sessions for the user. You can create active
@@ -52,5 +52,3 @@ template: templates/swagger.html
   // End Swagger UI call region
   window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fc9461875e367a944219)
