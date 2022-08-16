@@ -101,6 +101,6 @@ You can customize the above error message by following the instructions given be
 12. Restart WSO2 Identity Server.
 
 13. Access the following URL again to test the error page you customized: `https://localhost:9443/carbon/abc`.  
-    (make sure to login as admin in order to have access to the URL)
+    Be sure to log in as admin to have access to the URL.
     
     You will view the new error page with the following content: "Sorry, this resource is not found."
