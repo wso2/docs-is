@@ -60,7 +60,7 @@ To configure the OAuth2 custom authenticator:
 
 ---
 
-## Configure an application with the custom federated authenticator
+### Configure the SP with the custom federated authenticator
 
 1. On the WSO2 IS Management Console, go to **Main > Identity > Service Providers > Add**.
 2. Enter a Service Provider name and click **Register** to add the new service provider.
