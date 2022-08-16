@@ -75,6 +75,8 @@ To deploy the custom OAuth2 federated authenticator:
 
 1. Access the playground app by using [http://localhost:8080/playground2](http://localhost:8080/playground2).
 2. This will redirect to the login page of Kakao.
-3. Enter email and password for Kakao.
+3. Enter the email address and password for Kakao.
+
+You will be successfully logged into the application.
 
 Similarly, you can write a custom authenticator to authenticate the users from different external systems.
