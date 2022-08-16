@@ -190,7 +190,7 @@ the references should be changed.
     hostname.
     
     To edit the default system applications such as My Account and Console, the following configuration should be added
-    to the `<IS_HOME/repository/conf/deployment.toml` file.
+    to the `<IS_HOME/repository/conf/deployment.toml` file:
 
     ```toml
     [system_applications]
