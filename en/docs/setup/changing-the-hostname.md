@@ -183,4 +183,19 @@ you can make sure that the existing encrypted data is not affected.
     data encryption, signing, etc.
     
 
-Once this is done, you need to change all localhost references.  
+Once this is done, you need to change all `localhost` references. The following main changes will apple to references:
+
+- The configurations in the `<IS_HOME/repository/conf/deployment.toml` file that references localhost.
+- The entity ID that is available in the resident identity provider configurations.
+- The callback URLs of the federated identity providers.
+- The callback URLs of the default system applications such as My Account and Console.
+
+!!! note
+
+    To edit the default system applications such as My Account and Console, the following configuration should be added
+    to the `<IS_HOME/repository/conf/deployment.toml` file:
+
+    ```toml
+    [system_applications]
+    read_only_apps = []
+    ``` 
