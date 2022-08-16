@@ -13,7 +13,7 @@ You can either configure the reCAPTCHA for a tenant or configure it globally.
 
 ## Prerequisites
 
-[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha.md) with WSO2 Identity Server.
+[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha) with WSO2 Identity Server.
 
 ## Enable account recovery with reCAPTCHA for a spefific tenant
 
@@ -43,6 +43,12 @@ Follow the instructions given below to configure reCAPTCHA globally for account 
     ```
 
 You have now successfully configured reCAPTCHA for the account recovery flow.
+
+!!! note
+    If you want to enable reCAPTCHA globally for all the workflows, the `forcefully_enabled_for_all_tenants` should be added as a property of `[recaptcha]` in the `deployment.toml` file.
+    ``` toml
+    forcefully_enabled_for_all_tenants=true
+    ```
 
 ## Try it
 

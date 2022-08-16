@@ -41,7 +41,7 @@ First, you need to register and create an API key pair for the required domain. 
 
     ```toml
     [recaptcha]
-    enabled = "true"
+    enabled = true
     api_url = "https://www.google.com/recaptcha/api.js"
     verify_url = "https://www.google.com/recaptcha/api/siteverify"
     site_key = ""
@@ -60,7 +60,7 @@ First, you need to register and create an API key pair for the required domain. 
         If you have additional authorization endpoints, you need to include
         the `login.do` URL paths of these endpoints. Here,
         URL paths are the URLs without the host parameters. The URL paths should be comma seperated. The `redirect_urls`
-        should be added as a property of `[recaptcha]` in the deployment.toml file.
+        should be added as a property of `[recaptcha]` in the `deployment.toml` file.
     
         ``` toml
         redirect_urls="url1_path,url2_path"
@@ -71,5 +71,14 @@ First, you need to register and create an API key pair for the required domain. 
         ``` toml
         redirect_urls="/authenticationendpointone/login.do,/authenticationendpointtwo/login.do"
         ```
+
+    !!! note
+        If you want to enable reCAPTCHA globally for all the workflows, the `forcefully_enabled_for_all_tenants` should be added as a property of `[recaptcha]` in the `deployment.toml` file.
+        ``` toml
+        forcefully_enabled_for_all_tenants=true
+        ```
+
         
 2. Restart the WSO2 IS server.
+
+## Enable reCAPTCHA globally for all configurations 
