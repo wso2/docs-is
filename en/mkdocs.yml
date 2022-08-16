@@ -607,6 +607,7 @@ nav:
         - Host authentication endpoint on a different server: references/extend/host-authentication-endpoint-on-a-different-server.md
       - Identity Federation:
         - Write a Custom Federated Authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
+        - Write a Custom OAuth 2.0 Federated Authenticator: references/extend/federation/write-a-custom-oauth2-federated-authenticator.md
         - Write a Custom Local Authenticator: references/extend/federation/write-a-custom-local-authenticator.md
       - Access Control:
         #- Write a Custom Policy Info Point: references/extend/access-control/write-a-custom-policy-info-point.md
