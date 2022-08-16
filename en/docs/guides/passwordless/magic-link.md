@@ -39,6 +39,6 @@ To configure magic link as an authenticator:
 4. Open the magic link by clicking **Sign In** on the same browser as your application.
 
    !!! note
-   This is not supported in the private windows of Safari browser.
+        This is not supported in the private windows of Safari browser.
 
 You will now be logged into the application successfully.
