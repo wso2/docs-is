@@ -73,7 +73,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
    
     5. Paste the copied private key in the Client Private Key text area.
    
-    6. Click Decrypt and the details of the decrypted ID Token will be displayed.
+    6. Click **Decrypt** and the details of the decrypted ID Token will be displayed.
 
     
 
