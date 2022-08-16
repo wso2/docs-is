@@ -1,8 +1,10 @@
 # Write an Outbound Provisioning Connector
 
-In addition to Google, Salesforce, SCIM and SPML, it is possible to create custom connectors. Follow the steps given below to write an outbound provisioning connector.
+In addition to Google, Salesforce, SCIM, and SPML, it is possible to create custom connectors.
 
-1.  The following  API is used to configure a custom connector. The connector API can be obtained [here](https://github.com/wso2/carbon-identity-framework/blob/v5.20.25/components/provisioning/).
+Follow the steps given below to write an outbound provisioning connector.
+
+1. The following API is used to configure a custom connector. The connector API can be obtained [here](https://github.com/wso2/carbon-identity-framework/blob/v5.20.25/components/provisioning/).
 
     ??? info "Click here to view the API source code"
         ```java
@@ -227,9 +229,9 @@ In addition to Google, Salesforce, SCIM and SPML, it is possible to create custo
         }
         ```
 
-2.  The Google provisioning connector that uses the API given above can be found [here](https://github.com/wso2-extensions/identity-outbound-provisioning-google/blob/v5.1.9/components/org.wso2.carbon.identity.provisioning.connector.google/src/main/java/org/wso2/carbon/identity/provisioning/connector/google/GoogleProvisioningConnector.java). Using this as an example, you can customize this code according to your requirements.
+2.  Refer the source code of the [sample outbound connector](https://github.com/wso2/samples-is/tree/master/sample-outbound-connector) to get an understanding about the structure of the connector. The Google provisioning connector that uses the API given above can be found [here](https://github.com/wso2-extensions/identity-outbound-provisioning-google/blob/v5.1.9/components/org.wso2.carbon.identity.provisioning.connector.google/src/main/java/org/wso2/carbon/identity/provisioning/connector/google/GoogleProvisioningConnector.java). Using these connectors as examples, you can customize this code according to your requirements.
 
-    !!! note 
+    !!! note
         To ensure that the connector works, check whether the following configurations are added in the **pom.xml** file (found in the above connector API link) inside the `<project>` tags.
 
         ``` xml

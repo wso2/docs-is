@@ -60,6 +60,14 @@ To define custom claim dialects:
 
 4. Select the **Role ID Claim URI** from the dropdown that includes the list of identity provider claims you defined. This is used to uniquely identify the user's role in the response sent by the identity provider and the role in provisioning requests.
 
+??? note "Custom claim dialects for OIDC identity providers"
+    After configuring custom claim dialects for OIDC identity providers, add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory to enable custom claim mappings.
+
+    ```toml
+    [authentication.endpoint]
+    enable_custom_claim_mappings = true
+    ```
+
 ## Configuring advanced claims
 
 The advanced claim configurations are made based on the basic

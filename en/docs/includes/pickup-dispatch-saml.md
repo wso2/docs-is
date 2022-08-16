@@ -22,7 +22,7 @@ To deploy the sample web app on a web container:
 
 ### Register a service provider
 
-1. In the Management Console, go to **Main** > **Identity** > **Service Providers** and click **Add**.
+1. On the Management Console, go to **Main** > **Identity** > **Service Providers** and click **Add**.
 
 3. Enter `saml2-web-app-pickup-dispatch` as the **Service Provider Name**, and click **Register**.
 
