@@ -358,7 +358,7 @@ nav:
           - Overview: deploy/configure-the-realm.md
           - Configure the Authorization Manager: deploy/configure-the-authorization-manager.md
           - Configure the System Administrator: deploy/configure-the-system-administrator.md
-          - Configure  User Stores:
+          - Configure User Stores:
             - Overview: deploy/configure-user-stores.md
             - Configure the Primary User store: 
               - Overview: deploy/configure-the-primary-user-store.md
