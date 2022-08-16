@@ -38,7 +38,7 @@ To deploy the custom OAuth2 federated authenticator:
 
 ---
 
-## Configure custom OAuth2 federated authenticator
+### Configure custom OAuth2 federated authenticator
 
 To configure the OAuth2 custom authenticator: 
 1. Initially, [register a new identity provider]({{base_path}}/guides/identity-federation/add-idp/).
