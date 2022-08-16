@@ -183,8 +183,7 @@ you can make sure that the existing encrypted data is not affected.
     data encryption, signing, etc.
     
 
-Once this is done, you need to change all `localhost` references. The following points would be the main places where
-the references should be changed.
+Once this is done, you need to change all `localhost` references. The following main changes will apple to references:
 
 - The configurations in the `<IS_HOME/repository/conf/deployment.toml` file that references localhost.
 - The entity ID that is available in the resident identity provider configurations.
@@ -194,7 +193,7 @@ the references should be changed.
 !!! note
 
     To edit the default system applications such as My Account and Console, the following configuration should be added
-    to the `<IS_HOME/repository/conf/deployment.toml` file.
+    to the `<IS_HOME/repository/conf/deployment.toml` file:
 
     ```toml
     [system_applications]
