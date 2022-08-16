@@ -1150,7 +1150,7 @@ plugins:
               'learn/xacml-sample-for-an-online-trading-application.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/log-in-to-the-identity-server-using-another-identity-server-saml2.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/login-to-identity-server-using-another-identity-server-oauth2.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/cors.md': 'deploy/configure-cors/'
+              'learn/cors.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-cors/'
               'develop/developer-guide.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'develop/working-with-the-source-code.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'develop/sdk-overview.md': 'https://is.docs.wso2.com/en/6.0.0/'
