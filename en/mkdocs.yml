@@ -49,13 +49,13 @@ nav:
   - Home: index.md
   - Get Started:
       - Introduction: get-started/quick-start-guide.md
-      - Quick setup: sample-use-cases/set-up.md
-      - Try a use case:
-          - Sample scenario: sample-use-cases/index.md
+      - Quick Setup: sample-use-cases/set-up.md
+      - Try a Use Case:
+          - Sample Scenario: sample-use-cases/sample-scenario.md
           - Single Sign-On: sample-use-cases/single-sign-on.md
-          - Multi-factor authentication: sample-use-cases/multi-factor-authentication.md
-          - Federated authentication: sample-use-cases/federated-authentication.md
-          - Self sign-up: sample-use-cases/self-sign-up.md
+          - Multi-Factor Authentication: sample-use-cases/multi-factor-authentication.md
+          - Federated Authentication: sample-use-cases/federated-authentication.md
+          - Self Sign-Up: sample-use-cases/self-sign-up.md
   - Guides:
       - Overview: guides/before-you-start.md
       - Authentication:
@@ -169,7 +169,8 @@ nav:
             - Device-Based: guides/adaptive-auth/device-based-adaptive-auth.md
             - Login Attempts-Based: guides/adaptive-auth/login-attempts-based-adaptive-auth.md
             - ACR-Based: guides/adaptive-auth/acr-based-adaptive-auth.md
-            - Risk-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
+            - Elk analytics-Based: guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication.md
+            - TypingDNA-Based: guides/adaptive-auth/typingdna-based-adaptive-auth.md
             - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
             - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
           
@@ -544,8 +545,8 @@ nav:
           
   - SDKs:
       - Overview: sdks/sdk-overview.md
-      - Integrate a react app: sdks/start-integrating-apps/integrate-a-react-app.md
-      - Integrate an angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
+      - Integrate a React app: sdks/start-integrating-apps/integrate-a-react-app.md
+      - Integrate an Angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
       - Integrate a JS app: sdks/start-integrating-apps/integrate-a-js-app.md
       - Integrate your Spring Boot app: sdks/spring-boot.md
       
