@@ -24,3 +24,4 @@ Before configuring the service provider, add the following configurations to the
     max_age = 3600
     tag_requests = false
     ```
+
