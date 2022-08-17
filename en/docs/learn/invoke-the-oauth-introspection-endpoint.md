@@ -74,6 +74,13 @@ invoke the OAuth introspection endpoint for the super tenant users.
         permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
         ```
     
+    -   Token introspection across tenant domains is enabled by default. To disable cross tenant token validation,
+        add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.
+        
+        ``` toml
+        [oauth.introspect]
+        allow_cross_tenant = false
+        ```
 
 ### Get a valid token
 
