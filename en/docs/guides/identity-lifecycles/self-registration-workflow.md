@@ -71,13 +71,20 @@ Follow the steps given below to register users for the super tenant, which is ` 
     </tr>
     <tr class="even">
     <td>Prompt reCaptcha</td>
-    <td>Select to enable reCaptcha for self-registration. See <a href="{{base_path}}/deploy/configure-recaptcha">Setting Up reCAPTCHA</a> for more information.</td>
+    <td>Select to enable reCAPTCHA for self-registration. See <a href="{{base_path}}/deploy/configure-recaptcha">Setting Up reCAPTCHA</a> for more information.</td>
     </tr>
     <tr class="odd">
     <td>User self registration verification link expiry time</td>
     <td><div class="content-wrapper">
     <p>Number of minutes that the confirmation link would be valid. The confirmation link will expire 
     after the specified time has elapsed.</p>
+    </div></div> 
+    </div></td>
+    </tr>
+    <tr class="even">
+    <td>Prompt reCaptcha on re-send confirmation</td>
+    <td><div class="content-wrapper">
+    <p>Select to enable reCAPTCHA for re-sending confirmation email.</p>
     </div></div> 
     </div></td>
     </tr>
@@ -265,7 +272,7 @@ Next, you can try out self-registration.
 
     1.  Access the WSO2 Identity Server My Account (`https://<IS_HOST>:<PORT>/myaccount/`) and try to login with the user you just registered.   The user account should not be activated for the user, which means you should not have confirmed the account.
 
-    2.  Click on the **Re-Send** link to resend the email.  
+    2.  Click on the **Resend** link to resend the email.  
         ![resend-link]({{base_path}}/assets/img/guides/resend-link.png) 
 
     !!! tip

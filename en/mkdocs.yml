@@ -227,7 +227,7 @@ nav:
           - Invite User: guides/identity-lifecycles/invitation-workflow.md
           - User Self-Registration: guides/identity-lifecycles/self-registration-workflow.md
           - Lite User Registration: guides/identity-lifecycles/lite-user-registration.md
-          # - reCAPTCHA for Self-Registration: guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
+          - reCAPTCHA for Self-Registration: guides/identity-lifecycles/configure-recaptcha-for-self-registration.md
           - Bulk Import Users: guides/identity-lifecycles/bulk-import-users.md
         - Manage Users:
           - Overview: guides/identity-lifecycles/manage-user-overview.md
