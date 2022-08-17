@@ -1337,7 +1337,7 @@ plugins:
               'setup/migration-process.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/migration-process'
               'setup/migrating-what-has-changed.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/what-has-changed/'
               'setup/migration-guide.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/migrate-to-600/'
-              'setup/migrating-to-5110/': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/migrate-to-600.md' 
+              'setup/migrating-to-5110.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/migrate-to-600.md' 
               'setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/prepare-for-migration'
               'setup/migrating-to-600.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/migrate-to-600/'
               #'setup/migrating-userstore-managers.md': 'https://is.docs.wso2.com/en/6.0.0/migrate-userstore-managers/'
