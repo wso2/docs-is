@@ -221,7 +221,7 @@ paths:
           type: string
       responses:
         200:
-          description: Successfully retrieved session information. The idpName will only be returned for federated authentication sessions.
+          description: Successfully retrieved session information.
           content:
             application/json:
               schema:
@@ -307,7 +307,7 @@ paths:
           type: string
       responses:
         200:
-          description: Successfully retrieved session information. idpName will only be returned for federated authentication sessions.
+          description: Successfully retrieved session information.
           content:
             application/json:
               schema:
@@ -437,7 +437,7 @@ paths:
           format: int64
       responses:
         200:
-          description: Successfully retrieved session information. idpName will only be returned for federated authentication sessions.
+          description: Successfully retrieved session information.
           content:
             application/json:
               schema:
@@ -493,10 +493,6 @@ components:
           type: string
           description: ID of the user of the session.
           example: '00000001'
-        idpName:
-          type: string
-          description: Identity provider name that the session authenticated. Will only be returned for federated authentication sessions.
-          example: 'partner-wso2-is'
         applications:
           type: array
           description: List of applications in the session.
