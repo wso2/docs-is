@@ -12,7 +12,7 @@ There two main ways to view, add, edit, and delete attributes of a user.
 ## Claim mapping when using multiple user stores
 
 When you are using more than one user store, you must map the attributes
-correctly by [adding a claim mapping](../../../../guides/dialects/add-claim-mapping/.
+correctly by [adding a claim mapping](../../../../guides/dialects/add-claim-mapping/).
 
 Under “Mapped Attribute(s)”, you need to follow the pattern.
 
@@ -65,6 +65,8 @@ you can do this.
 
 See [Writing a Custom Userstore Manager]({{base_path}}/deploy/write-a-custom-user-store-manager/) for more information on
 this.
+
+<!--
 
 ### Authentication using multiple attributes
 
@@ -151,6 +153,8 @@ UserNameAttributeClaimUri = "http://wso2.org/claims/emailaddress"
 This will return the email address of the authenticated user. It can be
 configured to return any attribute by changing the
 `         UserNameAttributeClaimUri        `  parameter.
+
+-->
 
 
 
