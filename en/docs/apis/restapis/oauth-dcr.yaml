@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: WSO2 Identity Server OAuth2 Dynamic Client Registration Endpoint
   description: |
-    This document specifies an **OAuth2 Dyanmic Client Registration Endpoint** for WSO2 **Identity Server**.
+    This document specifies an OAuth2 Dyanmic Client Registration Endpoint for WSO2 Identity Server.
   contact:
     name: WSO2
     url: http://wso2.com/identity-and-access-management

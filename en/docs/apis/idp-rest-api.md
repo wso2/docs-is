@@ -1,7 +1,7 @@
 ---
 template: templates/swagger.html
 ---
-# Identity Provider Management API definition - v1
+# Identity Provider Management API definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server.
@@ -34,5 +34,3 @@ template: templates/swagger.html
   // End Swagger UI call region
   window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/88672dbc6afe81e8c5d2)

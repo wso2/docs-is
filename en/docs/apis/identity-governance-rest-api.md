@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Governance Connectors Management API Definition - v1
+# Governance Connectors Management API Definition
      
 This is the RESTful API for managing identity governance configurations
 in WSO2 Identity Server. These configurations are grouped into five main
@@ -217,5 +217,3 @@ The APIs can be used to retrieve the above mentioned categories, connectors of t
 
    window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/13f70a73e4231606b363).

@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Permission Management API definition - v1
+# Permission Management API definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 

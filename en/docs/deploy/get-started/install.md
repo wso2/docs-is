@@ -41,7 +41,7 @@ development platforms before starting the installation.
 <th><p>Operating Systems/ Databases/ Userstores</p></th>
 <td><div class="content-wrapper">
 <ul>
-<li>WSO2 Identity Server requires an Oracle JDK 11 or JDK 8 compliant JDK. This will run on most common platforms that <strong>support Java 11 or Java 8.</strong> .</li>
+<li>WSO2 Identity Server requires an Oracle JDK 11 or JDK 17 compliant JDK. This will run on most common platforms that <strong>support Java 11 or Java 17.</strong> .</li>
 <li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="{{base_path}}/deploy/work-with-databases">Work with Databases</a>.</li>
 <li>WSO2 Identity Server supports using any of the following as a userstore :
 <ul>
@@ -55,8 +55,7 @@ development platforms before starting the installation.
 <p class="admonition-title">Note</p>
 <p>
 <ul>
-<li>WSO2 Identity Server is shipped with a default embedded Apache DS that is suitable for development purposes. WSO2 does not recommend using Apache DS in a production environment due to scalability issues that exist with Apache DS.</li>
-<li>WSO2 does not recommend using the H2 database as a userstore in production environments. However, you can use the H2 database for development purposes if necessary.</li>
+<li>WSO2 does not recommend using the H2 database as a user store in production environments. However, you can use the H2 database for development purposes if necessary.</li>
 </ul>
 </p>
 </div>
@@ -107,15 +106,9 @@ binary files for both MS Windows, and Linux-based operating systems.
 </ul></td>
 <td><div class="content-wrapper">
 <ul>
-<li><p>Oracle JDK 8</p></li>
 <li><p>Oracle JDK 11</p></li>
-<li><p>OpenJDK 8</p></li>
 <li><p>OpenJDK 11</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are using an Oracle JDK version lower than 8u161, you need to download the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy files from <a href="https://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html">here</a> and add the files to the security directory of your Java installation to avoid <code>illegal key size</code> errors when you try to invoke a secured Web service.</p>
-</div>
 </div></td>
 <td><div class="line number1 index0 alt2">
 <a href="https://openjdk.java.net/install/">OpenJDK</a>
@@ -242,18 +235,18 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
 
 1.  In your home directory, open the BASHRC file (.bash\_profile file 
     on Mac) using editors such as vi, emacs, pico, or mcedit.
-2.  Assuming you have JDK 1.8.0\_141 in your system, add the following
+2.  Assuming you have JDK 11.0.14 in your system, add the following
     two lines at the bottom of the file, replacing
-    `           /usr/java/jdk1.8.0_141          ` with the actual
+    `/usr/java/jdk-11.0.14` with the actual
     directory where the JDK is installed.
 
     ```java tab="Linux"
-    export JAVA_HOME=/usr/java/jdk1.8.0_141
+    export JAVA_HOME=/usr/java/jdk-11.0.14
     export PATH=${JAVA_HOME}/bin:${PATH}
 	```
     
 	```java tab="OS X"
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_141/Contents/Home
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.14/Contents/Home
     ```
 
 3.  Save the file.
@@ -315,11 +308,11 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     editor, such as vi, emacs, pico, or mcedit.
 2.  Assuming you have JDK 1.8.0_141 in your system, add the following
     two lines at the bottom of the file, replacing
-    `           /usr/java/jdk1.8.0_141          ` with the actual
+    `/usr/java/jdk-11.0.14` with the actual
     directory where the JDK is installed.
 
     ``` java
-    export JAVA_HOME=/usr/java/jdk1.8.0_141
+    export JAVA_HOME=/usr/java/jdk-11.0.14
     export PATH=${JAVA_HOME}/bin:${PATH}
     ```
 
@@ -378,7 +371,7 @@ You must set your `         JAVA_HOME        ` environment variable to
 point to the directory where the Java Development Kit (JDK) is installed
 on the computer. Typically, the JDK is installed in a directory under
 `         C:/Program Files/Java        `, such as
-`         C:/Program Files/Java/jdk1.8.0_141        ` . If you have
+`C:/Program Files/Java/jdk-11.0.14` . If you have
 multiple versions installed, choose the latest one, which you can find
 by sorting by date.
 
@@ -418,7 +411,7 @@ prompt](#java-home).
     -   In the **Variable value** field, enter the installation path of
         the Java Development Kit, such as:
         `            c:/Program Files/Java           `
-        `            jdk1.8.0_141           `
+        `            jdk-11.0.14           `
 
 The `JAVA_HOME` variable is now set and will apply to any subsequent
 command prompt windows you open. If you have existing command prompt
@@ -458,7 +451,7 @@ want to restart it.
         ---
         **Example**
         ```java
-        set JAVA_HOME=c:/Program Files/java/jdk1.8.0_141
+        set JAVA_HOME=c:/Program Files/java/jdk-11.0.14
         ```
 
     The `JAVA_HOME variable is now set for the current CMD session only.
@@ -531,7 +524,7 @@ product directory location.
         # Default-Stop:
         # Short-Description: starts the wso2 identity server
         ### END INIT INFO
-        export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_141"
+        export JAVA_HOME="/usr/lib/jvm/jdk-11.0.14"
 
         startcmd='/opt/WSO2/wso2is-5.9.0/bin/wso2server.sh start > /dev/null &'
         restartcmd='/opt/WSO2/wso2is-5.9.0/bin/wso2server.sh restart > /dev/null &'

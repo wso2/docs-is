@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Notification Senders API Definition - v1
+# Notification Senders API Definition
 
 This is the RESTful API for managing notification sender configurations in WSO2 Identity Server. 
 It supports Email and SMS as the notification channels. 
@@ -79,10 +79,9 @@ The following section provides the instructions to contruct requests for each no
     
 <div id="swagger-ui"></div>
 <script>
-
-  // Begin Swagger UI call region
+    // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/wso2/identity-api-server/master/components/org.wso2.carbon.identity.api.server.notification.sender/org.wso2.carbon.identity.api.server.notification.sender.v1/src/main/resources/notification-sender.yaml",
+     url: "{{base_path}}/apis/restapis/notification-senders.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -93,11 +92,8 @@ The following section provides the instructions to contruct requests for each no
     plugins: [
       SwaggerUIBundle.plugins.DownloadUrl
     ],
-    layout: "StandaloneLayout"
+    layout: "StandaloneLayout",
   })
   // End Swagger UI call region
-
-   window.ui = ui
+  window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7bc59cc3e9c958bffaf4)
