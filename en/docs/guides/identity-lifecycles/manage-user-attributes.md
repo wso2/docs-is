@@ -27,6 +27,8 @@ follows for `http://wso2.org/claims/emailaddress`.
 DEMO/mail
 ```
 
+<!--
+
 ### Attributes with multiple values
 
 If your user store supports multiple values for attributes, the
@@ -147,6 +149,8 @@ UserNameAttributeClaimUri = "http://wso2.org/claims/emailaddress"
 This will return the email address of the authenticated user. It can be
 configured to return any attribute by changing the
 `         UserNameAttributeClaimUri        `  parameter.
+
+-->
 
 
 
