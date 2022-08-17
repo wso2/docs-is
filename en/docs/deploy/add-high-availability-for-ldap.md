@@ -1,6 +1,6 @@
 # Add High Availability for LDAP
 
-When connecting the WSO2 Identity Server to an external LDAP userstore,
+When connecting the WSO2 Identity Server to an LDAP user store,
 it may be necessary to have high availability for the LDAP as it
 includes user information that must be available at all times. To attain
 high availability for your LDAP, you would replicate the LDAP server to

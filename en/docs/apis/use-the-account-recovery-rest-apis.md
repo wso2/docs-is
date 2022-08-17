@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# SCIM 2.0 API Definition
+# Account recovery API Definition
 
 ??? Note "Click to view"
     Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server.
@@ -19,7 +19,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/apis/restapis/scim2.yaml",
+     url: "{{base_path}}/apis/restapis/account-recovery.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,

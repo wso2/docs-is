@@ -12,7 +12,7 @@ There two main ways to view, add, edit, and delete attributes of a user.
 ## Claim mapping when using multiple user stores
 
 When you are using more than one user store, you must map the attributes
-correctly by [adding a claim mapping](../../../../guides/dialects/add-claim-mapping/.
+correctly by [adding a claim mapping](../../../../guides/dialects/add-claim-mapping/).
 
 Under “Mapped Attribute(s)”, you need to follow the pattern.
 
@@ -26,6 +26,8 @@ follows for `http://wso2.org/claims/emailaddress`.
 ``` java
 DEMO/mail
 ```
+
+<!--
 
 ### Attributes with multiple values
 
@@ -67,10 +69,6 @@ See [Writing a Custom Userstore Manager]({{base_path}}/deploy/write-a-custom-use
 this.
 
 ### Authentication using multiple attributes
-
-!!! warning
-    Multi attribute login is only supported for LDAP/AD user stores and is
-    **not supported** for JDBC user stores.
 
 -   Once you connect your LDAP with an application, generally, the
     application uses one of the unique attributes in LDAP by default, to authenticate the user.
@@ -151,6 +149,8 @@ UserNameAttributeClaimUri = "http://wso2.org/claims/emailaddress"
 This will return the email address of the authenticated user. It can be
 configured to return any attribute by changing the
 `         UserNameAttributeClaimUri        `  parameter.
+
+-->
 
 
 

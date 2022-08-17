@@ -67,8 +67,7 @@ The instructions below guide you through adding an adaptive authentication funct
 
 3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
 
-3. Add the following script under the script-based adaptive authentication editor:
-
+4. Add the following script under the script-based adaptive authentication editor:
     ```js
     var ageModule = require('age_based.js');
 
@@ -114,7 +113,9 @@ The instructions below guide you through adding an adaptive authentication funct
             }
         });
     }
+
     ```
+
     !!! info
         - The authentication script grants access only to users who are 18 years or above and restricts underage users. Underage users are redirected to an error page.
 

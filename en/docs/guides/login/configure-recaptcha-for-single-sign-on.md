@@ -1,45 +1,19 @@
 # Configure reCAPTCHA for Single Sign-On
 
-This topic guides you through configuring reCAPTCHA for the single sign
-on flow. By configuring reCAPTCHA, you can mitigate or block brute force
-attacks.
+This topic guides you through configuring reCAPTCHA for the single sign on flow. By configuring reCAPTCHA, you can mitigate or block brute force attacks.
 
 !!! Info 
-    -   For more information on configuring single sign-on, see [Configuring
-    Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on/).
-    -   For more information on brute force attacks, see [Mitigating Brute
-    Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks/).
+    For more information on configuring single sign-on, see [Configuring Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on/).
 
-## Configure reCAPTCHA API keys
+    For more information on brute force attacks, see [Mitigating Brute Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks/).
 
-[reCAPTCHA](https://developers.google.com/recaptcha/) is a free widget service provided by Google that can be used for protection against spam or other forms of internet abuse by verifying whether a user is a human or a robot. The following section guides you through setting up reCAPTCHA with WSO2 Identity Server.
+You can either configure the reCAPTCHA for a tenant or configure it globally. 
 
-First, you need to register and create an API key pair for the required domain. The key pair consists of a site key and secret. The site key is used when a reCAPTCHA widget is displayed on a page. After verification, a new parameter called g-recaptcha-response appears on the form which the user submits. From the server side, you can verify the submitted captcha response by calling the Google API with the secret key.
+## Prerequisites
 
-1.  Go to <https://www.google.com/recaptcha/admin>.
+[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha.md) with WSO2 Identity Server.
 
-2.  Fill in the fields to register
-    your identity server domain and click **Register**. The following
-    are sample values:
-    -   **Label:** WSO2 Identity Server
-    -   Select the reCAPTCHA V2 option.
-    -   **Domains:** is.wso2.com  
-
-3.	Accept the terms of service. 
-
-4.  Click **Submit**.
-
-    ![configuring-recaptcha-api-keys]({{base_path}}/assets/img/fragments/recaptcha-new-sso.png) 
-
-5.  Take note of the site key and secret that you receive.
-    ![note-site-key-secret]({{base_path}}/assets/img/fragments/copy-key.png) 
-
-
----
-
-{!./includes/set-up-recaptcha.md !}
-
-## Configure reCAPTCHA for SSO
+## Configure single sign-on with reCAPTCHA for a specific tenant
 
 1. Log in to the management console  (`https://<IS_HOST>:<IS_PORT>/carbon`).
 
@@ -51,13 +25,13 @@ First, you need to register and create an API key pair for the required domain. 
 
     - **Always prompt reCaptcha:** 
 
-        Select this option to prompt users for reCaptcha with every SSO login attempt. 
+        Select this option to prompt users for reCAPTCHA with every SSO login attempt. 
 
     - **Prompt reCaptcha after max failed attempts:** 
     
         Select this option to prompt reCAPTCHA only after the number of max failed attempts exceed. 
     
-        If you select this option, enter a value for the **Max failed attempts for reCaptcha** field as well. For example, if you enter 3, reCaptcha will be re-enabled after 3 failed attempts.  
+        If you select this option, enter a value for the **Max failed attempts for reCaptcha** field as well. For example, if you enter 3, reCAPTCHA will be re-enabled after 3 failed attempts.  
         
         ![configure-captcha-for-sso]({{base_path}}/assets/img/guides/recaptcha-sso.png)
         
@@ -69,15 +43,37 @@ First, you need to register and create an API key pair for the required domain. 
     
           ![configure-account-locking]({{base_path}}/assets/img/guides/configure-account-locking.png)
     
-5.  You have now successfully configured reCAPTCHA for the single sign
-    on flow. If the number of failed attempts reaches the maximum
-    configured value, the following reCAPTCHA window appears.  
+5.  You have now successfully configured reCAPTCHA for the single sign on flow. If the number of failed attempts reaches the maximum configured value, the reCAPTCHA logo appears at the bottom right of the screen.  
 
     ![captcha-login-failed]({{base_path}}/assets/img/guides/captcha-login-failed.png)
+
+## Configure single sign-on with reCAPTCHA globally
+
+1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
+
+    !!! tip
+        To avoid any configuration issues, do this before starting
+        the WSO2 Identity Server product instance.
+
+    ```toml
+    [sso_login.recaptcha]
+    enabled=true
+    enable_always=false
+    max_attempts="3"
+    ```
+## Try it
+
+Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
+
+If the number of failed attempts reaches the maximum configured value, the reCAPTCHA logo appears at the bottom right of the screen. 
+
+![captcha-login-failed]({{base_path}}/assets/img/guides/captcha-login-failed.png)
+
 
 !!! Info
      If the user exceeds the maximum allowed failed login attempts as well, be sure to [configure email notifications for account locking]({{base_path}}/guides/tenants/email-account-locking).
     
+---
 
 !!! info "Related topics"
     - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)

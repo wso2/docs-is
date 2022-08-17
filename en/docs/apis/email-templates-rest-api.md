@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Email Template Management API Definition - v1
+# Email Template Management API Definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 

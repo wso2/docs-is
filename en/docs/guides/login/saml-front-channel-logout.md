@@ -77,7 +77,7 @@ Make the following changes to the created service provider.
 2.  Copy the downloaded SAML metadata file to `<SAMPLE_HOME>/sample/src/main/resources/metadata`.
 3.  Open the `<SAMPLE_HOME>/sample/src/main/webapp/WEB-INF/securityContext.xml` file. 
 4.  Search for **bean id** with the tag as metadata (`bean id=”metadata”`). 
-5.  Under the `list` tag of the `metadata bean id`, add the following xml configuration and save the file. Note that this has the link to the metadata file,`wso2.xml`, that we downloaded. 
+5.  Under the `list` tag of the `metadata bean id`, add the following xml configuration and save the file. Note that this has the link to `metadata.xml`, which we downloaded. 
 
     ```xml 
     <bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
@@ -88,7 +88,7 @@ Make the following changes to the created service provider.
     </constructor-arg>          
     <constructor-arg>             
     <bean class="org.opensaml.util.resource.ClasspathResource">                
-    <constructor-arg value="/metadata/wso2.xml" />             
+    <constructor-arg value="/metadata/metadata.xml" />             
     </bean>          
     </constructor-arg>          
     <property name="parserPool" ref="parserPool" />       

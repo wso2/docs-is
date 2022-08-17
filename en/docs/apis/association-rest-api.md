@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# User Account Associations API Definition - v1
+# User Account Associations API Definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
@@ -36,7 +36,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/apis/restapis/association.yaml",
+    url: "{{base_path}}/apis/restapis/association.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
@@ -51,7 +51,5 @@ template: templates/swagger.html
   })
   // End Swagger UI call region
 
-   window.ui = ui
+  window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ecd26c008975ebf4eafa)

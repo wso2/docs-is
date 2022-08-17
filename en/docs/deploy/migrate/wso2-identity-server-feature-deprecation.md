@@ -29,8 +29,7 @@ The following terms refer to the different phases of the feature deprecation lif
 3. **Retired**
 
     At this phase, we decide not to incorporate the feature with new releases. For versions released, until the respective version goes end of license, feature maintenance and security updates will be provided for subscriptions
-
----
+<!--
 
 ## Feature deprecation matrix
 
@@ -111,11 +110,12 @@ Our recommendation is to migrate to OAuth 2.0
    </td>
   </tr>
 </table>
-
-Refer EOL dates of a product at [WSO2 Product Support Lifecycle](https://wso2.com/products/support-matrix/).
+-->
 
 ---
 
 ## Support / SLA for deprecated features
+
+Refer EOL dates of a product at [WSO2 Product Support Lifecycle](https://wso2.com/products/support-matrix/).
 
 Contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) for details on this.

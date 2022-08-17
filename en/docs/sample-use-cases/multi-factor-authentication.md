@@ -1,116 +1,103 @@
-# Multi-factor authentication
+# Multi-Factor Authentication
 
-Follow the instructions given here to to try out multi-factor authentication.
+Follow the instructions given here to try out multi-factor authentication.
 
 ## Problem scenario
 
-Cameron wants to enhance the security standards by introducing another level of authentication. As a result, Cameron decides to use Multi-factor Authentication (MFA) in WSO2 Identity Server using the following factors:
+**Pickup** wants to enhance the security standards by introducing a second level of authentication when users sign in to applications. Multi-factor authentication (MFA) is enabled in WSO2 Identity Server using the following factors:
     
-- **First factor** : password
-- **Second factor** : HARDWARE KEY
+- **First factor**: username/password
+- **Second factor**: HARDWARE KEY
 
 Let's use the command-line to check the MFA functionality.
 
-## Configure multi-factor authentication
+## Prerequisites
 
-First deploy the sample authenticator dependency and web application in
-    WSO2 Identity Server.
+Before you begin, do the following:
 
-1.  Stop the Identity Server if already running.
-2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/sample-auth.war) file 
-and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.  
+1.  [Install WSO2 Identity Server]({{base_path}}/sample-use-cases/set-up/).
+2.  Deploy the sample authenticator dependency and its web application in WSO2 Identity Server.
 
-    This `.war` file contains the WEB UI for the sample authenticators used in this tutorial.
+    1.  Stop the Identity Server if already running.
+    2.  Download the [org.wso2.carbon.identity.sample.extension.authenticator.jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/samples/is/org.wso2.carbon.identity.sample.extension.authenticators/4.5.0/org.wso2.carbon.identity.sample.extension.authenticators-4.5.0.jar) file and copy it to the `<IS_HOME>/repository/components/dropins` folder.
+    3.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/sample-auth.war) file and copy it to the `<IS_HOME>/repository/deployment/server/webapps` folder.  
 
-3.  Add the following configurations to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and restart the server.
+        !!! info
+            This `.war` file contains the WEB UI for the sample authenticators used in this tutorial.
 
-       ```toml
-       [[resource.access_control]]
-       context = "(.*)/sample-auth/(.*)"
-       secure = false
-       http_method = "all" 
-       ```
+    3.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder and add the following configuration:
+
+        ```toml
+        [[resource.access_control]]
+        context = "(.*)/sample-auth/(.*)"
+        secure = false
+        http_method = "all" 
+        ```
        
-4.  Start the Identity Server.
+3.  Start WSO2 Identity Server.
 
-Follow the steps below to configure MFA on the Pickup Dispatch and
-Pickup Manager applications where HARDWARE KEY is the second authentication
-factor.
+## Run the sample scenario
 
-!!! tip "Before you begin"
-    
-    If you have run any other samples in this Quick Start Guide, navigate
-    back to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` using the command-line and
-    execute either of the following commands to start the Quick Start
-    samples.
-    
-    ``` java
-    Linux   --> sudo sh qsg.sh run
-    Windows --> sudo qsg.bat run
-    ```
+Let's run the sample applications **Pickup-Dispatch** and **Pickup-Manager**.
 
-A message appears to pick a scenario.
+1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-use-cases/sample-scenario/#set-up-the-sample-apps).
 
-1.  Navigate back to the `<IS_SAMPLE_DISTR>/IS-QSG/bin` using the command-line and
-    execute either of the following commands to start the Quick Start
-    samples.
-    
-    ``` java
-    Linux   --> sudo sh qsg.sh run
-    Windows --> sudo qsg.bat run
-    ``` 
+    !!! info
+        A message appears to pick a scenario.
 
-1.  Enter `3` as the scenario number at the command prompt.
+2.  Enter `3` as the scenario number at the command prompt.
   
     ![List of scenarios in QSG]({{base_path}}/assets/img/get-started/qsg-configure-sso.png)
     
-2.  Enter `y` to confirm that you have already done the following steps.
+3.  Enter `y` to confirm that you have already done the following steps.
 
     ![QSG commandline continue]({{base_path}}/assets/img/get-started/qsg-configure-setup.png)
-    
-5.  Enter the `http://localhost:8080/saml2-web-app-pickup-dispatch.com` URL on a web browser to access the Pickup Dispatch application.
 
-6.  Click **Login**.
+## Try it out
+
+Let's access the **Pickup-Dispatch** application and proceed to sign in.
+    
+1.  Copy the `http://localhost:8080/saml2-web-app-pickup-dispatch.com` URL to your web browser to access the **Pickup-Dispatch** application.
+
+2.  Click **Log in** to access the first authentication step provided by WSO2 Identity Server.
   
     ![Pickup Dispatch application login]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-login.png)
     
-7.  Enter either of the following credentials to sign in to the
-    application.
+3.  Enter either of the following credentials to sign in to the
+    application:
 
-    ``` java
+    ``` bash
     Manager  --> Username: cameron | Password: cameron123
     Employee --> Username: alex    | Password: alex123 
     ```
 
     ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-sso-login-credentials.png)
 
-    The HARDWARE KEY login page appears as HARDWARE KEY is the second
-    authentication factor.
+    !!! info
+        The HARDWARE KEY login page appears as HARDWARE KEY is the second authentication factor.
 
-8.  Enter the DEMO key that appears in the browser and click **Sign In**.
+4.  Enter the DEMO key that appears in the browser and click **Sign In**.
 
     ![Enter the hardware key]({{base_path}}/assets/img/get-started/hardware-key.png)
 
-    After successful authentication, the **User Consents** form of the Pickup
-    Dispatch application appears.
+    !!! info
+        After successful authentication, the **User Consent** page of the **Pickup-Dispatch** application appears.
 
-9.  Select the attributes that you want to share with Pickup Dispatch and click
+5.  Select the attributes you agree to share with the **Pickup-Dispatch** application and click
     **Continue**.
 
     ![Consent page]({{base_path}}/assets/img/get-started/qsg-sso-consent.png)      
 
     !!! note
-    
-        Obtaining user consent is one of the fundamental requirements of the
-        GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
-        Management** features. To know more about GDPR and how WSO2 Identity Server
+        Obtaining user consent is a fundamental requirement of the General Data Protection Regulation (GDPR). WSO2 Identity Server facilitates this through its **Consent Management** features. To learn more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent Management]({{base_path}}/references/concepts/consent-management/).
 
-10. Note that the Pickup Dispatch home screen appears.
+     Note that the **Pickup-Dispatch** application home screen appears.
 
-    ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
+     ![Pickup Dispatch home screen]({{base_path}}/assets/img/get-started/qsg-sso-dispatch-home.png)
 
-11. To try out other scenarios, navigate back to where you ran the Quick
-    Start sample on the command-line and enter `y` to clean the setup.
+## What's next?
+
+To try out other scenarios, navigate back to the command-line where you ran the quickstart sample and enter `y` to clean the setup.
     
-    ![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)
+![QSG cleanup]({{base_path}}/assets/img/get-started/qsg-sso-cleanup.png)

@@ -11,7 +11,7 @@
     -   There is more focus on feature development for SCIM 2.0 APIs.
     
 
-The SCIM API can be called in order to perform various tasks in the WSO2
+The SCIM API is used in to perform various tasks in the WSO2
 Identity Server. For simplicity, cURL commands are used in this example
 to send CRUD requests to the REST endpoints of Identity Server.
 

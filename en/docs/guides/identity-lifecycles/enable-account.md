@@ -4,12 +4,9 @@ Account locking and account disabling are security features in WSO2 Identity Ser
 
 ----
 
-## Disable user accounts using the admin portal
+## Enable account disabling
 
-### Configure WSO2 IS for account disabling
-
-First, you need to configure WSO2 Identity Server for user account
-locking and disabling. Follow the below steps to do this configuration.
+Follow the below steps to do this configuration.
 
 1.  Start the Identity Server and log into the management console (`https://<IS_HOST>:<PORT>/carbon`) using
     your tenant credentials.
@@ -31,36 +28,8 @@ locking and disabling. Follow the below steps to do this configuration.
         [identity_mgt.account_disabling]
         enable_account_disabling=false
         ```
-5.  Next, enable account locking. Expand the **Login Attempts Security** tab.
-6.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
-    ![enable-locking]({{base_path}}/assets/img/guides/enable-locking.png) 
 
-    !!! tip
-    
-        If a user is assigned the **Internal/system** role, the user can
-        bypass account locking even if the user exceeds the specified number
-        of **Maximum failed login attempts**.
-    
-        ??? note "Click here to see more information"
-    
-            WSO2 Identity Server has the **Internal/system** role configured by
-            default. But generally a new user is not assigned the
-            **Internal/system** role by default. Required roles can be assigned
-            to a user depending on the set of permission a user needs to have.
-            For more information on roles and permission, see [Configure Roles
-            and Permissions]({{base_path}}/guides/identity-lifecycles/manage-roles-overview).
-    
-            Although the **Internal/system** role is configured by default in
-            WSO2 Identity Server, you can delete the role if necessary. To allow
-            users with the **Internal/system** role to bypass account locking,
-            you need to ensure that the role exists in WSO2 Identity Server.
-    
-7.  To enable account locking and disabling for other tenants, log out
-    and repeat the steps given above from [step
-    2](#accountdisabling) onwards.
-
-
-### Disable an account
+## Enable claims
 
 Follow the steps below to disable a user account through the WSO2 IS
 management console.
@@ -71,32 +40,32 @@ management console.
     Mapping]({{base_path}}/guides/dialects/edit-claim-mapping/) for more information on how to do
     this.
 
-3.  Tick the checkbox **Supported by Default** and click **Update.**  
-    ![click-supported-by-default]({{base_path}}/assets/img/guides/click-supported-by-default.png) 
-4.  Navigate to **Main** > **Identity** > **Users and Roles** > **List** > **Users** and click on
-    **User Profile** of the user account that you want to disable.
+3.  Tick the checkbox **Supported by Default** and click **Update**.
+
+    ![click-supported-by-default]({{base_path}}/assets/img/guides/click-supported-by-default.png)
+
+4.  Navigate to **Main** > **Identity** > **Users and Roles** > **List** > **Users** and click on **User Profile** of the user account that you want to disable.
+
 5.  Tick the **Account Disabled** checkbox and click **Update**.  
 
-### Send email notifications for account disabling
+## Configure the email sender
 
-Once you have configured WSO2 Identity Server for account disabling, you
-can also configure the WSO2 IS to send an email to the user's email
-address when the user account is disabled. To configure this, follow the
-steps below.  
+[Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
 
-{!./includes/configure-email-sending.md !}
-
-    !!! info
-        The email template used to send the email notification for
-        account locking is the **AccountLock** template and the template
-        used for account disabling is the **AccountDisable** template. You
-        can edit and customize the email template. For more information on
-        how to do this, see [Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails)
-.
+!!! info
+    The email template used to send the email notification for
+    account locking is the **AccountLock** template and the template
+    used for account disabling is the **AccountDisable** template. You
+    can edit and customize the email template. For more information on
+    how to do this, see [Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails).
 
 ---
 
-## Disable user accounts using SCIM
+## Try it out
+
+### Use the Management Console
+
+### Use the SCIM2 Rest API
 
 1.	In order to update the status of a user account, we need to obtain the SCIM ID of that particular user. Therefore, we first call the GET users API to get the user details. The following curl command gives details of alk the users including the SCIM IDs. 
 

@@ -1,4 +1,4 @@
-# Account recovery
+# Recover User Account
 
 The account recovery feature implemented in WSO2 IS helps to recover the user account if the user has forgotten the username or password. This recovery process is also secured with captcha verification.
 

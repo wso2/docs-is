@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Keystore Management API Definition - v1
+# Keystore Management API Definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
@@ -35,5 +35,3 @@ template: templates/swagger.html
 
    window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9ac2c33f2f4ea5f9b041)

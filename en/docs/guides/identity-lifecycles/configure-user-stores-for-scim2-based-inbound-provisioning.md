@@ -10,7 +10,7 @@ When a user or a group is created with SCIM 2.0, there are set of mandatory clai
 -   urn:ietf:params:scim:schemas:core:2.0:meta.lastModified 
 -   urn:ietf:params:scim:schemas:core:2.0:User:userName
 
-Unless your userstore is a JDBC userstore or the embedded LDAP (that comes with IS), you need to map how these values are stored in your userstore. This mapping can be done using the claim mapping setup in the Identity Server. You can find Active directory specific claim configuration in [Configure Active Directory userstores for Inbound Provisioning]({{base_path}}/guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning/).
+Unless your user store is a JDBC user store, you need to map how these values are stored in your user store. This mapping can be done using the claim mapping setup in WSO2 Identity Server. You can find Active directory specific claim configurations when you [configure Active Directory user stores for inbound provisioning]({{base_path}}/guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning/).
 
 Now let's assume you have an AD userstore as the primary userstore and you have done the claim mappings for the SCIM attributes. 
 

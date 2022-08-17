@@ -17,8 +17,7 @@ users receive the latest updates for the product.
 ## Prerequisites
 
 1. Review what has been changed in this release. For a detailed list of
-    changes from 5.11.0 to 6.0.0, see
-    [What Has Changed]({{base_path}}/setup/migrating-what-has-changed).
+    changes from 5.11.0 to 6.0.0, see [What Has Changed]({{base_path}}/setup/migrating-what-has-changed).
 
 2. Before you migrate, refer to [Migration Process]({{base_path}}/setup/migration-process/) to get an understanding on the migration process.
 

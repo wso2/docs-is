@@ -1,6 +1,6 @@
 # Configure a Read-only LDAP Userstore
 
-WSO2 identity server uses an embedded Read/Write LDAP as the primary userstore.
+WSO2 Identity Server uses the embedded H2 database as the primary user store.
 This document will guide you to change that to a Read-Only LDAP userstore.
 
 !!! tip 
@@ -52,7 +52,7 @@ Following are the minimum userstore properties that are required to configure th
 <td>ConnectionURL</td>
 <td>connection_url</td>
 <td>Connection URL</td>
-<td><p>This is the connection URL to the userstore server. In the case of default LDAP in Carbon, the port is specified in the <code><p><&ZeroWidthSpace;IS_HOME>/repository/conf/carbon.xml</code> file, and a reference to that port is included in this configuration.</p>
+<td><p>This is the connection URL to the user store server.</p>
 <p>Sample values:<br />
 <a href="ldap://10.100.1.100:389">ldap://10.100.1.100:389</a><br />
 <a href="ldaps://10.100.1.102:639">ldaps://10.100.1.102:639</a><br />

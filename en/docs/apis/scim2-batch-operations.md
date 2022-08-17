@@ -4,37 +4,6 @@ Follow the topics given below to understand how **Bulk** operations can be used 
  
 The SCIM2 API allows you to send multiple resource operations in a single request. That is, you can add new records (POST data), replace an existing record (PUT data), update elements of an existing record (PATCH data), and delete records (DELETE data) in bulk. These bulk operations are supported for managing users and groups with the SCIM API in WSO2 Identity Server.
  
-You need to specify the following information in the request payload.
- 
-<table>
-   <tr>
-       <th>Parameter</th>
-       <th>Required/Optional</th>
-       <th>Description</th>
-   </tr>
-   <tr>
-       <td><code>failOnErrors</code></td>
-       <td>Optional</td>
-       <td>The number of errors that will be accepted by WSO2 IS before returning the response.</br>
-           Specify an integer.
-       </td>
-   </tr>
-   <tr>
-       <td><code>schemas</code></td>
-       <td>Required</td>
-       <td>This is the schema that is required for sending bulk requests:</br></br>
-       <code>urn:ietf:params:scim:api:messages:2.0:BulkRequest</code>.
-       </td>
-   </tr>
-   <tr>
-       <td><code>operations</code></td>
-       <td>Required</td>
-       <td>Specify the array of POST, PUT, PATCH, and/or DELETE operations that should be used to update the information. 
-        <p><b>Note:</b> You can include any number of operations in one bulk request.</p>
-       See the instructions given below to define the required operations.</td>
-   </tr>
-</table>
- 
 ## Manage users in bulk
  
 You can use the **bulk** operations to add, remove, update, and replace users in bulk.

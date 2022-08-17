@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Script Library Management API definition - v1
+# Script Library Management API definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server.
@@ -18,7 +18,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/apis/restapis/scriptLibrary.yaml",
+     url: "{{base_path}}/apis/restapis/script-library.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
@@ -34,5 +34,3 @@ template: templates/swagger.html
 
    window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4e49915b3a9d796419c6)
