@@ -9,7 +9,7 @@ This topic guides you through configuring reCAPTCHA for secret questions in the 
 
 ## Prerequisites
 
-[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha) with WSO2 Identity Server.
+[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha.md) with WSO2 Identity Server.
 
 ## Configure reCAPTCHA on invalid challenge question attempts for a specific tenant
 
@@ -41,12 +41,6 @@ This topic guides you through configuring reCAPTCHA for secret questions in the 
 You have now successfully configured reCAPTCHA for the password recovery with secret questions flow. The reCAPTCHA will be prompted if the user reaches the limit of max failed attempts when providing an answer to a secret question. For instance, since the **Max failed attempts for reCaptcha** was configured as 2 above, if the user answers a question incorrectly twice, the reCAPTCHA will be prompted as seen in the window below.  
 
 ![recaptcha-max-failed-attempts-security-questions]({{base_path}}/assets/img/guides/recaptcha-max-failed-attempts-security-questions.png)
-
-!!! note
-    If you want to enable reCAPTCHA globally for all the workflows, the `forcefully_enabled_for_all_tenants` should be added as a property of `[recaptcha]` in the `deployment.toml` file.
-    ``` toml
-    forcefully_enabled_for_all_tenants=true
-    ```
 
 ---
 
