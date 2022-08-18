@@ -21,7 +21,7 @@
 
 7. Expand **Request Path Authentication**.
 
-8. Check **oauth-bearer** from the dropdown. 
+8. Check **OAuth Bearer** from the dropdown. 
 
 9. After all the configurations click **Update**.
 -->

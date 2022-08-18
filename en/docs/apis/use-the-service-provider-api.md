@@ -2127,7 +2127,7 @@ To configure the outbound provisioning of the service provider, use the followin
           &lt;ax2117:valid&gt;true&lt;/ax2117:valid&gt;
        &lt;/ns:return&gt;
        &lt;ns:return xsi:type="ax2117:RequestPathAuthenticatorConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-          &lt;ax2117:displayName&gt;oauth-bearer&lt;/ax2117:displayName&gt;
+          &lt;ax2117:displayName&gt;OAuth Bearer&lt;/ax2117:displayName&gt;
           &lt;ax2117:enabled&gt;false&lt;/ax2117:enabled&gt;
           &lt;ax2117:name&gt;OAuthRequestPathAuthenticator&lt;/ax2117:name&gt;
           &lt;ax2117:valid&gt;true&lt;/ax2117:valid&gt;
