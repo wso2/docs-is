@@ -34,7 +34,7 @@ To configure local and outbound authentication.
     <ul>
     <li><strong>jwt-basic</strong> authenticator</li>
     <li><strong>FIDO</strong> authenticator</li>
-    <li><strong>x509Certificate</strong> authenticator</li>
+    <li><strong>X509 Certificate</strong> authenticator</li>
     <li><strong>Backup Code Authenticator</strong> authenticator</li>
     <li><strong>TOTP</strong> authenticator</li>
     <li><strong>basic</strong> authenticator</li>
