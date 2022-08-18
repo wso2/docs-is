@@ -40,7 +40,7 @@ To configure device-based authentication for an application:
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
     !!! info
-        By default, `totp` will be added as the second authentication step. You can update this with any authentication method.
+        By default, `TOTP` will be added as the second authentication step. You can update this with any authentication method.
 
 7. Update `deviceRememberPeriod` to specify how long the device should be considered a trusted device.
 
