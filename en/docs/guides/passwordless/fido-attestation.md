@@ -3,10 +3,10 @@
 FIDO2 attestation validations allow you to further validate the FIDO2 authenticator data during the security key registration. WSO2 identity server provides two means of validating the authenticator data during the security key registration.
 
 - **Advanced validations**: WSO2 identity server will perform some advanced validations for the device registration data. Examples include attestation type specific validations, certificate related validations, etc.
-- **FIDO metadata based validations**: WSO2 identity server will validate the device registration data against the FIDO alliance’s metadata.
+- **Security Key/Biometrics (FIDO) metadata based validations**: WSO2 identity server will validate the device registration data against the FIDO alliance’s metadata.
 
 !!!info "What is Attestation?"
-    - Attestation and assertion are two terms that are frequently used during FIDO flows. Attestation occurs during security key registration and assertion occurs during the authentication.
+    - Attestation and assertion are two terms that are frequently used during Security Key/Biometrics (FIDO) flows. Attestation occurs during security key registration and assertion occurs during the authentication.
     - Attestation is a key pair that is specific to a device model and can be used to cryptographically prove the genuineness of a device model. Attestation keys are associated with attestation certificates which are chained to a root certificate that the server trusts.
 
 By default, only the advanced validations are enabled for a given organization. Proceed with the next section of the documentation to learn more about these configurations.
@@ -30,7 +30,7 @@ Moreover, FIDO2 metadata service can be configured to validate the authenticator
     ```
 
     !!! info
-        - The `<url>` can be obtained from the fido alliance’s website https://fidoalliance.org/metadata/.
+        - The `<url>` can be obtained from the FIDO alliance’s website https://fidoalliance.org/metadata/.
         - Please note that enabling this service will require internet access to this URL. If you’re hosting the identity server in an offline setup, you may have to host the metadata BLOB file internally and provide the necessary means to update it regularly.
 
 - Additionally, the following configuration can be added to delay initializing the fido2 metadata service. The default value is set to 0.

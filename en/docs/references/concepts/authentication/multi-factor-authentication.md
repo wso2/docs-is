@@ -26,14 +26,14 @@ A common day-to-day example of using a combination of these factors for MFA can 
 
 ## Using multi-factor authentication
 
-By default, WSO2 Identity Server (WSO2 IS) is shipped with username-and-password-based authentication along with support for adding additional steps of authentication with authenticators such as SMSOTP, FIDO, MEPin, etc. WSO2 Identity Server allows configuring multi-step authentication that enables defining an authentication chain containing different authenticators in different steps. This chain can also be converted to a multi-factor authentication chain by adding different factors of authentication as options to each step. 
+By default, WSO2 Identity Server (WSO2 IS) is shipped with username-and-password-based authentication along with support for adding additional steps of authentication with authenticators such as SMSOTP, Security Key/Biometrics (FIDO), MEPin, etc. WSO2 Identity Server allows configuring multi-step authentication that enables defining an authentication chain containing different authenticators in different steps. This chain can also be converted to a multi-factor authentication chain by adding different factors of authentication as options to each step. 
 
 For instance, a multi-step authentication chain would prompt password authentication as the first step and then prompt SMS OTP as the second step, whereas multi-factor authentication would prompt password authentication as the first step and provide an option to authenticate with SMS OTP **or** biometric as the second step. 
 
 !!! tip
     For a complete list of readily available authenticators, see the [WSO2 IS Connector Store](https://store.wso2.com/store/assets/isconnector/list). 
 
-Note that there are certain second-factor authenticators that **must** be followed by a knowledge factor authenticator. For instance, when you configure the FIDO authenticator, it must not be configured as the first step and must be followed by a first factor authenticator first since FIDO U2F is used for second factor authentication.
+Note that there are certain second-factor authenticators that **must** be followed by a knowledge factor authenticator. For instance, when you configure the Security Key/Biometrics (FIDO) authenticator, it must not be configured as the first step and must be followed by a first factor authenticator first since FIDO U2F is used for second factor authentication.
 
 **Context-aware MFA**
 

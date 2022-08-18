@@ -1,5 +1,5 @@
-# Configure FIDO for two-factor authentication
-This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO]({{base_path}}/references/concepts/authentication/mfa-with-fido) as the second factor.
+# Configure Security Key/Biometrics (FIDO) for two-factor authentication
+This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [Security Key/Biometrics (FIDO)]({{base_path}}/references/concepts/authentication/mfa-with-fido) as the second factor.
 
 !!! info
     - WSO2 Identity Server uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.

@@ -11,6 +11,6 @@ The advantage of possession factors is that the remote hackers cannot perform an
 
 -   [Configure X509 Certificate Authenticator]({{base_path}}/x509)
 
--   [Configure FIDO for 2-Factor Authentication]({{base_path}}/2fa-fido)
+-   [Configure Security Key/Biometrics (FIDO) for 2-Factor Authentication]({{base_path}}/2fa-fido)
 
 
