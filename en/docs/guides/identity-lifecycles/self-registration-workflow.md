@@ -4,7 +4,7 @@ This page guides you through setting up self-registration for users to onboard t
 
 Follow the steps given below to register users for the super tenant, which is `         carbon.super        `.
 
-## Set up notifications
+## Prerequisites
 
 -   If you have migrated from a previous IS version, ensure that the `IdentityMgtEventListener` with the ` orderId=50 ` is set to **false** and that the Identity Listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
     
@@ -30,7 +30,9 @@ Follow the steps given below to register users for the super tenant, which is ` 
 
         You can edit and customize the email template. For more information on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
 
-## Enable self-registration for a specific tenant
+## Enable self-registration
+
+### Enable self-registration for a specific tenant
 
 1.  Log in to the Management Console (`https://<IS_HOST>:<IS_PORT>/carbon`)  
     **NOTE:** If your IS is already running, make sure to stop and start to apply configurations. 
@@ -98,7 +100,7 @@ Now you have set up self registration. Next let's see how you can configure sel
     [Self-Registration Using REST APIs]({{base_path}}/apis/use-the-self-sign-up-rest-apis).
     
 
-## Enable self-registration globally
+### Enable self-registration globally
 
 1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
 
@@ -292,7 +294,6 @@ Next, you can try out self-registration.
     
         ![account-locking]({{base_path}}/assets/img/guides/account-locking.png)
 
----
 
 ### Use the REST API
 
@@ -315,6 +316,7 @@ curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Con
     "HTTP/1.1 201 Created"
     ``` 
 
+---
 
 !!! info "Related topics"
     - [REST API: Self Register]({{base_path}}/apis/use-the-self-sign-up-rest-apis)

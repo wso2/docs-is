@@ -113,12 +113,6 @@ You can either configure the reCAPTCHA for a tenant or configure it globally.
 
 3.  Save the configuration changes and restart the server.
 
-!!! note
-    If you want to enable reCAPTCHA globally for all the workflows, the `forcefully_enabled_for_all_tenants` should be added as a property of `[recaptcha]` in the `deployment.toml` file.
-    ``` toml
-    forcefully_enabled_for_all_tenants=true
-    ```
-
 ## Try it
 
 Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
