@@ -62,6 +62,14 @@ Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` fol
 
     Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
 
+    Also make sure to add the public key of the primary keystore to the client trust store copied from the old IS
+
+    - Export the public key from your primary keystore file using the following command  
+    `keytool -export -alias wso2carbon -keystore primary.jks -file <public key name>.pem`
+
+    - Import the public key you extracted to the `client-truststore.jks` file by using the following command  
+    `keytool -import -alias wso2carbon -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon`
+
 ### Tenants
 
 If you have created tenants in the previous WSO2 Identity Server version that contain resources, copy the content from the `<OLD_IS_HOME>/repository/tenants` folder to the `<NEW_IS_HOME>/repository/tenants` folder.
@@ -69,6 +77,29 @@ If you have created tenants in the previous WSO2 Identity Server version that co
 ### User stores
 
 If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` folder to the `<NEW_IS_HOME>/repository/deployment/server/userstores` folder.
+
+!!! note
+    If you are migrating from a version prior to IS 5.5.0, you need to make the following changes in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file. See Step 2 for instructions for downloading migration resources
+
+    - Remove all `UserStorePasswordMigrators` from versions above your old IS version.
+
+    ```
+    name: "UserStorePasswordMigrator"
+    order: 5
+    parameters:
+      schema: "identity"
+    ```
+
+    - Change the `currentEncryptionAlgorithm` to `“RSA”` in `EncryptionAdminFlowMigrator` of version 5.11.0
+
+    ```
+    name: "EncryptionAdminFlowMigrator"
+    order: 1
+    parameters:
+      currentEncryptionAlgorithm: "RSA"
+      migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+      schema: "identity"
+    ```
 
 ### Webapps
 
