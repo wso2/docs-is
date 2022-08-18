@@ -32,7 +32,7 @@ To configure local and outbound authentication.
     <td>Local Authentication</td>
     <td><p>In this case, Identity Server itself authenticate the user. There are six types of pre configured local authenticators available.</p>
     <ul>
-    <li><strong>jwt-basic</strong> authenticator</li>
+    <li><strong>JWT Basic</strong> authenticator</li>
     <li><strong>Security Key/Biometrics (FIDO)</strong> authenticator</li>
     <li><strong>X509 Certificate</strong> authenticator</li>
     <li><strong>Backup Code</strong> authenticator</li>
