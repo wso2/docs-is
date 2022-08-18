@@ -51,6 +51,7 @@ Alternatively, follow the instructions given below to configure password recover
     ```
 
 2.  You have now successfully configured reCAPTCHA for the password recovery flow.
+
 ## Try it
 
 Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.

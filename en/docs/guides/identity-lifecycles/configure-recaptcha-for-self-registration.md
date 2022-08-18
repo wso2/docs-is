@@ -5,7 +5,7 @@ Self-registration is an important feature when it comes to commercial applicatio
 This topic guides you through configuring reCAPTCHA for the self registration flow. By configuring reCAPTCHA, you can mitigate or block brute force attacks.
 
 !!! info 
-    For more information on setting up self registration, see [Self-Registration and Account Confirmation]({{base_path}}/guides/identity-lifecycles/self-registration-workflow).
+    For more information on setting up self registration, see [Self-Registration and Account Confirmation]({{base_path}}/guides/identity-lifecycles/self-registration-workflow.md).
 
     For more information on brute force attacks, see [Mitigating Brute Force Attacks]({{base_path}}/deploy/mitigate-attacks/mitigate-brute-force-attacks).
 
