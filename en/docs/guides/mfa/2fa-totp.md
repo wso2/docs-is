@@ -26,7 +26,7 @@ To configure TOTP as the second authentication factor:
 
     | Authentication step   | Local Authenticator   |
     |-----------------------|-----------------------|
-    | First step    | `basic`   |
+    | First step    | `Username & Password`   |
     | Second step   | `TOTP`|
 
 6. Click **Update** to save the configurations.

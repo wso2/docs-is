@@ -52,7 +52,7 @@ Consider a scenario with two tenant domains, `abc.com` and `123.com`. For users 
 
     !!! info
         - The authentication script prompts the second step of authentication for users that belong to the tenant domains named `abc.com` and `xyz.com`.
-        - By default, `totp` will be added as the second authentication step.
+        - By default, `TOTP` will be added as the second authentication step.
 
 8. Click **Update** to save the configurations.
 

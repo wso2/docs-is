@@ -7,7 +7,7 @@ WSO2 Identity Server lets you configure multiple attributes as the login identif
     Multi-attribute login is supported in the following flows:
 
     -   Identifier first authenticator
-    -   Basic Authenticator
+    -   Username & Password Authenticator
     -   Request path authenticator
     -   Authentication REST APIs
     -   Oauth Password grant

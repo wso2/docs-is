@@ -176,7 +176,7 @@ A message appears to pick a scenario.
 
 - **Give the right access to the right people** - Control access to applications based on permission levels of users or groups.
 
-- **Enforce strong authentication** - WSO2 Identity Server offers multi-factor capabilities such as Email OTP, SMS OTP, FIDO etc. It also enables adaptive authentication which means you can define the level of authentication based on user device, location, and usage context.
+- **Enforce strong authentication** - WSO2 Identity Server offers multi-factor capabilities such as Email OTP, SMS OTP, Security Key/Biometrics (FIDO) etc. It also enables adaptive authentication which means you can define the level of authentication based on user device, location, and usage context.
 
 - **Empower users to manage their own accounts** - Enable self-registration to applications and let users view, and manage their own profiles.
 
