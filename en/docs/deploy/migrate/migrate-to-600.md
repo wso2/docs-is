@@ -81,7 +81,7 @@ If you have created secondary user stores in the previous WSO2 IS version, copy
 !!! note
     If you are migrating from a version prior to IS 5.5.0, you need to make the following changes in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file. See Step 2 for instructions for downloading migration resources
 
-    - Remove all `UserStorePasswordMigrators` from versions above your old IS version.
+    - Remove all `UserStorePasswordMigrators` from versions above your previous IS version. Userstore password migration will be done by the `EncryptionAdminFlowMigrator` in the version 5.11.0.
 
     ```
     name: "UserStorePasswordMigrator"
