@@ -337,7 +337,7 @@ Now, let's run the migration client to upgrade the databases.
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
-2. Stop the server once the migration client execution is complete.
+2. **Restart** the server once the migration client execution is complete.
 
 ## Step 3: (Optional) Migrate secondary user stores
 
