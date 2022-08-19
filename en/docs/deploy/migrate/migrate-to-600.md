@@ -62,7 +62,7 @@ Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` fol
 
     Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
 
-    Also make sure to add the public key of the primary keystore to the client trust store copied from the old IS
+    Also, make sure to add the public key of the primary keystore to the client trust store copied from the previous IS.
 
     - Export the public key from your primary keystore file using the following command  
     `keytool -export -alias wso2carbon -keystore primary.jks -file <public key name>.pem`
