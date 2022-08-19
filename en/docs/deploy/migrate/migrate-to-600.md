@@ -337,7 +337,7 @@ Now, let's run the migration client to upgrade the databases.
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
-2. Stop the server once the migration client execution is complete.
+2. **Restart** the server once the migration client execution is complete.
 
 ## Step 3: (Optional) Migrate secondary user stores
 
@@ -846,7 +846,7 @@ These steps should be carried out for the old database before the migration. A b
         UPDATE UM_USER SET UM_USER_ID =LOWER(NEWID())  WHERE UM_USER_ID='N' ;
         ```
 
-## Step 4: (Optional) Sync DBs for Zerro down time
+## Step 4: (Optional) Sync DBs for Zero downtime
 
 !!! warning
     Proceed with this step only if you have opted for [Zero down time migration]({{base_path}}/setup/migrating-preparing-for-migration/#zero-down-time-migration). 
