@@ -76,7 +76,7 @@ There are two ways to enable account recovery in WSO2 Identity Server.
 
 2. You have now successfully configured reCAPTCHA for the username recovery flow.
 
-## Try it up
+## Try it out
 
 ### Recover username using the My Account application
 
