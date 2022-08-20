@@ -31,7 +31,7 @@ The service caller can define any number of claims that should be used in the us
 -   [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
 
     !!! tip
-        Typically, the **AccountConfirmation** template is used to send email notifications.
+        The **AccountConfirmation** template is used to send email notifications.
 
         You can edit and customize the email template. For more information on how to do this, see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails/).
 
