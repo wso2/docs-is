@@ -1,6 +1,6 @@
 # Guides - Overview
 
-The guides in this section provide the instructions for building customer identity and access management uses cases and managing them.
+The guides in this section provide the instructions for building customer identity and access management use cases and managing them.
 
 ## Login and access control
 
