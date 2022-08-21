@@ -45,8 +45,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
 
     !!! tip
-        To avoid any configuration issues, do this before starting
-        the WSO2 Identity Server product instance.
+        To avoid any configuration issues, do this before starting the WSO2 Identity Server product instance.
     
 
     ```toml
@@ -56,7 +55,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
     ```
 
     !!! note
-        If you want to enable reCAPTCHA for password recovery via email, you can set `enable_recaptcha` true. See [Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha) for more information.
+        If you want to enable reCAPTCHA for password recovery via email, you can set `enable_recaptcha` true as a property of `[identity_mgt.password_reset_challenge_questions]` in the `deployment.toml` file. See [Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha) for more information.
 
         ``` toml
         enable_recaptcha=true

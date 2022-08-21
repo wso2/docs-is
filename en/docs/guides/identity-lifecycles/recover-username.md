@@ -60,8 +60,8 @@ There are two ways to enable account recovery in WSO2 Identity Server.
 1. Open the `deployment.toml` file in the `IS_HOME/repository/conf` folder and add the following configuration:
 
     !!! tip
-        To avoid any configuration issues, perform **Step-1** before starting the WSO2 Identity Server product instance.
-
+        To avoid any configuration issues, do this before starting the WSO2 Identity Server product instance.
+        
     ``` toml
     [identity_mgt.username_recovery.email] 
     enable_username_recovery= true
@@ -71,7 +71,10 @@ There are two ways to enable account recovery in WSO2 Identity Server.
         If you want to enable reCAPTCHA for username recovery, you can set `enable_recaptcha` true. See [Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha) for more information.
 
         ``` toml
+        [identity_mgt.username_recovery.email] 
+        ...
         enable_recaptcha=true
+        ...
         ```
 
 2. You have now successfully configured reCAPTCHA for the username recovery flow.

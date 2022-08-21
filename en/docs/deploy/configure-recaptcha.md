@@ -7,7 +7,7 @@
 
 !!! Note  
     -   For reCAPTCHA v3, you need to determine a threshold value for the score by looking at the traffic at [reCAPTCHA admin console](https://www.google.com/recaptcha/admin).
-    -   In the current  implementation, if the  score is less than the threshold, the user request will be blocked by the server.
+    -   In the current IS implementation, if the  score is less than the threshold, the user request will be blocked by the server.
 
 The following section guides you through setting up reCAPTCHA with WSO2 Identity Server.
 
@@ -72,13 +72,14 @@ First, you need to register and create an API key pair for the required domain. 
         redirect_urls="/authenticationendpointone/login.do,/authenticationendpointtwo/login.do"
         ```
 
-    !!! note
-        If you want to enable reCAPTCHA globally for all the workflows, the `forcefully_enabled_for_all_tenants` should be added as a property of `[recaptcha]` in the `deployment.toml` file.
-        ``` toml
-        forcefully_enabled_for_all_tenants=true
-        ```
-
         
 2. Restart the WSO2 IS server.
 
 ## Enable reCAPTCHA globally for all configurations 
+
+If you want to enable reCAPTCHA globally for all the workflows, the `forcefully_enabled_for_all_tenants` should be added as a property of `[recaptcha]` in the `deployment.toml` file.
+
+``` toml
+[recaptcha]
+forcefully_enabled_for_all_tenants=true
+```
