@@ -1,16 +1,24 @@
 # reCAPTCHA
 
-[reCAPTCHA](https://developers.google.com/recaptcha/) (v3 and v2) is a free widget service provided by Google that can be used for protection against spam or other forms of internet abuse by verifying whether a user is a human or a robot. 
+[reCAPTCHA](https://developers.google.com/recaptcha/) is a service provided by Google that can be used for protection against spam or other forms of internet abuse by distinguishing human and automated requests. Currently, Identity Server supports reCAPTCHA v3 and invisible reCAPTCHA v2.
 
--   The invisible reCAPTCHA v2 is invoked when the user clicks on an existing button. Only the most suspicious traffic will be prompted to solve a captcha.
--   The reCAPTCHA v3 does not require user interaction, and the user's actions are rated by the Google API by a score. 
+## Choosing the type of reCAPTCHA
 
-!!! Note  
-    -   For reCAPTCHA v3, you need to determine a threshold value for the score by looking at the traffic at [reCAPTCHA admin console](https://www.google.com/recaptcha/admin).
-    -   In the current IS implementation, if the  score is less than the threshold, the user request will be blocked by the server.
+### reCAPTCHA v2 (Invisible reCAPTCHA)
+
+The invisible reCAPTCHA badge does not require the user to click a checkbox; instead, it is activated when the user clicks on an existing button on your site or via a JavaScript API call. Only the most suspicious traffic will be prompted to solve a captcha.
+
+### reCAPTCHA v3
+
+With the reCAPTCHA v3, a score is returned for each request without requiring user interaction. It allows you the ability to take action inside the context of your website, such as adding more authentication factors, flagging a post for moderation, or slowing down scraping bots.
+
+In the Identity Server implementation, you are required to select a threshold value by looking at the traffic at [reCAPTCHA admin console](https://www.google.com/recaptcha/admin). If the  score is less than the threshold, the request will be blocked by the server. The default value for the threshold is 0.5.
+
+!!! Note
+    Since reCAPTCHA v3 learns from "actual traffic," the scores may vary between the development and production environments.
+
 
 The following section guides you through setting up reCAPTCHA with WSO2 Identity Server.
-
 
 ## Configure reCAPTCHA API keys
 
