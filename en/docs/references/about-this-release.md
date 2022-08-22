@@ -92,6 +92,12 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
     Hides UI widgets based on tenant-level account management configuration preferences such as self-registration and account recovery. This dynamically changes the UI elements according to the tenant-level configurations. For example, if self-registration is not enabled for the tenant, the self-registration link is hidden on the login page.
 
+-   **reCAPTCHA v3 and invisible reCAPTCHA v2 support**
+
+    Enhanced user experience compared to the reCAPTCHA "I'm not a robot" Checkbox while improving security against spam and fraudulent activity.
+
+    [Learn more]({{base_path}}/deploy/configure-recaptcha/)
+
 ## What has changed in this release?
 
 If you are moving to WSO2 Identity Server 6.0.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.0.0.
@@ -122,6 +128,7 @@ The following features are removed from WSO2 Identity Server 6.0.0.
 -   Embedded LDAP user store
 -   Carbon metrics
 -   Yahoo authenticator
+-   reCAPTCHA v2 "I'm not a robot" Checkbox
 
 ## Deprecated features
 
