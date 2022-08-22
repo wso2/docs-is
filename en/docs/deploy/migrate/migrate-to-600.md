@@ -345,7 +345,7 @@ These steps should be carried out for the old database before the migration. A b
 
 !!! Note
         - If you are migrating from a version prior to IS 5.10.0, you need to make sure the UserStoreManager class name change to the new unique ID classes in userstore XML files.
-        - Change the driver from com.mysql.jdbc.Driver to  com.mysql.cj.jdbc.Driver by editing the existing userstore configs.
+        - If the used driver is deprecated change it to an updated driver by editing the existing userstore configs.
 
 1.  If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the UM database: 
 
