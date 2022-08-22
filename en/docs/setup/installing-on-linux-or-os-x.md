@@ -18,7 +18,7 @@ or Mac OS X.
 ### Installing the Identity Server
 
 1.  Download WSO2 Identity Server 5.11.0 from
-    <https://wso2.com/identity-and-access-management/previous-releases/> .
+    <https://wso2.com/identity-and-access-management/previous-releases/>.
 2.  Extract the archive file to a dedicated directory for the Identity
     Server, which will hereafter be referred to as
     `           <IS_HOME>          ` .
