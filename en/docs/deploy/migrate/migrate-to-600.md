@@ -74,6 +74,14 @@ Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` fol
 
 If you have created tenants in the previous WSO2 Identity Server version that contain resources, copy the content from the `<OLD_IS_HOME>/repository/tenants` folder to the `<NEW_IS_HOME>/repository/tenants` folder.
 
+!!! note
+    If you are migrating from IS 5.8 or below, delete `eventpublishers` and `eventstreams` folders from each tenant after copying. Make sure to backup the tenant directories before deleting. You can use the following commands to find and delete these folders for all tenants.
+    ```
+    cd <NEW_IS_HOME>/repository/tenants
+    find . -type d -name 'eventpublishers' -exec rm -rf {} +
+    find . -type d -name 'eventstreams' -exec rm -rf {} +
+    ```
+
 ### User stores
 
 If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` folder to the `<NEW_IS_HOME>/repository/deployment/server/userstores` folder.
