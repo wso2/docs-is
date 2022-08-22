@@ -76,12 +76,12 @@ First, create a Siddhi application as instructed below. The application has two 
     
     The authentication script defines a conditional step that executes the second step of authentication (the hardware key authenticator) if the riskScore is greater than 0.
 
-8.  The authentication steps added are `totp` and `fido`. However, these are authentication steps that you would normally use in production. 
+8.  The authentication steps added are `TOTP` and `Security Key/Biometrics (FIDO)`. However, these are authentication steps that you would normally use in production. 
 
     To try out sample authenticators with the sample application, delete the two
     authenticators and add the following sample authenticators instead.
 
-    1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
+    1.  Click **Delete** to remove the `TOTP` authenticator from Step 2 (the
         second authentication step).
         
         ![delete authenticator]({{base_path}}/assets/img/samples/delete-authenticator-1.png)

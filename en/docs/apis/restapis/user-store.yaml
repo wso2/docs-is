@@ -349,10 +349,12 @@ paths:
           RDBMS connection properties used to connect to the datasource used by a
           JDBC user store manager.
 servers:
-  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
-      tenant-domain:
-        default: unknown
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
 components:
   parameters:
     domainNamePathParam:

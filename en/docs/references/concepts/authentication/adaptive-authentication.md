@@ -2,7 +2,7 @@
 
 ## What is adaptive authentication?
 
-Adaptive authentication, also known as step-up authentication, is an evolved and flexible form of [multi-factor authentication]({{base_path}}/multi-factor-authentication) that tightens security when the possibility of a security breach is higher. Additional authentication steps such as SMS OTP, FIDO, fingerprint authentication, etc., can be configured and deployed in such a way that the system is able to decide which steps to prompt during the authentication process depending on the user’s risk profile and their behavior.  
+Adaptive authentication, also known as step-up authentication, is an evolved and flexible form of [multi-factor authentication]({{base_path}}/multi-factor-authentication) that tightens security when the possibility of a security breach is higher. Additional authentication steps such as SMS OTP, Security Key/Biometrics (FIDO), etc., can be configured and deployed in such a way that the system is able to decide which steps to prompt during the authentication process depending on the user’s risk profile and their behavior.  
 
 For instance, high-risk transactions such as a user attempting to transfer a high sum of money cause the adaptive authentication mechanism to prompt an extra authentication step like sending a one-time security code to the user's mobile phone, in order to increase security.
 

@@ -13,7 +13,12 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: v1
 servers:
-- url: https://is.wso2.com/t/{tenant-domain}/api/server/v1
+- url: https://{serverUrl}/t/{tenantDomain}/api/server/v1
+  variables:
+    serverUrl:
+      default: localhost:9443
+    tenantDomain:
+      default: carbon.super
 security:
 - OAuth2: []
 - BasicAuth: []

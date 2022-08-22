@@ -28,13 +28,13 @@ To configure MFA using username and password:
 
 7. Select the following authenticators from the **Local Authenticators** dropdown.
 
-    | Authentication step   | Local authenticator   |
-    |-----------------------|-----------------------|
-    | First step    | `identifier-first`    |
-    | Second step   | `basic`   |
+    | Authentication step   | Local authenticator |
+    |---------------------|-----------------------|
+    | First step    | `Identifier First`  |
+    | Second step   | `basic`             |
 
     !!! note
-        The `identifier-first` is not an authenticator, so having only the identifier in the authentication flow will fail the authentication. If there are no authenticators configured other than identifier, an error occurs when updating the service provider.
+        The `Identifier First` is not an authenticator, so having only the identifier in the authentication flow will fail the authentication. If there are no authenticators configured other than identifier, an error occurs when updating the service provider.
 
 8. Click **Update** to save your configurations.
 

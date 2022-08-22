@@ -2,9 +2,8 @@ openapi: 3.0.1
 info:
   title: WSO2 Identity Server Scope Endpoint
   description: |
-    This document specifies an **OAuth2 Scope Endpoint** for WSO2 **Identity Server** .
-
-    It is written with [swagger 2](http://swagger.io/).
+    The OAuth2 scope API in WSO2 Identity Server (IS) can be used to manage oauth2 scopes and scope bindings such as roles and permissions. Since OIDC scope is a sub category of OAuth2 scopes, these endpoints cannot have the same
+    scope names as in WSO2 IS.
   contact:
     name: WSO2
     url: http://wso2.com/identity-and-access-management
@@ -14,7 +13,10 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
-- url: https://localhost:9443/api/identity/oauth2/v1.0
+- url: https://{serverUrl}/api/identity/oauth2/v1.0
+  variables:
+    serverUrl:
+      default: localhost:9443
 paths:
   /scopes:
     get:

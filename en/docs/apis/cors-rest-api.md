@@ -1,7 +1,7 @@
 ---
 template: templates/swagger.html
 ---
-# CORS API definition - v1
+# CORS API definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server 
@@ -35,5 +35,3 @@ template: templates/swagger.html
 
    window.ui = ui
 </script>
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/112cf1de37658c1b09d5)
