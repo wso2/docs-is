@@ -185,9 +185,13 @@ Follow the steps given below to perform the dry run.
 1.  Configure the migration report path using the `reportPath` value in the `<IS_HOME>/migration-resources/migration-config.yaml` file. 
 
     !!! info
-        Use **one** of the following methods when configuring the report path:    
-          - Create a text file. Provide the absolute path for that text file for all `reportPath` parameters. All results from the dry run will be appended to this text file.
-          - Create separate directories to store dry run reports of every migrator having the `reportPath` parameter. Provide the absolute paths of these directories for the `reportPath` of the relevant migrator. Dry run result of each migrator will be created in their specific report directories according to the timestamp.
+        Use **one** of the following methods when configuring the report path:  
+
+           - Create a text file. Provide the absolute path for that text file for all `reportPath` parameters. All results from the dry run will be appended to this text file.
+           - Create separate directories to store dry run reports of every migrator having the `reportPath` parameter. Provide the absolute paths of these directories for the `reportPath` of the relevant migrator. Dry run result of each migrator will be created in their specific report directories according to the timestamp.
+
+    !!! important 
+        The `reportPath` should be added under a `parameters` attribute in the `migration-config.yaml` file. The `reportPath` attribute and, in some cases, the `parameters` attribute is commented out by default. Both these attributes should be uncommented and the report path value should be added as a string for all migrators which support dry run within the current IS version and the target IS version.
 
 2.  Run the migration utility with the `dryRun` system property:
 
