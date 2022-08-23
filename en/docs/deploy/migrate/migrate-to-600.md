@@ -353,6 +353,18 @@ Now, let's run the migration client to upgrade the databases.
 
 These steps should be carried out for the old database before the migration. A backup of the UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps, the backup database should be migrated to the next version:
 
+!!! Note
+        - If you are migrating from a version prior to IS 5.10.0, update the UserStoreManager class name in userstore XML files to its respective Unique ID userstore manager class name according to the table below.
+            
+            | Deprecated Userstore Manager | Unique ID Userstore Manager |
+            | ------------- | ----------- |
+            | ReadWriteLDAPUserStoreManager | UniqueIDReadWriteLDAPUserStoreManager |
+            | ActiveDirectoryUserStoreManager | UniqueIDActiveDirectoryUserStoreManager |
+            | ReadOnlyLDAPUserStoreManage | UniqueIDReadOnlyLDAPUserStoreManager |
+            | JDBCUserStoreManager | UniqueIDJDBCUserStoreManager |
+
+        - Make sure to update the JDBC driver class name used in the userstore XML file if the current class is deprecated change.
+
 1.  If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the UM database: 
 
     !!! info
