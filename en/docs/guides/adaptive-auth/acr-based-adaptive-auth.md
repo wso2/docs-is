@@ -65,7 +65,7 @@ To configure ACR-based authentication for an application:
 
         - 'acr1' - step 1 (basic authentication)
         - 'acr2' - step 1 and 2 (basic authentication and TOTP)
-        - 'acr3' - step 1 and 3 (basic authentication and FIDO)
+        - 'acr3' - step 1 and 3 (basic authentication and Security Key/Biometrics (FIDO))
 
 7. Click **Update** to save your configurations.
 
@@ -87,7 +87,7 @@ To configure ACR-based authentication for an application:
 
     !!! tip
         You can re-try this flow using the ACR value 'acr3'. Note that you
-        are then prompted for steps 1 and 3 (basic authentication and FIDO authentication).
+        are then prompted for steps 1 and 3 (basic authentication and Security Key/Biometrics (FIDO) authentication).
 
     ![TOTP authenticator]({{base_path}}/assets/img/samples/totp-code-verification.png)
 

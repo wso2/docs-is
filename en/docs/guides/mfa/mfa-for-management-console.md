@@ -49,7 +49,7 @@ To configure local and outbound authentication for the management console:
 
     !!! info
         - **Use subject identifier from this step** and **Use attributes from this step** will be selected by default. If you wish to set multiple steps, you can have only one step as the subject step and one as the attribute step.
-        - Note that you cannot use `jwt-basic` option as an authentication step.
+        - Note that you cannot use `JWT Basic` option as an authentication step.
 
 4. Click **Update** to save the configurations.
 

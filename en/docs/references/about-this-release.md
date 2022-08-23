@@ -52,7 +52,7 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 -   **Passwordless authentication with Magic Link**
 
-    Magic link is a form of passwordless authentication. It allows users to log in by clicking a link sent to their email instead of entering a password.
+    Magic Link is a form of passwordless authentication. It allows users to log in by clicking a link sent to their email instead of entering a password.
 
     [Learn more]({{base_path}}/guides/passwordless/magic-link/)
 

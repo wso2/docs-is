@@ -2121,13 +2121,13 @@ To configure the outbound provisioning of the service provider, use the followin
  &lt;soapenv:Body&gt;
     &lt;ns:getAllRequestPathAuthenticatorsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2115="http://core.carbon.wso2.org/xsd" xmlns:ax2114="http://mgt.application.identity.carbon.wso2.org/xsd" xmlns:ax2120="http://common.application.identity.carbon.wso2.org/xsd" xmlns:ax2117="http://model.common.application.identity.carbon.wso2.org/xsd"&gt;
        &lt;ns:return xsi:type="ax2117:RequestPathAuthenticatorConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-          &lt;ax2117:displayName&gt;basic-auth&lt;/ax2117:displayName&gt;
+          &lt;ax2117:displayName&gt;Basic Auth&lt;/ax2117:displayName&gt;
           &lt;ax2117:enabled&gt;false&lt;/ax2117:enabled&gt;
           &lt;ax2117:name&gt;BasicAuthRequestPathAuthenticator&lt;/ax2117:name&gt;
           &lt;ax2117:valid&gt;true&lt;/ax2117:valid&gt;
        &lt;/ns:return&gt;
        &lt;ns:return xsi:type="ax2117:RequestPathAuthenticatorConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-          &lt;ax2117:displayName&gt;oauth-bearer&lt;/ax2117:displayName&gt;
+          &lt;ax2117:displayName&gt;OAuth Bearer&lt;/ax2117:displayName&gt;
           &lt;ax2117:enabled&gt;false&lt;/ax2117:enabled&gt;
           &lt;ax2117:name&gt;OAuthRequestPathAuthenticator&lt;/ax2117:name&gt;
           &lt;ax2117:valid&gt;true&lt;/ax2117:valid&gt;

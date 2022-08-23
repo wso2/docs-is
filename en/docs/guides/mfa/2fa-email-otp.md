@@ -152,14 +152,14 @@ To enable email OTP for MFA, you need to configure the email OTP as an authentic
 - You need to [update the User Profile]({{base_path}}/guides/identity-lifecycles/update-profile) of the users with an email address to which the user will receive the OTP.
 - You need to [register an Identity Provider]({{base_path}}/guides/identity-federation/add-idp/) named `emailOTP`.
 
-### Configure the email OTP authenticator
+### Configure the Email OTP authenticator
 
-To configure the email OTP authenticator:
+To configure the Email OTP authenticator:
 
 1. On the management console, go to **Identity Providers > List**.
 2. Click on **Edit** corresponding to the `emailOTP` identity provider.
 3. Expand **Federated Authenticators > Email OTP Configuration**.
-4. Enable the email OTP authenticator by selecting the **Enable** option provided.
+4. Enable the Email OTP authenticator by selecting the **Enable** option provided.
 
     ![enable email otp configuration]({{base_path}}/assets/img/guides/enable-email-otp-config.png)
 

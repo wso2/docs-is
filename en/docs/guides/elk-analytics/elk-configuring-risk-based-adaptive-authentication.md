@@ -70,7 +70,7 @@ To configure risk-based authentication:
    
     !!! info
          - The resulting authentication script defines a conditional step that executes the second authentication step if the `riskScore` is greater than 0.
-         - By default, `totp` will be added as the second authentication step. You can update this with any authentication method.
+         - By default, `TOTP` will be added as the second authentication step. You can update this with any authentication method.
 
 7. Click **Update** to save your configurations and restart WSO2 Identity Server.
 
