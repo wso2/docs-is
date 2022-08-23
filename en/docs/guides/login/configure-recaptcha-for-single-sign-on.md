@@ -11,7 +11,7 @@ You can either configure the reCAPTCHA for a tenant or configure it globally.
 
 ## Prerequisites
 
-[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha) with WSO2 Identity Server.
+[Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha/) with WSO2 Identity Server.
 
 ## Configure single sign-on with reCAPTCHA for a specific tenant
 
