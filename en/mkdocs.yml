@@ -49,13 +49,15 @@ nav:
   - Home: index.md
   - Get Started:
       - Introduction: get-started/quick-start-guide.md
-      - Quick Setup: sample-use-cases/set-up.md
-      - Try a Use Case:
-          - Sample Scenario: sample-use-cases/sample-scenario.md
-          - Single Sign-On: sample-use-cases/single-sign-on.md
-          - Multi-Factor Authentication: sample-use-cases/multi-factor-authentication.md
-          - Federated Authentication: sample-use-cases/federated-authentication.md
-          - Self Sign-Up: sample-use-cases/self-sign-up.md
+      - Quickstart:
+        - Quick Setup: get-started/sample-use-cases/set-up.md
+        - Try a Sample Scenario:
+          - Sample Scenario: get-started/sample-use-cases/sample-scenario.md
+          - Use Cases:
+            - Single Sign-On: get-started/sample-use-cases/single-sign-on.md
+            - Multi-Factor Authentication: get-started/sample-use-cases/multi-factor-authentication.md
+            - Federated Authentication: get-started/sample-use-cases/federated-authentication.md
+            - Self Sign-Up: get-started/sample-use-cases/self-sign-up.md
   - Guides:
       - Overview: guides/before-you-start.md
       - Authentication:
@@ -1401,7 +1403,7 @@ plugins:
               'references/supported-cipher-suites.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/wso2-patch-application-process.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/scopes-corresponding-to-api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'
-              'get-started/quick-start-guide.md': 'https://is.docs.wso2.com/en/6.0.0/sample-use-cases/sample-scenario/'
+              'get-started/quick-start-guide.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/sample-use-cases/sample-scenario/'
               'get-started/overview.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/quick-start-guide'
               'get-started/architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/architecture/'
               'get-started/provisioning-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/provisioning-architecture/'
