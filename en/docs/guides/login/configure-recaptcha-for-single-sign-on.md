@@ -52,8 +52,7 @@ You can either configure the reCAPTCHA for a tenant or configure it globally.
 1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
 
     !!! tip
-        To avoid any configuration issues, do this before starting
-        the WSO2 Identity Server product instance.
+        To avoid any configuration issues, do this before starting the WSO2 Identity Server product instance.
 
     ```toml
     [sso_login.recaptcha]
@@ -61,6 +60,16 @@ You can either configure the reCAPTCHA for a tenant or configure it globally.
     enable_always=false
     max_attempts="3"
     ```
+
+!!! note
+    If you want to enable reCAPTCHA globally for all the workflows, the `forcefully_enabled_for_all_tenants` should be added as a property of `[recaptcha]` in the `deployment.toml` file.
+    ``` toml
+    [recaptcha]
+    ...
+    forcefully_enabled_for_all_tenants=true
+    ...
+    ```
+
 ## Try it
 
 Start WSO2 Identity Server and log in to the My Account (`https://<HOST>:<PORT>/myaccount`) application.
