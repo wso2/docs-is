@@ -75,7 +75,7 @@ Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` fol
 If you have created tenants in the previous WSO2 Identity Server version that contain resources, copy the content from the `<OLD_IS_HOME>/repository/tenants` folder to the `<NEW_IS_HOME>/repository/tenants` folder.
 
 !!! note
-    If you are migrating from IS 5.8.0 or below, delete the `eventpublishers` and `eventstreams` folders from each tenant in the `tenants` folder when copying to IS 6.0.0. Make sure to backup the `tenants` folder before deleting the subfolders. You can use the following set of commands to find and delete all the relevant subfolders at once.
+    If you are migrating from IS 5.8.0 or below, delete the `eventpublishers` and `eventstreams` folders from each tenant in the `tenants` folder when copying to IS 6.0.0. Make sure to **backup** the `tenants` folder before deleting the subfolders. You can use the following set of commands to find and delete all the relevant subfolders at once.
     ```
     cd <NEW_IS_HOME>/repository/tenants
     find . -type d -name 'eventpublishers' -exec rm -rf {} +
