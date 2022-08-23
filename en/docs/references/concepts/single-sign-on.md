@@ -57,8 +57,8 @@ For instance, you can set up Google as a federated authenticator and then set up
     - [Concept: SAML]({{base_path}}/references/concepts/authentication/intro-saml/)
     - [Concept: OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc/)
     - [Guide: Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on)
-    - [Quick Start: SSO for OpenID Connect apps]({{base_path}}/sample-use-cases/single-sign-on/#try-sso-with-oidc)
-    - [Quick Start: SSO for SAML apps]({{base_path}}/sample-use-cases/single-sign-on/#try-sso-with-saml-20)
+    - [Quick Start: SSO for OpenID Connect apps]({{base_path}}/get-started/sample-use-cases/single-sign-on/#try-sso-with-oidc)
+    - [Quick Start: SSO for SAML apps]({{base_path}}/get-started/sample-use-cases/single-sign-on/#try-sso-with-saml-20)
     <!--- - [Guide: Single Logout](TODO:link-to-guide) -->
 
 
