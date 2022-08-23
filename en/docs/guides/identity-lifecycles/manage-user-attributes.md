@@ -68,6 +68,8 @@ you can do this.
 See [Writing a Custom Userstore Manager]({{base_path}}/deploy/write-a-custom-user-store-manager/) for more information on
 this.
 
+<!--
+
 ### Authentication using multiple attributes
 
 -   Once you connect your LDAP with an application, generally, the
