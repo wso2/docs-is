@@ -185,7 +185,9 @@ Follow the steps given below to perform the dry run.
 1.  Configure the migration report path using the `reportPath` value in the `<IS_HOME>/migration-resources/migration-config.yaml` file. 
 
     !!! info
-        This path should be an absolute path.
+        This path should be one of the following:    
+          - Create a text file. Provide the absolute path for that text file.
+          - Create separate directories to store dry run reports and provide its absolute path.
 
 2.  Run the migration utility with the `dryRun` system property:
 
