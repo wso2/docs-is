@@ -1,6 +1,6 @@
 1. Expand the **Local & Outbound Authentication Configuration** section and then the **Request Path Authentication Configuration** section.
 
-2. Select **oauth-bearer** from the dropdown list and click **Add**.
+2. Select **OAuth Bearer** from the dropdown list and click **Add**.
 
     ![oauth-request-path-config](../../../../assets/img/fragments/oauth-request-path-config.png)
 

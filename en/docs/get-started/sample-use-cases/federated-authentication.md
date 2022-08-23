@@ -12,7 +12,7 @@ their existing Google account credentials to sign in to **Pickup** applications.
 
 ## Prerequisites
 
-[Install WSO2 Identity Server]({{base_path}}/sample-use-cases/set-up/) and start the server.
+[Install WSO2 Identity Server]({{base_path}}/get-started/sample-use-cases/set-up/) and start the server.
 
 ## Set up a Google OAuth 2.0 application
 
@@ -62,7 +62,7 @@ Follow these instructions to register an OAuth 2.0 application in Google.
 
 Let's run the sample applications **Pickup-Dispatch** and **Pickup-Manager**.
 
-1.  Follow the instructions on [setting up the samples]({{base_path}}/sample-use-cases/sample-scenario/#set-up-the-sample-apps).
+1.  Follow the instructions on [setting up the samples]({{base_path}}/get-started/sample-use-cases/sample-scenario/#set-up-the-sample-apps).
 
     !!! info
         A message appears to pick a scenario.

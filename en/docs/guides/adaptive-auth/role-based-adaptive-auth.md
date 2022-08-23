@@ -9,7 +9,7 @@ This page guides you through configuring role-based adaptive authentication for 
 Consider a scenario with two user roles, `admin` and `manager`. For users assigned to these roles, the login flow in applications should be stepped up with TOTP as follows:  
 
 1. Basic authentication (username and password)
-2. TOTP or FIDO
+2. TOTP or Security Key/Biometrics (FIDO)
 
 ----
 
@@ -39,7 +39,7 @@ To configure role-based authentication:
 6. Click **Ok** to add the authentication script. The authentication script and authentication steps will be configured.
 
     !!! info
-        By default, `totp` and `fido` will be added as the second authentication step. You can update this with any authentication method.
+        By default, `TOTP` and `Security Key/Biometrics (FIDO)` will be added as the second authentication step. You can update this with any authentication method.
 
 7. Click **Update** to save your configurations.
 
@@ -51,7 +51,7 @@ To configure role-based authentication:
 
 2. Click **Login** and enter your admin account credentials.
 
-3. You will be prompted to enter your `TOTP` or `FIDO` code. Enter any code and click **Sign In**.
+3. You will be prompted to enter your `TOTP` or `Security Key/Biometrics (FIDO)` code. Enter any code and click **Sign In**.
 
     ![pickup sign in]({{base_path}}/assets/img/samples/pickup-step-two.png)
 

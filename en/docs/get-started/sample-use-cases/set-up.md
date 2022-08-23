@@ -70,6 +70,6 @@ Note that the following log appears in the command prompt when the server starts
 
 ## What's next?
 
-Try out the [sample IAM scenarios]({{base_path}}/sample-use-cases/sample-scenario) to get familiar with WSO2 IS and its capabilities.
+Try out the [sample IAM scenarios]({{base_path}}/get-started/sample-use-cases/sample-scenario) to get familiar with WSO2 IS and its capabilities.
 
 

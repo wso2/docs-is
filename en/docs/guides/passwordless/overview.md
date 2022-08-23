@@ -8,6 +8,6 @@ FIDO2 lets users use FIDO2-supported hardware security keys or built-in authenti
 [Passwordless login with FIDO](../../guides/passwordless/fido.md) has detailed instructions on this.
 
 ## Magic Link login
-Magic link allows users to log in by clicking a link sent to their email instead of entering a password.
+Magic Link allows users to log in by clicking a link sent to their email instead of entering a password.
 
 [Passwordless login with Magic Link](../../guides/passwordless/magic-link.md) has detailed instructions on this.

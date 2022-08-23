@@ -13,7 +13,7 @@ for the following situations:
 In such situations, the user has the option of contacting the admin and
 based on the validity of the request, the admin can force a password
 reset for the user account. Once it is initiated, at the point of login,
-the basic authenticator processes the login request and prompts the
+the Username & Password authenticator processes the login request and prompts the
 corresponding dialogs or error messages based on account status.
 
 ---

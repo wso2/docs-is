@@ -27,6 +27,8 @@ follows for `http://wso2.org/claims/emailaddress`.
 DEMO/mail
 ```
 
+<!--
+
 ### Attributes with multiple values
 
 If your user store supports multiple values for attributes, the
@@ -69,10 +71,6 @@ this.
 <!--
 
 ### Authentication using multiple attributes
-
-!!! warning
-    Multi attribute login is only supported for LDAP/AD user stores and is
-    **not supported** for JDBC user stores.
 
 -   Once you connect your LDAP with an application, generally, the
     application uses one of the unique attributes in LDAP by default, to authenticate the user.

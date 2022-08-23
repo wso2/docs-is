@@ -3,24 +3,17 @@
 WSO2 Identity Server enables resetting user passwords by correctly responding to predefined challenge questions (also known as security questions).
 
 ## Prerequisites
+-   [Create a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/)
 
-**Create a user**
+## Enable password reset via challenge questions
 
-1. Log in to the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`) using administrator credentials (`admin:admin`).
-    
-2. Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
-    
-3. Click **Add New User** and create a new user by providing username and password.
-    
-4. Click **Finish**.
-
-## Enable password reset via Challenge Questions
+### Enable password reset via challenge questions for a specific tenant
 
 Follow the steps below to configure WSO2 Identity Server to enable password reset by answering a challenge question.  
 
 1.  Sign in to the WSO2 Identity Server Management Console (`https://<HOST>:<PORT>/carbon`) as an administrator. 	  
 
-2.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
+2.  On the **Main** tab, click **Identity** > **Identity Provider** > **Resident**.
 
 	![resident-idp]({{base_path}}/assets/img/fragments/resident-idp.png)  
 
@@ -36,9 +29,40 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 	
 	![security-question-based-password-recovery-option]({{base_path}}/assets/img/guides/security-question-based-password-recovery-option.png)
 
+    !!! note
+        Select **Enable reCaptcha for security questions based password recovery** and configure the **Max failed attempts for reCaptcha** to enable reCAPTCHA after maximum number of failed attempts of security questions. See [Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha) for more information.
+
+        This **Max failed attempts for reCaptcha** value should be less than the number of failed attempts configured in the account locking connector.
+        
+        To view the number of failed attempts configured for the account lock feature, expand the **Login Attempts Security** tab and then expand the **Account Lock** tab.
+    
+        ![max-failed-login-attempts]({{base_path}}/assets/img/guides/max-failed-login-attempts.png)
+
 5.	Click **Update**. 
 
-----
+### Enable password reset via challenge questions globally
+
+1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
+
+    !!! tip
+        To avoid any configuration issues, do this before starting the WSO2 Identity Server product instance.
+    
+
+    ```toml
+    [identity_mgt.password_reset_challenge_questions]
+    enable_password_reset_challenge_questions=true
+    min_required_answers="2"      
+    ```
+
+    !!! note
+        If you want to enable reCAPTCHA for password recovery via email, you can set `enable_recaptcha` true as a property of `[identity_mgt.password_reset_challenge_questions]` in the `deployment.toml` file. See [Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha) for more information.
+
+        ``` toml
+        enable_recaptcha=true
+        failures_before_recaptcha="2"
+        ```
+
+2.  You have now successfully configured reCAPTCHA for the password recovery flow.
 
 ## Configure the challenge questions
 
@@ -71,7 +95,9 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 ---
 
-## Recover password using the My Account application
+## Try it out
+
+### Recover password using the My Account application
 
 1. Access the WSO2 Identity Server My Account (`https://<HOST>:<PORT>/myaccount`) application.
 
@@ -101,11 +127,11 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 ---
 
-## Recover password using the REST API
+### Recover password using the REST API
 
 You can use the following CURL command to recover a password using REST API. 
 
-### Get challenge question of user
+#### Get challenge question of user
 
 This API is used to initiate password recovery using user challenge questions, one at a time. Response will be a random challenge question with a confirmation key.
 
@@ -131,7 +157,7 @@ This API is used to initiate password recovery using user challenge questions, o
     }
     ```
 
-### Validate user challenge answer/answers
+#### Validate user challenge answer/answers
 
 !!! abstract ""
     **Request**
@@ -153,7 +179,7 @@ This API is used to initiate password recovery using user challenge questions, o
     }              
     ```
 
-### Get challenge questions of user
+#### Get challenge questions of user
 
 This API is used to initiate password recovery by answering all the challenge questions at once. The response will have random challenge questions from the ones configured and a confirmation key.
 
@@ -180,7 +206,7 @@ This API is used to initiate password recovery by answering all the challenge qu
     }
     ```
 
-### Update password
+#### Update password
 
 This API is used to reset user password using the confirmation key received through the recovery process. Input the key and the new password.
 
@@ -199,8 +225,6 @@ This API is used to reset user password using the confirmation key received thro
     ```curl
     "HTTP/1.1 200 OK"        
     ```
-
----
 
 <!--- 
 ## Manage challenge questions using SOAP APIs
@@ -383,9 +407,11 @@ This is used to validate the responses given by the user against the existing va
 
 -->
 
-## Manage challenge questions using REST APIs
+#### Manage challenge questions using REST APIs
 
 There are a number of operations related to challenge questions that you can perform using REST APIs. To manage the challenge questions and answers of a user using REST APIs, see [Manage Challenge Questions]({{base_path}}/apis/challenge-rest-api).
+
+---
 
 !!! info "Related topics"
     - [Guide: Recover Password via Email]({{base_path}}/guides/password-mgt/recover-password)

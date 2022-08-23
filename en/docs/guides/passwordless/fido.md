@@ -19,7 +19,7 @@ You can configure FIDO2 passwordless login for your apps using two methods:
 
 - [**MFA with Security key/Biometrics**]({{base_path}}/guides/mfa/2fa-fido.md): An application user enters a username and password first. IS authenticates the user with credentials and prompts the user to use a FIDO2-supported authenticator to log in.
 
-??? "Does your browser support your FIDO devices?"
+??? "Does your browser support your Security Key/Biometrics (FIDO) devices?"
     You can use the https://demo.yubico.com/webauthn-technical/registration site to check the browser support for FIDO devices.
 
 !!! info
@@ -42,9 +42,9 @@ You can configure FIDO2 passwordless login for your apps using two methods:
 - You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 - You need to have a FIDO2 security key registered in IS. Learn how to [register your FIDO security key]({{base_path}}/guides/my-account/enable-mfa-my-account).
 
-## Configure FIDO as an authenticator
+## Configure Security Key/Biometrics (FIDO) as an authenticator
 
-To configure FIDO as an authenticator:
+To configure Security Key/Biometrics as an authenticator:
 
 1. On the management console, go to **Main** > **Identity** > **Service Providers** > **List**.
 
@@ -52,7 +52,7 @@ To configure FIDO as an authenticator:
 
 3. Expand the **Local and Outbound Authentication Configuration** section and click **Local Authenticator**.
 
-4. Select `fido` from the list of local authenticators.
+4. Select `Security Key/Biometrics` from the list of local authenticators.
 
 5. Click **Update** to save your configurations.
 
