@@ -28,7 +28,8 @@ Before you start the migration, see the instructions given here.
     ```
 
 !!! note
-   * If you are migrating from a version below IS 5.9.0 with a **JDBC primary userstore** configured, use the following configuration to disable the use of **Unique ID Userstore Managers** during the migration.
+
+     - If you are migrating from a version below IS 5.9.0 with a **JDBC primary userstore** configured, use the following configuration to disable the use of **Unique ID Userstore Managers** during the migration.
      ```toml
      [user_store]
      type = "database"
@@ -38,13 +39,14 @@ Before you start the migration, see the instructions given here.
      [user_store]
      type = "database_unique_id"
      ```
-   * If you are migrating from a version below IS 5.10.0, make sure to disable the Groups and Roles Separation feature during the migration.
+     - If you are migrating from a version below IS 5.10.0, make sure to disable the Groups and Roles Separation feature during the migration.
      ```toml
      [authorization_manager.properties]
      GroupAndRoleSeparationEnabled = false
      ```
      After the migration is complete, this configuration can be changed to enable the feature if it is required.
-   * It is recommended to run the [token cleanup scripts](https://is.docs.wso2.com/en/latest/setup/removing-unused-tokens-from-the-database/) before migration to clean the expired, inactive, and revoked tokens/codes. This reduces the time taken for migration.
+     
+     - It is recommended to run the [token cleanup scripts](https://is.docs.wso2.com/en/latest/setup/removing-unused-tokens-from-the-database/) before migration to clean the expired, inactive, and revoked tokens/codes. This reduces the time taken for migration.
 
 ## Prepare for Groups and Roles separation
 
