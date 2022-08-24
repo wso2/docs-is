@@ -68,7 +68,7 @@ Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` fol
     `keytool -export -alias wso2carbon -keystore primary.jks -file <public key name>.pem`
 
     - Import the public key you extracted to the `client-truststore.jks` file by using the following command  
-    `keytool -import -alias wso2carbon -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon`
+    `keytool -import -alias <new alias> -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon`
 
 ### Tenants
 
