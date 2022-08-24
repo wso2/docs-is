@@ -212,9 +212,10 @@ Therefore, when migrating to IS 6.0.0 it is **required** to turn off the registr
 current Identity Server and run the below scripts against the database that is used by the registry.
 
 !!! info "Turning off registry versioning in your current IS and running the scripts"
-Open the `registry.xml` file in the `<OLD_IS_HOME>/repository/conf` directory.
-Set the `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings`
-false.
+
+    Open the `registry.xml` file in the `<OLD_IS_HOME>/repository/conf` directory.
+    Set the `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings`
+    false.
 
     ```
     <staticConfiguration>
