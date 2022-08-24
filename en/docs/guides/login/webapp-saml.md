@@ -1,4 +1,4 @@
-# Enable Login for a SAML Web Application
+# Enable Login for a SAML Web Applications
 
 This page guides you through enabling login for a [SAML]({{base_path}}/references/concepts/authentication/intro-saml/) web application.
 
