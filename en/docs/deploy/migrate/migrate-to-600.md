@@ -87,27 +87,38 @@ If you have created tenants in the previous WSO2 Identity Server version that co
 If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` folder to the `<NEW_IS_HOME>/repository/deployment/server/userstores` folder.
 
 !!! note
-    If you are migrating from a version prior to IS 5.5.0, you need to make the following changes in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file (see Step 2 for instructions for downloading migration resources).
+    - If you are migrating from a version prior to IS 5.5.0, you need to make the following changes in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file (see Step 2 for instructions for downloading migration resources).
 
-    - Remove all `UserStorePasswordMigrators` from versions above your previous IS version. Userstore password migration will be done by the `EncryptionAdminFlowMigrator` in the version 5.11.0.
+        - Remove all `UserStorePasswordMigrators` from versions above your previous IS version. Userstore password migration will be done by the `EncryptionAdminFlowMigrator` in the version 5.11.0.
+    
+        ```toml
+        name: "UserStorePasswordMigrator"
+        order: 5
+        parameters:
+          schema: "identity"
+        ```
 
-    ```
-    name: "UserStorePasswordMigrator"
-    order: 5
-    parameters:
-      schema: "identity"
-    ```
+        - Change the `currentEncryptionAlgorithm` to `“RSA”` in `EncryptionAdminFlowMigrator` of version 5.11.0
+    
+        ```toml
+        name: "EncryptionAdminFlowMigrator"
+        order: 1
+        parameters:
+          currentEncryptionAlgorithm: "RSA"
+          migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+          schema: "identity"
+        ```
 
-    - Change the `currentEncryptionAlgorithm` to `“RSA”` in `EncryptionAdminFlowMigrator` of version 5.11.0
+    - If you are migrating from a version prior to IS 5.10.0, you need to update the UserStoreManager class name in userstore XML files to its respective Unique ID userstore manager class name according to the table below.
 
-    ```
-    name: "EncryptionAdminFlowMigrator"
-    order: 1
-    parameters:
-      currentEncryptionAlgorithm: "RSA"
-      migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
-      schema: "identity"
-    ```
+        | Deprecated Userstore Manager | Unique ID Userstore Manager |
+        | ------------- | ----------- |
+        | ReadWriteLDAPUserStoreManager | UniqueIDReadWriteLDAPUserStoreManager |
+        | ActiveDirectoryUserStoreManager | UniqueIDActiveDirectoryUserStoreManager |
+        | ReadOnlyLDAPUserStoreManage | UniqueIDReadOnlyLDAPUserStoreManager |
+        | JDBCUserStoreManager | UniqueIDJDBCUserStoreManager |
+
+    - Make sure to update the JDBC driver class name used in the userstore XML file if the current class is deprecated.
 
 ### Webapps
 
@@ -356,18 +367,6 @@ Now, let's run the migration client to upgrade the databases.
 ## Step 3: (Optional) Migrate secondary user stores
 
 These steps should be carried out for the old database before the migration. A backup of the UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps, the backup database should be migrated to the next version:
-
-!!! Note
-        - If you are migrating from a version prior to IS 5.10.0, update the UserStoreManager class name in userstore XML files to its respective Unique ID userstore manager class name according to the table below.
-            
-            | Deprecated Userstore Manager | Unique ID Userstore Manager |
-            | ------------- | ----------- |
-            | ReadWriteLDAPUserStoreManager | UniqueIDReadWriteLDAPUserStoreManager |
-            | ActiveDirectoryUserStoreManager | UniqueIDActiveDirectoryUserStoreManager |
-            | ReadOnlyLDAPUserStoreManage | UniqueIDReadOnlyLDAPUserStoreManager |
-            | JDBCUserStoreManager | UniqueIDJDBCUserStoreManager |
-
-        - Make sure to update the JDBC driver class name used in the userstore XML file if the current class is deprecated change.
 
 1.  If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the UM database: 
 
