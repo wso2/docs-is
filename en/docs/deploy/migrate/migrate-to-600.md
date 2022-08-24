@@ -98,7 +98,7 @@ If you have created secondary user stores in the previous WSO2 IS version, copy
           schema: "identity"
         ```
 
-        - Change the `currentEncryptionAlgorithm` to `“RSA”` in `EncryptionAdminFlowMigrator` of version 5.11.0
+        - Change the `currentEncryptionAlgorithm` to `RSA` in `EncryptionAdminFlowMigrator` of version 5.11.0
     
         ```toml
         name: "EncryptionAdminFlowMigrator"
