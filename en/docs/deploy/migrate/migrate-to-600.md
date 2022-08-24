@@ -109,7 +109,7 @@ If you have created secondary user stores in the previous WSO2 IS version, copy
           schema: "identity"
         ```
 
-    - If you are migrating from a version prior to IS 5.10.0, you need to update the UserStoreManager class name in userstore XML files to its respective Unique ID userstore manager class name according to the table below.
+    - If you are migrating from a version prior to IS 5.10.0, you need to update the `UserStoreManager` class name in the XML files of your user stores with its respective **Unique ID userstore manager** class name according to the table below.
 
         | Deprecated Userstore Manager | Unique ID Userstore Manager |
         | ------------- | ----------- |
