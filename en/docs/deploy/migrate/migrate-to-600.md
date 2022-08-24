@@ -87,27 +87,38 @@ If you have created tenants in the previous WSO2 Identity Server version that co
 If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` folder to the `<NEW_IS_HOME>/repository/deployment/server/userstores` folder.
 
 !!! note
-    If you are migrating from a version prior to IS 5.5.0, you need to make the following changes in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file (see Step 2 for instructions for downloading migration resources).
+    - If you are migrating from a version prior to IS 5.5.0, you need to make the following changes in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file (see Step 2 for instructions for downloading migration resources).
 
-    - Remove all `UserStorePasswordMigrators` from versions above your previous IS version. Userstore password migration will be done by the `EncryptionAdminFlowMigrator` in the version 5.11.0.
+        - Remove all `UserStorePasswordMigrators` from versions above your previous IS version. User store password migration will be done by the `EncryptionAdminFlowMigrator` in version 5.11.0.
+    
+        ```toml
+        name: "UserStorePasswordMigrator"
+        order: 5
+        parameters:
+          schema: "identity"
+        ```
 
-    ```
-    name: "UserStorePasswordMigrator"
-    order: 5
-    parameters:
-      schema: "identity"
-    ```
+        - Change the `currentEncryptionAlgorithm` to `RSA` in `EncryptionAdminFlowMigrator` of version 5.11.0
+    
+        ```toml
+        name: "EncryptionAdminFlowMigrator"
+        order: 1
+        parameters:
+          currentEncryptionAlgorithm: "RSA"
+          migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+          schema: "identity"
+        ```
 
-    - Change the `currentEncryptionAlgorithm` to `“RSA”` in `EncryptionAdminFlowMigrator` of version 5.11.0
+    - If you are migrating from a version prior to IS 5.10.0, you need to update the `UserStoreManager` class name in the XML files of your user stores with its respective **Unique ID userstore manager** class name according to the table below.
 
-    ```
-    name: "EncryptionAdminFlowMigrator"
-    order: 1
-    parameters:
-      currentEncryptionAlgorithm: "RSA"
-      migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
-      schema: "identity"
-    ```
+        | Deprecated Userstore Manager | Unique ID Userstore Manager |
+        | ------------- | ----------- |
+        | ReadWriteLDAPUserStoreManager | UniqueIDReadWriteLDAPUserStoreManager |
+        | ActiveDirectoryUserStoreManager | UniqueIDActiveDirectoryUserStoreManager |
+        | ReadOnlyLDAPUserStoreManage | UniqueIDReadOnlyLDAPUserStoreManager |
+        | JDBCUserStoreManager | UniqueIDJDBCUserStoreManager |
+
+    - Make sure to update the JDBC driver class name used in the userstore XML file if the current class is deprecated.
 
 ### Webapps
 
@@ -185,9 +196,13 @@ Follow the steps given below to perform the dry run.
 1.  Configure the migration report path using the `reportPath` value in the `<IS_HOME>/migration-resources/migration-config.yaml` file. 
 
     !!! info
-        Use **one** of the following methods when configuring the report path:    
-          - Create a text file. Provide the absolute path for that text file for all `reportPath` parameters. All results from the dry run will be appended to this text file.
-          - Create separate directories to store dry run reports of every migrator having the `reportPath` parameter. Provide the absolute paths of these directories for the `reportPath` of the relevant migrator. Dry run result of each migrator will be created in their specific report directories according to the timestamp.
+        Use **one** of the following methods when configuring the report path:  
+
+           - Create a text file. Provide the absolute path for that text file for all `reportPath` parameters. All results from the dry run will be appended to this text file.
+           - Create separate directories to store dry run reports of every migrator having the `reportPath` parameter. Provide the absolute paths of these directories for the `reportPath` of the relevant migrator. Dry run result of each migrator will be created in their specific report directories according to the timestamp.
+
+    !!! important 
+        The `reportPath` should be added under a `parameters` attribute in the `migration-config.yaml` file. The `reportPath` attribute and, in some cases, the `parameters` attribute is commented out by default. Both these attributes should be uncommented and the report path value should be added as a string for all migrators which support dry run within the current IS version and the target IS version.
 
 2.  Run the migration utility with the `dryRun` system property:
 
@@ -352,10 +367,6 @@ Now, let's run the migration client to upgrade the databases.
 ## Step 3: (Optional) Migrate secondary user stores
 
 These steps should be carried out for the old database before the migration. A backup of the UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps, the backup database should be migrated to the next version:
-
-!!! Note
-        - If you are migrating from a version prior to IS 5.10.0, you need to make sure the UserStoreManager class name change to the new unique ID classes in userstore XML files.
-        - If the used driver is deprecated change it to an updated driver by editing the existing userstore configs.
 
 1.  If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the UM database: 
 
