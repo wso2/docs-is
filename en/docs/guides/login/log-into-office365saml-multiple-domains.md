@@ -10,7 +10,7 @@ The diagram below demonstrates the flow of how Microsoft Office365 uses
 WSO2 Identity Server as a SAML2 federated authenticator to authenticate
 a user.
 
-![saml2-fed-authenticator-flow]({{base_path}}/assets/img/tutorials/saml2-fed-authenticator-flow.png)
+<!-- ![saml2-fed-authenticator-flow]({{base_path}}/assets/img/tutorials/saml2-fed-authenticator-flow.png) -->
 
 ### Prerequisites
 
@@ -98,7 +98,7 @@ a user.
     </tbody>
     </table>
 
-    ![configure-saml2-claims]({{base_path}}/assets/img/tutorials/configure-saml2-claims.png)
+    <!-- ![configure-saml2-claims]({{base_path}}/assets/img/tutorials/configure-saml2-claims.png) -->
 
     <table>
     <colgroup>
@@ -263,7 +263,7 @@ For each Office 365 domain follow these steps.
     </tbody>
     </table>
 
-    ![sp-config]({{base_path}}/assets/img/tutorials/sp-config.png)
+    <!-- ![sp-config]({{base_path}}/assets/img/tutorials/sp-config.png) -->
 
     Note that “ Service Provider Qualifier ” and “IdP Entity ID” values
     configured for each service provider are needed when configuring
@@ -415,7 +415,7 @@ For each Office 365 domain follow these steps.
     Get-MsolDomainFederationSettings -Domain $dom
     ```
 
-    ![command-to-establish-trust]({{base_path}}/assets/img/tutorials/command-to-establish-trust.png)
+    <!-- ![command-to-establish-trust]({{base_path}}/assets/img/tutorials/command-to-establish-trust.png) -->
 
 You have now successfully set up trust between the on-premise identity
 provider of WSO2 IS and the Azure Active Directory.

@@ -58,7 +58,7 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
 1.  Login to the Workday account as an administrator.
 2.  Open the **Edit Tenant Setup** and click **Security**.
 3.  Select the **Enable SAML Authentication** checkbox.  
-    ![enable-saml-authentication]({{base_path}}/assets/img/tutorials/enable-saml-authentication.png)
+    <!-- ![enable-saml-authentication]({{base_path}}/assets/img/tutorials/enable-saml-authentication.png) -->
 4.  Enter the identity provider name and the issuer as follows.  
     -   **Identity Provider Name:** wso2\_is
     -   **Issuer:** localhost
@@ -67,7 +67,7 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
     	The issuer name **must** be equal to the issuer value that
         comes with the SAML Response from the identity provider.
 
-    ![identity-provider-and-issuer]({{base_path}}/assets/img/tutorials/identity-provider-and-issuer.png)
+    <!-- ![identity-provider-and-issuer]({{base_path}}/assets/img/tutorials/identity-provider-and-issuer.png) -->
 
 5.  Add the public certificate of the Identity Provider (which you
     extracted as a prerequisite)
@@ -83,13 +83,13 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
 
 8.  Set the following environments.
 
-    ![workday-environments]({{base_path}}/assets/img/tutorials/workday-environments.png)
+    <!-- ![workday-environments]({{base_path}}/assets/img/tutorials/workday-environments.png) -->
     
 9.  Generate a private key pair if you do not already have one. This
     certificate will be used inside the WSO2 IS to validate the incoming
     authentication and logout requests from Workday.
 
-    ![private-key-pair]({{base_path}}/assets/img/tutorials/private-key-pair.png)
+    <!-- ![private-key-pair]({{base_path}}/assets/img/tutorials/private-key-pair.png) -->
 
     !!! tip
         You can import a certificate to the WSO2 trust store using
@@ -159,7 +159,7 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
     
 4.  In the form that appears, fill out the following configuration
     details required for single sign-on and click **Register**.  
-    ![sso-register]({{base_path}}/assets/img/tutorials/sso-register.png)  
+    <!-- ![sso-register]({{base_path}}/assets/img/tutorials/sso-register.png)  -->
     See the following table for the details.
 
     <table>
@@ -237,4 +237,4 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
 	
 	3.  Change the value of the **Identity Provider Entity ID** to the
 		required Issuer value and click **Update.**  
-		![identity-provider-entity-id]({{base_path}}/assets/img/tutorials/identity-provider-entity-id.png)
+		<!-- ![identity-provider-entity-id]({{base_path}}/assets/img/tutorials/identity-provider-entity-id.png) -->

@@ -176,9 +176,8 @@ Let's get started!
 
 ## Try it out
 
-1. [Create a user](https://is.docs.wso2.com/en/latest/learn/adding-users-and-roles/#create-a-user)in WSO2 IS.
-
-   Edit the user profile and update the **First name** and **email address** fields.
+1. [Create a user](https://is.docs.wso2.com/en/latest/learn/adding-users-and-roles/#create-a-user) in WSO2 IS.
+    Edit the user profile and update the **First name** and **email address** fields.
 
 2. Login to Drupal as the admin user and create a user with the same email address.
 
