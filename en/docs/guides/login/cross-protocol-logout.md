@@ -118,9 +118,9 @@ You have successfully tried out cross-protocol logout between a SAML application
 ----
 
 !!! info "Related topics"
-    - [Guide: Single Sign-On]({{base_path}}/enable-single-sign-on)
-    - [Guide: SAML Front-Channel Logout]({{base_path}}/saml-front-channel-logout)
-    - [Guide: SAML Back-Channel Logout]({{base_path}}/saml-back-channel-logout)
-    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/oidc-backchannel-logout)
-    - [Guide: OpenID Connect Logout URL Redirection]({{base_path}}/oidc-logout-url-redirection)
+    - [Guide: Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on)
+    - [Guide: SAML Front-Channel Logout]({{base_path}}/guides/login/saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout]({{base_path}}/guides/login/saml-back-channel-logout)
+    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/guides/login/oidc-backchannel-logout)
+    - [Guide: OpenID Connect Logout URL Redirection]({{base_path}}/guides/login/oidc-logout-url-redirection)
     <!--- - [Concept: Cross-Protocol Logout](TODO:insert-link-to-concept)-->
