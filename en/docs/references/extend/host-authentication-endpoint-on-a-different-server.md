@@ -172,7 +172,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
 3.  Open `<TOMCAT_HOME>/bin/catalina.sh` and add the following JAVA\_OPTS.
 
     ``` xml
-    JAVA_OPTS="$JAVA_OPTS --Djavax.net.ssl.keyStore=$IS_HOME/repository/resources/security/wso2carbon.jks -Djavax.net.ssl.keyStorePassword=wso2carbon"
+    JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.keyStore=$IS_HOME/repository/resources/security/wso2carbon.jks -Djavax.net.ssl.keyStorePassword=wso2carbon"
     JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.trustStore=$IS_HOME/repository/resources/security/client-truststore.jks -Djavax.net.ssl.trustStorePassword=wso2carbon"
     ```
 
