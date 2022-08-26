@@ -4,9 +4,9 @@ WSO2 Identity Server supports the [OpenID Connect hybrid flow]({{base_path}}/ref
 
 Specifying any of the following `response_type` values in an authorization request selects the hybrid flow for authentication.
 
-- [code token](#code-token)
-- [code id\_token](#code-id_token)
-- [code id\_token token](#code-id_token-token)
+- [code token](#get-code-and-access-token)
+- [code id\_token](#get-code-and-id-token)
+- [code id\_token token](#get-code-access-token-and-id-token)
 
 To understand how the `response_type` value specified in an authorization request selects the hybrid flow to be the authentication flow, let's take a look at the following `response_type` values in detail.
 

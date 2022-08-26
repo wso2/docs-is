@@ -65,4 +65,4 @@ tokens from JWT assertion.
 
 !!! info "Related topics"
     - [Concept: JSON Web Key Set]({{base_path}}/references/concepts/authentication/jwks/)
-    - [Guide: Obtain Key Set Using JSON Web Key Set]({{base_path}}/using-jwks)
+    - [Guide: Obtain Key Set Using JSON Web Key Set]({{base_path}}/guides/login/using-jwks)

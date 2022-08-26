@@ -18,7 +18,7 @@ You have successfully configured authentication for a SAML application.
 
 !!! info "Related topics"
     - [Concept: SAML]({{base_path}}/references/concepts/authentication/intro-saml/)
-    - [Quick Start: SAML Authentication]({{base_path}}/quick-starts/webapp-saml-sample)
-    - [Guide: Advanced SAML Configurations]({{base_path}}/saml-app-config-advanced)
-    - [Guide: SAML Front-Channel Logout]({{base_path}}/saml-front-channel-logout)
-    - [Guide: SAML Back-Channel Logout]({{base_path}}/saml-back-channel-logout)
+    - [Quick Start: SAML Authentication]({{base_path}}/get-started/sample-use-cases/single-sign-on/#try-sso-with-saml-20)
+    - [Guide: Advanced SAML Configurations]({{base_path}}/guides/login/saml-app-config-advanced/)
+    - [Guide: SAML Front-Channel Logout]({{base_path}}/guides/login/saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout]({{base_path}}/guides/login/saml-back-channel-logout)

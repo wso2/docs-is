@@ -10,7 +10,7 @@ The diagram below demonstrates the flow of how Microsoft Office365 uses
 WSO2 Identity Server as a SAML2 federated authenticator to authenticate
 a user.
 
-![office365-saml2-flow]({{base_path}}/assets/img/tutorials/office365-saml2-flow.png)
+<!-- ![office365-saml2-flow]({{base_path}}/assets/img/tutorials/office365-saml2-flow.png) -->
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ a user.
 3. Click **Resident Identity Provider** under **Identity Providers** on the **Main** tab.
 4. Expand the **Inbound Authentication Configuration** section and then expand **SAML2 Web SSO Configuration**.
 5. Enter " `wso2.microsoft"` as the **Identity Provider Entity Id** value.  
-    ![entity-id]({{base_path}}/assets/img/tutorials/entity-id.png)
+    <!-- ![entity-id]({{base_path}}/assets/img/tutorials/entity-id.png) -->
 
 ## Configuring the claims
 
@@ -121,7 +121,7 @@ a user.
     </tbody>
     </table>
 
-    ![configure-claims]({{base_path}}/assets/img/tutorials/configure-claims.png)
+    <!-- ![configure-claims]({{base_path}}/assets/img/tutorials/configure-claims.png) -->
 
     <table>
     <colgroup>
@@ -201,7 +201,7 @@ To disable the claims, do the following.
     | Include Attributes in the Response Always                                 | Selected (True)                                      |
 
 
-    ![configure-sp-fields]({{base_path}}/assets/img/tutorials/configure-sp-fields.png)
+    <!-- ![configure-sp-fields]({{base_path}}/assets/img/tutorials/configure-sp-fields.png) -->
 
 3. Expand **Claim Configuration** and select **Define Custom Claim
     Dialect**.
@@ -356,4 +356,4 @@ provider of WSO2 IS and the Azure Active Directory.
 
 ## What's Next?
 
-To see how this feature works, try out the [Configuring On-Demand Provisioning with Azure AD]({{base_path}}/learn/configuring-on-demand-provisioning-with-azure-ad) tutorial to provision users directly to Azure AD at the point of authentication.
+To see how this feature works, try out the [Configuring On-Demand Provisioning with Azure AD]({{base_path}}/guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad) tutorial to provision users directly to Azure AD at the point of authentication.

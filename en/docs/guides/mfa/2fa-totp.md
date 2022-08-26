@@ -81,4 +81,4 @@ To allow sending TOTP in an email:
 
 !!! info "Related topics"
     - [Concept: Two-Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication/#two-factor-authentication)
-    - [Guide: Configure an Authentication Journey]({{base_path}}/guides/mfa/configure-authentication-journey)
+    - [Guide: Multi-Factor Authentication overview]({{base_path}}/guides/mfa/mfa-overview)

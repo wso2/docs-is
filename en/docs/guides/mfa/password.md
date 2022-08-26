@@ -15,6 +15,6 @@ This page guides you through configuring password-based authentication for a web
 
 !!! info "Related topics"
     - [Concept: Single Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication#single-factor-authentication)
-    - [Guide: Configure an Authentication Journey]({{base_path}}/configure-authentication-journey)
+    - [Guide: Multi-Factor Authentication overview]({{base_path}}/guides/mfa/mfa-overview)
     <!--- - [Quick Start: Multi-Factor Authentication]({{base_path}}/quickstarts/mfa-sample) -->
  
