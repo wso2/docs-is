@@ -101,5 +101,5 @@ You have successfully set up SAML artifact binding. See the sections below for m
 
 !!! info "Related topics"
     - [Concept: SAML2 Artifact Binding]({{base_path}}/references/concepts/authentication/saml2-artifact-binding/)
-    - [Guide: Enable Login for a SAML Application]({{base_path}}/webapp-saml)
+    - [Guide: Enable Login for a SAML Application]({{base_path}}/guides/login/webapp-saml)
 
