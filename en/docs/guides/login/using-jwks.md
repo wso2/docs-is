@@ -136,4 +136,4 @@ For more information, see the [JWKS specification](https://tools.ietf.org/html/r
 
 !!! info "Related topics"
     - [Concept: JSON Web Key Set]({{base_path}}/references/concepts/authentication/jwks)
-    - [Guide: Validate a JWT Based on JWKS]({{base_path}}/validate-jwt-using-jwks)
+    - [Guide: Validate a JWT Based on JWKS]({{base_path}}/guides/login/validate-jwt-using-jwks/)

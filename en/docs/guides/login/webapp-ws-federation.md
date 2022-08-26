@@ -114,4 +114,4 @@ You will see the passive STS response with the requested claims on the screen.
 
 !!! info "Related topics"
     - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)
-    - [Concept: WS-Federation]({{base_path}}/guides/login/webapp-ws-federation.md)
+    - [Concept: WS-Federation]({{base_path}}/references/concepts/authentication/intro-ws-federation)

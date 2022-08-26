@@ -83,13 +83,13 @@ nav:
               - Office365 with SAML2: guides/login/log-into-office365saml-using-is.md
               - Office365 with SAML2 for Multiple Domains: guides/login/log-into-office365saml-multiple-domains.md
               - Office365 with WS federation: guides/login/log-into-office365-using-wsfed.md
-              - Office365 with WS Trust: guides/login/log-into-office365-using-ws-trust.md
+              #- Office365 with WS Trust: guides/login/log-into-office365-using-ws-trust.md
           - PaaS Applications:
             - Drupal: guides/login/log-into-drupal-using-is.md
             - Microsoft Sharepoint: guides/login/log-into-sharepoint-using-is.md
             - Magento: guides/login/log-into-magento-using-is.md
             - Microsoft Dynamics CRM with WS Federation: guides/login/log-into-dynamic-crm-with-wsfederation.md
-          - Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
+          #- Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
           - OIDC Flows:
             - Overview: guides/login/oidc-authentication.md 
             - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 
@@ -276,7 +276,7 @@ nav:
           - Outbound Provision Users:
             - Overview: guides/identity-lifecycles/outbound-provisioning.md
             - SCIM 2.0: guides/identity-lifecycles/outbound-provisioning-with-scim.md
-            #- Microsoft Azure AD: guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
+            - Microsoft Azure AD: guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
             - Google Directory: guides/identity-lifecycles/outbound-provisioning-with-google.md
             - Salesforce: guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
             - Hubspot: guides/identity-lifecycles/hubspot-provisioning.md

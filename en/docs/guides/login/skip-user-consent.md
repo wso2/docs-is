@@ -36,4 +36,4 @@ prompt= false
 
 !!! info "Related topics"
     - [Concept: Consent Management]({{base_path}}/references/concepts/consent-management/)
-    - [Guide: Request Attributes for the Application]({{base_path}}/request-attributes/)
+    - [Guide: Request Attributes for the Application]({{base_path}}/guides/login/request-attributes/)
