@@ -87,4 +87,4 @@ Now you can see the claim you created being listed. It is created as a JSON obje
 
 !!! info "Related topics"
     - [Concept: OpenID Connect Scopes and Claims]({{base_path}}/references/concepts/authentication/scopes-claims)
-    - [Guide: OpenID Connect Authentication]({{base_path}}/webapp-oidc)
+    - [Guide: OpenID Connect Authentication]({{base_path}}/guides/login/webapp-oidc/)

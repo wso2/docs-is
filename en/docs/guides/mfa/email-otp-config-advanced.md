@@ -74,7 +74,7 @@ This parameter defines how the email ID will be retrieved. You can configure the
 
 - **local**: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.
 
-- **assocication**: The federated username must be associated with the local account in advance in the WSO2 Identity Server My Account. The local username is retrieved from the association. For information on creating an association, see the [My Account help](insertlink).
+- **assocication**: The federated username must be associated with the local account in advance in the WSO2 Identity Server My Account. The local username is retrieved from the association. <!-- For information on creating an association, see the [My Account help](insertlink). -->
 
 - **subjectUri**: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the EmailOTP authenticator.
 

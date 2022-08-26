@@ -144,7 +144,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
 
 !!! info "Related topics"
     - [Concept: ID Token]({{base_path}}/references/concepts/authentication/id-token)
-    - [Quick Start: OpenID Connect Token Encryption]({{base_path}}/quick-starts/oidc-token-encryption-sample)
-    - [Guide: Enable Login for an OpenID Connect Web Application]({{base_path}}/webapp-oidc)
-    - [Guide: Use Advanced Parameters in Authentication Requests]({{base_path}}/oidc-parameters-in-auth-request)
+    <!--- [Quick Start: OpenID Connect Token Encryption]({{base_path}}/quick-starts/oidc-token-encryption-sample) -->
+    - [Guide: Enable Login for an OpenID Connect Web Application]({{base_path}}/guides/login/webapp-oidc/)
+    - [Guide: Use Advanced Parameters in Authentication Requests]({{base_path}}/guides/login/oidc-parameters-in-auth-request)
 
