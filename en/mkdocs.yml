@@ -376,7 +376,7 @@ nav:
             - Configure Secondary User stores: deploy/configure-secondary-user-stores.md
             #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
             - Work with Properties of User stores: deploy/work-with-properties-of-user-stores.md
-            - Write a Custom User store Manager: deploy/write-a-custom-user-store-manager.md
+            #- Write a Custom User store Manager: deploy/write-a-custom-user-store-manager.md
             - Secure a JDBC user store with PBKDF2 hashing: deploy/secure-userstore-using-pbkdf2.md
 
         - Data Stores:
