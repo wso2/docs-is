@@ -94,7 +94,7 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 -   **reCAPTCHA v3 and invisible reCAPTCHA v2 support**
 
-    Enhanced user experience compared to the reCAPTCHA "I'm not a robot" Checkbox while improving security against spam and fraudulent activity.
+   Improved  security against spam and fraudulent activity with an enhanced reCAPTCHA user experience compared to the conventional "I'm not a robot" checkbox.
 
     [Learn more]({{base_path}}/deploy/configure-recaptcha/)
 
