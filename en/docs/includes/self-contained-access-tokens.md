@@ -1,6 +1,6 @@
 ### Self-contained access tokens
 
-Optionally, you can configure WSO2 Identity Server to issue [self-contained acccess tokens](../../../../references/concepts/authorization/access-token/#self-contained-access-token) for any of the known OAuth 2.0 grant types. 
+Optionally, you can configure WSO2 Identity Server to issue [self-contained acccess tokens](../../references/concepts/authorization/access-token.md) for any of the known OAuth 2.0 grant types.
 
 1. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
