@@ -1,4 +1,4 @@
-<!--
+
 1. 	Ensure that the identity listener with the
    `              priority=50             ` is set to **false** and
    the identity listener with the `              priority=95             ` is set to
@@ -24,10 +24,9 @@
 4.  Expand the **Login Attempts Security** tab.
 5.  Expand the **Account Lock** tab and select the **Lock user accounts** checkbox. Click **Update** to save changes.  
 	
-	![login-policies](../../../../assets/img/guides/login-policies.png) 
+	<!--![login-policies](../../../../assets/img/guides/login-policies.png) -->
          
          
 6.  To enable account locking for other tenants, log out and repeat the
    steps given above from [step 2](#lockingaspecificuseraccount)
    onwards.
--->
