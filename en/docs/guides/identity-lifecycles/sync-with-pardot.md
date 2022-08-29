@@ -8,9 +8,9 @@ Let's get started!
 
 !!! tip "Before you begin!"
     Create the `users.csv` file by following the instructions in 
-    [Exporting User Data From WSO2 Identity Server]({{base_path}}/sync-account-overview).
+    [Exporting User Data From WSO2 Identity Server]({{base_path}}/guides/identity-lifecycles/sync-account-overview).
 
-##Try it Out
+## Try it Out
 
 1. Login to [Pardot](https://pi.pardot.com/).
 2. Navigate to **Admin > Import > Prospects**.

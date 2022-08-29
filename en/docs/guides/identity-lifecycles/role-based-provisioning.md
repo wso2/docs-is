@@ -41,8 +41,7 @@ Follow the steps given below to configure role-based provisioning in WSO2 Identi
 ## Try it out
 
 1.  Navigate to **Main** > **Identity** > **Users and Roles** > **Add**.
-2.  Click **Add New User**. See [Configuring
-    Users]({{base_path}}/guides/identity-lifecycles/add-user-roles/) for
+2.  Click **Add New User**. See [Configuring Users]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) for
     more information.
 3.  Provide a username and a password(with confirmation) and click
     **Next**.

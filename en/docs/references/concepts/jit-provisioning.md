@@ -2,7 +2,7 @@
 
 ## What is JIT provisioning?
 
-Just-in-Time (JIT) provisioning is a method of automating user account creation in real-time at the point of [federated authentication]({{base_path}}/identity-federation).
+Just-in-Time (JIT) provisioning is a method of automating user account creation in real-time at the point of [federated authentication]({{base_path}}/guides/identity-federation).
 This means that when a user attempts to log in to an application for the first time via a trusted identity provider, JIT provisioning can be triggered to communicate the user's information from the identity provider to the application where the user account needs to be created. 
 
 JIT provisioning happens in the middle of an authentication flow. You can create users on the fly, without having to create user accounts in advance. This can be configured using an identity and access management mediator such as WSO2 Identity Server (WSO2 IS). 
