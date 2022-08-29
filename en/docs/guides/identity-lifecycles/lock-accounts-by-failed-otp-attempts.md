@@ -174,6 +174,6 @@ Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/de
 [Enable the email sending configurations]({{base_path}}/deploy/configure-email-sending) of the WSO2 Identity Server.
 
 !!! info "Related topics"
-    <!---   [Guides: Configure SMS OTP for 2-Factor Authentication]({{base_path}}/guides/mfa/2fa-sms-otp/)-->
     -   [Guides: Customize Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails)
     -   [Guides: Lock and Unlock User Accounts]({{base_path}}/guides/identity-lifecycles/lock-account)
+    <!---   [Guides: Configure SMS OTP for 2-Factor Authentication]({{base_path}}/guides/mfa/2fa-sms-otp/)-->
