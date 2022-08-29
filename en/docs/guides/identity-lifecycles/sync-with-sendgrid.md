@@ -1,4 +1,4 @@
-#Exporting WSO2 Identity Server User Information to Sendgrid
+# Exporting WSO2 Identity Server User Information to Sendgrid
 
 SendGrid is a cloud-based service that assists businesses with email delivery. 
 This topic provides instructions on exporting user data from WSO2 Identity Server (WSO2 IS) to Sendgrid Email Delivery
@@ -10,7 +10,7 @@ Let's get started!
     Create the `users.csv` file by following the instructions in 
     [Exporting User Data From WSO2 Identity Server]({{base_path}}/guides/identity-lifecycles/sync-account-overview).
 
-##Try it Out
+## Try it Out
 
 1. Login to [Sendgrid](https://sendgrid.com/).
 2. Click **Contacts** under **Marketing**.

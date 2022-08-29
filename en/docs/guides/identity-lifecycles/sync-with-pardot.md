@@ -1,4 +1,4 @@
-#Exporting WSO2 Identity Server User Information to Pardot
+# Exporting WSO2 Identity Server User Information to Pardot
 
 Pardot is a software as a service (SaaS) marketing automation platform by SalesForce offering email automation,
 targeted email campaigns, and lead management for B2B sales and marketing organizations. This topic provides 

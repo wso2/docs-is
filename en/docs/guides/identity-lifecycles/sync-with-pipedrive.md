@@ -1,4 +1,4 @@
-#Exporting WSO2 Identity Server User Information to Pipedrive CRM
+# Exporting WSO2 Identity Server User Information to Pipedrive CRM
 
 Pipedrive is a web-based Sales CRM and pipeline management solution that enables businesses to plan their sales 
 activities and monitor deals. This topic provides instructions on exporting user data from WSO2 Identity Server (WSO2 IS) to Pipedrive CRM. 

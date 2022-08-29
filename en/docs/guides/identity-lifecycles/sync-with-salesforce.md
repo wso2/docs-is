@@ -1,4 +1,4 @@
-#Exporting WSO2 Identity Server User Information to Salesforce
+# Exporting WSO2 Identity Server User Information to Salesforce
 
 Salesforce is a customer relationship management solution that brings companies and customers together. 
 This topic provides instructions on exporting user data from WSO2 Identity Server (WSO2 IS) to the Salesforce marketing 
