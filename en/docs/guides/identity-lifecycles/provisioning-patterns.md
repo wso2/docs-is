@@ -62,8 +62,7 @@ mentioned user attributes.
 
 1. On the **Main** tab in the management console, click **Add** under
     **Users and Roles** in the **Identity** menu.
-2. Click **Add New User**. See [Configuring
-    Users]({{base_path}}/guides/identity-lifecycles/configuring-users) for
+2. Click **Add New User**. See [Configuring Users]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) for
     more information on this process.
 3. Provide a username and a password(with confirmation) and click
     **Next**.  
