@@ -282,6 +282,51 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
   /{user-id}/sessions/{session-id}:
+    get:
+      tags:
+      - admin
+      description: Retrieves information related to the active session identified by session-id of a user identified by the user-id. <br>
+        <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/authentication/session/view <br>
+        <b>Scope required:</b> <br>
+        * internal_session_view
+      summary: Retrieve a given active session of a given user
+      operationId: getSessionBySessionId
+      parameters:
+      - name: user-id
+        in: path
+        description: ID of the user.
+        required: true
+        schema:
+          type: string
+      - name: session-id
+        in: path
+        description: ID of the session.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully retrieved session information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Resource Not Found
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
     delete:
       tags:
       - admin
@@ -322,6 +367,99 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Error'
+  /sessions:
+    get:
+      tags:
+      - sysadmin
+      summary: Get all active sessions of the tenant
+      description: Retrieves information related to the active sessions on the system. <br>
+        <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/authentication/session/view <br>
+        <b>Scope required:</b> <br>
+        * internal_session_view
+      operationId: getSessions
+      parameters:
+      - name: filter
+        in: query
+        description: |
+          Condition to filter the retrival of records.
+          The filter parameter must contain at least one valid expression (for multiple expressions they must be combined using the 'and' logical operator).
+          Each expression must contain an attribute name followed by an attribute operator and a value (attribute names, operators and values used in filters are case insensitive).
+
+          The operators supported in the expression are listed next.
+
+          | Operator | Description | Behavior |
+          |----------|-------------|----------|
+          | eq | equal | The attribute and operator values must be identical for a match. |
+          | sw | starts with | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. |
+          | ew | ends with | The entire operator value must be a substring of the attribute value, matching at the end of the attribute value. |
+          | co | contains | The entire operator value must be a substring of the attribute value for a match. |
+          | le | less than or equal to | If the attribute value is less than or equal to the operator value, there is a match. |
+          | ge | greater than or equal to | If the attribute value is greater than or equal to the operator value, there is a match. |
+
+          The attributes supported in the expression are listed next.
+
+          | Name | Operators | Description |
+          |------|-----------|-------------|
+          | loginId | eq, sw, ew, co | Filter results by the login identifier of the user who owns the session. |
+          | sessionId | eq, sw, ew, co | Filter results by the ID of the session. |
+          | appName | eq, sw, ew, co | Filter results by the name of the application related to the session. |
+          | ipAddress | eq | Filter results by the IP address of the session. |
+          | userAgent | eq, sw, ew, co | Filter results by the user agent of the session. |
+          | loginTime | le, ge | Filter results by the login time of the session. |
+          | lastAccessTime | le, ge | Filter results by the last access time of the session. |
+
+          _Example, filter=loginId eq john and userAgent co Chrome_
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: |
+          Maximum number of records to return.
+        schema:
+          type: integer
+          format: int32
+      - name: since
+        in: query
+        description: |
+          Unix timestamp data value that points to the start of the data range to be returned.
+          _Note: As results are ordered by most recent results first, this will provide previous page of results._
+        schema:
+          type: integer
+          format: int64
+      - name: until
+        in: query
+        description: |
+          Unix timestamp data value that points to the end of the data range to be returned.
+          _Note: As results are ordered by most recent results first, this will provide next page of results._
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Successfully retrieved session information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        400:
+          description: Invalid input request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
     Application:
@@ -351,6 +489,10 @@ components:
     Session:
       type: object
       properties:
+        userId:
+          type: string
+          description: ID of the user of the session.
+          example: '00000001'
         applications:
           type: array
           description: List of applications in the session.
@@ -386,6 +528,23 @@ components:
         sessions:
           type: array
           description: List of active sessions.
+          items:
+            $ref: '#/components/schemas/Session'
+    SearchResponse:
+      type: object
+      properties:
+        previous:
+          type: string
+          description: Endpoint that will return the previous page of data. If not included, this is the first page of data.
+          format: uri
+          example: 'sessions?limit=10&filter=userName+eq+john&since=1620318306829'
+        next:
+          type: string
+          description: Endpoint that will return the next page of data. If not included, this is the last page of data.
+          format: uri
+          example: 'sessions?limit=10&filter=userName+eq+john&until=1620318417075'
+        Resources:
+          type: array
           items:
             $ref: '#/components/schemas/Session'
     Error:
