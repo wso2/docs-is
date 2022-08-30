@@ -96,5 +96,8 @@ A sample configuration is given below.
 ### Advanced database configurations
 
 {!./includes/db-advanced-config.md !}
+
+{!./includes/db-config-table.md !}
+
     
     

@@ -92,6 +92,9 @@ A sample configuration is given below.
 
 {!./includes/db-advanced-config.md !}
 
+{!./includes/db-config-table.md !}
+
+
 ---
   
 ## Configure the connection pool behavior on return 

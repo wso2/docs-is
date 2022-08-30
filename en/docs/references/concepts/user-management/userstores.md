@@ -66,7 +66,7 @@ not shared among multiple tenants. A user can access and work with multiple seco
 ## Userstore Manager
 
 Adapters used to connect with different userstores are called *userstore managers*. By default, there are userstore managers for JDBC,
-LDAP, and Active Directory userstores. If you need to add a new userstore implementation, see [Write a Custom Userstore Manager]({{base_path}}/deploy/write-a-custom-user-store-manager).
+LDAP, and Active Directory userstores. If you need to add a new userstore implementation, see [Write a Custom Userstore Manager]({{base_path}}/references/extend/write-a-custom-user-store-manager).
 
 
 !!! info "Related topics"
