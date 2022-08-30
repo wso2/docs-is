@@ -874,7 +874,7 @@ These steps should be carried out for the old database before the migration. A b
 ## Step 4: (Optional) Sync DBs for Zero downtime
 
 !!! warning
-    Proceed with this step only if you have opted for [Zero down time migration]({{base_path}}/setup/migrating-preparing-for-migration/#zero-down-time-migration). 
+    Proceed with this step only if you have opted for [Zero down time migration]({{base_path}}/deploy/migrate/prepare-for-migration/#prepare-for-zero-down-time). 
     
     If not, your migration task is complete by now and you can omit the following steps.
 

@@ -8,7 +8,7 @@ This page provides details about the behavioral changes from WSO2 Identity Serve
 
     - Changes introduced in IS 5.11.0 can be found at [What Has Changed in IS 5.11.0](https://is.docs.wso2.com/en/5.11.0/setup/migrating-what-has-changed/#what-has-changed).
     - Changes introduced in IS 5.10.0 can be found at [What Has Changed in IS 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-what-has-changed/#what-has-changed).
-    - Changes introduced in IS 5.9.0 can be found at [What Has Changed in IS 5.9.0](https://is.docs.wso2.com/en/latest/setup/migrating-what-has-changed/).
+    - Changes introduced in IS 5.9.0 can be found at [What Has Changed in IS 5.9.0](https://is.docs.wso2.com/en/5.9.0/setup/migrating-what-has-changed/).
     - Changes introduced in IS 5.8.0 and before can be found at [Migrating Configurations to IS 5.8.0](https://docs.wso2.com/display/IS580/Upgrading+From+an+Older+Version+of+WSO2+IS#UpgradingFromanOlderVersionofWSO2IS-Migratingtheconfigurations).
 
 ## Webapp
@@ -759,10 +759,10 @@ In previously versions of WSO2 Identity Server, the default HTTP methods allowed
 
 In Identity Server 6.0.0, this has been changed to allow the following HTTP methods ```GET```, ```POST```, ```PUT```, ```PATCH```, ```DELETE```, ```HEAD``` and ```OPTIONS```.
 
-Learn more on [how to change the CORS configuration](https://is.docs.wso2.com/en/latest/learn/cors).
+Learn more on [how to change the CORS configuration]({{base_path}}/learn/cors).
 
 ### Log4j2 logging in Hazelcast
-If you have been using WSO2 Identity Server in a [Hazelcast cluster](https://is.docs.wso2.com/en/latest/administer/configuring-hazelcast/), you may have configured the logging type for Hazelcast as log4j ```(Log4j1)```. Log4j1 logging is no longer supported in WSO2 Identity Server.
+If you have been using WSO2 Identity Server in a [Hazelcast cluster]({{base_path}}/administer/configuring-hazelcast/), you may have configured the logging type for Hazelcast as log4j ```(Log4j1)```. Log4j1 logging is no longer supported in WSO2 Identity Server.
 
 In WSO2 Identity Server 6.0.0, the Log4j version is upgraded to ```Log4j2```. Therefore the Hazelcast configuration needs to be updated to ```log4j2``` by adding the following configuration to the ```deployment.toml``` file.
 
