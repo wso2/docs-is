@@ -62,7 +62,6 @@ divided into different sections.
 
 !!! info "Related topics"
     Refer to the following topics for instructions to use sub menu items.
-    
     -   [Guide: Manage User Operations]({{base_path}}/guides/identity-lifecycles/manage-user-overview/) 
         for configuring users and roles. 
     -   [Guide: Manage User Roles]({{base_path}}/guides/identity-lifecycles/manage-roles-overview/)
@@ -91,19 +90,16 @@ divided into different sections.
 
 !!! info "Related topics"  
     Refer to the following topics for instructions to use sub menu items.
-
-    <!---   See [Workflow Management]({{base_path}}/guides/workflows/adding-a-workflow-engine/) for information on
-        working with workflows.-->
+    
     -   [Guide: Manage Challenge Questions]({{base_path}}/guides/password-mgt/challenge-question/)
         for information on configuring challenge questions. Also see [Account Recovery]({{base_path}}/guides/my-account/recover-user-account) for
         information on challenge questions.
-    -   [Guide: Email Templates]({{base_path}}/guides/tenants/customize-automated-mails/) for configuring email
-        templates. Also see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails/)
+    -   [Guide: Email Sender Configurations]({{base_path}}/deploy/configure-email-sending/) for configuring email
+        sender. Also see [Customizing Automated Emails]({{base_path}}/guides/tenants/customize-automated-mails/)
         for information on how to customize these templates.
-    -   [Deploy: Create New Keystores in the WSO2 Administration
-        Guide]({{base_path}}/deploy/security/create-new-keystores)
-        for configuring keystores.
-
+    -   [Deploy: Create New Keystores in the WSO2 Administration Guide]({{base_path}}/deploy/security/create-new-keystores) for configuring keystores.
+    <!---   See [Workflow Management]({{base_path}}/guides/workflows/adding-a-workflow-engine/) for information on
+        working with workflows.-->
 ---
 
 ## Monitor menu
