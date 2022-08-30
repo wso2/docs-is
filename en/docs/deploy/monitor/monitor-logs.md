@@ -56,7 +56,6 @@ the following default configuration by manually updating the
 `log4j2.properties` file. 
 
 ```toml
-
 # Appender config to CARBON_LOGFILE
 appender.CARBON_LOGFILE.type = RollingFile
 appender.CARBON_LOGFILE.name = CARBON_LOGFILE
@@ -73,6 +72,7 @@ appender.CARBON_LOGFILE.strategy.max = 20
 appender.CARBON_LOGFILE.filter.threshold.type = ThresholdFilter
 appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
 ```
+
 ---
 
 ### Enable logs for a component

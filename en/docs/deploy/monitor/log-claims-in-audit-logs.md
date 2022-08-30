@@ -28,7 +28,7 @@ the audit logger.
 
     !!! note
         In the above configuration, you can define any claim available in
-        the <http://wso2.org/claims> dialect as a
+        the `<http://wso2.org/claims>` dialect as a
         `           LoggableUserClaim          ` . The **accountLocked** and
         **role** claims have been used here only as examples.
         
@@ -41,7 +41,7 @@ the audit logger.
    LogUpdatedClaimsOnly = true
    ```
    
-   On making the above-mentioned changes, claims will be logged into the `           audit.log          ` file in `           <IS_HOME>/repository/log.      `
+   On making the above-mentioned changes, claims will be logged into the `           audit.log          ` file in `<IS_HOME>/repository/log`.
 
       
 
