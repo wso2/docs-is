@@ -60,7 +60,7 @@ There are two steps involved in setting up the primary userstore:
     </tbody>
     </table>
 
-    You can configure your own custom userstore manager. For more information, see [Write a custom userstore manager]({{base_path}}/deploy/write-a-custom-user-store-manager)
+    You can configure your own custom userstore manager. For more information, see [Write a custom userstore manager]({{base_path}}/references/extend/write-a-custom-user-store-manager)
 
     !!! tip
         From WSO2 IS 5.10.0 onwards, all userstore managers have `UniqueID` included as part of the userstore manager name (e.g.,`UniqueIDJDBCUserStoreManager`). Use one of these when selecting the userstore manager. 

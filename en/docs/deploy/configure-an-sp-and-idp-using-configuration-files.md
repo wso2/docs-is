@@ -638,7 +638,7 @@ Now you can test if the configurations you have done work in a tenant scenario.
 ---
 
 !!! info "Related topics"
-    -   [Quick Start: Configure SAML SSO]({{base_path}}/quick-starts/sso-for-saml-apps/)
+    -   [Quick Start: Configure SAML SSO]({{base_path}}/get-started/sample-use-cases/single-sign-on/#try-sso-with-saml-20)
     -   [Guide: Enable Single Sign-On for a SAML Web Application]({{base_path}}/guides/login/sso-for-saml/)
 
 <!---   See [Configuring a SP and IdP Using Service
