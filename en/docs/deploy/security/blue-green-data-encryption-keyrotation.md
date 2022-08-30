@@ -138,36 +138,52 @@ At the moment, the tables given below can be synced during key rotation from the
 5.  Open the `properties.yaml` file in `<KEY_ROTATION_TOOL>` and edit the configurations accordingly.   
 
     *   oldSecretKey - The symmetric encryption key used in the `<OLD_IS_HOME>`
-    !!! note
-        If the key is encrypted using cipher tool, decrypt it back as shown [here](https://shagihan.medium.com/decrypt-encrypted-text-with-the-wso2-cipher-tool-15b67624620a).
+    
+        !!! note
+            If the key is encrypted using cipher tool, decrypt it back as shown [here](https://shagihan.medium.com/decrypt-encrypted-text-with-the-wso2-cipher-tool-15b67624620a).
+    
     *   newSecretKey - The new symmetric encryption key
-    !!! tip
-        Generate using a tool like openssl using the command, `openssl rand -hex 16`.
+    
+        !!! tip
+            Generate using a tool like openssl using the command, `openssl rand -hex 16`.
+    
     *   newISHome - The absolute path of the `<NEW_IS_HOME>`
     *   oldIdnDBUrl - `<OLD_IS_HOME>` identity database URL
     *   oldIdnUsername - `<OLD_IS_HOME>` identity database username
     *   oldIdnPassword - `<OLD_IS_HOME>` identity database password 
-    !!! note
-        Encode the `<OLD_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/) and insert here.
+    
+        !!! note
+            Encode the `<OLD_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/) and insert here.
+    
     *   newIdnDBUrl - `<NEW_IS_HOME>` identity database URL
     *   newIdnUsername - `<NEW_IS_HOME>` identity database username
     *   newIdnPassword - `<NEW_IS_HOME>` identity database password 
-    !!! note
-        Encode the `<NEW_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/) and insert here.
+    
+        !!! note
+            Encode the `<NEW_IS_HOME>` identity database plaintext password in [base64](https://www.base64encode.org/) and insert here.
+    
     *   newRegDBUrl - `<NEW_IS_HOME>` registry database URL
     *   newRegUsername - `<NEW_IS_HOME>` registry database username
     *   newRegPassword - `<NEW_IS_HOME>` registry database password 
-    !!! note
-        Encode the `<NEW_IS_HOME>` registry database plaintext password in [base64](https://www.base64encode.org/) and insert here.
+    
+        !!! note
+            Encode the `<NEW_IS_HOME>` registry database plaintext password in [base64](https://www.base64encode.org/) and insert here.
+    
     *   enableDBMigrator - Enable/disable re-encryption for the identity and registry databases
-    !!! note
-        Keep this to always **true** to avoid unnecessary issues.
+    
+        !!! note
+            Keep this to always **true** to avoid unnecessary issues.
+    
     *   enableConfigMigrator - Enable/disable re-encryption for the configuration files
-    !!! note
-        Keep this to always **true** to avoid unnecessary issues.
-    *   enableSyncMigrator - Enable/disable syncing mechanism
-    !!! note
-        You only need to set this to **true**, if you have opted in for blue-green key rotation with zero downtime for the end user flows.
+    
+        !!! note
+            Keep this to always **true** to avoid unnecessary issues.
+    
+    *   enableSyncMigrator - Enable/disable syncing mechanism.
+    
+        !!! note
+            You only need to set this to **true**, if you have opted in for blue-green key rotation with zero downtime for the end user flows.
+    
     *   chunkSize - Size of the record chunks being retrieved from the database tables for syncing.    
 
     ??? tip "Sample configuration written for the properties.yaml file"
@@ -190,31 +206,37 @@ At the moment, the tables given below can be synced during key rotation from the
         enableSyncMigrator: true
         chunkSize: 2
         ```
+    
     ??? tip "Sample configuration written for H2 DB type URL"
 
         ```
         jdbc:h2:~/Desktop/IS/copy/wso2is-5.11.0-beta5-SNAPSHOT/repository/database/WSO2IDENTITY_DB
         ```
+    
     ??? tip "Sample configuration written for MySQL DB type URL"
 
         ```
         jdbc:mysql://localhost:3306/idndb?useSSL=false
         ```
+    
     ??? tip "Sample configuration written for DB2 DB type URL"
 
         ```
         jdbc:db2://localhost:50000/idndb
         ```
+    
     ??? tip "Sample configuration written for PostgreSQL DB type URL"
 
         ```
         jdbc:postgresql://localhost:5432/idndb
         ```
+    
     ??? tip "Sample configuration written for MSSQL DB type URL"
 
         ```
         jdbc:sqlserver://localhost:1433;databaseName=idndb
         ```
+    
     ??? tip "Sample configuration written for Oracle DB type URL"
 
         ```

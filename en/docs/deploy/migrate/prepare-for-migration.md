@@ -46,7 +46,7 @@ Before you start the migration, see the instructions given here.
      ```
      After the migration is complete, this configuration can be changed to enable the feature if it is required.
      
-     - It is recommended to run the [token cleanup scripts](https://is.docs.wso2.com/en/latest/setup/removing-unused-tokens-from-the-database/) before migration to clean the expired, inactive, and revoked tokens/codes. This reduces the time taken for migration.
+     - It is recommended to run the [token cleanup scripts]({{base_path}}/setup/removing-unused-tokens-from-the-database/) before migration to clean the expired, inactive, and revoked tokens/codes. This reduces the time taken for migration.
 
 ## Prepare for Groups and Roles separation
 
@@ -151,7 +151,7 @@ If you want to use the new groups and roles functionality in WSO2 IS 6.0.0, be m
 !!! Note
     * All claim configurations are already configured OOTB in the fresh pack, and will be done via the migration client for migrating deployments. No need to configure these manually.
     * Any custom external claim mapped to the wso2.role claim should be mapped to either wso2.roles or wso2.groups claim as per the requirement of the custom use case.
-    * Our recommendation is to fix any consuming client to become compatible with these changes. But if somehow the above configs need to be reverted (possibly in a migrated deployment), it can be done via the Identity Server [Claim Management REST APIs]({{base_path}}/develop/claim-management-rest-api.md).
+    * Our recommendation is to fix any consuming client to become compatible with these changes. But if somehow the above configs need to be reverted (possibly in a migrated deployment), it can be done via the Identity Server [Claim Management REST APIs]({{base_path}}/apis/claim-management-rest-api/).
   
 -   **Utilizing carbon kernel level support**
 
@@ -479,12 +479,12 @@ current Identity Server and run the below scripts against the database that is u
 
 !!! info
     If you do not require a zero down time migration, then you can directly proceed to the
-    next section, [Migrating to 6.0.0]({{base_path}}/setup/migrating-to-600).
+    next section, [Migrating to 6.0.0]({{base_path}}/deploy/migrate/migrate-to-600/).
 
 A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, usually when there’s a patch, or critical security upgrade for products used in the solution, or an upgrade to a newer version. To address this situation while avoiding downtime, system admins and DevOps follow blue-green deployments to roll out updates.
 
 ??? Info "Blue-Green Migration"
-    ![blue-green-migration]({{base_path}}/assets/img/setup/blue-green-wso2-identity-server.png)
+    <!-- ![blue-green-migration]({{base_path}}/assets/img/setup/blue-green-wso2-identity-server.png) -->
 
     A blue-green deployment is a change management strategy for releasing software. 
     Blue-green deployments require two identical hardware environments that are 
@@ -652,4 +652,4 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
 9. Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) and restore in the new databases created.
 
-10. Proceed to the next section [Migrating to 6.0.0]({{base_path}}/setup/migrating-to-600).
+10. Proceed to the next section [Migrating to 6.0.0]({{base_path}}/deploy/migrate/migrate-to-600/).
