@@ -532,7 +532,7 @@ This has been enabled by default in WSO2 Identity Server 6.0.0. If the previous 
 [intermediate_cert_validation]
 exempt_contexts = [“scim2”]
 ```
-Read more about [Intermediate Certificate Validation](https://is.docs.wso2.com/en/latest/develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation).
+Read more about [Intermediate Certificate Validation]({{base_path}}/apis/overview/#configure-intermediate-certificate-validation).
 
 #### Removal of Duplicate Entries in the SCIM2 Users Response
 
