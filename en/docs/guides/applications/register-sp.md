@@ -57,7 +57,7 @@ You can find the basic configurations of a service provider under **Service Prov
 | Access URL    | Access URL for the Service Provider.   |
 | Logo URL  | Add a link to the logo for your application here.   |
 | Logout Return URL or regex    | The URL that the users will be redirected to during a direct IdP logout   |
-| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated. WSO2 Identity Server exposes all the management capabilities as [REST APIs]({{base_path}}/apis/rest-apis/). These APIs are protected by OAuth2 access tokens and other API authentication mechanisms. The applications that are marked as management applications can only be used to access these management APIs in the OAuth2 flow. This can only be configured when creating the application.|
+| Management Application    | The selection you made for Management Application during the application creation will be shown here. This cannot be updated. WSO2 Identity Server exposes all the management capabilities as [REST APIs]({{base_path}}/apis/overview/). These APIs are protected by OAuth2 access tokens and other API authentication mechanisms. The applications that are marked as management applications can only be used to access these management APIs in the OAuth2 flow. This can only be configured when creating the application.|
 
 ### Public certificates for service providers
 A certificate is used to validate the signatures of the signed requests received from the application (service provider) to WSO2 IS.
