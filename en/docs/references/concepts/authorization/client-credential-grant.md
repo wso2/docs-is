@@ -1,14 +1,14 @@
 # Client Credentials Grant Type
 
 This grant is suitable for machine-to-machine authentication or for a client making requests to an API that does not 
-require the user’s permission. This grant should be allowed for use only by trusted [confidential clients]({{base_path}}/client-types/#confidential-clients).
+require the user’s permission. This grant should be allowed for use only by trusted [confidential clients]({{base_path}}/references/concepts/authorization/client-types/#confidential-clients).
 
 ---
 
 ## How does it work?
 
 The client can request an access token using only its client credentials with this grant type. It is similar to the 
-[resource owner password credentials]({{base_path}}/resource-owner-grant) grant type except in this case, only the client’s credentials 
+[resource owner password credentials]({{base_path}}/references/concepts/authorization/resource-owner-grant) grant type except in this case, only the client’s credentials 
 are used to authenticate a request for an access token.
 
 The diagram below illustrates the implicit grant flow.
@@ -42,6 +42,6 @@ One of the following cURL commands can be used to try this grant type.
     This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the [refresh token grant](refresh-token-grant.md).
     
 !!! info "Related topics"
-        - [Guide: Client Credentials Grant]({{base_path}}/guides/access-delegation/client-credentials)
-        - [Quick Start: Client Credentials Grant]({{base_path}}/quick-starts/client-credentials-playground)
+        <!-- - [Guide: Client Credentials Grant]({{base_path}}/guides/access-delegation/client-credentials) -->
+        - [Guides: Client Credentials Grant]({{base_path}}/guides/access-delegation/client-credentials-playground)
 

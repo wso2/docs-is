@@ -162,7 +162,7 @@ This contains samples illustrating the SCIM use cases. Samples mainly contain th
 
 WSO2 Identity Server allows users to define their own user schema in addition to the core user schema. These configured schema are then used while creating or validating user objects. This means that custom user attributes can be passed using SCIM for identity management requirements. Follow the steps given below to add a custom attribute.
 
-For information on Extending SCIM 2.0 User Schemas, see [here]({{base_path}}/develop/extend/provisioning/extend-scim2-user-schemas/)
+For information on Extending SCIM 2.0 User Schemas, see [here]({{base_path}}/references/extend/provisioning/extend-scim2-user-schemas/)
 
 ---
 
@@ -202,7 +202,7 @@ The above command provides the following results:
 ```
 
 !!! info "Related topics"
-    See [SCIM 2.0 APIs]({{base_path}}/develop/apis/scim2-rest-apis) for more cURL commands that can be used to do various functions using the SCIM endpoints available.
+    See [SCIM 2.0 APIs]({{base_path}}/apis/scim2-rest-apis) for more cURL commands that can be used to do various functions using the SCIM endpoints available.
 
 
 

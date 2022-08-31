@@ -1,7 +1,7 @@
 # Customize Authentication Error Messages
 
 WSO2 Identity Server has standard error messages for different authentication errors that are encountered. See [Error Codes and
-Descriptions]({{base_path}}/develop/extend/errors/error-codes-and-descriptions) for more information on the standard error codes and descriptions of
+Descriptions]({{base_path}}/references/extend/errors/error-codes-and-descriptions/) for more information on the standard error codes and descriptions of
 those errors. There are three types of custom errors handled here:
 
 -   Invalid credentials

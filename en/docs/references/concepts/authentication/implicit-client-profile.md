@@ -19,4 +19,4 @@ request to the authorization server.
 5. The resource server serves the client with the requested information based on the access token validity. 
 
 !!! info "Related topics"
-    - [Guide: OpenID Connect Implicit Client Profile]({{base_path}}/guides/access-delegation/oidc-implicit-client-profile/)
+    - [Guide: OpenID Connect Implicit Client Profile]({{base_path}}/guides/login/oidc-implicit-client-profile/)

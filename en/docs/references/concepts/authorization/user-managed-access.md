@@ -4,7 +4,7 @@
 
 UMA 2.0 (User Managed Access) is a federated authorization standard protocol approved by the [Kantara Initiative](https://kantarainitiative.org/). It is built on top of OAuth 2.0 and enables party-to-party sharing. 
 
-UMA enables users to share and control access to their protected resources with other parties that request access to them. Additionally, it also strengthens data privacy and helps to comply with modern-day privacy regulations such as [GDPR]({{base_path}}/compliance/gdpr) and [CCPA]({{base_path}}/compliance/ccpa). For instance, consider a patient who wishes to share their health data (such as medical prescriptions and lab reports) with their doctor, family members, and health insurance company. They may wish to selectively share some health-related data with certain parties, but may not want to share everything with everyone, and may wish to give them permission to `view` the data, but not `edit` it. UMA 2.0 helps to effectively share this data as well as maintain control over the resource sharing in a secure and reliable manner. 
+UMA enables users to share and control access to their protected resources with other parties that request access to them. Additionally, it also strengthens data privacy and helps to comply with modern-day privacy regulations such as [GDPR]({{base_path}}/references/concepts/compliance/gdpr) and [CCPA]({{base_path}}/references/concepts/compliance/ccpa). For instance, consider a patient who wishes to share their health data (such as medical prescriptions and lab reports) with their doctor, family members, and health insurance company. They may wish to selectively share some health-related data with certain parties, but may not want to share everything with everyone, and may wish to give them permission to `view` the data, but not `edit` it. UMA 2.0 helps to effectively share this data as well as maintain control over the resource sharing in a secure and reliable manner. 
 
 This is done using authorization policies. The specialty of this protocol is that resource owners need not be present online at the time of access, because the cross-party sharing is driven by predefined policies.
 
@@ -61,7 +61,7 @@ The protection API provides the following endpoints:
 - **Token Introspection Endpoint (optional)**: provides a means for the resource server to introspect the RPT, which is required to access a UMA protected resource.
 
 !!! tip
-    For more detailed information about each of these endpoints, and sample requests and responses, see [Resource Registration Endpoint]({{base_path}}/uma-resource-registration) or [Permission Endpoint]({{base_path}}/uma-permission-endpoint).
+    For more detailed information about each of these endpoints, and sample requests and responses, see [Resource Registration Endpoint]({{base_path}}/references/concepts/authorization/uma-resource-registration) or [Permission Endpoint]({{base_path}}/references/concepts/authorization/uma-permission-endpoint).
 
 When the resource server makes an access request to the authorization server, it needs to access these three endpoints of the Protection API. In order to access the protection API, it is a must for the request made by the resource server to be accompanied by an access token, namely a Protection API Access Token (PAT). 
 
@@ -84,7 +84,7 @@ The UMA grant is an extension of the OAuth 2.0 grant and enhances OAuth capabili
 Using the UMA grant, a client application acting on behalf of the requesting party can obtain a Requesting Party Token (RPT) from the authorization server after successful evaluation of policy conditions, scopes, claims, and any other relevant information.
      
 !!! info "Related topics"
-    - [Concept: Resource Registration Endpoint]({{base_path}}/uma-resource-registration)
-    - [Concept: Permissions Endpoint]({{base_path}}/uma-permission-endpoint)
+    - [Concept: Resource Registration Endpoint]({{base_path}}/references/concepts/authorization/uma-resource-registration)
+    - [Concept: Permissions Endpoint]({{base_path}}/references/concepts/authorization/uma-permission-endpoint)
     - [Guide: User Managed Access]({{base_path}}/guides/access-delegation/uma)
     <!--- - [Demo: User Managed Access](TODO:link-to-demo)-->
