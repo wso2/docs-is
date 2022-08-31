@@ -1398,7 +1398,7 @@ plugins:
               'compliance/california-consumer-privacy-act.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/ccpa/'
               'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'
-              'references/error-catalog.md': 'https://is.docs.wso2.com/en/6.0.0/references/error-catalog/'
+              #'references/error-catalog.md': 'https://is.docs.wso2.com/en/6.0.0/references/error-catalog/'
               'references/supported-cipher-suites.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/wso2-patch-application-process.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/scopes-corresponding-to-api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'

@@ -12,7 +12,7 @@ Most enterprise solutions adopt products and services from multiple cloud or on 
 
 For instance, if an employee leaves an organization, their user account may need to be removed and permissions may need to be revoked from multiple applications within the organization. However, it takes extra effort to ensure that it is properly removed from all applications, and doing this manually opens up the possibility of human error thereby possibly causing security issues. A much cleaner and more efficient approach would be to use identity provisioning to automate this and ensure that the account deletion or permission revoking reflects on the linked user accounts across all applications.
 
-The process of removing user identities and revoking permissions is known as **deprovisioning** and is a major requirement when complying with privacy regulations such as [GDPR]({{base_path}}/compliance/gdpr).
+The process of removing user identities and revoking permissions is known as **deprovisioning** and is a major requirement when complying with privacy regulations such as [GDPR]({{base_path}}/references/concepts/compliance/gdpr).
 
 ---
 
@@ -30,12 +30,12 @@ After a user has been provisioned, WSO2 IS can also help maintain the user's upd
 
 There are two main types of identity provisioning.
 
-- [Inbound Provisioning]({{base_path}}/provisioning-framework/#inbound-provisioning)
-- [Outbound Provisioning]({{base_path}}/provisioning-framework/#outbound-provisioning)
+- [Inbound Provisioning]({{base_path}}/references/concepts/provisioning-framework/#inbound-provisioning)
+- [Outbound Provisioning]({{base_path}}/references/concepts/provisioning-framework/#outbound-provisioning)
 
  
 !!! info "Related topics"
-    - [Concept: Provisioning Framework]({{base_path}}/provisioning-framework)
+    - [Concept: Provisioning Framework]({{base_path}}/references/concepts/provisioning-framework)
     - [Guide: Inbound Provisioning]({{base_path}}/guides/identity-lifecycles/inbound-provisioning)
     - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
 

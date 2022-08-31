@@ -1,6 +1,6 @@
 # Introduction to Userstores
 
-Userstores are used to store [users]({{base_path}}/users) and [roles]({{base_path}}/roles-and-permissions). WSO2 Identity Server (WSO2 IS) supports JDBC, LDAP, and Active Directory userstores by default with the capability of configuring custom userstores. There are different userstore adapters called *userstore managers*, which are used to connect
+Userstores are used to store [users]({{base_path}}/references/concepts/user-management/users) and [roles]({{base_path}}/references/concepts/user-management/roles-and-permissions). WSO2 Identity Server (WSO2 IS) supports JDBC, LDAP, and Active Directory userstores by default with the capability of configuring custom userstores. There are different userstore adapters called *userstore managers*, which are used to connect
 with these userstore types.
 
 There are two types of userstores.
@@ -14,7 +14,7 @@ All the supported userstores can be categorized under these two types.
 
 ## Primary userstore (mandatory)
 
-This is the main user store that is shared among all the [tenants]({{base_path}}/introduction-to-multitenancy/) in the system. Only one user store should be configured as the primary user store. By default, WSO2 Identity Server uses the embedded H2 database as the primary user store. It is recommended to change this default configuration in the production system. See [here]({{base_path}}/deploy/configure-the-primary-user-store/) for more information on configuring the primary user store. The primary user store can be changed to any of the following user stores based on user requirement. Alternatively, a custom user store manager can be configured as well. 
+This is the main user store that is shared among all the [tenants]({{base_path}}/references/concepts/introduction-to-multitenancy/) in the system. Only one user store should be configured as the primary user store. By default, WSO2 Identity Server uses the embedded H2 database as the primary user store. It is recommended to change this default configuration in the production system. See [here]({{base_path}}/deploy/configure-the-primary-user-store/) for more information on configuring the primary user store. The primary user store can be changed to any of the following user stores based on user requirement. Alternatively, a custom user store manager can be configured as well. 
 
 <table>
     <colgroup>
@@ -59,7 +59,7 @@ This is the main user store that is shared among all the [tenants]({{base_path}}
 ## Secondary userstore(s) (optional)
 
 Any number of secondary userstores can be easily set up for any system. These userstores are specific to the created tenant, and they are
-not shared among multiple tenants. A user can access and work with multiple secondary userstores based on the permissions they are granted. The admin portal can be used to create secondary userstores. Alternatively, they can be created manually as an xml file with the relevant configurations. See [Configuring Secondary Userstores](TO DO: insert-guides-link) for more information on configuring secondary userstores. 
+not shared among multiple tenants. A user can access and work with multiple secondary userstores based on the permissions they are granted. The admin portal can be used to create secondary userstores. Alternatively, they can be created manually as an xml file with the relevant configurations. See [Configuring Secondary Userstores]({{base_path}}/deploy/configure-secondary-user-stores/) for more information on configuring secondary userstores. 
 
 ---
 
