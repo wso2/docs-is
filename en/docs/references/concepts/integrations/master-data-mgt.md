@@ -27,7 +27,7 @@ take more accurate and cleansed data when this data is integrated with MDM.
 
 ### How data can be pushed to an MDM
 
-![how-to-push-data-to-mda]({{base_path}}/assets/img/tutorials/push-data-to-mda.png)
+<!-- ![how-to-push-data-to-mda]({{base_path}}/assets/img/tutorials/push-data-to-mda.png) -->
 
 Outbound provisioning talks about provisioning users to external systems. 
 There are different outbound provisioning connectors supported by IS to push
@@ -61,7 +61,7 @@ In case the MDM does not support the data format of the request sent by IS, we c
 
 ##### Provision data and events using ESB
 
-![how-to-trasform-data-using-esb]({{base_path}}/assets/img/tutorials/push-data-to-mda-with-esb.png)
+<!-- ![how-to-trasform-data-using-esb]({{base_path}}/assets/img/tutorials/push-data-to-mda-with-esb.png) -->
 
 
 In case MDM does not support the data format pushed by IS or if IS and MDM does not support any 
@@ -76,7 +76,7 @@ we can map the data into the desired format of the MDM vendor and call it. We ca
 
 ### How data can be extracted by MDM from WSO2 IS
 
-![how-to-extract-data-from-is]({{base_path}}/assets/img/tutorials/extract-data-by-mda.png)
+<!-- ![how-to-extract-data-from-is]({{base_path}}/assets/img/tutorials/extract-data-by-mda.png)-->
 
 
 WSO2 IS supports SCIM (v1,v2) APIs, other REST APIs, and SOAP APIs. If MDMs have any SCIM connectors, 
