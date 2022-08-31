@@ -1,6 +1,6 @@
 # Implicit Grant Type
 
-The implicit grant type is optimized for [public clients]({{base_path}}/client-types/#public-clients) known to operate a particular redirection URI.
+The implicit grant type is optimized for [public clients]({{base_path}}/references/concepts/authorization/client-types/#public-clients) known to operate a particular redirection URI.
 It is mainly used for clients that are not capable of keeping the client’s own credentials secret; for example a 'JavaScript only' application.
 Since the access token is encoded into the redirect URI, it may be exposed to parties other than the client, including the resource owner.
 Therefore, access tokens issued via this grant type should be treated as public knowledge and must have very limited permissions
@@ -14,7 +14,7 @@ any destructive operations.
 
 ## How does it work?
 
-The implicit grant type is similar to the [authorization code]({{base_path}}/authorization-code-grant) grant type as it will be redirected to an authorization server.
+The implicit grant type is similar to the [authorization code]({{base_path}}/references/concepts/authorization/authorization-code-grant) grant type as it will be redirected to an authorization server.
 However, unlike the authorization code grant type, it will be redirected along with an access token
 instead of an authorization code. The implicit grant type does not authenticate the client and instead relies
 on the presence of the resource owner and the registration of the redirection URI.
@@ -43,5 +43,5 @@ http://localhost:8080/playground2/oauth2client#access_token=131d4094-b94c-3714-9
 	[refresh token grant](refresh-token-grant.md).
 
 !!! info "Related topics"
-        - [Guide: Implicit Grant]({{base_path}}/guides/access-delegation/implicit)
-        - [Quick Start: Implicit Grant]({{base_path}}/quick-starts/implicit-playground)
+        - [Guide: OIDC Implicit Client Profile]({{base_path}}/guides/login/oidc-implicit-client-profile/)
+        - [Guide: Implicit Grant]({{base_path}}/guides/access-delegation/implicit-playground/)
