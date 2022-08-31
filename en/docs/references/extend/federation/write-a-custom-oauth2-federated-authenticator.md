@@ -8,8 +8,9 @@ available in WSO2 Identity Server to create custom OAuth2 authenticators.
 
 1. Create a maven project for the custom OAuth2 authenticator. Refer to the following files:
 
-> - the [pom.xml](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.oauth2.federated.authenticator/pom.xml) file used for the Custom authenticator.
-> - The [service component class](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.oauth2.federated.authenticator/src/main/java/org/wso2/carbon/identity/sample/oauth2/federated/authenticator/internal/OAuth2CustomAuthenticatorServiceComponent.java) to deploy in WSO2 Identity Server and register it as a federated authenticator.
+    - The [pom.xml](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.oauth2.federated.authenticator/pom.xml) file used for the Custom authenticator.
+    - The [service component class](https://github.com/wso2/samples-is/blob/master/authenticators/components/org.wso2.carbon.identity.sample.oauth2.federated.authenticator/src/main/java/org/wso2/carbon/identity/sample/oauth2/federated/authenticator/internal/OAuth2CustomAuthenticatorServiceComponent.java) to deploy in WSO2 Identity Server and register it as a federated authenticator.
+    
 2. The custom authenticator should be written by extending the `OAuth2GenericAuthenticator` class.
 3. You can find a [Kakao custom authenticator](https://github.com/wso2-extensions/identity-outbound-auth-kakao) here for
    your reference.

@@ -122,9 +122,9 @@ This custom `getUsernameFromContext()` function can be used to retrieve the user
 
 
 !!! info "Related topics"
-    - [Concept: Multi-Factor Authentication]({{base_path}}/multi-factor-authentication)
+    - [Concept: Multi-Factor Authentication]({{base_path}}/references/concepts/authentication/multi-factor-authentication/)
+    - [Concept: Adaptive Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication/)
     - [Guide: Adaptive Authentication]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth)
-    - [Quick Start: Adaptive Authentication]({{base_path}}/quick-starts/adaptive-auth-overview)
 
   
 
