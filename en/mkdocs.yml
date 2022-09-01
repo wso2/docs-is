@@ -58,6 +58,7 @@ nav:
             - Multi-Factor Authentication: get-started/sample-use-cases/multi-factor-authentication.md
             - Federated Authentication: get-started/sample-use-cases/federated-authentication.md
             - Self Sign-Up: get-started/sample-use-cases/self-sign-up.md
+            - Workflows: get-started/sample-use-cases/workflows.md
   - Guides:
       - Overview: guides/before-you-start.md
       - Authentication:
@@ -648,9 +649,9 @@ nav:
         - Set up in a Development Environment: references/extend/myaccount/set-up-my-account-in-a-dev-environment.md
         - Customize the UI: references/extend/myaccount/customize-my-account-ui.md
         - Configure the Application: references/extend/myaccount/configure-my-account.md
-      #- Workflow Management for Developers:
-        #- Extend the Workflow Event Handler: references/extend/workflows/extend-the-workflow-event-handler.md
-        #- Write a Custom Workflow Template: references/extend/workflows/write-a-custom-workflow-template.md
+      - Workflow management:
+        - Extend the workflow event handler: references/extend/workflows/extend-the-workflow-event-handler.md
+        - Write a cutom workflow template: references/extend/workflows/write-a-custom-workflow-template.md
       - User Stores:
         - Write a Custom User Store Manager: references/extend/write-a-custom-user-store-manager.md
       - User interfaces (Rebrand):
@@ -814,13 +815,13 @@ plugins:
               'learn/configuring-admin-initiated-account-locking.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/lock-account/'
               'learn/configuring-account-locking-due-to-failed-login-attempts.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts/'
               'learn/configuring-account-disabling.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/enable-account/'
-              'learn/pending-account-status.md': '/identity-lifecycles/pending-account-status/'
+              'learn/pending-account-status.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/pending-account-status/'
               'learn/configuring-single-sign-on-saml.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/sso-for-saml/'
               'learn/configuring-single-sign-on-oidc.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/sso-for-oidc/'
               'learn/configuring-single-sign-on-wsfed.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/configuring-access-delegation-with-oauth2.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/configuring-access-delegation-with-uma.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/uma/'
-              'learn/provisioning-tutorials.md': 'guides/identity-lifecycles/provisioning-overview/'
+              'learn/provisioning-tutorials.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/provisioning-overview/'
               'learn/configuring-inbound-provisioning.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/inbound-provisioning/'
               'learn/configuring-outbound-provisioning.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/outbound-provisioning/'
               'learn/provisioning-users-to-salesforce.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/outbound-provisioning-with-salesforce/'
@@ -1402,8 +1403,8 @@ plugins:
               'references/supported-cipher-suites.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/wso2-patch-application-process.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/scopes-corresponding-to-api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'
-              'get-started/quick-start-guide.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/sample-use-cases/sample-scenario/'
-              'get-started/overview.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/quick-start-guide'
+              #'get-started/quick-start-guide.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/sample-use-cases/sample-scenario/'
+              #'get-started/overview.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/quick-start-guide'
               'get-started/architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/architecture/'
               'get-started/provisioning-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/provisioning-architecture/'
               'get-started/user-management-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/user-management-architecture/'
