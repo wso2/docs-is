@@ -128,6 +128,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     validationQuery="SELECT 1; COMMIT"
     validationInterval="30000"
     defaultAutoCommit=false
+    commitOnReturn=true
    ```
    
 - `WSO2_SHARED_DB` `deployment.toml` configurations:
@@ -141,6 +142,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     validationQuery="SELECT 1; COMMIT"
     validationInterval="30000"
     defaultAutoCommit=false
+    commitOnReturn=true
    ```
 
 The elements in the above configuration are described below:   
