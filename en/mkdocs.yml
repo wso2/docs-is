@@ -1106,7 +1106,7 @@ plugins:
               'learn/writing-a-new-oauth-client-authenticator.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/private-key-jwt-client-authentication-for-oidc.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/private-key-jwt-client-authentication-for-oidc/'
               'learn/mutual-tls-for-oauth-clients.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/mutual-tls-client-auth.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/authentication/microprofile-jwt/'
+              'learn/mutual-tls-client-auth.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/microprofile-jwt-1.0-support-for-is.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/running-the-mp-jwt-sample.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/validating-jwt-based-on-jwks.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/validate-jwt-using-jwks/'
