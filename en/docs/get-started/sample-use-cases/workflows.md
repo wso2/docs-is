@@ -137,6 +137,6 @@ First, let's set up and run the sample applications.
 ----------------
 This concludes the Quick Start Guide!
 
-You have set up WSO2 Identity Server and gone through the basic use cases of the
+<!-- You have set up WSO2 Identity Server and gone through the basic use cases of the
 product. For more advanced use cases, check our
-[Basic Tutorials](../../learn/tutorials).
+[Basic Tutorials](../../learn/tutorials). -->

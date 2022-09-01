@@ -12,7 +12,7 @@ There two main ways to view, add, edit, and delete attributes of a user.
 ## Claim mapping when using multiple user stores
 
 When you are using more than one user store, you must map the attributes
-correctly by [adding a claim mapping](../../../../guides/dialects/add-claim-mapping/).
+correctly by [adding a claim mapping]({{base_path}}/guides/dialects/add-claim-mapping/).
 
 Under “Mapped Attribute(s)”, you need to follow the pattern.
 
