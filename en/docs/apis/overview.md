@@ -5,7 +5,7 @@ REST APIs in WSO2 Identity Server can be used by administrators to manage their 
 !!! info
     There are two OSGi services that provide authentication and authorization services for REST APIs based on their own handlers.
     
-    You can write your own handlers for both authentication and authorization and register them in OSGI. For more information, refer to [Write a Custom Local Authenticator](../references/extend/federation/write-a-custom-local-authenticator.md).
+    You can write your own handlers for both authentication and authorization and register them in OSGI. For more information, refer to [Write a Custom Local Authenticator]({{base_path}}/references/extend/federation/write-a-custom-local-authenticator).
 
 ## REST API authentication
 
@@ -15,7 +15,7 @@ WSO2 Identity Server supports the following API authentication methods:
 
 - **OAuth2 common flows based authentication** : Obtains an OAuth2 token and uses it to invoke the APIs.
 !!! info
-    To invoke the APIs using OAuth2 common flows, create a new managed application in IS. Refer to [service provider creation guide](../guides/applications/register-sp.md).
+    To invoke the APIs using OAuth2 common flows, create a new managed application in IS. Refer to [service provider creation guide]({{base_path}}/guides/applications/register-sp).
 
 - **Client certificate-based authentication** : Uses mutual SSL to authenticate users and invoke the APIs.
 
@@ -99,7 +99,7 @@ WSO2 Identity Server now supports scope-based API authorization for internal RES
 
 #### Example scenario
 
-Assume that a user whose username is Alex, wants to retrieve the challenge questions available by calling the **/{user-id}/challenges** GET API available in the [Challenge Question REST API](./challenge-rest-api.md).
+Assume that a user whose username is Alex, wants to retrieve the challenge questions available by calling the **/{user-id}/challenges** GET API available in the [Challenge Question REST API]({{base_path}}/apis/challenge-rest-api).
 
 To consume this endpoint, Alex requires `/permission/admin/manage/identity/identitymgt/view` permission and `internal_identity_mgt_view` scope. Hence, Alex can set the scope in the following cURL command and obtain a token.
 
@@ -132,6 +132,6 @@ If the user has sufficient permissions to the scope defined in the request, the 
 
 
 !!! info "Related topics"
-    -   See [Scopes Corresponding to Permissions Required to Invoke REST API Calls](../../references/scopes-corresponding-to-rest-api-permissions) for a list of scopes corresponding to permissions.
+    -   See [Scopes Corresponding to Permissions Required to Invoke REST API Calls]({{base_path}}/references/scopes-corresponding-to-rest-api-permissions) for a list of scopes corresponding to permissions.
 
     -   The permissions and scopes required for REST APIs can be found under each API definition.

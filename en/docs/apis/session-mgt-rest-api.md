@@ -8,7 +8,7 @@ template: templates/swagger.html
     Before invoking the session management REST APIs, create some sessions for the user. You can create active
     sessions for the users as follows.
     
-       1. [Register a service provider](../guides/applications/register-sp.md) in the WSO2 Identity Server so that the authentication for the application will
+       1. [Register a service provider]({{base_path}}/guides/applications/register-sp) in the WSO2 Identity Server so that the authentication for the application will
         be handled by the Identity Server.
        2. Login to the application with valid credentials.
        
