@@ -10,7 +10,9 @@ The configuration differs based on the type of notifications you want to
 send to the external endpoint. The following instructions provide
 information on how to send an email when a user operation takes place.
 
-1.  Enable the email sending configurations of the WSO2 Identity Server
+1.  Download the Email Notification Handler from [here](https://store.wso2.com/store/assets/isconnector/details/959b792a-efce-4b12-af9b-4744c650f6b2) and add the `org.wso2.carbon.identity.notification.mgt.email-x.x.x.jar` file in the `<IS_HOME>/repository/components/dropins` directory.
+
+3.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here]({{base_path}}/deploy/configure-email-sending/)
     
 2.  Configure the
