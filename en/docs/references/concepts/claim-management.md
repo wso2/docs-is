@@ -9,7 +9,7 @@ information. It provides a consistent approach for all applications by
 hiding the lower level implementation. Claims are also used in identity
 propagation which is the replication of authenticated identities,
 by packaging the claims into one or more tokens (such as SAML). These
-tokens are then issued by an issuer (eg., [security token service]({{base_path}}/authentication/intro-ws-trust)).
+tokens are then issued by an issuer (eg., [security token service]({{base_path}}/references/concepts/authentication/intro-ws-trust/).
 
 A user claim is a claim that is related to a user. It can be used to
 specify information that is directly related to the user, such as claims

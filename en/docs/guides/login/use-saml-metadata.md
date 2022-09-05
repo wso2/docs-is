@@ -69,4 +69,4 @@ instances of entity configuration.
 
 !!! info "Related topics"
     - [Concept: SAML]({{base_path}}/references/concepts/authentication/intro-saml/)
-    - [Guide: Enable Login to a SAML Web Application]({{base_path}}/webapp-saml)
+    - [Guide: Enable Login to a SAML Web Application]({{base_path}}/guides/login/webapp-saml)

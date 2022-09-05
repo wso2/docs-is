@@ -33,7 +33,7 @@ To add an authentication script to the service provider:
 2. Click **List**, select the service provider you want to configure, and click on the corresponding **Edit** link.
 3. Expand **Local and Outbound Authentication Configuration** and click
     **Advanced Configuration**.  
-    ![Advanced Authentication Configuration](../../../../assets/img/fragments/advanced-authentication.png)
+    ![Advanced Authentication Configuration]({{base_path}}/assets/img/fragments/advanced-authentication.png)
 
 4. You can add authentication steps or use a template to configure
     adaptive authentication depending on your requirement.
@@ -44,7 +44,7 @@ To add an authentication script to the service provider:
     
         - To learn about the functions and fields related to authentication scripts, see [Adaptive Authentication JS API Reference]({{base_path}}/references/adaptive-authentication-js-api-reference).
         
-        - To learn about the guidelines on writing custom functions for adaptive authentication, see [Write Custom Functions for Adaptive Authentication]({{base_path}}/develop/extend/write-custom-functions-for-adaptive-authentication).
+        - To learn about the guidelines on writing custom functions for adaptive authentication, see [Write Custom Functions for Adaptive Authentication]({{base_path}}/references/extend/write-custom-functions-for-adaptive-authentication).
 
     A sample authentication script is shown below. 
 

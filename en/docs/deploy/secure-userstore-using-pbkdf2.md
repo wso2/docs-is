@@ -11,7 +11,7 @@ This section guides you on how to configure PBKDF2 hashing on primary and second
 
 ### PBKDF2 for primary JDBC userstores
 
-PBKDF2 is supported by [primary JDBC userstores]({{base_path}}/configure-a-jdbc-user-store), but PBKDF2 should be enabled before the initial server startup by adding the following to the `deployment.toml` file.
+PBKDF2 is supported by [primary JDBC userstores]({{base_path}}/deploy/configure-a-jdbc-user-store), but PBKDF2 should be enabled before the initial server startup by adding the following to the `deployment.toml` file.
     ``` js
     [user_store]
     type = "database_unique_id"
@@ -21,13 +21,13 @@ PBKDF2 is supported by [primary JDBC userstores]({{base_path}}/configure-a-jdbc-
 ### PBKDF2 for secondary JDBC userstores
 To configure PBKDF2 hashing on a JDBC user store:
 
-1. Login to the Identity Server management console (`https://<IS_HOST>:<PORT>/console`) and [create a JDBC user store]({{base_path}}/configure-secondary-user-stores).
+1. Login to the Identity Server management console (`https://<IS_HOST>:<PORT>/console`) and [create a JDBC user store]({{base_path}}/deploy/configure-secondary-user-stores).
 
     !!! info "Existing userstores"
         - You may also use an existing user store which does not have any users in it. If you already have users in the userstore, once the hashing algorithm is configured these users will not be able to get authenticated.
         - Such cases will impact with bad user experience as the users will not get authenticated even when they try to login using the correct credentials. Admins may use the following approaches to reset the user passwords after configuring the PBKDF2 hashing algorithm on an existing userstore:
-            - Ask users to [reset their own passwords]({{base_path}}/guides/my-account/my-account.md).
-            - Trigger password reset for all accounts of the userstore using [admin initiated password reset]({{base_path}}/guides/password-mgt/forced-password-reset.md).
+            - Ask users to [reset their own passwords]({{base_path}}/guides/my-account/my-account).
+            - Trigger password reset for all accounts of the userstore using [admin initiated password reset]({{base_path}}/guides/password-mgt/forced-password-reset).
 
 2. Navigate to  **Manage > Userstores**, select the secondary JDBC userstore you have created.
 3. Navigate to the **User** tab of the userstore and expand the **Show more** section.

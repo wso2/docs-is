@@ -114,7 +114,7 @@ since SCIM is enabled by default from the WSO2 Identity Server 5.10.0 onwards.
 !!! note
     It is required to edit the claim mappings in WSO2 IS according to the user claims of the Active Directory version you have configured.<br />
     Before starting the server, edit the `<IS_HOME>/repository/conf/claim-config.xml` configuration file and change the `AttributeID` of the `Created Time` and `Last Modified Time` claims to `whenCreated` and `whenChanged` respectively.
-    Start the server and edit the rest of the required claim mappings through the management console as explained in [edit claim mapping]({{base_path}}/guides/dialects/edit-claim-mapping.md).
+    Start the server and edit the rest of the required claim mappings through the management console as explained in [edit claim mapping]({{base_path}}/guides/dialects/edit-claim-mapping).
 
 ---
 

@@ -29,8 +29,7 @@ accounts:
 
 The first approach is to use the `AdminService` . You
 can access this admin service using the following URL: '
-`https://<HOST_NAME>:9443/services/UserAccountAssociationService?wsdl`'. If you are new to admin services, see [Calling Admin
-Services]({{base_path}}/develop/calling-admin-services).
+`https://<HOST_NAME>:9443/services/UserAccountAssociationService?wsdl`'. If you are new to admin services, see [Calling Admin Services]({{base_path}}/apis/call-admin-services).
 
 The following actions can be performed using above admin service.
 

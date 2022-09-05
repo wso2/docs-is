@@ -57,4 +57,4 @@ However, neither Java nor the server applications that host Java web application
 - **WAFFLE** is also an open-source library. It can be configured easily to use with the Java web applications.  
 
 !!! info "Related topics"
-    - See [configuring IWA Single-Sign-On]({{base_path}}/guides/login/configure-iwa-single-sign-on.md) to configure integrated windows authentication in WSO2 Identity Server.
+    - See [configuring IWA Single-Sign-On]({{base_path}}/guides/login/configure-iwa-single-sign-on) to configure integrated windows authentication in WSO2 Identity Server.

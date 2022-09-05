@@ -3,7 +3,7 @@
 The System for Cross-domain Identity Management (SCIM) is a specification that is designed to manage user identities in cloud-based applications and services in a standardized way to enable interoperability, security, and scalability. It is an emerging open standard which provides RESTful APIs for easier, cheaper, and faster way for creating, provisioning, and maintaining identities. The latest version SCIM 2.0 was released as IETF RFC in September 2015.
 
 !!! Note 
-    SCIM 2.0 is supported by default in WSO2 Identity Server version 5.4.0 onwards. If you are using WSO2 Identity Server 5.4.0 or a later version, see [SCIM 2.0 REST API]({{base_path}}/apis/scim2-rest-apis.md) for instructions on how to use SCIM 2.0 OOTB.
+    SCIM 2.0 is supported by default in WSO2 Identity Server version 5.4.0 onwards. If you are using WSO2 Identity Server 5.4.0 or a later version, see [SCIM 2.0 REST API]({{base_path}}/apis/scim2-rest-apis) for instructions on how to use SCIM 2.0 OOTB.
 
 ---
     
@@ -209,4 +209,4 @@ You can also try out updating the custom claim value using the following SCIM co
     ```
 
 !!! info "Related topics" 
-    -  API: [SCIM 2.0]({{base_path}}/apis/scim2-rest-apis.md)
+    -  API: [SCIM 2.0]({{base_path}}/apis/scim2-rest-apis)
