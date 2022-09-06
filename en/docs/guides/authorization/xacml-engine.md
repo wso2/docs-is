@@ -22,7 +22,7 @@ as a XACML engine.
 3.  Add a new policy or import external policy files to the system. Once
     you click **Add**, a  policy will be added. You can [edit a
     template
-    policy]({{base_path}}/learn/writing-a-xacml-policy-using-a-policy-template)
+    policy]({{base_path}}/guides/authorization/customize-a-policy-template)
     it to suit your requirements, or you may [add a completely new
     policy]({{base_path}}/learn/creating-a-xacml-policy)
     .
@@ -30,7 +30,7 @@ as a XACML engine.
     Point(PDP)]({{base_path}}/learn/publishing-a-xacml-policy)
     .
 5.  Now try to evaluate the published policy by [using Try It
-    tool.]({{base_path}}/learn/evaluating-a-xacml-policy)
+    tool.]({{base_path}}/guides/authorization/xacml-tryittool-overview/)
 
 Here you can build your own XACML request to evaluate the policy you
 just added. Copy and paste the following on the above screen and click

@@ -1,4 +1,3 @@
-
 # Working with XACML Multiple Decision Profile Requests
 
 In general, access control scenarios that the Policy Enforcement Point
@@ -10,7 +9,7 @@ values.
 
 To handle such scenarios, WSO2 Identity Server supports [XACML Multiple
 Decision
-Profile]({{base_path}}/get-started/access-control-and-entitlement-management#mdp)
+Profile]({{base_path}}/references/access-control-and-entitlement-management#mdp)
 (MDP) requests.
 
 MDP allows you to group multiple decisions as a single response after
@@ -49,6 +48,6 @@ resources.
     Format]({{base_path}}/learn/working-with-mdp-requests-in-json-format).
 
 
-- [MDP requests with repeating attribute catergories]({{base_path}}/authorization/mdp-repeating-attr.md)
-- [MDP requests to authorize hierachical resources]({{base_path}}/authorization/mdp-authorize-resources.md)
-- [MDP requests and response - JSON format]({{base_path}}/authorization/mdp-req-and-response.md)
+- [MDP requests with repeating attribute catergories]({{base_path}}/guides/authorization/mdp-repeating-attr)
+- [MDP requests to authorize hierachical resources]({{base_path}}/guides/authorization/mdp-authorize-resources)
+- [MDP requests and response - JSON format]({{base_path}}/guides/authorization/mdp-req-and-response)
