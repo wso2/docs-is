@@ -255,29 +255,6 @@ paths:
         * /permission/admin/manage/identity/claimmgt/metadata/view <br> <b>Scope required:</b>
         <br> * internal_claim_meta_view
       operationId: getClaimDialects
-      parameters:
-      - name: limit
-        in: query
-        description: Maximum number of records to return.
-        schema:
-          type: integer
-          format: int32
-      - name: offset
-        in: query
-        description: Number of records to skip for pagination.
-        schema:
-          type: integer
-          format: int32
-      - name: filter
-        in: query
-        description: Condition to filter the retrieval of records.
-        schema:
-          type: string
-      - name: sort
-        in: query
-        description: Define the order by which the retrieved records should be sorted.
-        schema:
-          type: string
       responses:
         200:
           description: Claim dialects.
@@ -499,28 +476,6 @@ paths:
         in: path
         description: Id of the claim dialect.
         required: true
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: Maximum number of records to return.
-        schema:
-          type: integer
-          format: int32
-      - name: offset
-        in: query
-        description: Number of records to skip for pagination.
-        schema:
-          type: integer
-          format: int32
-      - name: filter
-        in: query
-        description: Condition to filter the retrieval of records.
-        schema:
-          type: string
-      - name: sort
-        in: query
-        description: Define the order by which the retrieved records should be sorted.
         schema:
           type: string
       responses:
