@@ -16,7 +16,7 @@ information on how to send an email when a user operation takes place.
 3.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here]({{base_path}}/deploy/configure-email-sending/)
     
-2.  Configure the
+4.  Configure the
     `           <IS_HOME>/repository/conf/identity/msg-mgt.properties          `
     file with the desired destination configurations and template
     configurations. The following is a sample configuration for sending
