@@ -29,6 +29,7 @@ The following terms refer to the different phases of the feature deprecation lif
 3. **Retired**
 
     At this phase, we decide not to incorporate the feature with new releases. For versions released, until the respective version goes end of license, feature maintenance and security updates will be provided for subscriptions
+
 <!--
 
 ## Feature deprecation matrix
