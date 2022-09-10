@@ -183,7 +183,7 @@ With Identity Server 6.0.0, the parameters of this method signature have been ch
         <td>A map contains the claim URI and claim value</td>
     </tr>
     <tr>
-        <td><code>contect</code></td>
+        <td><code>context</code></td>
         <td><code>JsAuthenticationContext</code> object available in the authentication flow</td>
     </tr>
     <tr>
