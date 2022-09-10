@@ -102,5 +102,5 @@ Note the following regarding the configuration above.
 !!! info "Related topics"
     -   [Configure the Primary Userstore]({{base_path}}/deploy/configure-the-primary-user-store)
     -   [Configure the Authorization Manager]({{base_path}}/deploy/configure-the-authorization-manager)
-    -   [Performance tuning]({{base_path}}/..deploy/performance/performance-tuning-recommendations)
+    -   [Performance tuning]({{base_path}}/deploy/performance/performance-tuning-recommendations)
     -   [Changing a Password]({{base_path}}/guides/identity-lifecycles/manage-user-overview/)

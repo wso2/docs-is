@@ -18,7 +18,7 @@ Add a user with the username "john" and password "Wso2@123". Here we have to map
 
 So we need to map these to existing Active Directory user attributes.
 
-When mapping claims to attributes, there are few things to be considered. The SCIM claim dialect (`urn:scim:schemas:core:1.0:id` ) uses String type to hold their values. So, when mapping any SCIM claim to an attribute in the Active Directory, make sure to use the attributes which are having the String type. You can find all Active Directory attributes [here](http://www.kouti.com/tables/userattributes.htm).
+When mapping claims to attributes, there are few things to be considered. The SCIM claim dialect (`urn:scim:schemas:core:1.0:id` ) uses String type to hold their values. So, when mapping any SCIM claim to an attribute in the Active Directory, make sure to use the attributes which are having the String type. You can find all Active Directory attributes [here](https://docs.microsoft.com/en-us/windows/win32/adschema/attributes-all).
 
 When a user or a group is created with SCIM, there are a set of mandatory SCIM  claim values that need to be saved along with the user or group. Some of these values are as follows.
 

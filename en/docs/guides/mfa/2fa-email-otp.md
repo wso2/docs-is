@@ -10,7 +10,7 @@ This guide section helps you set up email OTP on the identity server.
 
 Setting up email OTP required the following two configurations to be made on the Identity Server:
 
-- [**Configure email sending module**](../../../deploy/configure-email-sending)
+- [**Configure email sending module**]({{base_path}}/deploy/configure-email-sending)
 - **Configure the email OTP provider**
     
     You can use any of the following methods to configure the email OTP provider:

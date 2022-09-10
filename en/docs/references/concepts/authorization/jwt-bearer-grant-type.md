@@ -29,4 +29,4 @@ Following cURL commands can be used to try this grant type.
 curl -i -X POST -u <Base64Encoded(CLIENT_ID:CLIENT_SECRET)> -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT_TOKEN>' -H 'Content-Type: application/x-www-form-urlencoded' <TOKEN_ENDPOINT>
 ```
 
-/quick-starts/saml2-bearer-assertion-profile
+<!-- /quick-starts/saml2-bearer-assertion-profile -->

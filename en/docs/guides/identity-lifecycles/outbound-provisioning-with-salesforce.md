@@ -572,6 +572,6 @@ You can see that the user has been created in the "Users" section in salesforce.
 
 !!! info "Related topics"
     - [Concept: Identity Provisioning Framework]({{base_path}}/references/concepts/provisioning-framework/)
-    - [Guide: Configure Just-In-Time Provisioning for an Identity Provider]({{base_path}}/jit-workflow/)
+    - [Guide: Configure Just-In-Time Provisioning for an Identity Provider]({{base_path}}/guides/identity-federation/jit-workflow)
 
 

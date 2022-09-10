@@ -80,7 +80,7 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 2. Open the **filebeat.yml** file in the root directory and enter these [configurations](https://github.com/wso2-extensions/identity-elk-integration/blob/main/filebeat/filebeat.yml).
 
     !!! info
-        To configure Filebeat to mask sensitive information in logs, follow this [guide]({{base_path}}/deploy/monitor/elk-mask-sensitive-information-in-logs.md).
+        To configure Filebeat to mask sensitive information in logs, follow this [guide]({{base_path}}/deploy/monitor/elk-mask-sensitive-information-in-logs).
 
 
 ### Install Logstash

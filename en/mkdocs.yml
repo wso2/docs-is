@@ -58,6 +58,7 @@ nav:
             - Multi-Factor Authentication: get-started/sample-use-cases/multi-factor-authentication.md
             - Federated Authentication: get-started/sample-use-cases/federated-authentication.md
             - Self Sign-Up: get-started/sample-use-cases/self-sign-up.md
+            - Workflows: get-started/sample-use-cases/workflows.md
   - Guides:
       - Overview: guides/before-you-start.md
       - Authentication:
@@ -83,13 +84,13 @@ nav:
               - Office365 with SAML2: guides/login/log-into-office365saml-using-is.md
               - Office365 with SAML2 for Multiple Domains: guides/login/log-into-office365saml-multiple-domains.md
               - Office365 with WS federation: guides/login/log-into-office365-using-wsfed.md
-              - Office365 with WS Trust: guides/login/log-into-office365-using-ws-trust.md
+              #- Office365 with WS Trust: guides/login/log-into-office365-using-ws-trust.md
           - PaaS Applications:
             - Drupal: guides/login/log-into-drupal-using-is.md
             - Microsoft Sharepoint: guides/login/log-into-sharepoint-using-is.md
             - Magento: guides/login/log-into-magento-using-is.md
             - Microsoft Dynamics CRM with WS Federation: guides/login/log-into-dynamic-crm-with-wsfederation.md
-          - Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
+          #- Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
           - OIDC Flows:
             - Overview: guides/login/oidc-authentication.md 
             - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 
@@ -276,7 +277,7 @@ nav:
           - Outbound Provision Users:
             - Overview: guides/identity-lifecycles/outbound-provisioning.md
             - SCIM 2.0: guides/identity-lifecycles/outbound-provisioning-with-scim.md
-            #- Microsoft Azure AD: guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
+            - Microsoft Azure AD: guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
             - Google Directory: guides/identity-lifecycles/outbound-provisioning-with-google.md
             - Salesforce: guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
             - Hubspot: guides/identity-lifecycles/hubspot-provisioning.md
@@ -376,7 +377,7 @@ nav:
             - Configure Secondary User stores: deploy/configure-secondary-user-stores.md
             #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
             - Work with Properties of User stores: deploy/work-with-properties-of-user-stores.md
-            - Write a Custom User store Manager: deploy/write-a-custom-user-store-manager.md
+            #- Write a Custom User store Manager: deploy/write-a-custom-user-store-manager.md
             - Secure a JDBC user store with PBKDF2 hashing: deploy/secure-userstore-using-pbkdf2.md
 
         - Data Stores:
@@ -648,9 +649,9 @@ nav:
         - Set up in a Development Environment: references/extend/myaccount/set-up-my-account-in-a-dev-environment.md
         - Customize the UI: references/extend/myaccount/customize-my-account-ui.md
         - Configure the Application: references/extend/myaccount/configure-my-account.md
-      #- Workflow Management for Developers:
-        #- Extend the Workflow Event Handler: references/extend/workflows/extend-the-workflow-event-handler.md
-        #- Write a Custom Workflow Template: references/extend/workflows/write-a-custom-workflow-template.md
+      - Workflow management:
+        - Extend the workflow event handler: references/extend/workflows/extend-the-workflow-event-handler.md
+        - Write a cutom workflow template: references/extend/workflows/write-a-custom-workflow-template.md
       - User Stores:
         - Write a Custom User Store Manager: references/extend/write-a-custom-user-store-manager.md
       - User interfaces (Rebrand):
@@ -814,13 +815,13 @@ plugins:
               'learn/configuring-admin-initiated-account-locking.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/lock-account/'
               'learn/configuring-account-locking-due-to-failed-login-attempts.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts/'
               'learn/configuring-account-disabling.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/enable-account/'
-              'learn/pending-account-status.md': '/identity-lifecycles/pending-account-status/'
+              'learn/pending-account-status.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/pending-account-status/'
               'learn/configuring-single-sign-on-saml.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/sso-for-saml/'
               'learn/configuring-single-sign-on-oidc.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/sso-for-oidc/'
               'learn/configuring-single-sign-on-wsfed.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/configuring-access-delegation-with-oauth2.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/configuring-access-delegation-with-uma.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/uma/'
-              'learn/provisioning-tutorials.md': 'guides/identity-lifecycles/provisioning-overview/'
+              'learn/provisioning-tutorials.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/provisioning-overview/'
               'learn/configuring-inbound-provisioning.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/inbound-provisioning/'
               'learn/configuring-outbound-provisioning.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/outbound-provisioning/'
               'learn/provisioning-users-to-salesforce.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/outbound-provisioning-with-salesforce/'
@@ -1103,7 +1104,7 @@ plugins:
               'learn/private-key-jwt-client-authentication-for-oidc.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/private-key-jwt-client-authentication-for-oidc/'
               'learn/mutual-tls-for-oauth-clients.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/mutual-tls-client-auth.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/microprofile-jwt-1.0-support-for-is.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/microprofile-jwt-1.0-support-for-is.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/microprofile-jwt-sample/'
               'learn/running-the-mp-jwt-sample.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/validating-jwt-based-on-jwks.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/validate-jwt-using-jwks/'
               'learn/issuing-new-tokens-per-request.md': 'https://is.docs.wso2.com/en/6.0.0/'
@@ -1398,12 +1399,12 @@ plugins:
               'compliance/california-consumer-privacy-act.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/ccpa/'
               'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'
-              'references/error-catalog.md': 'https://is.docs.wso2.com/en/6.0.0/references/error-catalog/'
+              #'references/error-catalog.md': 'https://is.docs.wso2.com/en/6.0.0/references/error-catalog/'
               'references/supported-cipher-suites.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/wso2-patch-application-process.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/scopes-corresponding-to-api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'
               #'get-started/quick-start-guide.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/sample-use-cases/sample-scenario/'
-              'get-started/overview.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/quick-start-guide'
+              #'get-started/overview.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/quick-start-guide'
               'get-started/architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/architecture/'
               'get-started/provisioning-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/provisioning-architecture/'
               'get-started/user-management-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/user-management-architecture/'

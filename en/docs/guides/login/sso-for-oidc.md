@@ -128,5 +128,5 @@ You have successfully configured OpenID Connect single sign-on for two web appli
 
 !!! info "Related topics"
     - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)
-    - [Guide: Manage User Sessions]({{base_path}}/session-management-logout)
-    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/oidc-backchannel-logout)
+    - [Guide: Manage User Sessions]({{base_path}}/guides/login/session-management-logout)
+    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/guides/login/oidc-backchannel-logout)

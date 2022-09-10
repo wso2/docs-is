@@ -119,4 +119,4 @@ of the OpenID Provider. Following information is required when making a request 
 ```
 
 !!! info "Related topics"
-        - [Guide: Discover OpenID Connect Provider]({{base_path}}/guides/login/guides/login/oidc-discovery)
+        - [Guide: Discover OpenID Connect Provider]({{base_path}}/guides/login/oidc-discovery)

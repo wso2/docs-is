@@ -75,5 +75,5 @@ extend_remember_me_session_timeout_on_auth=false
 ---
 
 !!! info "Related topics"
-    - [Guide: Enable Single Sign-On for a SAML Application]({{base_path}}/sso-for-saml)
-    - [Guide: Enable Single Sign-On for an OpenID Connect Application]({{base_path}}/sso-for-oidc)
+    - [Guide: Enable Single Sign-On for a SAML Application]({{base_path}}/guides/login/sso-for-saml)
+    - [Guide: Enable Single Sign-On for an OpenID Connect Application]({{base_path}}/guides/login/sso-for-oidc)

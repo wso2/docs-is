@@ -150,5 +150,5 @@ You have successfully configured SAML single sign-on for two web applications us
 
 !!! info "Related topics"
     - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)
-    - [Guide: SAML Front-Channel Logout]({{base_path}}/saml-front-channel-logout)
-    - [Guide: SAML Back-Channel Logout]({{base_path}}/saml-back-channel-logout)
+    - [Guide: SAML Front-Channel Logout]({{base_path}}/guides/login/saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout]({{base_path}}/guides/login/saml-back-channel-logout)

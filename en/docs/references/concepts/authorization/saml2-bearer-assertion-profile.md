@@ -39,4 +39,4 @@ token to the authorization server and exchanging it directly to an OAuth
 
 !!! info "Related topics"
         - [Guide: Set Up SAML2 Bearer Assertion Profile]({{base_path}}/guides/access-delegation/saml2-bearer-assertion-profile)
-        - [Quick Start: Set Up SAML2 Bearer Assertion Profile]({{base_path}}/quick-starts/saml2-bearer-assertion-profile)
+        <!-- - [Quick Start: Set Up SAML2 Bearer Assertion Profile]({{base_path}}/quick-starts/saml2-bearer-assertion-profile) -->
