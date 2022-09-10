@@ -90,6 +90,19 @@ behalf of the requesting party.
 <!--- Note down the **Client ID** and **Client Secret** values. You need those
 values to obtain the Protection API Access Token (PAT). -->
 
+### Claim configuration
+
+Make the following changes to the created service provider.
+
+1. Expand **Claim Configuration**.
+
+2. Select `http://wso2.org/claims/username` as **Subject Claim URI**
+
+   ![claim-config-username]({{base_path}}/assets/img/guides/claim-config-username.png)
+
+3. Click **Update**
+
+Enter the Callback Url.
 ---
 
 ## Obtain the Protection API Access token (PAT)
