@@ -513,7 +513,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
 1. Create a new databases for the new WSO2 Identity Server version (6.0.0) that you are migrating to.
 2. Unzip a WSO2 Identity Server 6.0.0 distribution (use a WUM updated distribution if available). This will be used as the data sync tool between the Identity Server versions. We will refer to WSO2 Identity Server distribution as “**data sync tool**” and location as `<SYNC-TOOL-HOME>`.
-3. Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.134/org.wso2.is.data.sync.client-1.0.134.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
+3. Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.222/org.wso2.is.data.sync.client-1.0.222.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
 4. Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` with the log4j2.properties file from [here]({{base_path}}/assets/attachments/migration/log4j2.properties). This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory which will contain the sync tool related logs.
 5. Add the data sources used in **source** and **target** WSO2 Identity Server deployments involved in the migration 
     to `deployment.toml` file located `<SYNC-TOOL-HOME>/repository/conf/deployment.toml`.

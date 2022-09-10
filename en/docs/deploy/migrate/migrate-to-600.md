@@ -29,7 +29,7 @@ Follow the instructions given below to migrate any component artifacts.
     2. Change the dependency versions in the relevant POM files according to the WSO2 IS version that you are upgrading to (WSO2 IS 6.0.0) and compile them. 
     
         !!! info
-            The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0-rc1/pom.xml).
+            The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0/pom.xml).
 
     3. If you come across any compile time errors, refer to the WSO2 IS code base and make the necessary changes related to that particular component version.
 

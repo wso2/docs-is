@@ -64,7 +64,7 @@ this documentation as an example, but you must modify this when
 configuring the authenticators or connectors with this sample
 application.
 
--   [Download](https://github.com/wso2/samples-is/releases/download/v4.5.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
+-   [Download](https://github.com/wso2/samples-is/releases/download/v4.5.1/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
 
 ### Configure CORS
 
