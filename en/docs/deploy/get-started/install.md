@@ -249,7 +249,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java-based program
 3.  Save the file.
 
     !!! info
-        If you are not familiar with text editors in a Linux SSH session, run the following command on a terminal: `cat >> .bashrc.`, paste the string from the clipboard and press Ctrl+D.
+        If you are not familiar with text editors in a Linux SSH session, run the `cat >> .bashrc.` command on a terminal, paste the string from the clipboard and press Ctrl+D.
 
 4.  To verify that the `           JAVA_HOME          ` variable is set
     correctly, execute the following command:
