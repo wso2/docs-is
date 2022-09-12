@@ -112,7 +112,7 @@ The following steps describe how to configure a service provider public certific
 
 This section guides you through obtaining an encrypted ID token and decrypting it using the WSO2 IS playground sample application. Alternatively, you can use a simple java program to decrypt the token. For instructions, see [Decrypt the ID token]({{base_path}}/guides/login/oidc-token-decryption).
 
-1. See [OAuth Grant Types]({{base_path}}/guides/access-delegation/auth-code-playground/) and try out one of the grant types with the `openid` scope to obtain an access token.
+1. See [OAuth Grant Types]({{base_path}}/guides/access-delegation/auth-code-playground) and try out one of the grant types with the `openid` scope to obtain an access token.
 
 2. You will recieve an access token and an encrypted ID token. 
 

@@ -52,4 +52,4 @@ You will receive a response similar to the format below.
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/references/concepts/authorization/refresh-token-grant).
 
 !!! info "Related topics"
-        - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground/)
+        - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)
