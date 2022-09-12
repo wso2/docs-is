@@ -25,7 +25,7 @@ This section includes details about the special syntax that can be used when wri
 
     This is similar to an `IF` block. This condition block will activate or deactivate according to the value of the `isPolicyPage` variable.
     
-    - If the value of `isPolicyPage` is `true` or any non-empty string then the content inside the block will be executed.
+    - If the value of `isPolicyPage` is `true` or any non-empty string, then the content inside the block will be executed.
     - For all other values including null and undefined, the content of the block will not be executed.
 
 - **Not Condition Block**
