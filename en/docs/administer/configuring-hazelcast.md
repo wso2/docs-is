@@ -43,7 +43,7 @@ Additionally, Hazelcast indicates that if all members are not mentioned
 in the well-known member list, there can be a split-brain (network
 partition) situation. If the cluster spans across data centers, it is
 important to add all the members to the well-known members list in the `
-<IS_HOME>/repository/conf/delpoyment.toml ` file.
+<IS_HOME>/repository/conf/deployment.toml ` file.
      ```toml
      [clustering]
      ...
