@@ -50,7 +50,7 @@ This section includes details about the special syntax that can be used when wri
     This syntax can be used to add data to the layout code. The value stored in the `containerSize` variable will be converted to a string and placed in the corresponding location at runtime. All data syntax values will be sanitized before adding to the layout code.
 
 !!! info
-    All these variables will be provided by `JSP` pages. To get more data from JSP pages, add the data into the `layoutData` Map object from each JSP page. This `layoutData` map object can be found on each JSP page.
+    All these variables will be provided by `JSP` pages. To get more data from JSP pages, add the data into the `layoutData` map object from each JSP page. This `layoutData` map object can be found on each JSP page.
 
 
 
