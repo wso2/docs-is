@@ -1322,7 +1322,7 @@ paths:
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/definitions/ErrorUnauthorized'
+                $ref: '#/components/schemas/ErrorUnauthorized'
         403:
           description: Forbidden
           content:
