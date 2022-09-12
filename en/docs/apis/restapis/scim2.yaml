@@ -1322,7 +1322,7 @@ paths:
           content:
             application/scim+json:
               schema:
-                $ref: '#/components/schemas/ErrorUnauthorized'
+                $ref: '#/components/definitions/ErrorUnauthorized'
         403:
           description: Forbidden
           content:
@@ -1345,81 +1345,48 @@ paths:
   /Bulk:
     post:
       tags:
-      - Bulk Endpoint
-      summary: Create Users in Bulk
-      description: "This API is used to create multiple users at once.\n\n <b>Permission\
-        \ required:</b>\n * /permission/admin/manage/identity/usermgt\n \n <b>Scope\
-        \ required:</b>\n    * internal_user_mgt_create\n"
+        - Bulk Endpoint
+      summary: Create/ Update/ Replace/ Delete SCIM Resources (Users/ Groups/ Roles) in Bulk
+      description: |
+        This API is used to create/update/replace/delete SCIM resources in bulk. You need to specify different operations in the request payload corresponding to the type of bulk update: </br>
+          - **POST** operation: Adds new resources.
+          - **PUT** operation: Replaces an existing resource.
+          - **PATCH** opearation: Updates attribues of an existing resource.
+          - **DELETE** operation: Removes an existing resource.
+        Learn more about [defining batch operations]({{base_path}}/apis/scim2-batch-operations).
+        
+         <b>Permission required:</b>
+         * /permission/admin/manage/identity/usermgt
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_create
       operationId: createBulkUsers
-      requestBody:
-        content:
-          application/scim+json:
-            schema:
-              $ref: '#/components/schemas/BulkUserRequestObject'
-        required: false
+      consumes:
+        - application/scim+json
+      produces:
+        - application/scim+json
+      parameters:
+        - in: body
+          name: body
+          description: The following example payload is defined for adding users in bulk.
+          required: false
+          schema:
+            $ref: '#/definitions/BulkUserRequestObject'
       responses:
         201:
           description: Valid user is created
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/BulkUserResponseObject'
+          schema:
+            $ref: '#/definitions/BulkUserResponseObject'
         401:
           description: Unauthorized
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorUnauthorized'
+          schema:
+            $ref: '#/components/definitions/ErrorUnauthorized'
         403:
           description: Forbidden
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorForbidden'
         409:
           description: Users already exists
-          content: {}
-      x-codegen-request-body-name: body
-    delete:
-      tags:
-      - Bulk Endpoint
-      summary: Delete Users in Bulk
-      description: "This API is used to delete multiple users at once.\n\n <b>Permission\
-        \ required:</b>\n * /permission/admin/manage/identity/usermgt/delete\n \n\
-        \ <b>Scope required:</b>\n    * internal_user_mgt_delete\n"
-      operationId: deleteBulkUsers
-      requestBody:
-        content:
-          application/scim+json:
-            schema:
-              $ref: '#/components/schemas/BulkUserDeleteRequestObject'
-        required: false
-      responses:
-        204:
-          description: User group is deleted
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/BulkUserDeleteResponseObject'
-        401:
-          description: Unauthorized
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorUnauthorized'
-        403:
-          description: Forbidden
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-        404:
-          description: Valid group is not found
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorNoGroupAvailable'
-      x-codegen-request-body-name: body
   /ResourceTypes:
     get:
       tags:
