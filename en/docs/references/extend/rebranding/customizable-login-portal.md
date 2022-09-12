@@ -108,7 +108,7 @@ To add a custom layout to the login page:
 
     1. Copy content from the [`jsp` file containing the project title](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/project-title-1.jsp) to the `webapps/authenticationendpoint/extensions/product-title.jsp` file of the app.
 
-    2. Copy content from the [`jsp` file containing the project footer](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/product-footer-1.jsp) into the `webapps/authenticationendpoint/extensions/product-footer.jsp` file of the app.
+    2. Copy content from the [`jsp` file containing the project footer](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/product-footer-1.jsp) to the `webapps/authenticationendpoint/extensions/product-footer.jsp` file of the app.
 
 
     !!! note
