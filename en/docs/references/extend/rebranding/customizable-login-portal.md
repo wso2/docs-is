@@ -59,7 +59,7 @@ This section includes details about the special syntax that can be used when wri
 To customize these pages, follow the steps below.
 
 !!! note
-    On this page, we will be referring to `<IS_HOME>/repository/deployment/server/webapps/` as `webapps` folder.
+    On this page, we will be referring to `<IS_HOME>/repository/deployment/server/webapps/` as the `webapps` folder.
     
 ### Step 1: Create the extensions folder
 
