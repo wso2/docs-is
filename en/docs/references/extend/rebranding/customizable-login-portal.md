@@ -80,7 +80,7 @@ To create the basic custom layout resources:
             └── custom
     ```
 
-3. Navigate to `webapps/authenticationendpoint/includes/layouts/default` folder, copy the `body.html` file and add it to the created `custom` folder.
+3. Navigate to the `webapps/authenticationendpoint/includes/layouts/default` folder, copy the `body.html` file, and add it to the created `custom` folder.
 
 4. Create the following files and folder inside the `custom` folder:
     - `styles.css` file
