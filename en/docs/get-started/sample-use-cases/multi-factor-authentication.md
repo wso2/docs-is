@@ -19,8 +19,8 @@ Before you begin, do the following:
 2.  Deploy the sample authenticator dependency and its web application in WSO2 Identity Server.
 
     1.  Stop the Identity Server if already running.
-    2.  Download the [org.wso2.carbon.identity.sample.extension.authenticator.jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/samples/is/org.wso2.carbon.identity.sample.extension.authenticators/4.5.0/org.wso2.carbon.identity.sample.extension.authenticators-4.5.0.jar) file and copy it to the `<IS_HOME>/repository/components/dropins` folder.
-    3.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/sample-auth.war) file and copy it to the `<IS_HOME>/repository/deployment/server/webapps` folder.  
+    2.  Download the [org.wso2.carbon.identity.sample.extension.authenticator.jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/samples/is/org.wso2.carbon.identity.sample.extension.authenticators/4.5.1/org.wso2.carbon.identity.sample.extension.authenticators-4.5.1.jar) file and copy it to the `<IS_HOME>/repository/components/dropins` folder.
+    3.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.5.1/sample-auth.war) file and copy it to the `<IS_HOME>/repository/deployment/server/webapps` folder.  
 
         !!! info
             This `.war` file contains the WEB UI for the sample authenticators used in this tutorial.
