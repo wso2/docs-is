@@ -1,6 +1,6 @@
 # Customize login portal
 
-This feature can be used for both layout customization and branding customization of user interfaces like the login page, register page, username and password recovery pages, and single sign-on pages.
+You can customize the layout and branding of user interfaces like the login page, register page, username and password recovery pages, and single sign-on pages.
 
 All UIs are available in the `authenticationendpoint`, `accountrecoveryendpoint`, and, `x509certificateauthenticationendpoint` apps located in `<IS_HOME>/repository/deployment/server/webapps` folder.
 
