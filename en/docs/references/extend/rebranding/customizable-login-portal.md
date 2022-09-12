@@ -104,7 +104,7 @@ To add a custom layout to the login page:
 
     4. Copy the [illustraction.svg](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/illustration.svg) file into the `assets` folder.
 
-2. Navigate to `webapps/authenticationendpoint/includes` directory and copy the `product-title.jsp` and `product-footer.jsp` files into the `webapps/authenticationendpoint/extensions` directory.
+2. Navigate to the `webapps/authenticationendpoint/includes` directory and copy the `product-title.jsp` and `product-footer.jsp` files to the `webapps/authenticationendpoint/extensions` directory.
 
     1. Copy content from the [`jsp` file containing the project title](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/project-title-1.jsp) into the `webapps/authenticationendpoint/extensions/product-title.jsp` file of the app.
 
