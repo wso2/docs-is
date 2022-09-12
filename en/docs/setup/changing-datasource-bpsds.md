@@ -22,7 +22,8 @@ Following are the sample configuration for each database type.
         driver = "org.postgresql.Driver"
       
         [bps_database.config.pool_options]
-        defaultAutoCommit = true
+        defaultAutoCommit = false
+        commitOnReturn=true
         ```
         
     2. Executing database scripts. 
@@ -110,5 +111,7 @@ the following. The explanation for the following configurations can be found in 
    minIdle = "5"
    testOnBorrow = true
    validationInterval = "30000"
-   validationQuery = "SELECT 1; COMMIT"
+   validationQuery = "SELECT 1; COMMIT" #Set this query based on DB type
+   defaultAutoCommit=false
+   commitOnReturn=true
    ```
