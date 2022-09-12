@@ -15,7 +15,7 @@ All pages of WSO2 Identity Server are separated into three general components as
     ![Register Page]({{base_path}}/assets/img/references/register-page-labelled.png)
 
 
-## Layout Syntaxes
+## Layout syntaxes
 
 This section includes details about the special syntax that can be used when writing a custom layout code.
 
