@@ -92,7 +92,7 @@ To create the basic custom layout resources:
 
 ### Step 3: Add a custom layout design
 
-To add a custom layout to the login page
+To add a custom layout to the login page:
 
 1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/`
 
