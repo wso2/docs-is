@@ -1,7 +1,7 @@
 # Working with MDP Requests in JSON Format
 
 WSO2 Identity Server [supports the JSON
-format]({{base_path}}/get-started/access-control-and-entitlement-management#json-support)
+format]({{base_path}}/references/concepts/authorization/access-control)
 in addition to the default XML format when you work with XACML 3.0
 requests and responses. Therefore, you can send XACML Multiple Decision
 Profile (MDP) requests in JSON format, and can also recieve MDP

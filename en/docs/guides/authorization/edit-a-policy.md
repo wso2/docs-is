@@ -3,7 +3,7 @@
 Follow the instructions below to edit a XACML policy.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console]({{base_path}}/setup/getting-started-with-the-management-console)
+    [Management Console]({{base_path}}/deploy/get-started/get-started-with-the-management-console/)
     .
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**.
