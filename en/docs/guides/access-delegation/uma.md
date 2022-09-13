@@ -102,7 +102,6 @@ Make the following changes to the created service provider.
 
 3. Click **Update**
 
-Enter the Callback Url.
 ---
 
 ## Obtain the Protection API Access token (PAT)
