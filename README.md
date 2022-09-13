@@ -1,9 +1,9 @@
 # WSO2 Identity Server Documentation
 
-End-user apps in WSO2 Identity Server
+This repository contains the documentation website code and Markdown source files for is.docs.wso2.com.
 
 |  Branch | Build Status |
-| :------------ |:------------- 
+| :------------ |:-------------
 | master      | [![Build Status](https://wso2.org/jenkins/view/Dashboard/job/docs/job/docs-is/badge/icon)](https://wso2.org/jenkins/view/Dashboard/job/docs/job/docs-is/) |
 
 ## Prerequisites
@@ -21,7 +21,7 @@ Python 2.7.10
 
 If you receive a response similar to the one shown above, `Python 2.7.10` is your default version.
 
-You should also check if you have Python 3 installed. 
+You should also check if you have Python 3 installed.
 
 ```bash
 $ python3 --version
@@ -36,16 +36,16 @@ pip is already installed if you are using Python 2 >=2.7.9 or Python 3 >=3.4 dow
 
 #### Installing with get-pip.py
 
-To install pip with `curl`, execute the following command. Alternatively you can download `get-pip.py` by clicking [here](https://bootstrap.pypa.io/get-pip.py). 
+To install pip with `curl`, execute the following command. Alternatively you can download `get-pip.py` by clicking [here](https://bootstrap.pypa.io/get-pip.py).
 
 ```bash
-$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ```
 
 Then run the following command in the folder where you have downloaded get-pip.py
 
 ```bash
-$ python get-pip.py
+python get-pip.py
 ```
 
 ## Run project locally (Dev Mode)
@@ -53,13 +53,13 @@ $ python get-pip.py
 **Clone the repo**
 
 ```bash
-$ git clone https://github.com/wso2/docs-is.git
+git clone https://github.com/wso2/docs-is.git
 ```
 
 **Install the dependencies**
 
 ```bash
-$ cd docs-is && pip install -r requirements.txt
+cd docs-is && pip install -r requirements.txt
 ```
 
 **Run mkdocs**
@@ -67,7 +67,7 @@ $ cd docs-is && pip install -r requirements.txt
 Execute the following command from inside the `<Lang folder>`.
 
 ```bash
-$ cd en && mkdocs serve
+cd en && mkdocs serve
 ```
 
 ## License
