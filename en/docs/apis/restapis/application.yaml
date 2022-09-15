@@ -3355,7 +3355,7 @@ components:
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
 
 servers:
-  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
       serverUrl:
         default: "localhost:9443"
