@@ -92,15 +92,15 @@ values to obtain the Protection API Access Token (PAT). -->
 
 ### Claim configuration
 
-Make the following changes to the created service provider.
+Update claims for service provider:
 
-1. Expand **Claim Configuration**.
+1. Expand **Claim Configuration** and select `http://wso2.org/claims/username` as the **Subject Claim URI**.
 
-2. Select `http://wso2.org/claims/username` as **Subject Claim URI**
 
    ![claim-config-username]({{base_path}}/assets/img/guides/claim-config-username.png)
+   
 
-3. Click **Update**
+2. Click **Update** to save the changes.
 
 ---
 
