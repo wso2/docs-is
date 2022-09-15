@@ -2121,10 +2121,15 @@ components:
       name: filter
       required: false
       description: |
-        Condition to filter the retrieval of records. Supports 'sw', 'co', 'ew' and 'eq' operations. Currently supports only filtering based on the 'name' attribute.
+        Condition to filter the retrieval of records.
+        Supports 'sw', 'co', 'ew', and 'eq' operations with 'and', 'or' logical operators.
+        Please note that 'and' and 'or' operators in filters follow the general precedence of logical operators
+        ex: A and B or C and D = (A and B) or (C and D)).
+        Currently supports only filtering based on the 'name', the 'clientId', and the 'issuer' attributes.
 
         /applications?filter=name+eq+user_portal
-        /applications?filter=name+co+prod
+        <br>
+        /applications?filter=name+co+prod+or+clientId+co+123
       schema:
         type: string
     sortOrderQueryParam:
@@ -2154,8 +2159,9 @@ components:
       required: false
       description: |
         Specifies the required parameters in the response.
-        _This parameter accepts only the values 'advancedConfigurations' & 'templateId' with this version of 
-        API_
+        Currently supports for only 'advancedConfigurations', 'templateId', 'clientId', and 'issuer' attributes.
+        
+        /applications?attributes=advancedConfigurations,templateId,clientId,issuer
       schema:
         type: string
     exportSecretsQueryParam:
@@ -2249,6 +2255,12 @@ components:
         accessUrl:
           type: string
           example: 'https://example.com/app/login'
+        clientId:
+          type: string
+          example: 'SmrrDNXRYf1lMmDlnleeHTuXx_Ea'
+        issuer:
+          type: string
+          example: 'http://idp.example.com/metadata.php'
         access:
           type: string
           enum:
@@ -2325,6 +2337,12 @@ components:
         accessUrl:
           type: string
           example: 'https://example.com/login'
+        clientId:
+          type: string
+          example: 'SmrrDNXRYf1lMmDlnleeHTuXx_Ea'
+        issuer:
+          type: string
+          example: 'http://idp.example.com/metadata.php'
         templateId:
           type: string
           example: "adwefi2429asdfdf94444rraf44"
