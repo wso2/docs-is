@@ -4,7 +4,7 @@ This page guides you through enabling login for an [OpenID Connect]({{base_path}
 
 {!./includes/deploying-sample-apps.md!}
 
-- Download the [OIDC pickup dispatch application](https://github.com/wso2/samples-is/releases/download/v4.5.0/pickup-dispatch.war) from the latest release assets.
+- Download the [OIDC pickup dispatch application](https://github.com/wso2/samples-is/releases/download/v4.5.1/pickup-dispatch.war) from the latest release assets.
 
 ---
 ### Register a service provider
@@ -57,7 +57,7 @@ You have successfully configured authentication for a SAML application.
 !!! info "Related topics"
     - [Concept: OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc)
     - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
-    - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/authorization-code/)
+    - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)
     - [Guide: Manage User Sessions]({{base_path}}/guides/login/session-management-logout)
     - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/guides/login/oidc-backchannel-logout)
     - [Guide: OpenID Connect Discovery]({{base_path}}/guides/login/oidc-discovery)
