@@ -35,6 +35,35 @@ paths:
         /permission/admin/manage/identity/claimmgt/metadata/view <br> <b>Scope required:</b>
         <br> * internal_claim_meta_view
       operationId: getLocalClaims
+      parameters:
+      - name: attributes
+        in: query
+        description: Define only the required attributes to be sent in the response
+          object.  <br><b> This option is not yet supported. </b>
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of records to return. <br><b> This option is not yet supported. </b>
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination. <br><b> This option is not yet supported. </b>
+        schema:
+          type: integer
+          format: int32
+      - name: filter
+        in: query
+        description: Condition to filter the retrieval of records. <br><b> This option is not yet supported. </b>
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: Define the order by which the retrieved records should be sorted. <br><b> This option is not yet supported. </b>
+        schema:
+          type: string
       responses:
         200:
           description: Local claims.
@@ -255,6 +284,29 @@ paths:
         * /permission/admin/manage/identity/claimmgt/metadata/view <br> <b>Scope required:</b>
         <br> * internal_claim_meta_view
       operationId: getClaimDialects
+      parameters:
+      - name: limit
+        in: query
+        description: Maximum number of records to return. <br><b> This option is not yet supported. </b>
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination. <br><b> This option is not yet supported. </b>
+        schema:
+          type: integer
+          format: int32
+      - name: filter
+        in: query
+        description: Condition to filter the retrieval of records. <br><b> This option is not yet supported. </b>
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: Define the order by which the retrieved records should be sorted. <br><b> This option is not yet supported. </b>
+        schema:
+          type: string
       responses:
         200:
           description: Claim dialects.
@@ -476,6 +528,28 @@ paths:
         in: path
         description: Id of the claim dialect.
         required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of records to return. <br><b> This option is not yet supported. </b>
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination. <br><b> This option is not yet supported. </b>
+        schema:
+          type: integer
+          format: int32
+      - name: filter
+        in: query
+        description: Condition to filter the retrieval of records. <br><b> This option is not yet supported. </b>
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: Define the order by which the retrieved records should be sorted. <br><b> This option is not yet supported. </b>
         schema:
           type: string
       responses:
