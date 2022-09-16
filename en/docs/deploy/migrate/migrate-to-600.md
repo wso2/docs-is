@@ -122,7 +122,7 @@ If you have created secondary user stores in the previous WSO2 IS version, copy
 
 ### Webapps
 
-If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with WSO2 IS 6.0.0 and copy the webapps to the `<NEW_IS_HOME>/repository/deployment/server/webapps` folder. 
+If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with WSO2 IS 6.0.0 and copy those changes manually to the relevant files in the`<NEW_IS_HOME>/repository/deployment/server/webapps` folder with careful inspection. 
 
 !!! info
     See [What Has Changed]({{base_path}}/setup/migrating-what-has-changed) to learn about the changes (if any) that need to be made to the webapps.
