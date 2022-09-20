@@ -1081,7 +1081,7 @@ plugins:
               'learn/configuring-just-in-time-provisioning-consent-purposes.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/resident-jit-consent/'
               'learn/customizing-just-in-time-provisioning-user-interfaces.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/jit-workflow/'
               'learn/configuring-outbound-provisioning-connectors-for-an-identity-provider.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/outbound-provisioing-idp/'
-              'learn/authentication-session-persistence.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/authentication-session-persistence.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/session-persistence'
               'learn/configuring-session-timeout.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/session-timeout'
               'learn/configuring-a-sp-and-idp-using-service-calls.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/delegated-access-control.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/access-delegation/'
