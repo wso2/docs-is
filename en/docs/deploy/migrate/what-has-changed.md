@@ -147,6 +147,7 @@ The following changes have been made to the TOTP authenticator.
 
 ### Authenticator Display Name
 Display names (Friendly names) of some of the local authenticators and handlers were renamed from Identity server 6.0.0 onwards. The following table maps the previous authenticator display names to the newer ones.
+
 <table>
     <tr>
         <th>Authenticator</th>
