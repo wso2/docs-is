@@ -138,7 +138,7 @@ The following changes have been made to the TOTP authenticator.
 
         ``` js
         [authentication.authenticator.totp.parameters]
-        Allow_sending_verification_code_by_email = true
+        AllowSendingVerificationCodeByEmail = true
         ```
 
 !!! note
