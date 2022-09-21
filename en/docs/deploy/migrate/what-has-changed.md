@@ -154,19 +154,19 @@ Display names (Friendly names) of some of the local authenticators and handlers 
         <th>Current display name</th>
     </tr>
     <tr>
-    <td>IdentifierExecutor</td><td>identifier-first</td><td>Identifier First</td>
+        <td>IdentifierExecutor</td><td>identifier-first</td><td>Identifier First</td>
     </tr>
     <tr>
-    <td>JWTBasicAuthenticator</td><td>jwt-basic</td><td>JWT Basic</td>
+        <td>JWTBasicAuthenticator</td><td>jwt-basic</td><td>JWT Basic</td>
     </tr>
     <tr>
-    <td>FIDOAuthenticator</td><td>fido</td><td>Security Key/Biometrics</td>
+        <td>FIDOAuthenticator</td><td>fido</td><td>Security Key/Biometrics</td>
     </tr>
     <tr>
-    <td>BasicAuthenticator</td><td>basic</td><td>Username & Password</td>
+        <td>BasicAuthenticator</td><td>basic</td><td>Username & Password</td>
     </tr>
     <tr>
-    <td>SessionExecutor</td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
+        <td>SessionExecutor</td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
     </tr>
 </table>
 
