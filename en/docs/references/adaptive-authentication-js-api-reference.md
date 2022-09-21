@@ -133,41 +133,41 @@ You can find the available local authenticators in the table below.
 <table>
 <tbody>
     <tr>
-    <th>Display Name</th>
-    <th>Authenticator</th>
+        <th>Display Name</th>
+        <th>Authenticator</th>
     </tr>
     <tr>
-    <td>Backup Code</td><td>backup-code-authenticator</td>
+        <td>Backup Code</td><td>backup-code-authenticator</td>
     </tr>
     <tr>
-    <td>Basic Auth</td><td>BasicAuthRequestPathAuthenticator</td>
+        <td>Basic Auth</td><td>BasicAuthRequestPathAuthenticator</td>
     </tr>
     <tr>
-    <td>Identifier First</td><td>IdentifierExecutor</td>
+        <td>Identifier First</td><td>IdentifierExecutor</td>
     </tr>
     <tr>
-    <td>JWT Basic</td><td>JWTBasicAuthenticator</td>
+        <td>JWT Basic</td><td>JWTBasicAuthenticator</td>
     </tr>
     <tr>
-    <td>Magic Link</td><td>MagicLinkAuthenticator</td>
+        <td>Magic Link</td><td>MagicLinkAuthenticator</td>
     </tr>
     <tr>
-    <td>OAuth Bearer</td><td>OAuthRequestPathAuthenticator</td>
+        <td>OAuth Bearer</td><td>OAuthRequestPathAuthenticator</td>
     </tr>
     <tr>
-    <td>Security Key/Biometrics</td><td>FIDOAuthenticator</td>
+        <td>Security Key/Biometrics</td><td>FIDOAuthenticator</td>
     </tr>
     <tr>
-    <td>TOTP</td><td>totp</td>
+        <td>TOTP</td><td>totp</td>
     </tr>
     <tr>
-    <td>Username & Password</td><td>BasicAuthenticator</td>
+        <td>Username & Password</td><td>BasicAuthenticator</td>
     </tr>
     <tr>
-    <td>X509 Certificate</td><td>x509CertificateAuthenticator</td>
+        <td>X509 Certificate</td><td>x509CertificateAuthenticator</td>
     </tr>
     <tr>
-    <td>Active Sessions Limit</td><td>SessionExecutor</td>
+        <td>Active Sessions Limit</td><td>SessionExecutor</td>
     </tr>
 </tbody>
 </table>
