@@ -2,49 +2,35 @@
 
 Permissions can be granted to a role at two levels:
 
--   **Super tenant level:** A role with super tenant permissions is used
-    for managing all the tenants in the system and also for managing the
-    key features in the system, which are applicable to all the tenants.
--   **Tenant level:** A role with tenant level permissions is only
-    applicable to individual tenant spaces.
+- **Super tenant level:** A role with super tenant permissions is used for managing all the tenants in the system and also for managing the key features in the system, which are applicable to all the tenants.
+- **Tenant level:** A role with tenant level permissions is only applicable to individual tenant spaces.
 
 ## Access permissions
 
-The permissions navigator that you use to enable permissions for a role
-is divided into these two categories (**Super Admin** permissions and
-**Admin** permissions) as shown below. However, note that there may be
-other categories of permissions enabled for a WSO2 product, depending on
-the type of features that are installed in the product.
+The permissions navigator that you use to enable permissions for a role is divided into these two categories (**Super Admin** permissions and **Admin** permissions) as shown below. However, note that there may be
+other categories of permissions enabled for a WSO2 product, depending on the type of features that are installed in the product.
 
 ![]({{base_path}}/assets/img/fragments/role-permissions.png)
 
-You can access the permissions navigator for a particular role by
-clicking **Permissions** as shown below.  
+You can access the permissions navigator for a particular role by clicking **Permissions** as shown below.  
 
 ![]({{base_path}}/assets/img/fragments/permission-navigator.png)
 
-By default, every WSO2 Identity Server comes with the default [user]({{base_path}}/references/concepts/user-management/users/) and
-[role]({{base_path}}/references/concepts/user-management/roles-and-permissions/).
+By default, every WSO2 Identity Server comes with the default [user]({{base_path}}/references/concepts/user-management/users/) and [role]({{base_path}}/references/concepts/user-management/roles-and-permissions/).
 
--   The **Admin** role has all the permissions in the system enabled by
-    default. Therefore, this is a super tenant, with all permissions
-    enabled.
-    
-    !!! Tip 
+- The **Admin** role has all the permissions in the system enabled by default. Therefore, this is a super tenant, with all permissions enabled.
+
+    !!! Tip
         You can change the default role name '**admin**' of the Administrative role as described [here]({{base_path}}/guides/identity-lifecycles/edit-delete-roles/)
 
-You can create new users and roles and configure permissions for the
-roles using the management console. However, note that you cannot modify
-the permissions of the **Admin** role. The possibility of managing
-users, roles and permissions is granted by the **User Management**
-permission.
+You can create new users and roles and configure permissions for the roles using the management console. However, note that you cannot modify the permissions of the **Admin** role. The possibility of managing
+users, roles and permissions is granted by the **User Management** permission.
 
 ## Permissions
-    
-The descriptions of permissions in the **Permissions** navigator are as
-follows:
 
--   The **Login** permission defined under **Admin** permissions allows
+The descriptions of permissions in the **Permissions** navigator are as follows:
+
+- The **Login** permission defined under **Admin** permissions allows
     users to log in to the management console of the product. Therefore,
     this is the primary permission required for using the management
     console.
