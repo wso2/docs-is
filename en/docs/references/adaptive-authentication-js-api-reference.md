@@ -115,23 +115,62 @@ The API can be called in either of the following ways:
 <a name = "step-filtering"></a>
 **Authentication step filtering**
 
-Filters out some of the authentication options of a step based on a
-condition. This can be achieved by specifying an array named 
-`         authenticationOptions        ` to the
-`         options        ` map. Each array item will require an 
-`          idp         ` for federated identity providers or an 
-`          authenticator         ` for local authenticators.
+Filters out some of the authentication options of a step based on a condition. This can be achieved by specifying an array named `authenticationOptions` to the `options` map. You can have `idp` as an array item for federated IDPs, and `authenticator` as an array item for local authenticators as shown below.
 
 **Example code**
 
 ``` java
-executeStep(1,{
-  authenticationOptions:[{authenticator:'basic'},{idp:'google'}]
-   },{
-       onSuccess: function (context) {
-           // Do something on success
-};
+executeStep(1, {
+    authenticationOptions: [{authenticator:'BasicAuthenticator'},{idp:'google'}]
+},{
+    onSuccess: function (context) {
+        // Do something on success
+    }
+});
 ```
+
+You can find the available local authenticators in the table below.
+<table>
+<tbody>
+    <tr>
+    <th>Display Name</th>
+    <th>Authenticator</th>
+    </tr>
+    <tr>
+    <td>Backup Code</td><td>backup-code-authenticator</td>
+    </tr>
+    <tr>
+    <td>Basic Auth</td><td>BasicAuthRequestPathAuthenticator</td>
+    </tr>
+    <tr>
+    <td>Identifier First</td><td>IdentifierExecutor</td>
+    </tr>
+    <tr>
+    <td>JWT Basic</td><td>JWTBasicAuthenticator</td>
+    </tr>
+    <tr>
+    <td>Magic Link</td><td>MagicLinkAuthenticator</td>
+    </tr>
+    <tr>
+    <td>OAuth Bearer</td><td>OAuthRequestPathAuthenticator</td>
+    </tr>
+    <tr>
+    <td>Security Key/Biometrics</td><td>FIDOAuthenticator</td>
+    </tr>
+    <tr>
+    <td>TOTP</td><td>totp</td>
+    </tr>
+    <tr>
+    <td>Username & Password</td><td>BasicAuthenticator</td>
+    </tr>
+    <tr>
+    <td>X509 Certificate</td><td>x509CertificateAuthenticator</td>
+    </tr>
+    <tr>
+    <td>Active Sessions Limit</td><td>SessionExecutor</td>
+    </tr>
+</tbody>
+</table>
 
 ---
 

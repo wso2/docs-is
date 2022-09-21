@@ -145,6 +145,45 @@ The following changes have been made to the TOTP authenticator.
 
     The i18n keys of both OTP authenticators have been moved to the i18n property file of the authentication portal.
 
+### Authenticator Display Name
+
+Display names (Friendly names) of some of the local authenticators and handlers were renamed from Identity server 6.0.0 onwards. The following table maps the previous authenticator display names to the newer ones.
+
+<table>
+    <tr>
+        <th>Authenticator</th>
+        <th>Previous display name</th>
+        <th>Current display name</th>
+    </tr>
+    <tr>
+    <td>BasicAuthRequestPathAuthenticator</td><td>basic-auth</td><td>Basic Auth</td>
+    </tr>
+    <tr>
+    <td>IdentifierExecutor</td><td>identifier-first</td><td>Identifier First</td>
+    </tr>
+    <tr>
+    <td>JWTBasicAuthenticator</td><td>jwt-basic</td><td>JWT Basic</td>
+    </tr>
+    <tr>
+    <td>OAuthRequestPathAuthenticator</td><td>oauth-bearer</td><td>OAuth Bearer</td>
+    </tr>
+    <tr>
+    <td>FIDOAuthenticator</td><td>fido</td><td>Security Key/Biometrics</td>
+    </tr>
+    <tr>
+    <td>totp</td><td>totp</td><td>TOTP</td>
+    </tr>
+    <tr>
+    <td>BasicAuthenticator</td><td>basic</td><td>Username & Password</td>
+    </tr>
+    <tr>
+    <td>x509CertificateAuthenticator</td><td>X509Certificate</td><td>X509 Certificate</td>
+    </tr>
+    <tr>
+    <td>SessionExecutor</td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
+    </tr>
+</table>
+
 ### Adaptive Authentication Function Signature
 
 On WSO2 IS, ```getUniqueUserWithClaimValues```  is an adaptive authentication Javascript utility function that is used to obtain a user definition along with claim values. The utility function will search on the underlying user stores and return a unique user with the claim values.
@@ -204,6 +243,8 @@ var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
 ```
 
 Make sure to update the usages of this function, if any, after the migration process.
+
+Authentication steps can be filtered with adaptive script passing an `authenticationOptions` array to the `executeStep` function. For local authenticators an array item named `authenticator` should be passed. In earlier versions of WSO2 IS, the value of this parameter should be an authenticator display name (friendly name). With WSO2 IS 6.0.0, this has changed to use the authenticator name instead.
 
 ## Application management
 This section covers the updates related to application configurations on Identity Server 6.0.0.
