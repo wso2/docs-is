@@ -28,7 +28,7 @@ Add the following configurations to the `deployment.toml` file in the `<IS_HOME>
 
     ```toml
     [authentication.authenticator.fido.parameters]
-    app_id="https://hostname"
+    AppID="https://hostname"
     ```
 
 Save the configurations and restart the server.
