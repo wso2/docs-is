@@ -72,7 +72,7 @@ Navigate to `webapps/authenticationendpoint` and create a new folder named `exte
 
 To create the basic custom layout resources:
 
-1. On the `authenticationendpoint` folder, navigate to the created `extensions` folder and create the `layouts` folder and the `customs` folders recursively.
+1. In the `authenticationendpoint` folder, navigate to the created `extensions` folder and create the `layouts` and `customs` folders recursively.
     
     ```
     └── extensions
