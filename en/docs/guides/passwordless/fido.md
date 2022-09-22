@@ -8,7 +8,7 @@ The three major enablers of the FIDO2 flow are:
 - The client or browser that operates as a mediator
 - The WebAuthn Relying Party (WSO2 Identity Server)
 
-There are two types of authenticators, which you can use with Asgardeo passwordless authentication.
+There are two types of authenticators, which you can use with WSO2 IS passwordless authentication.
 
 - **Platform authenticators** (also known as internal authenticators): Authenticators like fingerprint scanners, TouchID, FaceID or Windows Hello which are bound to a particular device.
 - **Roaming authenticators** (also known as cross-platform or external authenticators): Authenticators like hardware security keys which are external and not bound to any specific device.
