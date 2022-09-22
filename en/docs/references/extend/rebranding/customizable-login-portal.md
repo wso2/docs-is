@@ -1,8 +1,8 @@
-# Customize login portal
+# Customize Login Portal
 
 You can customize the layout and branding of user interfaces like the login page, register page, username and password recovery pages, and single sign-on pages.
 
-All UIs are available in the `authenticationendpoint`, `accountrecoveryendpoint`, and `x509certificateauthenticationendpoint` apps located in `<IS_HOME>/repository/deployment/server/webapps` folder.
+All UIs are available in the `authenticationendpoint`, `accountrecoveryendpoint`, and `x509certificateauthenticationendpoint` apps located in the `<IS_HOME>/repository/deployment/server/webapps` folder.
 
 ## General components of the UI
 
@@ -72,7 +72,7 @@ Navigate to `webapps/authenticationendpoint` and create a new folder named `exte
 
 To create the basic custom layout resources:
 
-1. On the `authenticationendpoint` folder, navigate to the created `extensions` folder and create the `layouts` folder and the `customs` folders recursively.
+1. In the `authenticationendpoint` folder, navigate to the created `extensions` folder and create the `layouts` and `customs` folders recursively.
     
     ```
     └── extensions
@@ -104,7 +104,7 @@ To add a custom layout to the login page:
 
     4. Copy the [illustraction.svg](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/illustration.svg) file into the `assets` folder.
 
-2. Navigate to the `webapps/authenticationendpoint/includes` folder and copy the `product-title.jsp` and `product-footer.jsp` files to the `webapps/authenticationendpoint/extensions` folder.
+2. Navigate to the `webapps/authenticationendpoint/includes` folder and copy the `product-title.jsp` and `product-footer.jsp` files to the `webapps/authenticationendpoint/extensions` folder as follows:
 
     1. Copy content from the [`jsp` file containing the project title](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/project-title-1.jsp) to the `webapps/authenticationendpoint/extensions/product-title.jsp` file of the app.
 
@@ -112,9 +112,8 @@ To add a custom layout to the login page:
 
 
     !!! note
-        Repeat the above steps for `accountrecoveryendpoint` and `x509certificateauthenticationendpoint` as well.
+        Repeat the above steps for `accountrecoveryendpoint` and `x509certificateauthenticationendpoint` as well. You will be copying the following files:
         
-        The files used for step 2.a and 2.b are as follow:
 
         - [Project title](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/product-title-2.jsp).
 
@@ -123,7 +122,7 @@ To add a custom layout to the login page:
 3. Refresh the browser and check out the added custom layout.
 
     !!! tip
-        In certain cases, the server might stop working after adding changes. In such a case, restart the server to check the changes.
+        In certain cases, the server might stop working after adding changes. In such cases, restart the server to check the changes.
 
 ## Build the app
 
@@ -131,7 +130,9 @@ To build the apps from the `identity-apps` source code:
 
 1. Add the developed custom layout folder into the `<IDENTITY_APPS_SOURCE_CODE>/components/login-portal-layouts/layouts` folder.
 
-2. Build the source code. The custom layout will be moved to the corresponding locations of `authenticationendpoint`, `accountrecoveryendpoint`, and `x509certificateauthenticationendpoint` apps.
+2. Build the source code. 
+
+The custom layout will be moved to the corresponding locations of `authenticationendpoint`, `accountrecoveryendpoint`, and `x509certificateauthenticationendpoint` apps.
 
 ## Best Practices
 
