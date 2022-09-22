@@ -122,7 +122,7 @@ To add a custom layout to the login page:
 3. Refresh the browser and check out the added custom layout.
 
     !!! tip
-        In certain cases, the server might stop working after adding changes. In such a case, restart the server to check the changes.
+        In certain cases, the server might stop working after adding changes. In such cases, restart the server to check the changes.
 
 ## Build the app
 
