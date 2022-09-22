@@ -4,14 +4,14 @@ Various elements of the **My Account** application can be managed by the users t
 
 ## Add personal details
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Personal info** tab on the side panel.
 3. Under the **Profile** sub section, click on the description aligning with the field that needs to be added.
 4. Enter the value to the profile and click **Save**.
 
 ## Update personal details
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Personal info** tab on the side panel.
 3. Click on the pencil icon aligning with the field that needs to be edited.
 4. Update the new value in the profile and click **Save**.
@@ -21,7 +21,7 @@ Various elements of the **My Account** application can be managed by the users t
 
 ## Add and update profile picture
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Personal info** tab on the side panel.
 3. Click on the camera icon.
 

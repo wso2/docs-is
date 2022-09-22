@@ -6,7 +6,7 @@ Users can link and manage local and federated accounts seamlessly using **My Acc
 
 ## Link new accounts
 
-1.  Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1.  Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2.  Click the **Personal info** tab on the side panel.
 3.  Under the linked account sub section, click **Add account**.
 
@@ -18,7 +18,7 @@ Users can link and manage local and federated accounts seamlessly using **My Acc
 
 ## Delete linked accounts
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Personal info** tab on the side panel.
 3. Click on the **delete** button aligning with the linked account that needs to be deleted.
 4. Confirm the deletion of the linked account by clicking **OK** in the confirmation popup that appears.

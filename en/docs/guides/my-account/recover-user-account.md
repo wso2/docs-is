@@ -8,7 +8,7 @@ The main part of account recovery is setting up security or challenge questions 
 
 ## Add security questions
 
-1.  Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1.  Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2.  Click **Security tab** on the side panel.
 3.  Under the **Account recovery** sub section, click on the **add** button aligning with the **security questions** section.
     
@@ -26,14 +26,14 @@ The main part of account recovery is setting up security or challenge questions 
 
 ## Update security questions
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Security** tab on the side panel.
 3. Under the **Account recovery** sub section, click on the edit icon aligning with the security question that needs to be updated.
 4. Select a new question and add an answer, or just update the answer to the question that was previously chosen and click on **Save**.
 
 ## Add recovery email
 
-1.  Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1.  Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2.  Click the **Security** tab on the side panel.
 3.  Click on the edit button aligning with the **Email recovery** section.
     
@@ -53,7 +53,7 @@ The main part of account recovery is setting up security or challenge questions 
 
 ## Update recovery email
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Security** tab on the side panel.
 3. Click on the **edit** button with the pencil icon aligning with the **Email recovery** section.
 4. Edit the email address that is already used as the recovery mail and click on the **update** button.
