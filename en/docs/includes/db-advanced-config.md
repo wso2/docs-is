@@ -11,6 +11,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 	validationQuery="SELECT 1"
 	validationInterval="30000"
 	defaultAutoCommit=false
+	commitOnReturn=true
 	```
    
 -	`WSO2_SHARED_DB` `deployment.toml` related configurations that should be added to the `deployment.toml` file.
@@ -24,5 +25,6 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 	validationQuery="SELECT 1"
 	validationInterval="30000"
 	defaultAutoCommit=false
+	commitOnReturn=true
 	```
 	

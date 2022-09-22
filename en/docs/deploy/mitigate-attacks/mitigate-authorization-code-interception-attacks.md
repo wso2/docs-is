@@ -129,6 +129,6 @@ steps below to do this.
 
 
 !!! info "Related topics" 
-    -   See [Try Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground/)
+    -   See [Try Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)
         to try out PKCE with the authorization code grant type using the
         WSO2 Playground web application.

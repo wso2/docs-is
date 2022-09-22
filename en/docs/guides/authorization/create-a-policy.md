@@ -1,168 +1,193 @@
-# Creating a XACML Policy
+# Create a new XACML Policy
 
-At the root of all XACML policies is a **Policy** or a **PolicySet**. A
-**Policy** represents a single access control policy, expressed through
-a set of rules. A **PolicySet** is a container that can hold other
-Policies or PolicySets, as well as references to policies found in
-remote locations. Each XACML policy document contains exactly one Policy
-or PolicySet root XML tag. Because a Policy or PolicySet may contain
-multiple policies or Rules, each of which may evaluate to different
-access control decisions, XACML needs some way of reconciling the
-decisions each makes. This is done through a collection of Combining
-Algorithms. Each algorithm represents a different way of combining
-multiple decisions into a single decision.
+The steps below explain how you can create a XACML policy using the
+management console of the WSO2 Identity Server.
 
-WSO2 Identity Server XACML support will provide two methods of writing
-a XACML Policy.
+1.  Log in to the management
+    console using your username and password.
+2.  Navigate to  **Main** > **Entitlement** and under **PAP**, click **Policy Administration**.
+3.  Click **Add New Entitlement Policy** to open the **Add New Policy** page.
 
--   Some predefined commonly used XACML Policy template samples where
-    you can use by editing according to your use case.
 
-    !!! note
+    ![add a xacml policy]({{base_path}}/assets/img/guides/add-new-xacml-policy.png)
+
+## Policy Creation Methods
+
+The **Add New Policy** page has six ways of creating a XACML 3.0 policy. Each of these methods are explained below.
+
+### Simple Policy Editor
+
+This simple editor lets you create XACML 3.0 policies without any knowledge of XACML, provided that you have some familiarity with access control rules.
+
+![create a xacml policy]({{base_path}}/assets/img/guides/create-xacml-policy.png)
+
+You can create a policy based on four categories.
     
-        To get more details on available XACML templates, [Read
-        me]({{base_path}}/learn/writing-a-xacml-policy-using-a-policy-template).
+- **Resource** - Based on the resource to be protected.
     
--   A set of UI editors to create a XACML policy using UI
-    configurations.
+- **Subject** - Based on the user
 
-The below steps explain how you can create a XACML policy using the
-management console of WSO2 Identity Server.
+- **Action** - Based on the action to be performed
 
-1.  Sign in. Log in to the [Management
-    Console]({{base_path}}/setup/getting-started-with-the-management-console)
-    using your username and password.
-2.  Navigate to the **Main** menu to access the **Entitlement** menu.
-    Click **Policy Administration** under **PAP**.
-3.  Click **Add New Entitlement Policy**.  
+- **Environment** - Based on the time, date or domain.
 
-The **Add New Policy** page appears which gives the 6 ways of writing an
-XACML 3.0 policy. You can select one out of the six methods mentioned below to create the
-policy using UI according to your preference.
+You can define multiple permit rules. Deny rule is automatically created as the final rule. Permitted
+rules are evaluated from top to bottom.
 
-#### **Simple Policy Editor**
+#### Sample Policy Example
 
-This simple editor provides you the opportunity to create XACML 3.0
-policies without any knowledge of XACML policy language. You can
-define your rules in a simpler manner and create a XACML 3.0 policy
-out of them. However, you need to have some knowledge about access
-control rules.  
+Suppose you are to protect the “foo” resource with the following access control rules.
 
-This editor is based on four categories which we are mostly talking
-about access control rules (i.e., User, Resource, Action, and Environment)
-where **User** is the person who is going to access the resource,
-**Resource** is an entity that we are trying to protect with access
-control rules, **Action** is what user is going to perform on Resource
-and **Environment** is the time, domain or any other factors that could
-cause to control the user’s access.
+-   **Rule 1**: Resources under “foo” collection can be read, written, edited
+    and deleted by the users belonging to the admin role.
 
-In the Simple Editor, you can see the following,
+-   **Rule 2**: Resources under “foo/wso2″ collection can be read only by
+    the users in WSO2 (i.e whose email addresses match the regex ^(\[a-zA-Z0-9\_.-\])+@wso2.com) between
+    9.00am and 4.00pm ( 09:00:00+05:00, 16:00:00+05:00).
 
-**Entitlement Policy Name** : Name of the policy.
+-   **Rule 3**: All other access requests to “foo” resource must be denied (This rule is applied automatically).
 
-**Entitlement Policy Description:** A description of the policy.
+You can build the above policy example using the Simple Policy
+Editor as shown below.
 
-**This policy is based on** : Define **based on** what entity, that you
-are going to write this policy.
+![sample xacml policy]({{base_path}}/assets/img/guides/sample-xacml-policy-simple-editor.png)
+
 
 !!! Note
-
-    If you are writing policy based on web service. You can select
-    “Resource” category and continue. Or less, if you are writing policy
-    based on email domain of users. You can select “Subject” category and
-    select the “Email” attribute Id and then define the email.
-
-
-**You can define multiple permit rules:** As an example, “Only users in
-admin role can do GET” This rule can be defined as follows. You need to
-select “Role” attribute id for “User” and fill the text box with the
-role name (admin) and then fill the text box of near “Action” with
-action name (GET)
-
-**Deny rule** **is automatically created as the final rule**. Permitted
-rules are **evaluated from top to bottom**.
-
-!!! Note
-    -   If you want to define value as java regexp expression, you need to
-        embedded value in the **curly brackets “{ }”**
+    -   If you want to define values as java regexp, you need to
+        embed the values within curly brackets “{ }”
     
-    Ex : ***{ ^(\[a-zA-Z0-9\_.-\])+@ [wso2.com](http://wso2.com/) }***
+        - **Ex :** { ^([a-zA-Z0-9_.-])+@wso2.com }
     
-    -   If you want to define multiple values as OR or AND value sets. you
-        can separate those multiple values with **“\|” or “&”** separates
+    -   If you want to define multiple values as OR or AND value sets, you
+        can use “|” or “&” respectively.
     
-    Ex : ***read \| write \| delete***
+        - **Ex :** read | write | delete
     
-    Ex : ***ReadRole & WriteRole***
+        - **Ex :** ReadRole & WriteRole
     
-    -   If you want to define value as a greater or lesser than value. you
-        can use **“\<” or “\>” ( We do not support "\>=" or "\<=")**
+    -   If you want to define values as greater than or lesser than, you
+        can use "<” or “>” (">=" or "<=" are not supported)    
     
-    Ex  : ***\< 34***
+        - **Ex :** < 34
     
-    -   If you want to define two values that are in a range, you can use
-        square brackets **“\[ \]”** and round brackets **“(  )”**. And two
-        values are coma **“, “** separated.
+    -   If you want to define a range, have the two comma-separated (",") values within
+        square brackets “[ ]” or round brackets “( )”.
     
-    Ex: ***\[09:00:00+05:00, 16:00:00+05:00\]** time between 09.00am and
-    04.00 pm*
+        - **Ex :** [09:00:00+05:00, 16:00:00+05:00] - time between 09.00am and 04.00 pm
     
-    Ex: ***(18, 30\]*** *greater than 18 and less than or equal to 30*
-    
+        - **Ex :** (18, 30] - greater than 18 and less than or equal to 30
 
-##### Sample Policy Example 
-An example of a policy is given below. This policy is defined for accessing the “foo” resource.
-
-*Following are the access control rules that policy needs to be
-satisfied*
-
--   Rule1: Resources under “foo” collection can be read, written, edited
-    and deleted by the users in the admin role.
--   Rule 2: Resources under “foo/wso2″ collection can be read by only
-    the users in the WSO2 (whose email address is
-    [wso2.com](http://wso2.com/) domain) regex for email (
-    **^(\[a-zA-Z0-9\_.-\])+@ [wso2.com](http://wso2.com/)** )between
-    9.00am and 4.00pm ( **09:00:00+05:00, 16:00:00+05:00** )
--   All other access requests to “foo” resource must be denied.
-
-You can build the above-mentioned policy example using Simple Policy
-Editor as shown below. Here, "foo" can be the main resource and the
-other resource “foo/wso2″ can be the child resource. If you have further
-resources to evaluate you can add them as child resources by clicking on the
-simple-policy-editor-child-resource the icon and create separate
-rules.
-
-#### Basic Policy Editor
-
--   This editor is based on four categories which we are mostly talking
-    about access control rules. i.e Subject, Resource, Action and
-    Environment.  
+### Basic Policy Editor
       
--   You can define a target and multiple rules in the policy. Rules can
-    be ordered.  
-      
--   You can plug any attribute value sources and select those attribute
-    values when creating the policy; rather than filling text boxes by
-    your own. By default, WSO2 registry resources, Roles of the
-    underline user store and some pre-defined actions are the attribute
-    value sources for the resource, subject and action attributes
-    respectively. There are extension points that you can use to extend
-    and bring more attribute values on to the policy editor UI.
+When setting a policy in the Basic Policy Editor, you can select attribute values from a connected attribute value source rather than filling the text boxes on your own.
+
+![create a xacml policy]({{base_path}}/assets/img/guides/basic-editor-xacml.png)
 
 !!! Info
-	In the Basic Editor, you can see the following,
+
+	The following are the settings of the Basic Editor.
 
 	**Entitlement Policy Name** : Name of the policy.
 
-	**Entitlement Policy Description:** A description of the policy.
+	**Rule Combining Algorithm** : *Learn more about rule combining algorithms below.*
 
-	**The policy is going to be evaluated Only when following matched:**
-	*You can define; for what attribute values, this policy is going to be
-	applied (or picked). This is similar to defining the policy target
-	element.*
+	**The Policy is going to be evaluated, Only when followings are matched:**
+    Define for what attribute values, this policy is applied to. This is similar to defining the policy target
+	element.
 
-	**Define Entitlement Rule(s):** You can define rules which you want to
+	**Define Entitlement Rule(s):** Define rules which are evaluated
 	evaluate after they are matched with above.
+
+??? tip "Click to view information about policy/rule combining algorithms"
+     **Policy Combining Algorithms** are used by *Policy
+        Sets* and **Rule Combining Algorithms** are used by *Policies*.
+        Each of the algorithms mentioned below has its Policy Combining
+        algorithm and its Rule Combining algorithm as follows:
+
+        -   Standard combining algorithms defined in XACML 3.0:
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:deny-overrides
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:deny-overrides
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:permit-overrides
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:permit-overrides
+        -   urn:oasis:names:tc<zero-width-space>:xacml:1.0:rule-combining-algorithm:first-applicable
+        -   urn:oasis:names:tc<zero-width-space>:xacml:1.0:policy-combining-algorithm:first-applicable
+        -   urn:oasis:names:tc<zero-width-space>:xacml:1.0:policy-combining-algorithm:only-one-applicable
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:ordered-deny-overrides
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:ordered-deny-overrides
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:ordered-permit-overrides
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:ordered-permit-overrides
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:deny-unless-permit
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:permit-unless-deny
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:deny-unless-permit
+        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:permit-unless-deny
+
+     These algorithms are explained in detail as follows:
+
+      -   **Deny Overrides:**  
+      If any decision is a Deny, then that decision wins. Deny overrides is one of the safest combining algorithms since it favors a deny decision.
+
+      -   **Permit Overrides:**  
+      If any decision is a Permit, then that decision wins. At least one child must return a Permit for access to be granted regardless of restrictions.
+
+      One wants to return all the reasons why access is being denied. This is
+      what one could call a “greedy deny overrides”.For instance, if the reason
+      for not being able to view a resource is that
+      (a) you are not the owner or 
+      (b) you are in the wrong department,
+      then we could rework the previous example as follows. When any of the deny reason triggers, the
+      response would be denied with all the applicable reasons for access
+      being denied:
+        -   Policy Set (deny overrides): role==manager AND action==view AND
+        resourceType==resource
+        -   Policy 1 (permit overrides)
+        -   Rule 1: deny if resourceOwner != userId + Advice(“you
+                are not the owner of the resource”)
+        -   Rule 2: deny if rsourceDepartment != userDepartment+
+                Advice(“you are not in the same department as the
+                resource)
+        -   Policy 2
+        -   Rule 1: permit
+
+      -   **First Applicable:**  
+      This combining algorithm combines decisions in such a way that the
+      final decision returned is the first one produced either of Permit
+      or Deny.  
+      First applicable is useful to shortcut policy evaluation. For
+      instance, if a policy set contains a long series of not applicable
+      policies and one applicable policy which returns either of Permit or
+      Deny, then if that policy comes first and does produce Permit or
+      Deny, the PDP will stop there and not process the other siblings.  
+
+
+      -   **Deny Unless Permit \| Permit Unless Deny:**  
+      In XACML there are 4 possible decisions: Permit, Deny,
+      NotApplicable, and Indeterminate. Sometimes, it is desirable to hide
+      the NotApplicable and Indeterminate decisions to only allow for
+      Permit or Deny. It makes the PEP logic potentially simpler.
+
+
+      -   **Only One Applicable:**
+      This combining algorithm exists only for policy sets to combine policy
+      sets and policies. It cannot be used to combine rules. With this
+      combining algorithm, in order for either of a Permit or Deny to be
+      returned, then only one of the children must produce a valid decision –
+      whether Deny or Permit.
+
+      -   **Ordered Deny Overrides \| Ordered Permit Overrides:**  
+      The ordered combining algorithms combine decisions in the same way
+      as their (unordered) cousins. In, addition they bring the guarantee
+      that policies, policy sets, and rules are considered in the order in
+      which they are defined. The need to define an ordered combining
+      algorithm stems from the fact the XACML specification does not
+      specify whether order matters in the deny-overrides and
+      permit-overrides combining algorithms.
+
+By default, the available attribute value sources are WSO2 registry resources, roles of the underline user store and some pre-defined actions.
+
+There are extension points that you can use to extend and bring more attribute values to the policy editor.
+
+
 
 ##### Sample Policy Requirement
 
@@ -303,95 +328,7 @@ local machine.
 
 #### Write Policy in XML
 
-??? tip "Click to view information about policy combining algorithms"
-    There are **Policy Combining Algorithms** which are used by *Policy
-        Sets* and **Rule Combining Algorithms** which are used by *Policies*.
-        Each of the algorithms mentioned below has its Policy Combining
-        algorithm and its Rule Combining algorithm as follows:
 
-        -   Standard combining algorithms defined in XACML 3.0:
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:deny-overrides
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:deny-overrides
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:permit-overrides
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:permit-overrides
-        -   urn:oasis:names:tc<zero-width-space>:xacml:1.0:rule-combining-algorithm:first-applicable
-        -   urn:oasis:names:tc<zero-width-space>:xacml:1.0:policy-combining-algorithm:first-applicable
-        -   urn:oasis:names:tc<zero-width-space>:xacml:1.0:policy-combining-algorithm:only-one-applicable
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:ordered-deny-overrides
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:ordered-deny-overrides
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:ordered-permit-overrides
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:ordered-permit-overrides
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:deny-unless-permit
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:rule-combining-algorithm:permit-unless-deny
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:deny-unless-permit
-        -   urn:oasis:names:tc<zero-width-space>:xacml:3.0:policy-combining-algorithm:permit-unless-deny
-
-     These algorithms are explained in detail as follows:
-
-      -   **Deny Overrides:**  
-      This combining algorithm combines decisions in such a way that if
-      any decision is a Deny, then that decision wins.  
-      Deny overrides is one of the safest combining algorithms since it
-      favors a Deny decision. However, if none of the children return a
-      Deny decision, then the combining algorithm will never produce a
-      Deny.  
-
-      -   **Permit Overrides:**  
-      This combining algorithm combines decisions in such a way that if
-      any decision is a Permit, then that decision wins.
-      The permit overrides combining algorithm can be interesting when at least one child must return a Permit for access to be granted overall regardless of restrictions.
-      One wants to return all the reasons why access is being denied. This is
-      what one could call a “greedy deny overrides”.For instance, if the reason
-      for not being able to view a resource is that
-      (a) you are not the owner or 
-      (b) you are in the wrong department,
-      then we could rework the previous example as follows. When any of the deny reason triggers, the
-      response would be denied with all the applicable reasons for access
-      being denied:
-        -   Policy Set (deny overrides): role==manager AND action==view AND
-        resourceType==resource
-        -   Policy 1 (permit overrides)
-        -   Rule 1: deny if resourceOwner != userId + Advice(“you
-                are not the owner of the resource”)
-        -   Rule 2: deny if rsourceDepartment != userDepartment+
-                Advice(“you are not in the same department as the
-                resource)
-        -   Policy 2
-        -   Rule 1: permit
-
-      -   **First Applicable:**  
-      This combining algorithm combines decisions in such a way that the
-      final decision returned is the first one produced either of Permit
-      or Deny.  
-      First applicable is useful to shortcut policy evaluation. For
-      instance, if a policy set contains a long series of not applicable
-      policies and one applicable policy which returns either of Permit or
-      Deny, then if that policy comes first and does produce Permit or
-      Deny, the PDP will stop there and not process the other siblings.  
-
-
-      -   **Deny Unless Permit \| Permit Unless Deny:**  
-      In XACML there are 4 possible decisions: Permit, Deny,
-      NotApplicable, and Indeterminate. Sometimes, it is desirable to hide
-      the NotApplicable and Indeterminate decisions to only allow for
-      Permit or Deny. It makes the PEP logic potentially simpler.
-
-
-      -   **Only One Applicable:**
-      This combining algorithm exists only for policy sets to combine policy
-      sets and policies. It cannot be used to combine rules. With this
-      combining algorithm, in order for either of a Permit or Deny to be
-      returned, then only one of the children must produce a valid decision –
-      whether Deny or Permit.
-
-      -   **Ordered Deny Overrides \| Ordered Permit Overrides:**  
-      The ordered combining algorithms combine decisions in the same way
-      as their (unordered) cousins. In, addition they bring the guarantee
-      that policies, policy sets, and rules are considered in the order in
-      which they are defined. The need to define an ordered combining
-      algorithm stems from the fact the XACML specification does not
-      specify whether order matters in the deny-overrides and
-      permit-overrides combining algorithms.
     
 Click **Finish** / **Upload** depending on the option you chose to
 create your policy.
@@ -399,4 +336,4 @@ create your policy.
 !!! Info "Related Topics"
 	To evaluate the policy you just created and see a sample request and
 	response to it, see [Evaluating a XACML
-	Policy]({{base_path}}/administer/evaluating-a-xacml-policy).
+	Policy]({{base_path}}/guides/authorization/evaluate-a-xacml-policy).
