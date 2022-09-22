@@ -54,7 +54,7 @@ Here are a few examples of regex patterns.
 | Claim URI                           | Example Regex pattern    |
 |-------------------------------------|-----------------------------------------------------------------|
 | http://wso2.org/claims/emailaddress | ^([a-zA-Z0–9_\.\-])+\@(([a-zA-Z0–9\-])+\.)+([a-zA-Z0–9]{2,4})+$ |
-| http://wso2.org/claims/mobile       | ^(\d{1,2}\s?)?1?-?.?\s??\d{3}?[\s.-]?\d{3}[\s.-]?\d{4}$ |
+| http://wso2.org/claims/mobile       | ^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$ |
 | http://wso2.org/claims/username     | ^[a-zA-Z0–9._-]{3,}$                                            |
 
 You have now successfully set up WSO2 Identity Server to allow multi-attribute login.
