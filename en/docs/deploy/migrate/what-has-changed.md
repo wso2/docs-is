@@ -244,7 +244,12 @@ var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
 
 Make sure to update the usages of this function, if any, after the migration process.
 
-Authentication steps can be filtered with adaptive script passing an `authenticationOptions` array to the `executeStep` function. For local authenticators an array item named `authenticator` should be passed. In earlier versions of WSO2 IS, the value of this parameter should be an authenticator display name (friendly name). With WSO2 IS 6.0.0, this has changed to use the authenticator name instead.
+Authentication steps can be filtered with adaptive script passing an ```authenticationOptions``` array to the ```executeStep``` function. For local authenticators an array item named ```authenticator``` should be passed. In earlier versions of WSO2 IS, the value of this parameter should be an authenticator display name (friendly name). With WSO2 IS 6.0.0, this has changed to use the authenticator name instead. If you wish to keep using authenticator display names, please add the below config to ```deployment.toml``` file
+
+```js
+[authentication.adaptive.authenticator_name_in_auth_config]
+enable = false
+```
 
 ## Application management
 This section covers the updates related to application configurations on Identity Server 6.0.0.
