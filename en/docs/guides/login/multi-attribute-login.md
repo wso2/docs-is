@@ -79,4 +79,4 @@ In this example scenario, let's allow users to use the mobile number as a login 
     - **Using email address as login attribute for super tenant users**
 
         Super tenant users need to append the tenant domain 
-        to the email address (Ex: `john@wso2.com@caron.super`) when logging into a SaaS application.   
+        to the email address (Ex: `john@wso2.com@carbon.super`) when logging into a SaaS application.   
