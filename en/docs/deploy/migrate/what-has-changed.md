@@ -156,31 +156,31 @@ Display names (Friendly names) of some of the local authenticators and handlers 
         <th>Current display name</th>
     </tr>
     <tr>
-    <td>BasicAuthRequestPathAuthenticator</td><td>basic-auth</td><td>Basic Auth</td>
+        <td>BasicAuthRequestPathAuthenticator</td><td>basic-auth</td><td>Basic Auth</td>
     </tr>
     <tr>
-    <td>IdentifierExecutor</td><td>identifier-first</td><td>Identifier First</td>
+        <td>IdentifierExecutor</td><td>identifier-first</td><td>Identifier First</td>
     </tr>
     <tr>
-    <td>JWTBasicAuthenticator</td><td>jwt-basic</td><td>JWT Basic</td>
+        <td>JWTBasicAuthenticator</td><td>jwt-basic</td><td>JWT Basic</td>
     </tr>
     <tr>
-    <td>OAuthRequestPathAuthenticator</td><td>oauth-bearer</td><td>OAuth Bearer</td>
+        <td>OAuthRequestPathAuthenticator</td><td>oauth-bearer</td><td>OAuth Bearer</td>
     </tr>
     <tr>
-    <td>FIDOAuthenticator</td><td>fido</td><td>Security Key/Biometrics</td>
+        <td>FIDOAuthenticator</td><td>fido</td><td>Security Key/Biometrics</td>
     </tr>
     <tr>
-    <td>totp</td><td>totp</td><td>TOTP</td>
+        <td>totp</td><td>totp</td><td>TOTP</td>
     </tr>
     <tr>
-    <td>BasicAuthenticator</td><td>basic</td><td>Username & Password</td>
+        <td>BasicAuthenticator</td><td>basic</td><td>Username & Password</td>
     </tr>
     <tr>
-    <td>x509CertificateAuthenticator</td><td>X509Certificate</td><td>X509 Certificate</td>
+        <td>x509CertificateAuthenticator</td><td>X509Certificate</td><td>X509 Certificate</td>
     </tr>
     <tr>
-    <td>SessionExecutor</td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
+        <td>SessionExecutor</td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
     </tr>
 </table>
 
