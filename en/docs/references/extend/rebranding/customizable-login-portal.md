@@ -114,7 +114,6 @@ To add a custom layout to the login page:
     !!! note
         Repeat the above steps for `accountrecoveryendpoint` and `x509certificateauthenticationendpoint` as well. You will be copying the following files:
         
-        The files used for step 2.a and 2.b are as follow:
 
         - [Project title](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/product-title-2.jsp).
 
