@@ -275,5 +275,5 @@ Follow the steps below to obtain configuration details of the OpenID Provider.
 
 !!! info "Related topics"
     - [Concept: OpenID Connect Discovery]({{base_path}}/references/concepts/authentication/discovery)
-    - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/authorization-code/)
+    - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)
     - [Guide: Enable Login for an OpenID Connect Web Application]({{base_path}}/guides/login/webapp-oidc)

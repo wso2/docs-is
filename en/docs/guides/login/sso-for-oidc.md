@@ -75,7 +75,7 @@ Let's set up and configure the sample applications:
 ### Pickup Dispatch
 
 
-1. Download the [pickup-dispatch.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/pickup-dispatch.war) sample.
+1. Download the [pickup-dispatch.war](https://github.com/wso2/samples-is/releases/download/v4.5.1/pickup-dispatch.war) sample.
 
 3.  Extract the `pickup-dispatch.war` file and open the `dispatch.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
 
@@ -85,7 +85,7 @@ Let's set up and configure the sample applications:
 
 ### Pickup Manager
 
-1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/pickup-manager.war) sample.
+1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.5.1/pickup-manager.war) sample.
 
 2. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
 

@@ -145,7 +145,7 @@ nav:
           - Overview: guides/passwordless/overview.md
           - FIDO:
             - FIDO Passwordless Authentication: guides/passwordless/fido.md
-            - FIDO Attestation: guides/passwordless/fido-attestation.md
+            - FIDO2 Attestation Validations: guides/passwordless/fido-attestation.md
           - Magic Link: guides/passwordless/magic-link.md
         - Multi-Factor Authentication:
           - Overview: guides/mfa/mfa-overview.md
@@ -335,14 +335,19 @@ nav:
         - Overview: guides/authorization/overview.md
         - Access Management: 
           - Intro: guides/authorization/access-mgt.md
-          - Create a policy: guides/authorization/create-a-policy.md
+          - Create a policy: 
+            - Create a new policy: guides/authorization/create-a-policy.md
+            - Customize an existing template: guides/authorization/customize-a-policy-template.md
           - Edit a policy: guides/authorization/edit-a-policy.md
           - Version control: guides/authorization/version-control.md
           - Publish a policy: guides/authorization/publish-a-policy.md
           - View status of a policy: guides/authorization/view-status.md
           - Enable and Disable a policy: guides/authorization/enable-disable-policy.md
           - Clear cache: guides/authorization/clear-cache.md
-        - Configure XACML Engine: guides/authorization/xacml-engine.md
+        - Configure the XACML Engine: guides/authorization/xacml-engine.md
+        - Use the XACML Tryit tool:
+          - Overview: guides/authorization/xacml-tryittool-overview.md
+          - Evaluate a XACML Policy: guides/authorization/evaluate-a-xacml-policy.md
         - Fine-Grained Authorization: 
           - Using XACML: guides/authorization/fine-grained-auth-xacml.md
           - Using JSON: guides/authorization/fine-grained-auth-json.md
@@ -569,6 +574,7 @@ nav:
         - User stores: references/concepts/user-management/userstores.md
         - Realms: references/concepts/user-management/realm.md
       - Claims: references/concepts/claim-management.md
+      - Access control: references/concepts/authorization/access-control.md
       - Service Providers:
         - Overview: guides/applications/service-provider-overview.md
         - Register a Service Provider: guides/applications/register-sp.md
@@ -581,6 +587,7 @@ nav:
           - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
         - Manage a Service Provider: guides/applications/manage-sp.md
         - Set up a Resident Service Provider: guides/applications/resident-sp.md
+        
       - Identity Providers:
         - Overview: guides/identity-federation/basic-overview.md
         - Register an IdP: guides/identity-federation/add-idp.md

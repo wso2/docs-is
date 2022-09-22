@@ -49,9 +49,9 @@ network.
 Upload and publish the following sample policies to the XACML PDP in
 WSO2 Identity Server as enabled policies:
 
--   [web-filter-policy-1.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-for-resource-1.xml)
--   [web-filter-policy-2.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-for-resource-2.xml)
--   [web-filter-policy-3.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-for-resource-3.xml)
+-   [web-filter-policy-1.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-1.xml)
+-   [web-filter-policy-2.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-2.xml)
+-   [web-filter-policy-3.xml](https://github.com/wso2/samples-is/blob/master/xacml/web-filter-sample/attribute-categories/web-filter-policy-3.xml)
 
 Follow the steps below to publish a sample policy to the PDP in WSO2
 Identity Server:
@@ -72,7 +72,7 @@ Identity Server:
 
 6.  Click **Publish to My PDP** applicable to the sample policy that you
     added. This takes you to the **Publish Policy** screen.  
-    ![publish-policy-to-pdp]({{base_path}}/assets/img/tutorials/publish-policy-to-pdp.png)
+    ![publish-policy-to-pdp]({{base_path}}/assets/img/guides/publish-policy-to-pdp.png)
 7.  Click **Publish**. This displays a confirmation message asking
     whether you want to continue publishing to PDP.
 8.  Click **Yes**. This publishes the policy to the PDP.
