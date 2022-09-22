@@ -6,7 +6,7 @@ Using the latest **My Account** application, users can update their mobile numbe
 
 ## Via SMS
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Security** tab on the side panel.
 3. Under the **Multi-factor authentication** section, click on the edit icon aligning with the **SMS Number** section.
 4. Enter the mobile number that needs to be added as the MFA factor and click **update**.
@@ -21,7 +21,7 @@ Using the latest **My Account** application, users can update their mobile numbe
 
 ### Add security device
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Security** tab on the side panel.
 3. Under the **Multi-factor authentication** section, click on the add icon aligning with the **via security device** section.
 4. Select an option depending on whether to add a USB security key or a built-in sensor.
