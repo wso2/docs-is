@@ -147,7 +147,7 @@ The following changes have been made to the TOTP authenticator.
 
 ### Authenticator Display Name
 
-Display names (Friendly names) of some of the local authenticators and handlers were renamed from Identity server 6.0.0 onwards. The following table maps the previous authenticator display names to the newer ones.
+From IS 6.0.0 onward the display names of some of the local authenticators and handlers were renamed. The following table maps the previous authenticator display names to the IS 6.0.0 display names.
 
 <table>
     <tr>
@@ -156,31 +156,31 @@ Display names (Friendly names) of some of the local authenticators and handlers 
         <th>Current display name</th>
     </tr>
     <tr>
-        <td>BasicAuthRequestPathAuthenticator</td><td>basic-auth</td><td>Basic Auth</td>
+        <td><code>BasicAuthRequestPathAuthenticator</code></td><td>basic-auth</td><td>Basic Auth</td>
     </tr>
     <tr>
-        <td>IdentifierExecutor</td><td>identifier-first</td><td>Identifier First</td>
+        <td><code>IdentifierExecutor</code></td><td>identifier-first</td><td>Identifier First</td>
     </tr>
     <tr>
-        <td>JWTBasicAuthenticator</td><td>jwt-basic</td><td>JWT Basic</td>
+        <td><code>JWTBasicAuthenticator</code></td><td>jwt-basic</td><td>JWT Basic</td>
     </tr>
     <tr>
-        <td>OAuthRequestPathAuthenticator</td><td>oauth-bearer</td><td>OAuth Bearer</td>
+        <td><code>OAuthRequestPathAuthenticator</code></td><td>oauth-bearer</td><td>OAuth Bearer</td>
     </tr>
     <tr>
-        <td>FIDOAuthenticator</td><td>fido</td><td>Security Key/Biometrics</td>
+        <td><code>FIDOAuthenticator</code></td><td>fido</td><td>Security Key/Biometrics</td>
     </tr>
     <tr>
-        <td>totp</td><td>totp</td><td>TOTP</td>
+        <td><code>totp</code></td><td>totp</td><td>TOTP</td>
     </tr>
     <tr>
-        <td>BasicAuthenticator</td><td>basic</td><td>Username & Password</td>
+        <td><code>BasicAuthenticator</code></td><td>basic</td><td>Username & Password</td>
     </tr>
     <tr>
-        <td>x509CertificateAuthenticator</td><td>X509Certificate</td><td>X509 Certificate</td>
+        <td><code>x509CertificateAuthenticator</code></td><td>X509Certificate</td><td>X509 Certificate</td>
     </tr>
     <tr>
-        <td>SessionExecutor</td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
+        <td><code>SessionExecutor</code></td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
     </tr>
 </table>
 
