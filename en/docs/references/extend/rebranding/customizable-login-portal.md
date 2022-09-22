@@ -94,7 +94,7 @@ To create the basic custom layout resources:
 
 To add a custom layout to the login page:
 
-1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/`
+1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/` and follow the instructions provided below:
 
     1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/body.html) into the `body.html` file.
 
@@ -104,7 +104,7 @@ To add a custom layout to the login page:
 
     4. Copy the [illustraction.svg](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/illustration.svg) file into the `assets` folder.
 
-2. Navigate to the `webapps/authenticationendpoint/includes` directory and copy the `product-title.jsp` and `product-footer.jsp` files to the `webapps/authenticationendpoint/extensions` directory.
+2. Navigate to the `webapps/authenticationendpoint/includes` folder and copy the `product-title.jsp` and `product-footer.jsp` files to the `webapps/authenticationendpoint/extensions` folder.
 
     1. Copy content from the [`jsp` file containing the project title](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/project-title-1.jsp) to the `webapps/authenticationendpoint/extensions/product-title.jsp` file of the app.
 
@@ -125,10 +125,18 @@ To add a custom layout to the login page:
     !!! tip
         In certain cases, the server might stop working after adding changes. In such a case, restart the server to check the changes.
 
-!!! note 
-    - Use the following **best practices** when creating a custom layout:
-        - Add a prefix for the new CSS classes so that the newly added classes will not conflict with existing classes.
-        - Set `cache="false"` when developing a custom layout. Be sure to remove the `cache="false"` in production code.
-    - If you need to build the apps from the `identity-apps` source code:
-        1. Add the developed custom layout folder into the `<IDENTITY_APPS_SOURCE_CODE>/components/login-portal-layouts/layouts` directory.
-        2. Build the source code. The custom layout will be moved to the corresponding locations of `authenticationendpoint`, `accountrecoveryendpoint`, and `x509certificateauthenticationendpoint` apps.
+## Build the app
+
+To build the apps from the `identity-apps` source code:
+
+1. Add the developed custom layout folder into the `<IDENTITY_APPS_SOURCE_CODE>/components/login-portal-layouts/layouts` folder.
+
+2. Build the source code. The custom layout will be moved to the corresponding locations of `authenticationendpoint`, `accountrecoveryendpoint`, and `x509certificateauthenticationendpoint` apps.
+
+## Best Practices
+
+Use the following **best practices** when creating a custom layout:
+
+- Add a prefix for the new CSS classes so that the newly added classes will not conflict with existing classes.
+
+- Set `cache="false"` when developing a custom layout. Be sure to remove the `cache="false"` in production code.
