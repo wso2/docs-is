@@ -145,6 +145,33 @@ The following changes have been made to the TOTP authenticator.
 
     The i18n keys of both OTP authenticators have been moved to the i18n property file of the authentication portal.
 
+### Authenticator Display Name
+
+From IS 6.0.0 onward the display names of some of the local authenticators and handlers were renamed. The following table maps the previous authenticator display names to the IS 6.0.0 display names.
+
+<table>
+    <tr>
+        <th>Authenticator</th>
+        <th>Previous display name</th>
+        <th>Current display name</th>
+    </tr>
+    <tr>
+        <td><code>IdentifierExecutor</code></td><td>identifier-first</td><td>Identifier First</td>
+    </tr>
+    <tr>
+        <td><code>JWTBasicAuthenticator</code></td><td>jwt-basic</td><td>JWT Basic</td>
+    </tr>
+    <tr>
+        <td><code>FIDOAuthenticator</code></td><td>fido</td><td>Security Key/Biometrics</td>
+    </tr>
+    <tr>
+        <td><code>BasicAuthenticator</code></td><td>basic</td><td>Username & Password</td>
+    </tr>
+    <tr>
+        <td><code>SessionExecutor</code></td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
+    </tr>
+</table>
+
 ### Adaptive Authentication Function Signature
 
 On WSO2 IS, ```getUniqueUserWithClaimValues```  is an adaptive authentication Javascript utility function that is used to obtain a user definition along with claim values. The utility function will search on the underlying user stores and return a unique user with the claim values.
