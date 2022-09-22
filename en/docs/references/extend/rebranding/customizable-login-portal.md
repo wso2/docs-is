@@ -130,7 +130,9 @@ To build the apps from the `identity-apps` source code:
 
 1. Add the developed custom layout folder into the `<IDENTITY_APPS_SOURCE_CODE>/components/login-portal-layouts/layouts` folder.
 
-2. Build the source code. The custom layout will be moved to the corresponding locations of `authenticationendpoint`, `accountrecoveryendpoint`, and `x509certificateauthenticationendpoint` apps.
+2. Build the source code. 
+
+The custom layout will be moved to the corresponding locations of `authenticationendpoint`, `accountrecoveryendpoint`, and `x509certificateauthenticationendpoint` apps.
 
 ## Best Practices
 
