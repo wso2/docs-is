@@ -115,23 +115,62 @@ The API can be called in either of the following ways:
 <a name = "step-filtering"></a>
 **Authentication step filtering**
 
-Filters out some of the authentication options of a step based on a
-condition. This can be achieved by specifying an array named 
-`         authenticationOptions        ` to the
-`         options        ` map. Each array item will require an 
-`          idp         ` for federated identity providers or an 
-`          authenticator         ` for local authenticators.
+Filters out some of the authentication options of a step based on a condition. This can be achieved by specifying an array named `authenticationOptions` to the `options` map. You can have `idp` as an array item for federated IDPs, and `authenticator` as an array item for local authenticators as shown below.
 
 **Example code**
 
 ``` java
-executeStep(1,{
-  authenticationOptions:[{authenticator:'basic'},{idp:'google'}]
-   },{
-       onSuccess: function (context) {
-           // Do something on success
-};
+executeStep(1, {
+    authenticationOptions: [{authenticator:'BasicAuthenticator'},{idp:'google'}]
+},{
+    onSuccess: function (context) {
+        // Do something on success
+    }
+});
 ```
+
+You can find the available local authenticators in the table below.
+<table>
+<tbody>
+    <tr>
+        <th>Display Name</th>
+        <th>Authenticator</th>
+    </tr>
+    <tr>
+        <td>Backup Code</td><td><code>backup-code-authenticator</code></td>
+    </tr>
+    <tr>
+        <td>Basic Auth</td><td><code>BasicAuthRequestPathAuthenticator</code></td>
+    </tr>
+    <tr>
+        <td>Identifier First</td><td><code>IdentifierExecutor</code></td>
+    </tr>
+    <tr>
+        <td>JWT Basic</td><td><code>JWTBasicAuthenticator</code></td>
+    </tr>
+    <tr>
+        <td>Magic Link</td><td><code>MagicLinkAuthenticator</code></td>
+    </tr>
+    <tr>
+        <td>OAuth Bearer</td><td><code>OAuthRequestPathAuthenticator</code></td>
+    </tr>
+    <tr>
+        <td>Security Key/Biometrics</td><td><code>FIDOAuthenticator</code></td>
+    </tr>
+    <tr>
+        <td>TOTP</td><td><code>totp</code></td>
+    </tr>
+    <tr>
+        <td>Username & Password</td><td><code>BasicAuthenticator</code></td>
+    </tr>
+    <tr>
+        <td>X509 Certificate</td><td><code>x509CertificateAuthenticator</code></td>
+    </tr>
+    <tr>
+        <td>Active Sessions Limit</td><td><code>SessionExecutor</code></td>
+    </tr>
+</tbody>
+</table>
 
 ---
 
