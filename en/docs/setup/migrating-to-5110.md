@@ -138,28 +138,23 @@ Once all the above prerequisites have been met, follow the instructions given be
 
         Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
 
-4.  To migrate the super tenant, copy the content (except the webapps folder) from `<OLD_IS_HOME>/repository/deployment/server` directory to the `<NEW_IS_HOME>/repository/deployment/server` directory. 
+4.  If you have created tenants in the previous WSO2 Identity Server version, copy the content from the `<OLD_IS_HOME>/repository/tenants` folder to the `<NEW_IS_HOME>/repository/tenants` folder.
+    
+5.  If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` folder to the `<NEW_IS_HOME>/repository/deployment/server/userstores` folder.
 
-    If you have customized the web apps in the previous WSO2 Identity Server version, those changes should be manually applied to the relevant files with careful inspection. If you have created tenants in the previous WSO2 Identity Server
-    version that contain resources, copy the content from `<OLD_IS_HOME>/repository/tenants` directory,
-    to the `<NEW_IS_HOME>/repository/tenants` directory.
-    
-5.  If you have created secondary user stores in the previous WSO2 IS
-    version, copy the content in the
-    `           <OLD_IS_HOME>/repository/deployment/server/userstores          `
-    directory to the
-    `           <NEW_IS_HOME>/repository/deployment/server/userstores          `
-    directory.
-    
-6. Ensure that you have migrated the configurations into the new version as
+6.  If you have customized any existing web apps in the previous WSO2 Identity Server version, those changes should be manually applied to the relevant files with careful inspection.
+
+    If you have deployed custom webapps in the previous WSO2 Identity Server, update the webapps to be compatible with WSO2 IS 5.11.0 and copy the webapps to the `<NEW_IS_HOME>/repository/deployment/server/webapps` folder.
+        
+7.  Ensure that you have migrated the configurations into the new version as
    advised in [preparing for migration section.](../../setup/migrating-preparing-for-migration/#migrating-the-configurations)
+   
+8.  Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
 
-7.  Make sure that all the properties in the `<IS_HOME>/repository/conf/deployment.toml` file such as the database configurations are set to the correct values based on the requirement.
-
-8. Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with
+9.  Replace the `<NEW_IS_HOME>/repository/conf/email/email-admin-config.xml` file with
    `<OLD_IS_HOME>/repository/conf/email/email-admin-config.xml`.   
     
-9. Follow the steps given below to perform database updates:
+10. Follow the steps given below to perform database updates:
     1.     To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**. Unzip it to a local directory.
         
         !!! Note 
@@ -197,7 +192,7 @@ Once all the above prerequisites have been met, follow the instructions given be
             
             ALTER USER <user> WITH SUPERUSER;
 
-10. Configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
+11. Configure the **SymmetricKeyInternalCryptoProvider** as the default internal cryptor provider.
 
     1. Generate your own secret key using a tool like OpenSSL.
 
@@ -230,7 +225,7 @@ Once all the above prerequisites have been met, follow the instructions given be
     
     Under each migrator's parameters, find the property value of **currentEncryptionAlgorithm** and ensure that it matches with the value of the `org.wso2.CipherTransformation` property found in the `<OLD_IS_HOME>/repository/conf/carbon.properties` file.
             
-11.  Start the WSO2 Identity Server 5.11.0 with the following command to
+12. Start the WSO2 Identity Server 5.11.0 with the following command to
     execute the migration client.
 
     1.  Linux/Unix:
@@ -245,7 +240,7 @@ Once all the above prerequisites have been met, follow the instructions given be
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
-12.  Stop the server once the migration client execution is complete.
+13. Stop the server once the migration client execution is complete.
 
 ---
 
