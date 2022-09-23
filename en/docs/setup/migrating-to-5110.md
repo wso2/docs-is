@@ -139,8 +139,17 @@ Once all the above prerequisites have been met, follow the instructions given be
         Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
 
 4.  If you have created tenants in the previous WSO2 Identity Server version, copy the content from the `<OLD_IS_HOME>/repository/tenants` folder to the `<NEW_IS_HOME>/repository/tenants` folder.
+
+     !!! note
+         If you are migrating from IS 5.8.0 or a lower version, delete the `eventpublishers` and `eventstreams` folders from each tenant in the `tenants` folder when copying to IS 5.11.0. Make sure to **back up** the `tenants` folder before deleting the subfolders. You can use the following set of commands to find and delete all the relevant sub folders at once:
+
+         ```
+         cd <NEW_IS_HOME>/repository/tenants
+         find . -type d -name 'eventpublishers' -exec rm -rf {} +
+         find . -type d -name 'eventstreams' -exec rm -rf {} +
+         ```
     
-5.  If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` folder to the `<NEW_IS_HOME>/repository/deployment/server/userstores` folder.
+5.  If you have created secondary user stores for the super tenant in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` folder to the `<NEW_IS_HOME>/repository/deployment/server/userstores` folder. Secondary user stores of other tenants were migrated when you migrated the `tenants` folder in the previous step.
 
 6.  If you have customized any existing web apps in the previous WSO2 Identity Server version, those changes should be manually applied to the relevant files with careful inspection.
 
