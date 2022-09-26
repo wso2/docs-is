@@ -57,8 +57,8 @@ To configure FIDO as the second authentication factor:
 
     | Authentication step   | Local Authenticator   |
     |-----------------------|-----------------------|
-    | First step    | `basic`   |
-    | Second step   | `fido`|
+    | First step    | `Username & Password`   |
+    | Second step   | `Security Key/Biometrics`|
 
 6. Click **Update** to save the configurations.
 
