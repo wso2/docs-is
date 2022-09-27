@@ -31,7 +31,7 @@ To configure MFA using username and password:
     | Authentication step   | Local authenticator |
     |---------------------|-----------------------|
     | First step    | `Identifier First`  |
-    | Second step   | `basic`             |
+    | Second step   | `Username & Password`             |
 
     !!! note
         The `Identifier First` is not an authenticator, so having only the identifier in the authentication flow will fail the authentication. If there are no authenticators configured other than identifier, an error occurs when updating the service provider.
