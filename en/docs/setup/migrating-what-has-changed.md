@@ -386,7 +386,7 @@ that were initially architecturally impossible. These operations include usernam
 New user store managers are named with the `UniqueiId` prefix for the old user store managers. For example,
 `JDBCUserStoreManager` with unique ID capabilities will be named as `UniqueIDJDBCUserStoreManager`.
 
-## Hashing algorithm for certificates
+## Thumbprint certificate hashing algorithm
 
 From IS 5.10.0 onwards, the hashing algorithm used for thumbprint certificate generation is updated to `SHA-256`. For versions before IS 5.10.0, Identity Server used `SHA-1` as the hashing algorithm used for thumbprint certificate generation.
 
