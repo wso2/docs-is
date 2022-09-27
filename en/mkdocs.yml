@@ -630,7 +630,6 @@ nav:
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
       - 'My Account':
-        - 'Setting up in a Development Environment': develop/setting-up-my-account-in-a-dev-environment.md
         - 'Customizing the UI': develop/customizing-my-account-ui.md
         - 'Configuring the Application': develop/configure-my-account.md
   - 'Setup':
