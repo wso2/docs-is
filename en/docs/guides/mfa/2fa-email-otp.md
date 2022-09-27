@@ -187,7 +187,7 @@ To configure email OTP as the second authentication factor:
 
     | Authentication step   | Local Authenticator   | Federated Authenticator   |
     |-----------------------|-----------------------|----------------------|
-    | First step    | `basic`   | N/A   |
+    | First step    | `Username & Password`   | N/A   |
     | Second step   | N/A   | `emailOTP`  |
 
 7. Click **Update** to save the configurations.
