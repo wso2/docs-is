@@ -854,6 +854,11 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+plugins:
+    - redirects:
+          redirect_maps:
+              'develop/setting-up-my-account-in-a-dev-environment.md': 'https://is.docs.wso2.com/en/5.11.0/develop/developer-guide/'
+
 # Extra
 extra_css:
   - assets/lib/highlightjs/default.min.css
