@@ -925,7 +925,7 @@ plugins:
               'learn/adaptive-authentication-with-function-library.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/adaptive-auth-with-function-lib-sample/'
               'learn/limiting-active-user-sessions-based-on-criteria.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/limiting-active-sessions-adaptive-auth/'
               'learn/using-wso2-is-analytics-for-adaptive-authentication.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/using-elk-analytics-for-adaptive-authentication/'
-              'learn/using-opa-policies-for-adaptive-auth.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/adaptive-auth-overview'
+              'learn/using-opa-policies-for-adaptive-auth.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/adaptive-auth-overview/'
               'learn/working-with-acr-and-amr.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/acr-based-adaptive-auth/'
               'learn/configuring-federated-authentication.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/identity-federation-overview/'
               'learn/configuring-saml-2.0-web-sso.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
