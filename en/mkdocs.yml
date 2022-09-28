@@ -630,7 +630,6 @@ nav:
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md
       - 'My Account':
-        - 'Setting up in a Development Environment': develop/setting-up-my-account-in-a-dev-environment.md
         - 'Customizing the UI': develop/customizing-my-account-ui.md
         - 'Configuring the Application': develop/configure-my-account.md
   - 'Setup':
@@ -854,6 +853,11 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+plugins:
+    - redirects:
+          redirect_maps:
+              'develop/setting-up-my-account-in-a-dev-environment.md': 'https://is.docs.wso2.com/en/5.11.0/develop/developer-guide/'
 
 # Extra
 extra_css:

@@ -18,18 +18,23 @@ This section explains how we can customize the theming of **My Account**.
 
 ## Before you begin
 
-1. Set up [My Account in a development environment](../../develop/setting-up-my-account-in-a-dev-environment). 
+1.  Fork the original Identity Apps repository to start working on it.
+
+    ```bash
+    git clone https://github.com/wso2/identity-apps
+    ```
 
     !!! info
-        Note the following when you set up the dev environment:
+        -   You will be checking out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps).
+        -   You can also directly clone the original repo but it is recommended to create your own fork.
 
-        - You will be checking out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps) and setting it up in the dev environment.
-        - When you build the `identity-apps` repo, be sure to check out the `5.11.0` branch:
-           ```java
-           git checkout 5.11.0
-           ```
+2.  Check out the `5.11.0` branch:
 
-2. Navigate to the `modules/theme/src/themes` folder within identity-apps. All the theme global variable overrides
+    ```bash
+    git checkout 5.11.0
+    ```
+
+3. Navigate to the `modules/theme/src/themes` folder within identity-apps. All the theme global variable overrides
 can be found in the `modules/theme/src/themes/default/globals/site.variables` file. For the full set of variables,
     see the [original theme variables file](https://github.com/Semantic-Org/Semantic-UI-LESS/blob/master/themes/default/globals/site.variables).
 

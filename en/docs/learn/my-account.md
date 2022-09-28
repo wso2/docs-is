@@ -286,5 +286,4 @@ WSO2 IS provides a comprehensive consent management solution that can be used to
 
 !!! info "Related Topics"
     - To change the look and feel of the My Account UI, see [Customizing the My Account UI](../../develop/customizing-my-account-ui).
-    - To set up My Account in a dev environment, see [Setting Up My Account in a Development Environment](../../develop/setting-up-my-account-in-a-dev-environment).
     - To configure the My Account application and customize features, theme, etc., see [Configuring My Account Application](../../develop/configure-my-account)
