@@ -25,7 +25,7 @@ This section explains how we can customize the theming of **My Account**.
     ```
 
     !!! info
-        -   You will be checking out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps) and setting it up in the dev environment.
+        -   You will be checking out the corresponding identity apps source code from the [repo](https://github.com/wso2/identity-apps).
         -   You can also directly clone the original repo but it is recommended to create your own fork.
 
 2.  Check out the `5.11.0` branch:
