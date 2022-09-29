@@ -855,6 +855,7 @@ markdown_extensions:
   - pymdownx.tilde
 
 plugins:
+    - search
     - redirects:
           redirect_maps:
               'develop/setting-up-my-account-in-a-dev-environment.md': 'https://github.com/wso2/identity-apps/'
