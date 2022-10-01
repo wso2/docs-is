@@ -73,10 +73,10 @@ You can configure user role permissions to restrict access to resources. To do s
 
     | Parameter            |    Description                                                                                                                                                   | Sample Value                                               |
     |----------------------|    ---------------------------------------------------------------------------------------------------------------------   ----------------------------------------|------------------------------------------------------------|
-    | **context** | The resource context that needs to be secured relative to the root context, .                                                                  | `                 /api/identity/  *                `         |
+    | **context** | The resource context that needs to be secured relative to the root context, .                                                                  | `                 /api/identity/*                `         |
     | **secured**          | Enable or disable security in the given resource     context.                                                                         | `                    true                `                    |
     | **http_method**      | Specify an HTTP method i.e `                 all                `, `                   post                `, `                 get                `, etc. | `                 all                   `                     |
-    | **permissions**      | The user role permission that is required to authorize the resource. You can  enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/ login                ` |
+    | **permissions**      | The user role permission that is required to authorize the resource. You can  enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
     | **scope**      | Scopes that an access token requires to access the resource. You can enter multiple     scopes in a comma-separated list.     | `                 internal_idp_create                ` |
 
     !!! abstract ""
