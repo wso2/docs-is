@@ -23,7 +23,7 @@ You can perform data purging by clearing the session data using the script given
 2. To clean the session and operation data that are stored in the `IDN_AUTH_SESSION_STORE` table, run the required database script on the database based on the database type. 
 
     !!! note
-        This script clears session data after 2 hours of expiry.
+        This script clears session data after two hours of expiry.
 
     !!! info
 
