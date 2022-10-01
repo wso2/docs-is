@@ -25,7 +25,7 @@ You can perform data purging by clearing the session data using the script given
 3.  To clean the session and operation data that are stored in the `IDN_AUTH_SESSION_STORE` table, run the following script on the database dump. 
 
     !!! note
-        This script clears session data that are older than the last 14 days and operational data that are older than the last 6 hours.
+        This script clears session data after 2 hours of expiry.
 
     ??? tip "Click to view the MySQL script" 
     
