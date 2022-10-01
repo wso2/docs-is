@@ -101,7 +101,7 @@ You can lock user accounts using the Management Console or the SCIM2 APIs.
 
 2. To lock Alex's user account:
 
-	1.	Click **User Profile** option of Alex.
+	1.	Click the **User Profile** option of Alex.
 
 	2.	Enter an email address to which Alex's account locking emails will be sent and select the **User Locked** check box.
 
