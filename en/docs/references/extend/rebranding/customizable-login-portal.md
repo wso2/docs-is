@@ -1,4 +1,4 @@
-# Customize Login Portal
+# Customize Login Pages
 
 You can customize the layout and branding of user interfaces like the login page, register page, username and password recovery pages, and single sign-on pages.
 
