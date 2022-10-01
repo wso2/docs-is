@@ -34,10 +34,12 @@ Now the basic claim mapping is done. You can now add a user using the curl comma
 
 In RestClient, the following header parameters must be added and the double quotations must be removed from the message body.
 
+```
 Content-Type: application/json
 Accept: */*
 Message body
 {schemas:[],userName:'wso2.com/uresh67',password:Wso2@123}
+```
 
 !!! info 
     You need to do the claim mapping for every SCIM claim you are using with user operations.
