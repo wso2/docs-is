@@ -58,8 +58,8 @@ To enable this feature, add the following configuration to the **deployment.toml
     
     - If the user is in the primary userstore, the incoming cert CN should just be `<username>` e.g., `john`.
     - If the user is in a secondary userstore, the incoming cert CN should be `<userstore_domain>/<username>` e.g., `SECONDARY/john`.
-    - If the user is not a super tenant and belongs to the primary userstore, the incoming cert CN should be `<username@tenant_doman>` e.g., `john@abc.com`.
-    - If the user is not a super tenant and belongs to a secondary userstore, the incoming cert CN should be `<userstore_domain>/<username@tenant_doman>` e.g.,             `SECONDARY/john@abc.com`.
+    - If the user is not a super tenant and belongs to the primary userstore, the incoming cert CN should be `<username@tenant_domain>` e.g., `john@abc.com`.
+    - If the user is not a super tenant and belongs to a secondary userstore, the incoming cert CN should be `<userstore_domain>/<username@tenant_domain>` e.g.,             `SECONDARY/john@abc.com`.
 
 ## REST API Authorization 
 
