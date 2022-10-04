@@ -14,7 +14,7 @@ template: templates/swagger.html
        
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
-       1.  Click **Authorize** and provide the desired values for authentication. 
+       1.  [Obtain an access token]({{base_path}}/apis/overview/#how-to-access-the-apis) for your organization using the scope specified in the relevant API operation. 
        2.  Expand the relevant API operation and click the **Try It Out** button.  
        3.  Fill in relevant sample values for the input parameters and click **Execute**. 
             You will receive a sample curl command with the sample values you filled in. 
@@ -40,6 +40,7 @@ template: templates/swagger.html
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
+    supportedSubmitMethods: [],
     presets: [
       SwaggerUIBundle.presets.apis,
       SwaggerUIStandalonePreset

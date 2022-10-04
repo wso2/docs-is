@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: WSO2 Identity Server - User Session Management API Definition
   description: This is the RESTful API for managing user sessions in WSO2 Identity
-    Server
+    Server. <br> Grant type - <code> Passowrd </code>
   contact:
     name: WSO2 Identity Server
     url: https://wso2.com/identity-and-access-management/
@@ -67,6 +67,15 @@ paths:
           _This parameter is not supported yet._
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sessions' 
+            example: | 
+              curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions" 
+              -H "accept: application/json" 
+              -H "Authorization: Bearer <access-token>"
       responses:
         200:
           description: Successfully retrieved session information
@@ -114,6 +123,15 @@ paths:
       description: |
         A user has multiple active sessions. This API terminates all the active sessions of the authenticated user. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> * internal_login
       operationId: terminateSessionsByLoggedInUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sessions' 
+            example: | 
+              curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions"
+              -H "accept: */*" 
+              -H "Authorization: Bearer <access-token>"
       responses:
         204:
           description: No Content
@@ -151,6 +169,15 @@ paths:
         required: true
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sessions' 
+            example: | 
+              curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions/<session_id>"
+              -H "accept: */*" 
+              -H "Authorization: Bearer <access-token>"
       responses:
         204:
           description: No Content
@@ -219,6 +246,15 @@ paths:
           _This parameter is not supported yet._
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+            example: | 
+              curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+              -H "accept: application/json"
+              -H "Authorization: Bearer <access-token>"
       responses:
         200:
           description: Successfully retrieved session information.
@@ -262,6 +298,15 @@ paths:
         required: true
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+            example: | 
+              curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+              -H "accept: */*"
+              -H "Authorization: Bearer <access-token>"
       responses:
         204:
           description: No Content
@@ -303,6 +348,15 @@ paths:
         required: true
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+            example: | 
+              curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions/<session_id>" 
+              -H "accept: */*"
+              -H "Authorization: Bearer <access-token>"
       responses:
         204:
           description: No Content
@@ -489,14 +543,3 @@ components:
       required: true
       schema:
         type: string
-  securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://localhost:9443/oauth2/authorize
-          tokenUrl: https://localhost:9443/oauth2/token
-          scopes: {}
