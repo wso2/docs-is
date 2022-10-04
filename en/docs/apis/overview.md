@@ -1,6 +1,6 @@
 # APIs - Overview
 
-Administrators can use REST APIs in WSO2 Identity Server to manage their organizations and application users to manage their logins and profiles.
+Administrators can use REST APIs in WSO2 Identity Server to manage their organizations and application users can use these APIs to manage their logins and profiles.
 
 !!! info
     Two OSGi services provide authentication and authorization services for REST APIs based on their handlers.
@@ -8,14 +8,14 @@ Administrators can use REST APIs in WSO2 Identity Server to manage their organiz
     You can write your handlers for authentication and authorization and register them in OSGI. For more information, refer to [Write a Custom Local Authenticator]({{base_path}}/references/extend/federation/write-a-custom-local-authenticator).
 
 
-## Authentication
+## Get access to APIs
 
 At least one authentication element should be sent in an API invocation request to invoke the API successfully. If you fail to add the authentication element, the  API request will return a `401` unauthorized HTTP response.
 
 WSO2 Identity Server supports the following API authentication methods:
 
 - [Basic authentication](#basic-authentication)
-- [Bearer authentication](#bearer-authentication)
+- [OAuth-based authentication](#oauth-based-authentication)
 - [Certificate-based authentication](#certificate-based-authentication)
 
 ### Basic authentication
@@ -31,7 +31,7 @@ curl -X GET "https://localhost:9443/t/carbon.super/api/server/v1/applications?li
 
 ---
 
-### Bearer authentication
+### OAuth-based authentication
 This authentication method requires users to obtain an OAuth2 token and then use it to invoke the APIs. If the API you wish to invoke has `Password`, `Client-credentials`, or `AuthorizationCode` as the authentication requirement, use the following request format to obtain a bearer token.
 
 !!! info "Before you begin"
@@ -122,6 +122,8 @@ Add the following configuration to the `deployment.toml` file to enable this fea
 
 
 ## Additional configurations
+
+This section covers the additional configurations that admins can use when using APIS.
 
 ### Secure resources
 

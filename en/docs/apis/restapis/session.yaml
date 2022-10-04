@@ -1,8 +1,13 @@
 openapi: 3.0.1
 info:
   title: WSO2 Identity Server - User Session Management API Definition
-  description: This is the RESTful API for managing user sessions in WSO2 Identity
-    Server. <br> Grant type - <code> Passowrd </code>
+  description: | 
+    This is the RESTful API for managing user sessions in WSO2 Identity Server. 
+    <br> <b> Authentication methods: </b>
+    <ul>
+    <li> Basic authentication </li>
+    <li> OAuth based authentication - <code> Password </code> </li>
+    </ul>
   contact:
     name: WSO2 Identity Server
     url: https://wso2.com/identity-and-access-management/
@@ -13,11 +18,6 @@ info:
   version: v1
 servers:
 - url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
-  variables:
-    serverUrl:
-      default: localhost:9443
-    tenantDomain:
-      default: carbon.super
 security:
 - OAuth2: []
 - BasicAuth: []
@@ -34,7 +34,7 @@ paths:
       - me
       summary: Retrieve active sessions of the authenticated user
       description: |
-        A user can have multiple active sessions. This API retrieves information of all the active sessions of the authenticated user. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> * internal_login
+        A user can have multiple active sessions. This API retrieves information of all the active sessions of the authenticated user. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> <code> internal_login </code>
       operationId: getSessionsOfLoggedInUser
       parameters:
       - name: limit
@@ -72,10 +72,17 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Sessions' 
-            example: | 
-              curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions" 
-              -H "accept: application/json" 
-              -H "Authorization: Bearer <access-token>"
+            examples:
+              Using basic authentication:
+                value: | 
+                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions" 
+                  -H "accept: application/json" 
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions" 
+                  -H "accept: application/json" 
+                  -H "Authorization: Bearer <access-token>"
       responses:
         200:
           description: Successfully retrieved session information
@@ -121,17 +128,24 @@ paths:
       - me
       summary: Terminate all the active sessions of the authenticated user
       description: |
-        A user has multiple active sessions. This API terminates all the active sessions of the authenticated user. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> * internal_login
+        A user has multiple active sessions. This API terminates all the active sessions of the authenticated user. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> <code> internal_login </code>
       operationId: terminateSessionsByLoggedInUser
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Sessions' 
-            example: | 
-              curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions"
-              -H "accept: */*" 
-              -H "Authorization: Bearer <access-token>"
+            examples:
+              Using basic authentication:
+                value: | 
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions"
+                  -H "accept: */*" 
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions"
+                  -H "accept: */*" 
+                  -H "Authorization: Bearer <access-token>"
       responses:
         204:
           description: No Content
@@ -160,7 +174,7 @@ paths:
       - me
       summary: Terminate a given session of the authenticated user
       description: |
-        A user has multiple active sessions. This API terminates a specific session of the authenticated user identified by the session-id. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> * internal_login
+        A user has multiple active sessions. This API terminates a specific session of the authenticated user identified by the session-id. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> <code> internal_login </code>
       operationId: terminateSessionByLoggedInUser
       parameters:
       - name: session-id
@@ -174,10 +188,17 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Sessions' 
-            example: | 
-              curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions/<session_id>"
-              -H "accept: */*" 
-              -H "Authorization: Bearer <access-token>"
+            examples:
+              Using basic authentication:
+                value: |  
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions/<session_id>"
+                  -H "accept: */*" 
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions/<session_id>"
+                  -H "accept: */*" 
+                  -H "Authorization: Bearer <access-token>"
       responses:
         204:
           description: No Content
@@ -206,8 +227,8 @@ paths:
       - admin
       summary: Get active sessions
       description: Retrieves information related to the active sessions of a user
-        identified by the user-id. <br> <b>Permission required:</b> <br> * /permission/admin/manage/identity/authentication/session/view
-        <br> <b>Scope required:</b> <br> * internal_session_view
+        identified by the user-id. <br> <b>Permission required:</b> <br> <code> /permission/admin/manage/identity/authentication/session/view </code>
+        <br> <b>Scope required:</b> <br> <code> internal_session_view</code>
       operationId: getSessionsByUserId
       parameters:
       - name: user-id
@@ -251,10 +272,17 @@ paths:
           application/json:
             schema:
               type: string
-            example: | 
-              curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
-              -H "accept: application/json"
-              -H "Authorization: Bearer <access-token>"
+            examples:
+              Using basic authentication:
+                value: | 
+                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  -H "accept: application/json"
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  -H "accept: application/json"
+                  -H "Authorization: Bearer <access-token>"
       responses:
         200:
           description: Successfully retrieved session information.
@@ -288,8 +316,8 @@ paths:
       - admin
       summary: Terminate all sessions
       description: Deletes all the sessions of a user identified by the user-id. <br>
-        <b>Permission required:</b> <br> * /permission/admin/manage/identity/authentication/session/delete
-        <br> <b>Scope required:</b> <br> * internal_session_delete
+        <b>Permission required:</b> <br> <code> /permission/admin/manage/identity/authentication/session/delete </code>
+        <br> <b>Scope required:</b> <br> <code> internal_session_delete </code>
       operationId: terminateSessionsByUserId
       parameters:
       - name: user-id
@@ -303,10 +331,17 @@ paths:
           application/json:
             schema:
               type: string
-            example: | 
-              curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
-              -H "accept: */*"
-              -H "Authorization: Bearer <access-token>"
+            examples:
+              Using basic authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  -H "accept: */*"
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  -H "accept: */*"
+                  -H "Authorization: Bearer <access-token>"
       responses:
         204:
           description: No Content
@@ -332,8 +367,8 @@ paths:
       - admin
       summary: Terminate a session
       description: Terminates a specific session of a user by the session-id. <br>
-        <b>Permission required:</b> <br> * /permission/admin/manage/identity/authentication/session/delete
-        <br> <b>Scope required:</b> <br> * internal_session_delete
+        <b>Permission required:</b> <br> <code> /permission/admin/manage/identity/authentication/session/delete </code>
+        <br> <b>Scope required:</b> <br> <code> internal_session_delete </code>
       operationId: terminateSessionBySessionId
       parameters:
       - name: user-id
@@ -353,10 +388,17 @@ paths:
           application/json:
             schema:
               type: string
-            example: | 
-              curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions/<session_id>" 
-              -H "accept: */*"
-              -H "Authorization: Bearer <access-token>"
+            examples:
+              Using basic authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions/<session_id>" 
+                  -H "accept: */*"
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions/<session_id>" 
+                  -H "accept: */*"
+                  -H "Authorization: Bearer <access-token>"
       responses:
         204:
           description: No Content
