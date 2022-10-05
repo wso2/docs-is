@@ -388,6 +388,6 @@ New user store managers are named with the `UniqueiId` prefix for the old user s
 
 ## Thumbprint certificate hashing algorithm
 
-From IS 5.10.0 onwards, the hashing algorithm used for thumbprint certificate generation is updated to `SHA-256`. For versions before IS 5.10.0, Identity Server used `SHA-1` as the hashing algorithm used for thumbprint certificate generation.
+From IS 5.10.0 onwards, the hashing algorithm used for thumbprint certificate generation is updated to `SHA-256`. For versions before IS 5.10.0, WSO2 Identity Server used `SHA-1` as the hashing algorithm for thumbprint certificate generation.
 
 Therefore if a user migrates from IS 5.9.0 or a lower version to 5.10.0, the previously issued JWTs will not be validated against the new thumbprint included in the JWKS response of the latest version.
