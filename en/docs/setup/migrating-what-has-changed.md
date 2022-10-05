@@ -360,12 +360,12 @@ In IS 5.10.0, there are significant changes has been introduced to the WSDL of t
 Admin Service with the addition of new properties to the service provider model object. Therefore SOAP API consumers 
 should regenerate the stub or upgrade the dependency version of the stub.
 
-## WSDL of the User Account Association Service has been changed 
+## WSDL of the User Account Association Service has been changed
 In IS 5.10.0, there are significant changes has been introduced to the WSDL of the User Account Association 
 Admin Service with the addition of new properties to the service provider model object. Therefore SOAP API consumers 
 should regenerate the stub or upgrade the dependency version of the stub.
 
-## Handling SMS OTP Error Response using Internal Error Codes 
+## Handling SMS OTP Error Response using Internal Error Codes
 From IS 5.10.0 onwards, SMS-OTP webapp uses internal error codes when there is an error response returned from the 
 SMS provider.
 
@@ -376,7 +376,7 @@ SMS provider.
     [authentication.authenticator.sms_otp.parameters]
     UseInternalErrorCodes = false
     ```
-## New User Store Managers with built in unique ID support. 
+## New User Store Managers with built in unique ID support
 
 New user store managers with inbuilt unique ID support will provide the capability to enhance the user store operations 
 that were initially architecturally impossible. These operations include username rename functionality and a
@@ -384,4 +384,10 @@ that were initially architecturally impossible. These operations include usernam
  features whenever those new features available.  
 
 New user store managers are named with the `UniqueiId` prefix for the old user store managers. For example,
-`JDBCUserStoreManager` with unique ID capabilities will be named as `UniqueIDJDBCUserStoreManager`
+`JDBCUserStoreManager` with unique ID capabilities will be named as `UniqueIDJDBCUserStoreManager`.
+
+## Thumbprint certificate hashing algorithm
+
+From IS 5.10.0 onwards, the hashing algorithm used for thumbprint certificate generation is updated to `SHA-256`. For versions before IS 5.10.0, WSO2 Identity Server used `SHA-1` as the hashing algorithm for thumbprint certificate generation.
+
+Therefore, if a user migrates from IS 5.9.0 or a lower version to 5.10.0, the previously issued JWTs will not be validated against the new thumbprint included in the JWKS response of the latest version.
