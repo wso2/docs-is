@@ -112,7 +112,7 @@ processors](TO-DO:{{base_path}}/learn/extension-points-for-oauth#token-persisten
     </tr>
     <tr>
         <td>Scopes</td>
-        <td>This is a space separated, case-sensitive list of OpenID Connect scopes to request from the identity provider. See the <a href="https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OpenID Connect specification</a> for more information about what scopes can be configured here.</td>
+        <td>This is a space-separated, case-sensitive list of OpenID Connect scopes to request from the identity provider. See the <a href="https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OpenID Connect specification</a> for more information about what scopes can be configured here.</td>
         <td>openid email profile</td>
     </tr>
     <tr>
