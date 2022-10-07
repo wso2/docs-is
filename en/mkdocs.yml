@@ -652,6 +652,7 @@ nav:
           - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
           - Write an Outbound Provisioning Connector: references/extend/provisioning/write-an-outbound-provisioning-connector.md
           #- Extensible SCIM User Schemas With WSO2 Identity Server: references/extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
+        - Self-Registration verification mechanisms: references/extend/user-mgt/self-register-verification.md
       - User self-service:
         - Set up in a Development Environment: references/extend/myaccount/set-up-my-account-in-a-dev-environment.md
         - Customize the UI: references/extend/myaccount/customize-my-account-ui.md
