@@ -2159,7 +2159,7 @@ components:
       required: false
       description: |
         Specifies the required parameters in the response.
-        Currently supports for only 'advancedConfigurations', 'templateId', 'clientId', and 'issuer' attributes.
+        Only 'advancedConfigurations', 'templateId', 'clientId', and 'issuer' attributes are currently supported.
         
         /applications?attributes=advancedConfigurations,templateId,clientId,issuer
       schema:
