@@ -1,21 +1,15 @@
 # Configuring a JDBC User Store
 
-WSO2 identity server uses a embedded LDAP as the primary user store.
-This document will guide to you to change that to a JDBC user store.
-By default, the WSO2 Identity Server embedded H2 
-database contains user store tables. When you configure an RDBMS (JDBC) user store, you can
-use internal H2 user store tables or you can use an external database as a
-user store. If you're going to use default user store tables for the external JDBC user store, see [User
-Management Related Tables](../../administer/user-management-related-tables) section.
+WSO2 identity server uses an embedded LDAP as the primary user store.
+This document will guide you to change that to a JDBC user store. By default, the WSO2 Identity Server embedded H2 database contains user store tables. When you configure an RDBMS (JDBC) user store, you can use internal H2 user store tables, or you can use an external database as a user store. If you're going to use default user store tables for the external JDBC user store, see [User Management Related Tables](../../administer/user-management-related-tables) section.
 
 !!! tip 
-    Please read the topic [Configuring User Stores](../../setup/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
-    Identity Server (WSO2 IS).
+    Please read the topic [Configuring User Stores](../../setup/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2 Identity Server (WSO2 IS).
   
-In this page, you can find following details related to configuring a
+On this page, you can find the following details related to configuring a
 JDBC user store.
 
-##Configuring the internal database as JDBC user store. 
+## Configuring the internal database as a JDBC user store
 
 Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
@@ -23,51 +17,38 @@ Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 [user_store]
 type = "database_unique_id"
 ```
-   By default it will use the  `database.shared_db` 
-   configurations in the `         deployment.toml       `  file. As the datasource configuration.
-      
-   If you have a requirement of changing the `database.shared_db` configuration see 
-   [Working With Databases](../../setup/working-with-databases).
-  
-   `database.shared_db` is used to store both registry and user management related data. If you 
-   are having a requirement of using a datasource specified for the user management, you can externalize
-   the user management related tables to another external database and use that database
-   as the user store. Please see the following topic for further instructions.
-   
-##Configuring an external database as JDBC user store. 
+   By default it will use the  `database.shared_db` configurations in the `deployment.toml`  file. As the data source configuration.
 
-  1. Create a database on [any supported RDBMS database](../../setup/working-with-databases). 
-    
+   If you require changing the `database.shared_db` configuration see [Working With Databases](../../setup/working-with-databases).
+  
+   `database.shared_db` stores registry and user management related data. Suppose you have a requirement to use a data source specified for user management. In that case, you can externalize the user management related tables to another external database and use that database as the user store. Please see the following topic for further instructions.
+
+## Configuring an external database as a JDBC user store
+
+  1. Create a database on [any supported RDBMS database](../../setup/working-with-databases).
+
   2. Following are the example configurations for each database type.
-        
+
 ??? example "PostgreSQL"
-    
-    1. deployment.toml Configurations.
+    1. Add the following configurations to the `deployment.toml` file.
         ```
         [database.user]
         url = "jdbc:postgresql://localhost:5432/userdb"
         username = "root"
         password = "root"
         driver = "org.postgresql.Driver"
-        
         [realm_manager]
         data_source = "WSO2USER_DB"
         ```
-        
-    2. Executing database scripts. 
-    
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
-        [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
-        against the database created.    
-            
+    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.    
+
           - `<IS-HOME>/dbscripts/postgresql.sql`
           
-    3. Download the PostgreSQL JDBC driver for the version you are using and
-                   copy it to the `<IS_HOME>/repository/components/lib` folder 
+    3. Download the PostgreSQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder 
 
 ??? example "MySQL"
 
-    1. deployment.toml Configurations.
+    1. Add the following configurations to the `deployment.toml` file.
         ```
         [database.user]
         url = "jdbc:mysql://localhost:3306/userdb?useSSL=false"
@@ -79,20 +60,15 @@ type = "database_unique_id"
         data_source = "WSO2USER_DB"
         ```
     
-    2. Executing database scripts. 
-
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
-        [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
-        against the database created.        
+    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.        
             
           - `<IS-HOME>/dbscripts/mysql.sql`
 
-    3. Download the MySQL JDBC driver for the version you are using and
-                   copy it to the `<IS_HOME>/repository/components/lib` folder          
+    3. Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder          
 
 ??? example "DB2"
 
-    1. deployment.toml Configurations.
+    1. Add the following configurations to the `deployment.toml` file.
         ```
         [database.user]
         url = "jdbc:db2://192.168.108.31:50000/userdb"
@@ -103,20 +79,15 @@ type = "database_unique_id"
         [realm_manager]
         data_source = "WSO2USER_DB"
         ```    
-    2. Executing database scripts. 
-    
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
-        [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
-        against the database created.       
+    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.       
             
           - `<IS-HOME>/dbscripts/db2.sql`
    
-    3. Download the DB2 JDBC driver for the version you are using and
-                   copy it to the `<IS_HOME>/repository/components/lib` folder 
+    3. Download the DB2 JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder 
 
 ??? example "MSSQL"
 
-    1. deployment.toml Configurations.
+    1. Add the following configurations to the `deployment.toml` file.
         ```
         [database.user]
         url = "jdbc:sqlserver://localhost:1433;databaseName=userdb;SendStringParametersAsUnicode=false"
@@ -127,21 +98,16 @@ type = "database_unique_id"
         [realm_manager]
         data_source = "WSO2USER_DB"
         ```
-    2. Executing database scripts. 
-    
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
-        [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
-        against the database created.        
+    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.        
             
           - `<IS-HOME>/dbscripts/mssql.sql`
           
-    3. Download the MSSQL JDBC driver for the version you are using and
-                   copy it to the `<IS_HOME>/repository/components/lib` folder  
-    
+    3. Download the MSSQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
+
 
 ??? example "Oracle"
 
-    1. deployment.toml Configurations.
+    1. Add the following configurations to the `deployment.toml` file.
         ```
         [database.user]
         url = "jdbc:oracle:thin:@localhost:1521/userdb"
@@ -152,21 +118,15 @@ type = "database_unique_id"
         [realm_manager]
         data_source = "WSO2USER_DB"
         ```
-    2. Executing database scripts. 
-    
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
-        [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
-        against the database created.      
+    2. Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of [User Management Related Tables](../../administer/user-management-related-tables) in the following file, against the database created.      
             
           - `<IS-HOME>/dbscripts/oracle.sql`
           
-    3. Download the Oracle JDBC driver for the version you are using and
-                   copy it to the `<IS_HOME>/repository/components/lib` folder 
+    3. Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder 
 
 ## Properties used in JDBC user store manager
 
-Following are the properties used in JDBC user store manager. You can configure any of
-those properties as follows. 
+Following are the properties used in JDBC user store manager. You can configure any of those properties as follows. 
 
 Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
@@ -181,8 +141,8 @@ For example :
 read_groups = true
 ```
 
-!!! tip 
-    The properties given below can be configured for a secondary user store through the management console.
+!!! tip
+    You can configure the properties below for a secondary user store through the management console.
 
 <table>
 <thead>
@@ -213,28 +173,28 @@ false: Do not read groups from user store</p></td>
 <br />
 <p>Default : true <br/>
 Possible values:<br />
-true : Write groups to user store<br />
-false : Do not write groups to user store, so only internal roles can be created. Depending on the value of ReadGroups property, it will read existing groups from user store or not</p></td>
+true: Write groups to user store<br />
+false: Do not write groups to the user store, so only internal roles can be created. Depending on the value of ReadGroups property, it will read existing groups from the user store or not</p></td>
 </tr>
 <tr class="odd">
 <td>PasswordHashMethod</td>
 <td>password_hash_method</td>
 <td>Password Hashing Algorithm</td>
-<td><p>Specifies the Password Hashing Algorithm used to hash the password before storing it in the userstore.<br />
+<td><p>Specifies the Password Hashing Algorithm used to hash the password before storing it in the user store.<br />
 Possible values:<br />
-SHA - Uses SHA digest method. SHA-1, SHA-256<br />
+SHA - Uses SHA digest method. SHA-1, SHA-256 and SHA 512<br />
 MD5 - Uses MD 5 digest method.<br />
 PLAIN_TEXT - Plain text passwords.</p>
 <p>If you just enter the value `SHA`, it will be considered as `SHA-1`. It is always better to configure an algorithm with a higher bit value so that the digest bit size would be increased.
 <br />
-The default value for JDBC userstores is SHA-256. 
+The default value for JDBC user stores is SHA-256. 
 </p></td>
 </tr> 
 <tr class="odd">
 <td>UsernameJavaRegEx</td>
 <td>username_java_regex</td>
 <td>UsernameJavaRegEx</td>
-<td>The regular expression used by the back-end components for username validation. By default, strings with non-empty characters have a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br/>
+<td>The regular expression used by the back-end components for username validation. By default, strings with non-empty characters with a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers, and ASCII values in the RegEx properties.<br/>
 <p>Default: ^[\S]{3,30}$</td></p> <br/>
 </tr>
 <tr class="even">
@@ -255,7 +215,7 @@ The default value for JDBC userstores is SHA-256.
 <td>PasswordJavaRegEx</td>
 <td>password_java_regex</td>
 <td>Password RegEx (Java)</td>
-<td>The regular expression used by the back-end components for password validation. By default, strings with non-empty characters have a length of 5 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
+<td>The regular expression used by the back-end components for password validation. By default, strings with non-empty characters with a length of 5 to 30 are allowed. You can provide ranges of alphabets, numbers, and ASCII values in the RegEx properties.<br />
 Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="odd">
@@ -275,7 +235,7 @@ Default: ^[\S]{5,30}$</td>
 <td>RolenameJavaRegEx</td>
 <td>rolename_java_regex</td>
 <td>Role Name RegEx (Java)</td>
-<td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
+<td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters with a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers, and ASCII values in the RegEx properties.<br />
 <p>Default: [a-zA-Z0-9._-|//]{3,30}$</p></td>
 </tr>
 <tr class="odd">
@@ -289,10 +249,10 @@ Default: ^[\S]{5,30}$</td>
 <td>MaxUserName<br>ListLength</td>
 <td>max_user_name_<br>list_length</td>
 <td>Maximum User List Length</td>
-<td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have a large number of users and do not want to list them all. Setting this property to 0 displays all users. (Default: 100)<br />
+<td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have many users and do not want to list them all. Setting this property to 0 displays all users. (Default: 100)<br />
 <br />
-In some user stores, there are policies to limit the number of records that can be returned from a query. By setting the value to 0, it will list the maximum results returned by the user store. If you need to increase this number, you need to set it in the user store level.<br />
-Eg: Active directory has the MaxPageSize property with the default value of 100.</td>
+In some user stores, there are policies to limit the number of records that can be returned from a query. Setting the value to 0 will list the maximum results returned by the user store. To increase this number, you need to set it in the user store level.<br />
+E.g., Active directory has the MaxPageSize property with the default value of 100.</td>
 </tr>
 <tr class="odd">
 <td>MaxRoleName<br>ListLength</td>
@@ -300,8 +260,8 @@ Eg: Active directory has the MaxPageSize property with the default value of 100.
 <td>Maximum Role List Length</td>
 <td>Controls the number of roles listed in the user store of a WSO2 product. This is useful when you have a large number of roles and do not want to list them all. Setting this property to 0 displays all roles. (Default: 100)<br />
 <br />
-In some user stores, there are policies to limit the number of records that can be returned from a query. By setting the value to 0, it will list the maximum results returned by the user store. If you need to increase this number, you need to set it in the user store level.<br />
-Eg: Active directory has the MaxPageSize property with the default value of 1000.</td>
+In some user stores, there are policies to limit the number of records that can be returned from a query. Setting the value to 0 will list the maximum results returned by the user store. To increase this number, you need to set it in the user store level.<br />
+E.g., Active directory has the MaxPageSize property with the default value of 1000.</td>
 </tr>
 <tr class="even">
 <td>UserRolesCacheEnabled</td>
@@ -310,7 +270,7 @@ Eg: Active directory has the MaxPageSize property with the default value of 1000
 <td>This is to indicate whether to cache the role list of a user. (Default: true)<br />
 <br />
 Possible values:<br />
-false: Set it to false if the user roles are changed by external means and those changes should be instantly reflected in the Carbon instance.</td>
+false: Set it to false if the user roles are changed by external means, and those changes should be instantly reflected in the Carbon instance.</td>
 </tr>
 <tr class="odd">
 <td>CaseInsensitiveUsername</td>
@@ -324,10 +284,7 @@ false: Set it to false if the user roles are changed by external means and those
 </table>
 
 !!! note
-    Addition to these properties, you can configure SQL queries that are
-    used in JDBC user store manager and if required can change default
-    queries. Those are not listed under above property section but you can
-    do the configuration as same as described above.
+    In addition to these properties, you can configure SQL queries used in the JDBC user store manager and, if required, change default queries. Those are not listed under the above property section, but you can do the configuration as same as described above.
     
 
 ??? note "JDBC sample property with SQL queries"
@@ -415,12 +372,8 @@ false: Set it to false if the user roles are changed by external means and those
     ```
 
 ## Special requirements
-You need to restart the server after doing these changes.
+You need to restart the server after making these changes.
 
 !!! tip "For more information"
-
-    -   If you want to configure a primary user store for another user store type, you need to follow
-        the steps given in [Configuring the Primary User
-        Store](../../setup/configuring-the-primary-user-store).
-    -   For configuring a secondary user store please read the topic: 
-        [Configuring Secondary UserStores](../../setup/configuring-secondary-user-stores)
+    - If you want to configure a primary user store for another user store type, you need to follow the steps in [Configuring the Primary User Store](../../setup/configuring-the-primary-user-store).
+    - For configuring a secondary user store please read the topic: [Configuring Secondary UserStores](../../setup/configuring-secondary-user-stores)
