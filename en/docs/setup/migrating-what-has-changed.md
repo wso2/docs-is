@@ -223,6 +223,6 @@ url = "jdbc:h2:./repository/database/WSO2SHARED_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_T
 username = "wso2carbon"
 password = "wso2carbon"
 ```
-It is sufficient to change these two datasources without considering WSO2_CARBON_DB even for production deployments due to the reasons mentioned originally.
+It is sufficient to change these two datasources without considering WSO2_CARBON_DB even for production deployments due to the reasons mentioned above.
 
 Refer:   [Working with Databases](../../setup/working-with-databases) for exact details on changing datasource configurations.
