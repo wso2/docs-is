@@ -225,4 +225,4 @@ password = "wso2carbon"
 ```
 It is sufficient to change these two datasources without considering WSO2_CARBON_DB even for production deployments due to the reasons mentioned above.
 
-Refer:   [Working with Databases](../../setup/working-with-databases) for exact details on changing datasource configurations.
+See the instructions on [working with databases](../../setup/working-with-databases) for details on changing datasource configurations.
