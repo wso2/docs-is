@@ -207,7 +207,7 @@ From IS 5.9.0 onwards, WebAuthn API is being used instead of U2F API. If you hav
     ```
 ## H2 Database for WSO2_CARBON_DB datasource
 
-From IS 5.9.0 onwards, the WSO2_CARBON_DB datasource will use the embedded H2 Database and it is not configurable.The default WSO2_CARBON_DB datasource is only used in the local registry mount of the server hence in every IS version, its recommended to use to embedded H2 DB even in the production deployment.This recommendation is enforced with the new configuration model from IS 5.9.0 onwards. So you don't need to change WSO2_CARBON_DB datasource in IS 5.9.0 and its not even showing in the deployment.toml file by default.
+From IS 5.9.0 onwards, the WSO2_CARBON_DB datasource will use the embedded H2 database and it is not configurable. The default WSO2_CARBON_DB datasource is only used in the local registry mount of the server. Therefore, in every IS version, it's recommended to use the embedded H2 database even in the production deployment. This recommendation is enforced with the new configuration model from IS 5.9.0 onwards. Note that you don't need to change the WSO2_CARBON_DB datasource in IS 5.9.0 and it will not be available in the `deployment.toml` file by default.
 
 There are two configurable datasources available in the default deployment.toml file as follows,
 ```toml
