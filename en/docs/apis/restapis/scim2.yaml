@@ -1346,7 +1346,7 @@ paths:
     post:
       tags:
       - Bulk Endpoint
-      summary: Create, update and delete users in bulk
+      summary: Create Users in Bulk
       description: "This API is used to create multiple users at once.\n\n <b>Permission\
         \ required:</b>\n * /permission/admin/manage/identity/usermgt\n \n <b>Scope\
         \ required:</b>\n    * internal_user_mgt_create\n"
@@ -1379,6 +1379,46 @@ paths:
         409:
           description: Users already exists
           content: {}
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+      - Bulk Endpoint
+      summary: Delete Users in Bulk
+      description: "This API is used to delete multiple users at once.\n\n <b>Permission\
+        \ required:</b>\n * /permission/admin/manage/identity/usermgt/delete\n \n\
+        \ <b>Scope required:</b>\n    * internal_user_mgt_delete\n"
+      operationId: deleteBulkUsers
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/BulkUserDeleteRequestObject'
+        required: false
+      responses:
+        204:
+          description: User group is deleted
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/BulkUserDeleteResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        404:
+          description: Valid group is not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNoGroupAvailable'
       x-codegen-request-body-name: body
   /ResourceTypes:
     get:
