@@ -112,7 +112,7 @@ The following steps describe how to configure a service provider public certific
 
 This section guides you through obtaining an encrypted ID token and decrypting it using the WSO2 IS playground sample application. Alternatively, you can use a simple java program to decrypt the token. For instructions, see [Decrypt the ID token]({{base_path}}/guides/login/oidc-token-decryption).
 
-1. See [OAuth Grant Types]({{base_path}}/guides/access-delegation/authorization-code) and try out one of the grant types with the `openid` scope to obtain an access token.
+1. See [OAuth Grant Types]({{base_path}}/guides/access-delegation/auth-code-playground) and try out one of the grant types with the `openid` scope to obtain an access token.
 
 2. You will recieve an access token and an encrypted ID token. 
 
@@ -144,7 +144,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
 
 !!! info "Related topics"
     - [Concept: ID Token]({{base_path}}/references/concepts/authentication/id-token)
-    - [Quick Start: OpenID Connect Token Encryption]({{base_path}}/quick-starts/oidc-token-encryption-sample)
-    - [Guide: Enable Login for an OpenID Connect Web Application]({{base_path}}/webapp-oidc)
-    - [Guide: Use Advanced Parameters in Authentication Requests]({{base_path}}/oidc-parameters-in-auth-request)
+    <!--- [Quick Start: OpenID Connect Token Encryption]({{base_path}}/quick-starts/oidc-token-encryption-sample) -->
+    - [Guide: Enable Login for an OpenID Connect Web Application]({{base_path}}/guides/login/webapp-oidc/)
+    - [Guide: Use Advanced Parameters in Authentication Requests]({{base_path}}/guides/login/oidc-parameters-in-auth-request)
 

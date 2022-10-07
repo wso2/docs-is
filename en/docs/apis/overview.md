@@ -5,7 +5,7 @@ REST APIs in WSO2 Identity Server can be used by administrators to manage their 
 !!! info
     There are two OSGi services that provide authentication and authorization services for REST APIs based on their own handlers.
     
-    You can write your own handlers for both authentication and authorization and register them in OSGI. For more information, refer to [Write a Custom Local Authenticator](../references/extend/federation/write-a-custom-local-authenticator.md).
+    You can write your own handlers for both authentication and authorization and register them in OSGI. For more information, refer to [Write a Custom Local Authenticator]({{base_path}}/references/extend/federation/write-a-custom-local-authenticator).
 
 ## REST API authentication
 
@@ -15,7 +15,7 @@ WSO2 Identity Server supports the following API authentication methods:
 
 - **OAuth2 common flows based authentication** : Obtains an OAuth2 token and uses it to invoke the APIs.
 !!! info
-    To invoke the APIs using OAuth2 common flows, create a new managed application in IS. Refer to [service provider creation guide](../guides/applications/register-sp.md).
+    To invoke the APIs using OAuth2 common flows, create a new managed application in IS. Refer to [service provider creation guide]({{base_path}}/guides/applications/register-sp).
 
 - **Client certificate-based authentication** : Uses mutual SSL to authenticate users and invoke the APIs.
 
@@ -58,8 +58,8 @@ To enable this feature, add the following configuration to the **deployment.toml
     
     - If the user is in the primary userstore, the incoming cert CN should just be `<username>` e.g., `john`.
     - If the user is in a secondary userstore, the incoming cert CN should be `<userstore_domain>/<username>` e.g., `SECONDARY/john`.
-    - If the user is not a super tenant and belongs to the primary userstore, the incoming cert CN should be `<username@tenant_doman>` e.g., `john@abc.com`.
-    - If the user is not a super tenant and belongs to a secondary userstore, the incoming cert CN should be `<userstore_domain>/<username@tenant_doman>` e.g.,             `SECONDARY/john@abc.com`.
+    - If the user is not a super tenant and belongs to the primary userstore, the incoming cert CN should be `<username@tenant_domain>` e.g., `john@abc.com`.
+    - If the user is not a super tenant and belongs to a secondary userstore, the incoming cert CN should be `<userstore_domain>/<username@tenant_domain>` e.g.,             `SECONDARY/john@abc.com`.
 
 ## REST API Authorization 
 
@@ -73,10 +73,10 @@ You can configure user role permissions to restrict access to resources. To do s
 
     | Parameter            |    Description                                                                                                                                                   | Sample Value                                               |
     |----------------------|    ---------------------------------------------------------------------------------------------------------------------   ----------------------------------------|------------------------------------------------------------|
-    | **context** | The resource context that needs to be secured relative to the root context, .                                                                  | `                 /api/identity/  *                `         |
+    | **context** | The resource context that needs to be secured relative to the root context, .                                                                  | `                 /api/identity/*                `         |
     | **secured**          | Enable or disable security in the given resource     context.                                                                         | `                    true                `                    |
     | **http_method**      | Specify an HTTP method i.e `                 all                `, `                   post                `, `                 get                `, etc. | `                 all                   `                     |
-    | **permissions**      | The user role permission that is required to authorize the resource. You can  enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/ login                ` |
+    | **permissions**      | The user role permission that is required to authorize the resource. You can  enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
     | **scope**      | Scopes that an access token requires to access the resource. You can enter multiple     scopes in a comma-separated list.     | `                 internal_idp_create                ` |
 
     !!! abstract ""
@@ -99,7 +99,7 @@ WSO2 Identity Server now supports scope-based API authorization for internal RES
 
 #### Example scenario
 
-Assume that a user whose username is Alex, wants to retrieve the challenge questions available by calling the **/{user-id}/challenges** GET API available in the [Challenge Question REST API](./challenge-rest-api.md).
+Assume that a user whose username is Alex, wants to retrieve the challenge questions available by calling the **/{user-id}/challenges** GET API available in the [Challenge Question REST API]({{base_path}}/apis/challenge-rest-api).
 
 To consume this endpoint, Alex requires `/permission/admin/manage/identity/identitymgt/view` permission and `internal_identity_mgt_view` scope. Hence, Alex can set the scope in the following cURL command and obtain a token.
 
@@ -132,6 +132,6 @@ If the user has sufficient permissions to the scope defined in the request, the 
 
 
 !!! info "Related topics"
-    -   See [Scopes Corresponding to Permissions Required to Invoke REST API Calls](../../references/scopes-corresponding-to-rest-api-permissions) for a list of scopes corresponding to permissions.
+    -   See [Scopes Corresponding to Permissions Required to Invoke REST API Calls]({{base_path}}/references/scopes-corresponding-to-rest-api-permissions) for a list of scopes corresponding to permissions.
 
     -   The permissions and scopes required for REST APIs can be found under each API definition.

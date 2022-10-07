@@ -78,7 +78,6 @@ The following steps describe how to configure a service provider public certific
 
 !!! info "Related topics" 
     -  [Concept: JWKS]({{base_path}}/references/concepts/authentication/jwks)
-    -  [Guide: Generate and Encrypt ID Tokens]({{base_path}}/oidc-token-encryption)
-    -  [Quick Start: OpenID Connect Token Encryptuon]({{base_path}}/quick-starts/oidc-token-encryption-sample)
-    -  [Guide: Call the JSON Web Key Set (JWKS) Endpoint]({{base_path}}/using-jwks)
-    -  [Guide: Pass Parameters as a Request Object]({{base_path}}/oidc-request-object)
+    -  [Guide: OpenID Connect Token Encryptuon]({{base_path}}/guides/login/oidc-token-encryption)
+    -  [Guide: Call the JSON Web Key Set (JWKS) Endpoint]({{base_path}}/guides/login/using-jwks)
+    -  [Guide: Pass Parameters as a Request Object]({{base_path}}/guides/login/oidc-request-object)

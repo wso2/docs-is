@@ -19,6 +19,10 @@ Following are the sample configuration for each database type.
         username = "regadmin"
         password = "regadmin"
         driver = "org.postgresql.Driver"
+
+        [bps_database.config.pool_options]
+        defaultAutoCommit=false
+        commitOnReturn=true
         ```
         
     2.  Execute the database scripts. 
@@ -91,4 +95,20 @@ Following are the sample configuration for each database type.
     2.  Execute the database scripts. 
     
         Execute the scripts in the `<IS-HOME>/dbscripts/bps/bpel/create/oracle.sql` file against the created database.    
-        
+
+
+**Advanced BPS Database Configurations**
+
+Apart from the above basic configurations, WSO2 Identity Server supports the following advanced BPS database configurations.
+
+   ``` toml
+   [bps_database.config.pool_options]
+   maxActive = "50"
+   maxWait = "60000"
+   minIdle = "5"
+   testOnBorrow = true
+   validationInterval = "30000"
+   validationQuery = "SELECT 1; COMMIT"
+   ```
+
+The descriptions for the advanceded configurations can be found in the [Performance Tuning]({{base_path}}/deploy/performance/performance-tuning-recommendations/#jdbc-pool-configuration) documentation.

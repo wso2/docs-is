@@ -32,5 +32,4 @@ The diagram below illustrates the device flow.
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/learn/refresh-token-grant).
 
 !!! info "Related Topics"
-    See the [Try Device Authorization
-    Grant]({{base_path}}/learn/try-device-flow) topic to try out a sample with WSO2 Identity Server.
+    See the [Try Device Authorization Grant]({{base_path}}/guides/access-delegation/try-device-flow/) topic to try out a sample with WSO2 Identity Server.

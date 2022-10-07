@@ -1,6 +1,6 @@
 # Configure an multi-factor authentication
 
-This section guides you on how to enable multi-factor authentication (MFA) in WSO2 Identity Server. By default, WSO2 Identity Server is shipped with username-and-password-based authentication. You can further strengthen the security of this authentication by adding additional authentication steps to authenticate with basic authentication, FIDO, TOTP, etc.
+This section guides you on how to enable multi-factor authentication (MFA) in WSO2 Identity Server. By default, WSO2 Identity Server is shipped with username-and-password-based authentication. You can further strengthen the security of this authentication by adding additional authentication steps to authenticate with basic authentication, Security Key/Biometrics (FIDO), TOTP, etc.
 
 ## Try MFA
 
@@ -9,4 +9,4 @@ This section guides you on how to enable multi-factor authentication (MFA) in WS
 - [Email OTP for 2-Factor Authentication]({{base_path}}/guides/mfa/2fa-email-otp)
 - [TOTP for 2-Factor Authentication]({{base_path}}/guides/mfa/2fa-totp)
 - [X.509 Certificate for 2-Factor Authentication]({{base_path}}/guides/mfa/x509)
-- [FIDO for 2-Factor Authentication]({{base_path}}/guides/mfa/2fa-fido)
+- [Security Key/Biometrics (FIDO) for 2-Factor Authentication]({{base_path}}/guides/mfa/2fa-fido)

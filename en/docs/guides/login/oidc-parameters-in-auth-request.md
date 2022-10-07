@@ -239,5 +239,5 @@ session_state==...
 !!! info "Related topics"
     - [Concept: OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc)
     - [Concept: OpenID Connect Authentication Parameters]({{base_path}}/references/concepts/authentication/traditional-authentication-request)
-    - [Guide: Enable Login for a OpenID Connect Web Application]({{base_path}}/webapp-oidc)
-    - [Guide: Authorization Code Grant]({{base_path}}/access-delegation/authorization-code/)
+    - [Guide: Enable Login for a OpenID Connect Web Application]({{base_path}}/guides/login/webapp-oidc)
+    - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)

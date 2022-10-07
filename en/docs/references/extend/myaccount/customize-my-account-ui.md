@@ -18,7 +18,7 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 1. Check out the corresponding identity apps source code from the [identity-apps](https://github.com/wso2/identity-apps) repository. 
 
-2. Set it up in the [development environment]({{base_path}}/extend/myaccount/set-up-my-account-in-a-dev-environment). 
+2. Set it up in the [development environment]({{base_path}}/references/extend/myaccount/set-up-my-account-in-a-dev-environment/). 
 
 3. Check out the latest tag of the identity-apps. The v1.0.72 tag is used in the sample mentioned below. 
 

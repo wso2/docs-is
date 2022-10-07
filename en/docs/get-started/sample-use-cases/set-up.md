@@ -10,12 +10,13 @@ Follow the steps given below to set up and install WSO2 Identity Server (WSO2 IS
 Follow the steps given below.
 
 1. Download and install Oracle Java SE Development Kit (JDK) version 11 or 17.
-2. Install WSO2 Identity Server by downloading the [installer](https://wso2.com/identity-and-access-management/install/).
+2. Go to [WSO2 Identity Server official website](https://wso2.com/identity-server/) and click on **Get Started**.
+3. Install WSO2 Identity Server by downloading the **LATEST BINARY RELEASE**.
 
     !!! info
         The installation location of WSO2 Identity Server is referred to as `<IS_HOME>`.
 
-The WSO2 Identity Server installation location can vary depending on the operating system as given below:
+<!-- The WSO2 Identity Server installation location can vary depending on the operating system as given below:
 
 |OS     |Home Directory                                |
 |:------|:---------------------------------------------|
@@ -23,6 +24,8 @@ The WSO2 Identity Server installation location can vary depending on the operati
 |Windows| `C:\Program Files\WSO2\IdentityServer\<IS_HOME>` |
 |Ubuntu | `/usr/lib/wso2/IdentityServer/<IS_HOME>`         |
 |CentOS | `/usr/lib64/IdentityServer/<IS_HOME>`           |
+
+-->
 
 ## Configure the server
 
@@ -70,6 +73,6 @@ Note that the following log appears in the command prompt when the server starts
 
 ## What's next?
 
-Try out the [sample IAM scenarios]({{base_path}}/sample-use-cases/sample-scenario) to get familiar with WSO2 IS and its capabilities.
+Try out the [sample IAM scenarios]({{base_path}}/get-started/sample-use-cases/sample-scenario) to get familiar with WSO2 IS and its capabilities.
 
 

@@ -18,7 +18,7 @@ The identity provider is responsible for authenticating the user and issuing an 
 
 <img name='sso-diagram' src='{{base_path}}/assets/img/concepts/sso-diagram.png' class='img-zoomable' alt="SSO flow"/>
 
-Authentication requests and information are passed using standard, secure protocols, such as [SAML]({{base_path}}/authentication/intro-saml) or [OpenID Connect]({{base_path}}/authentication/intro-oidc/). 
+Authentication requests and information are passed using standard, secure protocols, such as [SAML]({{base_path}}/references/concepts/authentication/intro-saml) or [OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc/). 
 
 <!---
 !!! tip
@@ -49,16 +49,16 @@ For instance, you can set up Google as a federated authenticator and then set up
 
 !!! info
     <!--- - For a more detailed comparison of SSO and Federation, see [SSO vs. Federation](TODO:link-to-concept).
-    - --> For more information on Identity Federation on its own (without SSO), see [Identity Federation]({{base_path}}/identity-federation).
+    - --> For more information on Identity Federation on its own (without SSO), see [Identity Federation]({{base_path}}/guides/identity-federation/identity-federation-overview/).
 
 
 !!! info "Related topics"
-    - [Concept: Authentication]({{base_path}}/authentication/intro-authentication)
-    - [Concept: SAML]({{base_path}}/authentication/intro-saml)
-    - [Concept: OpenID Connect]({{base_path}}/authentication/intro-oidc)
+    - [Concept: Authentication]({{base_path}}/guides/authentication-overview/)
+    - [Concept: SAML]({{base_path}}/references/concepts/authentication/intro-saml/)
+    - [Concept: OpenID Connect]({{base_path}}/references/concepts/authentication/intro-oidc/)
     - [Guide: Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on)
-    - [Quick Start: SSO for OpenID Connect apps]({{base_path}}/quick-starts/sso-for-oidc-apps/)
-    - [Quick Start: SSO for SAML apps]({{base_path}}/quick-starts/sso-for-saml-apps/)
+    - [Quick Start: SSO for OpenID Connect apps]({{base_path}}/get-started/sample-use-cases/single-sign-on/#try-sso-with-oidc)
+    - [Quick Start: SSO for SAML apps]({{base_path}}/get-started/sample-use-cases/single-sign-on/#try-sso-with-saml-20)
     <!--- - [Guide: Single Logout](TODO:link-to-guide) -->
 
 

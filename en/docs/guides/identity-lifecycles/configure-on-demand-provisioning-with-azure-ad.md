@@ -7,19 +7,16 @@ them to the Azure Active Directory at the point of authentication.
 
 ## Prerequisites
 
--   [Configure SAML2 authentication for Office365 with WSO2 IS](TO-DO:{{base_path}}/learn/configuring-office365-saml2-with-wso2-identity-server).
+-   [Configure SAML2 authentication for Office365 with WSO2 IS]({{base_path}}/guides/login/log-into-office365saml-using-is).
 
     !!! tip
         The tutorial linked above uses SAML2 for identity
         federation.  
         To configure Office365 with WSO2 IS using **WS-Federation** instead,
-        see [Configuring Office365 WS-Federation with WSO2
-        IS](TO-DO:{{base_path}}/learn/configuring-office365-ws-federation-with-wso2-is).
+        see [Configuring Office365 WS-Federation with WSO2 IS]({{base_path}}/guides/login/log-into-office365-using-wsfed/).
     
 
--   [Configure a WSO2 IS instance with the Office 365 Outbound
-    provisioning
-    Connector](TO-DO:{{base_path}}/develop/microsoft-azure-ad-outbound-provisioning-connector).
+-   [Configure a WSO2 IS instance with the Office 365 Outbound provisioning Connector]({{base_path}}/guides/identity-federation/outbound-provisioing-idp).
 
 -   If you are using the default H2 database in WSO2 Identity Server and
     not an Active Directory user store, expand the section below and
@@ -51,8 +48,7 @@ them to the Azure Active Directory at the point of authentication.
     the following fields.
 4.  Click **List** under **Service Providers** and edit the service
     provider named "Office365" which you created previously as
-    instructed in the [Configuring the service
-    provider](TBD:{{base_path}}/learn/configuring-office365-saml2-with-wso2-identity-server#configuring-the-service-provider)
+    instructed in the [Configuring the service provider]({{base_path}}/guides/login/log-into-office365saml-using-is/#configuring-the-service-provider)
     section.
 5.  Expand **Local and Outbound Configuration** and click **Advanced
     Configuration**.

@@ -160,7 +160,7 @@ provider if your application supports OAuth.
         means outbound provisioning request will be executed along with
         the XACML rules enabled.
     5.  You can also enable [just-in-time
-        provisioning]({{base_path}}/guides/identity-lifecycles/jit-workflow/)
+        provisioning]({{base_path}}/guides/identity-federation/jit-workflow/)
         by selecting the **Enable JIT** checkbox. Once you enable this,
         when a user is JIT provisioned to IS when authenticating from a
         federated authenticator, that user will be outbound provisioned

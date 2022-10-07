@@ -41,8 +41,7 @@ One of the following cURL commands can be used to try this grant type.
     ```
 
 !!! info "Support for refresh token grant"
-	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/refresh-token-grant).
+	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/references/concepts/authorization/refresh-token-grant).
 
 !!! info "Related topics"
-        - [Guide: Password Grant]({{base_path}}/guides/access-delegation/password-grant)
-        - [Quick Start: Password Grant]({{base_path}}/quick-starts/password-playground)
+        - [Guide: Password Grant]({{base_path}}/guides/access-delegation/password-playground/)

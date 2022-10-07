@@ -172,7 +172,7 @@ Parameters such as how often the state of the session should be checked, how lon
 
 ## Disable using authenticator app as an authentication factor
 
-WSO2 Identity Server allows multi-factor authentication via SMS, FIDO, and Authenticator Applications. The use of authenticator app can be disabled by setting the `enabled` key of the `authenticatorApp` under `ui` to `false`.
+WSO2 Identity Server allows multi-factor authentication via SMS, Security Key/Biometrics (FIDO), and Authenticator Applications. The use of authenticator app can be disabled by setting the `enabled` key of the `authenticatorApp` under `ui` to `false`.
 
 ```json
 "ui":{

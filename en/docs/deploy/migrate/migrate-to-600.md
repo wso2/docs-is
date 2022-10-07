@@ -29,7 +29,7 @@ Follow the instructions given below to migrate any component artifacts.
     2. Change the dependency versions in the relevant POM files according to the WSO2 IS version that you are upgrading to (WSO2 IS 6.0.0) and compile them. 
     
         !!! info
-            The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0-rc1/pom.xml).
+            The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0/pom.xml).
 
     3. If you come across any compile time errors, refer to the WSO2 IS code base and make the necessary changes related to that particular component version.
 
@@ -62,13 +62,63 @@ Copy the `.jks` files from the `<OLD_IS_HOME>/repository/resources/security` fol
 
     Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
 
+    Also, make sure to add the public key of the primary keystore to the client trust store copied from the previous IS.
+
+    - Export the public key from your primary keystore file using the following command  
+    `keytool -export -alias wso2carbon -keystore primary.jks -file <public key name>.pem`
+
+    - Import the public key you extracted to the `client-truststore.jks` file by using the following command  
+    `keytool -import -alias <new alias> -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon`
+
 ### Tenants
 
 If you have created tenants in the previous WSO2 Identity Server version that contain resources, copy the content from the `<OLD_IS_HOME>/repository/tenants` folder to the `<NEW_IS_HOME>/repository/tenants` folder.
 
+!!! note
+    If you are migrating from IS 5.8.0 or below, delete the `eventpublishers` and `eventstreams` folders from each tenant in the `tenants` folder when copying to IS 6.0.0. Make sure to **backup** the `tenants` folder before deleting the subfolders. You can use the following set of commands to find and delete all the relevant subfolders at once.
+    ```
+    cd <NEW_IS_HOME>/repository/tenants
+    find . -type d -name 'eventpublishers' -exec rm -rf {} +
+    find . -type d -name 'eventstreams' -exec rm -rf {} +
+    ```
+
 ### User stores
 
 If you have created secondary user stores in the previous WSO2 IS version, copy the content in the `<OLD_IS_HOME>/repository/deployment/server/userstores` folder to the `<NEW_IS_HOME>/repository/deployment/server/userstores` folder.
+
+!!! note
+    - If you are migrating from a version prior to IS 5.5.0, you need to make the following changes in the `<NEW_IS_HOME>/migration-resources/migration-config.yaml` file (see Step 2 for instructions for downloading migration resources).
+
+        - Remove all `UserStorePasswordMigrators` from versions above your previous IS version. User store password migration will be done by the `EncryptionAdminFlowMigrator` in version 5.11.0.
+    
+        ```toml
+        name: "UserStorePasswordMigrator"
+        order: 5
+        parameters:
+          schema: "identity"
+        ```
+
+        - Change the `currentEncryptionAlgorithm` to `RSA` in `EncryptionAdminFlowMigrator` of version 5.11.0
+    
+        ```toml
+        name: "EncryptionAdminFlowMigrator"
+        order: 1
+        parameters:
+          currentEncryptionAlgorithm: "RSA"
+          migratedEncryptionAlgorithm: "AES/GCM/NoPadding"
+          schema: "identity"
+        ```
+
+    - If you are migrating from a version prior to IS 5.10.0, you need to update the `UserStoreManager` class name in the XML files of your user stores with its respective **Unique ID userstore manager** class name according to the table below.
+
+        | Deprecated Userstore Manager | Unique ID Userstore Manager |
+        | ------------- | ----------- |
+        | ReadWriteLDAPUserStoreManager | UniqueIDReadWriteLDAPUserStoreManager |
+        | ActiveDirectoryUserStoreManager | UniqueIDActiveDirectoryUserStoreManager |
+        | ReadOnlyLDAPUserStoreManage | UniqueIDReadOnlyLDAPUserStoreManager |
+        | JDBCUserStoreManager | UniqueIDJDBCUserStoreManager |
+
+    - Make sure to update the JDBC driver class name used in the userstore XML file if the current class is deprecated.
 
 ### Webapps
 
@@ -146,7 +196,13 @@ Follow the steps given below to perform the dry run.
 1.  Configure the migration report path using the `reportPath` value in the `<IS_HOME>/migration-resources/migration-config.yaml` file. 
 
     !!! info
-        This path should be an absolute path.
+        Use **one** of the following methods when configuring the report path:  
+
+           - Create a text file. Provide the absolute path for that text file for all `reportPath` parameters. All results from the dry run will be appended to this text file.
+           - Create separate directories to store dry run reports of every migrator having the `reportPath` parameter. Provide the absolute paths of these directories for the `reportPath` of the relevant migrator. Dry run result of each migrator will be created in their specific report directories according to the timestamp.
+
+    !!! important 
+        The `reportPath` should be added under a `parameters` attribute in the `migration-config.yaml` file. The `reportPath` attribute and, in some cases, the `parameters` attribute is commented out by default. Both these attributes should be uncommented and the report path value should be added as a string for all migrators which support dry run within the current IS version and the target IS version.
 
 2.  Run the migration utility with the `dryRun` system property:
 
@@ -306,7 +362,7 @@ Now, let's run the migration client to upgrade the databases.
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
-2. Stop the server once the migration client execution is complete.
+2. **Restart** the server once the migration client execution is complete.
 
 ## Step 3: (Optional) Migrate secondary user stores
 
@@ -815,41 +871,7 @@ These steps should be carried out for the old database before the migration. A b
         UPDATE UM_USER SET UM_USER_ID =LOWER(NEWID())  WHERE UM_USER_ID='N' ;
         ```
 
-## Step 4: (Optional) Sync DBs for Zerro down time
-
-!!! warning
-    Proceed with this step only if you have opted for [Zero down time migration]({{base_path}}/setup/migrating-preparing-for-migration/#zero-down-time-migration). 
-    
-    If not, your migration task is complete by now and you can omit the following steps.
-
-1. Start the data sync tool pointing to the `sync.properties` file:
-
-    !!! info
-        This starts syncing data created in the old WSO2 Identity Server database after taking the database dump to the new WSO2 Identity Server database.
-
-    ```bash
-    sh wso2server.sh -DsyncData -DconfigFile=<path to sync.properties file>/sync.properties
-    ```
-
-2. Monitor the logs in the sync tool to see how many entries are synced at a given time and to keep track of the progress in the data sync process: 
-
-    !!! info
-        The following line will be printed in the logs of each table you have specified that has no data to be synced.
-
-    ```tab="Sample"
-    [2019-02-27 17:26:32,388]  INFO {org.wso2.is.data.sync.system.pipeline.process.BatchProcessor} -  No data to sync for: <TABLE_NAME>
-    ```
-
-    !!! info
-        If you have some traffic to the old version of WSO2 Identity Server, the number of entries to be synced might not become zero at any time. In that case, observe the logs to decide on a point where the number of entries that are synced is low.
-
-3. When the data sync is complete, switch the traffic from the old setup to the new setup.
-
-4. Allow the sync client to run for some time to sync the entries that were not synced before switching the deployments. 
-
-When the number of entries synced by the sync tool becomes zero, stop the sync client.
-
-## Step 5: Verify the migration
+## Step 4: Verify the migration
 
 After the migration is complete, proceed to the following verification steps:
 

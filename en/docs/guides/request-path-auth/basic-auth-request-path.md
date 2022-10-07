@@ -25,7 +25,7 @@ Now, let's configure the service provider you registered.
 
 1. Expand the **Local & Outbound Authentication Configuration** section and then the **Request Path Authentication Configuration** section.
 
-2. Select **basic-auth** from the dropdown list and click **Add**.
+2. Select **Basic Auth** from the dropdown list and click **Add**.
 
     ![basic-auth-request-path-config]({{base_path}}/assets/img/fragments/basic-auth-request-path-config.png)
 
@@ -106,7 +106,7 @@ this documentation as an example, but you must modify this when
 configuring the authenticators or connectors with this sample
 application.
 
--   [Download](https://github.com/wso2/samples-is/releases/download/v4.5.0/playground2.war)
+-   [Download](https://github.com/wso2/samples-is/releases/download/v4.5.1/playground2.war)
    the `playground2.war` file from the latest release assets.
 
 ### Deploy the sample app
@@ -181,7 +181,7 @@ Now, let's log in to the application.
 
 2.   Fill in the details on the screen that appears according to the local authenticator you selected for request path authentication. Identity Server will not prompt the login page since it can authenticate the user from the information available in the request.
 
-    **Basic-auth authenticator**
+    **Basic Auth authenticator**
             
     -   **Authorization Grant Type:** Authorization Code or Implicit
     -   **Client ID:** The client id received at the application registration 

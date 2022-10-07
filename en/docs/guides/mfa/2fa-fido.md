@@ -1,5 +1,5 @@
-# Configure FIDO for two-factor authentication
-This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [FIDO]({{base_path}}/references/concepts/authentication/mfa-with-fido) as the second factor.
+# Configure Security Key/Biometrics (FIDO) for two-factor authentication
+This page guides you through configuring [two-factor authentication]({{base_path}}/references/concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [Security Key/Biometrics (FIDO)]({{base_path}}/references/concepts/authentication/mfa-with-fido) as the second factor.
 
 !!! info
     - WSO2 Identity Server uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.
@@ -11,7 +11,7 @@ This page guides you through configuring [two-factor authentication]({{base_path
     - FIDO2 passwordless login with roaming authenticators will NOT work on the Firefox browser as the browser doesn't support CTAP2 (Client to Authenticator Protocol 2) with PIN.
 
 ??? "Does your browser support your FIDO devices?"
-    You can use the https://demo.yubico.com/webauthn-technical/registration site to check the browser support for FIDO devices.
+    You can use the [Yubico](https://demo.yubico.com/webauthn-technical/registration) site to check the browser support for FIDO devices.
 
 ## Set up Identity Server to use FIDO
 
@@ -28,7 +28,7 @@ Add the following configurations to the `deployment.toml` file in the `<IS_HOME>
 
     ```toml
     [authentication.authenticator.fido.parameters]
-    app_id="https://hostname"
+    AppID="https://hostname"
     ```
 
 Save the configurations and restart the server.
@@ -57,8 +57,8 @@ To configure FIDO as the second authentication factor:
 
     | Authentication step   | Local Authenticator   |
     |-----------------------|-----------------------|
-    | First step    | `basic`   |
-    | Second step   | `fido`|
+    | First step    | `Username & Password`   |
+    | Second step   | `Security Key/Biometrics`|
 
 6. Click **Update** to save the configurations.
 
@@ -80,4 +80,4 @@ You will now be logged into the application successfully.
 !!! info "Related topics"
     - [Concept: Two-Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication#single-factor-authentication)
     - [Concept: FIDO]({{base_path}}/references/concepts/authentication/mfa-with-fido)
-    - [Guide: Configure an Authentication Journey]({{base_path}}/guides/mfa/configure-authentication-journey)
+    - [Guide: Multi-Factor Authentication overview]({{base_path}}/guides/mfa/mfa-overview)

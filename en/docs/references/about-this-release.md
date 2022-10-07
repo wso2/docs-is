@@ -52,11 +52,11 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 -   **Passwordless authentication with Magic Link**
 
-    Magic link is a form of passwordless authentication. It allows users to log in by clicking a link sent to their email instead of entering a password.
+    Magic Link is a form of passwordless authentication. It allows users to log in by clicking a link sent to their email instead of entering a password.
 
     [Learn more]({{base_path}}/guides/passwordless/magic-link/)
 
--   **FIDO attestation**
+-   **FIDO attestation validations**
 
     FIDO attestation validations allow you to further validate the FIDO2 authenticator data during the security key registration.
 
@@ -92,6 +92,12 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
     Hides UI widgets based on tenant-level account management configuration preferences such as self-registration and account recovery. This dynamically changes the UI elements according to the tenant-level configurations. For example, if self-registration is not enabled for the tenant, the self-registration link is hidden on the login page.
 
+-   **reCAPTCHA v3 and invisible reCAPTCHA v2 support**
+
+    Improved  security against spam and fraudulent activity with an enhanced reCAPTCHA user experience compared to the conventional "I'm not a robot" checkbox. 
+   
+    [Learn more]({{base_path}}/deploy/configure-recaptcha/)
+
 ## What has changed in this release?
 
 If you are moving to WSO2 Identity Server 6.0.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.0.0.
@@ -122,6 +128,7 @@ The following features are removed from WSO2 Identity Server 6.0.0.
 -   Embedded LDAP user store
 -   Carbon metrics
 -   Yahoo authenticator
+-   reCAPTCHA v2 "I'm not a robot" Checkbox
 
 ## Deprecated features
 

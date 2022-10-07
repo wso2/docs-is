@@ -62,7 +62,7 @@ you need to import the certificate of the userstore to <code><&ZeroWidthSpace;IS
 <a href="{{base_path}}/deploy/security/use-asymmetric-encryption">Use asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see<br />
-<a href="{{base_path}}/deploy/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling.</a></p></td>
+<a href="{{base_path}}/deploy/performance/performance-tuning-recommendations/#pool-ldaps-connections/">performance tuning ldaps pooling.</a></p></td>
 </tr>
 <tr class="odd">
 <td>ConnectionName</td>

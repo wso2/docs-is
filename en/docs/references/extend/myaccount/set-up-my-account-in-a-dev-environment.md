@@ -50,7 +50,7 @@ Follow the steps given below to set up **My Account** application in a developme
     tag_requests = false
     ```
 
-2.  Allowlist your hostname and port as a trusted FIDO2 origin by adding the dev url as an allowed origin in the `<IS_HOME>/repository/resources/conf/deployment.toml` file.
+2.  Allow list your hostname and port as a trusted FIDO2 origin by adding the dev url as an allowed origin in the `<IS_HOME>/repository/resources/conf/deployment.toml` file.
     
     ```toml
     [fido.trusted]

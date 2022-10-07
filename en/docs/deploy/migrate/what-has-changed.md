@@ -8,7 +8,7 @@ This page provides details about the behavioral changes from WSO2 Identity Serve
 
     - Changes introduced in IS 5.11.0 can be found at [What Has Changed in IS 5.11.0](https://is.docs.wso2.com/en/5.11.0/setup/migrating-what-has-changed/#what-has-changed).
     - Changes introduced in IS 5.10.0 can be found at [What Has Changed in IS 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-what-has-changed/#what-has-changed).
-    - Changes introduced in IS 5.9.0 can be found at [What Has Changed in IS 5.9.0](https://is.docs.wso2.com/en/latest/setup/migrating-what-has-changed/).
+    - Changes introduced in IS 5.9.0 can be found at [What Has Changed in IS 5.9.0](https://is.docs.wso2.com/en/5.9.0/setup/migrating-what-has-changed/).
     - Changes introduced in IS 5.8.0 and before can be found at [Migrating Configurations to IS 5.8.0](https://docs.wso2.com/display/IS580/Upgrading+From+an+Older+Version+of+WSO2+IS#UpgradingFromanOlderVersionofWSO2IS-Migratingtheconfigurations).
 
 ## Webapp
@@ -138,12 +138,51 @@ The following changes have been made to the TOTP authenticator.
 
         ``` js
         [authentication.authenticator.totp.parameters]
-        Allow_sending_verification_code_by_email = true
+        AllowSendingVerificationCodeByEmail = true
         ```
 
 !!! note
 
     The i18n keys of both OTP authenticators have been moved to the i18n property file of the authentication portal.
+
+### Authenticator Display Name
+
+From IS 6.0.0 onward the display names of some of the local authenticators and handlers were renamed. The following table maps the previous authenticator display names to the IS 6.0.0 display names.
+
+<table>
+    <tr>
+        <th>Authenticator</th>
+        <th>Previous display name</th>
+        <th>Current display name</th>
+    </tr>
+    <tr>
+        <td><code>BasicAuthRequestPathAuthenticator</code></td><td>basic-auth</td><td>Basic Auth</td>
+    </tr>
+    <tr>
+        <td><code>IdentifierExecutor</code></td><td>identifier-first</td><td>Identifier First</td>
+    </tr>
+    <tr>
+        <td><code>JWTBasicAuthenticator</code></td><td>jwt-basic</td><td>JWT Basic</td>
+    </tr>
+    <tr>
+        <td><code>OAuthRequestPathAuthenticator</code></td><td>oauth-bearer</td><td>OAuth Bearer</td>
+    </tr>
+    <tr>
+        <td><code>FIDOAuthenticator</code></td><td>fido</td><td>Security Key/Biometrics</td>
+    </tr>
+    <tr>
+        <td><code>totp</code></td><td>totp</td><td>TOTP</td>
+    </tr>
+    <tr>
+        <td><code>BasicAuthenticator</code></td><td>basic</td><td>Username & Password</td>
+    </tr>
+    <tr>
+        <td><code>x509CertificateAuthenticator</code></td><td>X509Certificate</td><td>X509 Certificate</td>
+    </tr>
+    <tr>
+        <td><code>SessionExecutor</code></td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
+    </tr>
+</table>
 
 ### Adaptive Authentication Function Signature
 
@@ -183,7 +222,7 @@ With Identity Server 6.0.0, the parameters of this method signature have been ch
         <td>A map contains the claim URI and claim value</td>
     </tr>
     <tr>
-        <td><code>contect</code></td>
+        <td><code>context</code></td>
         <td><code>JsAuthenticationContext</code> object available in the authentication flow</td>
     </tr>
     <tr>
@@ -204,6 +243,13 @@ var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
 ```
 
 Make sure to update the usages of this function, if any, after the migration process.
+
+Authentication steps can be filtered with adaptive script passing an ```authenticationOptions``` array to the ```executeStep``` function. For local authenticators an array item named ```authenticator``` should be passed. In earlier versions of WSO2 IS, the value of this parameter should be an authenticator display name (friendly name). With WSO2 IS 6.0.0, this has changed to use the authenticator name instead. If you wish to keep using authenticator display names, please add the below config to ```deployment.toml``` file
+
+```js
+[authentication.adaptive.authenticator_name_in_auth_config]
+enable = false
+```
 
 ## Application management
 This section covers the updates related to application configurations on Identity Server 6.0.0.
@@ -430,6 +476,10 @@ Any client application that is consuming the ID token claims should be updated t
    }
 }
 ```
+### Thumbprint certificate hashing algorithm
+From IS 5.10.0 onwards, the hashing algorithm used for thumbprint certificate generation is updated to `SHA-256`. For versions before IS 5.10.0, WSO2 Identity Server used `SHA-1` as the hashing algorithm for thumbprint certificate generation.
+
+Therefore, if a user is migrating from IS 5.9.0 or a lower version to IS 6.0.0, the previously issued JWTs will not be validated against the new thumbprint included in the JWKS response of the latest version.
 
 ## Claims
 This section covers the updates related to claims on Identity Server 6.0.0.
@@ -532,7 +582,7 @@ This has been enabled by default in WSO2 Identity Server 6.0.0. If the previous 
 [intermediate_cert_validation]
 exempt_contexts = [“scim2”]
 ```
-Read more about [Intermediate Certificate Validation](https://is.docs.wso2.com/en/latest/develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation).
+Read more about [Intermediate Certificate Validation]({{base_path}}/apis/overview/#configure-intermediate-certificate-validation).
 
 #### Removal of Duplicate Entries in the SCIM2 Users Response
 
@@ -759,10 +809,10 @@ In previously versions of WSO2 Identity Server, the default HTTP methods allowed
 
 In Identity Server 6.0.0, this has been changed to allow the following HTTP methods ```GET```, ```POST```, ```PUT```, ```PATCH```, ```DELETE```, ```HEAD``` and ```OPTIONS```.
 
-Learn more on [how to change the CORS configuration](https://is.docs.wso2.com/en/latest/learn/cors).
+Learn more on [how to change the CORS configuration]({{base_path}}/learn/cors).
 
 ### Log4j2 logging in Hazelcast
-If you have been using WSO2 Identity Server in a [Hazelcast cluster](https://is.docs.wso2.com/en/latest/administer/configuring-hazelcast/), you may have configured the logging type for Hazelcast as log4j ```(Log4j1)```. Log4j1 logging is no longer supported in WSO2 Identity Server.
+If you have been using WSO2 Identity Server in a [Hazelcast cluster]({{base_path}}/administer/configuring-hazelcast/), you may have configured the logging type for Hazelcast as log4j ```(Log4j1)```. Log4j1 logging is no longer supported in WSO2 Identity Server.
 
 In WSO2 Identity Server 6.0.0, the Log4j version is upgraded to ```Log4j2```. Therefore the Hazelcast configuration needs to be updated to ```log4j2``` by adding the following configuration to the ```deployment.toml``` file.
 

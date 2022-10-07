@@ -758,8 +758,8 @@ WSO2 Identity Server supports configuring a password expiry policy to prompt use
 ----
 
 !!! info "Related topics"
+    - [Guide: Configure Claims]({{base_path}}/guides/dialects/configure-claims)
     <!---   To test a global password policy that applies to all tenants, you can write a custom password policy using the configuration file instead of through the management console. For more information, see [Writing a Custom Password Validator]({{base_path}}/develop/extend/user-mgt/write-a-custom-password-validator).-->
-    -   [Guide: Configure Claims]({{base_path}}/guides/dialects/configure-claims)
 
 
 

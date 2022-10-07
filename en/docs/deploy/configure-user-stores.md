@@ -17,7 +17,7 @@ configured under these two types.
 ## Primary userstore (Mandatory)
 
 This is the main user store that is shared among all the
-[tenants](TBD:{{base_path}}/administer/introduction-to-multitenancy)
+[tenants]({{base_path}}/references/concepts/introduction-to-multitenancy/)
 in the system. Only one userstore should be configured as the primary
 userstore and it is configured in the
 `         <IS_HOME>/repository/conf/deployment.toml       ` file. By default,
@@ -46,7 +46,7 @@ see, [Configure a Secondary Userstore]({{base_path}}/deploy/configure-secondary-
 
 Adapters used to connect with different userstores are called *Userstore Managers*. By default, there are userstore managers for JDBC,
 LDAP and Active Directory userstores. If you need to add a new userstore implementation, see [Write a Custom Userstore
-Manager]({{base_path}}/deploy/write-a-custom-user-store-manager). When you configure the
+Manager]({{base_path}}/references/extend/write-a-custom-user-store-manager). When you configure the
 userstore, you have to set the userstore manager class name.
 
 !!! info 

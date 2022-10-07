@@ -1,12 +1,12 @@
 # Enroll Multi-Factor Authentication
 
-MFA creates a layered defense and makes it more difficult for an unauthorized person to access a target such as a physical location, computing device, web service, network, or database. If one factor is compromised or broken, the attacker still has at least one more barrier to breach before successfully breaking into the target. WSO2 Identity Server allows configuring multi-step authentication where you can define an authentication chain containing different authenticators in different steps. For more information on MFA, see [Multi-factor Authentication]({{base_path}}/guides/mfa/configure-authentication-journey/).
+MFA creates a layered defense and makes it more difficult for an unauthorized person to access a target such as a physical location, computing device, web service, network, or database. If one factor is compromised or broken, the attacker still has at least one more barrier to breach before successfully breaking into the target. WSO2 Identity Server allows configuring multi-step authentication where you can define an authentication chain containing different authenticators in different steps. For more information on MFA, see [Multi-factor Authentication]({{base_path}}/guides/mfa/mfa-overview/).
 
-Using the latest **My Account** application, users can update their mobile numbers through which they can authenticate themselves using the one-time verification code. Also, they can add inherence factors like FIDO devices and fingerprint sensors. The following section will provide instructions on how to configure MFA options in WSO2 IS using **My Account**. 
+Using the latest **My Account** application, users can update their mobile numbers through which they can authenticate themselves using the one-time verification code. Also, they can add inherent factors like Security Key/Biometrics (FIDO) devices and fingerprint sensors. The following section will provide instructions on how to configure MFA options in WSO2 IS using **My Account**. 
 
 ## Via SMS
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Security** tab on the side panel.
 3. Under the **Multi-factor authentication** section, click on the edit icon aligning with the **SMS Number** section.
 4. Enter the mobile number that needs to be added as the MFA factor and click **update**.
@@ -21,7 +21,7 @@ Using the latest **My Account** application, users can update their mobile numbe
 
 ### Add security device
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Security** tab on the side panel.
 3. Under the **Multi-factor authentication** section, click on the add icon aligning with the **via security device** section.
 4. Select an option depending on whether to add a USB security key or a built-in sensor.

@@ -2,7 +2,7 @@
 
 ## What is adaptive authentication?
 
-Adaptive authentication, also known as step-up authentication, is an evolved and flexible form of [multi-factor authentication]({{base_path}}/multi-factor-authentication) that tightens security when the possibility of a security breach is higher. Additional authentication steps such as SMS OTP, FIDO, fingerprint authentication, etc., can be configured and deployed in such a way that the system is able to decide which steps to prompt during the authentication process depending on the user’s risk profile and their behavior.  
+Adaptive authentication, also known as step-up authentication, is an evolved and flexible form of [multi-factor authentication]({{base_path}}/references/concepts/authentication/multi-factor-authentication/) that tightens security when the possibility of a security breach is higher. Additional authentication steps such as SMS OTP, Security Key/Biometrics (FIDO), etc., can be configured and deployed in such a way that the system is able to decide which steps to prompt during the authentication process depending on the user’s risk profile and their behavior.  
 
 For instance, high-risk transactions such as a user attempting to transfer a high sum of money cause the adaptive authentication mechanism to prompt an extra authentication step like sending a one-time security code to the user's mobile phone, in order to increase security.
 
@@ -43,9 +43,9 @@ Some of the most common needs addressed by adaptive authentication are:
 WSO2 Identity Server (WSO2 IS) supports script-based adaptive authentication, which allows using a provided script editor to set up appropriate authentication factors depending on the requirement. The script editor provides a set of predefined templates that can be used to easily set up adaptive authentication for some of the most common authentication scenarios. If necessary, the script editor can also be used to introduce new functions and fields to an authentication script based on specific requirements, and the script can then be engaged to the service provider’s authentication step configuration.
 
 !!! info "Related topics"
-    - [Concept: Multi-Factor Authentication]({{base_path}}/multi-factor-authentication)
+    - [Concept: Multi-Factor Authentication]({{base_path}}/references/concepts/authentication/multi-factor-authentication/)
     - [Guide: Adaptive Authentication]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth)
-    - [Quick Start: Adaptive Authentication]({{base_path}}/quick-starts/adaptive-auth-overview)
+    <!-- - [Quick Start: Adaptive Authentication]({{base_path}}/quick-starts/adaptive-auth-overview) -->
 
 
 

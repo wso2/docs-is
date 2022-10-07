@@ -3,7 +3,7 @@
 The following sections describe the impact of the code interception
 attack and the approaches you can use to mitigate it. You may need to
 mitigate these kind of attacks when creating an OAuth application that
-uses the [Authorization Code Grant]({{base_path}}/guides/access-delegation/authorization-code/) type for
+uses the [Authorization Code Grant]({{base_path}}/references/concepts/authorization/authorization-code-grant) type for
 authentication.
 
 ---
@@ -129,6 +129,6 @@ steps below to do this.
 
 
 !!! info "Related topics" 
-    -   See [Try Authorization Code Grant]({{base_path}}/quick-starts/auth-code-playground/)
+    -   See [Try Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)
         to try out PKCE with the authorization code grant type using the
         WSO2 Playground web application.

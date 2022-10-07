@@ -1,6 +1,6 @@
 # Authorization Code Grant Type
 
-The authorization code grant type is optimized for [confidential clients]({{base_path}}/client-types/#confidential-clients).
+The authorization code grant type is optimized for [confidential clients]({{base_path}}/references/concepts/authorization/client-types/#confidential-clients).
 It provides a few important security benefits.
 
 - It can authenticate the client.
@@ -49,8 +49,7 @@ You will receive a response similar to the format below.
 ```
 
 !!! info "Support for refresh token grant"
-	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/refresh-token-grant).
+	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant]({{base_path}}/references/concepts/authorization/refresh-token-grant).
 
 !!! info "Related topics"
-        - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/authorization-code)
-        - [Quick Start: Authorization Code Grant]({{base_path}}/quick-starts/auth-code-playground)
+        - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)

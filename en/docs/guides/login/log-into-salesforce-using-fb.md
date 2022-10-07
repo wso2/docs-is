@@ -208,10 +208,10 @@ Let's get started!
         ??? note "Click here to find the steps on how to switch from the classic to the lightning theme."
 			1.  Click your username to expand the drop down.
 			2.  Click **Switch to Lightning Experience**.  
-				![switch-to-lightening-experience]({{base_path}}/assets/img/tutorials/switch-to-lightening-experience.png)
+				<!-- ![switch-to-lightening-experience]({{base_path}}/assets/img/tutorials/switch-to-lightening-experience.png) -->
 			3.  Click the settings icon on the top-right-hand corner, and click
 				**Set Up**.  
-				![switch-from-classic]({{base_path}}/assets/img/tutorials/switch-from-classic.png)
+				<!-- ![switch-from-classic]({{base_path}}/assets/img/tutorials/switch-from-classic.png) -->
 	
 			Now you are navigated to the lightening theme of Salesforce.
 	
@@ -224,7 +224,7 @@ Let's get started!
 
     1.  Search for My Domain in the search bar that is on the left
         navigation panel.  
-        ![my-domain]({{base_path}}/assets/img/tutorials/my-domain.png)
+        <!-- ![my-domain]({{base_path}}/assets/img/tutorials/my-domain.png) -->
         
     2.  Click **My Domain**.
     
@@ -236,7 +236,7 @@ Let's get started!
 			For the page given below to load on your browser, make sure that
 			the Salesforce cookies are not blocked.
 
-        ![sales-force-cookies]({{base_path}}/assets/img/tutorials/sales-force-cookies.png)
+        <!-- ![sales-force-cookies]({{base_path}}/assets/img/tutorials/sales-force-cookies.png) -->
 
     4.  If the domain is available, select **I agree to Terms and
         Conditions** and click **Register Domain** to register your new
@@ -250,7 +250,7 @@ Let's get started!
     
 6.  In the page that appears, click **Edit** and then select the **SAML
     Enabled** check box to enable federated single sign-on using SAML.  
-    ![saml-enabled]({{base_path}}/assets/img/tutorials/saml-enabled.png)    
+    <!-- ![saml-enabled]({{base_path}}/assets/img/tutorials/saml-enabled.png) -->
     
 7.  Click **Save** to save this configuration change.
 
@@ -278,7 +278,7 @@ Let's get started!
 
 9.  <a name="samlsinglesignon"></a>Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
-    ![saml-sso-setting]({{base_path}}/assets/img/tutorials/saml-sso-setting.png)
+    ![saml-sso-setting]({{base_path}}/assets/img/tutorials/saml-sso-setting.png) -->
     
     Ensure that you configure the following properties.
 
@@ -415,7 +415,7 @@ Let's get started!
     
 12. Go to **Domain Management** in the left navigation pane and click
     **My Domain**.  
-    ![domain-management]({{base_path}}/assets/img/tutorials/domain-management.png)
+    <!-- ![domain-management]({{base_path}}/assets/img/tutorials/domain-management.png) -->
     
 13. Click **Deploy to Users**. Click **Ok** to the confirmation message
     that appears.
@@ -423,11 +423,11 @@ Let's get started!
 14. In the page that appears, you must configure the **Authentication
     Configuration** section. Scroll down to this section and click
     **Edit**.  
-    ![edit-authentication-configuration]({{base_path}}/assets/img/tutorials/edit-authentication-configuration.png)
+    <!-- ![edit-authentication-configuration]({{base_path}}/assets/img/tutorials/edit-authentication-configuration.png) -->
     
 15. Under **Authentication Service** , select **SSO** and deselect
     **Login Page**.  
-    ![select-sso-in-authentication-service]({{base_path}}/assets/img/tutorials/select-sso-in-authentication-service.png)
+    <!-- ![select-sso-in-authentication-service]({{base_path}}/assets/img/tutorials/select-sso-in-authentication-service.png) -->
 
     !!! info
 		SSO is the SAML user authentication method you created in
@@ -450,7 +450,7 @@ Let's get started!
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and we use Salesforce as the name for
     this example.  
-    ![define-salesforce-as-sp]({{base_path}}/assets/img/tutorials/define-salesforce-as-sp.png)
+    <!-- ![define-salesforce-as-sp]({{base_path}}/assets/img/tutorials/define-salesforce-as-sp.png) -->
     
 4.  Click **Register**.
 
@@ -474,7 +474,7 @@ Let's get started!
         value used to identify the user. In cases where you have a user
         store connected to the Identity Server, this **Subject Claim
         URI** value is used to search for the user in the user store.  
-        ![email-from-subject-claim-uri]({{base_path}}/assets/img/tutorials/email-from-subject-claim-uri.png)
+        <!-- ![email-from-subject-claim-uri]({{base_path}}/assets/img/tutorials/email-from-subject-claim-uri.png) -->
         
         For more information about claim mapping, see [Claim
         Management]({{base_path}}/learn/claim-management).
@@ -545,21 +545,20 @@ Let's get started!
     Facebook credentials.
     
 2.  Click on **Create App**.  
-    ![create-app-facebook]({{base_path}}/assets/img/tutorials/create-app-facebook.png)
+    <!-- ![create-app-facebook]({{base_path}}/assets/img/tutorials/create-app-facebook.png) -->
     
 3.  Enter a **Display Name**, Contact Email, and click **Create App
     ID**.  
-    ![create-app-id]({{base_path}}/assets/img/tutorials/create-app-id.png)
+    <!-- ![create-app-id]({{base_path}}/assets/img/tutorials/create-app-id.png)
     
 4.  Enter code for security check, and click **Submit**.
 
-5.  On Select product page, click **Set up** under **Facebook Login**
-   .  
-    ![setup-facebook]({{base_path}}/assets/img/tutorials/setup-facebook.png)
+5.  On Select product page, click **Set up** under **Facebook Login**.  
+    <!-- ![setup-facebook]({{base_path}}/assets/img/tutorials/setup-facebook.png) -->
     
 6.  Select **Website** as the platform for the app used in this
     sample.  
-    ![select-website-as-the-platform]({{base_path}}/assets/img/tutorials/select-website-as-the-platform.png)
+    <!-- ![select-website-as-the-platform]({{base_path}}/assets/img/tutorials/select-website-as-the-platform.png) -->
     
 7.  Enter **`             https://localhost:9443/            `** as the
     Site URL and click **Save**.
@@ -570,14 +569,14 @@ Let's get started!
 		, you need to provide the IP or hostname instead of
 		`             localhost            `.
 
-    ![enter-site-url]({{base_path}}/assets/img/tutorials/enter-site-url.png)
+    <!-- ![enter-site-url]({{base_path}}/assets/img/tutorials/enter-site-url.png) -->
 
 8.  Under Products on the left navigation panel, Click **Facebook
     Login**.
 
 9.  You can configure the **Client OAuth Settings** on the window that
     appears.  
-    ![client-oauth-setting]({{base_path}}/assets/img/tutorials/client-oauth-setting.png)
+    <!-- ![client-oauth-setting]({{base_path}}/assets/img/tutorials/client-oauth-setting.png) -->
 
     1.  **Client OAuth Login** should be set to **Yes**.  
         Client OAuth Login is the global on-off switch for using OAuth
@@ -606,7 +605,7 @@ Let's get started!
 		Secret in OAuth terminology. The API Version is Facebook’s API that
 		is used to create the application.
 
-    ![id-secret-for-facebook]({{base_path}}/assets/img/tutorials/id-secret-for-facebook.png)
+    <!-- ![id-secret-for-facebook]({{base_path}}/assets/img/tutorials/id-secret-for-facebook.png) -->
 
 12. Click **Settings** on the left menu and navigate to the **Basic**
     tab. Add the **App Domains** (since WSO2 IS is running on localhost,
@@ -631,7 +630,7 @@ Now you have finished configuring Facebook as an Identity Provider.
 	navigation menu of the dashboard and specify the required Facebook users
 	as Developers or Testers.
 
-	![submit-fb-app-for-review]({{base_path}}/assets/img/tutorials/submit-fb-app-for-review.png)
+	<!-- ![submit-fb-app-for-review]({{base_path}}/assets/img/tutorials/submit-fb-app-for-review.png) -->
 
 ## Configuring the identity provider
 
@@ -663,7 +662,7 @@ new identity provider.
         Claim mapping Dialect**.
     3.  Click **Add Claim Mapping** to add custom claim mappings as
         follows.  
-        ![add-claim-mapping-for-facebook]({{base_path}}/assets/img/tutorials/add-claim-mapping-for-facebook.png)
+        <!-- ![add-claim-mapping-for-facebook]({{base_path}}/assets/img/tutorials/add-claim-mapping-for-facebook.png) -->
 
         Do the following mappings as shown in the above image.
 
@@ -768,7 +767,7 @@ new identity provider.
     </tbody>
     </table>
 
-    ![fb-config]({{base_path}}/assets/img/tutorials/fb-config.png)
+    <!-- ![fb-config]({{base_path}}/assets/img/tutorials/fb-config.png) -->
 
 9.  Click **Register**.
 
@@ -795,7 +794,7 @@ service provider. In this case, the service provider is Salesforce
     selected and select **Facebook** from the dropdown. This is the name
     of the identity provider that you configured.
 
-    ![fb-federated-authentication]({{base_path}}/assets/img/tutorials/fb-federated-authentication.png)
+    <!-- ![fb-federated-authentication]({{base_path}}/assets/img/tutorials/fb-federated-authentication.png) -->
 
 7.  Click **Update** to save the changes.
 
@@ -858,14 +857,14 @@ Salesforce and the Identity Server.
 			
 		5.  Click on the name of the Single Sign-On Setting you created. In
 			this use case click **SSO**.  
-			![sso-name]({{base_path}}/assets/img/tutorials/sso-name.png)
+			<!-- ![sso-name]({{base_path}}/assets/img/tutorials/sso-name.png)-->
 			
 		6.  Copy the URL that is defined for Login URL to access
 			Salesforce.  
-			![login-url-for-salesforce]({{base_path}}/assets/img/tutorials/login-url-for-salesforce.png)
+			<!-- ![login-url-for-salesforce]({{base_path}}/assets/img/tutorials/login-url-for-salesforce.png) -->
 
     You are directed to the **Facebook Login** screen.  
-    ![fb-login-screen]({{base_path}}/assets/img/tutorials/fb-login-screen.png)
+    <!-- ![fb-login-screen]({{base_path}}/assets/img/tutorials/fb-login-screen.png) -->
 
 4. Log in using your Facebook credentials. You are then redirected back
     to Salesforce.  

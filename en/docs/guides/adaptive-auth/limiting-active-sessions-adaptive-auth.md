@@ -46,7 +46,7 @@ To configure concurrent-session-based authentication:
 
 6. Click **Add Authentication Step**.
 
-7. Select **active-sessions-limit-handler** from the dropdown under **Local Authenticators** and click **Add Authenticator**.
+7. Select **Active Sessions Limit** from the dropdown under **Local Authenticators** and click **Add Authenticator**.
 
 8. Click **Update** to save your configurations.
 

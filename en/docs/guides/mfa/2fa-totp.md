@@ -26,7 +26,7 @@ To configure TOTP as the second authentication factor:
 
     | Authentication step   | Local Authenticator   |
     |-----------------------|-----------------------|
-    | First step    | `basic`   |
+    | First step    | `Username & Password`   |
     | Second step   | `TOTP`|
 
 6. Click **Update** to save the configurations.
@@ -64,11 +64,12 @@ You can also add the following configurations to enhance your TOTP configuration
 Optionally, you can set up the users to receive the TOTP code via email during the authentication flow.
 
 To allow sending TOTP in an email:
+
 1. Initially, [**configure email sending module**](../../../deploy/configure-email-sending).
 2. Add the following configuration to the `deployment.toml` file.
     ```toml
     [authentication.authenticator.totp.parameters]
-    allow_sending_verification_code_by_email=true
+    AllowSendingVerificationCodeByEmail = true
     ```
 3. Save the configurations and restart the server.
 
@@ -81,4 +82,4 @@ To allow sending TOTP in an email:
 
 !!! info "Related topics"
     - [Concept: Two-Factor Authentication]({{base_path}}/references/concepts/authentication/intro-authentication/#two-factor-authentication)
-    - [Guide: Configure an Authentication Journey]({{base_path}}/guides/mfa/configure-authentication-journey)
+    - [Guide: Multi-Factor Authentication overview]({{base_path}}/guides/mfa/mfa-overview)

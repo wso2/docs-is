@@ -10,7 +10,7 @@ This guide section helps you set up email OTP on the identity server.
 
 Setting up email OTP required the following two configurations to be made on the Identity Server:
 
-- [**Configure email sending module**](../../../deploy/configure-email-sending)
+- [**Configure email sending module**]({{base_path}}/deploy/configure-email-sending)
 - **Configure the email OTP provider**
     
     You can use any of the following methods to configure the email OTP provider:
@@ -152,14 +152,14 @@ To enable email OTP for MFA, you need to configure the email OTP as an authentic
 - You need to [update the User Profile]({{base_path}}/guides/identity-lifecycles/update-profile) of the users with an email address to which the user will receive the OTP.
 - You need to [register an Identity Provider]({{base_path}}/guides/identity-federation/add-idp/) named `emailOTP`.
 
-### Configure the email OTP authenticator
+### Configure the Email OTP authenticator
 
-To configure the email OTP authenticator:
+To configure the Email OTP authenticator:
 
 1. On the management console, go to **Identity Providers > List**.
 2. Click on **Edit** corresponding to the `emailOTP` identity provider.
 3. Expand **Federated Authenticators > Email OTP Configuration**.
-4. Enable the email OTP authenticator by selecting the **Enable** option provided.
+4. Enable the Email OTP authenticator by selecting the **Enable** option provided.
 
     ![enable email otp configuration]({{base_path}}/assets/img/guides/enable-email-otp-config.png)
 
@@ -187,7 +187,7 @@ To configure email OTP as the second authentication factor:
 
     | Authentication step   | Local Authenticator   | Federated Authenticator   |
     |-----------------------|-----------------------|----------------------|
-    | First step    | `basic`   | N/A   |
+    | First step    | `Username & Password`   | N/A   |
     | Second step   | N/A   | `emailOTP`  |
 
 7. Click **Update** to save the configurations.
