@@ -2124,7 +2124,7 @@ components:
         Condition to filter the retrieval of records.
         Supports 'sw', 'co', 'ew', and 'eq' operations with 'and', 'or' logical operators.
         Note that 'and' and 'or' operators in filters follow the general precedence of logical operators.
-        ex: A and B or C and D = (A and B) or (C and D)).
+        For example, A and B or C and D = (A and B) or (C and D)).
         Currently supports only filtering based on the 'name', the 'clientId', and the 'issuer' attributes.
 
         /applications?filter=name+eq+user_portal
