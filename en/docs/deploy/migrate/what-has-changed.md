@@ -704,7 +704,7 @@ enable = true
 ### User's Session Management APIs
 From Identity Server 6.0.0 onwards, two new API endpoints will be available to retrieve user session information.
 
-- /{user-id}/sessions/{session-id}: To retrieve information related to the active session given a session-id and a user-id.
+- `/{user-id}/sessions/{session-id}`: To retrieve information related to the active session given a session-id and a user-id.
 - /sessions: To retrieves all active sessions of the tenant. This endpoint supports filtering with some of the attributes.
 
 Read more on [User's Session Management API Definition]({{base_path}}/apis/session-mgt-rest-api/).
