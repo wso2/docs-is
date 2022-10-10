@@ -1371,14 +1371,20 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>USM-10009</a></td>
         <td>400</td>
         <td>Invalid session</td>
-        <td>Session ID is not provided to perform session termination.</td>
+        <td>Session ID is not provided to perform session tasks.</td>
       </tr>  
       <tr>
         <td>USM-10010</td>
         <td>403</td>
         <td>Action Forbidden</td>
-        <td>User is not authorized to terminate the session/s.</td>      
-      </tr>                 
+        <td>User is not authorized to terminate the session/s.</td>
+      </tr>
+      <tr>
+        <td>USM-10011</td>
+        <td>400</td>
+        <td>Invalid data.</td>
+        <td>Data validation has failed, {details}</td>
+      </tr>
   </tbody>
 </table>
 </div>
