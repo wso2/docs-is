@@ -106,16 +106,15 @@ You can lock user accounts using the Management Console or the SCIM2 APIs.
 	2.	Enter an email address to which Alex's account locking emails will be sent and select the **User Locked** check box.
 
 	3.	Click **Update**.
-
-	4.	An email that informs about the account locking is sent to the given email address.
+   You will receive an email to the given email address that informs you about the account locking.
 
 		<!--<img src="../../assets/img/learn/account-unlocked-email.png" alt="Account Unlocked email" width="500" style="border:1px solid grey">-->
 
-	5.	Access the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`.
+	4.	Access the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`.
 
-	6.	Try logging in with Alex's credentials. Note that an error message appears.
+	5.	Try logging in with Alex's credentials. Note that an error message appears.
 
-	7.	Wait for 15 minutes and try to log in again. The WSO2 Identity Server **My Account** home screen appears.
+	6.	Wait for 15 minutes and try to log in again. The WSO2 Identity Server **My Account** home screen appears.
 
 
 3. To unlock Alex's user account:
@@ -125,12 +124,11 @@ You can lock user accounts using the Management Console or the SCIM2 APIs.
 	2.	Unselect the **User Locked** check box.
 
 	3.	Click **Update**.
-
-	4.	An email that informs about the account unlocking is sent to the given email address.
+   You will receive an email to the given email address that informs you about the account unlocking.
 
 		<!--<img src="../../assets/img/learn/account-unlocked-email.png" alt="Account Unlocked email" width="500" style="border:1px solid grey">-->
 
-	5.	Try logging in to the WSO2 Identity Server **My Account** with Alex's credentials. The WSO2 Identity Server **My Account** home screen appears.
+	4.	Try logging in to the WSO2 Identity Server **My Account** with Alex's credentials. The WSO2 Identity Server **My Account** home screen appears.
 
 ### Use the SCIM2 Rest API
 
