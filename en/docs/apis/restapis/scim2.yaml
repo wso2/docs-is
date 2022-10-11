@@ -1346,10 +1346,20 @@ paths:
     post:
       tags:
       - Bulk Endpoint
-      summary: Create Users in Bulk
-      description: "This API is used to create multiple users at once.\n\n <b>Permission\
-        \ required:</b>\n * /permission/admin/manage/identity/usermgt\n \n <b>Scope\
-        \ required:</b>\n    * internal_user_mgt_create\n"
+      summary: Create/ Update/ Delete SCIM Resources (Users/ Groups/ Roles) in Bulk
+      description: |
+        This API is used to create/update/replace/delete SCIM resources in bulk. You need to specify different operations in the request payload corresponding to the type of bulk update: </br>
+          - **POST** operation: Adds new resources.
+          - **PUT** operation: Replaces an existing resource.
+          - **PATCH** opearation: Updates attribues of an existing resource.
+          - **DELETE** operation: Removes an existing resource.
+        Learn more about [defining batch operations](../scim2-batch-operations).
+        
+         <b>Permission required:</b>
+         * /permission/admin/manage/identity/usermgt
+         
+         <b>Scope required:</b>
+            * internal_user_mgt_create
       operationId: createBulkUsers
       requestBody:
         content:
@@ -1379,46 +1389,6 @@ paths:
         409:
           description: Users already exists
           content: {}
-      x-codegen-request-body-name: body
-    delete:
-      tags:
-      - Bulk Endpoint
-      summary: Delete Users in Bulk
-      description: "This API is used to delete multiple users at once.\n\n <b>Permission\
-        \ required:</b>\n * /permission/admin/manage/identity/usermgt/delete\n \n\
-        \ <b>Scope required:</b>\n    * internal_user_mgt_delete\n"
-      operationId: deleteBulkUsers
-      requestBody:
-        content:
-          application/scim+json:
-            schema:
-              $ref: '#/components/schemas/BulkUserDeleteRequestObject'
-        required: false
-      responses:
-        204:
-          description: User group is deleted
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/BulkUserDeleteResponseObject'
-        401:
-          description: Unauthorized
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorUnauthorized'
-        403:
-          description: Forbidden
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-        404:
-          description: Valid group is not found
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorNoGroupAvailable'
       x-codegen-request-body-name: body
   /ResourceTypes:
     get:
@@ -2441,75 +2411,6 @@ components:
             code:
               type: string
               example: "201"
-    BulkUserDeleteRequestObject:
-      type: object
-      properties:
-        failOnErrors:
-          type: integer
-          example: 1
-        schemas:
-          type: array
-          items:
-            type: string
-            example: urn:ietf:params:scim:api:messages:2.0:BulkRequest
-        Operations:
-          type: array
-          items:
-            $ref: '#/components/schemas/BulkUserDeleteOb'
-    BulkUserDeleteOb:
-      type: object
-      properties:
-        method:
-          type: string
-          example: DELETE
-        path:
-          type: string
-          example: /Users
-        bulkId:
-          type: string
-          example: ytrewq
-        data:
-          type: object
-          properties:
-            schemas:
-              type: array
-              items:
-                type: string
-                example: urn:ietf:params:scim:schemas:core:2.0:User
-            username:
-              type: string
-              example: jesse
-            password:
-              type: string
-              example: jesspass
-    BulkUserDeleteResponseObject:
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            type: string
-            example: urn:ietf:params:scim:api:messages:2.0:BulkResponse
-        Operations:
-          $ref: '#/components/schemas/OperationDeleteObBulk'
-    OperationDeleteObBulk:
-      type: object
-      properties:
-        bulkId:
-          type: string
-          example: qwerty
-        method:
-          type: string
-          example: DELETE
-        location:
-          type: string
-          example: https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1
-        status:
-          type: object
-          properties:
-            code:
-              type: string
-              example: "204"
     ResourceTypeResponse:
       type: object
       properties:

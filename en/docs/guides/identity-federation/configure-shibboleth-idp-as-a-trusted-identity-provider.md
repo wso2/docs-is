@@ -475,7 +475,7 @@ The next step is to configure the service provider.
         
     2.  Select **Advanced Configuration** and configure multiple options
         for authentication within the same authentication step. Select
-        **basic** under **Local Authenticators** for authenticating
+        **Username & Password** under **Local Authenticators** for authenticating
         users against the enterprise user store and select
         **Shibboleth-IDP** under **Federated Authenticators**.  
         ![multiple-options-for-authentication]({{base_path}}/assets/img/guides/multiple-options-for-authentication.png)
