@@ -61,7 +61,6 @@ paths:
         200:
           description: >
             Successfully retrieved session information.
-            idpName will only be returned for federated authentication sessions.
           schema:
             $ref: '#/definitions/Sessions'
           examples:
@@ -174,7 +173,6 @@ paths:
         200:
           description: >
             Successfully retrieved session information.
-            idpName will only be returned for federated authentication sessions.
           schema:
             $ref: '#/definitions/Sessions'
         400:
@@ -229,7 +227,6 @@ paths:
         200:
           description: >
             Successfully retrieved session information.
-            idpName will only be returned for federated authentication sessions.
           schema:
             $ref: '#/definitions/Session'
         401:
@@ -286,7 +283,6 @@ paths:
         200:
           description: >
             Successfully retrieved session information.
-            idpName will only be returned for federated authentication sessions.
           schema:
             $ref: '#/definitions/SearchResponse'
           examples:
