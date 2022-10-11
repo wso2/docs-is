@@ -118,7 +118,7 @@ You can lock user accounts using the Management Console or the SCIM2 APIs.
 
 3. To unlock Alex's user account:
 
-	1.	Click **User Profile** option of Alex.
+	1.	Click the **User Profile** option of Alex.
 
 	2.	Unselect the **User Locked** check box.
 
