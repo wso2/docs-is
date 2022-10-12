@@ -1371,7 +1371,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>USM-10009</a></td>
         <td>400</td>
         <td>Invalid session</td>
-        <td>Session ID is not provided to perform session taska.</td>
+        <td>Session ID is not provided to perform session tasks.</td>
       </tr>  
       <tr>
         <td>USM-10010</td>
