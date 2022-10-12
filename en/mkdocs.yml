@@ -513,7 +513,8 @@ nav:
             - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
           - Account recovery API: apis/use-the-account-recovery-rest-apis.md
           - Associated accounts API: apis/association-rest-api.md
-          - Challenge question API: apis/challenge-rest-api.md
+          - Challenge question API: apis/challenge-questions.md
+          - Challenge answers API: apis/challenge-rest-api.md
           - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
       - Identity provider API: apis/idp-rest-api.md
       - IdP session extension API: apis/idp-session-extender-endpoint.md
