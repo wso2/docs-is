@@ -385,3 +385,4 @@ responses:
 
 host: localhost:9443
 basePath: /t/{tenant-domain}/api/server/v1
+
