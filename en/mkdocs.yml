@@ -551,7 +551,7 @@ nav:
       - Permission management API : apis/permission-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
       - Admin services:
-        - Calling admin services API: apis/call-admin-services.md
+        - Call admin services: apis/call-admin-services.md
         - One way operations: apis/admin-services-for-one-way-operations.md
           
   - SDKs:
