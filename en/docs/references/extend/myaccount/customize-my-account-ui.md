@@ -20,7 +20,7 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 2. Set it up in the [development environment]({{base_path}}/references/extend/myaccount/set-up-my-account-in-a-dev-environment/). 
 
-3. Check out the `v1.4.28` tag of the identity-apps, which corresponds to WSO2 IS 6.0.0 version. 
+3. Check out the `v1.4.28` tag of the identity-apps repo, which corresponds WSO2 IS 6.0.0. 
 
     ```java
     $ git fetch --all --tags --prune
