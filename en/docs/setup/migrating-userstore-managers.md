@@ -1,20 +1,16 @@
 # Migrating User Stores
 
-Before doing the actual user store migration, it is recommended to do a dry run and analyze the generated report for 
-any recommendations related to the migration. 
+Before doing the actual user store migration, it is recommended to do a dry run and analyze the generated report for any recommendations related to the migration.
 
 ## Dry Run
 
-Dry-run capability in the user store migrator will allow the migration utility to validate the system for the 
-user store configurations and generate a report regarding the migration compatibility. In the generated migration report, 
-if there are any warnings in the generated migration report, it is recommended to contact the WSO2 support to identify the best migration strategy.
+Dry-run capability in the user store migrator will allow the migration utility to validate the system for the user store configurations and generate a report regarding migration compatibility. If there are any warnings in the generated migration report, it is recommended to contact the WSO2 support to identify the best migration strategy.
 
 ### How to Run
 
-Configure the migration report path using the value of `reportPath` `<IS_HOME>/migration-resources/migration-config.yaml` in the `migration-config.yaml`. 
-This path should be an absolute path. 
+Configure the migration report path using the value of `reportPath` `<IS_HOME>/migration-resources/migration-config.yaml` in the `migration-config.yaml`. You should use the absolute path here.
 
-Run the migration utility with system property “dryRun”. 
+Run the migration utility with the system property “dryRun”.
 
 Ex:
 
@@ -25,20 +21,17 @@ sh wso2server.sh -Dmigrate -Dcomponent=identity -DdryRun
 ``` bash tab="Windows"
 wso2server.bat -Dmigrate -Dcomponent=identity -DdryRun
 ```
- 
-After that analyze the generated report that resides in the provided location.
+
+After that, analyze the generated report that resides in the provided location.
 
 ## Migrating User Stores
 
-If you have multiple tenants and multiple user stores and you only need to migrate a few of them, refer to the 
-configuration section below. If you need to migrate all of them, use the `migrateAll` property (This is set to true by default).  
+If you have multiple tenants and multiple user stores but you only need to migrate a few of them, refer to the configuration section below. If you need to migrate all of them, use the `migrateAll` property (This is set to true by default).  
 
 ### Special Scenarios
 
-If the user store is an LDAP user store and SCIM is enabled for that user store, migrating that user store is not
- required. 
-As SCIM will create a user ID for the users in that user store, the SCIM ID can be used as the unique user ID. To do that, 
-change the `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/repository/conf/deployment.toml` file.
+If the user store is an LDAP user store and SCIM is enabled for that user store, migrating that user store is not required.
+As SCIM will create a user ID for the users in that user store, the SCIM ID can be used as the unique user ID. To do that, change the `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ## Configurations
 
@@ -48,7 +41,7 @@ change the `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/re
 | reportPath | Absolute path for the dry report. This is required in the dry run mode. |
 
 
-The following configurations are only needed to migrate a few tenants. The format should be similar to the one mentioned below. `Tenant-param` is a place holder name to represent each tenant uniquely, e.g., tenant1.
+The following configurations are only needed to migrate a few tenants. The format should be similar to the one mentioned below. `Tenant-param` is a placeholder name representing each tenant uniquely, e.g., tenant1.
 
 ```  
 -
@@ -62,16 +55,16 @@ The following configurations are only needed to migrate a few tenants. The forma
 | ------------- | ----------- |
 | tenantDomain | Domain name of the tenant. (Mandatory) |
 | increment | Number of users to be updated in each iteration. (Optional) |
-| startingPoint | Where should the migration start from (Offset). This is useful if the migration stopped in the middle and needs to restart. (Optional) |
+| startingPoint | The point from which the migration starts (Offset). This is useful if the migration stops in the middle and needs to restart. (Optional) |
 | scimEnabled | Whether SCIM is enabled for user stores in this tenant. (Optional) |
 | migratingDomains | List of comma-separated domain names that should be migrated to this domain. (Optional) |
 | forceUpdateUserId | Mark whether user IDs should be updated even though there is already an existing ID. (Optional) |
 
-## Populating UserIds for the userstores
+## Populating UserIds for the user stores
 
-These steps should be carried out for the old database before the migration. A backup of UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps the backup database should be migrated to the next version.
+These steps should be carried out for the old database before the migration. A backup of UM database should be taken, and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps, the backup database should be migrated to the next version.
 
-1.  If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the UM database. This will add a `UM_USER_ID` column to the `UM_USER` table with a random `UUID` as the default value for `UM_USER_ID`.
+1. If you have JDBC secondary user stores with SCIM disabled, execute the following queries on the UM database. This will add a `UM_USER_ID` column to the `UM_USER` table with a random `UUID` as the default value for `UM_USER_ID`.
 
     ```sql tab="Postgresql"
     /* User should have the Superuser permission */
@@ -150,7 +143,7 @@ These steps should be carried out for the old database before the migration. A b
     /
     ```
 
-2.  If you have JDBC secondary user stores with SCIM enabled, execute the following queries on the UM database.
+2. If you have JDBC secondary user stores with SCIM enabled, execute the following queries on the UM database.
 
     ```sql tab="PostgreSQL"
     SELECT DISTINCT t.ATTRIBUTE_NAME
@@ -164,8 +157,8 @@ These steps should be carried out for the old database before the migration. A b
 
     ```sql tab="Oracle"
     select DISTINCT t.ATTRIBUTE_NAME
-    	  FROM IDN_CLAIM_MAPPED_ATTRIBUTE t
-      	  WHERE t.LOCAL_CLAIM_ID IN ( SELECT t2.MAPPED_LOCAL_CLAIM_ID
+        FROM IDN_CLAIM_MAPPED_ATTRIBUTE t
+          WHERE t.LOCAL_CLAIM_ID IN ( SELECT t2.MAPPED_LOCAL_CLAIM_ID
           FROM IDN_CLAIM_MAPPING t2
           JOIN IDN_CLAIM t1
           ON t1.ID = t2.EXT_CLAIM_ID
@@ -197,14 +190,14 @@ These steps should be carried out for the old database before the migration. A b
     );
     ```
 
-3.  If the result of the above query is `scimId` then follow this step. Otherwise, skip this and move on to step-4.  
+3. If the result of the above query is `scimId`, follow this step. Otherwise, skip this and move on to step 4.  
 
-    If the result of the above query is `scimId`, it means the default mapped attribute(scimId) of `http://wso2.org/claims/userid` or the default local claim (`http://wso2.org/claims/userid`) mapped to the `urn:ietf:params:scim:schemas:core:2.0:id` claim is not updated in the WSO2 IS server. 
+    If the result of the above query is `scimId`, it means the default mapped attribute (scimId) of `http://wso2.org/claims/userid` or the default local claim (`http://wso2.org/claims/userid`) mapped to the `urn:ietf:params:scim:schemas:core:2.0:id` claim is not updated in the WSO2 IS server. 
     Hence, the following queries are used to update the `UM_USER_ID` of `UM_USER` with SCIM Id based on the mapped attribute `scimId`.
 
     ```sql tab="PostgreSQL"
-    CREATE OR REPLACE FUNCTION update_um_user_id()	returns int 
-	  LANGUAGE plpgsql
+    CREATE OR REPLACE FUNCTION update_um_user_id()  returns int 
+    LANGUAGE plpgsql
     AS $$
     DECLARE 
     count_rows int;
@@ -214,9 +207,9 @@ These steps should be carried out for the old database before the migration. A b
                 on T1.um_Id = T2.um_user_id 
                 where T2.um_attr_name ='scimId';
               
-    rec_um_attr RECORD;		
+    rec_um_attr RECORD;   
     BEGIN
-      count_rows = 0;	
+      count_rows = 0; 
       open cur_um_attr;
         LOOP
               fetch cur_um_attr into rec_um_attr;
@@ -224,12 +217,12 @@ These steps should be carried out for the old database before the migration. A b
       
             update um_user
             set um_user_id=rec_um_attr.um_attr_value
-            where um_id = rec_um_attr.um_id;	
+            where um_id = rec_um_attr.um_id;  
           
         count_rows = count_rows + 1;
-        END LOOP;			
+        END LOOP;     
       close cur_um_attr;
-    return count_rows;		
+    return count_rows;    
     END;
     $$;
     select update_um_user_id();
@@ -247,7 +240,7 @@ These steps should be carried out for the old database before the migration. A b
               join um_user T1
               on T1.um_Id = T2.um_user_id 
               where T2.um_attr_name ='scimId';    
-    BEGIN	
+    BEGIN 
 
       OPEN cur_um_attr;
       LOOP
@@ -258,7 +251,7 @@ These steps should be carried out for the old database before the migration. A b
               
               update um_user
           set um_user_id = v_um_attr_value
-          where um_id =  v_um_id;		
+          where um_id =  v_um_id;   
           
       END LOOP;
       CLOSE cur_um_attr; 
@@ -341,22 +334,22 @@ These steps should be carried out for the old database before the migration. A b
               from UM_USER_ATTRIBUTE T2
                 join UM_USER T1
                 on T1.UM_ID = T2.UM_USER_ID 
-                where T2.um_attr_name ='scimId'      	
+                where T2.um_attr_name ='scimId'       
 
       SET @count_rows = 0
 
-      OPEN cur_um_attr	
+      OPEN cur_um_attr  
       -- loop through a cursor
       FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
         WHILE @@FETCH_STATUS = 0
-            BEGIN 	
+            BEGIN   
             update UM_USER 
             set UM_USER_ID = @um_attr_value
-            where UM_ID =  @um_id	
+            where UM_ID =  @um_id 
           
           SET @count_rows = @count_rows + 1
           FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
-        END 	
+        END   
         
       CLOSE cur_um_attr
     END;
@@ -364,10 +357,10 @@ These steps should be carried out for the old database before the migration. A b
     update UM_USER set UM_USER_ID =LOWER(NEWID())  where UM_USER_ID='N' ;
     ```
 
-4.  If the result of the above query is something different from `scimId`, it means the local claim mapped to the `urn:ietf:params:scim:schemas:core:2.0:id`  claim is different than   `http://wso2.org/claims/userid` or the mapped attribute for the local claim `http://wso2.org/claims/userid` is different than `scimId`. Hence the following queries are used to update the `UM_USER_ID` of `UM_USER` with SCIM Id based on the updated mapped attribute.
+4. If the result of the above query is something different from `scimId`, it means the local claim mapped to the `urn:ietf:params:scim:schemas:core:2.0:id`  claim is different than   `http://wso2.org/claims/userid` or the mapped attribute for the local claim `http://wso2.org/claims/userid` is different than `scimId`. Hence the following queries are used to update the `UM_USER_ID` of `UM_USER` with SCIM Id based on the updated mapped attribute.
 
     ```sql tab="PostgreSQL"
-    CREATE OR REPLACE FUNCTION update_um_user_id()	returns int 
+    CREATE OR REPLACE FUNCTION update_um_user_id()  returns int 
     LANGUAGE plpgsql
     AS $$
     DECLARE 
@@ -387,9 +380,9 @@ These steps should be carried out for the old database before the migration. A b
                                   ON     T4.id = T3.ext_claim_id 
                                   WHERE  T4.claim_uri = 'urn:ietf:params:scim:schemas:core:2.0:id') );
               
-    rec_um_attr RECORD;		
+    rec_um_attr RECORD;   
     BEGIN
-      count_rows = 0;	
+      count_rows = 0; 
       open cur_um_attr;
         LOOP
               fetch cur_um_attr into rec_um_attr;
@@ -397,12 +390,12 @@ These steps should be carried out for the old database before the migration. A b
       
             update um_user
             set um_user_id=rec_um_attr.um_attr_value
-            where um_id = rec_um_attr.um_id;	
+            where um_id = rec_um_attr.um_id;  
           
         count_rows = count_rows + 1;
-        END LOOP;			
+        END LOOP;     
       close cur_um_attr;
-    return count_rows;		
+    return count_rows;    
     END;
     $$;
     select update_um_user_id();
@@ -424,7 +417,7 @@ These steps should be carried out for the old database before the migration. A b
               WHERE t1.CLAIM_URI = 'urn:ietf:params:scim:schemas:core:2.0:id'   
     )
         
-    BEGIN	
+    BEGIN 
 
       OPEN cur_um_attr;
       LOOP
@@ -435,7 +428,7 @@ These steps should be carried out for the old database before the migration. A b
               
               update um_user
           set um_user_id = v_um_attr_value
-          where um_id =  v_um_id;		
+          where um_id =  v_um_id;   
           
       END LOOP;
       CLOSE cur_um_attr; 
@@ -544,21 +537,21 @@ These steps should be carried out for the old database before the migration. A b
                                       FROM   idn_claim_mapping AS T3 
                                       JOIN idn_claim AS T4 
                                       ON T4.id = T3.ext_claim_id 
-                                      WHERE T4.claim_uri = 'urn:ietf:params:scim:schemas:core:2.0:id'))       	
+                                      WHERE T4.claim_uri = 'urn:ietf:params:scim:schemas:core:2.0:id'))         
 
       SET @count_rows = 0
-            OPEN cur_um_attr	
+            OPEN cur_um_attr  
       -- loop through a cursor
       FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
         WHILE @@FETCH_STATUS = 0
-            BEGIN 	
+            BEGIN   
             UPDATE UM_USER 
         SET UM_USER_ID = @um_attr_value
-        where UM_ID =  @um_id	
+        where UM_ID =  @um_id 
           
         SET @count_rows = @count_rows + 1
         FETCH NEXT FROM cur_um_attr INTO @um_attr_value, @um_id
-          END 	
+          END   
         
       CLOSE cur_um_attr
     END;
