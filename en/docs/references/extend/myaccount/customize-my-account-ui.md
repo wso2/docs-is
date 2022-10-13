@@ -20,11 +20,11 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 2. Set it up in the [development environment]({{base_path}}/references/extend/myaccount/set-up-my-account-in-a-dev-environment/). 
 
-3. Check out the latest tag of the identity-apps. The v1.0.72 tag is used in the sample mentioned below. 
+3. Check out the `v1.4.28` tag of the identity-apps repo, which corresponds WSO2 IS 6.0.0. 
 
     ```java
     $ git fetch --all --tags --prune
-    $ git checkout tags/v1.0.72 -b feature-dark-theme-demo
+    $ git checkout tags/v1.4.28 -b feature-dark-theme-demo
     ```
 
 4. Navigate to the `modules/theme/src/themes` folder within identity-apps. All the theme global variable overrides can be found in the `modules/theme/src/themes/default/globals/site.variables` file. For the full set of variables, see the [original theme variables file](https://github.com/Semantic-Org/Semantic-UI-LESS/blob/master/themes/default/globals/site.variables).
