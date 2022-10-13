@@ -11,9 +11,9 @@ Follow the topics given below to try out the Device Authorization grant type.
 ## (Optional) Configure WSO2 Identity Server
 
 !!! info
-    **This step is optional** unless it is required to customize the properties below.
+    This change is optional unless you want to change the default values of the properties mentioned below.
 
-Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` folder) and add the following configurations:
+Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` folder), add the following configuration, and change the values of the properties below:
 
 ```toml
 [oauth.grant_type.device_code]
