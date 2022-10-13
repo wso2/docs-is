@@ -293,7 +293,6 @@ paths:
                   {
                     "session": {
                       "userId": "00000001",
-                      "idpName": "partner-wso2-is",
                       "applications": [
                         {
                           "id": "298c5fd8-01ac-4ada-bc10-1ce37f32140b",
