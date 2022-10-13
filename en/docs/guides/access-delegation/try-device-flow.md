@@ -8,7 +8,7 @@ specification.
     
 Follow the topics given below to try out the Device Authorization grant type.
 
-## Configure WSO2 Identity Server
+## (Optional) Configure WSO2 Identity Server
 
 !!! info
     **This step is optional** unless it is required to customize the properties below.
