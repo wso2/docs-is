@@ -410,11 +410,6 @@ definitions:
         type: string
         description: ID of the user of the session.
         example: '00000001'
-      idpName:
-        type: string
-        description: >
-          Identity provider name that the session authenticated. Will only be returned for federated authentication sessions.
-        example: 'partner-wso2-is'
       applications:
         type: array
         description: List of applications in the session.
