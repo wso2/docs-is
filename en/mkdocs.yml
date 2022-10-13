@@ -732,7 +732,6 @@ nav:
     - 'Migrate':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
-      - 'Before you begin' : setup/migration-guide.md
       - 'Prepare for migration' : setup/migrating-preparing-for-migration.md
       - 'Migrate to 5.11.0' : setup/migrating-to-5110.md
       - 'Migrate Userstore Managers': setup/migrating-userstore-managers.md
