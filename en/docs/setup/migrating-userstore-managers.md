@@ -42,13 +42,14 @@ change the `user_id_attribute` to the value of the SCIM ID, in the `<IS_HOME>/re
 
 ## Configurations
 
+Apply the following configurations to the `migration-config.yaml` file:
+
 | Property Name | Description |
 | ------------- | ----------- |
 | migrateAll | Migrate all the tenants and all the user store domains in it. |
 | reportPath | Absolute path for the dry report. This is required in the dry run mode. |
 
-
-The following configurations are only needed to migrate a few tenants. The format should be similar to the one mentioned below. `Tenant-param` is a place holder name to represent each tenant uniquely, e.g., tenant1.
+You can configure the **user ID migrator** as shown below, which is for adding UUID values to user records. This is only required if your primary user store is **not** an Active Directory. 
 
 ```  
 -
@@ -67,7 +68,21 @@ The following configurations are only needed to migrate a few tenants. The forma
 | migratingDomains | List of comma-separated domain names that should be migrated to this domain. (Optional) |
 | forceUpdateUserId | Mark whether user IDs should be updated even though there is already an existing ID. (Optional) |
 
-## Populating UserIds to the userstores
+
+If the primary user store in your deployment is an Active Directory, you don't need to run the user ID migrator as the user store already has an attribute named `objectGuid`, which can be used as the UUID of the user. Therefore, you can remove the above user ID migrator configuration from the `migration-config.yaml` file. However, if you are planning to use a [unique ID Active Directory user store manager](../../setup/configuring-a-read-write-active-directory-user-store), be sure to map the `UserIDAttribute` attribute to the `objectGUID` attribute in the Active Directory as follows:
+
+```
+[user_store]
+class = "org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager"
+
+[user_store.properties]
+UserIDAttribute = "objectGUID"
+```
+
+!!! Note
+    UUID support for user store managers were added from IS 5.10.0 onwards.
+
+## Populating UserIds for the userstores
 
 These steps should be carried out for the old database before the migration. A backup of UM database should be taken and database triggers should be set to update the backup database based on the updates of the live database. After performing the following steps the backup database should be migrated to the next version.
 
