@@ -4,7 +4,7 @@ This page guides you through enabling login for an [OpenID Connect]({{base_path}
 
 {!./includes/deploying-sample-apps.md!}
 
-- Download the [OIDC pickup dispatch application](https://github.com/wso2/samples-is/releases/download/v4.5.1/pickup-dispatch.war) from the latest release assets.
+- Download the [OIDC pickup dispatch application](https://github.com/wso2/samples-is/releases/download/v4.5.2/pickup-dispatch.war) from the latest release assets.
 
 ---
 ### Register a service provider

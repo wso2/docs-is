@@ -63,7 +63,7 @@ application.
 
     1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.5.1/playground2.war) the `playground2.war` file from the latest release assets.     
+    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.5.2/playground2.war) the `playground2.war` file from the latest release assets.     
     
 ### Deploy the sample
 
