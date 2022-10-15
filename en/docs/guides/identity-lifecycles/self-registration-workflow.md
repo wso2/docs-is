@@ -66,7 +66,7 @@ Follow the steps given below to register users for the super tenant, `carbon.sup
     <td>Manage notifications sending internally</td>
     <td>
     <p>
-    Select to configure the Identity server to send confirmation emails to the user.
+    Enable the Identity server to send confirmation emails to the user.
     If the client application handles notification sending already, unselect it. 
     </p>
     </td>
