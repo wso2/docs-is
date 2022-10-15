@@ -242,7 +242,7 @@ Next, you can try out self-registration.
 
     ![register-users-for-tenant]({{base_path}}/assets/img/guides/register-users-for-tenant.png)
 
-3. Fill in the user details, provide consent to share the requested information and then click **Register**.
+3. Fill in the user details, provide consent to share the requested information, and then click **Register**.
 
     ![Self sign up form]({{base_path}}/assets/img/guides/self-signup-form.png)
 
