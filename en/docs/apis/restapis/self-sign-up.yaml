@@ -52,7 +52,7 @@ paths:
       summary: |
         Self register user
       description: |
-        This API is used for user self-registration. <br><br> In addition to the basic self register API, WSO2 provides extensions for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
+        This API is used for user self-registration. <br><br> In addition to the basic self-register API, WSO2 provides extensions for self-registration verification. Learn more about the <a href="https://is.docs.wso2.com/en/latest/references/extend/user-mgt/self-register-verification/">extended self registration verification</a> process.
       requestBody:
         description: Sends optional property parameters over email based on an email
           template.
