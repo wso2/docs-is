@@ -105,8 +105,7 @@ You can lock user accounts using the Management Console or the SCIM2 APIs.
 
 	2.	Enter an email address to which Alex's account locking emails will be sent and select the **User Locked** check box.
 
-	3.	Click **Update**.
-   You will receive an email to the given email address that informs you about the account locking.
+	3.	Click **Update** and you will receive an email to the given email address that informs you about the account locking.
 
 		<!--<img src="../../assets/img/learn/account-unlocked-email.png" alt="Account Unlocked email" width="500" style="border:1px solid grey">-->
 
@@ -122,8 +121,7 @@ You can lock user accounts using the Management Console or the SCIM2 APIs.
 
 	2.	Unselect the **User Locked** check box.
 
-	3.	Click **Update**.
-   You will receive an email to the given email address that informs you about the account unlocking.
+	3.	Click **Update** and you will receive an email to the given email address that informs you about the account unlocking.
 
 		<!--<img src="../../assets/img/learn/account-unlocked-email.png" alt="Account Unlocked email" width="500" style="border:1px solid grey">-->
 
