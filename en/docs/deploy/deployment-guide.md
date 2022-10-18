@@ -473,5 +473,5 @@ You can use any load balancer that is available to your system.
 1. Start the load balancer and WSO2 Identity Server nodes.
 2. Access the WSO2 Identity Server Management Console (`https://<IS_HOST>:<PORT>/carbon`). 
     Depending on your load balancer, traffic will be served by one of the cluster nodes.
-3. Shut down cluster node one and observe that the traffic is served by node 2. 
+3. Shut down cluster node one and observe that the traffic is served by node two. 
 4. Start node one and shut down node two. Note that traffic will be served by node one.
