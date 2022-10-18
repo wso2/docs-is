@@ -8,7 +8,7 @@
     - [Claim configurations](#claim-configurations)
     - [Inbound authentication configurations](#inbound-authentications-configurations)
     - [Local and outbound authentication configurations](#local-and-outbound-authentication-configurations)
-2. [Configure the server](#local-configurations-on-deploymenttoml)
+2. [Configure the server](#configure-wso2-is)
 
 ## Prerequisites
 
