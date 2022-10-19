@@ -11,7 +11,7 @@ Add the following configuration to the ` <IS_HOME>/repository/conf/deployment.to
 "hazelcast.logging.type"= "log4j"
 ```
 
-The configurations definitions are as follows:
+The configurations are as follows:
 
 - **Hazelcast shutdown hook**:
     - This configuration is enabled by default. Disabling this will ensure that the hazelcast instance shuts down gracefully whenever the product node shuts down.
