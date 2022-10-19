@@ -120,7 +120,6 @@ nav:
             - Use Certificates with Applications: guides/login/use-certificates-with-applications.md
             - Session Timeout: guides/login/session-timeout.md
             - Multi-Attribute Login: guides/login/multi-attribute-login.md
-            - Session Persistence: guides/login/session-persistence.md
         - Single Sign On: 
           - Enable Single Sign On: guides/login/enable-single-sign-on.md
           - OIDC Applications: guides/login/sso-for-oidc.md
@@ -408,6 +407,7 @@ nav:
               - Identity Provider Related Tables: deploy/identity-provider-related-tables.md
             - Data Purging: deploy/data-purging.md
             - Remove References to Deleted User Identities: deploy/remove-references-to-deleted-user-identities.md
+        - Session Persistence: deploy/session-persistence.md
         - Analytics:
           - Configure ELK Analytics: deploy/elk-analytics-installation-guide.md
           - Configure SSO in ELK Analytics: deploy/elk-analytics-sso-guide.md
