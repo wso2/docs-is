@@ -156,7 +156,7 @@ paths:
     patch:
       tags:
         - admin
-      summary: Add a challenge question to a set
+      summary: Add a challenge question to a set.
       operationId: addChallengeQuestionToASet
       description: |
         Add new challenge question to an existing set.
