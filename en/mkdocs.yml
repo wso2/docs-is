@@ -550,6 +550,9 @@ nav:
       - Server configuration API: apis/configs-rest-api.md
       - Permission management API : apis/permission-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
+      - Admin services:
+        - Call admin services: apis/call-admin-services.md
+        - One way operations: apis/admin-services-for-one-way-operations.md
           
   - SDKs:
       - Overview: sdks/sdk-overview.md
@@ -680,6 +683,7 @@ nav:
       - REST API error catalog: references/error-catalog.md
     - Adaptive Authentication JS API: references/adaptive-authentication-js-api-reference.md
     - Scopes for REST APIs: references/scopes-corresponding-to-rest-api-permissions.md
+    - Permissions for Admin Services: references/permissions-required-to-invoke-admin-services.md
     - IAM Topics:
       - Evolution of Identity Federation Standards: references/evolution-of-identity-federation-standards.md
       - Authentication:
@@ -1403,7 +1407,7 @@ plugins:
               'compliance/general-data-protection-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/gdpr/'
               'compliance/electronic-identification-authentication-and-trust-services-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/eidas/'
               'compliance/california-consumer-privacy-act.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/ccpa/'
-              'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              #'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'
               #'references/error-catalog.md': 'https://is.docs.wso2.com/en/6.0.0/references/error-catalog/'
               'references/supported-cipher-suites.md': 'https://is.docs.wso2.com/en/6.0.0/'

@@ -1,12 +1,11 @@
 # Permissions Required to Invoke Admin Services
 
-The following table lists out the various operations that can be
-performed with different permission levels.
+!!! warning
+    Admin services are deprecated from IS 6.0.0 onwards. You can use REST-based APIs.
 
----
+The following table lists the various operations that can be performed with different permission levels.
 
 ## Tenant level permissions
-
 
 <table>
 <tbody>
@@ -694,9 +693,9 @@ performed with different permission levels.
 
 ---
 
-## Special cases 
+## Special cases
 
-**These operations require multiple permission levels.**
+The following operations are special cases that require multiple permission levels to perform the operation.
 
 <table>
 <tbody>
@@ -757,6 +756,3 @@ performed with different permission levels.
 </tr>
 </tbody>
 </table>
-
-!!! info "Related topics"
-    - [API: SOAP APIs]({{base_path}}/develop/apis/soap-apis/)
