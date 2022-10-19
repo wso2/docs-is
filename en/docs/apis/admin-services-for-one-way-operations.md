@@ -1,7 +1,7 @@
 # Admin Services for One Way Operations
 
 !!! warning
-    Admin services feature is deprecated from IS 6.0.0 onwards.
+    Admin services are deprecated from IS 6.0.0 onwards. You can use REST-based APIs.
     
 The following are the `.wsdl` files for key admin services for one way
 operations.
