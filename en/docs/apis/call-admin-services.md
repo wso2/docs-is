@@ -1,7 +1,7 @@
 # Call Admin Services
 
 !!! warning
-    Admin services feature is deprecated from IS 6.0.0 onwards.
+    Admin services are deprecated from IS 6.0.0 onwards. You can use REST-based APIs.
 
 WSO2 Identity Server (WSO2 IS) is managed internally using SOAP Web services known as **admin services**. WSO2 IS comes with a management console UI, which communicates with these admin services to facilitate
 administration capabilities through the UI.
