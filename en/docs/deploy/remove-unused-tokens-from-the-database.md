@@ -43,7 +43,7 @@ Follow the instructions below to configure token cleanup using this method.
 
 ## Configure WSO2 Identity Server for token cleanup
 
-Alternatively, you can use the WSO2 Identity Server which triggers token cleanup during the following
+Alternatively, you can use the WSO2 Identity Server, which triggers token cleanup during the following
 instances.
 
 1. New token generation
