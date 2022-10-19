@@ -131,7 +131,7 @@ You can configure user role permissions to restrict access to resources. To do s
 
 1. Open the **deployment.toml** file found in the **IS_HOME/repository/conf** directory.
 
-2. Under `[resource.access_control]` section, specify the resource you want to secure along with the following parameters.
+2. In the`[resource.access_control]` section, specify the resource you want to secure along with the following parameters.
 
     | Parameter            | Description | Sample Value |
     |----------------------|-------------|--------------|
