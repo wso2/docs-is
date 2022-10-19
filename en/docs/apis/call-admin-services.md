@@ -40,7 +40,7 @@ By default, the WSDLs of admin services are hidden from consumers. Explained bel
 
 3. Once the server starts, hit the enter/return key several times to get the OSGI shell in the console.
 
-4. In the OSGi shell, type: `listAdminServices` to view the list of admin services of your product.
+4. In the OSGi shell, type `listAdminServices` to view the list of admin services of your product.
     <!-- ![Admin services list]({{base_path}}/assets/img/apis/admin-services-list.png) -->
 
     !!! info
