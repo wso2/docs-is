@@ -242,7 +242,7 @@ parameters:
       name: question-id
       required: true
       type: string
-      description: Challenge Question ID
+      description: Challenge question ID.
     localeQueryParam:
       in: query
       name: locale
