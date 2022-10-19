@@ -55,7 +55,7 @@ Upon considering the persistence of data relevant to the critical path and high 
 
 - **Task pool**
     
-    On some older releases, the task pool was employed when storing the above data within a critical path that controls the authentication. Here the pooling mechanism is introduced to put the data persistence tasks into that pool and continue the critical path without blocking it. However, this did not prove to provide the expected results.
+    On some older releases, the task pool was employed when storing the above data within a critical path that controls the authentication. Here, the pooling mechanism is introduced to put the data persistence tasks into that pool and continue the critical path without blocking it. However, this did not prove to provide the expected results.
     It further caused a few side effects. Hence, it was later reverted and it is not recommended to use this feature anymore.
 
 - **Data clean-up in a clustered environment**
