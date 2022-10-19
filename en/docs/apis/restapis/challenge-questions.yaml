@@ -127,7 +127,7 @@ paths:
       summary: Update challenge questions of a set.
       operationId: updateChallengeQuestionSet
       description: |
-        Updates an existing challenge question set in the system. This will override the existing challenge questions in the set by new challenge questions.
+        Updates an existing challenge question set in the system. This will override the existing challenge questions in the set with new challenge questions.
 
           <b>Permission required:</b>
             * /permission/admin/manage/identity/challenge/update
