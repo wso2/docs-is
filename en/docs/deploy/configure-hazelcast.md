@@ -1,9 +1,8 @@
 # Configure Hazelcast
 
-WSO2 Identity Server uses Hazelcast <!--({{base_path}}/deploy/set-up-separate-databases-for-clustering/)--> as
-its default clustering engine.
+WSO2 Identity Server uses Hazelcast <!--({{base_path}}/deploy/set-up-separate-databases-for-clustering/)--> as its default clustering engine.
 
-Add the following configuration to the ` <IS_HOME>/repository/conf/deployment.toml ` file to enable advanced configurations related to hazelcast.
+Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to enable advanced configurations related to hazelcast.
 
 ```toml
 [hazelcast]
