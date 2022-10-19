@@ -47,7 +47,7 @@ paths:
       parameters:
       - in: body
         name: challengeSet
-        description: Challenge question set to add
+        description: Challenge question set to add.
         schema:
           type: array
           items:
