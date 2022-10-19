@@ -213,7 +213,7 @@ paths:
       summary: Remove a challenge question in a set.
       operationId: deleteChallengeQuestion
       description: |
-        Removes a specific question from an existing challenge question set. By specifying the locale query parameter, locale specific challenge question entry for the question can be deleted.
+        Removes a specific question from an existing challenge question set. By specifying the locale query parameter, the locale-specific challenge question entry for the question can be deleted.
 
           <b>Permission required:</b>
             * /permission/admin/manage/identity/challenge/delete
