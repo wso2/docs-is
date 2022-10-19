@@ -35,7 +35,7 @@ paths:
     post:
       tags:
         - admin
-      summary: Add a new challenge question set.
+      summary: Add a new set of challenge questions.
       operationId: addChallenges
       description: |
         Adds a new challenge question set to the system. A challenge question set can have any number of questions.
