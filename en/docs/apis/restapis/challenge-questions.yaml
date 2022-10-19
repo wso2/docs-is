@@ -38,7 +38,7 @@ paths:
       summary: Add a new set of challenge questions.
       operationId: addChallenges
       description: |
-        Adds a new challenge question set to the system. A challenge question set can have any number of questions.
+        Adds a new set of challenge questions to the system. A set can have any number of questions.
 
           <b>Permission required:</b>
             * /permission/admin/manage/identity/challenge/create
