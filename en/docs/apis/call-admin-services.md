@@ -28,7 +28,7 @@ By default, the WSDLs of admin services are hidden from consumers. Explained bel
        enable= true
        ```
 
-2. Go to `<IS_HOME>/bin/` folder and start the WSO2 product as follows:
+2. Go to the `<IS_HOME>/bin/` folder and start the WSO2 product as follows:
 
     ``` java tab="In Linux Environment"
     sh wso2server.sh -DosgiConsole
