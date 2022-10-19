@@ -81,7 +81,7 @@ paths:
         - $ref: '#/parameters/limitQueryParam'
       responses:
         200:
-          description: search results matching criteria
+          description: Search results matching criteria.
           schema:
             type: array
             items:
