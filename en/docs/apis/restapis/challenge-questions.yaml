@@ -94,7 +94,7 @@ paths:
     get:
       tags:
         - admin
-      summary: Retrieve a challenge set.
+      summary: Retrieve a set of challenge questions.
       operationId: getChallengeQuestionSet
       produces:
       - application/json
