@@ -33,7 +33,7 @@ WSO2 Identity Server has multiple local caching usages in different layers to im
 
 There are three types of data objects that are persisted in the database.
 
-1. **Session Data**
+-  **Session Data**
     
     Once the user is authenticated, WSO2 Identity Server creates a session data object that stores the authenticated user and the other authentication flow details. This will be stored in the database to be shared across the cluster nodes.
 
