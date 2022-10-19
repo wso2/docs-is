@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Challenge Answers API Definition
+# Challenge Questions API Definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
@@ -19,7 +19,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/apis/restapis/challenge.yaml",
+     url: "{{base_path}}/apis/restapis/challenge-questions.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
