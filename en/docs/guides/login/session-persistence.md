@@ -41,7 +41,7 @@ There are three types of data objects that are persisted in the database.
     
     Once the user gets authenticated, there will be a record for login status to that session id. Then again when that user is logged out from the system, we are not removing the above record from the table instead of that, we add a new record to the same session id with a status called logout. So the valid record is the last one and all the other records under that session id will be outdated. Those outdated records belong to the Operational Data.
 
-3. **Temporary Data**
+-  **Temporary Data**
     
     In the authentication flow, many temporary data objects are kept for a few seconds only. These are kept in the cache. But to make the cluster environment consistent without having the local cache, we store that also in the same database table where we stored the session data as above.
 
