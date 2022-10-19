@@ -236,7 +236,7 @@ parameters:
       name: challenge-set-id
       required: true
       type: string
-      description: Challenge Question set ID
+      description: Challenge question set ID.
     questionIdPathParam:
       in: path
       name: question-id
