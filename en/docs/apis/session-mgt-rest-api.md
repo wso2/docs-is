@@ -14,7 +14,7 @@ template: templates/swagger.html
     
        1. If you are using OAuth-based authentication, [obtain an access token]({{base_path}}/apis/overview/#how-to-access-the-apis) for your organization using the scope specified in the relevant API operation. Skip this step if you are using basic authentication to invoke the API.
        2. Expand the relevant API operation and select the required authentication method from the **Examples** list.
-       3. Copy the sample cURL command provided under the examples, update the relevant variables, and add a `-k` header to the curl command.
+       3. Copy the sample cURL command provided under the examples, update the relevant variables, and add the `-k` header to the curl command.
        4. Run the curl command on the terminal with a running instance of WSO2 IS. 
 
 !!! Note
