@@ -19,7 +19,7 @@ This guide walks you through the process of enabling session persistence for ses
 
     This cookie can be seen as **commonauthId**. It is set to the user’s browser with the hostname of the WSO2 Identity Server instance and the value of the **commonauthId** cookie is the SSO session identifier. When an SSO session is created in the WSO2 Identity Server, the session is put into the session cache and persisted in the database. To persist it into the database, you must enable session persistence.
 
-## Importance session persistence
+## Importance of session persistence
 
 SSO sessions are stored in an in-memory cache. It is recommended to persist the SSO session due to the following reasons.
 
