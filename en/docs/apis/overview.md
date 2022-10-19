@@ -35,7 +35,7 @@ curl -X GET "https://localhost:9443/t/carbon.super/api/server/v1/applications?li
 This authentication method requires users to obtain an OAuth2 token and then use it to invoke the APIs. If the API you wish to invoke has `Password`, `Client-credentials`, or `AuthorizationCode` as the authentication requirement, use the following request format to obtain a bearer token.
 
 !!! info "Before you begin"
-    - You need to [create an application]({{base_path}}/guides/applications/register-sp) with the management application option enabled.
+    - You need to [create an application]({{base_path}}/guides/applications/register-sp) with **Management Application** enabled.
     - Expand the relevant API definition on the docs and obtain the **scope** required to invoke the API.
 
 !!! abstract
