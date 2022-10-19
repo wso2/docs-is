@@ -47,7 +47,7 @@ There are three types of data objects that are persisted in the database.
 
 ## Key aspects in session persistence
 
-Upon considering the persistence of data relevant to the critical path and high concurrency situations, the following key aspects are improved.
+Upon considering the persistence of data relevant to the critical path and high-concurrency situations, the following key aspects are improved.
 
 - **Data clean-up**
     
