@@ -37,7 +37,7 @@ There are three types of data objects that are persisted in the database.
     
     Once the user is authenticated, WSO2 Identity Server creates a session data object that stores the authenticated user and the other authentication flow details. This will be stored in the database to be shared across the cluster nodes.
 
-2. **Operational Data**
+-  **Operational Data**
     
     Once the user gets authenticated, there will be a record for login status to that session id. Then again when that user is logged out from the system, we are not removing the above record from the table instead of that, we add a new record to the same session id with a status called logout. So the valid record is the last one and all the other records under that session id will be outdated. Those outdated records belong to the Operational Data.
 
