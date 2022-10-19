@@ -19,7 +19,7 @@ There can be instances where you want to call back-end Web services directly. Fo
 
 ## Discover the admin services
 
-By default, the WSDLs of admin services are hidden from consumers. Given below is how to discover them using the OSGi console.
+By default, the WSDLs of admin services are hidden from consumers. Explained below is how to discover them using the OSGi console.
 
 1. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
