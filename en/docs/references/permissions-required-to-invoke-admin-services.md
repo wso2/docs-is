@@ -1,7 +1,7 @@
 # Permissions Required to Invoke Admin Services
 
 !!! warning
-    Admin services feature is deprecated from IS 6.0.0 onwards.
+    Admin services are deprecated from IS 6.0.0 onwards. You can use REST-based APIs.
 
 The following table lists the various operations that can be performed with different permission levels.
 
