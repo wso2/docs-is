@@ -247,7 +247,7 @@ parameters:
       in: query
       name: locale
       description: >
-        An optional search string to look-up challenge-questions based on locale.
+        An optional search string to look up challenge questions based on locale.
       required: false
       type: string
     offsetQueryParam:
