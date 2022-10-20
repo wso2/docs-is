@@ -68,7 +68,7 @@ To configure the account locking requirements:
 
 2. Expand **Login Attempt Security > Account Lock**.
 
-3. Enable account locking by selecting the **Lock user accounts on maximum failed attempts** check box.
+3. Enable account locking by selecting the **Lock user accounts on maximum failed attempts** checkbox.
 
       <img src="{{base_path}}/assets/img/guides/account-locking-form-admin-initiated.png" alt="Account Locking form" width="700" style="border:1px solid grey">
 
