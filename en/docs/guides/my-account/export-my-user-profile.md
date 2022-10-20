@@ -20,7 +20,7 @@ Using the **export user profile** feature in **My Account**, a JSON file can be 
 
 You can export your profile by following the instructions given below.
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Personal info** tab on the side panel.
 3. Under the **Export profile** sub section, click on the **Download as JSON** button. All the profile details will be downloaded to your local machine as a JSON file.
 

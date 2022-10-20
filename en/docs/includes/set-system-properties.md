@@ -4,9 +4,8 @@ you can take the following approaches:
 -   **Set the properties from a script** : Setting your system
     properties in the startup script is ideal, because it ensures that
     you set the properties every time you start the server. To avoid
-    having to modify the script each time you upgrade, the best approach
-    is to create your own startup script that wraps the WSO2 startup
-    script and adds the properties you want to set, rather than editing
+    having to modify the script each time you upgrade, create your own startup script that wraps the WSO2 startup
+    script and add the properties you want to set, rather than editing
     the WSO2 startup script directly.
 -   **Set the properties from an external registry** : If you want to
     access properties from an external registry, you could create Java
