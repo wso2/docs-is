@@ -21,7 +21,7 @@ You can use the provided stored procedures to run a token cleanup task periodica
 Follow the instructions below to configure token cleanup using this method.
 
 !!! tip
-    It is safe to run these steps in read-only mode or during a time when traffic on the server is low, but that is not mandatory.
+    It is safe to run these steps in read-only mode or during a time when traffic on the server is low, but it is not mandatory.
 
 1. Disable the internal token cleanup process by configuring the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
