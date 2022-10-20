@@ -64,7 +64,7 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 To configure the account locking requirements:
 
-1. On the **Management Console** go to **Identity > Identity Providers > Resident**.
+1. On the **Management Console**, go to **Identity > Identity Providers > Resident**.
 
 2. Expand **Login Attempt Security > Account Lock**.
 
