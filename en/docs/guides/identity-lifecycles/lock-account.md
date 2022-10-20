@@ -9,7 +9,7 @@ WSO2 Identity Server enables privileged users to temporarily lock suspicious use
 Let's learn how Sam can lock Larry's user account!
 
 ### Prerequisites
-- You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Larry` with [login permissions]. Do not assign any roles to this user.
+- You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Larry` with login permissions. Do not assign any roles to this user.
 
 ### Set up the IS
 
