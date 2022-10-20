@@ -111,7 +111,7 @@ To lock Larry's user account:
 
       <img src="{{base_path}}/assets/img/guides/account-locked-email.png" alt="Account Locked email" width="700" style="border:1px solid grey">
 
-5. Access the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`.
+5. Access the WSO2 Identity Server's **My Account** portal at `https://localhost:9443/myaccount`.
 
 6. Try to log in with Larry's credentials. Note that an error message appears.
 
