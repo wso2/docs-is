@@ -101,7 +101,7 @@ To lock Larry's user account:
 
 2. Click **User Profile** option for Larry.
 
-3. Select **default**. Enter Larry's email address and select the **Account Locked** checkbox.
+3. Select **default**, enter Larry's email address, and select the **Account Locked** checkbox.
 
       <img src="{{base_path}}/assets/img/guides/user-locked.png" alt="User Email option" width="700" style="border:1px solid grey">
 
