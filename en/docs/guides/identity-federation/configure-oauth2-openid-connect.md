@@ -111,6 +111,11 @@ processors](TO-DO:{{base_path}}/learn/extension-points-for-oauth#token-persisten
         <td>User ID found in 'sub' attribute</td>
     </tr>
     <tr>
+        <td>Scopes</td>
+        <td>This is a space-separated, case-sensitive list of OpenID Connect scopes to request from the identity provider. See the <a href="https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OpenID Connect specification</a> for more information about what scopes can be configured here.</td>
+        <td>openid email profile</td>
+    </tr>
+    <tr>
         <td>Additional Query Parameters</td>
         <td>This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here.
         <div class="admonition note">

@@ -138,7 +138,7 @@ The following changes have been made to the TOTP authenticator.
 
         ``` js
         [authentication.authenticator.totp.parameters]
-        Allow_sending_verification_code_by_email = true
+        AllowSendingVerificationCodeByEmail = true
         ```
 
 !!! note
@@ -476,6 +476,10 @@ Any client application that is consuming the ID token claims should be updated t
    }
 }
 ```
+### Thumbprint certificate hashing algorithm
+From IS 5.10.0 onwards, the hashing algorithm used for thumbprint certificate generation is updated to `SHA-256`. For versions before IS 5.10.0, WSO2 Identity Server used `SHA-1` as the hashing algorithm for thumbprint certificate generation.
+
+Therefore, if a user is migrating from IS 5.9.0 or a lower version to IS 6.0.0, the previously issued JWTs will not be validated against the new thumbprint included in the JWKS response of the latest version.
 
 ## Claims
 This section covers the updates related to claims on Identity Server 6.0.0.
@@ -747,6 +751,16 @@ id = "identity/register"
 enable = true
 ```
 
+### User's Session Management APIs
+From Identity Server 6.0.0 onwards, two new API endpoints will be available to retrieve user session information.
+
+- `/{user-id}/sessions/{session-id}`: To retrieve information related to the active session given a session-id and a user-id.
+- `/sessions`: To retrieve all active sessions of the tenant. This endpoint supports filtering with some of the attributes.
+
+Read more on [User's Session Management API Definition]({{base_path}}/apis/session-mgt-rest-api/).
+
+From Identity Server 6.0.0 onwards, federated authentication sessions associated with local user sessions will be returned with the session's response.
+
 ## Database
 This section covers the updates related to database configurations on Identity Server 6.0.0.
 
@@ -760,7 +774,8 @@ Therefore, it is mandatory to migrate the existing H2 databases to the newer ver
     If you are migrating from IS 5.11.0 which is using the embedded H2 database and has been updated to update level 111 or higher, the H2 database migration need not be done as the database has already been migrated with update 111.
 
 To migrate the H2 databases to the newer versions, follow the instructions given below.
-1. Download the [migration.sh script](https://github.com/wso2/samples-is/blob/master/h2-migration-tool/migration.sh) and run it using the command ```sh migration.sh``.
+
+1. Download the [migration.sh script](https://github.com/wso2/samples-is/blob/master/h2-migration-tool/migration.sh) and run it using the command `sh migration.sh`.
 
     Alternatively, you could run the following command to download and run the script in one go.
 

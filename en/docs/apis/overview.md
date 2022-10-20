@@ -120,7 +120,6 @@ Add the following configuration to the `deployment.toml` file to enable this fea
     - If the user is not a super tenant and belongs to a secondary user store, the incoming cert CN should be `<userstore_domain>/<username@tenant_doman>` e.g., `SECONDARY/john@abc.com`.
 
 
-
 ## Additional configurations
 
 This section covers the additional configurations that admins can use when using APIS.
