@@ -69,7 +69,7 @@ You can configure the **user ID migrator** as shown below, which is for adding U
 | forceUpdateUserId | Mark whether user IDs should be updated even though there is already an existing ID. (Optional) |
 
 
-If the primary user store in your deployment is an Active Directory, you don't need to run the user ID migrator as the user store already has an attribute named `objectGuid`, which can be used as the UUID of the user. Therefore, you can remove the above user ID migrator configuration from the `migration-config.yaml` file. However, if you are planning to use a [unique ID Active Directory user store manager](../../setup/configuring-a-read-write-active-directory-user-store), be sure to map the `UserIDAttribute` attribute to the `objectGUID` attribute in the Active Directory as follows:
+If the primary user store in your deployment is an Active Directory, you don't need to run the user ID migrator as the user store already has an attribute named `objectGuid`, which can be used as the UUID of the user. Therefore, you can remove the above user ID migrator configuration from the `migration-config.yaml` file. However, if you are planning to use a [unique ID Active Directory user store manager](../../setup/configuring-a-read-write-active-directory-user-store), be sure to map the `UserIDAttribute` attribute to the `objectGuid` attribute in the Active Directory as follows:
 
 ```
 [user_store]
