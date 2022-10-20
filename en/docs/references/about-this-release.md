@@ -56,7 +56,7 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
     [Learn more]({{base_path}}/guides/passwordless/magic-link/)
 
--   **FIDO attestation**
+-   **FIDO attestation validations**
 
     FIDO attestation validations allow you to further validate the FIDO2 authenticator data during the security key registration.
 

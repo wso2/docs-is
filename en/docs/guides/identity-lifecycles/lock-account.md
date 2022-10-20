@@ -74,7 +74,6 @@ To configure the account locking requirements:
 
 4. Click **Update** to save the configurations.
 
-
 ### Configure account locking claims
 To enable the account locking claim:
 

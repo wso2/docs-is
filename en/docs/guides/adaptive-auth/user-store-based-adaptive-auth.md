@@ -73,7 +73,7 @@ To configure user store-based authentication:
 
     !!! info
         - The authentication script prompts the second step of authentication for users that belong to the user stores named `EMPLOYEES` and `CONTRACTORS`.
-        - By default, `totp` will be added as the second authentication step. You can update this with any authentication method.
+        - By default, `TOTP` will be added as the second authentication step. You can update this with any authentication method.
 
 7. Click **Update** to save your configurations.
 

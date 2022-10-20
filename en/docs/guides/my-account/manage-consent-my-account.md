@@ -5,13 +5,13 @@ WSO2 IS provides a comprehensive consent management solution that can be used to
 
 ## Revoke consent
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Security** tab on the side panel.
 3. Under the **Manage consent** section, click on the **Revoke** button aligning with the application for which consent needs to be revoked. 
 
 ## Edit consent
 
-1. Access **My Account** (https://<IS_HOST>:<PORT>/myaccount).
+1. Access **My Account** (`https://<IS_HOST>:<PORT>/myaccount`).
 2. Click the **Security** tab on the side panel.
 3. Under the **Manage consent** section, click on the edit icon aligning with the application for which the consent needs to be edited. 
 4. Click and disable the toggle button aligning with any claim to revoke your consent.

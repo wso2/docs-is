@@ -82,7 +82,7 @@ This document lists the URLs for the relavent Swagger files used in the API docu
     https://github.com/wso2-extensions/identity-governance/blob/v1.4.72/components/org.wso2.carbon.identity.user.endpoint/src/main/resources/api.identity.user.yaml
 
 - Session Management
-    https://raw.githubusercontent.com/wso2/identity-api-user/v1.1.17/components/org.wso2.carbon.identity.api.user.session/org.wso2.carbon.identity.api.user.session.v1/src/main/resources/session.yaml
+    https://raw.githubusercontent.com/wso2/identity-api-user/v1.3.1/components/org.wso2.carbon.identity.api.user.session/org.wso2.carbon.identity.api.user.session.v1/src/main/resources/session.yaml
 
 - Tenant Management
     https://raw.githubusercontent.com/wso2/identity-api-server/v1.0.190/components/org.wso2.carbon.identity.api.server.tenant.management/org.wso2.carbon.identity.api.server.tenant.management.v1/src/main/resources/tenant-management.yaml

@@ -68,7 +68,7 @@ To allow sending TOTP in an email:
 2. Add the following configuration to the `deployment.toml` file.
     ```toml
     [authentication.authenticator.totp.parameters]
-    allow_sending_verification_code_by_email=true
+    AllowSendingVerificationCodeByEmail = true
     ```
 3. Save the configurations and restart the server.
 
