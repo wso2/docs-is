@@ -42,7 +42,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
         trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
         ```
 
-    2. MutualTLS supports two-way TLS authentication that allows the server to validate the client and vice versa. Specific applications, e.g., mobile applications, may not require server-side validation.
+    2. Mutual TLS supports two-way TLS authentication that allows the server to validate the client and vice versa. Specific applications, e.g., mobile applications, may not require server-side validation.
 
         To make the server-side validation optional, set the `clientAuth` attribute to `want` in the same configuration similar to the following.
 
