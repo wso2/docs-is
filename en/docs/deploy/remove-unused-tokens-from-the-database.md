@@ -31,7 +31,7 @@ Follow the instructions below to configure token cleanup using this method.
     enable = false
     ```
 
-2. Depending on your database, select the appropriate token cleanup script based on the links mentioned in the sub-points below and run it on the database. This takes a backup of the necessary tables, turns off SQL updates and cleans the database of unused tokens.
+2. Depending on your database, select the appropriate token cleanup script based on the links mentioned in the sub-points below and run it on the database. This takes a backup of the necessary tables, turns off SQL updates, and cleans the database of unused tokens.
       - [DB2](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/db2/token-cleanup/)
       - [MSSQL](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mssql/token-cleanup/)
       - [MySQL](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/token-cleanup/)
