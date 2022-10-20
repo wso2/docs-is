@@ -35,7 +35,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
 
 1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.
 
-    1. Add the following entry under `[transport.https]` section.
+    1. Add the following entry in the `[transport.https]` section.
 
         ``` toml
         [transport.https]
