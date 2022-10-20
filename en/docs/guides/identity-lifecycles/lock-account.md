@@ -50,7 +50,8 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
       enable_authentication= true
       ```
 
-!!! note
+      **Note**
+      
       - If you are using a Gmail account as the **from_address**, you must create an [App Password](https://support.google.com/accounts/answer/185833?visit_id=637943607149528455-3801902236&p=InvalidSecondFactor&rd=1). After you get an **App Password** from Google, update the `password`.
       - If your password contains special characters (example: `<`, `>`, `&`), you will run into errors when running the server. To avoid errors, update the `password` parameter as follows:
       ```toml
