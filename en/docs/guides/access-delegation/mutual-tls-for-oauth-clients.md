@@ -16,7 +16,7 @@ WSO2 Identity Server currently supports the approach that uses self-signed certi
 Let's try configuring mutual TLS in WSO2 Identity Server and test it with a sample.
 
 ## Pre-requisites
-- You need to disable the mutual SSL authenticator.
+- Disable the mutual SSL authenticator.
     
     !!! warning
         The mutual SSL authenticator allows the OAuth client to access the WSO2 Identity Server admin services without having the required privileges.
