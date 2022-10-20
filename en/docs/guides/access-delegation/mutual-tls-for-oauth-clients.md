@@ -109,7 +109,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
         keytool -import -trustcacerts -alias client -file client-certificate.pem -keystore client-truststore.jks -storepass wso2carbon
         ```
 
-    4. To export the public certificate of WSO2 Identity Server, execute the following command.
+    4. To export the public certificate of WSO2 Identity Server, execute the following command:
 
         Format:
 
