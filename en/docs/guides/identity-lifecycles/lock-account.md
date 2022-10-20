@@ -9,9 +9,9 @@ WSO2 Identity Server enables privileged users to temporarily lock suspicious use
 Let's learn how Sam can lock Larry's user account!
 
 ### Prerequisites
-- You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Larry` with [login permissions]. Do not assign any roles to this user.
+- You need to [add a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named `Larry` with login permissions. Do not assign any roles to this user.
 
-### Set up the IS
+### Set up WSO2 IS
 
 Follow the steps below to configure admin-initiated account locking in WSO2 Identity Server.
 
@@ -50,7 +50,8 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
       enable_authentication= true
       ```
 
-!!! note
+      **Note**
+      
       - If you are using a Gmail account as the **from_address**, you must create an [App Password](https://support.google.com/accounts/answer/185833?visit_id=637943607149528455-3801902236&p=InvalidSecondFactor&rd=1). After you get an **App Password** from Google, update the `password`.
       - If your password contains special characters (example: `<`, `>`, `&`), you will run into errors when running the server. To avoid errors, update the `password` parameter as follows:
       ```toml
@@ -64,16 +65,15 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 To configure the account locking requirements:
 
-1. On the **Management Console** go to **Identity > Identity Providers > Resident**.
+1. On the **Management Console**, go to **Identity > Identity Providers > Resident**.
 
 2. Expand **Login Attempt Security > Account Lock**.
 
-3. Enable account locking by selecting the **Lock user accounts on maximum failed attempts** check box.
+3. Enable account locking by selecting the **Lock user accounts on maximum failed attempts** checkbox.
 
       <img src="{{base_path}}/assets/img/guides/account-locking-form-admin-initiated.png" alt="Account Locking form" width="700" style="border:1px solid grey">
 
 4. Click **Update** to save the configurations.
-
 
 ### Configure account locking claims
 To enable the account locking claim:
@@ -99,9 +99,9 @@ To lock Larry's user account:
 
 1. On the Management Console, go to **Users and Roles > List > Users**.
 
-2. Click **User Profile** option for Larry.
+2. Click **User Profile** for Larry.
 
-3. Select **default**. Enter Larry's email address and select the **Account Locked** checkbox.
+3. Select **default**, enter Larry's email address, and select the **Account Locked** checkbox.
 
       <img src="{{base_path}}/assets/img/guides/user-locked.png" alt="User Email option" width="700" style="border:1px solid grey">
 
@@ -111,11 +111,11 @@ To lock Larry's user account:
 
       <img src="{{base_path}}/assets/img/guides/account-locked-email.png" alt="Account Locked email" width="700" style="border:1px solid grey">
 
-5. Access the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`.
+5. Access the WSO2 Identity Server's **My Account** portal at `https://localhost:9443/myaccount`.
 
-6. Try logging in with Larry's credentials. Note that an error message appears.
+6. Try to log in with Larry's credentials. Note that an error message appears.
 
-7. Wait for 15 minutes and try to log in again. The WSO2 Identity Server **My Account** home screen appears.  
+7. Wait for 15 minutes and try to log in again. The WSO2 Identity Server's **My Account** home screen appears.  
 
 ### Unlock a user account
 
@@ -123,9 +123,9 @@ To unlock Larry's user account:
 
 1. On the Management Console, go to **Users and Roles > List > Users**.
 
-2. Click **User Profile** option for Larry.
+2. Click **User Profile** for Larry.
 
-3. Untick the **Account Locked** check box.
+3. Deselect the **Account Locked** checkbox.
 
 4. Click **Update** to save the configurations.
 
@@ -133,6 +133,6 @@ To unlock Larry's user account:
 
       <img src="{{base_path}}/assets/img/guides/account-unlocked-email.png" alt="Account Unlocked email" width="700" style="border:1px solid grey">
 
-5. Try logging in to the WSO2 Identity Server **My Account** with Larry's credentials. The WSO2 Identity Server **My Account** home screen appears.
+5. Try to log in to the WSO2 Identity Server's **My Account** with Larry's credentials. The WSO2 Identity Server **My Account** home screen appears.
 
 Larry will be able to successfully log in.
