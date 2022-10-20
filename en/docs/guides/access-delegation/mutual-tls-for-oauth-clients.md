@@ -127,7 +127,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test with a sample.
         keytool -export -alias wso2carbon -file wso2-certificate.crt -keystore wso2carbon.jks -storepass wso2carbon
         ```
 
-    5. Import the public certificate of WSO2 Identity Server to the client's trust store. If the trust store uses the `jks` format, execute the following command.
+    5. Import the public certificate of WSO2 Identity Server to the client's trust store. If the trust store uses the `jks` format, execute the following command:
 
         **Format**
 
