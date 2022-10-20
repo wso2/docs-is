@@ -28,7 +28,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
     enable = false
     ```
 
-- If a load-balancer fronts WSO2 Identity Server, enable SSL tunneling.
+- If a load balancer fronts WSO2 Identity Server, enable SSL tunneling.
 
 
 ## Configuring mutual TLS client authenticator artifacts
