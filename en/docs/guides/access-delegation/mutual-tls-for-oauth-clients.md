@@ -118,7 +118,6 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
         keytool -export -alias <WSO2_CERTIFICATE_ALIAS> -file <WSO2_CERTIFICATE> -keystore <WSO2_KEYSTORE> -storepass <WSO2_KEYSTORE_PASSOWRD>
         ```
 
-        Example:
 
         **Example**
 
