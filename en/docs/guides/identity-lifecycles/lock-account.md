@@ -99,7 +99,7 @@ To lock Larry's user account:
 
 1. On the Management Console, go to **Users and Roles > List > Users**.
 
-2. Click **User Profile** option for Larry.
+2. Click **User Profile** for Larry.
 
 3. Select **default**, enter Larry's email address, and select the **Account Locked** checkbox.
 
