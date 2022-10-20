@@ -149,7 +149,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test with a sample.
 
 Follow the steps below to test the configurations.
 
-1. Create a service provider.
+1. Create a service provider as follows:
 
     1. Access the WSO2 Identity Server Management Console.
     2. On the **Main** menu, click **Identity \> Service Providers \> Add**.  
