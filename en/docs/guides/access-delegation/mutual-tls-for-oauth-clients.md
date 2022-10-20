@@ -95,7 +95,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
         !!! note
             The `CLIENT_PRIVATE_KEY` and `CLIENT_PUBLIC_CERTIFICATE` will be used to generate the access token at a later step.
 
-    3. To import the client's public certificate to the authorization server's trust store, execute the following command.
+    3. To import the client's public certificate to the authorization server's trust store, execute the following command:
 
         **Format**
 
