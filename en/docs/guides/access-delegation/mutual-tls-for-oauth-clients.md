@@ -53,7 +53,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
         ```
 
 3. Download the [Mutual TLS Client Authenticator v2.0.3 connector](https://store.wso2.com/store/assets/isconnector/details/bab13ed8-5835-480f-92be-fdd5ee900970).  
-    Note that an OSGI bundle (`org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls-<VERSION>.jar`) gets downloaded.
+    Note that an OSGI bundle (`org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls-<VERSION>.jar`) is downloaded.
 
 4. Copy the OSGI bundle to the `<IS_HOME>/repository/components/dropins` directory.
 
