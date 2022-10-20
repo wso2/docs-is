@@ -1,6 +1,6 @@
 # Mutual TLS for OAuth Clients
 
-Mutual TLS is a widely-used, secure authentication technique that ensures the authenticity between a client and server using an encrypted channel established with a mutual X.509 certificate. The client certificate and certificate verification messages will be sent during the TLS handshake.
+Mutual TLS is a widely used, secure authentication technique that ensures the authenticity between a client and server using an encrypted channel established with a mutual X.509 certificate. The client certificate and certificate-verification messages will be sent during the TLS handshake.
 
 The TLS handshake is a set of steps to establish a secure connection between the client and server.
 
