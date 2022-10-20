@@ -125,7 +125,7 @@ To unlock Larry's user account:
 
 2. Click **User Profile** option for Larry.
 
-3. Untick the **Account Locked** check box.
+3. Deselect the **Account Locked** checkbox.
 
 4. Click **Update** to save the configurations.
 
