@@ -133,6 +133,6 @@ To unlock Larry's user account:
 
       <img src="{{base_path}}/assets/img/guides/account-unlocked-email.png" alt="Account Unlocked email" width="700" style="border:1px solid grey">
 
-5. Try logging in to the WSO2 Identity Server **My Account** with Larry's credentials. The WSO2 Identity Server **My Account** home screen appears.
+5. Try to log in to the WSO2 Identity Server's **My Account** with Larry's credentials. The WSO2 Identity Server **My Account** home screen appears.
 
 Larry will be able to successfully log in.
