@@ -21,7 +21,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
     !!! warning
         The mutual SSL authenticator allows the OAuth client to access the WSO2 Identity Server admin services without having the required privileges.
     
-    To disable the mutual SSL authenticator, open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the following configuration.
+    To disable the mutual SSL authenticator, open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the following configuration:
     
     ``` toml
     [admin_console.authenticator.mutual_ssl_authenticator]
