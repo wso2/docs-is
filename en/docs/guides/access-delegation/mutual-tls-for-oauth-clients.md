@@ -111,7 +111,6 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
 
     4. To export the public certificate of WSO2 Identity Server, execute the following command:
 
-        Format:
 
         **Format**
 
