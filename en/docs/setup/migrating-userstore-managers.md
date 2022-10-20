@@ -76,7 +76,7 @@ If the primary user store in your deployment is an Active Directory, you don't n
 class = "org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager"
 
 [user_store.properties]
-UserIDAttribute = "objectGUID"
+UserIDAttribute = "objectGuid"
 ```
 
 !!! Note
