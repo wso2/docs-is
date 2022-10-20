@@ -114,12 +114,11 @@ Add the following configuration to the `deployment.toml` file to enable this fea
 
     The certificate CN should be in the following formats for the following cases.
     
+
     - If the user is in the primary user store, the incoming cert CN should be `<username>`, e.g., `john`.
     - If the user is in a secondary user store, the incoming cert CN should be `<userstore_domain>/<username>`, e.g., `SECONDARY/john`.
     - If the user is not a super tenant and belongs to the primary user store, the incoming cert CN should be `<username@tenant_doman>`, e.g., `john@abc.com`.
     - If the user is not a super tenant and belongs to a secondary user store, the incoming cert CN should be `<userstore_domain>/<username@tenant_doman>` e.g., `SECONDARY/john@abc.com`.
-
-
 
 ## Additional configurations
 
@@ -141,6 +140,7 @@ You can configure user role permissions to restrict access to resources. To do s
     | `permissions`     | The user role permission required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `/permission/admin/ login` |
     | `scope`     | Scopes that an access token requires to access the resource. You can enter multiple scopes in a comma-separated list.     | `internal_idp_create` |
 
+
     !!! abstract
         **Example**
         ```toml
@@ -151,3 +151,4 @@ You can configure user role permissions to restrict access to resources. To do s
         permissions = ["p1","p2"]
         scope = ["scope1", "scope2"]
         ```
+        
