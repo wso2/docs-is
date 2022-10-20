@@ -1,502 +1,713 @@
-openapi: 3.0.1
+swagger: '2.0'
 info:
+  description: |
+    This is the RESTful API for managing user sessions in WSO2 Identity Server. The APIs provide the capability
+    to retrieve/terminate active sessions of an authenticated user. In addition, APIs are available for privileged
+    users to be invoked on behalf of another user to retrieve/delete sessions of the user.
+    <br> <b> Authentication methods: </b>
+    <ul>
+    <li> Basic authentication </li>
+    <li> OAuth based authentication - <code> Password </code> </li>
+    </ul>
+  version: 'v1'
   title: WSO2 Identity Server - User Session Management API Definition
-  description: This is the RESTful API for managing user sessions in WSO2 Identity
-    Server
   contact:
-    name: WSO2 Identity Server
-    url: https://wso2.com/identity-and-access-management/
-    email: architecture@wso2.com
+    name: 'WSO2 Identity Server'
+    url: 'https://wso2.com/identity-and-access-management/'
+    email: 'architecture@wso2.com'
   license:
     name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v1
-servers:
-- url: https://{serverUrl}/t/{tenantDomain}/api/users/v1
-  variables:
-    serverUrl:
-      default: localhost:9443
-    tenantDomain:
-      default: carbon.super
-security:
-- OAuth2: []
-- BasicAuth: []
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+schemes:
+  - https
+
+host: localhost:9443
+basePath: /t/{tenant-domain}/api/users/v1
+
+# Tags are used for organizing operations.
 tags:
-- name: me
-  description: Session management operations for the authenticated user.
-- name: admin
-  description: |
-    Operations available for privileged users, to be invoked on behalf of another user.
+  - name: me
+    description: Session management operations for the authenticated user.
+  - name: admin
+    description: >
+      Operations available for privileged users, to be invoked on behalf of another user.
+
+      **_These endpoints are not released in WSO2 Identity Server - 5.9.0 version and will be released in the next product release._**
+  - name: sysadmin
+    description: Operations available for privileged users, to be invoked for system management.
+
+# Applicable authentication mechanisms
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
 paths:
   /me/sessions:
     get:
       tags:
-      - me
+        - me
+      description: >
+        A user can have multiple active sessions. This API retrieves information of all the active sessions of the authenticated user. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
       summary: Retrieve active sessions of the authenticated user
-      description: |
-        A user can have multiple active sessions. This API retrieves information of all the active sessions of the authenticated user. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> * internal_login
       operationId: getSessionsOfLoggedInUser
+      produces:
+        - application/json
       parameters:
-      - name: limit
-        in: query
-        description: |
-          Maximum number of records to return.
-          _This parameter is not supported yet._
-        schema:
-          type: integer
-          format: int32
-      - name: offset
-        in: query
-        description: |
-          Number of records to skip for pagination.
-          _This parameter is not supported yet._
-        schema:
-          type: integer
-          format: int32
-      - name: filter
-        in: query
-        description: |
-          Condition to filter the retrival of records.
-          _This parameter is not supported yet._
-        schema:
-          type: string
-      - name: sort
-        in: query
-        description: |
-          Define the order in which the retrieved records should be sorted.
-          _This parameter is not supported yet._
-        schema:
-          type: string
+        - $ref: '#/parameters/limitQueryParamNotImplemented'
+        - $ref: '#/parameters/offsetQueryParam'
+        - $ref: '#/parameters/filterQueryParamNotImplemented'
+        - $ref: '#/parameters/sortQueryParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sessions' 
+            examples:
+              Using basic authentication:
+                value: | 
+                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions" 
+                  -H "accept: application/json" 
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions" 
+                  -H "accept: application/json" 
+                  -H "Authorization: Bearer <access-token>"
       responses:
         200:
-          description: Successfully retrieved session information
-          content:
+          description: >
+            Successfully retrieved session information.
+          schema:
+            $ref: '#/definitions/Sessions'
+          examples:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Sessions'
-              example:
-                userId: 81fae417-13f6-4db6-9501-7ce128608cb5
-                sessions:
-                - applications:
-                  - id: 298c5fd8-01ac-4ada-bc10-1ce37f32140b
-                    subject: admin
-                    appName: travelocity-requestpath
-                    appId: "4"
-                  - id: 27385fd8-01ac-4ada-bc10-1ce37363h40b
-                    subject: admin
-                    appName: avis-basic
-                    appId: "5"
-                  userAgent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101
-                    Firefox/15.0.1
-                  ip: 127.0.0.1
-                  loginTime: "1565586399249"
-                  lastAccessTime: "1565586435955"
-                  id: 30e775bcc2c858ff88584b38b017d6c703a6657f38320804a071ff82fce1a0fe
+              {
+                "userId": "81fae417-13f6-4db6-9501-7ce128608cb5",
+                "idpName": "partner-wso2-is",
+                "sessions": [
+                  {
+                    "applications": [
+                      {
+                        "id": "298c5fd8-01ac-4ada-bc10-1ce37f32140b",
+                        "subject": "admin",
+                        "appName": "travelocity-requestpath",
+                        "appId": "4"
+                      },
+                      {
+                        "id": "738645a4-f494-11eb-9a03-0242ac130003",
+                        "subject": "admin",
+                        "appName": "avis-basic",
+                        "appId": "5"
+                      }
+                    ],
+                    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1",
+                    "ip": "127.0.0.1",
+                    "loginTime": "1565586399249",
+                    "lastAccessTime": "1565586435955",
+                    "id": "30e775bcc2c858ff88584b38b017d6c703a6657f38320804a071ff82fce1a0fe"
+                  }
+                ]
+              }
         401:
-          description: Unauthorized
-          content: {}
+          $ref: '#/responses/Unauthorized'
         403:
-          description: Resource Forbidden
-          content: {}
+          $ref: '#/responses/Forbidden'
         404:
-          description: Resource Not Found
-          content: {}
+          $ref: '#/responses/NotFound'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/responses/ServerError'
+
     delete:
       tags:
-      - me
+        - me
+      description: >
+        A user has multiple active sessions. This API terminates all the active sessions of the authenticated user. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
       summary: Terminate all the active sessions of the authenticated user
-      description: |
-        A user has multiple active sessions. This API terminates all the active sessions of the authenticated user. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> * internal_login
       operationId: terminateSessionsByLoggedInUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sessions' 
+            examples:
+              Using basic authentication:
+                value: | 
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions"
+                  -H "accept: */*" 
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions"
+                  -H "accept: */*" 
+                  -H "Authorization: Bearer <access-token>"
       responses:
         204:
-          description: No Content
-          content: {}
+          $ref: '#/responses/NoContent'
         400:
-          description: Invalid input request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Error'
-        401:
-          description: Unauthorized
-          content: {}
+          $ref: '#/responses/InvalidInput'
         403:
-          description: Resource Forbidden
-          content: {}
+          $ref: '#/responses/Forbidden'
+        401:
+          $ref: '#/responses/Unauthorized'
         500:
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/responses/ServerError'
+
   /me/sessions/{session-id}:
     delete:
       tags:
-      - me
+        - me
+      description: >
+        A user has multiple active sessions. This API terminates a specific session of the authenticated user identified by the session-id. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
       summary: Terminate a given session of the authenticated user
-      description: |
-        A user has multiple active sessions. This API terminates a specific session of the authenticated user identified by the session-id. <br> <b>Permission required:</b> <br> * None <br> <b>Scope required:</b> <br> * internal_login
       operationId: terminateSessionByLoggedInUser
       parameters:
-      - name: session-id
-        in: path
-        description: ID of the session.
-        required: true
-        schema:
-          type: string
+      - $ref: '#/parameters/sessionIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sessions' 
+            examples:
+              Using basic authentication:
+                value: |  
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions/<session_id>"
+                  -H "accept: */*" 
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/me/sessions/<session_id>"
+                  -H "accept: */*" 
+                  -H "Authorization: Bearer <access-token>"
       responses:
         204:
-          description: No Content
-          content: {}
+          $ref: '#/responses/NoContent'
         400:
-          description: Invalid input request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/responses/InvalidInput'
         401:
-          description: Unauthorized
-          content: {}
+          $ref: '#/responses/Unauthorized'
         403:
-          description: Resource Forbidden
-          content: {}
+          $ref: '#/responses/Forbidden'
         500:
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/responses/ServerError'
+
   /{user-id}/sessions:
     get:
       tags:
       - admin
-      summary: Get active sessions
-      description: Retrieves information related to the active sessions of a user
-        identified by the user-id. <br> <b>Permission required:</b> <br> * /permission/admin/manage/identity/authentication/session/view
-        <br> <b>Scope required:</b> <br> * internal_session_view
+      description: Retrieves information related to the active sessions of a user identified by the user-id. <br>
+        <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/authentication/session/view <br>
+        <b>Scope required:</b> <br>
+        * internal_session_view
+      summary: Retrieve active sessions of a given user
       operationId: getSessionsByUserId
       parameters:
-      - name: user-id
-        in: path
-        description: ID of the user.
-        required: true
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: |
-          Maximum number of records to return.
-          _This parameter is not supported yet._
-        schema:
-          type: integer
-          format: int32
-      - name: offset
-        in: query
-        description: |
-          Number of records to skip for pagination.
-          _This parameter is not supported yet._
-        schema:
-          type: integer
-          format: int32
-      - name: filter
-        in: query
-        description: |
-          Condition to filter the retrival of records.
-          _This parameter is not supported yet._
-        schema:
-          type: string
-      - name: sort
-        in: query
-        description: |
-          Define the order in which the retrieved records should be sorted.
-          _This parameter is not supported yet._
-        schema:
-          type: string
+        - $ref: '#/parameters/userIdPathParam'
+        - $ref: '#/parameters/limitQueryParamNotImplemented'
+        - $ref: '#/parameters/offsetQueryParam'
+        - $ref: '#/parameters/filterQueryParamNotImplemented'
+        - $ref: '#/parameters/sortQueryParam'
+      produces:
+        - application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+            examples:
+              Using basic authentication:
+                value: | 
+                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  -H "accept: application/json"
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X GET "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  -H "accept: application/json"
+                  -H "Authorization: Bearer <access-token>"
       responses:
         200:
-          description: Successfully retrieved session information.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sessions'
+          description: >
+            Successfully retrieved session information.
+          schema:
+            $ref: '#/definitions/Sessions'
         400:
-          description: Invalid input request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/responses/InvalidInput'
         401:
-          description: Unauthorized
-          content: {}
+          $ref: '#/responses/Unauthorized'
         403:
-          description: Resource Forbidden
-          content: {}
+          $ref: '#/responses/Forbidden'
         404:
-          description: Resource Not Found
-          content: {}
+          $ref: '#/responses/NotFound'
         500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/responses/ServerError'
     delete:
       tags:
       - admin
-      summary: Terminate all sessions
-      description: Deletes all the sessions of a user identified by the user-id. <br>
-        <b>Permission required:</b> <br> * /permission/admin/manage/identity/authentication/session/delete
-        <br> <b>Scope required:</b> <br> * internal_session_delete
+      description: Delete all the sessions of a user identified by the user-id. <br>
+        <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/authentication/session/delete <br>
+        <b>Scope required:</b> <br>
+        * internal_session_delete
+      summary: Terminate all sessions of a given user
       operationId: terminateSessionsByUserId
       parameters:
-      - name: user-id
-        in: path
-        description: ID of the user.
-        required: true
-        schema:
-          type: string
+        - $ref: '#/parameters/userIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+            examples:
+              Using basic authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  -H "accept: */*"
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions" 
+                  -H "accept: */*"
+                  -H "Authorization: Bearer <access-token>"
       responses:
         204:
-          description: No Content
-          content: {}
+          $ref: '#/responses/NoContent'
         400:
-          description: Invalid input request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/responses/InvalidInput'
         401:
-          description: Unauthorized
-          content: {}
+          $ref: '#/responses/Unauthorized'
         500:
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/responses/ServerError'
+
   /{user-id}/sessions/{session-id}:
+    get:
+      tags:
+        - admin
+      description: Retrieves information related to the active session identified by session-id of a user identified by the user-id. <br>
+        <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/authentication/session/view <br>
+        <b>Scope required:</b> <br>
+        * internal_session_view
+      summary: Retrieve a given active session of a given user
+      operationId: getSessionBySessionId
+      parameters:
+        - $ref: '#/parameters/userIdPathParam'
+        - $ref: '#/parameters/sessionIdPathParam'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: >
+            Successfully retrieved session information.
+          schema:
+            $ref: '#/definitions/Session'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+
     delete:
       tags:
       - admin
-      summary: Terminate a session
-      description: Terminates a specific session of a user by the session-id. <br>
-        <b>Permission required:</b> <br> * /permission/admin/manage/identity/authentication/session/delete
-        <br> <b>Scope required:</b> <br> * internal_session_delete
+      description: Terminate a specific session of a user by the session-id. <br>
+        <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/authentication/session/delete <br>
+        <b>Scope required:</b> <br>
+        * internal_session_delete
+      summary: Terminate a given session of a given user
       operationId: terminateSessionBySessionId
       parameters:
-      - name: user-id
-        in: path
-        description: ID of the user.
-        required: true
-        schema:
-          type: string
-      - name: session-id
-        in: path
-        description: ID of the session.
-        required: true
-        schema:
-          type: string
+        - $ref: '#/parameters/userIdPathParam'
+        - $ref: '#/parameters/sessionIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+            examples:
+              Using basic authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions/<session_id>" 
+                  -H "accept: */*"
+                  -H "Authorization: Basic <base64(username:password)>"
+              Using OAuth based authentication:
+                value: |
+                  curl -X DELETE "https://localhost:9443/t/carbon.super/api/users/v1/<user_id>/sessions/<session_id>" 
+                  -H "accept: */*"
+                  -H "Authorization: Bearer <access-token>"
       responses:
         204:
-          description: No Content
-          content: {}
+          $ref: '#/responses/NoContent'
         400:
-          description: Invalid input request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/responses/InvalidInput'
         401:
-          description: Unauthorized
-          content: {}
+          $ref: '#/responses/Unauthorized'
         500:
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/Error'
-components:
-  schemas:
-    Application:
-      required:
-      - appId
-      - appName
+          $ref: '#/responses/ServerError'
+  /sessions:
+    get:
+      tags:
+        - sysadmin
+      description: Retrieves information related to the active sessions on the system. <br>
+        <b>Permission required:</b> <br>
+        * /permission/admin/manage/identity/authentication/session/view <br>
+        <b>Scope required:</b> <br>
+        * internal_session_view
+      summary: Retrieve all active sessions
+      operationId: getSessions
+      parameters:
+        - $ref: '#/parameters/filterQueryParam'
+        - $ref: '#/parameters/limitQueryParam'
+        - $ref: '#/parameters/sinceQueryParam'
+        - $ref: '#/parameters/untilQueryParam'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: >
+            Successfully retrieved session information.
+          schema:
+            $ref: '#/definitions/SearchResponse'
+          examples:
+            application/json:
+              {
+                "previous": "sessions?limit=10&filter=userName+eq+john&since=1620318306829",
+                "next": "sessions?limit=10&filter=userName+eq+john&until=1620318417075",
+                "Resources": [
+                  {
+                    "session": {
+                      "userId": "00000001",
+                      "idpName": "partner-wso2-is",
+                      "applications": [
+                        {
+                          "id": "298c5fd8-01ac-4ada-bc10-1ce37f32140b",
+                          "subject": "john",
+                          "appName": "travelocity-requestpath",
+                          "appId": "4"
+                        },
+                        {
+                          "id": "738645a4-f494-11eb-9a03-0242ac130003",
+                          "subject": "john",
+                          "appName": "avis-basic",
+                          "appId": "5"
+                        }
+                      ],
+                      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1",
+                      "ip": "127.0.0.1",
+                      "loginTime": "1565586399249",
+                      "lastAccessTime": "1565586435955",
+                      "id": "30e775bcc2c858ff88584b38b017d6c703a6657f38320804a071ff82fce1a0fe"
+                    }
+                  },
+                  {
+                    "session": {
+                      "userId": "00000001",
+                      "idpName": "partner-wso2-is",
+                      "applications": [
+                        {
+                          "id": "298c5fd8-01ac-4ada-bc10-1ce37f32140b",
+                          "subject": "john",
+                          "appName": "travelocity-requestpath",
+                          "appId": "4"
+                        }
+                      ],
+                      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+                      "ip": "127.0.0.1",
+                      "loginTime": "1565586399173",
+                      "lastAccessTime": "1565586399173",
+                      "id": "07d7101f71c3a7e7080c3fa3a50c931d6e6fed130565ac5a94a0dee60e54b93f"
+                    }
+                  }
+                ]
+              }
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        500:
+          $ref: '#/responses/ServerError'
+
+#-----------------------------------------------------
+# Descriptions of common responses
+#-----------------------------------------------------
+responses:
+  NotFound:
+    description: Resource Not Found
+  Unauthorized:
+    description: Unauthorized
+  ServerError:
+    description: Internal Server Error
+    schema:
+      $ref: '#/definitions/Error'
+  NotImplemented:
+    description: Not Implemented
+    schema:
+      $ref: '#/definitions/Error'
+  InvalidInput:
+    description: Invalid input request
+    schema:
+      $ref: '#/definitions/Error'
+  Forbidden:
+    description: Resource Forbidden
+  OK:
+    description: OK
+  NoContent:
+    description: No Content
+
+definitions:
+  #-----------------------------------------------------
+  # The Application Response object
+  #-----------------------------------------------------
+  Application:
+    type: object
+    required:
       - id
       - subject
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique ID of the application.
-          example: 298c5fd8-01ac-4ada-bc10-1ce37f32140b
-        subject:
-          type: string
-          description: Username of the logged in user for the application.
-          example: apiuser01
-        appName:
-          type: string
-          description: Name of the application.
-          example: sampleApp
-        appId:
-          type: string
-          description: ID of the application.
-          example: "012"
-    Session:
-      type: object
-      properties:
-        applications:
-          type: array
-          description: List of applications in the session.
-          items:
-            $ref: '#/components/schemas/Application'
-        userAgent:
-          type: string
-          description: User agent of the session.
-          example: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101
-            Firefox/15.0.1
-        ip:
-          type: string
-          description: IP address of the session.
-          example: 172.95.192.63
-        loginTime:
-          type: string
-          description: Login time of the session.
-          example: "1560412617"
-        lastAccessTime:
-          type: string
-          description: Last access time of the session.
-          example: "1560416196"
-        id:
-          type: string
-          description: ID of the session.
-          example: 8d9806d1-4efc-483e-a96a-a0fa77d4328b
-    Sessions:
-      type: object
-      properties:
-        userId:
-          type: string
-          example: "00000001"
-        sessions:
-          type: array
-          description: List of active sessions.
-          items:
-            $ref: '#/components/schemas/Session'
-    Error:
-      required:
+      - appName
+      - appId
+    properties:
+      id:
+        type: string
+        description: Unique ID of the application.
+        example: '298c5fd8-01ac-4ada-bc10-1ce37f32140b'
+      subject:
+        type: string
+        description: Username of the logged in user for the application.
+        example: apiuser01
+      appName:
+        type: string
+        description: Name of the application.
+        example: sampleApp
+      appId:
+        type: string
+        description: ID of the application.
+        example: '012'
+
+  #-----------------------------------------------------
+  # The Session Response object
+  #-----------------------------------------------------
+  Session:
+    type: object
+    properties:
+      userId:
+        type: string
+        description: ID of the user of the session.
+        example: '00000001'
+      idpName:
+        type: string
+        description: >
+          Identity provider name that the session authenticated. Will only be returned for federated authentication sessions.
+        example: 'partner-wso2-is'
+      applications:
+        type: array
+        description: List of applications in the session.
+        items:
+          $ref: '#/definitions/Application'
+      userAgent:
+        type: string
+        description: User agent of the session.
+        example: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1'
+      ip:
+        type: string
+        description: IP address of the session.
+        example: '172.95.192.63'
+      loginTime:
+        type: string
+        description: Login time of the session.
+        example: '1560412617'
+      lastAccessTime:
+        type: string
+        description: Last access time of the session.
+        example: '1560416196'
+      id:
+        type: string
+        description: ID of the session.
+        example: '8d9806d1-4efc-483e-a96a-a0fa77d4328b'
+
+  #-----------------------------------------------------
+  # The Sessions Response object
+  #-----------------------------------------------------
+  Sessions:
+    type: object
+    properties:
+      userId:
+        type: string
+        example: '00000001'
+      sessions:
+        type: array
+        description: List of active sessions.
+        items:
+          $ref: '#/definitions/Session'
+
+  #-----------------------------------------------------
+  # Error object
+  #-----------------------------------------------------
+  Error:
+    type: object
+    required:
       - code
       - message
-      type: object
-      properties:
-        code:
-          type: string
-          example: AAA-00000
-        message:
-          type: string
-          example: Some Error Message
-        description:
-          type: string
-          example: Some Error Description
-        traceId:
-          type: string
-          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
-  responses:
-    Forbidden:
-      description: Resource Forbidden
-      content: {}
-    InvalidInput:
-      description: Invalid input request
-      content:
-        '*/*':
-          schema:
-            $ref: '#/components/schemas/Error'
-    NoContent:
-      description: No Content
-      content: {}
-    NotFound:
-      description: Resource Not Found
-      content: {}
-    NotImplemented:
-      description: Not Implemented
-      content:
-        '*/*':
-          schema:
-            $ref: '#/components/schemas/Error'
-    OK:
-      description: OK
-      content: {}
-    ServerError:
-      description: Internal Server Error
-      content:
-        '*/*':
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized
-      content: {}
-  parameters:
-    limitQueryParam:
-      name: limit
-      in: query
-      description: |
-        Maximum number of records to return.
-        _This parameter is not supported yet._
-      schema:
-        type: integer
-        format: int32
-    offsetQueryParam:
-      name: offset
-      in: query
-      description: |
-        Number of records to skip for pagination.
-        _This parameter is not supported yet._
-      schema:
-        type: integer
-        format: int32
-    filterQueryParam:
-      name: filter
-      in: query
-      description: |
-        Condition to filter the retrival of records.
-        _This parameter is not supported yet._
-      schema:
+    properties:
+      code:
         type: string
-    sortQueryParam:
-      name: sort
-      in: query
-      description: |
-        Define the order in which the retrieved records should be sorted.
-        _This parameter is not supported yet._
-      schema:
+        example: "AAA-00000"
+      message:
         type: string
-    userIdPathParam:
-      name: user-id
-      in: path
-      description: ID of the user.
-      required: true
-      schema:
+        example: "Some Error Message"
+      description:
         type: string
-    sessionIdPathParam:
-      name: session-id
-      in: path
-      description: ID of the session.
-      required: true
-      schema:
+        example: "Some Error Description"
+      traceId:
         type: string
-  securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://localhost:9443/oauth2/authorize
-          tokenUrl: https://localhost:9443/oauth2/token
-          scopes: {}
+        example: "e0fbcfeb-3617-43c4-8dd0-7b7d38e13047"
+
+  #-----------------------------------------------------
+  # The Search Response object
+  #-----------------------------------------------------
+  SearchResponse:
+    type: object
+    properties:
+      previous:
+        type: string
+        description: Endpoint that will return the previous page of data. If not included, this is the first page of data.
+        format: uri
+        example: 'sessions?limit=10&filter=userName+eq+john&since=1620318306829'
+      next:
+        type: string
+        description: Endpoint that will return the next page of data. If not included, this is the last page of data.
+        format: uri
+        example: 'sessions?limit=10&filter=userName+eq+john&until=1620318417075'
+      Resources:
+        type: array
+        items:
+          $ref: '#/definitions/Session'
+
+#--------------------
+# Parameters
+#--------------------
+parameters:
+  limitQueryParam:
+    in: query
+    name: limit
+    required: false
+    description: |
+      Maximum number of records to return.
+      _Default value: 20_
+    type: integer
+    format: int32
+  limitQueryParamNotImplemented:
+    in: query
+    name: limit
+    required: false
+    description: |
+      Maximum number of records to return.
+      _This parameter is not supported yet._
+    type: integer
+    format: int32
+  offsetQueryParam:
+    in: query
+    name: offset
+    required: false
+    description: |
+      Number of records to skip for pagination.
+      _This parameter is not supported yet._
+    type: integer
+    format: int32
+  filterQueryParam:
+    in: query
+    name: filter
+    required: false
+    description: |
+      Condition to filter the retrieval of records.
+      The filter parameter must contain at least one valid expression (for multiple expressions they must be combined using the 'and' logical operator).
+      Each expression must contain an attribute name followed by an attribute operator and a value (attribute names, operators and values used in filters are case insensitive).
+
+      The operators supported in the expression are listed next
+      | Operator | Description | Behavior |
+      |----------|-------------|----------|
+      | eq | equal | The attribute and operator values must be identical for a match. |
+      | sw | starts with | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. |
+      | ew | ends with | The entire operator value must be a substring of the attribute value, matching at the end of the attribute value. |
+      | co | contains | The entire operator value must be a substring of the attribute value for a match. |
+      | le | less than or equal to | If the attribute value is less than or equal to the operator value, there is a match. |
+      | ge | greater than or equal to | If the attribute value is greater than or equal to the operator value, there is a match. |
+
+      The attributes supported in the expression are listed next
+      | Name | Operators | Description |
+      |------|-----------|-------------|
+      | loginId | eq, sw, ew, co | Filter results by the login identifier of the user who owns the session. |
+      | sessionId | eq, sw, ew, co | Filter results by the ID of the session. |
+      | appName | eq, sw, ew, co | Filter results by the name of the application related to the session. |
+      | ipAddress | eq | Filter results by the IP address of the session. |
+      | userAgent | eq, sw, ew, co | Filter results by the user agent of the session. |
+      | loginTime | le, ge | Filter results by the login time of the session. |
+      | lastAccessTime | le, ge | Filter results by the last access time of the session. |
+
+      _Example, filter=loginId eq john and userAgent co Chrome_
+    type: string
+  filterQueryParamNotImplemented:
+    in: query
+    name: filter
+    required: false
+    description: |
+      Condition to filter the retrieval of records.
+      _This parameter is not supported yet._
+    type: string
+  sortQueryParam:
+    in: query
+    name: sort
+    required: false
+    description: |
+      Define the order in which the retrieved records should be sorted.
+      _This parameter is not supported yet._
+    type: string
+  userIdPathParam:
+    in: path
+    name: user-id
+    description: ID of the user.
+    required: true
+    type: string
+  sessionIdPathParam:
+    in: path
+    name: session-id
+    description: ID of the session.
+    required: true
+    type: string
+  sinceQueryParam:
+    in: query
+    name: since
+    required: false
+    description: |
+      Unix timestamp data value that points to the start of the range of data to be returned.
+      _Note: As results are ordered by more recent first this will provide previous page of results._
+    type: integer
+    format: int64
+  untilQueryParam:
+    in: query
+    name: until
+    required: false
+    description: |
+      Unix timestamp data value that points to the end of the range of data to be returned.
+      _Note: As results are ordered by more recent first this will provide next page of results._
+    type: integer
+    format: int64
+

@@ -754,7 +754,7 @@ Let's create a patch request payload to rename an existing user group.
     }
     ```
 
-## Patch user roles
+## Patch roles
 
 You can use the patch operations to add/remove/replace users and user groups for a role.
 
