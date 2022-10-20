@@ -57,7 +57,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test it with a samp
 
 4. Copy the OSGI bundle to the `<IS_HOME>/repository/components/dropins` directory.
 
-5. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the following configuration.
+5. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the following configuration:
 
     ``` toml
     [[event_listener]]
