@@ -113,7 +113,7 @@ To lock Larry's user account:
 
 5. Access the WSO2 Identity Server **My Account** at `https://localhost:9443/myaccount`.
 
-6. Try logging in with Larry's credentials. Note that an error message appears.
+6. Try to log in with Larry's credentials. Note that an error message appears.
 
 7. Wait for 15 minutes and try to log in again. The WSO2 Identity Server **My Account** home screen appears.  
 
