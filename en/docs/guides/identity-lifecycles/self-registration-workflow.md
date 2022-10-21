@@ -66,7 +66,7 @@ Follow the steps given below to register users for the super tenant, `carbon.sup
     <td>Manage notifications sending internally</td>
     <td>
     <p>
-    Select to configure the Identity server to send confirmation emails to the user.
+    Enable the Identity server to send confirmation emails to the user.
     If the client application handles notification sending already, unselect it. 
     </p>
     </td>
@@ -242,7 +242,7 @@ Next, you can try out self-registration.
 
     ![register-users-for-tenant]({{base_path}}/assets/img/guides/register-users-for-tenant.png)
 
-3. Fill in the user details, provide consent to share the requested information and then click **Register**.
+3. Fill in the user details, provide consent to share the requested information, and then click **Register**.
 
     ![Self sign up form]({{base_path}}/assets/img/guides/self-signup-form.png)
 
@@ -308,8 +308,8 @@ curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Con
 
 !!! info "Related topics"
     - [REST API: Self Register]({{base_path}}/apis/use-the-self-sign-up-rest-apis)
-    - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) 
-    - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow) 
+    - [Guide: Admin Creation Workflow]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow)
+    - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow)
     - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
-    - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning) 
+    - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
     - [References: Self-Registration verification mechanisms]({{base_path}}/references/extend/user-mgt/self-register-verification)
