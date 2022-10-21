@@ -408,6 +408,7 @@ nav:
               - Identity Provider Related Tables: deploy/identity-provider-related-tables.md
             - Data Purging: deploy/data-purging.md
             - Remove References to Deleted User Identities: deploy/remove-references-to-deleted-user-identities.md
+        - Session Persistence: deploy/session-persistence.md
         - Analytics:
           - Configure ELK Analytics: deploy/elk-analytics-installation-guide.md
           - Configure SSO in ELK Analytics: deploy/elk-analytics-sso-guide.md
@@ -514,7 +515,8 @@ nav:
             - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
           - Account recovery API: apis/use-the-account-recovery-rest-apis.md
           - Associated accounts API: apis/association-rest-api.md
-          - Challenge question API: apis/challenge-rest-api.md
+          - Challenge question API: apis/challenge-questions.md
+          - Challenge answers API: apis/challenge-rest-api.md
           - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
       - Identity provider API: apis/idp-rest-api.md
       - IdP session extension API: apis/idp-session-extender-endpoint.md
@@ -551,6 +553,9 @@ nav:
       - Server configuration API: apis/configs-rest-api.md
       - Permission management API : apis/permission-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
+      - Admin services:
+        - Call admin services: apis/call-admin-services.md
+        - One way operations: apis/admin-services-for-one-way-operations.md
           
   - SDKs:
       - Overview: sdks/sdk-overview.md
@@ -654,7 +659,6 @@ nav:
           - Write an Outbound Provisioning Connector: references/extend/provisioning/write-an-outbound-provisioning-connector.md
           #- Extensible SCIM User Schemas With WSO2 Identity Server: references/extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
       - User self-service:
-        - Set up in a Development Environment: references/extend/myaccount/set-up-my-account-in-a-dev-environment.md
         - Customize the UI: references/extend/myaccount/customize-my-account-ui.md
         - Configure the Application: references/extend/myaccount/configure-my-account.md
       #- Workflow Management for Developers:
@@ -685,6 +689,7 @@ nav:
       - REST API error catalog: references/error-catalog.md
     - Adaptive Authentication JS API: references/adaptive-authentication-js-api-reference.md
     - Scopes for REST APIs: references/scopes-corresponding-to-rest-api-permissions.md
+    - Permissions for Admin Services: references/permissions-required-to-invoke-admin-services.md
     - IAM Topics:
       - Evolution of Identity Federation Standards: references/evolution-of-identity-federation-standards.md
       - Authentication:
@@ -1086,7 +1091,7 @@ plugins:
               'learn/configuring-just-in-time-provisioning-consent-purposes.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/resident-jit-consent/'
               'learn/customizing-just-in-time-provisioning-user-interfaces.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/jit-workflow/'
               'learn/configuring-outbound-provisioning-connectors-for-an-identity-provider.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/outbound-provisioing-idp/'
-              'learn/authentication-session-persistence.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/authentication-session-persistence.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/session-persistence'
               'learn/configuring-session-timeout.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/session-timeout'
               'learn/configuring-a-sp-and-idp-using-service-calls.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/delegated-access-control.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/access-delegation/'
@@ -1269,7 +1274,7 @@ plugins:
               'develop/customizing-the-authentication-endpoint.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/customize-the-authentication-endpoint/'
               'develop/localization-support-in-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/localization-support-in-identity-server/'
               'develop/hosting-authentication-endpoint-on-a-different-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/host-authentication-endpoint-on-a-different-server/'
-              'develop/setting-up-my-account-in-a-dev-environment.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/myaccount/set-up-my-account-in-a-dev-environment/'
+              'develop/setting-up-my-account-in-a-dev-environment.md': 'https://github.com/wso2/identity-apps/tree/v1.4.28#build--run'
               'develop/customizing-my-account-ui.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/myaccount/customize-my-account-ui/'
               'develop/configure-my-account.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/myaccount/configure-my-account/'
               'setup/installing-the-product.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/get-started/install/'
@@ -1408,7 +1413,7 @@ plugins:
               'compliance/general-data-protection-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/gdpr/'
               'compliance/electronic-identification-authentication-and-trust-services-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/eidas/'
               'compliance/california-consumer-privacy-act.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/ccpa/'
-              'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              #'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'
               #'references/error-catalog.md': 'https://is.docs.wso2.com/en/6.0.0/references/error-catalog/'
               'references/supported-cipher-suites.md': 'https://is.docs.wso2.com/en/6.0.0/'
