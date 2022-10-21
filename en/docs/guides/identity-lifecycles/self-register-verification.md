@@ -2,7 +2,7 @@
 
 WSO2 Identity Server (WSO2 IS) supports self-registration, allowing users to set up their accounts and receive a confirmation when the account is created.
 
-WSO2 Identity Server allows users to confirm their accounts via a user-preferred communication channel. Based on the user preference, the user self-registration process supports email or mobile as the preferred account confirmation channel for the user.
+WSO2 Identity Server allows users to confirm their accounts via a user-preferred communication channel. Based on the user preference, the user self-registration process supports email or SMS as the preferred account confirmation channel for the user.
 
 Currently, WSO2 IS supports `SMS` and `EMAIL` as internal notification channels. Each channel has the following attributes.
 
@@ -15,12 +15,10 @@ The account confirmation channel is selected based on the following scenarios.
 
 - `SMS`: If the user has provided only the mobile number, the confirmation channel will be SMS.
 - `Email`: The confirmation channel will be `email` if the user has provided only the email address.
-- Either `SMS` or `email`: If the user has provided both mobile number and email address, the confirmation channel will be either SMS or email.
+- Either `SMS` or `email`: If the user has provided both a mobile number and email address, the confirmation channel will be either SMS or email.
 
-!!! note 
+!!! note
     In this case, the account confirmation channel will be the preferred channel selected by the specific user. If the user has not specified any preferred channel, the server-configured channel is selected as the account confirmation channel.
-
-The following sections will guide you through the usage of APIs to configure user self-registration to support multiple confirmation channels.
 
 !!! Note
     This feature is **only available via the Self Registration and Account confirmation REST APIs**.
@@ -35,8 +33,8 @@ This section describes how the self-registration API works, the flow, and sample
 ### How it works
 The following points below provide details about the self-registration API and how it works.
 
-- In a self-registration request, either the mobile number or email address (or both claims) is required for the server to initiate an account verification request (i.e., at least one claim should be in the request).
-    - Mobile claim: `http://wso2.org/claims/mobile`
+- In a self-registration request, either the mobile number (for SMS), email address, or both claims are required for the server to initiate an account verification request (i.e., at least one claim should be in the request).
+    - Mobile (SMS) claim: `http://wso2.org/claims/mobile`
     - Email claim: `http://wso2.org/claims/emailaddress`
 
 - WSO2 [self-register API]({{base_path}}/apis/use-the-self-sign-up-rest-apis/#/Self%20Register/post_me) supports the following types of registration requests:
@@ -45,7 +43,7 @@ The following points below provide details about the self-registration API and h
         For the requests and responses of the corresponding APIs:
         
         1. Go to [self-register API docs]({{base_path}}/apis/use-the-self-sign-up-rest-apis/#/Self%20Register/post_me).
-        2. Expand the **Examples** section and select the type of registration request from the list
+        2. Expand the **Examples** section and select the type of registration request from the list.
         
     <table>
         <tr>
@@ -62,7 +60,7 @@ The following points below provide details about the self-registration API and h
                     This feature is only supported when the prior verified channel is either <code>EMAIL</code> or <code>SMS</code>. For more information, refer to the note on **Enable self-registration with pre-verified claims**
                 </div>
                 <li>
-                    If a channel is verified external to WSO2 Identity Server, the corresponding channel verified claim needs to be in the request with the value set to <code>TRUE</code>.
+                    If a channel is verified external to WSO2 Identity Server, the corresponding channel-verified claim needs to be in the request with the value set to <code>TRUE</code>.
                     <p> For example, if the mobile number is already verified, then the <code>Phone verified</code> claim needs to be in the self-registration request with the value set to <code>TRUE</code>. </p>
                     <p>Following are the claims associated with each channel</p>
                         <li>Phone Verified: <ocde>http://wso2.org/claims/identity/phoneVerified</code></li>
@@ -72,7 +70,7 @@ The following points below provide details about the self-registration API and h
         <tr>
             <td>Self-registration with post user account verifications</td>
             <td>
-                The user is not verified before the self-registration. The user account must be verified after the user self-registration process via internal or external channels.
+                The user is not verified before the self-registration. The user account must be verified via internal or external channels after the user self-registration process.
             </td>
         </tr>
         <tr>
@@ -80,7 +78,7 @@ The following points below provide details about the self-registration API and h
     </table>
 
     !!! info "Enable self-registration with pre-verified claims"
-        To enable this feature, add the following configuration to the `deployment.toml`.
+        Add the following configuration to the `deployment.toml` to enable this feature.
         ```toml
         [identity_mgt.user_self_registration]
         enable_account_lock_for_verified_preferred_channel = false
@@ -106,13 +104,13 @@ The following points below provide details about the self-registration API and h
 
 ### Notification channel selection criteria
 
-The selection criteria of the notification channel selection are as follows: 
+The selection criteria for the notification channel selection are as follows: 
 
 ![notification-channel-selection-criteria]({{base_path}}/assets/img/guides/selection-criteria-flow-diagram.png)
 
 1. The user inputs the notification channel details with other user claims.
 
-2. If channel resolving is not enabled, the notification channel is set to use the server default notification channel.
+2. If channel resolving is not enabled, the notification channel is set to use the server's default notification channel.
 
     !!! Note "Configure channel resolving"
         - Navigate to the `deployment.toml` and set `enable_resolve_notification_channel` to `true` to enable channel resolving.
@@ -170,7 +168,7 @@ For account confirmations, WSO2 Identity Server now supports multiple verificati
 
 Refer the [API of self-signup's validate-code endpoint]({{base_path}}/apis/use-the-self-sign-up-rest-apis/#/Self%20Register/post_validate_code) to see the request and the responses.
 
-Using the verifiedChannel parameter, the user can be verified with any server supported channel. In the above example, using the confirmation code, the SMS channel for the user can be set as the verified notification channel.
+By using the `verifiedChannel` parameter, the user can be verified with any server-supported channel. In the above example, using the confirmation code, the SMS channel for the user can be set as the verified notification channel.
 
 
 | Property Name | Description   |
@@ -180,7 +178,7 @@ Using the verifiedChannel parameter, the user can be verified with any server su
 
 !!! info
     In an account confirmation request,
-    
+
     - If the request does not specify the verifiedChannel parameter, the Email Verified claim will be set to TRUE by the server.
-    - If the request includes the `verifiedChannelparameter`, and if the verified channel is supported by the server, the verified claim associated with that channel will be set to `TRUE`.
+    - If the request includes the `verifiedChannelparameter`, and if the server supports the verified channel, the verified claim associated with that channel will be set to `TRUE`.
     - If the verified channel is not supported, an error will be thrown.

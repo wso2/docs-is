@@ -288,6 +288,7 @@ nav:
             - Configure Active Directory User stores for SCIM 1.1: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
             - Configure Active Directory User stores for SCIM 2.0: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
             - Setup Service Provider for Inbound Provisioning: guides/identity-lifecycles/sp-for-inbound-provisioning.md
+        - Self-Registration verification mechanisms: guides/identity-lifecycles/self-register-verification.md
         - Enable Verification for Updated User Attributes:
           - Enable Email Account Verification for an Updated Email Address : guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md
           - Enable Mobile Number Verification for an Updated Mobile Number: guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md
@@ -656,7 +657,6 @@ nav:
           - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
           - Write an Outbound Provisioning Connector: references/extend/provisioning/write-an-outbound-provisioning-connector.md
           #- Extensible SCIM User Schemas With WSO2 Identity Server: references/extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
-        - Self-Registration verification mechanisms: references/extend/user-mgt/self-register-verification.md
       - User self-service:
         - Customize the UI: references/extend/myaccount/customize-my-account-ui.md
         - Configure the Application: references/extend/myaccount/configure-my-account.md
