@@ -35,10 +35,10 @@ Replace the `<SESSION_IDENTIFIER>` with the `isk` value obtained from the ID tok
 
 ```java
 curl --location --request GET 'https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/identity/extend-session' \
---header 'Cookie: <SESSION_IDENTIFIER>'
+--header 'Cookie: commonAuthId=<COMMON_AUTH_ID_COOKIE>'
 ```
 
-In this case, replace the `<SESSION_IDENTIFIER>` with the `commonAuthId` cookie.
+In this case, replace the `<COMMON_AUTH_ID_COOKIE>` with the `commonAuthId` cookie value.
 
 ### API responses
 

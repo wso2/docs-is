@@ -450,7 +450,7 @@ This section guides you on how to configure the cutom local authenticator on the
 
 ### Prerequisites
 - You need to set up the sample OIDC pickup-dispatch application:
-    - Download the [OIDC pickup-dispatch sample](https://github.com/wso2/samples-is/releases/download/v4.5.1/pickup-dispatch.war) application.
+    - Download the [OIDC pickup-dispatch sample](https://github.com/wso2/samples-is/releases/download/v4.5.2/pickup-dispatch.war) application.
     - [Deploy the sample pickup-dispatch]({{base_path}}/guides/login/webapp-oidc/#deploy-the-sample-web-app) application on the identity server.
 - You need to [add a new user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow) named `Larry`.
 - You need to [update the telephone number]({{base_path}}/guides/identity-lifecycles/update-profile) on the user's user profile.
