@@ -218,9 +218,7 @@ nav:
         - OAuth 2.0 Token Hashing: guides/access-delegation/oauth-token-hashing.md
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
-        - Mutual TLS:
-          - OAuth Clients: guides/access-delegation/mutual-tls-for-oauth-clients.md
-          - Client authentication and certifcate-bound access: guides/access-delegation/client-auth-and-cert-bound-access.md
+        - Mutual TLS for OAuth clients: guides/access-delegation/mutual-tls-for-oauth-clients.md
       - Consent Management:
         - Manage user consent: guides/consent-mgt/manage-user-consent.md
         - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md

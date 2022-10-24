@@ -1,6 +1,6 @@
 # Mutual TLS for OAuth Clients
 
-Mutual TLS is a widely-used, secure authentication technique that ensures the authenticity between a client and server using an encrypted channel established with a mutual X.509 certificate. The client certificate and certificate verification messages will be sent during the TLS handshake.
+Mutual TLS is a widely-used, secure authentication technique that ensures the authenticity between a client and an authorization server using an encrypted channel established with a mutual X.509 certificate. The client certificate and certificate verification messages will be sent during the TLS handshake.
 
 The TLS handshake is a set of steps to establish a secure connection between the client and server.
 
@@ -8,14 +8,28 @@ Mutual TLS is also used in the OAuth 2.0 Authorization Framework as a secure aut
 
 Mutual TLS for OAuth client authentication can be implemented using either of the following mechanisms:
 
-- PKI mutual TLS OAuth client authentication: This approach uses a subject Distinguished Name (DN) and validated certificate chain to identify the client.
-- A self-signed certificate: In this approach, the client needs to register an X.509 certificate during the service provider configuration and import it to the trust store.
+- **PKI mutual TLS OAuth client authentication**: This approach uses a subject Distinguished Name (DN) and validated certificate chain to identify the client.
+- **A self-signed certificate**: In this approach, the client needs to register an X.509 certificate during the service provider configuration and import it to the trust store.
 
 WSO2 Identity Server currently supports the approach that uses self-signed certificates.
 
-Let's try configuring mutual TLS in WSO2 Identity Server and test with a sample.
+## How it works
 
-## Pre-requisites
+The flow of mutual TLS client authentication is as follows.
+
+1. A client makes a `/token` endpoint call.
+2. WSO2 IS issues a token by validating certificate information in the HTTP header, with a certificate stored in the service provider.
+3. Per the specification, an MTLS certificate validates against the stored SP certificate for a `/token` request issued with the client-credential grant, authorization code grant, or refresh token grant.
+4. The response from the `/introspect` endpoint will present the bounded certificate according to the introspection response defined in the specification.
+
+
+Let's try configuring mutual TLS in WSO2 Identity Server and test it with a sample.
+
+## Configure the authenticator
+
+To configure the mutual TLS authenticator, follow the [prequisite steps](#prerequisites) and then [configure the mutual TLS client authenticator artifact](#configure-mutual-tls-client-authenticator-artifacts)
+
+### Prerequisites
 - You need to disable the mutual SSL authenticator.
     
     !!! warning
@@ -31,11 +45,11 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test with a sample.
 - If a load-balancer fronts WSO2 Identity Server, enable SSL tunneling.
 
 
-## Configuring mutual TLS client authenticator artifacts
+### Configure mutual TLS client authenticator artifacts
 
 1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.
 
-    1. Add the following entry under `[transport.https]` section.
+    1. Add the following entry under the `[transport.https]` section.
 
         ``` toml
         [transport.https]
@@ -44,7 +58,7 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test with a sample.
 
     2. MutualTLS supports two-way TLS authentication that allows the server to validate the client and vice versa. Specific applications, e.g., mobile applications, may not require server-side validation.
 
-        To make the server-side validation optional, set the `clientAuth` attribute to `want` in the same configuration similar to the following.
+        To make the server-side validation optional, set the `clientAuth` attribute to `want` in the same configuration, similar to the following.
 
         ``` toml
         [transport.https]
@@ -53,9 +67,8 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test with a sample.
         ```
 
 3. Download the Mutual TLS Client Authenticator v2.0.3 connector from [here](https://store.wso2.com/store/assets/isconnector/details/bab13ed8-5835-480f-92be-fdd5ee900970).  
-    Note that an OSGI bundle (`org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls-<VERSION>.jar`) gets downloaded.
 
-4. Copy the OSGI bundle to the `<IS_HOME>/repository/components/dropins` directory.
+4. Copy the OSGi bundle to the `<IS_HOME>/repository/components/dropins` directory.
 
 5. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the following configuration.
 
@@ -143,54 +156,231 @@ Let's try configuring mutual TLS in WSO2 Identity Server and test with a sample.
 
     6. Click **Update**.
 
-7. Restart WSO2 Identity Server.
+7. Restart the Identity Server.
 
-## Test the sample
+## Configure the service provider
 
-Follow the steps below to test the configurations.
+Follow this section to deploy and configure the sample application.
 
-1. Create a service provider.
+### Prerequisites
 
-    1. Access the WSO2 Identity Server Management Console.
-    2. On the **Main** menu, click **Identity \> Service Providers \> Add**.  
-    3. Enter `playground2` as the **Service Provider Name** and click **Register**.
-    4. Copy the content in your client application's certificate in PEM format into the **Application Certificate** text field.  
+- Download Apache Tomcat 8.x and install it. This guide will later refer to the Tomcat server installation location as `<TOMCAT_HOME>`.
+- It is recommended that you use a hostname that is not localhost to avoid browser errors. Modify your machine's `/etc/hosts` entry to reflect this.
+- Download the [playground2 application](https://github.com/wso2/samples-is/releases/download/v4.5.2/playground2.war) from the latest release assets.
 
-        ![add-sp-cert]({{base_path}}/assets/img/guides/add-sp-cert.png)
+### Deploy the application
+To deploy this sample web app on a web container.
 
-        !!! note
-            Instead of uploading the service provider certificate, as shown above, you can choose to use the JWKS endpoint as shown below and add the relevant JWKS URI.
-            ![configure-jwks-endpoint]({{base_path}}/assets/img/guides/configure-jwks-endpoint.png)
+1. Copy the `playground2.war` file into the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder.
+2. Start the Tomcat server.
 
-    5. Expand **Inbound Authentication Configuration \> OAuth/OpenID Connect Configuration** and click **Configure**.
-    6. Enter `http://localhost:8080/playground2/oauth2client` as the **Callback URL**.
-    7. Click **Add**.  
-        Note that the OAuth `client key` and `client secret` get generated.  
-        ![oauth-clientid-secret]({{base_path}}/assets/img/guides/oauth-clientid-secret.png)
+    !!! info
+        To check the sample application, navigate to http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground2/oauth2.jsp on your browser.
+        For example, `http://localhost:8080/playground2/oauth2.jsp`
 
-2. To obtain an access token by invoking the OAuth token endpoint of WSO2 Identity Server, execute the following cURL in a command prompt.
+3. Update the `param-value` parameter in the `WEB-INF/web.xml` file with the server URL of the Identity Server if required. Make sure to enter the port the application runs on in the URL. If you have started the Identity Server with a port offset, then the respective port needs to be configured here.
 
-    This request contains the client ID, the client's public certificate and any other additional claims and is signed using the client's private key.
+    ``` toml
+    <init-param>
+        <description>serverUrl</description>
+        <param-name>serverUrl</param-name>
+        <param-value>https://localhost:9443/services/</param-value>
+    </init-param>
+    ```
 
-    **Format**
+    !!! info
+        Note that localhost is the server that hosts WSO2 Identity Server, and 9443 is the default SSL port of it. Since the playground application is accessing the admin service `OAuth2TokenValidationService`, you should have the correct `serverUrl`, `username`, and `password`.
+
+
+4. Update the `param-value` parameter with the credentials of an admin user if required.
 
     ``` java
-    curl -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&client_id=<CLIENT_KEY>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -i  --cert <CLIENT_PUBLIC_CERTIFICATE> --key <CLIENT_PRIVATE_KEY>
+    <init-param>
+        <description>userName</description>
+        <param-name>userName</param-name>
+        <param-value>admin</param-value>
+    </init-param>
+    <init-param>
+        <description>password</description>
+        <param-name>password</param-name>
+        <param-value>admin</param-value>
+    </init-param>
     ```
 
-    **Sample token request using mutual TLS client authentication**
+5. Restart Apache Tomcat and access `http://wso2is.local:8080/playground2/`.
 
-    ``` java
-    curl -k -d "grant_type=password&username=admin&password=admin&client_id=qiB6avlILBqnJLSxOfadoJYwOnQa" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -i  --cert certificate.pem --key key.pem
+You are directed to the landing page of the sample application. Click on Import Photos, and the following page appears.
+
+### Configure the playground application
+To configure the application:
+
+1. On the Management Console, go to **Service Providers** and click **Add**.
+
+2. Enter `playground2` in the **Service Provider Name** and click **Register**.
+
+3. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
+
+4. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list.
+
+5. Enter `http://wso2is.local:8080/playground2/oauth2client` as the **Callback Url**, and click **Add**.
+
+    !!! info
+        - Note down the **OAuth Client Key** and **Client Secret**. You will need them when deploying the sample application.
+        - For more information on the `Callback URL` field and other advanced configurations, refer to [Advanced OpenID Connect Configurations]().
+
+6. Click **Register** to add and save the configurations.
+
+To upload the client certificate:
+
+!!! info "Generate private key and public certificate"
+    To generate the client’s private key and public certificate, execute the following command and enter Distinguished Name (DN) when prompted.
+
+    Format
+    ```
+    openssl req -newkey rsa:2048 -x509 -keyout <CLIENT_PRIVATE_KEY> -out <CLIENT_PUBLIC_CERTIFICATE> -days <VALIDITY_PERIOD> -nodes
     ```
 
-    Note that an access token gets generated. You can use this access token to access the APIs or other secured client application resources.  
-    Sample response:
+    Example
     ```
-    {
-        "access_token": "096d0a65-50b9-3381-89fd-bed86877f110", 
-        "refresh_token" "Ofce8ac3-9732-342b-b9b2-d7fc100c9aed", 
-        "token_type" "Bearer",
-        "expires_in":3600"
-    }
+    openssl req -newkey rsa:2048 -x509 -keyout key.pem -out client-certificate.pem -days 3650 -nodes
     ```
+
+    You will see the client certificate content in the `client-certificate.pem` file. A sample client certificate is shown below.
+
+
+1. Copy the content in your client application's certificate in PEM format into the **Application Certificate**.
+
+    !!! note
+        Instead of uploading the service provider certificate, as shown above, you can use the JWKS endpoint below and add the relevant JWKS URI.
+
+
+2. Click **Update** to save the configurations.
+
+## Try it out
+
+Use the following sample requests to try out each grant.
+
+### Client credential grant type
+
+The following token request uses mutual TLS client authentication.
+
+```tab="Request Format"
+curl -X POST \
+https://localhost:9443/oauth2/token \
+-H 'content-type: application/x-www-form-urlencoded' \
+-H '<CERTIFICATE_HEADER_NAME>: <CLIENT_PUBLIC_CERTIFICATE>' \
+-d 'grant_type=client_credentials&client_id=<CLIENT_ID>'
+```
+
+```tab="Sample Request"
+curl -X POST \
+https://localhost:9443/oauth2/token \
+-H 'content-type: application/x-www-form-urlencoded' \
+-H 'x-wso2-mtls-cert: -----BEGIN CERTIFICATE-----MIID3TCCAsWgAwIBAgIUJQW8iwYsAbyjc/oHti8DPLJH5ZcwDQYJKoZIhvcNAQELBQAwfjELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB1dlc3Rlcm4xEDAOBgNVBAcMB0NvbG9tYm8xDTALBgNVBAoMBFdTTzIxDDAKBgNVBAsMA0lBTTENMAsGA1UEAwwER2FnYTEfMB0GCSqGSIb3DQEJARYQZ2FuZ2FuaUB3c28yLmNvbTAeFw0yMDAzMjQxMjQyMDFaFw0zMDAzMjIxMjQyMDFaMH4xCzAJBgNVBAYTAlNMMRAwDgYDVQQIDAdXZXN0ZXJuMRAwDgYDVQQHDAdDb2xvbWJvMQ0wCwYDVQQKDARXU08yMQwwCgYDVQQLDANJQU0xDTALBgNVBAMMBEdhZ2ExHzAdBgkqhkiG9w0BCQEWEGdhbmdhbmlAd3NvMi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+reCEYOn2lnWgFsp0TF0R1wQiD9C/N+dnv4xCa0rFiu4njDzWR/8tYFl0koaxXoP0+oGnT07KlkA66q0ztwikLZXphLdCBbJ1hSmNvor48FuSb6DgqWixrUa2LHlpaaV7RvlmG+IhZEgKDXdS+/tK0hlcgRzENyOEdETDO5fFlKGGuwaGv6/w69h2LTKGu5nyDLF51rjQ18xp026btHC7se/XSlcp3X63xeOIcFv6m84AN2lnV+g8MOfu2wgWtsKaxn4BL64E7nHZNNLxMRf7GtUm2bl9ydFX4aD1r1Oj4iqFWMNcfQ676Qshk8s7ui3LKWFXwNN/SRD0c/ORtv23AgMBAAGjUzBRMB0GA1UdDgQWBBRDu/vqRafReh4fFHS3Nz4T6u9mUDAfBgNVHSMEGDAWgBRDu/vqRafReh4fFHS3Nz4T6u9mUDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQB7NH51Yj4moEhMonnLUh3eTtf6DUnrpscx6td28rryoDZPfCkJs4VHU9F50etw54FoHqoIaHp5UIB6l1OsVXytUmwrdxbqW7nfOItYwN1yV093aI2aOeMQYmS+vrPkSkxySP6+wGCWe4gfMgpr6iu9xiWLpnILw5q71gmXWtS900S5aLbllGYe74jkyldLIdhS4TyEBIDgcpZrD8x/Z42al6T/6EANMpvu4Jopisg+uwwkEGSM1I/kjiW+YkWC4oTZ1jMZUWC11WbcouLwjfaf6gt4zWitYCP0r0fLGk4bSJfUFsnJNu6vDhx60TbRhIh9P2jxkmgNYPuAxFtF8v+h-----END CERTIFICATE-----' \
+-d 'grant_type=client_credentials&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa'
+```
+
+```tab="Sample Response"
+{“access_token”:”9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade”,”scope”:”default”,”token_type”:”Bearer”,”expires_in”:3445}
+```
+
+### Authorization code grant type
+
+1. Visit the URL `http://wso2is.local:8080/playground2/oauth2.jsp` to start the scenario with the sample application.
+
+2. Enter the following details and click **Authorize**.
+
+    | Parameter | Value |
+    |-----------|-------|
+    | **Authorization Grant Type** | `Authorization Code`   |
+    | **Client ID**    | Add the client id received when registering the service provider for the application  |
+    | **Scope**    | Add any scope you wish to obtain the token for.   |
+    | **Callback URL** | `http://wso2is.local:8080/playground2/oauth2client`   |
+    | **Authorize Endpoint**   | `https://localhost:9443/oauth2/authorize` |
+
+
+3. Click **Authorize** and login with the user credentials.  
+
+4. Copy the `authorization code` that you received.
+
+5. Send the following request.
+
+    ```tab="Request Format"
+    curl -X POST \
+    https://localhost:9443/oauth2/token \
+    -H 'content-type: application/x-www-form-urlencoded' \
+    -H '<CERTIFICATE_HEADER_NAME>: <CLIENT_PUBLIC_CERTIFICATE>' \
+    -d 'grant_type=authorization_code&client_id=<CLIENT_ID>&code=<CODE>&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fplayground2%2Foauth2client'
+    ```
+
+    ```tab="Sample Request"
+    curl -X POST \
+    https://localhost:9443/oauth2/token \
+    -H 'content-type: application/x-www-form-urlencoded' \
+    -H 'x-wso2-mtls-cert: -----BEGIN CERTIFICATE-----MIID3TCCAsWgAwIBAgIUJQW8iwYsAbyjc/oHti8DPLJH5ZcwDQYJKoZIhvcNAQELBQAwfjELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB1dlc3Rlcm4xEDAOBgNVBAcMB0NvbG9tYm8xDTALBgNVBAoMBFdTTzIxDDAKBgNVBAsMA0lBTTENMAsGA1UEAwwER2FnYTEfMB0GCSqGSIb3DQEJARYQZ2FuZ2FuaUB3c28yLmNvbTAeFw0yMDAzMjQxMjQyMDFaFw0zMDAzMjIxMjQyMDFaMH4xCzAJBgNVBAYTAlNMMRAwDgYDVQQIDAdXZXN0ZXJuMRAwDgYDVQQHDAdDb2xvbWJvMQ0wCwYDVQQKDARXU08yMQwwCgYDVQQLDANJQU0xDTALBgNVBAMMBEdhZ2ExHzAdBgkqhkiG9w0BCQEWEGdhbmdhbmlAd3NvMi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+reCEYOn2lnWgFsp0TF0R1wQiD9C/N+dnv4xCa0rFiu4njDzWR/8tYFl0koaxXoP0+oGnT07KlkA66q0ztwikLZXphLdCBbJ1hSmNvor48FuSb6DgqWixrUa2LHlpaaV7RvlmG+IhZEgKDXdS+/tK0hlcgRzENyOEdETDO5fFlKGGuwaGv6/w69h2LTKGu5nyDLF51rjQ18xp026btHC7se/XSlcp3X63xeOIcFv6m84AN2lnV+g8MOfu2wgWtsKaxn4BL64E7nHZNNLxMRf7GtUm2bl9ydFX4aD1r1Oj4iqFWMNcfQ676Qshk8s7ui3LKWFXwNN/SRD0c/ORtv23AgMBAAGjUzBRMB0GA1UdDgQWBBRDu/vqRafReh4fFHS3Nz4T6u9mUDAfBgNVHSMEGDAWgBRDu/vqRafReh4fFHS3Nz4T6u9mUDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQB7NH51Yj4moEhMonnLUh3eTtf6DUnrpscx6td28rryoDZPfCkJs4VHU9F50etw54FoHqoIaHp5UIB6l1OsVXytUmwrdxbqW7nfOItYwN1yV093aI2aOeMQYmS+vrPkSkxySP6+wGCWe4gfMgpr6iu9xiWLpnILw5q71gmXWtS900S5aLbllGYe74jkyldLIdhS4TyEBIDgcpZrD8x/Z42al6T/6EANMpvu4Jopisg+uwwkEGSM1I/kjiW+YkWC4oTZ1jMZUWC11WbcouLwjfaf6gt4zWitYCP0r0fLGk4bSJfUFsnJNu6vDhx60TbRhIh9P2jxkmgNYPuAxFtF8v+h-----END CERTIFICATE-----' \
+    -d 'grant_type=authorization_code&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa&code=d7678fec-2cb0-374b-82cb-d368d301be57&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fplayground2%2Foauth2client'
+    ```
+
+    ```tab="Sample Response"
+    {"access_token":"72480539-a018-3611-aeb3-1e3e8b7f78da","refresh_token":"47757b20-1013-3fd7-a547-c8b080427abd","scope":"openid","id_token":"eyJ4NXQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmciLCJraWQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmdfUlMyNTYiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiZXgyci1tZGhhRXJoT0MxSjlUTjZXQSIsImF1ZCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJjX2hhc2giOiI3bnlHb0Y5b0NuRFdIWk9uZlVuT3VnIiwic3ViIjoiYWRtaW4iLCJuYmYiOjE1ODY4OTA3MTYsImF6cCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJhbXIiOlsiQmFzaWNBdXRoZW50aWNhdG9yIl0sImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTU4Njg5NDMxNiwiaWF0IjoxNTg2ODkwNzE2LCJzaWQiOiIwMTQxOGNiYS1kZWMxLTRjY2UtODg1MC0yM2Q5YWVmNDdhMjUifQ.c7zueSgckyK7la0fWCVXsDL7zEQV40VmI2FUCDrlN4sFY3U90ObtwXVp0V6Di_BzOWCGc7RN6xWTBkfo2ayph8FxVtUyO-c4tUZCB_EDCsyOLBjV-s1Z7bhy4lw5-utSCcE5d4TZoDTFKvL7PrUCrRZ2VcGfmqNKZKgRo1eCfVcT5M7Udzkq22JdOp1jkv0tTso3zvQFqUKFaNNi1gKDdWR00WjBEnAMhmbz0Sd2HZ2GNuKbwYZLPz3P2FZvS7mVJJW_kku4nTksP3cMIrDjZz8fCST210GmlW_GC1f2XudhiM8Qkdcu011cdEmG5bmJcWCQs-90GLn5u-e1gjIaQw","token_type":"Bearer","expires_in":3600}
+    ```
+
+### Refresh token grant
+
+To try this out, first, send an authorization code grant-type request and obtain the refresh token from the response.
+
+```tab="Request Format"
+curl -X POST \
+  https://localhost:9443/oauth2/token \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -H '<CERTIFICATE_HEADER_NAME>: <CLIENT_PUBLIC_CERTIFICATE>' \
+  -d 'grant_type=refresh_token&refresh_token=<REFRESH_TOKEN>&client_id=<CLIENT_ID>'
+```
+
+```tab="Sample Request"
+curl -X POST \
+  https://localhost:9443/oauth2/token \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -H 'x-wso2-mtls-cert: -----BEGIN CERTIFICATE-----MIID3TCCAsWgAwIBAgIUJQW8iwYsAbyjc/oHti8DPLJH5ZcwDQYJKoZIhvcNAQELBQAwfjELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB1dlc3Rlcm4xEDAOBgNVBAcMB0NvbG9tYm8xDTALBgNVBAoMBFdTTzIxDDAKBgNVBAsMA0lBTTENMAsGA1UEAwwER2FnYTEfMB0GCSqGSIb3DQEJARYQZ2FuZ2FuaUB3c28yLmNvbTAeFw0yMDAzMjQxMjQyMDFaFw0zMDAzMjIxMjQyMDFaMH4xCzAJBgNVBAYTAlNMMRAwDgYDVQQIDAdXZXN0ZXJuMRAwDgYDVQQHDAdDb2xvbWJvMQ0wCwYDVQQKDARXU08yMQwwCgYDVQQLDANJQU0xDTALBgNVBAMMBEdhZ2ExHzAdBgkqhkiG9w0BCQEWEGdhbmdhbmlAd3NvMi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+reCEYOn2lnWgFsp0TF0R1wQiD9C/N+dnv4xCa0rFiu4njDzWR/8tYFl0koaxXoP0+oGnT07KlkA66q0ztwikLZXphLdCBbJ1hSmNvor48FuSb6DgqWixrUa2LHlpaaV7RvlmG+IhZEgKDXdS+/tK0hlcgRzENyOEdETDO5fFlKGGuwaGv6/w69h2LTKGu5nyDLF51rjQ18xp026btHC7se/XSlcp3X63xeOIcFv6m84AN2lnV+g8MOfu2wgWtsKaxn4BL64E7nHZNNLxMRf7GtUm2bl9ydFX4aD1r1Oj4iqFWMNcfQ676Qshk8s7ui3LKWFXwNN/SRD0c/ORtv23AgMBAAGjUzBRMB0GA1UdDgQWBBRDu/vqRafReh4fFHS3Nz4T6u9mUDAfBgNVHSMEGDAWgBRDu/vqRafReh4fFHS3Nz4T6u9mUDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQB7NH51Yj4moEhMonnLUh3eTtf6DUnrpscx6td28rryoDZPfCkJs4VHU9F50etw54FoHqoIaHp5UIB6l1OsVXytUmwrdxbqW7nfOItYwN1yV093aI2aOeMQYmS+vrPkSkxySP6+wGCWe4gfMgpr6iu9xiWLpnILw5q71gmXWtS900S5aLbllGYe74jkyldLIdhS4TyEBIDgcpZrD8x/Z42al6T/6EANMpvu4Jopisg+uwwkEGSM1I/kjiW+YkWC4oTZ1jMZUWC11WbcouLwjfaf6gt4zWitYCP0r0fLGk4bSJfUFsnJNu6vDhx60TbRhIh9P2jxkmgNYPuAxFtF8v+h-----END CERTIFICATE-----' \
+  -d 'grant_type=refresh_token&refresh_token=47757b20-1013-3fd7-a547-c8b080427abd&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa'
+```
+
+```tab="Sample Response"
+{"access_token":"e01612d2-5538-32ac-9b1c-c2978ce47e91","refresh_token":"0278af3e-e75b-3f66-bad5-13a773397b8e","scope":"openid","id_token":"eyJ4NXQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmciLCJraWQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmdfUlMyNTYiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSHJsTl9PNGZ3THNldnlRWXcxdjdGdyIsImF1ZCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJzdWIiOiJhZG1pbiIsIm5iZiI6MTU4Njg5MTU4MywiYXpwIjoiaDlnZDFiTEVnelV3ZnRBaG5yb2YwZlpXY1p3YSIsImFtciI6WyJyZWZyZXNoX3Rva2VuIl0sImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTU4Njg5NTE4MywiaWF0IjoxNTg2ODkxNTgzfQ.XonQryWAEoUAsEWBYh97N8Wra1o1g-gs_VQfD1jeKpIMXONrRJt9ArTwf7THE0AmwoiHqv3JDsFDfj7FY4-xMEXb9bbwm2CB7ptWdw_Z0_rEoLv8uFo69k0G07C1bPsE4Lfdg4_BKMWN5-h8U0l7p35AQW-hT4qGkASOkgo0xz2AaBpXgItP91NsUoJ3Xmr1E9Bmv_0vIO8XK1hvZkk95inCVp2HVBBRuQNIO4PIaqrGNijMUoKN5DokUr_pyZ3xHbHL8pJ5Smg5wLfDAng7BSwiBd1Lf_8wyWaNSHCvI27sVtU8fLRi7X0_p-4mVtmfK2Qe-hK8wQA3E_vFLr3WMA","token_type":"Bearer","expires_in":3600}
+```
+
+### OAuth token introspection
+
+Use the following [OAuth token introspection](learn/invoke-the-oauth-introspection-endpoint/) request to obtain a sample introspection response from an active token using an `x5t#S256` certificate thumbprint confirmation method. The new introspection response content introduced by this feature is the `cnf` confirmation method with the `x5t#S256` confirmation method member containing the value that is the hash of the client certificate to which the access token is bound.
+
+```tab="Request Format"
+curl -X POST \
+  https://localhost:9443/oauth2/introspect \
+  -H 'authorization: Basic YWRtaW46YWRtaW4=' \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -d token=9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade
+```
+
+```tab="Sample Request"
+curl -X POST \
+  https://localhost:9443/oauth2/introspect \
+  -H 'authorization: Basic YWRtaW46YWRtaW4=' \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -d token=9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade
+```
+
+```tab="Sample Response"
+{
+    "nbf": 1586929210,
+    "scope": "openid",
+    "active": true,
+    "cnf": {
+        "x5t#SHA256": "mt3KDY1hofQurloTbphKHCSrTlAGl5MlgXX6Xxj9c_E"
+    },
+    "token_type": "Bearer",
+    "exp": 1586932810,
+    "iat": 1586929210,
+    "client_id": "h9gd1bLEgzUwftAhnrof0fZWcZwa",
+    "username": "admin@carbon.super"
+}
+```
