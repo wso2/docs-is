@@ -1,4 +1,4 @@
-# Mask Sensitive Information in Logs
+# Configure Log Masking with Filebeat
 
 Log files and the product console may contain business sensitive information. To avoid such information being exposed, users can mask sensitive information through Filebeat.
 
