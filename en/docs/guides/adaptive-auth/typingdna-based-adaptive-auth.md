@@ -1,6 +1,6 @@
 # Configure TypingDNA-based adaptive Authentication
 
-[Typing DNA](https://www.typingdna.com/) uses AI-based technology to identify users according to the way they type.
+[Typing DNA](https://www.typingdna.com/) uses AI-based technology to authenticate users according to the way they type.
 
 You can integrate typingDNA with WSO2 Identity Server to provide risk-based adaptive authentication for users.
 
