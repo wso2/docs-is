@@ -44,7 +44,7 @@ This page guides you through using the [SAML2 Bearer grant]({{base_path}}/refere
         
         5.  **Enable Signature Validation in Authentication Requests and Logout Requests**
         
-    3. Select the the following check-boxes and enter the following values:
+    3. Select the following check-boxes and enter the following values:
            1. **Enable Audience Restriction**
             - **Audience**: `https://localhost:9443/oauth2/token`
            2. **Enable Recipient Validation**
@@ -152,7 +152,7 @@ For example,
     URL, and IdP URL, you can edit the **travelocity.properties** file found
     in the `         travelocity.com/WEB-INF/classes        ` directory.
     Also if the service provider is configured in a tenant you can use
-    "QueryParams" property to send the tenant domain.For example,
+    "QueryParams" property to send the tenant domain. For example,
     "QueryParams=tenantDomain=wso2.com".
     
     This sample uses the following default values.
