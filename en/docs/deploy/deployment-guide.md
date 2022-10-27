@@ -247,7 +247,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
             |-----------|---------------|-----------|
             | `membershipScheme`  | This is the membership scheme that will be used to manage the membership of nodes in a cluster.   | `kubernetes`    |
             | `local_member_host` | This is the member's hostname or IP address. Set it to the pod's local IP address.   | `172.17.0.2`    |
-            | `local_member_port` | This is the TCP port used by this member and through which other members will contact this member. | `4000` |
+            | `local_member_port` | This is the TCP port used by this member through which other members will contact this member. | `4000` |
             | `membershipSchemeClassName` | org.wso2.carbon.membership.scheme.kubernetes.KubernetesMembershipScheme   |                |
             | `KUBERNETES_NAMESPACE`  | This is the Kubernetes Namespace in which the pods are deployed.  | `wso2-is` |
             | `KUBERNETES_SERVICES`   | These are the Kubernetes Services that belong in the cluster. | `wso2is-service` |
