@@ -45,7 +45,7 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
 - If a load-balancer fronts WSO2 Identity Server, enable SSL tunneling.
 
 
-### Configure mutual TLS client authenticator artifacts
+### Configure mutual TLS client authenticator
 
 1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.
 
@@ -158,6 +158,47 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
 
 7. Restart the Identity Server.
 
+### Configure the authenticator artifacts
+
+1. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to deploy and configure the mutual TLS client authenticator artifacts.
+
+    ``` toml
+    [[event_listener]]
+    id = "introspection_response_interceptor"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+    name="org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.introspection.IntrospectionResponseInterceptor"
+    order=27
+    enable=true
+
+    [[event_listener]]
+    id = "is_introspection_data_provider"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+    name= "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.introspection.ISIntrospectionDataProvider"
+    order=28
+    enable=true
+
+    [oauth.grant_type.authorization_code]
+    grant_handler = "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.handlers.MTLSTokenBindingAuthorizationCodeGrantHandler"
+
+    [oauth.grant_type.client_credentials]
+    grant_handler = "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.handlers.MTLSTokenBindingClientCredentialsGrantHandler"
+
+    [oauth.grant_type.refresh_token]
+    grant_handler = "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.handlers.MTLSTokenBindingRefreshGrantHandler"
+
+    [oauth.grant_type.uma_ticket]
+    retrieve_uma_permission_info_through_introspection = true
+
+    [oauth.mutualtls]
+    client_certificate_header = "x-wso2-mtls-cert"
+    ```
+
+    !!! info
+        Add the relevant certificate header name as the `client_certificate_header` value, as it appears in the `<IS-HOME>/repsoitory/conf/identity/identity.xml` file.
+
+2. Restart the server to save the configurations.
+
+
 ## Configure the service provider
 
 Follow this section to deploy and configure the sample application.
@@ -232,7 +273,7 @@ To configure the application:
 
 To upload the client certificate:
 
-!!! info "Generate private key and public certificate"
+??? info "Generate private key and public certificate"
     To generate the client’s private key and public certificate, execute the following command and enter Distinguished Name (DN) when prompted.
 
     Format
@@ -260,7 +301,31 @@ To upload the client certificate:
 
 Use the following sample requests to try out each grant.
 
-### Client credential grant type
+### Mutual TLS Client Authentication
+
+This request contains the client ID, client's public certificate and any other additional claims and is signed using the client's private key.
+
+```tab="Request Format"
+curl -k 
+-d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&client_id=<CLIENT_KEY>" 
+-H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token 
+-i  --cert <CLIENT_PUBLIC_CERTIFICATE> 
+--key <CLIENT_PRIVATE_KEY>
+```
+
+```tab="Sample Request"
+curl -k 
+-d "grant_type=password&username=admin&password=admin&client_id=qiB6avlILBqnJLSxOfadoJYwOnQa" 
+-H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token 
+-i  --cert certificate.pem 
+--key key.pem
+```
+
+Note that an access token gets generated. You can use this access token to access the APIs or any other secured resources of the client application.
+
+### Mutual TLS certificate bound access token
+
+#### Client credential grant type
 
 The following token request uses mutual TLS client authentication.
 
@@ -284,7 +349,7 @@ https://localhost:9443/oauth2/token \
 {“access_token”:”9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade”,”scope”:”default”,”token_type”:”Bearer”,”expires_in”:3445}
 ```
 
-### Authorization code grant type
+#### Authorization code grant type
 
 1. Visit the URL `http://wso2is.local:8080/playground2/oauth2.jsp` to start the scenario with the sample application.
 
@@ -325,7 +390,7 @@ https://localhost:9443/oauth2/token \
     {"access_token":"72480539-a018-3611-aeb3-1e3e8b7f78da","refresh_token":"47757b20-1013-3fd7-a547-c8b080427abd","scope":"openid","id_token":"eyJ4NXQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmciLCJraWQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmdfUlMyNTYiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiZXgyci1tZGhhRXJoT0MxSjlUTjZXQSIsImF1ZCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJjX2hhc2giOiI3bnlHb0Y5b0NuRFdIWk9uZlVuT3VnIiwic3ViIjoiYWRtaW4iLCJuYmYiOjE1ODY4OTA3MTYsImF6cCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJhbXIiOlsiQmFzaWNBdXRoZW50aWNhdG9yIl0sImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTU4Njg5NDMxNiwiaWF0IjoxNTg2ODkwNzE2LCJzaWQiOiIwMTQxOGNiYS1kZWMxLTRjY2UtODg1MC0yM2Q5YWVmNDdhMjUifQ.c7zueSgckyK7la0fWCVXsDL7zEQV40VmI2FUCDrlN4sFY3U90ObtwXVp0V6Di_BzOWCGc7RN6xWTBkfo2ayph8FxVtUyO-c4tUZCB_EDCsyOLBjV-s1Z7bhy4lw5-utSCcE5d4TZoDTFKvL7PrUCrRZ2VcGfmqNKZKgRo1eCfVcT5M7Udzkq22JdOp1jkv0tTso3zvQFqUKFaNNi1gKDdWR00WjBEnAMhmbz0Sd2HZ2GNuKbwYZLPz3P2FZvS7mVJJW_kku4nTksP3cMIrDjZz8fCST210GmlW_GC1f2XudhiM8Qkdcu011cdEmG5bmJcWCQs-90GLn5u-e1gjIaQw","token_type":"Bearer","expires_in":3600}
     ```
 
-### Refresh token grant
+#### Refresh token grant
 
 To try this out, first, send an authorization code grant-type request and obtain the refresh token from the response.
 
@@ -349,7 +414,7 @@ curl -X POST \
 {"access_token":"e01612d2-5538-32ac-9b1c-c2978ce47e91","refresh_token":"0278af3e-e75b-3f66-bad5-13a773397b8e","scope":"openid","id_token":"eyJ4NXQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmciLCJraWQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmdfUlMyNTYiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSHJsTl9PNGZ3THNldnlRWXcxdjdGdyIsImF1ZCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJzdWIiOiJhZG1pbiIsIm5iZiI6MTU4Njg5MTU4MywiYXpwIjoiaDlnZDFiTEVnelV3ZnRBaG5yb2YwZlpXY1p3YSIsImFtciI6WyJyZWZyZXNoX3Rva2VuIl0sImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTU4Njg5NTE4MywiaWF0IjoxNTg2ODkxNTgzfQ.XonQryWAEoUAsEWBYh97N8Wra1o1g-gs_VQfD1jeKpIMXONrRJt9ArTwf7THE0AmwoiHqv3JDsFDfj7FY4-xMEXb9bbwm2CB7ptWdw_Z0_rEoLv8uFo69k0G07C1bPsE4Lfdg4_BKMWN5-h8U0l7p35AQW-hT4qGkASOkgo0xz2AaBpXgItP91NsUoJ3Xmr1E9Bmv_0vIO8XK1hvZkk95inCVp2HVBBRuQNIO4PIaqrGNijMUoKN5DokUr_pyZ3xHbHL8pJ5Smg5wLfDAng7BSwiBd1Lf_8wyWaNSHCvI27sVtU8fLRi7X0_p-4mVtmfK2Qe-hK8wQA3E_vFLr3WMA","token_type":"Bearer","expires_in":3600}
 ```
 
-### OAuth token introspection
+#### OAuth token introspection
 
 Use the following [OAuth token introspection](learn/invoke-the-oauth-introspection-endpoint/) request to obtain a sample introspection response from an active token using an `x5t#S256` certificate thumbprint confirmation method. The new introspection response content introduced by this feature is the `cnf` confirmation method with the `x5t#S256` confirmation method member containing the value that is the hash of the client certificate to which the access token is bound.
 
