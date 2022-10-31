@@ -18,7 +18,7 @@ You can access the permissions navigator for a particular role by clicking **Per
 By default, every WSO2 Identity Server comes with the default [user]({{base_path}}/references/concepts/user-management/users/) and
 [role]({{base_path}}/references/concepts/user-management/roles-and-permissions/).
 
-- The **Admin** role has all the permissions in the system enabled by default. Therefore, this is a super tenant, with all permissions enabled.
+- The **Admin** role has all the permissions in the system enabled by default. Therefore, this is a super tenant with all permissions enabled.
 
     !!! Tip
         You can change the default role name '**admin**' of the Administrative role as described [here]({{base_path}}/guides/identity-lifecycles/edit-delete-roles/)
