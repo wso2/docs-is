@@ -7,7 +7,7 @@ Permissions can be granted to a role at two levels:
 
 ## Access permissions
 
-The permissions navigator that you use to enable permissions for a role is divided into these two categories (**Super Admin** permissions and **Admin** permissions) as shown below. However, note that there may be other categories of permissions enabled for a WSO2 product, depending on the type of features that are installed in the product.
+The permissions navigator that you use to enable permissions for a role is divided into two categories (**Super Admin** permissions and **Admin** permissions) as shown below. However, note that there may be other categories of permissions enabled for a WSO2 product depending on the type of features that are installed in the product.
 
 ![]({{base_path}}/assets/img/fragments/role-permissions.png)
 
