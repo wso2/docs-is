@@ -59,11 +59,11 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
     !!! info
         Mutual TLS supports two-way TLS authentication that allows the server to validate the client and vice versa. Specific applications, e.g., mobile applications, may not require server-side validation.
 
-   ``` toml
-   [transport.https]
-   trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
-   clientAuth="want"
-   ```
+    ``` toml
+    [transport.https]
+    trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
+    clientAuth="want"
+    ```
 
 3. Download the Mutual TLS Client Authenticator v2.0.3 connector from [here](https://store.wso2.com/store/assets/isconnector/details/bab13ed8-5835-480f-92be-fdd5ee900970).  
 
@@ -305,25 +305,25 @@ Use the following sample requests to try out each grant.
 
 This request contains the client ID, the client's public certificate, and any other additional claims and is signed using the client's private key.
 
-**Format**
+-   **Format**
 
-```
-curl -k 
--d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&client_id=<CLIENT_KEY>" 
--H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token 
--i  --cert <CLIENT_PUBLIC_CERTIFICATE> 
---key <CLIENT_PRIVATE_KEY>
-```
+    ```
+    curl -k 
+    -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&client_id=<CLIENT_KEY>" 
+    -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token 
+    -i  --cert <CLIENT_PUBLIC_CERTIFICATE> 
+    --key <CLIENT_PRIVATE_KEY>
+    ```
 
-**Request**
+-   **Request**
 
-```
-curl -k 
--d "grant_type=password&username=admin&password=admin&client_id=qiB6avlILBqnJLSxOfadoJYwOnQa" 
--H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token 
--i  --cert certificate.pem 
---key key.pem
-```
+    ```
+    curl -k 
+    -d "grant_type=password&username=admin&password=admin&client_id=qiB6avlILBqnJLSxOfadoJYwOnQa" 
+    -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token 
+    -i  --cert certificate.pem 
+    --key key.pem
+    ```
 
 Note that an access token gets generated. You can use this access token to access the APIs or other secured client application resources.
 
@@ -335,31 +335,31 @@ You can obtain a certificate-bound access token using client credentials, author
 
 The following token request uses mutual TLS client authentication.
 
-**Request Format**
+-   **Request Format**
 
-```
-curl -X POST \
-https://localhost:9443/oauth2/token \
--H 'content-type: application/x-www-form-urlencoded' \
--H '<CERTIFICATE_HEADER_NAME>: <CLIENT_PUBLIC_CERTIFICATE>' \
--d 'grant_type=client_credentials&client_id=<CLIENT_ID>'
-```
+    ```
+    curl -X POST \
+    https://localhost:9443/oauth2/token \
+    -H 'content-type: application/x-www-form-urlencoded' \
+    -H '<CERTIFICATE_HEADER_NAME>: <CLIENT_PUBLIC_CERTIFICATE>' \
+    -d 'grant_type=client_credentials&client_id=<CLIENT_ID>'
+    ```
 
-**Sample Request**
+-   **Sample Request**
 
-```
-curl -X POST \
-https://localhost:9443/oauth2/token \
--H 'content-type: application/x-www-form-urlencoded' \
--H 'x-wso2-mtls-cert: -----BEGIN CERTIFICATE-----MIID3TCCAsWgAwIBAgIUJQW8iwYsAbyjc/oHti8DPLJH5ZcwDQYJKoZIhvcNAQELBQAwfjELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB1dlc3Rlcm4xEDAOBgNVBAcMB0NvbG9tYm8xDTALBgNVBAoMBFdTTzIxDDAKBgNVBAsMA0lBTTENMAsGA1UEAwwER2FnYTEfMB0GCSqGSIb3DQEJARYQZ2FuZ2FuaUB3c28yLmNvbTAeFw0yMDAzMjQxMjQyMDFaFw0zMDAzMjIxMjQyMDFaMH4xCzAJBgNVBAYTAlNMMRAwDgYDVQQIDAdXZXN0ZXJuMRAwDgYDVQQHDAdDb2xvbWJvMQ0wCwYDVQQKDARXU08yMQwwCgYDVQQLDANJQU0xDTALBgNVBAMMBEdhZ2ExHzAdBgkqhkiG9w0BCQEWEGdhbmdhbmlAd3NvMi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+reCEYOn2lnWgFsp0TF0R1wQiD9C/N+dnv4xCa0rFiu4njDzWR/8tYFl0koaxXoP0+oGnT07KlkA66q0ztwikLZXphLdCBbJ1hSmNvor48FuSb6DgqWixrUa2LHlpaaV7RvlmG+IhZEgKDXdS+/tK0hlcgRzENyOEdETDO5fFlKGGuwaGv6/w69h2LTKGu5nyDLF51rjQ18xp026btHC7se/XSlcp3X63xeOIcFv6m84AN2lnV+g8MOfu2wgWtsKaxn4BL64E7nHZNNLxMRf7GtUm2bl9ydFX4aD1r1Oj4iqFWMNcfQ676Qshk8s7ui3LKWFXwNN/SRD0c/ORtv23AgMBAAGjUzBRMB0GA1UdDgQWBBRDu/vqRafReh4fFHS3Nz4T6u9mUDAfBgNVHSMEGDAWgBRDu/vqRafReh4fFHS3Nz4T6u9mUDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQB7NH51Yj4moEhMonnLUh3eTtf6DUnrpscx6td28rryoDZPfCkJs4VHU9F50etw54FoHqoIaHp5UIB6l1OsVXytUmwrdxbqW7nfOItYwN1yV093aI2aOeMQYmS+vrPkSkxySP6+wGCWe4gfMgpr6iu9xiWLpnILw5q71gmXWtS900S5aLbllGYe74jkyldLIdhS4TyEBIDgcpZrD8x/Z42al6T/6EANMpvu4Jopisg+uwwkEGSM1I/kjiW+YkWC4oTZ1jMZUWC11WbcouLwjfaf6gt4zWitYCP0r0fLGk4bSJfUFsnJNu6vDhx60TbRhIh9P2jxkmgNYPuAxFtF8v+h-----END CERTIFICATE-----' \
--d 'grant_type=client_credentials&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa'
-```
+    ```
+    curl -X POST \
+    https://localhost:9443/oauth2/token \
+    -H 'content-type: application/x-www-form-urlencoded' \
+    -H 'x-wso2-mtls-cert: -----BEGIN CERTIFICATE-----MIID3TCCAsWgAwIBAgIUJQW8iwYsAbyjc/oHti8DPLJH5ZcwDQYJKoZIhvcNAQELBQAwfjELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB1dlc3Rlcm4xEDAOBgNVBAcMB0NvbG9tYm8xDTALBgNVBAoMBFdTTzIxDDAKBgNVBAsMA0lBTTENMAsGA1UEAwwER2FnYTEfMB0GCSqGSIb3DQEJARYQZ2FuZ2FuaUB3c28yLmNvbTAeFw0yMDAzMjQxMjQyMDFaFw0zMDAzMjIxMjQyMDFaMH4xCzAJBgNVBAYTAlNMMRAwDgYDVQQIDAdXZXN0ZXJuMRAwDgYDVQQHDAdDb2xvbWJvMQ0wCwYDVQQKDARXU08yMQwwCgYDVQQLDANJQU0xDTALBgNVBAMMBEdhZ2ExHzAdBgkqhkiG9w0BCQEWEGdhbmdhbmlAd3NvMi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+reCEYOn2lnWgFsp0TF0R1wQiD9C/N+dnv4xCa0rFiu4njDzWR/8tYFl0koaxXoP0+oGnT07KlkA66q0ztwikLZXphLdCBbJ1hSmNvor48FuSb6DgqWixrUa2LHlpaaV7RvlmG+IhZEgKDXdS+/tK0hlcgRzENyOEdETDO5fFlKGGuwaGv6/w69h2LTKGu5nyDLF51rjQ18xp026btHC7se/XSlcp3X63xeOIcFv6m84AN2lnV+g8MOfu2wgWtsKaxn4BL64E7nHZNNLxMRf7GtUm2bl9ydFX4aD1r1Oj4iqFWMNcfQ676Qshk8s7ui3LKWFXwNN/SRD0c/ORtv23AgMBAAGjUzBRMB0GA1UdDgQWBBRDu/vqRafReh4fFHS3Nz4T6u9mUDAfBgNVHSMEGDAWgBRDu/vqRafReh4fFHS3Nz4T6u9mUDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQB7NH51Yj4moEhMonnLUh3eTtf6DUnrpscx6td28rryoDZPfCkJs4VHU9F50etw54FoHqoIaHp5UIB6l1OsVXytUmwrdxbqW7nfOItYwN1yV093aI2aOeMQYmS+vrPkSkxySP6+wGCWe4gfMgpr6iu9xiWLpnILw5q71gmXWtS900S5aLbllGYe74jkyldLIdhS4TyEBIDgcpZrD8x/Z42al6T/6EANMpvu4Jopisg+uwwkEGSM1I/kjiW+YkWC4oTZ1jMZUWC11WbcouLwjfaf6gt4zWitYCP0r0fLGk4bSJfUFsnJNu6vDhx60TbRhIh9P2jxkmgNYPuAxFtF8v+h-----END CERTIFICATE-----' \
+    -d 'grant_type=client_credentials&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa'
+    ```
 
-**Sample Response**
+-   **Sample Response**
 
-```
-{“access_token”:”9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade”,”scope”:”default”,”token_type”:”Bearer”,”expires_in”:3445}
-```
+    ```
+    {“access_token”:”9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade”,”scope”:”default”,”token_type”:”Bearer”,”expires_in”:3445}
+    ```
 
 #### Authorization code grant type
 
@@ -382,100 +382,100 @@ https://localhost:9443/oauth2/token \
 
 5. Send the following request.
     
-    **Request Format**
+    -   **Request Format**
+
+        ```
+        curl -X POST \
+        https://localhost:9443/oauth2/token \
+        -H 'content-type: application/x-www-form-urlencoded' \
+        -H '<CERTIFICATE_HEADER_NAME>: <CLIENT_PUBLIC_CERTIFICATE>' \
+        -d 'grant_type=authorization_code&client_id=<CLIENT_ID>&code=<CODE>&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fplayground2%2Foauth2client'
+        ```
+
+    -   **Sample Request**
+    
+        ```
+        curl -X POST \
+        https://localhost:9443/oauth2/token \
+        -H 'content-type: application/x-www-form-urlencoded' \
+        -H 'x-wso2-mtls-cert: -----BEGIN CERTIFICATE-----MIID3TCCAsWgAwIBAgIUJQW8iwYsAbyjc/oHti8DPLJH5ZcwDQYJKoZIhvcNAQELBQAwfjELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB1dlc3Rlcm4xEDAOBgNVBAcMB0NvbG9tYm8xDTALBgNVBAoMBFdTTzIxDDAKBgNVBAsMA0lBTTENMAsGA1UEAwwER2FnYTEfMB0GCSqGSIb3DQEJARYQZ2FuZ2FuaUB3c28yLmNvbTAeFw0yMDAzMjQxMjQyMDFaFw0zMDAzMjIxMjQyMDFaMH4xCzAJBgNVBAYTAlNMMRAwDgYDVQQIDAdXZXN0ZXJuMRAwDgYDVQQHDAdDb2xvbWJvMQ0wCwYDVQQKDARXU08yMQwwCgYDVQQLDANJQU0xDTALBgNVBAMMBEdhZ2ExHzAdBgkqhkiG9w0BCQEWEGdhbmdhbmlAd3NvMi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+reCEYOn2lnWgFsp0TF0R1wQiD9C/N+dnv4xCa0rFiu4njDzWR/8tYFl0koaxXoP0+oGnT07KlkA66q0ztwikLZXphLdCBbJ1hSmNvor48FuSb6DgqWixrUa2LHlpaaV7RvlmG+IhZEgKDXdS+/tK0hlcgRzENyOEdETDO5fFlKGGuwaGv6/w69h2LTKGu5nyDLF51rjQ18xp026btHC7se/XSlcp3X63xeOIcFv6m84AN2lnV+g8MOfu2wgWtsKaxn4BL64E7nHZNNLxMRf7GtUm2bl9ydFX4aD1r1Oj4iqFWMNcfQ676Qshk8s7ui3LKWFXwNN/SRD0c/ORtv23AgMBAAGjUzBRMB0GA1UdDgQWBBRDu/vqRafReh4fFHS3Nz4T6u9mUDAfBgNVHSMEGDAWgBRDu/vqRafReh4fFHS3Nz4T6u9mUDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQB7NH51Yj4moEhMonnLUh3eTtf6DUnrpscx6td28rryoDZPfCkJs4VHU9F50etw54FoHqoIaHp5UIB6l1OsVXytUmwrdxbqW7nfOItYwN1yV093aI2aOeMQYmS+vrPkSkxySP6+wGCWe4gfMgpr6iu9xiWLpnILw5q71gmXWtS900S5aLbllGYe74jkyldLIdhS4TyEBIDgcpZrD8x/Z42al6T/6EANMpvu4Jopisg+uwwkEGSM1I/kjiW+YkWC4oTZ1jMZUWC11WbcouLwjfaf6gt4zWitYCP0r0fLGk4bSJfUFsnJNu6vDhx60TbRhIh9P2jxkmgNYPuAxFtF8v+h-----END CERTIFICATE-----' \
+        -d 'grant_type=authorization_code&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa&code=d7678fec-2cb0-374b-82cb-d368d301be57&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fplayground2%2Foauth2client'
+        ```
+
+    -   **Sample Response**
+
+        ```
+        {"access_token":"72480539-a018-3611-aeb3-1e3e8b7f78da","refresh_token":"47757b20-1013-3fd7-a547-c8b080427abd","scope":"openid","id_token":"eyJ4NXQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmciLCJraWQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmdfUlMyNTYiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiZXgyci1tZGhhRXJoT0MxSjlUTjZXQSIsImF1ZCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJjX2hhc2giOiI3bnlHb0Y5b0NuRFdIWk9uZlVuT3VnIiwic3ViIjoiYWRtaW4iLCJuYmYiOjE1ODY4OTA3MTYsImF6cCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJhbXIiOlsiQmFzaWNBdXRoZW50aWNhdG9yIl0sImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTU4Njg5NDMxNiwiaWF0IjoxNTg2ODkwNzE2LCJzaWQiOiIwMTQxOGNiYS1kZWMxLTRjY2UtODg1MC0yM2Q5YWVmNDdhMjUifQ.c7zueSgckyK7la0fWCVXsDL7zEQV40VmI2FUCDrlN4sFY3U90ObtwXVp0V6Di_BzOWCGc7RN6xWTBkfo2ayph8FxVtUyO-c4tUZCB_EDCsyOLBjV-s1Z7bhy4lw5-utSCcE5d4TZoDTFKvL7PrUCrRZ2VcGfmqNKZKgRo1eCfVcT5M7Udzkq22JdOp1jkv0tTso3zvQFqUKFaNNi1gKDdWR00WjBEnAMhmbz0Sd2HZ2GNuKbwYZLPz3P2FZvS7mVJJW_kku4nTksP3cMIrDjZz8fCST210GmlW_GC1f2XudhiM8Qkdcu011cdEmG5bmJcWCQs-90GLn5u-e1gjIaQw","token_type":"Bearer","expires_in":3600}
+        ```
+
+#### Refresh token grant
+
+To try this out, first, send an authorization code grant-type request and obtain the refresh token from the response.
+
+-   **Request Format**
 
     ```
     curl -X POST \
     https://localhost:9443/oauth2/token \
     -H 'content-type: application/x-www-form-urlencoded' \
     -H '<CERTIFICATE_HEADER_NAME>: <CLIENT_PUBLIC_CERTIFICATE>' \
-    -d 'grant_type=authorization_code&client_id=<CLIENT_ID>&code=<CODE>&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fplayground2%2Foauth2client'
+    -d 'grant_type=refresh_token&refresh_token=<REFRESH_TOKEN>&client_id=<CLIENT_ID>'
     ```
 
-    **Sample Request**
-    
+-   **Sample Request**
+
     ```
     curl -X POST \
     https://localhost:9443/oauth2/token \
     -H 'content-type: application/x-www-form-urlencoded' \
     -H 'x-wso2-mtls-cert: -----BEGIN CERTIFICATE-----MIID3TCCAsWgAwIBAgIUJQW8iwYsAbyjc/oHti8DPLJH5ZcwDQYJKoZIhvcNAQELBQAwfjELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB1dlc3Rlcm4xEDAOBgNVBAcMB0NvbG9tYm8xDTALBgNVBAoMBFdTTzIxDDAKBgNVBAsMA0lBTTENMAsGA1UEAwwER2FnYTEfMB0GCSqGSIb3DQEJARYQZ2FuZ2FuaUB3c28yLmNvbTAeFw0yMDAzMjQxMjQyMDFaFw0zMDAzMjIxMjQyMDFaMH4xCzAJBgNVBAYTAlNMMRAwDgYDVQQIDAdXZXN0ZXJuMRAwDgYDVQQHDAdDb2xvbWJvMQ0wCwYDVQQKDARXU08yMQwwCgYDVQQLDANJQU0xDTALBgNVBAMMBEdhZ2ExHzAdBgkqhkiG9w0BCQEWEGdhbmdhbmlAd3NvMi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+reCEYOn2lnWgFsp0TF0R1wQiD9C/N+dnv4xCa0rFiu4njDzWR/8tYFl0koaxXoP0+oGnT07KlkA66q0ztwikLZXphLdCBbJ1hSmNvor48FuSb6DgqWixrUa2LHlpaaV7RvlmG+IhZEgKDXdS+/tK0hlcgRzENyOEdETDO5fFlKGGuwaGv6/w69h2LTKGu5nyDLF51rjQ18xp026btHC7se/XSlcp3X63xeOIcFv6m84AN2lnV+g8MOfu2wgWtsKaxn4BL64E7nHZNNLxMRf7GtUm2bl9ydFX4aD1r1Oj4iqFWMNcfQ676Qshk8s7ui3LKWFXwNN/SRD0c/ORtv23AgMBAAGjUzBRMB0GA1UdDgQWBBRDu/vqRafReh4fFHS3Nz4T6u9mUDAfBgNVHSMEGDAWgBRDu/vqRafReh4fFHS3Nz4T6u9mUDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQB7NH51Yj4moEhMonnLUh3eTtf6DUnrpscx6td28rryoDZPfCkJs4VHU9F50etw54FoHqoIaHp5UIB6l1OsVXytUmwrdxbqW7nfOItYwN1yV093aI2aOeMQYmS+vrPkSkxySP6+wGCWe4gfMgpr6iu9xiWLpnILw5q71gmXWtS900S5aLbllGYe74jkyldLIdhS4TyEBIDgcpZrD8x/Z42al6T/6EANMpvu4Jopisg+uwwkEGSM1I/kjiW+YkWC4oTZ1jMZUWC11WbcouLwjfaf6gt4zWitYCP0r0fLGk4bSJfUFsnJNu6vDhx60TbRhIh9P2jxkmgNYPuAxFtF8v+h-----END CERTIFICATE-----' \
-    -d 'grant_type=authorization_code&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa&code=d7678fec-2cb0-374b-82cb-d368d301be57&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fplayground2%2Foauth2client'
+    -d 'grant_type=refresh_token&refresh_token=47757b20-1013-3fd7-a547-c8b080427abd&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa'
     ```
 
-    **Sample Response**
+-   **Sample Response**
 
     ```
-    {"access_token":"72480539-a018-3611-aeb3-1e3e8b7f78da","refresh_token":"47757b20-1013-3fd7-a547-c8b080427abd","scope":"openid","id_token":"eyJ4NXQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmciLCJraWQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmdfUlMyNTYiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiZXgyci1tZGhhRXJoT0MxSjlUTjZXQSIsImF1ZCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJjX2hhc2giOiI3bnlHb0Y5b0NuRFdIWk9uZlVuT3VnIiwic3ViIjoiYWRtaW4iLCJuYmYiOjE1ODY4OTA3MTYsImF6cCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJhbXIiOlsiQmFzaWNBdXRoZW50aWNhdG9yIl0sImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTU4Njg5NDMxNiwiaWF0IjoxNTg2ODkwNzE2LCJzaWQiOiIwMTQxOGNiYS1kZWMxLTRjY2UtODg1MC0yM2Q5YWVmNDdhMjUifQ.c7zueSgckyK7la0fWCVXsDL7zEQV40VmI2FUCDrlN4sFY3U90ObtwXVp0V6Di_BzOWCGc7RN6xWTBkfo2ayph8FxVtUyO-c4tUZCB_EDCsyOLBjV-s1Z7bhy4lw5-utSCcE5d4TZoDTFKvL7PrUCrRZ2VcGfmqNKZKgRo1eCfVcT5M7Udzkq22JdOp1jkv0tTso3zvQFqUKFaNNi1gKDdWR00WjBEnAMhmbz0Sd2HZ2GNuKbwYZLPz3P2FZvS7mVJJW_kku4nTksP3cMIrDjZz8fCST210GmlW_GC1f2XudhiM8Qkdcu011cdEmG5bmJcWCQs-90GLn5u-e1gjIaQw","token_type":"Bearer","expires_in":3600}
+    {"access_token":"e01612d2-5538-32ac-9b1c-c2978ce47e91","refresh_token":"0278af3e-e75b-3f66-bad5-13a773397b8e","scope":"openid","id_token":"eyJ4NXQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmciLCJraWQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmdfUlMyNTYiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSHJsTl9PNGZ3THNldnlRWXcxdjdGdyIsImF1ZCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJzdWIiOiJhZG1pbiIsIm5iZiI6MTU4Njg5MTU4MywiYXpwIjoiaDlnZDFiTEVnelV3ZnRBaG5yb2YwZlpXY1p3YSIsImFtciI6WyJyZWZyZXNoX3Rva2VuIl0sImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTU4Njg5NTE4MywiaWF0IjoxNTg2ODkxNTgzfQ.XonQryWAEoUAsEWBYh97N8Wra1o1g-gs_VQfD1jeKpIMXONrRJt9ArTwf7THE0AmwoiHqv3JDsFDfj7FY4-xMEXb9bbwm2CB7ptWdw_Z0_rEoLv8uFo69k0G07C1bPsE4Lfdg4_BKMWN5-h8U0l7p35AQW-hT4qGkASOkgo0xz2AaBpXgItP91NsUoJ3Xmr1E9Bmv_0vIO8XK1hvZkk95inCVp2HVBBRuQNIO4PIaqrGNijMUoKN5DokUr_pyZ3xHbHL8pJ5Smg5wLfDAng7BSwiBd1Lf_8wyWaNSHCvI27sVtU8fLRi7X0_p-4mVtmfK2Qe-hK8wQA3E_vFLr3WMA","token_type":"Bearer","expires_in":3600}
     ```
-
-#### Refresh token grant
-
-To try this out, first, send an authorization code grant-type request and obtain the refresh token from the response.
-
-**Request Format**
-
-```
-curl -X POST \
-  https://localhost:9443/oauth2/token \
-  -H 'content-type: application/x-www-form-urlencoded' \
-  -H '<CERTIFICATE_HEADER_NAME>: <CLIENT_PUBLIC_CERTIFICATE>' \
-  -d 'grant_type=refresh_token&refresh_token=<REFRESH_TOKEN>&client_id=<CLIENT_ID>'
-```
-
-**Sample Request**
-
-```
-curl -X POST \
-  https://localhost:9443/oauth2/token \
-  -H 'content-type: application/x-www-form-urlencoded' \
-  -H 'x-wso2-mtls-cert: -----BEGIN CERTIFICATE-----MIID3TCCAsWgAwIBAgIUJQW8iwYsAbyjc/oHti8DPLJH5ZcwDQYJKoZIhvcNAQELBQAwfjELMAkGA1UEBhMCU0wxEDAOBgNVBAgMB1dlc3Rlcm4xEDAOBgNVBAcMB0NvbG9tYm8xDTALBgNVBAoMBFdTTzIxDDAKBgNVBAsMA0lBTTENMAsGA1UEAwwER2FnYTEfMB0GCSqGSIb3DQEJARYQZ2FuZ2FuaUB3c28yLmNvbTAeFw0yMDAzMjQxMjQyMDFaFw0zMDAzMjIxMjQyMDFaMH4xCzAJBgNVBAYTAlNMMRAwDgYDVQQIDAdXZXN0ZXJuMRAwDgYDVQQHDAdDb2xvbWJvMQ0wCwYDVQQKDARXU08yMQwwCgYDVQQLDANJQU0xDTALBgNVBAMMBEdhZ2ExHzAdBgkqhkiG9w0BCQEWEGdhbmdhbmlAd3NvMi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+reCEYOn2lnWgFsp0TF0R1wQiD9C/N+dnv4xCa0rFiu4njDzWR/8tYFl0koaxXoP0+oGnT07KlkA66q0ztwikLZXphLdCBbJ1hSmNvor48FuSb6DgqWixrUa2LHlpaaV7RvlmG+IhZEgKDXdS+/tK0hlcgRzENyOEdETDO5fFlKGGuwaGv6/w69h2LTKGu5nyDLF51rjQ18xp026btHC7se/XSlcp3X63xeOIcFv6m84AN2lnV+g8MOfu2wgWtsKaxn4BL64E7nHZNNLxMRf7GtUm2bl9ydFX4aD1r1Oj4iqFWMNcfQ676Qshk8s7ui3LKWFXwNN/SRD0c/ORtv23AgMBAAGjUzBRMB0GA1UdDgQWBBRDu/vqRafReh4fFHS3Nz4T6u9mUDAfBgNVHSMEGDAWgBRDu/vqRafReh4fFHS3Nz4T6u9mUDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQB7NH51Yj4moEhMonnLUh3eTtf6DUnrpscx6td28rryoDZPfCkJs4VHU9F50etw54FoHqoIaHp5UIB6l1OsVXytUmwrdxbqW7nfOItYwN1yV093aI2aOeMQYmS+vrPkSkxySP6+wGCWe4gfMgpr6iu9xiWLpnILw5q71gmXWtS900S5aLbllGYe74jkyldLIdhS4TyEBIDgcpZrD8x/Z42al6T/6EANMpvu4Jopisg+uwwkEGSM1I/kjiW+YkWC4oTZ1jMZUWC11WbcouLwjfaf6gt4zWitYCP0r0fLGk4bSJfUFsnJNu6vDhx60TbRhIh9P2jxkmgNYPuAxFtF8v+h-----END CERTIFICATE-----' \
-  -d 'grant_type=refresh_token&refresh_token=47757b20-1013-3fd7-a547-c8b080427abd&client_id=h9gd1bLEgzUwftAhnrof0fZWcZwa'
-```
-
-**Sample Response**
-
-```
-{"access_token":"e01612d2-5538-32ac-9b1c-c2978ce47e91","refresh_token":"0278af3e-e75b-3f66-bad5-13a773397b8e","scope":"openid","id_token":"eyJ4NXQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmciLCJraWQiOiJaalJtWVRNd05USmpPV1U1TW1Jek1qZ3pOREkzWTJJeU1tSXlZMkV6TWpkaFpqVmlNamMwWmdfUlMyNTYiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiSHJsTl9PNGZ3THNldnlRWXcxdjdGdyIsImF1ZCI6Img5Z2QxYkxFZ3pVd2Z0QWhucm9mMGZaV2Nad2EiLCJzdWIiOiJhZG1pbiIsIm5iZiI6MTU4Njg5MTU4MywiYXpwIjoiaDlnZDFiTEVnelV3ZnRBaG5yb2YwZlpXY1p3YSIsImFtciI6WyJyZWZyZXNoX3Rva2VuIl0sImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6MTU4Njg5NTE4MywiaWF0IjoxNTg2ODkxNTgzfQ.XonQryWAEoUAsEWBYh97N8Wra1o1g-gs_VQfD1jeKpIMXONrRJt9ArTwf7THE0AmwoiHqv3JDsFDfj7FY4-xMEXb9bbwm2CB7ptWdw_Z0_rEoLv8uFo69k0G07C1bPsE4Lfdg4_BKMWN5-h8U0l7p35AQW-hT4qGkASOkgo0xz2AaBpXgItP91NsUoJ3Xmr1E9Bmv_0vIO8XK1hvZkk95inCVp2HVBBRuQNIO4PIaqrGNijMUoKN5DokUr_pyZ3xHbHL8pJ5Smg5wLfDAng7BSwiBd1Lf_8wyWaNSHCvI27sVtU8fLRi7X0_p-4mVtmfK2Qe-hK8wQA3E_vFLr3WMA","token_type":"Bearer","expires_in":3600}
-```
 
 #### OAuth token introspection
 
 Use the following [OAuth token introspection](learn/invoke-the-oauth-introspection-endpoint/) request to obtain a sample introspection response from an active token using an `x5t#S256` certificate thumbprint confirmation method. The new introspection response content introduced by this feature is the `cnf` confirmation method with the `x5t#S256` confirmation method member containing the value that is the hash of the client certificate to which the access token is bound.
 
-**Request Format**
+-   **Request Format**
 
-```
-curl -X POST \
-  https://localhost:9443/oauth2/introspect \
-  -H 'authorization: Basic YWRtaW46YWRtaW4=' \
-  -H 'content-type: application/x-www-form-urlencoded' \
-  -d token=9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade
-```
+    ```
+    curl -X POST \
+    https://localhost:9443/oauth2/introspect \
+    -H 'authorization: Basic YWRtaW46YWRtaW4=' \
+    -H 'content-type: application/x-www-form-urlencoded' \
+    -d token=9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade
+    ```
 
-**Sample Request**
+-   **Sample Request**
 
-```
-curl -X POST \
-  https://localhost:9443/oauth2/introspect \
-  -H 'authorization: Basic YWRtaW46YWRtaW4=' \
-  -H 'content-type: application/x-www-form-urlencoded' \
-  -d token=9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade
-```
+    ```
+    curl -X POST \
+    https://localhost:9443/oauth2/introspect \
+    -H 'authorization: Basic YWRtaW46YWRtaW4=' \
+    -H 'content-type: application/x-www-form-urlencoded' \
+    -d token=9d109c6d-d42e-3b6e-9d93-ae3cb8f65ade
+    ```
 
-**Sample Response**
+-   **Sample Response**
 
-```
-{
-    "nbf": 1586929210,
-    "scope": "openid",
-    "active": true,
-    "cnf": {
-        "x5t#SHA256": "mt3KDY1hofQurloTbphKHCSrTlAGl5MlgXX6Xxj9c_E"
-    },
-    "token_type": "Bearer",
-    "exp": 1586932810,
-    "iat": 1586929210,
-    "client_id": "h9gd1bLEgzUwftAhnrof0fZWcZwa",
-    "username": "admin@carbon.super"
-}
-```
+    ```
+    {
+        "nbf": 1586929210,
+        "scope": "openid",
+        "active": true,
+        "cnf": {
+            "x5t#SHA256": "mt3KDY1hofQurloTbphKHCSrTlAGl5MlgXX6Xxj9c_E"
+        },
+        "token_type": "Bearer",
+        "exp": 1586932810,
+        "iat": 1586929210,
+        "client_id": "h9gd1bLEgzUwftAhnrof0fZWcZwa",
+        "username": "admin@carbon.super"
+    }
+    ```
