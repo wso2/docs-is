@@ -669,7 +669,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
 !!! Note "Prerequisites"
     You need to [create a new user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) on the management console.
 
-To configure login permissions to a user:
+To configure login permissions for a user:
 
 1. On the Management Console, go to **Users and Roles > List > Users**.
 2. Click on **Assign Roles** to assign login permissions for the created user.
