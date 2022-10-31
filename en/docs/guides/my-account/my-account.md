@@ -26,5 +26,4 @@ This section briefly explains what each of the above-mentioned features are and 
 ## Customize the My Account
 
 - To change the look and feel of the My Account UI, see [Customize the My Account UI]({{base_path}}/references/extend/myaccount/customize-my-account-ui/).
-- To set up My Account in a dev environment, see [Set Up My Account in a Development Environment]({{base_path}}/references/extend/myaccount/set-up-my-account-in-a-dev-environment/).
 - To configure the My Account application and customize features, theme, etc., see [Configure My Account Application]({{base_path}}/references/extend/myaccount/configure-my-account/)

@@ -3,6 +3,7 @@
 Permissions can be granted to a role at two levels:
 
 - **Super tenant level:** A role with super tenant permissions is used for managing all the tenants in the system and also for managing the key features in the system, which are applicable to all the tenants.
+
 - **Tenant level:** A role with tenant-level permissions is only applicable to individual tenant spaces.
 
 ## Access permissions
@@ -15,10 +16,11 @@ You can access the permissions navigator for a particular role by clicking **Per
 
 ![]({{base_path}}/assets/img/fragments/permission-navigator.png)
 
-By default, every WSO2 Identity Server comes with the default [user]({{base_path}}/references/concepts/user-management/users/) and
-[role]({{base_path}}/references/concepts/user-management/roles-and-permissions/).
+By default, every WSO2 Identity Server comes with the default [user]({{base_path}}/references/concepts/user-management/users/) and [role]({{base_path}}/references/concepts/user-management/roles-and-permissions/).
 
 - The **Admin** role has all the permissions in the system enabled by default. Therefore, this is a super tenant with all permissions enabled.
+
+
 
     !!! Tip
         You can change the default role name '**admin**' of the Administrative role as described [here]({{base_path}}/guides/identity-lifecycles/edit-delete-roles/)

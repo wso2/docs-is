@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: WSO2 Identity Server - User's Challenge Questions and Answers API Definition.
-  description: This is the RESTful API for managing challenge questions and answers
+  title: WSO2 Identity Server - User's Challenge Answers API Definition.
+  description: This is the RESTful API for managing answers to challenge questions.
     of a user in WSO2 Identity Server
   contact:
     name: WSO2 Identity Server
