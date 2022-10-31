@@ -77,7 +77,7 @@ a user.
     the **Main** tab.
 4.  Expand the **Inbound Authentication Configuration** section and then
     expand **SAML2 Web SSO Configuration**.
-5.  Enter " `          wso2.microsoft"         ` as the **Identity
+5.  Enter  `          "wso2.microsoft"         ` as the **Identity
     Provider Entity Id** value.  
     ![entity-id](../assets/img/tutorials/entity-id.png)
 
