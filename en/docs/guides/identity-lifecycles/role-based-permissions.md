@@ -23,7 +23,7 @@ To configure admin permissions for a user:
 3. Select **admin** and click **Update**.
     ![Assign login permissions to Alex]({{base_path}}/assets/img/guides/assign-login-permissions.png)
 
-Your user will be granted login permissions for the Management Console.
+The user will be granted login permissions for the management console along with other admin permissions. See the complete list of [access permissions](#access-permissions) given below.
 
 ## Access permissions
 
