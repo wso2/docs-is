@@ -237,7 +237,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
                 Once all the configurations are complete, build a docker image including the configurations. You can consume this docker image to create a `Task Definition` and run a new `Service` or a `Task` on the `AWS ECS cluster` you created.
 
         ??? tip "Click to see the instructions for Kubernetes membership scheme"
-            When IS nodes are deployed in a clustered mode on Kubernetes, the Kubernetes Membership Scheme enables automatically discovering these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
+            When WSO2 IS nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables automatically discovering these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
 
             - If not already present, download and copy the <a href=https://github.com/wso2/kubernetes-common/tags>kubernetes-membership-scheme-1.x.x.jar</a> to the `<IS_HOME>/repository/components/dropins/` directory.
 
