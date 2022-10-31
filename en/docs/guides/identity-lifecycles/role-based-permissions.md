@@ -672,7 +672,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org"&gt;
 To configure login permissions for a user:
 
 1. On the Management Console, go to **Users and Roles > List > Users**.
-2. Click on **Assign Roles** to assign login permissions for the created user.
+2. Click **Assign Roles** to assign login permissions for the created user.
     ![Assign roles to Alex]({{base_path}}/assets/img/guides/assign-roles.png)
 3. Select **admin** and click **Update**.
     ![Assign login permissions to Alex]({{base_path}}/assets/img/guides/assign-login-permissions.png)
