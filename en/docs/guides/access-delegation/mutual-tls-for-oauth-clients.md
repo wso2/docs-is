@@ -45,7 +45,7 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
 - If a load-balancer fronts WSO2 Identity Server, enable SSL tunneling.
 
 
-### Configure mutual TLS client authenticator
+### Configure the mutual TLS client authenticator
 
 1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.
 
@@ -301,9 +301,9 @@ To upload the client certificate:
 
 Use the following sample requests to try out each grant.
 
-### Mutual TLS Client Authentication
+### Mutual TLS client authentication
 
-This request contains the client ID, client's public certificate and any other additional claims and is signed using the client's private key.
+This request contains the client ID, the client's public certificate, and any other additional claims and is signed using the client's private key.
 
 ```tab="Request Format"
 curl -k 
@@ -321,9 +321,11 @@ curl -k
 --key key.pem
 ```
 
-Note that an access token gets generated. You can use this access token to access the APIs or any other secured resources of the client application.
+Note that an access token gets generated. You can use this access token to access the APIs or other secured client application resources.
 
-### Mutual TLS certificate bound access token
+### Mutual TLS certificate-bound access token
+
+You can obtain a certificate-bound access token using client credentials, authorization code, and refresh grant types. This section guides on getting certificate-bound access tokens for each grant type.
 
 #### Client credential grant type
 
@@ -364,7 +366,7 @@ https://localhost:9443/oauth2/token \
     | **Authorize Endpoint**   | `https://localhost:9443/oauth2/authorize` |
 
 
-3. Click **Authorize** and login with the user credentials.  
+3. Click **Authorize** and log in with the user credentials.  
 
 4. Copy the `authorization code` that you received.
 
