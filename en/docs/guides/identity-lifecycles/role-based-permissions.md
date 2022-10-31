@@ -3,7 +3,7 @@
 Permissions can be granted to a role at two levels:
 
 - **Super tenant level:** A role with super tenant permissions is used for managing all the tenants in the system and also for managing the key features in the system, which are applicable to all the tenants.
-- **Tenant level:** A role with tenant level permissions is only applicable to individual tenant spaces.
+- **Tenant level:** A role with tenant-level permissions is only applicable to individual tenant spaces.
 
 ## Access permissions
 
