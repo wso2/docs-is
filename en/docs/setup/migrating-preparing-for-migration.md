@@ -1,86 +1,78 @@
 # Preparing for migration
 
-!!! note
-    Before you follow this section, see [Before you begin](../../setup/migration-guide) to read on 
-    prerequisites.
+This guide helps you in preparing for migration to IS 5.11.0.
+
+For a high-level overview of what has been added, changed, or deprecated in this IS 5.11.0, see [About this release](../../get-started/about-this-release).
+
 
 !!! note
-    In this section, `<OLD_IS_HOME> ` is the directory that current Identity
-    Server resides in, and `<NEW_IS_HOME>` is the
-    directory that WSO2 Identity Server 5.11.0 resides in. 
+    In this section, `<OLD_IS_HOME>` is the directory that the current Identity Server resides in, and `<NEW_IS_HOME>` is the directory that WSO2 Identity Server 5.11.0 resides in.
 
-!!! info "Important" 
+!!! info "Important"
     Before proceeding with the migration, change the following property to `false` in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ```toml
     [super_admin]
     create_admin_account = false 
     ```
-        
-## Groups and Roles Migration 
+
+
+## Prerequisites
+
+1. Review what has been changed in this release. For a detailed list of changes from 5.10.0 to 5.11.0, see [What Has Changed](../../setup/migrating-what-has-changed).
+
+2. Before you migrate, refer to [Migration Process](../../setup/migration-process/) to understand the migration process.
+
+3. You can use the [Update Management Tool](https://updates.docs.wso2.com/en/latest/)(UMT) to get any fixes or latest updates for this release.
+
+4. Take a backup of the existing database used by the current WSO2 Identity Server. This backup is necessary if the migration causes any issues in the existing database.
+
+5. Download WSO2 Identity Server 5.11.0 and unzip it in the `<NEW_IS_HOME>` directory.
+
+6. Next, refer to the [Preparing for migration](../../setup/migrating-preparing-for-migration) section.
+
+
+## Groups and Roles Migration
 
 With WSO2 Identity Server 5.11.0, groups and roles are separated. For more information, see [What Has Changed in 5.11.0](../../setup/migrating-what-has-changed#group-and-role-separation).
 
 
 ## Migrating custom components
 
-In WSO2 Identity Server 5.11.0 we have done a major upgrade to our kernel and our main components. 
-Any custom OSGI bundles which are added manually should be recompiled with new dependency versions 
-that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the 
-`<OLD_IS_HOME>/repository/components/dropins` directory.
+In WSO2 Identity Server 5.11.0, we have done a major upgrade to our kernel and our main components. Any custom OSGi bundles added manually should be recompiled with new dependency versions relevant to the new WSO2 IS version. All custom OSGI components reside in the `<OLD_IS_HOME>/repository/components/dropins` directory.
 
-1.  Get the source codes of the custom OSGI components located in the dropins directory. 
+1. Get the source codes of the custom OSGI components located in the dropins directory.
 
-2.  Change the dependency versions in the relevant POM files according to the WSO2 IS version that 
-    you are upgrading to, and compile them. The compatible dependency versions can be found 
-    [here](https://github.com/wso2/product-is/blob/v5.11.0-rc1/pom.xml). 
+2. Change the dependency versions in the relevant POM files according to the WSO2 IS version you are upgrading to and compile them. The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v5.11.0-rc1/pom.xml).
 
-3.  If you come across any compile time errors, refer to the WSO2 IS code base and make the 
-    necessary changes related to that particular component version.
+3. If you come across any compile time errors, refer to the WSO2 IS code base and make the necessary changes related to that particular component version.
 
-4.  Add the compiled JAR files to the `<NEW_IS_HOME>/repository/components/dropins` directory.
+4. Add the compiled JAR files to the `<NEW_IS_HOME>/repository/components/dropins` directory.
 
-5.  If there were any custom OSGI components in `<OLD_IS_HOME>/repository/components/lib` directory, 
-    add newly compiled versions of those components to the `<NEW_IS_HOME>/repository/components/lib`  directory.
-    
+5. If there were any custom OSGI components in the `<OLD_IS_HOME>/repository/components/lib` directory, add newly compiled versions of those components to the `<NEW_IS_HOME>/repository/components/lib`  directory.
+
 ## Migrating the configurations
 
-Refer to the relevant feature documents and
-[What Has Changed](../../setup/migrating-what-has-changed) to do the configuration migration.
+Refer to the relevant feature documents and [What Has Changed](../../setup/migrating-what-has-changed) to do the configuration migration.
 
 !!! info
-    If you have a WSO2 Subscription, it is highly recommended to reach 
-    [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa)
-    before attempting to proceed with the configuration migration.
-    
-## Zero down time migration
+    If you have a WSO2 Subscription, it is highly recommended to reach [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa) before attempting to proceed with the configuration migration.
+
+## Zero downtime migration
 
 !!! info
-    If you do not require a zero down time migration, then you can directly proceed to the
-    next section, [Migrating to 5.11.0](../../setup/migrating-to-5110).
-    
-A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, 
-usually when there’s a patch, or critical security upgrade for products used in the solution, 
-or an upgrade to a newer version. To address this situation while avoiding downtime, system 
-admins and DevOps follow blue-green deployments to roll out updates.
+    If you do not require a zero downtime migration, you can directly proceed to the next section, [Migrating to 5.11.0](../../setup/migrating-to-5110).
+
+A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, usually when there’s a patch, a critical security upgrade for products used in the solution, or an upgrade to a newer version. To address this situation while avoiding downtime, system admins and DevOps follow blue-green deployments to roll out updates.
 
 ??? Info "Blue-Green Migration"
     ![blue-green-migration](../assets/img/setup/blue-green-wso2-identity-server.png)
+
+    A blue-green deployment is a change management strategy for releasing software. Blue-green deployments require two identical hardware environments that are configured the same way. While one environment is live and serving all production traffic, the other environment remains idle. In the diagram below, the blue environment is live, and the green is idle.
     
-    A blue-green deployment is a change management strategy for releasing software. 
-    Blue-green deployments require two identical hardware environments that are 
-    configured the same way. While one environment is live and serving all production 
-    traffic, the other environment remains idle. In the diagram below, the blue 
-    environment is live and the green is idle.
-    
-    As you prepare a new version of WSO2 Identity Server to be deployed into production, 
-    the final stage of testing takes place in an environment that is idle, i.e., in 
-    this example, the green environment. Once you have deployed and fully tested the 
-    deployment in green, you switch the load balancer so all incoming requests now 
-    go to green instead of blue. The green environment is now live, and blue is idle.
-    
-This guide provides instructions to do a blue-green deployment with mission-critical services 
-enabled in the deployment. At the moment WSO2 allows,
+    As you prepare a new version of WSO2 Identity Server to be deployed into production, the final stage of testing takes place in an idle environment, i.e., in this example, the green environment. Once you have deployed and fully tested the deployment in green, you switch the load balancer, so all incoming requests now go to green instead of blue. The green environment is now live, and blue is idle.
+
+This guide provides instructions to do a blue-green deployment with mission-critical services enabled in the deployment. At the moment, WSO2 allows,
     <ul>
         <li>Authentication with</li>
         <ul style="list-style-type:circle; padding-left: 25px;">
@@ -89,29 +81,23 @@ enabled in the deployment. At the moment WSO2 allows,
             <li>WS-Federation (Passive)</li>
         </ul>
     </ul>
-Data created when using the above-mentioned services are synced from the old system to the new system. 
-All the other data will not be preserved in the new system.
+Data created using the services mentioned above are synced from the old system to the new one. All the other data will not be preserved in the new system.
 
 Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
 !!! info
-    Note that this **data sync tool** is only recommended for use with MySQL and Oracle databases
-    since it has only been tested with MySQL and Oracle.
+    Note that this **data sync tool** is only recommended for use with MySQL and Oracle databases since it has only been tested with MySQL and Oracle.
 
-1.  Create a new databases for the new WSO2 Identity Server version (5.11.0) 
-    that you are migrating to.
-2.  Unzip a WSO2 Identity Server 5.11.0 distribution (use a WUM updated distribution 
-    if available). This will be used as the data sync tool between the Identity 
-    Server versions. We will refer to WSO2 Identity Server distribution as 
-    “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
-3.  Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.146/org.wso2.is.data.sync.client-1.0.146.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
-4.  Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` 
-    with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). 
-    This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory 
-    which will contain the sync tool related logs.
-5.  Add the data sources used in **source** and **target** WSO2 Identity Server deployments involved in the migration 
-    to `deployment.toml` file located `<SYNC-TOOL-HOME>/repository/conf/deployment.toml`.
-    
+1. Create a new database for the new WSO2 Identity Server version (5.11.0) you are migrating to.
+
+2. Unzip a WSO2 Identity Server 5.11.0 distribution (use a WUM updated distribution if available). This will be used as the data sync tool between the Identity Server versions. We will refer to WSO2 Identity Server distribution as “**data sync tool**” and location as `<SYNC-TOOL-HOME>`.
+
+3. Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.146/org.wso2.is.data.sync.client-1.0.146.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
+
+4. Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). This will create a separate log file, `syn.log`, in the `<SYNC-TOOL-HOME>/repository/logs` directory, containing the sync tool related logs.
+
+5. Add the data sources used in **source** and **target** WSO2 Identity Server deployments involved in the migration to `deployment.toml` file located `<SYNC-TOOL-HOME>/repository/conf/deployment.toml`.
+
     ??? tip "Sample configuration written for the MySQL DB type"
             
         ```
@@ -165,11 +151,11 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         driver="oracle.jdbc.OracleDriver"
 
         ```
-                
-6.  Create a property file with below properties as required and name it as `sync.properties`.
-    
-    | **Property**                             | **Description**                                                      | **Mandatory/Optional** | **Default value** |
-    |------------------------------------------|----------------------------------------------------------------------|------------------------|-------------------|
+
+6. Create a property file with the below properties as required and name it `sync.properties`.
+
+    | **Property**  | **Description**   | **Mandatory/Optional**    | **Default value** |
+    |---------------|-------------------|---------------------------|-------------------|
     | sourceVersion={version}                  | Source product version                                               | Mandatory              | -                 |
     | targetVersion={version}                  | Target product version                                               | Mandatory              | -                 |
     | batchSize={batch_size}                   | Size of a sync batch                                                 | Optional               | 100               |
@@ -177,25 +163,24 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
     | syncTables={TBL_1,TBL_2}                 | Tables to be synced. Tables should be comma separated.               | Mandatory              | -                 |
     | identitySchema={source_jndi,target_jndi} | JNDI names of source and target data sources for an identity schema. | Mandatory              | -                 |
 
-        
+
     ??? info "Tables that support syncing"
         
-        | **Table**                     | **Purpose**                                             | **Recommendation**                                                                                                                                                       |
-        |-------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | **Table** | **Purpose**   | **Recommendation**    |
+        |-----------|---------------|-----------------------|
         | IDN_IDENTITY_USER_DATA        | Identity claims when the identity data store is enabled | Usually recommended to sync if identity management features are enabled in the system.                                                                                   |
-        | IDN_OAUTH2_ACCESS_TOKEN       | OAuth 2.0 tokens                                        | Need to sync if the tokens created during the migration period needs to be valid after migration.                                                                         |
+        | IDN_OAUTH2_ACCESS_TOKEN       | OAuth 2.0 tokens                                        | Need to sync if the tokens created during the migration period need to be valid after migration.                                                                         |
         | IDN_OAUTH2_ACCESS_TOKEN_SCOPE | OAuth 2.0 scopes                                        | If the IDN_OAUTH2_ACCESS_TOKEN is synced, this table also needs to be synced.                                                                                            |
         | IDN_OAUTH2_AUTHORIZATION_CODE | OAuth 2.0 authorization codes                           | Need to sync if the authorization codes created during the migration period need to be valid after migration. Not generally required since the validity period is small. |
-    
-    
+
     !!! tip
             A sample `sync.properties` file can be found [here](../assets/attachments/migration/sync.properties).
-            
 
-7.  Disable the endpoints in the WSO2 Identity Server that are not mission-critical for the maintenance window.
-    
+
+7. Disable the endpoints in the WSO2 Identity Server that are not mission-critical for the maintenance window.
+
     ??? info "Currently traffic allowed endpoints"
-        
+
         **For login common**
         
         | **Endpoint (pattern)**                 | **Use case**                               |
@@ -233,7 +218,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         | /passivests            | Passive sts login             |
         
         
-        **For the second factors in the login**
+        **For the second factor in the login**
         
         | **Endpoint (pattern)**          | **Use case**             |
         |---------------------------------|--------------------------|
@@ -248,24 +233,24 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         |---------------------------------|--------------------------|
         | /api/identity/entitlement       | XACML REST Profile       |
 
-8.  Start the sync tool with the following command.
-    +   If you want to create the required tables and trigger directly on the database.
+8. Start the sync tool with the following command.
+
+    + If you want to create the required tables and trigger directly on the database.
         ```bash
         sh wso2server.sh -DprepareSync -DconfigFile=<path to sync.properties file>/sync.properties
         ```
-    +   If you want to generate the DDL scripts for the required tables and trigger 
-        (after generating you need to manually execute them) on the database.
+    + If you want to generate the DDL scripts for the required tables and trigger 
+        (after generating, you need to manually execute them) on the database.
         ```bash
         sh wso2server.sh -DprepareSync -DgenerateDDL -DconfigFile=<path to sync.properties file>/sync.properties
         ```
-    This will generate the required triggers and the metadata tables to sync the data between the databases used for 
-    the 2 versions of the identity server. At the moment below tables are supported to be synced.
+
+    This will generate the required triggers and the metadata tables to sync the data between the databases used for the two versions of the identity server. At the moment below tables are supported to be synced.
         +   IDN_IDENTITY_USER_DATA
         +   IDN_OAUTH2_ACCESS_TOKEN
         +   IDN_OAUTH2_ACCESS_TOKEN_SCOPE
         +   IDN_OAUTH2_AUTHORIZATION_CODE
-    
-9.  Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) 
-and restore in the new databases created.
+
+9. Create database dumps from the old databases (used in the old version of the WSO2 Identity Server) and restore them to the new databases created.
 
 10. Proceed to the next section [Migrating to 5.11.0](../../setup/migrating-to-5110).

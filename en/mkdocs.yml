@@ -732,12 +732,10 @@ nav:
     - 'Migrate':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
-      - 'Migration Guide':
-          - "Before you begin" : setup/migration-guide.md
-          - "Preparing for migration" : setup/migrating-preparing-for-migration.md
-          - "Migrating to 5.11.0" : setup/migrating-to-5110.md
-          - 'Migrating Userstore Managers': setup/migrating-userstore-managers.md
-      - 'WSO2 Identity Server Feature Deprecation': setup/wso2-identity-server-feature-deprecation.md
+      - 'Prepare for Migration' : setup/migrating-preparing-for-migration.md
+      - 'Migrate to 5.11.0' : setup/migrating-to-5110.md
+      - 'Migrate Userstore Managers': setup/migrating-userstore-managers.md
+      - 'Feature Deprecation': setup/wso2-identity-server-feature-deprecation.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
