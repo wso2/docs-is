@@ -23,7 +23,7 @@ The flow of mutual TLS client authentication is as follows.
 4. The response from the `/introspect` endpoint will present the bounded certificate according to the introspection response defined in the specification.
 
 
-Let's try configuring mutual TLS in WSO2 Identity Server and test it with a sample.
+Let's try configuring mutual TLS in WSO2 Identity Server and testing it with a sample.
 
 ## Configure the authenticator
 
