@@ -19,7 +19,7 @@ The flow of mutual TLS client authentication is as follows.
 
 1. A client makes a `/token` endpoint call.
 2. WSO2 IS issues a token by validating certificate information in the HTTP header with a certificate stored in the service provider.
-3. Per the specification, an MTLS certificate validates against the stored SP certificate for a `/token` request issued with the client-credential grant, authorization code grant, or refresh token grant.
+3. As per the specification, an MTLS certificate validates against the stored SP certificate for a `/token` request issued with the client-credential grant, authorization code grant, or refresh token grant.
 4. The response from the `/introspect` endpoint will present the bounded certificate according to the introspection response defined in the specification.
 
 
