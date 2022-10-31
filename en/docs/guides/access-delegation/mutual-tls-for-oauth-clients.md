@@ -268,6 +268,8 @@ To configure the application:
     !!! info
         Note down the **OAuth Client Key** and **Client Secret**. You will need them when deploying the sample application.
 
+        ![Client ID and Secret]({{base_path}}/assets/img/guides/oauth-clientid-secret.png)
+
 6. Click **Register** to add and save the configurations.
 
 To upload the client certificate:
@@ -291,6 +293,8 @@ To upload the client certificate:
 
 
 1. Copy the content in your client application's certificate in PEM format into the **Application Certificate**.
+
+    ![Application certificate]({{base_path}}/assets/img/guides/add-sp-cert.png)
 
     !!! note
         Instead of uploading the service provider certificate (as shown above), you can use the JWKS endpoint below and add the relevant JWKS URI.
