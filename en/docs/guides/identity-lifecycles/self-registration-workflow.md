@@ -36,7 +36,7 @@ Follow the steps given below to register users for the super tenant, `carbon.sup
 
 1. Log in to the Management Console (`https://<IS_HOST>:<IS_PORT>/carbon`)  
     !!! note
-        If your IS is already running, make sure to stop and start to apply configurations.
+    If your IS is already running, make sure to stop and start to apply configurations.
 
 2. Navigate to **Main** > **Identity**.
 

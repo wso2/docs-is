@@ -288,7 +288,7 @@ nav:
             - Configure Active Directory User stores for SCIM 1.1: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
             - Configure Active Directory User stores for SCIM 2.0: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
             - Setup Service Provider for Inbound Provisioning: guides/identity-lifecycles/sp-for-inbound-provisioning.md
-        - Self-Registration verification mechanisms: guides/identity-lifecycles/self-register-verification.md
+        - Account Confirmation methods for Self-Registration: guides/identity-lifecycles/self-register-verification.md
         - Enable Verification for Updated User Attributes:
           - Enable Email Account Verification for an Updated Email Address : guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md
           - Enable Mobile Number Verification for an Updated Mobile Number: guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md
@@ -1446,7 +1446,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
-  base_path: https://is.docs.wso2.com/en/6.0.0
+  base_path: http://127.0.0.1:8000
 
   nav_list:
     - Home
