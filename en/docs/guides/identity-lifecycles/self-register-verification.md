@@ -181,6 +181,11 @@ John's user account will be unlocked after successful account confirmation.
 
 ## Self-registration verification process
 
+WSO2 IS user registration portal does not support account verification theough SMS OTP. Therefore if a tenant needs to confirm self-registered accounts through SMS OTP, they need to build up their own self-registration portal and incorporate the API provided in this section of the guide.
+
+!!! note
+    This method can be used for both `SMS` and `Email` account verification methods.
+
 This section describes how the self-registration API works, the flow, and sample API requests and responses.
 
 ### How it works
@@ -228,9 +233,7 @@ The following points below provide details about the self-registration API and h
         ```
         After adding this configuration, if the user has verified channels, the user will not be asked to verify the account, and the account will be unlocked on creation.
 
-        WSO2 recommends verifying users after self-registration (Post channel verification).
-        Therefore, it is recommended to set the property to `true`.
-        After enabling this feature, if the user has verified channels, the user will not be asked to verify the account, and the account will be unlocked on creation.
+        WSO2 recommends verifying users after self-registration (Post channel verification). Therefore, it is recommended to set the property to `true`. After enabling this feature, if the user has verified channels, the user will not be asked to verify the account, and the account will be unlocked on creation.
 
 - A claim with a user’s preference can be included in the request. To do this, add a new claim called **Preferred Channel**. This claim is optional, but it is recommended to send the claim with the request as follows:
     - Preferred channel: `http://wso2.org/claims/identity/preferredChannel`
@@ -274,7 +277,7 @@ The selection criteria for the notification channel selection are as follows:
     | SMS   | `http://wso2.org/claims/mobile`   |
 
     !!! warning
-        Changing the bounded value claim will cause errors.
+    Changing the bounded value claim will cause errors.
 
 
 4. Once the communication channel is resolved, an event is triggered. Once the event is triggered, the notification handlers will send notifications to the user.
@@ -287,11 +290,13 @@ The selection criteria for the notification channel selection are as follows:
     | Email | `TRIGGER_NOTIFICATION`    |
     
     !!! note
-        If you have any custom notification handlers, you need to subscribe to the notification handler for the above events.
+    If you have any custom notification handlers, you need to subscribe to the notification handler for the above events.
 
 ### Account Confirmation
 
-For account confirmations, the WSO2 Identity Server now supports multiple verification channels and allows defining the verified channel (i.e., whether the account confirmation was communicated via EMAIL or SMS) in the API request. A sample request JSON body is as follows.
+WSO2 Identity Server now supports multiple verification channels and allows defining the verified channel in the API request.
+
+A sample request JSON body is as follows.
 
 ```
 {
@@ -308,12 +313,12 @@ By using the `verifiedChannel` parameter, the user can be verified with any serv
 
 | Property Name | Description   |
 |---------------|---------------|
-| Type  | Type of verified notification channel. Currently, WSO2 IS supports SMS and EMAIL channels.    |
+| Type  | Type of the verified notification channel. Currently, WSO2 IS supports SMS and EMAIL channels.    |
 | Claim | The value claim of the verified channel. All claims and terms are case-sensitive. |
 
 !!! info
     In an account confirmation request,
 
-    - If the request does not specify the `verifiedChannel` parameter, the Email Verified claim will be set to TRUE by the server.
+    - If the request does not specify the `verifiedChannel` parameter, the Email verified claim will be set to TRUE by the server.
     - If the request includes the `verifiedChannel` parameter, and if the server supports the verified channel, the verified claim associated with that channel will be set to `TRUE`.
     - If the verified channel is not supported, an error will be thrown.
