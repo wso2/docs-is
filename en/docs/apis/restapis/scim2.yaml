@@ -634,7 +634,7 @@ paths:
         \ number of users per page as the `totalResults`. This is only applicable\
         \ for the LDAP user store. The JDBC user store is working according to the\
         \ specification.\n\n[scim2]\nremove_duplicate_users_in_users_response = true\n\
-        \n<b>Permission required:</b>\n* /permission/admin/manage/identity/usermgt/view\n\
+        \n<b>Permission required:</b>\n* /permission/admin/manage/identity/usermgt/list\n\
         \n<b>Scope required:</b>\n    * internal_user_mgt_list\n    \n"
       operationId: getUser
       parameters:
@@ -807,7 +807,7 @@ paths:
       summary: Get User by ID
       description: "Return user details if a user found.\n\n<b>Permission required:</b>\n\
         * /permission/admin/manage/identity/usermgt/view\n\n<b>Scope required:</b>\n\
-        \    * internal_user_mgt_list\n    \n"
+        \    * internal_user_mgt_view\n    \n"
       operationId: getUser by id
       parameters:
       - name: id
