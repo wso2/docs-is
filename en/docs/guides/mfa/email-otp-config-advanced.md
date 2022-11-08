@@ -9,9 +9,9 @@ The following code snippet shows a sample EMAIL OTP configuration in the `<IS_HO
 enable=true
 
 [authentication.authenticator.email_otp.parameters]
-EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/authenticationendpoint/email_otp.do"
-EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/authenticationendpoint/email_otp_error.do"
-EmailAddressRequestPage = "https://localhost:9443/authenticationendpoint/email_capture.do"
+EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
+EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
+EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
 usecase = "local"
 secondaryUserstore = "primary"
 EMAILOTPMandatory = false
@@ -20,6 +20,9 @@ federatedEmailAttributeKey = "email"
 EmailOTPEnableByUserClaim = true
 CaptureAndUpdateEmailAddress = true
 showEmailAddressInUI = true
+useEventHandlerBasedEmailSender = true
+emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
+tokenExpirationTime = 300000
 ```
 
 The parameter values given above show the **default** configurations in WSO2 Identity Server. 
