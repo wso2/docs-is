@@ -31,19 +31,6 @@ Setting up email OTP required the following two configurations to be made on the
                     [authentication.authenticator.email_otp]
                     name ="EmailOTP"
                     enable=true
-
-                    [authentication.authenticator.email_otp.parameters]
-                    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/authenticationendpoint/email_otp.do"
-                    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/authenticationendpoint/email_otp_error.do"
-                    EmailAddressRequestPage = "https://localhost:9443/authenticationendpoint/email_capture.do"
-                    usecase = "local"
-                    secondaryUserstore = "primary"
-                    EMAILOTPMandatory = false
-                    sendOTPToFederatedEmailAttribute = false
-                    federatedEmailAttributeKey = "email"
-                    EmailOTPEnableByUserClaim = true
-                    CaptureAndUpdateEmailAddress = true
-                    showEmailAddressInUI = true
                     ```
 
             4. Save the configurations.
