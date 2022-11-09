@@ -312,4 +312,4 @@ curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Con
     - [Guide: Invitation Workflow]({{base_path}}/guides/identity-lifecycles/invitation-workflow)
     - [Guide: Bulk Import Users]({{base_path}}/guides/identity-lifecycles/bulk-import-users)
     - [Guide: Outbound Provisioning]({{base_path}}/guides/identity-lifecycles/outbound-provisioning)
-    - [References: Self-Registration verification mechanisms]({{base_path}}/references/extend/user-mgt/self-register-verification)
+    - [Guides: Configure Account Confirmation Methods for Self-Registration]({{base_path}}/guides/identity-lifecycles/self-register-verification)
