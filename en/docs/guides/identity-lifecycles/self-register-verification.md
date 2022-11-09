@@ -29,11 +29,15 @@ The account confirmation channel is selected based on the following scenarios.
 
     <!-- to [User Self Registration and Account confirmation via Mobile and Email Channels](../../learn/multi-channel-self-registration-and-account-confirmation). -->
 
-## Configure the default account confirmation mode
+## Configure account confirmation methods on WSO2 IS
+
+The section of the guide walks you through configuring account confirmation methods.
+
+### Set up self-registration on WSO2 IS
 To set up self-registration on WSO2 IS:
 
 1. Configure the preferred self-registration verification method provider.
-    - SMS
+    - [SMS]({{base_path}}/guides/mfa/2fa-sms-otp/)
     - [Email]({{base_path}}/deploy/configure-email-sending)
 
 2. Add the following configurations to the `deployment.toml` file:
@@ -45,17 +49,21 @@ To set up self-registration on WSO2 IS:
 
     | Parameter | Description   | Value  |
     |-----------|---------------|---------------|
-    | `default_notification_channel`    | This is used to set the default notification mechanism in IS. WSO2 IS will consider EMAIL as the default notification channel if this is not configured. | `SMS` or `EMAIL`   |
+    | `default_notification_channel`    | This is used to set the default notification mechanism in IS. WSO2 IS will consider `EMAIL` as the default notification channel if this is not configured. | `SMS` or `EMAIL`   |
     | `resolve_notification_channel`    | This resolves the user's preferred notification channel.  | `true`    |
 
 3. Sign in to the WSO2 Identity Server Management Console as an administrator.
 
 4. Enable [User Self Registration]({{base_path}}/guides/identity-lifecycles/self-registration-workflow) for the tenant.
 
-## Create a user
+### Create a user
 
-When creating t
-### With the default notification channel
+A user can be self-registered on the WSO2 IS using the following methods:
+
+- Using the [default notification channel](#with-the-default-notification-channel) as the account confirmation method for the user.
+- Using a [user preferred channel](#with-a-preferred-notification-channel) as the account confirmation method for the user.
+
+#### With the default notification channel
 Let's try a scenario where the user has selected `SMS` as the `default_notification_channel`.
 
 Open a terminal and execute the following cURL command.
@@ -104,7 +112,7 @@ Go to **Users and Roles > List**, and click on Kim's **User Profile**. You will 
 
 Kim should receive a confirmation message when the profile is created through the default notification channel configured in the `deployment.toml` file. Kim should receive an SMS to the registered mobile number, if the deployment.toml has `"SMS"` as the `default_notification_channel` value.
 
-### With a preferred notification channel
+#### With a preferred notification channel
 
 Let's add a new user named `John` with the following claims configured.
 - Email claim
@@ -165,7 +173,7 @@ John should receive a confirmation message when the profile is created through t
     1. Go to [self-register API docs]({{base_path}}/apis/use-the-self-sign-up-rest-apis/#/Self%20Register/post_me).
     2. Expand the **Examples** section and select the type of registration request from the list.
 
-## Verify the account
+### Verify the account
 
 On a terminal, execute the cURL command by replacing the `code` parameter with the OTP received to the notification channel.
     ```
@@ -181,7 +189,7 @@ John's user account will be unlocked after successful account confirmation.
 
 ## Self-registration verification process
 
-WSO2 IS user registration portal does not support account verification theough SMS OTP. Therefore if a tenant needs to confirm self-registered accounts through SMS OTP, they need to build up their own self-registration portal and incorporate the API provided in this section of the guide.
+WSO2 IS user registration portal does not support account verification through SMS OTP. Therefore, if a tenant needs to confirm self-registered accounts through SMS OTP, they need to build up their self-registration portal and incorporate the API provided in this guide section.
 
 !!! note
     This method can be used for both `SMS` and `Email` account verification methods.
@@ -244,7 +252,7 @@ The following points below provide details about the self-registration API and h
     | Scenario  | Action taken  |
     |-----------| --------------|
     | Initiate a self-registration request and verify the user account via WSO2 IS  | The server sends notifications to the user by resolving the communication channel internally. The notification channel resolution is as follows.  |
-    | Initiate a self-registration request, verify the user account externally and confirm the flow to WSO2 IS  | The server provides a confirmation code to be used to confirm the user account.   |
+    | Initiate a self-registration request, verify the user account externally and confirm the flow to WSO2 IS  | The server provides a confirmation code to confirm the user account.   |
     | Self-register after pre-confirmation of the user account, with verified claims    | The user is already verified. In this case, the user account should not be locked or prompted for verification. Therefore, no notifications are sent. |
 
 
@@ -277,7 +285,7 @@ The selection criteria for the notification channel selection are as follows:
     | SMS   | `http://wso2.org/claims/mobile`   |
 
     !!! warning
-    Changing the bounded value claim will cause errors.
+        Changing the bounded value claim will cause errors.
 
 
 4. Once the communication channel is resolved, an event is triggered. Once the event is triggered, the notification handlers will send notifications to the user.
@@ -319,6 +327,6 @@ By using the `verifiedChannel` parameter, the user can be verified with any serv
 !!! info
     In an account confirmation request,
 
-    - If the request does not specify the `verifiedChannel` parameter, the Email verified claim will be set to TRUE by the server.
+    - If the request does not specify the `verifiedChannel` parameter, the Email verified claim would be set to TRUE by the server.
     - If the request includes the `verifiedChannel` parameter, and if the server supports the verified channel, the verified claim associated with that channel will be set to `TRUE`.
     - If the verified channel is not supported, an error will be thrown.
