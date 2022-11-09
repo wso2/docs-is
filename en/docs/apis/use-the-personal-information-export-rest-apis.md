@@ -1,27 +1,14 @@
-# Personal Information Export REST APIs
+# Personal Information Export API
 
-<div id="swagger-ui"></div>
-<script src="{{base_path}}/assets/lib/swagger/swagger-ui-bundle.js"> </script>
-<script src="{{base_path}}/assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
-<script>
+This API is intended for application developers who expose personal information export functionality in their applications. Using this REST APIs, the end user can retrieve the following personal information that WSO2 Identity Server has stored.
 
-  // Begin Swagger UI call region
-  const ui = SwaggerUIBundle({
-    url: "https://github.com/wso2-extensions/identity-governance/blob/68e3f2d5e246b6a75f48e314ee1019230c662b55/components/org.wso2.carbon.identity.api.user.governance/src/main/resources/api.identity.user.yaml",
-    dom_id: '#swagger-ui',
-    deepLinking: true,
-    presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIStandalonePreset
-    ],
-    plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
-    ],
-    layout: "StandaloneLayout"
-  })
-  // End Swagger UI call region
+- Claims stored in the profile
 
-   window.ui = ui
-</script>
+- Configured security questions
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/51139ad1cff6875115a1)
+- Consent receipts that the user has approved
+
+!!! Tip
+    For information on the REST APIs, supported operations, and sample requests/responses, see [User Export API]({{base_path}}/apis/use-the-self-sign-up-rest-apis/#/User%20Export) documentation.
+
+<!-- [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/51139ad1cff6875115a1) -->
