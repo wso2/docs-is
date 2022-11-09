@@ -517,6 +517,7 @@ nav:
           - Associated accounts API: apis/association-rest-api.md
           - Challenge question API: apis/challenge-questions.md
           - Challenge answers API: apis/challenge-rest-api.md
+          - Personal Information Export API: apis/use-the-personal-information-export-rest-apis.md
           - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
       - Identity provider API: apis/idp-rest-api.md
       - IdP session extension API: apis/idp-session-extender-endpoint.md
