@@ -517,7 +517,6 @@ nav:
           - Associated accounts API: apis/association-rest-api.md
           - Challenge question API: apis/challenge-questions.md
           - Challenge answers API: apis/challenge-rest-api.md
-          - Personal Information Export API: apis/use-the-personal-information-export-rest-apis.md
           - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
       - Identity provider API: apis/idp-rest-api.md
       - IdP session extension API: apis/idp-session-extender-endpoint.md
@@ -1233,7 +1232,7 @@ plugins:
               'develop/oidc-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oidc-scope-management-rest-apis/'
               'develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/'
               'develop/permission-management-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/permission-management-rest-api/'
-              'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-personal-information-export-rest-apis/'
+              'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-self-sign-up-rest-apis/#/User%20Export'
               'develop/scim-1.1-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim-1.1-apis/'
               'develop/scim2-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim2-rest-apis/'
               'develop/scim2-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim2-rest-apis/'
@@ -1447,7 +1446,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
-  base_path: https://is.docs.wso2.com/en/6.0.0
+  base_path: http://127.0.0.1:8000
 
   nav_list:
     - Home

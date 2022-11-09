@@ -895,3 +895,10 @@ components:
             read: Grants read access
             write: Grants write access
             admin: Grants read and write access to administrative information
+tags:
+  - name: User Export
+    description: |
+      This API is intended for application developers who expose personal information export functionality in their applications. <br>Using this REST APIs, the end user can retrieve the following personal information that WSO2 Identity Server has stored.
+        <li>Claims stored in the profile</li>
+        <li>Configured security questions</li>
+        <li>Consent receipts that the user has approved</li>
