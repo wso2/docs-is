@@ -69,6 +69,21 @@ code_validity_period = <time>
 ## Authentication
 This section contains the updates done to the Authentication features of IS 6.0.0.
 
+### Authentication Context
+From IS 6.0.0 onward the ```AuthenticationContext``` will have a expiry time and expired contexts will not be considered during authentication. The expiry time is set to be equal to the temporary session data cleanup time period and can be changed by adding following configuration to the ```deployment.toml``` file.
+
+``` js
+[session_data.cleanup]
+expire_pre_session_data_after = "60m"       // timeout in minutes.
+```
+
+If the validations for expired authentication contexts need to be disabled, you may do so by adding following configuration to the ```deployment.toml``` file.
+
+```js
+[session.authentication.context]
+expiry.validation = false
+```
+
 ### OTP Authenticator
 Some significant changes have been made to the below mentioned OTP authenticators. Please follow the instructions given below to incorporate your custom OTP requirements and changes to Identity Server 6.0.0.
 
