@@ -70,7 +70,7 @@ code_validity_period = <time>
 This section contains the updates done to the Authentication features of IS 6.0.0.
 
 ### Authentication Context
-From IS 6.0.0 onward the ```AuthenticationContext``` will have a expiry time and expired contexts will not be considered during authentication. The expiry time is set to be equal to the temporary session data cleanup time period and can be changed by adding following configuration to the ```deployment.toml``` file.
+From IS 6.0.0 onward the ```AuthenticationContext``` will have an expiry time and the expired contexts will not be considered during authentication. The expiry time is set to be equal to the temporary session data cleanup time period and can be changed by adding the following configuration to the ```deployment.toml``` file.
 
 ``` js
 [session_data.cleanup]
