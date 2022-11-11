@@ -77,7 +77,7 @@ From IS 6.0.0 onward the ```AuthenticationContext``` will have an expiry time an
 expire_pre_session_data_after = "60m"       // timeout in minutes.
 ```
 
-If the validations for expired authentication contexts need to be disabled, you may do so by adding following configuration to the ```deployment.toml``` file.
+If validations for expired authentication contexts need to be disabled, you may do so by adding the following configuration to the ```deployment.toml``` file.
 
 ```js
 [session.authentication.context]
