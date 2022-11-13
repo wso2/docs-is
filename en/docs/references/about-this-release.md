@@ -102,8 +102,6 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 If you are moving to WSO2 Identity Server 6.0.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.0.0.
 
-See the [complete list of changes]({{base_path}}/deploy/migrate/what-has-changed/) for details.
-
 ## Beta features
 
 -   **React-based console application** 

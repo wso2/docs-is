@@ -494,13 +494,9 @@ nav:
         - Monitor Server Health: deploy/monitor/monitor-server-health.md
         - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
         - Work with Product Observability: deploy/monitor/work-with-product-observability.md
-      - Migrate:
-        - Migration Process: deploy/migrate/migration-process.md
-        - What has Changed: deploy/migrate/what-has-changed.md
-        - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-        - Migrate to WSO2 IS 6.0.0: deploy/migrate/migrate-to-600.md
-        #- Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
-        - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
+      - Upgrade:
+        - Upgrade WSO2 IS: deploy/upgrade/upgrade-process.md
+        - Feature Deprecation: deploy/upgrade/wso2-identity-server-feature-deprecation.md
 
   - APIs:
       - Overview: apis/overview.md
@@ -1353,10 +1349,14 @@ plugins:
               'setup/preventing-browser-caching.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/prevent-browser-caching/'
               'setup/configuring-transport-level-security.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/configure-transport-level-security/'
               'setup/enabling-java-security-manager.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/enable-java-security-manager/'
-              'setup/migration-process.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/migration-process'
-              'setup/migrating-what-has-changed.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/what-has-changed/'
-              'setup/migration-guide.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/migrate-to-600/'
-              'setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/prepare-for-migration'
+              'deploy/migrate/migration-process.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-process'
+              'deploy/migrate/what-has-changed.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-process'
+              'deploy/migrate/migrate-to-600.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-process'
+              'deploy/migrate/prepare-for-migration.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-process'
+              'setup/migration-process.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-process'
+              'setup/migrating-what-has-changed.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-process'
+              'setup/migration-guide.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-process'
+              'setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-process'
               #'setup/migrating-userstore-managers.md': 'https://is.docs.wso2.com/en/6.0.0/migrate-userstore-managers/'
               'setup/wso2-identity-server-feature-deprecation.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/wso2-identity-server-feature-deprecation/'
               'setup/environment-compatibility.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/environment-compatibility'
