@@ -27,11 +27,6 @@ Apart from the above guides provided, you can use the following Github repositor
 
 <!-- - [React Native OIDC SDK](https://github.com/asgardeo/asgardeo-react-native-oidc-sdk) -->
 
-- [Auth React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk)
-
-- [Auth JavaScript SDK](https://github.com/asgardeo/asgardeo-auth-js-sdk)
-
-- [Auth Angular SDK](https://github.com/asgardeo/asgardeo-auth-angular-sdk)
 
 - [Auth Single Page Application SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk)
 
