@@ -58,7 +58,6 @@ nav:
             - Multi-Factor Authentication: get-started/sample-use-cases/multi-factor-authentication.md
             - Federated Authentication: get-started/sample-use-cases/federated-authentication.md
             - Self Sign-Up: get-started/sample-use-cases/self-sign-up.md
-            - Workflows: get-started/sample-use-cases/workflows.md
   - Guides:
       - Overview: guides/before-you-start.md
       - Authentication:
@@ -1427,6 +1426,7 @@ plugins:
               'get-started/access-control-and-entitlement-management.md': 'https://is.docs.wso2.com/en/6.0.0/guides/authorization/access-mgt/'
               'get-started/identity-anti-patterns-and-the-identity-bus.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/identity-anti-patterns-and-the-identity-bus/'
               'get-started/cross-protocol-single-logout.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/cross-protocol-logout/'
+              'get-started/sample-use-cases/workflows.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/workflows/extend-the-workflow-event-handler/'
            
 # Extra
 extra_css:
