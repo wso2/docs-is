@@ -17,7 +17,7 @@ Use the following curl command to register an OAuth application with a specified
     "grant_types": ["<grant_types>"], 
     "ext_param_client_id":"<client_id>", 
     "ext_param_client_secret":"<client_secret>" }' 
-    "https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/dcr/v1.0/register"
+    "https://<IS_HOST>:<IS_PORT>/api/identity/oauth2/dcr/v1.1/register"
     ```
     ---
      **Sample Request**
@@ -28,7 +28,7 @@ Use the following curl command to register an OAuth application with a specified
     "grant_types": ["password"], 
     "ext_param_client_id":"provided_client_id0001", 
     "ext_param_client_secret":"provided_client_secret0001" }' 
-    "https://localhost:9443/api/identity/oauth2/dcr/v1.0/register"
+    "https://localhost:9443/api/identity/oauth2/dcr/v1.1/register"
     ```
     ---
     **Sample Response**
