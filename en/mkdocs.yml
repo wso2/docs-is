@@ -1430,7 +1430,7 @@ plugins:
               'get-started/access-control-and-entitlement-management.md': 'https://is.docs.wso2.com/en/6.0.0/guides/authorization/access-mgt/'
               'get-started/identity-anti-patterns-and-the-identity-bus.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/identity-anti-patterns-and-the-identity-bus/'
               'get-started/cross-protocol-single-logout.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/cross-protocol-logout/'
-              'get-started/sample-use-cases/workflows.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/workflows/extend-the-workflow-event-handler/'
+              'get-started/sample-use-cases/workflows.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/sample-use-cases/sample-scenario/'
            
 # Extra
 extra_css:
