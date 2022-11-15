@@ -152,31 +152,31 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-2" title="2">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;ser:addTenant&gt;</span></a>
-<a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-6" title="6">            <span class="kw">&lt;ser:tenantInfoBean&gt;</span></a>
-<a class="sourceLine" id="cb1-7" title="7">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-7" title="7">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-8" title="8">                <span class="kw">&lt;xsd:active&gt;</span>true<span class="kw">&lt;/xsd:active&gt;</span></a>
-<a class="sourceLine" id="cb1-9" title="9">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-9" title="9">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-10" title="10">                <span class="kw">&lt;xsd:admin&gt;</span>testuser<span class="kw">&lt;/xsd:admin&gt;</span></a>
-<a class="sourceLine" id="cb1-11" title="11">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-11" title="11">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-12" title="12">                <span class="kw">&lt;xsd:adminPassword&gt;</span>testpw<span class="kw">&lt;/xsd:adminPassword&gt;</span></a>
-<a class="sourceLine" id="cb1-13" title="13">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-13" title="13">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-14" title="14">                <span class="kw">&lt;xsd:createdDate&gt;&lt;/xsd:createdDate&gt;</span></a>
-<a class="sourceLine" id="cb1-15" title="15">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-15" title="15">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-16" title="16">                <span class="kw">&lt;xsd:email&gt;</span>testuser@example.com<span class="kw">&lt;/xsd:email&gt;</span></a>
-<a class="sourceLine" id="cb1-17" title="17">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-17" title="17">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-18" title="18">                <span class="kw">&lt;xsd:firstname&gt;</span>First<span class="kw">&lt;/xsd:firstname&gt;</span></a>
-<a class="sourceLine" id="cb1-19" title="19">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-19" title="19">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-20" title="20">                <span class="kw">&lt;xsd:lastname&gt;</span>Last<span class="kw">&lt;/xsd:lastname&gt;</span></a>
-<a class="sourceLine" id="cb1-21" title="21">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-21" title="21">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-22" title="22">                <span class="kw">&lt;xsd:originatedService&gt;&lt;/xsd:originatedService&gt;</span></a>
-<a class="sourceLine" id="cb1-23" title="23">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-23" title="23">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-24" title="24">                <span class="kw">&lt;xsd:successKey&gt;&lt;/xsd:successKey&gt;</span></a>
-<a class="sourceLine" id="cb1-25" title="25">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-25" title="25">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-26" title="26">                <span class="kw">&lt;xsd:tenantDomain&gt;</span>example.com<span class="kw">&lt;/xsd:tenantDomain&gt;</span></a>
-<a class="sourceLine" id="cb1-27" title="27">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-27" title="27">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-28" title="28">                <span class="kw">&lt;xsd:tenantId&gt;&lt;/xsd:tenantId&gt;</span></a>
-<a class="sourceLine" id="cb1-29" title="29">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-29" title="29">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-30" title="30">                <span class="kw">&lt;xsd:usagePlan&gt;&lt;/xsd:usagePlan&gt;</span></a>
 <a class="sourceLine" id="cb1-31" title="31">            <span class="kw">&lt;/ser:tenantInfoBean&gt;</span></a>
 <a class="sourceLine" id="cb1-32" title="32">        <span class="kw">&lt;/ser:addTenant&gt;</span></a>
@@ -313,31 +313,31 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-2" title="2">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;ser:addSkeletonTenant&gt;</span></a>
-<a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-6" title="6">            <span class="kw">&lt;ser:tenantInfoBean&gt;</span></a>
-<a class="sourceLine" id="cb1-7" title="7">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-7" title="7">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-8" title="8">                <span class="kw">&lt;xsd:active&gt;</span>true<span class="kw">&lt;/xsd:active&gt;</span></a>
-<a class="sourceLine" id="cb1-9" title="9">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-9" title="9">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-10" title="10">                <span class="kw">&lt;xsd:admin&gt;</span>testuser<span class="kw">&lt;/xsd:admin&gt;</span></a>
-<a class="sourceLine" id="cb1-11" title="11">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-11" title="11">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-12" title="12">                <span class="kw">&lt;xsd:adminPassword&gt;</span>testpw<span class="kw">&lt;/xsd:adminPassword&gt;</span></a>
-<a class="sourceLine" id="cb1-13" title="13">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-13" title="13">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-14" title="14">                <span class="kw">&lt;xsd:createdDate&gt;&lt;/xsd:createdDate&gt;</span></a>
-<a class="sourceLine" id="cb1-15" title="15">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-15" title="15">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-16" title="16">                <span class="kw">&lt;xsd:email&gt;</span>testuser@example.com<span class="kw">&lt;/xsd:email&gt;</span></a>
-<a class="sourceLine" id="cb1-17" title="17">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-17" title="17">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-18" title="18">                <span class="kw">&lt;xsd:firstname&gt;</span>First<span class="kw">&lt;/xsd:firstname&gt;</span></a>
-<a class="sourceLine" id="cb1-19" title="19">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-19" title="19">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-20" title="20">                <span class="kw">&lt;xsd:lastname&gt;</span>Last<span class="kw">&lt;/xsd:lastname&gt;</span></a>
-<a class="sourceLine" id="cb1-21" title="21">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-21" title="21">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-22" title="22">                <span class="kw">&lt;xsd:originatedService&gt;&lt;/xsd:originatedService&gt;</span></a>
-<a class="sourceLine" id="cb1-23" title="23">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-23" title="23">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-24" title="24">                <span class="kw">&lt;xsd:successKey&gt;&lt;/xsd:successKey&gt;</span></a>
-<a class="sourceLine" id="cb1-25" title="25">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-25" title="25">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-26" title="26">                <span class="kw">&lt;xsd:tenantDomain&gt;</span>example.com<span class="kw">&lt;/xsd:tenantDomain&gt;</span></a>
-<a class="sourceLine" id="cb1-27" title="27">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-27" title="27">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-28" title="28">                <span class="kw">&lt;xsd:tenantId&gt;&lt;/xsd:tenantId&gt;</span></a>
-<a class="sourceLine" id="cb1-29" title="29">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-29" title="29">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-30" title="30">                <span class="kw">&lt;xsd:usagePlan&gt;&lt;/xsd:usagePlan&gt;</span></a>
 <a class="sourceLine" id="cb1-31" title="31">            <span class="kw">&lt;/ser:tenantInfoBean&gt;</span></a>
 <a class="sourceLine" id="cb1-32" title="32">        <span class="kw">&lt;/ser:addSkeletonTenant&gt;</span></a>
@@ -409,7 +409,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-5" title="5">        <span class="kw">&lt;ser:activateTenant&gt;</span></a>
-<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-7" title="7">            <span class="kw">&lt;ser:tenantDomain&gt;</span>example.com<span class="kw">&lt;/ser:tenantDomain&gt;</span></a>
 <a class="sourceLine" id="cb1-8" title="8">        <span class="kw">&lt;/ser:activateTenant&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
@@ -497,7 +497,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-5" title="5">        <span class="kw">&lt;ser:deactivateTenant&gt;</span></a>
-<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-7" title="7">            <span class="kw">&lt;ser:tenantDomain&gt;</span>example.com<span class="kw">&lt;/ser:tenantDomain&gt;</span></a>
 <a class="sourceLine" id="cb1-8" title="8">        <span class="kw">&lt;/ser:deactivateTenant&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
@@ -584,7 +584,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-5" title="5">        <span class="kw">&lt;ser:getTenant&gt;</span></a>
-<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-7" title="7">            <span class="kw">&lt;ser:tenantDomain&gt;</span>example.com<span class="kw">&lt;/ser:tenantDomain&gt;</span></a>
 <a class="sourceLine" id="cb1-8" title="8">        <span class="kw">&lt;/ser:getTenant&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
@@ -684,9 +684,9 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-2" title="2">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;ser:retrievePaginatedPartialSearchTenants&gt;</span></a>
-<a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-6" title="6">            <span class="kw">&lt;ser:domain&gt;</span>.com<span class="kw">&lt;/ser:domain&gt;</span></a>
-<a class="sourceLine" id="cb1-7" title="7">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-7" title="7">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-8" title="8">            <span class="kw">&lt;ser:pageNumber&gt;</span>1<span class="kw">&lt;/ser:pageNumber&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">        <span class="kw">&lt;/ser:retrievePaginatedPartialSearchTenants&gt;</span></a>
 <a class="sourceLine" id="cb1-10" title="10">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
@@ -789,7 +789,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-5" title="5">        <span class="kw">&lt;ser:retrievePaginatedTenants&gt;</span></a>
-<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-7" title="7">            <span class="kw">&lt;ser:pageNumber&gt;</span>1<span class="kw">&lt;/ser:pageNumber&gt;</span></a>
 <a class="sourceLine" id="cb1-8" title="8">        <span class="kw">&lt;/ser:retrievePaginatedTenants&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
@@ -892,7 +892,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-2" title="2">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;ser:retrievePartialSearchTenants&gt;</span></a>
-<a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-5" title="5">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-6" title="6">            <span class="kw">&lt;ser:domain&gt;</span>.com<span class="kw">&lt;/ser:domain&gt;</span></a>
 <a class="sourceLine" id="cb1-7" title="7">        <span class="kw">&lt;/ser:retrievePartialSearchTenants&gt;</span></a>
 <a class="sourceLine" id="cb1-8" title="8">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
@@ -1139,31 +1139,31 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-5" title="5">        <span class="kw">&lt;ser:updateTenant&gt;</span></a>
-<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-6" title="6">            <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-7" title="7">            <span class="kw">&lt;ser:tenantInfoBean&gt;</span></a>
-<a class="sourceLine" id="cb1-8" title="8">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-8" title="8">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-9" title="9">                <span class="kw">&lt;xsd:active&gt;</span>true<span class="kw">&lt;/xsd:active&gt;</span></a>
-<a class="sourceLine" id="cb1-10" title="10">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-10" title="10">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-11" title="11">                <span class="kw">&lt;xsd:admin&gt;</span>test<span class="kw">&lt;/xsd:admin&gt;</span></a>
-<a class="sourceLine" id="cb1-12" title="12">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-12" title="12">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-13" title="13">                <span class="kw">&lt;xsd:adminPassword&gt;</span>testpw<span class="kw">&lt;/xsd:adminPassword&gt;</span></a>
-<a class="sourceLine" id="cb1-14" title="14">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-14" title="14">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-15" title="15">                <span class="kw">&lt;xsd:createdDate&gt;&lt;/xsd:createdDate&gt;</span></a>
-<a class="sourceLine" id="cb1-16" title="16">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-16" title="16">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-17" title="17">                <span class="kw">&lt;xsd:email&gt;</span>testuser@example.com<span class="kw">&lt;/xsd:email&gt;</span></a>
-<a class="sourceLine" id="cb1-18" title="18">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-18" title="18">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-19" title="19">                <span class="kw">&lt;xsd:firstname&gt;</span>test<span class="kw">&lt;/xsd:firstname&gt;</span></a>
-<a class="sourceLine" id="cb1-20" title="20">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-20" title="20">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-21" title="21">                <span class="kw">&lt;xsd:lastname&gt;</span>user<span class="kw">&lt;/xsd:lastname&gt;</span></a>
-<a class="sourceLine" id="cb1-22" title="22">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-22" title="22">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-23" title="23">                <span class="kw">&lt;xsd:originatedService&gt;&lt;/xsd:originatedService&gt;</span></a>
-<a class="sourceLine" id="cb1-24" title="24">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-24" title="24">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-25" title="25">                <span class="kw">&lt;xsd:successKey&gt;&lt;/xsd:successKey&gt;</span></a>
-<a class="sourceLine" id="cb1-26" title="26">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-26" title="26">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-27" title="27">                <span class="kw">&lt;xsd:tenantDomain&gt;</span>example.com<span class="kw">&lt;/xsd:tenantDomain&gt;</span></a>
-<a class="sourceLine" id="cb1-28" title="28">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-28" title="28">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-29" title="29">                <span class="kw">&lt;xsd:tenantId&gt;</span>1<span class="kw">&lt;/xsd:tenantId&gt;</span></a>
-<a class="sourceLine" id="cb1-30" title="30">                <span class="er">&lt;</span>!­­Optional:­­&gt;</a>
+<a class="sourceLine" id="cb1-30" title="30">                <span class="er">&lt;</span>!--­­Optional:­­--&gt;</a>
 <a class="sourceLine" id="cb1-31" title="31">                <span class="kw">&lt;xsd:usagePlan&gt;&lt;/xsd:usagePlan&gt;</span></a>
 <a class="sourceLine" id="cb1-32" title="32">            <span class="kw">&lt;/ser:tenantInfoBean&gt;</span></a>
 <a class="sourceLine" id="cb1-33" title="33">        <span class="kw">&lt;/ser:updateTenant&gt;</span></a>
