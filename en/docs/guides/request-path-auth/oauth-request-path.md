@@ -200,9 +200,18 @@ Now, let's log in to the application.
     -   **Access Token Endpoint:** `https://localhost:9443/oauth2/token`
  
 !!! info
+
     Once you receive the access token, you can use the following for authorizing.
     ```https://localhost:9443/oauth2/authorize?access_token=<access_token>```
          
+    Following is a sample cURL command you can use.
+    ```
+    curl --location --request POST 'https://localhost:9443/oauth2/authorize?access_token=<access_token>' \
+    --data-urlencode 'response_type=code' \
+    --data-urlencode 'client_id=<CLIENT_ID>' \
+    --data-urlencode 'redirect_uri=<REDIRECT_URI>'\
+    --data-urlencode 'scope=openid'
+    ```
 
 !!! tip "Troubleshooting tip"
 
