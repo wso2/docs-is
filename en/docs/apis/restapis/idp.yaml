@@ -2122,7 +2122,7 @@ components:
       properties:
         defaultAuthenticatorId:
           type: string
-          example: U0FNTDJBdXRoZW50aWNhdG9y
+          example: U0FNTFNTT0F1dGhlbnRpY2F0b3I
         authenticators:
           type: array
           items:
@@ -2132,7 +2132,7 @@ components:
       properties:
         authenticatorId:
           type: string
-          example: U0FNTDJBdXRoZW50aWNhdG9y
+          example: U0FNTFNTT0F1dGhlbnRpY2F0b3I
         name:
           type: string
           example: SAML2Authenticator
