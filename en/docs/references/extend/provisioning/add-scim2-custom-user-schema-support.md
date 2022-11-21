@@ -1,7 +1,6 @@
 # Adding SCIM2 Custom User Schema Support
 
-WSO2 Identity Server allows adding custom attributes into user objects through [Enterprise User Extension](../../develop/extending-scim2-user-schemas). From 5.12.0 onwards, 
-you can use this custom schema to add custom attributes of the user.
+WSO2 Identity Server allows adding custom attributes into user objects through [Enterprise User Extension](({{base_path}}/references/extend/provisioning/extend-scim2-user-schemas). From 6.0.0 onwards, you can use this custom schema to add custom attributes of the user.
 
 !!! Note
     **Reasons why we introduced custom schema to add custom attributes:**
@@ -10,7 +9,7 @@ you can use this custom schema to add custom attributes of the user.
 
 !!! Note
     SCIM2 Custom User Schema Support is added by default in WSO2 Identity Server
-    version 5.12.0 onwards.
+    version 6.0.0 onwards.
 
 ## Add custom schema dialect
 
