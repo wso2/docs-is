@@ -17,7 +17,7 @@ To configure this feature, follow the instructions given below.
 
 ---
 
-## Enable log masking
+## Configure log masking
 
 1.  Log masking is enabled by default. However, you need to configure required masking patterns.
 
