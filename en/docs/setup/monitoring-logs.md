@@ -32,7 +32,7 @@ the `          <IS_HOME>/repository/logs         ` directory.
         
 -   **Audit logs:** Audit logs are used for tracking the sequence of
     actions that affect a particular task carried out on the server.
-    These are also configured in t he
+    These are also configured in the
     `          log4j2.properties         ` file.
 -   **HTTP access logs:** HTTP requests/responses are logged in access
     logs to monitor the activities related to an application's usage.
