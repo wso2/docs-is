@@ -34,6 +34,7 @@ From 5.9.0 onwards, all endpoints are secured by default. To configure user role
 | **http_method**      | This defines the method as `                 all                `, `                 post                `, `                 get                `, etc. | `                 all                `                     |
 | **permissions**      | This defines the user role permission that is required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
 | **scope**      | This defines scopes that an access token requires to access the resource. You can enter multiple scopes in a comma-separated list.     | `                 internal_idp_create                ` |
+| **allowed_auth_handlers** | This parameter defines the handlers that need to be engaged for the particular resource. The default value `all` implies that all available handlers are engaged with the resource.     | `                 BasicAuthentication                ` |
 
 
 ```toml tab="Example"
@@ -43,6 +44,7 @@ secure = true
 http_method = "all"
 permissions = ["p1","p2"]
 scope = ["scope1", "scope2"]
+allowed_auth_handlers = ["handler1", "handler2"]
 ```
 
 ---
