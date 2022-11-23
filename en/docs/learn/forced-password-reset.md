@@ -193,7 +193,7 @@ template for this option can be configured in the
     urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` schema as
     true in the SCIM2 user create request. 
     ```java
-    POST https://<host>:<port>/scim2/Users/<users-scim-id>
+    PATCH https://<host>:<port>/scim2/Users/<users-scim-id>
 
         {"schemas": 
         ["urn:ietf:params:scim:api:messages:2.0:PatchOp","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
