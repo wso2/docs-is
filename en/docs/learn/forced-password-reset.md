@@ -169,7 +169,7 @@ Set the **forcePasswordReset** attribute under the `urn:ietf:params:scim:schemas
 **true** in the SCIM2 user create request. 
 
 ```java
-POST https://<host>:<port>/scim2/Users/<users-scim-id>
+PATCH https://<host>:<port>/scim2/Users/<users-scim-id>
 
     {"schemas": 
     ["urn:ietf:params:scim:api:messages:2.0:PatchOp","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
