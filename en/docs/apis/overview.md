@@ -139,6 +139,7 @@ You can configure user role permissions to restrict access to resources. To do s
     | `http_method`      | Specify an HTTP method i.e `all`, `post`, `get`, etc. | `all`  |
     | `permissions`     | The user role permission required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `/permission/admin/ login` |
     | `scope`     | Scopes that an access token requires to access the resource. You can enter multiple scopes in a comma-separated list.     | `internal_idp_create` |
+    | `allowed_auth_handlers` | This parameter defines the handlers that need to be engaged for the particular resource. The default value `all` implies that all available handlers are engaged with the resource.      | `                 BasicAuthentication                ` |
 
     !!! abstract
         **Example**
@@ -149,4 +150,5 @@ You can configure user role permissions to restrict access to resources. To do s
         http_method = "all"
         permissions = ["p1","p2"]
         scope = ["scope1", "scope2"]
+        allowed_auth_handlers = ["handler1", "handler2"]
         ```
