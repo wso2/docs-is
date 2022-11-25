@@ -46,3 +46,5 @@ template: templates/swagger.html
   // End Swagger UI call region
   window.ui = ui
 </script>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1bb2f91052f96dabe9ef)
