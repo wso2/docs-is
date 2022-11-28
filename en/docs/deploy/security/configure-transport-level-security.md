@@ -18,6 +18,12 @@ Follow the instructions given below to enable SSL protocols in the WSO2 Identity
 
     If you wish to remove `TLSv1` or`TLSv1.1`, you can do so by removing them as values from the `protocols` property.
 
+    !!! note
+        If your IS version uses JDK-11, you can use TLSv1.3, in such case you can use the following code on the deployment.toml file.
+        ```
+        [transport.https.sslHostConfig.properties]
+        protocols="TLSv1, TLSv1.1, TLSv1.2, TLSv1.3"
+        ```
 
 2. Restart the server.
 
@@ -26,7 +32,7 @@ Follow the instructions given below to enable SSL protocols in the WSO2 Identity
 ## Disable weak ciphers
 
 A cipher is an algorithm for performing encryption or decryption. When
-you set the `         sslprotocol        ` of your server to TLS, the
+you set the `sslprotocol` of your server to TLS, the
 TLS and the default ciphers are enabled without considering the strength
 of the ciphers. This is a security risk as weak ciphers, also known as
 EXPORT ciphers, can make your system vulnerable to attacks such as the
@@ -38,7 +44,7 @@ with sufficient processing power.
 To prevent these security attacks, it is encouraged to disable
 the weak ciphers. You can enable only the ciphers that you want the
 server to support in a comma-separated list in the
-`         ciphers        ` attribute. Also, if you do not add this
+`ciphers` attribute. Also, if you do not add this
 cipher attribute or keep it blank, the browser will support all the SSL
 ciphers by JSSE. This will enable the weak ciphers.
 
@@ -46,16 +52,29 @@ ciphers by JSSE. This will enable the weak ciphers.
 
 A cipher is an algorithm for performing encryption or decryption. When the `sslprotocol` is set to `TLS`, only the TLS and default ciphers are enabled by default. However, note that the strength of the ciphers will not be considered when they are enabled. Therefore, to disable the weak ciphers, you must ensure that only the ciphers you want your server to support are entered as the `ciphers` attribute in the comma-separated list. Also, if you do not add this cipher attribute or keep it blank, all SSL ciphers by JSSE will be supported by your server, thereby enabling the weak ciphers.
 
-1.  Navigate to the ` deployment.toml ` file in the ` <IS_HOME>/repository/conf   ` directory.
+1. Navigate to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-2.  Take a backup of the ` deployment.toml ` file and stop the WSO2 IS server.
+2. Take a backup of the ` deployment.toml ` file and stop the WSO2 IS server.
 
-3.  Add the following configuration to the ` deployment.toml ` file by adding the list of ciphers 
-that you want your server to support as follows: ciphers="<cipher-name>,<cipher-name>".
+3. Add the following configuration to the ` deployment.toml ` file by adding the list of ciphers that you want your server to support as follows: ciphers="<cipher-name>,<cipher-name>".
 
     ```toml
     [transport.https.sslHostConfig.properties]
-    ciphers="TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF"
+    ciphers="TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256,
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384,
+    TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,
+    TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA,
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256,
+    TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256,
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA,
+    TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA,
+    TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF",
+    TLS_AES_128_GCM_SHA256
+    TLS_AES_256_GCM_SHA384
+    TLS_CHACHA20_POLY1305_SHA256
+    TLS_AES_128_CCM_SHA256
+    TLS_AES_128_CCM_8_SHA256
     ```
 
 4.  Start the server.
