@@ -25,7 +25,8 @@ Apart from the above guides provided, you can use the following Github repositor
 
 - [.NET OIDC SDK](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk)
 
-- [React Native OIDC SDK](https://github.com/asgardeo/asgardeo-react-native-oidc-sdk)
+<!-- - [React Native OIDC SDK](https://github.com/asgardeo/asgardeo-react-native-oidc-sdk) -->
+
 
 - [Auth Single Page Application SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk)
 
