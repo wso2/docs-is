@@ -36,11 +36,11 @@ works to assess the risk of the user.
     !!! abstract ""
         **Request Format**
         ```
-        curl -L -X PUT 'https://{ELASTICSEARCH_HOST}/transaction' -H 'Authorization: Basic {ELASTICSEARCH_BASIC_AUTH_HEADER}'
+        curl -L -X PUT 'https://{ELASTICSEARCH_HOST}/transaction' -H 'Authorization: Basic {ELASTICSEARCH_BASIC_AUTH_HEADER}' -H 'Content-Type: application/json' --data-raw '{"mappings":{"properties":{"@timestamp":{"type":"date"}}}}'
         ```
         **Sample Request**
         ```
-        curl -L -X PUT 'https://localhost:9200/transaction' -H 'Authorization: Basic d3NvMnVzZXI6Y2hhbmdlbWU='
+        curl -L -X PUT 'https://localhost:9200/transaction' -H 'Authorization: Basic d3NvMnVzZXI6Y2hhbmdlbWU=' -H 'Content-Type: application/json' --data-raw '{"mappings":{"properties":{"@timestamp":{"type":"date"}}}}'
         ```
         **Response**
         ```
