@@ -272,10 +272,12 @@ This section covers the updates related to application configurations on Identit
 ### Application Roles in Application Management Flows
 
 With WSO2 IS 6.0.0, the following functions have been removed by default:
+
 - The creation of application roles
 - The validation of application roles in application management flows.
 
 With these changes,
+
 - Application roles will not be created nor assigned to the application owner during the application creation.
 - Application role validation will be skipped for users who initiate application management flows.
 
