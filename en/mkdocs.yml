@@ -484,7 +484,10 @@ nav:
         - Monitor Logs:
           - Overview: deploy/monitor/monitor-logs.md
           - HTTP Access Logging: deploy/monitor/http-access-logging.md
-          - Mask Sensitive Information in Logs: deploy/monitor/elk-mask-sensitive-information-in-logs.md
+          - Mask Sensitive Information in Logs:
+            - Overview: deploy/monitor/mask-sensitive-information-in-logs.md
+            - Configure Log Masking with Filebeat: deploy/monitor/elk-mask-sensitive-information-in-logs.md
+            - Configure Log Masking with Log4j: deploy/monitor/log4j-mask-sensitive-information-in-logs.md
           - Log Claims in Audit Logs: deploy/monitor/log-claims-in-audit-logs.md
         - System Statistics: deploy/monitor/system-statistics.md
         - Monitor TCP-Based Messages:
@@ -1329,7 +1332,7 @@ plugins:
               'setup/monitoring-the-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/monitor/monitor-the-identity-server/'
               'setup/monitoring-logs.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/monitor/monitor-logs/'
               'setup/http-access-logging.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/monitor/http-access-logging/'
-              'setup/masking-sensitive-information-in-logs.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/monitor/elk-mask-sensitive-information-in-logs/'
+              'setup/masking-sensitive-information-in-logs.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/monitor/mask-sensitive-information-in-logs/'
               'setup/logging-claims-in-audit-logs.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/monitor/log-claims-in-audit-logs/'
               'setup/system-statistics.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/monitor/system-statistics/'
               'setup/monitoring-tcp-based-messages.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/monitor/monitor-tcp-based-messages/'
