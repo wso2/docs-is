@@ -17,7 +17,7 @@ To configure Magic Link as an authenticator:
 
 3. Expand the **Local and Outbound Authentication Configuration** section.
 
-4. For **Authentication Type**, select the **Local Authentication** radio button and select **Magic Link** from the dropdown list under **Local Authentication**.
+4. For **Authentication Type**, select the **Local Authentication** option and then select **Magic Link** from the list.
 
 5. Click **Update** to save the configurations.
 
