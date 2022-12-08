@@ -15,20 +15,11 @@ To configure Magic Link as an authenticator:
 
 2. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-3. Expand the **Local and Outbound Authentication Configuration** section and click **Advanced Configuration**.
+3. Expand the **Local and Outbound Authentication Configuration** section.
 
-4. You will be redirected to **Advanced Configuration**.
+4. For **Authentication Type**, select the **Local Authentication** option and then select **Magic Link** from the list.
 
-5. Click **+ Add Authentication Step** twice to add two authentication steps.
-
-6. Select the following authentication methods from the relevant dropdowns and click **+ Add Authenticator**.
-
-    | Authentication step   | Local Authenticator      |
-    |--------------------------|-----------------------|
-    | First step    | `identity-first handler` |
-    | Second step   | `Magic Link`             |
-
-7. Click **Update** to save the configurations.
+5. Click **Update** to save the configurations.
 
 ## Try it out
 
