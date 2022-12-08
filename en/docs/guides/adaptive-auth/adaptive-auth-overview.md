@@ -1,6 +1,6 @@
 # Prerquisites for adaptive authentication
 
-This section provides you the prerequisites to try out the adaptive authentication scenarios configurable on Identity Server.
+This section provides the prerequisites for trying out the adaptive authentication scenarios configurable on Identity Server.
 
 ----
 
