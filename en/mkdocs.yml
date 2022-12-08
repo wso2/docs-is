@@ -1236,7 +1236,7 @@ plugins:
               'develop/oidc-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oidc-scope-management-rest-apis/'
               'develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/'
               'develop/permission-management-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/permission-management-rest-api/'
-              'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-personal-information-export-rest-apis/'
+              'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-self-sign-up-rest-apis/#/User%20Export'
               'develop/scim-1.1-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim-1.1-apis/'
               'develop/scim2-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim2-rest-apis/'
               'develop/scim2-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim2-rest-apis/'

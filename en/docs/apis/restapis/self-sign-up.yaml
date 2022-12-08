@@ -2,7 +2,10 @@ openapi: 3.0.1
 info:
   title: WSO2 Identity Server Rest API - User
   description: |
-    This document specifies a **RESTful API** for WSO2 **Identity Server** .
+    This document specifies the **RESTful API** for WSO2 Identity Server's **Self-Sign-Up** functionality. These APIs can be used to:
+    <li> Retrieve the stored claims, security questions and the consent receipts approved by the user. </li>
+    <li> Self-register users.</li>
+    <li> Validate self-registered accounts.</li>
   contact:
     name: WSO2
     url: http://wso2.com/products/identity-server/
@@ -25,10 +28,9 @@ paths:
   /me:
     get:
       tags:
-      - User Export
+      - Get User Info
       summary: Export self user information
-      description: This API is used to retrieve the personal information of the authenticated
-        user.
+      description: This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
       operationId: getMe
       responses:
         200:
@@ -491,7 +493,7 @@ paths:
   /pi-info:
     get:
       tags:
-      - User Export
+      - Get User Info
       summary: Search user ID by username
       description: Returns the user ID of the given username. This ID can be used
         with the /pi-info endpoint.
@@ -525,10 +527,9 @@ paths:
   /pi-info/{userId}:
     get:
       tags:
-      - User Export
+      - Get User Info
       summary: Export user information by ID
-      description: This API is used to retrieve the personal information of a single
-        user using the given user ID.
+      description: This API is used to retrieve the stored claims, security questions, and consent receipts approved by the user.
       operationId: getUserById
       parameters:
       - name: userId
