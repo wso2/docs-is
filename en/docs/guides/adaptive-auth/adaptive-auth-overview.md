@@ -1,8 +1,7 @@
 # Prerquisites for adaptive authentication
 
-This section provides the prerequisites for trying out the adaptive authentication scenarios configurable on Identity Server.
+This section provides the prerequisites for trying out the adaptive authentication scenarios configurable on WSO2 Identity Server.
 
-----
 
 {!./includes/adaptive-auth-samples.md!}
 
