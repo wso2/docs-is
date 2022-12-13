@@ -19,7 +19,7 @@ As WSO2 Identity Server is a Java application, you can generally run it on most 
 		</td>
 	</tr>
 	<tr>
-		<th>Supported Operating Systems</th>
+		<th>Tested Operating Systems</th>
 		<td>
 			<ul>
 				<li>Ubuntu 20.04</li>
