@@ -565,7 +565,7 @@ The first claim in this must have a low number of users.
 |----------------------|------------------------------------------------------------------------------|
 | claimMap  | A map contains the claim URI and claim value.    |
 | context   | The authentication context, which contains the context information about the request.    |
-| parameterName | Profile of the user. (Optional, the default value is 'default')      |
+| parameterName | (Optional) Profile of the user. The default value is 'default').     |
 
 ``` java
 var claimMap = {};
