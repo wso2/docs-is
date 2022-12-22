@@ -115,62 +115,23 @@ The API can be called in either of the following ways:
 <a name = "step-filtering"></a>
 **Authentication step filtering**
 
-Filters out some of the authentication options of a step based on a condition. This can be achieved by specifying an array named `authenticationOptions` to the `options` map. You can have `idp` as an array item for federated IDPs, and `authenticator` as an array item for local authenticators as shown below.
+Filters out some of the authentication options of a step based on a
+condition. This can be achieved by specifying an array named 
+`         authenticationOptions        ` to the
+`         options        ` map. Each array item will require an 
+`          idp         ` for federated identity providers or an 
+`          authenticator         ` for local authenticators.
 
 **Example code**
 
 ``` java
-executeStep(1, {
-    authenticationOptions: [{authenticator:'BasicAuthenticator'},{idp:'google'}]
-},{
-    onSuccess: function (context) {
-        // Do something on success
-    }
-});
+executeStep(1,{
+  authenticationOptions:[{authenticator:'basic'},{idp:'google'}]
+   },{
+       onSuccess: function (context) {
+           // Do something on success
+};
 ```
-
-You can find the available local authenticators in the table below.
-<table>
-<tbody>
-    <tr>
-        <th>Display Name</th>
-        <th>Authenticator</th>
-    </tr>
-    <tr>
-        <td>Backup Code</td><td><code>backup-code-authenticator</code></td>
-    </tr>
-    <tr>
-        <td>Basic Auth</td><td><code>BasicAuthRequestPathAuthenticator</code></td>
-    </tr>
-    <tr>
-        <td>Identifier First</td><td><code>IdentifierExecutor</code></td>
-    </tr>
-    <tr>
-        <td>JWT Basic</td><td><code>JWTBasicAuthenticator</code></td>
-    </tr>
-    <tr>
-        <td>Magic Link</td><td><code>MagicLinkAuthenticator</code></td>
-    </tr>
-    <tr>
-        <td>OAuth Bearer</td><td><code>OAuthRequestPathAuthenticator</code></td>
-    </tr>
-    <tr>
-        <td>Security Key/Biometrics</td><td><code>FIDOAuthenticator</code></td>
-    </tr>
-    <tr>
-        <td>TOTP</td><td><code>totp</code></td>
-    </tr>
-    <tr>
-        <td>Username & Password</td><td><code>BasicAuthenticator</code></td>
-    </tr>
-    <tr>
-        <td>X509 Certificate</td><td><code>x509CertificateAuthenticator</code></td>
-    </tr>
-    <tr>
-        <td>Active Sessions Limit</td><td><code>SessionExecutor</code></td>
-    </tr>
-</tbody>
-</table>
 
 ---
 
@@ -566,7 +527,6 @@ It includes the following parameters:
 ``` java
 var state = getValueFromDecodedAssertion(context.request.params.request[0],"state",true);
 ```
-
 #### getUniqueUserWithClaimValues(claimMap, context, profile)
 
 The utility function will search on the underlying user stores and return a unique user with the claim values. The claim map will consist of the claim and value. The function will get the 1st key from the map and get all users with the claim and add to list. Then remove the users from that list not having the other claims. So the order of the map will decide the performance of this function.
@@ -652,24 +612,30 @@ step number.
 - `user.tenantDomain` : (Read/Write) The user’s tenant domain (only for local users; federated users will have this as `carbon.super` ).
 - `user.userStoreDomain` : (Read/Write) The user’s user store domain (only for local users).
 - `user.roles` : (Read/Write) List of user’s roles.
-- `user.localClaims[“<local_claim_url>”]` : (Read/Write) User’s attribute (claim) value for the given “local\_claim\_url”. If the user is a federated user, this will be the value of the mapped remote claim from the identity provider.
-- `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
+-   `          user.localClaims[“<local_claim_url>”]         ` :
+    (Read/Write) User’s attribute (claim) value for the given
+    “local\_claim\_url”. If the user is a federated user, this will be
+    the value of the mapped remote claim from the identity provider.
+        
+-   `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
 
-    !!! note
-        `user.localClaims[“<local_claim_url>”]` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis.
+    !!! note 
+        `          user.localClaims[“<local_claim_url>”]         ` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis.
 
-- `user.remoteClaims[“<remote_claim_url”]` : (Read/Write) User’s attribute (claim) as returned by identity provider for the given “remote\_claim\_url”. Applicable only for federated users.
+-   `          user.remoteClaims[“<remote_claim_url”]         ` :
+    (Read/Write) User’s attribute (claim) as returned by identity provider for the
+    given “remote\_claim\_url”. Applicable only for federated users.
 
 #### request object
 
-- `request.headers[“<header_name>”]` : Request’s
+-   `          request.headers[“<header_name>”]         ` : Request’s
     header value for the given header name by &lt;header\_name&gt;
-- `request.params.param_name[0]` : Request’s
+-   `          request.params.param_name[0]         ` : Request’s
     parameter value for the given parameter name by the
     &lt;param\_name&gt; index (`param_name` is an array). 
-- `request.cookies[“<cookie_name”]` : Request’s
+-   `          request.cookies[“<cookie_name”]         ` : Request’s
     cookie value for the given cookie name by &lt;cookie\_name&gt;
-- `request.ip` : The client IP address of the user
+-   `          request.ip         ` : The client IP address of the user
     who initiated the request. If there are any load balancers (eg.
     Nginx) with connection termination, the ip is retrieved from the
     headers set by the load balancer.
