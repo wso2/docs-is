@@ -529,7 +529,7 @@ var state = getValueFromDecodedAssertion(context.request.params.request[0],"stat
 ```
 #### getUniqueUserWithClaimValues(claimMap, context, profile)
 
-The utility function will search on the underlying user stores and return a unique user with the claim values. The claim map will consist of the claim and value. The function will get the 1st key from the map and get all users with the claim and add to list. Then remove the users from that list not having the other claims. So the order of the map will decide the performance of this function.
+The utility function will search on the underlying user stores and return a unique user with the claim values. The claim map will consist of the claim and value. The function will get the first key from the map and get all users with the claim and add to list. Then remove from the list the users who are not having the other claims. Therefore, the order of the map will decide the performance of this function.
 The first claim in this must have a low number of users.
 
 | Parameter            | Description                                                                  |
