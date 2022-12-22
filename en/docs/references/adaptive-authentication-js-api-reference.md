@@ -656,7 +656,7 @@ step number.
 - `user.claims[“<local_claim_url>”]`: (Read/Write) Sets a temporary claim value for the session.
 
     !!! note
-        `user.localClaims[“<local_claim_url>”]` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis.
+        Note that `user.localClaims[“<local_claim_url>”]` updates the claim value in the user store as well. `user.claims[“<local_claim_url>”]` is an alternative to set a claim for temporary basis.
 
 - `user.remoteClaims[“<remote_claim_url”]` : (Read/Write) User’s attribute (claim) as returned by identity provider for the given “remote\_claim\_url”. Applicable only for federated users.
 
