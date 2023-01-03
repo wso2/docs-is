@@ -138,12 +138,11 @@ Deploy this sample web app on a web container.
         ``` java
         sudo nano /etc/hosts
         ```
-
-4. Open the `dispatch.properties` file found in the `
+3. Open the `dispatch.properties` file found in the `
    <TOMCAT_HOME>/webapps/pickup-dispatch/WEB-INF/classes ` directory
    and edit the **consumerKey** and **consumerSecret** with the values obtained from the **OAuth configuration**.
 
-5. Restart the Tomcat server.
+4. Restart the Tomcat server.
 
 ### Log in
 
@@ -152,13 +151,68 @@ For example. `http://localhost.com:8080/pickup-dispatch`
 
     ![Pickup-dispatch application]({{base_path}}/assets/img/samples/pickup-dispatch-login.png)
 
-
 2. Click **Login**. You are redirected to the Google login page.
   
     ![Google login page]({{base_path}}/assets/img/samples/sign-in-google.png)
-    
+
 3. Sign in using your Google credentials. You are redirected to the
     Pickup sample homepage.
 
 !!! info "Related topics" 
     - [Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)
+
+## Google One Tap
+Google One Tap is a personalized authentication feature provided by Google as a trending federated authentication option. When a browser has an authenticated google session, a personalized sign in/sign up button will appear instead of a conventional Google sign in button for One-Tap supported web applications.
+
+### Configuring Google One Tap
+
+!!! Note "Enabling Google One Tap for tenants"
+    - By default Google OneTap is enabled for all the tenants. If you want to restrict the tenants who will be having this feature, add the following configuration to the deployment.toml.
+    
+     ``` bash
+        [console.ui]
+        google_one_tap_enabled_tenants = [“carbon.super”,”t.com”]
+     ```
+
+1. Make sure the **Callback url** of Google authenticator has been added as a “Authorized Callback URL” at the relevant Google Client at Google CLI.
+
+    ```
+    https://<IS_HOST>:<IS_PORT>/commonauth
+    ```
+
+   ![Google One Tap callback]({{base_path}}/assets/img/samples/google-onetap-callback-url.png)
+
+2. Add the login page domain as the **Authorized Javascript Origins** at the relevant Google Client at Google CLI.
+
+    ```
+    https://<IS_HOST>:<IS_PORT>
+    ```
+   
+    ![Google One Tap origins]({{base_path}}/assets/img/samples/google-onetap-js-origins-url.png)
+
+3. Keep the following configuration empty to enable Google One Tap for all tenants or add the specific tenant name to enable only for that tenant.
+
+     ``` bash
+        [console.ui]
+        google_one_tap_enabled_tenants = [“carbon.super”,”t.com”]
+     ```
+   
+4. When a tenant is eligible for Google One Tap, **Google One Tap** toggle will be available at Google authenticator settings at Asgardeo developer portal. By enabling this toggle button, users will see a personalized Google sign in button with Google profile information at the login page.
+
+   ![Google One Tap toggle]({{base_path}}/assets/img/samples/google-onetap-toggle.png)
+
+5. When Google One Tap is turned on, the existing Google sign in button will disappear at the login page. However, the user has the choice to close the One-Tap personalized button. When the One-Tap personalized login button is closed, the conventional Google Sign in button will be there for login.
+
+   ![Google One Tap login]({{base_path}}/assets/img/samples/google-onetap-login.png)
+
+Please note that closing the One-Tap personalized login button will go through a cool-down mechanism to enable it again which is defined by Google. (i.e When you close the Google One-Tap login window, it will take 2 hours to enable again unless if cookies are cleared)
+
+
+!!! Note "Supported Browsers"
+    - Google One Tap supports for following browsers only.
+        
+        Chrome
+        
+        Firefox
+        
+        Opera
