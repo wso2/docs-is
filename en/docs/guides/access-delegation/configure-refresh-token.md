@@ -34,7 +34,7 @@ You can also provide the validity period in minutes, hours, or days using differ
 
 Refresh tokens are renewed by default. 
 
-If you wish to change this, add the following property to the `<IS_HOME>repository/conf/deployment.toml` file and set it to **false**. 
+If you wish to change this, add the following property to the `<IS_HOME>/repository/conf/deployment.toml` file and set it to **false**. 
 
 ``` toml
 [oauth.token_renewal]
