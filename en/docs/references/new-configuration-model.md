@@ -20,7 +20,7 @@ WSO2 Identity Server is built using a collection of components out of which many
 
 ## New configuration model
 
-With the **new configuration model** from WSO2 Identity Server 5.9.0 onwards, configurations are handled by the <code>deployment.toml</code> file in the <code><IS_HOME>/repository/conf/</code> directory. The benefits of this new configuration model include:
+With the **new configuration model** from WSO2 Identity Server 5.9.0 onwards, configurations are handled by the <code>deployment.toml</code> file in the `<IS_HOME>/repository/conf/` directory. The benefits of this new configuration model include:
 
 -	Without being concerned about the components, the users can focus on the configurations.
 -	Minimal chance for human errors during configuration 
