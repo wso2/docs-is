@@ -1,6 +1,6 @@
 {!./includes/deploying-sample-apps.md!}
 
-- Download the [SAML pickup dispatch application](https://github.com/wso2/samples-is/releases/download/v4.5.0/saml2-web-app-pickup-dispatch.com.war) from the latest release assets.
+- Download the [SAML pickup dispatch application](https://github.com/wso2/samples-is/releases/download/v4.5.2/saml2-web-app-pickup-dispatch.com.war) from the latest release assets.
 
 ---
 

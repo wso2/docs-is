@@ -56,7 +56,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.5.0/PassiveSTSSampleApp.war) the `PassiveSTSSampleApp.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.5.2/PassiveSTSSampleApp.war) the `PassiveSTSSampleApp.war` file from the
    latest release assets.
 
 ### Deploying the PassiveSTSSampleApp webapp

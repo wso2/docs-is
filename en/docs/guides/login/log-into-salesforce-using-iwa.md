@@ -210,11 +210,11 @@ Now that you have configured the email addresses, let's configure Salesforce.
 		1.  Click your username to expand the drop down.
 
 		2.  Click **Switch to Lightning Experience**.  
-			![switch-to-lightening-experience]({{base_path}}/assets/img/tutorials/switch-to-lightening-experience.png)			
+			<!-- ![switch-to-lightening-experience]({{base_path}}/assets/img/tutorials/switch-to-lightening-experience.png) -->
 
 		3.  Click the settings icon on the top-right-hand corner, and click
 			**Set Up**.  
-			![switch-from-classic]({{base_path}}/assets/img/tutorials/switch-from-classic.png)
+			<!-- ![switch-from-classic]({{base_path}}/assets/img/tutorials/switch-from-classic.png) -->
 
     	Now you are navigated to the lightening theme of Salesforce.
     
@@ -234,7 +234,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
 
     1.  Search for My Domain in the search bar that is on the left
         navigation panel.  
-        ![my-domain]({{base_path}}/assets/img/tutorials/my-domain.png)
+        <!-- ![my-domain]({{base_path}}/assets/img/tutorials/my-domain.png) -->
         
     2.  Click **My Domain**.
     
@@ -245,7 +245,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
         For the page given below to load on your browser, make sure that
         the Salesforce cookies are not blocked.
 
-        ![sales-force-cookies]({{base_path}}/assets/img/tutorials/sales-force-cookies.png)
+        <!-- ![sales-force-cookies]({{base_path}}/assets/img/tutorials/sales-force-cookies.png) -->
 
     4.  If the domain is available, select **I agree to Terms and
         Conditions** and click **Register Domain** to register your new
@@ -259,13 +259,13 @@ Now that you have configured the email addresses, let's configure Salesforce.
     
 6.  In the page that appears, click **Edit** and then select the **SAML
     Enabled** checkbox to enable federated single sign-on using SAML.  
-    ![saml-enabled]({{base_path}}/assets/img/tutorials/saml-enabled.png)
+    <!-- ![saml-enabled]({{base_path}}/assets/img/tutorials/saml-enabled.png) -->
     
 7.  Click **Save** to save this configuration change.
 
 8.  Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
-    ![saml-sso-setting]({{base_path}}/assets/img/tutorials/saml-sso-setting.png) Ensure that
+    <!-- ![saml-sso-setting]({{base_path}}/assets/img/tutorials/saml-sso-setting.png) --> Ensure that
     you configure the following properties.
     <table>
     <thead>
@@ -383,7 +383,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
     
 13. Under **Authentication Service**, select **SSO** instead of **Login
     Page**.  
-    ![authentication-service-sso]({{base_path}}/assets/img/tutorials/authentication-service-sso.png)
+    <!-- ![authentication-service-sso]({{base_path}}/assets/img/tutorials/authentication-service-sso.png) -->
     
 14. Click **Save**.
 
@@ -422,7 +422,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and we use Salesforce as the name for
     this example.  
-    ![service-provider-name]({{base_path}}/assets/img/tutorials/service-provider-name.png)
+    <!-- ![service-provider-name]({{base_path}}/assets/img/tutorials/service-provider-name.png) -->
     
 4.  Click **Register**.
 
@@ -431,7 +431,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
     
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on.  
-    ![single-sign-on-setting]({{base_path}}/assets/img/tutorials/single-sign-on-setting.png)  
+    <!-- ![single-sign-on-setting]({{base_path}}/assets/img/tutorials/single-sign-on-setting.png)   -->
     See the following table for details.
 
     | Field                                      | Value                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |

@@ -4,7 +4,7 @@
     
     Before publishing a XACML policy to the Policy Decision Point (PDP), you
     need to create the policy first. For more information on how to create a
-    XACML policy, see [Creating a XACML Policy]({{base_path}}/learn/creating-a-xacml-policy).
+    XACML policy, see [Creating a XACML Policy]({{base_path}}/guides/authorization/create-a-policy).
     
 
 In order to use a XACML policy for authorization in WSO2 Identity
@@ -19,7 +19,7 @@ Administration Point(PAP), and other additional information such as
 subject, resource, action and environmental resources in the Policy
 Information Point(PIP) to make the decision. For more information about
 this process, see [XACML system
-architecture]({{base_path}}/get-started/access-control-and-entitlement-management#xacml-system-architecture).
+architecture]({{base_path}}/references/concepts/authorization/access-control).
 
 You can publish a XACML policy to PDP for runtime evaluation using the
 instructions in this topic.

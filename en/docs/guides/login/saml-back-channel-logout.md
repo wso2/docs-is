@@ -87,8 +87,8 @@ server installation location will be referred as `<TOMCAT_HOME>` later in this g
         It is recommended that you use a hostname that is not `localhost` to avoid browser errors. Modify the `/etc/hosts` entry in your machine to reflect this. Note that `wso2is.local` is used in this documentation as an example, but you must modify this when configuring the authenticators or connectors with this sample application.
 
 2.  Download the following samples:
-    -   [saml2-web-app-pickup-manager.com.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/saml2-web-app-pickup-manager.com.war)
-    -   [saml2-web-app-pickup-dispatch.com.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/saml2-web-app-pickup-dispatch.com.war)
+    -   [saml2-web-app-pickup-manager.com.war](https://github.com/wso2/samples-is/releases/download/v4.5.2/saml2-web-app-pickup-manager.com.war)
+    -   [saml2-web-app-pickup-dispatch.com.war](https://github.com/wso2/samples-is/releases/download/v4.5.2/saml2-web-app-pickup-dispatch.com.war)
 
 3.  Copy the downloaded `saml2-web-app-pickup-dispatch.com.war` and `saml2-web-app-pickup-manager.com.war` files into the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder. 
 

@@ -40,4 +40,4 @@ The main functionalities specified are:
 - Delete request to an already registered client (Client Delete Request)
 
 !!! info "Related topics"
-        - [API: OpenID Connect Dynamic Client Registration]({{base_path}}/develop/apis/use-the-openid-connect-dynamic-client-registration-rest-apis)
+        - [API: OpenID Connect Dynamic Client Registration]({{base_path}}/apis/use-the-openid-connect-dynamic-client-registration-rest-apis)

@@ -71,7 +71,7 @@ Follow the steps given below to register an OIDC application as a service provid
 
 Let's configure the Pickup Manager (OIDC) application to connect with WSO2 IS.
 
-1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/pickup-manager.war) sample.
+1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.5.2/pickup-manager.war) sample.
 
 2. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
 
@@ -95,7 +95,7 @@ in this guide.
 
     1.  Copy the extracted and modified OIDC `pickup-manager` application folder to the `<TOMCAT_HOME>/webapps` folder.
 
-    2.  Download the [saml2-web-app-pickup-dispatch.com.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/saml2-web-app-pickup-dispatch.com.war) sample and copy it to the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder.
+    2.  Download the [saml2-web-app-pickup-dispatch.com.war](https://github.com/wso2/samples-is/releases/download/v4.5.2/saml2-web-app-pickup-dispatch.com.war) sample and copy it to the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder.
 
 ----
 
@@ -118,9 +118,9 @@ You have successfully tried out cross-protocol logout between a SAML application
 ----
 
 !!! info "Related topics"
-    - [Guide: Single Sign-On]({{base_path}}/enable-single-sign-on)
-    - [Guide: SAML Front-Channel Logout]({{base_path}}/saml-front-channel-logout)
-    - [Guide: SAML Back-Channel Logout]({{base_path}}/saml-back-channel-logout)
-    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/oidc-backchannel-logout)
-    - [Guide: OpenID Connect Logout URL Redirection]({{base_path}}/oidc-logout-url-redirection)
+    - [Guide: Single Sign-On]({{base_path}}/guides/login/enable-single-sign-on)
+    - [Guide: SAML Front-Channel Logout]({{base_path}}/guides/login/saml-front-channel-logout)
+    - [Guide: SAML Back-Channel Logout]({{base_path}}/guides/login/saml-back-channel-logout)
+    - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/guides/login/oidc-backchannel-logout)
+    - [Guide: OpenID Connect Logout URL Redirection]({{base_path}}/guides/login/oidc-logout-url-redirection)
     <!--- - [Concept: Cross-Protocol Logout](TODO:insert-link-to-concept)-->

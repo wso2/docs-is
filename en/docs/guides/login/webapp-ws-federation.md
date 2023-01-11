@@ -9,7 +9,7 @@ This page guides you through enabling login for a WS-Federation-based web applic
 
 {!./includes/deploying-sample-apps.md!}
 
-- Download the [PassiveSTSSample application](https://github.com/wso2/samples-is/releases/download/v4.5.0/PassiveSTSSampleApp.war) from the latest release assets.
+- Download the [PassiveSTSSample application](https://github.com/wso2/samples-is/releases/download/v4.5.2/PassiveSTSSampleApp.war) from the latest release assets.
 
 ### Deploy the sample app
 
@@ -114,4 +114,4 @@ You will see the passive STS response with the requested claims on the screen.
 
 !!! info "Related topics"
     - [Concept: Single Sign-On]({{base_path}}/references/concepts/single-sign-on)
-    - [Concept: WS-Federation]({{base_path}}/guides/login/webapp-ws-federation.md)
+    - [Concept: WS-Federation]({{base_path}}/references/concepts/authentication/intro-ws-federation)

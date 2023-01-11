@@ -26,7 +26,7 @@ This page guides you through configuring [OpenID Connect back-channel logout]({{
         of the `oauth.custom_grant_type` in the `deployment.toml` file when
         creating the custom grant type is the value that will appear on the
         UI. For more information on writing a custom grant type, see
-        [Write a Custom OAuth 2.0 Grant Type]({{base_path}}/develop/extend/oauth2/write-a-custom-oauth-2.0-grant-type).
+        [Write a Custom OAuth 2.0 Grant Type]({{base_path}}/references/extend/oauth2/write-a-custom-oauth-2.0-grant-type).
         
 6. Fill the **Callback Url** field. 
 
@@ -100,7 +100,7 @@ application.
 
     1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.5.0/playground2.war) the `playground2.war` file from the latest release assets.
+    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.5.2/playground2.war) the `playground2.war` file from the latest release assets.
 
 ### Deploy the sample
 
@@ -221,5 +221,5 @@ You have successfully configured and tried out OIDC back-channel logout. You can
 
 !!! info "Related topics"
     - [Concept: OpenID Connect Back-Channel Logout]({{base_path}}/references/concepts/authentication/back-channel-logout)
-    - [Quick Start: OpenID Connect Back-Channel Logout]({{base_path}}/quick-starts/oidc-backchannel-logout-sample)
+    <!-- - [Quick Start: OpenID Connect Back-Channel Logout]({{base_path}}/quick-starts/oidc-backchannel-logout-sample) -->
 

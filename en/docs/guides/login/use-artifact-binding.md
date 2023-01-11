@@ -64,7 +64,7 @@ this documentation as an example, but you must modify this when
 configuring the authenticators or connectors with this sample
 application.
 
--   [Download](https://github.com/wso2/samples-is/releases/download/v4.5.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
+-   [Download](https://github.com/wso2/samples-is/releases/download/v4.5.2/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the latest release assets.
 
 ### Configure CORS
 
@@ -101,5 +101,5 @@ You have successfully set up SAML artifact binding. See the sections below for m
 
 !!! info "Related topics"
     - [Concept: SAML2 Artifact Binding]({{base_path}}/references/concepts/authentication/saml2-artifact-binding/)
-    - [Guide: Enable Login for a SAML Application]({{base_path}}/webapp-saml)
+    - [Guide: Enable Login for a SAML Application]({{base_path}}/guides/login/webapp-saml)
 

@@ -59,12 +59,11 @@ this documentation as an example, but you must modify this when
 configuring the authenticators or connectors with this sample
 application.
 
--       Download the sample from GitHub.
+- Download the sample from GitHub.
 
-        1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
+    1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-        2. [Download](https://github.com/wso2/samples-is/releases/download/v4.5.0/playground2.war)
-   the `playground2.war` file from the latest release assets.     
+    2. [Download](https://github.com/wso2/samples-is/releases/download/v4.5.2/playground2.war) the `playground2.war` file from the latest release assets.     
     
 ### Deploy the sample
 
@@ -234,5 +233,5 @@ Deploy this sample web app on a web container.
         
 !!! info "Related topics"
     - [Concept: Manage User Sessions and Logout]({{base_path}}/references/concepts/authentication/session-management)
-    - [Quick Start: Manage User Sessions and Logout]({{base_path}}/quick-starts/oidc-session-management)
+    - [Guide: Manage User Sessions and Logout]({{base_path}}/guides/login/session-management-logout)
 

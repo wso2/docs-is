@@ -1,7 +1,7 @@
 
 ### Download the sample
 
-To deploy a WSO2 Identity Server sample application, you need [download the `playground2.war`](https://github.com/wso2/samples-is/releases/download/v4.5.0/playground2.war) file from the latest release assets.
+To deploy a WSO2 Identity Server sample application, you need [download the `playground2.war`](https://github.com/wso2/samples-is/releases/download/v4.5.2/playground2.war) file from the latest release assets.
 
 ### Deploy the sample web app
 

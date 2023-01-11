@@ -1,4 +1,4 @@
-#Exporting User Data from WSO2 Identity Server
+# Exporting User Data from WSO2 Identity Server
 
 1. Download **scim-bulk-user-export-tool** from [here](https://maven.wso2.org/nexus/content/groups/public/org/wso2/samples/is/scim.bulk.user.export.tool/4.3.2/scim.bulk.user.export.tool-4.3.2.zip).
 2. Extract the downloaded .zip file.

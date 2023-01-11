@@ -83,13 +83,13 @@ nav:
               - Office365 with SAML2: guides/login/log-into-office365saml-using-is.md
               - Office365 with SAML2 for Multiple Domains: guides/login/log-into-office365saml-multiple-domains.md
               - Office365 with WS federation: guides/login/log-into-office365-using-wsfed.md
-              - Office365 with WS Trust: guides/login/log-into-office365-using-ws-trust.md
+              #- Office365 with WS Trust: guides/login/log-into-office365-using-ws-trust.md
           - PaaS Applications:
             - Drupal: guides/login/log-into-drupal-using-is.md
             - Microsoft Sharepoint: guides/login/log-into-sharepoint-using-is.md
             - Magento: guides/login/log-into-magento-using-is.md
             - Microsoft Dynamics CRM with WS Federation: guides/login/log-into-dynamic-crm-with-wsfederation.md
-          - Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
+          #- Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
           - OIDC Flows:
             - Overview: guides/login/oidc-authentication.md 
             - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 
@@ -144,7 +144,7 @@ nav:
           - Overview: guides/passwordless/overview.md
           - FIDO:
             - FIDO Passwordless Authentication: guides/passwordless/fido.md
-            - FIDO Attestation: guides/passwordless/fido-attestation.md
+            - FIDO2 Attestation Validations: guides/passwordless/fido-attestation.md
           - Magic Link: guides/passwordless/magic-link.md
         - Multi-Factor Authentication:
           - Overview: guides/mfa/mfa-overview.md
@@ -217,6 +217,7 @@ nav:
         - OAuth 2.0 Token Hashing: guides/access-delegation/oauth-token-hashing.md
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - User Managed Access: guides/access-delegation/uma.md
+        - Mutual TLS for OAuth Clients: guides/access-delegation/mutual-tls-for-oauth-clients.md
       - Consent Management:
         - Manage user consent: guides/consent-mgt/manage-user-consent.md
         - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md
@@ -276,7 +277,7 @@ nav:
           - Outbound Provision Users:
             - Overview: guides/identity-lifecycles/outbound-provisioning.md
             - SCIM 2.0: guides/identity-lifecycles/outbound-provisioning-with-scim.md
-            #- Microsoft Azure AD: guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
+            - Microsoft Azure AD: guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad.md
             - Google Directory: guides/identity-lifecycles/outbound-provisioning-with-google.md
             - Salesforce: guides/identity-lifecycles/outbound-provisioning-with-salesforce.md
             - Hubspot: guides/identity-lifecycles/hubspot-provisioning.md
@@ -287,6 +288,7 @@ nav:
             - Configure Active Directory User stores for SCIM 1.1: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
             - Configure Active Directory User stores for SCIM 2.0: guides/identity-lifecycles/configure-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
             - Setup Service Provider for Inbound Provisioning: guides/identity-lifecycles/sp-for-inbound-provisioning.md
+        - Configure Account Confirmation Methods for Self-Registration: guides/identity-lifecycles/self-register-verification.md
         - Enable Verification for Updated User Attributes:
           - Enable Email Account Verification for an Updated Email Address : guides/identity-lifecycles/enable-email-account-verification-for-an-updated-email-address.md
           - Enable Mobile Number Verification for an Updated Mobile Number: guides/identity-lifecycles/enable-verification-for-updated-mobile-number.md
@@ -334,14 +336,19 @@ nav:
         - Overview: guides/authorization/overview.md
         - Access Management: 
           - Intro: guides/authorization/access-mgt.md
-          - Create a policy: guides/authorization/create-a-policy.md
+          - Create a policy: 
+            - Create a new policy: guides/authorization/create-a-policy.md
+            - Customize an existing template: guides/authorization/customize-a-policy-template.md
           - Edit a policy: guides/authorization/edit-a-policy.md
           - Version control: guides/authorization/version-control.md
           - Publish a policy: guides/authorization/publish-a-policy.md
           - View status of a policy: guides/authorization/view-status.md
           - Enable and Disable a policy: guides/authorization/enable-disable-policy.md
           - Clear cache: guides/authorization/clear-cache.md
-        - Configure XACML Engine: guides/authorization/xacml-engine.md
+        - Configure the XACML Engine: guides/authorization/xacml-engine.md
+        - Use the XACML Tryit tool:
+          - Overview: guides/authorization/xacml-tryittool-overview.md
+          - Evaluate a XACML Policy: guides/authorization/evaluate-a-xacml-policy.md
         - Fine-Grained Authorization: 
           - Using XACML: guides/authorization/fine-grained-auth-xacml.md
           - Using JSON: guides/authorization/fine-grained-auth-json.md
@@ -376,7 +383,7 @@ nav:
             - Configure Secondary User stores: deploy/configure-secondary-user-stores.md
             #- Carbon Remote User Store Manager: deploy/carbon-remote-user-store-manager.md
             - Work with Properties of User stores: deploy/work-with-properties-of-user-stores.md
-            - Write a Custom User store Manager: deploy/write-a-custom-user-store-manager.md
+            #- Write a Custom User store Manager: deploy/write-a-custom-user-store-manager.md
             - Secure a JDBC user store with PBKDF2 hashing: deploy/secure-userstore-using-pbkdf2.md
 
         - Data Stores:
@@ -401,6 +408,7 @@ nav:
               - Identity Provider Related Tables: deploy/identity-provider-related-tables.md
             - Data Purging: deploy/data-purging.md
             - Remove References to Deleted User Identities: deploy/remove-references-to-deleted-user-identities.md
+        - Session Persistence: deploy/session-persistence.md
         - Analytics:
           - Configure ELK Analytics: deploy/elk-analytics-installation-guide.md
           - Configure SSO in ELK Analytics: deploy/elk-analytics-sso-guide.md
@@ -507,7 +515,8 @@ nav:
             - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
           - Account recovery API: apis/use-the-account-recovery-rest-apis.md
           - Associated accounts API: apis/association-rest-api.md
-          - Challenge question API: apis/challenge-rest-api.md
+          - Challenge question API: apis/challenge-questions.md
+          - Challenge answers API: apis/challenge-rest-api.md
           - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
       - Identity provider API: apis/idp-rest-api.md
       - IdP session extension API: apis/idp-session-extender-endpoint.md
@@ -544,6 +553,9 @@ nav:
       - Server configuration API: apis/configs-rest-api.md
       - Permission management API : apis/permission-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
+      - Admin services:
+        - Call admin services: apis/call-admin-services.md
+        - One way operations: apis/admin-services-for-one-way-operations.md
           
   - SDKs:
       - Overview: sdks/sdk-overview.md
@@ -568,6 +580,7 @@ nav:
         - User stores: references/concepts/user-management/userstores.md
         - Realms: references/concepts/user-management/realm.md
       - Claims: references/concepts/claim-management.md
+      - Access control: references/concepts/authorization/access-control.md
       - Service Providers:
         - Overview: guides/applications/service-provider-overview.md
         - Register a Service Provider: guides/applications/register-sp.md
@@ -580,6 +593,7 @@ nav:
           - Outbound Provisioning: guides/applications/outbound-provisioning-for-sp.md
         - Manage a Service Provider: guides/applications/manage-sp.md
         - Set up a Resident Service Provider: guides/applications/resident-sp.md
+        
       - Identity Providers:
         - Overview: guides/identity-federation/basic-overview.md
         - Register an IdP: guides/identity-federation/add-idp.md
@@ -642,10 +656,10 @@ nav:
         - User Management Errors Event Listener: references/extend/user-mgt/user-management-errors-event-listener.md
         - User provisioning:
           - Extend SCIM 2.0 User Schemas: references/extend/provisioning/extend-scim2-user-schemas.md
+          - Add SCIM2 Custom User Schema Support: references/extend/provisioning/add-scim2-custom-user-schema-support.md
           - Write an Outbound Provisioning Connector: references/extend/provisioning/write-an-outbound-provisioning-connector.md
           #- Extensible SCIM User Schemas With WSO2 Identity Server: references/extend/provisioning/extensible-scim-user-schemas-with-wso2-identity-server.md
       - User self-service:
-        - Set up in a Development Environment: references/extend/myaccount/set-up-my-account-in-a-dev-environment.md
         - Customize the UI: references/extend/myaccount/customize-my-account-ui.md
         - Configure the Application: references/extend/myaccount/configure-my-account.md
       #- Workflow Management for Developers:
@@ -657,7 +671,10 @@ nav:
         - Re-brand WSO2 Identity Server UIs: references/extend/rebranding/rebrand-identity-server-uis.md
         - Re-brand the Default Login Page: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
         - Re-brand the SSO Redirection Page: references/extend/rebranding/rebrand-the-sso-redirection-page.md
-        #- Customize Login page: references/extend/rebranding/customizable-login-portal.md
+        - Customize Login Pages: references/extend/rebranding/customizable-login-portal.md
+      - Workflow management:
+        - Extend the workflow event handler: references/extend/workflows/extend-the-workflow-event-handler.md
+        - Write a cutom workflow template: references/extend/workflows/write-a-custom-workflow-template.md
       - Errors:
         - Error messages: references/extend/errors/customize-authentication-error-messages.md
         - Error Pages: references/extend/errors/customize-error-pages.md
@@ -673,6 +690,7 @@ nav:
       - REST API error catalog: references/error-catalog.md
     - Adaptive Authentication JS API: references/adaptive-authentication-js-api-reference.md
     - Scopes for REST APIs: references/scopes-corresponding-to-rest-api-permissions.md
+    - Permissions for Admin Services: references/permissions-required-to-invoke-admin-services.md
     - IAM Topics:
       - Evolution of Identity Federation Standards: references/evolution-of-identity-federation-standards.md
       - Authentication:
@@ -814,13 +832,13 @@ plugins:
               'learn/configuring-admin-initiated-account-locking.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/lock-account/'
               'learn/configuring-account-locking-due-to-failed-login-attempts.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/lock-accounts-by-failed-login-attempts/'
               'learn/configuring-account-disabling.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/enable-account/'
-              'learn/pending-account-status.md': '/identity-lifecycles/pending-account-status/'
+              'learn/pending-account-status.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/pending-account-status/'
               'learn/configuring-single-sign-on-saml.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/sso-for-saml/'
               'learn/configuring-single-sign-on-oidc.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/sso-for-oidc/'
               'learn/configuring-single-sign-on-wsfed.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/configuring-access-delegation-with-oauth2.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/configuring-access-delegation-with-uma.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/uma/'
-              'learn/provisioning-tutorials.md': 'guides/identity-lifecycles/provisioning-overview/'
+              'learn/provisioning-tutorials.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/provisioning-overview/'
               'learn/configuring-inbound-provisioning.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/inbound-provisioning/'
               'learn/configuring-outbound-provisioning.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/outbound-provisioning/'
               'learn/provisioning-users-to-salesforce.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/outbound-provisioning-with-salesforce/'
@@ -833,21 +851,21 @@ plugins:
               'learn/exporting-user-info-to-salesforce.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/sync-with-salesforce/'
               'learn/exporting-user-info-to-sendgrid.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/sync-with-sendgrid/'
               'learn/exporting-user-info-to-zoho.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/sync-with-zoho/'
-              'learn/configuring-multifactor-authentication.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/configuring-multifactor-authentication.md': 'https://is.docs.wso2.com/en/6.0.0/guides/mfa/mfa-overview/'
               'learn/fine-grained-authorization-with-xacml.md': 'https://is.docs.wso2.com/en/6.0.0/guides/authorization/fine-grained-auth-xacml/'
               'learn/configuring-multi-tenancy.md': 'https://is.docs.wso2.com/en/6.0.0/guides/tenants/tenant-mgt/'
-              'learn/configuring-identity-analytics.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/configuring-identity-analytics.md': 'https://is.docs.wso2.com/en/6.0.0/guides/elk-analytics/elk-analytics/'
               'learn/web-analytics-solutions.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/single-sign-on/'
               'learn/configuring-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/enable-single-sign-on/'
               'learn/configuring-recaptcha-for-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/configure-recaptcha-for-single-sign-on/'
               'learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/saml-2.0-web-sso/': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/saml-2.0-web-sso/': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
               'learn/configuring-saml2-web-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
               'learn/querying-saml-assertions.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/query-saml-assertions/'
               'learn/configuring-saml-2.0-artifact-binding.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/use-artifact-binding/'
               'learn/ws-trust.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/authentication/intro-ws-trust/'
-              'learn/configuring-ws-trust-security-token-service.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/configuring-ws-trust-security-token-service.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/authentication/intro-ws-trust/'
               'learn/ws-federation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/authentication/intro-ws-federation/'
               'learn/configuring-ws-federation-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/webapp-ws-federation/'
               'learn/integrated-windows-authentication-overview.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/integrated-windows-authentication-overview/'
@@ -876,7 +894,7 @@ plugins:
               'learn/configuring-office365-saml2-with-wso2-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/log-into-office365saml-using-is/'
               'learn/configuring-office365-saml2-with-wso2-identity-server-for-multiple-domains.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/log-into-office365saml-multiple-domains/'
               'learn/configuring-office365-ws-federation-with-wso2-is.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/log-into-office365-using-wsfed/'
-              'learn/configuring-on-demand-provisioning-with-azure-ad.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/configuring-on-demand-provisioning-with-azure-ad.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/configure-on-demand-provisioning-with-azure-ad/'
               'learn/logging-in-to-office365-with-ws-federation.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/log-into-office365-using-wsfed/'
               'learn/configuring-azure-active-directory-to-trust-wso2-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/log-into-office365-using-wsfed/'
               'learn/configuring-office-365-ws-federation-with-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/log-into-office365-using-wsfed/'
@@ -913,9 +931,9 @@ plugins:
               'learn/configuring-login-attempts-based-adaptive-authentication.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/login-attempts-based-adaptive-auth/'
               'learn/adaptive-authentication-with-function-library.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/adaptive-auth-with-function-lib-sample/'
               'learn/limiting-active-user-sessions-based-on-criteria.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/limiting-active-sessions-adaptive-auth/'
-              'learn/using-wso2-is-analytics-for-adaptive-authentication.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/using-opa-policies-for-adaptive-auth.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/working-with-acr-and-amr.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/using-wso2-is-analytics-for-adaptive-authentication.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/using-elk-analytics-for-adaptive-authentication/'
+              'learn/using-opa-policies-for-adaptive-auth.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/adaptive-auth-overview/'
+              'learn/working-with-acr-and-amr.md': 'https://is.docs.wso2.com/en/6.0.0/guides/adaptive-auth/acr-based-adaptive-auth/'
               'learn/configuring-federated-authentication.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/identity-federation-overview/'
               'learn/configuring-saml-2.0-web-sso.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
               'learn/configuring-oauth2-openid-connect.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-oauth2-openid-connect/'
@@ -933,7 +951,7 @@ plugins:
               #'learn/accessing-claim-aware-services-using-sts-secured-with-non-repudiation.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/requesting-and-renewing-received-saml2-bearer-type-tokens.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/configuring-saml2-single-sign-on-across-different-wso2-products.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/client-side-support-for-saml-artifact-binding.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/client-side-support-for-saml-artifact-binding.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/authentication/saml2-artifact-binding/'
               'learn/eidas-saml-attribute-profile-support-via-wso2-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/handling-saml-single-logout-requests-from-federated-identity-providers.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/access-control.md': 'https://is.docs.wso2.com/en/6.0.0/guides/authorization/overview/'
@@ -1074,7 +1092,7 @@ plugins:
               'learn/configuring-just-in-time-provisioning-consent-purposes.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/resident-jit-consent/'
               'learn/customizing-just-in-time-provisioning-user-interfaces.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/jit-workflow/'
               'learn/configuring-outbound-provisioning-connectors-for-an-identity-provider.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/outbound-provisioing-idp/'
-              'learn/authentication-session-persistence.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/authentication-session-persistence.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/session-persistence'
               'learn/configuring-session-timeout.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/session-timeout'
               'learn/configuring-a-sp-and-idp-using-service-calls.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/delegated-access-control.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/access-delegation/'
@@ -1103,7 +1121,7 @@ plugins:
               'learn/private-key-jwt-client-authentication-for-oidc.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/private-key-jwt-client-authentication-for-oidc/'
               'learn/mutual-tls-for-oauth-clients.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/mutual-tls-client-auth.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/microprofile-jwt-1.0-support-for-is.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'learn/microprofile-jwt-1.0-support-for-is.md': 'https://is.docs.wso2.com/en/6.0.0/guides/access-delegation/microprofile-jwt-sample/'
               'learn/running-the-mp-jwt-sample.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/validating-jwt-based-on-jwks.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/validate-jwt-using-jwks/'
               'learn/issuing-new-tokens-per-request.md': 'https://is.docs.wso2.com/en/6.0.0/'
@@ -1219,7 +1237,7 @@ plugins:
               'develop/oidc-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oidc-scope-management-rest-apis/'
               'develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/'
               'develop/permission-management-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/permission-management-rest-api/'
-              'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-personal-information-export-rest-apis/'
+              'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-self-sign-up-rest-apis/#/User%20Export/'
               'develop/scim-1.1-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim-1.1-apis/'
               'develop/scim2-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim2-rest-apis/'
               'develop/scim2-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim2-rest-apis/'
@@ -1257,7 +1275,7 @@ plugins:
               'develop/customizing-the-authentication-endpoint.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/customize-the-authentication-endpoint/'
               'develop/localization-support-in-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/localization-support-in-identity-server/'
               'develop/hosting-authentication-endpoint-on-a-different-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/host-authentication-endpoint-on-a-different-server/'
-              'develop/setting-up-my-account-in-a-dev-environment.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/myaccount/set-up-my-account-in-a-dev-environment/'
+              'develop/setting-up-my-account-in-a-dev-environment.md': 'https://github.com/wso2/identity-apps/tree/v1.4.28#build--run'
               'develop/customizing-my-account-ui.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/myaccount/customize-my-account-ui/'
               'develop/configure-my-account.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/myaccount/configure-my-account/'
               'setup/installing-the-product.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/get-started/install/'
@@ -1287,8 +1305,8 @@ plugins:
               'setup/changing-to-remote-h2.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/change-to-remote-h2/'
               'setup/changing-datasource-bpsds.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/change-datasource-bpsds/'
               'setup/changing-datasource-consent-management.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/change-datasource-consent-management/'
-              'setup/working-with-users-roles-and-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'setup/introduction-to-user-management.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'setup/working-with-users-roles-and-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/user-management/roles-and-permissions/'
+              'setup/introduction-to-user-management.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-lifecycles/user-management/'
               'setup/configuring-the-realm.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-the-realm/'
               'setup/configuring-the-authorization-manager.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-the-authorization-manager/'
               'setup/configuring-the-system-administrator.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-the-system-administrator'
@@ -1352,8 +1370,8 @@ plugins:
               'administer/service-provider-related-tables.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/service-provider-related-tables/'
               'administer/identity-provider-related-tables.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/identity-provider-related-tables/'
               'administer/using-tools.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/using-the-xacml-tryit-tool.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/evaluating-a-xacml-policy.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'administer/using-the-xacml-tryit-tool.md': 'https://is.docs.wso2.com/en/6.0.0/guides/authorization/xacml-tryittool-overview/'
+              'administer/evaluating-a-xacml-policy.md': 'https://is.docs.wso2.com/en/6.0.0/guides/authorization/evaluate-a-xacml-policy/'
               'setup/removing-references-to-deleted-user-identities-in-wso2-products.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/remove-references-to-deleted-user-identities/'
               'administer/extending-the-identity-anonymization-tool.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'administer/working-with-multiple-tenants.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/introduction-to-multitenancy/'
@@ -1370,40 +1388,40 @@ plugins:
               'administer/configuring-hazelcast.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-hazelcast'
               'administer/load-balancing.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'administer/sticky-sessions-with-manager-nodes.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/deployment-checklist.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/backup-and-recovery-recommendations.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/security-guidelines-for-production-deployment.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/product-level-security-guidelines.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/os-level-security-guidelines.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/network-level-security-guidelines.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/using-asymmetric-encryption.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/creating-new-keystores.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/configuring-keystores-in-wso2-products.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/renewing-a-ca-signed-certificate-in-a-keystore.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/managing-keystores-with-the-ui.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/adding-multiple-keys-to-the-primary-keystore.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/symmetric-overview.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/using-symmetric-encryption.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/blue-green-data-encryption-keyrotation.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/mitigating-cross-site-request-forgery-attacks.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/mitigating-authorization-code-interception-attacks.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/mitigating-brute-force-attacks.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/samesite-attribute-support.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/enabling-hostname-verification.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/configuring-tls-termination.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'administer/getting-wso2-updates.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              'administer/deployment-checklist.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/deployment-checklist/'
+              'administer/backup-and-recovery-recommendations.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/backup-and-recovery-recommendations/'
+              'administer/security-guidelines-for-production-deployment.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/security-guidelines-for-production-deployment/'
+              'administer/product-level-security-guidelines.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/product-level-security-guidelines/'
+              'administer/os-level-security-guidelines.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/os-level-security-guidelines/'
+              'administer/network-level-security-guidelines.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/network-level-security-guidelines/'
+              'administer/using-asymmetric-encryption.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/use-asymmetric-encryption/'
+              'administer/creating-new-keystores.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/create-new-keystores/'
+              'administer/configuring-keystores-in-wso2-products.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/configure-keystores-in-wso2-products/'
+              'administer/renewing-a-ca-signed-certificate-in-a-keystore.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/renew-a-ca-signed-certificate-in-a-keystore/'
+              'administer/managing-keystores-with-the-ui.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/manage-keystores-with-the-ui/'
+              'administer/adding-multiple-keys-to-the-primary-keystore.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/add-multiple-keys-to-the-primary-keystore/'
+              'administer/symmetric-overview.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/symmetric-overview/'
+              'administer/using-symmetric-encryption.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/use-symmetric-encryption/'
+              'administer/blue-green-data-encryption-keyrotation.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/security/blue-green-data-encryption-keyrotation/'
+              'administer/mitigating-cross-site-request-forgery-attacks.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks/'
+              'administer/mitigating-authorization-code-interception-attacks.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks/'
+              'administer/mitigating-brute-force-attacks.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/mitigate-attacks/mitigate-brute-force-attacks/'
+              'administer/samesite-attribute-support.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/samesite-attribute-support/'
+              'administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks/'
+              'administer/enabling-hostname-verification.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/enable-hostname-verification/'
+              'administer/configuring-tls-termination.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-tls-termination/'
+              'administer/getting-wso2-updates.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/get-started/get-wso2-updates/'
               'compliance/general-data-protection-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/gdpr/'
               'compliance/electronic-identification-authentication-and-trust-services-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/eidas/'
               'compliance/california-consumer-privacy-act.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/ccpa/'
-              'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
+              #'references/permissions-required-to-invoke-admin-services.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'
-              'references/error-catalog.md': 'https://is.docs.wso2.com/en/6.0.0/references/error-catalog/'
+              #'references/error-catalog.md': 'https://is.docs.wso2.com/en/6.0.0/references/error-catalog/'
               'references/supported-cipher-suites.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/wso2-patch-application-process.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'references/scopes-corresponding-to-api-permissions.md': 'https://is.docs.wso2.com/en/6.0.0/references/scopes-corresponding-to-rest-api-permissions'
               #'get-started/quick-start-guide.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/sample-use-cases/sample-scenario/'
-              'get-started/overview.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/quick-start-guide'
+              #'get-started/overview.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/quick-start-guide'
               'get-started/architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/architecture/'
               'get-started/provisioning-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/provisioning-architecture/'
               'get-started/user-management-architecture.md': 'https://is.docs.wso2.com/en/6.0.0/references/architecture/user-management-architecture/'
@@ -1414,6 +1432,7 @@ plugins:
               'get-started/access-control-and-entitlement-management.md': 'https://is.docs.wso2.com/en/6.0.0/guides/authorization/access-mgt/'
               'get-started/identity-anti-patterns-and-the-identity-bus.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/identity-anti-patterns-and-the-identity-bus/'
               'get-started/cross-protocol-single-logout.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/cross-protocol-logout/'
+              'get-started/sample-use-cases/workflows.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/sample-use-cases/sample-scenario/'
            
 # Extra
 extra_css:

@@ -2,252 +2,41 @@
 
 You can perform data purging by clearing the session data using the script given below. WSO2 Identity Server stores session data for authentication purposes. As the volume of the data stored grows over time, the authentication operations may also eventually consume more time. It is highly recommended to perform data purging on production servers to mitigate this.
 
-<!--!!! info 
-    For more information about session persistence, see [Authentication Session Persistence](TBD:{{base_path}}/learn/authentication-session-persistence).-->
+For more information about session persistence, see [Authentication Session Persistence]({{base_path}}/guides/login/authentication-session-persistence).
 
 !!! tip
-    It is recommended to run these steps at the time where server traffic is low. Especially, if you are running this in the production environment for the first time, since the data volume to be purged may be higher. However, consider this as a housekeeping task that needs to be run at regular intervals. 
-    If you are doing this for the very first time on the production system, begin with step 1. This is done as a best practice for introducing changes. Otherwise, you can skip the backup and verification steps, and schedule the aforementioned queries to be run at regular intervals.
+    It is recommended to run these steps at a time when the server traffic is low. Especially if you are running this in the production environment for the first time, since the data volume to be purged may be higher. However, consider this as a housekeeping task that needs to be run at regular intervals. 
+    You can schedule the aforementioned queries to be run at regular intervals.
     
 
-1.  Take a backup of the running database.
-2.  Set up the database dump in a test environment and test it for any
-    issues. For more information on setting up a database dump, refer
-    [MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax)
-   , [SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server)
-   , and
-    [Oracle](https://docs.oracle.com/cd/E11882_01/backup.112/e10642/rcmbckba.htm#BRADV8138)
+1. Disable the internal session cleanup process by configuring the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
-    !!! tip
-        We recommend that you test the database dump before the cleanup task as the cleanup can take some time.
+    ```toml
+    [session_data.cleanup]
+    enable_expired_data_cleanup = false
+    clean_logged_out_sessions_at_immediate_cycle = false
+    enable_pre_session_data_cleanup = false
     
+    ```
 
-3.  To clean the session and operation data that are stored in the `IDN_AUTH_SESSION_STORE` table, run the following script on the database dump. 
+2. To clean the session and operation data that are stored in the `IDN_AUTH_SESSION_STORE` table, run the required database script on the database based on the database type. 
 
     !!! note
-        This script clears session data that are older than the last 14 days and operational data that are older than the last 6 hours.
-
-    ??? tip "Click to view the MySQL script" 
-    
-        ``` sql tab="MySQL"
-        DROP PROCEDURE IF EXISTS `CLEANUP_SESSION_DATA`;
-
-        DELIMITER $$
-
-        CREATE PROCEDURE `CLEANUP_SESSION_DATA`()
-          BEGIN
-
-            -- ------------------------------------------
-            -- DECLARE VARIABLES
-            -- ------------------------------------------
-            DECLARE deletedSessions INT;
-            DECLARE deletedStoreOperations INT;
-            DECLARE deletedDeleteOperations INT;
-            DECLARE tracingEnabled BOOLEAN;
-            DECLARE sleepTime FLOAT;
-            DECLARE batchSize INT;
-            DECLARE chunkLimit INT;
-
-            DECLARE sessionCleanUpTempTableCount INT;
-            DECLARE operationCleanUpTempTableCount INT;
-            DECLARE cleanUpCompleted BOOLEAN;
-
-            -- ------------------------------------------
-            -- CONFIGURABLE VARIABLES
-            -- ------------------------------------------
-
-            SET batchSize = 5000;
-            -- This defines the number of entries from IDN_AUTH_SESSION_STORE that are taken into a SNAPSHOT
-            SET chunkLimit=1000000;
-            SET @deletedSessions = 0;
-            SET @deletedStoreOperations = 0;
-            SET @deletedDeleteOperations = 0;
-            SET @sessionCleanupCount = 1;
-            SET @operationCleanupCount = 1;
-            SET tracingEnabled = FALSE; -- SET IF TRACE LOGGING IS ENABLED [DEFAULT : FALSE]
-            SET sleepTime = 2;          -- Sleep time in seconds.
-            SET autocommit = 0;
-
-            SET @sessionCleanUpTempTableCount = 1;
-            SET @operationCleanUpTempTableCount = 1;
-            SET cleanUpCompleted = FALSE;
-
-            -- Session data older than 20160 minutes(14 days) will be removed.
-            SET @sessionCleanupTime = unix_timestamp()*1000000000 - (20160*60000000000);
-            -- Operational data older than 720 minutes(12 h) will be removed.
-            SET @operationCleanupTime = unix_timestamp()*1000000000 - (720*60000000000);
-
-            SET @OLD_SQL_SAFE_UPDATES = @@SQL_SAFE_UPDATES;
-            SET SQL_SAFE_UPDATES = 0;
-
-            -- ------------------------------------------
-            -- REMOVE SESSION DATA
-            -- ------------------------------------------
-
-            SELECT 'CLEANUP_SESSION_DATA() STARTED .... !' AS 'INFO LOG', NOW() AS 'STARTING TIMESTAMP';
-
-
-            -- CLEANUP ANY EXISTING TEMP TABLES
-            DROP TABLE IF EXISTS IDN_AUTH_SESSION_STORE_TMP;
-            DROP TABLE IF EXISTS TEMP_SESSION_BATCH;
-            COMMIT;
-
-            -- RUN UNTILL
-            WHILE (@sessionCleanUpTempTableCount > 0) DO
-
-              CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_STORE_TMP AS SELECT SESSION_ID FROM IDN_AUTH_SESSION_STORE where TIME_CREATED < @sessionCleanupTime limit chunkLimit;
-              CREATE INDEX idn_auth_session_tmp_idx on IDN_AUTH_SESSION_STORE_TMP (SESSION_ID);
-              COMMIT;
-
-              SELECT count(1) INTO @sessionCleanUpTempTableCount FROM IDN_AUTH_SESSION_STORE_TMP;
-              SELECT 'TEMPORARY SESSION CLEANUP TASK SNAPSHOT TABLE CREATED...!!' AS 'INFO LOG', @sessionCleanUpTempTableCount;
-
-              SET @sessionCleanupCount = 1;
-              WHILE (@sessionCleanupCount > 0) DO
-
-                CREATE TABLE IF NOT EXISTS TEMP_SESSION_BATCH AS SELECT SESSION_ID FROM IDN_AUTH_SESSION_STORE_TMP LIMIT batchSize;
-                COMMIT;
-
-                DELETE A
-                FROM IDN_AUTH_SESSION_STORE AS A
-                  INNER JOIN TEMP_SESSION_BATCH AS B ON
-                                                       A.SESSION_ID = B.SESSION_ID;
-                SET @sessionCleanupCount = row_count();
-                COMMIT;
-
-                SELECT 'DELETED SESSION COUNT...!!' AS 'INFO LOG', @sessionCleanupCount;
-
-
-                DELETE A
-                FROM IDN_AUTH_SESSION_STORE_TMP AS A
-                  INNER JOIN TEMP_SESSION_BATCH AS B
-                    ON A.SESSION_ID = B.SESSION_ID;
-                COMMIT;
-                SELECT 'END CLEANING UP IDS FROM TEMP SESSION DATA SNAPSHOT TABLE...!!' AS 'INFO LOG' ;
-
-                DROP TABLE TEMP_SESSION_BATCH;
-                COMMIT;
-
-                IF (tracingEnabled) THEN SET
-                @deletedSessions = @deletedSessions + @sessionCleanupCount;
-                  SELECT 'REMOVED SESSIONS: ' AS 'INFO LOG', @deletedSessions AS 'NO OF DELETED ENTRIES', NOW() AS 'TIMESTAMP';
-                END IF;
-
-                DO SLEEP(sleepTime);
-                -- Sleep for some time letting other threads to run.
-              END WHILE;
-
-              -- DROP THE CHUNK TO MOVE ON TO THE NEXT CHUNK IN THE SNAPSHOT TABLE.
-              DROP TABLE IF EXISTS IDN_AUTH_SESSION_STORE_TMP;
-              COMMIT;
-
-            END WHILE;
-
-            IF (tracingEnabled)
-            THEN
-              SELECT 'SESSION RECORDS REMOVED FROM IDN_AUTH_SESSION_STORE: ' AS 'INFO LOG', @deletedSessions AS 'TOTAL NO OF DELETED ENTRIES', NOW() AS 'COMPLETED_TIMESTAMP';
-            END IF;
-
-            SELECT 'SESSION_CLEANUP_TASK ENDED .... !' AS 'INFO LOG';
-
-            -- --------------------------------------------
-            -- REMOVE OPERATIONAL DATA
-            -- --------------------------------------------
-
-            SELECT 'OPERATION_CLEANUP_TASK STARTED .... !' AS 'INFO LOG', NOW() AS 'STARTING TIMESTAMP';
-            SELECT 'BATCH DELETE STARTED .... ' AS 'INFO LOG';
-
-            DROP TABLE IF EXISTS IDN_AUTH_SESSION_STORE_TMP;
-            DROP TABLE IF EXISTS TEMP_SESSION_BATCH;
-            COMMIT;
-
-            WHILE (@operationCleanUpTempTableCount > 0) DO
-
-              CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_STORE_TMP AS SELECT SESSION_ID, SESSION_TYPE FROM IDN_AUTH_SESSION_STORE WHERE OPERATION = 'DELETE' AND TIME_CREATED < @operationCleanupTime limit chunkLimit;
-              CREATE INDEX idn_auth_session_tmp_idx on IDN_AUTH_SESSION_STORE_TMP (SESSION_ID);
-              COMMIT;
-
-              SELECT count(1) INTO @operationCleanUpTempTableCount FROM IDN_AUTH_SESSION_STORE_TMP;
-              SELECT 'TEMPORARY OPERATION CLEANUP SNAPSHOT TABLE CREATED...!!' AS 'INFO LOG', @operationCleanUpTempTableCount;
-
-              SET @operationCleanupCount = 1;
-              WHILE (@operationCleanupCount > 0) DO
-
-                CREATE TABLE IF NOT EXISTS TEMP_SESSION_BATCH AS SELECT SESSION_ID, SESSION_TYPE FROM IDN_AUTH_SESSION_STORE_TMP LIMIT batchSize;
-                COMMIT;
-
-                DELETE A
-                FROM IDN_AUTH_SESSION_STORE AS A
-                  INNER JOIN TEMP_SESSION_BATCH AS B
-                    ON A.SESSION_ID = B.SESSION_ID
-                       AND A.SESSION_TYPE = B.SESSION_TYPE;
-                SET @operationCleanupCount = row_count();
-                COMMIT;
-
-                SELECT 'DELETED STORE OPERATIONS COUNT...!!' AS 'INFO LOG', @operationCleanupCount ;
-
-                IF (tracingEnabled)
-                THEN
-                  SET @deletedDeleteOperations = @operationCleanupCount + @deletedDeleteOperations;
-                  SELECT 'REMOVED DELETE OPERATION RECORDS: ' AS 'INFO LOG', @deletedDeleteOperations AS 'NO OF DELETED DELETE ENTRIES', NOW() AS 'TIMESTAMP';
-                END IF;
-
-
-                DELETE A
-                FROM IDN_AUTH_SESSION_STORE_TMP AS A
-                  INNER JOIN TEMP_SESSION_BATCH AS B
-                    ON A.SESSION_ID = B.SESSION_ID;
-                COMMIT;
-
-                SELECT 'ENDED CLEANING UP IDS FROM TEMP OPERATIONAL DATA SNAPSHOT TABLE...!!' AS 'INFO LOG' ;
-
-                IF (tracingEnabled)
-                THEN
-                  SET @deletedStoreOperations = @operationCleanupCount + @deletedStoreOperations;
-                  SELECT 'REMOVED STORE OPERATION RECORDS: ' AS 'INFO LOG', @deletedStoreOperations AS 'NO OF DELETED STORE ENTRIES', NOW() AS 'TIMESTAMP';
-                END IF;
-
-                DROP TABLE TEMP_SESSION_BATCH;
-                COMMIT;
-                DO SLEEP(sleepTime);   -- Sleep for some time letting other threads to run.
-              END WHILE;
-
-              DROP TABLE IF EXISTS IDN_AUTH_SESSION_STORE_TMP;
-              COMMIT;
-            END WHILE;
-
-            SELECT 'FLAG SET TO INDICATE END OF CLEAN UP TASK...!!' AS 'INFO LOG' ;
-
-            IF (tracingEnabled)
-            THEN
-              SELECT 'STORE OPERATION RECORDS REMOVED FROM IDN_AUTH_SESSION_STORE: ' AS 'INFO LOG', @deletedStoreOperations  AS 'TOTAL NO OF DELETED STORE ENTRIES', NOW() AS 'COMPLETED_TIMESTAMP';
-              SELECT 'DELETE OPERATION RECORDS REMOVED FROM IDN_AUTH_SESSION_STORE: ' AS 'INFO LOG', @deletedDeleteOperations AS 'TOTAL NO OF DELETED DELETE ENTRIES', NOW() AS 'COMPLETED_TIMESTAMP';
-            END IF;
-
-            SET SQL_SAFE_UPDATES = @OLD_SQL_SAFE_UPDATES;
-
-            SELECT 'CLEANUP_SESSION_DATA() ENDED .... !' AS 'INFO LOG', NOW() AS 'ENDING TIMESTAMP';
-
-          END$$
-
-        DELIMITER ;
-        ```
+        This script clears session data after 2 hours of expiry.
 
     !!! info
-
-        - For DB2, MySQL, Oracle, and Postgre database scripts, see [Stored Procedures](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures).
+        - The database scripts for [DB2](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/db2/sessiondata-cleanup/), [MSSQL](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mssql/sessiondata-cleanup/), [MySQL](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/sessiondata-cleanup/), [Oracle](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/sessiondata-cleanup/), [PostgreSQL 9.X](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-9x/sessiondata-cleanup/) and [PostgreSQL 11.X](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/sessiondata-cleanup/), can be found embedded with the name itself.
         - You can change the session cleanup task in the stored procedure according to your DB policies. You can clean the session data either based on the session created time or the session expiry time. By default, the session created time is used.
         - A sample script is given below, which will clear the session data based on the `EXPIRY_TIME`.
-           
           ``` 
           INSERT INTO IDN_AUTH_SESSION_STORE_TMP (SESSION_ID) SELECT TOP (@chunkLimit) SESSION_ID FROM IDN_AUTH_SESSION_STORE 
           where EXPIRY_TIME < @sessionCleanupTime;
           ```
 
-4.  Once the cleanup is over, start WSO2 Identity Server pointing to the cleaned-up database dump and test throughly for any issues.  
-    You can also schedule a cleanup task that will be automatically run after a given period of time. 
+3. Once the cleanup is over, start the WSO2 Identity Server pointing to the cleaned-up database.  
+    You can also schedule a cleanup task that will automatically run after a given period of time. 
 
-    ??? example "Click to view an example"     
+    ??? example "Click to view an example"
 
         ``` sql tab="MySQL"
         USE `WSO2_USER_DB`;

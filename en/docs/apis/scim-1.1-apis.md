@@ -2,7 +2,7 @@
 
 !!! warning
     
-    **WSO2 recommends using** **[SCIM 2.0 APIs](scim2-rest-apis.md)** because of the following
+    **WSO2 recommends using** **[SCIM 2.0 APIs]({{base_path}}/apis/scim2-rest-apis)** because of the following
     reasons:
     
     -   SCIM 2.0 APIs provide additional methods that are not available with
@@ -38,7 +38,7 @@ exchanged and also protected with Basic Auth Authentication.
     The following requests use Basic Auth authentication to demonstrate
     sending requests to the REST endpoints of WSO2 Identity Server as a
     quick start. **In a production environment, we recommend that you use
-    OAuth Authentication instead.** For instructions, see [Setting Up Service Provider for Inbound Provisioning](../../learn/setting-up-service-provider-for-inbound-provisioning/).
+    OAuth Authentication instead.** For instructions, see [Setting Up Service Provider for Inbound Provisioning]({{base_path}}/guides/applications/inbound-provisioning-for-sp/).
 
 -   **Create User** : The following command can be used to create a
     user. In this request, authentication is done using Basic Auth and the payload is sent in JSON format adhering to the SCIM 1.1 specification. You receive a response with 201 CREATED status and the payload response as follows:

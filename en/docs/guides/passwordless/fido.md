@@ -20,7 +20,7 @@ You can configure FIDO2 passwordless login for your apps using two methods:
 - [**MFA with Security key/Biometrics**]({{base_path}}/guides/mfa/2fa-fido.md): An application user enters a username and password first. IS authenticates the user with credentials and prompts the user to use a FIDO2-supported authenticator to log in.
 
 ??? "Does your browser support your Security Key/Biometrics (FIDO) devices?"
-    You can use the https://demo.yubico.com/webauthn-technical/registration site to check the browser support for FIDO devices.
+    You can use the [Yubico](https://demo.yubico.com/webauthn-technical/registration) site to check the browser support for FIDO devices.
 
 !!! info
     - WSO2 Identity Server uses the WebAuthn API to enable FIDO-based authentication for browsers that no longer support the u2f extension.

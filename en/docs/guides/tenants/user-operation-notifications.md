@@ -1,111 +1,91 @@
 # Enabling Notifications for User Operations
 
-The primary objective of this is to send a notification to an external
-endpoint once a user operation has taken place. For example, you want to
-send an email to an email address once a new user is created or the
-password of an existing user is changed. This can be achieved by
-enabling notifications for user operations.
+This feature is used to notify an external endpoint once a user operation has occurred.
 
-The configuration differs based on the type of notifications you want to
-send to the external endpoint. The following instructions provide
-information on how to send an email when a user operation takes place.
+For example, you may want to send an email to an email address once a new user is created or the password of an existing user is changed. This can be achieved by enabling notifications for user operations.
 
-1.  Enable the email sending configurations of the WSO2 Identity Server
-    as explained [here]({{base_path}}/deploy/configure-email-sending/)
-    
-2.  Configure the
-    `           <IS_HOME>/repository/conf/identity/msg-mgt.properties          `
-    file with the desired destination configurations and template
-    configurations. The following is a sample configuration for sending
-    an email to an email address on user operation event.
+The configuration differs based on the type of notifications you want to send to the external endpoint. The following instructions provide information on how to send an email when a user operation takes place.
 
-    For example user operations can be account recovery, account
-    locking/disabling, ask password.
+## Prerequisites
+You need to configure the [email sending module]({{base_path}}/deploy/configure-email-sending/#configure-the-email-sender-globally) in the `deployment.toml` file.
 
-    ``` java
-    module.name.1=email
-    email.subscription.1=userOperation
-    email.subscription.userOperation.template=/home/user/Desktop/johnsmith (If you are using windows machine the path would be C:\Users\Administrator\Desktop\johnsmith)
-    email.subscription.userOperation.salutation=Admin
-    email.subscription.userOperation.subject=User operation change information
-    email.subscription.userOperation.endpoint.1=privateMail
-    email.subscription.userOperation.endpoint.privateMail.address=receiver@gmail.com
-    email.subscription.userOperation.endpoint.privateMail.salutation=Admin private mail
-    email.subscription.userOperation.endpoint.privateMail.subject=User operation change information to private mail
-    ```
+## Add the email notification handler
+To add the email notification handler onto the WSO2 IS pack:
 
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Property</th>
-    <th>Description</th>
+1. Download the [Email Notification Handler](https://store.wso2.com/store/assets/isconnector/details/959b792a-efce-4b12-af9b-4744c650f6b2).
+
+2. Add the downloaded `org.wso2.carbon.identity.notification.mgt.email-x.x.x.jar` file into the `<IS_HOME>/repository/components/dropins` directory.
+
+## Configure the notification management framework
+
+Configure the `<IS_HOME>/repository/conf/identity/msg-mgt.properties` file with the desired destination and template configurations.
+
+The following is a sample configuration for sending an email to an email address on a user operation event.
+
+For example, user operations can include profile updates, account recovery, account locking/disabling, and asking for passwords.
+
+```
+module.name.1=email
+email.subscription.1=userOperation
+email.subscription.userOperation.template=/home/user/Desktop/user-operation-notification-template
+# (If you are using a windows machine, the path would be C:\Users\Administrator\Desktop\user-operation-notification-template)
+email.subscription.userOperation.subject=User operation change information
+email.subscription.userOperation.endpoint.1=privateMail
+email.subscription.userOperation.endpoint.privateMail.address=receiver@gmail.com
+email.subscription.userOperation.endpoint.privateMail.salutation=Admin privateMail
+email.subscription.userOperation.endpoint.privateMail.subject=User operation change information to private mail
+```
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Description</th>
+        <th>Sample Value</th>
     </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><code>               module.name.1=email              </code></td>
-    <td>By defining this property, you can register the email sending module in the Notification-Mgt framework, so that the email sending module acts as a listener.</td>
+    <tr>
+        <td><code>module.name.1</code></td>
+        <td>This property is used to register the email-sending module in the notification management framework. </td>
+        <td><code>email</code></td>
     </tr>
-    <tr class="even">
-    <td><code>               email.subscription.1              </code></td>
-    <td>The first subscription by the email module is ' <code>               userOperation              </code> '. When a user operation happens, an event is triggered from the system. From this configuration you can make the email module to subscribe for that particular event and send an email on events. You can define this subscription name as <code>               userOperation              </code> (you must use this since this is the name of the event that is published by the publishing party) and from this point onwards you will be using <code>               email.subscription.userOperation              </code> as the prefix for properties relevant to this subscription.</td>
+    <tr>
+        <td><code>email.subscription.1</code></td>
+        <td>This property is used to identify when an email notification should be sent. The sample value is <code>userOperation</code>, which means that when a user operation happens, an event is triggered, and an email will be sent.</td>
+        <td><code>userOperation</code></td>
     </tr>
-    <tr class="odd">
-    <td><code>               email.subscription.userOperation.template              </code></td>
-    <td><div class="content-wrapper">
-    <p>This is the template for the email. You can configure your template such that it has placeholders. These placeholders are replaced with dynamic values that are coming from the event or you can define values for these placeholders using your configurations.</p>
-    <p>The following is a sample email template with placeholders.</p>
-    <div class="panel" style="background-color: White;border-width: 1px;">
-    <div class="panelContent" style="background-color: White;">
-    <p>Hi {username}</p>
-    <p>This is a test mail to your private mail. The operation occurred was: {operation}.</p>
-    </div>
-    </div>
-    <p>The following are the dynamic data used in the user operation event.</p>
-    <p>- operation: The type of user operation that took place.<br />
-    - username: The username of the user that is subject to the information change.</p>
-    </div></td>
+    <tr>
+        <td><code>email.subscription.userOperation.template</code></td>
+        <td>This property is used to locate the email template file. The email template file can have any file extension. Following is an example email template with placeholders which will be replaced with dynamic values that are coming from the event:<br>
+        <code>Hi {username} <br>This is a test mail to your private mail. The operation occurred was: {operation}.</code</td>
+        <td><code>/home/wso2/user-event</code></td>
     </tr>
-    <tr class="even">
-    <td><code>               email.subscription.userOperation.salutation              </code></td>
-    <td><div class="content-wrapper">
-    <p>This property can be used to replace a placeholder in the email template. In this particular scenario, this property has no value or usage since there is no place holder for this. Supposing you had a template like the following, this value replaces the placeholder of {salutation}.</p>
-    <div class="panel" style="background-color: White;border-width: 1px;">
-    <div class="panelContent" style="background-color: White;">
-    <p>Hi {salutation}</p>
-    <p>This is a test mail to your private mail. The operation occurred was: {operation}</p>
-    </div>
-    </div>
-    </div></td>
+        <tr>
+        <td><code>email.subscription.userOperation.salutation</code></td>
+        <td>This property is used to predefine the email's salutation. If you are using this property, you should change the <code>{username}</code> placeholder to <code>{salutation}</code> in the email template.</td>
+        <td><code>Admin</code></td>
     </tr>
-    <tr class="odd">
-    <td><code>               email.subscription.userOperation.subject              </code></td>
-    <td>This is a module specific property and is specific to the email module. You can define the subject of the mail using this property. Now you are done with subscription level configurations and progressing towards defining endpoint information.</td>
+    <tr>
+        <td><code>email.subscription.userOperation.subject</code></td>
+        <td>This property is used to define the email's subject.</td>
+        <td><code>User operation change information</code></td>
     </tr>
-    <tr class="even">
-    <td><code>               email.subscription.userOperation.endpoint.1              </code></td>
-    <td>This is the first endpoint definition for the <code>               userOperation              </code> event subscription. From this point onwards, you are defining properties that are relevant to this endpoint. You defined the name of the first endpoint as <code>               privateMail              </code> . From this point onwards you must use <code>               email.subscription.userOperation.endpoint.privateMail              </code> as the prefix for properties relevant to this endpoint.</td>
+    <tr>
+        <td><code>email.subscription.userOperation.endpoint.1</code></td>
+        <td>This property is used to name the endpoint to which the emails will be sent.</td>
+        <td><code>privateMail</code></td>
     </tr>
-    <tr class="odd">
-    <td><code>               email.subscription.userOperation.endpoint.privateMail.address              </code></td>
-    <td>This is an endpoint configuration that is used to define the email address.</td>
+    <tr>
+        <td><code>email.subscription.userOperation.endpoint.privateMail.address</code></td>
+        <td>This property is used to add the email address of the email receiver of the endpoint defined in the <code>email.subscription.userOperation.endpoint.1</code> property.</td>
+        <td><code>reciever@gmail.com</code></td>
     </tr>
-    <tr class="even">
-    <td><code>               email.subscription.userOperation.endpoint.privateMail.salutation              </code></td>
-    <td><div class="content-wrapper">
-    <p>This is an endpoint level configuration and the same as the property “ <code>                 email.subscription.userOperation.salutation=Admin                </code> ”.</p>
-    <p>This property can be used to replace a placeholder in email template. In the scenario mentioned in this topic, this property has no value or usage since there is no placeholder for this. Suppose we had a template like following, this value replaces the placeholder of {salutation}.</p>
-    <div class="panel" style="background-color: White;border-width: 1px;">
-    <div class="panelContent" style="background-color: White;">
-    <p>Hi {salutation}</p>
-    <p>This is a test mail to your private mail. The operation occurred was: {operation}</p>
-    </div>
-    </div>
-    </div></td>
+    <tr>
+        <td><code>email.subscription.userOperation.endpoint.privateMail.salutation</code></td>
+        <td>This property is used to predefine the salutation of the email for the endpoint defined in the <code>email.subscription.userOperation.endpoint.1</code> property. If you are using this property, you should change the <code>{username}</code> placeholder to <code>{salutation}</code> in the email template.</td>
+        <td><code>Admin privatemail</code></td>
     </tr>
-    <tr class="odd">
-    <td><code>               email.subscription.userOperation.endpoint.privateMail.subject              </code></td>
-    <td>This is an endpoint level configuration to define the subject of the email. Notice that it is possible to define the subject of the email using <code>               email.subscription.userOperation.subject=User operation change information              </code> as mentioned earlier. However, since this is a more specific level property (this is an endpoint level property and not an event level property) this overrides the previous property.</td>
+    <tr>
+        <td><code>email.subscription.userOperation.endpoint.privateMail.subject</code></td>
+        <td>This property is used to define the subject of the email specifically for the endpoint defined in the <code>email.subscription.userOperation.endpoint.1</code> property.</td>
+        <td><code>User operation change information to private mail</code></td>
     </tr>
-    </tbody>
-    </table>
+</table>

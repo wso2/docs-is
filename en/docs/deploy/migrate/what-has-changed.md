@@ -8,7 +8,7 @@ This page provides details about the behavioral changes from WSO2 Identity Serve
 
     - Changes introduced in IS 5.11.0 can be found at [What Has Changed in IS 5.11.0](https://is.docs.wso2.com/en/5.11.0/setup/migrating-what-has-changed/#what-has-changed).
     - Changes introduced in IS 5.10.0 can be found at [What Has Changed in IS 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-what-has-changed/#what-has-changed).
-    - Changes introduced in IS 5.9.0 can be found at [What Has Changed in IS 5.9.0](https://is.docs.wso2.com/en/latest/setup/migrating-what-has-changed/).
+    - Changes introduced in IS 5.9.0 can be found at [What Has Changed in IS 5.9.0](https://is.docs.wso2.com/en/5.9.0/setup/migrating-what-has-changed/).
     - Changes introduced in IS 5.8.0 and before can be found at [Migrating Configurations to IS 5.8.0](https://docs.wso2.com/display/IS580/Upgrading+From+an+Older+Version+of+WSO2+IS#UpgradingFromanOlderVersionofWSO2IS-Migratingtheconfigurations).
 
 ## Webapp
@@ -138,12 +138,39 @@ The following changes have been made to the TOTP authenticator.
 
         ``` js
         [authentication.authenticator.totp.parameters]
-        Allow_sending_verification_code_by_email = true
+        AllowSendingVerificationCodeByEmail = true
         ```
 
 !!! note
 
     The i18n keys of both OTP authenticators have been moved to the i18n property file of the authentication portal.
+
+### Authenticator Display Name
+
+From IS 6.0.0 onward the display names of some of the local authenticators and handlers were renamed. The following table maps the previous authenticator display names to the IS 6.0.0 display names.
+
+<table>
+    <tr>
+        <th>Authenticator</th>
+        <th>Previous display name</th>
+        <th>Current display name</th>
+    </tr>
+    <tr>
+        <td><code>IdentifierExecutor</code></td><td>identifier-first</td><td>Identifier First</td>
+    </tr>
+    <tr>
+        <td><code>JWTBasicAuthenticator</code></td><td>jwt-basic</td><td>JWT Basic</td>
+    </tr>
+    <tr>
+        <td><code>FIDOAuthenticator</code></td><td>fido</td><td>Security Key/Biometrics</td>
+    </tr>
+    <tr>
+        <td><code>BasicAuthenticator</code></td><td>basic</td><td>Username & Password</td>
+    </tr>
+    <tr>
+        <td><code>SessionExecutor</code></td><td>active-sessions-limit-handler</td><td>Active Sessions Limit</td>
+    </tr>
+</table>
 
 ### Adaptive Authentication Function Signature
 
@@ -431,6 +458,11 @@ Any client application that is consuming the ID token claims should be updated t
 }
 ```
 
+### Thumbprint certificate hashing algorithm
+From IS 5.10.0 onwards, the hashing algorithm used for thumbprint certificate generation is updated to `SHA-256`. For versions before IS 5.10.0, WSO2 Identity Server used `SHA-1` as the hashing algorithm for thumbprint certificate generation.
+
+Therefore, if a user is migrating from IS 5.9.0 or a lower version to IS 6.0.0, the previously issued JWTs will not be validated against the new thumbprint included in the JWKS response of the latest version.
+
 ## Claims
 This section covers the updates related to claims on Identity Server 6.0.0.
 ### Regex Pattern Validation for User Claim Input Values
@@ -532,7 +564,7 @@ This has been enabled by default in WSO2 Identity Server 6.0.0. If the previous 
 [intermediate_cert_validation]
 exempt_contexts = [“scim2”]
 ```
-Read more about [Intermediate Certificate Validation](https://is.docs.wso2.com/en/latest/develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation).
+Read more about [Intermediate Certificate Validation]({{base_path}}/apis/overview/#configure-intermediate-certificate-validation).
 
 #### Removal of Duplicate Entries in the SCIM2 Users Response
 
@@ -701,6 +733,16 @@ id = "identity/register"
 enable = true
 ```
 
+### User's Session Management APIs
+From Identity Server 6.0.0 onwards, two new API endpoints will be available to retrieve user session information.
+
+- `/{user-id}/sessions/{session-id}`: To retrieve information related to the active session given a session-id and a user-id.
+- `/sessions`: To retrieve all active sessions of the tenant. This endpoint supports filtering with some of the attributes.
+
+Read more on [User's Session Management API Definition]({{base_path}}/apis/session-mgt-rest-api/).
+
+From Identity Server 6.0.0 onwards, federated authentication sessions associated with local user sessions will be returned with the session's response.
+
 ## Database
 This section covers the updates related to database configurations on Identity Server 6.0.0.
 
@@ -714,6 +756,7 @@ Therefore, it is mandatory to migrate the existing H2 databases to the newer ver
     If you are migrating from IS 5.11.0 which is using the embedded H2 database and has been updated to update level 111 or higher, the H2 database migration need not be done as the database has already been migrated with update 111.
 
 To migrate the H2 databases to the newer versions, follow the instructions given below.
+
 1. Download the [migration.sh script](https://github.com/wso2/samples-is/blob/master/h2-migration-tool/migration.sh) and run it using the command ```sh migration.sh``.
 
     Alternatively, you could run the following command to download and run the script in one go.
@@ -759,10 +802,10 @@ In previously versions of WSO2 Identity Server, the default HTTP methods allowed
 
 In Identity Server 6.0.0, this has been changed to allow the following HTTP methods ```GET```, ```POST```, ```PUT```, ```PATCH```, ```DELETE```, ```HEAD``` and ```OPTIONS```.
 
-Learn more on [how to change the CORS configuration](https://is.docs.wso2.com/en/latest/learn/cors).
+Learn more on [how to change the CORS configuration]({{base_path}}/learn/cors).
 
 ### Log4j2 logging in Hazelcast
-If you have been using WSO2 Identity Server in a [Hazelcast cluster](https://is.docs.wso2.com/en/latest/administer/configuring-hazelcast/), you may have configured the logging type for Hazelcast as log4j ```(Log4j1)```. Log4j1 logging is no longer supported in WSO2 Identity Server.
+If you have been using WSO2 Identity Server in a [Hazelcast cluster]({{base_path}}/administer/configuring-hazelcast/), you may have configured the logging type for Hazelcast as log4j ```(Log4j1)```. Log4j1 logging is no longer supported in WSO2 Identity Server.
 
 In WSO2 Identity Server 6.0.0, the Log4j version is upgraded to ```Log4j2```. Therefore the Hazelcast configuration needs to be updated to ```log4j2``` by adding the following configuration to the ```deployment.toml``` file.
 

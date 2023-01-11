@@ -37,10 +37,10 @@ Note that there are certain second-factor authenticators that **must** be follow
 
 **Context-aware MFA**
 
-Adaptive and context-aware access management is an evolved and flexible form of MFA that enables you to only prompt extra steps of authentication based on certain conditions such as geographic location, network or IP address etc. For more information, see [Adaptive Authentication]({{base_path}}/adaptive-authentication).
+Adaptive and context-aware access management is an evolved and flexible form of MFA that enables you to only prompt extra steps of authentication based on certain conditions such as geographic location, network or IP address etc. For more information, see [Adaptive Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication).
 
 
 !!! info "Related topics"
-    - [Concept: Adaptive Authentication]({{base_path}}/adaptive-authentication)
-    - [Guide: Multi-Factor Authentication]({{base_path}}/guides/mfa/configure-authentication-journey)
+    - [Concept: Adaptive Authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication)
+    - [Guide: Multi-Factor Authentication]({{base_path}}/guides/mfa/mfa-overview/)
 

@@ -1,6 +1,6 @@
 # Permission Endpoint
  
-This document describes the purpose, parameters, and flow of the permission endpoint of the protection API in [UMA 2.0]({{base_path}}/user-managed-access). 
+This document describes the purpose, parameters, and flow of the permission endpoint of the protection API in [UMA 2.0]({{base_path}}/references/concepts/authorization//user-managed-access). 
 
 ----
 

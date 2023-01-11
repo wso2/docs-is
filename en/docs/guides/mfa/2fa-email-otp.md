@@ -10,7 +10,7 @@ This guide section helps you set up email OTP on the identity server.
 
 Setting up email OTP required the following two configurations to be made on the Identity Server:
 
-- [**Configure email sending module**](../../../deploy/configure-email-sending)
+- [**Configure email sending module**]({{base_path}}/deploy/configure-email-sending)
 - **Configure the email OTP provider**
     
     You can use any of the following methods to configure the email OTP provider:
@@ -31,19 +31,6 @@ Setting up email OTP required the following two configurations to be made on the
                     [authentication.authenticator.email_otp]
                     name ="EmailOTP"
                     enable=true
-
-                    [authentication.authenticator.email_otp.parameters]
-                    EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/authenticationendpoint/email_otp.do"
-                    EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/authenticationendpoint/email_otp_error.do"
-                    EmailAddressRequestPage = "https://localhost:9443/authenticationendpoint/email_capture.do"
-                    usecase = "local"
-                    secondaryUserstore = "primary"
-                    EMAILOTPMandatory = false
-                    sendOTPToFederatedEmailAttribute = false
-                    federatedEmailAttributeKey = "email"
-                    EmailOTPEnableByUserClaim = true
-                    CaptureAndUpdateEmailAddress = true
-                    showEmailAddressInUI = true
                     ```
 
             4. Save the configurations.
@@ -187,7 +174,7 @@ To configure email OTP as the second authentication factor:
 
     | Authentication step   | Local Authenticator   | Federated Authenticator   |
     |-----------------------|-----------------------|----------------------|
-    | First step    | `basic`   | N/A   |
+    | First step    | `Username & Password`   | N/A   |
     | Second step   | N/A   | `emailOTP`  |
 
 7. Click **Update** to save the configurations.

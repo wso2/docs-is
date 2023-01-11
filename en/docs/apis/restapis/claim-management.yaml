@@ -39,29 +39,29 @@ paths:
       - name: attributes
         in: query
         description: Define only the required attributes to be sent in the response
-          object.
+          object.  <br><b> This option is not yet supported. </b>
         schema:
           type: string
       - name: limit
         in: query
-        description: Maximum number of records to return.
+        description: Maximum number of records to return. <br><b> This option is not yet supported. </b>
         schema:
           type: integer
           format: int32
       - name: offset
         in: query
-        description: Number of records to skip for pagination.
+        description: Number of records to skip for pagination. <br><b> This option is not yet supported. </b>
         schema:
           type: integer
           format: int32
       - name: filter
         in: query
-        description: Condition to filter the retrieval of records.
+        description: Condition to filter the retrieval of records. <br><b> This option is not yet supported. </b>
         schema:
           type: string
       - name: sort
         in: query
-        description: Define the order by which the retrieved records should be sorted.
+        description: Define the order by which the retrieved records should be sorted. <br><b> This option is not yet supported. </b>
         schema:
           type: string
       responses:
@@ -287,24 +287,24 @@ paths:
       parameters:
       - name: limit
         in: query
-        description: Maximum number of records to return.
+        description: Maximum number of records to return. <br><b> This option is not yet supported. </b>
         schema:
           type: integer
           format: int32
       - name: offset
         in: query
-        description: Number of records to skip for pagination.
+        description: Number of records to skip for pagination. <br><b> This option is not yet supported. </b>
         schema:
           type: integer
           format: int32
       - name: filter
         in: query
-        description: Condition to filter the retrieval of records.
+        description: Condition to filter the retrieval of records. <br><b> This option is not yet supported. </b>
         schema:
           type: string
       - name: sort
         in: query
-        description: Define the order by which the retrieved records should be sorted.
+        description: Define the order by which the retrieved records should be sorted. <br><b> This option is not yet supported. </b>
         schema:
           type: string
       responses:
@@ -532,24 +532,24 @@ paths:
           type: string
       - name: limit
         in: query
-        description: Maximum number of records to return.
+        description: Maximum number of records to return. <br><b> This option is not yet supported. </b>
         schema:
           type: integer
           format: int32
       - name: offset
         in: query
-        description: Number of records to skip for pagination.
+        description: Number of records to skip for pagination. <br><b> This option is not yet supported. </b>
         schema:
           type: integer
           format: int32
       - name: filter
         in: query
-        description: Condition to filter the retrieval of records.
+        description: Condition to filter the retrieval of records. <br><b> This option is not yet supported. </b>
         schema:
           type: string
       - name: sort
         in: query
-        description: Define the order by which the retrieved records should be sorted.
+        description: Define the order by which the retrieved records should be sorted. <br><b> This option is not yet supported. </b>
         schema:
           type: string
       responses:

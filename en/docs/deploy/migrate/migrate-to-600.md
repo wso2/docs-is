@@ -29,7 +29,7 @@ Follow the instructions given below to migrate any component artifacts.
     2. Change the dependency versions in the relevant POM files according to the WSO2 IS version that you are upgrading to (WSO2 IS 6.0.0) and compile them. 
     
         !!! info
-            The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0-rc1/pom.xml).
+            The compatible dependency versions can be found [here](https://github.com/wso2/product-is/blob/v6.0.0/pom.xml).
 
     3. If you come across any compile time errors, refer to the WSO2 IS code base and make the necessary changes related to that particular component version.
 
@@ -871,41 +871,7 @@ These steps should be carried out for the old database before the migration. A b
         UPDATE UM_USER SET UM_USER_ID =LOWER(NEWID())  WHERE UM_USER_ID='N' ;
         ```
 
-## Step 4: (Optional) Sync DBs for Zero downtime
-
-!!! warning
-    Proceed with this step only if you have opted for [Zero down time migration]({{base_path}}/setup/migrating-preparing-for-migration/#zero-down-time-migration). 
-    
-    If not, your migration task is complete by now and you can omit the following steps.
-
-1. Start the data sync tool pointing to the `sync.properties` file:
-
-    !!! info
-        This starts syncing data created in the old WSO2 Identity Server database after taking the database dump to the new WSO2 Identity Server database.
-
-    ```bash
-    sh wso2server.sh -DsyncData -DconfigFile=<path to sync.properties file>/sync.properties
-    ```
-
-2. Monitor the logs in the sync tool to see how many entries are synced at a given time and to keep track of the progress in the data sync process: 
-
-    !!! info
-        The following line will be printed in the logs of each table you have specified that has no data to be synced.
-
-    ```tab="Sample"
-    [2019-02-27 17:26:32,388]  INFO {org.wso2.is.data.sync.system.pipeline.process.BatchProcessor} -  No data to sync for: <TABLE_NAME>
-    ```
-
-    !!! info
-        If you have some traffic to the old version of WSO2 Identity Server, the number of entries to be synced might not become zero at any time. In that case, observe the logs to decide on a point where the number of entries that are synced is low.
-
-3. When the data sync is complete, switch the traffic from the old setup to the new setup.
-
-4. Allow the sync client to run for some time to sync the entries that were not synced before switching the deployments. 
-
-When the number of entries synced by the sync tool becomes zero, stop the sync client.
-
-## Step 5: Verify the migration
+## Step 4: Verify the migration
 
 After the migration is complete, proceed to the following verification steps:
 

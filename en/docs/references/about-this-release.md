@@ -56,7 +56,7 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
     [Learn more]({{base_path}}/guides/passwordless/magic-link/)
 
--   **FIDO attestation**
+-   **FIDO attestation validations**
 
     FIDO attestation validations allow you to further validate the FIDO2 authenticator data during the security key registration.
 
@@ -94,7 +94,7 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 -   **reCAPTCHA v3 and invisible reCAPTCHA v2 support**
 
-   Improved  security against spam and fraudulent activity with an enhanced reCAPTCHA user experience compared to the conventional "I'm not a robot" checkbox.
+    Improved  security against spam and fraudulent activity with an enhanced reCAPTCHA user experience compared to the conventional "I'm not a robot" checkbox.
 
     [Learn more]({{base_path}}/deploy/configure-recaptcha/)
 

@@ -22,7 +22,7 @@ directory). The following steps describe how you can configure this:
     `           Resources_fr.properties          `
 
     Refer [Web browser language identification
-    codes](https://www.metamodpro.com/browser-language-codes) for more
+    codes](https://www.localeplanet.com/icu/) for more
     information on required locale suffixes.
 
 3.  Update values while keeping the keys as follows,  

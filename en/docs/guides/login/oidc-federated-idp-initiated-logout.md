@@ -202,7 +202,7 @@ Let's set up the sample applications and try out back-channel logout initiated b
 
 Follow the steps given below to set up the `Pickup-Dispatch` application that is registered as a service provider for the primary IdP (WSO2 IS 1).
 
-1. Download the [pickup-dispatch.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/pickup-dispatch.war) sample.
+1. Download the [pickup-dispatch.war](https://github.com/wso2/samples-is/releases/download/v4.5.2/pickup-dispatch.war) sample.
 
 3.  Extract the `pickup-dispatch.war` file and open the `dispatch.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
 
@@ -212,7 +212,7 @@ Follow the steps given below to set up the `Pickup-Dispatch` application that is
 
 Follow the steps given below to set up the `Pickup-Manager` application that is registered as a service provider for the federated IdP (WSO2 IS 2).
 
-1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.5.0/pickup-manager.war) sample.
+1. Download the [pickup-manager.war](https://github.com/wso2/samples-is/releases/download/v4.5.2/pickup-manager.war) sample.
 
 2. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
 

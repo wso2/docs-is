@@ -198,7 +198,7 @@ message.
     topic]({{base_path}}/learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
     ) , and click **Update** to save changes.
 
-    ![issuer-uri]({{base_path}}/assets/img/tutorials/issuer-uri.png)
+    <!-- ![issuer-uri]({{base_path}}/assets/img/tutorials/issuer-uri.png) -->
 
 4. Navigate to **Claims\>Add** in the **Main** menu and click **Add New
     Claim**. Set 'User Principle' and 'ImmutableID' as claims as seen
@@ -206,8 +206,8 @@ message.
     Mapping]({{base_path}}/learn/adding-claim-mapping)
     for more information.
 
-    ![add-user-principle-claim]({{base_path}}/assets/img/tutorials/add-user-principle-claim.png)
-    ![add-immutableid-claim]({{base_path}}/assets/img/tutorials/add-immutableid-claim.png)
+    <!-- ![add-user-principle-claim]({{base_path}}/assets/img/tutorials/add-user-principle-claim.png)
+    ![add-immutableid-claim]({{base_path}}/assets/img/tutorials/add-immutableid-claim.png) -->
 
 5. Navigate to **Claims\>List** and click on the
     [http://wso2.org/claims](https://localhost:9443/carbon/claim-mgt/claim-view.jsp?store=Internal&dialect=http%3A%2F%2Fwso2.org%2Fclaims)
@@ -239,7 +239,7 @@ message.
     - **Passive STS WReply URL** -
         [https://login.microsoftonline.com/login.srf](https://login.microsoftonline.com/login.srf)
 
-    ![passive-sts-config]({{base_path}}/assets/img/tutorials/passive-sts-config.png)
+    <!-- ![passive-sts-config]({{base_path}}/assets/img/tutorials/passive-sts-config.png) -->
 
 4. Expand the **Claim Configuration** section and configure the
     following attributes required by Azure AD as seen below.
@@ -276,7 +276,7 @@ message.
     </tbody>
     </table>
 
-    ![claim-config-attributes]({{base_path}}/assets/img/tutorials/claim-config-attributes.png)
+    <!-- ![claim-config-attributes]({{base_path}}/assets/img/tutorials/claim-config-attributes.png) -->
 
 
 5. Set the **Subject Claim URI** to the Immutable ID claim and the
@@ -371,7 +371,7 @@ by the on premises identity provider (i.e., the WSO2 Identity server).
     !!! info 
         Note that this username is the same value specified as the
         userPrincipleName.
-    ![office365-web-portal]({{base_path}}/assets/img/tutorials/office365-web-portal.png)
+    <!-- ![office365-web-portal]({{base_path}}/assets/img/tutorials/office365-web-portal.png) -->
 
 3. You will be redirected to the login page of the WSO2 Identity
     Server’s authentication end point. Enter the correct user
@@ -383,4 +383,4 @@ by the on premises identity provider (i.e., the WSO2 Identity server).
         If you sign out of Office 365, the WSO2 IS will receive a Passive
         STS Logout Request and the user will be logged out of the IdP as
         well.
-    ![office365-logon]({{base_path}}/assets/img/tutorials/office365-logon.png)
+    <!-- ![office365-logon]({{base_path}}/assets/img/tutorials/office365-logon.png) -->

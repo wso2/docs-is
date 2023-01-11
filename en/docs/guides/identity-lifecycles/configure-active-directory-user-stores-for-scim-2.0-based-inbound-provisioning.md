@@ -6,7 +6,7 @@ When the WSO2 Identity Server is connected to an external LDAP or an Active Dire
 
 Add a user with the username "Alex" and password "Wso2@123". Here we have to map the **userName** (urn:ietf:params:scim:schemas:core:2.0:User) SCIM attribute to an existing claim in the Active Directory (e.g.: cn). Furthermore, when a user is being added in SCIM, there are four more SCIM attributes being added behind the scene including **location** (urn:ietf:params:scim:schemas:core:2.0), **created** (urn:ietf:params:scim:schemas:core:2.0), **lastModified** (urn:ietf:params:scim:schemas:core:2.0), and **id** (urn:ietf:params:scim:schemas:core:2.0). These attributes need to be mapped to the existing Active Directory user attributes as well.
 
-The SCIM claim dialect (urn:ietf:params:scim:schemas:core:2.0:User and urn:ietf:params:scim:schemas:core:2.0) uses `String` type to hold their values. So, when mapping any SCIM claim to an attribute in the Active Directory, make sure to use the attributes of `String` type. You can find all Active Directory attributes [here](http://www.kouti.com/tables/userattributes.htm).
+The SCIM claim dialect (urn:ietf:params:scim:schemas:core:2.0:User and urn:ietf:params:scim:schemas:core:2.0) uses `String` type to hold their values. So, when mapping any SCIM claim to an attribute in the Active Directory, make sure to use the attributes of `String` type. You can find all Active Directory attributes [here](https://docs.microsoft.com/en-us/windows/win32/adschema/attributes-all).
 
 When a user or a group is created with SCIM 2.0, there are a set of mandatory SCIM 2.0 claim values that need to be saved along with the user or group. Some of these values are as follows.
 

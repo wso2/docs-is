@@ -128,7 +128,7 @@ You will receive a response containing the access token, scope, and ID token for
 !!! info "Related topics"
     - [Concept: Authorization Code Grant]({{base_path}}/references/concepts/authorization/authorization-code-grant)
     - [Guide: OpenID Connect Authentication]({{base_path}}/guides/login/oidc-authentication)
-    - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/authorization-code)
+    - [Guide: Authorization Code Grant]({{base_path}}/guides/access-delegation/auth-code-playground)
     - [Guide: Manage User Sessions]({{base_path}}/guides/login/session-management-logout)
     - [Guide: OpenID Connect Back-Channel Logout]({{base_path}}/guides/login/oidc-backchannel-logout)
     - [Guide: Advanced OpenID Connect Configurations]({{base_path}}/guides/login/oauth-app-config-advanced)
