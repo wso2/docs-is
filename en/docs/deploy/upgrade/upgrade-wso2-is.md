@@ -1,4 +1,4 @@
-# Upgrading WSO2 Identity Server
+# Upgrade WSO2 Identity Server
 
 This document walks you through the process of upgrading WSO2 Identity Server. 
 
