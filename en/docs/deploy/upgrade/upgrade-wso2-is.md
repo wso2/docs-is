@@ -12,13 +12,13 @@ There are multiple reasons why you would want to upgrade the WSO2 product to the
 
 ## What has changed
 
-Over the course of its lifetime, WSO2 Identity Server has changed significantly and some of the features you were using in an older version may not work the same way.
+Throughout its lifetime, WSO2 Identity Server has changed significantly and some of the features you were using in an older version may not work the same way.
 
 To learn what’s new in the WSO2 Identity Server 6.0.0 release, see the [About this Release page]({{base_path}}/references/about-this-release/).
 
 ## Get started
 
-To make sure that the upgrade process is smooth and you have the best experience, WSO2 recommends that you reach out to WSO2 Support in order to upgrade WSO2 Identity Server with minimal difficulty.
+To make sure that the upgrade process is smooth and you have the best experience, WSO2 recommends that you reach out to WSO2 Support to upgrade WSO2 Identity Server with minimal difficulty.
 
 If you are ready to start the upgrading process, follow the instructions given below.
 
