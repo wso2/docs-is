@@ -771,6 +771,20 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+plugins:
+    - search
+    - redirects:
+          redirect_maps:
+              'setup/migration-process.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade-wso2-is/'
+              'setup/migrating-what-has-changed.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade-wso2-is/'
+              'setup/migration-guide.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade-wso2-is/'
+              'setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade-wso2-is/'
+              'setup/migrating-to-590.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade/upgrade-wso2-is/'
+              'setup/migrating-to-log4j2.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade-wso2-is/'
+              'setup/migrating-data-publishers.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade-wso2-is/'
+              'setup/migrating-custom-scope-validators.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade-wso2-is/'
+              'setup/migrating-the-secondary-userstore-password-to-the-internal-keystore.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade-wso2-is/'
     
 # Extra
 extra_css:
