@@ -26,6 +26,6 @@ If you are ready to start the upgrading process, follow the instructions given b
 
     [Create a ticket](https://support.wso2.com/support)
 
-- If you are not a WSO2 customer and still need migration assistance and resources, please contact us through the following link. One of our Account Managers will get in touch with you to help.
+- If you are not a WSO2 customer and still need migration assistance and resources, you may contact us through the link given below. One of our Account Managers will get in touch with you to help.
  
     [Contact us](https://wso2.com/contact/)
