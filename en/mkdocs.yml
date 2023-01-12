@@ -729,13 +729,7 @@ nav:
         - 'Preventing browser caching': setup/preventing-browser-caching.md
         - 'Configuring Transport Level Security': setup/configuring-transport-level-security.md
         - 'Java Security Manager': setup/enabling-java-security-manager.md
-    - 'Migrate':
-      - 'Migration Process': setup/migration-process.md
-      - 'What Has Changed': setup/migrating-what-has-changed.md
-      - 'Prepare for Migration' : setup/migrating-preparing-for-migration.md
-      - 'Migrate to 5.11.0' : setup/migrating-to-5110.md
-      - 'Migrate Userstore Managers': setup/migrating-userstore-managers.md
-      - 'Feature Deprecation': setup/wso2-identity-server-feature-deprecation.md
+    - 'Upgrade WSO2 Identity Server': setup/upgrade-wso2-is.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
@@ -809,6 +803,7 @@ nav:
   - 'References':
     - 'Overview': references/references-overview.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
+    - 'Feature Deprecation': references/wso2-identity-server-feature-deprecation.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
     - 'API Permissions': references/api-permissions.md
     - 'New Configuration Model': references/new-configuration-model.md
@@ -857,6 +852,12 @@ plugins:
     - redirects:
           redirect_maps:
               'develop/setting-up-my-account-in-a-dev-environment.md': 'https://github.com/wso2/identity-apps/'
+              'setup/migration-process.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
+              'setup/migrating-what-has-changed.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
+              'setup/setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
+              'setup/migrating-to-5110.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
+              'setup/migrating-userstore-managers.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
+              'setup/wso2-identity-server-feature-deprecation.md': 'https://is.docs.wso2.com/en/5.11.0/references/wso2-identity-server-feature-deprecation/'
 
 # Extra
 extra_css:

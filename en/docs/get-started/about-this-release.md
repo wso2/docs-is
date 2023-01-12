@@ -12,7 +12,7 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
 
 - Switched to symmetric key encryption as the default encryption method for data protection. For more information, see [Symmetric Key Encryption Overview](../../administer/symmetric-overview).
 
-- Separated 'user groups' and 'roles', and introduced new role management APIs. For more information, see [SCIM 2.0 REST APIs](../../develop/scim2-rest-apis) and [What Has Changed: Group and role separation](../../setup/migrating-what-has-changed/#group-and-role-separation).
+- Separated 'user groups' and 'roles', and introduced new role management APIs. For more information, see [SCIM 2.0 REST APIs](../../develop/scim2-rest-apis).
 
 - Introduced CORS management APIs. For more information, see [CORS management APIs](../../develop/cors-rest-api).
 
@@ -27,7 +27,7 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
     - [Trigger SMS-based verification upon mobile number change](../../develop/enable-verification-for-updated-mobile-number)
     - Enforcing uniqueness and regex validation for challenge question answers to avoid risks due to weaker answers 
     - Auto log in the user upon successful password recovery
-    - [Revoke session-bounded tokens upon logout and session expiry events](../../setup/migrating-what-has-changed/#revoke-access-tokens-on-logoutsession-expiry)
+    - Revoke session-bounded tokens upon logout and session expiry events
 
 ### Beta features
 
@@ -43,7 +43,7 @@ WSO2 IS 5.11.0 contains the following new features and enhancements:
 - /identity/connect/register API
 - OAuth 1.0
 
-For more information, see [What Has Changed:Deprecated Features](../../setup/migrating-what-has-changed/#deprecated-features) and [WSO2 Identity Server Feature Deprecation](../../setup/wso2-identity-server-feature-deprecation/).
+For more information, see [WSO2 Identity Server Feature Deprecation](../../references/wso2-identity-server-feature-deprecation/).
 
 ## Fixed issues
 
