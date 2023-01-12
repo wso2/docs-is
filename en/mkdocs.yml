@@ -831,7 +831,7 @@ plugins:
               'setup/migration-guide.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
               'setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
               'setup/migrating-to-5100.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade/upgrade-wso2-is/'
-              'setup/migrating-to-log4j2.md': 'https://is.docs.wso2.com/en/5.10.0/references/wso2-identity-server-feature-deprecation/'
+              'setup/migrating-to-log4j2.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
               'setup/migrating-data-publishers.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
               'setup/migrating-custom-scope-validators.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
               'setup/migrating-userstore-managers.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
