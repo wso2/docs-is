@@ -497,13 +497,7 @@ nav:
         - Monitor Server Health: deploy/monitor/monitor-server-health.md
         - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
         - Work with Product Observability: deploy/monitor/work-with-product-observability.md
-      - Migrate:
-        - Migration Process: deploy/migrate/migration-process.md
-        - What has Changed: deploy/migrate/what-has-changed.md
-        - Prepare for Migration: deploy/migrate/prepare-for-migration.md
-        - Migrate to WSO2 IS 6.0.0: deploy/migrate/migrate-to-600.md
-        #- Migrate Userstore Managers: deploy/migrate/migrate-userstore-managers.md
-        - Feature Deprecation: deploy/migrate/wso2-identity-server-feature-deprecation.md
+      - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
 
   - APIs:
       - Overview: apis/overview.md
@@ -570,6 +564,7 @@ nav:
   - References:
     - Overview: references/references-overview.md
     - About this Release: references/about-this-release.md
+    - Feature Deprecation: references/wso2-identity-server-feature-deprecation.md
     - WSO2 IS Architecture:
       - Architecture: references/architecture/architecture.md
       - Provisioning Architecture: references/architecture/provisioning-architecture.md
@@ -1359,6 +1354,11 @@ plugins:
               'setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/prepare-for-migration'
               #'setup/migrating-userstore-managers.md': 'https://is.docs.wso2.com/en/6.0.0/migrate-userstore-managers/'
               'setup/wso2-identity-server-feature-deprecation.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/wso2-identity-server-feature-deprecation/'
+              'deploy/migrate/migration-process.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
+              'deploy/migrate/what-has-changed.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
+              'deploy/migrate/migrate-to-600.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
+              'deploy/migrate/prepare-for-migration.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
+              'deploy/migrate/wso2-identity-server-feature-deprecation.md': 'https://is.docs.wso2.com/en/6.0.0/references/wso2-identity-server-feature-deprecation/'
               'setup/environment-compatibility.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/environment-compatibility'
               'administer/wso2-administration-guide.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'administer/configuring-the-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/'
