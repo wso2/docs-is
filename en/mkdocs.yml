@@ -708,7 +708,7 @@ nav:
         - 'Preventing browser caching': setup/preventing-browser-caching.md
         - 'Configuring Transport Level Security': setup/configuring-transport-level-security.md
         - 'Java Security Manager': setup/enabling-java-security-manager.md
-    - 'Upgrade': setup/upgrade-wso2-is.md
+    - 'Upgrade WSO2 Identity Server': setup/upgrade-wso2-is.md
     - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
@@ -821,6 +821,20 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+plugins:
+    - search
+    - redirects:
+          redirect_maps:
+              'setup/migration-process.md': 'https://github.com/wso2/identity-apps/'
+              'setup/migrating-what-has-changed.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
+              'setup/migration-guide.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
+              'setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
+              'setup/migrating-to-5100.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade/upgrade-wso2-is/'
+              'setup/migrating-to-log4j2.md': 'https://is.docs.wso2.com/en/5.10.0/references/wso2-identity-server-feature-deprecation/'
+              'setup/migrating-data-publishers.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
+              'setup/migrating-custom-scope-validators.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
+              'setup/migrating-userstore-managers.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'
 
 # Extra
 extra_css:
