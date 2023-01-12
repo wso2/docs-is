@@ -91,7 +91,7 @@ Follow the steps given below to enable the Device Authorization grant for your a
 
 1. Sign in to the Management Console.
 
-2. Go to **Main** > **Service Providers** and click **Add** register a new service provider.
+2. Go to **Main** > **Identity** > **Service Providers** and click **Add**.
 
     <!--
     ![register-service-provider]({{base_path}}/assets/img/using-wso2-identity-server/register-service-provider.png)
