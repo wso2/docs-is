@@ -853,8 +853,9 @@ plugins:
           redirect_maps:
               'develop/setting-up-my-account-in-a-dev-environment.md': 'https://github.com/wso2/identity-apps/'
               'setup/migration-process.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
+              'setup/migration-guide.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
               'setup/migrating-what-has-changed.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
-              'setup/setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
+              'setup/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
               'setup/migrating-to-5110.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
               'setup/migrating-userstore-managers.md': 'https://is.docs.wso2.com/en/5.11.0/setup/upgrade-wso2-is/'
               'setup/wso2-identity-server-feature-deprecation.md': 'https://is.docs.wso2.com/en/5.11.0/references/wso2-identity-server-feature-deprecation/'
