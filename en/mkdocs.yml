@@ -1356,6 +1356,8 @@ plugins:
               #'setup/migrating-userstore-managers.md': 'https://is.docs.wso2.com/en/6.0.0/migrate-userstore-managers/'
               'setup/wso2-identity-server-feature-deprecation.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/migrate/wso2-identity-server-feature-deprecation/'
               'deploy/migrate/migration-process.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
+              'deploy/migrate/migrate-to-6.0.0.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
+              'deploy/migrate/migrate-userstore-managers.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
               'deploy/migrate/migrating-what-has-changed.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
               'deploy/migrate/migration-guide.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
               'deploy/migrate/migrating-preparing-for-migration.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/upgrade/upgrade-wso2-is/'
