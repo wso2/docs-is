@@ -75,7 +75,7 @@ artifacts.
 
     ```toml
     [[cache.manager]]
-    name="IdentityApplicationManagementCacheManager"
+    name="PrivateKeyJWT"
     timeout="10"
     capacity="5000"
     ```
