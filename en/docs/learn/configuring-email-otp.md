@@ -598,8 +598,8 @@ Follow the steps below to map the user claims:
     !!! tip
         To disable this claim for the admin user, navigate to **Users
         and Roles \> List** and click **Users.** Click on the **User
-        Profile** link corresponding to admin account and enter 
-        "false" as the value for the **Disable EmailOTP** field. This will disable the second factor
+        Profile** link corresponding to admin account and enter
+        `true` as the value for the **Disable EmailOTP** field. This will disable the second factor
         authentication for the admin user.
 
 ------------------------------------------------------------------------
