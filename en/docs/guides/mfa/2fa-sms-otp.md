@@ -34,7 +34,7 @@ This page guides you through configuring [two-factor authentication]({{base_path
 - Set up the SMS OTP provider (example: Vonage, Clickatell, Plivo, Bulksms, Twillio).
 
 ### Configure the SMS OTP authenticator
-To configure the Email OTP authenticator:
+To configure the SMS OTP authenticator:
 
 1. On the management console, go to **Identity Providers > List**.
 2. Click on **Edit** corresponding to the `smsOTP` identity provider.
