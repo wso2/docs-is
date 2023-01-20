@@ -270,7 +270,6 @@ For example,
         }]
     }
     ```
-----
 
 !!! info "Related topics"
     -   [Concept: SAML2 Bearer Assertion Profile for OAuth 2.0]({{base_path}}/references/concepts/authorization/saml2-bearer-assertion-profile)
