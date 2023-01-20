@@ -42,7 +42,7 @@ The format of the curl command is given below.
 Request
 
 ``` java
-curl -k -v -H "Authorization: Bearer <ACCESS_TOKEN>" https://<IS_HOST>:<IS_PORT>/userinfo
+curl -k -v -H "Authorization: Bearer <ACCESS_TOKEN>" https://<IS_HOST>:<IS_PORT>/oauth2/userinfo
 ```
  
  Response
