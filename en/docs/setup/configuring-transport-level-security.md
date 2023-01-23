@@ -34,7 +34,7 @@ Therefore, to disable the weak ciphers, you must ensure that only the ciphers yo
 3. Add the following configuration to the `deployment.toml` file by adding the list of ciphers that you want your server to support as follows:
 
     !!! note
-        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.30&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
+        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.34&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
 
     ```toml
     [transport.https.sslHostConfig.properties]
