@@ -76,7 +76,7 @@ Follow the instructions given below to enable SSL protocols and ciphers in `Thri
 1. Add the following configurations by adding the supported cipher suites as a comma-separated list in the `<CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml` file as sub-elements of the root `<Server>` element.
 
     !!! note
-        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.30&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
+        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.34&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
 
     ``` java
     <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>
