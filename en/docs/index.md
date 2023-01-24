@@ -40,13 +40,13 @@ This is the current stable version of the project.
 
 ---
 
-<!--### Pre-release versions
+### Pre-release versions
 These are the latest changes that are yet to be released.
 
 <table>
     <tbody>
         <tr>
-            <th>next</th>
+            <th>6.1.0</th>
             <td>
                 <a id="pre-release-version-documentation-link">Documentation</a>
             </td>
@@ -62,8 +62,6 @@ These are the latest changes that are yet to be released.
         </tr>
     </tbody>
 </table>
-
------>
 
 ### Past Versions
 
