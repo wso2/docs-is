@@ -565,6 +565,7 @@ nav:
     - Overview: references/references-overview.md
     - About this Release: references/about-this-release.md
     - Feature Deprecation: references/wso2-identity-server-feature-deprecation.md
+    - Accessibility Compliance: references/accessibility-compliance-wso2-is.md
     - WSO2 IS Architecture:
       - Architecture: references/architecture/architecture.md
       - Provisioning Architecture: references/architecture/provisioning-architecture.md
