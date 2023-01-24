@@ -7,6 +7,10 @@
     "5.10.0"
   ],
   "all": {
+    "6.1.0": {
+      "doc": "6.1.0",
+      "notes": "6.1.0/references/about-this-release"
+    },
     "6.0.0": {
         "doc": "6.0.0",
         "notes": "6.0.0/references/about-this-release"
