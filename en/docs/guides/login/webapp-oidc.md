@@ -51,7 +51,7 @@ Now, let's log in to the application.
 2. Click **Login** and enter your user credentials.
 3. Provide the required consent. You will be redirected to the Pickup Dispatch application home page.
 
-You have successfully configured authentication for a SAML application.
+You have successfully configured authentication for a OIDC application.
 
 
 !!! info "Related topics"
