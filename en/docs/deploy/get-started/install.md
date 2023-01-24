@@ -757,8 +757,8 @@ configuration for running a WSO2 product as a Windows Service.
 Extract the Carbon-based product that you want to run as a Windows
 service, and then set the Windows environment variable ` carbon_home `
 to the directory that you extracted the product. For example, if you want to
-run WSO2 IS 6.0.0 as a Windows service, you would set ` carbon_home ` to the
-extracted ` wso2is-6.0.0 ` directory.
+run WSO2 IS 6.1.0 as a Windows service, you would set ` carbon_home ` to the
+extracted ` wso2is-6.1.0 ` directory.
 
 ![Edit System Variable window]({{base_path}}/assets/img/deploy/add-carbon-home-system-variable-window.png)
 
