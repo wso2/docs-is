@@ -765,6 +765,7 @@ nav:
       - Master Data Management: references/concepts/integrations/master-data-mgt.md
     - IAM Compliance:
       - Overview: references/concepts/compliance/compliance.md
+      - Accessibility Compliance: references/concepts/compliance/accessibility-compliance-wso2-is.md
       - GDPR: references/concepts/compliance/gdpr.md
       - eIDAS: references/concepts/compliance/eidas.md
       - CCPA: references/concepts/compliance/ccpa.md
@@ -1451,7 +1452,8 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
-  base_path: https://is.docs.wso2.com/en/6.1.0
+  base_path: https://is.docs.wso2.com/en/6.0.0
+  #base_path: http://127.0.0.1:8000
 
   nav_list:
     - Home
