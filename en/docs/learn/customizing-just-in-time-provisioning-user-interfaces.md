@@ -1,7 +1,7 @@
 # Customizing Just-In-Time Provisioning User Interfaces
 
 If necessary, you can customize the default user interfaces that are
-displayed to prompt for credentials at the time of j ust-in-time
+displayed to prompt for credentials at the time of just-in-time
 provisioning. To customize the user interfaces depending on your
 requirement, add the following configuration in the
 `         <IS_Home>/repository/conf/deployment.toml        ` file.
