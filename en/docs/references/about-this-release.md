@@ -10,15 +10,19 @@ WSO2 IS 6.1.0 contains the following new features and enhancements:
     
     Enabling seamless authentication with Google on authenticated Google sessions with a single tap. A personalized login button will be there for sign in/ sign up, which is enabled via the existing Google authenticator.
 
+    [Learn more]({{base_path}}/guides/identity-federation/google/)
+
 -   **Accessibility**
     
     The user authentication and recovery pages are now WCAG 2.1 AA compliant, enhancing the accessibility of WSO2 Identity Server to a wider audience.  
+
+    [Learn more]({{base_path}}/references/concepts/compliance/accessibility-compliance-wso2-is/)
 
 ## What has changed in this release?
 
 If you are moving to WSO2 Identity Server 6.1.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.1.0.
 
-Learn moe about [upgrading to WSO2 IS 6.1.0]({{base_path}}/deploy/migrate/upgrade-wso2-is/) for details.
+Learn more about [upgrading to WSO2 IS 6.1.0]({{base_path}}/deploy/migrate/upgrade-wso2-is/) for details.
 
 ## Beta features
 
@@ -38,31 +42,20 @@ Learn moe about [upgrading to WSO2 IS 6.1.0]({{base_path}}/deploy/migrate/upgrad
 
 ## Deprecated features
 
-The following capabilities are deprecated in WSO2 Identity Server 6.0.0, which means they will be removed in a future release. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/deploy/migrate/wso2-identity-server-feature-deprecation/).
+The following capabilities are deprecated in WSO2 Identity Server 6.1.0, which means they will be removed in a future release. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/deploy/migrate/wso2-identity-server-feature-deprecation/).
 
--   SCIM 1 inbound provisioning 
 
-    **Recommendation**: Use SCIM 2.0 inbound provisioning
+-   On-prem WSO2 Identity Server Analytics solution (based on WSO2 Streaming Processor) 
 
--   SCIM 1 outbound provisioning 
+    **Recommendation**: ELK-based analytics
 
-    **Recommendation**: Use SCIM 2.0 outbound provisioning 
+## Retired features
 
--   SOAP APIs
-
-    **Recommendation**: Use REST-based APIs
-
--   Legacy DCR endpoint implementation (/identity/register)
-
-    **Recommendation**: Use /identity/oauth2/dcr/v1.1
+User-managed access (UMA) will no longer be available out-of-the-box in WSO2 IS 6.1.0. It will be available as a connector on demand.
 
 ## Announcements
 
-The following features currently available out-of-the-box in WSO2 Identity Server will be made available as connectors in the next release. These connectors will be available on demand.
--   Workflow engine 
--   User managed access (UMA)
-
-The on-prem WSO2 Identity Server Analytics solution (based on WSO2 Streaming Processor) will be deprecated with the next immediate WSO2 Identity Server release. In WSO2 IS 6.0.0, ELK-based analytics is introduced as the alternative analytics solution.
+The Workflow feature that is currently available out-of-the-box in WSO2 Identity Server will be made available as a connector in the next release. This connector will be available on demand.
 
 ## Fixed issues
 
