@@ -167,7 +167,7 @@ Google One Tap is a personalized authentication feature provided by Google as a 
 ### Configuring Google One Tap
 
 !!! Note "Enabling Google One Tap for tenants"
-    - By default Google OneTap is enabled for all the tenants. If you want to restrict the tenants who will be having this feature, add the following configuration to the deployment.toml.
+     By default, Google One Tap is enabled for all tenants. If you want to restrict this option to selected tenants, add the following configuration to the `deployment.toml`.
     
      ``` bash
         [console.ui]
