@@ -162,7 +162,7 @@ For example. `http://localhost.com:8080/pickup-dispatch`
     - [Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)
 
 ## Google One Tap
-Google One Tap is a personalized authentication feature provided by Google as a trending federated authentication option. When a browser has an authenticated google session, a personalized sign in/sign up button will appear instead of a conventional Google sign in button for One-Tap supported web applications.
+Google One Tap is a personalized authentication feature provided by Google as a trending federated authentication option. When a browser has an authenticated google session, a personalized sign-in/sign-up button will appear instead of a conventional Google sign-in button. Note that this feature applies to One Tap-supported web applications.
 
 ### Configuring Google One Tap
 
