@@ -4,7 +4,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ## Set up a Google app
 
-1. Go to the [Google Developer console](https://console.developers.google.com/apis/credentials), create a new project or select an existing project.
+1. Go to the [Google Developer console](https://console.developers.google.com/apis/credentials), create a new project, or select an existing project.
 
 2. If the **APIs & services** page isn't already open, do the following:
 
@@ -83,13 +83,13 @@ This page guides you through configuring Google as a federated authenticator in 
 
 ## Try it out
 
-You have successfully configured Google as your federated authenticator. Now, when you try to login to your application, it should redirect to the Google login page. On successful authentication with your Google credentials, you will be able to access your application. 
+You have successfully configured Google as your federated authenticator. Now, when you try to log in to your application, it should redirect to the Google login page. On successful authentication with your Google credentials, you will be able to access your application. 
 
 ### Set up the sample app
 
 - Download Apache Tomcat 9.x from
 [here](https://tomcat.apache.org/download-90.cgi) and install. Tomcat
-server installation location will be referred as `<TOMCAT_HOME>` later
+server installation location will be referred to as `<TOMCAT_HOME>` later
 in this guide.      
 
 - It is recommended that you use a hostname that is not
@@ -197,15 +197,15 @@ Google One Tap is a personalized authentication feature provided by Google as a 
         google_one_tap_enabled_tenants = [“carbon.super”,”t.com”]
      ```
    
-4. When a tenant is eligible for Google One Tap, **Google One Tap** toggle will be available at Google authenticator settings at Asgardeo developer portal. By enabling this toggle button, users will see a personalized Google sign in button with Google profile information at the login page.
+4. When a tenant is eligible for Google One Tap, **Google One Tap** toggle will be available in Google authenticator settings at Asgardeo developer portal. By enabling this toggle button, users will see a personalized Google sign-in button with Google profile information on the login page.
 
    ![Google One Tap toggle]({{base_path}}/assets/img/samples/google-onetap-toggle.png)
 
-5. When Google One Tap is turned on, the existing Google sign in button will disappear at the login page. However, the user has the choice to close the One-Tap personalized button. When the One-Tap personalized login button is closed, the conventional Google Sign in button will be there for login.
+5. When Google One Tap is turned on, the existing Google sign-in button will disappear from the login page. However, the user has the choice to close the One-Tap personalized button. When the One-Tap personalized login button is closed, the conventional Google Sign-in button will be there for login.
 
    ![Google One Tap login]({{base_path}}/assets/img/samples/google-onetap-login.png)
 
-Please note that closing the One-Tap personalized login button will go through a cool-down mechanism to enable it again which is defined by Google. (i.e When you close the Google One-Tap login window, it will take 2 hours to enable again unless if cookies are cleared)
+Please note that closing the One-Tap personalized login button will go through a cool-down mechanism to enable it again which is defined by Google. (i.e When you close the Google One-Tap login window, it will take 2 hours to enable again unless cookies are cleared)
 
 
 !!! Note "Supported Browsers"
