@@ -18,7 +18,7 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 1. Check out the corresponding identity apps source code from the [identity-apps](https://github.com/wso2/identity-apps) repository. 
 
-2. Check out the latest tag of the identity-apps. The `v1.4.28` tag (for WSO2 IS 6.0.0) is used in the sample mentioned below. 
+2. Check out the latest tag of the identity-apps. The `v1.4.28` tag (for WSO2 IS 6.1.0) is used in the sample mentioned below. 
 
     ```java
     $ git fetch --all --tags --prune
