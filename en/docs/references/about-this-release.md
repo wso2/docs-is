@@ -51,7 +51,7 @@ The following capabilities are deprecated in WSO2 Identity Server 6.1.0, which m
 
 ## Retired features
 
-User-managed access (UMA) will no longer be available out-of-the-box in WSO2 IS 6.1.0. It will be available as a connector on demand.
+User-managed access (UMA) will no longer be available out-of-the-box in WSO2 IS 6.1.0. It will be available as a connector on demand. [Learn more](https://github.com/wso2-extensions/identity-oauth-uma/blob/master/docs/README.md).
 
 ## Announcements
 
