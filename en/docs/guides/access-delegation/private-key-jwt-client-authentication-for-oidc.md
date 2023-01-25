@@ -57,8 +57,7 @@ artifacts.
 
     | Property              | Description                                                                                                                                                                                             |
     |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | PreventTokenReuse     | If this is set to "true", the JTI in the JWT should be unique per the request if the previously used JWT is not already expired. JTI (JWT ID) is a claim that provides a unique identifier for the JWT. |
-    | RejectBeforeInMinutes | The JWT should be rejected and considered as a too old token, if the issued time of the JWT exceeds the configured time.                                                                                |
+    | PreventTokenReuse     | If this is set to "true", the JTI in the JWT should be unique per the request. If this is set to "false", the JTI in the JWT should be unique per the request if the previously used JWT is not already expired. JTI (JWT ID) is a claim that provides a unique identifier for the JWT. |    | RejectBeforeInMinutes | The JWT should be rejected and considered as a too old token, if the issued time of the JWT exceeds the configured time.                                                                                |
     | TokenEndpointAlias    | An audience that can be added from the above configuration.                                                                                                                                             |
 
 4.  Do the cache configuration in
