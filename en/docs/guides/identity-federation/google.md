@@ -1,8 +1,10 @@
 # Configure Google as a Federated Authenticator
 
-This page guides you through configuring Google as a federated authenticator in WSO2 Identity Server. 
+This page guides you through configuring Google as a federated authenticator in WSO2 Identity Server. Note that you can also configure One Tap authentication for sign-in with Google.
 
 ## Set up a Google app
+
+First, configure a Google app, which you can use to integrate WSO2 IS.
 
 1. Go to the [Google Developer console](https://console.developers.google.com/apis/credentials), create a new project, or select an existing project.
 
@@ -18,8 +20,7 @@ This page guides you through configuring Google as a federated authenticator in 
 
     ![Select APIs & Services]({{base_path}}/assets/img/samples/google-oauth-client-id.png)
 
-4. Configure your consent screen by clicking **Configure Consent Screen** and return to **Create OAuth client ID** screen once you are done.
-
+4. Configure your consent screen by clicking **Configure Consent Screen** and return to the **Create OAuth client ID** screen once you are done.
 
     !!! info
         For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
@@ -37,26 +38,29 @@ This page guides you through configuring Google as a federated authenticator in 
 {!./includes/register-an-identity-provider.md !}
 
 4.  Go to **Google Configuration** under **Federated Authenticators**.
-5.  Select the checkbox **Enable**.
 
-6.  Configure the **Client ID** and **Client Secret** that were received after creating the Google application client.
-    
-7.  Configure the **Callback URL** as `https://<IS_HOST>:<IS_PORT>/commonauth`
+    ![Google-IdP]({{base_path}}/assets/img/samples/google-idp.png)
+
+5.  Select the **Enable** checkbox.
+6.  Enter the **Client ID** and **Client Secret** that were received when creating the Google application.
+7.  Specify the following **Callback URL**:
+
+    ```
+    https://<IS_HOST>:<IS_PORT>/commonauth
+    ```
 
 8.  To be able to use Google One Tap, select the **Enable One Tap** checkbox.
 
     !!! Note "Using the Console app of WSO2 IS "
         
-        By default, Google One Tap is enabled for all tenants. If you want to restrict this option to selected tenants, add the following configuration to the `deployment.toml`.
+        By default, Google One Tap is enabled for all tenants. If you want to restrict this option to selected tenants, add the following configuration to the `deployment.toml`:
     
         ``` bash
         [console.ui]
         google_one_tap_enabled_tenants = [“carbon.super”,”t.com”]
         ```
     
-9.  Click on **Register** to add the Google IdP.
-
-    ![Google-IdP]({{base_path}}/assets/img/samples/google-idp.png)
+9.  Click **Register** to add the Google IdP.
 
 ---
 
@@ -115,7 +119,6 @@ application.
     1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
     2. Download the `pickup-dispatch.war` file from the latest release assets.
 
-
 ### Deploy the sample app
 
 Deploy this sample web app on a web container.
@@ -149,6 +152,7 @@ Deploy this sample web app on a web container.
         ``` java
         sudo nano /etc/hosts
         ```
+
 3. Open the `dispatch.properties` file found in the `
    <TOMCAT_HOME>/webapps/pickup-dispatch/WEB-INF/classes ` directory
    and edit the **consumerKey** and **consumerSecret** with the values obtained from the **OAuth configuration**.
@@ -157,8 +161,11 @@ Deploy this sample web app on a web container.
 
 ### Sign in with Google 
 
-1. To test the sample, go to the following URL: `http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch`.<br/>
-For example. `http://localhost.com:8080/pickup-dispatch`
+To test the sample:
+
+1.  Go to the following URL on your browser: `http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch`.<br/>
+    
+    For example, `http://localhost.com:8080/pickup-dispatch`.
 
     ![Pickup-dispatch application]({{base_path}}/assets/img/samples/pickup-dispatch-login.png)
 
@@ -166,30 +173,28 @@ For example. `http://localhost.com:8080/pickup-dispatch`
 
     You are redirected to the Google login page.
 
-3.  If you don't have **Google One Tap** enabled, you need to click **Sign in with Google**.
+3.  If you don't have **Google One Tap** enabled, click **Sign in with Google**.
   
     ![Google login page]({{base_path}}/assets/img/samples/sign-in-google.png)
 
 4. Select your preferred Google account and sign in using your Google credentials. 
 
-You are redirected to the Pickup sample homepage.
+You are redirected to the sample application's home page.
 
 ### Sign in with Google One Tap
 
-Google One Tap is a personalized authentication feature provided by Google as a trending federated authentication option. When a browser has an authenticated google session, a personalized sign-in/sign-up button will appear instead of a conventional Google sign-in button. Note that this feature applies to One Tap-supported web applications.
+Google One Tap is a personalized authentication feature provided by Google. When a browser has an already authenticated google session, a personalized sign-in/sign-up button will appear instead of a conventional Google sign-in button. Note that this feature applies to One Tap-supported web applications.
 
 !!! Note "Supported Browsers"
     Google One Tap supports for following browsers only.
-        
+
     -   Chrome   
     -   Firefox   
     -   Opera
 
-When Google One Tap is enabled, the conventional Google sign-in button will not be available on the login page. However, the application user can close the One Tap personalized button and re-enable the conventional Google Sign-in button as shown below.
-
 ![Google One Tap login]({{base_path}}/assets/img/samples/google-onetap-login.png)
 
-Note that closing the One Tap personalized login button will go through a cool-down mechanism to enable it again which is defined by Google. That is, when you close the Google One-Tap login window, it will take 2 hours to enable it again unless cookies are cleared.
+When Google One Tap is enabled, the conventional Google sign-in button will not be available on the login page. However, the application user can close the One Tap personalized button and re-enable the conventional Google Sign-in button. As defined by Google, when the user closes the Google One Tap option, it will take two hours to enable it again unless cookies are cleared. 
 
 !!! info "Related topics" 
     [Concepts: Introduction to Identity Federation]({{base_path}}/references/concepts/identity-federation/)
