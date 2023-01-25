@@ -185,29 +185,6 @@ Google One Tap is a personalized authentication feature provided by Google as a 
     -   Firefox   
     -   Opera
 
-<!--
-
-2. Add the login page domain as the **Authorized Javascript Origins** at the relevant Google Client at Google CLI.
-
-    ```
-    https://<IS_HOST>:<IS_PORT>
-    ```
-   
-    ![Google One Tap origins]({{base_path}}/assets/img/samples/google-onetap-js-origins-url.png)
-
-3. Keep the following configuration empty to enable Google One Tap for all tenants or add the specific tenant name to enable only for that tenant.
-
-     ``` bash
-        [console.ui]
-        google_one_tap_enabled_tenants = [“carbon.super”,”t.com”]
-     ```
-   
-4. When a tenant is eligible for Google One Tap, **Google One Tap** toggle will be available in Google authenticator settings at Asgardeo developer portal. By enabling this toggle button, users will see a personalized Google sign-in button with Google profile information on the login page.
-
-   ![Google One Tap toggle]({{base_path}}/assets/img/samples/google-onetap-toggle.png)
-
--->
-
 When Google One Tap is enabled, the conventional Google sign-in button will not be available on the login page. However, the application user can close the One Tap personalized button and re-enable the conventional Google Sign-in button as shown below.
 
 ![Google One Tap login]({{base_path}}/assets/img/samples/google-onetap-login.png)
