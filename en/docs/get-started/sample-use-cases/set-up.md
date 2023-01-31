@@ -70,7 +70,7 @@ Note that the following log appears in the command prompt when the server starts
 ![QSG start server]({{base_path}}/assets/img/get-started/qsg-start-server.png)
 
 !!! tip "Shutting down the server"
-    To shutdown the server, press `Ctrl + C`.
+    To shut down the server, press `Ctrl + C`.
     Note that the following log appears in the command prompt on server shutdown.
     
     ![QSG stop server]({{base_path}}/assets/img/get-started/qsg-stop-server.png)
