@@ -5,7 +5,7 @@ Being compliant with industry regulations and law is a vital responsibility for 
 
 -   [GDPR]({{base_path}}/references/concepts/compliance/gdpr) 
 
--   [Accessibility Complaince]({{base_path}}/references/concepts/compliance/accessibility-compliance-wso2-is)
+-   [Accessibility Compliance]({{base_path}}/references/concepts/compliance/accessibility-compliance-wso2-is)
 
 -   [eIDAS]({{base_path}}/references/concepts/compliance/eidas)
 
