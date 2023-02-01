@@ -1,10 +1,9 @@
 {
-  "6.1.0": "6.1.0",
-  "current": "6.0.0",
+  "current": "6.1.0",
   "list": [ 
-    "6.0.0", 
-    "5.11.0",
-    "5.10.0"
+    "6.1.0", 
+    "6.0.0",
+    "5.11.0"
   ],
   "all": {
     "6.1.0": {
@@ -12,7 +11,7 @@
       "notes": "6.1.0/references/about-this-release"
     },
     "6.0.0": {
-        "doc": "6.0.0",
+        "doc": "https://is.docs.wso2.com/en/6.0.0",
         "notes": "6.0.0/references/about-this-release"
     },
     "5.11.0": {
