@@ -55,7 +55,7 @@ User-managed access (UMA) will no longer be available out-of-the-box in WSO2 IS 
 
 ## Announcements
 
-The Workflow feature that is currently available out-of-the-box in WSO2 Identity Server will be made available as a connector in the next release. This connector will be available on demand.
+The Workflow engine that is currently available out-of-the-box in WSO2 Identity Server will be made available as a connector in the next release. This connector will be available on demand.
 
 ## Fixed issues
 

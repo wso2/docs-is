@@ -83,9 +83,7 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
 
     ![OAuth-id-secret]({{base_path}}/assets/img/guides/oauth-id-secret.png)
 
-
-9. Go to the **Local and Outbound Authentication Configuration**
-   section.
+9. Go to the **Local and Outbound Authentication Configuration** section.
 
 10. For **Authentication Type**, select the **Federated Authentication** radio button and select the
     Identity Provider you created from the dropdown list under
