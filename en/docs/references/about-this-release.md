@@ -22,7 +22,7 @@ WSO2 IS 6.1.0 contains the following new features and enhancements:
 
 If you are moving to WSO2 Identity Server 6.1.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.1.0.
 
-Learn more about [upgrading to WSO2 IS 6.1.0]({{base_path}}/deploy/migrate/upgrade-wso2-is/) for details.
+Learn more about [upgrading to WSO2 IS 6.1.0]({{base_path}}/deploy/upgrade/upgrade-wso2-is/) for details.
 
 ## Beta features
 
