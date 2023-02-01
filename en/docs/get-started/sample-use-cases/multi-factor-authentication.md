@@ -71,7 +71,7 @@ Let's access the **Pickup-Dispatch** application and proceed to sign in.
     Employee --> Username: alex    | Password: alex123 
     ```
 
-    ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-sso-login-credentials.png)
+    ![WSO2 Identity Server sign in page]({{base_path}}/assets/img/get-started/qsg-self-sign-up-register.png)
 
     !!! info
         The HARDWARE KEY login page appears as HARDWARE KEY is the second authentication factor.
