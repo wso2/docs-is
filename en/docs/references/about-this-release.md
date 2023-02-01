@@ -59,7 +59,13 @@ The Workflow engine that is currently available out-of-the-box in WSO2 Identity 
 
 ## Fixed issues
 
-For a complete list of fixed issues related to this release, see [WSO2 IS Runtime - Fixed Issues](https://github.com/wso2/product-is/milestone/229?closed=1).
+See the complete list of fixed issues related to this release:
+
+- [6.1.0-M1](https://github.com/wso2/product-is/milestone/235?closed=1)
+- [6.1.0-Alpha](https://github.com/wso2/product-is/milestone/237?closed=1)
+- [6.1.0-Alpha2](https://github.com/wso2/product-is/milestone/238?closed=1)
+- [6.1.0-Beta](https://github.com/wso2/product-is/milestone/230?closed=1)
+- [6.1.0-RC](https://github.com/wso2/product-is/milestone/240?closed=1)
 	
 ## Known issues
 
