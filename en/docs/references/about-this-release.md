@@ -42,7 +42,7 @@ Learn more about [upgrading to WSO2 IS 6.1.0]({{base_path}}/deploy/migrate/upgra
 
 ## Deprecated features
 
-The following capabilities are deprecated in WSO2 Identity Server 6.1.0, which means they will be removed in a future release. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/deploy/migrate/wso2-identity-server-feature-deprecation/).
+The following capabilities are deprecated in WSO2 Identity Server 6.1.0, which means they will be removed in a future release. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
 
 
 -   On-prem WSO2 Identity Server Analytics solution (based on WSO2 Streaming Processor) 
