@@ -23,17 +23,19 @@ Follow the steps given below to enable multi-attribute login from the Management
 
     !!! info
         - The **admin** is the default administrative user in WSO2 Identity Server.
-        - If you use multiple tenant domains, you need to configure multi-attribute login for each tenent.
+        - If you use multiple tenant domains, you need to configure multi-attribute login for each tenant.
 
 2.  Go to **Main** > **Identity Providers** > **Resident** and expand **Account Management**.
 
-3.  Expand **Multi Attribute Login** and select **Enable Multi Attribute Login**.
+3.  Expand **Login Resolver** and select **Enable Login Resolver**.
 
-4.  Add claim URIs for claims that users are allowed to use as login identifiers.
+4.  Add the **Resolver Class** as `org.wso2.carbon.identity.login.resolver.regex.RegexLoginResolver`.
+
+5.  Add claim URIs for claims that users are allowed to use as login identifiers.
 
     ![adding-claims-for-multi-attribute-login]({{base_path}}/assets/img/guides/adding-claims-for-multi-attribute-login.png)
 
-5. Click **Update** to save the changes.
+6.  Click **Update** to save the changes.
 
 ## Add regular expressions for allowed claims
 
