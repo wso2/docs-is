@@ -17,6 +17,7 @@ works to assess the risk of the user.
 4. The application sends an authentication request to WSO2 IS.
 5. The user is prompted to log in, and WSO2 IS authenticates the user using basic authentication (username/password credentials).
 6. WSO2 IS publishes an event to ELK, which computes the user's risk score based on the user's transaction history using the data received in step 2.
+    
     !!! info "For example"
          If the user has made transactions that add up to over $10,000 within the last five minutes, the risk score is 1. Else, the risk score is 0.
 
