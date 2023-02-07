@@ -17,7 +17,7 @@ Consider a scenario where you want to prompt an additional authentication step i
 ## Prerequisites
 
 - See the [general prerequisites]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth/#prerequisites-for-adaptive-authentication) for all adaptive authenticaiton scenarios.
-- [Set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample)   application.
+- [Set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 - [Create a user]({{base_path}}/guides/identity-lifecycles/admin-creation-workflow/) named **Alex** with login permissions.
 - Create a typingDNA account. Learn how to create one [here](https://github.com/wso2-extensions/identity-conditional-auth-typingdna/blob/main/docs/files/Account%20Creation.pdf).
 
