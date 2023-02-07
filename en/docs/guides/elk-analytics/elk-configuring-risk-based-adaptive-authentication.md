@@ -28,6 +28,7 @@ works to assess the risk of the user.
 
 ## Prerequisites
 
+- See the [general prerequisites]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth/#prerequisites) for all adaptive authenticaiton scenarios.
 - You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 - You need to [configure ELK analytics for adaptive authentication]({{base_path}}/deploy/using-elk-analytics-for-adaptive-authentication), and run the following command to create an index named `transaction` to store transaction data.
 
