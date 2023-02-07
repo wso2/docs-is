@@ -2,7 +2,7 @@
 
 This page guides you through setting up [adaptive authentication]({{base_path}}/references/concepts/authentication/adaptive-authentication) for an application.
 
-## Prerquisites for adaptive authentication
+## Prerequisites for adaptive authentication
 
 You need to [register a service provider]({{base_path}}/guides/applications/register-sp) on the Management Console.
 

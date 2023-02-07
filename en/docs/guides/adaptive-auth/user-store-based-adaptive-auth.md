@@ -19,7 +19,7 @@ Consider a scenario where you want to step up authentication for users who belon
 
 ## Prerequisites
 
-- See the [general prerequisites]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth/#prerequisites) for all adaptive authenticaiton scenarios.
+- See the [general prerequisites]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth/#prerequisites-for-adaptive-authentication) for all adaptive authenticaiton scenarios.
 - You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 - You need to set up a database. For this scenario, we will use an LDAP server.
 - You need to configure a new user store:
