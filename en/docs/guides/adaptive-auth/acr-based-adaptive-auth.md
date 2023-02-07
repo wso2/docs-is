@@ -8,6 +8,11 @@ Consider a scenario where you want users to be authenticated into an application
 
 ----
 
+!!! info "General prerequisites"
+    See the [general prerequisites]({{base_path}}/guides/adaptive-auth/configure-adaptive-auth/#prerequisites-for-adaptive-authentication) for all adaptive authenticaiton scenarios.
+
+----
+
 {!./includes/deploying-sample-apps.md!}
 
 
