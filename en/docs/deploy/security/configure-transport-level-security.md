@@ -17,6 +17,13 @@ Follow the instructions given below to enable SSL protocols in the WSO2 Identity
 
     If you wish to remove `TLSv1` or `TLSv1.1`, you can do so by removing them as values from the `protocols` property.
 
+    !!! note
+        If your IS version uses JDK-11, you can use TLSv1.3, in such case you can add the following configuration to the `deployment.toml` file.
+        
+        ```
+        [transport.https.sslHostConfig.properties]
+        protocols="TLSv1, TLSv1.1, TLSv1.2, TLSv1.3"
+        ```
 
 2. Restart the server.
 
@@ -37,7 +44,7 @@ Therefore, to disable the weak ciphers, you must ensure that only the ciphers yo
 3. Add the following configuration to the `deployment.toml` file by adding the list of ciphers that you want your server to support as follows:
 
     !!! note
-        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
+        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
 
     ```toml
     [transport.https.sslHostConfig.properties]
@@ -81,7 +88,7 @@ Follow the instructions given below to enable SSL protocols and ciphers in `Thri
 1. Add the following configurations by adding the supported cipher suites as a comma-separated list in the `<CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml` file as sub-elements of the root `<Server>` element.
 
     !!! note
-        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
+        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6), which the Mozilla Foundation provides.
 
     ``` java
     <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols>
