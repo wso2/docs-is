@@ -26,12 +26,19 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
         For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
 
 5. Select the **Web application** as the application type.
-6. Provide a name for your app and the following URL as the **Authorized Redirect URI** of the application: 
+6. Provide the following **Authorized JavaScript Origin**.
+    
+    ```bash
+    https://localhost:9443
+    ```
 
+7. Provide a name for your app and the following **Authorized Redirect URI** of the application:
+
+    ```bash
+    https://localhost:9443/commonauth
     ```
-    https://<IS_HOST>:<IS_PORT>/commonauth
-    ```
-7. Take note of the **client ID** and **client secret** generated for the application.
+
+8. Take note of the **client ID** and **client secret** generated for the application.
 
 ---
 
@@ -46,7 +53,7 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
 7.  Specify the following **Callback URL**:
 
     ```
-    https://<IS_HOST>:<IS_PORT>/commonauth
+    https://localhost:9443/commonauth
     ```
 
 8.  To be able to use Google One Tap, select the **Enable One Tap** checkbox.
