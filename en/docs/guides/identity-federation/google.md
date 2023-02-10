@@ -20,54 +20,76 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
 
     ![Select APIs & Services]({{base_path}}/assets/img/samples/google-oauth-client-id.png)
 
-4. Configure your consent screen by clicking **Configure Consent Screen** and return to the **Create OAuth client ID** screen once you are done.
+4. On the **Create OAuth client ID** page, first select **Web application** as the **Application type**.
+
+5. Click **Configure Consent Screen** and configure the consent screen.
 
     !!! info
-        For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
+        For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent).
 
-5. Select the **Web application** as the application type.
-6. Provide the following **Authorized JavaScript Origin**.
-    
-    ```bash
-    https://localhost:9443
-    ```
+5. Return to the **Create OAuth client ID** page and apply the following values.
 
-7. Provide a name for your app and the following **Authorized Redirect URI** of the application:
+    <table>
+        <tr>
+            <th>Authorized JavaScript Origin</th>
+            <td>
+                <p>Enter the following as the authorized Javascript origin:</p>
+                <code>https://localhost:9443</code>
+            </td>
+        </tr>
+        <tr>
+            <th>Authorized Redirect URI</th>
+            <td>
+                <p>Enter the following as the authorized redirect URI:</p>
+                <code>https://localhost:9443/commonauth</code>
+            </td>
+        </tr>
+    </table>
 
-    ```bash
-    https://localhost:9443/commonauth
-    ```
-
-8. Take note of the **client ID** and **client secret** generated for the application.
+6. Click **Create** to generate the OAuth **client ID** and **client secret**.
 
 ---
 
 {!./includes/register-an-identity-provider.md !}
 
-4.  Go to **Google Configuration** under **Federated Authenticators**.
+4.  Go to **Federated Authenticators** > **Google Configuration** and configure the following parameters.
 
     ![Google-IdP]({{base_path}}/assets/img/samples/google-idp.png)
 
-5.  Select the **Enable** checkbox.
-6.  Enter the **Client ID** and **Client Secret** that were received when creating the Google application.
-7.  Specify the following **Callback URL**:
+    <table>
+        <tr>
+            <th>Enable</th>
+            <td>Select this checkbox to enable federated authentication.</td>
+        </tr>
+        <tr>
+            <th>Client ID</th>
+            <td>The client ID that was generated for the Google application.</td>
+        </tr>
+        <tr>
+            <th>Client Secret</th>
+            <td>The client secret that was generated for the Google application.</td>
+        </tr>
+        <tr>
+            <th>Callback URL</th>
+            <td>
+                <p>Enter the following as the callback URL of the application:</p>
+                <code>https://localhost:9443/commonauth</code>
+            </td>
+        </tr>
+        <tr>
+            <th>Enable One Tap</th>
+            <td>
+                <p>Select this checkbox to use Google One Tap.</p>
+                <p><b>Note:</b> If you are using the Console app of WSO2 IS, note that the <b>Enable One Tap</b> configuration is available for all tenants by default. If you want to restrict this option to selected tenants, add the following configuration to the <code>deployment.toml</code>:</p>
+                <div>
+                    <code>[console.ui]</code></br>
+                    <code>google_one_tap_enabled_tenants = [“carbon.super”,”t.com”]</code>
+                </div>
+            </td>
+        </tr>
+    </table>
 
-    ```
-    https://localhost:9443/commonauth
-    ```
-
-8.  To be able to use Google One Tap, select the **Enable One Tap** checkbox.
-
-    !!! Note "Using the Console app of WSO2 IS "
-        
-        By default, Google One Tap is enabled for all tenants. If you want to restrict this option to selected tenants, add the following configuration to the `deployment.toml`:
-    
-        ``` bash
-        [console.ui]
-        google_one_tap_enabled_tenants = [“carbon.super”,”t.com”]
-        ```
-    
-9.  Click **Register** to add the Google IdP.
+5.  Click **Register** to add the Google IdP.
 
 ---
 
@@ -204,7 +226,7 @@ Google One Tap is a personalized authentication feature provided by Google. When
     -   Firefox   
     -   Opera
 
-![Google One Tap login]({{base_path}}/assets/img/samples/google-onetap-login.png)
+<img src="{{base_path}}/assets/img/samples/google-onetap-login.png" alt="Google One Tap login" width="400">
 
 When Google One Tap is enabled, the conventional Google sign-in button will not be available on the login page. However, the application user can close the One Tap personalized button and re-enable the conventional Google Sign-in button. As defined by Google, when the user closes the Google One Tap option, it will take two hours to enable it again unless cookies are cleared. 
 
