@@ -83,14 +83,18 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
 
     ![OAuth-id-secret]({{base_path}}/assets/img/guides/oauth-id-secret.png)
 
-9. Go to the **Local and Outbound Authentication Configuration** section.
+10. Go to the **Local and Outbound Authentication Configuration** section.
 
-10. For **Authentication Type**, select the **Federated Authentication** radio button and select the
-    Identity Provider you created from the dropdown list under
-    **Federated Authentication**.  
+11. To configure the **Authentication Type**, select **Advanced Configuration**, and then click it.
+
+12. Expand **Step 1** and configure two authenticators for this authentication step:
+
+    - **Local Authenticator**: Select `Username & Password` from the list.
+    - **Federated Authenticators**: Select the Google identity provider that you configured for this tutorial.
+
     ![identity-provider-in-federated-authentication]({{base_path}}/assets/img/guides/identity-provider-in-federated-authentication.png)
 
-11. Click **Update** to save the changes.
+13. Click **Update** to return to the service provider configuration page and then click **Update** again to save the changes.
 
 ---
 
@@ -122,7 +126,7 @@ application.
 Deploy this sample web app on a web container.
 
 1. Copy the `pickup-dispatch.war`file into the `webapps` folder. For
-   example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
+   example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`.
 
 2. Open a terminal window and add the following entry to the
    `/etc/hosts` file of your machine to configure
@@ -167,15 +171,18 @@ To test the sample:
 
     ![Pickup-dispatch application]({{base_path}}/assets/img/samples/pickup-dispatch-login.png)
 
-2. Click **Login**. 
+2.  Click **Login**. 
 
     You are redirected to the Google login page.
 
-3.  If you don't have **Google One Tap** enabled, click **Sign in with Google**.
-  
-    ![Google login page]({{base_path}}/assets/img/samples/sign-in-google.png)
+3.  Click **Sign in with Google** to be redirected to the Google sign-in page.
 
-4. Select your preferred Google account and sign in using your Google credentials. 
+    !!! Note
+        If you have **Google One Tap** enabled for your Google IdP, you will be able to skip this step. See the instructions on [signing in with Google One Tap](#sign-in-with-google-one-tap).
+
+    <img src="{{base_path}}/assets/img/samples/sign-in-google.png" alt="Google login page" width="400">
+  
+4. Select your preferred Google account and sign in with your Google credentials.
 
 You are redirected to the sample application's home page.
 
