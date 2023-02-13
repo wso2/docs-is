@@ -15,7 +15,8 @@ Follow the instructions given below to enable SSL protocols in the WSO2 Identity
      protocols="TLSv1, TLSv1.1, TLSv1.2, TLSv1.3"
      ```
 
-    If you wish to remove `TLSv1`, `TLSv1.1`, or `TLSv1.2`, you can do so by removing them as values from the `protocols` property.
+    You can configure multiple TLS versions or a single TLS version according to your preference.
+    To achieve high security, use the latest TLS version by removing `TLSv1`, `TLSv1.1`, and `TLSv1.2` from the `protocols` property of the configuration.
 
 2. Restart the server.
 
