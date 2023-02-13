@@ -59,7 +59,7 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
     <table>
         <tr>
             <th>Enable</th>
-            <td>Select this checkbox to enable federated authentication.</td>
+            <td>Select this checkbox to enable federated authentication using this identity provider.</td>
         </tr>
         <tr>
             <th>Client ID</th>
