@@ -18,7 +18,7 @@ Follow the instructions given below to enable SSL protocols in the WSO2 Identity
     If you wish to remove `TLSv1` or `TLSv1.1`, you can do so by removing them as values from the `protocols` property.
 
     !!! note
-        If your IS version uses JDK-11, you can use TLSv1.3, in such case you can add the following configuration to the `deployment.toml` file.
+        If your IS version uses JDK-11, you can use TLSv1.3. In such a case, you can add the following configuration to the `deployment.toml` file.
 
         ```
         [transport.https.sslHostConfig.properties]
