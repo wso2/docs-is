@@ -12,7 +12,7 @@ Follow the instructions given below to enable SSL protocols in the WSO2 Identity
 
      ```toml
      [transport.https.sslHostConfig.properties]
-     protocols="TLSv1, TLSv1.1, TLSv1.2"
+     protocols="TLSv1, TLSv1.1, TLSv1.2, TLSv1.3"
      ```
 
     If you wish to remove `TLSv1`, `TLSv1.1`, or `TLSv1.3`, you can do so by removing them as values from the `protocols` property.
