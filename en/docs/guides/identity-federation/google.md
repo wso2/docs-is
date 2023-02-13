@@ -16,7 +16,7 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
     2. Under **Management**, click **APIs & Services**.
        ![Select APIs & Services]({{base_path}}/assets/img/samples/google-apis-and-services.png)
 
-3. Go to the **Credentials** page, click **Create Credentials**, and select **Oauth client ID**.
+3. Go to the **Credentials** page, click **Create Credentials**, and select **OAuth client ID**.
 
     ![Select APIs & Services]({{base_path}}/assets/img/samples/google-oauth-client-id.png)
 
@@ -33,14 +33,14 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
         <tr>
             <th>Authorized JavaScript Origin</th>
             <td>
-                <p>Enter the following as the authorized Javascript origin:</p>
+                <p>Specify the authorized javascript origin of your WSO2 IS. Use the following as the authorized javascript orgin for your WSO2 IS instance running on localhost:</p>
                 <code>https://localhost:9443</code>
             </td>
         </tr>
         <tr>
             <th>Authorized Redirect URI</th>
             <td>
-                <p>Enter the following as the authorized redirect URI:</p>
+                <p>Specify the endpoint in WSO2 IS to which Google should send responses after the authentication process. Use the following as the authorized redirect URI for your WSO2 IS instance running on localhost:</p>
                 <code>https://localhost:9443/commonauth</code>
             </td>
         </tr>
