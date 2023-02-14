@@ -33,7 +33,7 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
         <tr>
             <th>Authorized JavaScript Origin</th>
             <td>
-                <p>Specify the authorized javascript origin of your WSO2 IS. Use the following as the authorized javascript orgin for your WSO2 IS instance running on localhost:</p>
+                <p>Specify the authorized JavaScript origin of your WSO2 IS. Use the following as the authorized javascript origin for your WSO2 IS instance running on localhost:</p>
                 <code>https://localhost:9443</code>
             </td>
         </tr>
