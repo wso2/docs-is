@@ -16,51 +16,80 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
     2. Under **Management**, click **APIs & Services**.
        ![Select APIs & Services]({{base_path}}/assets/img/samples/google-apis-and-services.png)
 
-3. Go to the **Credentials** page, click **Create Credentials**, and select **Oauth client ID**.
+3. Go to the **Credentials** page, click **Create Credentials**, and select **OAuth client ID**.
 
     ![Select APIs & Services]({{base_path}}/assets/img/samples/google-oauth-client-id.png)
 
-4. Configure your consent screen by clicking **Configure Consent Screen** and return to the **Create OAuth client ID** screen once you are done.
+4. On the **Create OAuth client ID** page, first select **Web application** as the **Application type**.
+
+5. Click **Configure Consent Screen** and configure the consent screen.
 
     !!! info
-        For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent)
+        For more information, see [User Consent](https://support.google.com/googleapi/answer/6158849#userconsent&zippy=%2Cuser-consent).
 
-5. Select the **Web application** as the application type.
-6. Provide a name for your app and the following URL as the **Authorized Redirect URI** of the application: 
+5. Return to the **Create OAuth client ID** page and apply the following values.
 
-    ```
-    https://<IS_HOST>:<IS_PORT>/commonauth
-    ```
-7. Take note of the **client ID** and **client secret** generated for the application.
+    <table>
+        <tr>
+            <th>Authorized JavaScript Origin</th>
+            <td>
+                <p>Specify the authorized JavaScript origin of your WSO2 IS. Use the following as the authorized javascript origin for your WSO2 IS instance running on localhost:</p>
+                <code>https://localhost:9443</code>
+            </td>
+        </tr>
+        <tr>
+            <th>Authorized Redirect URI</th>
+            <td>
+                <p>Specify the endpoint in WSO2 IS to which Google should send responses after the authentication process. Use the following as the authorized redirect URI for your WSO2 IS instance running on localhost:</p>
+                <code>https://localhost:9443/commonauth</code>
+            </td>
+        </tr>
+    </table>
+
+6. Click **Create** to generate the OAuth **client ID** and **client secret**.
 
 ---
 
 {!./includes/register-an-identity-provider.md !}
 
-4.  Go to **Google Configuration** under **Federated Authenticators**.
+4.  Go to **Federated Authenticators** > **Google Configuration** and configure the following parameters.
 
     ![Google-IdP]({{base_path}}/assets/img/samples/google-idp.png)
 
-5.  Select the **Enable** checkbox.
-6.  Enter the **Client ID** and **Client Secret** that were received when creating the Google application.
-7.  Specify the following **Callback URL**:
+    <table>
+        <tr>
+            <th>Enable</th>
+            <td>Select this checkbox to enable federated authentication using this identity provider.</td>
+        </tr>
+        <tr>
+            <th>Client ID</th>
+            <td>The client ID that was generated for the Google application.</td>
+        </tr>
+        <tr>
+            <th>Client Secret</th>
+            <td>The client secret that was generated for the Google application.</td>
+        </tr>
+        <tr>
+            <th>Callback URL</th>
+            <td>
+                <p>Enter the following as the callback URL of the application:</p>
+                <code>https://localhost:9443/commonauth</code>
+            </td>
+        </tr>
+        <tr>
+            <th>Enable One Tap</th>
+            <td>
+                <p>Select this checkbox to use Google One Tap.</p>
+                <p><b>Note:</b> If you are using the Console app of WSO2 IS, note that the <b>Enable One Tap</b> configuration is available for all tenants by default. If you want to restrict this option to selected tenants, add the following configuration to the <code>deployment.toml</code>:</p>
+                <div>
+                    <code>[console.ui]</code></br>
+                    <code>google_one_tap_enabled_tenants = [“carbon.super”,”t.com”]</code>
+                </div>
+            </td>
+        </tr>
+    </table>
 
-    ```
-    https://<IS_HOST>:<IS_PORT>/commonauth
-    ```
-
-8.  To be able to use Google One Tap, select the **Enable One Tap** checkbox.
-
-    !!! Note "Using the Console app of WSO2 IS "
-        
-        By default, Google One Tap is enabled for all tenants. If you want to restrict this option to selected tenants, add the following configuration to the `deployment.toml`:
-    
-        ``` bash
-        [console.ui]
-        google_one_tap_enabled_tenants = [“carbon.super”,”t.com”]
-        ```
-    
-9.  Click **Register** to add the Google IdP.
+5.  Click **Register** to add the Google IdP.
 
 ---
 
@@ -83,14 +112,18 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
 
     ![OAuth-id-secret]({{base_path}}/assets/img/guides/oauth-id-secret.png)
 
-9. Go to the **Local and Outbound Authentication Configuration** section.
+10. Go to the **Local and Outbound Authentication Configuration** section.
 
-10. For **Authentication Type**, select the **Federated Authentication** radio button and select the
-    Identity Provider you created from the dropdown list under
-    **Federated Authentication**.  
+11. To configure the **Authentication Type**, select **Advanced Configuration**, and then click it.
+
+12. Expand **Step 1** and configure two authenticators for this authentication step:
+
+    - **Local Authenticator**: Select `Username & Password` from the list.
+    - **Federated Authenticators**: Select the Google identity provider that you configured for this tutorial.
+
     ![identity-provider-in-federated-authentication]({{base_path}}/assets/img/guides/identity-provider-in-federated-authentication.png)
 
-11. Click **Update** to save the changes.
+13. Click **Update** to return to the service provider configuration page and then click **Update** again to save the changes.
 
 ---
 
@@ -122,7 +155,7 @@ application.
 Deploy this sample web app on a web container.
 
 1. Copy the `pickup-dispatch.war`file into the `webapps` folder. For
-   example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
+   example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`.
 
 2. Open a terminal window and add the following entry to the
    `/etc/hosts` file of your machine to configure
@@ -167,15 +200,18 @@ To test the sample:
 
     ![Pickup-dispatch application]({{base_path}}/assets/img/samples/pickup-dispatch-login.png)
 
-2. Click **Login**. 
+2.  Click **Login**. 
 
     You are redirected to the Google login page.
 
-3.  If you don't have **Google One Tap** enabled, click **Sign in with Google**.
-  
-    ![Google login page]({{base_path}}/assets/img/samples/sign-in-google.png)
+3.  Click **Sign in with Google** to be redirected to the Google sign-in page.
 
-4. Select your preferred Google account and sign in using your Google credentials. 
+    !!! Note
+        If you have **Google One Tap** enabled for your Google IdP, you will be able to skip this step. See the instructions on [signing in with Google One Tap](#sign-in-with-google-one-tap).
+
+    <img src="{{base_path}}/assets/img/samples/sign-in-google.png" alt="Google login page" width="400">
+  
+4. Select your preferred Google account and sign in with your Google credentials.
 
 You are redirected to the sample application's home page.
 
@@ -190,7 +226,7 @@ Google One Tap is a personalized authentication feature provided by Google. When
     -   Firefox   
     -   Opera
 
-![Google One Tap login]({{base_path}}/assets/img/samples/google-onetap-login.png)
+<img src="{{base_path}}/assets/img/samples/google-onetap-login.png" alt="Google One Tap login" width="400">
 
 When Google One Tap is enabled, the conventional Google sign-in button will not be available on the login page. However, the application user can close the One Tap personalized button and re-enable the conventional Google Sign-in button. As defined by Google, when the user closes the Google One Tap option, it will take two hours to enable it again unless cookies are cleared. 
 
