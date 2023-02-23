@@ -28,7 +28,7 @@
     },
     "5.8.0": {
         "doc": "https://docs.wso2.com/display/IS580/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS80/About+this+Release"
+        "notes": "https://docs.wso2.com/display/IS580/About+this+Release"
     },
     "5.7.0": {
         "doc": "https://docs.wso2.com/display/IS570/WSO2+Identity+Server+Documentation",
