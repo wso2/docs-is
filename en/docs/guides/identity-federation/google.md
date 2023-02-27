@@ -108,9 +108,9 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
 7. Keep the other configurations as default and click on **Add**
 
 8. Click **Register**. Now you will be sent back to the **Service Providers** page.
-9. Take a copy of the **OAuth Client Key** and the **OAuth Client Secret** for later usages
+9. Take a copy of the **OAuth Client Key** and the **OAuth Client Secret** for later usages.
 
-    ![OAuth-id-secret]({{base_path}}/assets/img/guides/oauth-id-secret.png)
+    <img src="{{base_path}}/assets/img/guides/oauth-id-secret.png" alt="OAuth-id-secret" width="500">
 
 10. Go to the **Local and Outbound Authentication Configuration** section.
 
@@ -129,7 +129,7 @@ First, configure a Google app, which you can use to integrate WSO2 IS.
 
 ## Try it out
 
-You have successfully configured Google as your federated authenticator. Now, when you try to log in to your application, it should redirect to the Google login page. On successful authentication with your Google credentials, you will be able to access your application. 
+You have successfully configured Google as your federated authenticator. Now, when you try to log in to your application, it should redirect to the Google login page. On successful authentication with your Google credentials, you will be able to access your application.
 
 ### Set up the sample app
 
@@ -139,9 +139,9 @@ server installation location will be referred to as `<TOMCAT_HOME>` later
 in this guide.      
 
 - It is recommended that you use a hostname that is not
-`          localhost         ` to avoid browser errors. Modify the
-`          /etc/hosts         ` entry in your machine to reflect this.
-Note that `          wso2is.local         ` is used in
+`localhost` to avoid browser errors. Modify the
+`/etc/hosts` entry in your machine to reflect this.
+Note that `wso2is.local` is used in
 this documentation as an example, but you must modify this when
 configuring the authenticators or connectors with this sample
 application.
