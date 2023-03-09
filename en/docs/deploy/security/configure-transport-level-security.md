@@ -12,11 +12,11 @@ Follow the instructions given below to enable SSL protocols in the WSO2 Identity
 
      ```toml
      [transport.https.sslHostConfig.properties]
-     protocols="TLSv1, TLSv1.1, TLSv1.2, TLSv1.3"
+     protocols="+TLSv1, +TLSv1.1, +TLSv1.2, +TLSv1.3"
      ```
 
     You can configure multiple TLS versions or a single TLS version according to your preference.
-    To achieve high security, use the latest TLS version by removing `TLSv1`, `TLSv1.1`, and `TLSv1.2` from the `protocols` property of the configuration.
+    To achieve high security, use the latest TLS version by removing `+TLSv1`, `+TLSv1.1`, and `+TLSv1.2` from the `protocols` property of the configuration.
 
 2. Restart the server.
 
