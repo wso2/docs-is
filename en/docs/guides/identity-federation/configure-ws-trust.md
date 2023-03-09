@@ -98,10 +98,10 @@ The next step is to add a service provider to consume the STS.
 
 The steps in this section should be followed if you are using Holder of Key as the [subject confirmation method]({{base_path}}/references/concepts/authentication/intro-ws-trust/#subject-confirmation).
 
-For more information, see [how to configure STS for obtain tokens with Holder-Of-Key subject confirmation]({{base_path}}/learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation).
+<!-- For more information, see [how to configure STS for obtain tokens with Holder-Of-Key subject confirmation]({{base_path}}/learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation). -->
 
 !!! Tip "Before you begin"
-    You must first [register a service provider]({{base_path}}/learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
+    You must first [register a service provider]({{base_path}}/guides/applications/register-sp/).
 
 1. On the Management console, go to **Service Providers** > **List** and select your service provider.
 2. Expand **Inbound Authentication Configuration** > **WS-Trust Security Token Service Configuration** and click **Configure**.
