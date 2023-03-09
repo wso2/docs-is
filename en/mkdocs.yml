@@ -1451,9 +1451,9 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 6.0.0
-  #base_path: https://is.docs.wso2.com/en/6.0.0
-  base_path: http://127.0.0.1:8000/en/6.1.0
+  site_version: 6.1.0
+  base_path: https://is.docs.wso2.com/en/6.1.0
+  #base_path: http://127.0.0.1:8000/en/6.1.0
 
   nav_list:
     - Home
