@@ -3490,22 +3490,23 @@ components:
 
     AuthAttribute:
       type: object
+      description: "The authentication attributes required by a user registrant."
       properties:
         attribute:
           type: string
-          decription: "Name of the attribute."
+          description: "Name of the attribute."
           example: "password"
         isClaim:
           type: boolean
-          decription: "Defines whether the attribute is a claim."
+          description: "Defines whether the attribute is a claim."
           example: true
         isConfidential:
           type: boolean
-          decription: "Defines whether the attribute contains confidential data."
+          description: "Defines whether the attribute contains confidential data."
           example: true
         attributeType:
           type: string
-          decription: "Data type of value of the attribute."
+          description: "Data type of value of the attribute."
           example: "string"
 
     Error:
