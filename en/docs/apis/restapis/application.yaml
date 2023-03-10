@@ -2586,6 +2586,10 @@ components:
           type: boolean
           description: Decides whether authorization policies needs to be engaged during authentication flows.
           example: true
+        fragment:
+          type: boolean
+          description: Decides whether application is a fragment application.
+          example: false
         additionalSpProperties:
           $ref: '#/components/schemas/AdditionalProperties'
     AdditionalProperties:
