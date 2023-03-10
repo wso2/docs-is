@@ -3490,6 +3490,7 @@ components:
 
     AuthAttribute:
       type: object
+      description: "The authentication attributes required by a user registrant."
       properties:
         attribute:
           type: string
