@@ -103,7 +103,7 @@ The steps in this section should be followed if you are using **Holder-of-Key** 
 !!! Tip "Before you begin"
     You must first [register a service provider]({{base_path}}/guides/applications/register-sp/).
 
-1. On the Management console, go to **Service Providers** > **List** and select your service provider.
+1. On the Management Console, go to **Service Providers** > **List** and select your service provider.
 2. Expand **Inbound Authentication Configuration** > **WS-Trust Security Token Service Configuration** and click **Configure**.
 3. Enter the required details as given below.
     <table>
