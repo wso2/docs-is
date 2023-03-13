@@ -20,7 +20,7 @@ The connector is successfully installed. Now you can delete the extracted direct
 
 ## Secure the Security Token Service
 
-According to the trust brokering model defined in the WS-Trust specification, the users should authenticate themselves to the STS before obtaining a token. STS may use this authentication information when constructing the security token.
+According to the trust-brokering model defined in the WS-Trust specification, the users should authenticate themselves to the STS before obtaining a token. STS may use this authentication information when constructing the security token.
 
 For example, STS may populate the required claims based on the username provided by the user. Therefore, the STS service needs to be secured.
 
