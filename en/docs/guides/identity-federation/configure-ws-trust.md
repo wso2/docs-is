@@ -26,7 +26,7 @@ For example, STS may populate the required claims based on the username provided
 
 To secure the Security Token Service:
 
-1. On the Management console, go to **Identity Providers \> Resident**.
+1. On the Management Console, go to **Identity Providers \> Resident**.
 
 2. Enter the required values as given below.
 
