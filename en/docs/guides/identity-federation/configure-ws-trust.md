@@ -80,7 +80,7 @@ We will be using `UsernameToken` under the **Basic Scenarios** section for this 
 6. Provide the required details as follows:
 
     1. Select `ALL-USER-STORE-DOMAINS` as the domain.
-    2. Select the role you created to grant permission to access a secured service. In this example, the admin role is used.
+    2. Select the role you created to grant permission to access a secured service. In this example, the `admin` role is used.
         ![select-domain]({{base_path}}/assets/img/guides/ws-trust-select-domain.png)
 
         !!! note
