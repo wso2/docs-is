@@ -11,7 +11,7 @@ To download and install the WS-Trust connector:
 
 1. Download the [WS-Trust Authenticator](https://store.wso2.com/store/assets/isconnector/details/417e7ef2-76fb-424f-92b3-d5eb58e2efe6) from the WSO2 connector store.
 2. Copy and paste the downloaded `.zip` file to the home directory of your WSO2 Identity Server and extract the `.zip` file.
-3. Navigate to the home of the extracted directory and execute the following commands.
+3. Open a terminal, navigate to the home of the extracted directory and execute the following commands.
     ```bash
     chmod u+r+x setup_sts.sh
     ./setup_sts.sh 
