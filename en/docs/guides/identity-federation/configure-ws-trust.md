@@ -16,7 +16,7 @@ To download and install the WS-Trust connector:
     chmod u+r+x setup_sts.sh
     ./setup_sts.sh 
     ```
-4. The connector is successfully installed. Now you can delete the extracted directory.
+The connector is successfully installed. Now you can delete the extracted directory.
 
 ## Secure the Security Token Service
 
