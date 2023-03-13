@@ -163,3 +163,23 @@ public class ValidateRSASignature {
     }
 }
 ```
+
+### JWT Token generation without revoking existing tokens.
+
+When a request come to generate a new JWT token, a new token will be generated based on "APPLICATION, USER, SCOPE, BINDING" combinations. 
+If a token request come for the same combination again, IS will revoke the existing token and return a new token.   
+If you want to generate a JWT token without revoking the existing token, 
+add and configure the following property as shown below in the deployment.toml file found in the <IS_HOME>/repository/conf folder.
+
+```
+[oauth.jwt.renew_token_without_revoking_existing]
+enable = true
+```
+
+!!! Note
+    This feature is available for token request with `client_crendetials` grant type only. 
+
+!!! Warning
+    Enabling this feature could lead to an exponential growth of tokens. 
+    Please properly configure token clean up scripts with proper time limits.
+    Refer: [Remove Unused Tokens from the Database](../../setup/removing-unused-tokens-from-the-database)
