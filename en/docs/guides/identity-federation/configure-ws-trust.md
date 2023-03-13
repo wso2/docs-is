@@ -96,7 +96,7 @@ The next step is to add a service provider to consume the STS.
 
 ## Configure the service provider
 
-The steps in this section should be followed if you are using Holder of Key as the [subject confirmation method]({{base_path}}/references/concepts/authentication/intro-ws-trust/#subject-confirmation).
+The steps in this section should be followed if you are using **Holder-of-Key** as the [subject confirmation method]({{base_path}}/references/concepts/authentication/intro-ws-trust/#subject-confirmation).
 
 <!-- For more information, see [how to configure STS for obtain tokens with Holder-Of-Key subject confirmation]({{base_path}}/learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation). -->
 
