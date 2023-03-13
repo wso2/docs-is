@@ -1,6 +1,6 @@
 # Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation
 
-In this scenario, STS generates a Holder-Of-Key subject confirmation (symmetric key) and encrypts it with the public key of the relying party. This is included in the subject confirmation section of the SAML token, which is validated by the relying party. For this the relying parties endpoint address and the corresponding public certificates needs to be registered.
+In this scenario, STS generates a Holder-Of-Key subject confirmation (symmetric key) and encrypts it with the public key of the relying party. This is included in the subject confirmation section of the SAML token, which is validated by the relying party. For this to work, the relying party's endpoint address and the corresponding public certificates needs to be registered.
 
 Follow the instructions below to configure STS for obtaining tokens with Holder-Of-Key subject confirmation (Symmetric Key).
 
