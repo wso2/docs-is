@@ -118,7 +118,7 @@ The steps in this section should be followed if you are using **Holder-of-Key** 
                 <td>
                     <div class="content-wrapper">
                     <div>
-                        Enter the trusted relying party's <strong>endpoint address,</strong> which is the endpoint address of the Security Token Service.
+                        Enter the trusted relying party's <strong>endpoint address</strong>, which is the endpoint address of the Security Token Service.
                         <p>The endpoint must be used as the service URL to which the token gets delivered by the STS client. Then select the public certificate imported. Tokens issued are encrypted using the public certificate of the trusted relying party. Therefore, the consumer who obtains this token to invoke the RP service will not be able to see the token.</p>
                         <div class="admonition note">
                             <p class="admonition-title">Note</p>
