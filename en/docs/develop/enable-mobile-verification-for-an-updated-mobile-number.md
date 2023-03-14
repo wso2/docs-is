@@ -1,7 +1,7 @@
 # Enable Mobile Number Verification for an Updated Mobile Number
 
 !!! info "Important!"
-    This capability is available as an update in WSO2 IS 5.10.0 from update **level 0** onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating your product](https://updates.docs.wso2.com/en/latest/updates/overview/).
+    This capability is available as an update in WSO2 IS 5.10.0 from update **level 21** onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating your product](https://updates.docs.wso2.com/en/latest/updates/overview/).
 
 This feature enables mobile number verification when the user updates the user profile with a new mobile number, so that the new mobile number can be taken into consideration for all further activities performed by the user.
 
