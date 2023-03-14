@@ -7,7 +7,7 @@ Follow the instructions below to configure STS for obtaining tokens with Holder-
 1. On the Management Console of WSO2 Identity Server, go to **Service Providers** and click **Add**.
 2. Add a **Service Provider Name** and click **Register**.
 3. Expand **Inbound Authentication Configuration** > **WS-Trust Security Token Service Configuration** and click **Configure**.
-5. Enter the trusted relying party and upload the public certificate of the trusted relying party (against its end-point).
+4. Enter the trusted relying party and upload the public certificate of the trusted relying party (against its endpoint).
     The relying party accepts security tokens from WSO2 Identity Server.
 
     The tokens issued are encrypted using the public key of the trusted relying party. Accordingly, even the client that obtains the token to send to the RP has no visibility to the included token.  
