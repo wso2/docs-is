@@ -72,23 +72,21 @@ We will be using `UsernameToken` under the **Basic Scenarios** section for this 
 
         ![enable-security]({{base_path}}/assets/img/guides/ws-trust-view-scenario.png)
 
-5. Click **Next**.
+5. Click **Next** and provide the required details as follows:
 
     !!! info
         The next steps may vary per the security scenario you have chosen under point (5) above. Given below are the steps for the **UsernameToken** scenario.
-
-6. Provide the required details as follows:
 
     1. Select `ALL-USER-STORE-DOMAINS` as the domain.
     2. Select the role you created to grant permission to access a secured service. In this example, the `admin` role is used.
         ![select-domain]({{base_path}}/assets/img/guides/ws-trust-select-domain.png)
 
         !!! note
-                The **Select Domain** drop-down lists many domains. The listed **User Groups** can vary depending on the domain selected.
+            The **Select Domain** drop-down lists the available domains. The listed **User Groups** can vary depending on the domain selected from the drop-down.
 
-7. Click **Finish**.
-8. Click **Ok** on the confirmation dialog window that appears.
-9. Click **Update** to save and complete the process.
+6. Click **Finish**.
+7. Click **Ok** on the confirmation dialog window that appears.
+8. Click **Update** to save and complete the process.
 
 Now STS is configured and secured with a username and password. Only users with the Admin role can consume the service.
 
@@ -124,7 +122,7 @@ The steps in this section should be followed if you are using **Holder-of-Key** 
                         <p>The endpoint must be used as the service URL to which the token gets delivered by the STS client. Then select the public certificate imported. Tokens issued are encrypted using the public certificate of the trusted relying party. Therefore, the consumer who obtains this token to invoke the RP service will not be able to see the token.</p>
                         <div class="admonition note">
                             <p class="admonition-title">Note</p>
-                            Make sure to upload the certificate of the relying party to the trust store. For instructions, see <a href="https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-ca_certificateAddingCA-signedcertificatestokeystores">adding CA-signed certificates to keystores</a>.
+                            Make sure to upload the certificate of the relying party to the trust store. For instructions, see <a href="https://is.docs.wso2.com/en/latest/deploy/security/create-new-keystores/#add-ca-signed-certificates-to-keystores">adding CA-signed certificates to keystores</a>.
                         </div>
                         <br/>
                     </div>
