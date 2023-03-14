@@ -3507,7 +3507,7 @@ components:
         attributeType:
           type: string
           description: "Data type of value of the attribute."
-          example: "string"
+          example: "STRING"
 
     Error:
       type: object
