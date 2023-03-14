@@ -4,7 +4,7 @@ In this scenario, STS generates a Holder-Of-Key subject confirmation (symmetric 
 
 Follow the instructions below to configure STS for obtaining tokens with Holder-Of-Key subject confirmation (Symmetric Key).
 
-1. On WSO2 Identity Server Management Console, go to **Service Providers** and click **Add**.
+1. On the Management Console of WSO2 Identity Server, go to **Service Providers** and click **Add**.
 2. Add a **Service Provider Name** and click **Register**.
 3. Expand **Inbound Authentication Configuration** > **WS-Trust Security Token Service Configuration**.
 4. Click **Configure**.
