@@ -20,7 +20,7 @@ usecase = "local"
 secondaryUserstore = "primary"
 SMSOTPMandatory = false
 SendOtpToFederatedMobile = false
-federatedMobileAttributeKey = "phone_number"
+federatedMobileAttributeKey = "mobile"
 CaptureAndUpdateMobileNumber = true
 SendOTPDirectlyToMobile = false
 redirectToMultiOptionPageOnFailure = false
@@ -85,11 +85,11 @@ This parameter defines how the mobile ID will be retrieved. You can configure th
 
 - **local**: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.
 
-- **association**: The federated username must be associated with the local account in advance in the WSO2 Identity Server My Account. The local username is retrieved from the association. <!-- For information on creating an association, see the [My Account help](insertlink). -->
+- **association**: The federated username must be associated with the local account in advance in the WSO2 Identity Server My Account. The local username is retrieved from the association.
 
 - **subjectUri**: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the SMSOTP authenticator.
 
-- **userAttribute**: The name of the federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the `[authentication.authenticator.sms_otp.parameters]` section in the `deployment.toml` file and enter the relevant value.
+- **userAttribute**: The name of the federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the `[authentication.authenticator.sms_otp.parameters]` section in the `deployment.toml` file and enter the relevant value, e.g., email and screen_name, id.
 
     ```toml
     [authentication.authenticator.sms_otp.parameters]
