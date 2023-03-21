@@ -81,7 +81,7 @@ Define whether to use a backup code instead of the actual SMS code or not.
 
 #### usecase 
 
-This parameter defines how the mobile ID will be retrieved. You can configure the following possible values:
+This parameter defines how the username will be retrieved and this has to be configured if the previous authenticator is not a Local Authenticator (eg: Basic Auth). You can configure the following possible values:
 
 - **local**: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.
 
