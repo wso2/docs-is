@@ -92,8 +92,8 @@ This parameter defines how the mobile ID will be retrieved. You can configure th
 - **userAttribute**: The name of the federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the `[authentication.authenticator.sms_otp.parameters]` section in the `deployment.toml` file and enter the relevant value.
 
     ```toml
-    [authentication.authenticator.email_otp.parameters]
-    userAttribute = "phone_number"
+    [authentication.authenticator.sms_otp.parameters]
+    userAttribute = "email"
     ```
 
 ----
