@@ -41,7 +41,7 @@ The following diagram explains how STS flow works.
 
 ### Subject confirmation
 
-Subject confirmation methods are how a relying party (or the end service) can ensure that the legitimate subject brings a particular security token issued by a Security Token Service (STS).
+Subject confirmation methods specify how a relying party (or the end service) can ensure that the legitimate subject brings a particular security token issued by a Security Token Service (STS).
 
 This help to prove the relationship between the subject and the security token.
 
