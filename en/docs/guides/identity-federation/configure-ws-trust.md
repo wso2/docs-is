@@ -64,7 +64,7 @@ To secure the Security Token Service:
     
     ![apply security policy]({{base_path}}/assets/img/guides/ws-trust-apply-policy.png)
 
-4. Select `Yes` from the **Enable Security?** list and select a pre-configured security scenario according to your requirements.
+4. Select **Yes** from the **Enable Security?** list and select a pre-configured security scenario according to your requirements.
 We will be using `UsernameToken` under the **Basic Scenarios** section for this tutorial.
 
     !!! note
