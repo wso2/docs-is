@@ -57,7 +57,7 @@ artifacts.
 
     | Property              | Description                                                                                                                                                                                             |
     |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | PreventTokenReuse     | If this is set to "false," the JWT can be reused again within its expiration period.  If this is set to "true," the JWT can be used only once. |
+    | PreventTokenReuse     | If this is set to "false," the JWT can be reused within its expiration period.  If this is set to "true," the JWT can be used only once. |
     | RejectBeforeInMinutes | The JWT should be rejected and considered as a too old token, if the issued time of the JWT exceeds the configured time.                                                                                |
     | TokenEndpointAlias    | An audience that can be added from the above configuration.                                                                                                                                             |
 
