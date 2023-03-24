@@ -142,11 +142,11 @@ paths:
       tags:
         - Applications
       summary: |
-        Create application from an exported XML file
+        Create application from an exported XML, YAML, or JSON file
       operationId: importApplication
       description: >
-        This API provides the capability to store the application information,
-        provided as a file.<br>
+        This API provides the capability to create an application based on the 
+        information provided in an XML, YAML, or JSON file.<br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/create <br>
           <b>Scope required:</b> <br>
@@ -191,10 +191,11 @@ paths:
       tags:
         - Applications
       summary: |
-        Update application from an exported XML file
+        Update application from an exported XML, YAML, or JSON file
       operationId: importApplicationForUpdate
       description: >
-        This API provides the capability to update an application from information that has been exported as an XML file.<br>
+        This API provides the capability to update an application based on the 
+        information provided in an XML, YAML, or JSON file.<br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/update <br>
           <b>Scope required:</b> <br>
