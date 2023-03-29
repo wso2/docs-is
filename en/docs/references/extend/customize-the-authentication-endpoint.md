@@ -334,10 +334,6 @@ appropriate page.
 
 Let's see how this can be achieved.
 
-First, you need to add a registry resource that will contain the
-redirect URLs of different service providers. To do that, follow the
-below steps:
-
 1.  Start the Identity Server and log in to the Management Console.
 
 2.  On the Management Console, go to **Main > Identity > Service Providers**, and select the 
@@ -345,5 +341,5 @@ service provider registered for your application.
 
 3. Specify the access URL of your application as shown below.
 
-   ![service provider access url]({{base_path}}/assets/img/references/add-access-url-to-sp.png)
+    ![service provider access url]({{base_path}}/assets/img/references/add-access-url-to-sp.png)
 
