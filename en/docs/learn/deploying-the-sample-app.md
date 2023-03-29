@@ -324,6 +324,8 @@ Deploy this sample web app on a web container.
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
     .
 2.  Start the Tomcat server.
+3.  Copy wso2carbon.jks file from <IS_HOME>/repository/resources/security and replace it with the existing wso2carbon.jks file under the web application folder    <TOMCAT_HOME>/apache-tomcat-<version>/webapps/saml2-web-app-pickup-dispatch.com/WEB-INF/classes (If you miss this step, you will run into an authentication issue).
+4.  Edit sso.properties file present under <TOMCAT_HOME>/apache-tomcat-<version>/webapps/saml2-web-app-pickup-dispatch.com/WEB-INF/classes and change hostname from localhost.com to localhost in SAML2.AssertionConsumerURL
 
 To check the sample application, navigate to
 `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/saml2-web-app-pickup-dispatch.com/index.jsp         `
@@ -351,7 +353,7 @@ The next step is to configure the service provider.
         1.  **Issuer** : `               saml2-web-app-pickup-dispatch.com             `
 
         2.  **Assertion Consumer URL** :
-            `                               http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp `                       
+            `                               http://localhost:8080/saml2-web-app-pickup-dispatch.com/home.jsp `                       
             Click Yes, in the message that appears.
 
     2.  Select the following check-boxes:
@@ -402,6 +404,8 @@ Deploy this sample web app on a web container.
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
     .
 2.  Start the Tomcat server.
+3.  Copy wso2carbon.jks file from <IS_HOME>/repository/resources/security and replace it with the existing wso2carbon.jks file under the web application folder    <TOMCAT_HOME>/apache-tomcat-<version>/webapps/saml2-web-app-pickup-manager.com/WEB-INF/classes (If you miss this step, you will run into an authentication issue).
+4.  Edit sso.properties file present under <TOMCAT_HOME>/apache-tomcat-<version>/webapps/saml2-web-app-pickup-manager.com/WEB-INF/classes and change hostname from localhost.com to localhost in SAML2.AssertionConsumerURL
 
 To check the sample application, navigate to
 `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/saml2-web-app-pickup-manager.com/index.jsp        `
@@ -430,7 +434,7 @@ The next step is to configure the service provider.
         1.  **Issuer** : `               saml2-web-app-pickup-manager.com             `
 
         2.  **Assertion Consumer URL** :
-            `                               http://localhost.com:8080/saml2-web-app-pickup-manager.com/home.jsp`                        
+            `                               http://localhost:8080/saml2-web-app-pickup-manager.com/home.jsp`                        
                  
             Click Yes, in the message that appears.
 
