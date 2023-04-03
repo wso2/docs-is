@@ -60,7 +60,7 @@ textbox on the login page, without having to type it with
   
 Configure the following to enable this feature.
 
-1. Add the following configuration to the `<IS_HOME>/repository/conf/tomcat/deployment.toml`
+1. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml`
     file. This is done to disable the certificate authentication on certain occasions (like
     when working on mobile apps). This makes two-way SSL authentication
     optional.
