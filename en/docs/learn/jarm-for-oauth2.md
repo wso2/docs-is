@@ -1,13 +1,13 @@
 # JWT-Secured Authorization Response Mode (JARM) for OAuth 2.0
 
-The [JWT-Secured Authorization Response Mode for OAuth 2.0 (JARM) specification](https://bitbucket.org/openid/fapi/src/master/oauth-v2-jarm.md) defines new JWT-based modes to encode OAuth2 authorization responses. These new modes allow clients to request authorization response parameters along with additional data in JWT format.
+The [JWT-Secured Authorization Response Mode for OAuth 2.0 (JARM) specification](https://bitbucket.org/openid/fapi/src/master/oauth-v2-jarm.md) defines new JWT-based modes to encode OAuth2 authorization responses. These new modes allow clients to request authorization response parameters and additional data in JWT format.
 
 !!! info
     This is only available as a WSO2 Update from WSO2 Identity Server update level **5.10.216** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 
-## Authorization flow (default)
+## Authorization flow
 
-Given below is a sample authorization request sent to authorization endpoint of WSO2 Identity Server.
+Given below is a sample authorization request sent to the authorization endpoint of WSO2 Identity Server.
 
 ```bash
 https://<IS_HOME>/oauth2/authorize?prompt=login&scope=openid&redirect_uri=https://<CLIENT-HOST>/redirects/redirect1&client_id=<CLIENT-ID>&response_type=<RESPONSE-TYPE>&response_mode=<RESPONSE-MODE>
@@ -21,8 +21,19 @@ Note the following two parameters (`reponse_type` and `response_mode`) in the ab
             reponse_type
         </th>
         <td>
-            Specifies the type of authorization information that should be returned and also informs WSO2 Identity Server (the authorization server) of the desired authorization processing flow. </br>
-            Possible values:<code>code</code>, <code>code id_token</code>.
+            Informs WSO2 Identity Server (the authorization server) of the desired OAuth2 authorization processing flow, which also determines the type of authorization information that should be returned.</br></br>
+            Possible values:
+            <ul>
+                <li>
+                    <code>code</code>: Used if the <a href="../authorization-code-grant">authorization code flow</a> is implemented.
+                </li>
+                <li>
+                    <code>token</code>: Used if the <a href="../implicit-grant">implicit flow</a> is implemented.
+                </li>
+                <li>
+                    <code>code id_token</code>: Used if the <a href="../openid-connect-hybrid-flow">hybrid flow</a> is implemented.
+                </li>
+            </ul>
         </td>
     </tr>
     <tr>
@@ -30,26 +41,23 @@ Note the following two parameters (`reponse_type` and `response_mode`) in the ab
             response_mode
         </th>
         <td>
-            Specifies how the authorization information should be returned to the client.</br>
-            Possible values: <code>query.jwt</code>, <code>fragment.jwt</code>, <code>form_post.jwt</code>, and <code>jwt</code></br>
-            WSO2 Identity Server supports query.jwt, fragment.jwt, and form_post.jwt response modes by default.
+            Specifies how the authorization information should be returned to the client. By default, the following response modes are supported in WSO2 Identity Server: <code>query</code>, <code>fragment</code>, and <code>form_post</code>.</br></br>
+            In the default authorization flow (for default response modes), the authorization response parameters, including the authorization code and ID token, are sent as human-readable plain text to the redirect URL, as shown below.</br></br>
+            <code>https://{CLIENT_HOST}/redirects/redirect1?code={AUTH-CODE}&session_state={SESSION-STATE}</code></br></br>
+            To change this response to a more secure JWT format, you need to use JARM.
         </td>
     </tr>
 </table>
 
-In the default authorization flow (for default response modes), the authorization response parameters including the authorization code and ID token are sent as human-readable plain text to the redirect URL.
+## Using JARM
 
-```bash
-https://<CLIENT_HOST>/redirects/redirect1?code=<AUTH-CODE>&session_state=<SESSION-STATE>
-```
+When [JARM is enabled in WSO2 Identity Server](#enable-jarm), clients are able to request authorization response parameters (along with additional data) in JWT format instead of plain text.
 
-## Authorization flow (with JARM)
-
-With JARM, clients should have the ability to request the transmission of the authorization response parameters along with additional data, in JWT format. The specification defines the following response modes, which you can specify using the `response_mode` parameter in the authorization request.
+The specification defines the following response modes, which you can specify using the `response_mode` parameter in the authorization request.
 
 ### query.jwt
   
-Response parameters are encoded in a single JWT and sent as a query param to the redirect URI.
+Response parameters are encoded in a single JWT and sent as a query parameter to the redirect URI.
 
 Sample response:
 
@@ -60,7 +68,7 @@ Location: https://<CLIENT-HOST>/redirects/redirect1?response=<JWT>
 
 ### fragment.jwt
 
-Response parameters are encoded in a single JWT and sent as a fragment param to the redirect URI.
+Response parameters are encoded in a single JWT and sent as a fragment parameter to the redirect URI.
 
 Sample response:
 
@@ -104,26 +112,11 @@ response=<JWT>
 
 ### jwt
 
-The response mode jwt is a shortcut and indicates the default redirect encoding (query, fragment) for the requested response type as shown below.
+The response mode jwt is a shortcut and indicates the default redirect encoding (query, fragment) for the requested response type, as shown below.
 
-<table>
-    <tr>
-        <th>response_type</th>
-        <th>response_mode</th>
-    </tr>
-    <tr>
-        <td><code>code</code></td>
-        <td><code>query.jwt</code></td>
-    </tr>
-    <tr>
-        <td><code>token</code></td>
-        <td><code>fragment.jwt</code></td>
-    </tr>
-    <tr>
-        <td>Contains <code>token</code> or <code>id_token</code></td>
-        <td><code>fragment.jwt</code></td>
-    </tr>
-</table>
+- If <code>response_type</code> is <code>code</code>, the <code>response_mode</code> is <code>query.jwt</code>.
+- If <code>response_type</code> is <code>token</code>, the <code>response_mode</code> is <code>fragment.jwt</code>.
+- If <code>response_type</code> contains <code>token</code> or <code>id_token</code>, the <code>response_mode</code> is <code>fragment.jwt</code>.
 
 **Given below is a sample JARM response <JWT>:**
 
@@ -143,7 +136,7 @@ eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00w
 }
 ```
 
-## Enabling JARM
+## Enable JARM
 
 By default, JARM response modes are not enabled in WSO2 Identity Server 5.10.0. To enable JARM, open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configurations:
 
