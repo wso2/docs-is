@@ -10,7 +10,7 @@ The [JWT-Secured Authorization Response Mode for OAuth 2.0 (JARM) specification]
 Given below is a sample authorization request sent to the authorization endpoint of WSO2 Identity Server.
 
 ```bash
-https://<IS_HOME>/oauth2/authorize?prompt=login&scope=openid&redirect_uri=https://<CLIENT-HOST>/redirects/redirect1&client_id=<CLIENT-ID>&response_type=<RESPONSE-TYPE>&response_mode=<RESPONSE-MODE>
+https://<IS_HOME>/oauth2/authorize?prompt=login&scope=openid&redirect_uri=https://<CLIENT_HOST>/redirects/redirect1&client_id=<CLIENT_ID>&response_type=<RESPONSE_TYPE>&response_mode=<RESPONSE_MODE>
 ```
 
 Note the following two parameters (`reponse_type` and `response_mode`) in the above request.
@@ -43,7 +43,7 @@ Note the following two parameters (`reponse_type` and `response_mode`) in the ab
         <td>
             Specifies how the authorization information should be returned to the client. By default, the following response modes are supported in WSO2 Identity Server: <code>query</code>, <code>fragment</code>, and <code>form_post</code>.</br></br>
             In the default authorization flow (for default response modes), the authorization response parameters, including the authorization code and ID token, are sent as human-readable plain text to the redirect URL, as shown below.</br></br>
-            <code>https://{CLIENT_HOST}/redirects/redirect1?code={AUTH-CODE}&session_state={SESSION-STATE}</code></br></br>
+            <code>https://&lt;CLIENT_HOST&gt;/redirects/redirect1?code=&lt;AUTH_CODE&gt;&session_state=&lt;SESSION_STATE&gt;</code></br></br>
             To change this response to a more secure JWT format, you need to use JARM.
         </td>
     </tr>
@@ -63,7 +63,7 @@ Sample response:
 
 ```bash
 HTTP/1.1 302 Found
-Location: https://<CLIENT-HOST>/redirects/redirect1?response=<JWT>
+Location: https://<CLIENT_HOST>/redirects/redirect1?response=<JWT>
 ```
 
 ### fragment.jwt
@@ -74,7 +74,7 @@ Sample response:
 
 ```bash
 HTTP/1.1 302 Found
-Location: https://<CLIENT-HOST>/redirects/redirect1#response=<JWT>
+Location: https://<CLIENT_HOST>/redirects/redirect1#response=<JWT>
 ```
 
 ### form_post.jwt
@@ -93,7 +93,7 @@ Pragma: no-cache
 <head><title>Submit Form</title>
 </head>
 <body onload="javascript:document.forms[0].submit()">
-<form method="post" action="https://<CLIENT-HOST>/redirects/redirect1">
+<form method="post" action="https://<CLIENT_HOST>/redirects/redirect1">
     <input type="hidden" name="response" value=<JWT>/>
 </form>
 </body>
@@ -104,7 +104,7 @@ The above response results in the following POST request to the client's redirec
 
 ```bash
 POST /redirects/redirect1 HTTP/1.1
-Host: <CLIENT-HOST>
+Host: <CLIENT_HOST>
 Content-Type: application/x-www-form-urlencoded
 
 response=<JWT>
