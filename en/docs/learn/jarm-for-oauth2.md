@@ -1,4 +1,4 @@
-# JWT Secured Authorization Response Mode (JARM) for OAuth 2.0
+# JWT-Secured Authorization Response Mode (JARM) for OAuth 2.0
 
 The [JWT-Secured Authorization Response Mode for OAuth 2.0 (JARM) specification](https://bitbucket.org/openid/fapi/src/master/oauth-v2-jarm.md) defines new JWT-based modes to encode OAuth2 authorization responses. These new modes allow clients to request authorization response parameters along with additional data in JWT format.
 
