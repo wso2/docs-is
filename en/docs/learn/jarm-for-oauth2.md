@@ -1,6 +1,6 @@
 # JWT Secured Authorization Response Mode (JARM) for OAuth 2.0
 
-The [JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) specification](https://bitbucket.org/openid/fapi/src/master/oauth-v2-jarm.md) defines new JWT-based modes to encode OAuth2 authorization responses. These new modes allow clients to request authorization response parameters and additional data in JWT format.
+The [JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) specification](https://openid.net/specs/openid-financial-api-jarm-ID1.html) defines new JWT-based modes to encode OAuth2 authorization responses. These new modes allow clients to request authorization response parameters and additional data in JWT format.
 
 !!! info
     This is only available as a WSO2 Update from WSO2 Identity Server update level **5.10.216** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
@@ -42,9 +42,9 @@ Note the following two parameters (`reponse_type` and `response_mode`) in the ab
         </th>
         <td>
             Specifies how the authorization information should be returned to the client. By default, the following response modes are supported in WSO2 Identity Server: <code>query</code>, <code>fragment</code>, and <code>form_post</code>.</br></br>
-            In the default authorization flow (for default response modes), the authorization response parameters, including the authorization code and ID token, are sent as human-readable plain text to the redirect URL, as shown below.</br></br>
+            In the default authorization flow (for default response modes), the authorization response parameters, such as the authorization code and ID token, are sent as human-readable plain text to the redirect URL, as shown below.</br></br>
             <code>https://&lt;CLIENT_HOST&gt;/redirects/redirect1?code=&lt;AUTH_CODE&gt;&session_state=&lt;SESSION_STATE&gt;</code></br></br>
-            To change this response to a more secure JWT format, you need to use JARM.
+            The JARM specification is used to send this response in a more secure manner by encoding the response parameters in a JWT.
         </td>
     </tr>
 </table>
@@ -112,11 +112,12 @@ response=<JWT>
 
 ### jwt
 
-The response mode jwt is a shortcut and indicates the default redirect encoding (query, fragment) for the requested response type, as shown below.
+The `jwt` response mode is a shortcut and it indicates the default redirect encoding (`query.jwt` or `fragment.jwt`) for the requested response type. That is, if the response mode is `jwt`, the server decides whether `query.jwt` or `fragment.jwt` is to be used depending on the `response_type` sent in the request.
 
-- If <code>response_type</code> is <code>code</code>, the <code>response_mode</code> is <code>query.jwt</code>.
-- If <code>response_type</code> is <code>token</code>, the <code>response_mode</code> is <code>fragment.jwt</code>.
-- If <code>response_type</code> contains <code>token</code> or <code>id_token</code>, the <code>response_mode</code> is <code>fragment.jwt</code>.
+The default response modes for each response type is shown below.
+
+- If the `response_type` is `code`, the `response_mode` is `query.jwt`.
+- For the response types defined in [OIDM](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html) (​​except `none`), the default response mode is `fragment.jwt`. That is, for response types containing `token` or `id_token`, the default response mode is `fragment.jwt`.
 
 **Given below is a sample JARM response <JWT>:**
 
