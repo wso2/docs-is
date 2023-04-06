@@ -438,7 +438,7 @@ nav:
             - 'Running the MP-JWT Sample': learn/running-the-mp-jwt-sample.md
           - 'Validating JWT based on JWKS': learn/validating-jwt-based-on-jwks.md
           - 'Issuing New Tokens Per Request': learn/issuing-new-tokens-per-request.md
-          - 'JWT-Secured Authorization Response Mode (JARM) for OAuth 2.0': learn/jarm-for-oauth2.md
+          - 'JWT Secured Authorization Response Mode (JARM) for OAuth 2.0': learn/jarm-for-oauth2.md
         - 'OpenID Connect':
           - 'OpenID Connect': learn/openid-connect.md
           - 'OpenID Connect Discovery': learn/openid-connect-discovery.md
