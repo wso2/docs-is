@@ -116,7 +116,7 @@ The `jwt` response mode is a shortcut and it indicates the default redirect enco
 
 The default response modes for each response type is shown below.
 
-- If the `response_type` is `code`, the `response_mode` is `query.jwt`.
+- If the `response_type` is `code`, the default `response_mode` is `query.jwt`.
 - For the response types defined in [OIDM](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html) (​​except `none`), the default response mode is `fragment.jwt`. That is, for response types containing `token` or `id_token`, the default response mode is `fragment.jwt`.
 
 **Given below is a sample JARM response <JWT>:**
