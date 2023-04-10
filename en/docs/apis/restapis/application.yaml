@@ -142,7 +142,7 @@ paths:
       tags:
         - Applications
       summary: |
-        Create application from an exported XML, YAML, or JSON file
+        Create application from an exported XML, YAML, or JSON file.
       operationId: importApplication
       description: >
         This API provides the capability to create an application based on the 
