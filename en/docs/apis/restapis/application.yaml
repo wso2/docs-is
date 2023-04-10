@@ -191,7 +191,7 @@ paths:
       tags:
         - Applications
       summary: |
-        Update application from an exported XML, YAML, or JSON file
+        Update application from an exported XML, YAML, or JSON file.
       operationId: importApplicationForUpdate
       description: >
         This API provides the capability to update an application based on the 
