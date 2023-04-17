@@ -76,7 +76,7 @@ We will be using `UsernameToken` under the **Basic Scenarios** section for this 
 5. Click **Next**.
 
     !!! info
-        The next steps may vary per the security scenario you have chosen under point (5) above. Below is for **UsernameToken** scenario.
+        The next steps may vary according to the security scenario you have chosen under point (5) above. Below is for the **UsernameToken** scenario.
 
 6. Provide the required details as follows:
 
