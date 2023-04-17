@@ -9,7 +9,7 @@ To run the STS client
 
 1. Clone the [Identity Server samples](https://github.com/wso2/samples-is) repository.
 
-2. In the cloned directory, navigate to `SAMPLES-IS/sts/sts-client` directory to build the STS client.  
+2. In the cloned directory, go to the `SAMPLES-IS/sts/sts-client` directory to build the STS client.  
 
     !!! info
         The sts-client sample sends the username and password defined in the `SAMPLES-IS/sts/sts-client/src/main/resources/client.properties` file. WSO2 Identity Server authenticates if the user is in the system, and if the user is in the system, a token is sent to the requesting party, which is the sts-client application in this case.
