@@ -82,7 +82,7 @@ We will be using `UsernameToken` under the **Basic Scenarios** section for this 
         ![select-domain]({{base_path}}/assets/img/guides/ws-trust-select-domain.png)
 
         !!! note
-            The **Select Domain** drop-down lists the available domains. The listed **User Groups** can vary depending on the domain selected from the drop-down.
+            The **Select Domain** list provides the available domains. The listed **User Groups** can vary depending on the domain selected from the drop-down.
 
 6. Click **Finish**.
 7. Click **Ok** on the confirmation dialog window that appears.
