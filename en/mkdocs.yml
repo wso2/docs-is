@@ -184,9 +184,9 @@ nav:
           - OpenID Connect: guides/identity-federation/configure-oauth2-openid-connect.md
           - ADFS: guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
           - WS-Federation: guides/identity-federation/configure-ws-federation.md
-          #- WS-Trust: 
+          - WS-Trust: guides/identity-federation/configure-ws-trust.md
             #- WS Trust STS: guides/identity-federation/configure-ws-trust.md
-            #- Obtain tokens using STS: guides/identity-federation/obatin-tokens-using-sts.md
+            #- Obtain tokens using STS: guides/identity-federation/obtain-tokens-using-sts.md
             #- Access claims using STS: guides/identity-federation/access-claims-using-sts.md
           - Shibboleth: guides/identity-federation/configure-shibboleth-idp.md
         - Social Login:
