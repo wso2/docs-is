@@ -5,7 +5,7 @@ The following sample demonstrates the steps to run a Security Token Service (STS
 !!! note "Before you begin"
     You need to [configure WS-Trust](../../learn/configuring-ws-trust-security-token-service) for WSO2 Identity Server.
 
-To run the STS client
+To run the STS client:
 
 1. Clone the [Identity Server samples](https://github.com/wso2/samples-is) repository.
 
