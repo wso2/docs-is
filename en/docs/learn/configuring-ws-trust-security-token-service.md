@@ -1,39 +1,34 @@
 # Configuring WS-Trust Security Token Service
 
-WSO2 Identity Server uses the security token service (STS) as the
-[WS-Trust](../../learn/ws-trust) implementation. The STS is capable of issuing
-SAML 1.1 and 2.0 security tokens and has a SOAP/XML API for token
-issuance. This API can be secured with the
-`         UserNameToken        ` or with any other WS-Security mechanism
-as explained below.
+WSO2 Identity Server uses the security token service (STS) as the [WS-Trust](../../learn/ws-trust) implementation.
 
-!!! Tip "Before you begin"
-    WS-Trust authentication is no longer supported by default in WSO2 IS 5.11.0 and has been introduced as a connector. 
-    In order to use WS-Trust authentication, first you should download the connector from 
-    [WSO2 Connector Store](https://store.wso2.com/store/assets/isconnector/list) and [install](https://github.com/wso2-extensions/identity-inbound-auth-sts/blob/master/docs/config.md#installing-the-connector) it.
+The STS is capable of issuing SAML 1.1 and 2.0 security tokens and has a SOAP/XML API for token issuance.
 
-#### Securing the Security Token Service
+## Download the STS connector
+WS-Trust authentication is no longer supported by default from IS 5.11.0 upwards and has been introduced as a connector. In order to use WS-Trust authentication, first, you should download the connector from the WSO2 Connector Store.
 
-According to the Trust Brokering model defined in the WS-Trust
-specification, the users should authenticate themselves to the STS
-before obtaining a token. STS may use this authentication information
-when constructing the security token. For example, STS may populate the
-required claims based on the user name provided by the subject.
-Therefore, the STS service needs to be secured.
+To download and install the WS-Trust connector:
 
-STS is configured under the **Resident Identity Provider** section of
-the WSO2 Identity Server [Management
-Console](../../setup/getting-started-with-the-management-console).
+1. Download the [WS-Trust Authenticator](https://store.wso2.com/store/assets/isconnector/details/417e7ef2-76fb-424f-92b3-d5eb58e2efe6) from the WSO2 connector store.
+2. Copy and past the downloaded `.zip` file to the home directory of the Identity Server and extract the `.zip`.
+3. Navigate to the home of the extracted directory and execute the following commands.
+    ```bash
+    chmod u+r+x setup_sts.sh
+    ./setup_sts.sh 
+    ```
+4. The connector is successfully installed. Now you can delete the extracted directory.
+
+## Securing the Security Token Service
+
+According to the trust brokering model defined in the WS-Trust specification, the users should authenticate themselves to the STS before obtaining a token. STS may use this authentication information when constructing the security token.
+
+For example, STS may populate the required claims based on the username provided by the user. Therefore, the STS service needs to be secured.
 
 To secure the Security Token Service:
 
-1.  On the **Main** tab, click **Identity \> Identity Providers \>
-    Resident**.  
-    ![main-tab-resident](../assets/img/tutorials/main-tab-resident.png)  
-    The Resident Identity Provider page appears.  
-    ![resident-identity-provider](../assets/img/tutorials/resident-identity-provider.png)
+1. On the Management console, go to **Identity Providers \> Resident**.
 
-2.  Enter the required values as given below.
+2. Enter the required values as given below.
 
     <table>
     <thead>
@@ -46,102 +41,78 @@ To secure the Security Token Service:
     <tbody>
     <tr class="odd">
     <td><strong>Home Realm Identifier</strong></td>
-    <td>This is the domain name of the identity provider. If you do not enter a value here, when an authentication request comes to WSO2 Identity Server, a user will be prompted to specify a domain. You can enter multiple identifiers as a comma-separated list.</td>
-    <td><code>               localhost              </code></td>
+    <td>This is the domain name of the identity provider. If you do not enter a value here, the user will be prompted to specify a domain, when an authentication request comes to WSO2 Identity Server. You can enter multiple identifiers as a comma-separated list.</td>
+    <td><code>localhost</code></td>
     </tr>
     <tr class="even">
     <td><strong>Idle Session Time Out</strong></td>
-    <td>This is the duration in minutes for which an SSO session can be idle for. If WSO2 Identity Server does not receive any SSO authentication requests for the given duration, a session time out occurs. The default value is <code>               15              </code> .</td>
-    <td><code>               15              </code></td>
+    <td>This is the duration in minutes for which an SSO session can be idle. If WSO2 Identity Server receives no SSO authentication requests for the given duration, a session time-out occurs. The default value is <code>15</code> .</td>
+    <td><code>15</code></td>
     </tr>
     <tr class="odd">
     <td><strong>Remember Me Period</strong></td>
     <td><div class="content-wrapper">
     <p>This is the duration in weeks for which WSO2 Identity Server should remember an SSO session given that the <strong>Remember Me</strong> option is selected in the WSO2 Identity Server login screen.</p>
-    <p>The default value is <code>                 2                </code> weeks.</p>
+    <p>The default value is <code>2</code> weeks.</p>
     </div></td>
-    <td><code>               2              </code></td>
+    <td><code>2</code></td>
     </tr>
     </tbody>
     </table>
 
-3.  Under the **Inbound Authentication Configuration** section, click
-    **Security Token Service Configuration \> Apply Security Policy**
-    .  
+
+3. Expand **Inbound Authentication Configuration** > **Security Token Service Configuration** and click **Apply Security Policy**.
     ![security-token-service-config](../assets/img/tutorials/security-token-service-config.png)
-4.  Select **Yes** in the **Enable Security?** drop down and  select a
-    pre-configured security scenario according to your requirements. For
-    this tutorial, use **UsernameToken** under the **Basic Scenarios**
-    section.  
+
+4. Select **Yes** from the **Enable Security?** list and select a pre-configured security scenario according to your requirements.
+We will be using `UsernameToken` under the **Basic Scenarios** section for this tutorial.  
     ![enable-security](../assets/img/tutorials/enable-security.png)
 
     !!! note
-    
-        You can find further details about security policy scenarios from
-        the **view scenario** option **.**
-    
+        You can find further details about security policy scenarios from the **view scenario** option.
         ![security-policy-scenarios](../assets/img/tutorials/security-policy-scenarios.png)
-    
 
-5.  Click **Next**. The user domain and user group selection appears.
-	
-	!!! info	
-		Next steps may vary as per the security scenario that you have
-		chosen under point (5) above. Below is for **UsernameToken**
-		scenario.
 
-6.  Provide the required details as follows:
-    1.  Select **ALL-USER-STORE-DOMAINS**.
-    2.  Select the role you created to grant permission to access
-        secured service. In this example, the admin role is used.
-        Next, click **Finish**.
+5. Click **Next**.
+
+    !!! info
+        The next steps may vary according to the security scenario you have chosen under point (5) above. Below is for the **UsernameToken** scenario.
+
+6. Provide the required details as follows:
+
+    1. Select **ALL-USER-STORE-DOMAINS** as the domain.
+    2. Select the role you created to grant permission to access a secured service. In this example, the admin role is used.
 
         !!! note
-                The **Select Domain** drop-down lists many domains. The listed
-                **User Groups** can vary depending on the domain selected.
-        
+            The **Select Domain** drop-down lists many domains. The listed **User Groups** can vary depending on the domain selected.
+            ![select-domain](../assets/img/tutorials/select-domain.png)
 
-    	![select-domain](../assets/img/tutorials/select-domain.png)
+7. Click **Finish**.
+8. Click **Ok** on the confirmation dialog window that appears.
+9. Click **Update** to save and complete the process.
 
-7.  Click **Finish**.
-8.  Click **Ok** on the confirmation dialog window that appears.
-9.  Click **Update** to complete the process.
-
-Now STS is configured and secured with a username and password. Only
-users with the Admin role can consume the service.
+Now STS is configured and secured with a username and password. Only users with the Admin role can consume the service.
 
 The next step is to add a service provider to consume the STS.
 
-#### Adding a service provider for the STS client
+## Configure the service provider
 
-Do the following steps if you are using a Holder of Key **subject
-confirmation method**. For more information, see [Configuring STS for
-Obtaining Tokens with Holder-Of-Key Subject
-Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation).
+The steps in this section should be followed if you are using a Holder of Key **subject confirmation method**.
+
+For more information, see [Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation).
 
 !!! info
-	The **Subject confirmation methods** define how a relying party (RP),
-	which is the end service can make sure a particular security token
-	issued by an STS is brought by the legitimate subject. If this is not
-	done, a third party can take the token from the wire and send any
-	request it wants including that token. The RP trusts that illegitimate
+	The **Subject confirmation methods** define how a relying party (RP), which is the end service can make sure a particular security token issued by an STS is brought by the legitimate subject. If this is not done, a third party can take the token from the wire and send any request it wants including that token. The RP trusts that illegitimate
 	party.
 	
-!!! Tip "Before you begin"	
+!!! Tip "Before you begin"
     You must first
     [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
-    To register a service provider:
-	 
-	 1. Sign in to WSO2 Identity Server Management Console as an admin.
-	 2. On the Main menu, click **Identity** > **Service Providers** > **Add**.
-	 3. Enter a service provider name.
-	 4.	Click Register. The Service Provider Details page appears.
-	 
-1.  Under the **Inbound Authentication Configuration** section, click
-    **WS-Trust Security Token Service Configuration** **\>**
-    **Configure**. The STS Configuration page appears.  
-    ![sts-config](../assets/img/tutorials/sts-config.png)
-2.  Enter the required details as given below.
+
+1. On the Management console, go to **Service Providers** > **List** and select your service provider.
+2. Expand **Inbound Authentication Configuration** > **WS-Trust Security Token Service Configuration** and click **Configure**.
+
+3. Enter the required details as given below.
  	
 	<table>
 	   <thead>
@@ -178,11 +149,9 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-ke
     
 	![add-new-trusted-service](../assets/img/tutorials/add-new-trusted-service.png)
 
-3.  Click **Update** to save the changes made to the service provider.
+4. Click **Update** to save your changes.
 
-    !!! info "Related Topics"
-		Run the STS client after configuring the service provider. For
-		instructions on trying out a sample STS client, see [Running an STS
-		Client](../../learn/running-an-sts-client).
+!!! info "Related Topics"
+    Run the STS client after configuring the service provider. For instructions on trying out a sample STS client, see [Running an STS Client](../../learn/running-an-sts-client).
 
   
