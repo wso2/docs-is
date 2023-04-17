@@ -19,4 +19,4 @@ Follow the instructions below to configure STS for obtaining tokens with Holder-
 
 A new trusted service is added to the service provider.
 
-You can delete any trusted service by clicking on the associated **Delete** link.
+You can delete any trusted service by clicking the associated **Delete** link.
