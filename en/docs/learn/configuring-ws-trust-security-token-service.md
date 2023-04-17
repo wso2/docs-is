@@ -64,7 +64,7 @@ To secure the Security Token Service:
 3. Expand **Inbound Authentication Configuration** > **Security Token Service Configuration** and click **Apply Security Policy**.
     ![security-token-service-config](../assets/img/tutorials/security-token-service-config.png)
 
-4. Select `Yes` from the **Enable Security?** list and select a pre-configured security scenario according to your requirements.
+4. Select **Yes** from the **Enable Security?** list and select a pre-configured security scenario according to your requirements.
 We will be using `UsernameToken` under the **Basic Scenarios** section for this tutorial.  
     ![enable-security](../assets/img/tutorials/enable-security.png)
 
