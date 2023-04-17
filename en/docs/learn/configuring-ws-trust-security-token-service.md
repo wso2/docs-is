@@ -5,7 +5,7 @@ WSO2 Identity Server uses the security token service (STS) as the [WS-Trust](../
 The STS is capable of issuing SAML 1.1 and 2.0 security tokens and has a SOAP/XML API for token issuance.
 
 ## Download the STS connector
-WS-Trust authentication is no longer supported by default from IS 5.11.0 upwards and has been introduced as a connector. In order to use WS-Trust authentication, first, you should download the connector from WSO2 Connector Store.
+WS-Trust authentication is no longer supported by default from IS 5.11.0 upwards and has been introduced as a connector. In order to use WS-Trust authentication, first, you should download the connector from the WSO2 Connector Store.
 
 To download and install the WS-Trust connector:
 
