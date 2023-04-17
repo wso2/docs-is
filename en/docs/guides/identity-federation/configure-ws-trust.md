@@ -75,14 +75,14 @@ We will be using `UsernameToken` under the **Basic Scenarios** section for this 
 5. Click **Next** and provide the required details as follows:
 
     !!! info
-        The next steps may vary per the security scenario you have chosen under point (5) above. Given below are the steps for the **UsernameToken** scenario.
+        The next steps may vary according to the security scenario you have chosen under point (5) above. Given below are the steps for the **UsernameToken** scenario.
 
-    1. Select `ALL-USER-STORE-DOMAINS` as the domain.
+    1. Select **ALL-USER-STORE-DOMAINS** as the domain.
     2. Select the role you created to grant permission to access a secured service. In this example, the `admin` role is used.
         ![select-domain]({{base_path}}/assets/img/guides/ws-trust-select-domain.png)
 
         !!! note
-            The **Select Domain** drop-down lists the available domains. The listed **User Groups** can vary depending on the domain selected from the drop-down.
+            The **Select Domain** list provides the available domains. The listed **User Groups** can vary depending on the domain selected.
 
 6. Click **Finish**.
 7. Click **Ok** on the confirmation dialog window that appears.

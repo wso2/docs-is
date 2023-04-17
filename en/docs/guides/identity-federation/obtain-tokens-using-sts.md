@@ -1,6 +1,6 @@
 # Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation
 
-In this scenario, STS generates a Holder-Of-Key subject confirmation (symmetric key) and encrypts it with the public key of the relying party. This is included in the subject confirmation section of the SAML token, which is validated by the relying party. For this to work, the relying party's endpoint address and the corresponding public certificates needs to be registered.
+In this scenario, STS generates a Holder-Of-Key subject confirmation (symmetric key) and encrypts it with the public key of the relying party. This is included in the subject confirmation section of the SAML token, which is validated by the relying party. For this to work, the relying party's endpoint address and the corresponding public certificates need to be registered.
 
 Follow the instructions below to configure STS for obtaining tokens with Holder-Of-Key subject confirmation (Symmetric Key).
 
@@ -19,4 +19,4 @@ Follow the instructions below to configure STS for obtaining tokens with Holder-
 
 A new trusted service is added to the service provider.
 
-You can delete any trusted service by clicking on the associated **Delete** link.
+You can delete any trusted service by clicking the associated **Delete** link.
