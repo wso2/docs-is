@@ -23,7 +23,7 @@ To run the STS client
 
 3. Build the client using `mvn install`.
 
-4. Once the client is built successfully, run the `sts-client.sh` file in Unix or `sts-client.bat` in Windows.
+4. Once the client is built successfully, run the `sts-client.sh` file in Unix or the `sts-client.bat` file in Windows.
 
 You can see that the SAML token issued from the STS is being printed by the client.
 
