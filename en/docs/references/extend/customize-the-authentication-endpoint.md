@@ -328,9 +328,8 @@ page, follow the steps below.
 
 ## Handle the browser back button and bookmarked login page
 
-This section describes how to enhance the usability of the authentication
-endpoint web app with different user behavioral patterns. For example, the user may click the back button from the authenticated application or keep the endpoint login page URL
-bookmarked. In such situations, the user should be directed to the
+This section describes how to enhance the usability of the authentication endpoint web app with different user 
+behavioral patterns. For example, the user may click the back button from the authenticated application or keep the endpoint login page URL bookmarked. In such situations, the user should be directed to the
 access URL specified for the application.
 
 Follow the steps below to ensure that the access URL is configured for your application:
