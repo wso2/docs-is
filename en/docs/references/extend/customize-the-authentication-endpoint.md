@@ -298,16 +298,14 @@ page, follow the steps below.
 
 ## Handle the browser back button and bookmarked login page
 
-This section describes how to enhance the usability of authentication
-endpoint webapp with different user behavioral patterns. One such
-behavioral pattern is that the user may click the back button from
-authenticated application or keep the endpoint login page URL
+This section describes how to enhance the usability of the authentication
+endpoint web app with different user behavioral patterns. For example, the user may click the back button from the authenticated application or keep the endpoint login page URL
 bookmarked. In such situations, the user should be directed to the
 access URL specified for the application.
 
 Follow the steps below to ensure that the access URL is configured for your application:
 
-1. Start the Identity Server and log in to the Management Console.
+1. Start WSO2 IS and log in to the Management Console.
 
 2. On the Management Console, go to **Main > Identity > Service Providers**, and select the service provider registered for your application.
 
