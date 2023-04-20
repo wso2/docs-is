@@ -99,7 +99,7 @@ management console.
 2.	After obtaining the SCIM ID of the user, invoke the following curl command with the `accountDisable` attribute set to `true` or `false` to disable or enable the user account respectively.
 
 	```curl 
-	curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","value":{"EnterpriseUser":{"accountDisable":"true"}}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/<User-ID>
+	curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","value":{"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"accountDisable":"true"}}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/<User-ID>
 	```
 
 After setting the disable status to `true` for a particular user, the server should reject any authentication attempts done by that account.
