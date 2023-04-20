@@ -268,6 +268,7 @@ nav:
           # - Configure reCAPTCHA for Password Recovery: guides/password-mgt/recaptcha-password-recovery.md
           # - Configure reCAPTCHA on Invalid Challenge Question Attempt: guides/password-mgt/recaptcha-challenge-question-attempts.md
           - Configure Email Masking Pattern for Notification Based Password Recovery: guides/identity-lifecycles/configure-email-masking-pattern.md
+          - Password recovery via user preferred channel: guides/identity-lifecycles/extend-username-and-password-recovery.md
         - Provisioning:
           - Overview: guides/identity-lifecycles/provisioning-overview.md
           - Provisioning Patterns: guides/identity-lifecycles/provisioning-patterns.md
@@ -1453,7 +1454,7 @@ extra:
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
   base_path: https://is.docs.wso2.com/en/6.0.0
-  #base_path: http://127.0.0.1:8000
+  #base_path: http://127.0.0.1:8000/en/6.1.0
 
   nav_list:
     - Home
