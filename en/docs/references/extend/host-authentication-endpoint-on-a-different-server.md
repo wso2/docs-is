@@ -1,14 +1,14 @@
 # Host Authentication Endpoint on a Different Server
 
-The authentication endpoint contains the authentication URLs used in authentication flow. You can use the default authenticationendpoint webapp that is hosted on WSO2 Identity Server itself, or choose to host it on a separate server. You may want to host it separately for the purpose of having custom theming and branding. 
+The authentication endpoint contains the authentication URLs used in the authentication flow. You can use the default authentication endpoint webapp that is hosted on WSO2 Identity Server itself, or host it on a separate server. You may want to host it separately for the purpose of having custom theming and branding.
 
-This section describes how you can host the authentication endpoint on a different server outside WSO2 Identity Server  (e.g., in a different Tomcat Server).
+The following topics describe how you can host the authentication endpoint on a different server outside WSO2 Identity Server  (e.g., in a different Tomcat Server).
 
 ## Set up the servers
 
 First, let's set up the Tomcat server to host the authentication portal in your WSO2 Identity Server.
 
-1.  Download and install WSO2 IS and apache-tomcat into your local machine.
+1.  Download and install WSO2 IS and apache-tomcat on your local machine.
 
     !!! info
         Let’s consider the WSO2 IS installation as `<IS_HOME>` and the Tomcat installation as `<TOMCAT_HOME>`.
@@ -54,9 +54,13 @@ Now, let's configure the Tomcat server.
         <param-name>IdentityServerEndpointContextURL</param-name>
         <param-value>https://localhost:9443</param-value>
     </context-param>
+    <context-param>
+        <param-name>AuthenticationRESTEndpointURL</param-name>
+        <param-value>https://localhost:9443/api/identity/auth/v1.1/</param-value>
+    </context-param>
     ```
 
-2.  Open the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and configure the Identity Server origin URL as follows:
+2.  Open the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and configure the identity server origin URL as follows:
     
     ```xml
     identity.server.origin=https://localhost:9443
@@ -71,7 +75,7 @@ Now, let's configure the Tomcat server.
 4.  Configure the keystores.
 
     !!! info
-        The relevant certificates should be added to the corresponding keystores to properly run the authentication portal. In this tutorial, we are hosting the portal in a local server, therefore, let's use the same keystore and truststore that is in the WSO2 IS server for this portal.
+        The relevant certificates should be added to the corresponding keystores to properly run the authentication portal. In this tutorial, we are hosting the portal in a local server, therefore, let's use the same keystore and truststore that is in the WSO2 IS instance for this portal.
 
     1.  Import the public certificate of WSO2 IS to the `javaca certs` (or web-server's truststore) of the JVM where the authentication endpoint is running.
 
@@ -80,7 +84,7 @@ Now, let's configure the Tomcat server.
         keytool -import -alias wso2carbon -keystore  $WEB_APP_TRUSTSTORE -file wso2carbon.cer
         ```
 
-    2.  Import the public certificate of the web server’s keystore to the Identity Server truststore.
+    2.  Import the public certificate of the web server’s keystore to the WSO2 IS truststore.
 
         ``` bash
         keytool -export -keystore $WEB_APP_KEYSTORE -alias wso2carbon -file webserver.cer
@@ -107,26 +111,17 @@ Now, let's configure the Tomcat server.
     />
     ```
 
-    !!! note
-        For this sample, we configured the same keystore and truststore in
-        WSO2 IS as the keystore and truststore in Tomcat. In an actual
-        environment, you may create a new keystore and truststore for tomcat
-        and point to it. When using separate keystores and truststores, you
-        need to import tomcat keystore’s public cert in to: `<IS_HOME>/repository/resources/security/client-truststore.jks` and, public cert of `<IS_HOME>/repository/resources/security/wso2carbon.jks` into tomcat’s truststore.
-
-
-6.  Open the `<TOMCAT_HOME>/bin/catalina.sh` and add the following `JAVA\_OPTS`:
+6.  Open the `<TOMCAT_HOME>/bin/catalina.sh` file and add the following `JAVA\_OPTS`:
 
     !!! Info
-        Be sure to replace `$IS_HOME` with the correct path where the WSO2 IS resides to point to the files inside the security folder.
+        Be sure to replace `$IS_HOME` with the correct path where WSO2 IS resides to point to the files inside the security folder.
 
     ``` xml
     JAVA_OPTS="$JAVA_OPTS --Djavax.net.ssl.keyStore=$IS_HOME/repository/resources/security/wso2carbon.jks -Djavax.net.ssl.keyStorePassword=wso2carbon"
     JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.trustStore=$IS_HOME/repository/resources/security/client-truststore.jks -Djavax.net.ssl.trustStorePassword=wso2carbon"
     ```
 
-7.  Go to the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the configs 
-    pointing to the correct location inside the `$IS_HOME/repository/resources/security` folder.
+7.  Go to the `<TOMCAT_HOME>/webapps/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file and change the configurations pointing to the correct location inside the `$IS_HOME/repository/resources/security` folder.
 
     ``` xml
     client.keyStore=./repository/resources/security/wso2carbon.jks
