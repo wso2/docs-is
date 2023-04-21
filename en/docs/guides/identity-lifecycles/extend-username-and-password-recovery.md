@@ -141,7 +141,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
     !!! note
         If a WSO2 IS instance is already running, restart it to apply the above configurations.
 
-4. On the management console, go to **Identity Providers** > **Resident** > **Account Management**, expand the **Account Recovery**, and configure the following properties.
+4. On the management console, go to **Identity Providers** > **Resident** > **Account Management**, expand **Account Recovery** and configure the following properties.
 
     ![password-recovery-configs]({{base_path}}/assets/img/guides/config-password-recovery.png)
 
