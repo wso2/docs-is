@@ -216,7 +216,7 @@ sms notification templates.
 
 1. Log in to the Management Console and go to **Main > Registry> Browse**.
 
-2. On the **tree view** tab, click **system > config > identity > sms**. This will display all the available SMS notification templates.
+2. On the **tree view** tab, click **system > config > identity > sms**. This displays all the available SMS notification templates.
 
     ![sms-notification-templates]({{base_path}}/assets/img/guides/sms-notifiication-templates.png)
 
