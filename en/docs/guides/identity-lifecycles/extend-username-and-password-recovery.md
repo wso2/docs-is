@@ -58,7 +58,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
         - Alternatively, you can use your own email managing mechanism.
 
 
-2. Add the following properties to the `deployment.toml`.
+2. Add the following properties to the `deployment.toml` file.
 
     ``` toml
     [identity_mgt.notification_channel_recovery]
