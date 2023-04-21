@@ -352,7 +352,7 @@ sms notification templates.
     }
     ```
 
-3. If you want to resend the notifications to the user via the notified channel in the above step, use the `resendCode` with the resend notifications API.
+3. If you want to resend notifications to the user via the notified channel in the above step, use the `resendCode` with the resend notifications API.
 
     ```java tab="Request"
     curl -X POST "https://localhost:9443/api/users/v1/recovery/password/resend" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resendCode\":\"1234-2ws34-1234\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
