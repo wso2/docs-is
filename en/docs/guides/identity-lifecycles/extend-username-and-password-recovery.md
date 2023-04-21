@@ -40,7 +40,7 @@ The following sections walk you through configuring and trying out password reco
 
 Follow the steps given below to recover a user in the super tenant (i.e., `carbon.super`).
 
-1. Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the WSO2 Identity Server to send confirmation emails.
+1. Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure WSO2 Identity Server to send confirmation emails.
 
     ``` toml
     [output_adapter.email]
