@@ -1,4 +1,4 @@
-# Password Recovery Via User Preferred Notification Channel
+# Password Recovery Via User-Preferred Notification Channel
 
 This section guides you through setting up password recovery for users to recover a lost or forgotten password.
 
