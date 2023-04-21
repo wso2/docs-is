@@ -267,7 +267,7 @@ sms notification templates.
     !!! warning
         This updates the permissions of the role. Therefore, all the users with the current role will receive login permissions.
 
-7. Go to **Users and Roles > List > Users**, click on **User Profile**, and update the Email and Mobile of the user.
+7. Go to **Users and Roles > List > Users**, click **User Profile**, and update the email and mobile of the user.
 
 ### With internal notification management
 
