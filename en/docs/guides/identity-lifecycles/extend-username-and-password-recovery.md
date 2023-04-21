@@ -239,7 +239,7 @@ sms notification templates.
     2. **External Notification Management**: Notification sending is managed by an external notification management mechanism.
     
     !!! note
-        To configure external notification management, `disable` the `Enable Internal Notification Management` property in `Account Recovery` configurations.
+        To configure external notification management, `disable` the `Enable Internal Notification Management` property in the `Account Recovery` configurations.
         
         ![disable-internal-notifications]({{base_path}}/assets/img/guides/disable-internal-notification.png)
 
