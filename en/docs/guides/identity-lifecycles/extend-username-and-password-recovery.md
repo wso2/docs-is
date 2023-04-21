@@ -262,7 +262,7 @@ sms notification templates.
 5. Click **Permissions** to edit the default permissions.
     ![add-login-permissions]({{base_path}}/assets/img/guides/user-permissions.png)
 
-6. From the list of permissions select **Login** permission and click **Update**.
+6. From the list of permissions, select **Login** permission and click **Update**.
 
     !!! warning
         This will update the permissions of the role. Therefore, all the users with the current role will receive login permissions.
