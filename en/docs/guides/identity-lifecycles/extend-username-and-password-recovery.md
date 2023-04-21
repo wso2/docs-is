@@ -136,7 +136,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
         </eventPublisher>
         ```
 
-        This publisher uses NEXMO as the SMS REST service provider. For more information on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com/display/DAS300/HTTP+Event+Publisher).  
+        This publisher uses NEXMO as the SMS REST service provider. For more information on writing a custom HTTP event publisher, see [HTTP Event Publisher](https://docs.wso2.com/display/DAS300/HTTP+Event+Publisher).  
 
     !!! note
         If a WSO2 IS instance is already running, restart it to apply the above configurations.
