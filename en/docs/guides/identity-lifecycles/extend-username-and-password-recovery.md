@@ -7,7 +7,7 @@ This section guides you through setting up password recovery for users to recove
 
 ## Password recovery flow
 
-The password recovery for of WSO2 Identity Server is as follows:
+The password recovery flow of WSO2 Identity Server is as follows:
 
 1. User provides a set of unique claims to identify the user account.
 2. The API prompts the user to select a channel from the available notification channels for receiving the username recovery notification.
