@@ -255,7 +255,7 @@ sms notification templates.
     !!! Note
         For more details on creating users and roles, see [Adding Users and Roles]({{base_path}}/references/concepts/user-management/user-management/)
 
-3. Navigate to **Users and Roles > List > Users**.
+3. Go to **Users and Roles > List > Users**.
 
 4. Find the user from the list and click **View Roles**.
 
