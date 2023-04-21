@@ -139,7 +139,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
         This publisher uses NEXMO as the SMS REST service provider. For more information on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com/display/DAS300/HTTP+Event+Publisher).  
 
     !!! note
-        If an Identity Server instance is already running, restart it to apply the above configurations.
+        If a WSO2 IS instance is already running, restart it to apply the above configurations.
 
 4. On the management console, go to **Identity Providers** > **Resident** > **Account Management**, expand the **Account Recovery**, and configure the following properties.
 
