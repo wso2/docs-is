@@ -250,7 +250,7 @@ sms notification templates.
 
 1. Log in to the Management Console and click **Main -> Identity -> Users and Roles -> Add**.
 
-2. Click on **Add New User** and enter user credentials.
+2. Click **Add New User** and enter user credentials.
 
     !!! Note
         For more details on creating users and roles, see [Adding Users and Roles]({{base_path}}/references/concepts/user-management/user-management/).
