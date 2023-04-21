@@ -234,7 +234,7 @@ sms notification templates.
 !!! info "Notification mechanisms"
     WSO2 Identity Server provides the functionality to receive account recovery notifications internally or externally.
 
-    1. **Internal Notification Management**: Notification sending is managed by WSO2 Identity Server.
+    - **Internal Notification Management**: Notification sending is managed by WSO2 Identity Server.
         
     2. **External Notification Management**: Notification sending is managed by an external notification management mechanism.
     
