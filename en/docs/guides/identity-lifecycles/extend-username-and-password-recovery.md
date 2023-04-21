@@ -166,7 +166,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
                 <td>
                     <p>
                         Select to configure WSO2 Identity Server to send confirmation emails to the user.
-                        If the client application handles notification sending already, unselect it.
+                        If the client application handles notification sending already, clear this checkbox.
                     </p>
                 </td>
             </tr>
