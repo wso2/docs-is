@@ -8,7 +8,7 @@ The following topics describe how you can host the authentication endpoint on a 
 
 First, let's set up the Tomcat server to host the authentication portal in your WSO2 Identity Server.
 
-1.  Download and install WSO2 IS and apache-tomcat on your local machine.
+1.  Download and install WSO2 IS and Apache Tomcat on your local machine.
 
     !!! info
         Let’s consider the WSO2 IS installation as `<IS_HOME>` and the Tomcat installation as `<TOMCAT_HOME>`.
