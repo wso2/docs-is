@@ -443,7 +443,7 @@ sms notification templates.
     ```
 
     !!! note
-            The validity period of the recovery code is determined by the [2nd step of Configuring Password Recovery](#configuring-password-recovery)
+            The validity period of the recovery code is determined by the [2nd step of configuring password recovery](#configuring-password-recovery)
 
 2. Use the `recoveryCode` and a channel `id` to get the recovered username.
 
