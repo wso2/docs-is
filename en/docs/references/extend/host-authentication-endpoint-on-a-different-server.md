@@ -79,12 +79,22 @@ Now, let's configure the Tomcat server.
 
     1.  Import the public certificate of WSO2 IS to the `javaca certs` (or web-server's truststore) of the JVM where the authentication endpoint is running.
 
+        !!! Info
+            Be sure to replace the following placeholders:
+            - `$IS_HOME`: The path to your WSO2 IS distribution.
+            - `$WEB_APP_TRUSTSTORE`: Go to the **authenticationendpoint** web app deployed in the Tomcat server and get the path to its trustore.
+
         ``` bash
         keytool -export -keystore $IS_HOME/repository/resources/security/wso2carbon.jks -alias wso2carbon -file wso2carbon.cer
         keytool -import -alias wso2carbon -keystore  $WEB_APP_TRUSTSTORE -file wso2carbon.cer
         ```
 
     2.  Import the public certificate of the web server’s keystore to the WSO2 IS truststore.
+
+        !!! Info
+            Be sure to replace the following placeholders:
+            - `$IS_HOME`: The path to your WSO2 IS distribution.
+            - `$WEB_APP_KEYSTORE`: Go to the **authenticationendpoint** web app deployed in the Tomcat server and get the path to its keystore.
 
         ``` bash
         keytool -export -keystore $WEB_APP_KEYSTORE -alias wso2carbon -file webserver.cer
@@ -114,7 +124,7 @@ Now, let's configure the Tomcat server.
 6.  Open the `<TOMCAT_HOME>/bin/catalina.sh` file and add the following `JAVA\_OPTS`:
 
     !!! Info
-        Be sure to replace `$IS_HOME` with the correct path where WSO2 IS resides to point to the files inside the security folder.
+        Be sure to replace `$IS_HOME` with the path to your WSO2 IS distribution.
 
     ``` xml
     JAVA_OPTS="$JAVA_OPTS --Djavax.net.ssl.keyStore=$IS_HOME/repository/resources/security/wso2carbon.jks -Djavax.net.ssl.keyStorePassword=wso2carbon"
