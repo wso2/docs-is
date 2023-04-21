@@ -259,7 +259,7 @@ sms notification templates.
 
 4. Find the user from the list and click **View Roles**.
 
-5. Click on **Permissions** to edit the default permissions.
+5. Click **Permissions** to edit the default permissions.
     ![add-login-permissions]({{base_path}}/assets/img/guides/user-permissions.png)
 
 6. From the list of permissions select **Login** permission and click **Update**.
