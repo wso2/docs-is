@@ -236,7 +236,7 @@ sms notification templates.
 
     - **Internal Notification Management**: Notification sending is managed by WSO2 Identity Server.
         
-    2. **External Notification Management**: Notification sending is managed by an external notification management mechanism.
+    - **External Notification Management**: Notification sending is managed by an external notification management mechanism.
     
     !!! note
         To configure external notification management, `disable` the `Enable Internal Notification Management` property in the `Account Recovery` configurations.
