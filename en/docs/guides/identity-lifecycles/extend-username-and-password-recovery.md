@@ -86,7 +86,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
             <div class="admonition note">
                 <p class="admonition-title">note</p>
                 <p>
-                    If you have configured Username Recovery Via User Preferred Notification Channel, the above field will already be configured.
+                    If you have configured username recovery via the user-preferred notification channel, the above field is already configured.
                 </p>
             </div>
           </td>
