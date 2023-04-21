@@ -72,7 +72,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
     <table>
        <tr>
            <th>Property Name</th>
-           <th>Functionality</th>
+           <th>Description</th>
        </tr>
        <tr>
           <td><code>recovery_code_validity</code></td>
