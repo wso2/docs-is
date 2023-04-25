@@ -420,6 +420,7 @@ nav:
         - Tenant Loading Policy: guides/tenants/configure-the-tenant-loading-policy.md
         - CORS : deploy/configure-cors.md
         - reCAPTCHA: deploy/configure-recaptcha.md
+        - Admin Advisory Banner : deploy/configure-admin-banner.md
       - Secure:
         - Mitigate Attacks:
           - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
@@ -1411,6 +1412,7 @@ plugins:
               'administer/enabling-hostname-verification.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/enable-hostname-verification/'
               'administer/configuring-tls-termination.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-tls-termination/'
               'administer/getting-wso2-updates.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/get-started/get-wso2-updates/'
+              'administer/configure-admin-banner.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-admin-banner/'
               'compliance/general-data-protection-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/gdpr/'
               'compliance/electronic-identification-authentication-and-trust-services-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/eidas/'
               'compliance/california-consumer-privacy-act.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/ccpa/'
