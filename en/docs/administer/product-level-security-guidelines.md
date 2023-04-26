@@ -197,13 +197,12 @@ By default, XSS attacks are prevented in the latest WSO2 Identity Server version
 
 ## Callback URL Regular Expressions
 
-For password recovery, you can define a regular expression to validate the callback URL. The default configuration 
-allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular 
-expression that validates and only allows access to specific callback URLs.
+For the below mentioned flow, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
 
-!!! info
-
-    For more informatoin, see [Password Recovery](../../learn/password-recovery).
+1. [Password Recovery](../../learn/password-recovery)
+2. [Username Recovery](../../learn/username-recovery)
+3. [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
+4. [Lite User Registration](../../learn/lite-user-registration/#enable-lite-user-registration)
 
 ## JSESSIONID length
 

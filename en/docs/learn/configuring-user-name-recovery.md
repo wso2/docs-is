@@ -83,7 +83,7 @@ Follow the steps below to configure WSO2 Identity Server to enable username reco
 	<img src="../../assets/img/learn/user-name-recovery-options.png" alt="User Name Recover options" width="600" style="border:1px solid grey">		
 
 	!!! note
-        - The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*\/authenticationendpoint\/login\.do$`. But user should modify it meet their requirements when they are deploying the product.
+        - The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. But user should modify it meet their requirements when they are deploying the product.
 
 6.	Click **Update**. 
 

@@ -26,7 +26,7 @@ enable = true
 	![resident-idp](../assets/img/learn/resident-idp.png)
 
 	!!! note
-        - The recommended  **Lite user registration callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*\/authenticationendpoint\/login\.do$`. But user should modify it meet their requirements when they are deploying the product.
+        - The recommended  **Lite user registration callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. But user should modify it meet their requirements when they are deploying the product.
 
 6. Click **Update**. 
 
