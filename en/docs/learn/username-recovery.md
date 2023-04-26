@@ -79,6 +79,10 @@ with the WSO2 IS.
 
 5.  Select the **Enable Username Recovery** checkbox and the **Enable
     Notification Internally Management** checkbox.  
+    
+    !!! note
+        - The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*\/authenticationendpoint\/login\.do$`. But user should modify it meet their requirements when they are deploying the product.
+
     For more information on the fields seen on this screen, see [Account Recovery REST API](../../develop/using-the-account-recovery-rest-apis).
       
     ![account-recovery](../assets/img/using-wso2-identity-server/account-recovery.png) 
