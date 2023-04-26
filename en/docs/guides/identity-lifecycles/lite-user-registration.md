@@ -59,7 +59,7 @@ Execute the following cURL command to create a user using the email address alon
 
 ```curl 
 curl -X POST -H "Authorization: Basic [Base64encode(Username>:<Password>)]=" -H "Content-Type: application/json" -d '{"email
-": "<regsiter_email>","realm": "PRIMARY","preferedChannel":"Email","claims":[], "properties": []}' "https://localhost:9443/api/identity/user/v1.0/lite"
+": "<regsiter_email>","realm": "PRIMARY","preferredChannel":"Email","claims":[], "properties": []}' "https://localhost:9443/api/identity/user/v1.0/lite"
 ```
 
 This will also trigger an email with a confirmation code. `LiteUserEmailConfirmation` is the email template used. Modifications can be performed on the template if required. `ResendLiteUserEmailConfrimation` is the email template used for resending the code. 
