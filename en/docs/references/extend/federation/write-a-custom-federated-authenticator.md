@@ -274,4 +274,4 @@ Similarly, you can write a federated authenticator to authenticate the users usi
 
 ## Contributing your connectors
 
-{! fragments/contributing-connectors.md !}
+{!./includes/contributing-connectors.md !}

@@ -533,4 +533,4 @@ The following is a set of methods related to writing a custom local authenticato
 
 ## Contributing your connectors
 
-{! fragments/contributing-connectors.md !}
+{!./includes/contributing-connectors.md !}
