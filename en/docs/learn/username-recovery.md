@@ -81,7 +81,7 @@ with the WSO2 IS.
     Notification Internally Management** checkbox.  
     
     !!! note
-        - The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. But user should modify it meet their requirements when they are deploying the product.
+        The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
 
     For more information on the fields seen on this screen, see [Account Recovery REST API](../../develop/using-the-account-recovery-rest-apis).
       
