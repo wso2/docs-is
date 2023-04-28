@@ -123,11 +123,11 @@ which is `         carbon.super        `.
     </tr>
     <tr class="even">
     <td>User self registration callback URL regex</td>
-    <td>The regex pattern used to validate the callback URL you are adding as the recovery flow callback url. 
+    <td>The regex pattern used to validate the callback URL you are adding as the recovery flow callback URL. 
     
     <div class="admonition note">
     <p class="admonition-title">Note</p>
-    <p>The sample <b>User self registration callback URL regex</b> to use when testing the product is <code>^https:\/\/localhost:9443\/.*</code>. But user should modify it meet their requirements when they are deploying the product.</td></p>
+    <p>The sample <b>self registration callback URL regex</b> to use when testing the product is <code>^https:\/\/localhost:9443\/.*</code>. However, users should modify it to meet their requirements when they deploy the product.</td></p>
     </div>
     </tr>
     </tbody>
