@@ -25,6 +25,9 @@ enable = true
 
 	![resident-idp](../assets/img/learn/resident-idp.png)
 
+	!!! note
+        The recommended  **Lite user registration callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
+
 6. Click **Update**. 
 
 ## Map local claim attribute 

@@ -84,15 +84,15 @@ which is `         carbon.super        `.
     </thead>
     <tbody>
     <tr class="odd">
-    <td>Enable Self User Registration</td>
+    <td> User self registration</td>
     <td>Enable self registration.</td>
     </tr>
     <tr class="even">
-    <td>Enable Account Lock On Creation Enabled</td>
+    <td>Lock user account on creation</td>
     <td>Enable account lock during self registration. The account will be unclocked upon confirmation.</td>
     </tr>
     <tr class="odd">
-    <td>Enable Notification Internally Management</td>
+    <td>Manage notifications sending internally</td>
     <td>
     <p>
     Select to configure Identity server to send confirmation emails to the user.
@@ -101,11 +101,11 @@ which is `         carbon.super        `.
     </td>
     </tr>
     <tr class="even">
-    <td>Enable reCaptcha</td>
+    <td>Prompt reCaptcha</td>
     <td>Select to enable reCaptcha for self-registration. See <a href="../../learn/configuring_google_recaptcha_for_security_question_based_password_recovery">Configuring Google reCaptcha for Security-Question Based Password Recovery</a> for more information.</td>
     </tr>
     <tr class="odd">
-    <td>User self registration code expiry time</td>
+    <td>User self registration verification link expiry time</td>
     <td><div class="content-wrapper">
     <p>Number of minutes that the confirmation link would be valid. The confirmation link will expire 
     after the specified time has elapsed.</p>
@@ -120,6 +120,15 @@ which is `         carbon.super        `.
     </div>
     </div></div> 
     </div></td>
+    </tr>
+    <tr class="even">
+    <td>User self registration callback URL regex</td>
+    <td>The regex pattern used to validate the callback URL you are adding as the recovery flow callback URL. 
+    
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>The sample <b>self registration callback URL regex</b> to use when testing the product is <code>^https:\/\/localhost:9443\/.*</code>. However, users should modify it to meet their requirements when they deploy the product.</td></p>
+    </div>
     </tr>
     </tbody>
     </table>
