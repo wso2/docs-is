@@ -123,7 +123,7 @@ which is `         carbon.super        `.
     </tr>
     <tr class="even">
     <td>User self registration callback URL regex</td>
-    <td>The regex pattern used to validate the callback URL you are adding as the recovery flow callback url. 
+    <td>The regex pattern used to validate the callback URL you are adding as the recovery flow callback URL. 
     
     <div class="admonition note">
     <p class="admonition-title">Note</p>
