@@ -49,7 +49,7 @@ with email notification.
     ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery-conf.png)
 
     !!! note
-        - The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. But user should modify it meet their requirements when they are deploying the product.
+        The recommended  **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
     
     !!! info 
         - To enable password recovery with reCaptcha verification, select the **Enable reCaptcha for Password Recovery** checkbox. For more information, see [Configuring reCaptcha for Password Recovery](../../learn/configuring-recaptcha-for-password-recovery).
