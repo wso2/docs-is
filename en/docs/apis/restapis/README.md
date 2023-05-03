@@ -5,6 +5,9 @@ This document lists the URLs for the relavent Swagger files used in the API docu
 - Account Recovery
     https://github.com/wso2-extensions/identity-governance/blob/v1.4.72/components/org.wso2.carbon.identity.recovery.endpoint/src/main/resources/api.identity.recovery.yaml
 
+- Admin Advisory Management
+    https://github.com/wso2/identity-api-server/blob/master/components/org.wso2.carbon.identity.api.server.admin.advisory.management/org.wso2.carbon.identity.api.server.admin.advisory.management.v1/src/main/resources/admin-advisory-management.yaml
+
 - Application Management
     https://github.com/wso2/identity-api-server/blob/master/components/org.wso2.carbon.identity.api.server.application.management/org.wso2.carbon.identity.api.server.application.management.v1/src/main/resources/applications.yaml
 
