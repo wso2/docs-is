@@ -545,7 +545,6 @@ nav:
             - Overview: apis/use-the-consent-management-rest-apis.md
             - Consent management API: apis/consent-management-api-definition.md
           - Email templates API: apis/email-templates-rest-api.md
-          - Admin Advisory Management API: apis/admin-advisory-management-rest-api.md
           - Workflow engine management API: apis/workflow-engine-rest-api.md
       - Notification sender management API: apis/notification-sender-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
@@ -1223,7 +1222,6 @@ plugins:
               'develop/cors-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/cors-rest-api/'
               'develop/using-the-consent-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-consent-management-rest-apis/'
               'develop/email-templates-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/email-templates-rest-api/'
-              'develop/admin-advisory-management-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/admin-advisory-management-rest-api/'
               'develop/entitlement-with-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/entitlement-with-rest-apis/'
               'develop/fido-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/fido-rest-api/'
               'develop/identity-governance-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/identity-governance-rest-api/'
