@@ -90,6 +90,14 @@ Follow the steps given below to register users for the super tenant, `carbon.sup
     </div></div> 
     </div></td>
     </tr>
+    <tr class="even">
+    <td>User self registration callback URL regex</td>
+    <td>The regex pattern used to validate the callback URL you are adding as the recovery flow callback URL. 
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>The sample <b>User self registration callback URL regex</b> to use when testing the product is <code>^https:\/\/localhost:9443\/.*</code>. However, users should modify it to meet their requirements when they deploy the product.</td></p>
+    </div>
+    </tr>
     </tbody>
     </table>
 
@@ -157,7 +165,13 @@ To enable self-registration globally:
     </tr>
     <tr class="even">
     <td><pre><code>callback_url</code></pre></td>
-    <td>RegEx pattern to validate the callback URL sent in the email.</td>
+    <td>RegEx pattern to validate the callback URL sent in the email.
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>The sample <b>User self registration callback URL regex</b> to use when testing the product is <code>^https:\/\/localhost:9443\/.*</code>. However, users should modify it to meet their requirements when they deploy the product.</td></p>
+    </div>
+    </td>
+    
     </tr>
     <tr class="odd">
     <td><pre><code>enable_resend_confirmation_recaptcha</code></pre></td>
