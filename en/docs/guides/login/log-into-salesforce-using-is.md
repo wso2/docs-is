@@ -109,7 +109,7 @@ This page guides you through using WSO2 Identity  Server to log in to Salesforce
     </tr>
     <tr class="odd">
     <td>Request Signature Method</td>
-    <td>RSA-SHA1</td>
+    <td>RSA-SHA256</td>
     </tr>
     <tr class="even">
     <td>Assertion Decryption Certificate</td>

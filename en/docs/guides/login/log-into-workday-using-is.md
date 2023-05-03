@@ -144,7 +144,7 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
     </tr>
     <tr class="even">
     <td>Authentication Request Signature Method</td>
-    <td>SHA1</td>
+    <td>SHA256</td>
     </tr>
     </tbody>
     </table>
