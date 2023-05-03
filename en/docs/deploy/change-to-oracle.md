@@ -88,7 +88,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 	maxWait = "360000"
 	minIdle ="5"
 	testOnBorrow = true
-	validationQuery="SELECT 1"
+	validationQuery="select 1 from dual"
 	validationInterval="30000"
 	defaultAutoCommit=false
 	commitOnReturn=true
