@@ -80,7 +80,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
             Validity period of the recovery code given after initiating username/ password recovery.
             <ul>
                 <li>Unit : <code>minutes</code>
-                <li>Default value : <code>1 minute</code>
+                <li>Default value : <code>1</code>
             </ul>
             <div class="admonition note">
                 <p class="admonition-title">note</p>
@@ -96,7 +96,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
             Validity period of the recovery code given after initiating password recovery.
             <ul>
                 <li>Unit : <code>minutes</code>
-                <li>Default value : <code>1 minute</code>
+                <li>Default value : <code>1</code>
             </ul>
           </td>
        </tr>
@@ -106,7 +106,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
             Validity period of SMS OTP when the selected channel is <code>SMS</code>.
             <ul>
                 <li>Unit : <code>minutes</code>
-                <li>Default value : <code>1 minute</code>
+                <li>Default value : <code>1</code>
            </ul>
          </td>
       </tr>
