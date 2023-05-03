@@ -333,3 +333,11 @@ When configuring intermediate certificate validation for REST APIs, it is recomm
 !!! info
 
     For more information, see the instructions on [configuring intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation). 
+
+## Callback URL Regular Expressions
+
+For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
+
+- [Password Recovery](../../learn/password-recovery)
+- [Username Recovery](../../learn/username-recovery)
+- [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
