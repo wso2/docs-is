@@ -53,6 +53,9 @@ There are two ways to enable account recovery in WSO2 Identity Server.
 
 	<img src="{{base_path}}/assets/img/fragments/user-name-recovery-options.png" alt="User Name Recover options" width="600" style="border:1px solid grey">  	
 
+    !!! note
+        The recommended **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
+
 4.	Click **Update**. 
 
 ### Enable username recovery globally
