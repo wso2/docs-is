@@ -330,7 +330,7 @@ When configuring intermediate certificate validation for REST APIs, it is recomm
 
 ## Callback URL Regular Expressions
 
-For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using the recovery option, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
+For the scenarios listed below, you can define a regular expression to validate the callback URL. The default configuration allows any callback URL. Note that if you are using these scenarios, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
 
 - [Password Recovery](../../learn/password-recovery)
 - [Username Recovery](../../learn/username-recovery)
