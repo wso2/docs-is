@@ -17,7 +17,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
 
     ``` toml
     [identity.auth_framework.endpoint]
-    identity_server_service_url="https://$ref{server.hostname}:9443/services"
+    identity_server_service_url="https://$ref{server.hostname}:9443"
     ```
 
 2.  Uncomment and change the My Account reference in `<WEBAPP_HOME>/accountrecoveryendpoint/WEB-INF/web.xml`.
@@ -295,7 +295,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
 
     ``` toml
     [identity.auth_framework.endpoint]
-    identity_server_service_url="https://$ref{server.hostname}:9443/services"
+    identity_server_service_url="https://$ref{server.hostname}:9443"
     ```
     
 -->
