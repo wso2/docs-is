@@ -156,7 +156,7 @@ Do the following configurations to enable this feature.
     carbon_security_keystore_password="wso2carbon"
     client_truststore="client-truststore.jks"
     carbon_security_truststore_password="wso2carbon"
-    identity_server_service_url="https://localhost:9443/services/"
+    identity_server_service_url="https://localhost:9443"
     username_header="UserName"
     ```
 
