@@ -8,7 +8,7 @@ By requiring a warning banner to be displayed before granting access to sensitiv
 
 Follow the steps given below to configure the advisory banner using the Management Console.
 
-1. Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using admin/admin credentials. 
+1. Log in to the Management Console (`https://<IS_HOST>:<PORT>/carbon`) using your administrator credentials. 
 2. Navigate to **Configure** > **Admin Advisory**.
 3. Check the **Enable Banner** checkbox
 4. Enter the administrative message in the **Banner Content** section.
