@@ -1,6 +1,6 @@
 # Admin Advisory Banner
 
-WSO2 IS can be configured to display an advisory banner for admin login pages. Once enabled, a banner will be displayed in the Management Console login and Console Application login pages with the configured administrative message. The super tenant banner will be applicable for all tenants.
+WSO2 Identity Server can be configured to display an advisory banner for admin login pages. Once enabled, a banner will be displayed on the login page of the Management Console login with the configured administrative message. The super tenant banner will be applied to all tenants.
 
 By requiring a warning banner to be displayed before granting access to sensitive parts of the system, the application is helping to ensure that administrators are aware of the potential risks associated with accessing or administering certain parts of the system, and to provide them with a warning message that emphasizes the importance of taking appropriate precautions to protect the system and its data.
 
