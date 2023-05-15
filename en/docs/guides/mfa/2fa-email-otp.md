@@ -125,7 +125,7 @@ Setting up email OTP required the following two configurations to be made on the
 
     2. Save the configurations and restart the server.
 
-## Enable email OTP for an SP
+## Enable email OTP for a service provider
 
 To enable email OTP for MFA, you need to configure the email OTP as an authenticator and add it to the authentication flow of the application.
 
