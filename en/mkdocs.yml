@@ -184,9 +184,9 @@ nav:
           - OpenID Connect: guides/identity-federation/configure-oauth2-openid-connect.md
           - ADFS: guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
           - WS-Federation: guides/identity-federation/configure-ws-federation.md
-          #- WS-Trust: 
+          - WS-Trust: guides/identity-federation/configure-ws-trust.md
             #- WS Trust STS: guides/identity-federation/configure-ws-trust.md
-            #- Obtain tokens using STS: guides/identity-federation/obatin-tokens-using-sts.md
+            #- Obtain tokens using STS: guides/identity-federation/obtain-tokens-using-sts.md
             #- Access claims using STS: guides/identity-federation/access-claims-using-sts.md
           - Shibboleth: guides/identity-federation/configure-shibboleth-idp.md
         - Social Login:
@@ -1453,9 +1453,9 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 6.0.0
-  base_path: https://is.docs.wso2.com/en/6.0.0
-  #base_path: http://127.0.0.1:8000
+  site_version: 6.1.0
+  base_path: https://is.docs.wso2.com/en/6.1.0
+  #base_path: http://127.0.0.1:8000/en/6.1.0
 
   nav_list:
     - Home
