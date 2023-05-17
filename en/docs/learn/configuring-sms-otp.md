@@ -441,8 +441,7 @@ the various values you can configure for the authenticator.
 			<td>This parameter defines how the username will be retrieved and this has to be configured if the previous authenticator is not a Local Authenticator (eg: Basic Auth). You can configure the following possible values:
 				<ul>
 					<li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.</li>
-					<li><code>association</code>: The federated username must be associated with the local account in advance in the **My Account**. The local username is retrieved
-						from the association. To associate the user, log into the  [**My Account**](../../learn/my-account)  and go to  **Associated Account**  by clicking  **View details**.</li>
+					<li><code>association</code>: The federated username must be associated with the local account in advance in the **My Account**. The local username is retrieved from the association. To associate the user, log into the  [**My Account**](../../learn/my-account)  and go to  **Associated Account**  by clicking  **View details**.</li>
 					<li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the SMSOTP authenticator.</li>
 					<li>
 						<p><code>userAttribute </code>: The name of the  federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the  ```[authentication.authenticator.sms_otp.parameters]```  section in the ```deployment.toml``` file and put the value, e.g., email and screen_name, id.</p>
@@ -495,11 +494,11 @@ the various values you can configure for the authenticator.
 		</tr>
 		<tr>
 			<td>federatedMobileAttributeKey</td>
-			<td>This parameter identifies the mobile attribute of the federated authenticator, <br/> e.g. Foursquare. Set this parameter if the <code>SendOtpToFederatedMobile`</code> is set to <code>true</code>. Example: <code>http://wso2.org/foursquare/claims/phone_number</code></td>
+			<td>This parameter identifies the mobile attribute of the federated authenticator, <br/> e.g. Foursquare. Set this parameter if the <code>SendOtpToFederatedMobile</code> is set to <code>true</code>. Example: <code>http://wso2.org/foursquare/claims/phone_number</code></td>
 		</tr>
         <tr>
             <td>SMSOTPEnableByUserClaim</td>
-            <td>Disabl the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
+            <td>Disable the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
             <code>false</code>. If the value is set to <code>true</code>, the user can enable and disable the 
             SMS OTP according to what the admin selects in <code>SMSOTPMandatory</code> parameter value.</td>
         </tr>
