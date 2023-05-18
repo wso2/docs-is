@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# OpenID Connect Dynamic Client Registration REST APIs
+# Oauth2 Dynamic Client Registration REST APIs
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
