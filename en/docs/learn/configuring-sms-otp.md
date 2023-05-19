@@ -140,12 +140,6 @@ TokenExpiryTime = 12
 			<td>federatedMobileAttributeKey</td>
 			<td>This parameter identifies the mobile attribute of the federated authenticator, <br/> e.g. Foursquare. Set this parameter if the <code>SendOtpToFederatedMobile</code> is set to <code>true</code>. Example: <code>http://wso2.org/foursquare/claims/phone_number</code></td>
 		</tr>
-<tr>
-<td>SMSOTPEnableByUserClaim</td>
-<td>Disable the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
-<code>false</code>. If the value is set to <code>true</code>, the user can enable and disable the 
-SMS OTP according to what the admin selects in <code>SMSOTPMandatory</code> parameter value.</td>
-</tr>
         <tr>
             <td>SMSOTPEnableByUserClaim</td>
             <td>Disable the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
