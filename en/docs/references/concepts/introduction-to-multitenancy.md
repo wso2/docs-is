@@ -81,7 +81,6 @@ using an admin service are taken into account. -->
 
 ---
 
-
 ## Tenant loading policy
 
 Lazy loading is a design pattern used specifically in cloud deployments
