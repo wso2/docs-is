@@ -79,7 +79,6 @@ to manage their deployment. The admin services operate in a tenant aware
 fashion. Thus, privileges and restrictions that apply to any client
 using an admin service are taken into account. -->
 
-
 ---
 
 ## Resource sharing
