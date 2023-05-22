@@ -33,4 +33,3 @@ With the **new configuration model** in WSO2 Identity Server 5.9.0, configuratio
 
 !!! info
 	For more information about the new configuration model, see [Simplifying Configuration with WSO2 Identity Server](https://wso2.com/blogs/thesource/2019/10/simplifying-configuration-with-WSO2-identity-server).
-
