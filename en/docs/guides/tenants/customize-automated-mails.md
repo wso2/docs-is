@@ -117,6 +117,7 @@ Once you have set the template language for the user, it is also necessary to sp
     
         For example, use **fr\_fr** for the French locale, **pt\_br** for Brazil locale and **it\_it** for the Italian locale. This is the format used for country locales in the Identity Server.
         For more information on country locales, see [Locale codes](http://www.science.co.il/language/Locale-codes.php).
+        Please make sure to use the **"\_"** format instead of the **"-"** format used in this page.
     
 
 Now that this is done, any email notifications you receive will be in the language you specified.
