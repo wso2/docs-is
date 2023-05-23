@@ -164,7 +164,7 @@ public class ValidateRSASignature {
 }
 ```
 
-### JWT Token generation without revoking existing tokens.
+### JWT Token generation without revoking existing tokens
 
 When a request is received for generating a new JWT token, a new token is generated based on "APPLICATION, USER, SCOPE, BINDING" combinations. 
 If a token request is received for the same combination again, WSO2 IS revokes the existing token and returns a new token.   
