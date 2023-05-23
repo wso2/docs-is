@@ -166,8 +166,12 @@ public class ValidateRSASignature {
 
 ### JWT Token generation without revoking existing tokens
 
+!!! info
+    This capability is available as an update in WSO2 IS 5.11.0 from update level **5.11.0.223** onwards (Updates 2.0 model). See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+
 When a request is received for generating a new JWT token, a new token is generated based on "APPLICATION, USER, SCOPE, BINDING" combinations. 
-If a token request is received for the same combination again, WSO2 IS revokes the existing token and returns a new token.   
+If a token request is received for the same combination again, WSO2 IS revokes the existing token and returns a new token.
+
 If you want to generate a JWT token without revoking the existing token, 
 add and configure the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
