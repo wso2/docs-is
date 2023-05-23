@@ -271,10 +271,10 @@ paths:
 components:
   schemas:
     registrationRequest:
-      required:
-      - client_name
-      - redirect_uris
       type: object
+      required:
+        - redirect_uris
+        - client_name
       properties:
         redirect_uris:
           type: array
@@ -322,6 +322,30 @@ components:
           type: string
         backchannel_logout_session_required:
           type: boolean
+        ext_application_display_name:
+          type: string
+        token_type_extension:
+          type: string
+        ext_application_owner:
+          type: string
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+        ext_pkce_mandatory:
+          type: boolean
+        ext_pkce_support_plain:
+          type: boolean
+        ext_public_client:
+          type: boolean
     updateRequest:
       type: object
       properties:
@@ -342,6 +366,30 @@ components:
         backchannel_logout_uri:
           type: string
         backchannel_logout_session_required:
+          type: boolean
+        ext_application_display_name:
+          type: string
+        token_type_extension:
+          type: string
+        ext_application_owner:
+          type: string
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+        ext_pkce_mandatory:
+          type: boolean
+        ext_pkce_support_plain:
+          type: boolean
+        ext_public_client:
           type: boolean
     application:
       type: object
