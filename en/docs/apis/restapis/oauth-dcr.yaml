@@ -332,7 +332,7 @@ components:
           description: "Array of OAuth 2.0 response types that the client can use."
         ext_param_sp_template:
           type: string
-          description: "External parameter for the Service Provider template."
+          description: "External parameter for the service provider template."
         backchannel_logout_uri:
           type: string
           description: "URI for the client's back-channel logout mechanism."
