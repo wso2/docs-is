@@ -110,9 +110,9 @@ The user store configurations are maintained per tenant.
 
 - If you use a tenant: 
 
-1. Upload the XML file (`<IS_HOME>/repository/conf/identity/application-authentication.xml`) into a specific registry location (`/_system/governance/SMSOTP`).
+  1. Upload the XML file (`<IS_HOME>/repository/conf/identity/application-authentication.xml`) into a specific registry location (`/_system/governance/SMSOTP`).
 
-2. Create a collection named "SMSOTP", add the resource, and upload the `application-authentication.xml` file into the registry.
+  2. Create a collection named "SMSOTP", add the resource, and upload the `application-authentication.xml` file into the registry.
 
 While doing the authentication,the system first checks whether there is an `.xml` file uploaded to the registry. If so, it reads it from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file.
 You can use the registry or local file to get the property values.
@@ -131,7 +131,7 @@ When `SMSOTPMandatory` and this parameter are set to `true` and the user is not 
 
 When `SMSOTPMandatory` is set to `false`, an error page gets displayed.
 
-When `SMSOTPMandatory` is set to `false `and the user is not found in the active directory, the authentication mechanism gets terminated at the first step of the 2FA/MFA. This parameter is not required in such a scenario.
+When `SMSOTPMandatory` is set to *false* and the user is not found in the active directory, the authentication mechanism gets terminated at the first step of the 2FA/MFA. This parameter is not required in such a scenario.
 
 ----
 
