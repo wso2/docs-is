@@ -413,7 +413,7 @@ components:
         ext_application_token_lifetime:
           type: integer
           format: int64
-          description: "This parameter allows to update the lifetime of the application token."
+          description: "This parameter is used for updating the lifetime of the application token."
         ext_user_token_lifetime:
           type: integer
           format: int64
