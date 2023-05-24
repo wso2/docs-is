@@ -131,7 +131,7 @@ If the value is true, the second step will be enabled by the admin. The user can
 
 When `SMSOTPMandatory` is set to `false`, an error page gets displayed.
 
-When `SMSOTPMandatory` is set to `false` and the user is not found in the active directory, the authentication mechanism gets terminated at the first step of the 2FA/MFA. This parameter is not required in such a scenario.
+- When `SMSOTPMandatory` is set to `false` and the user is not found in the active directory, the authentication mechanism gets terminated at the first step of the 2FA/MFA. This parameter is not required in such a scenario.
 
 ----
 
