@@ -355,7 +355,7 @@ components:
         ext_user_token_lifetime:
           type: integer
           format: int64
-          description: "This parameter allows to set the lifetime of the user token."
+          description: "This parameter is used for specifying the lifetime of the user token."
         ext_refresh_token_lifetime:
           type: integer
           format: int64
