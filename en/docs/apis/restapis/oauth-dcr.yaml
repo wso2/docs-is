@@ -338,7 +338,7 @@ components:
           description: "URI for the client's back-channel logout mechanism."
         backchannel_logout_session_required:
           type: boolean
-          description: "Whether a logout session is required for back-channel logout."
+          description: "Specifies whether a logout session is required for back-channel logout."
         ext_application_display_name:
           type: string
           description: "This parameter is used to set a display name for the application."
