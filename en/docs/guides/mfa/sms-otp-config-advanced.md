@@ -81,13 +81,13 @@ Define whether to use a backup code instead of the actual SMS code or not.
 
 #### usecase 
 
-This parameter defines how the username will be retrieved and this has to be configured if the previous authenticator is not a Local Authenticator (eg: Basic Auth). You can configure the following possible values:
+This parameter defines how the username is retrieved and this has to be configured if the previous authenticator is not a Local Authenticator (e.g.: **Basic Auth**). You can configure the following possible values:
 
 - **local**: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.
 
-- **subjectUri**: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the SMSOTP authenticator.
+- **subjectUri**: The subject identified that is used as the username of the SMSOTP authenticator. When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the user interface (UI). This is used as the username of the SMSOTP authenticator.
 
-- **userAttribute**: The name of the federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the `[authentication.authenticator.sms_otp.parameters]` section in the `deployment.toml` file and enter the relevant value, e.g., email and screen_name, id.
+- **userAttribute**: The name of the federated authenticator's user attribute. This is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the `[authentication.authenticator.sms_otp.parameters]` section in the `deployment.toml` file and enter the relevant value, `email`, `screen_name`, and `id`.
 
     ```toml
     [authentication.authenticator.sms_otp.parameters]
@@ -127,9 +127,9 @@ If the value is true, the second step will be enabled by the admin. The user can
 
 #### SendOtpToFederatedMobile
 
-When `SMSOTPMandatory` and this parameter are set to *true* and the user is not found in the active directory, the OTP is sent to the mobile number defined in the federated authenticator claim.
+When `SMSOTPMandatory` and this parameter are set to `true` and the user is not found in the active directory, the OTP is sent to the mobile number defined in the federated authenticator claim.
 
-When `SMSOTPMandatory` is set to *false*, an error page gets displayed.
+When `SMSOTPMandatory` is set to `false`, an error page gets displayed.
 
 When `SMSOTPMandatory` is set to `false `and the user is not found in the active directory, the authentication mechanism gets terminated at the first step of the 2FA/MFA. This parameter is not required in such a scenario.
 
@@ -138,7 +138,7 @@ When `SMSOTPMandatory` is set to `false `and the user is not found in the active
 #### federatedMobileAttributeKey
 
 This parameter identifies the mobile attribute of the federated authenticator (e.g., Foursquare).
-Configure this parameter if `SendOtpToFederatedMobile` is set to *true*. Example: http://wso2.org/foursquare/claims/phone_number
+Configure this parameter if `SendOtpToFederatedMobile` is set to `true`. Example: `http://wso2.org/foursquare/claims/phone_number`
 
 ----
 
