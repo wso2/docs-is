@@ -129,7 +129,7 @@ If the value is true, the second step will be enabled by the admin. The user can
 
 - When `SMSOTPMandatory` and this parameter are set to `true` and the user is not found in the active directory, the OTP is sent to the mobile number defined in the federated authenticator claim.
 
-When `SMSOTPMandatory` is set to `false`, an error page gets displayed.
+- When `SMSOTPMandatory` is set to `false`, an error page gets displayed.
 
 - When `SMSOTPMandatory` is set to `false` and the user is not found in the active directory, the authentication mechanism gets terminated at the first step of the 2FA/MFA. This parameter is not required in such a scenario.
 
