@@ -409,7 +409,7 @@ components:
           description: "The updated token type extension."
         ext_application_owner:
           type: string
-          description: "This parameter allows to update the owner of the application."
+          description: "This parameter is used for updating the owner of the application."
         ext_application_token_lifetime:
           type: integer
           format: int64
