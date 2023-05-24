@@ -529,7 +529,7 @@ nav:
               - Authorized apps API V2: apis/authorized-apps-v2-rest-api.md
           - OAuth 2.0 scope management API: apis/oauth2-scope-management-rest-apis.md
           - OpenID Connect scope management API: apis/oidc-scope-management-rest-apis.md
-          - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+          - OIDC Dynamic Client Registration API: apis/use-the-oauth2-dynamic-client-registration-rest-apis.md
           - Script Library management API: apis/script-library-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
       - Server management:
@@ -1231,7 +1231,7 @@ plugins:
               'develop/configs-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/configs-rest-api/'
               'develop/oauth2-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oauth2-scope-management-rest-apis/'
               'develop/oidc-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oidc-scope-management-rest-apis/'
-              'develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/'
+              'develop/using-the-oauth2-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-oauth2-dynamic-client-registration-rest-apis/'
               'develop/permission-management-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/permission-management-rest-api/'
               'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-self-sign-up-rest-apis/#/User%20Export'
               'develop/scim-1.1-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim-1.1-apis/'

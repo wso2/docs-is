@@ -162,4 +162,4 @@ Use the following curl command to delete an OAuth application using the client I
     ```
 
 !!! info "Related topics"
-    - To see the swagger definition of this REST API, see [OAuth Dynamic Client Registration APIs]({{base_path}}/apis/use-the-openid-connect-dynamic-client-registration-rest-apis).
+    - To see the swagger definition of this REST API, see [OAuth Dynamic Client Registration APIs]({{base_path}}/apis/use-the-oauth2-dynamic-client-registration-rest-apis).
