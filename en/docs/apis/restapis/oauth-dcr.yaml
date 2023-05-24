@@ -421,7 +421,7 @@ components:
         ext_refresh_token_lifetime:
           type: integer
           format: int64
-          description: "This parameter allows to update the lifetime of the refresh token."
+          description: "This parameter is used for updating the lifetime of the refresh token."
         ext_id_token_lifetime:
           type: integer
           format: int64
