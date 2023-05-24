@@ -366,7 +366,7 @@ components:
           description: "This parameter allows to set the lifetime of the ID token."
         ext_pkce_mandatory:
           type: boolean
-          description: "This parameter allows to set whether the Proof Key for Code Exchange (PKCE) is mandatory."
+          description: "This parameter is used for specifying whether the Proof Key for Code Exchange (PKCE) is mandatory."
         ext_pkce_support_plain:
           type: boolean
           description: "This parameter is used for specifying whether the PKCE supports 'plain' challenge method."
