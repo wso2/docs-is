@@ -48,7 +48,7 @@ This page guides you through using a sample Playground application to try out au
     
     - **Client ID**: The OAuth Client Key received when registering the service provider.
     
-    - **Callback URL**: `http://<IS_HOST>:<IS_PORT>/playground2/oauth2client`
+    - **Callback URL**: `http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground2/oauth2client`
 
 	- **Authorize Endpoint**: `https://<IS_HOST>:<IS_PORT>/oauth2/authorize`
     

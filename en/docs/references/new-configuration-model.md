@@ -20,7 +20,7 @@ WSO2 Identity Server is built using a collection of components out of which many
 
 ## New configuration model
 
-With the **new configuration model** from WSO2 Identity Server 5.9.0 onwards, configurations are handled by the <code>deployment.toml</code> file in the <code><IS_HOME>/repository/conf/</code> directory. The benefits of this new configuration model include:
+With the **new configuration model** from WSO2 Identity Server 5.9.0 onwards, configurations are handled by the <code>deployment.toml</code> file in the `<IS_HOME>/repository/conf/` directory. The benefits of this new configuration model include:
 
 -	Without being concerned about the components, the users can focus on the configurations.
 -	Minimal chance for human errors during configuration 
@@ -29,7 +29,7 @@ With the **new configuration model** from WSO2 Identity Server 5.9.0 onwards, co
 -	Configurations are well-grouped and consistently named
 
 !!! warning
-	If you are familiar with the previous configuration model, note that the `deployment.toml` gets precedence over the old `.xml` configuration files. It is expected to reset changes in `.xml` configuration files unless these configurations are now represented in `deployment.toml` file. If you require to use the old configuration model, remove the `deployment.toml` file from the `<IS_HOME>/repository/conf/` directory.
+	If you are familiar with the previous configuration model, note that the `deployment.toml` gets precedence over the old `.xml` configuration files. It is expected to reset changes in `.xml` configuration files unless these configurations are now represented in `deployment.toml` file.
 
 !!! tip
 	For TOML configurations pertaining to a particular feature, see the respective document section.

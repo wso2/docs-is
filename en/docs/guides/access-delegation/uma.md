@@ -120,13 +120,13 @@ Update claims for service provider:
     !!! abstract ""
         **Request Format**
         ```
-        curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=uma_protection internal_application_mgt_view" -H "Content-Type:application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
+        curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>&scope=uma_protection" -H "Content-Type:application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/oauth2/token
         
         ```
         ---
         **Sample Request**
         ```curl
-        curl -u hwbR3jd2fikSApLKfv_wiwRWNSwa:q7Kb74s5dcK3FBh1MUWAJqvdrs8a -k -d "grant_type=password&username=larry&password=larry123&scope=uma_protection internal_application_mgt_view" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        curl -u hwbR3jd2fikSApLKfv_wiwRWNSwa:q7Kb74s5dcK3FBh1MUWAJqvdrs8a -k -d "grant_type=password&username=larry&password=larry123&scope=uma_protection" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
         ```
 
     You will get a response similar to the following:
@@ -135,7 +135,7 @@ Update claims for service provider:
     {
         "access_token":"b8df48ff-feab-3632-b3dc-68ae6b4c62e2",
         "refresh_token":"1037ccad-f45a-38e7-96ad-40c00fbc7ca4",
-        "scope":"internal_application_mgt_view uma_protection",
+        "scope":"uma_protection",
         "token_type":"Bearer",
         "expires_in":3600
     }
@@ -411,6 +411,13 @@ You will get a response similar to the following:
 
 ## Token introspection
 
+!!! note
+    
+    Add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to enable introspection permissions. 
+    ```toml
+    [resource_access_control.introspect]
+    permissions = []
+    ```
 
 Execute the following curl command to get the token introspection:  
 
@@ -463,8 +470,8 @@ This is how UMA works.
     enabled.
     
     ``` java
-    [oauth.grant_type.uma_ticket]
-    retrieve_uma_permission_info_through_introspection="true"
+    [event.default_listener.uma_introspection_data_provider]
+    enable=true
     ```
     
     Following is a sample response when the above configuration is disabled.

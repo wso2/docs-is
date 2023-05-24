@@ -92,7 +92,7 @@ You will receive the following response with the access token.
     
     By configuring the `         <IsRefreshTokenAllowed>        ` property
     to `         true        ` or `         false        ` along with the
-    above configuration, you can turn on or turn on the process of issuing
+    above configuration, you can turn on or turn off the process of issuing
     refresh tokens. By default, `         IsRefreshTokenAllowed        ` is
     set to `         true        `, and `        ` you can allow it to
     issue refresh tokens for all grant types. By configuring it to

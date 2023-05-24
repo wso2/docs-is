@@ -102,6 +102,8 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 If you are moving to WSO2 Identity Server 6.0.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.0.0.
 
+Learn moe about [upgrading to WSO2 IS 6.0.0]({{base_path}}/deploy/upgrade/upgrade-wso2-is/) for details.
+
 ## Beta features
 
 -   **React-based console application** 
@@ -130,7 +132,7 @@ The following features are removed from WSO2 Identity Server 6.0.0.
 
 ## Deprecated features
 
-The following capabilities are deprecated in WSO2 Identity Server 6.0.0, which means they will be removed in a future release. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/deploy/migrate/wso2-identity-server-feature-deprecation/).
+The following capabilities are deprecated in WSO2 Identity Server 6.0.0, which means they will be removed in a future release. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
 
 -   SCIM 1 inbound provisioning 
 

@@ -17,6 +17,7 @@ works to assess the risk of the user.
 4. The application sends an authentication request to WSO2 IS.
 5. The user is prompted to log in, and WSO2 IS authenticates the user using basic authentication (username/password credentials).
 6. WSO2 IS publishes an event to ELK, which computes the user's risk score based on the user's transaction history using the data received in step 2.
+    
     !!! info "For example"
          If the user has made transactions that add up to over $10,000 within the last five minutes, the risk score is 1. Else, the risk score is 0.
 
@@ -36,11 +37,11 @@ works to assess the risk of the user.
     !!! abstract ""
         **Request Format**
         ```
-        curl -L -X PUT 'https://{ELASTICSEARCH_HOST}/transaction' -H 'Authorization: Basic {ELASTICSEARCH_BASIC_AUTH_HEADER}'
+        curl -L -X PUT 'https://{ELASTICSEARCH_HOST}/transaction' -H 'Authorization: Basic {ELASTICSEARCH_BASIC_AUTH_HEADER}' -H 'Content-Type: application/json' --data-raw '{"mappings":{"properties":{"@timestamp":{"type":"date"}}}}'
         ```
         **Sample Request**
         ```
-        curl -L -X PUT 'https://localhost:9200/transaction' -H 'Authorization: Basic d3NvMnVzZXI6Y2hhbmdlbWU='
+        curl -L -X PUT 'https://localhost:9200/transaction' -H 'Authorization: Basic d3NvMnVzZXI6Y2hhbmdlbWU= -H 'Content-Type: application/json' --data-raw '{"mappings":{"properties":{"@timestamp":{"type":"date"}}}}'
         ```
         **Response**
         ```
