@@ -108,14 +108,13 @@ The user store configurations are maintained per tenant.
 
 - If you use a super tenant, set all the parameter values in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-- If you use a tenant: 
+- If you use a tenant:
 
-  1. Upload the XML file (`<IS_HOME>/repository/conf/identity/application-authentication.xml`) into a specific registry location (`/_system/governance/SMSOTP`).
+    1. Upload the XML file (`<IS_HOME>/repository/conf/identity/application-authentication.xml`) into a specific registry location (`/_system/governance/SMSOTP`).
 
-  2. Create a collection named "SMSOTP", add the resource, and upload the `application-authentication.xml` file into the registry.
+    2. Create a collection named "SMSOTP", add the resource, and upload the `application-authentication.xml` file into the registry.
 
-While doing the authentication,the system first checks whether there is an `.xml` file uploaded to the registry. If so, it reads it from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file.
-You can use the registry or local file to get the property values.
+While doing the authentication, the system first checks whether there is an `.xml` file uploaded to the registry. If so, it reads it from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file. You can use the registry or local file to get the property values.
 
 ----
 
