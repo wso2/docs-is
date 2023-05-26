@@ -154,7 +154,7 @@ application.
 
 Deploy this sample web app on a web container.
 
-1. Copy the `pickup-dispatch.war`file into the `webapps` folder. For
+1. Copy the `pickup-dispatch.war` file into the `webapps` folder. For
    example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`.
 
 2. Open a terminal window and add the following entry to the
