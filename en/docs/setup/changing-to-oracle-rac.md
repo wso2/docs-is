@@ -8,7 +8,7 @@ you need to follow in order to use Oracle RAC for this purpose.
 ## Setting up datasource configurations
 
 !!! note
-    It is recommended to use the UTC zone for database operations, as it does not observe daylight savings time (DST). If a database server is hosted in a time zone that is affected by DST, not using UTC could potentially result in an outage when generating OAuth codes or access tokens due to the DST shift.
+    It is recommended to use the UTC zone for database operations as it does not observe daylight savings time (DST). If a database server is hosted in a time zone that is affected by DST, not using UTC could potentially result in an outage (due to the DST shift) when generating OAuth codes or access tokens.
 
 A datasource is used to establish the connection to a database. By
 default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
