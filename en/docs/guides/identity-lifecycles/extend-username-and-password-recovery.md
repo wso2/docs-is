@@ -80,7 +80,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
             Validity period of the recovery code given after initiating username/ password recovery.
             <ul>
                 <li>Unit : <code>minutes</code>
-                <li>Default value : <code>1 minute</code>
+                <li>Default value : <code>1</code>
             </ul>
             <div class="admonition note">
                 <p class="admonition-title">note</p>
