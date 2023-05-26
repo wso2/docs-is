@@ -15,7 +15,7 @@ The password recovery flow of WSO2 Identity Server is as follows:
 4. The server sends the recovery notification to the user via the preferred notification channel.
 5. If the preferred channel is:
     - **Email**: The user can click the reset link sent to the registered email address and reset the password.
-    - **SMS**: The user provides the received One-Time Password (OTP) and reset the password.
+    - **SMS**: The user provides the received One-Time Password (OTP) and resets the password.
 
 The following sections walk you through configuring and trying out password recovery via SMS and Email channels.
 
