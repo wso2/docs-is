@@ -54,7 +54,7 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
     ```
 
     !!! Note
-        - Add this configuration only if you wish to configure WSO2 Identity Server to send confirmation emails. See [Configure the Email Sending Module]({{base_path}}/deploy/configure-email-sending/) for more information
+        - Add this configuration only if you wish to configure WSO2 Identity Server to send confirmation emails. See [Configure the Email Sending Module]({{base_path}}/deploy/configure-email-sending/) for more information.
         - Alternatively, you can use your own email managing mechanism.
 
 
