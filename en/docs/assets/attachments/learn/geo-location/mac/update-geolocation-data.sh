@@ -21,7 +21,7 @@ elif [ -d "$original_dir" ];then
 
         #Convert GeoLite2-City-Blocks-IPv4
         echo " ** convert GeoLite2-City-Blocks-IPv4"
-        $bin_dir/geoip2-csv-converter -block-file=$original_dir/"GeoLite2-City-Blocks-IPv4.csv" -include-integer-range=true -output-file=$original_dir/"GeoLite2-City-Blocks-IPv4-converted.csv"
+        $bin_dir"/geoip2-csv-converter" -block-file=$original_dir/"GeoLite2-City-Blocks-IPv4.csv" -include-integer-range=true -output-file=$original_dir/"GeoLite2-City-Blocks-IPv4-converted.csv"
 
         #Get first column form original GeoLite2-City-Blocks-IPv4
         echo " ** get first column form original"
@@ -57,4 +57,3 @@ elif [ -d "$original_dir" ];then
         
     fi
 fi
-

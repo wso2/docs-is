@@ -11,17 +11,17 @@ Follow the procedure below in order to create a geolocation dataset to use when 
 1.  Unzip the latest CSV file and the geoip-2-csv-converter you have downloaded in the previous step.
 2.  Run the `update-geolocation-data.sh` file using the command below.
 
-    For Linux  : [update-geolocation-data.sh](../../assets/attachments/learn/geo-location/linux/update-geolocation-data.sh)
-    
-    For Mac: [update-geolocation-data.sh](../../assets/attachments/learn/geo-location/mac/update-geolocation-data.sh)
+    - For MacOS  : [update-geolocation-data.sh](../../assets/attachments/learn/geo-location/mac/update-geolocation-data.sh)
+
+    - For Linux  : [update-geolocation-data.sh](../../assets/attachments/learn/geo-location/linux/update-geolocation-data.sh)
 
     ```shell
     sh update-geolocation-data.sh
-    ```      
+    ```
 
-3. Enter the path to the extracted GeoLite2-City-Blocks-IPv4 directory which you downloaded first, as the response for **Enter path to GeoLite2-City-Blocks-IPv4 directory:**
+3.  Enter the path to the extracted GeoLite2-City-Blocks-IPv4 directory which you downloaded first, as the response for **Enter path to GeoLite2-City-Blocks-IPv4 directory:**
 
-        E.g :   /&lt;PATH\_TO&gt;/GeoLite2-City-CSV_20200310
+    -   E.g :   /&lt;PATH\_TO&gt;/GeoLite2-City-CSV_20200310
 
     -   Enter the path to the `geoip2-csv-converter` directory as the response for **Enter path to geoip2-csv-converter home directory:**
 
