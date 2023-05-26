@@ -144,7 +144,7 @@ Configure the following to enable this feature.
     carbon_security_keystore_password="wso2carbon"
     client_truststore="client-truststore.jks"
     carbon_security_truststore_password="wso2carbon"
-    identity_server_service_url="https://localhost:9443/services/"
+    identity_server_service_url="https://localhost:9443"
     username_header="UserName"
     ```
 
@@ -328,91 +328,16 @@ page, follow the steps below.
 
 ## Handle the browser back button and bookmarked login page
 
-This section describes how to enhance the usability of authentication
-endpoint webapp with different user behavioral patterns. One such
-behavioral pattern is that the user may click the back button from
-authenticated application or keep the endpoint login page URL
-bookmarked. In such situations, the user should be directed to the
-appropriate page.
+This section describes how to enhance the usability of the authentication endpoint web app with different user 
+behavioral patterns. For example, the user may click the back button from the authenticated application or keep the endpoint login page URL bookmarked. In such situations, the user should be directed to the
+access URL specified for the application.
 
-Let's see how this can be achieved.
+Follow the steps below to ensure that the access URL is configured for your application:
 
-First, you need to add a registry resource that will contain the
-redirect URLs of different service providers. To do that, follow the
-below steps:
+1. Start WSO2 IS and log in to the Management Console.
 
-1.  Start the Identity Server and log in to the Management Console.
+2. On the Management Console, go to **Main > Identity > Service Providers**, and select the service provider registered for your application.
 
-2.  Navigate to **Main** > **Registry** > **Browse** to
-    see the registry browser.  
-    
-    ![Registry Browse menu item]({{base_path}}/assets/img/guides/registry.png)
+3. Specify the access URL of your application as shown below.
 
-3.  Browse the registry and go to
-    `          /_system/config/identity/config         `.
-     
-    ![Registry browser]({{base_path}}/assets/img/extend/registry-browser.png)
-
-4.  Click **Add Resource**.  
-    
-    ![Add registy resource]({{base_path}}/assets/img/extend/add-registry-resource.png)
-
-5.  Fill the form with following information.
-    -   Method : Select **Create Text content** from the dropdown.
-
-    -   Name : Enter **relyingPartyRedirectUrls** as Name.
-
-    ![Add registry resource form]({{base_path}}/assets/img/extend/add-registry-resource-form.png) 
-
-6.  Click the **Add** button. The created registry resource can be seen
-    once you click on **Add** button.  
-    
-    ![Added registry resource]({{base_path}}/assets/img/extend/added-registry-resource.png) 
-
-7.  Click on the added resource (relyingPartyRedirectUrls). You can see
-    the **Properties** section.  
-    
-    ![Registry resource properties]({{base_path}}/assets/img/extend/registry-resource-properties.png) 
-
-8.  Click the `+` sign at the right hand corner of **Properties**
-    section. This allows you to add a property to the resource.
-
-9.  Click **Add New Property**.  
-    
-    ![Registry resource Add New Property option]({{base_path}}/assets/img/extend/registry-resource-add-new-property.png)
-
-10. Enter the relying party name for name and the redirect URL for
-    value.  
-    
-    ![Registy resource Add New Property form]({{base_path}}/assets/img/extend/registry-resource-add-new-property-form.png)
-
-    !!! note
-    
-        The redirectURL is the URL you want the application to be redirected
-        when the back button is pressed.
-    
-
-    !!! info
-        
-        -  Note the following settings:
-            - Relying party for SAML = Issuer Name
-            - Relying party for Oauth2 = OAuth Client Key  
-
-        - Following are two sample values for Name and value:
-            - Name : USER_PORTAL
-            - Value : https://localhost:9443/user-portal/overview        
-
-        - If you are using travelocity as the sample app, you can use the below values:
-            - Name : travelocity.com
-            - Value : http://localhost:8080/travelocity.com/home.jsp
-
-11. Once you fill the name and the value, click the **Add** button.
-
-12. Now try out the back button and book marking scenarios.
-
-    !!! note
-    
-        These configurations are per-tenant. You need to do this
-        configuration after logging into Service Providers tenant Admin
-        Console.
-    
+    ![service provider access url]({{base_path}}/assets/img/references/add-access-url-to-sp.png)

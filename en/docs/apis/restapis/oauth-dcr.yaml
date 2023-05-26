@@ -271,57 +271,108 @@ paths:
 components:
   schemas:
     registrationRequest:
-      required:
-      - client_name
-      - redirect_uris
       type: object
+      required:
+        - redirect_uris
+        - client_name
       properties:
         redirect_uris:
           type: array
           items:
             type: string
+          description: "Array of redirection URIs for the application. These URIs are used as redirect targets after successful authentication."
         client_name:
           type: string
+          description: "The name of the client application."
         client_id:
           type: string
+          description: "The client identifier issued to the client during the registration process."
         client_secret:
           type: string
+          description: "The client secret issued to the client during the registration process."
         grant_types:
           type: array
           items:
             type: string
+          description: "Array of OAuth 2.0 grant types that the client can use."
         application_type:
           type: string
+          description: "Type of the application. Can be either 'web' or 'native'."
         jwks_uri:
           type: string
+          description: "URL for the client's JSON Web Key Set document."
         url:
           type: string
+          description: "URL of the client application."
         ext_param_client_id:
           type: string
+          description: "External parameter for the client ID."
         ext_param_client_secret:
           type: string
+          description: "External parameter for the client secret."
         contacts:
           type: array
           items:
             type: string
+          description: "Array of client contact information."
         post_logout_redirect_uris:
           type: array
           items:
             type: string
+          description: "Array of URLs to which the client will be redirected after logout."
         request_uris:
           type: array
           items:
             type: string
+          description: "Array of URLs that are allowed to make requests."
         response_types:
           type: array
           items:
             type: string
+          description: "Array of OAuth 2.0 response types that the client can use."
         ext_param_sp_template:
           type: string
+          description: "External parameter for the service provider template."
         backchannel_logout_uri:
           type: string
+          description: "URI for the client's back-channel logout mechanism."
         backchannel_logout_session_required:
           type: boolean
+          description: "Specifies whether a logout session is required for back-channel logout."
+        ext_application_display_name:
+          type: string
+          description: "This parameter is used to set a display name for the application."
+        token_type_extension:
+          type: string
+          description: "The token type extension."
+        ext_application_owner:
+          type: string
+          description: "This parameter is used for specifying the owner of the application."
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+          description: "This parameter is used for specifying the lifetime of the application token."
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+          description: "This parameter is used for specifying the lifetime of the user token."
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+          description: "This parameter is used for specifying the lifetime of the refresh token."
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+          description: "This parameter is used for specifying the lifetime of the ID token."
+        ext_pkce_mandatory:
+          type: boolean
+          description: "This parameter is used for specifying whether the Proof Key for Code Exchange (PKCE) is mandatory."
+        ext_pkce_support_plain:
+          type: boolean
+          description: "This parameter is used for specifying whether the PKCE supports 'plain' challenge method."
+        ext_public_client:
+          type: boolean
+          description: "This parameter is used for specifying whether the client is a public client."
     updateRequest:
       type: object
       properties:
@@ -329,20 +380,61 @@ components:
           type: array
           items:
             type: string
+          description: "Array of redirection URIs for the application. These URIs are used as redirect targets after successful authentication."
         client_name:
           type: string
+          description: "The updated name of the client application."
         client_id:
           type: string
+          description: "The client identifier issued to the client during the registration process. It should be the same as the one in the original registration request."
         client_secret:
           type: string
+          description: "The client secret issued to the client during the registration process. It should be the same as the one in the original registration request."
         grant_types:
           type: array
           items:
             type: string
+          description: "Array of OAuth 2.0 grant types that the client is updated to use."
         backchannel_logout_uri:
           type: string
+          description: "Updated URI for the client's back-channel logout mechanism."
         backchannel_logout_session_required:
           type: boolean
+          description: "Updated requirement for whether a logout session is required for back-channel logout."
+        ext_application_display_name:
+          type: string
+          description: "This parameter is used to update the display name for the application."
+        token_type_extension:
+          type: string
+          description: "The updated token type extension."
+        ext_application_owner:
+          type: string
+          description: "This parameter is used for updating the owner of the application."
+        ext_application_token_lifetime:
+          type: integer
+          format: int64
+          description: "This parameter is used for updating the lifetime of the application token."
+        ext_user_token_lifetime:
+          type: integer
+          format: int64
+          description: "This parameter is used for updating the lifetime of the user token."
+        ext_refresh_token_lifetime:
+          type: integer
+          format: int64
+          description: "This parameter is used for updating the lifetime of the refresh token."
+        ext_id_token_lifetime:
+          type: integer
+          format: int64
+          description: "This parameter is used for updating the lifetime of the ID token."
+        ext_pkce_mandatory:
+          type: boolean
+          description: "This parameter is used for specifying whether the Proof Key for Code Exchange (PKCE) is mandatory."
+        ext_pkce_support_plain:
+          type: boolean
+          description: "This parameter is used for specifying whether the PKCE supports 'plain' challenge method."
+        ext_public_client:
+          type: boolean
+          description: "This parameter is used for specifying whether the client is a public client."
     application:
       type: object
       properties:

@@ -184,9 +184,9 @@ nav:
           - OpenID Connect: guides/identity-federation/configure-oauth2-openid-connect.md
           - ADFS: guides/identity-federation/configure-ad-fs-as-a-federated-authenticator.md
           - WS-Federation: guides/identity-federation/configure-ws-federation.md
-          #- WS-Trust: 
+          - WS-Trust: guides/identity-federation/configure-ws-trust.md
             #- WS Trust STS: guides/identity-federation/configure-ws-trust.md
-            #- Obtain tokens using STS: guides/identity-federation/obatin-tokens-using-sts.md
+            #- Obtain tokens using STS: guides/identity-federation/obtain-tokens-using-sts.md
             #- Access claims using STS: guides/identity-federation/access-claims-using-sts.md
           - Shibboleth: guides/identity-federation/configure-shibboleth-idp.md
         - Social Login:
@@ -421,6 +421,7 @@ nav:
         - Tenant Loading Policy: guides/tenants/configure-the-tenant-loading-policy.md
         - CORS : deploy/configure-cors.md
         - reCAPTCHA: deploy/configure-recaptcha.md
+        - Admin Advisory Banner : deploy/configure-admin-banner.md
       - Secure:
         - Mitigate Attacks:
           - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
@@ -529,7 +530,7 @@ nav:
               - Authorized apps API V2: apis/authorized-apps-v2-rest-api.md
           - OAuth 2.0 scope management API: apis/oauth2-scope-management-rest-apis.md
           - OpenID Connect scope management API: apis/oidc-scope-management-rest-apis.md
-          - OIDC Dynamic Client Registration API: apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md
+          - OIDC Dynamic Client Registration API: apis/use-the-oauth2-dynamic-client-registration-rest-apis.md
           - Script Library management API: apis/script-library-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
       - Server management:
@@ -1231,7 +1232,7 @@ plugins:
               'develop/configs-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/configs-rest-api/'
               'develop/oauth2-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oauth2-scope-management-rest-apis/'
               'develop/oidc-scope-management-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/oidc-scope-management-rest-apis/'
-              'develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-openid-connect-dynamic-client-registration-rest-apis/'
+              'develop/using-the-oauth2-dynamic-client-registration-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-oauth2-dynamic-client-registration-rest-apis/'
               'develop/permission-management-rest-api.md': 'https://is.docs.wso2.com/en/6.0.0/apis/permission-management-rest-api/'
               'develop/using-the-personal-information-export-rest-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/use-the-self-sign-up-rest-apis/#/User%20Export'
               'develop/scim-1.1-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/scim-1.1-apis/'
@@ -1412,6 +1413,7 @@ plugins:
               'administer/enabling-hostname-verification.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/enable-hostname-verification/'
               'administer/configuring-tls-termination.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-tls-termination/'
               'administer/getting-wso2-updates.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/get-started/get-wso2-updates/'
+              'administer/configure-admin-banner.md': 'https://is.docs.wso2.com/en/6.0.0/deploy/configure-admin-banner/'
               'compliance/general-data-protection-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/gdpr/'
               'compliance/electronic-identification-authentication-and-trust-services-regulation.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/eidas/'
               'compliance/california-consumer-privacy-act.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/compliance/ccpa/'
@@ -1452,8 +1454,8 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 6.0.0
-  base_path: https://is.docs.wso2.com/en/6.0.0
+  site_version: 6.1.0
+  base_path: https://is.docs.wso2.com/en/6.1.0
   #base_path: http://127.0.0.1:8000/en/6.1.0
 
   nav_list:

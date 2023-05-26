@@ -72,7 +72,7 @@ Navigate to `webapps/authenticationendpoint` and create a new folder named `exte
 
 To create the basic custom layout resources:
 
-1. In the `authenticationendpoint` folder, navigate to the created `extensions` folder and create the `layouts` and `customs` folders recursively.
+1. In the `authenticationendpoint` folder, navigate to the created `extensions` folder and create the `layouts` and `custom` folders recursively.
     
     ```
     └── extensions
@@ -102,7 +102,7 @@ To add a custom layout to the login page:
 
     3. Copy the code snippet from the [javascript file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/script.js) into the `script.js` file.
 
-    4. Copy the [illustraction.svg](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/illustration.svg) file into the `assets` folder.
+    4. Copy the [illustration.svg](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/illustration.svg) file into the `assets` folder.
 
 2. Navigate to the `webapps/authenticationendpoint/includes` folder and copy the `product-title.jsp` and `product-footer.jsp` files to the `webapps/authenticationendpoint/extensions` folder as follows:
 
