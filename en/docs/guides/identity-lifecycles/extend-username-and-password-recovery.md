@@ -323,7 +323,7 @@ sms notification templates.
 
     !!! note
         - The validity period of the recovery code is determined by the second step of [configuring password recovery](#set-up-password-recovery).  
-        - To try out password recovery with a challenge question, refer [Configuring Password Reset with Challenge Questions]({{base_path}}/guides/password-mgt/challenge-question/).
+        - To try out password recovery with a challenge question, see [Configuring Password Reset with Challenge Questions]({{base_path}}/guides/password-mgt/challenge-question/).
 
 2. Use the `recoveryCode` and a preferred channel `id` to get notifications via that channel.
 
