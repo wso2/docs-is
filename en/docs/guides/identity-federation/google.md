@@ -217,7 +217,7 @@ You are redirected to the sample application's home page.
 
 ### Sign in with Google One Tap
 
-Google One Tap is a personalized authentication feature provided by Google. When a browser has an already authenticated google session, a personalized sign-in/sign-up button will appear instead of a conventional Google sign-in button. Note that this feature applies to One Tap-supported web applications.
+Google One Tap is a personalized authentication feature provided by Google. When a browser has an already authenticated Google session, a personalized sign-in/sign-up button will appear instead of a conventional Google sign-in button. Note that this feature applies to One Tap-supported web applications.
 
 !!! Note "Supported Browsers"
     Google One Tap supports for following browsers only.
