@@ -2661,7 +2661,7 @@ components:
         useExternalConsentPage:
           type: boolean
           example: false
-          description: Decides whether user needs to use external consent page.
+          description: Decides whether users should be presented with an external consent page.
         returnAuthenticatedIdpList:
           type: boolean
           example: false
