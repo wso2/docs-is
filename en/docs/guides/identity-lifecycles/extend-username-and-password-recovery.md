@@ -22,7 +22,7 @@ The following sections walk you through configuring and trying out password reco
 ??? Warning "If you are migrating from IS 5.10.0 or above"
     If you have migrated from IS 5.10.0 or above, ensure that the `IdentityMgtEventListener` parameter with the `orderId=50` is set to `false` and that the identity listeners with `orderId=95` and `orderId=97` are set to `true` in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    Note: You can skip this step if there are no entries for `event.default_listener.xxx` in the `deployment.toml` file.
+    You can skip this step if there are no entries for the `event.default_listener.xxx` parameter in the `deployment.toml` file.
     
     ``` java
     [event.default_listener.identity_mgt]
