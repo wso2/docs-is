@@ -112,7 +112,9 @@ Follow the steps given below to recover a user in the super tenant (i.e., `carbo
       </tr>
     </table>
 
-3. Add an event publisher to `<IS_HOME/repository/deployment/server/eventpublishers`. You can use the following sample publisher to call a REST service to send confirmation codes. This sample uses the `http output adapter`.
+3. Add an event publisher to `<IS_HOME/repository/deployment/server/eventpublishers`. 
+
+      You can use the following sample publisher to call a REST service to send confirmation codes. This sample uses the `http output adapter`.
 
     ??? info "Sample Event Publisher"
         ```
