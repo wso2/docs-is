@@ -5,7 +5,10 @@ for storing user management and registry data. Given below are the steps
 you need to follow in order to use PostgreSQL for this purpose.
     
 
-### Setting up datasource configurations
+## Setting up datasource configurations
+
+!!! note
+    It is recommended to use the UTC zone for database operations as it does not observe daylight savings time (DST). If a database server is hosted in a time zone that is affected by DST, not using UTC could potentially result in an outage (due to the DST shift) when generating OAuth codes or access tokens.
 
 A datasource is used to establish the connection to a database. By
 default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
@@ -19,7 +22,7 @@ to the default  H2 database.
 After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to that PostgreSQL database by following below instructions.
 
-#### Changing the default datasource
+### Changing the default datasource
 
 1.  **Minimum Configurations for changing default datasource to PostgreSQL.**
  
