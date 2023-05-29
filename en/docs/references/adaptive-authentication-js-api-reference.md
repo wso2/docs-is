@@ -638,14 +638,14 @@ accessed as follows.
 Contains the authentication step information. May be null or invalid
 step number.
 
-- `          step.subject         ` :  Contains the authenticated
+-  `          step.subject         ` :  Contains the authenticated
     user’s information from this step. May be null if the step is not
     yet executed. See [user
     object](#user-object) for more
     information.
-- `          step.idp         ` :  Gives the identity provider name which was used
+-  `          step.idp         ` :  Gives the identity provider name which was used
     to authenticate this user.
-- `          step.authenticator         ` :  Gives the authenticator name which was used
+-  `          step.authenticator         ` :  Gives the authenticator name which was used
   to authenticate this user.
 
 #### user object
