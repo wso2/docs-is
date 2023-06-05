@@ -87,11 +87,11 @@ to send confirmation codes.
             statistics="disable" trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
             <from streamName="id_gov_sms_notify_stream" version="1.0.0"/>
             <mapping customMapping="enable" type="json">
-                <inline>{"api_key"="4c9374",
-                    "api_secret"="FtqggE93",
-                    "from"="NEXMO",
-                    "to"={{mobile}},
-                    "text"={{body}}
+                <inline>{"api_key":"4c9374",
+                    "api_secret":"FtqggE93",
+                    "from":"NEXMO",
+                    "to":{{mobile}},
+                    "text":{{body}}
                     }</inline>
             </mapping>
             <to eventAdapterType="http">
