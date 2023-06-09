@@ -22,7 +22,7 @@ You need to configure an oauth application in the federated authorization server
 !!! tip
     By default, the **Client Id** and **Client Secret** are stored as
     plain text values, where the **Client Secret** is generally stored
-    as a random number generated using two UUIDs and HMAC-SHA1 hash
+    as a random number generated using two UUIDs and HMAC-SHA256 hash
     function, which is known to resist the strongest attack known
     against HMAC.
 

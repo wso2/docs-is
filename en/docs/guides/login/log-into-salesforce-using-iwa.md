@@ -320,7 +320,7 @@ Now that you have configured the email addresses, let's configure Salesforce.
     </tr>
     <tr class="odd">
     <td>Request Signature Method</td>
-    <td>RSA-SHA1</td>
+    <td>RSA-SHA256</td>
     </tr>
     <tr class="even">
     <td>Assertion Decryption Certificate</td>

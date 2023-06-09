@@ -108,7 +108,7 @@ Specifies the `SignatureMethod` algorithm to be used in the `Signature` element 
 signing_alg="signing algorithm"
 ```
 
-If it is not provided the default algorithm is `RSA­SHA 1`, at URI `http://www.w3.org/2000/09/xmldsig#rsa­sha1`.
+If it is not provided the default algorithm is `RSA­SHA 256`, at URI `http://www.w3.org/2001/04/xmldsig-more#rsa-sha256`.
 
 ----
 
@@ -121,7 +121,7 @@ Specifies the `DigestMethod` algorithm to be used in the `Signature` element in 
 digest_alg="digest algorithm"
 ```
 
-If it is not provided, the default algorithm is `SHA 1` at URI `http://www.w3.org/2000/09/xmldsig#sha1`.
+If it is not provided, the default algorithm is `SHA 256` at URI `http://www.w3.org/2001/04/xmlenc#sha256`.
 
 ----
 

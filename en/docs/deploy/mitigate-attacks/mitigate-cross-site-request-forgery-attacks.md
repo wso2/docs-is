@@ -156,7 +156,7 @@ Follow the steps below to secure web applications.
 
     | Property                                                                                                   | Description                                                                      |
     |------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-    | `               org.owasp.csrfguard.PRNG=SHA1PRNG                             `                            | Defines the hashing algorithm used to generate the CSRF token.                   |
+    | `               org.owasp.csrfguard.PRNG=DRBG                          `                                   | Defines the hashing algorithm used to generate the CSRF token.                   |
     | `               org.owasp.csrfguard.TokenLength=32              `                                          | Defines the length of the CSRF token.                                            |
     | `               org.owasp.csrfguard.action.Invalidate=org.owasp.csrfguard.action.Invalidate              ` | Invalidates the user session, if a CSRF attack attempt was blocked by CSRFGuard. |
 
@@ -240,6 +240,6 @@ Follow the steps below to secure Jaggery applications.
 
     | Property                                                                                                                  | Description                                                                      |
     |---------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-    | `               org.owasp.csrfguard.PRNG=SHA1PRNG              `                                                          | Defines the hashing algorithm used to generate the CSRF token.                   |
+    | `               org.owasp.csrfguard.PRNG=DRBG           `                                                                 | Defines the hashing algorithm used to generate the CSRF token.                   |
     | `               org.owasp.csrfguard.TokenLength=32                             `                                          | Defines the length of the CSRF token.                                            |
     | `               org.owasp.csrfguard.action.Invalidate=org.owasp.csrfguard.action.Invalidate                             ` | Invalidates the user session, if a CSRF attack attempt was blocked by CSRFGuard. |
