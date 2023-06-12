@@ -2,7 +2,7 @@
 
 The OAuth introspection endpoint is:
 
-``` 
+``` bash
 https://<IS_HOST>:<IS_PORT>/oauth2/introspect
 ```
 
