@@ -41,9 +41,8 @@ This page guides you through invoking the [OAuth Introspection Endpoint]({{base_
 Use the cURL commands given in the following sections to invoke the OAuth introspection endpoint for the super tenant users.
 
 !!! tip
-    
-    -   For requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above. 
-
+    -   Note that using client credentials is recommended over basic authentication as it improves server performance.
+    -   For requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above.
     -   For requests that require `USERNAME:PASSWORD` by default, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions.
         
         To allow users with other permissions to send validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below and restart the server.
@@ -52,7 +51,6 @@ Use the cURL commands given in the following sections to invoke the OAuth intros
         [resource_access_control.introspect]
         permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
         ```
-    
 
 ### Get a valid token
 
@@ -244,9 +242,8 @@ Use the following cURL commands given in the following sections to
 invoke the OAuth introspection endpoint for tenant users.
 
 !!! tip
-    
-    -   For requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above. 
-
+    -   Note that using client credentials is recommended over basic authentication as it improves server performance.
+    -   For requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above.
     -   For requests that require `USERNAME@TENANT_DOMAIN:PASSWORD` by default, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions.
         
         To allow users with other permissions to send validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below and restart the server.
