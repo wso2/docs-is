@@ -63,34 +63,32 @@ Supported results are <code>onSuccess</code> and <code>onFail</code>, which can 
 
 The API can be called in either of the following ways:
 
--   With only the `           stepId          ` .
+- With only the `stepId`.
 
     ``` java
     executeStep(1)
     ```
 
--   With only the `           stepId          ` and
-    `           eventCallbacks          ` .
+- With only the `stepId` and `eventCallbacks`.
 
     ``` java
     executeStep(1, {
         onSuccess: function(context) {
-            //Do something on success
+            // Do something on success.
         }
     });
     ```
 
--   With the `           stepId          `,
-    `           options          `, and an empty
-    `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` object such as `           authenticationOptions          `, `           authenticatorParams          `. See the following two examples:
+- With the `stepId`, `options`, and an empty `eventCallbacks` array. Different properties can be defined in the `options` object such as `authenticationOptions`, `authenticatorParams`. See the following two examples:
 
     ``` java
-    executeStep(1,{
-        authenticationOptions:[{
+    executeStep(1, {
+        authenticationOptions: [{
             authenticator: 'totp'
         }]},
     });
     ```
+
     ``` java
     executeStep(1, {
         authenticatorParams: {
@@ -99,7 +97,7 @@ The API can be called in either of the following ways:
                     MaxSessionCount: '1'
                 }
                 totp: {
-                enableRetryFromAuthenticator: 'true'
+                    enableRetryFromAuthenticator: 'true'
                 }
             }
         }
@@ -107,10 +105,8 @@ The API can be called in either of the following ways:
     ```
       
     !!! note
-    
-        The API cannot be called with only the `           stepId          `
-        and `           options          ` .
-    
+
+        The API cannot be called with only the `stepId` and `options`.
 
 <a name = "step-filtering"></a>
 **Authentication step filtering**
@@ -171,6 +167,34 @@ You can find the available local authenticators in the table below.
     </tr>
 </tbody>
 </table>
+
+<a name = "idf-username-validation"></a>
+**Username validation for Identifier First handler**
+
+For the Identifier First handler, by default the username validation will not happen unless the validation is 
+enabled server wide. You can configure the username validation for your applications by specifying 
+`ValidateUsername` property in the `authenticatorParams` object.
+
+**Example code**
+
+``` java
+executeStep(1, {
+    authenticatorParams: {
+        common: {
+            "ValidateUsername": "true"
+        }
+    }
+}, {
+    onSuccess: function(context) {
+        // Do something on success.
+    }
+});
+```
+
+!!! note
+
+    Please note this will override the `ValidateUsername` authenticator config that can be configured through the 
+    `deployment.toml` file.
 
 ---
 
