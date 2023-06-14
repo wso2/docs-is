@@ -27,44 +27,44 @@
       "notes": "https://is.docs.wso2.com/en/5.9.0/get-started/about-this-release"
     },
     "5.8.0": {
-        "doc": "https://docs.wso2.com/display/IS580/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS580/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS580/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS580/pages/41124119/About+this+release"
     },
     "5.7.0": {
-        "doc": "https://docs.wso2.com/display/IS570/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS570/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS570/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS570/pages/38174879/About+this+Release"
     },
     "5.6.0": {
-        "doc": "https://docs.wso2.com/display/IS560/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS560/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS560/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS560/pages/31817769/About+this+Release"
     },
     "5.5.0": {
-        "doc": "https://docs.wso2.com/display/IS550/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS550/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS550/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS550/pages/29720727/About+this+Release"
     },
     "5.4.1": {
-        "doc": "https://docs.wso2.com/display/IS541/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS541/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS541/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS541/pages/42827813/About+this+Release"
     },
     "5.4.0": {
-        "doc": "https://docs.wso2.com/display/IS540/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS540/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS540/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS540/pages/45645861/About+this+Release"
     },
     "5.3.0": {
-        "doc": "https://docs.wso2.com/display/IS530/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS530/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS530/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS530/pages/25559702/About+this+Release"
     },
     "5.2.0": {
-        "doc": "https://docs.wso2.com/display/IS520/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS520/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS520/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS520/pages/47022087/About+this+Release"
     },
     "5.1.0": {
-        "doc": "https://docs.wso2.com/display/IS510/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS510/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS510/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS510/pages/25722900/About+this+Release"
     },
     "5.0.0": {
-        "doc": "https://docs.wso2.com/display/IS500/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS500/About+this+Release"
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/IS500/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/IS500/pages/32342518/About+this+Release"
     }
   }
 }
