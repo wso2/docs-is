@@ -36,12 +36,55 @@ This page guides you through invoking the [OAuth Introspection Endpoint]({{base_
 
 ----
 
+## Configure the authentication handler
+
+From WSO2 Identity 6.0.0 onwards, you can specify the authentication handler that should be engaged for authenticating requests per endpoint. Note that the <code>BasicAuthentication</code> handler is engaged by default in the server.
+
+To change the default configuration, apply the following to the `deployment.toml` file and specfy the values as explained below.
+
+``` toml
+[[resource.access_control]]
+context="<endpoint>"
+allowed_auth_handlers="BasicClientAuthentication"
+```
+
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+    <tr>
+    <tr>
+        <td>
+            <code>context</code>
+        </td>
+        <td>
+            Specify the relevant endpoints as a comma-separated list.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>allowed_auth_handlers</code>
+        </td>
+        <td>
+            Specify the authentication handler that should be engaged. Note that if both authenticators are engaged as a comma-separated list, <code>BasicClientAuthentication</code> will be prioritized.
+            <ul>
+                <li>
+                    <code>BasicAuthentication</code>: Use this handler if basic authentication should be used. Note that is authenticator is engaged by default.
+                </li>
+                <li>
+                    <code>BasicClientAuthentication</code>: Use this handler is authentication using client credentials should be used.
+                </li>
+            <ul>
+        </td>
+    </tr>
+</table>
+
 ## Invoking the endpoint for the super tenant
 
 Use the cURL commands given in the following sections to invoke the OAuth introspection endpoint for the super tenant users.
 
 !!! tip
-    -   Note that using client credentials is recommended over basic authentication as it improves server performance.
+    -   Note that using client credentials is recommended over basic authentication as it improves server performance. To use this capability, you need to first [engage the client credentials authentication handler](#configure-the-authentication-handler) in your server as explained above.
     -   For requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID
         and client secret of the OAuth service provider you configured above.
     -   For requests that require `USERNAME:PASSWORD` by default, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions.
