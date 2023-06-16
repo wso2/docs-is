@@ -86,8 +86,7 @@ The following basic settings can be configured.
 |`logout_callback_path`|This is the URL to which the user should be redirected after the user is logged out. | `login`|
 <!--
 |`serverOrigin`|This is the original server URL of WSO2 Identity Server. | `https://localhost:9443`|
---> 
-
+-->
 ---
 
 ## Customize My Account
