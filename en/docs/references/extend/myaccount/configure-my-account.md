@@ -87,7 +87,6 @@ The following basic settings can be configured.
 <!--
 |`serverOrigin`|This is the original server URL of WSO2 Identity Server. | `https://localhost:9443`|
 --> 
-
 ---
 
 ## Customize My Account
