@@ -15,6 +15,12 @@ The user identity verification data are handled in WSO2 Identity Server and iden
 
 ## Configuring an Identity Verification Provider
 
+An identity verification provider (IDVP) is a third-party service that is used to verify the identity of a user. 
+Through Identity Server, you can configure an IDVP to verify the identity of a user. In order to onboard IDVP connectors,
+you have to deploy the required IDVP connectors from the connector store.
+
+In order to onboard an IDVP to WSO2 Identity Server, you need to deploy the identity evrification connector artifacts .
+
 This section covers the basic configurations of an IDVP. Following are the configurations covered in this section:
 
 - [Add a new identity verification provider]({{base_path}}/guides/identity-verification/add-idvp)
