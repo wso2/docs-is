@@ -11,7 +11,7 @@ To configure the roles of the identity provider:
 4. Enter the **Identity Provider Role** and map it to the **Local Role** available in the Identity Server.
 
     !!! info "Important"
-        Note that you can only map local roles that belong to the **Internal** or **Application** domain.
+        Note that you can only map local roles that belong to the **Internal** domain.
         Learn more about [creating local roles]({{base_path}}/guides/identity-lifecycles/add-user-roles) on Identity Server.
 
     ![Role Mapping]({{base_path}}/assets/img/guides/idp-role-mapping.png)
