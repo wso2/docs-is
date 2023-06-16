@@ -7,7 +7,6 @@ To configure the roles of the identity provider:
 1. On the Management Console, go to **Main > Identity > Identity Providers** section.
 2. Click **List**, select the identity provider you want to edit, and click on the corresponding **Edit** link.
 3. Expand the **Role Configurations** tab, and click **Add Role Mapping**.
-    ![Role Mapping]({{base_path}}/assets/img/guides/idp-role-mapping.png)
 4. Enter the **Identity Provider Role** and map it to the **Local Role** available in the Identity Server.
 
     !!! info "Important"
