@@ -41,7 +41,7 @@ This page guides you through invoking the [OAuth Introspection Endpoint]({{base_
 Use the cURL commands given in the following sections to invoke the OAuth introspection endpoint for the super tenant users.
 
 !!! tip
-    -   Note that authentication using client credentials is enabled for the introspection endpoint by default. It is also recommended to use client credentials over basic authentication as it improves server performance.
+    -   Note that authentication using client credentials is enabled for the introspection endpoint by default. It is also recommended to use client credentials over basic authentication.
     -   If you have have migrated from a previous WSO2 IS version and thereby required to use basic authentication instead of client credentials, you can apply the following configurations to the `deployment.toml` file.
 
         ``` toml
