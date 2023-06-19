@@ -2382,13 +2382,6 @@ components:
           type: boolean
           default: false
           example: true
-        attributeSyncMethod:
-          type: string
-          enum:
-            - OVERRIDE_ALL
-            - NONE
-            - PRESERVE_LOCAL
-          default: OVERRIDE_ALL
     ConnectedApps:
       type: object
       properties:
