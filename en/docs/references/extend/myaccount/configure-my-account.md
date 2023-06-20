@@ -222,7 +222,7 @@ The Personal Info feature has the following sub-features that can be disabled us
 
 ### 3. Security
 
-The security feature can be configured as follows:
+The `security` feature can be configured as follows:
 
 ```toml
 [myaccount]
