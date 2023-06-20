@@ -200,7 +200,7 @@ The `overview` feature has the following sub-features that can be disabled using
 
 ### 2. Personal Info
 
-The Personal Info feature can be configured as follows:
+The `personal info` feature can be configured as follows:
 
 ``` toml
 [myaccount]
