@@ -188,7 +188,7 @@ overview.scopes.update = []
 overview.scopes.delete = []
 ```
 
-The overview feature has the following sub-features that can be disabled using the `overview.disabled_features` parameter:
+The `overview` feature has the following sub-features that can be disabled using the `overview.disabled_features` parameter:
 
 |Sub-feature| Description|
 |--|--|
