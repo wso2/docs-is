@@ -233,7 +233,7 @@ security.scopes.update = []
 security.scopes.delete = []
 ```
 
-The **Security** feature has the following sub-features that can be disabled using the `security.disabled_features` parameter:
+The `security` feature has the following sub-features that can be disabled using the `security.disabled_features` parameter:
 
 |Sub-feature| Description|
 |--|--|
