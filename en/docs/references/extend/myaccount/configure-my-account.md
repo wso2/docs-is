@@ -252,7 +252,7 @@ For example, do the following to disable the Active Sessions section.
 
 ### 4. Applications
 
-The applications feature can be configured as follows:
+The `applications` feature can be configured as follows:
 
 ```toml
 [myaccount]
