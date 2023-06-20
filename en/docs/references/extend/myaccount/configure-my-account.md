@@ -1,109 +1,68 @@
 # Configure My Account Application
 
-The **My Account** application can be configured by modifying the `deployment.config.json` file. This file can be found at the root of the app directory (`<IS_HOME>/repository/deployment/server/webapps/myaccount`) in production and in `apps/myaccount/src/public/`  in the dev environment.
+The **My Account** application can be configured by modifying the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory).
 
-By default, the `deployment.config.json` file has the following configurations.
+```toml
+[myaccount]
+app_base_name = "myaccount"
+client_id = "MY_ACCOUNT"
+login_callback_path = "/login"
+logout_callback_path = "/login"
 
-```json
-{
-    "appBaseName": "myaccount",
-    "clientID": "MY_ACCOUNT",
-    "loginCallbackPath": "/login",
-    "logoutCallbackPath": "/login",
-    "productVersion": "5.x.x",
-    "routePaths": {
-            "home": "/overview",
-            "login": "/login",
-            "logout": "/logout"
-    },
-    "extensions": {
-    },
-    "session": {
-                "userIdleWarningTimeOut": 580.0,
-                "sessionRefreshTimeOut": 300.0,
-                "userIdleTimeOut": 600.0,
-                "checkSessionInterval": 3.0
-    },
-    "ui": {
-        "announcements": [
-        ],
-        "appCopyright": "WSO2 Identity Server",
-        "appTitle": "My Account | WSO2 Identity Server",
-        "appName": "My Account",
-        "appLogoPath": "/assets/images/logo.svg",
-        "authenticatorApp": {
-                "enabled": true
-        },
-        "features": {
-            "applications": {
-                "disabledFeatures": [
-                ],
-                "enabled": true,
-                "scopes": {
-                        "create": [],
-                        "read": [],
-                        "update": [],
-                        "delete": []
-                }
-            },
-            "operations": {
-                "disabledFeatures": [
-                ],
-                "enabled": true,
-                "scopes": {
-                    "create": [
-                    ],
-                    "read": [
-                            "internal_humantask_view"
-                    ],
-                    "update": [
-                    ],
-                    "delete": [
-                    ]
-                }
-            },
-            "overview": {
-                "disabledFeatures": [
-                ],
-                "enabled": true,
-                "scopes": {
-                        "create": [],
-                        "read": [],
-                        "update": [],
-                        "delete": []
-                }
-            },
-            "personalInfo": {
-                "disabledFeatures": [
-                ],
-                "enabled": true,
-                "scopes": {
-                        "create": [],
-                        "read": [],
-                        "update": [],
-                        "delete": []
-                }
-            },
-            "security": {
-                "disabledFeatures": [
-                ],
-                "enabled": true,
-                "scopes": {
-                        "create": [],
-                        "read": [],
-                        "update": [],
-                        "delete": []
-                }
-            }
-        },
-        "productName": "Identity Server",
-        "productVersionConfig": {
-        },
-        "theme": {
-            "name": "default"
-        }
-    }
-}
+route_paths.home = "/overview"
+route_paths.login = "/login"
+route_paths.logout = "/logout"
+
+product_version.configs.versionOverride = ""
+authenticator_app_configs.enabled = true
+
+ui.announcements = []
+ui.app_copyright = "WSO2 Identity Server"
+ui.app_title = "My Account | WSO2 Identity Server"
+ui.app_name = "My Account"
+ui.app_logo_path = "/assets/images/logo.svg"
+ui.product_name = "Identity Server"
+theme = "default"
+
+applications.enabled = true
+applications.disabled_features = []
+applications.scopes.create = []
+applications.scopes.read = []
+applications.scopes.update = []
+applications.scopes.delete = []
+
+operations.enabled = true
+operations.disabled_features = []
+operations.scopes.create = []
+operations.scopes.read = ["internal_humantask_view"]
+operations.scopes.update = []
+operations.scopes.delete = []
+
+overview.enabled = true
+overview.disabled_features = []
+overview.scopes.create = []
+overview.scopes.read = []
+overview.scopes.update = []
+overview.scopes.delete = []
+
+personal_info.enabled = true
+personal_info.disabled_features = ["profileInfo.mobileVerification"]
+personal_info.scopes.create = []
+personal_info.scopes.read = []
+personal_info.scopes.update = []
+personal_info.scopes.delete = []
+
+security.enabled = true
+security.disabled_features = []
+security.scopes.create = []
+security.scopes.read = []
+security.scopes.update = []
+security.scopes.delete = []
+
+session.params.userIdleTimeOut = 600.0
+session.params.userIdleWarningTimeOut = 580.0
+session.params.sessionRefreshTimeOut = 300.0
+session.params.checkSessionInterval = 3.0
 ```
 
 !!! note 
@@ -119,102 +78,90 @@ By default, the `deployment.config.json` file has the following configurations.
 
 The following basic settings can be configured.
 
-|Attribute|Description|Default Value|
+|Parameter|Description|Default Value|
 |--|--|--|
-`appBaseName`|The name of the app as it should appear in the URL. For instance, with the default `appBaseName`, the app can be accessed via `https://localhost:9443/myaccount/` |"myaccount"|
-|`clientID`| This is the client ID of the application in WSO2 Identity Server.| `MY_ACCOUNT`|
-|`loginCallbackPath`|This is the URL to which the user should be redirected to after user authentication. |`login`|
-|`logoutCallbackPath`|This is the URL to which the user should be redirected to after the user is logged out. | `login`|
+`app_base_name`|The name of the app as it should appear in the URL. For instance, with the default `app_base_name`, the app can be accessed via `https://localhost:9443/myaccount/` |"myaccount"|
+|`client_id`| This is the client ID of the application in WSO2 Identity Server.| `MY_ACCOUNT`|
+|`login_callback_path`|This is the URL to which the user should be redirected after user authentication. |`login`|
+|`logout_callback_path`|This is the URL to which the user should be redirected after the user is logged out. | `login`|
+<!--
 |`serverOrigin`|This is the original server URL of WSO2 Identity Server. | `https://localhost:9443`|
+--> 
 
 ---
 
 ## Customize My Account
  
-The **My Account** application can be customized to be consistent with the branding of the business. The following attributes under the `ui` attribute can be modified to brand the **My Account** application.
+The **My Account** application can be customized to be consistent with the branding of the business. The following attributes can be modified to brand the **My Account** application.
 
-|Attribute|Description|Default Value|
+|Parameter|Description|Default Value|
 |--|--|--|
-|`productName`|This is the name of the organization and is displayed in the app header next to the logo.|WSO2 Identity Server|
-|`appCopyright`| This is the copyright information that is displayed in the footer of the application.| WSO2 Identity Server|
-|`appTitle`|This is the `HTML` title of the application. This is the name that appears in the browser tab.|My Account|
-|`appName`| This is the name of the application and it appears in the header following the name of the organization.|My Account|
-|`appLogoPath`| This is the path of the logo that is displayed in the header. The logo of the application can be changed by assigning the path of a custom logo to this attribute.|/assets/images/logo.svg|
+|`ui.product_name`|This is the name of the organization and is displayed in the app header next to the logo.|WSO2 Identity Server|
+|`ui.app_copyright`| This is the copyright information that is displayed in the footer of the application.| WSO2 Identity Server|
+|`ui.app_title`|This is the `HTML` title of the application. This is the name that appears in the browser tab.|My Account|
+|`ui.app_name`| This is the name of the application and it appears in the header following the name of the organization.|My Account|
+|`ui.app_logo_path`| This is the path to the logo that is displayed in the header. The logo of the application can be changed by assigning the path of a custom logo to this attribute.|`/assets/images/logo.svg`|
 
 ---
 
 ## Change the theme of the application
 
-Custom themes can be applied to the **My Account** application. Once a theme is created, the one that the application should use can be specified by configuring the `name` attribute under `theme`.
+Custom themes can be applied to the **My Account** application. 
 
-```json
-"ui":{
-	"theme":{
-		"name": "default"
-	}
-}
-```
+|Parameter|Description|Default Value|
+|--|--|--|
+|`theme`|Once a theme is created, the one that the application should use can be specified as the value to this parameter.|`default`|
 
 ---
 
 ## Configure session information
 
-Parameters such as how often the state of the session should be checked, how long a user should be allowed to remain idle etc., can be configured using the `session`. The `session` information has the following attributes.
+Parameters such as how often the state of the session should be checked, how long a user should be allowed to remain idle etc., can be configured using the following attributes.
 
-|Attribute|Description|Default Value|
+|Parameter|Description|Default Value|
 |--|--|--|
-| `"userIdleTimeout"`|This specifies the number of seconds a user is allowed to remain idle after which they will be logged out automatically. | 600|
-|`"userIdleWarningTimeout"`| This specifies how long, in seconds, a user needs to be idle before a warning notification is displayed.| 580|
-|`"sessionRefreshTimeout"`| This specifies how often the session should be refreshed. | 300|
-|`"checkSessionInterval"` | This specifies how often the session state should be checked. |3|
+| `session.params.userIdleTimeOut`|This specifies the number of seconds a user is allowed to remain idle after which they will be logged out automatically. | 600|
+|`session.params.userIdleWarningTimeOut`| This specifies how long, in seconds, a user needs to be idle before a warning notification is displayed.| 580|
+|`session.params.sessionRefreshTimeOut`| This specifies how often the session should be refreshed. | 300|
+|`session.params.checkSessionInterval` | This specifies how often the session state should be checked. |3|
 
 ---
 
 ## Disable using authenticator app as an authentication factor
 
-WSO2 Identity Server allows multi-factor authentication via SMS, Security Key/Biometrics (FIDO), and Authenticator Applications. The use of authenticator app can be disabled by setting the `enabled` key of the `authenticatorApp` under `ui` to `false`.
+WSO2 Identity Server allows multi-factor authentication via SMS, Security Key/Biometrics (FIDO), and authenticator applications.
 
-```json
-"ui":{
-	"authenticatorApp":{
-		"enabled": false
-	}
-}
-```
+|Attribute|Description|Default Value|
+|--|--|--|
+| `authenticator_app_configs.enable`|The use of the authenticator app can be disabled by setting this parameter to `false`.| `true`|
 
 ---
 
 ## Enable and disable application features
 
-**My Account** has several [features](#the-features) and those features, in turn, have several sub features. These features can be configured by using the `features` attribute under `ui`. Each feature under the `features` attribute has the following format.
-```json
-"feature":{
-	"disabledFeatures": [],
-	"enabled": true,
-	"scopes": {
-		"create": [],
-		"read": [],
-		"update": [],
-		"delete": []
-	}
-}
+**My Account** has several [features](#the-features) and those features, in turn, have several sub features. These features can be configured by applying configurations in the following format.
+
+``` toml
+<feature>.enabled = true
+<feature>.disabled_features = []
+<feature>.scopes.create = []
+<feature>.scopes.read = []
+<feature>.scopes.update = []
+<feature>.scopes.delete = []
 ```
 
-- The `disabledFeatures` attribute is used to disable sub features belonging to a feature.
+-	The `<feature>.disabled_features` parameter is used to disable sub features belonging to a feature.
+-	The `<feature>.enabled` parameter can be used to toggle the feature as a whole. For instance, by setting the `<feature>.enabled` parameter of the `overview` feature, you can disable the `overview` feature as a whole.
+-	The `<feature>.scopes` parameter is used to specify the scopes that a user should be allowed in order to access the concerned feature. The `<feature>.scopes` parameter has the following sub-attributes and each sub-attribute takes an array of scopes.
 
-- The `enabled` attribute can be used to toggle the feature as a whole. For instance, by setting the `enabled` attribute of the `overview` feature, you can disable the `overview` feature as a whole.
+	```toml
+	<feature>.scopes.create = []
+	<feature>.scopes.read = []
+	<feature>.scopes.update = []
+	<feature>.scopes.delete = []
+	```
 
-- The `scopes` attribute is used to specify the scopes that a user should be allowed in order to access the concerned feature. The `scopes` attribute has the following sub-attributes and each sub-attribute takes an array of scopes.
-
-```json
-"scopes":{
-	"create":[],
-	"read":[],
-	"update":[],
-	"delete":[]
-}
-```
-If you want a user to have a certain scope(s) to be able to create an application, then you can specify that/those scope(s) within the `create` array of the application feature.
+	If you want a user to have a certain scope(s) to be able to create an application, then you can specify that/those scope(s) within the `application.scopes.create` array of the application feature.
 
 ---
 
@@ -230,209 +177,108 @@ These are the five features in **My Account**.
 
 ### 1. Overview
 
-The overview feature can be configured via the `overview` attribute of the `features` attribute under `ui`.
+The `overview` feature can be configured as follows:
 
-```json
-"ui":{
-	"features":{
-		"overview":{
-			"enabled": true,
-			"disabledFeatures": [],
-			"scopes":{
-				"create": [],
-				"read": [],
-				"updated": [],
-				"delete": []
-			}
-		}
-	}
-}
+``` toml
+[myaccount]
+overview.enabled = true
+overview.disabled_features = []
+overview.scopes.create = []
+overview.scopes.read = []
+overview.scopes.update = []
+overview.scopes.delete = []
 ```
-Set the `enabled` attribute to `false` to disable the overview altogether.
 
-The overview feature has the following sub-features that can be disabled:
+The `overview` feature has the following sub-features that can be disabled using the `overview.disabled_features` parameter:
 
 |Sub-feature| Description|
 |--|--|
-"overview.accountStatus"|The widget that shows the account status in the overview page.|
-"overview.accountActivity"|The widget that shows the account activity in the overview page.|
-"overview.accountSecurity"|The widget that shows the account security information in the overview page.|
-"overview.consents"|The widget that shows the consent information in the overview page.|
-
-To disable a sub-feature, pass the sub-feature name into the `disabledFeatures` array.
-
-For example, to disable the account status widget do the following. 
-
-```json
-"ui":{
-	"features":{
-		"overview":{
-			"enabled": true,
-			"disabledFeatures": ["overview.accountStatus"],
-			"scopes":{
-				"create": [],
-				"read": [],
-				"updated": [],
-				"delete": []
-			}
-		}
-	}
-}
-```
+|`overview.accountStatus`|The widget that shows the account status in the overview page.|
+|`overview.accountActivity`|The widget that shows the account activity in the overview page.|
+|`overview.accountSecurity`|The widget that shows the account security information in the overview page.|
+|`overview.consents`|The widget that shows the consent information in the overview page.|
 
 ### 2. Personal Info
 
-The Personal Info feature can be configured via the `personalInfo` attribute of the `features` attribute under `ui`.
+The `personal info` feature can be configured as follows:
 
-```json
-"ui":{
-	"features":{
-		"personalInfo":{
-			"enabled": true,
-			"disabledFeatures": [],
-			"scopes":{
-				"create": [],
-				"read": [],
-				"updated": [],
-				"delete": []
-			}
-		}
-	}
-}
+``` toml
+[myaccount]
+personal_info.enabled = true
+personal_info.disabled_features = ["profileInfo.mobileVerification"]
+personal_info.scopes.create = []
+personal_info.scopes.read = []
+personal_info.scopes.update = []
+personal_info.scopes.delete = []
 ```
 
-Set the `enabled` attribute to `false` to disable this feature altogether.
-
-The Personal Info feature has the following sub-features that can be disabled:
+The `personal info` feature has the following sub-features that can be disabled using the `personal_info.disabled_features` parameter:
 
 |Sub-feature| Description|
 |--|--|
-"profileInfo.linkedAccounts"|The Linked Accounts section in the Personal Info page.|
-"profileInfo.externalLogins"|The External Logins section in the Personal Info page.|
-"profileInfo.exportProfile"|The Export Profile section in the Personal Info page.|
+|`profileInfo.linkedAccounts`|The Linked Accounts section in the Personal Info page.|
+|`profileInfo.externalLogins`|The External Logins section in the Personal Info page.|
+|`profileInfo.exportProfile`|The Export Profile section in the Personal Info page.|
 
-To disable a sub-feature, pass the name of the sub-feature into the `disabledFeatures` array.
-
-For example, do the following to disable External Logins. 
-
-```json
-"ui":{
-	"features":{
-		"personalInfo":{
-			"enabled": true,
-			"disabledFeatures": ["profileInfo.externalLogins"],
-			"scopes":{
-				"create": [],
-				"read": [],
-				"updated": [],
-				"delete": []
-			}
-		}
-	}
-}
-```
 ### 3. Security
 
-The *security* feature can be configured via the `security` attribute of the `features` attribute under `ui`.
+The `security` feature can be configured as follows:
 
-```json
-"ui":{
-	"features":{
-		"security":{
-			"enabled": true,
-			"disabledFeatures": [],
-			"scopes":{
-				"create": [],
-				"read": [],
-				"updated": [],
-				"delete": []
-			}
-		}
-	}
-}
+```toml
+[myaccount]
+security.enabled = true
+security.disabled_features = []
+security.scopes.create = []
+security.scopes.read = []
+security.scopes.update = []
+security.scopes.delete = []
 ```
-Set the `enabled` attribute to `false` to disable security altogether.
 
-The **Security** feature has the following sub-features that can be disabled:
+The `security` feature has the following sub-features that can be disabled using the `security.disabled_features` parameter:
 
 |Sub-feature| Description|
 |--|--|
-|"security.changePassword"| The Change Password section of the Security page.|
-|"security.accountRecovery"| The Account Recovery section of the Security page.|
-|"security.accountRecovery.challengeQuestions"| The Challenge Questions section under the Account Recovery section of the Security page.|
-|"security.accountRecovery.emailRecovery"| The Email Recovery Section under the Account Recovery section of the Security page.|
-|"security.mfa"| The Multi-factor Authentication section of the Security page.|
-|"security.mfa.sms"| The SMS feature of the Multi-factor Authentication section of the Security page.|
-|"security.mfa.fido"| The Device feature of the Multi-factor  Authentication section of the Security page.|
-|"security.mfa.totp"| The Authenticator App feature of the Multi-factor  Authentication section of the Security page.|
-|"security.activeSessions"| The Active IDP Sessions section of the Security page.|
-|"security.manageConsents"| The Manage Consents section of the Security page.|
-
-To disable a sub-feature, pass the name of the sub-feature in the `disabledFeatures` array.
+|`security.changePassword`| The Change Password section of the Security page.|
+|`security.accountRecovery`| The Account Recovery section of the Security page.|
+|`security.accountRecovery.challengeQuestions`| The Challenge Questions section under the Account Recovery section of the Security page.|
+|`security.accountRecovery.emailRecovery`| The Email Recovery Section under the Account Recovery section of the Security page.|
+|`security.mfa`| The Multi-factor Authentication section of the Security page.|
+|`security.mfa.sms`| The SMS feature of the Multi-factor Authentication section of the Security page.|
+|`security.mfa.fido`| The Device feature of the Multi-factor  Authentication section of the Security page.|
+|`security.mfa.totp`| The Authenticator App feature of the Multi-factor  Authentication section of the Security page.|
+|`security.activeSessions`| The Active IDP Sessions section of the Security page.|
+|`security.manageConsents`| The Manage Consents section of the Security page.|
 
 For example, do the following to disable the Active Sessions section. 
 
-```json
-"ui":{
-	"features":{
-		"personalInfo":{
-			"enabled": true,
-			"disabledFeatures": ["security.activeSessions"],
-			"scopes":{
-				"create": [],
-				"read": [],
-				"updated": [],
-				"delete": []
-			}
-		}
-	}
-}
-```
 ### 4. Applications
 
-The applications feature can be configured via the `applications` attribute of the `features` attribute under `ui`.
+The `applications` feature can be configured as follows:
 
-```json
-"ui":{
-	"features":{
-		"personalInfo":{
-			"enabled": true,
-			"disabledFeatures": [],
-			"scopes":{
-				"create": [],
-				"read": [],
-				"updated": [],
-				"delete": []
-			}
-		}
-	}
-}
+```toml
+[myaccount]
+applications.enabled = true
+applications.disabled_features = []
+applications.scopes.create = []
+applications.scopes.read = []
+applications.scopes.update = []
+applications.scopes.delete = []
 ```
-
-Set the `enabled` attribute to `false` to disable applications altogether.
 
 The applications feature does not have a sub-feature.
 
 ### 5. Operations
 
-The operations feature can be configured via the `operations` attribute of the `features` attribute under `ui`.
+The `operations` feature can be configured as follows
 
-```json
-"ui":{
-	"features":{
-		"operations":{
-			"enabled": true,
-			"disabledFeatures": [],
-			"scopes":{
-				"create": [],
-				"read": [],
-				"updated": [],
-				"delete": []
-			}
-		}
-	}
-}
+```toml
+[myaccount]
+operations.enabled = true
+operations.disabled_features = []
+operations.scopes.create = []
+operations.scopes.read = ["internal_humantask_view"]
+operations.scopes.update = []
+operations.scopes.delete = []
 ```
-Set the `enabled` attribute to `false` to disable operations altogether.
 
 The operations feature has no sub-features.
