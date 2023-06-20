@@ -264,7 +264,7 @@ applications.scopes.update = []
 applications.scopes.delete = []
 ```
 
-The applications feature does not have a sub-feature.
+The `applications` feature does not have a sub-feature.
 
 ### 5. Operations
 
