@@ -211,7 +211,7 @@ personal_info.scopes.update = []
 personal_info.scopes.delete = []
 ```
 
-The Personal Info feature has the following sub-features that can be disabled using the `personal_info.disabled_features` parameter:
+The `personal info` feature has the following sub-features that can be disabled using the `personal_info.disabled_features` parameter:
 
 |Sub-feature| Description|
 |--|--|
