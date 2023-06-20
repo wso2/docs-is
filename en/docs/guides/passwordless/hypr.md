@@ -44,7 +44,7 @@ To deploy the HYPR Rest API:
 
 To deploy the HYPR login page from the extracted artifacts folder, copy the `hyprlogin.jsp` and paste it to `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint` folder.
 
-## Configure the HYPR authenticator on IS
+## Configure HYPR as a federated authenticator
 
 Let's configure WSO2 IS with HYPR as a federated authenticator.
 
