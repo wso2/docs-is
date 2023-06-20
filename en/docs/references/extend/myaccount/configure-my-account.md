@@ -177,7 +177,7 @@ These are the five features in **My Account**.
 
 ### 1. Overview
 
-The overview feature can be configured as follows:
+The `overview` feature can be configured as follows:
 
 ``` toml
 [myaccount]
