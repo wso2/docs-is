@@ -268,7 +268,7 @@ The applications feature does not have a sub-feature.
 
 ### 5. Operations
 
-The operations feature can be configured as follows
+The `operations` feature can be configured as follows:
 
 ```toml
 [myaccount]
