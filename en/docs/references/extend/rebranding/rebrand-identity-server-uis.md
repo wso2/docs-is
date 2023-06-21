@@ -6,254 +6,88 @@ All these UIs are available in the **`authenticationendpoint`** and **`accountre
 
 ---
 
-## Step 1: Create the extensions folder
+## Step 1: Create the extensions/branding folder
 
-1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint` folder and create a new folder called **`extensions`**.
-
-    !!! info
-        You will be adding the modified JSP files along with the modified CSS files into this new `extensions` folder.
+1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint` folder and create a new folder called **`extensions`**. Inside the `extensions` folder, create a new folder called **`branding`**.
            
-2. Similarly, navigate to the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint` folder and create an `extensions` folder.
+2. Similarly, navigate to the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint` folder and create the folders `extensions/branding` recursively.
 
 ---
 
-## Step 2: Copy the existing header and footer content
+## Step 2: Create new folders for each tenant and app as preferred
 
-To re-brand the header and footer content of the web applications, first copy them over to the newly created `extensions` folders. 
+To re-brand different tenants, create folders for each tenant named after the tenant domain, inside the newly created `branding` folders.
+If you want to apply separate branding for each application, create folders for each application named after the application name, inside the tenant folders.
 
-1. To copy the header and footer content of the **authenticationendpoint** web application:
-
-    1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/includes` folder.
-
-    2. Copy the `header.jsp` and `product-footer.jsp` files into the
-    `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
-       
-        !!! note
-            The `header.jsp` and `product-footer.jsp` files have the capability to override the corresponding files in
-            the `includes` folder.
-    
-
-2. Similarly, copy the header and footer content of the **accountrecoveryendpoint** web application.
+!!! note
+Application-wise layouts will override tenant-wise layouts.
 
 ---
 
-## Step 3: Create styling
+## Step 3: Create the branding preferences json file and css files
 
-Create the basic CSS styles that are required to override the existing UI styling.
+To customize the branding of a specific tenant or app, we need to create the `branding-preference_<locale>.json` file inside the relevant tenant or app folder. 
+For example, the US English branding file should be named: **`branding-preference_en_US.json`**. If you want to customize the branding for the `wso2.com` tenant, create the `branding-preference_en_US.json` file inside the `extensions/branding/wso2.com` folder.
 
-!!! abstract ""
-    **Example**
-    ```css
-    <style>
-        html, body {
-            height: 100%;
-        }
+The final folder structure should look like this:
+```
+extensions
+└── branding
+    ├── carbon.super
+    │   ├── apps
+    │   │   ├── peoplehr
+    │   │   │   ├── stylesheets
+    │   │   │   │   └── override.css
+    │   │   │   ├── branding-preference_en_US.json
+    │   │   │   └── branding-preference_de_DE.json
+    │   │   └── salesforce
+    │   │       ├── stylesheets
+    │   │       │   └── override.css
+    │   │       ├── branding-preference_en_US.json
+    │   │       └── branding-preference_de_DE.json
+    │   ├── stylesheets
+    │   │   └── override.css
+    │   ├── branding-preference_en_US.json
+    │   └── branding-preference_de_DE.json
+    └── wso2.com
+        ├── apps
+        │   ├── logomaker
+        │   │   ├── stylesheets
+        │   │   │   └── override.css
+        │   │   ├── branding-preference_en_US.json
+        │   │   └── branding-preference_de_DE.json
+        │   └── opd-claims
+        │       ├── stylesheets
+        │       │   └── override.css
+        │       ├── branding-preference_en_US.json
+        │       └── branding-preference_de_DE.json
+        ├── stylesheets
+        │   └── override.css
+        ├── branding-preference_en_US.json
+        └── branding-preference_de_DE.json
+```
+To customize any other styles, you can create the `stylesheets` folder inside the tenant or app folder and add an `override.css` file to it. This file will be loaded after the default stylesheets, so you can override any styles you want.
 
-        body {
-            flex-direction: column;
-            display: flex;
-            background: #1e1e2f;
-            color: #ffffff;
-        }
-
-        main {
-            flex-shrink: 0;
-        }
-
-        main.center-segment {
-            margin: auto;
-            display: flex;
-            align-items: center;
-        }
-
-        main.center-segment > .ui.container.medium {
-            max-width: 450px !important;
-        }
-
-        main.center-segment > .ui.container.large {
-            max-width: 700px !important;
-        }
-
-        main.center-segment > .ui.container > .ui.segment {
-            padding: 3rem;
-            background: #424061;
-            box-shadow: 3px 2px 7px #1c1818;
-            border-radius: 10px;
-        }
-
-        main.center-segment > .ui.container > .ui.segment .segment-form .buttons {
-            margin-top: 1em;
-        }
-
-        main.center-segment > .ui.container > .ui.segment .segment-form .buttons.align-right button,
-        main.center-segment > .ui.container > .ui.segment .segment-form .buttons.align-right input {
-            margin: 0 0 0 0.25em;
-        }
-
-        main.center-segment > .ui.container > .ui.segment .segment-form .column .buttons.align-left button.link-button,
-        main.center-segment > .ui.container > .ui.segment .segment-form .column .buttons.align-left input.link-button {
-            padding: .78571429em 1.5em .78571429em 0;
-        }
-
-        main.center-segment > .ui.container > .ui.segment .segment-form {
-            text-align: left;
-        }
-
-        main.center-segment > .ui.container > .ui.segment .segment-form .align-center {
-            text-align: center;
-        }
-
-        main.center-segment > .ui.container > .ui.segment .segment-form .align-right {
-            text-align: right;
-        }
-
-        .cookie-policy-message {
-            font-size: 14px;
-        }
-
-        footer {
-            padding: 2rem 0;
-        }
-
-        body .product-title .product-title-text {
-            margin: 0;
-        }
-
-        body .center-segment .product-title .product-title-text {
-            margin-top: 2em;
-            margin-bottom: 1em;
-        }
-
-        .ui.header {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .ui.menu.fixed.app-header .product-logo {
-            padding-left: 0;
-        }
-
-        .ui.form .field .ui.input input {
-            background: #6b688d;
-        }
-
-        .ui.checkbox label {
-            color: #ffffff;
-        }
-
-        /* Table of content styling */
-
-        main #toc {
-            position: sticky;
-            top: 93px;
-        }
-
-        main .ui.segment.toc {
-            padding: 20px;
-        }
-
-        main .ui.segment.toc ul.ui.list.nav > li.sub {
-            margin-left: 20px;
-        }
-
-        main .ui.segment.toc ul.ui.list.nav > li > a {
-            color: rgba(0,0,0,.87);
-            text-decoration: none;
-        }
-
-        main .ui.segment.toc ul.ui.list.nav > li:before {
-            content: "\2219";
-            font-weight: bold;
-            font-size: 1.6em;
-            line-height: 0.5em;
-            display: inline-block;
-            width: 1em;
-            margin-left: -0.7em;
-        }
-
-        main .ui.segment.toc ul.ui.list.nav > li.sub:before {
-            content: "\2192";
-            margin-left: -1em;
-        }
-
-        main .ui.segment.toc ul.ui.list.nav > li:hover a {
-            color: #ff5000;
-            text-decoration: none;
-        }
-
-        main .ui.segment.toc ul.ui.list.nav > li:hover:before {
-            color: #ff5000;
-        }
-    </style>
-    ```
+Checkout the sample [branding-preference_en_US.json](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/branding-preference_en_US.json) file and the corresponding [override.css](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/override.css) file.
 
 ---
 
-## Step 4: Edit the existing header and footer content
+After applying the changes, refresh the browser and check out the rebranded content.
 
-Add the `product-footer.jsp` and `header.jsp` files to the extensions folder as follows:
+!!! tip
+    Restarting the server is NOT required to reflect the changes. A browser refresh will display the changes. 
 
-1.  To edit the header content of the **authenticationendpoint** web application:
+-  Customized login page
+![image]({{base_path}}/assets/img/extend/rebranded-ui-1.png)
 
-    1. Open the `header.jsp` file in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
+- Customized recover username page
+![image]({{base_path}}/assets/img/extend/rebranded-ui-2.png)
+  
+- Customized recover password page
+![image]({{base_path}}/assets/img/extend/rebranded-ui-3.png)
 
-    2. Add the following includes.
-
-        ```
-        <%@include file=”{{base_path}}/includes/localize.jsp” %>
-        <%@include file=”{{base_path}}/includes/init-url.jsp” %>
-        ```
-
-    3. Replace the contents of the `<style>` tag, with the styles you created in [Step 3](#create-styling) inside
-    the header tag.
-
-2.  To edit the footer content of the **authenticationendpoint** web application: 
-
-    1. Open the `product-footer.jsp` file in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
-
-    2. To add the company name, replace the content of `<footer> tag` with the following.
-    ```html
-     <footer class="footer">
-         <div class="container-fluid">
-             <p>XYZ Company | &copy;
-                 <script>document.write(new Date().getFullYear());</script>
-                 <a href="<%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "business.homepage")%>"
-                    target="_blank">
-                    <i class="icon fw fw-wso2"></i>
-                    <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "Inc")%>
-                 </a>
-                 . <%=IdentityManagementEndpointUtil.i18n(recoveryResourceBundle, "All.rights.reserved")%>
-             </p>
-         </div>
-     </footer>
-    ```
-      
-3. Similarly, you can re-brand the **accountrecovery** web application header and footer.
-
-    !!! note
-    
-        Make sure to add the following include to the top, when editing the `header.jsp` file of the **accountrecovery** web application.
-    
-           ```
-           <%@include file=”{{base_path}}/localize.jsp” %>
-           ```
-
-4. Refresh the browser and check out the modified header and footer content. 
-
-    !!! tip
-        Restarting the server is NOT required to reflect the changes. A browser refresh will display the changes. 
-
-    -  Customized login page
-    ![image]({{base_path}}/assets/img/extend/rebranded-ui-1.png)
-
-    - Customized recover username page
-    ![image]({{base_path}}/assets/img/extend/rebranded-ui-2.png)
-    
-    - Customized recover password page
-    ![image]({{base_path}}/assets/img/extend/rebranded-ui-3.png)
-
-    - Customized self sign up page
-    ![image]({{base_path}}/assets/img/extend/rebranded-ui-4.png)
+- Customized self sign up page
+![image]({{base_path}}/assets/img/extend/rebranded-ui-4.png)
 
 !!! note  
     One advantage of this approach is that WUM updates will not affect your UI changes and you need not worry about manually adding your changes. 
