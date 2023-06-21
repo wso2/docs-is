@@ -52,3 +52,25 @@ To enable FIPS 140-2 compliant mode on the Identity Server:
             ```
             
     4. Restart the WSO2 Identity Server.
+
+
+!!! note "Running the fips.sh script"
+    You can use the `fips.sh` script with the following arguments according to your requirements:
+
+    - Without parameters
+        - Without arguments
+            - Command - `sh fips.sh`
+            - Running the script without arguments will download the `bc-fips` and `bcpkix-fips` jars from the public maven repository.
+        - With `-f` argument
+            - Command - `sh fips.sh -f {file_path_to_fips_jars}`
+            - If you have already downloaded the `bc-fips` and `bcpkix-fips` jars to a local directory, you can run the script with `-f` followed by the local directory path for the script to obtain the jars.
+        - With `-m` argument
+            - Command - `sh fips.sh -m {base_path_to_local_maven}`
+            - Running the script with `-m` followed by the base path to the local maven directory will download the `bc-fips` and `bcpkix-fips` jars from the local maven repository.
+    - With parameters
+        - `VERIFY` parameter
+            - Command - `sh fips.sh VERIFY`
+            -  Using the verify parameter you can check whether the product pack is FIPS compliant or not.
+        - `DISABLE` parameter
+            - Command - `sh fips.sh DISABLE`
+            - Using the disable parameter, you can disable the FIPS-compliant mode.
