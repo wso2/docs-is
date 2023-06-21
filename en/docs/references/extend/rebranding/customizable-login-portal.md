@@ -96,14 +96,13 @@ You can create folders for multiple layouts inside the `layouts` folder.
 !!! note
     Repeat the above steps for `accountrecoveryendpoint` as well.
 
-### Step 3: Add the branding preferences json file
-The branding preferences json file is used to specify which layout should be used. To add the branding preferences json file, follow the guide [Re-brand WSO2 Identity Server UIs](https://github.com/wso2/docs-is/tree/master/en/docs/references/extend/rebranding/rebrand-identity-server-uis.md).
-The `activeLayout` property in the branding preferences json file should be set to the name of the layout to be used (e.g. `custom`) in the tenant or app.
+### Step 3: Add the branding-preference.json file
+The branding-preference.json file is used to specify which layout should be used. To add this file, follow the guide [Re-brand WSO2 Identity Server UIs](https://github.com/wso2/docs-is/tree/master/en/docs/references/extend/rebranding/rebrand-identity-server-uis.md).
+The `activeLayout` property in the branding-preference.json file should be set to the name of the layout to be used (e.g. `custom`) in the tenant or app.
 
 !!! note
-    The layout that is at the level of the active branding preferences file will be activated. For example, if the branding preferences file is at the tenant level, the tenant-wise layout will be activated.
-    If the branding preferences file is at the app level, the app-wise layout will be activated. If the branding preferences file is at the tenant level and the app level, the app-wise layout will be activated.
-    However, if a branding preferences file is defined at app-level and no layouts are defined at app-level, the default layout will be activated.
+    The activated layout will be that which is defined at the level of the active branding preferences file. If no layouts are defined at the level of the active branding preferences file, the default layout will be activated.
+    For example, if a branding preferences file is defined at app-level but no layouts are defined at app-level, the default layout will be activated.
 
 ### Step 4: Add a custom layout design
 
@@ -112,6 +111,8 @@ To add a custom layout to the login page:
 1. Navigate to the relevant `custom` folder and follow the instructions provided below:
 
     1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/body.html) into the `body.html` file.
+       !!! note
+       Make sure to update the html file with the correct source paths to the script and image files.
 
     2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/style.css) into the `styles.css` file.
 

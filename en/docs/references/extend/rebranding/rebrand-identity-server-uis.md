@@ -24,7 +24,7 @@ Application-wise layouts will override tenant-wise layouts.
 
 ---
 
-## Step 3: Create the branding preferences json file and css files
+## Step 3: Create the branding-preference.json file and css files
 
 To customize the branding of a specific tenant or app, we need to create the `branding-preference_<locale>.json` file inside the relevant tenant or app folder. 
 For example, the US English branding file should be named: **`branding-preference_en_US.json`**. If you want to customize the branding for the `wso2.com` tenant, create the `branding-preference_en_US.json` file inside the `extensions/branding/wso2.com` folder.
@@ -67,6 +67,9 @@ extensions
         └── branding-preference_de_DE.json
 ```
 To customize any other styles, you can create the `stylesheets` folder inside the tenant or app folder and add an `override.css` file to it. This file will be loaded after the default stylesheets, so you can override any styles you want.
+
+!!! note
+Make sure to update the branding-preference.json file with the correct path to the `override.css` file.
 
 Checkout the sample [branding-preference_en_US.json](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/branding-preference_en_US.json) file and the corresponding [override.css](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/override.css) file.
 
