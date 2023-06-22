@@ -57,22 +57,8 @@ allowed_auth_handlers="BasicClientAuthentication"
 Use the cURL commands given in the following sections to invoke the OAuth introspection endpoint for the super tenant users.
 
 !!! tip
-<<<<<<< HEAD
     -   See the [prequisites](#prerequisites) and make sure you have engaged the requried authentication method to token introspection.
     -   For requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above.
-=======
-    -   Note that authentication using client credentials is enabled for the introspection endpoint by default. It is also recommended to use client credentials over basic authentication.
-    -   If you have have migrated from a previous WSO2 IS version and thereby required to use basic authentication instead of client credentials, you can apply the following configurations to the `deployment.toml` file.
-
-        ``` toml
-        [[resource.access_control]]
-        context="https://<IS_HOST>:<IS_PORT>/oauth2/introspect"
-        allowed_auth_handlers="BasicAuthentication"
-        ```
-
-    -   For requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID
-        and client secret of the OAuth service provider you configured above.
->>>>>>> 52dc3ef52c80b1954b4dca7f28fd793a1e07c09c
     -   For requests that require `USERNAME:PASSWORD`, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions.
 
         To allow users with other permissions to send validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below and restart the server.
@@ -371,4 +357,4 @@ The samples given above only demonstrate how to validate a token obtained for th
 ----
 
 !!! info "Related topics"
-    - [Concept: OAuth Introspection Endpoint]({{base_path}}/references/concepts/authorization/introspection)
+    [Concept: OAuth Introspection Endpoint]({{base_path}}/references/concepts/authorization/introspection)
