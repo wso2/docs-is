@@ -667,8 +667,8 @@ nav:
         - Write a Custom User Store Manager: references/extend/write-a-custom-user-store-manager.md
       - User interfaces (Rebrand):
         - Re-brand WSO2 Identity Server UIs: references/extend/rebranding/rebrand-identity-server-uis.md
-        - Re-brand the Default Login Page: references/extend/rebranding/rebrand-login-pages-for-service-providers.md
-        - Re-brand the SSO Redirection Page: references/extend/rebranding/rebrand-the-sso-redirection-page.md
+        - Re-brand the Default Login Page: references/extend/rebranding/customize-login-pages-for-service-providers.md
+        - Re-brand the SSO Redirection Page: references/extend/rebranding/customize-the-sso-redirection-page.md
         - Customize Login Pages: references/extend/rebranding/customizable-login-portal.md
       - Errors:
         - Error messages: references/extend/errors/customize-authentication-error-messages.md
@@ -1267,8 +1267,8 @@ plugins:
               'develop/entitlement-with-apis.md': 'https://is.docs.wso2.com/en/6.0.0/apis/entitlement-with-rest-apis/'
               'develop/idp-session-extender-endpoint.md': 'https://is.docs.wso2.com/en/6.0.0/apis/idp-session-extender-endpoint/'
               'develop/customizing-identity-server-uis.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/rebrand-identity-server-uis/'
-              'develop/customizing-login-pages-for-service-providers.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/rebrand-login-pages-for-service-providers/'
-              'develop/customizing-the-sso-redirection-page.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/rebrand-the-sso-redirection-page/'
+              'develop/customizing-login-pages-for-service-providers.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/customize-login-pages-for-service-providers/'
+              'develop/customizing-the-sso-redirection-page.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/rebranding/customize-the-sso-redirection-page/'
               'develop/customizing-the-authentication-endpoint.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/customize-the-authentication-endpoint/'
               'develop/localization-support-in-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/localization-support-in-identity-server/'
               'develop/hosting-authentication-endpoint-on-a-different-server.md': 'https://is.docs.wso2.com/en/6.0.0/references/extend/host-authentication-endpoint-on-a-different-server/'

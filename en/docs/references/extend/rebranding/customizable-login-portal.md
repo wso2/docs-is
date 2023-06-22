@@ -68,8 +68,7 @@ Navigate to `webapps/authenticationendpoint` and create a new folder named `exte
 
 To create the basic custom layout resources:
 
-1. In the `authenticationendpoint` folder, navigate to the created `extensions` folder and create the `layouts` folder, and inside it create a folder with a layout name (e.g. `custom`) according to the following structure. 
-You can create folders for multiple layouts inside the `layouts` folder.
+1. In the `authenticationendpoint` folder, navigate to the created `extensions` folder and create the folder structure as below. Inside the `layouts` folder, you can create folders for multiple layouts (e.g. `custom`).
     
     ```
     └── extensions
@@ -97,12 +96,30 @@ You can create folders for multiple layouts inside the `layouts` folder.
     Repeat the above steps for `accountrecoveryendpoint` as well.
 
 ### Step 3: Add the branding-preference.json file
+
 The branding-preference.json file is used to specify which layout should be used. To add this file, follow the guide [Re-brand WSO2 Identity Server UIs](https://github.com/wso2/docs-is/tree/master/en/docs/references/extend/rebranding/rebrand-identity-server-uis.md).
 The `activeLayout` property in the branding-preference.json file should be set to the name of the layout to be used (e.g. `custom`) in the tenant or app.
 
 !!! note
     The activated layout will be that which is defined at the level of the active branding preferences file. If no layouts are defined at the level of the active branding preferences file, the default layout will be activated.
     For example, if a branding preferences file is defined at app-level but no layouts are defined at app-level, the default layout will be activated.
+
+The complete folder structure will be as below.
+
+    ```
+    └── extensions
+        └── branding
+            └── <tenant-domain>
+                ├── apps
+                │   └── <app-name>
+                │       ├── layouts
+                │       │   └── custom 
+                │       └── branding-preference_en_US.json 
+                ├── layouts
+                │   ├── custom
+                │   └── left-aligned
+                └── branding-preference_en_US.json
+    ```
 
 ### Step 4: Add a custom layout design
 
