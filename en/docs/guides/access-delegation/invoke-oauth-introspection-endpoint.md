@@ -377,4 +377,4 @@ The samples given above only demonstrate how to validate a token obtained for th
 ----
 
 !!! info "Related topics"
-    - [Concept: OAuth Introspection Endpoint]({{base_path}}/references/concepts/authorization/introspection)
+    [Concept: OAuth Introspection Endpoint]({{base_path}}/references/concepts/authorization/introspection)
