@@ -2,13 +2,29 @@
 
 The OAuth introspection endpoint is:
 
-``` 
+``` bash
 https://<IS_HOST>:<IS_PORT>/oauth2/introspect
 ```
 
-This page guides you through invoking the [OAuth Introspection Endpoint]({{base_path}}/references/concepts/authorization/introspection). 
+This guide explains how to invoke the [OAuth Introspection Endpoint]({{base_path}}/references/concepts/authorization/introspection).
 
 -----
+
+## Prerequisites
+
+Note that token validation requests sent to the introspection endpoint can be authenticated using basic authentication or client credentials. Basic authentication is enabled by default. However, it is recommended to use client credentials for authenticating to the introspection endpoint as it improves server performance.
+
+To enable token validation using client credentials, apply the following configurations to the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory).
+
+``` toml
+[[resource.access_control]]
+context="(.*)/oauth2/introspect(.*)"
+http_method = "all"
+secure = true
+allowed_auth_handlers="BasicClientAuthentication"
+```
+
+----
 
 ## Register a service provider
 
@@ -41,6 +57,7 @@ This page guides you through invoking the [OAuth Introspection Endpoint]({{base_
 Use the cURL commands given in the following sections to invoke the OAuth introspection endpoint for the super tenant users.
 
 !!! tip
+    -   See the [prequisites](#prerequisites) and make sure you have engaged the requried authentication method to token introspection.
     -   Note that using client credentials is recommended over basic authentication as it improves server performance.
     -   For requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above.
     -   For requests that require `USERNAME:PASSWORD` by default, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions.
@@ -52,142 +69,93 @@ Use the cURL commands given in the following sections to invoke the OAuth intros
         permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
         ```
 
-### Get a valid token
+### Get a valid token (without scopes)
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Request</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/token</a></code></pre></div>
-</div>
-</div>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&#39;</span> https://localhost:9443/oauth2/token</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;token_type&quot;</span>:<span class="st">&quot;Bearer&quot;</span>,<span class="st">&quot;expires_in&quot;</span>:<span class="dv">3600</span>,<span class="st">&quot;access_token&quot;</span>:<span class="st">&quot;fbc4e794-23db-3394-b1e5-f2c3e511d01f&quot;</span>}</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+First, you need to get a valid access token as follows:
 
-### Validate the token
+!!! abstract ""
+    **Request Format**
+    ```curl
+    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials' https://<IS_HOST>:<IS_PORT>/oauth2/token
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials' https://localhost:9443/oauth2/token
+    ```
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Request</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
-</div>
-</div>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">curl</span> -k -u admin:admin -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=fbc4e794-23db-3394-b1e5-f2c3e511d01f&#39;</span> https://localhost:9443/oauth2/introspect</a></code></pre></div>
-</div>
-</div>
-<p>You can pass the token type as an optional parameter in the request (e.g., <code>token_type_hint=access_token </code> or <code>token_type_hint=refresh_token</code>).</p></td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;exp&quot;</span>:<span class="dv">1464161608</span>,<span class="st">&quot;username&quot;</span>:<span class="st">&quot;admin@carbon.super&quot;</span>,<span class="st">&quot;active&quot;</span>:<span class="kw">true</span>,<span class="st">&quot;token_type&quot;</span>:<span class="st">&quot;Bearer&quot;</span>,<span class="st">&quot;client_id&quot;</span>:<span class="st">&quot;rgfKVdnMQnJSSr_pKFTxj3apiwYa&quot;</span>,<span class="st">&quot;iat&quot;</span>:<span class="dv">1464158008</span>}</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+You will receive the access token as follows:
 
-### Get a valid token with a scope
+```
+{"token_type":"Bearer","expires_in":3600,"access_token":"fbc4e794-23db-3394-b1e5-f2c3e511d01f"}
+```
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Request</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&amp;scope=test1 test2&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/token</a></code></pre></div>
-</div>
-</div>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&amp;scope=test1 test2&#39;</span> https://localhost:9443/oauth2/token</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;access_token&quot;</span>:<span class="st">&quot;34060588-dd4e-36a5-ad93-440cc77a1cfb&quot;</span>,<span class="st">&quot;scope&quot;</span>:<span class="st">&quot;test1 test2&quot;</span>,<span class="st">&quot;token_type&quot;</span>:<span class="st">&quot;Bearer&quot;</span>,<span class="st">&quot;expires_in&quot;</span>:<span class="dv">3600</span>}</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+### Get a valid token (with scopes)
+
+First, you need to get a valid access token as follows:
+
+!!! abstract ""
+    **Request Format**
+    ```curl
+    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials&scope=<scope 1> <scope 2>' https://<IS_HOST>:<IS_PORT>/oauth2/token
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials&scope=test1 test2' https://localhost:9443/oauth2/token
+    ```
+
+You will receive the access token as follows:
+
+```
+{"access_token":"34060588-dd4e-36a5-ad93-440cc77a1cfb","scope":"test1 test2","token_type":"Bearer","expires_in":3600}
+```
 
 ### Validate the token
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Request</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
-</div>
-</div>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">curl</span> -k -u admin:admin -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=334060588-dd4e-36a5-ad93-440cc77a1cfb&#39;</span> https://localhost:9443/oauth2/introspect</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;exp&quot;</span>:<span class="dv">1464161560</span>,<span class="st">&quot;username&quot;</span>:<span class="st">&quot;admin@carbon.super&quot;</span>,<span class="st">&quot;scope&quot;</span>:<span class="st">&quot;test1 test2&quot;</span>,<span class="st">&quot;active&quot;</span>:<span class="kw">true</span>,<span class="st">&quot;token_type&quot;</span>:<span class="st">&quot;Bearer&quot;</span>,<span class="st">&quot;client_id&quot;</span>:<span class="st">&quot;rgfKVdnMQnJSSr_pKFTxj3apiwYa&quot;</span>,<span class="st">&quot;iat&quot;</span>:<span class="dv">1464157960</span>}</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+You can send a token validation request using one of the following authentication methods:
+
+-   Using authentication with client credentials:
+
+    !!! abstract ""
+    **Request Format**
+    ```curl
+    curl -k -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -k -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/oauth2/introspect
+    ```
+
+-   Using basic authentication:
+
+    !!! abstract ""
+    **Request Format**
+    ```curl
+    curl -k -u <USERNAME>:<PASSWORD> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/oauth2/introspect
+    ```
+
+    Not that you can pass the token type as an optional parameter in the request (e.g., `token_type_hint=access_token` or `token_type_hint=refresh_token`).
+
+You will receive one of the following responses:
+
+-   If the access token did not request scopes:
+
+    ```curl
+    {"exp":1464161608,"username":"admin@carbon.super","active":true,"token_type":"Bearer","client_id":"rgfKVdnMQnJSSr_pKFTxj3apiwYa","iat":1464158008}
+    ```
+
+-   If the access token requested scopes:
+
+    ```curl
+    {"exp":1464161560,"username":"admin@carbon.super","scope":"test1 test2","active":true,"token_type":"Bearer","client_id":"rgfKVdnMQnJSSr_pKFTxj3apiwYa","iat":1464157960}
+    ```
 
 ### Invalid token
 
@@ -242,6 +210,7 @@ Use the following cURL commands given in the following sections to
 invoke the OAuth introspection endpoint for tenant users.
 
 !!! tip
+    -   See the [prequisites](#prerequisites) and make sure you have engaged the requried authentication method to token introspection.
     -   Note that using client credentials is recommended over basic authentication as it improves server performance.
     -   For requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above.
     -   For requests that require `USERNAME@TENANT_DOMAIN:PASSWORD` by default, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions.
@@ -252,174 +221,111 @@ invoke the OAuth introspection endpoint for tenant users.
         [resource_access_control.introspect]
         permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
         ```
+
     -   Token introspection across tenant domains is disabled by default. To allow cross tenant token validation, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.
+
         ``` toml
         [oauth.introspect]
         allow_cross_tenant = true
         ```
 
-### Get a valid token
+### Get a valid token (without scopes)
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Request</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/token</a></code></pre></div>
-</div>
-</div>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&#39;</span> https://localhost:9443/oauth2/token</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;token_type&quot;</span>:<span class="st">&quot;Bearer&quot;</span>,<span class="st">&quot;expires_in&quot;</span>:<span class="dv">3600</span>,<span class="st">&quot;access_token&quot;</span>:<span class="st">&quot;fbc4e794-23db-3394-b1e5-f2c3e511d01f&quot;</span>}</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+First, you need to get a valid access token as follows:
 
-### Validate the token
+!!! abstract ""
+    **Request Format**
+    ```curl
+    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials' https://<IS_HOST>:<IS_PORT>/oauth2/token
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials' https://localhost:9443/oauth2/token
+    ```
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Request</td>
-<td><p>You can use any of the request formats given below:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>@<span class="op">&lt;</span>TENAND_DOMAIN<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/t/<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
-</div>
-</div>
-<p>Or</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k -H &#39;Authorization: Basic &lt;<span class="fu">BASE64ENCODED</span>(USERNAME<span class="at">@TENAND_DOMAIN</span>:PASSWORD)&gt;&#39; -H &#39;Content-<span class="bu">Type</span>: application/x-www-form-urlencoded&#39; -X POST --data &#39;token=&lt;ACCESS_TOKEN&gt;&#39; https:<span class="co">//localhost:9443/t/&lt;TENANT_DOMAIN&gt;/oauth2/introspect</span></a></code></pre></div>
-<p>You can pass the token type as an optional parameter in the request (e.g., <code>token_type_hint=access_token </code> or <code>token_type_hint=refresh_token</code>).</p>
-</div>
-</div>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">curl -k -u admin<span class="at">@foo</span>.<span class="fu">com</span>:admin -H &#39;Content-<span class="bu">Type</span>: application/x-www-form-urlencoded&#39; -X POST --data &#39;token=fbc4e794-23db-<span class="dv">3394</span>-b1e5-f2c3e511d01f&#39; https:<span class="co">//localhost:9443/t/foo.com/oauth2/introspect</span></a></code></pre></div>
-</div>
-</div>
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">{<span class="st">&quot;active&quot;</span>:<span class="kw">true</span>,<span class="st">&quot;token_type&quot;</span>:<span class="st">&quot;Bearer&quot;</span>,<span class="st">&quot;exp&quot;</span>:<span class="dv">1517922556</span>,<span class="st">&quot;iat&quot;</span>:<span class="dv">1517918956</span>,<span class="st">&quot;client_id&quot;</span>:<span class="st">&quot;okaN2IXAsLx5SBH9Los1C6zX1RIa&quot;</span>,<span class="st">&quot;username&quot;</span>:<span class="st">&quot;admin@foo.com”}</span></a></code></pre></div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+You will receive the access token as follows:
 
-### Get a valid token with a scope
+```
+{"token_type":"Bearer","expires_in":3600,"access_token":"fbc4e794-23db-3394-b1e5-f2c3e511d01f"}
+```
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Request</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u <span class="op">&lt;</span>CLIENT_ID<span class="op">&gt;</span>:<span class="op">&lt;</span>CLIENT_SECRET<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&amp;scope=test1 test2&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/oauth2/token</a></code></pre></div>
-</div>
-</div>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">curl</span> -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded;charset=UTF-8&#39;</span> -k -d <span class="st">&#39;grant_type=client_credentials&amp;scope=test1 test2&#39;</span> https://localhost:9443/oauth2/token</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;access_token&quot;</span>:<span class="st">&quot;34060588-dd4e-36a5-ad93-440cc77a1cfb&quot;</span>,<span class="st">&quot;scope&quot;</span>:<span class="st">&quot;test1&quot;</span>,<span class="st">&quot;token_type&quot;</span>:<span class="st">&quot;Bearer&quot;</span>,<span class="st">&quot;expires_in&quot;</span>:<span class="dv">3600</span>}</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+### Get a valid token (with scopes)
+
+First, you need to get a valid access token as follows:
+
+!!! abstract ""
+    **Request Format**
+    ```curl
+    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials&scope=test1 test2' https://<IS_HOST>:<IS_PORT>/oauth2/token
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials&scope=test1 test2' https://localhost:9443/oauth2/token
+    ```
+
+You will receive the access token as follows:
+
+```curl
+{"access_token":"34060588-dd4e-36a5-ad93-440cc77a1cfb","scope":"test1","token_type":"Bearer","expires_in":3600}
+```
 
 ### Validate the token
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Request</td>
-<td><p>You can use any of the request formats given below:</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">curl</span> -k -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>@<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>:<span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span> -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=&lt;ACCESS_TOKEN&gt;&#39;</span> https://<span class="op">&lt;</span>IS_HOST<span class="op">&gt;</span>:<span class="op">&lt;</span>IS_PORT<span class="op">&gt;</span>/t/<span class="op">&lt;</span>TENANT_DOMAIN<span class="op">&gt;</span>/oauth2/introspect</a></code></pre></div>
-</div>
-</div>
-<p>Or</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k -H &#39;Authorization: Basic &lt;<span class="fu">BASE64ENCODED</span>(USERNAME<span class="at">@TENANT_DOMAIN</span>:PASSWORD)&gt;&#39; -H &#39;Content-<span class="bu">Type</span>: application/x-www-form-urlencoded&#39; -X POST --data &#39;token=&lt;ACCESS_TOKEN&gt;&#39; https:<span class="co">//localhost:9443/t/&lt;TENANT_DOMAIN&gt;/oauth2/introspect</span></a></code></pre></div>
-</div>
-</div>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">curl</span> -k -u admin@foo.com:admin -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=334060588-dd4e-36a5-ad93-440cc77a1cfb&#39;</span> https://localhost:9443/t/foo.com/oauth2/introspect</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td><div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">{<span class="st">&quot;scope&quot;</span>:<span class="st">&quot;1 test&quot;</span>,<span class="st">&quot;active&quot;</span>:<span class="kw">true</span>,<span class="st">&quot;token_type&quot;</span>:<span class="st">&quot;Bearer&quot;</span>,<span class="st">&quot;exp&quot;</span>:<span class="dv">1517922663</span>,<span class="st">&quot;iat&quot;</span>:<span class="dv">1517919063</span>,<span class="st">&quot;client_id&quot;</span>:<span class="st">&quot;okaN2IXAsLx5SBH9Los1C6zX1RIa&quot;</span>,<span class="st">&quot;username&quot;</span>:<span class="st">&quot;admin@foo.com&quot;</span>}</a></code></pre></div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
+You can send a token validation request using one of the following authentication methods:
+
+-   Using authentication with client credentials:
+
+    !!! abstract ""
+    **Request Format**
+    ```curl
+    curl -k -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/introspect
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -k -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
+    ```
+
+-   Using basic authentication:
+
+    !!! abstract ""
+    **Request Format**
+    ```curl
+    curl -k -u <USERNAME>@<TENAND_DOMAIN>:<PASSWORD> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/introspect
+    ```
+    
+    or
+
+    ```curl
+    curl -v -k -H 'Authorization: Basic <BASE64ENCODED(USERNAME@TENAND_DOMAIN:PASSWORD)>' -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://localhost:9443/t/<TENANT_DOMAIN>/oauth2/introspect
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -k -u admin@foo.com:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
+    ```
+
+    Not that you can pass the token type as an optional parameter in the request (e.g., `token_type_hint=access_token` or `token_type_hint=refresh_token`).
+
+You will receive one of the following responses:
+
+-   If the access token did not request scopes:
+
+    ```curl
+    {"active":true,"token_type":"Bearer","exp":1517922556,"iat":1517918956,"client_id":"okaN2IXAsLx5SBH9Los1C6zX1RIa","username":"admin@foo.com”}
+    ```
+
+-   If the access token requested scopes:
+
+    ```curl
+    {"scope":"1 test","active":true,"token_type":"Bearer","exp":1517922663,"iat":1517919063,"client_id":"okaN2IXAsLx5SBH9Los1C6zX1RIa","username":"admin@foo.com"}
+    ```
 
 ### Invalid token
 
 If the token that you used is invalid, you get the following response:
-
 
 **Response**
 
