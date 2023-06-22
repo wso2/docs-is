@@ -71,7 +71,7 @@ To customize any other styles, you can create the `stylesheets` folder inside th
 !!! note
 Make sure to update the branding-preference.json file with the correct path to the `override.css` file.
 
-Checkout the sample [branding-preference_en_US.json](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/branding-preference_en_US.json) file and the corresponding [override.css](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/override.css) file.
+Checkout the sample [branding-preference_en_US.json](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/branding-preference_en_US.json) file and the corresponding [override.css](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/override-auth.css) file for authentication portal and the [override.css](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/override-recovery.css) file for recovery portal.
 
 ---
 

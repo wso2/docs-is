@@ -53,7 +53,7 @@ extensions
 ```
 To customize any other styles, you can create the `stylesheets` folder inside the tenant or app folder and add an `override.css` file to it. This file will be loaded after the default stylesheets, so you can override any styles you want.
 
-Checkout the sample [branding-preference_en_US.json](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/branding-preference_en_US_myaccount.json) file and the corresponding [override.css](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/override_myaccount.css) file.
+Checkout the sample [branding-preference_en_US.json](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/branding-preference_en_US_myaccount.json) file and the corresponding [override.css](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/override-myaccount.css) file.
 
 ---
 
