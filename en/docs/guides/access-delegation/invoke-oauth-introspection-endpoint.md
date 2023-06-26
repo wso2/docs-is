@@ -299,7 +299,7 @@ You can send a token validation request using one of the following authenticatio
     ```curl
     curl -k -u <USERNAME>@<TENAND_DOMAIN>:<PASSWORD> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/introspect
     ```
-    
+
     or
 
     ```curl
