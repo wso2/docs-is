@@ -247,7 +247,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
                 ```toml
                 [clustering]
                 membership_scheme = "aws"
-                domain = "identity590.cloud"
+                domain = "wso2.carbon.domain"
                 local_member_host = "10.0.21.80"
                 local_member_port = "5701"{code}
                 ```
