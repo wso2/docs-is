@@ -486,9 +486,9 @@ The following configurations need to be done in both the WSO2 Identity Server no
     hostname = "wso2.is"
     ```
 
-    !!! note 
+    !!! note
         The WSO2 Identity Server cluster uses this hostname and therefore it must be specified in the `/etc/hosts` file in each node so that internal calls will not be routed through the Load Balancer.
-        
+
         Example: 
         `192.168.2.1   wso2.is`
 
