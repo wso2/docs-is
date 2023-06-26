@@ -40,30 +40,33 @@ This guide explains how to invoke the [OAuth Introspection Endpoint]({{base_path
 
 Use the cURL commands given in the following sections to invoke the OAuth introspection endpoint for the super tenant users.
 
-!!! tip
-    -   Token validation requests sent to the introspection endpoint can be authenticated using basic authentication or client credentials.
-    
-        !!! Info "Important"
-            Basic authentication is enabled by default. However, it is recommended to use client credentials for authenticating to the introspection endpoint as it improves server performance. 
-            
-            To enable token validation using client credentials, apply the following configurations to the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory).
+### Prerequisites
 
-            ``` toml
-            [[resource.access_control]]
-            context="(.*)/oauth2/introspect(.*)"
-            http_method = "all"
-            secure = true
-            allowed_auth_handlers="BasicClientAuthentication"
-            ```
+Note the following before you begin.
 
-    -   For token validation requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above.
+-   Token validation requests sent to the introspection endpoint can be authenticated using basic authentication or client credentials.
 
-    -   For token validation requests that require `USERNAME:PASSWORD`, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions. If you want to allow users with other permissions to send token validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below and restart the server.
+    !!! Info "Important"
+        Basic authentication is enabled by default. However, it is recommended to use client credentials for authenticating to the introspection endpoint as it improves server performance. 
+        
+        To enable token validation using client credentials, apply the following configurations to the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory).
 
         ``` toml
-        [resource_access_control.introspect]
-        permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
+        [[resource.access_control]]
+        context="(.*)/oauth2/introspect(.*)"
+        http_method = "all"
+        secure = true
+        allowed_auth_handlers="BasicClientAuthentication"
         ```
+
+-   For token validation requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above.
+
+-   For token validation requests that require `USERNAME:PASSWORD`, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions. If you want to allow users with other permissions to send token validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below and restart the server.
+
+    ``` toml
+    [resource_access_control.introspect]
+    permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
+    ```
 
 ### Get a valid token (without scopes)
 
@@ -111,19 +114,6 @@ You will receive the access token as follows:
 
 You can send a token validation request using one of the following authentication methods:
 
--   Using authentication with client credentials:
-
-    !!! abstract ""
-    **Request Format**
-    ```curl
-    curl -k -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
-    ```
-    ---
-    **Sample Request**
-    ```curl
-    curl -k -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/oauth2/introspect
-    ```
-
 -   Using basic authentication:
 
     !!! abstract ""
@@ -138,6 +128,22 @@ You can send a token validation request using one of the following authenticatio
     ```
 
     Not that you can pass the token type as an optional parameter in the request (e.g., `token_type_hint=access_token` or `token_type_hint=refresh_token`).
+
+-   Using authentication with client credentials:
+
+    !!! Tip
+        Note that authentication using client credentials should be enabled for the server. See the [prerequisites](#invoking-the-endpoint-for-the-super-tenant) for instructions.
+
+    !!! abstract ""
+    **Request Format**
+    ```curl
+    curl -k -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -k -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/oauth2/introspect
+    ```
 
 You will receive one of the following responses:
 
@@ -205,37 +211,40 @@ following response :
 Use the following cURL commands given in the following sections to
 invoke the OAuth introspection endpoint for tenant users.
 
-!!! tip
-    -   Token validation requests sent to the introspection endpoint can be authenticated using basic authentication or client credentials.
-    
-        !!! Info "Important"
-            Basic authentication is enabled by default. However, it is recommended to use client credentials for authenticating to the introspection endpoint as it improves server performance. 
-            
-            To enable token validation using client credentials, apply the following configurations to the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory) and restart the server.
+### Prerequisites
 
-            ``` toml
-            [[resource.access_control]]
-            context="(.*)/oauth2/introspect(.*)"
-            http_method = "all"
-            secure = true
-            allowed_auth_handlers="BasicClientAuthentication"
-            ```
+Note the following before you begin.
 
-    -   For token validation requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above.
+-   Token validation requests sent to the introspection endpoint can be authenticated using basic authentication or client credentials.
 
-    -   For token validation requests that require `USERNAME:PASSWORD`, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions. If you want to allow users with other permissions to send token validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below and restart the server.
+    !!! Info "Important"
+        Basic authentication is enabled by default. However, it is recommended to use client credentials for authenticating to the introspection endpoint as it improves server performance. 
+        
+        To enable token validation using client credentials, apply the following configurations to the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory) and restart the server.
 
         ``` toml
-        [resource_access_control.introspect]
-        permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
+        [[resource.access_control]]
+        context="(.*)/oauth2/introspect(.*)"
+        http_method = "all"
+        secure = true
+        allowed_auth_handlers="BasicClientAuthentication"
         ```
 
-    -   Token introspection across tenant domains is disabled by default. To allow cross tenant token validation, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.
+-   For token validation requests that require `CLIENT_ID:CLIENT_SECRET`, use the client ID and client secret of the OAuth service provider you configured above.
 
-        ``` toml
-        [oauth.introspect]
-        allow_cross_tenant = true
-        ```
+-   For token validation requests that require `USERNAME:PASSWORD`, you can use credentials of any user with `/permission/admin/manage/identity/applicationmgt/view` permissions. If you want to allow users with other permissions to send token validation requests, add the permissions to the `<IS_HOME>/repository/conf/deployment.toml` file as shown below and restart the server.
+
+    ``` toml
+    [resource_access_control.introspect]
+    permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
+    ```
+
+-   Token introspection across tenant domains is disabled by default. To allow cross tenant token validation, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.
+
+    ``` toml
+    [oauth.introspect]
+    allow_cross_tenant = true
+    ```
 
 ### Get a valid token (without scopes)
 
@@ -283,19 +292,6 @@ You will receive the access token as follows:
 
 You can send a token validation request using one of the following authentication methods:
 
--   Using authentication with client credentials:
-
-    !!! abstract ""
-    **Request Format**
-    ```curl
-    curl -k -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/introspect
-    ```
-    ---
-    **Sample Request**
-    ```curl
-    curl -k -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
-    ```
-
 -   Using basic authentication:
 
     !!! abstract ""
@@ -316,6 +312,22 @@ You can send a token validation request using one of the following authenticatio
     ```
 
     Not that you can pass the token type as an optional parameter in the request (e.g., `token_type_hint=access_token` or `token_type_hint=refresh_token`).
+
+-   Using authentication with client credentials:
+
+    !!! Tip
+        Note that authentication using client credentials should be enabled for the server. See the [prerequisites](#invoking-the-endpoint-for-tenants) for instructions.
+
+    !!! abstract ""
+    **Request Format**
+    ```curl
+    curl -k -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/introspect
+    ```
+    ---
+    **Sample Request**
+    ```curl
+    curl -k -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
+    ```
 
 You will receive one of the following responses:
 
