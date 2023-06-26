@@ -14,17 +14,17 @@ All these UIs are available in the **`authenticationendpoint`** and **`accountre
 
 ---
 
-## Step 2: Create new folders for each tenant and app as preferred
+## Step 2: Create new folders for each tenant and app
 
 To re-brand different tenants, create folders for each tenant named after the tenant domain, inside the newly created `branding` folders.
 If you want to apply separate branding for each application, create folders for each application named after the application name, inside the tenant folders.
 
 !!! note
-Application-wise layouts will override tenant-wise layouts.
+    Application-wise branding will override tenant-wise branding.
 
 ---
 
-## Step 3: Create the branding-preference.json file and css files
+## Step 3: Create the branding-preference.json file and CSS files
 
 To customize the branding of a specific tenant or app, we need to create the `branding-preference_<locale>.json` file inside the relevant tenant or app folder. 
 For example, the US English branding file should be named: **`branding-preference_en_US.json`**. If you want to customize the branding for the `wso2.com` tenant, create the `branding-preference_en_US.json` file inside the `extensions/branding/wso2.com` folder.
@@ -69,7 +69,7 @@ extensions
 To customize any other styles, you can create the `stylesheets` folder inside the tenant or app folder and add an `override.css` file to it. This file will be loaded after the default stylesheets, so you can override any styles you want.
 
 !!! note
-Make sure to update the branding-preference.json file with the correct path to the `override.css` file.
+    Make sure to update the branding-preference.json file with the correct path to the `override.css` file.
 
 Checkout the sample [branding-preference_en_US.json](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/branding-preference_en_US.json) file and the corresponding [override.css](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/override-auth.css) file for authentication portal and the [override.css](https://github.com/wso2/docs-is/tree/master/en/docs/assets/code-samples/override-recovery.css) file for recovery portal.
 
