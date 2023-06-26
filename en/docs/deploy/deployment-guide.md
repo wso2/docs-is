@@ -249,7 +249,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
                 membership_scheme = "aws"
                 domain = "wso2.carbon.domain"
                 local_member_host = "10.0.21.80"
-                local_member_port = "5701"{code}
+                local_member_port = "5701"
                 ```
 
                 The port used for communicating cluster messages has to be any port number between 5701 and 5800. The local member host must be set to the IP address bound to the network interface used for communicating with other members in the group (private IP address of EC2 instance).
