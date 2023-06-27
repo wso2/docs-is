@@ -134,7 +134,7 @@ If required, you can update these default configurations by adding the relevant 
 
 <table>
 	<tr>
-		<th>Parameter </th>
+		<th>Configuration</th>
 		<th>Description</th>
 	</tr>
 	<tr>
