@@ -91,7 +91,7 @@ The instructions in this section enable you to successfully set up MFA using the
     
     ``` toml
     [authentication.authenticator.fido.parameters]
-    app_id="https://hostname"
+    AppID="https://hostname"
     ```
 
 
