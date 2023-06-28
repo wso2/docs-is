@@ -248,11 +248,9 @@ The following configurations need to be done in both the WSO2 Identity Server no
                     local_member_host = "10.0.21.80"
                     local_member_port = "5701"
                     ```
-
                 The port used for communicating cluster messages has to be any port number between 5701 and 5800. The local member host must be set to the IP address bound to the network interface used for communicating with other members in the group (private IP address of EC2 instance).
 
             2. Apply the following parameters to update the values to configure clustering properties.
-
                     ```toml
                     [clustering.properties]
                     accessKey = "***"
@@ -261,17 +259,12 @@ The following configurations need to be done in both the WSO2 Identity Server no
                     region = "us-east-1"
                     tagKey = "a_tag_key"
                     tagValue = "a_tag_value"  
-                    ```   
-
+                    ```
                 It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory. 
 
             3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
-
-                    !!! note
-                        See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
-
-                Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account. 
-            
+                See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
+                    Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
                     ```json
                     { "Version": "2012-10-17",
                     "Statement":
