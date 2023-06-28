@@ -84,9 +84,7 @@ The following basic settings can be configured.
 |`client_id`| This is the client ID of the application in WSO2 Identity Server.| `MY_ACCOUNT`|
 |`login_callback_path`|This is the URL to which the user should be redirected after user authentication. |`login`|
 |`logout_callback_path`|This is the URL to which the user should be redirected after the user is logged out. | `login`|
-<!--
-|`serverOrigin`|This is the original server URL of WSO2 Identity Server. | `https://localhost:9443`|
---> 
+
 ---
 
 ## Customize My Account
