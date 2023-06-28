@@ -263,13 +263,8 @@ The following configurations need to be done in both the WSO2 Identity Server no
                 It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory. 
 
             3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
-                
-                !!! note
-
-                    See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
-                
-                Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
-            
+                See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
+                    Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
                     ```json
                     { "Version": "2012-10-17",
                     "Statement":
