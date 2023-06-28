@@ -295,21 +295,20 @@ You can send a token validation request using one of the following authenticatio
 -   Using basic authentication:
 
     !!! abstract ""
-    **Request Format**
-    ```curl
-    curl -k -u <USERNAME>@<TENAND_DOMAIN>:<PASSWORD> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/introspect
-    ```
-
-    or
-
-    ```curl
-    curl -v -k -H 'Authorization: Basic <BASE64ENCODED(USERNAME@TENAND_DOMAIN:PASSWORD)>' -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://localhost:9443/t/<TENANT_DOMAIN>/oauth2/introspect
-    ```
-    ---
-    **Sample Request**
-    ```curl
-    curl -k -u admin@foo.com:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
-    ```
+        **Request Format (method 1)**
+        ```curl
+        curl -k -u <USERNAME>@<TENAND_DOMAIN>:<PASSWORD> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/introspect
+        ```
+        ---
+        **Sample Format (method 2)**
+        ```curl
+        curl -v -k -H 'Authorization: Basic <BASE64ENCODED(USERNAME@TENAND_DOMAIN:PASSWORD)>' -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://localhost:9443/t/<TENANT_DOMAIN>/oauth2/introspect
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        curl -k -u admin@foo.com:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
+        ```
 
     Not that you can pass the token type as an optional parameter in the request (e.g., `token_type_hint=access_token` or `token_type_hint=refresh_token`).
 
@@ -319,15 +318,15 @@ You can send a token validation request using one of the following authenticatio
         Note that authentication using client credentials should be enabled for the server. See the [prerequisites](#invoking-the-endpoint-for-tenants) for instructions.
 
     !!! abstract ""
-    **Request Format**
-    ```curl
-    curl -k -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/introspect
-    ```
-    ---
-    **Sample Request**
-    ```curl
-    curl -k -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
-    ```
+        **Request Format**
+        ```curl
+        curl -k -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<ACCESS_TOKEN>' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/introspect
+        ```
+        ---
+        **Sample Request**
+        ```curl
+        curl -k -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
+        ```
 
 You will receive one of the following responses:
 
