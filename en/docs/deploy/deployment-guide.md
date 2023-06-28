@@ -495,12 +495,11 @@ You must have a shared file system to enable synchronization for runtime artifac
 Once you have chosen a file system:
 
 1. Mount it in the nodes that are participating in the cluster.
-2. Create two directories called `Deployment` and `Tenants` in the shared file system.
-3. Create a symlink from the `<IS_HOME>/repository/deployment` path to the `Deployment` directory of the shared file system you created in the previous step.
-4. Create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory of the shared file system you created.
+2. If the userstores need to be updated at runtime, create a directory called `Userstores` in the shared file system and create a symlink from the `<IS_HOME>/repository/deployment/server/userstores` path to the `Userstores` directory.
+3. If multi-tenancy is required, create a directory called `Tenants` in the shared file system and create a symlink from the `<IS_HOME>/repository/tenants` path to the `Tenants` directory.
 
 !!! note
-    Instead of mounting the file system directly to the `<IS_HOME>/repository/deployment` and `<IS_HOME>/repository/tenants` paths, a symlink is created. Otherwise, if you delete the product to redeploy it, the file system will get mounted to a non-existing path.
+    Instead of mounting the file system directly to the `<IS_HOME>/repository/deployment/server/userstores` and `<IS_HOME>/repository/tenants` paths, a symlink is created. Otherwise, if you delete the product to redeploy it, the file system will get mounted to a non-existing path.
  
 ---
 
