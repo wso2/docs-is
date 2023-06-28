@@ -171,7 +171,7 @@ If the token that you used is invalid, you get the following response:
 ### Empty token
 
 If you leave the token parameter empty as shown below, you get the 
-following response :
+following response:
 
 <table>
 <tbody>
