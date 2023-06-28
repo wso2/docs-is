@@ -127,7 +127,7 @@ You can send a token validation request using one of the following authenticatio
         curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/oauth2/introspect
         ```
 
-    Not that you can pass the token type as an optional parameter in the request (e.g., `token_type_hint=access_token` or `token_type_hint=refresh_token`).
+    Note that you can pass the token type as an optional parameter in the request (e.g., `token_type_hint=access_token` or `token_type_hint=refresh_token`).
 
 -   Using authentication with client credentials:
 
@@ -310,7 +310,7 @@ You can send a token validation request using one of the following authenticatio
         curl -k -u admin@foo.com:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fbc4e794-23db-3394-b1e5-f2c3e511d01f' https://localhost:9443/t/foo.com/oauth2/introspect
         ```
 
-    Not that you can pass the token type as an optional parameter in the request (e.g., `token_type_hint=access_token` or `token_type_hint=refresh_token`).
+    Note that you can pass the token type as an optional parameter in the request (e.g., `token_type_hint=access_token` or `token_type_hint=refresh_token`).
 
 -   Using authentication with client credentials:
 
