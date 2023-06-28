@@ -260,7 +260,7 @@ WSO2 supports the following membership schemes for clustering
 
             Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and do the following changes.
 
-            1.  Apply the following configuration parameters and update the values for the server to enable AWS clustering.
+            1. Apply the following configuration parameters and update the values for the server to enable AWS clustering.
 
                 ```toml
                 [clustering]
@@ -272,7 +272,7 @@ WSO2 supports the following membership schemes for clustering
 
                 The port used for communicating cluster messages has to be any port number between 5701 and 5800. The local member host must be set to the IP address bound to the network interface used for communicating with other members in the group (private IP address of EC2 instance).
 
-            2.  Apply the following parameters to update the values to configure clustering properties.
+            2. Apply the following parameters to update the values to configure clustering properties.
 
                 ```toml
                 [clustering.properties]
@@ -286,7 +286,7 @@ WSO2 supports the following membership schemes for clustering
 
                 It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory. 
 
-            3.  To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
+            3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
 
                 !!! info
                     See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy.
