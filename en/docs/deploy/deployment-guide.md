@@ -269,7 +269,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
 
             3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
 
-                !!! info
+                !!! note
                     See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
 
                 Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account. 
