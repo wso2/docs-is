@@ -237,7 +237,6 @@ The following configurations need to be done in both the WSO2 Identity Server no
                 Once all the configurations are complete, build a docker image including the configurations. You can consume this docker image to create a `Task Definition` and run a new `Service` or a `Task` on the `AWS ECS cluster` you created.
 
         ??? tip "Click to see the instructions for AWS EC2 membership scheme"  
-
             When WSO2 products are deployed in clustered mode on Amazon EC2 instances, it is recommended to use the AWS clustering mode.
 
             Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and do the following changes.
@@ -271,25 +270,24 @@ The following configurations need to be done in both the WSO2 Identity Server no
             3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
 
                 !!! info
-                    See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy.
-                    
+                    See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
 
                 Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account. 
             
                 ```json
                 { "Version": "2012-10-17",
-                    "Statement":
-                    [
-                    {
-                        "Effect": "Allow",
-                        "Action":
-                            [
-                            "ec2:DescribeAvailabilityZones",
-                            "ec2:DescribeInstances"
-                            ],
-                            "Resource": [ "*" ]
-                    }
-                    ]
+                 "Statement":
+                 [
+                 {
+                    "Effect": "Allow",
+                    "Action":
+                        [
+                        "ec2:DescribeAvailabilityZones",
+                        "ec2:DescribeInstances"
+                        ],
+                        "Resource": [ "*" ]
+                   }
+                   ]
                 }
                 ```
 
