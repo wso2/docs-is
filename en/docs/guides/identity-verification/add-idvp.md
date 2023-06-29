@@ -12,16 +12,16 @@ Adding and configuring an IDVP can be performed by administrators only.
 
 To add a new identity verification provider.
 
-1. On WSO2 Identity Server Console, go to **Develop > Identity Verification Providers**
+1. On WSO2 Identity Server Management Console, go to **Main > Identity > Identity Verification Providers**
 
-2. Click **New Identity Verification Provider**.  
-   ![add-idvp]({{base_path}}/assets/img/guides/add-idvp-screen.png)
+2. Click **Add**.  
+   ![add-idvp]({{base_path}}/assets/img/guides/add-idvp.png)
 
-3. Add Identity verification provider's name and configurations and then click **Next**.
-   ![add-idvp-config]({{base_path}}/assets/img/guides/add-idvp-config.png)
+3. Add Identity verification provider's name and description and select the required identity verification provider.
 
-4. Then map the required local attributes to the attributes from the identity verification provider. 
-   ![add-idvp-attribute-mapping]({{base_path}}/assets/img/guides/add-idvp-attribute-mapping.png)
+4. Then add configurations of the identity verification provider.
 
-5. Click **Finish** to add the Identity Verification Provider.
+5. Then map the required local attributes to the attributes from the identity verification provider. 
+
+6. Click **Register** to add the Identity Verification Provider.
 
