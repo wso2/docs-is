@@ -10,8 +10,6 @@ You can run multiple nodes of WSO2 Identity Server in a cluster mode to achieve 
 1. Handle requests seamlessly: If one node becomes unavailable or is experiencing high traffic, another node will seamlessly handle the requests.
 2. Balancing traffic handling: Multiple nodes can handle the traffic together, so that cluster throughput is higher than the throughput of a single node.
 
-<!--For complete information on clustering concepts, see [Clustering Overview]({{base_path}}/deploy/clustering-overview). -->
-
 The following sections guide you through setting up the deployment pattern, which is an HA Clustered Deployment of two WSO2 Identity Server nodes.
 
 ---
@@ -238,45 +236,35 @@ The following configurations need to be done in both the WSO2 Identity Server no
 
         ??? tip "Click to see the instructions for AWS EC2 membership scheme"  
 
-            When WSO2 products are deployed in clustered mode on Amazon EC2 instances, it is recommended to use the AWS clustering mode.
+            When WSO2 products are deployed in clustered mode on Amazon EC2 instances, it is recommended to use the AWS clustering mode. Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and do the following changes.
 
-            Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and do the following changes.
-
-            1.  Apply the following configuration parameters and update the values for the server to enable AWS clustering.
-
-                ```toml
-                [clustering]
-                membership_scheme = "aws"
-                domain = "wso2.carbon.domain"
-                local_member_host = "10.0.21.80"
-                local_member_port = "5701"
-                ```
-
+            1. Apply the following configuration parameters and update the values for the server to enable AWS clustering.
+                    ```toml
+                    [clustering]
+                    membership_scheme = "aws"
+                    domain = "wso2.carbon.domain"
+                    local_member_host = "10.0.21.80"
+                    local_member_port = "5701"
+                    ```
                 The port used for communicating cluster messages has to be any port number between 5701 and 5800. The local member host must be set to the IP address bound to the network interface used for communicating with other members in the group (private IP address of EC2 instance).
 
-            2.  Apply the following parameters to update the values to configure clustering properties.
-
-                ```toml
-                [clustering.properties]
-                accessKey = "***"
-                secretKey = "***"
-                securityGroup = "security_group_name"
-                region = "us-east-1"
-                tagKey = "a_tag_key"
-                tagValue = "a_tag_value"  
-                ```   
-
+            2. Apply the following parameters to update the values to configure clustering properties.
+                    ```toml
+                    [clustering.properties]
+                    accessKey = "***"
+                    secretKey = "***"
+                    securityGroup = "security_group_name"
+                    region = "us-east-1"
+                    tagKey = "a_tag_key"
+                    tagValue = "a_tag_value"  
+                    ```
                 It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory. 
 
-            3.  To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
-
-                !!! info
-                    See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy.
-
-                Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account. 
-            
-                ```json
-                { "Version": "2012-10-17",
+            3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
+                See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
+                    Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
+                    ```json
+                    { "Version": "2012-10-17",
                     "Statement":
                     [
                     {
@@ -289,8 +277,8 @@ The following configurations need to be done in both the WSO2 Identity Server no
                             "Resource": [ "*" ]
                     }
                     ]
-                }
-                ```
+                    }
+                    ```
                 
         ??? tip "Click to see the instructions for Kubernetes membership scheme"
             When WSO2 IS nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables automatically discovering these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
