@@ -25,3 +25,4 @@ This section covers the basic configurations of an IDVP. Following are the confi
 
 - [Add a new identity verification provider]({{base_path}}/guides/identity-verification/add-idvp)
 - [Manage an identity verification provider]({{base_path}}/guides/identity-verification/manage-idvp)
+- [Onboarding the UI of an identity verification provider]({{base_path}}/guides/identity-verification/idvp-ui)
