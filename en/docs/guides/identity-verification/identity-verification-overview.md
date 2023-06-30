@@ -9,7 +9,7 @@ themselves from potential threats and enhance the overall security of their syst
 
 ## Managing Identity Verification
 
-The user identity verification data are handled in WSO2 Identity Server and identity verification is primarily handled by the WSO2 Identity Server. 
+The WSO2 Identity Server facilitates identity verification by establishing a connection with a third-party provider through an identity verification IS connector. Within the WSO2 Identity Server, the user attribute's identity verification status is efficiently managed, along with the associated metadata from the identity verification provider.
 
 You can use the [identity verification management API](../../apis/idv-rest-api.md) to add, update and delete identity verification providers
 

@@ -28,7 +28,7 @@ The `info.json` file contains the information about a particular IDV Provider ty
 - Rendering the IDV Provider templates page in the console.
 - Rendering the thumbnail image for each IDV provider in the console.
 
-**Structure**
+#### Structure
 
 The following fields should be available on the `info.json`.
 
@@ -43,20 +43,20 @@ The following fields should be available on the `info.json`.
 | category     | Not utilized in the IDV provider UI. But a string needs to be included for compatibility with extensions APIs.                  |
 | type         | Extension resource type. “identity-verification-provider” should be used as the value.                                          |
 
-**Example**
+??? example "Click to view an example"
 
-```json
-{
-  "id": "ONFIDO",
-  "name": "Onfido",
-  "description": "Enable identity verification through Onfido",
-  "image": "https://example.com/icon.png",
-  "tags": ["Enterprise"],
-  "category": "DEFAULT",
-  "displayOrder": 1,
-  "type": "identity-verification-provider"
-}
-```
+   ```
+   {
+     "id": "ONFIDO",
+     "name": "Onfido",
+     "description": "Enable identity verification through Onfido",
+     "image": "https://example.com/icon.png",
+     "tags": ["Enterprise"],
+     "category": "DEFAULT",
+     "displayOrder": 1,
+     "type": "identity-verification-provider"
+   }
+   ```
 
 ### Step 2: Create a metadata.json file
 
@@ -68,7 +68,7 @@ The `metadata.json` file contains the UI metadata that is required for rendering
 
 The UI metadata defines what content needs to be rendered, how it should be structured, and what validations need to be performed.
 
-**Structure**
+#### Structure
 
 The `metadata.json` file should contain the following structure.
 
@@ -80,7 +80,7 @@ The `metadata.json` file should contain the following structure.
 }
 ```
 
-**Supported Input Types**
+#### Supported Input Types
 
 Currently, the following input field types are supported.
 
@@ -103,9 +103,9 @@ Currently, the following input field types are supported.
 Refer [validation.ts](https://github.com/wso2/identity-apps/blob/master/modules/validation/src/validation.ts) and 
 [dynamic-ui-helper.tsx](https://github.com/wso2/identity-apps/blob/master/apps/console/src/features/identity-verification-providers/components/forms/helpers/dynamic-ui-helper.tsx#L269) for more details on how the validations are performed.
 
-**Supported Attributes**
+#### Supported Attributes
 
-Common Attributes - All Input Fields
+**Common Attributes - All Input Fields**
 
 The following attributes are supported by every input field type.
 
@@ -121,7 +121,8 @@ The following attributes are supported by every input field type.
 | dataComponentId | The data component id of the input field which can be used in test automation.                                                                                                     | “idvp-config-settings-token”      |
 
 
-Common Attributes - Text and Numeric Input Field Types
+**Common Attributes - Text and Numeric Input Field Types**
+
 Apart from the above-mentioned attributes, the following attributes are supported by every textual and numeric input field type.
 
 | Attribute            | Description                                                     | Example                        |
@@ -133,16 +134,16 @@ Apart from the above-mentioned attributes, the following attributes are supporte
 | minLength            | minimum number of characters that can be included in the field. | 1                              |
 
 
-Specific Attributes of Input Field Types
+**Specific Attributes of Input Field Types**
 
-**Number**
+- Number
 
 | Attribute  | Description                                            | Example |
 |------------|--------------------------------------------------------|---------|
 | minValue   | The minimum value that can be used in the input field. | 1       |
 | maxValue   | The maximum value that can be used in the input field. | 100     |
 
-**Dropdown**
+- Dropdown
 
 | Attribute  | Description                                                                                       | Example                                |
 |------------|---------------------------------------------------------------------------------------------------|----------------------------------------|
@@ -151,96 +152,96 @@ Specific Attributes of Input Field Types
 !!! tip "Important"
 > The “defaultValue” attribute of the dropdown type should also be in the above format.
 
-Example
-```
-{
-    "common": {
-        "configProperties": [
-            {
-                "name": "token",
-                "displayOrder": 1,
-                "hint": "The token obtained from Onfido.",
-                "placeholder": "Enter the token from Onfido.",
-                "label": "Token",
-                "type": "password",
-                "required": true,
-                "dataComponentId": "idvp-config-settings-token"
-            },
-            {
-                "name": "base_url",
-                "displayOrder": 6,
-                "hint": "The base url of the Onfido endpoint",
-                "placeholder": "Enter the Onfido base url",
-                "label": "Base URL",
-                "type": "url",
-                "validationRegex": "https",
-                "regexValidationError": "The URL is not secure",
-                "required": false,
-                "dataComponentId": "idvp-config-settings-base-url",
-                "defaultValue": "https://default-url.com/test"
-            },
-            {
-                "name": "verification_method",
-                "displayOrder": 3,
-                "hint": "The method of identity verification",
-                "placeholder": "Enter the method of identity verification",
-                "label": "Verification Method",
-                "type": "dropdown",
-                "required": true,
-                "dataComponentId": "idvp-config-settings-v-method",
-                "options": [
-                    { "value":"nic", "label":"NIC"},
-                    { "value": "passport","label": "PASSPORT"},
-                    { "value": "drivingLicense", "label": "DRIVING LICENSE"}
-                ],
-                "defaultValue": {"value": "nic", "label": "NIC"}
-            },
-            {
-                "name": "timeout",
-                "displayOrder": 2,
-                "hint": "A timout value in seconds",
-                "placeholder": "Enter the timeout value in seconds",
-                "label": "Timeout",
-                "type": "number",
-                "required": true,
-                "dataComponentId": "idvp-edit-config-settings-timeout",
-                "defaultValue": "100",
-                "minValue": 2,
-                "maxValue": 120
-            },
-            {
-                "name": "enableSSL",
-                "displayOrder": 4,
-                "hint": "Check the box to enable SSL",
-                "label": "Enable SSL",
-                "type": "checkbox",
-                "dataComponentId": "idvp-config-settings-enable-ssl",
-                "defaultValue": false
-            },
-            {
-                "name": "enableEncryption",
-                "displayOrder": 5,
-                "hint": "Enables or disables the encryption",
-                "label": "Enable Encryption",
-                "type": "toggle",
-                "dataComponentId": "idvp-config-settings-enable-encryption",
-                "defaultValue": true
-            },
-            {
-                "name": "description",
-                "displayOrder": 7,
-                "hint": "The description of the Onfido IDVP",
-                "placeholder": "Enter the description",
-                "label": "Description",
-                "type": "text_area",
-                "required": false,
-                "dataComponentId": "idvp-config-settings-description",
-                "defaultValue":"A test description"
-            }
-        ]
-    }
-}
-```
+??? example "Click to view an example"
+   ```
+   {
+       "common": {
+           "configProperties": [
+               {
+                   "name": "token",
+                   "displayOrder": 1,
+                   "hint": "The token obtained from Onfido.",
+                   "placeholder": "Enter the token from Onfido.",
+                   "label": "Token",
+                   "type": "password",
+                   "required": true,
+                   "dataComponentId": "idvp-config-settings-token"
+               },
+               {
+                   "name": "base_url",
+                   "displayOrder": 6,
+                   "hint": "The base url of the Onfido endpoint",
+                   "placeholder": "Enter the Onfido base url",
+                   "label": "Base URL",
+                   "type": "url",
+                   "validationRegex": "https",
+                   "regexValidationError": "The URL is not secure",
+                   "required": false,
+                   "dataComponentId": "idvp-config-settings-base-url",
+                   "defaultValue": "https://default-url.com/test"
+               },
+               {
+                   "name": "verification_method",
+                   "displayOrder": 3,
+                   "hint": "The method of identity verification",
+                   "placeholder": "Enter the method of identity verification",
+                   "label": "Verification Method",
+                   "type": "dropdown",
+                   "required": true,
+                   "dataComponentId": "idvp-config-settings-v-method",
+                   "options": [
+                       { "value":"nic", "label":"NIC"},
+                       { "value": "passport","label": "PASSPORT"},
+                       { "value": "drivingLicense", "label": "DRIVING LICENSE"}
+                   ],
+                   "defaultValue": {"value": "nic", "label": "NIC"}
+               },
+               {
+                   "name": "timeout",
+                   "displayOrder": 2,
+                   "hint": "A timout value in seconds",
+                   "placeholder": "Enter the timeout value in seconds",
+                   "label": "Timeout",
+                   "type": "number",
+                   "required": true,
+                   "dataComponentId": "idvp-edit-config-settings-timeout",
+                   "defaultValue": "100",
+                   "minValue": 2,
+                   "maxValue": 120
+               },
+               {
+                   "name": "enableSSL",
+                   "displayOrder": 4,
+                   "hint": "Check the box to enable SSL",
+                   "label": "Enable SSL",
+                   "type": "checkbox",
+                   "dataComponentId": "idvp-config-settings-enable-ssl",
+                   "defaultValue": false
+               },
+               {
+                   "name": "enableEncryption",
+                   "displayOrder": 5,
+                   "hint": "Enables or disables the encryption",
+                   "label": "Enable Encryption",
+                   "type": "toggle",
+                   "dataComponentId": "idvp-config-settings-enable-encryption",
+                   "defaultValue": true
+               },
+               {
+                   "name": "description",
+                   "displayOrder": 7,
+                   "hint": "The description of the Onfido IDVP",
+                   "placeholder": "Enter the description",
+                   "label": "Description",
+                   "type": "text_area",
+                   "required": false,
+                   "dataComponentId": "idvp-config-settings-description",
+                   "defaultValue":"A test description"
+               }
+           ]
+       }
+   }
+   ```
 
 ### Step 3: Create a template.json file
 
@@ -273,38 +274,38 @@ The template.json should have the following structure.
 }
 ```
 
-Example
+??? example "Click to view an example"
 
-```
-{
-    "Type": "ONFIDO",
-    "Name": "Onfido IDVP",
-    "description": "ONFIDO Identity Verification Provider",
-    "isEnabled": true,
-    "claims": [
-        {
-            "localClaim": "http://wso2.org/claims/givenname",
-            "idvpClaim": "first_name"
-        },
-        {
-            "localClaim": "http://wso2.org/claims/lastname",
-            "idvpClaim": "last_name"
-        }
-    ],
-    "configProperties": [
-        {
-            "key": "token",
-            "value": "",
-            "isSecret": true
-        },
-        {
-            "key": "base_url",
-            "value": "https://api.eu.onfido.com/v3.6",
-            "isSecret": false
-        }
-    ]
-}
-```
+   ```
+   {
+       "Type": "ONFIDO",
+       "Name": "Onfido IDVP",
+       "description": "ONFIDO Identity Verification Provider",
+       "isEnabled": true,
+       "claims": [
+           {
+               "localClaim": "http://wso2.org/claims/givenname",
+               "idvpClaim": "first_name"
+           },
+           {
+               "localClaim": "http://wso2.org/claims/lastname",
+               "idvpClaim": "last_name"
+           }
+       ],
+       "configProperties": [
+           {
+               "key": "token",
+               "value": "",
+               "isSecret": true
+           },
+           {
+               "key": "base_url",
+               "value": "https://api.eu.onfido.com/v3.6",
+               "isSecret": false
+           }
+       ]
+   }
+   ```
 
 ### Step 4: Copy the created JSON files into the Identity Server
 
