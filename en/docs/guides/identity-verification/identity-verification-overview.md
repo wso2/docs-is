@@ -11,7 +11,7 @@ themselves from potential threats and enhance the overall security of their syst
 ## Managing Identity Verification
 
 The user identity verification data are handled in WSO2 Identity Server and identity verification is primarily handled by the WSO2 Identity Server. 
-- [Identity verification management API]({{base_path}}/apis/idv-rest-api.md)
+- [Identity verification management API](../../apis/idv-rest-api.md)
 
 ## Configuring an Identity Verification Provider
 
@@ -23,6 +23,6 @@ In order to onboard an IDVP to WSO2 Identity Server, you need to deploy the iden
 
 This section covers the basic configurations of an IDVP. Following are the configurations covered in this section:
 
-- [Add a new identity verification provider]({{base_path}}/guides/identity-verification/add-idvp)
-- [Manage an identity verification provider]({{base_path}}/guides/identity-verification/manage-idvp)
-- [Onboarding the UI of an identity verification provider]({{base_path}}/guides/identity-verification/idvp-ui)
+- [Add a new identity verification provider](../guides/identity-verification/add-idvp)
+- [Manage an identity verification provider](../base_path/guides/identity-verification/manage-idvp)
+- [Onboarding the UI of an identity verification provider](../guides/identity-verification/idvp-ui)
