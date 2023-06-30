@@ -233,20 +233,60 @@ If required, you can update these default configurations by adding the relevant 
 
 ## Identity claim metadata management cache layer
 
-WSO2 Identity Server enables configuring the following identity claim metadata layer attributes:
--	**LocalClaimCache**: This enables caching local cache properties such as mapped attributes.
--	**ExternalClaimCache**: This enables caching external cache properties such as mapped local claim. 
--	**ClaimDialectCache**: This enables caching the list of claim dialects. 
+WSO2 Identity Server allows you to configure the following identity claim metadata layer attributes:
 
 ??? example "Click to view a sample of the identity claim metadata management cache layer"
 
 	``` toml
-	<CacheManager name="IdentityClaimMetadataMgtCacheManager">
-	    <Cache name="LocalClaimCache"   enable="true"  timeout="900" capacity="5000" isDistributed="false"/>
-	    <Cache name="ExternalClaimCache"  enable="true"  timeout="900" capacity="5000" isDistributed="false"/>
-	    <Cache name="ClaimDialectCache"  enable="true"  timeout="900" capacity="5000" isDistributed="false"/>   
-	</CacheManager>
+	[[cache_config.cache_manager]]
+	name = "IdentityClaimMetadataMgtCacheManager"
+
+    [[cache_config.cache_manager.cache]]
+    name = "LocalClaimCache"
+    timeout = "900"
+    capacity = "5000"
+
+	[[cache_config.cache_manager.cache]]
+	name = "ExternalClaimCache"
+	timeout = "900"
+	capacity = "5000"
+
+	[[cache_config.cache_manager.cache]]
+	name = "ClaimDialectCache"
+	timeout = "900"
+	capacity = "5000"
 	```
+	
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>
+			<code>LocalClaimCache</code>
+		</td>
+		<td>
+			This enables caching local cache properties such as mapped attributes.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>ExternalClaimCache</code>
+		</td>
+		<td>
+			This enables caching external cache properties such as mapped local claim.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<code>ClaimDialectCache</code>
+		</td>
+		<td>
+			This enables caching the list of claim dialects.
+		</td>
+	</tr>
+</table>
 
 ## Adding a new CacheManager
 
