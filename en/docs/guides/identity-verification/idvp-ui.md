@@ -6,26 +6,31 @@ The static sections are already baked into the UI implementation, while the meta
 The following sections of the console and the management console are generated dynamically.
 
 **Console**
+
 - IDV Provider templates page.
 - Configuration section in the IDV Provider creation wizard.
 - Settings section in the IDV Provider edit page.
 
 **Management Console**
-- Configuration Properties section in the create page of the IDV Provider.
+
+- Configuration Properties section in the Add page of the IDV Provider.
 - Configuration Properties section in the edit page of the IDV Provider.
 
-## Steps to Onboard an IDV Provider UI
+## Steps to onboard an IDV Provider UI
 
-1. ### Create an info.json file.
+This section provides a step-by-step guide on onboarding an IDV provider UI.
 
-The info.json file contains the information about a particular IDV Provider type and will be used when:
+### Step 1: Create an info.json file.
+
+The `info.json` file contains the information about a particular IDV Provider type and will be used when:
+
 - Deciding which IDV Providers are available for configuration in both the console and management console.
 - Rendering the IDV Provider templates page in the console.
 - Rendering the thumbnail image for each IDV provider in the console.
 
 **Structure**
 
-The following fields should be available on the info.json.
+The following fields should be available on the `info.json`.
 
 | Field        | Description                                                                                                                     | 
 |--------------|---------------------------------------------------------------------------------------------------------------------------------| 
@@ -53,18 +58,20 @@ The following fields should be available on the info.json.
 }
 ```
 
-2. ### Create a metadata.json file
+### Step 2: Create a metadata.json file
 
-The metadata.json file contains the UI metadata that is required for rendering the dynamically generated content. Currently, this file is used when rendering the
+The `metadata.json` file contains the UI metadata that is required for rendering the dynamically generated content. Currently, this file is used when rendering the follwing:
+
 - Configuration section in the IDV Provider creation wizard in the console.
 - Settings section in the IDV Provider edit page in the console.
-- Configuration Properties section in the IDV Provider create/edit pages in the management console.
+- Configuration Properties section in the IDV Provider add/edit pages in the management console.
 
 The UI metadata defines what content needs to be rendered, how it should be structured, and what validations need to be performed.
 
 **Structure**
 
-The metadata.json file should contain the following structure.
+The `metadata.json` file should contain the following structure.
+
 ```
 {
     "common": {
@@ -72,25 +79,26 @@ The metadata.json file should contain the following structure.
     }
 }
 ```
+
 **Supported Input Types**
 
-Currently the following input field types are supported.
+Currently, the following input field types are supported.
 
-| Input Field Type | Description                                                                          | Supported In |
-|------------------|--------------------------------------------------------------------------------------|--------------|
-| identifier       | Renders a text input field that performs validations for identifiers by default.     | Console      |
-| number           | Renders a numeric input field.                                                       | Console      |
-| resource_name    | Renders a text input field that performs validations for resource names by default.  | Console      | 
-| client_id        | Renders a text input field that performs validations for client ids by default.      | Console      |
-| description      | Renders a text area field that performs validations for descriptions by default.     | Console      |
-| email            | Renders a text input field that performs validations for email addresses by default. | Console      |
-| url              | Renders a text input field that performs validations for URLs by default.            | Console      |     
-| password         | Renders a password input field with a show/hide button.                              | Console      |
-| text_area        | Renders a text area field.                                                           | Console      |
-| checkbox         | Renders a checkbox.                                                                  | Console      |
-| toggle           | Renders a toggle button.                                                             | Console      |
-| dropdown         | Renders a dropdown.                                                                  | Console      |
-| default          | Renders a text input field.                                                          | Console      |
+| Input Field Type | Description                                                                          | Supported In                |
+|------------------|--------------------------------------------------------------------------------------|-----------------------------|
+| identifier       | Renders a text input field that performs validations for identifiers by default.     | Console, Management Console |
+| number           | Renders a numeric input field.                                                       | Console, Management Console |
+| resource_name    | Renders a text input field that performs validations for resource names by default.  | Console, Management Console | 
+| client_id        | Renders a text input field that performs validations for client ids by default.      | Console, Management Console |
+| description      | Renders a text area field that performs validations for descriptions by default.     | Console, Management Console |
+| email            | Renders a text input field that performs validations for email addresses by default. | Console, Management Console |
+| url              | Renders a text input field that performs validations for URLs by default.            | Console, Management Console |     
+| password         | Renders a password input field with a show/hide button.                              | Console, Management Console |
+| text_area        | Renders a text area field.                                                           | Console, Management Console |
+| checkbox         | Renders a checkbox.                                                                  | Console, Management Console |
+| toggle           | Renders a toggle button.                                                             | Console                     |
+| dropdown         | Renders a dropdown.                                                                  | Console, Management Console |
+| default          | Renders a text input field.                                                          | Console, Management Console |
 
 Refer [validation.ts](https://github.com/wso2/identity-apps/blob/master/modules/validation/src/validation.ts) and 
 [dynamic-ui-helper.tsx](https://github.com/wso2/identity-apps/blob/master/apps/console/src/features/identity-verification-providers/components/forms/helpers/dynamic-ui-helper.tsx#L269) for more details on how the validations are performed.
@@ -98,22 +106,23 @@ Refer [validation.ts](https://github.com/wso2/identity-apps/blob/master/modules/
 **Supported Attributes**
 
 Common Attributes - All Input Fields
+
 The following attributes are supported by every input field type.
 
-| Attribute       | Description                                                                                                                                                                 | Example                          |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
-| name            | Name of the input field. The name of the input field is used as the key of the configuration property.                                                                      | “token”                          |
-| type            | Input field type out of one of the supported input field types specified above. The “default” input type is used if the type is not specified.                              | “password”                       | 
-| label           | The label that should be displayed with the input field.                                                                                                                    | “Token”                          |
-| hint            | The hint associated with the input field.                                                                                                                                   | “The token obtained from Onfido” |
-| required        | Whether the input field is required or not.                                                                                                                                 | true                             |
-| defaultValue    | Default value for the input field.                                                                                                                                          | “default value”                  |
-| displayOrder    | Defines the display order the configuration properties. If the attribute is not defined, elements are ordered according to the order they are defined in the metadata.json. | 1                                |
-| dataComponentId | The data component id of the input field which can be used in test automation.                                                                                              | “idvp-config-settings-token”     |
+| Attribute       | Description                                                                                                                                                                        | Example                           |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| name            | Name of the input field. The name of the input field is used as the key of the configuration property.                                                                             | “token”                           |
+| type            | Input field type out of one of the supported input field types specified above. The “default” input type is used if the specified input type is not supported.                     | “password”                        | 
+| label           | The label that should be displayed with the input field.                                                                                                                           | “Token”                           |
+| hint            | The hint associated with the input field.                                                                                                                                          | “The token obtained from Onfido”  |
+| required        | Whether the input field is required or not.                                                                                                                                        | true                              |
+| defaultValue    | Default value for the input field.                                                                                                                                                 | “default value”                   |
+| displayOrder    | Defines the display order the configuration properties. If the attribute is not defined, elements are ordered according to the order they are defined in the `metadata.json`.      | 1                                 |
+| dataComponentId | The data component id of the input field which can be used in test automation.                                                                                                     | “idvp-config-settings-token”      |
 
 
 Common Attributes - Text and Numeric Input Field Types
-Apart from the above-mentioned attributes, the following attributes are supported by every text and numeric input field type.
+Apart from the above-mentioned attributes, the following attributes are supported by every textual and numeric input field type.
 
 | Attribute            | Description                                                     | Example                        |
 |----------------------|-----------------------------------------------------------------|--------------------------------|
@@ -139,102 +148,101 @@ Specific Attributes of Input Field Types
 |------------|---------------------------------------------------------------------------------------------------|----------------------------------------|
 | Options    | An array of options to be used in the drop-down. Each option has a value and an associated label. | ```[{"value":"nic", "label":"NIC"}]``` |
 
-Important:
-
-The “defaultValue” attribute of the dropdown type should also be in the above format.
+!!! tip "Important"
+> The “defaultValue” attribute of the dropdown type should also be in the above format.
 
 Example
 ```
 {
     "common": {
-    "configProperties": [
-        {
-            "name": "token",
-            "displayOrder": 1,
-            "hint": "The token obtained from Onfido.",
-            "placeholder": "Enter the token from Onfido.",
-            "label": "Token",
-            "type": "password",
-            "required": true,
-            "dataComponentId": "idvp-config-settings-token"
-        },
-        {
-            "name": "base_url",
-            "displayOrder": 6,
-            "hint": "The base url of the Onfido endpoint",
-            "placeholder": "Enter the Onfido base url",
-            "label": "Base URL",
-            "type": "url",
-            "validationRegex": "https",
-            "regexValidationError": "The URL is not secure",
-            "required": false,
-            "dataComponentId": "idvp-config-settings-base-url",
-            "defaultValue": "https://default-url.com/test"
-        },
-        {
-            "name": "verification_method",
-            "displayOrder": 3,
-            "hint": "The method of identity verification",
-            "placeholder": "Enter the method of identity verification",
-            "label": "Verification Method",
-            "type": "dropdown",
-            "required": true,
-            "dataComponentId": "idvp-config-settings-v-method",
-            "options": [
-                { "value":"nic", "label":"NIC"},
-                { "value": "passport","label": "PASSPORT"},
-                { "value": "drivingLicense", "label": "DRIVING LICENSE"}
-            ],
-            "defaultValue": {"value": "nic", "label": "NIC"}
-        },
-        {
-            "name": "timeout",
-            "displayOrder": 2,
-            "hint": "A timout value in seconds",
-            "placeholder": "Enter the timeout value in seconds",
-            "label": "Timeout",
-            "type": "number",
-            "required": true,
-            "dataComponentId": "idvp-edit-config-settings-timeout",
-            "defaultValue": "100",
-            "minValue": 2,
-            "maxValue": 120
-        },
-        {
-            "name": "enableSSL",
-            "displayOrder": 4,
-            "hint": "Check the box to enable SSL",
-            "label": "Enable SSL",
-            "type": "checkbox",
-            "dataComponentId": "idvp-config-settings-enable-ssl",
-            "defaultValue": false
-        },
-        {
-            "name": "enableEncryption",
-            "displayOrder": 5,
-            "hint": "Enables or disables the encryption",
-            "label": "Enable Encryption",
-            "type": "toggle",
-            "dataComponentId": "idvp-config-settings-enable-encryption",
-            "defaultValue": true
-        },
-        {
-            "name": "description",
-            "displayOrder": 7,
-            "hint": "The description of the Onfido IDVP",
-            "placeholder": "Enter the description",
-            "label": "Description",
-            "type": "text_area",
-            "required": false,
-            "dataComponentId": "idvp-config-settings-description",
-            "defaultValue":"A test description"
-        }
-    ]
+        "configProperties": [
+            {
+                "name": "token",
+                "displayOrder": 1,
+                "hint": "The token obtained from Onfido.",
+                "placeholder": "Enter the token from Onfido.",
+                "label": "Token",
+                "type": "password",
+                "required": true,
+                "dataComponentId": "idvp-config-settings-token"
+            },
+            {
+                "name": "base_url",
+                "displayOrder": 6,
+                "hint": "The base url of the Onfido endpoint",
+                "placeholder": "Enter the Onfido base url",
+                "label": "Base URL",
+                "type": "url",
+                "validationRegex": "https",
+                "regexValidationError": "The URL is not secure",
+                "required": false,
+                "dataComponentId": "idvp-config-settings-base-url",
+                "defaultValue": "https://default-url.com/test"
+            },
+            {
+                "name": "verification_method",
+                "displayOrder": 3,
+                "hint": "The method of identity verification",
+                "placeholder": "Enter the method of identity verification",
+                "label": "Verification Method",
+                "type": "dropdown",
+                "required": true,
+                "dataComponentId": "idvp-config-settings-v-method",
+                "options": [
+                    { "value":"nic", "label":"NIC"},
+                    { "value": "passport","label": "PASSPORT"},
+                    { "value": "drivingLicense", "label": "DRIVING LICENSE"}
+                ],
+                "defaultValue": {"value": "nic", "label": "NIC"}
+            },
+            {
+                "name": "timeout",
+                "displayOrder": 2,
+                "hint": "A timout value in seconds",
+                "placeholder": "Enter the timeout value in seconds",
+                "label": "Timeout",
+                "type": "number",
+                "required": true,
+                "dataComponentId": "idvp-edit-config-settings-timeout",
+                "defaultValue": "100",
+                "minValue": 2,
+                "maxValue": 120
+            },
+            {
+                "name": "enableSSL",
+                "displayOrder": 4,
+                "hint": "Check the box to enable SSL",
+                "label": "Enable SSL",
+                "type": "checkbox",
+                "dataComponentId": "idvp-config-settings-enable-ssl",
+                "defaultValue": false
+            },
+            {
+                "name": "enableEncryption",
+                "displayOrder": 5,
+                "hint": "Enables or disables the encryption",
+                "label": "Enable Encryption",
+                "type": "toggle",
+                "dataComponentId": "idvp-config-settings-enable-encryption",
+                "defaultValue": true
+            },
+            {
+                "name": "description",
+                "displayOrder": 7,
+                "hint": "The description of the Onfido IDVP",
+                "placeholder": "Enter the description",
+                "label": "Description",
+                "type": "text_area",
+                "required": false,
+                "dataComponentId": "idvp-config-settings-description",
+                "defaultValue":"A test description"
+            }
+        ]
     }
 }
 ```
 
-3. ### Create a template.json file
+### Step 3: Create a template.json file
 
 The template.json file contains the template that is used to create the IDV provider. When making an API call to create the IDV provider, the template is used as the base of the request body. The relevant fields of the template are then overwritten by the inputs received from the user through the UI.
 
@@ -265,9 +273,6 @@ The template.json should have the following structure.
 }
 ```
 
-Important:
-
-Since the relevant fields of the template are overwritten by the values provided by the UI, the default values provided through the metadata.json will take precedence over the default values provided through the template for config properties.
 Example
 
 ```
@@ -301,7 +306,14 @@ Example
 }
 ```
 
-### Copy the created JSON files into the Identity Server
+### Step 4: Copy the created JSON files into the Identity Server
 
-Create an empty directory in the following path using the name of the particular IDV provider ` <IS_HOME>/repository/resources/identity/extensions/identity-verification-providers` 
-and copy the created info, metadata, and template JSON files into the directory. Restart the server to apply the changes.
+To apply the changes to the WSO2 Identity Server:
+
+1. Create an empty directory in the following path using the name of the particular IDV provider
+   `<IS_HOME>/repository/resources/identity/extensions/identity-verification-providers`
+
+2. Copy the created `info.json`, `metadata.json`, and `template.json` files into the directory.
+
+3. Restart the server to apply the changes.
+
