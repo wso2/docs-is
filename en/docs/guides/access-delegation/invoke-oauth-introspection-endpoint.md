@@ -254,12 +254,12 @@ First, you need to get a valid access token as follows:
 !!! abstract ""
     **Request Format**
     ```curl
-    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials' https://<IS_HOST>:<IS_PORT>/oauth2/token
+    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/token
     ```
     ---
     **Sample Request**
     ```curl
-    curl -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials' https://localhost:9443/oauth2/token
+    curl -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials' https://localhost:9443/t/foo.com/oauth2/token
     ```
 
 You will receive the access token as follows:
@@ -275,12 +275,12 @@ First, you need to get a valid access token as follows:
 !!! abstract ""
     **Request Format**
     ```curl
-    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials&scope=test1 test2' https://<IS_HOST>:<IS_PORT>/oauth2/token
+    curl -v -X POST --basic -u <CLIENT_ID>:<CLIENT_SECRET> -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials&scope=test1 test2' https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/oauth2/token
     ```
     ---
     **Sample Request**
     ```curl
-    curl -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials&scope=test1 test2' https://localhost:9443/oauth2/token
+    curl -v -X POST --basic -u rgfKVdnMQnJSSr_pKFTxj3apiwYa:BRebJ0aqfclQB9v7yZwhj0JfW0ga -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' -k -d 'grant_type=client_credentials&scope=test1 test2' https://localhost:9443/t/foo.com/oauth2/token
     ```
 
 You will receive the access token as follows:
