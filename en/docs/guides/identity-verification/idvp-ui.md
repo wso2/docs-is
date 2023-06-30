@@ -1,6 +1,7 @@
 # Onboarding the UI of an IDV Provider to the Identity Server
 
-The UI of an IDV provider is a combination of static and dynamically generated sections. The static sections are already baked into the UI implementation while the metadata for the dynamic sections is pulled from the extensions implementation in the Identity Server [git issue].
+The UI of an IDV provider is a combination of static and dynamically generated sections. 
+The static sections are already baked into the UI implementation, while the metadata for the dynamic sections is pulled from the extensions implementation in the Identity Server.
 
 The following sections of the console and the management console are generated dynamically.
 
