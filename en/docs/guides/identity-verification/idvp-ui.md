@@ -124,20 +124,19 @@ Apart from the above-mentioned attributes, the following attributes are supporte
 
 
 Specific Attributes of Input Field Types
-Number
+
+**Number**
 
 | Attribute  | Description                                            | Example |
 |------------|--------------------------------------------------------|---------|
 | minValue   | The minimum value that can be used in the input field. | 1       |
 | maxValue   | The maximum value that can be used in the input field. | 100     |
 
-Dropdown
+**Dropdown**
 
-| Attribute  | Description                                                                                       | Example |
-|------------|---------------------------------------------------------------------------------------------------|---------|
-| Options    | An array of options to be used in the drop-down. Each option has a value and an associated label. |```[{"value":"nic", "label":"NIC"}]```|
-
-
+| Attribute  | Description                                                                                       | Example                                |
+|------------|---------------------------------------------------------------------------------------------------|----------------------------------------|
+| Options    | An array of options to be used in the drop-down. Each option has a value and an associated label. | ```[{"value":"nic", "label":"NIC"}]``` |
 
 Important:
 

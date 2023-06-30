@@ -40,4 +40,4 @@ To disable an identity provider:
    !!! note
    If you want to enable a disabled IdP, select the disabled identity provider you want to enable and click on the corresponding **Enable** link.
 
-![enable-disable-idp]({{base_path}}/assets/img/guides/enable-disable-idvp.png)
+![enable-disable-idp](../../assets/img/guides/enable-disable-idvp.png)
