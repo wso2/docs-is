@@ -8,6 +8,7 @@ https://<IS_HOST>:<IS_PORT>/oauth2/introspect
 
 This guide explains how to invoke the [OAuth Introspection Endpoint]({{base_path}}/references/concepts/authorization/introspection).
 
+
 -----
 
 ## Register a service provider
