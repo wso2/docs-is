@@ -219,7 +219,7 @@ Note the following before you begin.
 
     !!! Info "Important"
         Basic authentication is enabled by default. However, it is recommended to use client credentials for authenticating to the introspection endpoint as it improves server performance. 
-        
+
         To enable token validation using client credentials, apply the following configurations to the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf` directory) and restart the server.
 
         ``` toml
