@@ -96,9 +96,8 @@ The instructions in this section enable you to successfully set up MFA using the
     
     ``` toml
     [authentication.authenticator.fido.parameters]
-    app_id="https://hostname"
+    AppID="https://hostname"
     ```
-
 
 ### Setting up an account for MFA
 To associate a FIDO device with the user account, refer [Add security device](../learn/user-portal.md#add-security-device).
