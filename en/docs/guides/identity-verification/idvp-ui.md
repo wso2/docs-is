@@ -104,6 +104,8 @@ Refer [validation.ts](https://github.com/wso2/identity-apps/blob/master/modules/
 
 #### Supported Attributes
 
+This section contains information on all the supported sttributes.
+
 **Common Attributes - All Input Fields**
 
 The following attributes are supported by every input field type.
