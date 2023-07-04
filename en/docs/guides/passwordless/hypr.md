@@ -5,9 +5,46 @@
 This guide explains how you can use HYPR to add passwordless login to applications registered in the Identity Server.
 
 ## Prerequisites
+You need to set up your application. For this tutorial, we will be using the [sample SAML application]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application. Note that you can use any application you wish to use.
 
-- You need to configure the HYPR environment and have access to the HYPR control center. Learn how to do it in the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-std).
-- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
+## Set up your HYPR environment
+
+You need to configure the HYPR environment and have access to the HYPR control center. This section covers the basic configurations to set up your HYPR environment.
+
+See [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-std) for more details on how to set up your HYPR environment.
+
+### Register application in HYPR
+
+To register your application in the HYPR control center:
+
+!!! note
+        For detailed instructions, you can follow the [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/cc-adv-application-new).
+
+1. Go to the HYPR control center and click **Add Application**.
+2. Select `Web` as the channel and click **Next**.
+3. Select `Custom Solution` as the IdP provider and click **Next**.
+4. Enable push notifications and click **Next**.
+5. Add your Firebase configurations and click **Next**.
+
+    !!! note
+            To enable push notifications, you need to configure Firebase and obtain a project ID and an API key. To learn how to do this, follow the [guide in HYPR](https://docs.hypr.com/hyprcloud/docs/cc-adv-configuring-push-notifications-firebase).
+
+6. Complete the app details form and click **Done** to create the application.
+7. Select your application from the **Choose an App** menu and note down the `App ID`.
+
+### Create an API token in HYPR
+When you register HYPR as a connection in WSO2 Identity Server, you need to provide an API token, which the WSO2 Identity Server can use to access HYPR APIs.
+
+To obtain an API token:
+
+1. Go to the HYPR control center and select your application.
+2. Under **Advanced Config**, click **Access Tokens**.
+3. Click **Create Token**, provide a unique name for your token, select `API Token` as the token type, and click **Next**.
+4. Select `User Management and Authentication` as the permission type and click **Next**.
+5. Take note of the API token that you have created.
+
+    !!! warning
+        The token is only shown once.
 
 ## Set up the authenticator
 The HYPR authenticator has been introduced as a connector for IS 6.2.0. In order to use this authenticator, first, you should download the connector from the WSO2 Connector Store.
@@ -76,6 +113,14 @@ To configure HYPR as an authenticator for your application:
 5. Click **Update** to save the configurations.
 
 ## Try it out
+
+!!! note "Before you begin"
+        - Make sure you have a user account in the application registered in the HYPR control center.
+        - Download the HYPR app to your mobile device and pair the device to your user account in HYPR.
+
+        See [HYPR documentation](https://docs.hypr.com/hyprcloud/docs/mobile-app-overview) for more details.
+
+Follow the steps given below:
 
 1. Access the following sample PickUp application URL: `http://localhost.com:8080/saml2-web-app-pickup-dispatch.com`
 2. Click **Login**, enter your username, and click **Continue**.
