@@ -551,6 +551,9 @@ nav:
       - Server configuration API: apis/configs-rest-api.md
       - Permission management API : apis/permission-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
+      - Identity Verification:
+        - Identity verification Provider API: apis/idvp-rest-api.md
+        - Identity verification management API: apis/idv-rest-api.md
       - Admin services:
         - Call admin services: apis/call-admin-services.md
         - One way operations: apis/admin-services-for-one-way-operations.md
@@ -607,6 +610,11 @@ nav:
           - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
           - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
           - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
+      - Identity Verification:
+        - Overview: guides/identity-verification/identity-verification-overview.md
+        - Register an Identity Verification Provider: guides/identity-verification/add-idvp.md
+        - Manage an Identity Verification Provider: guides/identity-verification/manage-idvp.md
+        - Onboard the UI of an Identity Verification Provider: guides/identity-verification/idvp-ui.md
       - Tenants: references/concepts/introduction-to-multitenancy.md
     - WSO2 IS Extensions:
       #- Work with the Source Code: references/extend/work-with-the-source-code.md
