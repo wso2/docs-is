@@ -46,7 +46,7 @@ To deploy the HYPR login page from the extracted artifacts folder, copy the `hyp
 
 ## Configure HYPR as a federated authenticator
 
-Let's configure WSO2 IS with HYPR as a federated authenticator.
+To configure WSO2 IS with HYPR as a federated authenticator.
 
 1. On the Management console, go to **Main** > **Identity** > **Identity Providers** > **Add**.
 2. Enter an **Identity Provider Name**, **Display Name**, and **Description**.
