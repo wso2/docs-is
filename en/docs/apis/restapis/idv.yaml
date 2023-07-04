@@ -1,0 +1,850 @@
+openapi: 3.0.3
+info:
+  title: WSO2 Identity Server - Identity Verification API definition
+  description: |-
+    This document specifies an **Identity Verification RESTful API** for **WSO2 Identity Server**. The APIs provide the capability to verify an identity and retrive the verification status of identities. Moreover APIs are available to add/update/delete/patch identity verification providers.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/api/users/v1'
+    variables:
+      tenant-domain:
+        default: "carbon.super"
+      server-url:
+        default: "localhost:9443"
+security:
+  - OAuth2: []
+  - BasicAuth: []
+tags:
+  - name: Me - Identity Verification
+    description: Identity Verification API for authenticated user
+  - name: Admin - Identity Verification
+    description: Identity Verification API
+paths:
+  /me/idv/verify:
+    post:
+      tags:
+        - Me - Identity Verification
+      summary: Verify an Identity
+      description: >
+        This API provides the capability to verify a user with the configured verification required attributes.
+        <br><b>Permission required:</b> <br>
+            * None <br>
+        <b>Scope required:</b> <br>
+            * internal_login
+      operationId: meVerifyIdentity
+      requestBody:
+        description: Verify an identity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verifyRequest'
+        required: true
+      responses:
+        '201':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationPostResponse'
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationPostResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /me/idv/claims:
+    get:
+      tags:
+        - Me - Identity Verification
+      summary: Get the identity verification claims of a user
+      description: >
+        This API provides the capability to retrieve the verification details of a user.
+        <br><b>Permission required:</b> <br>
+            * None <br>
+        <b>Scope required:</b> <br>
+            * internal_login
+      operationId: meGetIdVClaims
+      parameters:
+        - $ref: '#/components/parameters/idVPQueryParam'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimResponse'
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Me - Identity Verification
+      summary: Add identity verification claim.
+      description: >
+        This API provides the capability to add verification claim data.
+        <br><b>Permission required:</b> <br>
+            * None <br>
+        <b>Scope required:</b> <br>
+            * internal_login
+      operationId: meAddIdVClaim
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verificationClaimPostRequest'
+        description: This represents the identity provider to be created.
+        required: true
+      responses:
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimPostResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Me - Identity Verification
+      summary: Update identity verification claims.
+      description: >
+        This API provides the capability to update verification claims of a user.
+        <br><b>Permission required:</b> <br>
+            * None <br>
+        <b>Scope required:</b> <br>
+            * internal_login
+      operationId: meUpdateIdVClaims
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verificationClaimPostRequest'
+        description: This represents the identity provider to be created.
+        required: true
+      responses:
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimPostResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /me/idv/claims/{claim-id}:
+    get:
+      tags:
+        - Me - Identity Verification
+      summary: Get identity verification claim
+      description: >
+        This API provides the capability to retrieve a identity verification claim of a user.
+        <br><b>Permission required:</b> <br>
+            * None <br>
+        <b>Scope required:</b> <br>
+            * internal_login
+      operationId: meGetIdVClaim
+      parameters:
+        - name: claim-id
+          in: path
+          description: Claim that needs to retrieve verification metadata
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimResponse'
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Me - Identity Verification
+      summary: Update identity verification claim
+      description: >
+        This API provides the capability to update a identity verification claim of a user.
+        <br><b>Permission required:</b> <br>
+            * None 
+        <br><b>Scope required:</b> <br>
+            * internal_login
+      operationId: meUpdateIdVClaim
+      parameters:
+        - name: claim-id
+          in: path
+          description: Claim that needs to retrieve verification metadata
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verificationClaimResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verificationClaimUpdateRequest'
+        required: true
+  /{user-id}/idv/verify:
+    post:
+      tags:
+        - Admin - Identity Verification
+      summary: Verify an Identity
+      description: >
+        This API provides the capability to verify a user with the configured verification required attributes
+        <br><b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/user/idv/claim/verify 
+        <br><b>Scope required:</b> <br>
+            * internal_idv_claim_verify
+      operationId: verifyIdentity
+      parameters:
+        - name: user-id
+          in: path
+          description: user id of the user
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Verify an identity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verifyRequest'
+        required: true
+      responses:
+        '201':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationPostResponse'
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationPostResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /{user-id}/idv/claims:
+    get:
+      tags:
+        - Admin - Identity Verification
+      summary: Get the identity verification claims of a user
+      description: >
+        This API provides the capability to retrieve the verification details of a user.
+        <br><b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/user/idv/claim/view 
+        <br><b>Scope required:</b> <br>
+            * internal_idv_claim_view
+      operationId: getIdVClaims
+      parameters:
+        - name: user-id
+          in: path
+          description: user id of the user
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/idVPQueryParam'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimResponse'
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Admin - Identity Verification
+      summary: Add identity verification claim.
+      description: >
+        This API provides the capability to add verification claim data
+        <br><b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/user/idv/claim/add 
+        <br><b>Scope required:</b> <br>
+            * internal_idv_claim_add
+      operationId: addIdVClaim
+      parameters:
+        - name: user-id
+          in: path
+          description: user id of the user
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimPostResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verificationClaimPostRequest'
+        description: This represents the identity provider to be created.
+        required: true
+    put:
+      tags:
+        - Admin - Identity Verification
+      summary: Update identity verification claims of a user.
+      description: >
+        This API provides the capability to update verification claims of a user
+        <br><b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/user/idv/claim/update 
+        <br><b>Scope required:</b> <br>
+            * internal_idv_claim_update
+      operationId: updateIdVClaims
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verificationClaimPostRequest'
+        description: This represents the identity provider to be created.
+        required: true
+      parameters:
+        - name: user-id
+          in: path
+          description: user id of the user
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimPostResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /{user-id}/idv/claims/{claim-id}:
+    get:
+      tags:
+        - Admin - Identity Verification
+      summary: Get identity verification claim
+      description: >
+        This API provides the capability to retrieve a identity verification claim of a user.
+        <br><b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/user/idv/claim/view 
+        <br><b>Scope required:</b> <br>
+            * internal_idv_claim_view
+      operationId: getIdVClaim
+      parameters:
+        - name: user-id
+          in: path
+          description: user id of the user
+          required: true
+          schema:
+            type: string
+        - name: claim-id
+          in: path
+          description: Claim that needs to retrieve verification metadata
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimResponse'
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Admin - Identity Verification
+      summary: Update identity verification claim
+      description: >
+        This API provides the capability to update a identity verification claim of a user.
+        <br><b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/user/idv/claim/update 
+        <br><b>Scope required:</b> <br>
+            * internal_idv_claim_update
+      operationId: updateIdVClaim
+      parameters:
+        - name: claim-id
+          in: path
+          description: Claim that needs to retrieve verification metadata
+          required: true
+          schema:
+            type: string
+        - name: user-id
+          in: path
+          description: user id of the user
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verificationClaimResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verificationClaimUpdateRequest'
+        required: true
+components:
+  parameters:
+    limitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: |
+        Maximum number of records to return.
+      schema:
+        type: integer
+        format: int32
+    offsetQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: |
+        Number of records to skip for pagination.
+      schema:
+        type: integer
+        format: int32
+    idVPQueryParam:
+      in: query
+      name: idVProviderId
+      required: false
+      description: |
+        Id of the identity verification provider.
+      schema:
+        type: string
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+    verificationPostResponse:
+      type: object
+      properties:
+        idVProviderId:
+          type: string
+          example: "d75b8685-383a-4320-a555-80a3eecb5af2"
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/verificationClaimResponse'
+    verificationClaimResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: aHR0cDovL3dzbzIub3JnL2NsYWltcy91c2VybmFtZQ
+          readOnly: true
+        uri:
+          type: string
+          example: 'http://wso2.org/claims/dob'
+        isVerified:
+          type: boolean
+          example: true
+        idVProviderId:
+          type: string
+          example: '2159375-r567-8524-a456-5566424414527'
+        claimMetadata:
+          $ref: '#/components/schemas/claimMetadata'
+    verificationClaimRequest:
+      type: object
+      properties:
+        uri:
+          type: string
+          example: 'http://wso2.org/claims/dob'
+        isVerified:
+          type: boolean
+          example: true
+        idVProviderId:
+          type: string
+          example: '2159375-r567-8524-a456-5566424414527'
+        claimMetadata:
+          $ref: '#/components/schemas/claimMetadata'
+    verificationClaimUpdateRequest:
+      type: object
+      properties:
+        isVerified:
+          type: boolean
+          example: true
+        claimMetadata:
+          $ref: '#/components/schemas/claimMetadata'
+      required:
+        - isVerified
+        - claimMetadata
+    claimMetadata:
+      type: object
+      additionalProperties: true
+      example: '{"source": "ONFIDO", "trackingId": "123e4567-e89b-12d3-a456-556642440000" }'
+    verificationClaimPostRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/verificationClaimRequest'
+    verificationClaimPostResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/verificationClaimResponse'
+    verifyRequest:
+      type: object
+      properties:
+        idVProviderId:
+          type: string
+          example: "d75b8685-383a-4320-a555-80a3eecb5af2"
+        claims:
+          type: array
+          items:
+            type: string
+          example:
+            - http://wso2.org/claims/dob
+            - http://wso2.org/claims/country
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProviderProperty'
+      required:
+        - identityVerificationProvider
+        - properties
+    ProviderProperty:
+      type: object
+      properties:
+        key:
+          type: string
+          example: status
+        value:
+          type: string
+          example: "INITIATED"
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
