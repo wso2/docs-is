@@ -83,7 +83,7 @@ To deploy the HYPR login page from the extracted artifacts folder, copy the `hyp
 
 ## Configure HYPR as a federated authenticator
 
-Let's configure WSO2 IS with HYPR as a federated authenticator.
+To configure WSO2 IS with HYPR as a federated authenticator.
 
 1. On the Management console, go to **Main** > **Identity** > **Identity Providers** > **Add**.
 2. Enter an **Identity Provider Name**, **Display Name**, and **Description**.
@@ -91,17 +91,17 @@ Let's configure WSO2 IS with HYPR as a federated authenticator.
 
     | Field name    | Description   |
     |---------------|---------------|
-    | Enable        | Select this to enable HYPR authenticator for the login flow of the application    |
-    | Default       | Select this if the HYPR authenticator should be the default authenticator for the application    |
+    | Enable        | Select this to enable HYPR authenticator for the identity provider.    |
+    | Default       | Select this if the HYPR authenticator should be the default authenticator for the identity provider.    |
     | Base URL      | This refers to the base URL you received from HYPR upon creating a tenant for your organization.  |
     | Relying Party App ID  | This refers to the App ID you received for the application you created in the HYPR Control Center.    |
-    | API Token     | This refers to a new API token that is specifically generated for the HYPR App via the Control Center.    |
+    | API Token     | This refers to the application's API access token that is generated in the HYPR Control Center.    |
 
     ![HYPR configurations]({{base_path}}/assets/img/guides/hypr-configurations.png)
 
 6. Click **Update** to save the configurations.
 
-## Add HYPR authenticator to the app
+## Enable HYPR login for the application
 
 To configure HYPR as an authenticator for your application:
 
