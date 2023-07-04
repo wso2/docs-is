@@ -58,7 +58,7 @@ To configure WSO2 IS with HYPR as a federated authenticator.
     | Default       | Select this if the HYPR authenticator should be the default authenticator for the application    |
     | Base URL      | This refers to the base URL you received from HYPR upon creating a tenant for your organization.  |
     | Relying Party App ID  | This refers to the App ID you received for the application you created in the HYPR Control Center.    |
-    | API Token     | This refers to a new API token that is specifically generated for the HYPR App via the Control Center.    |
+    | API Token     | This refers to the application's API access token that is generated in the HYPR Control Center.    |
 
     ![HYPR configurations]({{base_path}}/assets/img/guides/hypr-configurations.png)
 
