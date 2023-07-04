@@ -20,6 +20,9 @@ To enable FIPS 140-2 compliant mode on the Identity Server:
     fips.bat run
     ```
 
+    !!! note "Important"
+            You should run the `fips.sh` script everytime you take an update of the WSO2 Identity Server.
+
 3. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ``` toml
@@ -42,7 +45,9 @@ To enable FIPS 140-2 compliant mode on the Identity Server:
         ``` java tab="Windows"
         fips.bat DISABLE
         ```
-    3. In the `<IS_HOME>/repository/conf/deployment.toml` file, perform any of the following actions:
+
+    3. In the `<IS_HOME>/repository/conf/deployment.toml` file, perform any of the following actions to disable the FIPS compliant mode:
+        
         - Remove the `[jce_provider]` configuration, which was added when enabling this feature.
         - Add the following configuration to `<IS_HOME>/repository/conf/deployment.toml` file instead of removing the configuration.
 
