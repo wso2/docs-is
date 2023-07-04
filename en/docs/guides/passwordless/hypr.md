@@ -64,7 +64,7 @@ To configure WSO2 IS with HYPR as a federated authenticator.
 
 6. Click **Update** to save the configurations.
 
-## Add HYPR authenticator to the app
+## Enable HYPR login for the application
 
 To configure HYPR as an authenticator for your application:
 
