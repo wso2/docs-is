@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: WSO2 Identity Server - Identity Verification API definition
   description: |-
-    This document specifies an **Identity Verification RESTful API** for **WSO2 Identity Server**. The APIs provide the capability to verify an identity and retrive the verification status of identities. Moreover APIs are available to add/update/delete/patch identity verification providers.
+    This document specifies the **Identity Verification RESTful API** for **WSO2 Identity Server**. The APIs provide the capability to verify an identity and retrieve the verification status of identities. Moreover, APIs are available to add, update, delete, and patch identity verification providers.
   termsOfService: http://swagger.io/terms/
   contact:
     name: WSO2

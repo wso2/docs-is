@@ -1,7 +1,7 @@
 ---
 template: templates/swagger.html
 ---
-# Identity Verification Provider API Definition
+# Identity Verification Management API Definition
 
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server (WSO2 IS).
@@ -18,7 +18,7 @@ template: templates/swagger.html
 
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-     url: "{{base_path}}/apis/restapis/idv-provider.yaml",
+     url: "{{base_path}}/apis/restapis/idv.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
