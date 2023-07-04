@@ -252,24 +252,24 @@ The `template.json` file contains the template that is used to create the IDV pr
 
 The `template.json` should have the following structure.
 
-```
+``` json
 {
-    "Type": "< IDV Provider type >",
-    "Name": "< A default name for the IDV Provider >",
-    "description": "< A default description for the IDV Provider >",
-    "isEnabled": < Should the IDV Provider be enabled by default >,
+    "Type": "<IDV Provider type>",
+    "Name": "<A default name for the IDV Provider>",
+    "description": "<A default description for the IDV Provider>",
+    "isEnabled": <Should the IDV Provider be enabled by default>,
     "claims": [
         {
-            "localClaim": "< Local claim that should be mapped to IDVP claim >",
-            "idvpClaim": "< Extenal claim >"
+            "localClaim": "<Local claim that should be mapped to IDVP claim>",
+            "idvpClaim": "<Extenal claim>"
         },
         .... other default claim mappings ...
     ],
     "configProperties": [
     {
-        "key": "< key of the config property >",
-        "value": "< default value for the config property >",
-        "isSecret": < should the property be stored as a secret  >
+        "key": "<key of the config property>",
+        "value": "<default value for the config property>",
+        "isSecret": <should the property be stored as a secret>
     },
     .... other default config properties ...
     ]
