@@ -5,7 +5,7 @@
 This guide explains how you can use HYPR to add passwordless login to applications registered in the Identity Server.
 
 ## Prerequisites
-You need to set up your application. For this tutorial, we will be using the [sample SAML application]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application. Note that you can use any application you wish to use.
+You need to set up your application. For this tutorial, we will be using the [sample SAML application]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample). Note that you can use any application you wish to use.
 
 ## Set up your HYPR environment
 
