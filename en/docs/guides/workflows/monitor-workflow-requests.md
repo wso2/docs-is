@@ -1,19 +1,32 @@
-# Monitor Workflow Requests
+# Monitor workflow requests
 
-Workflow Requests can be monitored through the management console. To do this, go to **Monitor > Workflow Requests** to analyze the workflow
-request data.
+You can monitor the workflow requests through the management console.
+
+To analyze the workflow request data, on the Management Console, go to **Monitor > Workflow Requests**. You will be able to see the workflow requests.
 
 !!! info
     To monitor these requests, a user needs to have the following permissions:
 
-    - /permission/admin/manage/identity/workflow/association/view
+    - `/permission/admin/manage/identity/workflow/association/view`
+    - `/permission/admin/manage/identity/workflow/monitor/view`
 
-    - /permission/admin/manage/identity/workflow/monitor/view
+    ![monitor-workflow-requests]({{base_path}}/assets/img/guides/workflows/monitor-workflow-requests.png)
 
-    ![monitor-workflow-requests]({{base_path}}/assets/img/guides/workflows/monitor-workflow-requests.png) 
+## Filter workflow requests
+The displayed workflow requests can be filtered based on the following criteria:
 
-Workflow requests can also be filtered based on the request type, the status of the Workflow request, and based on the timestamp that the requests were triggered or requests updated. In addition, the Event Type (user store operation) and request parameters can be viewed on this page.
+- request type
+- status of the workflow request
+- timestamp that the requests were triggered or updated
+
+## Workflow request sample
 
 ![workflow-request-list]({{base_path}}/assets/img/guides/workflows/workflow-request-list.png)
 
-The corresponding Workflow Request ID, Workflow Name, and current status of each workflow associated with the request can be viewed by clicking the **Workflows** button under the **Actions** column in the **Workflow Request List**.
+In addition, the **Event Type**, you can view the following request parameters.
+
+- Workflow Request ID
+- Workflow Name
+- Current status
+
+To view the request parameters, click **Workflows** under the **Actions** column in the **Workflow Request List**.

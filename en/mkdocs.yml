@@ -606,6 +606,11 @@ nav:
           - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
           - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
       - Tenants: references/concepts/introduction-to-multitenancy.md
+      - Workflows:
+          - Add a workflow definition: guides/workflows/add-a-new-workflow-definition.md
+          - Engage a workflow in an operation: guides/workflows/engage-a-workflow-in-an-operation.md
+          - Manage human tasks: guides/workflows/manage-human-tasks.md
+          - Monitor workflow requests: guides/workflows/monitor-workflow-requests.md
     - WSO2 IS Extensions:
       #- Work with the Source Code: references/extend/work-with-the-source-code.md
       - Authentication:
@@ -1455,7 +1460,8 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 6.0.0
-  base_path: https://is.docs.wso2.com/en/6.0.0
+  #base_path: https://is.docs.wso2.com/en/6.0.0
+  base_path: http://127.0.0.1:8000/en/6.0.0
 
   nav_list:
     - Home

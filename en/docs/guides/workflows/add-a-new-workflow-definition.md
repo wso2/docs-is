@@ -1,73 +1,62 @@
-# Add a New Workflow Definition
+# Add a workflow definition
 
-This section explains how to add a new workflow in WSO2 Identity Server. These workflows provide a means of fine-tuning the process of approving accounts.
+Workflows provide a method of fine-tuning the process of approving accounts. This guide walks through how to add a new workflow in WSO2 Identity Server.
 
-Let's get started.
+To add a new workflow:
 
 !!! tip "Before you begin"
-    1. Create the user roles with which you plan to approve users, along with the following permissions. Note that the domain must be specified as **Internal**, or it will be considered a 'group' instead of a 'role'.
-        -   Login
-        -   Human Tasks > View Task List
-        -   Workflow Management > BPS Profiles >View
+    1. Create the user roles with which you plan to approve users, along with the following permissions. Note that the domain must be specified as **INTERNAL**, or it will be considered a 'group' instead of a 'role'.
+        -   `Login`
+        -   `Human Tasks` > `View Task List`
+        -   `Workflow Management` > `BPS Profiles` > `View`
 
-        For instructions, see [Configuring Roles and Permissions]({{base_path}}/guides/identity-lifecycles/manage-roles-overview).
+        For more details, see how to [configure roles and permissions]({{base_path}}/guides/identity-lifecycles/manage-roles-overview).
     
-    2. Assign users to the roles that you created. For instructions, see [Configuring Users]({{base_path}}/guides/identity-lifecycles/manage-user-overview).
+    2. Assign users to the roles that you created. For more instructions, see [Configuring Users]({{base_path}}/guides/identity-lifecycles/manage-user-overview).
 
 
-1. On the **Main** tab of the Management Console, click **Manage > Workflow Definition > Add**.
+1. On the Management Console, go to **Manage > Workflow Definition > Add**.
 
-2. Enter a `workflow name` and `description` and click **Next**.
-    <html>
-    <head>
-    </head>
-    <body>
-        <img src="{{base_path}}/assets/img/guides/workflows/add-workflow-definitions.png" width="500">
+2. Enter a name and description for your workflow and click **Next**.
+    ![Add workflow definition]({{base_path}}/assets/img/guides/workflows/add-workflow-definitions.png)
 
-    </body>
-    </html>
+3. Click **Add Approval Step**.
 
-3. Set the required approval levels.
+    !!! note
+        Each approval step represents a user approving an account of another user. The user who approves the account can have a specific role or be a specific user. In this scenario, users are assigned a specific user role to approve accounts.
 
-    !!! example
+    1. Search for the required Role/s or User/s and click **Add Selected Role** or **Add Selected Role** respectively.
 
-        You may require a user with a `Manager` role first to approve user accounts, followed by the approval of a user with a `SeniorManager` role. To set up this scenario:
+        !!! note
+            You can click **Add Approval Step** again and follow the above step to add another approval step.
+            ![Add multiple approval steps]({{base_path}}/assets/img/guides/workflows/multi-step-approval-step.png)
 
-        1. To add an approval level, click **Add Approval Step**.    
-            Each approval step represents a user approving an account of another user. The user who approves the account can have a specific role or be a specific user. In this
-            scenario, users that are assigned to a specific user role approve accounts.
-        2. To search for a user role in a specific user store, select the **Search Roles** radio button. Alternatively, to search for a specific user, select the **Search Users** radio button.
-        3. To select the user store in which your user or role resides, choose it from the **Select Domain** dropdown.
-        4. Enter the `role name` or `user name` and click **Search Roles**.
-        5. Select the check-box associated with the user name or user role name that you require and click **Add Selected Roles** or **Add Selected Users**.
-        6. Click **Next** to move to the next step.   
-            ![workflow-fields]({{base_path}}/assets/img/guides/workflows/workflow-fields.png)
-
+    2. Click **Next** to move to the next step.
+        ![workflow-fields]({{base_path}}/assets/img/guides/workflows/workflow-fields.png)
 
     !!! info
         The Workflow Template in the above sample defines the template for a specific workflow. A template will have a specific flow where the parameters can be customized (e.g., Send email notifications for some users, get approval from a user to continue).
         WSO2 Identity Server supports custom templates that can be deployed as OSGi services. For more information on writing workflow templates, see [Writing a Custom Workflow Template]({{base_path}}/develop/extend/workflows/write-a-custom-workflow-template).
 
-4. Enter the deployment information of the template as described below.
+4. Enter the following deployment information.
+
+    ![deployment-information]({{base_path}}/assets/img/guides/workflows/deployment-information.png)
 
     | Attribute    | Description    |
     |--------------|----------------|
-    | BPS Profile  | This is the name of the required BPS profile. This field defines the deployment type of the workflow template. Other custom execution deployment types are also supported, where you will be able to select the desired executor for a given use case. (i.e., a dropdown will appear in the UI to select the required executor).   |
+    | BPS Profile  | This is the name of the required BPS profile. This field defines the deployment type of the workflow template. Other custom execution deployment types are also supported, where you can select the desired executor for a given use case. (i.e., a dropdown will appear in the UI to select the required executor).   |
     | Task Subject | This is the subject of the workflow request for approval.  |
     | Task Detail  | This is the body of the workflow request for approval. |
-
-    ![deployment-information]({{base_path}}/assets/img/guides/workflows/deployment-information.png)
 
     !!! note
 
         The same template can have multiple deployment types (e.g., A notification template may have implementations with sending emails or sending human task notifications), whereas, in some templates, there will only be a single implementation.
 
-5. Click **Finish** to complete the process. You will be able to view the workflow you just added by navigating to **Workflow Definitions \> List** under the **Manage** Section.
+5. Click **Finish** to complete the process.
+    You will be able to see the workflow you just added.
 
 ---
 
 ## What's next?
 
-Now you need to add the workflow you created to an operation. For more
-information, see [Engaging a Workflow in an
-Operation]({{base_path}}/guides/workflows/engage-a-workflow-in-an-operation).
+Now you need to add the workflow you created to an operation. For more information, see [Engaging a Workflow in an Operation]({{base_path}}/guides/workflows/engage-a-workflow-in-an-operation).
