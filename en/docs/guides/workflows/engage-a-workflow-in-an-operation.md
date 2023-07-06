@@ -2,38 +2,33 @@
 
 You can engage workflows in certain operations, such as engaging the approval workflow for the operation of adding a user. This section explains the steps to do this.
 
-1. On the **Main** tab in the Management Console, click **Manage > Workflow Engagement > Add**.
-2. Enter the required details as given below.
+1. On the Management Console, go to **Manage > Workflow Engagement > Add**.
+2. Enter the required details under **Association Details** and **Workflow Details** as given below.
 
     ![new-workflow-engagement]({{base_path}}/assets/img/guides/workflows/new-workflow-engagement.png)
 
-    - **Association name**: This is a name to identify the association.
+    **Association Details**
 
-    - **Operation category**: This is the category of the operation to be selected for the workflow engagement.
+    | Parameter | Description   |
+    |-----------|---------------|
+    | Association name  | This is a name to identify the association.   |
+    | Operation category    | Select the operation category for the workflow engagement. |
+    | Operation name    | This is the operation to be selected. |
 
-    - **Operation name**: This is the operation to be selected.
+    **Workflow Details**
 
-    - **Workflow**: This is the workflow you need to engage for the event. You may either use an existing workflow definition or [create a workflow definition]({{base_path}}/guides/workflows/add-a-new-workflow-definition).
+    This is the workflow you need to engage for the event. You may either use an existing workflow definition or [create a new workflow definition]({{base_path}}/guides/workflows/add-a-new-workflow-definition).
 
-    - **The Application condition**: You can use the following three options to filter requests that need to be managed by the selected workflow.
+    You can use the following three options to filter requests that need to be managed by the selected workflow.
 
-        <ul>
-            <li><b>Apply to all Requests</b>: If this option is selected, the selected workflow will be triggered for all the requests of the selected operation.</li>
-            <li>
-                <p><b>Apply If</b>: If this option is selected, the selected workflow only gets triggered if the condition is satisfied. For example, the following configuration will select add user operations where username contains 'sys'. (This option supports simple conditions. If the condition is complex where multiple conditions are evaluated with connectors (and/or), use the Advance section.)</p>
-                <p><img src="{{base_path}}/assets/img/guides/workflows/apply-if.png"></p>
-            </li>
-            <li>
-                <p><b>Advanced</b>: If this option is selected, you can define an XPath expression to filter the requests that need to go through the selected workflow. For example, the following configuration will select add user operations where username contains 'sys'.</p>
-                ```
-                boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])
-                ```
-                <p><img src="{{base_path}}/assets/img/guides/workflows/advanced-workflow.png"></p>
-            </li>
-        </ul>
+    | Application condition | Definition    | Example   |
+    |-----------------------|---------------|-----------|
+    | Apply to all Requests | If this option is selected, the selected workflow will be triggered for all the requests of the selected operation.   | N/A   |
+    | Apply If  | If this option is selected, the selected workflow only gets triggered if the condition is satisfied.  | The following configuration will select add user operations where username contains 'sys'. (This option supports simple conditions. Use the Advanced section for complex conditions.) ![Apply if example]({{base_path}}/assets/img/guides/workflows/apply-if.png)  |
+    | Advanced  | If this option is selected, you can define an XPath expression to filter the requests that need to go through the selected workflow.  | The following configuration will select add user operations where username contains `sys`. Code: ```boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])``` ![Advanced example]({{base_path}}/assets/img/guides/workflows/advanced-workflow.png)    |
 
-
-3. Click **Add** to complete adding the engagement. You can view, disable, or delete the association by navigating to **Manage > WorkFlows Engagements > List**.  
+3. Click **Add** to complete adding the engagement.
+    You can view, disable, or delete the association by navigating to **Manage > WorkFlows Engagements > List**.  
 
 ---
 
