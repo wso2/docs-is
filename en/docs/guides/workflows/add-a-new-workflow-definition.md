@@ -12,7 +12,7 @@ To add a new workflow:
 
         For more details, see how to [configure roles and permissions]({{base_path}}/guides/identity-lifecycles/manage-roles-overview).
     
-    2. Assign users to the roles that you created. For more instructions, see [Configuring Users]({{base_path}}/guides/identity-lifecycles/manage-user-overview).
+    2. Assign users to the roles that you created. Note that the users should have `admin` permissions, else it will not be possible to perform workflow approvals. For more instructions, see [Configuring Users]({{base_path}}/guides/identity-lifecycles/manage-user-overview).
 
 
 1. On the Management Console, go to **Manage > Workflow Definition > Add**.

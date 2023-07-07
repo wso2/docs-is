@@ -3,9 +3,7 @@
 Human tasks are the steps that require human interaction to allow the process of the operation to proceed. Follow the steps below to test the workflow.
 
 1. Sign in to WSO2 Identity Server with the admin credentials.
-2. Create a user with the name `Alex`. After you successfully create the
-    user, it will be greyed out, as shown below, until a manager approves
-    adding the user account.
+2. Create a user with the name `Alex`. After you successfully create the user, you will be able to see the user details are greyed-ou until a user with the `Manager` role approves adding the user account.
 
     !!! tip
         All pending status workflows are denoted in this manner, with
@@ -13,33 +11,40 @@ Human tasks are the steps that require human interaction to allow the process of
 
     ![workflow-pending-status]({{base_path}}/assets/img/guides/workflows/console.png)  
 
-3. [Sign in to the My Account]({{base_path}}/guides/my-account/my-account) as a manager. 
+3. Sign in to the Console app as a user with the `Manager` role.
 
-4. Choose **Operations** from the left panel. Select **Ready** tab in **Pending Approvals**.  
+4. Go to **Manage** > **Approvals** and select the **Ready** tab in **Pending Approvals**.  
 
     ![pending-approvals]({{base_path}}/assets/img/guides/workflows/pending-list.png)       
 
 5. To view more information about the request, click the **show more** button corresponding to the request made for user Alex.
 
-    ![workflow-task-status]({{base_path}}/assets/img/guides/workflows/pending-info.png) 
+    ![workflow-task-status]({{base_path}}/assets/img/guides/workflows/pending-info.png)
 
-6. Click on the button corresponding to a state to move the state of the selected task to a new state and to complete
-    the workflow approval process. For example, clicking **Approve** will approve the pending task and complete the workflow process. Now you can find this request in the **Completed** tab.  
-    ![approving-pending-task]({{base_path}}/assets/img/guides/workflows/approved.png)   
+6. Click on the button corresponding to a state to move the state of the selected task to a new state and to complete the workflow approval process. For example, clicking **Approve** will approve the pending task and complete the workflow process. Now you can find this request in the **Completed** tab.  
+    ![approving-pending-task]({{base_path}}/assets/img/guides/workflows/approved.png)
 
-    | Operation  | Description                                                                                                                                                               |
-    |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Operation  | Description  |
+    |------------|--------------|
     | Claim      | Get the approval task assigned to the logged-in user. If there are multiple users eligible for this task, they cannot claim this task until this user releases this task. |
-    | Approve    | Approve the task.                                                                                                                                                         |
-    | Reject | Disapprove the task. The requested operation will be canceled.                                                                                                             |
-    | Release    | Release the task so that other users can claim and approve or disapprove it.                                                                                                |
+    | Approve    | Approve the task.    |
+    | Reject | Disapprove the task. The requested operation will be canceled.   |
+    | Release    | Release the task so that other users can claim and approve or disapprove it. |
 
 !!! info
     The workflow comes with some advanced features, such as:
 
-    -   Multi-step approvals
+    - Multi-step approvals
     - User-specific approvals
-    -   Multiple role-based approvals
+    - Multiple role-based approvals
 
-    Instead of a one-step approval, there can be multiple steps to the approval flow. For example, a workflow with two-step approval where in the first step, the role to authorize the request is the Manager, and in the second step, the role to authorize the request is the SeniorManager.
-    In this case, only users with a Manager role can initially see the pending approvals when a user is added to the system. After the users with this role approve the pending tasks, then the users with SeniorManager role can see the pending tasks. After both users approve, the task is completed.
+    Instead of a one-step approval, there can be multiple steps to the approval flow. 
+    
+    **Example**
+    
+    Consider a workflow with two-step approval as follows: 
+
+    - Step 1: The role to authorize the request is the `Manager`
+    - Step 2: The role to authorize the request is the `SeniorManager`
+    
+    In this case, only users with a `Manager` role can initially see the pending approvals when a user is added to the system. After the users with this role approve the pending tasks, the users with the `SeniorManager` role can see the pending tasks. After both users approve, the task is completed.
