@@ -3,33 +3,30 @@
 Human tasks are the steps that require human interaction to allow the process of the operation to proceed. Follow the steps below to test the workflow.
 
 1. Sign in to WSO2 Identity Server with the admin credentials.
-2. Create a user with the name `Alex`. After you successfully create the user, you will be able to see the user details are greyed-ou until a user with the `Manager` role approves adding the user account.
-
-    !!! tip
-        All pending status workflows are denoted in this manner, with
-        disabled or greyed-out functions.
+2. Create a new user. After you successfully create the user, you will be able to see the user details are greyed-ou until a user with the `Manager` role approves adding the user account.
 
     ![workflow-pending-status]({{base_path}}/assets/img/guides/workflows/console.png)  
 
 3. Sign in to the Console app as a user with the `Manager` role.
 
-4. Go to **Manage** > **Approvals** and select the **Ready** tab in **Pending Approvals**.  
+4. Go to **Manage** > **Approvals**. You will see all the approval tasks in this page.
 
-    ![pending-approvals]({{base_path}}/assets/img/guides/workflows/pending-list.png)       
+    ![pending-approvals]({{base_path}}/assets/img/guides/workflows/approvals.png)
 
-5. To view more information about the request, click the **show more** button corresponding to the request made for user Alex.
-
-    ![workflow-task-status]({{base_path}}/assets/img/guides/workflows/pending-info.png)
-
-6. Click on the button corresponding to a state to move the state of the selected task to a new state and to complete the workflow approval process. For example, clicking **Approve** will approve the pending task and complete the workflow process. Now you can find this request in the **Completed** tab.  
-    ![approving-pending-task]({{base_path}}/assets/img/guides/workflows/approved.png)
+5. Click on the approval task with the `RESERVED` state tag. You can view more information about the approval tasks and perform any of the following operations:
 
     | Operation  | Description  |
     |------------|--------------|
     | Claim      | Get the approval task assigned to the logged-in user. If there are multiple users eligible for this task, they cannot claim this task until this user releases this task. |
     | Approve    | Approve the task.    |
     | Reject | Disapprove the task. The requested operation will be canceled.   |
-    | Release    | Release the task so that other users can claim and approve or disapprove it. |
+
+    ![workflow-task-status]({{base_path}}/assets/img/guides/workflows/pending-approval-task.png)
+
+    For example, clicking **Approve** will approve the pending task and complete the workflow process. Once a pending task is approved the state of the approval task will be updated to `COMPLETED`.
+    
+    ![approving-pending-task]({{base_path}}/assets/img/guides/workflows/approved.png)
+
 
 !!! info
     The workflow comes with some advanced features, such as:

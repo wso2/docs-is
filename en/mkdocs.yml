@@ -606,7 +606,8 @@ nav:
           - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
           - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
       - Tenants: references/concepts/introduction-to-multitenancy.md
-      - Workflows:
+      - Workflow Management:
+          - Overview: guides/workflows/overview.md
           - Add a workflow definition: guides/workflows/add-a-new-workflow-definition.md
           - Engage a workflow in an operation: guides/workflows/engage-a-workflow-in-an-operation.md
           - Manage human tasks: guides/workflows/manage-human-tasks.md
