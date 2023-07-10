@@ -171,9 +171,7 @@ You can find the available local authenticators in the table below.
 <a name = "idf-username-validation"></a>
 **Username validation for Identifier First handler**
 
-For the Identifier First handler, by default the username validation will not happen unless the validation is 
-enabled server wide. You can configure the username validation for your applications by specifying 
-`ValidateUsername` property in the `authenticatorParams` object.
+For the Identifier First handler, by default, the username validation will not happen unless the validation is enabled server-wide. You can configure the username validation for your applications by specifying the `ValidateUsername` property in the `authenticatorParams` object.
 
 **Example code**
 
