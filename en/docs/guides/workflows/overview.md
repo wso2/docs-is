@@ -11,9 +11,9 @@ This topic demonstrates how you can work with workflows in the WSO2 Identity Ser
 
 ## Sample use case
 
-Consider a company where new employees are added to the system by HR team but only after it goes through an approval process.
+Consider a company where new employees are created by HR team but will be added to the system only after it goes through an approval process.
 
-For example, a senior HR manager has to approve new user additions. Once this is done, the users can log in to the system and continue their work. The following pre-requisites are necessary to implement this sample use case:
+A senior HR manager has to approve new user additions. Once this is done, the users can log in to the system and continue their work.
 
 ![sample-for-workflow]({{base_path}}/assets/img/guides/workflows/sample-for-workflow.png)
 
