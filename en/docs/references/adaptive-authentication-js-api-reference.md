@@ -191,8 +191,7 @@ executeStep(1, {
 
 !!! note
 
-    Please note this will override the `ValidateUsername` authenticator config that can be configured through the 
-    `deployment.toml` file.
+    Note that these configurations will override the `ValidateUsername` authenticator config in the `deployment.toml` file.
 
 ---
 
