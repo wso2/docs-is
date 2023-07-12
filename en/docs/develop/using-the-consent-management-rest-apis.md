@@ -66,7 +66,7 @@ Add the following configuration to the `<IS_HOME>/repository/conf/deployment.tom
 
 !!! info
     
-    For information on the REST APIs, supported operations and sample requests/responses, see [Consent Management APIs Swagger Documentation](https://api-docs.wso2.com/apidocs/is/is511/Consent-management-apis/).
+    For information on the REST APIs, supported operations and sample requests/responses, see [Consent Management APIs Swagger Documentation](https://api-docs.wso2.com/apidocs/is/is511/consent-management-v5.11.0/).
     
 
 ### Extension points
