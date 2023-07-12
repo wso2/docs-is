@@ -209,7 +209,7 @@ To store the SMTP email configuration, follow the steps given below:
 2.  Open a terminal window and run the following commands.
 
     1.  Create a resource type named "email" using the [Create resource
-        type](https://docs.wso2.com/display/IS580/apidocs/Configuration-management-apis/index.html#!/operations#ResourceType#resourceTypePost)
+        type](https://api-docs.wso2.com/apidocs/is/is580/Configuration-management-apis/index.html#!/operations#ResourceType#resourceTypePost)
         API.
 
         **Sample Request**
@@ -226,7 +226,7 @@ To store the SMTP email configuration, follow the steps given below:
 
     2.  Create a resource named "smtp" in the super tenant domain under
         the "email" resource type using the [Create
-        resource](https://docs.wso2.com/display/IS580/apidocs/Configuration-management-apis/index.html#!/operations#Resource#resourceResourceTypePost)
+        resource](https://api-docs.wso2.com/apidocs/is/is580/Configuration-management-apis/index.html#!/operations#Resource#resourceResourceTypePost)
         API.  Note that the "from" attribute is defined within this
         sample request therefore, when the new resource is created a new
         attribute named "from" will be created under the "smtp" resource
@@ -247,7 +247,7 @@ To store the SMTP email configuration, follow the steps given below:
 3.  Next, assume that you now need to add an additional attribute named
     "to" to the "smtp" email configuration. To do this, create a new
     attribute named "to" using the [Create
-    attribute](https://docs.wso2.com/display/IS580/apidocs/Configuration-management-apis/index.html#!/operations#Attribute#resourceResourceTypeResourceNamePost)
+    attribute](https://api-docs.wso2.com/apidocs/is/is580/Configuration-management-apis/index.html#!/operations#Attribute#resourceResourceTypeResourceNamePost)
     API by running the following command on the terminal.
 
     **Sample Request**
