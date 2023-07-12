@@ -355,7 +355,7 @@ Follow the steps below to configure WSO2 Identity Server to resend account recov
     6.  **Email Footer** :  --
 
 !!! tip
-    For information on the REST API for resending confirmation code, see [Resend-Code Using REST API](https://api-docs.wso2.com/apidocs/is/is590/self-registration/#!/operations#ResendConfirmation#resendCodePost).
+    For information on the REST API for resending confirmation code, see [Resend-Code Using REST API](https://api-docs.wso2.com/apidocs/is/is590/self-registration/#!/operations#SelfRegister#resendCodePost).
 
 
             
