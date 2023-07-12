@@ -150,7 +150,7 @@ curl -v -k --user bob123:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:
 Upon receiving the response given above, the user will receive an SMS notification with a verification code to the new mobile number. 
 
 To validate the verification code sent to the user, use the existing `validate-code` and `resend-code` APIS of the
- [Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/self-registration/). 
+ [Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/selfregister-v5.11.0/). 
  
 ### Validating the verification code
 
