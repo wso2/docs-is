@@ -1,7 +1,7 @@
 # Using the Self Sign-Up REST APIs
 
 !!! tip    
-    For information on configuring self-sign up using REST APIs, see the [swagger docs on Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/self-registration/).
+    For information on configuring self-sign up using REST APIs, see the [swagger docs on Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/selfregister-v5.11.0/).
     
 
 !!! info "Related Links" 
