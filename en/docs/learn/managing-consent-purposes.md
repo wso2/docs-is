@@ -128,6 +128,6 @@ management console.
 
     !!! tip "Deleting PII Category"
     
-        To delete a specific PII cateogry, use the consent management [Delete PII Category REST API](https://docs.wso2.com/apidocs/is/is590/Consent-management-apis/index.html#!/operations#PIICategory#consentsPiiCategoriesPiiCategoryIdDelete). Note that you can not delete a PII category that is already
+        To delete a specific PII cateogry, use the consent management [Delete PII Category REST API](https://api-docs.wso2.com/apidocs/is/is590/Consent-management-apis/index.html#!/operations#PIICategory#consentsPiiCategoriesPiiCategoryIdDelete). Note that you can not delete a PII category that is already
         associated with a consent receipt.
     
