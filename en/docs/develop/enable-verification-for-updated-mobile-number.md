@@ -241,4 +241,4 @@ Additionally, you can use the following curl command to resend a new SMS OTP cod
 !!! info "Related Topics"
     See [SCIM 2.0 Rest APIs](../../develop/scim2-rest-apis) for instructions on using SCIM 2.0 REST APIs.
     
-    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/self-registration/).
+    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is511/selfregister-v5.11.0/).
