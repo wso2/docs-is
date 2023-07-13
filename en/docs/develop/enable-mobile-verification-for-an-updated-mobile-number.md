@@ -211,7 +211,7 @@ curl -v -k --user bob123:pass123 -X PATCH -d '{"schemas":["urn:ietf:params:scim:
 Upon receiving the response given above, the user will receive an SMS notification with a verification code to the new mobile number. 
 
 To validate the verification code sent to the user, use the existing `validate-code` and `resend-code` APIS of the
- [Self Registration REST APIs](https://docs.wso2.com/display/IS510/apidocs/self-registration/). 
+ [Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is510/self-registration/). 
  
 ### Validating the verification code
 
@@ -273,4 +273,4 @@ curl -X POST -H "Authorization: Basic Ym9iMTIzOnBhc3MxMjM=" -H "Content-Type: ap
 !!! info "Related Topics"
     See [Using the SCIM 2.0 Rest APIs](../../develop/using-the-scim-2.0-rest-apis) for instructions on using SCIM 2.0 REST APIs.
     
-    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](https://docs.wso2.com/display/IS510/apidocs/self-registration/).
+    For information on validate-code, and resend-code REST APIs, see the [swagger docs on Self Registration REST APIs](https://api-docs.wso2.com/apidocs/is/is510/self-registration/).
