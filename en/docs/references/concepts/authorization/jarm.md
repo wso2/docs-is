@@ -2,7 +2,7 @@
 
 The [JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) specification](https://openid.net/specs/openid-financial-api-jarm-ID1.html) defines new JWT-based modes to encode OAuth2 authorization responses. These modes allow clients to request authorization response parameters and additional data in JWT format.
 
-## Authorization flow
+## JARM authorization flow
 
 Below is a sample authorization request sent to the authorization endpoint of the WSO2 Identity Server.
 
