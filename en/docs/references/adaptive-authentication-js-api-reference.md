@@ -139,6 +139,24 @@ executeStep(1,{
 
 The implementation of utility functions can be found in the [WSO2 extensions code repository](https://github.com/wso2-extensions/identity-conditional-auth-functions).
 
+
+#### isMemberOfAnyOfGroups()
+
+This function returns true if the specified user belongs to at least one of the given groups, and returns false if the user does not. It includes the parameters listed below.
+
+| Parameter | Description                                  |
+|-----------|----------------------------------------------|
+| user      | A user object representing the user details. |
+| group    | A list of strings that contain the groups. Each string is a group name.    |
+
+``` java
+var isMember = isMemberOfAnyOfGroups(user, group);",
+if (isMember) {",
+    Log.info(user.username + ' is a member of one of the groups: ' + group.toString());",
+    executeStep(2);",
+}"
+```
+
 #### hasRole(user, role)
 
 This function returns `true` if the specified 
