@@ -4,7 +4,9 @@ Pushed Authorization Request (PAR) is an OAuth 2.0 specification that secures th
 
 The PAR specification defines the `/par` endpoint in the authorization server, and enables an OAuth client to push the payload of an authorization request directly to this endpoint. The endpoint in response, will return a `request_uri` which acts as a reference to the registered authorization request.
 
-When making the authorization request to the authorization endpoint, it is sufficient to send this reference instead of sending the complete authorization request payload thus query parameters are never exposed to the user agent.
+When making the authorization request to the authorization endpoint, it is sufficient to send the `request_uri` instead of sending the complete authorization payload thus protecting the payload from being exposed to the user agent via query parameters.
+
+Learn more about [Pushed authorization requests]({{base_path}}/references/concepts/authorization/pushed-authorization-requests).
 
 ## Register a service provider
 

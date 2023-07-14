@@ -756,6 +756,7 @@ nav:
             - JWT Bearer Grant Type: references/concepts/authorization/jwt-bearer-grant-type.md
             - SAML2 Bearer Assertion Profile: references/concepts/authorization/saml2-bearer-assertion-profile.md
             - Kerberos Grant Type: references/concepts/authorization/kerberos-grant.md
+          - Pushed Authorization Requests: references/concepts/authorization/pushed-authorization-requests.md
           - Tokens:
             - Access Tokens: references/concepts/authorization/access-token.md
             - Refresh Tokens: references/concepts/authorization/refresh-token.md
