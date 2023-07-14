@@ -167,7 +167,7 @@ This is an additional improvement which enables hosting `accountrecoveryendpoin
         environment, you may create a new keystore and truststore for tomcat
         and point to it. When using separate keystores and truststores, you
         need to import tomcat keystore’s public cert in to: `<IS_HOME>/repository/resources/security/client-truststore.jks` and, public cert of `<IS_HOME>/repository/resources/security/wso2carbon.jks` into tomcat’s truststore.
-    
+
 
 3.  Open `<TOMCAT_HOME>/bin/catalina.sh` and add the following JAVA\_OPTS.
 
