@@ -414,7 +414,7 @@ This functions sets a new cookie. It includes the following parameters.
     The size of the value has to be less than the RSA key pair length if 
     `                   encrypt                 ` is enabled (set to
     `true`).
-    
+
 
 ``` java
 setCookie(context.response, "name", "test", {"max-age" : 4000,
