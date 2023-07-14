@@ -146,6 +146,7 @@ nav:
             - FIDO Passwordless Authentication: guides/passwordless/fido.md
             - FIDO2 Attestation Validations: guides/passwordless/fido-attestation.md
           - Magic Link: guides/passwordless/magic-link.md
+          - HYPR: guides/passwordless/hypr.md
         - Multi-Factor Authentication:
           - Overview: guides/mfa/mfa-overview.md
           - Username and Password: guides/mfa/username-and-password.md
@@ -469,6 +470,7 @@ nav:
         - Set up WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Set up Separate Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
+        - Enable FIPS 140-2-compliant mode: deploy/enable-fips-for-is.md
         - Configure Hazelcast: deploy/configure-hazelcast.md
         - Deployment Checklist: deploy/deployment-checklist.md
         - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
@@ -551,6 +553,9 @@ nav:
       - Server configuration API: apis/configs-rest-api.md
       - Permission management API : apis/permission-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
+      - Identity Verification:
+        - Identity verification Provider API: apis/idvp-rest-api.md
+        - Identity verification management API: apis/idv-rest-api.md
       - Admin services:
         - Call admin services: apis/call-admin-services.md
         - One way operations: apis/admin-services-for-one-way-operations.md
@@ -607,6 +612,11 @@ nav:
           - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
           - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
           - JIT Consent Purposes: guides/identity-federation/resident-jit-consent.md
+      - Identity Verification:
+        - Overview: guides/identity-verification/identity-verification-overview.md
+        - Register an IdVP: guides/identity-verification/add-idvp.md
+        - Manage an IdVP: guides/identity-verification/manage-idvp.md
+        - Onboard the UI of an IdVP: guides/identity-verification/idvp-ui.md
       - Tenants: references/concepts/introduction-to-multitenancy.md
     - WSO2 IS Extensions:
       #- Work with the Source Code: references/extend/work-with-the-source-code.md
@@ -750,6 +760,7 @@ nav:
             - Refresh Tokens: references/concepts/authorization/refresh-token.md
           - Client Authentication: references/concepts/authorization/client-authentication.md
           - Token Introspection: references/concepts/authorization/introspection.md
+          - JARM for OAuth 2.0: references/concepts/authorization/jarm.md
         - User Managed Access (UMA):
           - Introduction to UMA: references/concepts/authorization/user-managed-access.md
           - Resource Registration Endpoint: references/concepts/authorization/uma-resource-registration.md
@@ -771,6 +782,7 @@ nav:
       - GDPR: references/concepts/compliance/gdpr.md
       - eIDAS: references/concepts/compliance/eidas.md
       - CCPA: references/concepts/compliance/ccpa.md
+      - FIPS 140-2: references/concepts/compliance/fips.md
 
   - '': page-not-found.md
 
