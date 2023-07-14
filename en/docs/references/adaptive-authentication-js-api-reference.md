@@ -139,6 +139,24 @@ executeStep(1,{
 
 The implementation of utility functions can be found in the [WSO2 extensions code repository](https://github.com/wso2-extensions/identity-conditional-auth-functions).
 
+
+#### isMemberOfAnyOfGroups()
+
+This function returns true if the specified user belongs to at least one of the given groups, and returns false if the user does not. It includes the parameters listed below.
+
+| Parameter | Description                                  |
+|-----------|----------------------------------------------|
+| user      | A user object representing the user details. |
+| group    | A list of strings that contain the groups. Each string is a group name.    |
+
+``` java
+var isMember = isMemberOfAnyOfGroups(user, group);",
+if (isMember) {",
+    Log.info(user.username + ' is a member of one of the groups: ' + group.toString());",
+    executeStep(2);",
+}"
+```
+
 #### hasRole(user, role)
 
 This function returns `true` if the specified 
@@ -263,7 +281,7 @@ if (!isAdmin) {
 
 #### fail()
 
-This function redirects the user to the redirect URI provided in the authorization request failing the authorization flow. 
+This function redirects the user to the redirect URI provided in the authorization request failing the authorization flow.
 
 This function takes a map as an optional parameter. When a map is provided as the parameter, the redirect URL will be appended with following properties which should be contained in the map, otherwise the default parameters will be passed. All the properties passed in the map are also optional.
 
