@@ -81,6 +81,7 @@ Now, let's configure the Tomcat server.
 
         !!! Info
             Be sure to replace the following placeholders:
+            
             - `$IS_HOME`: The path to your WSO2 IS distribution.
             - `$WEB_APP_TRUSTSTORE`: Go to the **authenticationendpoint** web app deployed in the Tomcat server and get the path to its trustore.
 
@@ -93,6 +94,7 @@ Now, let's configure the Tomcat server.
 
         !!! Info
             Be sure to replace the following placeholders:
+
             - `$IS_HOME`: The path to your WSO2 IS distribution.
             - `$WEB_APP_KEYSTORE`: Go to the **authenticationendpoint** web app deployed in the Tomcat server and get the path to its keystore.
 
