@@ -268,6 +268,7 @@ nav:
           # - Configure reCAPTCHA for Password Recovery: guides/password-mgt/recaptcha-password-recovery.md
           # - Configure reCAPTCHA on Invalid Challenge Question Attempt: guides/password-mgt/recaptcha-challenge-question-attempts.md
           - Configure Email Masking Pattern for Notification Based Password Recovery: guides/identity-lifecycles/configure-email-masking-pattern.md
+          - Password recovery via user preferred channel: guides/identity-lifecycles/extend-username-and-password-recovery.md
         - Provisioning:
           - Overview: guides/identity-lifecycles/provisioning-overview.md
           - Provisioning Patterns: guides/identity-lifecycles/provisioning-patterns.md

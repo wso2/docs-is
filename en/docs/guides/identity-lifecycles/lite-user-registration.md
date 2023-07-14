@@ -20,6 +20,8 @@ enable = true
 1.	Sign in to the WSO2 Identity Server [Management Console]({{base_path}}/deploy/get-started/get-started-with-the-management-console).
 
 2.	On the **Main** menu, click **Identity > Identity Providers > Resident**. 
+	
+	![resident-idp]({{base_path}}/assets/img/guides/resident-idp.png)
 
 3.	Expand **User Onboarding**. 
 
@@ -27,9 +29,12 @@ enable = true
 
 5.	Select **Lite user registration** to allow users to register without a password. 
 
-	![resident-idp]({{base_path}}/assets/img/guides/resident-idp.png)
+6.  Update the **Lite user registration callback URL regex** with a relavant one.
 
-6. Click **Update**. 
+    !!! note
+		The recommended **Lite user registration callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
+
+7. Click **Update**. 
 
 ---
 

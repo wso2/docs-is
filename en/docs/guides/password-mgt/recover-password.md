@@ -52,7 +52,12 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
     !!! note
         Select **Enable reCaptcha for password recovery** to enable reCAPTCHA for password recovery via email. See [Setting Up reCAPTCHA]({{base_path}}/deploy/configure-recaptcha) for more information.
 
-5.	Click **Update**. 
+5. Update the **Recovery callback URL regex** with a relavant one.
+
+    !!! note
+        The recommended **Recovery callback URL regex** to use when testing the product is `^https:\/\/localhost:9443\/.*`. However, users should modify it to meet their requirements when they deploy the product.
+
+6.	Click **Update**.
 
 ### Enable password recovery via email globally
 

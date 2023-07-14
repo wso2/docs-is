@@ -128,7 +128,7 @@ Configure the following to enable this feature.
     carbon_security_keystore_password="wso2carbon"
     client_truststore="client-truststore.jks"
     carbon_security_truststore_password="wso2carbon"
-    identity_server_service_url="https://localhost:9443/services/"
+    identity_server_service_url="https://localhost:9443"
     username_header="UserName"
     ```
 
@@ -298,16 +298,14 @@ page, follow the steps below.
 
 ## Handle the browser back button and bookmarked login page
 
-This section describes how to enhance the usability of authentication
-endpoint webapp with different user behavioral patterns. One such
-behavioral pattern is that the user may click the back button from
-authenticated application or keep the endpoint login page URL
+This section describes how to enhance the usability of the authentication
+endpoint web app with different user behavioral patterns. For example, the user may click the back button from the authenticated application or keep the endpoint login page URL
 bookmarked. In such situations, the user should be directed to the
 access URL specified for the application.
 
 Follow the steps below to ensure that the access URL is configured for your application:
 
-1. Start the Identity Server and log in to the Management Console.
+1. Start WSO2 IS and log in to the Management Console.
 
 2. On the Management Console, go to **Main > Identity > Service Providers**, and select the service provider registered for your application.
 
