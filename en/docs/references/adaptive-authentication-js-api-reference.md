@@ -281,7 +281,7 @@ if (!isAdmin) {
 
 #### fail()
 
-This function redirects the user to the redirect URI provided in the authorization request failing the authorization flow. 
+This function redirects the user to the redirect URI provided in the authorization request failing the authorization flow.
 
 This function takes a map as an optional parameter. When a map is provided as the parameter, the redirect URL will be appended with following properties which should be contained in the map, otherwise the default parameters will be passed. All the properties passed in the map are also optional.
 
