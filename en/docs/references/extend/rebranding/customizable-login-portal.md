@@ -6,7 +6,7 @@ All UIs are available in the `authenticationendpoint` and `accountrecoveryendpoi
 
 ## General components of the UI
 
-All pages of WSO2 Identity Server are separated into two general components as shown below. You can reference these components when you write the custom layout using a special notation.
+All pages of the WSO2 Identity Server are separated into two general components, as shown below. You can reference these components when you write the custom layout using a special notation.
     
 - Login page
     ![Login Page]({{base_path}}/assets/img/references/login-page-labelled.png)

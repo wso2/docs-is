@@ -14,7 +14,7 @@ For information on the Semantic UI theming, see [Semantic UI documentation](http
 
 ---
 
-Follow the steps given below to further customize **My Account** application. 
+Follow the steps below to customize the **My Account** application further. 
 
 ## Step 1: Create the extensions/branding folder
 
@@ -24,8 +24,8 @@ Follow the steps given below to further customize **My Account** application.
 
 ## Step 2: Create new folders for each tenant
 
-To re-brand different tenants, create folders for each tenant named after the tenant domain, inside the newly created `branding` folders.
-For example, if the tenant domain is `rusticfox.com`, create a folder named `rusticfox.com` inside the `extensions/branding` folder.
+To rebrand different tenants, create folders for each tenant named after the tenant domain, in the newly created `branding` folder.
+For example, if the tenant domain is `rusticfox.com`, create a folder named `rusticfox.com` in the `extensions/branding` folder.
 
 ---
 
