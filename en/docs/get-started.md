@@ -2,7 +2,7 @@
 template: templates/2-column.html
 ---
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link href="https://wso2.cachefly.net/wso2/sites/all/fonts/docs/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2" rel="stylesheet" />
 
 ## Get Started! 
 
