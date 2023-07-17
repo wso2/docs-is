@@ -38,3 +38,16 @@
     }
   </style>
 {% endblock %}
+
+{% block fonts %}
+	{% if font != false %}
+    <style>
+      @font-face {
+        font-family: 'Material Icons';
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://wso2.cachefly.net/wso2/sites/all/fonts/docs/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+      }
+    </style>
+  {% endif %}
+{% endblock %}
