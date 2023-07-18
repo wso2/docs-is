@@ -1,4 +1,4 @@
-# Re-brand the Default Login Page for Your Application
+# Customize the Default Login Page for Your Application
 
 WSO2 Identity Server usually displays a default login page for all service provider applications that send authentication requests to it. WSO2 IS supports re-branding the login page according to your requirements for SAML2 SSO, OAuth, or OpenID Connect applications.
 
