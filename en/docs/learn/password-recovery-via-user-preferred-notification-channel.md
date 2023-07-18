@@ -76,6 +76,8 @@ configure the configure WSO2 Identity Server to send confirmation emails.
     ```
     [identity_mgt.notification_channel_recovery]
     recovery_code_validity=2
+    
+    [identity_mgt.resend_notification]
     resend_code_validity=5
     
     [identity_mgt.password_reset_sms]
