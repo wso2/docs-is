@@ -89,6 +89,19 @@ With the JIT provisioned enhanced feature, the following capabilities will be av
 - Editing JIT-provisioned user’s attributes will not be allowed.
 - Ability to lock JIT provisioned user accounts based on social identity.
 
+## Preserve Locally Added Claims of JIT Provisioned Users
+
+Identity server deletes the existing local claims of JIT provisioned users that are not coming in the federated login after the provisioning.
+
+You can change this default behavior to keep locally added claims of JIT provisioned users by  avoiding deleting the attributes that are not coming in the federated login after the provisioning.
+
+To preserve locally added claims of JIT provisioned users, add the following configuration to deployment.toml in the `/conf` directory.
+
+``` toml
+[authentication.jit_provisioning]
+enable_enhanced_feature = "true"
+```
+
 
 ## Customize JIT Provisioning User Interfaces
 
