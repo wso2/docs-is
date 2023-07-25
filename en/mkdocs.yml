@@ -751,6 +751,7 @@ nav:
             - Refresh Tokens: references/concepts/authorization/refresh-token.md
           - Client Authentication: references/concepts/authorization/client-authentication.md
           - Token Introspection: references/concepts/authorization/introspection.md
+          - JARM for OAuth 2.0: references/concepts/authorization/jarm.md
         - User Managed Access (UMA):
           - Introduction to UMA: references/concepts/authorization/user-managed-access.md
           - Resource Registration Endpoint: references/concepts/authorization/uma-resource-registration.md
