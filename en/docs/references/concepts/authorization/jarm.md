@@ -1,5 +1,8 @@
 # JWT Secured Authorization Response Mode (JARM) for OAuth 2.0
 
+!!! note
+    This is only available as a WSO2 Update from WSO2 Identity Server update level 6.0.0.96 onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+
 The [JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) specification](https://openid.net/specs/openid-financial-api-jarm-ID1.html) defines new JWT-based modes to encode OAuth2 authorization responses. These modes allow clients to request authorization response parameters and additional data in JWT format.
 
 ## JARM authorization flow
