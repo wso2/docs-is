@@ -165,7 +165,7 @@ public class ValidateRSASignature {
 ```
 ### JWT validation at introspection
 
-To enable the server to identify a JWT token at the user info endpoint and token introspection endpoints add the following config.
+To enable the server to identify a JWT token at the user info endpoint and token introspection endpoint, add the following config.
 
 ```toml
 [oauth]
@@ -174,11 +174,6 @@ enable_jwt_token_validation_during_introspection = true
 
 If identified, validation is performed by treating the token as a JWT access token.
 
-!!! Important 
-    Enabling this feature will validate the token using the available JWT token validator. Ex: In the
-    default pack, this will be Default JWT token validator. However, if the server issue custom JWT
-    tokens, which fails the available JWT token validator, the existing flow can break. For an example,
-    the default JWT token validator mandate to have the jti claim in the token. If a custom token issuer
-    does not include this claim, introspection breaks once this feature is enabled. In such scenarios,
-    a compatible JWT token validator should be deployed in the system prior to enabling this feature.
+!!! Important
+    Enabling this feature will validate the token using the available JWT token validator. For example, in the default pack, this will be the default JWT token validator. However, the existing flow can break if the server issues custom JWT tokens, which invalidates the available JWT token validator. For example, the default JWT token validator mandates having the `jti` claim in the token. If a custom token issuer does not include this claim, the introspection process breaks once this feature is enabled. In such scenarios, a compatible JWT token validator should be deployed in the system before enabling this feature.
 
