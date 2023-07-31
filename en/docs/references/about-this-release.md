@@ -98,7 +98,7 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
     [Learn more]({{base_path}}/deploy/configure-recaptcha/)
 
-- **Customize login pages**
+- **Customized login pages for users**
 
     Easily personalize login, registration, recovery, and single sign-on interfaces with custom layouts and branding.
 
