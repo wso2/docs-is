@@ -98,6 +98,12 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
     [Learn more]({{base_path}}/deploy/configure-recaptcha/)
 
+- **Customize Login Pages**
+
+    Easily personalize login, registration, recovery, and single sign-on interfaces with custom layouts and branding.
+    
+    [Learn more]({{base_path}}/references/extend/rebranding/customizable-login-portal/)
+
 ## What has changed in this release?
 
 If you are moving to WSO2 Identity Server 6.0.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.0.0.
