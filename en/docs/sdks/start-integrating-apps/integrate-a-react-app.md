@@ -54,7 +54,7 @@ To add CORS configurations:
     !!! note
         Make a note of the **OAuth Client Key** and **OAuth Client Secret** that appear, as they will be used to configure the sample application.
 
-## Configure the Resident Identity Provider
+## Configure the resident identity provider
 
 !!! Note
     Follow this step, only if you are running the WSO2 Identity Server on a custom domain/port.
