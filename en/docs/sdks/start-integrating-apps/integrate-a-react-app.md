@@ -66,7 +66,7 @@ To add CORS configurations:
     !!! info
         For example, if you are running the WSO2 Identity Server on port 9500, the updated **Identity Provider Entity ID** value should be `https://localhost:9500/oauth2/token`.
 
-4. Scroll to the bottom and click **Update** to complete the configuration.
+4. Click **Update** to complete the configuration.
 
 ## Download the sample
 Download the latest release of the [sample react application](https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip).
