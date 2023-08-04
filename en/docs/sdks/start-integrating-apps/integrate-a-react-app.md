@@ -56,15 +56,13 @@ To add CORS configurations:
 
 ## Configure the resident identity provider
 
-!!! Note
-    Follow this step, only if you are running the WSO2 Identity Server on a custom domain/port.
+Follow this step, only if you are running the WSO2 Identity Server on a custom domain/port.
 
 1. On the WSO2 Identity Server management console (`https://<IS_HOST>:<PORT>/carbon`), go to **Main** > **Identity** > **Identity Providers**.
 2. Click **Resident** and expand **Inbound Authentication Configuration**.
 3. Expand **OAuth2 / OpenID Connect Configuration** and update **Identity Provider Entity ID** value to match with your custom domain/port.
 
-    !!! info
-        For example, if you are running the WSO2 Identity Server on port 9500, the updated **Identity Provider Entity ID** value should be `https://localhost:9500/oauth2/token`.
+    Eg: if you are running the WSO2 Identity Server on port 9500, the updated **Identity Provider Entity ID** value should be `https://localhost:9500/oauth2/token`.
 
 4. Click **Update** to complete the configuration.
 
