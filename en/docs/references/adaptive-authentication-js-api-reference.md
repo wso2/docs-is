@@ -641,6 +641,85 @@ This function prompts user input. It includes the following parameters.
 | tenantDomain| The tenant domain of the local user.      |
 | userStoreDomain | The user store domain of the local user.      |
 
+#### httpGet(epUrl, headers, eventHandlers)
+This function sends an HTTP GET request to the provided endpoint URL with optional headers.
+
+| Parameter     | Description                                           |
+|---------------|-------------------------------------------------------|
+| epUrl         | The endpoint URL to which the GET request will be sent. |
+| headers       | An optional map of headers to be included in the request. |
+| eventHandlers | The callback event handlers.                          |
+
+Sending GET request with headers:
+```jsx
+httpGet(epUrl, {
+    "Accept": "application/json",
+    "Authorization": "Bearer your-token"
+	}, {
+	    onSuccess: function (context, data) {
+	        Log.info('HTTP GET request successful.');
+	    },
+	    onFail: function (context, data) {
+	        Log.error('HTTP GET request failed.');
+	    }
+	});
+```
+
+Sending GET request without headers:
+```jsx
+httpGet(epUrl, {
+	    onSuccess: function (context, data) {
+	        Log.info('HTTP GET request successful.');
+	    },
+	    onFail: function (context, data) {
+	        Log.error('HTTP GET request failed.');
+	    }
+	});
+```
+
+#### httpPost(epUrl, payloadData, headers, eventHandlers)
+This function sends an HTTP POST request to the provided endpoint URL with event handlers, payload data, and optional headers.
+
+| Parameter     | Description                                           |
+|---------------|-------------------------------------------------------|
+| epUrl         | The endpoint URL to which the POST request will be sent. |
+| payloadData   | A map containing the payload data to be included in the request body. |
+| headers       | An optional map of headers to be included in the request.         |
+| eventHandlers | The callback event handlers.                          |
+
+Sending POST request with headers:
+```jsx
+httpPost(epUrl, {
+    "username": "Marcel",
+    "password": "supersecret"
+	}, {
+	    "Accept": "application/json",
+	    "Authorization": "Bearer your-token"
+	}, {
+	    onSuccess: function (context, data) {
+	        Log.info('HTTP POST request successful.');
+	    },
+	    onFail: function (context, data) {
+	        Log.error('HTTP POST request failed.');
+	    }
+	});
+```
+
+Sending POST request without headers:
+```jsx
+httpPost(epUrl, {
+    "username": "Marcel",
+    "password": "supersecret"
+	}, {
+    onSuccess: function (context, data) {
+        Log.info('HTTP POST request successful.');
+    },
+    onFail: function (context, data) {
+        Log.error('HTTP POST request failed.');
+    }
+});
+```
+
 ---
 
 ## Object Reference
