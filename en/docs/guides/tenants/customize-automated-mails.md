@@ -117,7 +117,19 @@ Once you have set the template language for the user, it is also necessary to sp
     
         For example, use **fr\_fr** for the French locale, **pt\_br** for Brazil locale and **it\_it** for the Italian locale. This is the format used for country locales in the Identity Server.
         For more information on country locales, see [Locale codes](http://www.science.co.il/language/Locale-codes.php).
-    
+
+    !!! note
+
+        If the local value is not defined for the user, the default locale value will be “en_US”. From the update level 35 you can change the default locale value using the following configuration,
+
+        ``` 
+        [identity_mgt.notification]
+        default_locale = "<locale>"
+        ```
+
+        If the above configuration is defined in deployment.toml file that will be used as the locale for both SMS and email flow, otherwise it will assign the default value (en_US).
+
+        Please note that even after adding this config, if the registry doesn't have the template related to the configured locale then the config will not be honored and will pick en_US as default locale.
 
 Now that this is done, any email notifications you receive will be in the language you specified.
 
