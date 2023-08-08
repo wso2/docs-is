@@ -173,12 +173,25 @@ Once you have set the template language for the user, it is also necessary to sp
 4.  Click on **List** under **Users and Roles** and then select **Users**.
 5.  Click on the **User Profile** button corresponding to the logged in user.  
     ![updating-user-locale](../assets/img/using-wso2-identity-server/updating-user-locale.png) 
-6.  Enter the locale code for the **Locality** field and click **Update**.
+   6.  Enter the locale code for the **Locality** field and click **Update**.
 
-    !!! tip
+       !!! tip
     
-        For example, use **fr\_fr** for the French locale, **pt\_br** for Brazil locale and **it\_it** for the Italian locale. This is the format used for country locales in the Identity Server.
-        For more information on country locales, see [Locale codes](http://www.science.co.il/language/Locale-codes.php).
+           For example, use **fr\_fr** for the French locale, **pt\_br** for Brazil locale and **it\_it** for the Italian locale. This is the format used for country locales in the Identity Server.
+           For more information on country locales, see [Locale codes](http://www.science.co.il/language/Locale-codes.php).
+
+       !!! note
+
+           If the local value is not defined for the user, the default locale value will be “en_US”. From the update level 250 you can change the default locale value using the following configuration,
+
+           ``` 
+           [identity_mgt.notification]
+           default_locale = "<locale>"
+           ```
+
+           If the above configuration is defined in the deployment.toml file, it will be used as the locale for both SMS and email flows; otherwise, the default value (en_US) will be assigned.
+
+           Please note that even after adding this configuration, if the registry doesn't have the template related to the configured locale, the configuration will not be honored, and the default locale will be set to en_US.
     
 
 Now that this is done, any email notifications you receive will be in the language you specified.
