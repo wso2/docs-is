@@ -274,7 +274,7 @@ sms notification templates.
 
 ### With internal notification management
 
-1. Use the following command to create a username recovery request.
+1. Use the following command to create a password recovery request.
 
     !!! abstract ""
         **Request Format**
@@ -429,7 +429,7 @@ sms notification templates.
 
 ### With external notification management
 
-1. Use the following command to create a username recovery request.
+1. Use the following command to create a password recovery request.
 
     !!! abstract ""
         **Request Format**
