@@ -120,16 +120,16 @@ Once you have set the template language for the user, it is also necessary to sp
 
     !!! note
 
-   	    If the locale value is not defined for the user, the default locale value will be “en_US”. To change the default local value please add the following config to the deployment.toml file.
+   	    If the locale value is not defined for the user, the default locale value will be `en_US`. From update level **5.11.0.250**, you can change the default locale value using the following configuration:
 
    	    ```
    	    [identity_mgt.notification]
    	    default_locale = "<locale>"
    	    ```
 
-   	    If the above configuration is defined, that will be used as the locale for both SMS and email flow, otherwise it will assign "en_US" as the default value.
+   	    If the above configuration is added to the `deployment.toml` file, the specified value will be used as the locale for both SMS and email flows; otherwise, the default value (`en_US`) will be assigned.
 
-  	    Please note that even after adding this config, if the registry doesn't have the template related to the configured locale then the config will not be honored and will pick en_US as default locale.
+  	    Note that if the registry doesn't have the template related to the newly configured locale, the configuration will not be considered, and the configurations will be reverted to the default locale.
 
 Now that this is done, any email notifications you receive will be in the language you specified.
 
