@@ -182,7 +182,7 @@ Once you have set the template language for the user, it is also necessary to sp
 
     !!! note
 
-        If the local value is not defined for the user, the default locale value will be “en_US”. From the update level 250 you can change the default locale value using the following configuration,
+        If the locale value is not defined for the user, the default locale value will be `en_US`. From update level **5.11.0.250**, you can change the default locale value using the following configuration:
 
         ``` 
         [identity_mgt.notification]
