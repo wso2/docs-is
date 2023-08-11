@@ -189,7 +189,7 @@ Once you have set the template language for the user, it is also necessary to sp
         default_locale = "<locale>"
         ```
 
-        If the above configuration is defined in the deployment.toml file, it will be used as the locale for both SMS and email flows; otherwise, the default value (en_US) will be assigned.
+        If the above configuration is added to the `deployment.toml` file, the specified value will be used as the locale for both SMS and email flows; otherwise, the default value (`en_US`) will be assigned.
 
         Please note that even after adding this configuration, if the registry doesn't have the template related to the configured locale, the configuration will not be honored, and the default locale will be set to en_US.
     
