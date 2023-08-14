@@ -120,7 +120,7 @@ Once you have set the template language for the user, it is also necessary to sp
 
     !!! note
 
-   	    If the locale value is not defined for the user, the default locale value will be `en_US`. From update level **5.11.0.250**, you can change the default locale value using the following configuration:
+   	    If the locale value is not defined for the user, the default locale value will be 'en_US'. Add the following configuration to the `deployment.toml` file to update the default locale value.
 
    	    ```
    	    [identity_mgt.notification]
