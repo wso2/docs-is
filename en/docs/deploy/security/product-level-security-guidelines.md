@@ -340,7 +340,7 @@ Follow the steps below to change the default credentials.
     
 ## Callback URL Regular Expressions
 
-Note that if you are using these scenarios, it is highly recommended to define the regular expression that validates and only allows access to specific callback URLs.
+Note that if you are using these scenarios, we highly recommend you define the regular expression that validates and only allows access to specific callback URLs.
 
 - [Password Recovery](../../../guides/password-mgt/recover-password/#enable-password-recovery-via-email)
 - [Username Recovery](../../../guides/identity-lifecycles/recover-username/#enable-username-recovery)
