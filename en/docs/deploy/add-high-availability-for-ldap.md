@@ -1,7 +1,7 @@
 # Add High Availability for LDAP
 
 !!! warning
-    This guide helps you to configure high availability on the Identity Server side, but we highly recommend configuring HA on the LDAP server side with server-side load balancing.
+    This guide helps you to configure client-side load balancing. While we don't recommend client-side load balancing, we strongly recommend setting up high availability on the LDAP server side through server-side load balancing.
 
 When connecting the WSO2 Identity Server to an LDAP user store,
 it may be necessary to have high availability for the LDAP as it
