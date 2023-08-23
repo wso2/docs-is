@@ -1,5 +1,8 @@
 # Add High Availability for LDAP
 
+!!! warning
+    This guide helps you to configure high availability on the Identity Server side, but we highly recommend configuring HA on the LDAP server side with server-side load balancing.
+
 When connecting the WSO2 Identity Server to an LDAP user store,
 it may be necessary to have high availability for the LDAP as it
 includes user information that must be available at all times. To attain
@@ -19,7 +22,7 @@ This topic provides instructions on how to configure WSO2 Identity Server when y
     
 2.  Failover for LDAP is configured by defining LDAP connection URLs.
     Add `connection_url` to the `deployment.toml` file. Following is an example of how this can be configured.
-    
+
     ```
     [user_store]
     type = "read_write_ldap_unique_id"
