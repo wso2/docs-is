@@ -641,18 +641,18 @@ This function prompts user input. It includes the following parameters.
 | tenantDomain| The tenant domain of the local user.      |
 | userStoreDomain | The user store domain of the local user.      |
 
-#### httpGet(epUrl, headers, eventHandlers)
+#### httpGet(endpointURL, headers, eventHandlers)
 This function sends an HTTP GET request to the provided endpoint URL with optional headers.
 
 | Parameter     | Description                                           |
 |---------------|-------------------------------------------------------|
-| epUrl         | The endpoint URL to which the GET request will be sent. |
+| endpointURL         | The endpoint URL to which the GET request will be sent. |
 | headers       | An optional map of headers to be included in the request. |
 | eventHandlers | The callback event handlers.                          |
 
 Sending GET request with headers:
 ```jsx
-httpGet(epUrl, {
+httpGet(endpointURL, {
     "Accept": "application/json",
     "Authorization": "Bearer your-token"
 	}, {
@@ -667,7 +667,7 @@ httpGet(epUrl, {
 
 Sending GET request without headers:
 ```jsx
-httpGet(epUrl, {
+httpGet(endpointURL, {
 	    onSuccess: function (context, data) {
 	        Log.info('HTTP GET request successful.');
 	    },
@@ -677,19 +677,19 @@ httpGet(epUrl, {
 	});
 ```
 
-#### httpPost(epUrl, payloadData, headers, eventHandlers)
+#### httpPost(endpointURL, payloadData, headers, eventHandlers)
 This function sends an HTTP POST request to the provided endpoint URL with event handlers, payload data, and optional headers.
 
 | Parameter     | Description                                           |
 |---------------|-------------------------------------------------------|
-| epUrl         | The endpoint URL to which the POST request will be sent. |
+| endpointURL         | The endpoint URL to which the POST request will be sent. |
 | payloadData   | A map containing the payload data to be included in the request body. |
 | headers       | An optional map of headers to be included in the request.         |
 | eventHandlers | The callback event handlers.                          |
 
 Sending POST request with headers:
 ```jsx
-httpPost(epUrl, {
+httpPost(endpointURL, {
     "username": "Marcel",
     "password": "supersecret"
 	}, {
@@ -707,7 +707,7 @@ httpPost(epUrl, {
 
 Sending POST request without headers:
 ```jsx
-httpPost(epUrl, {
+httpPost(endpointURL, {
     "username": "Marcel",
     "password": "supersecret"
 	}, {
