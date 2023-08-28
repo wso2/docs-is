@@ -38,6 +38,13 @@ To configure MFA using username and password:
 
 8. Click **Update** to save your configurations.
 
+!!! note
+    The reCAPTCHA validation capability is available for Identifier First authentication flow handler. Add the following configuration to enable the reCAPTCHA validation.
+    ``` toml
+    [authentication.authenticator.user_identifier.parameters]
+    enable_captcha_validation=true
+    ```
+    
 ## Configure the server
 
 By default, the username is not validated, and WSO2 Identity Server does not check whether it exists in the user store.
