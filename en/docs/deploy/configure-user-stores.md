@@ -4,7 +4,7 @@ WSO2 Identity Server allows configuring multiple user stores to your system that
 
 There are two types of user stores:
 
-- [Primary user stores (Mandatory)](#primary-user-store)
+- [Primary user store (Mandatory)](#primary-user-store)
 - [Secondary user stores (Optional)](#secondary-user-store)
 
 All the supported user stores can be configured under these two types.
