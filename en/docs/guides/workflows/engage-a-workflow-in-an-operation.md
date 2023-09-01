@@ -28,7 +28,7 @@ You can engage workflows in certain operations, such as engaging the approval wo
     | Advanced  | If this option is selected, you can define an XPath expression to filter the requests that need to go through the selected workflow.  | The following configuration will select add user operations where username contains `sys`. Code: ```boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])``` ![Advanced example]({{base_path}}/assets/img/guides/workflows/advanced-workflow.png)    |
 
 3. Click **Add** to complete adding the engagement.
-    You can view, disable, or delete the association by navigating to **Manage > WorkFlows Engagements > List**.  
+    You can view, disable, or delete the association by navigating to **Manage > Workflow Engagements > List**.  
 
 ---
 
